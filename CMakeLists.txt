@@ -38,7 +38,10 @@ SET (PEDANTIC TRUE CACHE BOOL "Determines if we should compile in pedantic mode.
 # whether unit tests should be build
 SET (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
 
+#############################################################
+# find QGIS and setup
 FIND_PACKAGE(QGIS REQUIRED)
+ADD_DEFINITIONS( "-DQGIS_PLUGIN_DIR=\"${QGIS_PLUGIN_DIR}\"" )
 
 #############################################################
 # search for Qt
