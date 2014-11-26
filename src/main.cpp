@@ -46,6 +46,8 @@ int main( int argc, char ** argv )
   app.setPrefixPath( prefixPath, true );
 #ifdef ANDROID
   app.setPluginPath( QApplication::applicationDirPath() );
+#else
+  app.setPluginPath( "" QGIS_PLUGIN_DIR );
 #endif
   app.initQgis();
 
@@ -53,54 +55,6 @@ int main( int argc, char ** argv )
   QCoreApplication::setOrganizationName( "QGIS" );
   QCoreApplication::setOrganizationDomain( "qgis.org" );
   QCoreApplication::setApplicationName( "QGIS" );
-
-#if 0
-  QString myTranslationCode = "";
-
-  // This is mostly copy from Help viewer - not sure if important
-#if defined(Q_WS_MACX)
-  // If we're on Mac, we have the resource library way above us...
-  a.setPkgDataPath( QgsApplication::prefixPath() + "/../../../../" + QString( QGIS_DATA_SUBDIR ) );
-#elif defined(Q_WS_WIN)
-  a.setPkgDataPath( QgsApplication::prefixPath() + "/" QGIS_DATA_SUBDIR );
-#else
-  a.setPkgDataPath( QgsApplication::prefixPath() + "/../" QGIS_DATA_SUBDIR );
-#endif
-
-  QString i18nPath = QgsApplication::i18nPath();
-  if ( myTranslationCode.isEmpty() )
-  {
-    myTranslationCode = QLocale::system().name();
-
-    QSettings settings;
-    if ( settings.value( "locale/overrideFlag", false ).toBool() )
-    {
-      myTranslationCode = settings.value( "locale/userLocale", "en_US" ).toString();
-    }
-  }
-  QgsDebugMsg( QString( "Setting translation to %1/qgis_%2" ).arg( i18nPath ).arg( myTranslationCode ) );
-
-  /* Translation file for Qt.
-   * The strings from the QMenuBar context section are used by Qt/Mac to shift
-   * the About, Preferences and Quit items to the Mac Application menu.
-   * These items must be translated identically in both qt_ and qgis_ files.
-   */
-
-  QTranslator qttor( 0 );
-  if ( qttor.load( QString( "qt_" ) + myTranslationCode, i18nPath ) )
-  {
-    a.installTranslator( &qttor );
-  }
-
-  /* Translation file for QGIS.
-   */
-
-  QTranslator qgistor( 0 );
-  if ( qgistor.load( QString( "qgis_" ) + myTranslationCode, i18nPath ) )
-  {
-    a.installTranslator( &qgistor );
-  }
-#endif
 
   QgisMobileapp mApp(&app);
   return app.exec();
