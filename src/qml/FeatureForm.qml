@@ -7,6 +7,61 @@ Rectangle {
 
   color: "white"
 
+  focus: true // important - otherwise we'll get no key events
+
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back) {
+      featureForm.hide()
+      event.accepted = true
+    }
+  }
+
+  ListView {
+    id: featureFormList
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+
+    model: featureModel
+
+    focus: true
+
+    delegate: Item {
+      height: 30
+      anchors.left: parent.left
+      anchors.right: parent.right
+
+      Rectangle {
+        anchors.fill: parent
+
+        Row {
+          Text {
+            anchors.leftMargin: 5
+            width: 60
+            text: "<b>" + attributeName + "</b>"
+            clip: true
+          }
+
+          TextEdit {
+            anchors.rightMargin: 5
+            text: attributeValue
+            /* onTextChanged: { feature[index].value = text; } */
+          }
+        }
+
+        Rectangle {
+          height: 1
+          color: "lightGray"
+          width: parent.width
+          anchors.bottom: parent.bottom
+        }
+      }
+    }
+  }
+
+
   Rectangle {
     id: featureListToolBar
 
@@ -36,7 +91,7 @@ Rectangle {
         iconSource: "/themes/holodark/next_item.png"
 
         onClicked: {
-          featureForm.width = 0
+          featureForm.hide()
         }
       }
 
@@ -51,45 +106,18 @@ Rectangle {
         iconSource: "/themes/holodark/previous_item.png"
 
         onClicked: {
-          featureForm.width = 0
+          featureForm.hide()
         }
+      }
+    }
+
+    Behavior on opacity {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
       }
     }
   }
 
-  ListView {
-    id: featureFormList
-
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.margins: 10
-
-    model: featureModel
-
-    focus: true
-
-    delegate: Rectangle {
-      height: 20
-
-      border.color: "lightGray"
-      border.width: 1
-
-      Row {
-        Text {
-          width: 60
-          text: "<b>" + attributeName + "</b>"
-          clip: true
-        }
-
-        TextEdit {
-          text: attributeValue
-          /* onTextChanged: { feature[index].value = text; } */
-        }
-      }
-    }
-  }
 
   Behavior on width {
     PropertyAnimation {
@@ -102,16 +130,21 @@ Rectangle {
     target: featureModel
 
     onModelReset: {
-      featureForm.width = featureForm.parent.width / 3
-
-      console.info( featureFormList.count )
+      featureForm.show()
     }
   }
 
-  onWidthChanged: {
-    if ( width < parent.width / 3 )
-      featureListToolBar.opacity = 0
-    else
-      featureListToolBar.opacity = 100
+  function show()
+  {
+    featureForm.width = featureForm.parent.width / 3
+    featureForm.focus = true
+    featureListToolBar.opacity = 100
+  }
+
+  function hide()
+  {
+    featureForm.width = 0
+    featureForm.focus = false
+    featureListToolBar.opacity = 0
   }
 }
