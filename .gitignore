@@ -1,2 +1,4 @@
 CMakeLists.txt.user
 sha-*.diff
+astyle.*.diff
+*.prepare
