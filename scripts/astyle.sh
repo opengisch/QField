@@ -41,6 +41,7 @@ export ARTISTIC_STYLE_OPTIONS="\
 --indent-switches \
 --max-instatement-indent=40 \
 --min-conditional-indent=-1 \
+--pad-paren-in \
 --suffix=none"
 
 for f in "$@"; do
