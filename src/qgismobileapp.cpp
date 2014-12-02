@@ -34,15 +34,12 @@
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
+#include "qgsqmlinterface.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
-    : QQuickView( parent )
+  : QQuickView( parent )
+  , mIface( new QgsQmlInterface( this ) )
 {
-  QSurfaceFormat format;
-  format.setSamples( 16 );
-  format.setRenderableType( QSurfaceFormat::OpenGLES );
-  setFormat( format );
-
   initDeclarative();
 
   setSource( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
@@ -52,7 +49,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   setMinimumHeight( 480 );
   setMinimumWidth( 800 );
 
-  QgsQuickMapCanvasMap* mapCanvasBridge = rootObject()->findChild<QgsQuickMapCanvasMap *>();
+  QgsQuickMapCanvasMap* mapCanvasBridge = rootObject()->findChild<QgsQuickMapCanvasMap*>();
 
   Q_ASSERT_X( mapCanvasBridge, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -61,14 +58,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   mMapCanvas->setVisible( true );
 
-  connect( QgsProject::instance(), SIGNAL( readProject(QDomDocument)), this, SLOT( readProject() ) );
-  connect( rootObject(), SIGNAL(openProjectDialog()), this, SLOT( openProjectDialog() ) );
-  connect( this, SIGNAL( closing(QQuickCloseEvent*)), QgsApplication::instance(), SLOT(quit() ) );
+  connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
+
+  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( readProject() ) );
 
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
-  connect( mapCanvasBridge, SIGNAL( identifyFeature( QPointF ) ), this, SLOT( identifyFeature(QPointF) ) );
+  connect( mapCanvasBridge, SIGNAL( identifyFeature( QPointF ) ), this, SLOT( identifyFeature( QPointF ) ) );
 
 
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
@@ -84,12 +81,25 @@ void QgisMobileapp::initDeclarative()
 {
   // Register QML custom types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
+  qmlRegisterType<QgsQmlInterface>( "org.qgis", 1, 0, "QgisInterface" );
   int dpiX = QApplication::desktop()->physicalDpiX();
   int dpiY = QApplication::desktop()->physicalDpiY();
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
   float dp = dpi * 0.00768443;
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
+  rootContext()->setContextProperty( "iface", mIface );
+  rootContext()->setContextProperty( "featureModel", &mFeatureModel );
+}
+
+void QgisMobileapp::identifyFeatures( const QPointF& point )
+{
+  QgsMapToolIdentify identify( mMapCanvas );
+  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownStopAtFirst );
+
+
+  const QgsMapToolIdentify::IdentifyResult& res = results.first();
+  mFeatureModel.setFeature( res.mFeature );
 }
 
 void QgisMobileapp::readProject()

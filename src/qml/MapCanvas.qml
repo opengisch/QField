@@ -11,7 +11,6 @@ Item {
   MapCanvasMap {
     id: mapCanvasWrapper
     anchors.fill: parent
-    signal identifyFeature( point mapCoordinates )
   }
 
   PinchArea {
@@ -56,7 +55,7 @@ Item {
       onPressAndHold: {
         if ( !__isPanning )
         {
-          mapCanvasWrapper.identifyFeature( Qt.point( mouse.x, mouse.y ) )
+          iface.identifyFeatures( Qt.point( mouse.x, mouse.y ) )
         }
       }
 

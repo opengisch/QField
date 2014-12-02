@@ -18,30 +18,39 @@
 #ifndef QGISMOBILEAPP_H
 #define QGISMOBILEAPP_H
 
+// Qt includes
 #include <QtQuick/QQuickWindow>
-#include <qgsapplication.h>
 #include <QtQuick/QQuickView>
-#include <QStandardItemModel>
 
-#include "qgslayertreemapcanvasbridge.h"
+// QGIS includes
+#include <qgsapplication.h>
+#include <qgslayertreemapcanvasbridge.h>
+
+// QGIS mobile includes
+#include "featuremodel.h"
+
+class QgsQmlInterface;
 
 class QgisMobileapp : public QQuickView
 {
-  Q_OBJECT
-public:
-  QgisMobileapp(QgsApplication *app, QWindow* parent = 0 );
-  ~QgisMobileapp();
+    Q_OBJECT
+  public:
+    QgisMobileapp( QgsApplication *app, QWindow* parent = 0 );
+    ~QgisMobileapp();
 
-  void initDeclarative();
+    void identifyFeatures( const QPointF& point );
+    void openProjectDialog();
 
   private slots:
     void readProject();
-    void openProjectDialog();
 
-private:
-  QgsMapCanvas* mMapCanvas;
-  QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
-  QStandardItemModel mFeatureModel;
+  private:
+    void initDeclarative();
+
+    QgsMapCanvas* mMapCanvas;
+    QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
+    QgsQmlInterface* mIface;
+    FeatureModel mFeatureModel;
 };
 
 #endif // QGISMOBILEAPP_H

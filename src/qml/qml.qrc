@@ -2,5 +2,6 @@
     <qresource prefix="/qml">
         <file alias="qgismobileapp.qml">qgismobileapp.qml</file>
         <file alias="MapCanvas.qml">MapCanvas.qml</file>
+        <file>FeatureForm.qml</file>
     </qresource>
 </RCC>
