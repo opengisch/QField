@@ -19,5 +19,7 @@
         <file alias="settings.png">themes/holodark/settings.png</file>
         <file alias="map.png">themes/holodark/map.png</file>
         <file alias="location_off.png">themes/holodark/location_off.png</file>
+        <file alias="next_item.png">themes/holodark/next_item.png</file>
+        <file alias="previous_item.png">themes/holodark/previous_item.png</file>
     </qresource>
 </RCC>

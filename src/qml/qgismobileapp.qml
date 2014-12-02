@@ -7,12 +7,26 @@ import org.qgis 1.0
 Rectangle {
   id: mainWindow
   anchors.fill: parent
-  signal openProjectDialog()
 
   MapCanvas {
-    anchors.fill: parent
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    anchors.right: dock.left
     id: mapCanvas
-    signal openProjectDialog()
+  }
+
+  FeatureForm {
+    id: dock
+
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+
+    width: 0
+
+    border.color: "lightGray"
+    border.width: 1
   }
 
   Column {
@@ -136,7 +150,7 @@ Rectangle {
       text: "Open Project"
       iconSource: "/themes/holodark/map.png"
       onTriggered: {
-        mainWindow.openProjectDialog()
+        iface.openProjectDialog()
       }
     }
 
@@ -169,42 +183,6 @@ Rectangle {
     function show() {
       visible = true
       featureForm.anchors.centerIn = parent
-    }
-
-    ListView {
-      model: featureModel
-      anchors.fill: parent
-      anchors.margins: 10
-
-      Component.onCompleted: {
-        mapCanvas.mapCanvasWrapper.identifyFeature.connect( featureForm.show )
-      }
-
-      delegate:
-        Text {
-          id: itemText
-          text: model.display
-          font.family: "Roboto"
-          font.pointSize: 20
-      }
-
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-          featureForm.visible = false
-        }
-      }
-/*
-      Keys.onReleased: {
-        console.debug( "rleease" )
-        if ( event.key === Qt.Key_Back ||
-            event.key === Qt.Key_Left )
-        {
-          featureForm.visible = false
-          event.accepted = true
-        }
-      }
-*/
     }
   }
 
