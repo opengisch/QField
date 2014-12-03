@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtQuick.Layouts 1.1
 
 Rectangle {
   id: featureForm
@@ -18,27 +19,31 @@ Rectangle {
   ListView {
     id: globalFeaturesList
 
-    focus: true
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: parent.height - featureListToolBar.height
 
+    /* using a VisualDataModel to work on a tree structured model */
     model: VisualDataModel {
       id: visualLayerModel
       model: featureListModel
 
+      /* Delegate for layer title + features */
       delegate: Item {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.leftMargin: 1
+        anchors { left: parent.left; right: parent.right; leftMargin: 1 }
+        height: layerNameBg.height + featuresList.height
 
+        /* Layer title */
         Rectangle {
-          id: layerName
-          height: 30
-          anchors.top: parent.top
-          anchors.left: parent.left
-          anchors.right: parent.right
+          id: layerNameBg
+          anchors { left: parent.left; right:parent.right }
+          height: layerNameText.height
+          color: "#80A0EE"
 
           Text {
-            anchors.leftMargin: 5
-            anchors.fill: parent
+            id: layerNameText
+            anchors { centerIn: parent; leftMargin: 5 }
             text: "<b><i>" + display + "</i></b>"
           }
 
@@ -49,64 +54,58 @@ Rectangle {
               featuresList.toggleShown()
             }
           }
+        }
 
-          Column {
-            id: featuresList
-            anchors.leftMargin: 10
-            anchors.bottom: parent.bottom
-            anchors.top: layerName.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
+        /* List of features within a layer */
+        ColumnLayout {
+          id: featuresList
+          anchors { top:layerNameBg.bottom; left: parent.left; right: parent.right; leftMargin: 10 }
+          clip: true
 
-            Repeater {
-              model: VisualDataModel {
-                model: featureListModel
-                rootIndex: visualLayerModel.modelIndex( index )
-                delegate: Item {
-                  height: 30
+          Repeater {
+            model: VisualDataModel {
+              model: featureListModel
+              rootIndex: visualLayerModel.modelIndex( index )
 
-                  anchors.left: parent.left
-                  anchors.right: parent.right
+              delegate: Item {
+                height: featureText.height + 1
+                Text {
+                  id: featureText
+                  anchors { leftMargin: 10; left: parent.left; right: parent.right }
+                  text: "<b>" + display + "</b>"
 
-                  Text {
-                    anchors.leftMargin: 10
-                    anchors.left: parent.left
-                    text: "<b>" + display + "</b>"
-                    clip: true
+                  Rectangle {
+                    height: 1
+                    color: "lightGray"
+                    width: parent.width
+                    anchors.bottom: parent.bottom
                   }
                 }
               }
             }
+          }
 
-            function toggleShown() {
-              console.info( featuresList.height )
-              if ( featuresList.height == 0 )
-              {
-                featuresList.height = undefined
-              }
-              else
-              {
-                featuresList.height = 0
-              }
+          function toggleShown() {
+            console.info( featuresList.height )
+            if ( featuresList.height == 0 )
+            {
+              featuresList.height = undefined
+            }
+            else
+            {
+              featuresList.height = 0
             }
           }
 
-          Rectangle {
-            height: 1
-            color: "lightGray"
-            width: parent.width
-            anchors.bottom: parent.bottom
+
+          Behavior on height {
+            PropertyAnimation {
+              easing.type: Easing.InQuart
+            }
           }
         }
       }
-
     }
-
-    anchors.top: featureListToolBar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-
   }
 
   ListView {
@@ -120,6 +119,8 @@ Rectangle {
     model: featureModel
 
     focus: true
+
+    visible: false
 
     delegate: Item {
       height: 30
@@ -144,6 +145,7 @@ Rectangle {
           }
         }
 
+        /* Bottom border */
         Rectangle {
           height: 1
           color: "lightGray"
@@ -162,6 +164,8 @@ Rectangle {
     anchors.right: parent.right
 
     height: 48*dp + 2*5
+
+    clip: true
 
     opacity: 0
 
