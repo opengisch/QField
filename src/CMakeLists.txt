@@ -4,6 +4,8 @@ SET(QGIS_MOBILE_APP_SRCS
   qgsquickmapcanvasmap.cpp
   qgsqmlinterface.cpp
   featuremodel.cpp
+  featurelistmodel.cpp
+  feature.cpp
 )
 
 SET(QGIS_MOBILE_APP_HDRS
@@ -11,6 +13,8 @@ SET(QGIS_MOBILE_APP_HDRS
   qgsquickmapcanvasmap.h
   qgsqmlinterface.h
   featuremodel.h
+  featurelistmodel.h
+  feature.h
 )
 
 SET(QGIS_MOBILE_APP_MOC_HDRS
@@ -18,6 +22,8 @@ SET(QGIS_MOBILE_APP_MOC_HDRS
   qgsquickmapcanvasmap.h
   qgsqmlinterface.h
   featuremodel.h
+  featurelistmodel.h
+  feature.h
 )
 
 QT5_WRAP_CPP(QGIS_MOBILE_APP_MOC_SRCS ${QGIS_MOBILE_APP_MOC_HDRS})
