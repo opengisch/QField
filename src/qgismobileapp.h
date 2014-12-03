@@ -28,6 +28,7 @@
 
 // QGIS mobile includes
 #include "featuremodel.h"
+#include "featurelistmodel.h"
 
 class QgsQmlInterface;
 
@@ -51,6 +52,7 @@ class QgisMobileapp : public QQuickView
     QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
     QgsQmlInterface* mIface;
     FeatureModel mFeatureModel;
+    FeatureListModel mFeatureListModel;
 };
 
 #endif // QGISMOBILEAPP_H

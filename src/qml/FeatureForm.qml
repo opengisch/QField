@@ -1,5 +1,4 @@
 import QtQuick 2.0
-
 import QtQuick.Controls 1.2
 
 Rectangle {
@@ -14,6 +13,100 @@ Rectangle {
       featureForm.hide()
       event.accepted = true
     }
+  }
+
+  ListView {
+    id: globalFeaturesList
+
+    focus: true
+
+    model: VisualDataModel {
+      id: visualLayerModel
+      model: featureListModel
+
+      delegate: Item {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: 1
+
+        Rectangle {
+          id: layerName
+          height: 30
+          anchors.top: parent.top
+          anchors.left: parent.left
+          anchors.right: parent.right
+
+          Text {
+            anchors.leftMargin: 5
+            anchors.fill: parent
+            text: "<b><i>" + display + "</i></b>"
+          }
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              console.info( "Clicked" )
+              featuresList.toggleShown()
+            }
+          }
+
+          Column {
+            id: featuresList
+            anchors.leftMargin: 10
+            anchors.bottom: parent.bottom
+            anchors.top: layerName.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            Repeater {
+              model: VisualDataModel {
+                model: featureListModel
+                rootIndex: visualLayerModel.modelIndex( index )
+                delegate: Item {
+                  height: 30
+
+                  anchors.left: parent.left
+                  anchors.right: parent.right
+
+                  Text {
+                    anchors.leftMargin: 10
+                    anchors.left: parent.left
+                    text: "<b>" + display + "</b>"
+                    clip: true
+                  }
+                }
+              }
+            }
+
+            function toggleShown() {
+              console.info( featuresList.height )
+              if ( featuresList.height == 0 )
+              {
+                featuresList.height = undefined
+              }
+              else
+              {
+                featuresList.height = 0
+              }
+            }
+          }
+
+          Rectangle {
+            height: 1
+            color: "lightGray"
+            width: parent.width
+            anchors.bottom: parent.bottom
+          }
+        }
+      }
+
+    }
+
+    anchors.top: featureListToolBar.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+
   }
 
   ListView {
@@ -39,7 +132,7 @@ Rectangle {
         Row {
           Text {
             anchors.leftMargin: 5
-            width: 60
+            anchors.right: featureFormList.left + featureFormList.width / 3
             text: "<b>" + attributeName + "</b>"
             clip: true
           }
@@ -60,7 +153,6 @@ Rectangle {
       }
     }
   }
-
 
   Rectangle {
     id: featureListToolBar
@@ -127,7 +219,7 @@ Rectangle {
 
 
   Connections {
-    target: featureModel
+    target: featureListModel
 
     onModelReset: {
       featureForm.show()

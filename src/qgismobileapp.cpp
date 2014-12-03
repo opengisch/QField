@@ -90,16 +90,15 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "featureModel", &mFeatureModel );
+  rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
 }
 
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
   QgsMapToolIdentify identify( mMapCanvas );
-  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownStopAtFirst );
+  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll );
 
-
-  const QgsMapToolIdentify::IdentifyResult& res = results.first();
-  mFeatureModel.setFeature( res.mFeature );
+  mFeatureListModel.setFeatures( results );
 }
 
 void QgisMobileapp::readProject()
