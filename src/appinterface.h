@@ -1,5 +1,5 @@
-#ifndef QGSQMLINTERFACE_H
-#define QGSQMLINTERFACE_H
+#ifndef APPINTERFACE_H
+#define APPINTERFACE_H
 
 #include <QObject>
 #include <QPointF>
@@ -10,13 +10,13 @@
 
 class QgisMobileapp;
 
-class QgsQmlInterface : public QObject
+class AppInterface : public QObject
 {
     Q_OBJECT
 
   public:
-    QgsQmlInterface( QgisMobileapp* app );
-    QgsQmlInterface()
+    AppInterface( QgisMobileapp* app );
+    AppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type
       Q_ASSERT( false );
@@ -39,4 +39,4 @@ class QgsQmlInterface : public QObject
     QgisMobileapp* mApp;
 };
 
-#endif // QGSQMLINTERFACE_H
+#endif // APPINTERFACE_H

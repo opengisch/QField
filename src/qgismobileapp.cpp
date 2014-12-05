@@ -34,11 +34,11 @@
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
-#include "qgsqmlinterface.h"
+#include "appinterface.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
-  , mIface( new QgsQmlInterface( this ) )
+  , mIface( new AppInterface( this ) )
 {
   initDeclarative();
 
@@ -81,12 +81,16 @@ void QgisMobileapp::initDeclarative()
 {
   // Register QML custom types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
-  qmlRegisterType<QgsQmlInterface>( "org.qgis", 1, 0, "QgisInterface" );
-  qmlRegisterType<Settings>( "org.qgis", 1, 0, "Settings" );
+  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
+  qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+
+  // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
   int dpiY = QApplication::desktop()->physicalDpiY();
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
   float dp = dpi * 0.00768443;
+
+  // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "iface", mIface );
