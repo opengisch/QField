@@ -1,14 +1,17 @@
 #include "featurelistmodel.h"
 
 #include <qgsvectorlayer.h>
+#include <QDebug>
 
-FeatureListModel::FeatureListModel( QObject *parent ) :
-  QAbstractItemModel( parent )
+FeatureListModel::FeatureListModel( QObject *parent )
+  :  QAbstractItemModel( parent )
+  , mCount( 0 )
 {
 }
 
 FeatureListModel::FeatureListModel( QList<QgsMapToolIdentify::IdentifyResult> features, QObject* parent )
   : QAbstractItemModel( parent )
+  , mCount( 0 )
 {
   setFeatures( features );
 }
@@ -19,6 +22,7 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
 
   Q_FOREACH( QVector<Feature*> f, mFeatures )
   qDeleteAll( f );
+  mCount = 0;
 
   mFeatures.clear();
   mLayers.clear();
@@ -28,9 +32,9 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
     layers.insert( res.mLayer );
-    Feature* f = new Feature( res.mFeature );
-    f->setProperty( "layerRef", QVariant::fromValue<QgsMapLayer*>( res.mLayer ) );
+    Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
     mFeatures[res.mLayer].append( f );
+    mCount++;
   }
 
   mLayers = layers.toList();
@@ -74,7 +78,7 @@ QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
   else
   {
     const Feature* feature = static_cast<Feature*>( child.internalPointer() );
-    QgsMapLayer* layer = feature->property( "layerRef" ).value<QgsMapLayer*>();
+    QgsVectorLayer* layer = feature->layer();
     return createIndex( mLayers.indexOf( layer ), 0, layer );
   }
 }
@@ -107,7 +111,7 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
   {
     // it's a feature
     Feature* feature = toFeature( index );
-    layer = feature->property( "layerRef" ).value<QgsMapLayer*>();
+    layer = feature->layer();
     QgsVectorLayer* vLayer = qobject_cast<QgsVectorLayer*>( layer );
 
     switch( role )
@@ -116,10 +120,10 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
         return feature->id();
 
       case FeatureRole:
-        return QVariant::fromValue<Feature*>( feature );
+        return QVariant::fromValue<Feature>( *feature );
 
       case Qt::DisplayRole:
-        return QgsExpression( vLayer->displayExpression() ).evaluate( *feature );
+        return feature->displayText();
     }
   }
   else

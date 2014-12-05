@@ -1,11 +1,13 @@
 #include "featuremodel.h"
 
+#include "feature.h"
+
 FeatureModel::FeatureModel( QObject *parent ) :
   QAbstractListModel( parent )
 {
 }
 
-void FeatureModel::setFeature( const QgsFeature& feature )
+void FeatureModel::setFeature( Feature feature )
 {
   beginResetModel();
   mFeature = feature;

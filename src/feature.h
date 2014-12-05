@@ -2,13 +2,51 @@
 #define QGSEXTENDEDFEATURE_H
 
 #include <qgsfeature.h>
+#include <qgsvectorlayer.h>
 
-class Feature : public QObject, public QgsFeature
+class Feature
 {
-    Q_OBJECT
-
   public:
-    explicit Feature( const QgsFeature& feature );
+    Feature( const QgsFeature& feature, QgsVectorLayer* layer );
+    Feature();
+
+    const QgsAttributes attributes() const
+    {
+      return mFeature.attributes();
+    }
+
+    const QgsFields* fields() const
+    {
+      return mFeature.fields();
+    }
+
+    const QVariant attribute( int index ) const
+    {
+      return mFeature.attribute( index );
+    }
+
+    QgsVectorLayer* layer() const
+    {
+      return mLayer;
+    }
+
+    QgsFeatureId id() const
+    {
+      return mFeature.id();
+    }
+
+    const QgsFeature& qgsFeature()
+    {
+      return mFeature;
+    }
+
+    const QString displayText() const;
+
+  private:
+    QgsFeature mFeature;
+    QgsVectorLayer* mLayer;
 };
+
+Q_DECLARE_METATYPE( Feature )
 
 #endif // QGSEXTENDEDFEATURE_H

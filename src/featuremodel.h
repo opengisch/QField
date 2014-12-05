@@ -2,7 +2,9 @@
 #define FEATUREMODEL_H
 
 #include <QAbstractListModel>
-#include "qgsfeature.h"
+#include "feature.h"
+
+class Feature;
 
 class FeatureModel : public QAbstractListModel
 {
@@ -19,7 +21,7 @@ class FeatureModel : public QAbstractListModel
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
 
-    void setFeature( const QgsFeature& feature );
+    Q_INVOKABLE void setFeature( Feature feature );
 
     QHash<int, QByteArray> roleNames() const;
     int rowCount( const QModelIndex& parent ) const;
@@ -30,7 +32,7 @@ class FeatureModel : public QAbstractListModel
   public slots:
 
   private:
-    QgsFeature mFeature;
+    Feature mFeature;
 };
 
 #endif // FEATUREMODEL_H

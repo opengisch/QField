@@ -39,8 +39,10 @@ class QgisMobileapp : public QQuickView
     QgisMobileapp( QgsApplication *app, QWindow* parent = 0 );
     ~QgisMobileapp();
 
+    // interface methods
     void identifyFeatures( const QPointF& point );
     void openProjectDialog();
+    void showFeatureForm( const Feature& feature );
 
   private slots:
     void readProject();
