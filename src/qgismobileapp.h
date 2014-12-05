@@ -31,7 +31,7 @@
 #include "featurelistmodel.h"
 #include "settings.h"
 
-class QgsQmlInterface;
+class AppInterface;
 
 class QgisMobileapp : public QQuickView
 {
@@ -53,7 +53,7 @@ class QgisMobileapp : public QQuickView
 
     QgsMapCanvas* mMapCanvas;
     QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
-    QgsQmlInterface* mIface;
+    AppInterface* mIface;
     FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;
     Settings mSettings;

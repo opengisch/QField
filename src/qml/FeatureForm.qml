@@ -232,12 +232,6 @@ Rectangle {
   NavigationBar {
     id: featureListToolBar
     model: featureListModel
-
-    Behavior on opacity {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
   }
 
   Keys.onReleased: {
