@@ -9,6 +9,8 @@ Rectangle {
 
   focus: true // important - otherwise we'll get no key events
 
+  clip: true
+
   Keys.onReleased: {
     if (event.key === Qt.Key_Back) {
       featureForm.hide()
@@ -24,6 +26,8 @@ Rectangle {
     anchors.right: parent.right
     height: parent.height - featureListToolBar.height
 
+    clip: true
+
     /* using a VisualDataModel to work on a tree structured model */
     model: VisualDataModel {
       id: visualLayerModel
@@ -38,7 +42,7 @@ Rectangle {
         Rectangle {
           id: layerNameBg
           anchors { left: parent.left; right:parent.right }
-          height: layerNameText.height
+          height: 48*dp
           color: "#80A0EE"
 
           Text {
@@ -50,8 +54,7 @@ Rectangle {
           MouseArea {
             anchors.fill: parent
             onClicked: {
-              console.info( "Clicked" )
-              featuresList.toggleShown()
+              featuresList.toggleVisible()
             }
           }
         }
@@ -68,25 +71,43 @@ Rectangle {
               rootIndex: visualLayerModel.modelIndex( index )
 
               delegate: Item {
-                height: featureText.height + 1
+                anchors { left: parent.left; right: parent.right }
+
+                focus: true
+
+                height: 48*dp
                 Text {
                   id: featureText
-                  anchors { leftMargin: 10; left: parent.left; right: parent.right }
+                  anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
                   text: "<b>" + display + "</b>"
+                }
 
-                  Rectangle {
-                    height: 1
-                    color: "lightGray"
-                    width: parent.width
-                    anchors.bottom: parent.bottom
+                /* bottom border */
+                Rectangle {
+                  anchors.bottom: parent.bottom
+                  height: 1
+                  color: "lightGray"
+                  width: parent.width
+                }
+
+                MouseArea {
+                  anchors.fill: parent
+
+                  onClicked: {
+                    iface.showFeatureForm( feature )
+                    globalFeaturesList.height = 0
+                  }
+
+                  onPressAndHold:
+                  {
+
                   }
                 }
               }
             }
           }
 
-          function toggleShown() {
-            console.info( featuresList.height )
+          function toggleVisible() {
             if ( featuresList.height == 0 )
             {
               featuresList.height = undefined
@@ -97,13 +118,45 @@ Rectangle {
             }
           }
 
-
           Behavior on height {
             PropertyAnimation {
               easing.type: Easing.InQuart
             }
           }
         }
+      }
+    }
+
+    /* bottom border */
+    Rectangle {
+      anchors.bottom: parent.bottom
+      height: 1
+      color: "lightGray"
+      width: parent.width
+    }
+
+    function hide()
+    {
+      globalFeaturesList.height = 0
+      featureFormList.opacity = 100
+    }
+
+    function toggleVisible() {
+      if ( globalFeaturesList.height == 0 )
+      {
+        globalFeaturesList.height = undefined
+        featureListToolBar.hideNavigationButtons()
+      }
+      else
+      {
+        globalFeaturesList.height = 0
+        featureListToolBar.showNavigationButtons()
+      }
+    }
+
+    Behavior on height {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
       }
     }
   }
@@ -120,6 +173,7 @@ Rectangle {
 
     focus: true
 
+    opacity: 0
     visible: false
 
     delegate: Item {
@@ -133,7 +187,7 @@ Rectangle {
         Row {
           Text {
             anchors.leftMargin: 5
-            anchors.right: featureFormList.left + featureFormList.width / 3
+            width: featureFormList.width / 3
             text: "<b>" + attributeName + "</b>"
             clip: true
           }
@@ -156,77 +210,39 @@ Rectangle {
     }
   }
 
-  Rectangle {
-    id: featureListToolBar
-
-    anchors.top:parent.top
-    anchors.left: parent.left
-    anchors.right: parent.right
-
-    height: 48*dp + 2*5
-
-    clip: true
-
-    opacity: 0
-
-    color: "#80CC28"
-
-    Item {
-      anchors.margins: 5
-
-      anchors.fill: parent
-
-      Button {
-        id: nextButton
-
-        anchors.right: parent.right
-
-        width: 48*dp
-        height: 48*dp
-
-        iconSource: "/themes/holodark/next_item.png"
-
-        onClicked: {
-          featureForm.hide()
-        }
-      }
-
-      Button {
-        id: previousButton
-
-        anchors.left: parent.left
-
-        width: 48*dp
-        height: 48*dp
-
-        iconSource: "/themes/holodark/previous_item.png"
-
-        onClicked: {
-          featureForm.hide()
-        }
-      }
-    }
-
-    Behavior on opacity {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-  }
-
-
   Behavior on width {
     PropertyAnimation {
       easing.type: Easing.InQuart
     }
   }
 
-
   Connections {
     target: featureListModel
 
     onModelReset: {
       featureForm.show()
+      featureListToolBar.hideNavigationButtons()
+    }
+  }
+
+  Connections {
+    target: featureModel
+
+    onModelReset: {
+      featureForm.show()
+      globalFeaturesList.hide()
+      featureListToolBar.showNavigationButtons()
+    }
+  }
+
+  NavigationBar {
+    id: featureListToolBar
+    model: featureListModel
+
+    Behavior on opacity {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
     }
   }
 

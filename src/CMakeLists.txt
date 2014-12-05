@@ -23,7 +23,6 @@ SET(QGIS_MOBILE_APP_MOC_HDRS
   qgsqmlinterface.h
   featuremodel.h
   featurelistmodel.h
-  feature.h
 )
 
 QT5_WRAP_CPP(QGIS_MOBILE_APP_MOC_SRCS ${QGIS_MOBILE_APP_MOC_HDRS})

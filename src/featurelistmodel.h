@@ -24,11 +24,16 @@ class FeatureListModel : public QAbstractItemModel
     void setFeatures( const QList<QgsMapToolIdentify::IdentifyResult>& results );
 
     QHash<int, QByteArray> roleNames() const;
-    Q_INVOKABLE QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const;
+    QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const;
     QModelIndex parent( const QModelIndex& child ) const;
     int rowCount( const QModelIndex& parent ) const;
     int columnCount( const QModelIndex& parent ) const;
     QVariant data( const QModelIndex& index, int role ) const;
+
+    Q_INVOKABLE unsigned int count()
+    {
+      return mCount;
+    }
 
   private:
     inline QgsMapLayer* toLayer( const QModelIndex& index ) const
@@ -43,6 +48,7 @@ class FeatureListModel : public QAbstractItemModel
   private:
     QList<QgsMapLayer*> mLayers;
     QMap<QgsMapLayer*, QVector<Feature*> > mFeatures;
+    unsigned int mCount;
 };
 
 #endif // FEATURELISTMODEL_H

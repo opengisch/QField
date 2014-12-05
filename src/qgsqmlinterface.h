@@ -6,6 +6,8 @@
 
 #include <QStandardItemModel>
 
+#include "feature.h"
+
 class QgisMobileapp;
 
 class QgsQmlInterface : public QObject
@@ -28,6 +30,8 @@ class QgsQmlInterface : public QObject
      * @param point Coordinate at which to identify features
      */
     void identifyFeatures( const QPointF point );
+
+    void showFeatureForm( const Feature& feature );
 
     void openProjectDialog();
 

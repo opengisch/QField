@@ -98,6 +98,11 @@ void QgisMobileapp::identifyFeatures( const QPointF& point )
   QgsMapToolIdentify identify( mMapCanvas );
   QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll );
 
+  Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
+  {
+    qDebug() << res.mLayer->name() << " >> " << res.mFeature.id();
+  }
+
   mFeatureListModel.setFeatures( results );
 }
 
@@ -117,6 +122,11 @@ void QgisMobileapp::openProjectDialog()
     QgsProject::instance()->read( dlg.selectedFiles().first() );
     settings.setValue( "/qgis/lastProjectOpenDir", QFileInfo( dlg.selectedFiles().first() ).absolutePath() );
   }
+}
+
+void QgisMobileapp::showFeatureForm( const Feature& feature )
+{
+  mFeatureModel.setFeature( feature );
 }
 
 QgisMobileapp::~QgisMobileapp()

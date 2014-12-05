@@ -13,6 +13,11 @@ void QgsQmlInterface::identifyFeatures( const QPointF point )
   mApp->identifyFeatures( point );
 }
 
+void QgsQmlInterface::showFeatureForm( const Feature& feature )
+{
+  mApp->showFeatureForm( feature );
+}
+
 void QgsQmlInterface::openProjectDialog()
 {
   mApp->openProjectDialog();

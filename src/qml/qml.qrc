@@ -3,5 +3,6 @@
         <file alias="qgismobileapp.qml">qgismobileapp.qml</file>
         <file alias="MapCanvas.qml">MapCanvas.qml</file>
         <file>FeatureForm.qml</file>
+        <file>NavigationBar.qml</file>
     </qresource>
 </RCC>
