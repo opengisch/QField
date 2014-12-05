@@ -29,6 +29,7 @@
 // QGIS mobile includes
 #include "featuremodel.h"
 #include "featurelistmodel.h"
+#include "settings.h"
 
 class QgsQmlInterface;
 
@@ -55,6 +56,7 @@ class QgisMobileapp : public QQuickView
     QgsQmlInterface* mIface;
     FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;
+    Settings mSettings;
 };
 
 #endif // QGISMOBILEAPP_H

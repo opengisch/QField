@@ -5,18 +5,44 @@ import QtQuick.Layouts 1.1
 Rectangle {
   id: featureForm
 
-  color: "white"
+  states: [
+    State {
+      name: "Hidden"
+      StateChangeScript {
+        script: hide()
+      }
+    },
+    State {
+      name: "FeatureList"
+      PropertyChanges {
+        target: globalFeaturesList
+        shown: true
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        showNavigationButtons: false
+      }
+      StateChangeScript {
+        script: show()
+      }
+    },
+    State {
+      name: "FeatureForm"
+      PropertyChanges {
+        target: globalFeaturesList
+        shown: false
+      }
+      PropertyChanges {
+        target: featureListToolBar
+        showNavigationButtons: true
+      }
+    }
+  ]
+  state: "Hidden"
 
-  focus: true // important - otherwise we'll get no key events
+  focus: ( state != "Hidden" )
 
   clip: true
-
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back) {
-      featureForm.hide()
-      event.accepted = true
-    }
-  }
 
   ListView {
     id: globalFeaturesList
@@ -25,6 +51,8 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     height: parent.height - featureListToolBar.height
+
+    property bool shown: false
 
     clip: true
 
@@ -135,22 +163,14 @@ Rectangle {
       width: parent.width
     }
 
-    function hide()
-    {
-      globalFeaturesList.height = 0
-      featureFormList.opacity = 100
-    }
-
-    function toggleVisible() {
-      if ( globalFeaturesList.height == 0 )
+    onShownChanged: {
+      if ( shown )
       {
-        globalFeaturesList.height = undefined
-        featureListToolBar.hideNavigationButtons()
+        height = parent.height - featureListToolBar.height
       }
       else
       {
-        globalFeaturesList.height = 0
-        featureListToolBar.showNavigationButtons()
+        height = 0
       }
     }
 
@@ -173,8 +193,7 @@ Rectangle {
 
     focus: true
 
-    opacity: 0
-    visible: false
+    visible: (!globalFeaturesList.shown)
 
     delegate: Item {
       height: 30
@@ -210,31 +229,6 @@ Rectangle {
     }
   }
 
-  Behavior on width {
-    PropertyAnimation {
-      easing.type: Easing.InQuart
-    }
-  }
-
-  Connections {
-    target: featureListModel
-
-    onModelReset: {
-      featureForm.show()
-      featureListToolBar.hideNavigationButtons()
-    }
-  }
-
-  Connections {
-    target: featureModel
-
-    onModelReset: {
-      featureForm.show()
-      globalFeaturesList.hide()
-      featureListToolBar.showNavigationButtons()
-    }
-  }
-
   NavigationBar {
     id: featureListToolBar
     model: featureListModel
@@ -246,17 +240,54 @@ Rectangle {
     }
   }
 
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back) {
+      featureForm.hide()
+      event.accepted = true
+    }
+  }
+
+  Behavior on width {
+    PropertyAnimation {
+      easing.type: Easing.InQuart
+    }
+  }
+
+  Connections {
+    target: featureListModel
+
+    onModelReset: {
+      state = "FeatureList"
+    }
+  }
+
+  Connections {
+    target: featureModel
+
+    onModelReset: {
+      state = "FeatureForm"
+    }
+  }
+
+  Connections {
+    target: featureListToolBar
+
+    onStatusIndicatorClicked: {
+      state = "FeatureList"
+    }
+  }
+
   function show()
   {
-    featureForm.width = featureForm.parent.width / 3
-    featureForm.focus = true
-    featureListToolBar.opacity = 100
+    var widthDenominator = settings.value( "featureForm/widthDenominator", 3 );
+    width = parent.width / widthDenominator
+    // Focus to retrieve back button events
+    focus = true
   }
 
   function hide()
   {
-    featureForm.width = 0
-    featureForm.focus = false
-    featureListToolBar.opacity = 0
+    width = 0
+    focus = false
   }
 }
