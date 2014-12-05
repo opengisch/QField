@@ -8,6 +8,7 @@ Rectangle {
   property int count: 0
   property string currentName: ''
   property variant model
+  property bool showNavigationButtons
 
   signal gotoNext
   signal gotoPrevious
@@ -26,7 +27,7 @@ Rectangle {
 
     anchors.right: parent.right
 
-    width: 48*dp
+    width: ( parent.showNavigationButtons ? 48*dp : 0 )
     height: 48*dp
 
     iconSource: "/themes/holodark/next_item.png"
@@ -47,7 +48,7 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: 48*dp
+    width: ( parent.showNavigationButtons ? 48*dp : 0 )
     height: 48*dp
 
     iconSource: "/themes/holodark/previous_item.png"
@@ -84,19 +85,9 @@ Rectangle {
       anchors.fill: parent
 
       onClicked: {
-        toolBar.statusIndicatorClicked
+        toolBar.statusIndicatorClicked()
       }
     }
-  }
-
-  function hideNavigationButtons() {
-    previousButton.width = 0
-    nextButton.width = 0
-  }
-
-  function showNavigationButtons() {
-    previousButton.width = 48*dp
-    nextButton.width = 48*dp
   }
 
   function onCurrentIndexChanged() {

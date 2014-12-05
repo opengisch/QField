@@ -82,6 +82,7 @@ void QgisMobileapp::initDeclarative()
   // Register QML custom types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQmlInterface>( "org.qgis", 1, 0, "QgisInterface" );
+  qmlRegisterType<Settings>( "org.qgis", 1, 0, "Settings" );
   int dpiX = QApplication::desktop()->physicalDpiX();
   int dpiY = QApplication::desktop()->physicalDpiY();
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
@@ -91,6 +92,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "featureModel", &mFeatureModel );
   rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
+  rootContext()->setContextProperty( "settings", &mSettings );
 }
 
 void QgisMobileapp::identifyFeatures( const QPointF& point )

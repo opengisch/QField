@@ -43,6 +43,7 @@ class Feature
     const QString displayText() const;
 
   private:
+    // TODO: Use implicity sharing for this
     QgsFeature mFeature;
     QgsVectorLayer* mLayer;
 };
