@@ -1,28 +1,31 @@
 SET(QGIS_MOBILE_APP_SRCS
+  feature.cpp
+  featurelistmodel.cpp
+  featuremodel.cpp
   main.cpp
   qgismobileapp.cpp
-  qgsquickmapcanvasmap.cpp
   qgsqmlinterface.cpp
-  featuremodel.cpp
-  featurelistmodel.cpp
-  feature.cpp
+  qgsquickmapcanvasmap.cpp
+  settings.cpp
 )
 
 SET(QGIS_MOBILE_APP_HDRS
-  qgismobileapp.h
-  qgsquickmapcanvasmap.h
-  qgsqmlinterface.h
-  featuremodel.h
-  featurelistmodel.h
   feature.h
+  featurelistmodel.h
+  featuremodel.h
+  qgismobileapp.h
+  qgsqmlinterface.h
+  qgsquickmapcanvasmap.h
+  settings.h
 )
 
 SET(QGIS_MOBILE_APP_MOC_HDRS
-  qgismobileapp.h
-  qgsquickmapcanvasmap.h
-  qgsqmlinterface.h
-  featuremodel.h
   featurelistmodel.h
+  featuremodel.h
+  qgismobileapp.h
+  qgsqmlinterface.h
+  qgsquickmapcanvasmap.h
+  settings.h
 )
 
 QT5_WRAP_CPP(QGIS_MOBILE_APP_MOC_SRCS ${QGIS_MOBILE_APP_MOC_HDRS})
