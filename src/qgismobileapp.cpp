@@ -36,6 +36,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
+#include "featurelistmodelhighlight.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -87,6 +88,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
+  qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

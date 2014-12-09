@@ -6,8 +6,6 @@
 
 #include "qgsmapcanvas.h"
 
-class QgsQuickMapCanvas;
-
 class QgsQuickMapCanvasMap : public QQuickPaintedItem
 {
     Q_OBJECT
@@ -18,7 +16,7 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     QgsMapCanvas* mapCanvas();
 
     // QQuickPaintedItem interface
-    void paint(QPainter* painter);
+    void paint( QPainter* painter );
 
     QgsPoint toMapCoordinates( QPoint canvasCoordinates );
 
