@@ -3,6 +3,7 @@ SET(QGIS_MOBILE_APP_SRCS
   feature.cpp
   featurelistmodel.cpp
   featurelistmodelselection.cpp
+  featurelistmodelhighlight.cpp
   featuremodel.cpp
   main.cpp
   qgismobileapp.cpp
@@ -15,6 +16,7 @@ SET(QGIS_MOBILE_APP_HDRS
   feature.h
   featurelistmodel.h
   featurelistmodelselection.h
+  featurelistmodelhighlight.h
   featuremodel.h
   qgismobileapp.h
   qgsquickmapcanvasmap.h
@@ -25,6 +27,7 @@ SET(QGIS_MOBILE_APP_MOC_HDRS
   appinterface.h
   featurelistmodel.h
   featurelistmodelselection.h
+  featurelistmodelhighlight.h
   featuremodel.h
   qgismobileapp.h
   qgsquickmapcanvasmap.h

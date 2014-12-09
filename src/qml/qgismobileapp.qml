@@ -12,12 +12,20 @@ Rectangle {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.bottom: parent.bottom
-    anchors.right: dock.left
+    anchors.right: featureForm.left
     id: mapCanvas
+
+    FeatureListModelHighlight {
+      model: featureListModel
+      selection: featureForm.selection
+      mapCanvas: mapCanvas.mapCanvasWrapper
+      color: "yellow"
+      selectionColor: "red"
+    }
   }
 
   FeatureForm {
-    id: dock
+    id: featureForm
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -172,19 +180,6 @@ Rectangle {
       onTriggered: {
         Qt.quit()
       }
-    }
-  }
-
-  Rectangle {
-    id: featureForm
-    anchors.fill: parent
-    visible: false
-    color: "#dddddddd"
-    focus: true
-
-    function show() {
-      visible = true
-      featureForm.anchors.centerIn = parent
     }
   }
 

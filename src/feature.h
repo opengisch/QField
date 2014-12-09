@@ -35,7 +35,7 @@ class Feature
       return mFeature.id();
     }
 
-    const QgsFeature& qgsFeature()
+    const QgsFeature& qgsFeature() const
     {
       return mFeature;
     }
