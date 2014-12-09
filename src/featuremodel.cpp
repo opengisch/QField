@@ -5,13 +5,24 @@
 FeatureModel::FeatureModel( QObject *parent ) :
   QAbstractListModel( parent )
 {
+  connect( this, SIGNAL( modelReset() ), this, SIGNAL( featureChanged() ) );
 }
 
-void FeatureModel::setFeature( Feature feature )
+void FeatureModel::setFeature( QVariant v )
 {
-  beginResetModel();
-  mFeature = feature;
-  endResetModel();
+  const Feature& feature = v.value<Feature>();
+
+  if ( feature.layer() != mFeature.layer() || feature.id() != mFeature.id() )
+  {
+    beginResetModel();
+    mFeature = feature;
+    endResetModel();
+  }
+}
+
+QVariant FeatureModel::feature()
+{
+  return QVariant::fromValue<Feature>( mFeature );
 }
 
 QHash<int, QByteArray> FeatureModel::roleNames() const

@@ -35,6 +35,7 @@
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
 #include "appinterface.h"
+#include "featurelistmodelselection.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -83,6 +84,9 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
+  qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
+  qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -128,11 +132,6 @@ void QgisMobileapp::openProjectDialog()
     QgsProject::instance()->read( dlg.selectedFiles().first() );
     settings.setValue( "/qgis/lastProjectOpenDir", QFileInfo( dlg.selectedFiles().first() ).absolutePath() );
   }
-}
-
-void QgisMobileapp::showFeatureForm( const Feature& feature )
-{
-  mFeatureModel.setFeature( feature );
 }
 
 QgisMobileapp::~QgisMobileapp()

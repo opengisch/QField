@@ -31,8 +31,6 @@ class AppInterface : public QObject
      */
     void identifyFeatures( const QPointF point );
 
-    void showFeatureForm( const Feature& feature );
-
     void openProjectDialog();
 
   private:
