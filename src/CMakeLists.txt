@@ -43,6 +43,7 @@ INCLUDE_DIRECTORIES(
   ${QGIS_INCLUDE_DIR}/gui/attributetable
   ${QGIS_INCLUDE_DIR}/core
   ${QGIS_INCLUDE_DIR}/core/raster
+  ${GEOS_INCLUDE_DIR}
   ${Qt5Declarative_INCLUDE_DIRS}
   ${Qt5Core_INCLUDE_DIRS}
   ${Qt5Gui_INCLUDE_DIRS}

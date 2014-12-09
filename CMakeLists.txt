@@ -64,6 +64,10 @@ FIND_PACKAGE(Qt5OpenGL REQUIRED)
 MESSAGE(STATUS "Found Qt version: ${QTVERSION}")
 
 #############################################################
+# search for other required packages
+FIND_PACKAGE(GEOS)
+
+#############################################################
 # enable warnings
 
 IF (PEDANTIC)
