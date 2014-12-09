@@ -27,6 +27,8 @@ Rectangle {
 
     border.color: "lightGray"
     border.width: 1
+
+    selection: FeatureListModelSelection { model: featureListModel }
   }
 
   Column {

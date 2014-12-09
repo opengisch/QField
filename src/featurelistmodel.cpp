@@ -5,13 +5,12 @@
 
 FeatureListModel::FeatureListModel( QObject *parent )
   :  QAbstractItemModel( parent )
-  , mCount( 0 )
 {
+  connect( this, SIGNAL( modelReset() ), this, SIGNAL( countChanged() ) );
 }
 
 FeatureListModel::FeatureListModel( QList<QgsMapToolIdentify::IdentifyResult> features, QObject* parent )
   : QAbstractItemModel( parent )
-  , mCount( 0 )
 {
   setFeatures( features );
 }
@@ -20,24 +19,16 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
 {
   beginResetModel();
 
-  Q_FOREACH( QVector<Feature*> f, mFeatures )
-  qDeleteAll( f );
-  mCount = 0;
-
+  qDeleteAll( mFeatures );
   mFeatures.clear();
-  mLayers.clear();
 
   QSet<QgsMapLayer*> layers;
 
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
-    layers.insert( res.mLayer );
     Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
-    mFeatures[res.mLayer].append( f );
-    mCount++;
+    mFeatures.append( f );
   }
-
-  mLayers = layers.toList();
 
   endResetModel();
 }
@@ -49,52 +40,31 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roleNames[Qt::DisplayRole] = "display";
   roleNames[FeatureIdRole] = "featureId";
   roleNames[FeatureRole] = "feature";
+  roleNames[LayerNameRole] = "layerName";
 
   return roleNames;
 }
 
 QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& parent ) const
 {
+  Q_UNUSED( parent )
+
   if ( row < 0 )
     return QModelIndex();
 
-  if ( parent.internalPointer() == 0 )
-  {
-    return createIndex( row, column, mLayers.at( row ) );
-  }
-  else
-  {
-    QgsMapLayer* layer = static_cast<QgsMapLayer*>( parent.internalPointer() );
-    return createIndex( row, column, mFeatures.value( layer ).at( row ) );
-  }
+  return createIndex( row, column, mFeatures.at( row ) );
 }
 
 QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
 {
-  if ( mLayers.contains( static_cast<QgsMapLayer*>( child.internalPointer() ) ) )
-  {
-    return QModelIndex();
-  }
-  else
-  {
-    const Feature* feature = static_cast<Feature*>( child.internalPointer() );
-    QgsVectorLayer* layer = feature->layer();
-    return createIndex( mLayers.indexOf( layer ), 0, layer );
-  }
+  Q_UNUSED( child );
+  return QModelIndex();
 }
 
 int FeatureListModel::rowCount( const QModelIndex& parent ) const
 {
-  if ( parent.isValid() )
-  {
-    QgsMapLayer* layer = static_cast<QgsMapLayer*>( parent.internalPointer() );
-    Q_ASSERT( layer );
-    return mFeatures.value( layer ).count();
-  }
-  else
-  {
-    return mLayers.count();
-  }
+  Q_UNUSED( parent );
+  return mFeatures.count();
 }
 
 int FeatureListModel::columnCount( const QModelIndex& parent ) const
@@ -105,41 +75,27 @@ int FeatureListModel::columnCount( const QModelIndex& parent ) const
 
 QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
 {
-  QgsMapLayer* layer;
+  Feature* feature = toFeature( index );
 
-  if ( index.parent().internalPointer() != 0 )
+  switch( role )
   {
-    // it's a feature
-    Feature* feature = toFeature( index );
-    layer = feature->layer();
-    QgsVectorLayer* vLayer = qobject_cast<QgsVectorLayer*>( layer );
+    case FeatureIdRole:
+      return feature->id();
 
-    switch( role )
-    {
-      case FeatureIdRole:
-        return feature->id();
+    case FeatureRole:
+      return QVariant::fromValue<Feature>( *feature );
 
-      case FeatureRole:
-        return QVariant::fromValue<Feature>( *feature );
+    case Qt::DisplayRole:
+      return feature->displayText();
 
-      case Qt::DisplayRole:
-        return feature->displayText();
-    }
-  }
-  else
-  {
-    layer = toLayer( index );
-    // it's a layer
-    switch( role )
-    {
-      case FeatureIdRole:
-      case FeatureRole:
-        return QVariant();
-
-      case Qt::DisplayRole:
-        return layer->name();
-    }
+    case LayerNameRole:
+      return feature->layer()->name();
   }
 
   return QVariant();
+}
+
+int FeatureListModel::count() const
+{
+  return mFeatures.size();
 }

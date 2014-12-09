@@ -11,11 +11,14 @@ class FeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( int count READ count NOTIFY countChanged )
+
   public:
     enum FeatureListRoles
     {
       FeatureIdRole = Qt::UserRole + 1,
-      FeatureRole
+      FeatureRole,
+      LayerNameRole
     };
 
     explicit FeatureListModel( QObject *parent = 0 );
@@ -30,25 +33,19 @@ class FeatureListModel : public QAbstractItemModel
     int columnCount( const QModelIndex& parent ) const;
     QVariant data( const QModelIndex& index, int role ) const;
 
-    Q_INVOKABLE unsigned int count()
-    {
-      return mCount;
-    }
+    int count() const;
+
+  signals:
+    void countChanged();
 
   private:
-    inline QgsMapLayer* toLayer( const QModelIndex& index ) const
-    {
-      return static_cast<QgsMapLayer*>( index.internalPointer() );
-    }
     inline Feature* toFeature( const QModelIndex& index ) const
     {
       return static_cast<Feature*>( index.internalPointer() );
     }
 
   private:
-    QList<QgsMapLayer*> mLayers;
-    QMap<QgsMapLayer*, QVector<Feature*> > mFeatures;
-    unsigned int mCount;
+    QList<Feature*> mFeatures;
 };
 
 #endif // FEATURELISTMODEL_H

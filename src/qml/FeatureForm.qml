@@ -1,9 +1,12 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import org.qgis 1.0
 
 Rectangle {
   id: featureForm
+
+  property FeatureListModelSelection selection
 
   states: [
     State {
@@ -56,101 +59,64 @@ Rectangle {
 
     clip: true
 
-    /* using a VisualDataModel to work on a tree structured model */
-    model: VisualDataModel {
-      id: visualLayerModel
-      model: featureListModel
+    model: featureListModel
+    section.property: "layerName"
+    section.delegate: Component {
+      Rectangle {
+        width: parent.width
+        height: 30*dp
 
-      /* Delegate for layer title + features */
-      delegate: Item {
-        anchors { left: parent.left; right: parent.right; leftMargin: 1 }
-        height: layerNameBg.height + featuresList.height
+        Text {
+          anchors { left: parent.left; leftMargin: 10 }
+          font.bold: true
+          text: section
+        }
+      }
+    }
 
-        /* Layer title */
-        Rectangle {
-          id: layerNameBg
-          anchors { left: parent.left; right:parent.right }
-          height: 48*dp
-          color: "#80A0EE"
+    delegate: Item {
+      anchors { left: parent.left; right: parent.right }
 
-          Text {
-            id: layerNameText
-            anchors { centerIn: parent; leftMargin: 5 }
-            text: "<b><i>" + display + "</i></b>"
-          }
+      focus: true
 
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {
-              featuresList.toggleVisible()
-            }
+      height: 48*dp
+      Text {
+        anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+        text: "<b>" + display + "</b>"
+      }
+
+      Rectangle {
+        anchors.left: parent.left
+        height: parent.height
+        width: 6
+        color: "darkGray"
+        opacity: ( index == featureForm.selection.selection )
+        Behavior on opacity {
+          PropertyAnimation {
+            easing.type: Easing.InQuart
           }
         }
+      }
 
-        /* List of features within a layer */
-        ColumnLayout {
-          id: featuresList
-          anchors { top:layerNameBg.bottom; left: parent.left; right: parent.right; leftMargin: 10 }
-          clip: true
+      /* bottom border */
+      Rectangle {
+        anchors.bottom: parent.bottom
+        height: 1
+        color: "lightGray"
+        width: parent.width
+      }
 
-          Repeater {
-            model: VisualDataModel {
-              model: featureListModel
-              rootIndex: visualLayerModel.modelIndex( index )
+      MouseArea {
+        anchors.fill: parent
 
-              delegate: Item {
-                anchors { left: parent.left; right: parent.right }
+        onClicked: {
+          featureForm.selection.selection = index
+          featureForm.state = "FeatureForm"
+        }
 
-                focus: true
-
-                height: 48*dp
-                Text {
-                  id: featureText
-                  anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
-                  text: "<b>" + display + "</b>"
-                }
-
-                /* bottom border */
-                Rectangle {
-                  anchors.bottom: parent.bottom
-                  height: 1
-                  color: "lightGray"
-                  width: parent.width
-                }
-
-                MouseArea {
-                  anchors.fill: parent
-
-                  onClicked: {
-                    iface.showFeatureForm( feature )
-                    globalFeaturesList.height = 0
-                  }
-
-                  onPressAndHold:
-                  {
-
-                  }
-                }
-              }
-            }
-          }
-
-          function toggleVisible() {
-            if ( featuresList.height == 0 )
-            {
-              featuresList.height = undefined
-            }
-            else
-            {
-              featuresList.height = 0
-            }
-          }
-
-          Behavior on height {
-            PropertyAnimation {
-              easing.type: Easing.InQuart
-            }
-          }
+        onPressAndHold:
+        {
+          featureForm.selection.selection = index
         }
       }
     }
@@ -189,7 +155,9 @@ Rectangle {
     anchors.right: parent.right
     anchors.bottom: parent.bottom
 
-    model: featureModel
+    model: FeatureModel {
+      feature: featureForm.selection.selectedFeature
+    }
 
     focus: true
 
@@ -232,6 +200,7 @@ Rectangle {
   NavigationBar {
     id: featureListToolBar
     model: featureListModel
+    selection: featureForm.selection
   }
 
   Keys.onReleased: {
@@ -260,14 +229,6 @@ Rectangle {
 
     onModelReset: {
       state = "FeatureForm"
-    }
-  }
-
-  Connections {
-    target: featureListToolBar
-
-    onStatusIndicatorClicked: {
-      state = "FeatureList"
     }
   }
 

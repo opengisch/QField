@@ -1,14 +1,14 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import org.qgis 1.0
 
 Rectangle {
   id: toolBar
 
-  property int currentIndex: 0
-  property int count: 0
   property string currentName: ''
-  property variant model
   property bool showNavigationButtons
+  property FeatureListModel model
+  property FeatureListModelSelection selection
 
   signal gotoNext
   signal gotoPrevious
@@ -21,6 +21,31 @@ Rectangle {
 
   clip: true
 
+  Rectangle {
+    id: navigationStatusIndicator
+    anchors.fill: parent
+    height: 48*dp
+
+    color: "#80CC28"
+
+    clip: true
+
+    focus: true
+
+    Text {
+      anchors.centerIn: parent
+
+      text: ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
+    }
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        toolBar.statusIndicatorClicked()
+      }
+    }
+  }
 
   Button {
     id: nextButton
@@ -32,8 +57,10 @@ Rectangle {
 
     iconSource: "/themes/holodark/next_item.png"
 
+    enabled: ( ( selection.selection + 1 ) < toolBar.model.count )
+
     onClicked: {
-      toolBar.gotoNext()
+      selection.selection = selection.selection + 1
     }
 
     Behavior on width {
@@ -53,64 +80,16 @@ Rectangle {
 
     iconSource: "/themes/holodark/previous_item.png"
 
+    enabled: ( selection.selection > 0 )
+
     onClicked: {
-      toolBar.gotoPrevious
+      selection.selection = selection.selection - 1
     }
 
     Behavior on width {
       PropertyAnimation {
         easing.type: Easing.InQuart
       }
-    }
-  }
-
-  Rectangle {
-    id: navigationStatusIndicator
-    anchors { left: previousButton.right; right: nextButton.left }
-    height: 48*dp
-
-    color: "#80CC28"
-
-    clip: true
-
-    focus: true
-
-    Text {
-      anchors.centerIn: parent
-
-      text: currentIndex + '/' + count + ': ' + currentName
-    }
-
-    MouseArea {
-      anchors.fill: parent
-
-      onClicked: {
-        toolBar.statusIndicatorClicked()
-      }
-    }
-  }
-
-  function onCurrentIndexChanged() {
-    _updateInfo()
-  }
-
-  function onCurrentNameChanged() {
-    _updateInfo()
-  }
-
-  function onCountChanged() {
-    _updateInfo()
-  }
-
-  function _updateInfo() {
-
-  }
-
-  Connections {
-    target: model
-
-    onModelReset: {
-      count = model.count()
     }
   }
 }

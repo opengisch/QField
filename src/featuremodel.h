@@ -8,6 +8,7 @@ class Feature;
 
 class FeatureModel : public QAbstractListModel
 {
+    Q_PROPERTY( QVariant feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_OBJECT
 
   public:
@@ -21,13 +22,15 @@ class FeatureModel : public QAbstractListModel
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
 
-    Q_INVOKABLE void setFeature( Feature feature );
+    void setFeature( QVariant feature );
+    QVariant feature();
 
     QHash<int, QByteArray> roleNames() const;
     int rowCount( const QModelIndex& parent ) const;
     QVariant data( const QModelIndex& index, int role ) const;
 
   signals:
+    void featureChanged();
 
   public slots:
 

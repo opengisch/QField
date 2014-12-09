@@ -1,29 +1,32 @@
 SET(QGIS_MOBILE_APP_SRCS
+  appinterface.cpp
   feature.cpp
   featurelistmodel.cpp
+  featurelistmodelselection.cpp
   featuremodel.cpp
   main.cpp
   qgismobileapp.cpp
-  appinterface.cpp
   qgsquickmapcanvasmap.cpp
   settings.cpp
 )
 
 SET(QGIS_MOBILE_APP_HDRS
+  appinterface.h
   feature.h
   featurelistmodel.h
+  featurelistmodelselection.h
   featuremodel.h
   qgismobileapp.h
-  appinterface.h
   qgsquickmapcanvasmap.h
   settings.h
 )
 
 SET(QGIS_MOBILE_APP_MOC_HDRS
+  appinterface.h
   featurelistmodel.h
+  featurelistmodelselection.h
   featuremodel.h
   qgismobileapp.h
-  appinterface.h
   qgsquickmapcanvasmap.h
   settings.h
 )
