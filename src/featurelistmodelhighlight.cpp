@@ -67,6 +67,7 @@ void FeatureListModelHighlight::onModelDataChanged()
       if ( mSelection && mSelection->selection() == i )
       {
         h->setColor( mSelectionColor );
+        h->setBuffer( 0.2 );
       }
       else
       {
@@ -87,11 +88,13 @@ void FeatureListModelHighlight::onSelectionChanged()
     if ( i == mSelection->selection() )
     {
       h->setColor( mSelectionColor );
+      h->setBuffer( 0.2 );
       h->update();
     }
     else
     {
       h->setColor( mColor );
+      h->setBuffer( 0 );
       h->update();
     }
     ++i;
