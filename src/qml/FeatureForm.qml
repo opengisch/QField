@@ -238,7 +238,7 @@ Rectangle {
 
   Keys.onReleased: {
     if (event.key === Qt.Key_Back) {
-      featureForm.hide()
+      state = "Hidden"
       event.accepted = true
     }
   }
