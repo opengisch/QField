@@ -1,5 +1,5 @@
 /***************************************************************************
-                            qgismobileapp.h  -  description
+                            qgismobileapp.h
                               -------------------
               begin                : Wed Apr 04 10:48:28 CET 2012
               copyright            : (C) 2012 by Marco Bernasocchi

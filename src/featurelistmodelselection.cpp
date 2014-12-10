@@ -1,7 +1,7 @@
 /***************************************************************************
-                            featurelistmodelselection.cpp  -  description
+                            featurelistmodelselection.cpp
                               -------------------
-              begin                : 9.12.2014
+              begin                : 10.12.2014
               copyright            : (C) 2014 by Matthias Kuhn
               email                : matthias.kuhn (at) opengis.ch
  ***************************************************************************/
