@@ -177,7 +177,8 @@ Rectangle {
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    // anchors.bottom: parent.bottom
+    anchors.bottom: parent.bottom
+    height: parent.height - globalFeaturesList.height
 
     model: FeatureModel {
       feature: featureForm.selection.selectedFeature
@@ -186,18 +187,19 @@ Rectangle {
     focus: true
 
     visible: (!globalFeaturesList.shown)
-    height: parent.height - globalFeaturesList.height
 
     delegate: Item {
-      height: 30*dp
       anchors.left: parent.left
       anchors.right: parent.right
+      height: childrenRect.height
 
       Rectangle {
-        anchors.fill: parent
+        anchors { right: parent.right; left: parent.left }
+        height: Math.max( 30*dp, childrenRect.height )
 
         Row {
           anchors { leftMargin: 5; verticalCenter: parent.verticalCenter }
+
           /* attribute name */
           Text {
             width: featureFormList.width / 3
@@ -210,7 +212,6 @@ Rectangle {
           Text {
             anchors.rightMargin: 5
             text: attributeValue
-            /* onTextChanged: { feature[index].value = text; } */
           }
         }
 
