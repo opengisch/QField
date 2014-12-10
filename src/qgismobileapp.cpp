@@ -1,5 +1,5 @@
 /***************************************************************************
-                            qgismobileapp.cpp  -  description
+                            qgismobileapp.cpp
                               -------------------
               begin                : Wed Apr 04 10:48:28 CET 2012
               copyright            : (C) 2012 by Marco Bernasocchi
@@ -100,7 +100,6 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "iface", mIface );
-  rootContext()->setContextProperty( "featureModel", &mFeatureModel );
   rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
   rootContext()->setContextProperty( "settings", &mSettings );
 }

@@ -1,3 +1,20 @@
+/***************************************************************************
+                            qgsquickmapcanvasmap.cpp
+                              -------------------
+              begin                : 10.12.2014
+              copyright            : (C) 2014 by Matthias Kuhn
+              email                : matthias.kuhn (at) opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "qgsquickmapcanvasmap.h"
 
 #include "qgsmapcanvasmap.h"
@@ -12,13 +29,13 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   // mMapCanvas->setParallelRenderingEnabled( true );
 
   setRenderTarget( QQuickPaintedItem::FramebufferObject );
-  connect( mapCanvas()->scene(), SIGNAL( changed(QList<QRectF>) ), this, SLOT( update() ) );
+  connect( mapCanvas()->scene(), SIGNAL( changed( QList<QRectF> ) ), this, SLOT( update() ) );
 #if 0
   // would be nice to allow navigation without removing the fingers but currently
   // it brings the extent of the preview image and the rendered extent out of sync
-  connect( &mDelayedMapRefresh, SIGNAL( timeout()), mMapCanvas.data(), SLOT( refresh() ) );
+  connect( &mDelayedMapRefresh, SIGNAL( timeout() ), mMapCanvas.data(), SLOT( refresh() ) );
 #endif
-  connect( mMapCanvas.data(), SIGNAL(renderStarting()), &mDelayedMapRefresh, SLOT(stop()) );
+  connect( mMapCanvas.data(), SIGNAL( renderStarting() ), &mDelayedMapRefresh, SLOT( stop() ) );
   mDelayedMapRefresh.setSingleShot( true );
   // To be responsive, the map is not refreshed on pan/zoom and we use the chached image.
   // But make sure that the map is repainted after a pan/zoom action if refresh() is not called explicitly
@@ -44,8 +61,8 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {
   QgsPoint oldCenter( mMapCanvas->mapSettings().visibleExtent().center() );
   QgsPoint mousePos( mMapCanvas->getCoordinateTransform()->toMapPoint( center.x(), center.y() ) );
-  QgsPoint newCenter( mousePos.x() + (( oldCenter.x() - mousePos.x() ) * scale ),
-                      mousePos.y() + (( oldCenter.y() - mousePos.y() ) * scale ) );
+  QgsPoint newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
+                      mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
 
   // same as zoomWithCenter (no coordinate transformations are needed)
   QgsRectangle extent = mMapCanvas->mapSettings().visibleExtent();
@@ -103,7 +120,7 @@ void QgsQuickMapCanvasMap::refresh()
   mMapCanvas->refresh();
 }
 
-void QgsQuickMapCanvasMap::geometryChanged(const QRectF& newGeometry, const QRectF& oldGeometry)
+void QgsQuickMapCanvasMap::geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry )
 {
   mMapCanvas->resize( newGeometry.toRect().width()+1, newGeometry.toRect().height() + 1 );
   QQuickPaintedItem::geometryChanged( newGeometry, oldGeometry );
