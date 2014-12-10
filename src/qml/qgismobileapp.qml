@@ -37,7 +37,7 @@ Rectangle {
       selection: featureForm.selection
       mapCanvas: mapCanvas.mapCanvasWrapper
       color: "yellow"
-      selectionColor: "red"
+      selectionColor: "#ff7777"
     }
   }
 
@@ -54,6 +54,7 @@ Rectangle {
     border.width: 1
 
     selection: FeatureListModelSelection { model: featureListModel }
+    selectionColor: "#ff7777"
   }
 
   Column {
