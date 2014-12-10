@@ -24,6 +24,7 @@ Rectangle {
   id: featureForm
 
   property FeatureListModelSelection selection
+  property color selectionColor
 
   states: [
     State {
@@ -78,13 +79,16 @@ Rectangle {
 
     model: featureListModel
     section.property: "layerName"
+    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
     section.delegate: Component {
+      /* section header: layer name */
       Rectangle {
         width: parent.width
         height: 30*dp
+        color: "lightGray"
 
         Text {
-          anchors { left: parent.left; leftMargin: 10 }
+          anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
           font.bold: true
           text: section
         }
@@ -99,14 +103,15 @@ Rectangle {
       height: 48*dp
       Text {
         anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
-        text: "<b>" + display + "</b>"
+        font.bold: true
+        text: display
       }
 
       Rectangle {
         anchors.left: parent.left
         height: parent.height
         width: 6
-        color: "darkGray"
+        color: featureForm.selectionColor
         opacity: ( index == featureForm.selection.selection )
         Behavior on opacity {
           PropertyAnimation {
@@ -170,7 +175,7 @@ Rectangle {
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: parent.bottom
+    // anchors.bottom: parent.bottom
 
     model: FeatureModel {
       feature: featureForm.selection.selectedFeature
@@ -179,9 +184,10 @@ Rectangle {
     focus: true
 
     visible: (!globalFeaturesList.shown)
+    height: parent.height - globalFeaturesList.height
 
     delegate: Item {
-      height: 30
+      height: 30*dp
       anchors.left: parent.left
       anchors.right: parent.right
 
@@ -189,14 +195,17 @@ Rectangle {
         anchors.fill: parent
 
         Row {
+          anchors { leftMargin: 5; verticalCenter: parent.verticalCenter }
+          /* attribute name */
           Text {
-            anchors.leftMargin: 5
             width: featureFormList.width / 3
-            text: "<b>" + attributeName + "</b>"
+            font.bold: true
+            text: attributeName
             clip: true
           }
 
-          TextEdit {
+          /* attribute value */
+          Text {
             anchors.rightMargin: 5
             text: attributeValue
             /* onTextChanged: { feature[index].value = text; } */
@@ -218,6 +227,10 @@ Rectangle {
     id: featureListToolBar
     model: featureListModel
     selection: featureForm.selection
+
+    onStatusIndicatorClicked: {
+      featureForm.state = "FeatureList"
+    }
   }
 
   Keys.onReleased: {
@@ -238,14 +251,6 @@ Rectangle {
 
     onModelReset: {
       state = "FeatureList"
-    }
-  }
-
-  Connections {
-    target: featureModel
-
-    onModelReset: {
-      state = "FeatureForm"
     }
   }
 

@@ -28,8 +28,6 @@ Rectangle {
   property FeatureListModel model
   property FeatureListModelSelection selection
 
-  signal gotoNext
-  signal gotoPrevious
   signal statusIndicatorClicked
 
   anchors.top:parent.top
