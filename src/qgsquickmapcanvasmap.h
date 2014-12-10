@@ -24,6 +24,7 @@
 
 class QgsQuickMapCanvasMap : public QQuickPaintedItem
 {
+    Q_PROPERTY( bool parallelRendering READ parallelRendering WRITE setParallelRendering NOTIFY parallelRenderingChanged )
     Q_OBJECT
 
   public:
@@ -34,7 +35,13 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     // QQuickPaintedItem interface
     void paint( QPainter* painter );
 
+    void setParallelRendering( bool pr );
+    bool parallelRendering();
+
     QgsPoint toMapCoordinates( QPoint canvasCoordinates );
+
+  signals:
+    void parallelRenderingChanged();
 
   public slots:
     void zoom( QPointF center, qreal scale );
