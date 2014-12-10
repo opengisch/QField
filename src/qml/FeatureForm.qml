@@ -100,8 +100,10 @@ Rectangle {
 
       focus: true
 
-      height: 48*dp
+      height: Math.max( 48*dp, featureText.height )
+
       Text {
+        id: featureText
         anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
         font.bold: true
         text: display
