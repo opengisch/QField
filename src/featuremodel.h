@@ -25,26 +25,55 @@ class Feature;
 
 class FeatureModel : public QAbstractListModel
 {
-    Q_PROPERTY( QVariant feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_OBJECT
+    Q_PROPERTY( QVariant feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_ENUMS( FeatureRoles )
 
   public:
     enum FeatureRoles
     {
       AttributeName = Qt::UserRole + 1,
       AttributeValue,
-      AttributeEditable
+      AttributeEditable,
+      EditorWidget,
+      EditorWidgetConfig
     };
 
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
 
-    void setFeature( QVariant feature );
+    void setFeature( const QVariant& feature );
+    void setFeature( const Feature& feature , bool force = false );
+
     QVariant feature();
 
     QHash<int, QByteArray> roleNames() const;
     int rowCount( const QModelIndex& parent ) const;
     QVariant data( const QModelIndex& index, int role ) const;
+
+    /**
+     * Will change an attribute to a given value in the edit buffer.
+     * At the moment only allows to AttributeValue as role.
+     * May change in the future to commit changes to a local feature instead of the layer edit buffer.
+     *
+     * @param fieldindex The field to change
+     * @param value Value to set
+     * @return Success of the operation
+     */
+    Q_INVOKABLE bool setData( int fieldIndex, const QVariant& value );
+
+    /**
+     * Will commit the edit buffer of this layer.
+     * May change in the future to only commit the changes buffered in this model.
+     *
+     * @return Success of the operation
+     */
+    Q_INVOKABLE bool save();
+
+    /**
+     * Will reset the feature to the original values and dismiss any buffered edits.
+     */
+    Q_INVOKABLE void reset();
 
   signals:
     void featureChanged();

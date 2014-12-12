@@ -24,11 +24,14 @@ Rectangle {
   id: toolBar
 
   property string currentName: ''
-  property bool showNavigationButtons
+  property bool showEditButtons
   property FeatureListModel model
   property FeatureListModelSelection selection
 
   signal statusIndicatorClicked
+  signal editButtonClicked
+  signal save
+  signal cancel
 
   anchors.top:parent.top
   anchors.left: parent.left
@@ -36,6 +39,20 @@ Rectangle {
   height: 48*dp
 
   clip: true
+
+  states: [
+    State {
+      name: "Navigation"
+    },
+    State {
+      name: "Indication"
+    },
+    State {
+      name: "Edit"
+    }
+  ]
+
+  state: "Indication"
 
   Rectangle {
     id: navigationStatusIndicator
@@ -68,8 +85,9 @@ Rectangle {
 
     anchors.right: parent.right
 
-    width: ( parent.showNavigationButtons ? 48*dp : 0 )
+    width: ( parent.state == "Navigation" ? 48*dp : 0 )
     height: 48*dp
+    clip: true
 
     iconSource: "/themes/holodark/next_item.png"
 
@@ -87,12 +105,79 @@ Rectangle {
   }
 
   Button {
+    id: saveButton
+
+    anchors.right: parent.right
+
+    width: ( parent.state == "Edit" ? 48*dp : 0 )
+    height: 48*dp
+    clip: true
+
+    iconSource: "/themes/holodark/accept.png"
+
+    onClicked: {
+      toolBar.save()
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  Button {
+    id: cancelButton
+
+    anchors.left: parent.left
+
+    width: ( parent.state == "Edit" ? 48*dp : 0 )
+    height: 48*dp
+    clip: true
+
+    iconSource: "/themes/holodark/cancel.png"
+
+    onClicked: {
+      toolBar.cancel()
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  Button {
+    id: editButton
+
+    anchors.right: nextButton.left
+
+    width: ( parent.state == "Navigation" ? 48*dp : 0 )
+    height: 48*dp
+    clip: true
+
+    iconSource: "/themes/holodark/edit.png"
+
+    onClicked: {
+      toolBar.editButtonClicked()
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  Button {
     id: previousButton
 
     anchors.left: parent.left
 
-    width: ( parent.showNavigationButtons ? 48*dp : 0 )
+    width: ( parent.state == "Navigation" ? 48*dp : 0 )
     height: 48*dp
+    clip: true
 
     iconSource: "/themes/holodark/previous_item.png"
 

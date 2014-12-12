@@ -33,6 +33,7 @@ Rectangle {
         script: hide()
       }
     },
+    /* Shows a list of features */
     State {
       name: "FeatureList"
       PropertyChanges {
@@ -41,12 +42,13 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        showNavigationButtons: false
+        state: "Indication"
       }
       StateChangeScript {
         script: show()
       }
     },
+    /* Shows the form for the currently selected feature */
     State {
       name: "FeatureForm"
       PropertyChanges {
@@ -55,9 +57,22 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        showNavigationButtons: true
+        state: "Navigation"
+      }
+    },
+    /* Shows an edibale form for the currently selected feature */
+    State {
+      name: "FeatureFormEdit"
+      PropertyChanges {
+        target: featureListToolBar
+        state: "Edit"
+      }
+      PropertyChanges {
+        target: featureFormList
+        state: "Edit"
       }
     }
+
   ]
   state: "Hidden"
 
@@ -174,6 +189,15 @@ Rectangle {
   ListView {
     id: featureFormList
 
+    states: [
+      State {
+        name: "ReadOnly"
+      },
+      State {
+        name: "Edit"
+      }
+    ]
+
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
     anchors.right: parent.right
@@ -208,10 +232,30 @@ Rectangle {
             clip: true
           }
 
-          /* attribute value */
-          Text {
+          Item {
             anchors.rightMargin: 5
-            text: attributeValue
+            width: childrenRect.width
+            height: childrenRect.height
+
+            /* attribute value */
+            Loader {
+              id: attributeEditorLoader
+              visible: featureFormList.state == "Edit"
+              property variant value: attributeValue
+              property variant config: editorWidgetConfig
+
+              source: 'editorwidgets/' + editorWidget + '.qml'
+            }
+
+            Connections {
+              target: attributeEditorLoader.item
+              onValueChanged: featureFormList.model.setData( index, value, FeatureModel.AttributeValue )
+            }
+
+            Text {
+              visible: featureFormList.state != "Edit"
+              text: attributeValue
+            }
           }
         }
 
@@ -233,6 +277,20 @@ Rectangle {
 
     onStatusIndicatorClicked: {
       featureForm.state = "FeatureList"
+    }
+
+    onEditButtonClicked: {
+      featureForm.state = "FeatureFormEdit"
+    }
+
+    onSave: {
+      featureFormList.model.save()
+      featureForm.state = "FeatureForm"
+    }
+
+    onCancel: {
+      featureFormList.model.reset()
+      featureForm.state = "FeatureForm"
     }
   }
 

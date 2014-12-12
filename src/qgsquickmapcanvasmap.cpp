@@ -30,16 +30,6 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
 
   setRenderTarget( QQuickPaintedItem::FramebufferObject );
   connect( mapCanvas()->scene(), SIGNAL( changed( QList<QRectF> ) ), this, SLOT( update() ) );
-#if 0
-  // would be nice to allow navigation without removing the fingers but currently
-  // it brings the extent of the preview image and the rendered extent out of sync
-  connect( &mDelayedMapRefresh, SIGNAL( timeout() ), mMapCanvas.data(), SLOT( refresh() ) );
-#endif
-  connect( mMapCanvas.data(), SIGNAL( renderStarting() ), &mDelayedMapRefresh, SLOT( stop() ) );
-  mDelayedMapRefresh.setSingleShot( true );
-  // To be responsive, the map is not refreshed on pan/zoom and we use the chached image.
-  // But make sure that the map is repainted after a pan/zoom action if refresh() is not called explicitly
-  mDelayedMapRefresh.setInterval( 500 );
 }
 
 QgsMapCanvas* QgsQuickMapCanvasMap::mapCanvas()
@@ -82,7 +72,6 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   QgsRectangle extent = mMapCanvas->mapSettings().visibleExtent();
   extent.scale( scale, &newCenter );
   mMapCanvas->setExtent( extent );
-  mDelayedMapRefresh.start();
 
   update();
 }
@@ -124,7 +113,6 @@ void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
   }
 
   mMapCanvas->setExtent( r );
-  mDelayedMapRefresh.start();
 
   update();
 }
