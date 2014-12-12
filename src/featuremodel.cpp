@@ -25,11 +25,15 @@ FeatureModel::FeatureModel( QObject *parent ) :
   connect( this, SIGNAL( modelReset() ), this, SIGNAL( featureChanged() ) );
 }
 
-void FeatureModel::setFeature( QVariant v )
+void FeatureModel::setFeature( const QVariant& v )
 {
   const Feature& feature = v.value<Feature>();
+  setFeature( feature );
+}
 
-  if ( feature.layer() != mFeature.layer() || feature.id() != mFeature.id() )
+void FeatureModel::setFeature( const Feature& feature, bool force )
+{
+  if ( feature.layer() != mFeature.layer() || feature.id() != mFeature.id() || force )
   {
     beginResetModel();
     mFeature = feature;
@@ -48,6 +52,8 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[AttributeName]  = "attributeName";
   roles[AttributeValue] = "attributeValue";
+  roles[EditorWidget] = "editorWidget";
+  roles[EditorWidgetConfig] = "editorWidgetConfig";
 
   return roles;
 }
@@ -74,7 +80,40 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
     case AttributeEditable:
       return false;
       break;
+
+    case EditorWidget:
+      return mFeature.layer()->editorWidgetV2( index.row() );
+      break;
+
+    case EditorWidgetConfig:
+      return mFeature.layer()->editorWidgetV2Config( index.row() );
   }
 
   return QVariant();
+}
+
+
+bool FeatureModel::setData( int fieldIndex, const QVariant& value )
+{
+  if ( ! mFeature.layer()->isEditable() )
+    mFeature.layer()->startEditing();
+
+  return mFeature.layer()->changeAttributeValue( mFeature.id(), fieldIndex, value, mFeature.attribute( fieldIndex ) );
+}
+
+bool FeatureModel::save()
+{
+  bool rv = mFeature.layer()->commitChanges();
+  if ( rv )
+  {
+    QgsFeature feat;
+    mFeature.layer()->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat );
+    setFeature( Feature( feat, mFeature.layer() ), true );
+  }
+  return rv;
+}
+
+void FeatureModel::reset()
+{
+  mFeature.layer()->rollBack();
 }

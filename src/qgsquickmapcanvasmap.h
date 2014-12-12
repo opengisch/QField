@@ -52,7 +52,6 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     QScopedPointer<QgsMapCanvas> mMapCanvas;
     bool mPinching;
     QPoint mPinchStartPoint;
-    QTimer mDelayedMapRefresh;
 
     // QQuickItem interface
   protected:
