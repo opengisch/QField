@@ -222,10 +222,13 @@ Rectangle {
         height: Math.max( 30*dp, childrenRect.height )
 
         Row {
-          anchors { leftMargin: 5; verticalCenter: parent.verticalCenter }
+          anchors { verticalCenter: parent.verticalCenter; right: parent.right; left:parent.left }
+          height: childrenRect.height
 
           /* attribute name */
           Text {
+            id: txtAttributeName
+            anchors.leftMargin: 5
             width: featureFormList.width / 3
             font.bold: true
             text: attributeName
@@ -233,13 +236,15 @@ Rectangle {
           }
 
           Item {
-            anchors.rightMargin: 5
-            width: childrenRect.width
+            anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
             height: childrenRect.height
 
             /* attribute value */
             Loader {
               id: attributeEditorLoader
+              anchors.left: parent.left
+              anchors.right: parent.right
+
               visible: featureFormList.state == "Edit"
               property variant value: attributeValue
               property variant config: editorWidgetConfig
