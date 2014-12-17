@@ -37,12 +37,15 @@
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
+#include "qgseditorwidgetregistry.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
   , mIface( new AppInterface( this ) )
 {
   initDeclarative();
+
+  QgsEditorWidgetRegistry::initEditors();
 
   setSource( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
