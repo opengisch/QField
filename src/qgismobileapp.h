@@ -47,13 +47,36 @@ class QgisMobileapp : public QQuickView
     void showFeatureForm( const Feature& feature );
 
   signals:
+    /**
+     * Emitted when a project file is being loaded
+     *
+     * @param filename The filename of the project that is being loaded
+     */
     void loadProjectStarted( const QString& filename );
+
+    /**
+     * Emitted when the project is fully loaded
+     */
     void loadProjectEnded();
 
   private slots:
+    /**
+     * When called loads the project file found at path.
+     *
+     * @param path The project file to load
+     */
     void loadProjectFile( const QString& path );
-    void readProject( const QDomDocument& doc );
-    void readLastProject();
+    /**
+     * When called loads the last project
+     */
+    void loadLastProject();
+
+    /**
+     * Is called when a project is read.
+     * Saves the last project location for auto-load on next start.
+     * @param doc The xml content
+     */
+    void onReadProject( const QDomDocument& doc );
 
   private:
     void initDeclarative();
