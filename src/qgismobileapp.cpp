@@ -66,18 +66,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
 
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( readProject( QDomDocument ) ) );
+  connect( QgsProject::instance(), SIGNAL( onReadProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
+  connect( QgsProject::instance(), SIGNAL( onReadProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( onReadProject( QDomDocument ) ) );
   connect( mapCanvasBridge, SIGNAL( identifyFeature( QPointF ) ), this, SLOT( identifyFeature( QPointF ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
 
   show();
 
-  QTimer::singleShot( 0, this, SLOT( readLastProject() ) );
+  QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
 }
 
 void QgisMobileapp::initDeclarative()
@@ -119,7 +119,7 @@ void QgisMobileapp::identifyFeatures( const QPointF& point )
   mIface->openFeatureForm();
 }
 
-void QgisMobileapp::readProject( const QDomDocument& doc )
+void QgisMobileapp::onReadProject( const QDomDocument& doc )
 {
   Q_UNUSED( doc );
   QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
@@ -144,7 +144,7 @@ void QgisMobileapp::readProject( const QDomDocument& doc )
   }
 }
 
-void QgisMobileapp::readLastProject()
+void QgisMobileapp::loadLastProject()
 {
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
   if ( lastProjectFile.isValid() )
