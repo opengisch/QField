@@ -34,3 +34,8 @@ void AppInterface::openProjectDialog()
 {
   mApp->openProjectDialog();
 }
+
+void AppInterface::openFeatureForm()
+{
+  emit openFeatureFormRequested();
+}

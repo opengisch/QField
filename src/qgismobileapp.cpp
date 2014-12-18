@@ -25,6 +25,7 @@
 #include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenuBar>
 #include <QStandardItemModel>
+#include <QtCore/QTimer>
 
 #include <qgsproject.h>
 #include <qgsmaplayerregistry.h>
@@ -65,21 +66,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
 
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( readProject() ) );
+  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( readProject( QDomDocument ) ) );
 
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( mapCanvasBridge, SIGNAL( identifyFeature( QPointF ) ), this, SLOT( identifyFeature( QPointF ) ) );
-
-
-  QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
-  if ( lastProjectFile.isValid() )
-  {
-    QgsProject::instance()->read( lastProjectFile.toString() );
-  }
+  connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
+  connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
 
   show();
+
+  QTimer::singleShot( 0, this, SLOT( readLastProject() ) );
 }
 
 void QgisMobileapp::initDeclarative()
@@ -118,11 +116,39 @@ void QgisMobileapp::identifyFeatures( const QPointF& point )
   }
 
   mFeatureListModel.setFeatures( results );
+  mIface->openFeatureForm();
 }
 
-void QgisMobileapp::readProject()
+void QgisMobileapp::readProject( const QDomDocument& doc )
 {
+  Q_UNUSED( doc );
+  QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
   QSettings().setValue( "/qgis/project/lastProjectFile", QgsProject::instance()->fileName() );
+  Q_FOREACH( QgsMapLayer* layer, QgsMapLayerRegistry::instance()->mapLayers() )
+  {
+    QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
+    if ( vl )
+    {
+      const QVariant itinerary = vl->customProperty( "qgisMobile/itinerary" );
+      if ( itinerary.isValid() )
+      {
+        requests.insert( vl, QgsFeatureRequest().setFilterExpression( itinerary.toString() ) );
+      }
+    }
+  }
+  if ( requests.count() )
+  {
+    qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
+    mFeatureListModel.setFeatures( requests );
+    mIface->openFeatureForm();
+  }
+}
+
+void QgisMobileapp::readLastProject()
+{
+  QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
+  if ( lastProjectFile.isValid() )
+    QgsProject::instance()->read( lastProjectFile.toString() );
 }
 
 void QgisMobileapp::openProjectDialog()
@@ -133,12 +159,20 @@ void QgisMobileapp::openProjectDialog()
 
   if ( dlg.exec() )
   {
-    QgsProject::instance()->read( dlg.selectedFiles().first() );
+    loadProjectFile( dlg.selectedFiles().first() );
     settings.setValue( "/qgis/lastProjectOpenDir", QFileInfo( dlg.selectedFiles().first() ).absolutePath() );
   }
 }
 
+void QgisMobileapp::loadProjectFile( const QString& path )
+{
+  emit loadProjectStarted( path );
+  QgsProject::instance()->read( path );
+  emit loadProjectEnded();
+}
+
 QgisMobileapp::~QgisMobileapp()
 {
+  delete QgsEditorWidgetRegistry::instance();
   delete QgsProject::instance();
 }

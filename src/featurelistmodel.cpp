@@ -39,12 +39,32 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
   qDeleteAll( mFeatures );
   mFeatures.clear();
 
-  QSet<QgsMapLayer*> layers;
-
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
     Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
     mFeatures.append( f );
+  }
+
+  endResetModel();
+}
+
+void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests )
+{
+  beginResetModel();
+
+  qDeleteAll( mFeatures );
+  mFeatures.clear();
+
+  QMap<QgsVectorLayer*, QgsFeatureRequest>::ConstIterator it;
+  for ( it = requests.constBegin(); it != requests.constEnd(); it++ )
+  {
+    QgsFeature feat;
+    QgsFeatureIterator fit = it.key()->getFeatures( it.value() );
+    while ( fit.nextFeature( feat ) )
+    {
+      Feature* f = new Feature( feat, it.key() );
+      mFeatures.append( f );
+    }
   }
 
   endResetModel();

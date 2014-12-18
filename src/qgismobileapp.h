@@ -43,10 +43,17 @@ class QgisMobileapp : public QQuickView
     // interface methods
     void identifyFeatures( const QPointF& point );
     void openProjectDialog();
+
     void showFeatureForm( const Feature& feature );
 
+  signals:
+    void loadProjectStarted( const QString& filename );
+    void loadProjectEnded();
+
   private slots:
-    void readProject();
+    void loadProjectFile( const QString& path );
+    void readProject( const QDomDocument& doc );
+    void readLastProject();
 
   private:
     void initDeclarative();

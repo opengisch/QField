@@ -39,7 +39,7 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
-  public Q_SLOTS:
+  public slots:
     /**
      * When called, it will request any features at this position and after doing so emit a
      * featuresIdentified signal to which you may connect.
@@ -49,6 +49,15 @@ class AppInterface : public QObject
     void identifyFeatures( const QPointF point );
 
     void openProjectDialog();
+
+    void openFeatureForm();
+
+  signals:
+    void openFeatureFormRequested();
+
+    void loadProjectStarted( const QString& path );
+
+    void loadProjectEnded();
 
   private:
     QgisMobileapp* mApp;
