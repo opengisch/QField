@@ -41,7 +41,17 @@ class FeatureListModel : public QAbstractItemModel
     explicit FeatureListModel( QObject *parent = 0 );
     FeatureListModel( QList<QgsMapToolIdentify::IdentifyResult> features, QObject* parent = 0 );
 
+    /**
+     * @brief setFeatures
+     * @param results
+     */
     void setFeatures( const QList<QgsMapToolIdentify::IdentifyResult>& results );
+
+    /**
+     * @brief setFeatures
+     * @param requests
+     */
+    void setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests );
 
     QHash<int, QByteArray> roleNames() const;
     QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const;
