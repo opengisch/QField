@@ -80,6 +80,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
 
+  mSettings.setValue( "/Map/searchRadiusMM", 5 );
+
   show();
 
   QTimer::singleShot( 50, this, SLOT( loadLastProject() ) );
