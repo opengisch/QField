@@ -31,6 +31,7 @@ class FeatureListModelHighlight : public QQuickItem
     Q_PROPERTY( FeatureListModelSelection* selection READ selection WRITE setSelection NOTIFY selectionChanged )
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( QColor selectionColor MEMBER mSelectionColor NOTIFY selectionColorChanged )
+    Q_PROPERTY( unsigned int width MEMBER mWidth NOTIFY widthChanged )
 
   public:
     explicit FeatureListModelHighlight( QQuickItem *parent = 0 );
@@ -44,6 +45,7 @@ class FeatureListModelHighlight : public QQuickItem
     void colorChanged();
     void mapCanvasChanged();
     void selectionColorChanged();
+    void widthChanged();
 
   private slots:
     void onDataChanged();
@@ -58,6 +60,7 @@ class FeatureListModelHighlight : public QQuickItem
     FeatureListModel* mModel;
     FeatureListModelSelection* mSelection;
     bool mDirty;
+    unsigned int mWidth;
 };
 
 #endif // FEATURELISTMODELHIGHLIGHT_H
