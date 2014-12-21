@@ -15,13 +15,17 @@
 
 #include "featurelistmodelhighlight.h"
 
-FeatureListModelHighlight::FeatureListModelHighlight( QObject *parent )
-  : QObject( parent )
-  , mMapCanvas( 0 )
+#include "qgssggeometry.h"
+
+FeatureListModelHighlight::FeatureListModelHighlight( QQuickItem* parent )
+  : QQuickItem( parent )
   , mModel( 0 )
   , mSelection( 0 )
+  , mDirty( false )
 {
-  connect( this, SIGNAL( mapCanvasChanged() ), this, SLOT( onDataChanged() ) );
+  setFlags( QQuickItem::ItemHasContents );
+  setAntialiasing( true );
+
   connect( this, SIGNAL( modelChanged() ), this, SLOT( onDataChanged() ) );
   connect( this, SIGNAL( selectionChanged() ), this, SLOT( onDataChanged() ) );
 }
@@ -52,51 +56,51 @@ void FeatureListModelHighlight::onDataChanged()
 
 void FeatureListModelHighlight::onModelDataChanged()
 {
-  qDeleteAll( mHighlights );
-  mHighlights.clear();
-
-  if ( mMapCanvas )
-  {
-    int count = mModel->rowCount( QModelIndex() );
-
-    for ( int i = 0; i < count; ++i )
-    {
-      QModelIndex index = mModel->index( i, 0, QModelIndex() );
-      const Feature& feature = mModel->data( index, FeatureListModel::FeatureRole ).value<Feature>();
-      QgsHighlight* h = new QgsHighlight( mMapCanvas->mapCanvas(), feature.qgsFeature(), feature.layer() );
-      if ( mSelection && mSelection->selection() == i )
-      {
-        h->setColor( mSelectionColor );
-        h->setBuffer( 0.2 );
-      }
-      else
-      {
-        h->setColor( mColor );
-      }
-      h->show();
-      mHighlights.append( h );
-    }
-  }
+  mDirty = true;
+  update();
 }
 
 void FeatureListModelHighlight::onSelectionChanged()
 {
-  int i = 0;
+  mDirty = true;
+  update();
+}
 
-  Q_FOREACH( QgsHighlight* h, mHighlights )
+QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* )
+{
+  if ( mDirty )
   {
-    if ( i == mSelection->selection() )
+    delete n;
+    n = new QSGNode;
+
+    int count = mModel->rowCount( QModelIndex() );
+    QgsSGGeometry* sn = 0;
+
+    for ( int i = 0; i < count; ++i )
     {
-      h->setColor( mSelectionColor );
-      h->setBuffer( 0.2 );
-      h->update();
+      QgsSGGeometry* gn;
+
+      QModelIndex index = mModel->index( i, 0, QModelIndex() );
+      const Feature& feature = mModel->data( index, FeatureListModel::FeatureRole ).value<Feature>();
+
+      if ( mSelection && mSelection->selection() == i )
+      {
+        sn = new QgsSGGeometry( *feature.qgsFeature().geometry(), mSelectionColor );
+        sn->setFlag( QSGNode::OwnedByParent );
+      }
+      else
+      {
+        gn = new QgsSGGeometry( *feature.qgsFeature().geometry(), mColor );
+        gn->setFlag( QSGNode::OwnedByParent );
+        n->appendChildNode( gn );
+      }
     }
-    else
-    {
-      h->setColor( mColor );
-      h->setBuffer( 0 );
-      h->update();
-    }
-    ++i;
+
+    if ( sn )
+      n->appendChildNode( sn );
+
+    mDirty = false;
   }
+
+  return n;
 }

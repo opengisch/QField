@@ -24,6 +24,7 @@ Item {
   anchors.fill: parent
   id: mapArea
   property MapCanvasMap mapCanvasWrapper: mapCanvasWrapper
+  property variant mapSettings: mapCanvasWrapper.mapSettings
 
   MapCanvasMap {
     id: mapCanvasWrapper

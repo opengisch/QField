@@ -25,19 +25,33 @@ Rectangle {
   id: mainWindow
   anchors.fill: parent
 
-  MapCanvas {
+  Item {
+    id: mapCanvas
+
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.bottom: parent.bottom
     anchors.right: featureForm.left
-    id: mapCanvas
 
-    FeatureListModelHighlight {
-      model: featureListModel
-      selection: featureForm.selection
-      mapCanvas: mapCanvas.mapCanvasWrapper
-      color: "yellow"
-      selectionColor: "#ff7777"
+    MapCanvas {
+      id: mapCanvasMap
+
+      anchors.fill: parent
+    }
+
+    Item {
+      anchors.fill: parent
+
+      transform: MapTransform {
+        mapSettings: mapCanvasMap.mapSettings
+      }
+
+      FeatureListModelHighlight {
+        model: featureListModel
+        selection: featureForm.selection
+        color: "yellow"
+        selectionColor: "#ff7777"
+      }
     }
   }
 

@@ -61,6 +61,16 @@ QgsPoint QgsQuickMapCanvasMap::toMapCoordinates( QPoint canvasCoordinates )
   return mMapCanvas->getCoordinateTransform()->toMapPoint( canvasCoordinates.x(), canvasCoordinates.y() );
 }
 
+void QgsQuickMapCanvasMap::setMapSettings( const QVariant& mapSettings )
+{
+  // mMapCanvas->setExtent( mapSettings.value<QgsMapSettings>().extent() );
+}
+
+const QVariant QgsQuickMapCanvasMap::mapSettings()
+{
+  return QVariant::fromValue<QgsMapSettings>( mMapCanvas->mapSettings() );
+}
+
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {
   QgsPoint oldCenter( mMapCanvas->mapSettings().visibleExtent().center() );
@@ -72,6 +82,8 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   QgsRectangle extent = mMapCanvas->mapSettings().visibleExtent();
   extent.scale( scale, &newCenter );
   mMapCanvas->setExtent( extent );
+
+  emit mapSettingsChanged();
 
   update();
 }
@@ -114,6 +126,8 @@ void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
 
   mMapCanvas->setExtent( r );
 
+  emit mapSettingsChanged();
+
   update();
 }
 
@@ -126,4 +140,7 @@ void QgsQuickMapCanvasMap::geometryChanged( const QRectF& newGeometry, const QRe
 {
   mMapCanvas->resize( newGeometry.toRect().width()+1, newGeometry.toRect().height() + 1 );
   QQuickPaintedItem::geometryChanged( newGeometry, oldGeometry );
+
+  // Todo: is this the correct way to deal with this?
+  emit mapSettingsChanged();
 }

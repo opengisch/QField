@@ -21,11 +21,14 @@
 #include <QTimer>
 
 #include "qgsmapcanvas.h"
+#include "qgsmapsettingsvariant.h"
 
 class QgsQuickMapCanvasMap : public QQuickPaintedItem
 {
-    Q_PROPERTY( bool parallelRendering READ parallelRendering WRITE setParallelRendering NOTIFY parallelRenderingChanged )
     Q_OBJECT
+
+    Q_PROPERTY( QVariant mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( bool parallelRendering READ parallelRendering WRITE setParallelRendering NOTIFY parallelRenderingChanged )
 
   public:
     QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
@@ -40,8 +43,15 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
 
     QgsPoint toMapCoordinates( QPoint canvasCoordinates );
 
+    void setMapSettings( const QVariant& mapSettings );
+    const QVariant mapSettings();
+
   signals:
     void parallelRenderingChanged();
+    void mapSettingsChanged();
+
+  protected:
+    void geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry );
 
   public slots:
     void zoom( QPointF center, qreal scale );
@@ -52,10 +62,6 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     QScopedPointer<QgsMapCanvas> mMapCanvas;
     bool mPinching;
     QPoint mPinchStartPoint;
-
-    // QQuickItem interface
-  protected:
-    void geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry );
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H
