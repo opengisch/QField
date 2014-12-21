@@ -4,7 +4,7 @@ QgsSGGeometry::QgsSGGeometry()
 {
 }
 
-QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
+QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int width )
 {
   //TODO: Fix const-correcteness upstream
   QgsGeometry& gg = const_cast<QgsGeometry&>( geom );
@@ -21,7 +21,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
         Q_FOREACH( const QgsPolyline& line, lines )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry ( line ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry ( line, width ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -30,7 +30,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
       else
       {
         QSGGeometryNode* geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolyline() ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolyline(), width ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -46,7 +46,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
         Q_FOREACH( const QgsPolyline& line, lines )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry ( line ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry ( line, width ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -55,7 +55,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
       else
       {
         QSGGeometryNode* geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolyline() ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolyline(), width ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -70,7 +70,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
         Q_FOREACH( const QgsPolygon& polygon, polygons )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry ( polygon.first() ) );
+          geomNode->setGeometry( qgsPolylineToQSGGeometry ( polygon.first(), width ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -79,7 +79,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color )
       else
       {
         QSGGeometryNode* geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolygon().first() ) );
+        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolygon().first(), width ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -97,7 +97,7 @@ void QgsSGGeometry::applyStyle( QSGGeometryNode* geomNode )
   geomNode->setMaterial( &mMaterial );
 }
 
-QSGGeometry* QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolyline& line )
+QSGGeometry* QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolyline& line , int width )
 {
   QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), line.count() );
   QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
@@ -109,7 +109,7 @@ QSGGeometry* QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolyline& line )
     i++;
   }
 
-  sgGeom->setLineWidth( 4 );
+  sgGeom->setLineWidth( width );
   sgGeom->setDrawingMode( GL_LINE_STRIP );
 
   return sgGeom;

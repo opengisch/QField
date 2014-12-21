@@ -22,12 +22,12 @@ class QgsSGGeometry : public QSGNode
 {
   public:
     QgsSGGeometry();
-    QgsSGGeometry( const QgsGeometry& geom , const QColor& color );
+    QgsSGGeometry( const QgsGeometry& geom , const QColor& color, int width );
 
   private:
     void applyStyle( QSGGeometryNode* geomNode );
 
-    static QSGGeometry* qgsPolylineToQSGGeometry( const QgsPolyline& line );
+    static QSGGeometry* qgsPolylineToQSGGeometry( const QgsPolyline& line, int width );
 
     QSGFlatColorMaterial mMaterial;
 };
