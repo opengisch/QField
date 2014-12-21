@@ -104,7 +104,7 @@ Rectangle {
         source: "/themes/holodark/settings.png"
       }
     }
-
+/*
     Item {
       id: gpsButton
       height: dp*48
@@ -169,9 +169,9 @@ Rectangle {
         height: 42
       }
     }
+  */
   }
 
-  /*
   FileDialog {
     id: openProjectDialog
     title: "Please choose a project"
@@ -182,7 +182,6 @@ Rectangle {
       project.read( openProjectDialog.fileUrl.toString().slice(7) )
     }
   }
-  */
 
   Menu {
     id: mainMenu
@@ -192,10 +191,10 @@ Rectangle {
       text: "Open Project"
       iconSource: "/themes/holodark/map.png"
       onTriggered: {
-        iface.openProjectDialog()
+        openProjectDialog.visible = true
       }
     }
-
+/*
     MenuItem {
       text: "Layers"
       iconSource: "/themes/holodark/layers.png"
@@ -203,7 +202,7 @@ Rectangle {
         messageDialog.visible = true
       }
     }
-
+*/
     MenuSeparator {}
 
     MenuItem {
