@@ -51,6 +51,7 @@ Rectangle {
         selection: featureForm.selection
         color: "yellow"
         selectionColor: "#ff7777"
+        width: 5
       }
     }
   }
@@ -226,6 +227,39 @@ Rectangle {
   function displayToast(message) {
     toastMessage.text = message
     toast.opacity = 1
+  }
+
+  Rectangle {
+    id: busyMessage
+    anchors.fill: parent
+    color: "#272727"
+    opacity: 0.5
+
+    BusyIndicator {
+      id: busyMessageIndicator
+      anchors.centerIn: parent
+      running: true
+    }
+
+    Text {
+      id: busyMessageText
+      anchors.top: busyMessageIndicator.bottom
+      anchors.horizontalCenter: parent.horizontalCenter
+      text: qsTr( "Loading Project" )
+    }
+
+    Connections {
+      target: iface
+
+      onLoadProjectStarted: {
+        busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
+        busyMessage.visible = true
+      }
+
+      onLoadProjectEnded: {
+        busyMessage.visible = false
+      }
+    }
   }
 
   // Toast
