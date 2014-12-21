@@ -16,15 +16,14 @@
 #ifndef FEATURELISTMODELHIGHLIGHT_H
 #define FEATURELISTMODELHIGHLIGHT_H
 
-#include <QObject>
+#include <QtQuick/QQuickItem>
 
 #include <qgshighlight.h>
 
 #include "featurelistmodel.h"
 #include "featurelistmodelselection.h"
-#include "qgsquickmapcanvasmap.h"
 
-class FeatureListModelHighlight : public QObject
+class FeatureListModelHighlight : public QQuickItem
 {
     Q_OBJECT
 
@@ -32,10 +31,9 @@ class FeatureListModelHighlight : public QObject
     Q_PROPERTY( FeatureListModelSelection* selection READ selection WRITE setSelection NOTIFY selectionChanged )
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( QColor selectionColor MEMBER mSelectionColor NOTIFY selectionColorChanged )
-    Q_PROPERTY( QgsQuickMapCanvasMap* mapCanvas MEMBER mMapCanvas NOTIFY mapCanvasChanged )
 
   public:
-    explicit FeatureListModelHighlight( QObject *parent = 0 );
+    explicit FeatureListModelHighlight( QQuickItem *parent = 0 );
 
     void setSelection( FeatureListModelSelection* selection );
     FeatureListModelSelection* selection() const;
@@ -53,12 +51,13 @@ class FeatureListModelHighlight : public QObject
     void onSelectionChanged();
 
   private:
-    QgsQuickMapCanvasMap* mMapCanvas;
+    virtual QSGNode* updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;
+
     QColor mColor;
     QColor mSelectionColor;
     FeatureListModel* mModel;
     FeatureListModelSelection* mSelection;
-    QList<QgsHighlight*> mHighlights;
+    bool mDirty;
 };
 
 #endif // FEATURELISTMODELHIGHLIGHT_H

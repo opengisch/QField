@@ -17,6 +17,8 @@
 
 #include <QApplication>
 
+#include <unistd.h>
+
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickItem>
@@ -25,7 +27,6 @@
 #include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenuBar>
 #include <QStandardItemModel>
-#include <QtCore/QTimer>
 
 #include <qgsproject.h>
 #include <qgsmaplayerregistry.h>
@@ -39,11 +40,16 @@
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
 #include "qgseditorwidgetregistry.h"
+#include "maptransform.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
   , mIface( new AppInterface( this ) )
 {
+  QSurfaceFormat format;
+  format.setSamples( 8 );
+  setFormat( format );
+
   initDeclarative();
 
   QgsEditorWidgetRegistry::initEditors();
@@ -66,18 +72,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
 
-  connect( QgsProject::instance(), SIGNAL( onReadProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
+  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
-  connect( QgsProject::instance(), SIGNAL( onReadProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( onReadProject( QDomDocument ) ) );
-  connect( mapCanvasBridge, SIGNAL( identifyFeature( QPointF ) ), this, SLOT( identifyFeature( QPointF ) ) );
+  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
 
   show();
 
-  QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
+  QTimer::singleShot( 50, this, SLOT( loadLastProject() ) );
 }
 
 void QgisMobileapp::initDeclarative()
@@ -90,6 +95,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
+  qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -148,7 +154,7 @@ void QgisMobileapp::loadLastProject()
 {
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
   if ( lastProjectFile.isValid() )
-    QgsProject::instance()->read( lastProjectFile.toString() );
+    loadProjectFile( lastProjectFile.toString() );
 }
 
 void QgisMobileapp::openProjectDialog()
@@ -173,6 +179,7 @@ void QgisMobileapp::loadProjectFile( const QString& path )
 
 QgisMobileapp::~QgisMobileapp()
 {
-  delete QgsEditorWidgetRegistry::instance();
+  // Reintroduce when created on the heap
+  // delete QgsEditorWidgetRegistry::instance();
   delete QgsProject::instance();
 }
