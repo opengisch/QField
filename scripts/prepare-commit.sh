@@ -64,6 +64,11 @@ ASTYLEDIFF=astyle.$REV.diff
 # reformat
 for f in $MODIFIED; do
   case "$f" in
+	  src/3rdparty/*)
+		echo $f skipped
+		continue
+		;;
+
       *.cpp|*.c|*.h|*.cxx|*.hxx|*.c++|*.h++|*.cc|*.hh|*.C|*.H)
     ;;
 
