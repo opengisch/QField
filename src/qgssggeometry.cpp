@@ -70,7 +70,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
         Q_FOREACH( const QgsPolygon& polygon, polygons )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry ( polygon.first(), width ) );
+          geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -79,7 +79,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       else
       {
         QSGGeometryNode* geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolygon().first(), width ) );
+        geomNode->setGeometry( qgsPolygonToQSGGeometry( gg.asPolygon() ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -111,6 +111,42 @@ QSGGeometry* QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolyline& line , 
 
   sgGeom->setLineWidth( width );
   sgGeom->setDrawingMode( GL_LINE_STRIP );
+
+  return sgGeom;
+}
+
+QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
+{
+  QgsPolygon::ConstIterator it = polygon.constBegin();
+
+  const QgsPolyline& ring = *it;
+  it++;
+
+  std::vector<p2t::Point*> boundary;
+  toPoly2Tri( ring, boundary );
+  p2t::CDT cdt( boundary );
+  cdt.Triangulate();
+
+  std::vector<p2t::Triangle*> triangles = cdt.GetTriangles();
+
+  QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), triangles.size() * 3 );
+
+  int i = 0; // Index of the current vertex
+  for( std::vector<p2t::Triangle*>::const_iterator tit = triangles.begin(); tit != triangles.end(); ++tit )
+  {
+    p2t::Triangle* p2tTri = *tit;
+
+    QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
+
+    for ( int j = 0; j < 3; j++ )
+    {
+      p2t::Point* p = p2tTri->GetPoint( j );
+      vertices[i].set( p->x, p->y );
+      i++;
+    }
+
+    sgGeom->setDrawingMode( GL_TRIANGLES );
+  }
 
   return sgGeom;
 }
