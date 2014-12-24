@@ -34,12 +34,12 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
     case QGis::Point:
       if ( gg.isMultipart() )
       {
-        const QgsMultiPolyline& lines = gg.asMultiPolyline();
+        const QgsMultiPoint& points = gg.asMultiPoint();
 
-        Q_FOREACH( const QgsPolyline& line, lines )
+        Q_FOREACH( const QgsPoint& point, points )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPolylineToQSGGeometry ( line, width ) );
+          geomNode->setGeometry( qgsPointToQSGGeometry ( point, width ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -48,7 +48,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       else
       {
         QSGGeometryNode* geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPolylineToQSGGeometry ( gg.asPolyline(), width ) );
+        geomNode->setGeometry( qgsPointToQSGGeometry ( gg.asPoint(), width ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -185,6 +185,18 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
   }
 
   stdDeleteAll( boundary );
+
+  return sgGeom;
+}
+
+QSGGeometry*QgsSGGeometry::qgsPointToQSGGeometry( const QgsPoint& point, int width )
+{
+  QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), 1 );
+
+  QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
+  vertices[0].set( point.x(), point.y() );
+  sgGeom->setDrawingMode( GL_POINTS );
+  sgGeom->setLineWidth( width );
 
   return sgGeom;
 }
