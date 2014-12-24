@@ -1,5 +1,23 @@
 #include "qgssggeometry.h"
 
+static void toPoly2Tri( const QgsPolyline& polygon, std::vector<p2t::Point *>& p2tVector )
+{
+  // Q_ASSERT(polygon.first() != polygon.last());
+  Q_FOREACH( const QgsPoint &point, polygon )
+  {
+    if ( p2tVector.size() != ( size_t ) ( polygon.size() - 1 ) )
+      p2tVector.push_back( new p2t::Point( point.x(), point.y() ) );
+  }
+}
+
+static void stdDeleteAll( std::vector<auto*> v )
+{
+  for ( size_t i = 0; i < v.size(); i++ )
+  {
+    delete v[i];
+  }
+}
+
 QgsSGGeometry::QgsSGGeometry()
 {
 }
@@ -67,10 +85,20 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       {
         const QgsMultiPolygon& polygons = gg.asMultiPolygon();
 
+        QSGOpacityNode* on = new QSGOpacityNode;
+        on->setOpacity( 0.5 );
+
         Q_FOREACH( const QgsPolygon& polygon, polygons )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon ) );
+          geomNode->setFlag( QSGNode::OwnsGeometry );
+          applyStyle( geomNode );
+          on->appendChildNode( geomNode );
+          appendChildNode( on );
+
+          geomNode = new QSGGeometryNode;
+          geomNode->setGeometry( qgsPolylineToQSGGeometry( polygon.first(), width ) );
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           appendChildNode( geomNode );
@@ -78,8 +106,16 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       }
       else
       {
+        QSGOpacityNode* on = new QSGOpacityNode;
+        on->setOpacity( 0.5 );
         QSGGeometryNode* geomNode = new QSGGeometryNode;
         geomNode->setGeometry( qgsPolygonToQSGGeometry( gg.asPolygon() ) );
+        geomNode->setFlag( QSGNode::OwnsGeometry );
+        applyStyle( geomNode );
+        on->appendChildNode( geomNode );
+        appendChildNode( on );
+        geomNode = new QSGGeometryNode;
+        geomNode->setGeometry( qgsPolylineToQSGGeometry( gg.asPolygon().first(), width ) );
         geomNode->setFlag( QSGNode::OwnsGeometry );
         applyStyle( geomNode );
         appendChildNode( geomNode );
@@ -147,6 +183,8 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
 
     sgGeom->setDrawingMode( GL_TRIANGLES );
   }
+
+  stdDeleteAll( boundary );
 
   return sgGeom;
 }
