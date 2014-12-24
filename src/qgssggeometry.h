@@ -8,16 +8,6 @@
 
 #include "qgsgeometry.h"
 
-static void toPoly2Tri( const QgsPolyline& polygon, std::vector<p2t::Point *>& p2tVector )
-{
-  // Q_ASSERT(polygon.first() != polygon.last());
-  Q_FOREACH( const QgsPoint &point, polygon )
-  {
-    if ( p2tVector.size() != ( size_t ) ( polygon.size() - 1 ) )
-      p2tVector.push_back( new p2t::Point( point.x(), point.y() ) );
-  }
-}
-
 
 class QgsSGGeometry : public QSGNode
 {
