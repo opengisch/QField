@@ -1,7 +1,7 @@
 /***************************************************************************
 
                ----------------------------------------------------
-              date                 : 20.12.2014
+              date                 : 27.12.2014
               copyright            : (C) 2014 by Matthias Kuhn
               email                : matthias.kuhn (at) opengis.ch
  ***************************************************************************
@@ -13,37 +13,46 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef MAPTRANSFORM_H
-#define MAPTRANSFORM_H
+#ifndef FEATURELISTEXTENTCONTROLLER_H
+#define FEATURELISTEXTENTCONTROLLER_H
 
-#include <QtQuick/QQuickTransform>
-#include <QtGui/QMatrix4x4>
+#include <QObject>
 
+#include "featurelistmodel.h"
+#include "featurelistmodelselection.h"
 #include "mapsettings.h"
 
-class MapTransform : public QQuickTransform
+class FeatureListExtentController : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+
+    Q_PROPERTY( FeatureListModel* model MEMBER mModel NOTIFY modelChanged )
+    Q_PROPERTY( FeatureListModelSelection* selection MEMBER mSelection NOTIFY selectionChanged )
+    Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
+    Q_PROPERTY( MapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    MapTransform();
-    ~MapTransform();
+    FeatureListExtentController( QObject* parent = 0 );
+    ~FeatureListExtentController();
 
-    void applyTo( QMatrix4x4* matrix ) const;
-
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* mapSettings );
+  public slots:
+    void zoomToSelected() const;
 
   signals:
+    void autoZoomChanged();
+    void selectionChanged();
+    void modelChanged();
     void mapSettingsChanged();
 
   private slots:
-    void updateMatrix();
+    void onModelChanged();
+    void onCurrentSelectionChanged();
 
   private:
+    FeatureListModel* mModel;
+    FeatureListModelSelection* mSelection;
     MapSettings* mMapSettings;
-    QMatrix4x4 mMatrix;
+    bool mAutoZoom;
 };
 
-#endif // MAPTRANSFORM_H
+#endif // FEATURELISTEXTENTCONTROLLER_H

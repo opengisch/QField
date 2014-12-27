@@ -23,12 +23,12 @@ import org.qgis 1.0
 Item {
   anchors.fill: parent
   id: mapArea
-  property MapCanvasMap mapCanvasWrapper: mapCanvasWrapper
-  property variant mapSettings: mapCanvasWrapper.mapSettings
+  property MapSettings mapSettings
 
   MapCanvasMap {
     id: mapCanvasWrapper
     parallelRendering: true
+    mapSettings: mapArea.mapSettings
 
     anchors.fill: parent
   }

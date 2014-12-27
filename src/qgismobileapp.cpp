@@ -41,6 +41,8 @@
 #include "featurelistmodelhighlight.h"
 #include "qgseditorwidgetregistry.h"
 #include "maptransform.h"
+#include "mapsettings.h"
+#include "featurelistextentcontroller.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -79,12 +81,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
+  connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ) );
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
   show();
-
-  QTimer::singleShot( 50, this, SLOT( loadLastProject() ) );
 }
 
 void QgisMobileapp::initDeclarative()
@@ -98,6 +99,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
+  qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
+  qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -150,6 +153,13 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
     mFeatureListModel.setFeatures( requests );
     mIface->openFeatureForm();
   }
+}
+
+void QgisMobileapp::onAfterFirstRendering()
+{
+  QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
+  // This should get triggered exactly once, so we disconnect it right away
+  disconnect( this, SIGNAL( afterRendering() ), this, SLOT( onAfterFirstRendering() ) );
 }
 
 void QgisMobileapp::loadLastProject()
