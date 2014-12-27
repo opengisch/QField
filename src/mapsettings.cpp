@@ -1,7 +1,7 @@
 /***************************************************************************
 
                ----------------------------------------------------
-              date                 : 20.12.2014
+              date                 : 27.12.2014
               copyright            : (C) 2014 by Matthias Kuhn
               email                : matthias.kuhn (at) opengis.ch
  ***************************************************************************
@@ -13,47 +13,51 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "maptransform.h"
+#include "mapsettings.h"
 
-#include <QDebug>
-
-MapTransform::MapTransform()
+MapSettings::MapSettings( QObject* parent )
+  : QObject( parent )
+  , mMapCanvas( 0 )
 {
+
 }
 
-MapTransform::~MapTransform()
+MapSettings::~MapSettings()
 {
+
 }
 
-void MapTransform::applyTo( QMatrix4x4* matrix ) const
+const QgsRectangle MapSettings::extent() const
 {
-  *matrix *= mMatrix;
-  matrix->optimize();
+  return mMapCanvas->mapSettings().extent();
 }
 
-MapSettings* MapTransform::mapSettings() const
+void MapSettings::setExtent( const QgsRectangle& extent )
 {
-  return mMapSettings;
-}
-
-void MapTransform::setMapSettings( MapSettings* mapSettings )
-{
-  if ( mapSettings != mMapSettings )
+  if ( mMapCanvas && mMapCanvas->mapSettings().extent() != extent )
   {
-    mMapSettings = mapSettings;
-    connect( mMapSettings, SIGNAL(extentChanged()), SLOT(updateMatrix()));
-    emit mapSettingsChanged();
+    mMapCanvas->setExtent( extent );
+    mMapCanvas->refresh();
   }
 }
 
-void MapTransform::updateMatrix()
+void MapSettings::setQgsMapCanvas( QgsMapCanvas* mapCanvas )
 {
-  QMatrix4x4 matrix;
-  float scaleFactor = 1 / mMapSettings->mapUnitsPerPixel();
+  mMapCanvas = mapCanvas;
+  connect( mMapCanvas,SIGNAL( extentsChanged() ), this, SIGNAL( extentChanged() ) );
+}
 
-  matrix.scale( scaleFactor, -scaleFactor );
-  matrix.translate( -mMapSettings->visibleExtent().xMinimum(), -mMapSettings->visibleExtent().yMaximum() );
+QgsMapCanvas* MapSettings::qgsMapCanvas()
+{
+  return mMapCanvas;
+}
 
-  mMatrix = matrix;
-  update();
+double MapSettings::mapUnitsPerPixel()
+{
+  return mMapCanvas->mapSettings().mapUnitsPerPixel();
+}
+
+const QgsRectangle MapSettings::visibleExtent()
+{
+  return mMapCanvas->mapSettings().visibleExtent();
 }

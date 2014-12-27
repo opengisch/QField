@@ -27,6 +27,7 @@ Rectangle {
   property bool showEditButtons
   property FeatureListModel model
   property FeatureListModelSelection selection
+  property FeaturelistExtentController extentController
 
   signal statusIndicatorClicked
   signal editButtonClicked
@@ -166,6 +167,38 @@ Rectangle {
     Behavior on width {
       PropertyAnimation {
         easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  Button {
+    id: followCurrentButton
+
+    anchors.left: previousButton.right
+
+    width: ( parent.state == "Navigation" ? 48*dp : 0 )
+    height: 48*dp
+    clip: true
+    checkable: true
+    checked: extentController.autoZoom
+
+    iconSource: "/themes/holodark/location.png"
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        extentController.zoomToSelected()
+      }
+
+      onPressAndHold: {
+        extentController.autoZoom = !extentController.autoZoom
       }
     }
   }

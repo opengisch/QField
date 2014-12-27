@@ -24,6 +24,7 @@ Rectangle {
   id: featureForm
 
   property FeatureListModelSelection selection
+  property MapSettings mapSettings
   property color selectionColor
 
   states: [
@@ -221,7 +222,7 @@ Rectangle {
         anchors { right: parent.right; left: parent.left }
         height: Math.max( 30*dp, childrenRect.height )
 
-        Row {
+        Item {
           anchors { verticalCenter: parent.verticalCenter; right: parent.right; left:parent.left }
           height: childrenRect.height
 
@@ -242,8 +243,7 @@ Rectangle {
             /* attribute value */
             Loader {
               id: attributeEditorLoader
-              anchors.left: parent.left
-              anchors.right: parent.right
+              anchors { left: parent.left; right: parent.right }
 
               visible: featureFormList.state == "Edit"
               property variant value: attributeValue
@@ -279,6 +279,11 @@ Rectangle {
     id: featureListToolBar
     model: featureListModel
     selection: featureForm.selection
+    extentController: FeaturelistExtentController {
+      model: featureListModel
+      selection: featureForm.selection
+      mapSettings: featureForm.mapSettings
+    }
 
     onStatusIndicatorClicked: {
       featureForm.state = "FeatureList"

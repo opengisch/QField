@@ -28,6 +28,9 @@ Rectangle {
   Item {
     id: mapCanvas
 
+    property MapSettings mapSettings: MapSettings {
+    }
+
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.bottom: parent.bottom
@@ -35,6 +38,7 @@ Rectangle {
 
     MapCanvas {
       id: mapCanvasMap
+      mapSettings: mapCanvas.mapSettings
 
       anchors.fill: parent
     }
@@ -43,7 +47,7 @@ Rectangle {
       anchors.fill: parent
 
       transform: MapTransform {
-        mapSettings: mapCanvasMap.mapSettings
+        mapSettings: mapCanvas.mapSettings
       }
 
       FeatureListModelHighlight {
@@ -58,6 +62,7 @@ Rectangle {
 
   FeatureForm {
     id: featureForm
+    mapSettings: mapCanvas.mapSettings
 
     anchors.right: parent.right
     anchors.top: parent.top

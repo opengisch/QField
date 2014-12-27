@@ -78,6 +78,8 @@ class QgisMobileapp : public QQuickView
      */
     void onReadProject( const QDomDocument& doc );
 
+    void onAfterFirstRendering();
+
   private:
     void initDeclarative();
 
