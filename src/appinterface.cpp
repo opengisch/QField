@@ -30,11 +30,6 @@ void AppInterface::identifyFeatures( const QPointF point )
   mApp->identifyFeatures( point );
 }
 
-void AppInterface::openProjectDialog()
-{
-  mApp->openProjectDialog();
-}
-
 void AppInterface::openFeatureForm()
 {
   emit openFeatureFormRequested();
