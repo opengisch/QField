@@ -61,7 +61,7 @@ FIND_PACKAGE(Qt5Script REQUIRED)
 FIND_PACKAGE(Qt5Sql REQUIRED)
 FIND_PACKAGE(Qt5OpenGL REQUIRED)
 
-MESSAGE(STATUS "Found Qt version: ${QTVERSION}")
+MESSAGE(STATUS "Found Qt version: ${Qt5Core_VERSION_STRING}")
 
 #############################################################
 # search for other required packages
@@ -291,6 +291,10 @@ ADD_DEFINITIONS( "-DGUI_EXPORT=" )
 
 # Process subdirs
 
+IF(ENABLE_TESTS)
+  ENABLE_TESTING()
+  ADD_SUBDIRECTORY(test)
+ENDIF(ENABLE_TESTS)
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(images)
 
