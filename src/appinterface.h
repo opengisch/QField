@@ -48,8 +48,6 @@ class AppInterface : public QObject
      */
     void identifyFeatures( const QPointF point );
 
-    void openProjectDialog();
-
     void openFeatureForm();
 
   signals:
