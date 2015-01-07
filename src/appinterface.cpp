@@ -25,6 +25,11 @@ AppInterface::AppInterface( QgisMobileapp* app )
 {
 }
 
+void AppInterface::loadProject( const QString& path )
+{
+  return mApp->loadProjectFile( path );
+}
+
 void AppInterface::identifyFeatures( const QPointF point )
 {
   mApp->identifyFeatures( point );

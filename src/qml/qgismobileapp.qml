@@ -185,7 +185,7 @@ Rectangle {
 
     onAccepted: {
       console.debug( "Open file " + openProjectDialog.fileUrl.toString().slice(7) )
-      project.read( openProjectDialog.fileUrl.toString().slice(7) )
+      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
     }
   }
 
@@ -303,4 +303,15 @@ Rectangle {
       onTriggered: { toast.opacity = 0 }
     }
   }
+/*
+  ToolBar {
+    width: childrenRect.width
+    height: parent.height
+    Column {
+      ToolButton {
+        iconSource: "/themes/holodark/settings.png"
+      }
+    }
+  }
+*/
 }

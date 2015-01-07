@@ -46,6 +46,13 @@ class QgisMobileapp : public QQuickView
 
     void showFeatureForm( const Feature& feature );
 
+    /**
+     * When called loads the project file found at path.
+     *
+     * @param path The project file to load
+     */
+    void loadProjectFile( const QString& path );
+
   signals:
     /**
      * Emitted when a project file is being loaded
@@ -60,12 +67,7 @@ class QgisMobileapp : public QQuickView
     void loadProjectEnded();
 
   private slots:
-    /**
-     * When called loads the project file found at path.
-     *
-     * @param path The project file to load
-     */
-    void loadProjectFile( const QString& path );
+
     /**
      * When called loads the last project
      */

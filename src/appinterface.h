@@ -39,6 +39,8 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
+    Q_INVOKABLE void loadProject( const QString& path );
+
   public slots:
     /**
      * When called, it will request any features at this position and after doing so emit a
