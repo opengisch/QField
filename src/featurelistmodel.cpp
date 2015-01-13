@@ -89,7 +89,7 @@ QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& par
 {
   Q_UNUSED( parent )
 
-  if ( row < 0 || row >= mFeatures.size() )
+  if ( row < 0 || row >= mFeatures.size() || column != 0 )
     return QModelIndex();
 
   return createIndex( row, column, mFeatures.at( row ) );
@@ -103,8 +103,10 @@ QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
 
 int FeatureListModel::rowCount( const QModelIndex& parent ) const
 {
-  Q_UNUSED( parent );
-  return mFeatures.count();
+  if ( parent.isValid() )
+    return 0;
+  else
+    return mFeatures.count();
 }
 
 int FeatureListModel::columnCount( const QModelIndex& parent ) const

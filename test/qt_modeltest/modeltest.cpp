@@ -289,7 +289,7 @@ void ModelTest::parent()
   // as the first column in a row.
   // Usually the second column shouldn't have children.
   QModelIndex topIndex1 = model->index( 0, 1, QModelIndex() );
-  if ( model->rowCount( topIndex1 ) > 0 )
+  if ( model->rowCount( topIndex1 ) > 0 && model->columnCount( QModelIndex() ) > 1 )
   {
     QModelIndex childIndex = model->index( 0, 0, topIndex );
     QModelIndex childIndex1 = model->index( 0, 0, topIndex1 );
@@ -497,7 +497,7 @@ void ModelTest::data()
  */
 void ModelTest::rowsAboutToBeInserted( const QModelIndex &parent, int start, int end )
 {
-//     Q_UNUSED(end);
+  Q_UNUSED( end );
 //    qDebug() << "rowsAboutToBeInserted" << "start=" << start << "end=" << end << "parent=" << model->data ( parent ).toString()
 //    << "current count of parent=" << model->rowCount ( parent ); // << "display of last=" << model->data( model->index(start-1, 0, parent) );
 //     qDebug() << model->index(start-1, 0, parent) << model->data( model->index(start-1, 0, parent) );
