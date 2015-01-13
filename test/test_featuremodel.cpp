@@ -66,4 +66,4 @@ class FeatureModelTest: public QObject, QgisTestApp
 
 QTEST_MAIN( FeatureModelTest )
 
-#include "featuremodel.moc"
+#include "test_featuremodel.moc"
