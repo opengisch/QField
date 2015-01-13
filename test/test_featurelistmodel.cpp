@@ -42,6 +42,11 @@ class FeatureListModelTest: public QObject, QgisTestApp
       mModel->setFeatures( requests );
 
       Q_ASSERT( mModel->rowCount( QModelIndex() ) == 5 );
+
+      delete mLayer;
+      mLayer = 0;
+
+      Q_ASSERT( mModel->rowCount( QModelIndex() ) == 0 );
     }
 
     void cleanupTestCase()

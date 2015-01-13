@@ -45,7 +45,7 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
   {
     Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
     mFeatures.append( f );
-    connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerRemoved() ) );
+    connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
   }
 
   endResetModel();
@@ -67,6 +67,7 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
     {
       Feature* f = new Feature( feat, it.key() );
       mFeatures.append( f );
+      connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
     }
   }
 
@@ -157,6 +158,7 @@ bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent
   beginRemoveRows( parent, row, last );
   while ( i <= last )
   {
+    it.next();
     delete ( it.value() );
     it.remove();
     i++;
