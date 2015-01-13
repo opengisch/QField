@@ -61,8 +61,10 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
 
 int FeatureModel::rowCount( const QModelIndex& parent ) const
 {
-  Q_UNUSED( parent )
-  return mFeature.attributes().count();
+  if ( parent.isValid() )
+    return 0;
+  else
+    return mFeature.attributes().count();
 }
 
 QVariant FeatureModel::data( const QModelIndex& index, int role ) const
