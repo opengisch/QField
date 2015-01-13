@@ -5,6 +5,7 @@ IF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 ENDIF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
 
+# Find Qt packages
 FIND_PACKAGE(Qt5Test REQUIRED)
 FIND_PACKAGE(Qt5Xml REQUIRED)
 FIND_PACKAGE(Qt5Qml REQUIRED)
@@ -20,12 +21,15 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}
   ${QGIS_INCLUDE_DIR}
 )
 
-
-# Required because Qt is compiled with -reduce-relocation
+# PIC. Because Qt is/may be compiled with -reduce-relocation
 SET (CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 
-ADD_DEFINITIONS ("-DTESTDATA_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/QGIS-Testdata\"")
+# Test data directory
+ADD_DEFINITIONS ("-DTESTDATA_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/QGIS-Sampledata\"")
 
+ADD_SUBDIRECTORY(qt_modeltest)
+
+# Add unit test macro
 MACRO (ADD_UNIT_TEST testname testsrc)
   SET(test_${testname}_SRCS ${testsrc})
   SET(test_${testname}_MOC_CPPS ${testsrc})
@@ -39,9 +43,12 @@ MACRO (ADD_UNIT_TEST testname testsrc)
     ${Qt5Quick_LIBRARIES}
     ${QGIS_CORE_LIBRARY}
     ${QGIS_MOBILE_APP_NAME}_core
+    qt_modeltest
   )
 
   ADD_TEST(qgis_${testname} ${CMAKE_CURRENT_BINARY_DIR}/../output/bin/test_${testname})
 ENDMACRO (ADD_UNIT_TEST)
 
-ADD_UNIT_TEST(featuremodel featuremodel.cpp)
+# List of unit tests
+ADD_UNIT_TEST(featuremodel test_featuremodel.cpp)
+ADD_UNIT_TEST(featurelistmodel test_featurelistmodel.cpp)
