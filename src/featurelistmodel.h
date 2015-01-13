@@ -60,10 +60,23 @@ class FeatureListModel : public QAbstractItemModel
     int columnCount( const QModelIndex& parent ) const;
     QVariant data( const QModelIndex& index, int role ) const;
 
+    /**
+     * Removes a defined number of rows starting from a given position. The parent index is not
+     * used as we have a list only.
+     *
+     * @param row   The first row to remove
+     * @param count The numbe rof rows to remove
+     * @param parent Can savely be omitted as it is unused and defaults to an invalid index
+     */
+    virtual bool removeRows( int row, int count, const QModelIndex &parent ) override;
+
     int count() const;
 
   signals:
     void countChanged();
+
+  private slots:
+    void layerDeleted();
 
   private:
     inline Feature* toFeature( const QModelIndex& index ) const

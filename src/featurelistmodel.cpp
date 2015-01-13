@@ -39,10 +39,13 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
   qDeleteAll( mFeatures );
   mFeatures.clear();
 
+  disconnect( this, SLOT( layerRemoved() ) );
+
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
     Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
     mFeatures.append( f );
+    connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerRemoved() ) );
   }
 
   endResetModel();
@@ -86,7 +89,7 @@ QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& par
 {
   Q_UNUSED( parent )
 
-  if ( row < 0 )
+  if ( row < 0 || row >= mFeatures.size() )
     return QModelIndex();
 
   return createIndex( row, column, mFeatures.at( row ) );
@@ -113,6 +116,8 @@ int FeatureListModel::columnCount( const QModelIndex& parent ) const
 QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
 {
   Feature* feature = toFeature( index );
+  if ( !feature )
+    return QVariant();
 
   switch( role )
   {
@@ -132,7 +137,69 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
+bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent = QModelIndex() )
+{
+  if ( !count )
+    return true;
+
+  int i = 0;
+  QMutableListIterator<Feature*> it( mFeatures );
+  while ( i < row )
+  {
+    it.next();
+    i++;
+  }
+
+  int last = row + count - 1;
+
+  beginRemoveRows( parent, row, last );
+  while ( i <= last )
+  {
+    delete ( it.value() );
+    it.remove();
+    i++;
+  }
+  endRemoveRows();
+
+  return true;
+}
+
 int FeatureListModel::count() const
 {
   return mFeatures.size();
+}
+
+void FeatureListModel::layerDeleted()
+{
+  QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
+  Q_ASSERT( l );
+
+  int firstRowToRemove = -1;
+  int count = 0;
+  int currentRow = 0;
+
+  /*
+   * Features on the same layer are always subsequent.
+   * We therefore can search for the first feature and
+   * count all subsequent ones.
+   * Once there is a feature of a different layer found
+   * we can stop searching.
+   */
+  Q_FOREACH( Feature* f, mFeatures )
+  {
+    if ( f->layer() == l )
+    {
+      if ( firstRowToRemove == -1 )
+        firstRowToRemove = currentRow;
+
+      count++;
+    }
+    else if ( firstRowToRemove != -1 )
+    {
+      break;
+    }
+    currentRow++;
+  }
+
+  removeRows( firstRowToRemove, count );
 }
