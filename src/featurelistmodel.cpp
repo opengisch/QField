@@ -39,7 +39,7 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
   qDeleteAll( mFeatures );
   mFeatures.clear();
 
-  disconnect( this, SLOT( layerRemoved() ) );
+  disconnect( this, SLOT( layerDeleted() ) );
 
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
