@@ -1,1 +1,1 @@
-ADD_SUBDIRECTORY(poly2tri)
+ADD_SUBDIRECTORY(tessellate)

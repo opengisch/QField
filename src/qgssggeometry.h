@@ -4,10 +4,7 @@
 #include <QtQuick/QSGGeometryNode>
 #include <QtQuick/QSGFlatColorMaterial>
 
-#include "3rdparty/poly2tri/poly2tri.h"
-
 #include "qgsgeometry.h"
-
 
 class QgsSGGeometry : public QSGNode
 {

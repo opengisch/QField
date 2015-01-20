@@ -1,13 +1,6 @@
 #include "qgssggeometry.h"
-
-static void toPoly2Tri( const QgsPolyline& polygon, std::vector<p2t::Point *>& p2tVector )
-{
-  // Q_ASSERT(polygon.first() != polygon.last());
-  Q_FOREACH( const QgsPoint &point, polygon )
-  {
-    if ( p2tVector.size() != ( size_t ) ( polygon.size() - 1 ) )
-      p2tVector.push_back( new p2t::Point( point.x(), point.y() ) );
-  }
+extern "C" {
+#include "tessellate.h"
 }
 
 static void stdDeleteAll( std::vector<auto*> v )
@@ -155,36 +148,41 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
 {
   QgsPolygon::ConstIterator it = polygon.constBegin();
 
+  double* coordinates_out;
+  int* tris_out;
+  int nverts, ntris;
+
   const QgsPolyline& ring = *it;
-  it++;
 
-  std::vector<p2t::Point*> boundary;
-  toPoly2Tri( ring, boundary );
-  p2t::CDT cdt( boundary );
-  cdt.Triangulate();
+  double* vertices_in = ( double* )malloc( ring.size() * 2 * sizeof( double ) );
+  const double* contours_array[] = { vertices_in, vertices_in + ring.size() * 2 };
+  int i = 0;
 
-  std::vector<p2t::Triangle*> triangles = cdt.GetTriangles();
-
-  QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), triangles.size() * 3 );
-
-  int i = 0; // Index of the current vertex
-  for( std::vector<p2t::Triangle*>::const_iterator tit = triangles.begin(); tit != triangles.end(); ++tit )
+  Q_FOREACH( const QgsPoint &point, ring )
   {
-    p2t::Triangle* p2tTri = *tit;
-
-    QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
-
-    for ( int j = 0; j < 3; j++ )
-    {
-      p2t::Point* p = p2tTri->GetPoint( j );
-      vertices[i].set( p->x, p->y );
-      i++;
-    }
-
-    sgGeom->setDrawingMode( GL_TRIANGLES );
+    vertices_in[i++] = point.x();
+    vertices_in[i++] = point.y();
   }
 
-  stdDeleteAll( boundary );
+  tessellate( &coordinates_out, &nverts,
+              &tris_out, &ntris,
+              contours_array, contours_array + 2 );
+
+  QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), ntris * 3 );
+
+  QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
+
+  for ( int j = 0; j < ntris*3; j++ )
+  {
+    vertices[j].x = coordinates_out[tris_out[j]*2];
+    vertices[j].y = coordinates_out[tris_out[j]*2+1];
+  }
+
+  free( vertices_in );
+  free( coordinates_out );
+  free( tris_out );
+
+  sgGeom->setDrawingMode( GL_TRIANGLES );
 
   return sgGeom;
 }
