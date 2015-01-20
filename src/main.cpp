@@ -52,10 +52,10 @@ int main( int argc, char ** argv )
   app.initQgis();
 
   // Set up the QSettings environment must be done after qapp is created
-  QCoreApplication::setOrganizationName( "QGIS" );
-  QCoreApplication::setOrganizationDomain( "qgis.org" );
-  QCoreApplication::setApplicationName( "QGIS" );
+  QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+  QCoreApplication::setOrganizationDomain( "opengis.ch" );
+  QCoreApplication::setApplicationName( "QField" );
 
-  QgisMobileapp mApp(&app);
+  QgisMobileapp mApp( &app );
   return app.exec();
 }
