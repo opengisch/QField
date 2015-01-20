@@ -182,6 +182,8 @@ Rectangle {
     id: openProjectDialog
     title: "Please choose a project"
     visible: false
+    width: parent.width
+    height: parent.height
 
     onAccepted: {
       console.debug( "Open file " + openProjectDialog.fileUrl.toString().slice(7) )
@@ -239,6 +241,7 @@ Rectangle {
     anchors.fill: parent
     color: "#272727"
     opacity: 0.5
+    visible: false
 
     BusyIndicator {
       id: busyMessageIndicator
