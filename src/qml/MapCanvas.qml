@@ -70,10 +70,6 @@ Item {
           var center = Qt.point( mouse.x, mouse.y )
           mapCanvasWrapper.zoom( center, 1.2 )
         }
-        else if ( !__isPanning )
-        {
-          iface.identifyFeatures( Qt.point( mouse.x, mouse.y ) )
-        }
       }
 
       onPressed: {
@@ -87,6 +83,13 @@ Item {
         {
           __isPanning = false
           mapCanvasWrapper.refresh()
+        }
+      }
+
+      onPressAndHold: {
+        if ( !__isPanning )
+        {
+          iface.identifyFeatures( Qt.point( mouse.x, mouse.y ) )
         }
       }
 
