@@ -44,7 +44,7 @@ void MapSettings::setExtent( const QgsRectangle& extent )
 void MapSettings::setQgsMapCanvas( QgsMapCanvas* mapCanvas )
 {
   mMapCanvas = mapCanvas;
-  connect( mMapCanvas,SIGNAL( extentsChanged() ), this, SIGNAL( extentChanged() ) );
+  connect( mMapCanvas, SIGNAL( extentsChanged() ), this, SIGNAL( extentChanged() ) );
 }
 
 QgsMapCanvas* MapSettings::qgsMapCanvas()

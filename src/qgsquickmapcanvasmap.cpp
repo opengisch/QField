@@ -23,7 +23,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   : QQuickPaintedItem( parent )
   , mPinching( false )
 {
-  mMapCanvas.reset( new QgsMapCanvas() );
+  mMapCanvas = new QgsMapCanvas();
   // We just use this widget to access the paint engine...
   mMapCanvas->setAttribute( Qt::WA_DontShowOnScreen );
   mMapCanvas->setParallelRenderingEnabled( true );
@@ -32,9 +32,14 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   connect( mapCanvas()->scene(), SIGNAL( changed( QList<QRectF> ) ), this, SLOT( update() ) );
 }
 
+QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
+{
+  mMapCanvas->deleteLater();
+}
+
 QgsMapCanvas* QgsQuickMapCanvasMap::mapCanvas()
 {
-  return mMapCanvas.data();
+  return mMapCanvas;
 }
 
 void QgsQuickMapCanvasMap::paint( QPainter* painter )
@@ -67,7 +72,7 @@ void QgsQuickMapCanvasMap::setMapSettings( MapSettings* mapSettings )
   {
     mMapSettings = mapSettings;
     Q_ASSERT( mMapCanvas );
-    mMapSettings->setQgsMapCanvas( mMapCanvas.data() );
+    mMapSettings->setQgsMapCanvas( mMapCanvas );
     emit mapSettingsChanged();
   }
 }

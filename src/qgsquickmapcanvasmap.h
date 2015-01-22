@@ -32,6 +32,7 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
 
   public:
     QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
+    ~QgsQuickMapCanvasMap();
 
     QgsMapCanvas* mapCanvas();
 
@@ -59,7 +60,7 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     void refresh();
 
   private:
-    QScopedPointer<QgsMapCanvas> mMapCanvas;
+    QgsMapCanvas* mMapCanvas;
     bool mPinching;
     QPoint mPinchStartPoint;
     MapSettings* mMapSettings;
