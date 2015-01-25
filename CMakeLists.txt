@@ -41,7 +41,7 @@ SET (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
 # Init git submodules
 IF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
   FIND_PACKAGE(Git REQUIRED)
-  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule init --recursive
+  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule init
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 ENDIF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
 
