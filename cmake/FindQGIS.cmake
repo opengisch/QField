@@ -85,23 +85,23 @@ ELSE(WIN32)
     FIND_PATH(QGIS_PLUGIN_DIR
       NAMES libspatialqueryplugin.so
       PATHS
+        "${QGIS_PREFIX_PATH}/lib/qgis/plugins/"
         /usr/lib64/qgis/plugins
         /usr/lib/qgis
         /usr/local/lib/qgis/plugins
         ${QGIS_MAC_PATH}/PlugIns/qgis
         "$ENV{LIB_DIR}/lib/qgis/plugins"
         "$ENV{LIB_DIR}/lib/qgis"
-        "${QGIS_PREFIX_PATH}/lib/qgis/plugins/"
     )
     FIND_PATH(QGIS_INCLUDE_DIR
       NAMES qgis.h
       PATHS
+        "${QGIS_PREFIX_PATH}/include/qgis"
         /usr/include/qgis
         /usr/local/include/qgis
         /Library/Frameworks/qgis_core.framework/Headers
         ${QGIS_MAC_PATH}/Frameworks/qgis_core.framework/Headers
         "$ENV{LIB_DIR}/include/qgis"
-        "${QGIS_PREFIX_PATH}/include/qgis"
     )
     # also get other frameworks' headers folders on OS X
     IF (APPLE)
@@ -126,34 +126,34 @@ ELSE(WIN32)
     FIND_LIBRARY(QGIS_CORE_LIBRARY
       NAMES qgis_core
       PATHS
+        "${QGIS_PREFIX_PATH}/lib/"
         /usr/lib64
         /usr/lib
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
     FIND_LIBRARY(QGIS_GUI_LIBRARY
       NAMES qgis_gui
       PATHS
+        "${QGIS_PREFIX_PATH}/lib/"
         /usr/lib64
         /usr/lib
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
     FIND_LIBRARY(QGIS_ANALYSIS_LIBRARY
       NAMES qgis_analysis
       PATHS
+        "${QGIS_PREFIX_PATH}/lib/"
         /usr/lib64
         /usr/lib
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
   ENDIF(UNIX)
