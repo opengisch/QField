@@ -1,6 +1,6 @@
 SET(CPACK_PACKAGE_VERSION_MAJOR "0")
 SET(CPACK_PACKAGE_VERSION_MINOR "2")
-SET(CPACK_PACKAGE_VERSION_PATCH "0")
+SET(CPACK_PACKAGE_VERSION_PATCH "2")
 SET(COMPLETE_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH})
 SET(PROJECT_VERSION ${COMPLETE_VERSION})
 CMAKE_POLICY(SET CMP0048 NEW)
@@ -18,7 +18,7 @@ MESSAGE(STATUS "QField version: ${COMPLETE_VERSION} ${RELEASE_NAME} (${QGIS_MOBI
 #############################################################
 # CMake settings
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
 
 SET(CMAKE_COLOR_MAKEFILE ON)
 
@@ -37,6 +37,13 @@ SET (PEDANTIC TRUE CACHE BOOL "Determines if we should compile in pedantic mode.
 
 # whether unit tests should be build
 SET (ENABLE_TESTS TRUE CACHE BOOL "Build unit tests?")
+
+# Init git submodules
+IF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
+  FIND_PACKAGE(Git REQUIRED)
+  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule init --recursive
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+ENDIF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
 
 #############################################################
 # find QGIS and setup

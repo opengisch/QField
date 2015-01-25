@@ -1,8 +1,8 @@
 # Fetch test data
 IF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
   FIND_PACKAGE(Git REQUIRED)
-  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule update
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test/QGIS-Sampledata)
 ENDIF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
 
 # Find Qt packages
