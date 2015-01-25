@@ -78,6 +78,7 @@ IF(WIN32)
   ENDIF (MSVC)
 ELSE(WIN32)
   IF(UNIX)
+    SET(QGIS_PREFIX_PATH $ENV{LIB_DIR} CACHE FILEPATH "QGIS Prefix Path")
     # try to use bundle on mac
     SET (QGIS_MAC_PATH /Applications/QGIS.app/Contents)
     #MESSAGE("Searching for QGIS in /usr/bin; /usr/local/bin")
@@ -90,7 +91,7 @@ ELSE(WIN32)
         ${QGIS_MAC_PATH}/PlugIns/qgis
         "$ENV{LIB_DIR}/lib/qgis/plugins"
         "$ENV{LIB_DIR}/lib/qgis"
-        "$ENV{QGIS_PREFIX_PATH}/lib/qgis/plugins/"
+        "${QGIS_PREFIX_PATH}/lib/qgis/plugins/"
     )
     FIND_PATH(QGIS_INCLUDE_DIR
       NAMES qgis.h
@@ -100,7 +101,7 @@ ELSE(WIN32)
         /Library/Frameworks/qgis_core.framework/Headers
         ${QGIS_MAC_PATH}/Frameworks/qgis_core.framework/Headers
         "$ENV{LIB_DIR}/include/qgis"
-        "$ENV{QGIS_PREFIX_PATH}/include/qgis"
+        "${QGIS_PREFIX_PATH}/include/qgis"
     )
     # also get other frameworks' headers folders on OS X
     IF (APPLE)
@@ -130,7 +131,7 @@ ELSE(WIN32)
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "$ENV{QGIS_PREFIX_PATH}/lib/"
+        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
     FIND_LIBRARY(QGIS_GUI_LIBRARY
@@ -141,7 +142,7 @@ ELSE(WIN32)
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "$ENV{QGIS_PREFIX_PATH}/lib/"
+        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
     FIND_LIBRARY(QGIS_ANALYSIS_LIBRARY
@@ -152,7 +153,7 @@ ELSE(WIN32)
         /usr/local/lib
         /Library/Frameworks
         ${QGIS_MAC_PATH}/Frameworks
-        "$ENV{QGIS_PREFIX_PATH}/lib/"
+        "${QGIS_PREFIX_PATH}/lib/"
         "$ENV{LIB_DIR}/lib/"
     )
   ENDIF(UNIX)
