@@ -270,6 +270,17 @@ Rectangle {
     }
   }
 
+  WelcomeScreen {
+    id: welcomeScreen
+    anchors.fill: parent
+    visible: !settings.value( "/QField/FirstRunFlag", false )
+
+    onShowOpenProjectDialog: {
+      welcomeScreen.visible = false
+      openProjectDialog.visible = true
+    }
+  }
+
   // Toast
   Rectangle {
     id: toast
