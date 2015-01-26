@@ -3,7 +3,7 @@
                ----------------------------------------------------
               date                 : 4.1.2015
               copyright            : (C) 2015 by Matthias Kuhn
-              email                : matthias.kuhn (at) opengis.ch
+              email                : matthias (at) opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
