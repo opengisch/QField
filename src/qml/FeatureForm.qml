@@ -250,6 +250,11 @@ Rectangle {
               property variant config: editorWidgetConfig
 
               source: 'editorwidgets/' + editorWidget + '.qml'
+
+              onStatusChanged: {
+                if (attributeEditorLoader.status == Loader.Error )
+                  attributeEditorLoader.source = 'editorwidgets/TextEdit.qml'
+              }
             }
 
             Connections {
