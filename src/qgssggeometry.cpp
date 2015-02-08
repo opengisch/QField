@@ -88,7 +88,6 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
           geomNode->setFlag( QSGNode::OwnsGeometry );
           applyStyle( geomNode );
           on->appendChildNode( geomNode );
-          appendChildNode( on );
 
           geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolylineToQSGGeometry( polygon.first(), width ) );
@@ -96,6 +95,8 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
           applyStyle( geomNode );
           appendChildNode( geomNode );
         }
+
+        appendChildNode( on );
       }
       else
       {
