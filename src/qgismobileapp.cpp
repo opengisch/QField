@@ -81,7 +81,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
-  connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ) );
+  connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
