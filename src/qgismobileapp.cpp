@@ -47,6 +47,7 @@
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
   , mIface( new AppInterface( this ) )
+  , mFirstRenderingFlag( true )
 {
   QSurfaceFormat format;
   format.setSamples( 8 );
@@ -116,6 +117,23 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "settings", &mSettings );
 }
 
+void QgisMobileapp::loadProjectQuirks()
+{
+  // force update of canvas, without automatic changes to extent and OTF projections
+  bool autoEnableCrsTransform = mLayerTreeCanvasBridge->autoEnableCrsTransform();
+  bool autoSetupOnFirstLayer = mLayerTreeCanvasBridge->autoSetupOnFirstLayer();
+  mLayerTreeCanvasBridge->setAutoEnableCrsTransform( false );
+  mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( false );
+
+  mLayerTreeCanvasBridge->setCanvasLayers();
+
+  if ( autoEnableCrsTransform )
+    mLayerTreeCanvasBridge->setAutoEnableCrsTransform( true );
+
+  if ( autoSetupOnFirstLayer )
+    mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
+}
+
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
   QgsMapToolIdentify identify( mMapCanvas );
@@ -157,35 +175,29 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
 
 void QgisMobileapp::onAfterFirstRendering()
 {
-  QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
   // This should get triggered exactly once, so we disconnect it right away
   disconnect( this, SIGNAL( afterRendering() ), this, SLOT( onAfterFirstRendering() ) );
+
+  if ( mFirstRenderingFlag )
+  {
+    QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
+    mFirstRenderingFlag = false;
+  }
 }
 
 void QgisMobileapp::loadLastProject()
 {
+  QgsDebugMsg( "LoadLastProject" );
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
   if ( lastProjectFile.isValid() )
     loadProjectFile( lastProjectFile.toString() );
-}
-
-void QgisMobileapp::openProjectDialog()
-{
-  QSettings settings;
-  QFileDialog dlg( 0, "Open Project", settings.value( "/qgis/lastProjectOpenDir" ).toString(), "QGIS Project Files (*.qgs)" );
-  dlg.setWindowState( dlg.windowState() | Qt::WindowMaximized );
-
-  if ( dlg.exec() )
-  {
-    loadProjectFile( dlg.selectedFiles().first() );
-    settings.setValue( "/qgis/lastProjectOpenDir", QFileInfo( dlg.selectedFiles().first() ).absolutePath() );
-  }
 }
 
 void QgisMobileapp::loadProjectFile( const QString& path )
 {
   emit loadProjectStarted( path );
   QgsProject::instance()->read( path );
+  loadProjectQuirks();
   emit loadProjectEnded();
 }
 

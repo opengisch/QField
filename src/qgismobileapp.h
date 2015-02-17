@@ -42,7 +42,6 @@ class QgisMobileapp : public QQuickView
 
     // interface methods
     void identifyFeatures( const QPointF& point );
-    void openProjectDialog();
 
     void showFeatureForm( const Feature& feature );
 
@@ -85,12 +84,15 @@ class QgisMobileapp : public QQuickView
   private:
     void initDeclarative();
 
+    void loadProjectQuirks();
+
     QgsMapCanvas* mMapCanvas;
     QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
     AppInterface* mIface;
     FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;
     Settings mSettings;
+    bool mFirstRenderingFlag;
 };
 
 #endif // QGISMOBILEAPP_H
