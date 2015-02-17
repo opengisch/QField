@@ -34,7 +34,6 @@ MACRO (ADD_UNIT_TEST testname testsrc)
   SET(test_${testname}_SRCS ${testsrc})
   SET(test_${testname}_MOC_CPPS ${testsrc})
   ADD_EXECUTABLE(test_${testname} ${test_${testname}_SRCS})
-  SET_TARGET_PROPERTIES(test_${testname} PROPERTIES AUTOMOC TRUE)
 
   TARGET_LINK_LIBRARIES(test_${testname}
     ${Qt5Core_LIBRARIES}

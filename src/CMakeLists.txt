@@ -30,22 +30,6 @@ SET(QGIS_MOBILE_APP_HDRS
   settings.h
 )
 
-SET(QGIS_MOBILE_APP_MOC_HDRS
-  appinterface.h
-  featurelistextentcontroller.h
-  featurelistmodel.h
-  featurelistmodelhighlight.h
-  featurelistmodelselection.h
-  featuremodel.h
-  mapsettings.h
-  maptransform.h
-  qgismobileapp.h
-  qgsquickmapcanvasmap.h
-  settings.h
-)
-
-QT5_WRAP_CPP(QGIS_MOBILE_APP_MOC_SRCS ${QGIS_MOBILE_APP_MOC_HDRS})
-
 INCLUDE_DIRECTORIES(
   ${QGIS_INCLUDE_DIR}
   ${QGIS_INCLUDE_DIR}/gui

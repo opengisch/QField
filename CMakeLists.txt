@@ -70,6 +70,8 @@ FIND_PACKAGE(Qt5OpenGL REQUIRED)
 
 MESSAGE(STATUS "Found Qt version: ${Qt5Core_VERSION_STRING}")
 
+SET(CMAKE_AUTOMOC TRUE)
+
 #############################################################
 # search for other required packages
 FIND_PACKAGE(GEOS)
