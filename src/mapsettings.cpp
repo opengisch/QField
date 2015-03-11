@@ -18,6 +18,7 @@
 MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
   , mMapCanvas( 0 )
+  , mCrs( new CRS )
 {
 
 }
@@ -44,6 +45,9 @@ void MapSettings::setExtent( const QgsRectangle& extent )
 void MapSettings::setQgsMapCanvas( QgsMapCanvas* mapCanvas )
 {
   mMapCanvas = mapCanvas;
+  mCrs->setCrs( mMapCanvas->mapSettings().destinationCrs() );
+  emit crsChanged();
+  connect( mMapCanvas, SIGNAL( destinationCrsChanged() ), this, SLOT( onMapCrsChanged() ) );
   connect( mMapCanvas, SIGNAL( extentsChanged() ), this, SIGNAL( extentChanged() ) );
 }
 
@@ -60,4 +64,29 @@ double MapSettings::mapUnitsPerPixel()
 const QgsRectangle MapSettings::visibleExtent()
 {
   return mMapCanvas->mapSettings().visibleExtent();
+}
+
+CRS* MapSettings::crs() const
+{
+  return mCrs;
+}
+
+const QPointF MapSettings::coordinateToScreen( const QPointF& p ) const
+{
+  if ( mMapCanvas )
+  {
+    QgsPoint pt( p.x(), p.y() );
+    QgsPoint pp = mMapCanvas->mapSettings().mapToPixel().transform( pt );
+    return QPointF( pp.x(), pp.y() );
+  }
+  else
+  {
+    return p;
+  }
+}
+
+void MapSettings::onMapCrsChanged()
+{
+  mCrs->setCrs( mMapCanvas->mapSettings().destinationCrs() );
+  emit crsChanged();
 }

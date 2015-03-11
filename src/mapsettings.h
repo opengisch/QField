@@ -21,11 +21,14 @@
 #include <qgsrectangle.h>
 #include <qgsmapcanvas.h>
 
+#include "crs.h"
+
 class MapSettings : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
+    Q_PROPERTY( CRS* crs READ crs NOTIFY crsChanged )
     // Q_PROPERTY( QPointF center READ center WRITE setCenter NOTIFY centerChanged )
     // Q_PROPERTY( qreal scale READ scale WRITE setScale NOTIFY scaleChanged )
 
@@ -43,15 +46,24 @@ class MapSettings : public QObject
     double mapUnitsPerPixel();
     const QgsRectangle visibleExtent();
 
+    CRS* crs() const;
+
+    Q_INVOKABLE const QPointF coordinateToScreen( const QPointF& p ) const;
+
   signals:
     void extentChanged();
+    void crsChanged();
     // void centerChanged();
     // void scaleChanged();
+
+  private slots:
+    void onMapCrsChanged();
 
   private:
     // As of now, this will be used to own and handle the mapSettings
     // THIS SHOULD BE CHANGED!
     QgsMapCanvas* mMapCanvas;
+    CRS* mCrs;
 };
 
 #endif // MAPSETTINGS_H
