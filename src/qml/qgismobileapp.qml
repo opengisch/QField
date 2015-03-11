@@ -194,13 +194,13 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          parent.toggleGps()
-        }
-
-        onPressAndHold: {
           var coord = positionSource.position.coordinate;
           var loc = Qt.point( coord.longitude, coord.latitude );
           mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+        }
+
+        onPressAndHold: {
+          gpsMenu.popup()
         }
       }
 
@@ -268,6 +268,29 @@ Rectangle {
       iconSource: "/themes/holodark/remove.png"
       onTriggered: {
         Qt.quit()
+      }
+    }
+  }
+
+  Menu {
+    id: gpsMenu
+    title: "GPS Options"
+
+    MenuItem {
+      text: "Enable GPS"
+      checkable: true
+      checked: positionSource.active
+      onCheckedChanged: {
+        positionSource.active = checked
+      }
+    }
+
+    MenuItem {
+      text: "Center current location"
+      onTriggered: {
+        var coord = positionSource.position.coordinate;
+        var loc = Qt.point( coord.longitude, coord.latitude );
+        mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
       }
     }
   }
