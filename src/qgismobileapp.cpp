@@ -43,6 +43,7 @@
 #include "maptransform.h"
 #include "mapsettings.h"
 #include "featurelistextentcontroller.h"
+#include "coordinatetransform.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -102,6 +103,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
   qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
+  qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
+  qmlRegisterType<CRS>( "org.qgis", 1, 0, "CRS" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -137,12 +140,7 @@ void QgisMobileapp::loadProjectQuirks()
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
   QgsMapToolIdentify identify( mMapCanvas );
-  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll );
-
-  Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
-  {
-    qDebug() << res.mLayer->name() << " >> " << res.mFeature.id();
-  }
+  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll, QgsMapToolIdentify::VectorLayer );
 
   mFeatureListModel.setFeatures( results );
   mIface->openFeatureForm();
@@ -180,14 +178,20 @@ void QgisMobileapp::onAfterFirstRendering()
 
   if ( mFirstRenderingFlag )
   {
-    QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
+    if ( qApp->arguments().count() > 1 )
+    {
+      loadProjectFile( qApp->arguments().last() );
+    }
+    else
+    {
+      QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
+    }
     mFirstRenderingFlag = false;
   }
 }
 
 void QgisMobileapp::loadLastProject()
 {
-  QgsDebugMsg( "LoadLastProject" );
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
   if ( lastProjectFile.isValid() )
     loadProjectFile( lastProjectFile.toString() );
