@@ -19,6 +19,7 @@
 #include "qgismobileapp.h"
 
 #include <QLocale>
+#include <QDir>
 #include <QSettings>
 #include <QTranslator>
 #include <QMainWindow>
@@ -40,8 +41,12 @@ int main( int argc, char ** argv )
   // load providers
 #if defined(Q_WS_WIN)
   QString prefixPath = QApplication::applicationDirPath();
+#elif defined( ANDROID)
+  QDir myDir( QDir::homePath() );
+  myDir.cdUp();
+  QString prefixPath = myDir.absolutePath();
 #else
-  QString prefixPath = QApplication::applicationDirPath() + "/..";
+  QString prefixPath = "" QGIS_INSTALL_DIR;
 #endif
   app.setPrefixPath( prefixPath, true );
 #ifdef ANDROID
