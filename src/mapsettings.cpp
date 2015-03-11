@@ -56,6 +56,19 @@ QgsMapCanvas* MapSettings::qgsMapCanvas()
   return mMapCanvas;
 }
 
+void MapSettings::setCenter( const QPointF& center )
+{
+  QgsVector delta = QgsPoint( center.x(), center.y() ) - mMapCanvas->mapSettings().extent().center();
+
+  QgsRectangle e = mMapCanvas->mapSettings().extent();
+  e.setXMinimum( e.xMinimum() + delta.x() );
+  e.setXMaximum( e.xMaximum() + delta.x() );
+  e.setYMinimum( e.yMinimum() + delta.y() );
+  e.setYMaximum( e.yMaximum() + delta.y() );
+
+  setExtent( e );
+}
+
 double MapSettings::mapUnitsPerPixel()
 {
   return mMapCanvas->mapSettings().mapUnitsPerPixel();

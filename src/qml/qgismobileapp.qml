@@ -26,6 +26,21 @@ Rectangle {
   id: mainWindow
   anchors.fill: parent
 
+  /*
+   * The position source to access the GPS
+   */
+  PositionSource {
+    id: positionSource
+    updateInterval: 1000
+    // active: true
+    active: gpsButton.state == "On"
+
+    onPositionChanged: {
+      var coord = positionSource.position.coordinate;
+      locationMarker.location = Qt.point( coord.longitude, coord.latitude )
+    }
+  }
+
   Item {
     /*
      * This is the map canvas
@@ -85,18 +100,6 @@ Rectangle {
       }
       anchors.fill: parent
       visible: positionSource.active
-
-      PositionSource {
-        id: positionSource
-        updateInterval: 1000
-        // active: true
-        active: gpsButton.state == "On"
-
-        onPositionChanged: {
-          var coord = positionSource.position.coordinate;
-          locationMarker.location = Qt.point( coord.longitude, coord.latitude )
-        }
-      }
     }
   }
 
@@ -192,6 +195,12 @@ Rectangle {
 
         onClicked: {
           parent.toggleGps()
+        }
+
+        onPressAndHold: {
+          var coord = positionSource.position.coordinate;
+          var loc = Qt.point( coord.longitude, coord.latitude );
+          mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
         }
       }
 

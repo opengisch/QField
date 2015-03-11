@@ -43,6 +43,8 @@ class MapSettings : public QObject
     void setQgsMapCanvas( QgsMapCanvas* mapCanvas );
     QgsMapCanvas* qgsMapCanvas();
 
+    Q_INVOKABLE void setCenter( const QPointF& center );
+
     double mapUnitsPerPixel();
     const QgsRectangle visibleExtent();
 
