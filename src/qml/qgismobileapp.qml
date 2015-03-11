@@ -20,22 +20,35 @@ import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
+import QtPositioning 5.3
 
 Rectangle {
   id: mainWindow
   anchors.fill: parent
 
   Item {
+    /*
+     * This is the map canvas
+     * On top of it are the base map and other items like GPS icon...
+     */
     id: mapCanvas
 
-    property MapSettings mapSettings: MapSettings {
-    }
+    /* Initialize a MapSettings object. This will contain information about
+     * the current canvas extent. It is shared between the base map and all
+     * map canvas items and is used to transform map coordinates to pixel
+     * coordinates.
+     * It may change any time and items that hold a reference to this property
+     * are responsible to handle this properly.
+     */
+    property MapSettings mapSettings: MapSettings {}
 
+    /* Placement and size. Share right anchor with featureForm */
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.bottom: parent.bottom
     anchors.right: featureForm.left
 
+    /* The base map */
     MapCanvas {
       id: mapCanvasMap
       mapSettings: mapCanvas.mapSettings
@@ -43,6 +56,7 @@ Rectangle {
       anchors.fill: parent
     }
 
+    /* Feature highlight overlay */
     Item {
       anchors.fill: parent
 
@@ -58,8 +72,33 @@ Rectangle {
         width: 5
       }
     }
+
+    /* GPS marker  */
+    LocationMarker {
+      id: locationMarker
+      mapSettings: mapCanvas.mapSettings
+      coordinateTransform: CoordinateTransform {
+        sourceCRS: CRS {
+          srid: 4326
+        }
+        destinationCRS: mapCanvas.mapSettings.crs
+      }
+      anchors.fill: parent
+
+      PositionSource {
+        id: positionSource
+        updateInterval: 1000
+        active: true
+
+        onPositionChanged: {
+          var coord = positionSource.position.coordinate;
+          locationMarker.location = Qt.point( coord.longitude, coord.latitude )
+        }
+      }
+    }
   }
 
+  /* The feature form */
   FeatureForm {
     id: featureForm
     mapSettings: mapCanvas.mapSettings
@@ -77,6 +116,7 @@ Rectangle {
     selectionColor: "#ff7777"
   }
 
+  /* The main menu */
   Column {
     id: mainMenuBar
     x: 10
@@ -110,7 +150,7 @@ Rectangle {
         source: "/themes/holodark/settings.png"
       }
     }
-/*
+
     Item {
       id: gpsButton
       height: dp*48
@@ -175,7 +215,6 @@ Rectangle {
         height: 42
       }
     }
-  */
   }
 
   FileDialog {
