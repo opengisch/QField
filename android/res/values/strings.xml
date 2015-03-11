@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">QField</string>
+    <string name="lib_name">qfield</string>
+    <string name="ministro_not_found_msg">Can\'t find Ministro service.\nThe application can\'t start.</string>
+    <string name="ministro_needed_msg">This application requires Ministro service. Would you like to install it?</string>
+    <string name="fatal_error_msg">Your application encountered a fatal error and cannot continue.</string>
+    <string name="done_unpacking_msg">Done unpacking, start QGIS.</string>
+    <string name="unpacking_msg">Unpacking post install data. This might take some time.</string>
+    <string name="use_internal_storage">Use Internal Storage</string>
+    <string name="external_storage_unavailable">Unpacking post install data. This might take a some time.</string>
+    <string name="noexternalstorage_dialog">Looks like your external storage (/sdcard) is not available. This happens when you connect your device to a PC via USB.\nQGIS can run from the internal storage but this is not recomended as it might be too small.\nIt is suggested to chose CANCEL, disconnect any USB cable and restart QGIS.</string>
+</resources>
