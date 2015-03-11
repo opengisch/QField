@@ -23,6 +23,11 @@
 #include "featurelistmodel.h"
 #include "featurelistmodelselection.h"
 
+
+/**
+ * Creates map highlights for a series of geometries provided by a FeatureListModel.
+ * The highlights are compatible with the QtQuick scene graph.
+ */
 class FeatureListModelHighlight : public QQuickItem
 {
     Q_OBJECT
