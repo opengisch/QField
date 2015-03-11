@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 TextEdit {
-  signal valueChanged( variant value )
+  signal valueChanged( var value )
 
   anchors.left: parent.left
   anchors.right: parent.right

@@ -246,8 +246,8 @@ Rectangle {
               anchors { left: parent.left; right: parent.right }
 
               visible: featureFormList.state == "Edit"
-              property variant value: attributeValue
-              property variant config: editorWidgetConfig
+              property var value: attributeValue
+              property var config: editorWidgetConfig
 
               source: 'editorwidgets/' + editorWidget + '.qml'
 
