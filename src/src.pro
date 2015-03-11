@@ -3,7 +3,7 @@ CONFIG += ordered
 
 TARGET = qfield
 
-QT += widgets quick concurrent xml
+QT += widgets quick concurrent xml positioning
 
 include( ../qfield.pri )
 include( ../qgis.pri )
@@ -49,3 +49,16 @@ LIBS += ../3rdparty/tessellate/libtessellate.a
 RESOURCES += \
     ../images/images.qrc \
     qml/qml.qrc
+
+android {
+  ANDROID_PACKAGE_SOURCE_DIR=$$PWD/../android
+
+  DISTFILES += \
+      android/gradle/wrapper/gradle-wrapper.jar \
+      android/AndroidManifest.xml \
+      android/gradlew.bat \
+      android/res/values/libs.xml \
+      android/build.gradle \
+      android/gradle/wrapper/gradle-wrapper.properties \
+      android/gradlew
+}
