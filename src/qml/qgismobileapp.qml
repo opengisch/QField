@@ -184,9 +184,9 @@ Rectangle {
     visible: false
     width: parent.width
     height: parent.height
+    nameFilters: [ "QGIS projects (*.qgs)", "All files (*)" ]
 
     onAccepted: {
-      console.debug( "Open file " + openProjectDialog.fileUrl.toString().slice(7) )
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
     }
   }
