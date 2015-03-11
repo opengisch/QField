@@ -10,6 +10,14 @@ android {
   INCLUDEPATH += /home/mku/dev/cpp/qgis/OSGeo4A/stage/include/qgis
   LIBS += /home/mku/dev/cpp/qgis/OSGeo4A/stage/lib/libqgis_core.so \
           /home/mku/dev/cpp/qgis/OSGeo4A/stage/lib/libqgis_gui.so
+
+
+  qgis_resources.path = /assets/share/qgis/resources
+  qgis_resources.files = $$files( $$QGIS_INSTALL_PATH/share/qgis/resources/* )
+  INSTALLS += qgis_resources
+  qgis_svg.path = /assets/share/qgis/svg
+  qgis_svg.files = $$files( $$QGIS_INSTALL_PATH/share/qgis/svg/* )
+  INSTALLS += qgis_svg
 }
 
 DEFINES += "CORE_EXPORT=" \
