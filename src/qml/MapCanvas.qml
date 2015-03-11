@@ -21,7 +21,6 @@ import QtQml 2.2
 import org.qgis 1.0
 
 Item {
-  anchors.fill: parent
   id: mapArea
   property MapSettings mapSettings
 
