@@ -1,0 +1,25 @@
+QGIS_INSTALL_PATH = [QGIS_INSTALL_PREFIX]
+
+!android {
+  INCLUDEPATH += $$QGIS_INSTALL_PATH/include/qgis
+  LIBS += $$QGIS_INSTALL_PATH/lib/libqgis_core.so \
+          $$QGIS_INSTALL_PATH/lib/libqgis_gui.so
+}
+
+android {
+  INCLUDEPATH += /home/mku/dev/cpp/qgis/OSGeo4A/stage/include/qgis
+  LIBS += /home/mku/dev/cpp/qgis/OSGeo4A/stage/lib/libqgis_core.so \
+          /home/mku/dev/cpp/qgis/OSGeo4A/stage/lib/libqgis_gui.so
+}
+
+DEFINES += "CORE_EXPORT=" \
+           "GUI_EXPORT=" \
+           "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
+           "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
+
+QMAKE_RPATHDIR += $$QGIS_INSTALL_PATH/lib/
+
+# Add QWT and QScintilla custom build paths if your distro only ships Qt4 versions
+# and you had to build them manually for Qt5
+# QMAKE_RPATHDIR += [QWT_DIR]/lib
+# QMAKE_RPATHDIR += [QSCINTILLA_DIR]/Qt4Qt5

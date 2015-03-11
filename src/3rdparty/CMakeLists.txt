@@ -1,8 +1,0 @@
-# Fetch libtess
-IF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
-  FIND_PACKAGE(Git REQUIRED)
-  EXECUTE_PROCESS (COMMAND ${GIT_EXECUTABLE} submodule update
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tesselate)
-ENDIF (EXISTS "${CMAKE_SOURCE_DIR}/.gitmodules")
-
-ADD_SUBDIRECTORY(tessellate)
