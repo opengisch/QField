@@ -4,6 +4,7 @@ android {
   message("* Using settings for Android ($$ANDROID_TARGET_ARCH$$).")
   LIBS += -L[ANDROID_LIBS]
   INCLUDEPATH += [ANDROID_INCLUDE_DIR]
+  OSGEO4A_DIR = [OSGeo4A/dist/qfield/libs]
 
   ANDROID_DEPLOYMENT_DEPENDENCIES += \
     jar/QtAndroid-bundled.jar \
@@ -56,5 +57,36 @@ android {
     qml/QtQml/StateMachine/libqtqmlstatemachine.so \
     qml/QtQml/Models.2/qmldir \
     qml/QtQml/Models.2/libmodelsplugin.so
+
+  ANDROID_EXTRA_LIBS = \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libexpat.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgeos.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgeos_c.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgslcblas.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libsqlite3.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libcharset.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libiconv.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libfreexl.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libtiff.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgdal.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libproj.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libspatialindex.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libqwt.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libpq.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libspatialite.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libqgis_core.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libspatialiteprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libdelimitedtextprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgdalprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libgpxprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libmemoryprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libmssqlprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libogrprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libowsprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libpostgresprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libspatialiteprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libwcsprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libwfsprovider.so \
+    $$OSGEO4A_DIR/$$ANDROID_TARGET_ARCH$$/libwmsprovider.so
 }
 
