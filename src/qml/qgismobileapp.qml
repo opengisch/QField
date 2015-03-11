@@ -84,11 +84,13 @@ Rectangle {
         destinationCRS: mapCanvas.mapSettings.crs
       }
       anchors.fill: parent
+      visible: positionSource.active
 
       PositionSource {
         id: positionSource
         updateInterval: 1000
-        active: true
+        // active: true
+        active: gpsButton.state == "On"
 
         onPositionChanged: {
           var coord = positionSource.position.coordinate;
