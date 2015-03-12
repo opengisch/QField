@@ -16,6 +16,8 @@
  ***************************************************************************/
 #include "settings.h"
 
+#include <QDebug>
+
 Settings::Settings( QObject *parent ) :
   QSettings( parent )
 {
@@ -30,4 +32,9 @@ void Settings::setValue( const QString& key, const QVariant& value )
 QVariant Settings::value( const QString& key, const QVariant& defaultValue )
 {
   return QSettings::value( key, defaultValue );
+}
+
+bool Settings::valueBool(const QString& key, bool defaultValue)
+{
+  return QSettings::value( key, defaultValue ).toBool();
 }

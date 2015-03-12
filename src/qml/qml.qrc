@@ -8,5 +8,6 @@
         <file>editorwidgets/TextEdit.qml</file>
         <file>WelcomeScreen.qml</file>
         <file>LocationMarker.qml</file>
+        <file>PositionInformationView.qml</file>
     </qresource>
 </RCC>

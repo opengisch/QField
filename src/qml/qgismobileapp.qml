@@ -32,7 +32,7 @@ Rectangle {
   PositionSource {
     id: positionSource
     // active: true
-    active: gpsButton.state == "On"
+    active: settings.valueBool( "/QField/Positioning/Active", false )
 
     onPositionChanged: {
       var coord = positionSource.position.coordinate;
@@ -102,6 +102,38 @@ Rectangle {
     }
   }
 
+  Item
+  {
+    id: positionInformationView
+    anchors.right: featureForm.left
+    anchors.top: parent.top
+    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+    width: 250
+    height: 200
+
+    Rectangle {
+      color: "white"
+      opacity: 0.7
+      anchors.fill: parent
+      radius: 5
+    }
+
+    Rectangle {
+      color: "transparent"
+      border.color: "gray"
+      anchors.fill: parent
+      radius: 5
+    }
+
+    PositionInformationView {
+      positionSource: positionSource
+
+      anchors.fill: parent
+      anchors.margins: 5
+    }
+  }
+
   /* The feature form */
   FeatureForm {
     id: featureForm
@@ -159,7 +191,7 @@ Rectangle {
       id: gpsButton
       height: dp*48
       width: dp*48
-      state: "Off"
+      state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
 
       property alias icon: icon.source
@@ -199,6 +231,11 @@ Rectangle {
             var coord = positionSource.position.coordinate;
             var loc = Qt.point( coord.longitude, coord.latitude );
             mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+
+            if ( !positionSource.active )
+            {
+              displayToast( qsTr( "Using cached position. Turn on positioning for more recent location." ) )
+            }
           }
           else
           {
@@ -211,7 +248,7 @@ Rectangle {
               else
               {
                 displayToast( qsTr( "Activating positioning service..." ) )
-                positionSource.active = true
+                gpsButton.state = "On"
               }
             }
           }
@@ -295,7 +332,7 @@ Rectangle {
     title: "GPS Options"
 
     MenuItem {
-      text: "Enable GPS"
+      text: qsTr( "Enable GPS" )
       checkable: true
       checked: positionSource.active
       onCheckedChanged: {
@@ -304,11 +341,24 @@ Rectangle {
     }
 
     MenuItem {
-      text: "Center current location"
+      text: qsTr( "Center current location" )
       onTriggered: {
         var coord = positionSource.position.coordinate;
         var loc = Qt.point( coord.longitude, coord.latitude );
         mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+      }
+    }
+
+    MenuSeparator {}
+
+    MenuItem {
+      text: qsTr( "Show position information" )
+      checkable: true
+      checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+      onCheckedChanged:
+      {
+        settings.setValue( "/QField/Positioning/ShowInformationView", checked )
+        positionInformationView.visible = checked
       }
     }
   }
