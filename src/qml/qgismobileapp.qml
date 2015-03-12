@@ -31,7 +31,6 @@ Rectangle {
    */
   PositionSource {
     id: positionSource
-    updateInterval: 1000
     // active: true
     active: gpsButton.state == "On"
 
@@ -161,6 +160,7 @@ Rectangle {
       height: dp*48
       width: dp*48
       state: "Off"
+      visible: positionSource.valid
 
       property alias icon: icon.source
 
@@ -194,9 +194,27 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          var coord = positionSource.position.coordinate;
-          var loc = Qt.point( coord.longitude, coord.latitude );
-          mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+          if ( positionSource.position.latitudeValid )
+          {
+            var coord = positionSource.position.coordinate;
+            var loc = Qt.point( coord.longitude, coord.latitude );
+            mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+          }
+          else
+          {
+            if ( positionSource.valid )
+            {
+              if ( positionSource.active )
+              {
+                displayToast( qsTr( "Waiting for location..." ) )
+              }
+              else
+              {
+                displayToast( qsTr( "Activating positioning service..." ) )
+                positionSource.active = true
+              }
+            }
+          }
         }
 
         onPressAndHold: {
