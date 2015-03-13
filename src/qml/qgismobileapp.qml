@@ -248,7 +248,7 @@ Rectangle {
               else
               {
                 displayToast( qsTr( "Activating positioning service..." ) )
-                gpsButton.state = "On"
+                positionSource.active = true
               }
             }
           }
