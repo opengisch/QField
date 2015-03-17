@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
-<manifest package="ch.opengis.qfield" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.3.1 - Cerro Torre" android:versionCode="31" android:installLocation="auto">
-  <application android:hardwareAccelerated="true" 
-    android:name="org.qtproject.qt5.android.bindings.QtApplication" 
+<manifest package="ch.opengis.qfield"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:versionName="%%VERSION_NAME%%"
+  android:versionCode="%%VESION_CODE%%"
+  android:installLocation="auto">
+  <application android:hardwareAccelerated="true"
+    android:name="org.qtproject.qt5.android.bindings.QtApplication"
     android:label="@string/app_name"
     android:icon="@drawable/icon"
     >
@@ -16,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
               </intent-filter>
               <!-- Git Revision -->
-              <meta-data android:name="android.app.git_rev" android:value="cfef6a8bfb03cac23e598d116310e90193db047f"/>
+              <meta-data android:name="android.app.git_rev" android:value="@string/git_rev"/>
               <!-- Git Revision -->
         </activity>
 

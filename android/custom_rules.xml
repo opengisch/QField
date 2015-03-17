@@ -1,0 +1,14 @@
+ <project>
+   <!-- Your exisitng tasks if you have any -->
+   <target name="-pre-build" >
+     <antcall target="set-version-using-file" />
+   </target>
+   <target name="set-version-using-file">
+     <!-- Load properties from "version.properties" file -->
+     <property file="version.properties" />
+     <replaceregexp file="AndroidManifest.xml" match="android:versionCode(.*)"
+       replace='android:versionCode="${Version.Code}"'/>
+     <replaceregexp file="AndroidManifest.xml" match="android:versionName(.*)"
+       replace='android:versionName="${Version.Name}"'/>
+   </target>
+ </project>

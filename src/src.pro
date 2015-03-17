@@ -58,9 +58,27 @@ android {
   DISTFILES += \
       android/gradle/wrapper/gradle-wrapper.jar \
       android/AndroidManifest.xml \
+      android/custom_rules.xml \
+      android/version.properties \
       android/gradlew.bat \
       android/res/values/libs.xml \
       android/build.gradle \
       android/gradle/wrapper/gradle-wrapper.properties \
       android/gradlew
+
+  # That's already done in qgis.pri but it doesn't hurt doing it again for safety
+  system( mkdir $$shadowed($$PWD)/../tmp )
+  system( cp $$PWD/../templates/generated.xml $$shadowed($$PWD)/../tmp/generated.xml )
+  system( cp $$PWD/../templates/version.properties $$shadowed($$PWD)/../tmp/version.properties )
+  GIT_REV = $$system( git --work-tree $$PWD rev-parse HEAD )
+  system( sed -i \"s|%%GIT_REV%%|$$GIT_REV|g\" $$shadowed($$PWD)/../tmp/generated.xml )
+  system( sed -i \"s|%%APP_VERSION%%|$$VERSTR|g\" $$shadowed($$PWD)/../tmp/version.properties )
+  system( sed -i \"s|%%APP_VERSIONCODE%%|$$VERSIONCODE|g\" $$shadowed($$PWD)/../tmp/version.properties )
+
+  gen_android_strings.path = /res/values
+  gen_android_strings.files = "$$shadowed($$PWD)/../tmp/generated.xml"
+  INSTALLS += gen_android_strings
+  gen_android_version_props.path = /
+  gen_android_version_props.files = "$$shadowed($$PWD)/../tmp/version.properties"
+  INSTALLS += gen_android_version_props
 }
