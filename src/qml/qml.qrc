@@ -9,5 +9,6 @@
         <file>WelcomeScreen.qml</file>
         <file>LocationMarker.qml</file>
         <file>PositionInformationView.qml</file>
+        <file>About.qml</file>
     </qresource>
 </RCC>

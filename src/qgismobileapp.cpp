@@ -118,6 +118,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
   rootContext()->setContextProperty( "settings", &mSettings );
+  rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
 }
 
 void QgisMobileapp::loadProjectQuirks()

@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/images">
         <file alias="icon">icons/qgis_icon.svg</file>
+        <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
     </qresource>
     <qresource prefix="/themes/holodark">
         <file alias="add.png">themes/holodark/add.png</file>

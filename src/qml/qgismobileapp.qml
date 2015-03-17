@@ -319,6 +319,16 @@ Rectangle {
     MenuSeparator {}
 
     MenuItem {
+      text: "About"
+
+      onTriggered: {
+        aboutDialog.visible = true
+      }
+    }
+
+    MenuSeparator {}
+
+    MenuItem {
       text: "Quit"
       iconSource: "/themes/holodark/remove.png"
       onTriggered: {
@@ -407,6 +417,20 @@ Rectangle {
 
       onLoadProjectEnded: {
         busyMessage.visible = false
+      }
+    }
+  }
+
+  About {
+    id: aboutDialog
+    anchors.fill: parent
+
+    visible: false
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        parent.visible = false
       }
     }
   }

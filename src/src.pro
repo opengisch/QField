@@ -7,6 +7,8 @@ QT += widgets quick concurrent xml positioning
 
 include( ../qfield.pri )
 include( ../qgis.pri )
+include( ../version.pri )
+
 
 HEADERS += appinterface.h \
             coordinatetransform.h \
