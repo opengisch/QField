@@ -50,7 +50,24 @@ class MapSettings : public QObject
 
     CRS* crs() const;
 
+    /**
+     * Convert a map coordinate to screen pixel coordinates
+     *
+     * @param p A coordinate in map coordinates
+     *
+     * @return A coordinate in pixel / screen space
+     */
     Q_INVOKABLE const QPointF coordinateToScreen( const QPointF& p ) const;
+
+
+    /**
+     * Convert a screen coordinate to a map coordinate
+     *
+     * @param p A coordinate in pixel / screen coordinates
+     *
+     * @return A coordinate in map coordinates
+     */
+    Q_INVOKABLE const QPointF screenToCoordinate( const QPointF& p ) const;
 
   signals:
     void extentChanged();

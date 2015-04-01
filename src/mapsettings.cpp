@@ -98,6 +98,19 @@ const QPointF MapSettings::coordinateToScreen( const QPointF& p ) const
   }
 }
 
+const QPointF MapSettings::screenToCoordinate( const QPointF& p ) const
+{
+  if ( mMapCanvas )
+  {
+    const QgsPoint pp = mMapCanvas->mapSettings().mapToPixel().toMapCoordinates( p.toPoint() );
+    return QPointF( pp.x(), pp.y() );
+  }
+  else
+  {
+    return p;
+  }
+}
+
 void MapSettings::onMapCrsChanged()
 {
   mCrs->setCrs( mMapCanvas->mapSettings().destinationCrs() );
