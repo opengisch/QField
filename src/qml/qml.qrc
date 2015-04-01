@@ -10,5 +10,6 @@
         <file>LocationMarker.qml</file>
         <file>PositionInformationView.qml</file>
         <file>About.qml</file>
+        <file>CoordinateLocator.qml</file>
     </qresource>
 </RCC>
