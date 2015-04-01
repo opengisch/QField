@@ -88,6 +88,14 @@ Rectangle {
       }
     }
 
+    CoordinateLocator {
+      id: coordinateLocator
+
+      mapSettings: mapCanvas.mapSettings
+
+      anchors.fill: parent
+    }
+
     /* GPS marker  */
     LocationMarker {
       id: locationMarker
@@ -132,6 +140,30 @@ Rectangle {
 
       anchors.fill: parent
       anchors.margins: 5
+    }
+  }
+
+  Item
+  {
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.margins: 10
+
+    width: childrenRect.width
+    height: childrenRect.height
+
+    Text {
+      id: txt
+      text: qsTr( "Coordinate..." )
+
+      Connections {
+        target: coordinateLocator
+
+        onCoordinateChanged: {
+          console.warn( "Change text")
+          txt.text = " Coordinate " + coordinateLocator.coordinate.x + " / " + coordinateLocator.coordinate.x
+        }
+      }
     }
   }
 
