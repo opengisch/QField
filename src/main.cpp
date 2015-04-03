@@ -61,6 +61,10 @@ int main( int argc, char ** argv )
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( "QField" );
 
+  QTranslator appTranslator;
+  appTranslator.load( "QField_" + QLocale::system().name() );
+  app.installTranslator( &appTranslator );
+
   QgisMobileapp mApp( &app );
   return app.exec();
 }

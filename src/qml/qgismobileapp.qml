@@ -20,11 +20,22 @@ import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
-import QtPositioning 5.3
+import QtPositioning 5.4
 
 Rectangle {
   id: mainWindow
   anchors.fill: parent
+
+  states: [
+    State {
+      name: "browse"
+    },
+
+    State {
+      name: "digitize"
+    }
+  ]
+  state: "browse"
 
   /*
    * The position source to access the GPS
@@ -94,6 +105,8 @@ Rectangle {
       mapSettings: mapCanvas.mapSettings
 
       anchors.fill: parent
+
+      visible: ( mainWindow.state === "digitize" )
     }
 
     /* GPS marker  */
@@ -186,11 +199,9 @@ Rectangle {
   }
 
   /* The main menu */
-  Column {
+  Row {
     id: mainMenuBar
-    x: 10
-    y: 10
-    spacing: 10
+    height: childrenRect.height
 
     Item {
       height: dp*48
@@ -201,7 +212,6 @@ Rectangle {
         color: "#bb555555"
         border.color: "#dddddd"
         border.width: 1
-        radius: dp*5
       }
 
       MouseArea {
@@ -218,6 +228,33 @@ Rectangle {
         height: 42
         source: "/themes/holodark/settings.png"
       }
+    }
+
+    ComboBox {
+      width: 200*dp
+      model: layerTree
+    }
+
+    Item {
+      height: parent.height
+      width: 300*dp
+
+      Rectangle {
+        anchors.fill: parent
+        color: "#bb555555"
+        border.color: "#dddddd"
+        border.width: 1
+      }
+
+      MouseArea {
+        anchors.fill: parent
+
+        onClicked: {
+          mainMenu.popup()
+        }
+      }
+
+      visible: ( mainWindow.state === "digitize" )
     }
 
     Item {
@@ -252,7 +289,6 @@ Rectangle {
         color: "#bb555555"
         border.color: "#dddddd"
         border.width: 1
-        radius: dp*5
       }
 
       MouseArea {
@@ -333,8 +369,22 @@ Rectangle {
     id: mainMenu
     title: "Main Menu"
 
+    Menu {
+      title: qsTr( "Mode" )
+
+      MenuItem {
+        text: qsTr( "Browse" )
+        onTriggered: mainWindow.state = "browse"
+      }
+
+      MenuItem {
+        text: qsTr( "Digitize" )
+        onTriggered: mainWindow.state = "digitize"
+      }
+    }
+
     MenuItem {
-      text: "Open Project"
+      text: qsTr( "Open Project" )
       iconSource: "/themes/holodark/map.png"
       onTriggered: {
         openProjectDialog.visible = true

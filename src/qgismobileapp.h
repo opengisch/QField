@@ -25,6 +25,7 @@
 // QGIS includes
 #include <qgsapplication.h>
 #include <qgslayertreemapcanvasbridge.h>
+#include <qgslayertreemodel.h>
 
 // QGIS mobile includes
 #include "featuremodel.h"
@@ -86,6 +87,10 @@ class QgisMobileapp : public QQuickView
 
     void onAfterFirstRendering();
 
+    void onLayerAdded(QgsMapLayer* ml );
+    void onLayerDeleted( const QgsMapLayer* ml );
+    void onLayerRemoved(QString ml );
+
   private:
     void initDeclarative();
 
@@ -93,6 +98,7 @@ class QgisMobileapp : public QQuickView
 
     QgsMapCanvas* mMapCanvas;
     QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
+    QgsLayerTreeModel* mLayerTree;
     AppInterface* mIface;
     FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;

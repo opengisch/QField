@@ -56,6 +56,11 @@ SOURCES += appinterface.cpp \
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
 
+# Make qml files translatable
+lupdate_only{
+  SOURCES = qml/*.qml
+}
+
 RESOURCES += \
     ../images/images.qrc \
     qml/qml.qrc

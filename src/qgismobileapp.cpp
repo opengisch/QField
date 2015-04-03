@@ -90,12 +90,16 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
+  mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
   connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
+
+  connect( QgsMapLayerRegistry::instance(), SIGNAL(layerWasAdded(QgsMapLayer*)), this, SLOT(onLayerAdded(QgsMapLayer*)) );
+  connect( QgsMapLayerRegistry::instance(), SIGNAL(layerWillBeRemoved(QString)), this, SLOT(onLayerRemoved(QString)));
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
@@ -131,6 +135,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
+  rootContext()->setContextProperty( "layerTree", mLayerTree );
 }
 
 void QgisMobileapp::loadProjectQuirks()
@@ -152,6 +157,16 @@ void QgisMobileapp::loadProjectQuirks()
 
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
+  QgsMapLayer* ml = QgsMapLayerRegistry::instance()->mapLayers().values().first();
+  qDebug() << "ML " << (long int)ml;
+  qDebug() << "ID " << ml->id();
+
+  QString t1 = QgsMapLayerRegistry::instance()->mapLayers().values().first()->name();
+
+  qDebug() << "Name " << t1;
+
+
+
   QgsMapToolIdentify identify( mMapCanvas );
   QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll, QgsMapToolIdentify::VectorLayer );
 
@@ -203,6 +218,22 @@ void QgisMobileapp::onAfterFirstRendering()
   }
 }
 
+void QgisMobileapp::onLayerAdded(QgsMapLayer* ml)
+{
+  qDebug() << "Layer added " << ml;
+  connect( ml, SIGNAL(destroyed(QObject*)), this, SLOT(onLayerDeleted(const QgsMapLayer*)) );
+}
+
+void QgisMobileapp::onLayerDeleted(const QgsMapLayer* ml)
+{
+  qDebug() << "Layer deleted " << ml;
+}
+
+void QgisMobileapp::onLayerRemoved( QString ml)
+{
+  qDebug() << "Layer removed " << ml;
+}
+
 void QgisMobileapp::loadLastProject()
 {
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
@@ -215,6 +246,7 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   emit loadProjectStarted( path );
   QgsProject::instance()->read( path );
   loadProjectQuirks();
+
   emit loadProjectEnded();
 }
 
