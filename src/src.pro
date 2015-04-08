@@ -53,6 +53,9 @@ RESOURCES += \
     qml/qml.qrc
 
 android {
+  message("* Using settings for Android $$ANDROID_TARGET_ARCH$$")
+  message("* Using OSGEO4A for Android at $${OSGEO4A_STAGE_DIR}")
+  
   ANDROID_PACKAGE_SOURCE_DIR=$$PWD/../android
 
   DISTFILES += \
@@ -81,4 +84,8 @@ android {
   gen_android_version_props.path = /
   gen_android_version_props.files = "$$shadowed($$PWD)/../tmp/version.properties"
   INSTALLS += gen_android_version_props
+}
+
+!android {
+  message("* Using QGIS from $${QGIS_INSTALL_PATH}")
 }

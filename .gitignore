@@ -4,5 +4,4 @@ astyle.*.diff
 *.prepare
 *.orig
 QField.pro.user
-qfield.pri
-qgis.pri
+config.pri

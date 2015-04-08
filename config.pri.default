@@ -1,0 +1,17 @@
+# set the following paths according to your system
+#
+# Don't include this file in other files, include paths.pri
+
+android {
+  OSGEO4A_DIR = /home/marco/dev/OSGeo4A                         
+  OSGEO4A_STAGE_DIR = $${OSGEO4A_DIR}/stage
+}
+!android {
+  QGIS_INSTALL_PATH = /home/marco/dev/qgis/build-qt5/install
+}
+
+# Add QWT and QScintilla custom build paths if your distro only ships Qt4 versions
+# and you had to build them manually for Qt5
+QWT_DIR = /home/marco/dev/qwt-6.1/lib
+QSCINTILLA_DIR = /home/marco/dev/QScintilla-gpl-2.8.4/Qt4Qt5
+
