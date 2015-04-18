@@ -76,7 +76,7 @@ android {
   GIT_REV = $$system( git --work-tree $$PWD rev-parse HEAD )
   system( sed -i \"s|%%GIT_REV%%|$$GIT_REV|g\" $$shadowed($$PWD)/../tmp/generated.xml )
   system( sed -i \"s|%%APP_VERSION%%|$$VERSTR|g\" $$shadowed($$PWD)/../tmp/version.properties )
-  system( sed -i \"s|%%APP_VERSIONCODE%%|$$VERSIONCODE|g\" $$shadowed($$PWD)/../tmp/version.properties )
+  system( sed -i \"s|%%APP_VERSIONCODE%%|$${VERSIONCODE}|g\" $$shadowed($$PWD)/../tmp/version.properties )
 
   gen_android_strings.path = /res/values
   gen_android_strings.files = "$$shadowed($$PWD)/../tmp/generated.xml"
