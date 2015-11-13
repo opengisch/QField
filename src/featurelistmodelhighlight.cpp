@@ -85,12 +85,12 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
 
       if ( mSelection && mSelection->selection() == i )
       {
-        sn = new QgsSGGeometry( *feature.qgsFeature().geometry(), mSelectionColor, mWidth );
+        sn = new QgsSGGeometry( *feature.qgsFeature().constGeometry(), mSelectionColor, mWidth );
         sn->setFlag( QSGNode::OwnedByParent );
       }
       else
       {
-        gn = new QgsSGGeometry( *feature.qgsFeature().geometry(), mColor, mWidth );
+        gn = new QgsSGGeometry( *feature.qgsFeature().constGeometry(), mColor, mWidth );
         gn->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( gn );
       }
