@@ -16,8 +16,9 @@ android {
   LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so \
           $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_gui.so
 
-  system( mkdir $$shadowed($$PWD)/tmp )
-  system( "pushd $$QGIS_INSTALL_PATH; rm $$shadowed($$PWD)/tmp/assets.zip; zip -r $$shadowed($$PWD)/tmp/assets.zip share/resources/ share/svg/; popd" )
+  system( mkdir -p $$shadowed($$PWD)/tmp )
+  CURRENT_PATH = $$shadowed($$PWD)
+  system( "cd $$QGIS_INSTALL_PATH$$; rm $$shadowed($$PWD)/tmp/assets.zip; zip -r $$shadowed($$PWD)/tmp/assets.zip share/resources/ share/svg/; cd $$CURRENT_PATH$$" )
   qgis_assets.path = /assets
   qgis_assets.files = "$$shadowed($$PWD)/tmp/assets.zip"
   INSTALLS += qgis_assets

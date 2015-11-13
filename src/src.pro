@@ -70,7 +70,8 @@ android {
       android/gradlew
 
   # That's already done in qgis.pri but it doesn't hurt doing it again for safety
-  system( mkdir $$shadowed($$PWD)/../tmp )
+  system( mkdir -p $$shadowed($$PWD)/../tmp )
+
   system( cp $$PWD/../templates/generated.xml $$shadowed($$PWD)/../tmp/generated.xml )
   system( cp $$PWD/../templates/version.properties $$shadowed($$PWD)/../tmp/version.properties )
   GIT_REV = $$system( git --work-tree $$PWD rev-parse HEAD )
