@@ -13,6 +13,7 @@ First build [OSGeo4A](https://github.com/opengisch/OSGeo4A) then call:
 ```sh
 cd QField
 cp config.pri.default config.pri
+git submodule init
 git submodule update
 ```
 
