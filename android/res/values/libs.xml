@@ -21,7 +21,7 @@
       <item>qwt</item>
       <item>pq</item>
       <item>spatialite</item>
-
+      <item>qca-qt5</item>
       <item>qgis_core</item>
       <item>qgis_gui</item>
     </array>
