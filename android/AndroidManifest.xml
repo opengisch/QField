@@ -56,12 +56,20 @@
             <!-- Splash screen -->
             <meta-data android:name="android.app.splash_screen" android:resource="@layout/splash"/>
             <!-- Splash screen -->
+
+            <!-- Background running -->
+            <!-- Warning: changing this value to true may cause unexpected crashes if the
+                          application still try to draw after
+                          "applicationStateChanged(Qt::ApplicationSuspended)"
+                          signal is sent! -->
+            <meta-data android:name="android.app.background_running" android:value="false"/>
+            <!-- Background running -->
         </activity>
     </application>
     <uses-sdk
       android:minSdkVersion="9"
-      android:targetSdkVersion="14"
-      android:maxSdkVersion="19"
+      android:targetSdkVersion="19"
+      android:maxSdkVersion="21"
     />
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
