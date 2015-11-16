@@ -75,7 +75,6 @@ android {
   gen_android_version_props.path = /
   gen_android_version_props.files = "$$shadowed($$PWD)/../tmp/version.properties"
   INSTALLS += gen_android_version_props
-  message(($$INSTALLS)$$shadowed($$PWD))
 }
 
 !android {

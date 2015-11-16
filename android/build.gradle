@@ -54,4 +54,23 @@ android {
     lintOptions {
         abortOnError false
     }
+    
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def code = versionProps['VERSION_CODE'].toInteger()
+        def name = versionProps['VERSION_NAME'].toString()
+
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            versionCode code
+            versionName name
+        }
+    }
+    else {
+        throw new GradleException("Could not read version.properties!")
+    }
 }
