@@ -31,6 +31,11 @@
 
      <array name="qt_libs">
       <!-- %%INSERT_QT_LIBS%% -->
+      <item>Qt5PrintSupport</item>
+      <item>Qt5Sql</item>
+      <item>Qt5Svg</item>
+      <item>Qt5Senors</item>
+      <item>Qt5OpenGL</item>  
      </array>
 
     <array name="bundled_in_lib">

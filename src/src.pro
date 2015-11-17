@@ -3,7 +3,8 @@ CONFIG += ordered
 
 TARGET = qfield
 
-QT += widgets quick concurrent xml positioning
+QT += widgets quick concurrent xml positioning printsupport svg sql opengl sensors
+# MISSINIG in apk: printsupport svg sql opengl sensors
 
 include( ../qfield.pri )
 include( ../qgis.pri )
