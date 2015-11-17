@@ -27,7 +27,8 @@
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
                   android:screenOrientation="sensorLandscape"
-                  android:launchMode="singleTop"> <!-- TODO: Change screenOrientation to userLandscape, once Android 4.3 can be expected to be present -->
+                  android:launchMode="singleTop">
+                  <!-- TODO: Change screenOrientation to userLandscape, once Android api 18 can be expected to be present -->
             <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
             <meta-data android:name="android.app.repository" android:value="default"/>
@@ -64,8 +65,8 @@
     </application>
     <uses-sdk
       android:minSdkVersion="15"
-      android:targetSdkVersion="19"
-      android:maxSdkVersion="21"
+      android:targetSdkVersion="22"
+      android:maxSdkVersion="23"
     />
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 

@@ -1,6 +1,8 @@
 VERSION_MAJOR = 0
-VERSION_MINOR = 3
-VERSION_FIX   = 4
+VERSION_MINOR = 4
+VERSION_FIX   = 0
+
+CODENAME = 'Dhaulagiri'
 
 VERSION = '$${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_FIX}'
 
@@ -15,8 +17,6 @@ equals ( ANDROID_TARGET_ARCH, 'x86' ) {
 }
 
 VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
-
-CODENAME = 'Cerro Torre'
 VERSTR = '$${VERSION} - $${CODENAME}'
 
 message( 'Building Version $${VERSTR} ($${VERSIONCODE})' )
