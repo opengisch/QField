@@ -31,7 +31,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ch.opengis;
+package ch.opengis.qfield;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
