@@ -54,6 +54,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   format.setSamples( 8 );
   setFormat( format );
 
+  QString dotqgis2Dir = mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
+  QString shareDir = mPlatformUtils.getIntentExtra("SHARE_DIR");
+
+  if (dotqgis2Dir != ""){
+      mSettings.setValue("/QField/App/DOTQGIS2_DIR", dotqgis2Dir);
+      qDebug() << "STORED DOTQGIS2_DIR:" << mSettings.value("/QField/App/DOTQGIS2_DIR","ERROR, THIS SHOULD NOT HAPPEN");
+  }
+  if (shareDir != ""){
+      mSettings.setValue("/QField/App/SHARE_DIR", shareDir);
+      qDebug() << "STORED SHARE_DIR:" << mSettings.value("/QField/App/SHARE_DIR","ERROR, THIS SHOULD NOT HAPPEN");
+  }
+
   initDeclarative();
 
   QgsEditorWidgetRegistry::initEditors();
@@ -87,17 +99,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
-  QString dotqgis2Dir = mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
-  QString shareDir = mPlatformUtils.getIntentExtra("SHARE_DIR");
-
-  if (dotqgis2Dir != ""){
-      mSettings.setValue("App/DOTQGIS2_DIR", dotqgis2Dir);
-      qDebug() << "Stored DOTQGIS2_DIR:" << mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
-  }
-  if (shareDir != ""){
-      mSettings.setValue("App/SHARE_DIR", shareDir);
-      qDebug() << "Stored SHARE_DIR:" << mPlatformUtils.getIntentExtra("SHARE_DIR");
-  }
   show();
 }
 
