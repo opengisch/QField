@@ -72,7 +72,9 @@ public class QFieldActivity extends Activity {
 	private String mThisRev = null; // the git_rev of qgis
 	private boolean mExternalStorageAvailable = false;
 	private boolean mExternalStorageWriteable = false;
-	
+    private String dotqgis2_dir;
+    private String share_dir;
+
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -167,6 +169,8 @@ public class QFieldActivity extends Activity {
 		// forward to startQtActivity and finish QFieldActivity
 		Intent intent = new Intent();
 		intent.setClass(QFieldActivity.this, QtActivity.class);
+		intent.putExtra("DOTQGIS2_DIR", dotqgis2_dir);
+        intent.putExtra("SHARE_DIR", share_dir);
 		startActivity(intent);
 		finish();
 	}
@@ -262,21 +266,20 @@ public class QFieldActivity extends Activity {
 			if (mExternalStorageAvailable) {
 				if (mExternalStorageWriteable) {
 					String pathAlias;
-					String path;
 					String externalFilesDir = getExternalFilesDir(null).getAbsolutePath();
 					String filesDir = getFilesDir().getAbsolutePath();
 
 					// put the share files to externalFilesDir
 					pathAlias = filesDir + "/share";
-					path = externalFilesDir + "/share";
-					new File(path).mkdir();
-					makeSymlink(path, pathAlias);
+                    share_dir = externalFilesDir + "/share";
+					new File(share_dir).mkdir();
+					makeSymlink(share_dir, pathAlias);
 					
 					// put .qgis to externalFilesDir
 					pathAlias = filesDir + "/.qgis2";
-					path = externalFilesDir + "/.qgis2";
-					new File(path).mkdir();
-					makeSymlink(path, pathAlias);
+                    dotqgis2_dir = externalFilesDir + "/.qgis2";
+					new File(dotqgis2_dir).mkdir();
+					makeSymlink(dotqgis2_dir, pathAlias);
 					
 				} else {
 					storagePathAlias = storagePathAlias + "ReadOnly";

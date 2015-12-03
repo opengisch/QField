@@ -30,6 +30,7 @@
 #include "featuremodel.h"
 #include "featurelistmodel.h"
 #include "settings.h"
+#include "platformutilities.h"
 
 class AppInterface;
 
@@ -93,6 +94,8 @@ class QgisMobileapp : public QQuickView
     FeatureListModel mFeatureListModel;
     Settings mSettings;
     bool mFirstRenderingFlag;
+    PlatformUtilities mPlatformUtils;
+
 };
 
 #endif // QGISMOBILEAPP_H

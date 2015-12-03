@@ -3,7 +3,7 @@ CONFIG += ordered
 
 TARGET = qfield
 
-QT += widgets quick concurrent xml positioning printsupport svg sql opengl sensors
+QT += widgets quick concurrent xml positioning printsupport svg sql opengl sensors androidextras
 # MISSING in apk: printsupport svg sql opengl sensors
 
 include( ../qfield.pri )
@@ -26,7 +26,8 @@ HEADERS += appinterface.h \
             qgsmapcanvasproxy.h \
             qgsquickmapcanvasmap.h \
             qgssggeometry.h \
-            settings.h
+            settings.h \
+    platformutilities.h
 
 SOURCES += appinterface.cpp \
             coordinatetransform.cpp \
@@ -44,7 +45,8 @@ SOURCES += appinterface.cpp \
             qgsmapcanvasproxy.cpp \
             qgsquickmapcanvasmap.cpp \
             qgssggeometry.cpp \
-            settings.cpp
+            settings.cpp \
+    platformutilities.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

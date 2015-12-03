@@ -87,6 +87,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
+  QString dotqgis2Dir = mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
+  QString shareDir = mPlatformUtils.getIntentExtra("SHARE_DIR");
+
+  if (dotqgis2Dir != ""){
+      mSettings.setValue("App/DOTQGIS2_DIR", dotqgis2Dir);
+      qDebug() << "Stored DOTQGIS2_DIR:" << mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
+  }
+  if (shareDir != ""){
+      mSettings.setValue("App/SHARE_DIR", shareDir);
+      qDebug() << "Stored SHARE_DIR:" << mPlatformUtils.getIntentExtra("SHARE_DIR");
+  }
   show();
 }
 
