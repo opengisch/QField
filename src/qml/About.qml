@@ -5,6 +5,12 @@ Item {
     color: "black"
     opacity: 0.8
     anchors.fill: parent
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        parent.parent.visible = false
+      }
+    }
   }
 
   Column {

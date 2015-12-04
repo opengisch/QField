@@ -426,13 +426,6 @@ Rectangle {
     anchors.fill: parent
 
     visible: false
-
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        parent.visible = false
-      }
-    }
   }
 
   WelcomeScreen {
