@@ -2,8 +2,8 @@
     <qresource prefix="/images">
         <file alias="icon">icons/qgis_icon.svg</file>
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
-        <file alias="donate.gif">icons/donate.gif</file>
-        <file alias="playstore.png">icons/playstore.png</file>
+        <file alias="karma-logo.svg">icons/karma-logo.svg</file>
+        <file alias="karma-logo-playstore.svg">icons/karma-logo-playstore.svg</file>
     </qresource>
     <qresource prefix="/themes/holodark">
         <file alias="add.png">themes/holodark/add.png</file>

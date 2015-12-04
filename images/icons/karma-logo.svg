@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="91"
+   height="91"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="karma-logo.svg"
+   inkscape:export-filename="/home/marco/dev/QGIS/QFieldKarma/app/src/main/res/drawable-mdpi/ic_launcher.png"
+   inkscape:export-xdpi="9.2703867"
+   inkscape:export-ydpi="9.2703867">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="876"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="1.0477386"
+     inkscape:cx="-377.94254"
+     inkscape:cy="81.232188"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     id="g4146"
+     transform="matrix(0.1969697,0,0,0.1969697,-0.26766467,-0.35191614)">
+    <circle
+       transform="translate(-0.64108708,-0.21334885)"
+       style="fill:#80cc28;fill-opacity:1"
+       id="circle4"
+       r="231"
+       cy="233"
+       cx="233" />
+    <path
+       id="path6"
+       d="m 232.35891,458.78665 a 226,226 0 1 1 0,-451.9999988 113,113 0 0 1 0,225.9999988 z"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" />
+    <circle
+       transform="translate(-0.64108708,-0.21334885)"
+       style="fill:#80cc28;fill-opacity:1"
+       id="circle8"
+       r="113"
+       cy="346"
+       cx="233" />
+    <circle
+       transform="translate(-0.64108708,-0.21334885)"
+       id="circle12"
+       r="30"
+       cy="346"
+       cx="233"
+       style="fill:#ffffff" />
+    <g
+       transform="matrix(9.8629308,0,0,9.8629308,-449.08303,-346.44771)"
+       id="g3003">
+      <g
+         id="g93"
+         transform="translate(-351.78959,-411.47551)"
+         style="fill:#80cc28;fill-opacity:1" />
+      <g
+         id="grille"
+         transform="translate(-334.48801,-425.197)"
+         style="fill:#80cc28;fill-opacity:1" />
+      <g
+         transform="translate(37.562954,22.487021)"
+         id="g3829">
+        <g
+           id="g3816"
+           transform="matrix(0.19633767,0,0,0.19633767,50.170173,-22.284896)">
+          <g
+             style="fill:#80cc28;fill-opacity:1"
+             transform="translate(-334.48801,-425.197)"
+             id="g93-7" />
+          <g
+             transform="translate(-140.30217,193.75061)"
+             id="g3837">
+            <path
+               transform="translate(-334.48801,-425.197)"
+               style="fill:#80cc28;fill-opacity:1"
+               inkscape:connector-curvature="0"
+               id="path95-4"
+               d="m 379.842,425.197 c -25.048,0 -45.354,20.304 -45.354,45.354 0,25.048 20.306,45.354 45.354,45.354 25.049,0 45.354,-20.307 45.354,-45.354 0,-25.05 -20.305,-45.354 -45.354,-45.354 z m 0,86.174 c -22.545,0 -40.819,-18.275 -40.819,-40.82 0,-22.544 18.274,-40.819 40.819,-40.819 22.543,0 40.817,18.275 40.817,40.819 0.001,22.545 -18.274,40.82 -40.817,40.82 z" />
+            <path
+               style="fill:#80cc28;fill-opacity:1"
+               inkscape:connector-curvature="0"
+               id="path119-7"
+               d="m 63.493993,43.54 0,1.813 16.331,0 c 0,9.017 -7.313,16.329 -16.331,16.329 -9.016,0 -16.324,-7.313 -16.324,-16.329 0,-9.016 7.309,-16.328 16.324,-16.328 4.443,0 8.475,1.774 11.419,4.653 l 1.412,-1.153 c -3.284,-3.283 -7.818,-5.313 -12.831,-5.313 -10.019,0 -18.137,8.121 -18.137,18.141 0,10.02 8.118,18.142 18.137,18.142 10.021,0 18.144,-8.122 18.144,-18.142 l 0,-1.813 -18.144,0 z" />
+          </g>
+          <g
+             style="fill:#80cc28;fill-opacity:1"
+             transform="translate(-334.48801,-425.197)"
+             id="grille-4" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
