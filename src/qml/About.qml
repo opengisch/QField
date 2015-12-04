@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.2
 
 Item {
   Rectangle {
@@ -13,10 +14,9 @@ Item {
     }
   }
 
-  Column {
+  ColumnLayout {
     anchors.leftMargin: 10*dp
     anchors.fill: parent
-    spacing: 20*dp
     Text {
       font.bold: true
       color: "white"
@@ -34,10 +34,9 @@ Item {
       text: qsTr( "QField Shared items folder: %1").arg(
                 settings.value( "/QField/App/SHARE_DIR", "DDSHARE_DIR" ) )
     }
-    Row{
+    RowLayout{
         spacing: 20*dp
-        anchors.fill: parent.parent
-        Column{
+        ColumnLayout{
             spacing: 10*dp
             Text {
               font.bold: true
@@ -45,6 +44,7 @@ Item {
               text: qsTr( "Developed by" )
             }
             MouseArea {
+              Layout.alignment: Qt.AlignCenter
               width: opengis_logo.width
               height: opengis_logo.height
               Image {
@@ -54,7 +54,7 @@ Item {
               onClicked: Qt.openUrlExternally("http://opengis.ch")
             }
         }
-        Column{
+        ColumnLayout{
             spacing: 10*dp
             Text {
                 font.bold: true
@@ -62,6 +62,7 @@ Item {
                 text: qsTr( "Support the development" )
             }
             MouseArea {
+                Layout.alignment: Qt.AlignCenter
                 width: donate_image.width
                 height: donate_image.height
                 Image {
@@ -71,7 +72,7 @@ Item {
                 onClicked: Qt.openUrlExternally("http://qfield.opengis.ch/supportus")
             }
         }
-        Column{
+        ColumnLayout{
             spacing: 10*dp
             Text {
                 font.bold: true
@@ -79,6 +80,7 @@ Item {
                 text: qsTr( "Buy the Karma edition" )
             }
             MouseArea {
+                Layout.alignment: Qt.AlignCenter
                 width: karma_image.width
                 height: karma_image.height
                 Image {
