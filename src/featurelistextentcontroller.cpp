@@ -38,7 +38,13 @@ void FeatureListExtentController::zoomToSelected() const
   if ( mModel && mSelection && mMapSettings )
   {
     Feature feat = mSelection->selectedFeature().value<Feature>();
-    QgsRectangle featureExtent = feat.qgsFeature().constGeometry()->boundingBox();
+
+    const QgsCoordinateReferenceSystem& layerCrs = feat.layer()->crs();
+    const QgsCoordinateTransform & transf = QgsCoordinateTransform(layerCrs, mMapSettings->crs()->crs());
+    QgsGeometry geom( *feat.qgsFeature().constGeometry() );
+    geom.transform( transf );
+
+    QgsRectangle featureExtent = geom.boundingBox();
     QgsRectangle bufferedExtent = featureExtent.buffer( qMax( featureExtent.width(), featureExtent.height() ) );
 
     mMapSettings->setExtent( bufferedExtent );
