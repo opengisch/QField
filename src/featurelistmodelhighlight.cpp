@@ -77,11 +77,9 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
     int count = mModel->rowCount( QModelIndex() );
     QgsSGGeometry* sn = 0;
 
-    qDebug() << "CANVAS EPSG: " << mMapSettings->crs()->crs().authid();
     QModelIndex firstIndex = mModel->index( 0, 0, QModelIndex() );
     const Feature& firstFeature = mModel->data( firstIndex, FeatureListModel::FeatureRole ).value<Feature>();
     const QgsCoordinateReferenceSystem& layerCrs = firstFeature.layer()->crs();
-    qDebug() << "LAYER EPSG: " << layerCrs.authid();
     const QgsCoordinateTransform & transf = QgsCoordinateTransform(layerCrs, mMapSettings->crs()->crs());
 
     for ( int i = 0; i < count; ++i )
@@ -91,12 +89,8 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
       QModelIndex index = mModel->index( i, 0, QModelIndex() );
       const Feature& feature = mModel->data( index, FeatureListModel::FeatureRole ).value<Feature>();
 
-      QgsFeature feat( feature.qgsFeature() );
-      feat.geometry()->transform( transf );
-
       QgsGeometry geom( *feature.qgsFeature().constGeometry() );
       geom.transform( transf );
-
 
       if ( mSelection && mSelection->selection() == i )
       {
