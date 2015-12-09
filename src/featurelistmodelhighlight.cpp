@@ -82,7 +82,7 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
     const Feature& firstFeature = mModel->data( firstIndex, FeatureListModel::FeatureRole ).value<Feature>();
     const QgsCoordinateReferenceSystem& layerCrs = firstFeature.layer()->crs();
     qDebug() << "LAYER EPSG: " << layerCrs.authid();
-    const QgsCoordinateTransform & transf = QgsCoordinateTransform(layerCrs, 3857);
+    const QgsCoordinateTransform & transf = QgsCoordinateTransform(layerCrs, mMapSettings->crs()->crs());
 
     for ( int i = 0; i < count; ++i )
     {
@@ -94,15 +94,18 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
       QgsFeature feat( feature.qgsFeature() );
       feat.geometry()->transform( transf );
 
+      QgsGeometry geom( *feature.qgsFeature().constGeometry() );
+      geom.transform( transf );
+
 
       if ( mSelection && mSelection->selection() == i )
       {
-        sn = new QgsSGGeometry( *feat.constGeometry(), mSelectionColor, mWidth );
+        sn = new QgsSGGeometry( geom, mSelectionColor, mWidth );
         sn->setFlag( QSGNode::OwnedByParent );
       }
       else
       {
-        gn = new QgsSGGeometry( *feat.constGeometry(), mColor, mWidth );
+        gn = new QgsSGGeometry( geom, mColor, mWidth );
         gn->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( gn );
       }

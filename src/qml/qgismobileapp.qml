@@ -81,6 +81,7 @@ Rectangle {
       FeatureListModelHighlight {
         model: featureListModel
         selection: featureForm.selection
+        mapSettings: mapCanvas.mapSettings
         color: "yellow"
         selectionColor: "#ff7777"
         width: 5

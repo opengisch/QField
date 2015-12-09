@@ -24,7 +24,6 @@
 #include "featurelistmodelselection.h"
 
 #include "mapsettings.h"
-#include "coordinatetransform.h"
 
 /**
  * Creates map highlights for a series of geometries provided by a FeatureListModel.

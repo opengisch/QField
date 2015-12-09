@@ -37,7 +37,6 @@ void FeatureListExtentController::zoomToSelected() const
 {
   if ( mModel && mSelection && mMapSettings )
   {
-    qDebug() << "MapSettings not empty EPSG: " << mMapSettings->crs()->crs().authid();
     Feature feat = mSelection->selectedFeature().value<Feature>();
     QgsRectangle featureExtent = feat.qgsFeature().constGeometry()->boundingBox();
     QgsRectangle bufferedExtent = featureExtent.buffer( qMax( featureExtent.width(), featureExtent.height() ) );
