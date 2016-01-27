@@ -21,10 +21,10 @@ Item {
         Text {
           text: "<p>The app is now up and running. Well done!</p>"
               + "<p>To get started you first need a QGIS project."
-              + "It is very easy to create one on your desktop PC and then transfer it"
-              + "to this device.</p>"
+              + " It is very easy to create one on your desktop PC and then transfer it"
+              + " to this device.</p>"
               + "<p>Once you have a project on this device, use the buttons below to"
-              + "locate it on the filesystem, open it and start working.</p>"
+              + " locate it on the filesystem, open it and start working.</p>"
 
           wrapMode: Text.WordWrap
         }
