@@ -1,6 +1,6 @@
 [submodule "test/QGIS-Sampledata"]
 	path = test/QGIS-Sampledata
-	url = git@github.com:opengisch/QGIS-Sampledata.git
+	url = https://github.com/opengisch/QGIS-Sampledata.git
 [submodule "3rdparty/tessellate"]
 	path = 3rdparty/tessellate
-	url = git@github.com:opengisch/tessellate.git
+	url = https://github.com/opengisch/tessellate.git
