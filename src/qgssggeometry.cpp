@@ -3,13 +3,6 @@ extern "C" {
 #include "tessellate.h"
 }
 
-static void stdDeleteAll( std::vector<auto*> v )
-{
-  for ( size_t i = 0; i < v.size(); i++ )
-  {
-    delete v[i];
-  }
-}
 
 QgsSGGeometry::QgsSGGeometry()
 {
