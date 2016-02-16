@@ -1,5 +1,5 @@
 /***************************************************************************
-                            utilities.cpp  -  utilities for qfield
+                            platformutilities.cpp  -  utilities for qfield
 
                               -------------------
               begin                : Wed Dec 04 10:48:28 CET 2015
@@ -26,57 +26,65 @@ PlatformUtilities::PlatformUtilities( QObject *parent ) :
 {
 }
 
-QString PlatformUtilities::getIntentExtra(QString extra, QAndroidJniObject extras){
-    if (extras == 0){
-        extras = getNativeExtras();
+QString PlatformUtilities::getIntentExtra( QString extra, QAndroidJniObject extras )
+{
+  if ( extras == 0 )
+  {
+    extras = getNativeExtras();
+  }
+  if( extras.isValid() )
+  {
+    QAndroidJniObject extraJni = QAndroidJniObject::fromString( extra );
+    extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
+    if ( extraJni.isValid() )
+    {
+      extra = extraJni.toString();
+      return extra;
     }
-    if(extras.isValid()){
-        QAndroidJniObject extraJni = QAndroidJniObject::fromString(extra);
-        extraJni = extras.callObjectMethod("getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>());
-        if (extraJni.isValid()){
-            extra = extraJni.toString();
-            return extra;
-        }
-    }
-    return "";
+  }
+  return "";
 }
 
 
-QMap<QString, QString> PlatformUtilities::getIntentExtras(QStringList intentExtras)
+QMap<QString, QString> PlatformUtilities::getIntentExtras( QStringList intentExtras )
 {
-    QAndroidJniObject extras = getNativeExtras();
-    QString extraValue, extraName;
-    QMap<QString, QString> extraMap;
+  QAndroidJniObject extras = getNativeExtras();
+  QString extraValue, extraName;
+  QMap<QString, QString> extraMap;
 
-    for (int i = 0; i < intentExtras.size(); ++i){
-        extraName = intentExtras.at(i).toLocal8Bit().constData();
-        extraValue = getIntentExtra(extraValue, extras);
-        extraMap.insert(extraName, extraValue);
-    }
-    return extraMap;
+  for ( int i = 0; i < intentExtras.size(); ++i )
+  {
+    extraName = intentExtras.at( i ).toLocal8Bit().constData();
+    extraValue = getIntentExtra( extraValue, extras );
+    extraMap.insert( extraName, extraValue );
+  }
+  return extraMap;
 }
 
 QAndroidJniObject PlatformUtilities::getNativeIntent()
 {
-    QAndroidJniObject activity = QtAndroid::androidActivity();
-    if (activity.isValid()) {
-        QAndroidJniObject intent = activity.callObjectMethod("getIntent", "()Landroid/content/Intent;");
-        if (intent.isValid()) {
-            qDebug() << "Intent: " << intent.toString();
-            return intent;
-        }
+  QAndroidJniObject activity = QtAndroid::androidActivity();
+  if ( activity.isValid() )
+  {
+    QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
+    if ( intent.isValid() )
+    {
+      qDebug() << "Intent: " << intent.toString();
+      return intent;
     }
-    return 0;
+  }
+  return 0;
 }
 
 QAndroidJniObject PlatformUtilities::getNativeExtras()
 {
-    QAndroidJniObject intent = getNativeIntent();
-    if (intent.isValid()){
-        QAndroidJniObject extras = intent.callObjectMethod("getExtras", "()Landroid/os/Bundle;");
-        qDebug() << "Extras: " << extras.toString();
+  QAndroidJniObject intent = getNativeIntent();
+  if ( intent.isValid() )
+  {
+    QAndroidJniObject extras = intent.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
+    qDebug() << "Extras: " << extras.toString();
 
-        return extras;
-    }
-    return 0;
+    return extras;
+  }
+  return 0;
 }
