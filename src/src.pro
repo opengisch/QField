@@ -8,6 +8,8 @@ QT += widgets quick concurrent xml positioning printsupport svg sql opengl senso
 
 android {
     QT += androidextras
+    HEADERS += androidplatformutilities.h
+    SOURCES += androidplatformutilities.cpp
 }
 include( ../qfield.pri )
 include( ../qgis.pri )
@@ -30,7 +32,7 @@ HEADERS += appinterface.h \
             qgsquickmapcanvasmap.h \
             qgssggeometry.h \
             settings.h \
-    platformutilities.h
+            platformutilities.h
 
 SOURCES += appinterface.cpp \
             coordinatetransform.cpp \
@@ -49,7 +51,7 @@ SOURCES += appinterface.cpp \
             qgsquickmapcanvasmap.cpp \
             qgssggeometry.cpp \
             settings.cpp \
-    platformutilities.cpp
+            platformutilities.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

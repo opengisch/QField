@@ -20,19 +20,15 @@
 #define PLATFORMUTILITIES_H
 
 #include <QObject>
-#include <QAndroidJniObject>
 
-
-class PlatformUtilities: public QObject
+class PlatformUtilities
 {
-    Q_OBJECT
-
   public:
-    explicit PlatformUtilities( QObject *parent = 0 );
-    QMap<QString, QString> getIntentExtras( QStringList );
-    QString getIntentExtra( QString, QAndroidJniObject=0 );
-    QAndroidJniObject getNativeIntent();
-    QAndroidJniObject getNativeExtras();
+    PlatformUtilities();
+    virtual ~PlatformUtilities() {}
+
+    virtual QString configDir() const;
+    virtual QString shareDir() const;
 };
 #endif // PLATFORMUTILITIES_H
 

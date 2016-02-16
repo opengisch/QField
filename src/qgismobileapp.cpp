@@ -54,8 +54,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   format.setSamples( 8 );
   setFormat( format );
 
-  QString dotqgis2Dir = mPlatformUtils.getIntentExtra("DOTQGIS2_DIR");
-  QString shareDir = mPlatformUtils.getIntentExtra("SHARE_DIR");
+  QString dotqgis2Dir = mPlatformUtils->configDir();
+  QString shareDir = mPlatformUtils->shareDir();
 
   if (dotqgis2Dir != ""){
       mSettings.setValue("/QField/App/DOTQGIS2_DIR", dotqgis2Dir);
