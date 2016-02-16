@@ -98,7 +98,11 @@ class QgisMobileapp : public QQuickView
     FeatureListModel mFeatureListModel;
     Settings mSettings;
     bool mFirstRenderingFlag;
-    PlatformUtilities* mPlatformUtils;
+#if defined(Q_OS_ANDROID)
+    AndroidPlatformUtilities mPlatformUtils;
+#else
+    PlatformUtilities mPlatformUtils;
+#endif
 };
 
 #endif // QGISMOBILEAPP_H
