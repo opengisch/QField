@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
@@ -232,6 +232,7 @@ Rectangle {
 
     ComboBox {
       width: 200*dp
+
       model: layerTree
     }
 
@@ -333,12 +334,12 @@ Rectangle {
         {
           case "Off":
             gpsButton.state = "On"
-            displayToast( "GPS is now on" )
+            displayToast( qsTr( "GPS is now on" ) )
             break;
 
           case "On":
             gpsButton.state = "Off"
-            displayToast( "GPS is now off" )
+            displayToast( qsTr( "GPS is now off" ) )
             break;
         }
       }
@@ -358,7 +359,7 @@ Rectangle {
     visible: false
     width: parent.width
     height: parent.height
-    nameFilters: [ "QGIS projects (*.qgs)", "All files (*)" ]
+    nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
@@ -402,7 +403,7 @@ Rectangle {
     MenuSeparator {}
 
     MenuItem {
-      text: "About"
+      text: qsTr( "About" )
 
       onTriggered: {
         aboutDialog.visible = true
@@ -412,7 +413,7 @@ Rectangle {
     MenuSeparator {}
 
     MenuItem {
-      text: "Quit"
+      text: qsTr( "Quit" )
       iconSource: "/themes/holodark/remove.png"
       onTriggered: {
         Qt.quit()
@@ -422,7 +423,7 @@ Rectangle {
 
   Menu {
     id: gpsMenu
-    title: "GPS Options"
+    title: qsTr( "GPS Options" )
 
     MenuItem {
       text: qsTr( "Enable GPS" )
