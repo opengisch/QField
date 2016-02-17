@@ -53,12 +53,12 @@ class FeatureListModel : public QAbstractItemModel
      */
     void setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests );
 
-    QHash<int, QByteArray> roleNames() const;
-    QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const;
-    QModelIndex parent( const QModelIndex& child ) const;
-    int rowCount( const QModelIndex& parent ) const;
-    int columnCount( const QModelIndex& parent ) const;
-    QVariant data( const QModelIndex& index, int role ) const;
+    QHash<int, QByteArray> roleNames() const override;
+    QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const override;
+    QModelIndex parent( const QModelIndex& child ) const override;
+    int rowCount( const QModelIndex& parent ) const override;
+    int columnCount( const QModelIndex& parent ) const override;
+    QVariant data( const QModelIndex& index, int role ) const override;
 
     /**
      * Removes a defined number of rows starting from a given position. The parent index is not

@@ -84,11 +84,11 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
       break;
 
     case EditorWidget:
-      return mFeature.layer()->editorWidgetV2( index.row() );
+      return mFeature.layer()->editFormConfig()->widgetType( index.row() );
       break;
 
     case EditorWidgetConfig:
-      return mFeature.layer()->editorWidgetV2Config( index.row() );
+      return mFeature.layer()->editFormConfig()->widgetConfig( index.row() );
   }
 
   return QVariant();
