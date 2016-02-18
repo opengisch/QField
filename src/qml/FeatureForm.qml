@@ -259,7 +259,7 @@ Rectangle {
 
             Connections {
               target: attributeEditorLoader.item
-              onValueChanged: featureFormList.model.setData( index, value, FeatureModel.AttributeValue )
+              onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
             }
 
             Text {

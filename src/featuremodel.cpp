@@ -95,7 +95,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
 }
 
 
-bool FeatureModel::setData( int fieldIndex, const QVariant& value )
+bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 {
   if ( ! mFeature.layer()->isEditable() )
     mFeature.layer()->startEditing();
