@@ -52,6 +52,8 @@ class AppInterface : public QObject
 
     void openFeatureForm();
 
+    void addFeature( Feature* feature );
+
   signals:
     void openFeatureFormRequested();
 

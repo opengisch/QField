@@ -156,30 +156,6 @@ Rectangle {
     }
   }
 
-  Item
-  {
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.margins: 10
-
-    width: childrenRect.width
-    height: childrenRect.height
-
-    Text {
-      id: txt
-      text: qsTr( "Coordinate..." )
-
-      Connections {
-        target: coordinateLocator
-
-        onCoordinateChanged: {
-          console.warn( "Change text")
-          txt.text = " Coordinate " + coordinateLocator.coordinate.x + " / " + coordinateLocator.coordinate.x
-        }
-      }
-    }
-  }
-
   /* The feature form */
   FeatureForm {
     id: featureForm
@@ -203,39 +179,23 @@ Rectangle {
     id: mainMenuBar
     height: childrenRect.height
 
-    Item {
-      height: dp*48
-      width: dp*48
-
-      Rectangle {
-        anchors.fill: parent
-        color: "#bb555555"
-        border.color: "#dddddd"
-        border.width: 1
-      }
-
-      MouseArea {
-        anchors.fill: parent
-
-        onClicked: {
-          mainMenu.popup()
-        }
-      }
-
-      Image {
-        anchors.centerIn: parent
-        width: 42
-        height: 42
-        source: "/themes/holodark/settings.png"
+    QFButton {
+      icon: "/themes/holodark/settings.png"
+      onClicked: {
+        mainMenu.popup()
       }
     }
 
     ComboBox {
+      id: layerSelector
+
       width: 200*dp
+      visible: ( mainWindow.state === "digitize" )
 
-      model: layerTree
+      model: MapLayerModel {}
+      textRole: "display"
     }
-
+/*
     Item {
       height: parent.height
       width: 300*dp
@@ -257,15 +217,11 @@ Rectangle {
 
       visible: ( mainWindow.state === "digitize" )
     }
-
-    Item {
+*/
+    QFButton {
       id: gpsButton
-      height: dp*48
-      width: dp*48
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
-
-      property alias icon: icon.source
 
       states: [
         State {
@@ -285,48 +241,37 @@ Rectangle {
         }
       ]
 
-      Rectangle {
-        anchors.fill: parent
-        color: "#bb555555"
-        border.color: "#dddddd"
-        border.width: 1
+      onClicked: {
+        if ( positionSource.position.latitudeValid )
+        {
+          var coord = positionSource.position.coordinate;
+          var loc = Qt.point( coord.longitude, coord.latitude );
+          mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+
+          if ( !positionSource.active )
+          {
+            displayToast( qsTr( "Using cached position. Turn on positioning for more recent location." ) )
+          }
+        }
+        else
+        {
+          if ( positionSource.valid )
+          {
+            if ( positionSource.active )
+            {
+              displayToast( qsTr( "Waiting for location..." ) )
+            }
+            else
+            {
+              displayToast( qsTr( "Activating positioning service..." ) )
+              positionSource.active = true
+            }
+          }
+        }
       }
 
-      MouseArea {
-        anchors.fill: parent
-
-        onClicked: {
-          if ( positionSource.position.latitudeValid )
-          {
-            var coord = positionSource.position.coordinate;
-            var loc = Qt.point( coord.longitude, coord.latitude );
-            mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
-
-            if ( !positionSource.active )
-            {
-              displayToast( qsTr( "Using cached position. Turn on positioning for more recent location." ) )
-            }
-          }
-          else
-          {
-            if ( positionSource.valid )
-            {
-              if ( positionSource.active )
-              {
-                displayToast( qsTr( "Waiting for location..." ) )
-              }
-              else
-              {
-                displayToast( qsTr( "Activating positioning service..." ) )
-                positionSource.active = true
-              }
-            }
-          }
-        }
-
-        onPressAndHold: {
-          gpsMenu.popup()
-        }
+      onPressAndHold: {
+        gpsMenu.popup()
       }
 
       function toggleGps() {
@@ -343,19 +288,19 @@ Rectangle {
             break;
         }
       }
-
-      Image {
-        id: icon
-        anchors.centerIn: parent
-        width: 42
-        height: 42
-      }
     }
+  }
+
+  DigitizingToolbar {
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+
+    visible: ( mainWindow.state === "digitize" )
   }
 
   FileDialog {
     id: openProjectDialog
-    title: "Please choose a project"
+    title: qsTr( "Please choose a project" )
     visible: false
     width: parent.width
     height: parent.height
@@ -368,7 +313,7 @@ Rectangle {
 
   Menu {
     id: mainMenu
-    title: "Main Menu"
+    title: qsTr( "Main Menu" )
 
     Menu {
       title: qsTr( "Mode" )
@@ -459,8 +404,8 @@ Rectangle {
 
   MessageDialog {
     id: messageDialog
-    title: "Not implemented yet"
-    text: "And of course you could only agree"
+    title: qsTr( "Not implemented yet" )
+    text: qsTr( "And of course you could only agree" )
     onAccepted: {
       messageDialog.visible = false
     }

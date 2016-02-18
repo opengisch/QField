@@ -5,6 +5,7 @@ astyle.*.diff
 *.orig
 *.iml
 QField.pro.user
+QField.pro.user.*
 config.pri
 build*
 android/gradle.properties

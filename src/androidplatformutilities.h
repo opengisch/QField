@@ -31,10 +31,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual QString shareDir() const;
 
   private:
-    QMap<QString, QString> getIntentExtras( QStringList );
-    QString getIntentExtra( QString, QAndroidJniObject=0 );
-    QAndroidJniObject getNativeIntent();
-    QAndroidJniObject getNativeExtras();
+    QMap<QString, QString> getIntentExtras( QStringList ) const;
+    QString getIntentExtra( QString, QAndroidJniObject=0 ) const;
+    QAndroidJniObject getNativeIntent() const;
+    QAndroidJniObject getNativeExtras() const;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

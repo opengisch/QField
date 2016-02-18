@@ -13,7 +13,7 @@ Item {
     y: parent.height / 2
 
     border.color: parent.color
-    border.width: 1
+    border.width: 2
     color: "transparent"
     antialiasing: true
 

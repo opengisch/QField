@@ -57,14 +57,18 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   QString dotqgis2Dir = mPlatformUtils.configDir();
   QString shareDir = mPlatformUtils.shareDir();
 
-  if (dotqgis2Dir != ""){
-      mSettings.setValue("/QField/App/DOTQGIS2_DIR", dotqgis2Dir);
-      qDebug() << "STORED DOTQGIS2_DIR:" << mSettings.value("/QField/App/DOTQGIS2_DIR","ERROR, THIS SHOULD NOT HAPPEN");
+  if ( dotqgis2Dir != "" )
+  {
+    mSettings.setValue( "/QField/App/DOTQGIS2_DIR", dotqgis2Dir );
+    qDebug() << "STORED DOTQGIS2_DIR:" << mSettings.value( "/QField/App/DOTQGIS2_DIR","ERROR, THIS SHOULD NOT HAPPEN" );
   }
-  if (shareDir != ""){
-      mSettings.setValue("/QField/App/SHARE_DIR", shareDir);
-      qDebug() << "STORED SHARE_DIR:" << mSettings.value("/QField/App/SHARE_DIR","ERROR, THIS SHOULD NOT HAPPEN");
+  if ( shareDir != "" )
+  {
+    mSettings.setValue( "/QField/App/SHARE_DIR", shareDir );
+    qDebug() << "STORED SHARE_DIR:" << mSettings.value( "/QField/App/SHARE_DIR","ERROR, THIS SHOULD NOT HAPPEN" );
   }
+
+  mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
 
   initDeclarative();
 
@@ -90,7 +94,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
-  mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
   mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
@@ -98,8 +101,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
   connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
 
-  connect( QgsMapLayerRegistry::instance(), SIGNAL(layerWasAdded(QgsMapLayer*)), this, SLOT(onLayerAdded(QgsMapLayer*)) );
-  connect( QgsMapLayerRegistry::instance(), SIGNAL(layerWillBeRemoved(QString)), this, SLOT(onLayerRemoved(QString)));
+  connect( QgsMapLayerRegistry::instance(), SIGNAL( layerWasAdded( QgsMapLayer* ) ), this, SLOT( onLayerAdded( QgsMapLayer* ) ) );
+  connect( QgsMapLayerRegistry::instance(), SIGNAL( layerWillBeRemoved( QString ) ), this, SLOT( onLayerRemoved( QString ) ) );
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
@@ -121,6 +124,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
   qmlRegisterType<CRS>( "org.qgis", 1, 0, "CRS" );
+  qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -158,7 +162,7 @@ void QgisMobileapp::loadProjectQuirks()
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
   QgsMapLayer* ml = QgsMapLayerRegistry::instance()->mapLayers().values().first();
-  qDebug() << "ML " << (long int)ml;
+  qDebug() << "ML " << ( long int )ml;
   qDebug() << "ID " << ml->id();
 
   QString t1 = QgsMapLayerRegistry::instance()->mapLayers().values().first()->name();
@@ -218,18 +222,18 @@ void QgisMobileapp::onAfterFirstRendering()
   }
 }
 
-void QgisMobileapp::onLayerAdded(QgsMapLayer* ml)
+void QgisMobileapp::onLayerAdded( QgsMapLayer* ml )
 {
   qDebug() << "Layer added " << ml;
-  connect( ml, SIGNAL(destroyed(QObject*)), this, SLOT(onLayerDeleted(const QgsMapLayer*)) );
+  connect( ml, SIGNAL( destroyed( QObject* ) ), this, SLOT( onLayerDeleted( QObject* ) ) );
 }
 
-void QgisMobileapp::onLayerDeleted(const QgsMapLayer* ml)
+void QgisMobileapp::onLayerDeleted( QObject* ml )
 {
   qDebug() << "Layer deleted " << ml;
 }
 
-void QgisMobileapp::onLayerRemoved( QString ml)
+void QgisMobileapp::onLayerRemoved( QString ml )
 {
   qDebug() << "Layer removed " << ml;
 }

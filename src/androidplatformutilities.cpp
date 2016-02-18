@@ -18,6 +18,8 @@
 
 #include "androidplatformutilities.h"
 
+#include <QMap>
+#include <QString>
 #include <QtAndroid>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
@@ -27,16 +29,16 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 QString AndroidPlatformUtilities::configDir() const
 {
-    return getIntentExtra("DOTQGIS2_DIR");
+  return getIntentExtra( "DOTQGIS2_DIR" );
 }
 
 QString AndroidPlatformUtilities::shareDir() const
 {
-    return getIntentExtra("SHARE_DIR");
+  return getIntentExtra( "SHARE_DIR" );
 }
 
 
-QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObject extras )
+QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObject extras ) const
 {
   if ( extras == 0 )
   {
@@ -56,7 +58,7 @@ QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObje
 }
 
 
-QMap<QString, QString> AndroidPlatformUtilities::getIntentExtras( QStringList intentExtras )
+QMap<QString, QString> AndroidPlatformUtilities::getIntentExtras( QStringList intentExtras ) const
 {
   QAndroidJniObject extras = getNativeExtras();
   QString extraValue, extraName;
@@ -71,7 +73,7 @@ QMap<QString, QString> AndroidPlatformUtilities::getIntentExtras( QStringList in
   return extraMap;
 }
 
-QAndroidJniObject AndroidPlatformUtilities::getNativeIntent()
+QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
   QAndroidJniObject activity = QtAndroid::androidActivity();
   if ( activity.isValid() )
@@ -79,20 +81,18 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeIntent()
     QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
     if ( intent.isValid() )
     {
-      qDebug() << "Intent: " << intent.toString();
       return intent;
     }
   }
   return 0;
 }
 
-QAndroidJniObject AndroidPlatformUtilities::getNativeExtras()
+QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
 {
   QAndroidJniObject intent = getNativeIntent();
   if ( intent.isValid() )
   {
     QAndroidJniObject extras = intent.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-    qDebug() << "Extras: " << extras.toString();
 
     return extras;
   }

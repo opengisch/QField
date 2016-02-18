@@ -11,5 +11,7 @@
         <file>PositionInformationView.qml</file>
         <file>About.qml</file>
         <file>CoordinateLocator.qml</file>
+        <file>DigitizingToolbar.qml</file>
+        <file>QFButton.qml</file>
     </qresource>
 </RCC>

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource>
+    <file>qfield_de.qm</file>
+    <file>qfield_fr.qm</file>
+  </qresource>
+</RCC>
