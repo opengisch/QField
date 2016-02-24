@@ -18,6 +18,7 @@ Row {
     onClicked: {
       feature.applyGeometry()
       feature.create()
+      feature.save()
     }
   }
 }

@@ -11,8 +11,8 @@ Item {
   Rectangle {
     id: crosshairCircle
 
-    x: parent.width / 2
-    y: parent.height / 2
+    x: parent.width / 2 - radius
+    y: parent.height / 2 - radius
 
     border.color: parent.color
     border.width: 2
@@ -50,7 +50,7 @@ Item {
 
   function __updateCoordinate()
   {
-    coordinate = mapSettings.screenToCoordinate( Qt.point( crosshairCircle.x,crosshairCircle.y ) )
+    coordinate = mapSettings.screenToCoordinate( Qt.point( crosshairCircle.x + crosshairCircle.radius, crosshairCircle.y + crosshairCircle.radius ) )
   }
 }
 

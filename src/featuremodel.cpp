@@ -43,7 +43,8 @@ void FeatureModel::setFeature( const Feature& feature, bool force )
 
 void FeatureModel::setLayer( QgsVectorLayer* layer )
 {
-  mFeature.setLayer( layer );
+  if ( layer != mFeature.layer() )
+    mFeature.setLayer( layer );
 }
 
 QgsVectorLayer* FeatureModel::layer() const
@@ -113,12 +114,14 @@ bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 bool FeatureModel::save()
 {
   bool rv = mFeature.layer()->commitChanges();
+#if 0
   if ( rv )
   {
     QgsFeature feat;
     mFeature.layer()->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat );
     setFeature( Feature( feat, mFeature.layer() ), true );
   }
+#endif
   return rv;
 }
 
