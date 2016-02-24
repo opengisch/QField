@@ -231,6 +231,14 @@ void QgisMobileapp::onLayerAdded( QgsMapLayer* ml )
 {
   qDebug() << "Layer added " << ml;
   connect( ml, SIGNAL( destroyed( QObject* ) ), this, SLOT( onLayerDeleted( QObject* ) ) );
+  QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( ml );
+  if ( vl )
+  {
+    connect( vl, SIGNAL( featureAdded( QgsFeatureId ) ), vl, SLOT( triggerRepaint() ) );
+    connect( vl, SIGNAL( featureRemoved( QgsFeatureId ) ), vl, SLOT( triggerRepaint() ) );
+    connect( vl, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), vl, SLOT( triggerRepaint() ) );
+    connect( vl, SIGNAL( geometryChanged( QgsFeatureId,QgsGeometry& ) ), vl, SLOT( triggerRepaint() ) );
+  }
 }
 
 void QgisMobileapp::onLayerDeleted( QObject* ml )
