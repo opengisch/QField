@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import org.qgis 1.0
 
+import QtPositioning 5.3
+
 Item {
   property MapSettings mapSettings
   property color color: "black"
@@ -48,9 +50,7 @@ Item {
 
   function __updateCoordinate()
   {
-    console.warn( "Test 1" )
     coordinate = mapSettings.screenToCoordinate( Qt.point( crosshairCircle.x,crosshairCircle.y ) )
-    console.warn( "Test 2" )
   }
 }
 

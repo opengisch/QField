@@ -41,15 +41,24 @@ void FeatureModel::setFeature( const Feature& feature, bool force )
   }
 }
 
-QVariant FeatureModel::feature()
+void FeatureModel::setLayer( QgsVectorLayer* layer )
 {
-  return QVariant::fromValue<Feature>( mFeature );
+  mFeature.setLayer( layer );
+}
+
+QgsVectorLayer* FeatureModel::layer() const
+{
+  return mFeature.layer();
+}
+
+Feature FeatureModel::feature() const
+{
+  return mFeature;
 }
 
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
-
-  QHash<int, QByteArray> roles;
+  QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[AttributeName]  = "attributeName";
   roles[AttributeValue] = "attributeValue";
   roles[EditorWidget] = "editorWidget";
@@ -97,9 +106,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
 
 bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 {
-  if ( ! mFeature.layer()->isEditable() )
-    mFeature.layer()->startEditing();
-
+  mFeature.layer()->startEditing(); // better safe than sorry
   return mFeature.layer()->changeAttributeValue( mFeature.id(), fieldIndex, value, mFeature.attribute( fieldIndex ) );
 }
 
@@ -118,4 +125,15 @@ bool FeatureModel::save()
 void FeatureModel::reset()
 {
   mFeature.layer()->rollBack();
+}
+
+void FeatureModel::applyGeometry()
+{
+  mFeature.setGeometry( mGeometry->asQgsGeometry() );
+}
+
+void FeatureModel::create()
+{
+  mFeature.layer()->startEditing(); // better safe than sorry
+  mFeature.create();
 }

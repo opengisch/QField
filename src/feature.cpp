@@ -24,11 +24,21 @@ Feature::Feature( const QgsFeature& feature, QgsVectorLayer* layer )
 }
 
 Feature::Feature()
-  : mLayer( 0 )
+  : mLayer( nullptr )
 {
 }
 
-const QString Feature::displayText() const
+void Feature::setGeometry(const QgsGeometry& geom)
+{
+  mFeature.setGeometry( geom );
+}
+
+void Feature::create()
+{
+  mLayer->addFeature( mFeature );
+}
+
+QString Feature::displayText() const
 {
   if ( !mLayer->displayExpression().isEmpty() )
     return QgsExpression( mLayer->displayExpression() ).evaluate( mFeature ).toString();

@@ -1,16 +1,23 @@
 import QtQuick 2.0
+import org.qgis 1.0
 
 Row {
+  property alias geometry: feature.geometry
+  property alias currentLayer: feature.layer
+
+  FeatureModel{
+    id: feature
+    geometry: Geometry {}
+  }
+
   QFButton {
     id: addVertexButton
 
     icon: "/themes/holodark/location_off.png"
 
     onClicked: {
-      iface.openFeatureForm()
-
-      layerSelector.model.
-      displayToast( qsTr( "Point digitized. " + coordinateLocator.coordinate.x + " / " + coordinateLocator.coordinate.y ) )
+      feature.applyGeometry()
+      feature.create()
     }
   }
 }

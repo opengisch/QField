@@ -39,3 +39,11 @@ void AppInterface::openFeatureForm()
 {
   emit openFeatureFormRequested();
 }
+
+void AppInterface::addFeature( const Feature* feature )
+{
+  QgsFeature feat = feature->qgsFeature();
+  feature->layer()->addFeature( feat );
+
+  emit openFeatureFormRequested();
+}

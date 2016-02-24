@@ -13,5 +13,6 @@
         <file>CoordinateLocator.qml</file>
         <file>DigitizingToolbar.qml</file>
         <file>QFButton.qml</file>
+        <file>LayerSelector.qml</file>
     </qresource>
 </RCC>

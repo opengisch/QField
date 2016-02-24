@@ -20,13 +20,15 @@
 
 #include <QAbstractListModel>
 #include "feature.h"
-
-class Feature;
+#include "geometry.h"
+#include "layer.h"
 
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY( QVariant feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_PROPERTY( Feature feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( QgsVectorLayer* layer READ layer WRITE setLayer NOTIFY layerChanged )
     Q_ENUMS( FeatureRoles )
 
   public:
@@ -45,11 +47,18 @@ class FeatureModel : public QAbstractListModel
     void setFeature( const QVariant& feature );
     void setFeature( const Feature& feature , bool force = false );
 
-    QVariant feature();
+    void setLayer( QgsVectorLayer* layer );
+    QgsVectorLayer* layer() const;
 
-    QHash<int, QByteArray> roleNames() const;
-    int rowCount( const QModelIndex& parent ) const;
-    QVariant data( const QModelIndex& index, int role ) const;
+
+    /**
+     * Return the feature wrapped in a QVariant for passing it around in QML
+     */
+    Feature feature() const;
+
+    QHash<int, QByteArray> roleNames() const override;
+    int rowCount( const QModelIndex& parent ) const override;
+    QVariant data( const QModelIndex& index, int role ) const override;
 
     /**
      * Will change an attribute to a given value in the edit buffer.
@@ -75,13 +84,19 @@ class FeatureModel : public QAbstractListModel
      */
     Q_INVOKABLE void reset();
 
+  public slots:
+    void applyGeometry();
+
+    void create();
+
   signals:
     void featureChanged();
-
-  public slots:
+    void geometryChanged();
+    void layerChanged();
 
   private:
     Feature mFeature;
+    Geometry* mGeometry;
 };
 
 #endif // FEATUREMODEL_H

@@ -32,6 +32,7 @@
 #include "featuremodel.h"
 #include "featurelistmodel.h"
 #include "settings.h"
+#include "modelhelpers.h"
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
@@ -105,6 +106,7 @@ class QgisMobileapp : public QQuickView
     FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;
     Settings mSettings;
+    ModelHelpers mModelHelpers;
     bool mFirstRenderingFlag;
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;

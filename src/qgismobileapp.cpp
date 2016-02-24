@@ -115,6 +115,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterUncreatableType<ModelHelpers>( "org.qgis", 1, 0, "ModelHelpers", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
@@ -124,7 +125,10 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
   qmlRegisterType<CRS>( "org.qgis", 1, 0, "CRS" );
+  qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
+
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
+  qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -140,6 +144,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
+  rootContext()->setContextProperty( "modelHelpers", &mModelHelpers );
 }
 
 void QgisMobileapp::loadProjectQuirks()

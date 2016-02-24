@@ -42,6 +42,15 @@ class Feature
       return mFeature.attribute( index );
     }
 
+    void setLayer( QgsVectorLayer* layer )
+    {
+      mLayer = layer;
+      if ( layer )
+        mFeature = QgsFeature( layer->fields() );
+      else
+        mFeature = QgsFeature();
+    }
+
     QgsVectorLayer* layer() const
     {
       return mLayer;
@@ -52,12 +61,16 @@ class Feature
       return mFeature.id();
     }
 
-    const QgsFeature& qgsFeature() const
+    QgsFeature qgsFeature() const
     {
       return mFeature;
     }
 
-    const QString displayText() const;
+    void setGeometry( const QgsGeometry& geom );
+
+    void create();
+
+    QString displayText() const;
 
   private:
     // TODO: Use implicity sharing for this

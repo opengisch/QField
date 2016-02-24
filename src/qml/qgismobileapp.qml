@@ -124,8 +124,7 @@ Rectangle {
     }
   }
 
-  Item
-  {
+  Item {
     id: positionInformationView
     anchors.right: featureForm.left
     anchors.top: parent.top
@@ -186,15 +185,13 @@ Rectangle {
       }
     }
 
-    ComboBox {
+    LayerSelector {
       id: layerSelector
 
       width: 200*dp
       visible: ( mainWindow.state === "digitize" )
-
-      model: MapLayerModel {}
-      textRole: "display"
     }
+
 /*
     Item {
       height: parent.height
@@ -296,6 +293,9 @@ Rectangle {
     anchors.right: parent.right
 
     visible: ( mainWindow.state === "digitize" )
+
+    geometry.currentCoordinate: coordinateLocator.coordinate
+    currentLayer: layerSelector.currentLayer
   }
 
   FileDialog {
