@@ -69,7 +69,14 @@ Rectangle {
     Text {
       anchors.centerIn: parent
 
-      text: ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
+      text: {
+        if ( model ) {
+          ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
+        }
+        else {
+          undefined
+        }
+      }
     }
 
     MouseArea {
@@ -92,7 +99,7 @@ Rectangle {
 
     iconSource: "/themes/holodark/next_item.png"
 
-    enabled: ( ( selection.selection + 1 ) < toolBar.model.count )
+    enabled: ( toolBar.model && ( selection.selection + 1 ) < toolBar.model.count )
 
     onClicked: {
       selection.selection = selection.selection + 1

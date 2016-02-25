@@ -8,13 +8,21 @@ ComboBox {
   model: MapLayerModel {}
   textRole: "display"
 
-  onCurrentIndexChanged: currentLayer = modelHelpers.data( model, currentIndex, 0, "layer" )
-  onModelChanged: currentLayer = modelHelpers.data( model, currentIndex, 0, "layer" )
+  onCurrentIndexChanged: __updateCurrentLayer()
+  onModelChanged: __updateCurrentLayer()
 
   Connections {
     target: model
 
-    onRowsInserted: currentLayer = modelHelpers.data( model, currentIndex, 0, "layer" )
-    onRowsRemoved: currentLayer = modelHelpers.data( model, currentIndex, 0, "layer" )
+    onRowsInserted: __updateCurrentLayer()
+    onRowsRemoved: __updateCurrentLayer()
+  }
+
+  function __updateCurrentLayer() {
+    var lyr = modelHelpers.data( model, currentIndex, 0, "layer" )
+    if ( lyr === undefined )
+      currentLayer = null
+    else
+      currentLayer = lyr
   }
 }

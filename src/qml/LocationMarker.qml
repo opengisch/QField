@@ -25,16 +25,16 @@ Item {
             position: 0.0
             SequentialAnimation on color  {
                 loops: Animation.Infinite
-                ColorAnimation  { from: "Mistyrose"; to: "Indianred"; duration: 3000; easing: Easing.InOutQuad }
-                ColorAnimation  { from: "Indianred"; to: "Mistyrose"; duration: 2000; easing: Easing.InOutQuad }
+                ColorAnimation  { from: "Mistyrose"; to: "Indianred"; duration: 3000; easing.type: Easing.InOutQuad }
+                ColorAnimation  { from: "Indianred"; to: "Mistyrose"; duration: 2000; easing.type: Easing.InOutQuad }
             }
         }
         GradientStop  {
             position: 1.0
             SequentialAnimation on color  {
                 loops: Animation.Infinite
-                ColorAnimation  { from: "Lightpink"; to: "Darkred"; duration: 3000; easing: Easing.InOutQuad }
-                ColorAnimation  { from: "Darkred"; to: "Lightpink"; duration: 2000; easing: Easing.InOutQuad }
+                ColorAnimation  { from: "Lightpink"; to: "Darkred"; duration: 3000; easing.type: Easing.InOutQuad }
+                ColorAnimation  { from: "Darkred"; to: "Lightpink"; duration: 2000; easing.type: Easing.InOutQuad }
             }
         }
     }

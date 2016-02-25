@@ -302,8 +302,6 @@ Rectangle {
     id: openProjectDialog
     title: qsTr( "Please choose a project" )
     visible: false
-    width: parent.width
-    height: parent.height
     nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
 
     onAccepted: {
