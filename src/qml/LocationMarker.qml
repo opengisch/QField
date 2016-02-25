@@ -3,11 +3,8 @@ import org.qgis 1.0
 
 Item {
   property point location
-  property string icon
   property MapSettings mapSettings
   property CoordinateTransform coordinateTransform
-  property int iconWidth
-  property int iconHeitht
 
   Rectangle {
     id: marker
