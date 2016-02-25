@@ -114,14 +114,12 @@ bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 bool FeatureModel::save()
 {
   bool rv = mFeature.layer()->commitChanges();
-#if 0
   if ( rv )
   {
     QgsFeature feat;
-    mFeature.layer()->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat );
-    setFeature( Feature( feat, mFeature.layer() ), true );
+    if ( mFeature.layer()->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      setFeature( Feature( feat, mFeature.layer() ), true );
   }
-#endif
   return rv;
 }
 
