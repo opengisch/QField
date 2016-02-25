@@ -90,8 +90,6 @@ class QgisMobileapp : public QQuickView
     void onAfterFirstRendering();
 
     void onLayerAdded( QgsMapLayer* ml );
-    void onLayerDeleted( QObject* ml );
-    void onLayerRemoved( QString ml );
 
   private:
     void initDeclarative();

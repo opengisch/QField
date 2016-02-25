@@ -241,16 +241,6 @@ void QgisMobileapp::onLayerAdded( QgsMapLayer* ml )
   }
 }
 
-void QgisMobileapp::onLayerDeleted( QObject* ml )
-{
-  qDebug() << "Layer deleted " << ml;
-}
-
-void QgisMobileapp::onLayerRemoved( QString ml )
-{
-  qDebug() << "Layer removed " << ml;
-}
-
 void QgisMobileapp::loadLastProject()
 {
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
