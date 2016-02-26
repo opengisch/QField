@@ -5,6 +5,8 @@ Row {
   property alias geometry: feature.geometry
   property alias currentLayer: feature.layer
 
+  signal geometryDigitized
+
   FeatureModel{
     id: feature
     geometry: Geometry {}
@@ -13,9 +15,10 @@ Row {
   QFButton {
     id: addVertexButton
 
-    icon: "/themes/holodark/location_off.png"
+    icon: "/themes/holodark/accept.png"
 
     onClicked: {
+      geometryDigitized()
       feature.applyGeometry()
       feature.create()
       feature.save()

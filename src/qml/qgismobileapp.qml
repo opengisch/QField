@@ -296,6 +296,8 @@ Rectangle {
 
     geometry.currentCoordinate: coordinateLocator.coordinate
     currentLayer: layerSelector.currentLayer
+
+    onGeometryDigitized: coordinateLocator.flash()
   }
 
   FileDialog {

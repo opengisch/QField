@@ -1,9 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import org.qgis 1.0
 
 import QtPositioning 5.3
 
 Item {
+  id: locator
   property MapSettings mapSettings
   property color color: "black"
   property point coordinate //!< Read only!
@@ -29,7 +30,7 @@ Item {
 
     color: parent.color
 
-    width: 1
+    width: 1.2
     height: 40*dp
   }
 
@@ -39,13 +40,39 @@ Item {
     color: parent.color
 
     width: 40*dp
-    height: 1
+    height: 1.2
   }
 
   Connections {
     target: mapSettings
 
     onExtentChanged: __updateCoordinate()
+  }
+
+  SequentialAnimation {
+    id: flashAnimation
+
+    ScaleAnimator {
+      target: crosshairCircle
+      from: 1
+      to: 0.7
+      duration: 150
+
+      easing.type: Easing.InOutQuad
+    }
+    ScaleAnimator {
+      target: crosshairCircle
+      from: 0.7
+      to: 1
+      duration: 150
+
+      easing.type: Easing.InOutCubic
+    }
+  }
+
+  function flash()
+  {
+    flashAnimation.start()
   }
 
   function __updateCoordinate()
