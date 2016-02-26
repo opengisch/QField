@@ -101,9 +101,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
   connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
 
-  connect( QgsMapLayerRegistry::instance(), SIGNAL( layerWasAdded( QgsMapLayer* ) ), this, SLOT( onLayerAdded( QgsMapLayer* ) ) );
-  connect( QgsMapLayerRegistry::instance(), SIGNAL( layerWillBeRemoved( QString ) ), this, SLOT( onLayerRemoved( QString ) ) );
-
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
   show();
