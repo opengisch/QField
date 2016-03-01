@@ -156,7 +156,7 @@ Rectangle {
   }
 
   /* The feature form */
-  FeatureForm {
+  FeatureListForm {
     id: featureForm
     mapSettings: mapCanvas.mapSettings
 
