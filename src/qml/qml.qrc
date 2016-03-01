@@ -14,5 +14,6 @@
         <file>DigitizingToolbar.qml</file>
         <file>QFButton.qml</file>
         <file>LayerSelector.qml</file>
+        <file>FeatureForm.qml</file>
     </qresource>
 </RCC>
