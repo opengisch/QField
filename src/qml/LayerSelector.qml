@@ -5,11 +5,16 @@ import org.qgis 1.0
 ComboBox {
   property VectorLayer currentLayer
 
-  model: MapLayerModel {}
+  model: modelHelper.model
   textRole: "display"
 
   onCurrentIndexChanged: __updateCurrentLayer()
   onModelChanged: __updateCurrentLayer()
+
+  ModelHelper {
+    id: modelHelper
+    model: MapLayerModel {}
+  }
 
   Connections {
     target: model
@@ -19,7 +24,7 @@ ComboBox {
   }
 
   function __updateCurrentLayer() {
-    var lyr = modelHelpers.data( model, currentIndex, 0, "layer" )
+    var lyr = modelHelper.data( currentIndex, 0, "layer" )
     if ( lyr === undefined )
       currentLayer = null
     else

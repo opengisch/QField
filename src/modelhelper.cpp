@@ -1,5 +1,5 @@
 /***************************************************************************
-  modelhelpers.h - ModelHelpers
+  modelhelper.cpp - ModelHelper
 
  ---------------------
  begin                : 24.2.2016
@@ -13,32 +13,49 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef MODELHELPERS_H
-#define MODELHELPERS_H
+#include "modelhelper.h"
 
-#include <QObject>
-#include <QAbstractItemModel>
-
-class ModelHelpers : public QObject
+ModelHelper::ModelHelper( QObject* parent )
+  : QObject( parent )
+  , mModel( nullptr )
 {
-    Q_OBJECT
-  public:
-    explicit ModelHelpers(QObject *parent = 0);
 
-    Q_INVOKABLE QModelIndex index( QAbstractItemModel* model, int row, int column )
-    {
-      return model->index( row, column );
-    }
+}
 
-    Q_INVOKABLE int role( QAbstractItemModel* model, QString roleName )
-    {
-      return model->roleNames().key( roleName.toLatin1() );
-    }
+QModelIndex ModelHelper::index( int row, int column )
+{
+  if ( !mModel )
+    return QModelIndex();
 
-    Q_INVOKABLE QVariant data( QAbstractItemModel* model, int row, int column, QString roleName )
-    {
-      return model->data( model->index( row, column ), model->roleNames().key( roleName.toLatin1() ) );
-    }
-};
+  return mModel->index( row, column );
+}
 
-#endif // MODELHELPERS_H
+int ModelHelper::role( QString roleName )
+{
+  if ( !mModel )
+    return -1;
+
+  return mModel->roleNames().key( roleName.toLatin1() );
+}
+
+QVariant ModelHelper::data( int row, int column, QString roleName )
+{
+  if ( !mModel )
+    return QVariant();
+
+  return mModel->data( mModel->index( row, column ), mModel->roleNames().key( roleName.toLatin1() ) );
+}
+
+void ModelHelper::setModel( QAbstractItemModel* model )
+{
+  if ( mModel != model )
+  {
+    mModel = model;
+    emit modelChanged();
+  }
+}
+
+QAbstractItemModel*ModelHelper::model() const
+{
+  return mModel;
+}

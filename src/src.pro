@@ -36,7 +36,7 @@ HEADERS += \
     platformutilities.h \
     geometry.h \
     layer.h \
-    modelhelpers.h
+    modelhelper.h
 
 SOURCES += \
     appinterface.cpp \
@@ -59,7 +59,7 @@ SOURCES += \
     platformutilities.cpp \
     geometry.cpp \
     layer.cpp \
-    modelhelpers.cpp
+    modelhelper.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
