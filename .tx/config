@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[qfield-for-qgis.qfield]
+file_filter = i18n/qfield_<lang>.ts
+source_file = i18n/qfield_en.ts
+source_lang = en
+type = QT

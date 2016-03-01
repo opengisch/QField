@@ -71,11 +71,12 @@ lupdate_only{
 
 RESOURCES += \
     ../images/images.qrc \
-    qml/qml.qrc
+    qml/qml.qrc \
+    ../i18n/translations.qrc
 
 android {
-  message("* Using settings for Android $$ANDROID_TARGET_ARCH$$")
-  message("* Using OSGEO4A for Android at $${OSGEO4A_STAGE_DIR}")
+  message( "* Using settings for Android $$ANDROID_TARGET_ARCH$$" )
+  message( "* Using OSGEO4A for Android at $${OSGEO4A_STAGE_DIR}" )
 
   #see http://doc.qt.io/qt-5/deployment-android.html#androiddeployqt for docs
   ANDROID_PACKAGE_SOURCE_DIR = $$PWD/../android
@@ -99,5 +100,5 @@ android {
 }
 
 !android {
-  message("* Using QGIS from $${QGIS_INSTALL_PATH}")
+  message( "* Using QGIS from $${QGIS_INSTALL_PATH}" )
 }
