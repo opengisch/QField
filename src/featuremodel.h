@@ -28,7 +28,7 @@ class FeatureModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY( Feature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
-    Q_PROPERTY( QgsVectorLayer* layer READ layer WRITE setLayer NOTIFY layerChanged )
+    Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setLayer NOTIFY layerChanged )
     Q_ENUMS( FeatureRoles )
 
   public:
@@ -83,6 +83,8 @@ class FeatureModel : public QAbstractListModel
      * Will reset the feature to the original values and dismiss any buffered edits.
      */
     Q_INVOKABLE void reset();
+
+    Q_INVOKABLE bool suppressFeatureForm() const;
 
   public slots:
     void applyGeometry();

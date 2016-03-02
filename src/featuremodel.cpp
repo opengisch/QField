@@ -45,6 +45,8 @@ void FeatureModel::setLayer( QgsVectorLayer* layer )
 {
   if ( layer != mFeature.layer() )
     mFeature.setLayer( layer );
+
+  setFeature( mFeature, true );
 }
 
 QgsVectorLayer* FeatureModel::layer() const
@@ -126,6 +128,11 @@ bool FeatureModel::save()
 void FeatureModel::reset()
 {
   mFeature.layer()->rollBack();
+}
+
+bool FeatureModel::suppressFeatureForm() const
+{
+  return mFeature.layer()->editFormConfig()->suppress();
 }
 
 void FeatureModel::applyGeometry()

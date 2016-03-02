@@ -289,15 +289,40 @@ Rectangle {
   }
 
   DigitizingToolbar {
+    id: digitizingToolbar
+
     anchors.bottom: parent.bottom
     anchors.right: parent.right
 
     visible: ( mainWindow.state === "digitize" )
-
-    geometry.currentCoordinate: coordinateLocator.coordinate
+    geometry: feature.geometry
     currentLayer: layerSelector.currentLayer
 
-    onGeometryDigitized: coordinateLocator.flash()
+    FeatureModel{
+      id: digitizingFeature
+      currentLayer: layerSelector.currentLayer
+
+      geometry: Geometry {
+        currentCoordinate: coordinateLocator.coordinate
+      }
+    }
+
+    onGeometryDigitized: {
+      coordinateLocator.flash()
+
+      digitizingFeature.applyGeometry()
+
+      if ( !digitizingFeature.suppressFeatureForm() )
+      {
+        overlayFeatureForm.visible = true;
+        overlayFeatureForm.state = "Add"
+      }
+      else
+      {
+        digitizingFeature.create()
+        digitizingFeature.save()
+      }
+    }
   }
 
   FileDialog {
@@ -336,15 +361,7 @@ Rectangle {
         openProjectDialog.visible = true
       }
     }
-/*
-    MenuItem {
-      text: "Layers"
-      iconSource: "/themes/holodark/layers.png"
-      onTriggered: {
-        messageDialog.visible = true
-      }
-    }
-*/
+
     MenuSeparator {}
 
     MenuItem {
@@ -402,16 +419,31 @@ Rectangle {
     }
   }
 
-  MessageDialog {
-    id: messageDialog
-    title: qsTr( "Not implemented yet" )
-    text: qsTr( "And of course you could only agree" )
-    onAccepted: {
-      messageDialog.visible = false
-    }
+  Rectangle {
+    id: overlayBackground
+
+    anchors.fill: parent
+
+    visible: overlayFeatureForm.visible
+
+    color: "white"
   }
 
-  function displayToast(message) {
+  FeatureForm {
+    id: overlayFeatureForm
+
+    anchors.fill: parent
+
+    model: digitizingFeature
+
+    state: "Add"
+
+    visible: false
+
+    onSaved: visible = false
+  }
+
+  function displayToast( message ) {
     toastMessage.text = message
     toast.opacity = 1
   }

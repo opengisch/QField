@@ -196,6 +196,8 @@ Rectangle {
     anchors.bottom: parent.bottom
     height: parent.height - globalFeaturesList.height
 
+    toolbarVisible: false
+
     model: FeatureModel {
       feature: featureForm.selection.selectedFeature
     }
