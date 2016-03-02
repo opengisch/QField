@@ -9,12 +9,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"/>
+        <translation>Dosarul Setărilor QField: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="35"/>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"/>
+        <translation>Dosarul Elementelor QField Partajate: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="51"/>
@@ -24,12 +24,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="69"/>
         <source>Support the development</source>
-        <translation type="unfinished"/>
+        <translation>Sprijiniți dezvoltarea</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="87"/>
         <source>Buy the Karma edition</source>
-        <translation type="unfinished"/>
+        <translation>Cumpărați ediția Karma</translation>
     </message>
 </context>
 <context>
@@ -83,32 +83,32 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>GPS is now on</source>
-        <translation type="unfinished"/>
+        <translation>GPS-ul este activ</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>GPS is now off</source>
-        <translation type="unfinished"/>
+        <translation>GPS-ul este dezactivat</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="321"/>
         <source>Please choose a project</source>
-        <translation type="unfinished"/>
+        <translation>Alegeți un proiect</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>QGIS projects (*.qgs)</source>
-        <translation type="unfinished"/>
+        <translation>Proiecte QGIS (*.qgs)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Toate fișierele (*)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="332"/>
         <source>Main Menu</source>
-        <translation type="unfinished"/>
+        <translation>Meniul Principal</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="335"/>
@@ -133,17 +133,17 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="359"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Despre</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="369"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Închidere</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="379"/>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Opțiuni GPS</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="382"/>
