@@ -107,14 +107,16 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
 }
 
 
-bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
+void FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 {
-  mFeature.layer()->startEditing(); // better safe than sorry
-  return mFeature.layer()->changeAttributeValue( mFeature.id(), fieldIndex, value, mFeature.attribute( fieldIndex ) );
+  mFeature.setAttribute( fieldIndex, value );
 }
 
 bool FeatureModel::save()
 {
+  mFeature.layer()->startEditing();
+  QgsFeature feat = mFeature.qgsFeature();
+  mFeature.layer()->updateFeature( feat );
   bool rv = mFeature.layer()->commitChanges();
   if ( rv )
   {

@@ -69,7 +69,7 @@ class FeatureModel : public QAbstractListModel
      * @param value Value to set
      * @return Success of the operation
      */
-    Q_INVOKABLE bool setAttribute( int fieldIndex, const QVariant& value );
+    Q_INVOKABLE void setAttribute( int fieldIndex, const QVariant& value );
 
     /**
      * Will commit the edit buffer of this layer.

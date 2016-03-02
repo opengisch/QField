@@ -42,6 +42,8 @@ class Feature
       return mFeature.attribute( index );
     }
 
+    void setAttribute( int index, const QVariant& value );
+
     void setLayer( QgsVectorLayer* layer )
     {
       mLayer = layer;

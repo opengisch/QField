@@ -28,7 +28,12 @@ Feature::Feature()
 {
 }
 
-void Feature::setGeometry(const QgsGeometry& geom)
+void Feature::setAttribute( int index, const QVariant& value )
+{
+  mFeature.setAttribute( index, value );
+}
+
+void Feature::setGeometry( const QgsGeometry& geom )
 {
   mFeature.setGeometry( geom );
 }
