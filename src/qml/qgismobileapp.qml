@@ -441,6 +441,7 @@ Rectangle {
     visible: false
 
     onSaved: visible = false
+    onCancelled: visible = false
   }
 
   function displayToast( message ) {

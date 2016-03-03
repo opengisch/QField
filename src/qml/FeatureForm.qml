@@ -41,6 +41,8 @@ Rectangle {
       iconSource: "/themes/holodark/accept.png"
 
       onClicked: {
+        Qt.inputMethod.hide()
+
         if ( form.state === "Add" ) {
           featureFormList.model.create()
           state = "Edit"
@@ -52,7 +54,7 @@ Rectangle {
     }
 
     Button {
-      anchors.right: parent.left
+      anchors.left: parent.left
 
       width: 48*dp
       height: 48*dp
@@ -60,6 +62,8 @@ Rectangle {
       iconSource: "/themes/holodark/cancel.png"
 
       onClicked: {
+        Qt.inputMethod.hide()
+
         cancelled()
       }
     }
