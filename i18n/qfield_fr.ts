@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -11,12 +9,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="35"/>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="51"/>
@@ -26,12 +24,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="69"/>
         <source>Support the development</source>
-        <translation type="unfinished"></translation>
+        <translation>Soutenir le développement</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="87"/>
         <source>Buy the Karma edition</source>
-        <translation type="unfinished"></translation>
+        <translation>Acheter l&apos;édition Karma</translation>
     </message>
 </context>
 <context>
@@ -85,32 +83,32 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>GPS is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS activé</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>GPS is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS désactivé</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="321"/>
         <source>Please choose a project</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisissez un projet</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>QGIS projects (*.qgs)</source>
-        <translation type="unfinished"></translation>
+        <translation>projets QGIS (*.qgs)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="332"/>
         <source>Main Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu principal</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="335"/>
@@ -135,17 +133,17 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="359"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="369"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="379"/>
         <source>GPS Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Options GPS</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="382"/>
