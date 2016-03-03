@@ -9,6 +9,19 @@ Item {
   property color color: "black"
   property point coordinate //!< Read only!
 
+
+  Rectangle {
+    anchors.centerIn: crosshairCircle
+
+    width: crosshairCircle.width - 3
+    height: crosshairCircle.height - 3
+
+    border.color: "#77aaaaaa"
+    border.width: 5
+    radius: width / 2
+    color: "transparent"
+  }
+
   Rectangle {
     id: crosshairCircle
 
