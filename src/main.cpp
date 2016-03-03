@@ -62,7 +62,7 @@ int main( int argc, char ** argv )
   QCoreApplication::setApplicationName( "QField" );
 
   QTranslator appTranslator;
-  appTranslator.load( QLocale( "de" ), "qfield", "_", ":/" );
+  appTranslator.load( QLocale(), "qfield", "_", ":/" );
   app.installTranslator( &appTranslator );
 
   QgisMobileapp mApp( &app );
