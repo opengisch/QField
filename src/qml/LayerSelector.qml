@@ -13,7 +13,9 @@ ComboBox {
 
   ModelHelper {
     id: modelHelper
-    model: MapLayerModel {}
+    model: MapLayerModel {
+      filters: MapLayerModel.PointLayer
+    }
   }
 
   Connections {
