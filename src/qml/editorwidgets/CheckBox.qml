@@ -4,7 +4,7 @@ import QtQuick.Controls 1.2
 CheckBox {
   signal valueChanged( var value )
 
-  checked: value === config['checkedState']
+  checked: value === config['CheckedState']
 
   onCheckedChanged: {
     valueChanged( checked ? config['CheckedState'] : config['UncheckedState'] )
