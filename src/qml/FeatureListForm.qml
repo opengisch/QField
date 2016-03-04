@@ -60,6 +60,11 @@ Rectangle {
         target: featureListToolBar
         state: "Navigation"
       }
+      PropertyChanges {
+        target: featureFormList
+        state: "ReadOnly"
+
+      }
     },
     /* Shows an edibale form for the currently selected feature */
     State {

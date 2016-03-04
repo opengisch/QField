@@ -1,19 +1,24 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
 
-ComboBox {
+Item {
   signal valueChanged( var value )
 
   anchors.left: parent.left
   anchors.right: parent.right
 
-  currentIndex: find(value)
+  ComboBox {
+    id: comboBox
 
-  onCurrentTextChanged: {
-    valueChanged( currentText )
-  }
+    currentIndex: find(value)
 
-  Component.onCompleted: {
-    model = Object.keys(config);
+    Component.onCompleted: {
+      model = Object.keys(config);
+      currentIndex = find(value)
+    }
+
+    onCurrentTextChanged: {
+      valueChanged( currentText )
+    }
   }
 }

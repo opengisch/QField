@@ -291,8 +291,8 @@ Rectangle {
   DigitizingToolbar {
     id: digitizingToolbar
 
-    anchors.bottom: parent.bottom
-    anchors.right: parent.right
+    anchors.bottom: mapCanvas.bottom
+    anchors.right: mapCanvas.right
 
     visible: ( mainWindow.state === "digitize" )
     geometry: feature.geometry

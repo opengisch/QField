@@ -7,7 +7,7 @@ CheckBox {
   checked: value === config['checkedState']
 
   onCheckedChanged: {
-    valueChanged( checked ? config['checkedState'] : config['uncheckedState'] )
+    valueChanged( checked ? config['CheckedState'] : config['UncheckedState'] )
   }
 }
 
