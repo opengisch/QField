@@ -9,12 +9,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"/>
+        <translation>Répertoire des paramètres de QField</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="35"/>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"/>
+        <translation>Dossier des éléments partagés de QField</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="51"/>
@@ -68,7 +68,7 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation>Utilise la position en mémoire. Activez le posistionnement pour une position à jour.</translation>
+        <translation>Utilise la position en mémoire. Activez le positionnement pour une position à jour.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
@@ -98,7 +98,7 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>QGIS projects (*.qgs)</source>
-        <translation>projets QGIS (*.qgs)</translation>
+        <translation>Projets QGIS (*.qgs)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
