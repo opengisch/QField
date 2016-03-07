@@ -36,6 +36,10 @@ void FeatureModel::setFeature( const Feature& feature, bool force )
   if ( feature.layer() != mFeature.layer() || feature.id() != mFeature.id() || force )
   {
     beginResetModel();
+    if ( feature.layer() )
+      mProtectedAttributes.resize( feature.layer()->fields().count() );
+    else
+      mProtectedAttributes.resize( 0 );
     mFeature = feature;
     endResetModel();
   }
@@ -62,10 +66,11 @@ Feature FeatureModel::feature() const
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[AttributeName]  = "attributeName";
-  roles[AttributeValue] = "attributeValue";
-  roles[EditorWidget] = "editorWidget";
-  roles[EditorWidgetConfig] = "editorWidgetConfig";
+  roles[AttributeName]  = "AttributeName";
+  roles[AttributeValue] = "AttributeValue";
+  roles[EditorWidget] = "EditorWidget";
+  roles[EditorWidgetConfig] = "EditorWidgetConfig";
+  roles[RememberValue] = "RememberValue";
 
   return roles;
 }
@@ -101,9 +106,25 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
 
     case EditorWidgetConfig:
       return mFeature.layer()->editFormConfig()->widgetConfig( index.row() );
+      break;
+
+    case RememberValue:
+      return mProtectedAttributes.at( index.row() ) ? Qt::Checked : Qt::Unchecked;
+      break;
   }
 
   return QVariant();
+}
+
+bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int role )
+{
+  if ( role == RememberValue )
+  {
+    mProtectedAttributes[index.row()] = value.toBool();
+    return true;
+  }
+
+  return false;
 }
 
 
@@ -135,6 +156,19 @@ void FeatureModel::reset()
 bool FeatureModel::suppressFeatureForm() const
 {
   return mFeature.layer()->editFormConfig()->suppress();
+}
+
+void FeatureModel::resetUnprotectedAttributes()
+{
+  beginResetModel();
+  for ( int i = 0; i < mFeature.layer()->fields().count(); ++i )
+  {
+    if ( !mProtectedAttributes.at( i ) )
+    {
+      mFeature.setAttribute( i, QVariant() );
+    }
+  }
+  endResetModel();
 }
 
 void FeatureModel::applyGeometry()

@@ -314,6 +314,7 @@ Rectangle {
 
       if ( !digitizingFeature.suppressFeatureForm() )
       {
+        digitizingFeature.resetUnprotectedAttributes();
         overlayFeatureForm.visible = true;
         overlayFeatureForm.state = "Add"
       }

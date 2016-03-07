@@ -105,7 +105,7 @@ Rectangle {
             anchors.leftMargin: 5
             width: featureFormList.width / 3
             font.bold: true
-            text: attributeName
+            text: AttributeName
             clip: true
           }
 
@@ -119,10 +119,10 @@ Rectangle {
               anchors { left: parent.left; right: parent.right }
 
               visible: form.state != "ReadOnly"
-              property var value: attributeValue
-              property var config: editorWidgetConfig
+              property var value: AttributeValue
+              property var config: EditorWidgetConfig
 
-              source: 'editorwidgets/' + editorWidget + '.qml'
+              source: 'editorwidgets/' + EditorWidget + '.qml'
 
               onStatusChanged: {
                 if (attributeEditorLoader.status == Loader.Error )
@@ -137,7 +137,22 @@ Rectangle {
 
             Text {
               visible: form.state == "ReadOnly"
-              text: attributeValue
+              text: AttributeValue
+            }
+
+            CheckBox {
+              id: rememberValueCheckbox
+
+              checkedState: RememberValue
+
+              visible: form.state === "Add"
+
+              anchors.right: parent.right
+
+              onCheckedChanged: {
+                var idx = featureFormList.model.index(index, 0)
+                featureFormList.model.setData(idx, checkedState, FeatureModel.RememberValue)
+              }
             }
           }
         }

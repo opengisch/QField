@@ -38,7 +38,8 @@ class FeatureModel : public QAbstractListModel
       AttributeValue,
       AttributeEditable,
       EditorWidget,
-      EditorWidgetConfig
+      EditorWidgetConfig,
+      RememberValue
     };
 
     explicit FeatureModel( QObject *parent = 0 );
@@ -59,6 +60,8 @@ class FeatureModel : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex& parent ) const override;
     QVariant data( const QModelIndex& index, int role ) const override;
+
+    virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     /**
      * Will change an attribute to a given value in the edit buffer.
@@ -86,6 +89,8 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE bool suppressFeatureForm() const;
 
+    Q_INVOKABLE void resetUnprotectedAttributes();
+
   public slots:
     void applyGeometry();
 
@@ -99,6 +104,7 @@ class FeatureModel : public QAbstractListModel
   private:
     Feature mFeature;
     Geometry* mGeometry;
+    QVector<bool> mProtectedAttributes;
 };
 
 #endif // FEATUREMODEL_H
