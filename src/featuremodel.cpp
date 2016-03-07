@@ -37,9 +37,9 @@ void FeatureModel::setFeature( const Feature& feature, bool force )
   {
     beginResetModel();
     if ( feature.layer() )
-      mProtectedAttributes.resize( feature.layer()->fields().count() );
+      mRememberedAttributes.resize( feature.layer()->fields().count() );
     else
-      mProtectedAttributes.resize( 0 );
+      mRememberedAttributes.resize( 0 );
     mFeature = feature;
     endResetModel();
   }
@@ -109,7 +109,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
       break;
 
     case RememberValue:
-      return mProtectedAttributes.at( index.row() ) ? Qt::Checked : Qt::Unchecked;
+      return mRememberedAttributes.at( index.row() ) ? Qt::Checked : Qt::Unchecked;
       break;
   }
 
@@ -120,7 +120,7 @@ bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int
 {
   if ( role == RememberValue )
   {
-    mProtectedAttributes[index.row()] = value.toBool();
+    mRememberedAttributes[index.row()] = value.toBool();
     return true;
   }
 
@@ -158,12 +158,12 @@ bool FeatureModel::suppressFeatureForm() const
   return mFeature.layer()->editFormConfig()->suppress();
 }
 
-void FeatureModel::resetUnprotectedAttributes()
+void FeatureModel::resetAttributes( bool skipRemembered )
 {
   beginResetModel();
   for ( int i = 0; i < mFeature.layer()->fields().count(); ++i )
   {
-    if ( !mProtectedAttributes.at( i ) )
+    if ( !mRememberedAttributes.at( i ) || !skipRemembered )
     {
       mFeature.setAttribute( i, QVariant() );
     }

@@ -89,7 +89,7 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE bool suppressFeatureForm() const;
 
-    Q_INVOKABLE void resetUnprotectedAttributes();
+    Q_INVOKABLE void resetAttributes( bool skipRemembered = true );
 
   public slots:
     void applyGeometry();
@@ -104,7 +104,7 @@ class FeatureModel : public QAbstractListModel
   private:
     Feature mFeature;
     Geometry* mGeometry;
-    QVector<bool> mProtectedAttributes;
+    QVector<bool> mRememberedAttributes;
 };
 
 #endif // FEATUREMODEL_H
