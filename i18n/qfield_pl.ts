@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../src/qml/About.qml" line="24"/>
         <source>QField Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja QField: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog ustawień QField: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="35"/>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog elementów współdzielonych QField: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="51"/>
         <source>Developed by</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozwijane przez</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="69"/>
         <source>Support the development</source>
-        <translation type="unfinished"></translation>
+        <translation>Wesprzyj rozwój</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="87"/>
         <source>Buy the Karma edition</source>
-        <translation type="unfinished"></translation>
+        <translation>Kup wersję Karma</translation>
     </message>
 </context>
 <context>
@@ -39,7 +37,7 @@
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="16"/>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysokość</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="19"/>
@@ -47,22 +45,22 @@
         <location filename="../src/qml/PositionInformationView.qml" line="31"/>
         <location filename="../src/qml/PositionInformationView.qml" line="37"/>
         <source>N/A</source>
-        <translation type="unfinished"></translation>
+        <translation>Niedostępne</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="22"/>
         <source>Accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokładność</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="28"/>
         <source>Coordinate</source>
-        <translation type="unfinished"></translation>
+        <translation>Współrzędne</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="34"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Prędkość</translation>
     </message>
 </context>
 <context>
@@ -70,107 +68,107 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyto zapisanej wcześniej pozycji. Aby uzyskać bardziej dokładną lokalizację włącz pozycjonowanie GPS.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
-        <translation type="unfinished"></translation>
+        <translation>Oczekiwanie na lokalizację...</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="263"/>
         <source>Activating positioning service...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktywacja usługi lokalizacyjnej...</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>GPS is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS jest włączony</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>GPS is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>GPS jest wyłączony</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="321"/>
         <source>Please choose a project</source>
-        <translation type="unfinished"></translation>
+        <translation>Proszę wybrać projekt</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>QGIS projects (*.qgs)</source>
-        <translation type="unfinished"></translation>
+        <translation>Projekt QGIS (*.qgs)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="323"/>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Wszystkie pliki (*)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="332"/>
         <source>Main Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu główne</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="335"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryb</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="338"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeglądaj</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="343"/>
         <source>Digitize</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="349"/>
         <source>Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz projekt</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="359"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>O programie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="369"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakończ</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="379"/>
         <source>GPS Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcje GPS</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="382"/>
         <source>Enable GPS</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz GPS</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="391"/>
         <source>Center current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyśrodkuj bieżącą lokalizację</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="402"/>
         <source>Show position information</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż informacje o pozycji</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="451"/>
         <source>Loading Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytywanie projektu</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="458"/>
         <source>Loading Project: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytywanie projektu: %1</translation>
     </message>
 </context>
 </TS>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -11,12 +9,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>QField Einstellung Ordner: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="35"/>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>QField Ordner für gemeinsam genutzte Elemente: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="51"/>
@@ -70,7 +68,7 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzt gespeicherte Position. Für genauere Positionierung GPS aktivieren.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
