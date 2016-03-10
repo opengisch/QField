@@ -256,6 +256,7 @@ void QgisMobileapp::loadProjectFile( const QString& path )
 
 QgisMobileapp::~QgisMobileapp()
 {
+  QgsMapLayerRegistry::instance()->removeAllMapLayers();
   // Reintroduce when created on the heap
   // delete QgsEditorWidgetRegistry::instance();
   delete QgsProject::instance();
