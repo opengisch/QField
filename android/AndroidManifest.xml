@@ -13,7 +13,7 @@
             android:noHistory="true"
             android:icon="@drawable/icon"
             android:label="@string/app_name"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="userLandscape"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,7 +26,7 @@
 
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
-                  android:screenOrientation="sensorLandscape"
+                  android:screenOrientation="userLandscape"
                   android:launchMode="singleTop">
                   <!-- TODO: Change screenOrientation to userLandscape, once Android api 18 can be expected to be present -->
             <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
@@ -64,7 +64,7 @@
         </activity>
     </application>
     <uses-sdk
-      android:minSdkVersion="15"
+      android:minSdkVersion="18"
       android:targetSdkVersion="22"
     />
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
