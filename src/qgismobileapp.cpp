@@ -113,6 +113,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
@@ -142,6 +143,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
+  rootContext()->setContextProperty( "project", QgsProject::instance() );
 }
 
 void QgisMobileapp::loadProjectQuirks()
@@ -226,6 +228,7 @@ void QgisMobileapp::onAfterFirstRendering()
 
 void QgisMobileapp::onLayerAdded( QgsMapLayer* ml )
 {
+  rootContext()->engine()->setObjectOwnership( ml, QQmlEngine::CppOwnership );
   qDebug() << "Layer added " << ml;
   connect( ml, SIGNAL( destroyed( QObject* ) ), this, SLOT( onLayerDeleted( QObject* ) ) );
   QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( ml );
