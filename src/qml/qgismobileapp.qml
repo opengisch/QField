@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
@@ -178,8 +178,8 @@ Rectangle {
     id: mainMenuBar
     height: childrenRect.height
 
-    QFButton {
-      icon: "/themes/holodark/settings.png"
+    Button {
+      iconSource: "/themes/holodark/settings.png"
       onClicked: {
         mainMenu.popup()
       }
@@ -215,7 +215,7 @@ Rectangle {
       visible: ( mainWindow.state === "digitize" )
     }
 */
-    QFButton {
+    Button {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
@@ -225,7 +225,7 @@ Rectangle {
           name: "Off"
           PropertyChanges {
             target: gpsButton
-            icon: "/themes/holodark/location_off.png"
+            iconSource: "/themes/holodark/location_off.png"
           }
         },
 
@@ -233,7 +233,7 @@ Rectangle {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            icon: "/themes/holodark/location.png"
+            iconSource: "/themes/holodark/location.png"
           }
         }
       ]
@@ -332,30 +332,33 @@ Rectangle {
     visible: false
     nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
 
+    width: parent.width
+    height: parent.height
+
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
     }
   }
 
-  Menu {
+  Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    Menu {
+    Controls.Menu {
       title: qsTr( "Mode" )
 
-      MenuItem {
+      Controls.MenuItem {
         text: qsTr( "Browse" )
         onTriggered: mainWindow.state = "browse"
       }
 
-      MenuItem {
+      Controls.MenuItem {
         text: qsTr( "Digitize" )
         onTriggered: mainWindow.state = "digitize"
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Open Project" )
       iconSource: "/themes/holodark/map.png"
       onTriggered: {
@@ -363,9 +366,9 @@ Rectangle {
       }
     }
 
-    MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "About" )
 
       onTriggered: {
@@ -373,9 +376,9 @@ Rectangle {
       }
     }
 
-    MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Quit" )
       iconSource: "/themes/holodark/remove.png"
       onTriggered: {
@@ -384,11 +387,11 @@ Rectangle {
     }
   }
 
-  Menu {
+  Controls.Menu {
     id: gpsMenu
     title: qsTr( "GPS Options" )
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Enable GPS" )
       checkable: true
       checked: positionSource.active
@@ -397,7 +400,7 @@ Rectangle {
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Center current location" )
       onTriggered: {
         var coord = positionSource.position.coordinate;
@@ -406,9 +409,9 @@ Rectangle {
       }
     }
 
-    MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Show position information" )
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
@@ -457,7 +460,7 @@ Rectangle {
     opacity: 0.5
     visible: false
 
-    BusyIndicator {
+    Controls.BusyIndicator {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true

@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import QtQuick.Controls 1.4 as Controls
 import org.qgis 1.0
 
 Rectangle {
@@ -113,6 +113,8 @@ Rectangle {
             anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
             height: childrenRect.height
 
+            visible: EditorWidget !== "Hidden"
+
             /* attribute value */
             Loader {
               id: attributeEditorLoader
@@ -140,7 +142,7 @@ Rectangle {
               text: AttributeValue || 'N/A'
             }
 
-            CheckBox {
+            Controls.CheckBox {
               id: rememberValueCheckbox
 
               checkedState: RememberValue

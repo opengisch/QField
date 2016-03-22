@@ -13,7 +13,7 @@
         <file>About.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DigitizingToolbar.qml</file>
-        <file>QFButton.qml</file>
+        <file>Button.qml</file>
         <file>LayerSelector.qml</file>
         <file>FeatureForm.qml</file>
     </qresource>

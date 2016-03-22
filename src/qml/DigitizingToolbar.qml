@@ -8,10 +8,10 @@ Row {
   signal geometryDigitized
 
 
-  QFButton {
+  Button {
     id: addVertexButton
 
-    icon: "/themes/holodark/accept.png"
+    iconSource: "/themes/holodark/accept.png"
 
     onClicked: {
       geometryDigitized()
