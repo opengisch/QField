@@ -247,7 +247,7 @@ Rectangle {
 
           if ( !positionSource.active )
           {
-            displayToast( qsTr( "Using cached position. Turn on positioning for more recent location." ) )
+            displayToast( qsTr( "Using cached position. Press and hold the GPS button to turn on real-time positioning." ) )
           }
         }
         else
