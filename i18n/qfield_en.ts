@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.0" language="en_US">
 <context>
     <name>About</name>
     <message>
@@ -68,11 +68,6 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
-        <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
         <translation type="unfinished"></translation>
@@ -83,13 +78,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
+        <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
-        <source>GPS is now on</source>
+        <source>Positioning is now on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
-        <source>GPS is now off</source>
+        <source>Positioning is now off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="ro">
 <context>
     <name>About</name>
     <message>
@@ -66,9 +68,8 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation>Utilizează poziția din memorie. Activează poziționarea pentru o locație mai recentă.</translation>
+        <translation type="obsolete">Utilizează poziția din memorie. Activează poziționarea pentru o locație mai recentă.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
@@ -81,14 +82,27 @@
         <translation>Activează serviciul de poziționare...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>GPS is now on</source>
-        <translation>GPS-ul este activ</translation>
+        <translation type="obsolete">GPS-ul este activ</translation>
+    </message>
+    <message>
+        <source>GPS is now off</source>
+        <translation type="obsolete">GPS-ul este dezactivat</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
+        <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="279"/>
+        <source>Positioning is now on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
-        <source>GPS is now off</source>
-        <translation>GPS-ul este dezactivat</translation>
+        <source>Positioning is now off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>

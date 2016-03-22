@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="de">
 <context>
     <name>About</name>
     <message>
@@ -66,9 +68,8 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation>Benutzt gespeicherte Position. Für genauere Positionierung GPS aktivieren.</translation>
+        <translation type="obsolete">Benutzt gespeicherte Position. Für genauere Positionierung GPS aktivieren.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
@@ -81,14 +82,27 @@
         <translation>Positionierung wird gestartet...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>GPS is now on</source>
-        <translation>Das GPS ist jetzt eingeschaltet</translation>
+        <translation type="obsolete">Das GPS ist jetzt eingeschaltet</translation>
+    </message>
+    <message>
+        <source>GPS is now off</source>
+        <translation type="obsolete">Das GPS ist jetzt ausgeschaltet</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="250"/>
+        <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="279"/>
+        <source>Positioning is now on</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
-        <source>GPS is now off</source>
-        <translation>Das GPS ist jetzt ausgeschaltet</translation>
+        <source>Positioning is now off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>
