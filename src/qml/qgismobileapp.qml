@@ -247,7 +247,7 @@ Rectangle {
 
           if ( !positionSource.active )
           {
-            displayToast( qsTr( "Using cached position. Press and hold the GPS button to turn on real-time positioning." ) )
+            displayToast( qsTr( "Using cached position. Press and hold the positioning button to turn on real-time positioning." ) )
           }
         }
         else
@@ -276,12 +276,12 @@ Rectangle {
         {
           case "Off":
             gpsButton.state = "On"
-            displayToast( qsTr( "GPS is now on" ) )
+            displayToast( qsTr( "Positioning is now on" ) )
             break;
 
           case "On":
             gpsButton.state = "Off"
-            displayToast( qsTr( "GPS is now off" ) )
+            displayToast( qsTr( "Positioning is now off" ) )
             break;
         }
       }
