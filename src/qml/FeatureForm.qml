@@ -137,7 +137,7 @@ Rectangle {
 
             Text {
               visible: form.state == "ReadOnly"
-              text: AttributeValue
+              text: AttributeValue || 'N/A'
             }
 
             CheckBox {
