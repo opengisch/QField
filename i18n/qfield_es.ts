@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es">
+<TS version="2.1" language="es">
 <context>
     <name>About</name>
     <message>
@@ -108,67 +108,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="342"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
         <source>Main Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="356"/>
         <source>Digitize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="362"/>
         <source>Open Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="372"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="379"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="382"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="389"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
         <source>GPS Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="395"/>
         <source>Enable GPS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="401"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="404"/>
         <source>Center current location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="412"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="415"/>
         <source>Show position information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="470"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="473"/>
         <source>Loading Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="477"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
         <source>Loading Project: %1</source>
         <translation type="unfinished"></translation>
     </message>

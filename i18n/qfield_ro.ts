@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ro">
+<TS version="2.1" language="ro">
 <context>
     <name>About</name>
     <message>
@@ -68,10 +68,6 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="obsolete">Utilizează poziția din memorie. Activează poziționarea pentru o locație mai recentă.</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
         <translation>Se așteaptă localizarea...</translation>
@@ -82,27 +78,19 @@
         <translation>Activează serviciul de poziționare...</translation>
     </message>
     <message>
-        <source>GPS is now on</source>
-        <translation type="obsolete">GPS-ul este activ</translation>
-    </message>
-    <message>
-        <source>GPS is now off</source>
-        <translation type="obsolete">GPS-ul este dezactivat</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se utilizează o poziție stocată în memoria tampon. Apăsați și rețineți butonul de poziționare pentru a activa poziționarea în timp-real.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>Positioning is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>Poziționarea este activă acum</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>Positioning is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>Poziționarea nu este activă acum</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>
@@ -120,67 +108,67 @@
         <translation>Toate fișierele (*)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="342"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
         <source>Main Menu</source>
         <translation>Meniul Principal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
         <source>Mode</source>
         <translation>Mod</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
         <source>Browse</source>
         <translation>Răsfoiește</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="356"/>
         <source>Digitize</source>
         <translation>Digitizează</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="362"/>
         <source>Open Project</source>
         <translation>Deschide Proiect</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="372"/>
         <source>About</source>
         <translation>Despre</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="379"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="382"/>
         <source>Quit</source>
         <translation>Închidere</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="389"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
         <source>GPS Options</source>
         <translation>Opțiuni GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="395"/>
         <source>Enable GPS</source>
         <translation>Activează GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="401"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="404"/>
         <source>Center current location</source>
         <translation>Centrează locația curentă</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="412"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="415"/>
         <source>Show position information</source>
         <translation>Afișează informațiile poziției</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="470"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="473"/>
         <source>Loading Project</source>
         <translation>Încărcare Proiect</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="477"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
         <source>Loading Project: %1</source>
         <translation>Încărcare Proiect: %1</translation>
     </message>

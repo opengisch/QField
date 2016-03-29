@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr">
+<TS version="2.1" language="fr">
 <context>
     <name>About</name>
     <message>
@@ -68,10 +68,6 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="obsolete">Utilise la position en mémoire. Activez le positionnement pour une position à jour.</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
         <translation>En attente de positionnement ...</translation>
@@ -82,27 +78,19 @@
         <translation>Activation du positionnement ...</translation>
     </message>
     <message>
-        <source>GPS is now on</source>
-        <translation type="obsolete">GPS activé</translation>
-    </message>
-    <message>
-        <source>GPS is now off</source>
-        <translation type="obsolete">GPS désactivé</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation de la position en mémoire. Appuyer et maintenir sur le bouton de positionnement pour activer le positionnement en temps réel. </translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>Positioning is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>Le positionnement est activé.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>Positioning is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>Le positionnement est désactivé.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>
@@ -120,67 +108,67 @@
         <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="342"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
         <source>Main Menu</source>
         <translation>Menu principal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
         <source>Browse</source>
         <translation>Parcourir</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="356"/>
         <source>Digitize</source>
         <translation>Dessiner</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="359"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="362"/>
         <source>Open Project</source>
         <translation>Ouvrir project</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="372"/>
         <source>About</source>
         <translation>À propos</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="379"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="382"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="389"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
         <source>GPS Options</source>
         <translation>Options GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="395"/>
         <source>Enable GPS</source>
         <translation>Activer GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="401"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="404"/>
         <source>Center current location</source>
         <translation>Centrer sur la position actuelle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="412"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="415"/>
         <source>Show position information</source>
         <translation>Voir les informations sur la position actuelle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="470"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="473"/>
         <source>Loading Project</source>
         <translation>Chargement du projet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="477"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
         <source>Loading Project: %1</source>
         <translation>Chargement du projet %1</translation>
     </message>
