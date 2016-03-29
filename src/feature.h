@@ -15,14 +15,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QGSEXTENDEDFEATURE_H
-#define QGSEXTENDEDFEATURE_H
+#ifndef FEATURE_H
+#define FEATURE_H
 
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 
 class Feature
 {
+    Q_GADGET
+
   public:
     Feature( const QgsFeature& feature, QgsVectorLayer* layer );
     Feature();
@@ -74,12 +76,13 @@ class Feature
 
     QString displayText() const;
 
+    Q_INVOKABLE bool readOnly() const;
+
   private:
-    // TODO: Use implicity sharing for this
     QgsFeature mFeature;
     QgsVectorLayer* mLayer;
 };
 
 Q_DECLARE_METATYPE( Feature )
 
-#endif // QGSEXTENDEDFEATURE_H
+#endif // FEATURE_H

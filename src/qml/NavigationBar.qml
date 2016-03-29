@@ -158,9 +158,11 @@ Rectangle {
   Button {
     id: editButton
 
+    property bool readOnly: false
+
     anchors.right: nextButton.left
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
+    width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
     height: 48*dp
     clip: true
 
@@ -173,6 +175,15 @@ Rectangle {
     Behavior on width {
       PropertyAnimation {
         easing.type: Easing.InQuart
+      }
+    }
+
+    Connections {
+      target: selection
+
+      onSelectionChanged:
+      {
+        editButton.readOnly = selection.selectedFeature.readOnly()
       }
     }
   }

@@ -14,7 +14,7 @@ ComboBox {
   ModelHelper {
     id: modelHelper
     model: MapLayerModel {
-      filters: MapLayerModel.PointLayer
+      filters: MapLayerModel.PointLayer | MapLayerModel.WritableLayer
     }
   }
 

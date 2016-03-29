@@ -37,7 +37,7 @@ void FeatureListExtentController::zoomToSelected() const
 {
   if ( mModel && mSelection && mMapSettings )
   {
-    Feature feat = mSelection->selectedFeature().value<Feature>();
+    Feature feat = mSelection->selectedFeature();
 
     QgsCoordinateTransform transf( feat.layer()->crs(), mMapSettings->crs()->crs() );
     QgsGeometry geom( *feat.qgsFeature().constGeometry() );

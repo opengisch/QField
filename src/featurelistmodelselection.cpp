@@ -62,11 +62,11 @@ void FeatureListModelSelection::setModel( FeatureListModel* model )
   }
 }
 
-const QVariant FeatureListModelSelection::selectedFeature() const
+const Feature FeatureListModelSelection::selectedFeature() const
 {
   if ( mSelection->selectedIndexes().count() )
   {
-    return mModel->data( mSelection->selectedIndexes().first(), FeatureListModel::FeatureRole );
+    return mModel->data( mSelection->selectedIndexes().first(), FeatureListModel::FeatureRole ).value<Feature>();
   }
-  return QVariant();
+  return Feature();
 }

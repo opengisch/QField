@@ -50,3 +50,8 @@ QString Feature::displayText() const
   else
     return mFeature.attribute( mLayer->displayField() ).toString();
 }
+
+bool Feature::readOnly() const
+{
+  return mLayer->readOnly();
+}

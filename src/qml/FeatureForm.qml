@@ -113,7 +113,6 @@ Rectangle {
             anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
             height: childrenRect.height
 
-            visible: EditorWidget !== "Hidden"
 
             /* attribute value */
             Loader {
