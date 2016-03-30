@@ -135,6 +135,9 @@ void FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 
 bool FeatureModel::save()
 {
+  if ( !mFeature.layer() )
+    return false;
+
   mFeature.layer()->startEditing();
   QgsFeature feat = mFeature.qgsFeature();
   mFeature.layer()->updateFeature( feat );
@@ -150,11 +153,17 @@ bool FeatureModel::save()
 
 void FeatureModel::reset()
 {
+  if ( !mFeature.layer() )
+    return;
+
   mFeature.layer()->rollBack();
 }
 
 bool FeatureModel::suppressFeatureForm() const
 {
+  if ( !mFeature.layer() )
+    return false;
+
   return mFeature.layer()->editFormConfig()->suppress();
 }
 
@@ -178,6 +187,9 @@ void FeatureModel::applyGeometry()
 
 void FeatureModel::create()
 {
+  if ( !mFeature.layer() )
+    return;
+
   mFeature.layer()->startEditing(); // better safe than sorry
   mFeature.create();
 }
