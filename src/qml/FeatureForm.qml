@@ -119,7 +119,7 @@ Rectangle {
               id: attributeEditorLoader
               anchors { left: parent.left; right: parent.right }
 
-              visible: form.state != "ReadOnly"
+              enabled: form.state != "ReadOnly"
               property var value: AttributeValue
               property var config: EditorWidgetConfig
 
@@ -134,11 +134,6 @@ Rectangle {
             Connections {
               target: attributeEditorLoader.item
               onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
-            }
-
-            Text {
-              visible: form.state == "ReadOnly"
-              text: AttributeValue || 'N/A'
             }
 
             Controls.CheckBox {

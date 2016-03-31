@@ -9,18 +9,24 @@ Item {
 
   height: childrenRect.height
 
+  property var _reverseConfig: ({})
+
   ComboBox {
     id: comboBox
 
-    currentIndex: find(value)
+    currentIndex: find(_reverseConfig[value])
 
     Component.onCompleted: {
       model = Object.keys(config);
-      currentIndex = find(value)
+      for(var key in config) {
+        _reverseConfig[json[key]] = key;
+      }
+
+      currentIndex = find(_reverseConfig[value])
     }
 
     onCurrentTextChanged: {
-      valueChanged( currentText )
+      valueChanged( config[currentText] )
     }
   }
 }
