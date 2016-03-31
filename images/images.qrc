@@ -28,4 +28,7 @@
         <file alias="cancel.png">themes/holodark/cancel.png</file>
         <file alias="edit.png">themes/holodark/edit.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>themes/holodark/delete_forever.svg</file>
+    </qresource>
 </RCC>

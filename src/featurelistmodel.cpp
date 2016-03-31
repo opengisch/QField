@@ -18,6 +18,8 @@
 #include "featurelistmodel.h"
 
 #include <qgsvectorlayer.h>
+#include <qgsvectordataprovider.h>
+
 #include <QDebug>
 
 FeatureListModel::FeatureListModel( QObject *parent )
@@ -46,6 +48,7 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
     Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
     mFeatures.append( f );
     connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
+    connect( f->layer(), SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
   }
 
   endResetModel();
@@ -82,6 +85,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roleNames[FeatureIdRole] = "featureId";
   roleNames[FeatureRole] = "feature";
   roleNames[LayerNameRole] = "layerName";
+  roleNames[DeleteFeatureRole] = "deleteFeatureCapability";
 
   return roleNames;
 }
@@ -135,6 +139,10 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
 
     case LayerNameRole:
       return feature->layer()->name();
+
+    case DeleteFeatureRole:
+      bool a = !feature->layer()->readOnly() && ( feature->layer()->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures );
+      return a;
   }
 
   return QVariant();
@@ -206,4 +214,21 @@ void FeatureListModel::layerDeleted()
   }
 
   removeRows( firstRowToRemove, count );
+}
+
+void FeatureListModel::featureDeleted( QgsFeatureId fid )
+{
+  QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
+  Q_ASSERT( l );
+
+  int i = 0;
+  Q_FOREACH( Feature* f, mFeatures )
+  {
+    if ( f->layer() == l && f->id() == fid )
+    {
+      removeRows( i, 1 );
+      break;
+    }
+    ++i;
+  }
 }

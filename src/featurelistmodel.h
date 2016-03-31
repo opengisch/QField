@@ -35,7 +35,8 @@ class FeatureListModel : public QAbstractItemModel
     {
       FeatureIdRole = Qt::UserRole + 1,
       FeatureRole,
-      LayerNameRole
+      LayerNameRole,
+      DeleteFeatureRole
     };
 
     explicit FeatureListModel( QObject *parent = 0 );
@@ -77,6 +78,8 @@ class FeatureListModel : public QAbstractItemModel
 
   private slots:
     void layerDeleted();
+
+    void featureDeleted( QgsFeatureId fid );
 
   private:
     inline Feature* toFeature( const QModelIndex& index ) const

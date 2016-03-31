@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 import QtQuick 2.3
-import QtQuick.Controls 1.2
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
 
@@ -125,7 +125,7 @@ Rectangle {
 
       Text {
         id: featureText
-        anchors { leftMargin: 10; left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+        anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
         font.bold: true
         text: display
       }
@@ -143,14 +143,6 @@ Rectangle {
         }
       }
 
-      /* bottom border */
-      Rectangle {
-        anchors.bottom: parent.bottom
-        height: 1
-        color: "lightGray"
-        width: parent.width
-      }
-
       MouseArea {
         anchors.fill: parent
 
@@ -163,6 +155,33 @@ Rectangle {
         {
           featureForm.selection.selection = index
         }
+      }
+
+      Button {
+        id: deleteButton
+
+        width: 48*dp
+        height: 48*dp
+
+        visible: deleteFeatureCapability
+
+        anchors { top: parent.top; right: parent.right }
+
+        iconSource: "/themes/holodark/delete_forever.svg"
+
+        style: "light"
+
+        onClicked: {
+          feature.remove()
+        }
+      }
+
+      /* bottom border */
+      Rectangle {
+        anchors.bottom: parent.bottom
+        height: 1
+        color: "lightGray"
+        width: parent.width
       }
     }
 

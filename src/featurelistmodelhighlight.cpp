@@ -52,6 +52,7 @@ void FeatureListModelHighlight::onDataChanged()
   if ( mModel )
   {
     connect( mModel, SIGNAL( modelReset() ), this, SLOT( onModelDataChanged() ) );
+    connect( mModel, SIGNAL( rowsRemoved( QModelIndex,int,int ) ), this, SLOT( onModelDataChanged() ) );
   }
 }
 

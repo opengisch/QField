@@ -40,6 +40,9 @@ void Feature::setGeometry( const QgsGeometry& geom )
 
 void Feature::create()
 {
+  if ( !mLayer )
+    return;
+
   mLayer->addFeature( mFeature );
 }
 
@@ -53,5 +56,18 @@ QString Feature::displayText() const
 
 bool Feature::readOnly() const
 {
+  if ( !mLayer )
+    return true;
+
   return mLayer->readOnly();
+}
+
+bool Feature::remove()
+{
+  if ( !mLayer )
+    return false;
+
+  mLayer->startEditing();
+  mLayer->deleteFeature( mFeature.id() );
+  return mLayer->commitChanges();
 }

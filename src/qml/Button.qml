@@ -8,6 +8,7 @@ Item {
   property alias iconSource: button.iconSource
   property alias checked: button.checked
   property alias checkable: button.checkable
+  property string style: "dark"
 
   signal pressAndHold
   signal clicked
@@ -24,8 +25,8 @@ Item {
         implicitWidth: 100
         implicitHeight: 25
         border.width: control.activeFocus ? 2 : 1
-        border.color: "#888"
-        color: "#cc555555"
+        border.color: style === "dark" ? "#888" : "#ccbbbbbb"
+        color: style === "dark" ? "#cc555555" : "#ccbbbbbb"
       }
     }
 

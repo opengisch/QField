@@ -78,6 +78,8 @@ class Feature
 
     Q_INVOKABLE bool readOnly() const;
 
+    Q_INVOKABLE bool remove();
+
   private:
     QgsFeature mFeature;
     QgsVectorLayer* mLayer;
