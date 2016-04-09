@@ -1,5 +1,4 @@
 TEMPLATE = subdirs
-CONFIG += ordered
 CONFIG += c++11
 
 TRANSLATIONS = \
@@ -18,3 +17,4 @@ TRANSLATIONS = \
 SUBDIRS += 3rdparty
 SUBDIRS += src
 
+src.depends=3rdparty
