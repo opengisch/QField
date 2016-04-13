@@ -165,16 +165,6 @@ void QgisMobileapp::loadProjectQuirks()
 
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
-  QgsMapLayer* ml = QgsMapLayerRegistry::instance()->mapLayers().values().first();
-  qDebug() << "ML " << ( long int )ml;
-  qDebug() << "ID " << ml->id();
-
-  QString t1 = QgsMapLayerRegistry::instance()->mapLayers().values().first()->name();
-
-  qDebug() << "Name " << t1;
-
-
-
   QgsMapToolIdentify identify( mMapCanvas );
   QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll, QgsMapToolIdentify::VectorLayer );
 
