@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 
 Item {
-  signal valueChanged( var value )
+  signal valueChanged(var value)
 
   anchors.left: parent.left
   anchors.right: parent.right
@@ -19,14 +19,13 @@ Item {
     Component.onCompleted: {
       model = Object.keys(config);
       for(var key in config) {
-        _reverseConfig[json[key]] = key;
+        _reverseConfig[config[key]] = key;
       }
-
       currentIndex = find(_reverseConfig[value])
     }
 
     onCurrentTextChanged: {
-      valueChanged( config[currentText] )
+      valueChanged(config[currentText])
     }
   }
 }
