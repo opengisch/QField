@@ -62,15 +62,11 @@
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="34"/>
         <source>Speed</source>
-        <translation>Geschwindigekit</translation>
+        <translation>Geschwindigkeit</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
-    <message>
-        <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="obsolete">Benutzt gespeicherte Position. Für genauere Positionierung GPS aktivieren.</translation>
-    </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
@@ -82,27 +78,19 @@
         <translation>Positionierung wird gestartet...</translation>
     </message>
     <message>
-        <source>GPS is now on</source>
-        <translation type="obsolete">Das GPS ist jetzt eingeschaltet</translation>
-    </message>
-    <message>
-        <source>GPS is now off</source>
-        <translation type="obsolete">Das GPS ist jetzt ausgeschaltet</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzt gespeicherte Position. Für aktuelle Positionierung lange den GPS Knopf drücken.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>Positioning is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>Positionierung ist jetzt eingeschaltet</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>Positioning is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>Positionierung ist jetzt ausgeschaltet</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>

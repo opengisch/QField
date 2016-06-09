@@ -68,10 +68,6 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <source>Using cached position. Turn on positioning for more recent location.</source>
-        <translation type="obsolete">Użyto zapisanej wcześniej pozycji. Aby uzyskać bardziej dokładną lokalizację włącz pozycjonowanie GPS.</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="259"/>
         <source>Waiting for location...</source>
         <translation>Oczekiwanie na lokalizację...</translation>
@@ -82,27 +78,19 @@
         <translation>Aktywacja usługi lokalizacyjnej...</translation>
     </message>
     <message>
-        <source>GPS is now on</source>
-        <translation type="obsolete">GPS jest włączony</translation>
-    </message>
-    <message>
-        <source>GPS is now off</source>
-        <translation type="obsolete">GPS jest wyłączony</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="250"/>
         <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyto zapisanej wcześniej lokalizacji. Wciśnij i przytrzymaj klawisz lokalizacji, aby włączyć pozycjonowanie w czasie rzeczywistym.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="279"/>
         <source>Positioning is now on</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozycjonowanie jest teraz włączone</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="284"/>
         <source>Positioning is now off</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozycjonowanie jest teraz wyłączone</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="331"/>
@@ -137,7 +125,7 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="356"/>
         <source>Digitize</source>
-        <translation type="unfinished"></translation>
+        <translation>Rysuj</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="362"/>
