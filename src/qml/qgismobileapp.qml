@@ -108,6 +108,7 @@ Rectangle {
         model: RubberbandModel {
           currentCoordinate: coordinateLocator.coordinate
           vectorLayer: layerSelector.currentLayer
+          lastPointPending: true
 
           onCurrentCoordinateChanged: {
             coordinateLocator.coordinate = currentCoordinate

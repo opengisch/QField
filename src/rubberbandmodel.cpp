@@ -150,7 +150,7 @@ bool RubberbandModel::lastPointPending() const
   return mLastPointPending;
 }
 
-void RubberbandModel::setLastPointPending(bool lastPointPending)
+void RubberbandModel::setLastPointPending( bool lastPointPending )
 {
   if ( mLastPointPending == lastPointPending )
     return;

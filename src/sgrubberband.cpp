@@ -4,9 +4,6 @@ SGRubberband::SGRubberband(const QVector<QgsPoint>& points, QGis::GeometryType t
   : QSGNode()
 {
   mMaterial.setColor( color );
-  QColor c2 = color;
-  c2.setAlpha( 150 );
-  mPendingMaterial.setColor( c2 );
 
   switch ( type )
   {
@@ -36,10 +33,12 @@ SGRubberband::SGRubberband(const QVector<QgsPoint>& points, QGis::GeometryType t
         }
 
         sgGeom->setLineWidth( width );
+        sgGeom->setDrawingMode( GL_LINE_STRIP );
+        node->setGeometry( sgGeom );
         node->setMaterial( &mMaterial );
+        node->setFlag( QSGNode::OwnsGeometry );
         node->setFlag( QSGNode::OwnedByParent );
         appendChildNode( node );
-        qDebug() << "TEST";
       }
 
       if ( lastPointPending && points.size() > 1 )
@@ -53,11 +52,13 @@ SGRubberband::SGRubberband(const QVector<QgsPoint>& points, QGis::GeometryType t
         verticesPending[0].set( pt1.x(), pt1.y() );
         verticesPending[1].set( pt2.x(), pt2.y() );
 
-        sgGeomPending->setLineWidth( width );
-        nodePending->setMaterial( &mPendingMaterial );
+        sgGeomPending->setLineWidth( width / 2 );
+        sgGeomPending->setDrawingMode( GL_LINE_STRIP );
+        nodePending->setGeometry( sgGeomPending );
+        nodePending->setMaterial( &mMaterial );
+        nodePending->setFlag( QSGNode::OwnsGeometry );
         nodePending->setFlag( QSGNode::OwnedByParent );
         appendChildNode( nodePending );
-        qDebug() << "TEST2";
       }
       break;
     }

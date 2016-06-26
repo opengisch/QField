@@ -23,7 +23,6 @@ class SGRubberband : public QSGNode
 
   private:
     QSGFlatColorMaterial mMaterial;
-    QSGFlatColorMaterial mPendingMaterial;
 };
 
 #endif // QGSSGRUBBERBAND_H
