@@ -22,6 +22,8 @@
 #include <qgis.h>
 #include <qgspoint.h>
 
+class QgsVectorLayer;
+
 /**
  * This model manages a list of vertices.
  *
@@ -32,9 +34,11 @@ class RubberbandModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QPointF currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate )
+    Q_PROPERTY( QPointF currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
-    Q_PROPERTY( QGis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( QGis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
+    Q_PROPERTY( bool lastPointPending READ lastPointPending WRITE setLastPointPending NOTIFY lastPointPendingChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = 0 );
@@ -65,19 +69,31 @@ class RubberbandModel : public QObject
     Q_INVOKABLE void reset();
 
     QGis::GeometryType geometryType() const;
-    void setGeometryType( const QGis::GeometryType& geometryType );
+
+    QgsVectorLayer* vectorLayer() const;
+    void setVectorLayer(QgsVectorLayer* vectorLayer);
+
+    bool lastPointPending() const;
+    void setLastPointPending(bool lastPointPending);
 
   signals:
     void vertexChanged( int index );
     void verticesInserted( int index, int count );
     void verticesRemoved( int index, int count );
     void currentCoordinateIndexChanged();
+    void currentCoordinateChanged();
     void geometryTypeChanged();
+    void vectorLayerChanged();
+    void lastPointPendingChanged();
 
   private:
+    void setGeometryType( const QGis::GeometryType& geometryType );
+
     QVector<QPointF> mPointList;
     int mCurrentCoordinateIndex;
     QGis::GeometryType mGeometryType;
+    QgsVectorLayer* mLayer;
+    bool mLastPointPending;
 };
 
 #endif // RUBBERBANDMODEL_H

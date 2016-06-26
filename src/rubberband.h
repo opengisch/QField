@@ -27,6 +27,8 @@ class Rubberband : public QQuickItem
 
     Q_PROPERTY( RubberbandModel* model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged)
+    Q_PROPERTY( qreal width READ width WRITE setWidth NOTIFY widthChanged)
 
   public:
     Rubberband( QQuickItem* parent = nullptr );
@@ -37,9 +39,17 @@ class Rubberband : public QQuickItem
     MapSettings* mapSettings() const;
     void setMapSettings( MapSettings* mapSettings );
 
+    QColor color() const;
+    void setColor(const QColor& color);
+
+    qreal width() const;
+    void setWidth(qreal width);
+
   signals:
     void modelChanged();
     void mapSettingsChanged();
+    void colorChanged();
+    void widthChanged();
 
   private slots:
     void markDirty();
@@ -50,6 +60,8 @@ class Rubberband : public QQuickItem
     RubberbandModel* mModel;
     MapSettings* mMapSettings;
     bool mDirty;
+    QColor mColor;
+    qreal mWidth;
 };
 
 #endif // RUBBERBAND_H

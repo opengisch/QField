@@ -81,7 +81,7 @@ Rectangle {
       anchors.fill: parent
     }
 
-    /* Feature highlight overlay */
+    /* A transformation node for overlays in map coordinates */
     Item {
       anchors.fill: parent
 
@@ -89,6 +89,7 @@ Rectangle {
         mapSettings: mapCanvas.mapSettings
       }
 
+      /* Highlight the currently selected item on the feature list */
       FeatureListModelHighlight {
         model: featureListModel
         selection: featureForm.selection
@@ -106,6 +107,11 @@ Rectangle {
 
         model: RubberbandModel {
           currentCoordinate: coordinateLocator.coordinate
+          vectorLayer: layerSelector.currentLayer
+
+          onCurrentCoordinateChanged: {
+            coordinateLocator.coordinate = currentCoordinate
+          }
         }
 
         anchors.fill: parent

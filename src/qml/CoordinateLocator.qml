@@ -7,7 +7,9 @@ Item {
   id: locator
   property MapSettings mapSettings
   property color color: "black"
-  property point coordinate //!< Read only!
+  property point coordinate
+
+  property bool __coordinateChangedByMapSettings: false
 
 
   Rectangle {
@@ -90,6 +92,13 @@ Item {
 
   function __updateCoordinate()
   {
+    __coordinateChangedByMapSettings = true
     coordinate = mapSettings.screenToCoordinate( Qt.point( crosshairCircle.x + crosshairCircle.radius, crosshairCircle.y + crosshairCircle.radius ) )
+    __coordinateChangedByMapSettings = false
+  }
+
+  onCoordinateChanged: {
+    if ( !__coordinateChangedByMapSettings )
+      mapSettings.setCenter( coordinate )
   }
 }

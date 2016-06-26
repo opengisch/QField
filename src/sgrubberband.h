@@ -1,7 +1,7 @@
 #ifndef QGSSGRUBBERBAND_H
 #define QGSSGRUBBERBAND_H
 
-#include <QtQuick/QSGGeometryNode>
+#include <QtQuick/QSGNode>
 #include <QtQuick/QSGFlatColorMaterial>
 
 #include <qgspoint.h>
@@ -16,13 +16,14 @@ class RubberbandModel;
  * This cannot be considered stable API.
  */
 
-class SGRubberband : public QSGGeometryNode
+class SGRubberband : public QSGNode
 {
   public:
-    SGRubberband( const QVector<QgsPoint>& points, QGis::GeometryType type );
+    SGRubberband( const QVector<QgsPoint>& points, QGis::GeometryType type, bool lastPointPending, const QColor& color, qreal width );
 
   private:
     QSGFlatColorMaterial mMaterial;
+    QSGFlatColorMaterial mPendingMaterial;
 };
 
 #endif // QGSSGRUBBERBAND_H

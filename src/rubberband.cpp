@@ -3,8 +3,8 @@
 
  ---------------------
  begin                : 11.6.2016
- copyright            : (C) 2016 by mku
- email                : [your-email-here]
+ copyright            : (C) 2016 by Matthias Kuhn (OPENGIS.ch)
+ email                : matthias@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,9 +23,11 @@ Rubberband::Rubberband( QQuickItem* parent )
   : QQuickItem( parent )
   , mModel ( nullptr )
   , mDirty ( false )
+  , mColor ( 192, 57, 43, 200 )
+  , mWidth ( 1.5 )
 {
   setFlags( QQuickItem::ItemHasContents );
-  // setAntialiasing( true ); // TODO : Check what this does
+  setAntialiasing( true );
 }
 
 RubberbandModel* Rubberband::model() const
@@ -82,7 +84,7 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
 
     if ( !mModel->isEmpty() )
     {
-      SGRubberband* rb = new SGRubberband( mModel->flatVertices(), mModel->geometryType() );
+      SGRubberband* rb = new SGRubberband( mModel->flatVertices(), mModel->geometryType(), mModel->lastPointPending(), mColor, mWidth );
       rb->setFlag( QSGNode::OwnedByParent );
 
       n->appendChildNode( rb );
@@ -90,4 +92,24 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
   }
 
   return n;
+}
+
+qreal Rubberband::width() const
+{
+  return mWidth;
+}
+
+void Rubberband::setWidth(qreal width)
+{
+  mWidth = width;
+}
+
+QColor Rubberband::color() const
+{
+  return mColor;
+}
+
+void Rubberband::setColor(const QColor& color)
+{
+  mColor = color;
 }

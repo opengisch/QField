@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "rubberbandmodel.h"
+#include <qgsvectorlayer.h>
 
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
@@ -79,6 +80,7 @@ void RubberbandModel::removeVertices( int index, int count )
   if ( mCurrentCoordinateIndex >= mPointList.size() )
   {
     setCurrentCoordinateIndex( mPointList.size() - 1 );
+    emit currentCoordinateChanged();
   }
 }
 
@@ -94,6 +96,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 
   mCurrentCoordinateIndex = currentCoordinateIndex;
   emit currentCoordinateIndexChanged();
+  emit currentCoordinateChanged();
 }
 
 QPointF RubberbandModel::currentCoordinate() const
@@ -107,6 +110,7 @@ void RubberbandModel::setCurrentCoordinate( const QPointF& currentCoordinate )
     return;
 
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
+  emit currentCoordinateChanged();
   emit vertexChanged( mCurrentCoordinateIndex );
 }
 
@@ -139,4 +143,36 @@ void RubberbandModel::setGeometryType( const QGis::GeometryType& geometryType )
 
   mGeometryType = geometryType;
   emit geometryTypeChanged();
+}
+
+bool RubberbandModel::lastPointPending() const
+{
+  return mLastPointPending;
+}
+
+void RubberbandModel::setLastPointPending(bool lastPointPending)
+{
+  if ( mLastPointPending == lastPointPending )
+    return;
+
+  mLastPointPending = lastPointPending;
+  emit lastPointPendingChanged();
+}
+
+QgsVectorLayer* RubberbandModel::vectorLayer() const
+{
+  return mLayer;
+}
+
+void RubberbandModel::setVectorLayer(QgsVectorLayer* layer)
+{
+  if ( layer == mLayer )
+    return;
+
+  mLayer = layer;
+
+  if ( mLayer )
+    setGeometryType( mLayer->geometryType() );
+
+  emit vectorLayerChanged();
 }
