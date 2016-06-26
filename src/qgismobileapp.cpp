@@ -45,6 +45,8 @@
 #include "featurelistextentcontroller.h"
 #include "coordinatetransform.h"
 #include "modelhelper.h"
+#include "rubberband.h"
+#include "rubberbandmodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -125,6 +127,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<CRS>( "org.qgis", 1, 0, "CRS" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
+  qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
+  qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
 
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );

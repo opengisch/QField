@@ -23,8 +23,22 @@ QPointF Geometry::currentCoordinate()
   return mCurrentCoordinate;
 }
 
-void Geometry::setCurrentCoordinate(QPointF coord )
+void Geometry::setCurrentCoordinate( QPointF coord )
 {
   mCurrentCoordinate = coord;
+}
+
+RubberbandModel* Geometry::rubberbandModel() const
+{
+  return mRubberbandModel;
+}
+
+void Geometry::setRubberbandModel( RubberbandModel* rubberbandModel )
+{
+  if ( mRubberbandModel == rubberbandModel )
+    return;
+
+  mRubberbandModel = rubberbandModel;
+  emit rubberbandModelChanged();
 }
 

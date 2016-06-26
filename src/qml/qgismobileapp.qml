@@ -97,8 +97,24 @@ Rectangle {
         selectionColor: "#ff7777"
         width: 5
       }
+
+      /** A rubberband for ditizing **/
+      Rubberband {
+        id: digitizingRubberband
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          currentCoordinate: coordinateLocator.coordinate
+        }
+
+        anchors.fill: parent
+
+        visible: mainWindow.state === "digitize"
+      }
     }
 
+    /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
 
@@ -106,7 +122,7 @@ Rectangle {
 
       anchors.fill: parent
 
-      visible: ( mainWindow.state === "digitize" )
+      visible: mainWindow.state === "digitize"
     }
 
     /* GPS marker  */
@@ -295,19 +311,32 @@ Rectangle {
     anchors.right: mapCanvas.right
 
     visible: ( mainWindow.state === "digitize" )
-    geometry: feature.geometry
     currentLayer: layerSelector.currentLayer
 
-    FeatureModel{
+    FeatureModel {
       id: digitizingFeature
       currentLayer: layerSelector.currentLayer
 
       geometry: Geometry {
-        currentCoordinate: coordinateLocator.coordinate
+        rubberbandModel: digitizingRubberband.model
       }
     }
 
-    onGeometryDigitized: {
+    onVertexAdded: {
+      digitizingRubberband.model.addVertex()
+    }
+
+    onVertexRemoved:
+    {
+      digitizingRubberband.model.removeVertex()
+    }
+
+    onCancel:
+    {
+      digitizingRubberband.model.reset()
+    }
+
+    onConfirm: {
       coordinateLocator.flash()
 
       digitizingFeature.applyGeometry()

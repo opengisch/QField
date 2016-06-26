@@ -32,11 +32,14 @@ HEADERS += \
     qgsmapcanvasproxy.h \
     qgsquickmapcanvasmap.h \
     qgssggeometry.h \
+    sgrubberband.h \
     settings.h \
     platformutilities.h \
     geometry.h \
     layer.h \
-    modelhelper.h
+    modelhelper.h \
+    rubberbandmodel.h \
+    rubberband.h
 
 SOURCES += \
     appinterface.cpp \
@@ -55,11 +58,14 @@ SOURCES += \
     qgsmapcanvasproxy.cpp \
     qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \
+    sgrubberband.cpp \
     settings.cpp \
     platformutilities.cpp \
     geometry.cpp \
     layer.cpp \
-    modelhelper.cpp
+    modelhelper.cpp \
+    rubberbandmodel.cpp \
+    rubberband.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

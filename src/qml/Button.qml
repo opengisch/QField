@@ -9,6 +9,7 @@ Item {
   property alias checked: button.checked
   property alias checkable: button.checkable
   property string style: "dark"
+  property alias text: button.text
 
   signal pressAndHold
   signal clicked

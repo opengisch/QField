@@ -9,8 +9,8 @@ Item {
   Rectangle {
     id: marker
     property point location
-    width: 15
-    height: 15
+    width: 0.2*dp
+    height: 0.2*dp
 
     x: location.x - width/2
     y: location.y - height/2
@@ -20,6 +20,7 @@ Item {
     gradient: Gradient  {
         GradientStop  {
             position: 0.0
+            color: "#ffffff"
             SequentialAnimation on color  {
                 loops: Animation.Infinite
                 ColorAnimation  { from: "Mistyrose"; to: "Indianred"; duration: 3000; easing.type: Easing.InOutQuad }

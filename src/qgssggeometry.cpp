@@ -181,7 +181,7 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
   return sgGeom;
 }
 
-QSGGeometry*QgsSGGeometry::qgsPointToQSGGeometry( const QgsPoint& point, int width )
+QSGGeometry* QgsSGGeometry::qgsPointToQSGGeometry( const QgsPoint& point, int width )
 {
   QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), 1 );
 
