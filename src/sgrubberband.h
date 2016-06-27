@@ -19,7 +19,7 @@ class RubberbandModel;
 class SGRubberband : public QSGNode
 {
   public:
-    SGRubberband( const QVector<QgsPoint>& points, QGis::GeometryType type, bool lastPointPending, const QColor& color, qreal width );
+    SGRubberband( const QVector<QgsPoint>& points, QGis::GeometryType type, const QColor& color, qreal width );
 
   private:
     QSGFlatColorMaterial mMaterial;

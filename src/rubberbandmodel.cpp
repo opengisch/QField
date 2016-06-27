@@ -145,20 +145,6 @@ void RubberbandModel::setGeometryType( const QGis::GeometryType& geometryType )
   emit geometryTypeChanged();
 }
 
-bool RubberbandModel::lastPointPending() const
-{
-  return mLastPointPending;
-}
-
-void RubberbandModel::setLastPointPending( bool lastPointPending )
-{
-  if ( mLastPointPending == lastPointPending )
-    return;
-
-  mLastPointPending = lastPointPending;
-  emit lastPointPendingChanged();
-}
-
 QgsVectorLayer* RubberbandModel::vectorLayer() const
 {
   return mLayer;

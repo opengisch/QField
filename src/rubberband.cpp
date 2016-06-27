@@ -84,7 +84,7 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
 
     if ( !mModel->isEmpty() )
     {
-      SGRubberband* rb = new SGRubberband( mModel->flatVertices(), mModel->geometryType(), mModel->lastPointPending(), mColor, mWidth );
+      SGRubberband* rb = new SGRubberband( mModel->flatVertices(), mModel->geometryType(), mColor, mWidth );
       rb->setFlag( QSGNode::OwnedByParent );
 
       n->appendChildNode( rb );

@@ -38,7 +38,6 @@ class RubberbandModel : public QObject
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QGis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
-    Q_PROPERTY( bool lastPointPending READ lastPointPending WRITE setLastPointPending NOTIFY lastPointPendingChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = 0 );
@@ -73,9 +72,6 @@ class RubberbandModel : public QObject
     QgsVectorLayer* vectorLayer() const;
     void setVectorLayer(QgsVectorLayer* vectorLayer);
 
-    bool lastPointPending() const;
-    void setLastPointPending(bool lastPointPending);
-
   signals:
     void vertexChanged( int index );
     void verticesInserted( int index, int count );
@@ -84,7 +80,6 @@ class RubberbandModel : public QObject
     void currentCoordinateChanged();
     void geometryTypeChanged();
     void vectorLayerChanged();
-    void lastPointPendingChanged();
 
   private:
     void setGeometryType( const QGis::GeometryType& geometryType );
@@ -93,7 +88,6 @@ class RubberbandModel : public QObject
     int mCurrentCoordinateIndex;
     QGis::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;
-    bool mLastPointPending;
 };
 
 #endif // RUBBERBANDMODEL_H
