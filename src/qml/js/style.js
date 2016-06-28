@@ -1,25 +1,21 @@
 function getThemeIcon(name) {
 
-  var ppi = dp / 0.00768443 * 25.4;
-
-  var dir = ["mdpi","hdpi","xhdpi","xxhdpi", "xxxhdpi"];
+  var ppi = dp / 0.00768443;
 
   var ppiRange
   if ( ppi >= 360 )
-    ppi = 4;
+    ppi = "xxxhdpi";
    else if ( ppi >= 270 )
-    ppi = 3;
+    ppi = "xxhdpi";
    else if ( ppi >= 180 )
-    ppi = 2;
+    ppi = "xhdpi";
    else if ( ppi >= 135 )
-    ppi = 1;
+    ppi = "hdpi";
    else
-    ppi = 0;
+    ppi = "mdpi";
 
   var theme = 'qfield';
 
-  console.info( ppi + ": " + dir[ppi] )
-
-  var path = '/themes/' + theme + '/' + dir[ppi] + '/' + name + '.png';
+  var path = '/themes/' + theme + '/' + ppi + '/' + name + '.png';
   return path;
 }
