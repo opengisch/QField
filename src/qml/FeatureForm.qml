@@ -60,7 +60,7 @@ Rectangle {
       width: 48*dp
       height: 48*dp
 
-      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
 
       onClicked: {
         Qt.inputMethod.hide()

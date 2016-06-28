@@ -125,12 +125,10 @@ Rectangle {
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
-
-      mapSettings: mapCanvas.mapSettings
-
       anchors.fill: parent
-
       visible: mainWindow.state === "digitize"
+      highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
+      mapSettings: mapCanvas.mapSettings
     }
 
     /* GPS marker  */
@@ -333,6 +331,7 @@ Rectangle {
     }
 
     onVertexAdded: {
+      coordinateLocator.flash()
       digitizingRubberband.model.addVertex()
     }
 
@@ -362,8 +361,8 @@ Rectangle {
       {
         digitizingFeature.create()
         digitizingFeature.save()
+        digitizingRubberband.model.reset()
       }
-      digitizingRubberband.model.reset()
     }
   }
 
@@ -485,7 +484,11 @@ Rectangle {
 
     visible: false
 
-    onSaved: visible = false
+    onSaved: {
+      visible = false
+      if ( state === "Add" )
+        digitizingRubberband.model.reset()
+    }
     onCancelled: visible = false
   }
 

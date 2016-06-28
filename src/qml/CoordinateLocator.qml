@@ -6,22 +6,25 @@ import QtPositioning 5.3
 Item {
   id: locator
   property MapSettings mapSettings
-  property color color: "black"
+  property color color: "#263238"
+  property color highlightColor: "#CFD8DC"
+
   property point coordinate
 
   property bool __coordinateChangedByMapSettings: false
 
 
   Rectangle {
+    id: crosshairCircleInnerBuffer
     anchors.centerIn: crosshairCircle
 
-    width: crosshairCircle.width - 3
-    height: crosshairCircle.height - 3
+    width: crosshairCircle.width - dp
+    height: crosshairCircle.height - dp
 
-    border.color: "#77aaaaaa"
-    border.width: 5
-    radius: width / 2
+    border.color: highlightColor
+    border.width: 2 * dp
     color: "transparent"
+    radius: width / 2
   }
 
   Rectangle {
@@ -31,11 +34,11 @@ Item {
     y: parent.height / 2 - radius
 
     border.color: parent.color
-    border.width: 2
+    border.width: 1.2 * dp
     color: "transparent"
     antialiasing: true
 
-    width: 48*dp
+    width: 48 * dp
     height: width
     radius: width / 2
   }
@@ -45,8 +48,8 @@ Item {
 
     color: parent.color
 
-    width: 1.2
-    height: 40*dp
+    width: 1.2 * dp
+    height: crosshairCircle.height * 4 / 6
   }
 
   Rectangle {
@@ -54,8 +57,8 @@ Item {
 
     color: parent.color
 
-    width: 40*dp
-    height: 1.2
+    width: crosshairCircle.width * 4 / 6
+    height: 1.2 * dp
   }
 
   Connections {
@@ -64,24 +67,45 @@ Item {
     onExtentChanged: __updateCoordinate()
   }
 
-  SequentialAnimation {
+  ParallelAnimation {
     id: flashAnimation
 
-    ScaleAnimator {
-      target: crosshairCircle
-      from: 1
-      to: 0.7
-      duration: 150
+    SequentialAnimation {
+      ScaleAnimator {
+        target: crosshairCircle
+        from: 1
+        to: 0.7
+        duration: 150
 
-      easing.type: Easing.InOutQuad
+        easing.type: Easing.InOutQuad
+      }
+      ScaleAnimator {
+        target: crosshairCircle
+        from: 0.7
+        to: 1
+        duration: 150
+
+        easing.type: Easing.InOutCubic
+      }
     }
-    ScaleAnimator {
-      target: crosshairCircle
-      from: 0.7
-      to: 1
-      duration: 150
 
-      easing.type: Easing.InOutCubic
+    SequentialAnimation {
+      ScaleAnimator {
+        target: crosshairCircleInnerBuffer
+        from: 1
+        to: 0.7
+        duration: 150
+
+        easing.type: Easing.InOutQuad
+      }
+      ScaleAnimator {
+        target: crosshairCircleInnerBuffer
+        from: 0.7
+        to: 1
+        duration: 150
+
+        easing.type: Easing.InOutCubic
+      }
     }
   }
 
