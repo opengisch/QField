@@ -28,6 +28,7 @@ Item {
         border.width: control.activeFocus ? 2 : 1
         border.color: style === "dark" ? "#888" : "#ccbbbbbb"
         color: style === "dark" ? "#cc555555" : "#ccbbbbbb"
+        radius: height/2
       }
     }
 
