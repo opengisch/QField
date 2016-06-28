@@ -16,9 +16,9 @@ Row {
     id: addVertexButton
     iconSource: {
       if( digitizingToolbar.rubberbandModel.vertexCount === 1 )
-        Style.getThemeIcon( "start-new-line" )
+        Style.getThemeIcon( "ic_create_white_24dp" )
       else
-        Style.getThemeIcon( "add-line-vertex" )
+        Style.getThemeIcon( "ic_add_white_24dp" )
     }
 
     visible: rubberbandModel.geometryType == 1 || rubberbandModel.geometryType == 2
@@ -30,7 +30,7 @@ Row {
 
   Button {
     id: removeVertexButton
-    iconSource: Style.getThemeIcon( "remove-line-vertex" )
+    iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
 
     onClicked: {
@@ -40,7 +40,7 @@ Row {
 
   Button {
     id: cancelButton
-    iconSource: Style.getThemeIcon( "cancel-line" )
+    iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
 
     onClicked: {
@@ -53,11 +53,11 @@ Row {
     iconSource: {
       if ( rubberbandModel.geometryType == 0 )
       {
-        Style.getThemeIcon( "add-point" )
+        Style.getThemeIcon( "ic_create_white_24dp" )
       }
       else
       {
-        Style.getThemeIcon( "confirm-line" )
+        Style.getThemeIcon( "ic_save_white_24dp" )
       }
     }
     visible: {
