@@ -21,6 +21,7 @@
 #include <QPointF>
 #include <qgis.h>
 #include <qgspoint.h>
+#include <qgsabstractgeometryv2.h>
 
 class QgsVectorLayer;
 
@@ -38,6 +39,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QGis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
+    Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = 0 );
@@ -49,6 +51,8 @@ class RubberbandModel : public QObject
     QVector<QPointF> vertices() const;
 
     QVector<QgsPoint> flatVertices() const;
+
+    QgsPointSequenceV2 pointSequenceV2() const;
 
     void setVertex( int index, QPointF coordinate );
 
@@ -80,6 +84,7 @@ class RubberbandModel : public QObject
     void currentCoordinateChanged();
     void geometryTypeChanged();
     void vectorLayerChanged();
+    void vertexCountChanged();
 
   private:
     void setGeometryType( const QGis::GeometryType& geometryType );

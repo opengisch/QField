@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "feature.h"
+#include <qgsproject.h>
 
 Feature::Feature( const QgsFeature& feature, QgsVectorLayer* layer )
   : mFeature( feature )
@@ -49,7 +50,14 @@ void Feature::create()
 QString Feature::displayText() const
 {
   if ( !mLayer->displayExpression().isEmpty() )
-    return QgsExpression( mLayer->displayExpression() ).evaluate( mFeature ).toString();
+  {
+    QgsExpressionContext context = QgsExpressionContext()
+        << QgsExpressionContextUtils::globalScope()
+        << QgsExpressionContextUtils::projectScope()
+        << QgsExpressionContextUtils::layerScope( mLayer );
+    context.setFeature( mFeature );
+    return QgsExpression( mLayer->displayExpression() ).evaluate( &context ).toString();
+  }
   else
     return mFeature.attribute( mLayer->displayField() ).toString();
 }

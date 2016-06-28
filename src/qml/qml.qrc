@@ -16,5 +16,6 @@
         <file>Button.qml</file>
         <file>LayerSelector.qml</file>
         <file>FeatureForm.qml</file>
+        <file>js/style.js</file>
     </qresource>
 </RCC>

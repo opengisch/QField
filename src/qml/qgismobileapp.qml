@@ -102,6 +102,7 @@ Rectangle {
       /** A rubberband for ditizing **/
       Rubberband {
         id: digitizingRubberband
+        width: 2 * dp
 
         mapSettings: mapCanvas.mapSettings
 
@@ -317,7 +318,7 @@ Rectangle {
     anchors.right: mapCanvas.right
 
     visible: ( mainWindow.state === "digitize" )
-    currentLayer: layerSelector.currentLayer
+    rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
       id: digitizingFeature
@@ -325,6 +326,7 @@ Rectangle {
 
       geometry: Geometry {
         rubberbandModel: digitizingRubberband.model
+        vectorLayer: layerSelector.currentLayer
       }
     }
 
@@ -345,6 +347,7 @@ Rectangle {
     onConfirm: {
       coordinateLocator.flash()
 
+      digitizingFeature.geometry.applyRubberband()
       digitizingFeature.applyGeometry()
 
       if ( !digitizingFeature.suppressFeatureForm() )
@@ -358,6 +361,7 @@ Rectangle {
         digitizingFeature.create()
         digitizingFeature.save()
       }
+      digitizingRubberband.model.reset()
     }
   }
 

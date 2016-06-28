@@ -133,6 +133,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
 
+  qRegisterMetaType<QGis::GeometryType>( "QGIS::GeometryType" );
+
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
   int dpiY = QApplication::desktop()->physicalDpiY();

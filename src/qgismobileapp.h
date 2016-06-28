@@ -111,4 +111,6 @@ class QgisMobileapp : public QQuickView
 #endif
 };
 
+Q_DECLARE_METATYPE( QGis::GeometryType )
+
 #endif // QGISMOBILEAPP_H

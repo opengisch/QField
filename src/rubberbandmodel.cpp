@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include <qgsvectorlayer.h>
+#include <qgspointv2.h>
 
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
@@ -50,6 +51,18 @@ QVector<QgsPoint> RubberbandModel::flatVertices() const
   return points;
 }
 
+QgsPointSequenceV2 RubberbandModel::pointSequenceV2() const
+{
+  QgsPointSequenceV2 sequence;
+
+  Q_FOREACH( const QPointF& pt, mPointList )
+  {
+    sequence.append( QgsPointV2( pt.x(), pt.y() ) );
+  }
+
+  return sequence;
+}
+
 void RubberbandModel::setVertex( int index, QPointF coordinate )
 {
   if ( mPointList.at( index ) != coordinate )
@@ -67,6 +80,7 @@ void RubberbandModel::insertVertices( int index, int count )
   }
 
   emit verticesInserted( index, count );
+  emit vertexCountChanged();
 }
 
 void RubberbandModel::removeVertices( int index, int count )
@@ -76,6 +90,7 @@ void RubberbandModel::removeVertices( int index, int count )
 
   mPointList.remove( index, count );
   emit verticesRemoved( index, count );
+  emit vertexCountChanged();
 
   if ( mCurrentCoordinateIndex >= mPointList.size() )
   {

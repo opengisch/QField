@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import org.qgis 1.0
+import "js/style.js" as Style
 
 Row {
-  property VectorLayer currentLayer
+  id: digitizingToolbar
+  property RubberbandModel rubberbandModel
   property bool isDigitizing //!< Readonly
 
   signal vertexAdded
@@ -12,7 +14,14 @@ Row {
 
   Button {
     id: addVertexButton
-    text: qsTr( "Add Vertex" )
+    iconSource: {
+      if( digitizingToolbar.rubberbandModel.vertexCount === 1 )
+        Style.getThemeIcon( "start-new-line" )
+      else
+        Style.getThemeIcon( "add-line-vertex" )
+    }
+
+    visible: rubberbandModel.geometryType == 1 || rubberbandModel.geometryType == 2
 
     onClicked: {
       vertexAdded()
@@ -21,7 +30,8 @@ Row {
 
   Button {
     id: removeVertexButton
-    text: qsTr( "Remove Vertex" )
+    iconSource: Style.getThemeIcon( "remove-line-vertex" )
+    visible: rubberbandModel.vertexCount > 1
 
     onClicked: {
       vertexRemoved()
@@ -30,7 +40,8 @@ Row {
 
   Button {
     id: cancelButton
-    text: qsTr( "Cancel" )
+    iconSource: Style.getThemeIcon( "cancel-line" )
+    visible: rubberbandModel.vertexCount > 1
 
     onClicked: {
       cancel()
@@ -39,8 +50,26 @@ Row {
 
   Button {
     id: confirmButton
-    text: qsTr( "Confirm" )
-    iconSource: "/themes/holodark/accept.png"
+    iconSource: {
+      if ( rubberbandModel.geometryType == 0 )
+      {
+        Style.getThemeIcon( "add-point" )
+      }
+      else
+      {
+        Style.getThemeIcon( "confirm-line" )
+      }
+    }
+    visible: {
+      if ( rubberbandModel.geometryType == 0 )
+      {
+        true
+      }
+      else
+      {
+        rubberbandModel.vertexCount > 1
+      }
+    }
 
     onClicked: {
       confirm()
