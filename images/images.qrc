@@ -30,5 +30,35 @@
     </qresource>
     <qresource prefix="/">
         <file>themes/holodark/delete_forever.svg</file>
+        <file>themes/qfield/mdpi/start-new-line.png</file>
+        <file>themes/qfield/mdpi/cancel-line.png</file>
+        <file>themes/qfield/mdpi/add-line-vertex.png</file>
+        <file>themes/qfield/mdpi/add-point.png</file>
+        <file>themes/qfield/mdpi/confirm-line.png</file>
+        <file>themes/qfield/mdpi/remove-line-vertex.png</file>
+        <file>themes/qfield/hdpi/add-line-vertex.png</file>
+        <file>themes/qfield/hdpi/add-point.png</file>
+        <file>themes/qfield/hdpi/cancel-line.png</file>
+        <file>themes/qfield/hdpi/confirm-line.png</file>
+        <file>themes/qfield/hdpi/remove-line-vertex.png</file>
+        <file>themes/qfield/hdpi/start-new-line.png</file>
+        <file>themes/qfield/xhdpi/add-line-vertex.png</file>
+        <file>themes/qfield/xhdpi/add-point.png</file>
+        <file>themes/qfield/xhdpi/cancel-line.png</file>
+        <file>themes/qfield/xhdpi/confirm-line.png</file>
+        <file>themes/qfield/xhdpi/remove-line-vertex.png</file>
+        <file>themes/qfield/xhdpi/start-new-line.png</file>
+        <file>themes/qfield/xxhdpi/add-line-vertex.png</file>
+        <file>themes/qfield/xxhdpi/add-point.png</file>
+        <file>themes/qfield/xxhdpi/cancel-line.png</file>
+        <file>themes/qfield/xxhdpi/confirm-line.png</file>
+        <file>themes/qfield/xxhdpi/remove-line-vertex.png</file>
+        <file>themes/qfield/xxhdpi/start-new-line.png</file>
+        <file>themes/qfield/xxxhdpi/add-line-vertex.png</file>
+        <file>themes/qfield/xxxhdpi/add-point.png</file>
+        <file>themes/qfield/xxxhdpi/cancel-line.png</file>
+        <file>themes/qfield/xxxhdpi/confirm-line.png</file>
+        <file>themes/qfield/xxxhdpi/remove-line-vertex.png</file>
+        <file>themes/qfield/xxxhdpi/start-new-line.png</file>
     </qresource>
 </RCC>
