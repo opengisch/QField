@@ -1,11 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import org.qgis 1.0
 import "js/style.js" as Style
 
 Row {
   id: digitizingToolbar
   property RubberbandModel rubberbandModel
-  property bool isDigitizing //!< Readonly
+  property bool isDigitizing: rubberbandModel.vertexCount > 1 //!< Readonly
+
+  spacing: 4 * dp
+  padding: 4 * dp
 
   signal vertexAdded
   signal vertexRemoved
@@ -20,8 +23,9 @@ Row {
       else
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
-
-    visible: rubberbandModel.geometryType == 1 || rubberbandModel.geometryType == 2
+    visible: Number(rubberbandModel.geometryType) === 1 || Number(rubberbandModel.geometryType) === 2
+    round: true
+    bgcolor: "#2E7D32"
 
     onClicked: {
       vertexAdded()
@@ -32,6 +36,8 @@ Row {
     id: removeVertexButton
     iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
+    round: true
+    bgcolor: "#616161"
 
     onClicked: {
       vertexRemoved()
@@ -42,6 +48,8 @@ Row {
     id: cancelButton
     iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
+    round: true
+    bgcolor: "#616161"
 
     onClicked: {
       cancel()
@@ -51,7 +59,7 @@ Row {
   Button {
     id: confirmButton
     iconSource: {
-      if ( rubberbandModel.geometryType == 0 )
+      if ( rubberbandModel.geometryType === 0 )
       {
         Style.getThemeIcon( "ic_create_white_24dp" )
       }
@@ -61,7 +69,7 @@ Row {
       }
     }
     visible: {
-      if ( rubberbandModel.geometryType == 0 )
+      if ( rubberbandModel.geometryType === 0 )
       {
         true
       }
@@ -70,6 +78,8 @@ Row {
         rubberbandModel.vertexCount > 1
       }
     }
+    round: true
+    bgcolor: "#E64A19"
 
     onClicked: {
       confirm()

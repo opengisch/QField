@@ -21,6 +21,7 @@ import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
 import QtPositioning 5.4
+import "js/style.js" as Style
 
 Rectangle {
   id: mainWindow
@@ -96,7 +97,7 @@ Rectangle {
         mapSettings: mapCanvas.mapSettings
         color: "yellow"
         selectionColor: "#ff7777"
-        width: 5
+        width: 5 * dp
       }
 
       /** A rubberband for ditizing **/
@@ -202,7 +203,7 @@ Rectangle {
     height: childrenRect.height
 
     Button {
-      iconSource: "/themes/holodark/settings.png"
+      iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: {
         mainMenu.popup()
       }
@@ -212,7 +213,7 @@ Rectangle {
       id: layerSelector
 
       width: 200*dp
-      visible: ( mainWindow.state === "digitize" )
+      visible: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
     }
 
 /*
@@ -248,7 +249,7 @@ Rectangle {
           name: "Off"
           PropertyChanges {
             target: gpsButton
-            iconSource: "/themes/holodark/location_off.png"
+            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
           }
         },
 
@@ -256,7 +257,7 @@ Rectangle {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: "/themes/holodark/location.png"
+            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
           }
         }
       ]
@@ -270,7 +271,8 @@ Rectangle {
 
           if ( !positionSource.active )
           {
-            displayToast( qsTr( "Using cached position. Press and hold the positioning button to turn on real-time positioning." ) )
+            positionSource.active = true;
+            displayToast( qsTr( "Activating positioning service..." ) )
           }
         }
         else
@@ -283,8 +285,8 @@ Rectangle {
             }
             else
             {
-              displayToast( qsTr( "Activating positioning service..." ) )
               positionSource.active = true
+              displayToast( qsTr( "Activating positioning service..." ) )
             }
           }
         }
@@ -299,12 +301,12 @@ Rectangle {
         {
           case "Off":
             gpsButton.state = "On"
-            displayToast( qsTr( "Positioning is now on" ) )
+            displayToast( qsTr( "Positioning activated" ) )
             break;
 
           case "On":
             gpsButton.state = "Off"
-            displayToast( qsTr( "Positioning is now off" ) )
+            displayToast( qsTr( "Positioning turned off" ) )
             break;
         }
       }
@@ -367,7 +369,7 @@ Rectangle {
 
   FileDialog {
     id: openProjectDialog
-    title: qsTr( "Please choose a project" )
+    title: qsTr( "Open project" )
     visible: false
     nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
 
@@ -399,7 +401,7 @@ Rectangle {
 
     Controls.MenuItem {
       text: qsTr( "Open Project" )
-      iconSource: "/themes/holodark/map.png"
+      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         openProjectDialog.visible = true
       }
@@ -419,7 +421,7 @@ Rectangle {
 
     Controls.MenuItem {
       text: qsTr( "Quit" )
-      iconSource: "/themes/holodark/remove.png"
+      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
       onTriggered: {
         Qt.quit()
       }
@@ -580,15 +582,4 @@ Rectangle {
       onTriggered: { toast.opacity = 0 }
     }
   }
-/*
-  ToolBar {
-    width: childrenRect.width
-    height: parent.height
-    Column {
-      ToolButton {
-        iconSource: "/themes/holodark/settings.png"
-      }
-    }
-  }
-*/
 }

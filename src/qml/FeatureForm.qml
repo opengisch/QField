@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
 import org.qgis 1.0
+import "js/style.js" as Style
 
 Rectangle {
   signal saved
@@ -38,7 +39,7 @@ Rectangle {
       width: 48*dp
       height: 48*dp
 
-      iconSource: "/themes/holodark/accept.png"
+      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
 
       onClicked: {
         Qt.inputMethod.hide()
@@ -59,7 +60,7 @@ Rectangle {
       width: 48*dp
       height: 48*dp
 
-      iconSource: "/themes/holodark/cancel.png"
+      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
 
       onClicked: {
         Qt.inputMethod.hide()

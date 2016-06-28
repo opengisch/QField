@@ -18,6 +18,7 @@
 
 import QtQuick 2.0
 import org.qgis 1.0
+import "js/style.js" as Style
 
 Rectangle {
   id: toolBar
@@ -96,7 +97,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: "/themes/holodark/next_item.png"
+    iconSource: Style.getThemeIcon( "ic_chevron_right_white_24dp" )
 
     enabled: ( toolBar.model && ( selection.selection + 1 ) < toolBar.model.count )
 
@@ -120,7 +121,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: "/themes/holodark/accept.png"
+    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
 
     onClicked: {
       toolBar.save()
@@ -142,7 +143,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: "/themes/holodark/cancel.png"
+    iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
       toolBar.cancel()
@@ -166,7 +167,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: "/themes/holodark/edit.png"
+    iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
 
     onClicked: {
       toolBar.editButtonClicked()
@@ -199,7 +200,7 @@ Rectangle {
     checkable: true
     checked: extentController.autoZoom
 
-    iconSource: "/themes/holodark/location.png"
+    iconSource: Style.getThemeIcon( "ic_fullscreen_white_24dp" )
 
     Behavior on width {
       PropertyAnimation {
@@ -229,7 +230,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: "/themes/holodark/previous_item.png"
+    iconSource: Style.getThemeIcon( "ic_chevron_left_white_24dp" )
 
     enabled: ( selection.selection > 0 )
 

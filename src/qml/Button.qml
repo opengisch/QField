@@ -8,14 +8,17 @@ Item {
   property alias iconSource: button.iconSource
   property alias checked: button.checked
   property alias checkable: button.checkable
-  property string style: "dark"
+  property bool round: false
   property alias text: button.text
+
+  property color bgcolor: "#212121"
+  property color borderColor: "#EEEEEE"
 
   signal pressAndHold
   signal clicked
 
-  height: dp*48
-  width: dp*48
+  height: 48 * dp
+  width: 48 * dp
 
   Controls.Button {
     id: button
@@ -25,10 +28,10 @@ Item {
       background: Rectangle {
         implicitWidth: 100
         implicitHeight: 25
-        border.width: control.activeFocus ? 2 : 1
-        border.color: style === "dark" ? "#888" : "#ccbbbbbb"
-        color: style === "dark" ? "#cc555555" : "#ccbbbbbb"
-        radius: height/2
+        border.width: !round
+        border.color: item.borderColor
+        color: bgcolor
+        radius: round ? height / 2 : 0
       }
     }
 

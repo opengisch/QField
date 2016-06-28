@@ -19,6 +19,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
+import "js/style.js" as Style
 
 Rectangle {
   id: featureForm
@@ -167,9 +168,7 @@ Rectangle {
 
         anchors { top: parent.top; right: parent.right }
 
-        iconSource: "/themes/holodark/delete_forever.svg"
-
-        style: "light"
+        iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
 
         onClicked: {
           feature.remove()

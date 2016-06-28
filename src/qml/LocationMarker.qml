@@ -9,8 +9,8 @@ Item {
   Rectangle {
     id: marker
     property point location
-    width: 0.2*dp
-    height: 0.2*dp
+    width: 10*dp
+    height: 10*dp
 
     x: location.x - width/2
     y: location.y - height/2
@@ -18,24 +18,27 @@ Item {
     radius: width/2
 
     gradient: Gradient  {
-        GradientStop  {
-            position: 0.0
-            color: "#ffffff"
-            SequentialAnimation on color  {
-                loops: Animation.Infinite
-                ColorAnimation  { from: "Mistyrose"; to: "Indianred"; duration: 3000; easing.type: Easing.InOutQuad }
-                ColorAnimation  { from: "Indianred"; to: "Mistyrose"; duration: 2000; easing.type: Easing.InOutQuad }
-            }
+      GradientStop  {
+        position: 0.0
+        color: "#ffffff"
+        SequentialAnimation on color  {
+          loops: Animation.Infinite
+          ColorAnimation  { from: "#AD1457"; to: "#FCE4EC"; duration: 3000; easing.type: Easing.InOutQuad }
+          ColorAnimation  { from: "#FCE4EC"; to: "#AD1457"; duration: 2000; easing.type: Easing.InOutQuad }
         }
-        GradientStop  {
-            position: 1.0
-            SequentialAnimation on color  {
-                loops: Animation.Infinite
-                ColorAnimation  { from: "Lightpink"; to: "Darkred"; duration: 3000; easing.type: Easing.InOutQuad }
-                ColorAnimation  { from: "Darkred"; to: "Lightpink"; duration: 2000; easing.type: Easing.InOutQuad }
-            }
+      }
+      GradientStop  {
+        position: 1.0
+        SequentialAnimation on color  {
+          loops: Animation.Infinite
+          ColorAnimation  { from: "#FCE4EC"; to: "#AD1457"; duration: 3000; easing.type: Easing.InOutQuad }
+          ColorAnimation  { from: "#AD1457"; to: "#FCE4EC"; duration: 2000; easing.type: Easing.InOutQuad }
         }
+      }
     }
+    border.color: "#880E4F"
+    border.width: 0.7 * dp
+
     Connections {
       target: mapSettings
       onExtentChanged: {
