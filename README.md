@@ -1,27 +1,22 @@
-QField for QGIS
-===============
+# QField for QGIS
 
 A simplified touch optimized interface for QGIS.
 
 Perfect for field work on portable touch devices.
 
 
-Build
------
+## Build
 
-For Android
------------
+### For Android
 
 Build [OSGeo4A](https://github.com/opengisch/OSGeo4A)
 
-For Desktop
------------
+### For Desktop
 
 Install Qt > 5.6 dev libraries
 Build QGIS using Qt5
 
-For both
---------
+### For both
 
 ```sh
 cd QField
@@ -32,6 +27,4 @@ git submodule update
 
 and add the right paths to config.pri
 open QField.pro with QtCreator installed during OSGeo4A installation
-hit build 
-
-
+hit build.
