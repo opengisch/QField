@@ -16,23 +16,6 @@ Row {
   signal confirm
 
   Button {
-    id: addVertexButton
-    iconSource: {
-      if( digitizingToolbar.rubberbandModel.vertexCount === 1 )
-        Style.getThemeIcon( "ic_create_white_24dp" )
-      else
-        Style.getThemeIcon( "ic_add_white_24dp" )
-    }
-    visible: Number(rubberbandModel.geometryType) === 1 || Number(rubberbandModel.geometryType) === 2
-    round: true
-    bgcolor: "#2E7D32"
-
-    onClicked: {
-      vertexAdded()
-    }
-  }
-
-  Button {
     id: removeVertexButton
     iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
@@ -79,10 +62,28 @@ Row {
       }
     }
     round: true
-    bgcolor: "#E64A19"
+    bgcolor: "#FFD600"
 
     onClicked: {
       confirm()
+    }
+  }
+
+  Button {
+    id: addVertexButton
+    iconSource: {
+      if( digitizingToolbar.rubberbandModel.vertexCount === 1 )
+        Style.getThemeIcon( "ic_create_white_24dp" )
+      else
+        Style.getThemeIcon( "ic_add_white_24dp" )
+    }
+    // Not for points
+    visible: Number(rubberbandModel.geometryType) === 1 || Number(rubberbandModel.geometryType) === 2
+    round: true
+    bgcolor: "#2E7D32"
+
+    onClicked: {
+      vertexAdded()
     }
   }
 }
