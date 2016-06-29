@@ -5,61 +5,7 @@
         <file alias="karma-logo.svg">icons/karma-logo.svg</file>
         <file alias="karma-logo-playstore.svg">icons/karma-logo-playstore.svg</file>
     </qresource>
-    <qresource prefix="/themes/holodark">
-        <file alias="add.png">themes/holodark/add.png</file>
-        <file alias="remove.png">themes/holodark/remove.png</file>
-        <file alias="previous.png">themes/holodark/previous.png</file>
-        <file alias="undo.png">themes/holodark/undo.png</file>
-        <file alias="location.png">themes/holodark/location.png</file>
-        <file alias="location-add.png">themes/holodark/location-add.png</file>
-        <file alias="new.png">themes/holodark/new.png</file>
-        <file alias="layers.png">themes/holodark/layers.png</file>
-        <file alias="move.png">themes/holodark/move.png</file>
-        <file alias="checkbox-normal-checked.png">themes/holodark/checkbox-normal-checked.png</file>
-        <file alias="checkbox-normal-unchecked.png">themes/holodark/checkbox-normal-unchecked.png</file>
-        <file alias="checkbox-disabled-checked.png">themes/holodark/checkbox-disabled-checked.png</file>
-        <file alias="checkbox-disabled-unchecked.png">themes/holodark/checkbox-disabled-unchecked.png</file>
-        <file alias="settings.png">themes/holodark/settings.png</file>
-        <file alias="map.png">themes/holodark/map.png</file>
-        <file alias="location_off.png">themes/holodark/location_off.png</file>
-        <file alias="next_item.png">themes/holodark/next_item.png</file>
-        <file alias="previous_item.png">themes/holodark/previous_item.png</file>
-        <file alias="accept.png">themes/holodark/accept.png</file>
-        <file alias="cancel.png">themes/holodark/cancel.png</file>
-        <file alias="edit.png">themes/holodark/edit.png</file>
-    </qresource>
     <qresource prefix="/">
-        <file>themes/holodark/delete_forever.svg</file>
-        <file>themes/qfield/mdpi/start-new-line.png</file>
-        <file>themes/qfield/mdpi/cancel-line.png</file>
-        <file>themes/qfield/mdpi/add-line-vertex.png</file>
-        <file>themes/qfield/mdpi/add-point.png</file>
-        <file>themes/qfield/mdpi/confirm-line.png</file>
-        <file>themes/qfield/mdpi/remove-line-vertex.png</file>
-        <file>themes/qfield/hdpi/add-line-vertex.png</file>
-        <file>themes/qfield/hdpi/add-point.png</file>
-        <file>themes/qfield/hdpi/cancel-line.png</file>
-        <file>themes/qfield/hdpi/confirm-line.png</file>
-        <file>themes/qfield/hdpi/remove-line-vertex.png</file>
-        <file>themes/qfield/hdpi/start-new-line.png</file>
-        <file>themes/qfield/xhdpi/add-line-vertex.png</file>
-        <file>themes/qfield/xhdpi/add-point.png</file>
-        <file>themes/qfield/xhdpi/cancel-line.png</file>
-        <file>themes/qfield/xhdpi/confirm-line.png</file>
-        <file>themes/qfield/xhdpi/remove-line-vertex.png</file>
-        <file>themes/qfield/xhdpi/start-new-line.png</file>
-        <file>themes/qfield/xxhdpi/add-line-vertex.png</file>
-        <file>themes/qfield/xxhdpi/add-point.png</file>
-        <file>themes/qfield/xxhdpi/cancel-line.png</file>
-        <file>themes/qfield/xxhdpi/confirm-line.png</file>
-        <file>themes/qfield/xxhdpi/remove-line-vertex.png</file>
-        <file>themes/qfield/xxhdpi/start-new-line.png</file>
-        <file>themes/qfield/xxxhdpi/add-line-vertex.png</file>
-        <file>themes/qfield/xxxhdpi/add-point.png</file>
-        <file>themes/qfield/xxxhdpi/cancel-line.png</file>
-        <file>themes/qfield/xxxhdpi/confirm-line.png</file>
-        <file>themes/qfield/xxxhdpi/remove-line-vertex.png</file>
-        <file>themes/qfield/xxxhdpi/start-new-line.png</file>
         <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_create_white_24dp.png</file>
@@ -90,7 +36,6 @@
         <file>themes/qfield/xxxhdpi/ic_remove_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_save_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_undo_white_24dp.png</file>
-        <file>images.qrc</file>
         <file>themes/qfield/hdpi/ic_clear_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_clear_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_clear_white_24dp.png</file>
@@ -116,31 +61,6 @@
         <file>themes/qfield/xhdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_map_white_24dp.png</file>
-        <file>themes/holodark/about.png</file>
-        <file>themes/holodark/accept.png</file>
-        <file>themes/holodark/add.png</file>
-        <file>themes/holodark/cancel.png</file>
-        <file>themes/holodark/checkbox-disabled-checked.png</file>
-        <file>themes/holodark/checkbox-disabled-unchecked.png</file>
-        <file>themes/holodark/checkbox-normal-checked.png</file>
-        <file>themes/holodark/checkbox-normal-unchecked.png</file>
-        <file>themes/holodark/edit.png</file>
-        <file>themes/holodark/error.png</file>
-        <file>themes/holodark/ic_action_place.png</file>
-        <file>themes/holodark/layers.png</file>
-        <file>themes/holodark/location-add.png</file>
-        <file>themes/holodark/location.png</file>
-        <file>themes/holodark/location_off.png</file>
-        <file>themes/holodark/map.png</file>
-        <file>themes/holodark/move.png</file>
-        <file>themes/holodark/new.png</file>
-        <file>themes/holodark/next_item.png</file>
-        <file>themes/holodark/previous.png</file>
-        <file>themes/holodark/previous_item.png</file>
-        <file>themes/holodark/remove.png</file>
-        <file>themes/holodark/settings.png</file>
-        <file>themes/holodark/undo.png</file>
-        <file>themes/holodark/warning.png</file>
         <file>themes/qfield/hdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_close_white_24dp.png</file>
