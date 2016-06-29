@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import "js/style.js" as Style
 
 Item {
   signal showOpenProjectDialog
@@ -30,7 +31,7 @@ Item {
         }
 
         Button {
-          iconSource: "/themes/holodark/map.png"
+          iconSource:  Style.getThemeIcon( "ic_map_white_48dp" )
 
           width: 96*dp
           height: 96*dp
