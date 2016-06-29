@@ -2,6 +2,8 @@ import QtQuick 2.0
 import org.qgis 1.0
 
 Item {
+  id: item
+
   property point location
   property MapSettings mapSettings
   property CoordinateTransform coordinateTransform
@@ -45,5 +47,9 @@ Item {
         marker.location = mapSettings.coordinateToScreen( coordinateTransform.transform( location ) )
       }
     }
+  }
+
+  onLocationChanged: {
+    marker.location = mapSettings.coordinateToScreen( coordinateTransform.transform( location ) )
   }
 }
