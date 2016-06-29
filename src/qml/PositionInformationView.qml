@@ -6,11 +6,13 @@ import QtQuick.Layouts 1.1
 Item {
   property PositionSource positionSource
 
-  width: 300
-  height: 300
+  width: childrenRect.width + 8 * dp
+  height: childrenRect.height + 8 * dp
 
   GridLayout {
     columns: 2
+    x: 4 * dp
+    y: 4 * dp
 
     Text {
       text: qsTr( "Altitude" )
@@ -18,6 +20,7 @@ Item {
     Text {
       text: positionSource.position.altitudeValid ? positionSource.position.coordinate.altitude.toFixed(3) : qsTr( "N/A" )
     }
+
     Text {
       text: qsTr( "Accuracy" )
     }
@@ -27,6 +30,7 @@ Item {
     Text {
       text: qsTr( "Coordinate" )
     }
+
     Text {
       text: positionSource.position.latitudeValid ? positionSource.position.coordinate.latitude.toFixed(3) + " / " + positionSource.position.coordinate.longitude.toFixed(3) : qsTr( "N/A" )
     }

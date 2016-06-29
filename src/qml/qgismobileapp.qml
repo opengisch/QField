@@ -152,8 +152,8 @@ Rectangle {
     anchors.top: parent.top
     visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
 
-    width: 250
-    height: 200
+    width: childrenRect.width
+    height: childrenRect.height
 
     Rectangle {
       color: "white"
@@ -172,7 +172,6 @@ Rectangle {
     PositionInformationView {
       positionSource: positionSource
 
-      anchors.fill: parent
       anchors.margins: 5
     }
   }
