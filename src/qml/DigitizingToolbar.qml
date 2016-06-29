@@ -42,7 +42,7 @@ Row {
   Button {
     id: confirmButton
     iconSource: {
-      if ( rubberbandModel.geometryType === 0 )
+      if ( Number( rubberbandModel.geometryType ) === 0 )
       {
         Style.getThemeIcon( "ic_create_white_24dp" )
       }
@@ -52,7 +52,7 @@ Row {
       }
     }
     visible: {
-      if ( rubberbandModel.geometryType === 0 )
+      if ( Number( rubberbandModel.geometryType ) === 0 )
       {
         true
       }
