@@ -27,12 +27,10 @@ CoordinateTransform::CoordinateTransform(QObject *parent) :
 
 const QPointF CoordinateTransform::transform( const QPointF& pt ) const
 {
-  qDebug() << "Transforming " << pt.x() << ", " << pt.y();
   QgsPoint p( pt.x(), pt.y() );
 
   p = mTransform.transform( p );
 
-  qDebug() << "Result " << p.x() << ", " << p.y();
   return QPointF( p.x(), p.y() );
 }
 
