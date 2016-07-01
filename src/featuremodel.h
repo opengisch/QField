@@ -21,7 +21,6 @@
 #include <QAbstractListModel>
 #include "feature.h"
 #include "geometry.h"
-#include "layer.h"
 
 class FeatureModel : public QAbstractListModel
 {

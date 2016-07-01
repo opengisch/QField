@@ -36,7 +36,6 @@ HEADERS += \
     settings.h \
     platformutilities.h \
     geometry.h \
-    layer.h \
     modelhelper.h \
     rubberbandmodel.h \
     rubberband.h
@@ -62,7 +61,6 @@ SOURCES += \
     settings.cpp \
     platformutilities.cpp \
     geometry.cpp \
-    layer.cpp \
     modelhelper.cpp \
     rubberbandmodel.cpp \
     rubberband.cpp
