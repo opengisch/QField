@@ -171,6 +171,7 @@ Rectangle {
 
     PositionInformationView {
       positionSource: positionSource
+      crs: mapCanvas.mapSettings.crs
 
       anchors.margins: 5
     }
