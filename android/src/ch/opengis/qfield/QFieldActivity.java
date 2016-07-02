@@ -62,242 +62,242 @@ import android.util.Log;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 public class QFieldActivity extends Activity {
-	private static final String QtTAG = "FirstRun JAVA"; // string used for
-	private static final int PROGRESS_DIALOG = 0;
-	private static final int NOEXTERNALSTORAGE_DIALOG = 1;
-	private ProgressDialog mProgressDialog = null;
-	private UnzipTask mUnzipTask = new UnzipTask();
-	private ActivityInfo mActivityInfo = null; // activity info object, used to
-	private SharedPreferences mPrefs = null; // access the metadata
-	private String mThisRev = null; // the git_rev of qgis
-	private boolean mExternalStorageAvailable = false;
-	private boolean mExternalStorageWriteable = false;
-    private String dotqgis2_dir;
-    private String share_dir;
+  private static final String QtTAG = "FirstRun JAVA"; // string used for
+  private static final int PROGRESS_DIALOG = 0;
+  private static final int NOEXTERNALSTORAGE_DIALOG = 1;
+  private ProgressDialog mProgressDialog = null;
+  private UnzipTask mUnzipTask = new UnzipTask();
+  private ActivityInfo mActivityInfo = null; // activity info object, used to
+  private SharedPreferences mPrefs = null; // access the metadata
+  private String mThisRev = null; // the git_rev of qgis
+  private boolean mExternalStorageAvailable = false;
+  private boolean mExternalStorageWriteable = false;
+  private String dotqgis2_dir;
+  private String share_dir;
 
-	/** Called when the activity is first created. */
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// get preferences, 0 = mode private. only this app can read these
-		mPrefs = this.getApplicationContext().getSharedPreferences("qgisPrefs",
-				0);
-		try {
-			mActivityInfo = getPackageManager().getActivityInfo(
-					getComponentName(), PackageManager.GET_META_DATA);
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-			finish();
-			return;
-		}
+  /** Called when the activity is first created. */
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // get preferences, 0 = mode private. only this app can read these
+    mPrefs = this.getApplicationContext().getSharedPreferences("qgisPrefs",
+        0);
+    try {
+      mActivityInfo = getPackageManager().getActivityInfo(
+          getComponentName(), PackageManager.GET_META_DATA);
+    } catch (NameNotFoundException e) {
+      e.printStackTrace();
+      finish();
+      return;
+    }
 
-		String state = Environment.getExternalStorageState();
-		if (Environment.MEDIA_MOUNTED.equals(state)) {
-			mExternalStorageAvailable = mExternalStorageWriteable = true;
-		} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-			mExternalStorageAvailable = true;
-			mExternalStorageWriteable = false;
-		} else {
-			mExternalStorageAvailable = mExternalStorageWriteable = false;
-		}
+    String state = Environment.getExternalStorageState();
+    if (Environment.MEDIA_MOUNTED.equals(state)) {
+      mExternalStorageAvailable = mExternalStorageWriteable = true;
+    } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+      mExternalStorageAvailable = true;
+      mExternalStorageWriteable = false;
+    } else {
+      mExternalStorageAvailable = mExternalStorageWriteable = false;
+    }
 
-		if (mExternalStorageWriteable) {
-			startFirstRun();
-		} else {
-			showDialog(NOEXTERNALSTORAGE_DIALOG);
-		}
-	}
+    if (mExternalStorageWriteable) {
+      startFirstRun();
+    } else {
+      showDialog(NOEXTERNALSTORAGE_DIALOG);
+    }
+  }
 
-	public void onDestroy() {
-		super.onDestroy();
-		mUnzipTask.cancel(true);
-	}
+  public void onDestroy() {
+    super.onDestroy();
+    mUnzipTask.cancel(true);
+  }
 
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case PROGRESS_DIALOG:
-			mProgressDialog = new ProgressDialog(QFieldActivity.this);
-			mProgressDialog.setMessage(getString(R.string.unpacking_msg));
-			mProgressDialog.setIndeterminate(false);
-			mProgressDialog.setMax(100);
-			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-			return mProgressDialog;
+  protected Dialog onCreateDialog(int id) {
+    switch (id) {
+    case PROGRESS_DIALOG:
+      mProgressDialog = new ProgressDialog(QFieldActivity.this);
+      mProgressDialog.setMessage(getString(R.string.unpacking_msg));
+      mProgressDialog.setIndeterminate(false);
+      mProgressDialog.setMax(100);
+      mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      return mProgressDialog;
 
-		case NOEXTERNALSTORAGE_DIALOG:
-			return new AlertDialog.Builder(QFieldActivity.this)
-					.setTitle(getString(R.string.external_storage_unavailable))
-					.setMessage(getString(R.string.noexternalstorage_dialog))
-					.setPositiveButton(
-							getString(R.string.use_internal_storage),
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int whichButton) {
-									dialog.cancel();
-									startFirstRun();
-								}
-							})
-					.setNegativeButton(getString(android.R.string.no),
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int whichButton) {
-									finish();
+    case NOEXTERNALSTORAGE_DIALOG:
+      return new AlertDialog.Builder(QFieldActivity.this)
+          .setTitle(getString(R.string.external_storage_unavailable))
+          .setMessage(getString(R.string.noexternalstorage_dialog))
+          .setPositiveButton(
+              getString(R.string.use_internal_storage),
+              new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,
+                    int whichButton) {
+                  dialog.cancel();
+                  startFirstRun();
+                }
+              })
+          .setNegativeButton(getString(android.R.string.no),
+              new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,
+                    int whichButton) {
+                  finish();
 
-								}
-							}).create();
+                }
+              }).create();
 
-		default:
-			return null;
-		}
-	}
+    default:
+      return null;
+    }
+  }
 
-	private void startFirstRun() {
-		// get git_rev from the manifest metadata
-		mThisRev = mActivityInfo.metaData.getString("android.app.git_rev");
-		String lastRev = mPrefs.getString("lastRunGitRevision", "");
-		Log.i(QtTAG, "last git_rev:" + lastRev);
-		Log.i(QtTAG, "this git_rev:" + mThisRev);
+  private void startFirstRun() {
+    // get git_rev from the manifest metadata
+    mThisRev = mActivityInfo.metaData.getString("android.app.git_rev");
+    String lastRev = mPrefs.getString("lastRunGitRevision", "");
+    Log.i(QtTAG, "last git_rev:" + lastRev);
+    Log.i(QtTAG, "this git_rev:" + mThisRev);
 
-		if (lastRev.equals(mThisRev)) {
-			Log.i(QtTAG, "not first run, forwarding to QField");
-			startQtActivity();
-		} else {
-			// this is a first run after install or update
-			mUnzipTask.execute("assets.zip");
-		}
-	}
+    if (lastRev.equals(mThisRev)) {
+      Log.i(QtTAG, "not first run, forwarding to QField");
+      startQtActivity();
+    } else {
+      // this is a first run after install or update
+      mUnzipTask.execute("assets.zip");
+    }
+  }
 
-	private void startQtActivity() {
-		// forward to startQtActivity and finish QFieldActivity
-		Intent intent = new Intent();
-		intent.setClass(QFieldActivity.this, QtActivity.class);
-		intent.putExtra("DOTQGIS2_DIR", dotqgis2_dir);
-        intent.putExtra("SHARE_DIR", share_dir);
-		startActivity(intent);
-		finish();
-	}
+  private void startQtActivity() {
+    // forward to startQtActivity and finish QFieldActivity
+    Intent intent = new Intent();
+    intent.setClass(QFieldActivity.this, QtActivity.class);
+    intent.putExtra("DOTQGIS2_DIR", dotqgis2_dir);
+    intent.putExtra("SHARE_DIR", share_dir);
+    startActivity(intent);
+    finish();
+  }
 
-	private void makeSymlink(String path, String pathAlias) {
-		try {
-			String cmd = "rm -rf " + pathAlias;
-			Runtime.getRuntime().exec(cmd);
-			cmd = "ln -s " + path + " " + pathAlias;
-			Runtime.getRuntime().exec(cmd);
-			
-			Log.i(QtTAG, "Symlinked '" + path + " to " + pathAlias + "'");
-			
-		} catch (IOException e) {
-			Log.w(QtTAG, "Can't symlink '" + path + " to " + pathAlias + "'", e);
-		}
-	}
-	
-	private class UnzipTask extends AsyncTask<String, Integer, String> {
-		protected String doInBackground(String... urlString) {
-			extractFolder(urlString[0]);
-			return null;
-		}
+  private void makeSymlink(String path, String pathAlias) {
+    try {
+      String cmd = "rm -rf " + pathAlias;
+      Runtime.getRuntime().exec(cmd);
+      cmd = "ln -s " + path + " " + pathAlias;
+      Runtime.getRuntime().exec(cmd);
+      
+      Log.i(QtTAG, "Symlinked '" + path + " to " + pathAlias + "'");
+      
+    } catch (IOException e) {
+      Log.w(QtTAG, "Can't symlink '" + path + " to " + pathAlias + "'", e);
+    }
+  }
+  
+  private class UnzipTask extends AsyncTask<String, Integer, String> {
+    protected String doInBackground(String... urlString) {
+      extractFolder(urlString[0]);
+      return null;
+    }
 
-		private void extractFolder(String zipFile) {
-			AssetManager assets = getAssets();
-			int BUFFER = 2048;
-			try {
-				InputStream fis = assets.open(zipFile);
-				// this is where you start, with an InputStream containing the
-				// bytes from the zip file
-				ZipInputStream zis = new ZipInputStream(fis);
-				double totalSize = fis.available();
+    private void extractFolder(String zipFile) {
+      AssetManager assets = getAssets();
+      int BUFFER = 2048;
+      try {
+        InputStream fis = assets.open(zipFile);
+        // this is where you start, with an InputStream containing the
+        // bytes from the zip file
+        ZipInputStream zis = new ZipInputStream(fis);
+        double totalSize = fis.available();
 
-				ZipEntry entry;
-				// while there are entries I process them
-				String newPath = getFilesDir().toString();
-				new File(newPath).mkdir();
+        ZipEntry entry;
+        // while there are entries I process them
+        String newPath = getFilesDir().toString();
+        new File(newPath).mkdir();
 
-				while ((entry = zis.getNextEntry()) != null) {
-					String currentEntry = entry.getName();
-					File destFile = new File(newPath, currentEntry);
-					Log.i(QtTAG, "UNZIPPING: " + currentEntry);
-					Log.i(QtTAG, "TO: " + destFile.getAbsolutePath());
-					// create the parent directory structure if needed
-					File destinationParent = destFile.getParentFile();
-					destinationParent.mkdirs();
+        while ((entry = zis.getNextEntry()) != null) {
+          String currentEntry = entry.getName();
+          File destFile = new File(newPath, currentEntry);
+          Log.i(QtTAG, "UNZIPPING: " + currentEntry);
+          Log.i(QtTAG, "TO: " + destFile.getAbsolutePath());
+          // create the parent directory structure if needed
+          File destinationParent = destFile.getParentFile();
+          destinationParent.mkdirs();
 
-					if (!entry.isDirectory()) {
-						BufferedInputStream is = new BufferedInputStream(zis);
-						int currentByte;
-						// establish buffer for writing file
-						byte data[] = new byte[BUFFER];
+          if (!entry.isDirectory()) {
+            BufferedInputStream is = new BufferedInputStream(zis);
+            int currentByte;
+            // establish buffer for writing file
+            byte data[] = new byte[BUFFER];
 
-						// write the current file to disk
-						FileOutputStream fos = new FileOutputStream(destFile);
-						BufferedOutputStream dest = new BufferedOutputStream(
-								fos, BUFFER);
+            // write the current file to disk
+            FileOutputStream fos = new FileOutputStream(destFile);
+            BufferedOutputStream dest = new BufferedOutputStream(
+                fos, BUFFER);
 
-						// read and write until last byte is encountered
-						while ((currentByte = is.read(data, 0, BUFFER)) != -1) {
-							dest.write(data, 0, currentByte);
-						}
-						dest.flush();
-						dest.close();
-						// is is automatically closed by getNextEntry
-					}
-					// if (currentEntry.endsWith(".zip")) {
-					// // found a zip file, try to open
-					// extractFolder(destFile.getAbsolutePath());
-					// }
+            // read and write until last byte is encountered
+            while ((currentByte = is.read(data, 0, BUFFER)) != -1) {
+              dest.write(data, 0, currentByte);
+            }
+            dest.flush();
+            dest.close();
+            // is is automatically closed by getNextEntry
+          }
+          // if (currentEntry.endsWith(".zip")) {
+          // // found a zip file, try to open
+          // extractFolder(destFile.getAbsolutePath());
+          // }
 
-					// update dialog
-					double currentSize = fis.available();
-					double percent = 100 - currentSize / totalSize * 100;
-					Log.i(QtTAG, "Percent:" + percent);
-					publishProgress((int) percent);
-				}
-			} catch (IOException e) {
-				Log.i(QtTAG, "ERROR opening Asset");
-				e.printStackTrace();
-			}
-		}
+          // update dialog
+          double currentSize = fis.available();
+          double percent = 100 - currentSize / totalSize * 100;
+          Log.i(QtTAG, "Percent:" + percent);
+          publishProgress((int) percent);
+        }
+      } catch (IOException e) {
+        Log.i(QtTAG, "ERROR opening Asset");
+        e.printStackTrace();
+      }
+    }
 
-		protected void onPreExecute() {
-			showDialog(PROGRESS_DIALOG);
-			// create symlink
-			// alias paths for storage dir (/sdcard or similar)
-			String storagePathAlias = getFilesDir() + "/storage";
-			String storagePath = Environment.getExternalStorageDirectory()
-					.getAbsolutePath();
+    protected void onPreExecute() {
+      showDialog(PROGRESS_DIALOG);
+      // create symlink
+      // alias paths for storage dir (/sdcard or similar)
+      String storagePathAlias = getFilesDir() + "/storage";
+      String storagePath = Environment.getExternalStorageDirectory()
+          .getAbsolutePath();
 
-			if (mExternalStorageAvailable) {
-				if (mExternalStorageWriteable) {
-					String pathAlias;
-					String externalFilesDir = getExternalFilesDir(null).getAbsolutePath();
-					String filesDir = getFilesDir().getAbsolutePath();
+      if (mExternalStorageAvailable) {
+        if (mExternalStorageWriteable) {
+          String pathAlias;
+          String externalFilesDir = getExternalFilesDir(null).getAbsolutePath();
+          String filesDir = getFilesDir().getAbsolutePath();
 
-					// put the share files to externalFilesDir
-					pathAlias = filesDir + "/share";
-                    share_dir = externalFilesDir + "/share";
-					new File(share_dir).mkdir();
-					makeSymlink(share_dir, pathAlias);
-					
-					// put .qgis to externalFilesDir
-					pathAlias = filesDir + "/.qgis2";
-                    dotqgis2_dir = externalFilesDir + "/.qgis2";
-					new File(dotqgis2_dir).mkdir();
-					makeSymlink(dotqgis2_dir, pathAlias);
-					
-				} else {
-					storagePathAlias = storagePathAlias + "ReadOnly";
-				}
-				makeSymlink(storagePath, storagePathAlias);
-			}
-		}
-		
-		protected void onProgressUpdate(Integer... progress) {
-			super.onProgressUpdate(progress);
-			mProgressDialog.setProgress(progress[0]);
-		}
+          // put the share files to externalFilesDir
+          pathAlias = filesDir + "/share";
+          share_dir = externalFilesDir + "/share";
+          new File(share_dir).mkdir();
+          makeSymlink(share_dir, pathAlias);
+          
+          // put .qgis to externalFilesDir
+          pathAlias = filesDir + "/.qgis2";
+          dotqgis2_dir = externalFilesDir + "/.qgis2";
+          new File(dotqgis2_dir).mkdir();
+          makeSymlink(dotqgis2_dir, pathAlias);
+          
+        } else {
+          storagePathAlias = storagePathAlias + "ReadOnly";
+        }
+        makeSymlink(storagePath, storagePathAlias);
+      }
+    }
+    
+    protected void onProgressUpdate(Integer... progress) {
+      super.onProgressUpdate(progress);
+      mProgressDialog.setProgress(progress[0]);
+    }
 
-		protected void onPostExecute(String result) {
-			SharedPreferences.Editor editor = mPrefs.edit();
-			editor.putString("lastRunGitRevision", mThisRev);
-			editor.commit();
-			startQtActivity();
-		}
-	}
+    protected void onPostExecute(String result) {
+      SharedPreferences.Editor editor = mPrefs.edit();
+      editor.putString("lastRunGitRevision", mThisRev);
+      editor.commit();
+      startQtActivity();
+    }
+  }
 }
