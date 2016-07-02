@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -47,7 +45,7 @@
         <location filename="../src/qml/PositionInformationView.qml" line="31"/>
         <location filename="../src/qml/PositionInformationView.qml" line="37"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>N/D</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="22"/>
@@ -108,67 +106,67 @@
         <translation>Todos os ficheiros (*)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="342"/>
         <source>Main Menu</source>
         <translation>Menu Principal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="345"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="348"/>
         <source>Browse</source>
         <translation>Explorar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="356"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
         <source>Digitize</source>
         <translation>Digitalizar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="362"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="359"/>
         <source>Open Project</source>
         <translation>Abrir Projeto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="372"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="382"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="379"/>
         <source>Quit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="389"/>
         <source>GPS Options</source>
         <translation>Opções de GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="395"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
         <source>Enable GPS</source>
         <translation>Ativar GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="404"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="401"/>
         <source>Center current location</source>
         <translation>Centrar a localização atual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="415"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="412"/>
         <source>Show position information</source>
         <translation>Mostrar a informação da posição</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="473"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="470"/>
         <source>Loading Project</source>
         <translation>Carregar Projeto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="477"/>
         <source>Loading Project: %1</source>
         <translation>A carregar o projeto: %1</translation>
     </message>
