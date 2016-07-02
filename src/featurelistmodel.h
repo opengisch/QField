@@ -81,6 +81,8 @@ class FeatureListModel : public QAbstractItemModel
 
     void featureDeleted( QgsFeatureId fid );
 
+    void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant & value );
+
   private:
     inline Feature* toFeature( const QModelIndex& index ) const
     {

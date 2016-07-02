@@ -49,6 +49,7 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
     mFeatures.append( f );
     connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
     connect( f->layer(), SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
+    connect( f->layer(), SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId,int,QVariant ) ), Qt::UniqueConnection );
   }
 
   endResetModel();
@@ -227,6 +228,23 @@ void FeatureListModel::featureDeleted( QgsFeatureId fid )
     if ( f->layer() == l && f->id() == fid )
     {
       removeRows( i, 1 );
+      break;
+    }
+    ++i;
+  }
+}
+
+void FeatureListModel::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant& value )
+{
+  QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
+  Q_ASSERT( l );
+
+  int i = 0;
+  Q_FOREACH( Feature* f, mFeatures )
+  {
+    if ( f->layer() == l && f->id() == fid )
+    {
+      f->setAttribute( idx, value );
       break;
     }
     ++i;
