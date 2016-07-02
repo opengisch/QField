@@ -19,8 +19,7 @@
 #include "platformutilities.h"
 #include <QDebug>
 
-
-PlatformUtilities::PlatformUtilities()
+PlatformUtilities::~PlatformUtilities()
 {
 }
 

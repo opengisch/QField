@@ -26,14 +26,12 @@ Item {
     Text {
       font.bold: true
       color: "white"
-      text: qsTr( "QField Settings folder: %1").arg(
-                settings.value( "/QField/App/DOTQGIS2_DIR", "DDDOTQGIS2_DIR" ) )
+      text: qsTr( "QField Settings folder: %1").arg( platformUtilities.configDir )
     }
     Text {
       font.bold: true
       color: "white"
-      text: qsTr( "QField Shared items folder: %1").arg(
-                settings.value( "/QField/App/SHARE_DIR", "DDSHARE_DIR" ) )
+      text: qsTr( "QField Shared items folder: %1").arg( platformUtilities.shareDir )
     }
     Item{
         Layout.minimumHeight: 20 * dp

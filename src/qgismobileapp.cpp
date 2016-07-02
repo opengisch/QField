@@ -53,23 +53,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
 {
+#if 0
   QSurfaceFormat format;
   format.setSamples( 8 );
   setFormat( format );
-
-  QString dotqgis2Dir = mPlatformUtils.configDir();
-  QString shareDir = mPlatformUtils.shareDir();
-
-  if ( dotqgis2Dir != "" )
-  {
-    mSettings.setValue( "/QField/App/DOTQGIS2_DIR", dotqgis2Dir );
-    qDebug() << "STORED DOTQGIS2_DIR:" << mSettings.value( "/QField/App/DOTQGIS2_DIR","ERROR, THIS SHOULD NOT HAPPEN" );
-  }
-  if ( shareDir != "" )
-  {
-    mSettings.setValue( "/QField/App/SHARE_DIR", shareDir );
-    qDebug() << "STORED SHARE_DIR:" << mSettings.value( "/QField/App/SHARE_DIR","ERROR, THIS SHOULD NOT HAPPEN" );
-  }
+  create();
+#endif
 
   mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
 
@@ -116,6 +105,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
+  qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
@@ -150,6 +140,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
+  rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
 }
 
 void QgisMobileapp::loadProjectQuirks()

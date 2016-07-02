@@ -21,11 +21,15 @@
 
 #include <QObject>
 
-class PlatformUtilities
+class PlatformUtilities : public QObject
 {
+    Q_OBJECT
+
+    Q_PROPERTY( QString configDir READ configDir )
+    Q_PROPERTY( QString shareDir READ shareDir )
+
   public:
-    PlatformUtilities();
-    virtual ~PlatformUtilities() {}
+    virtual ~PlatformUtilities();
 
     virtual QString configDir() const;
     virtual QString shareDir() const;
