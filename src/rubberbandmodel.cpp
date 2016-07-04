@@ -131,6 +131,10 @@ void RubberbandModel::setCurrentCoordinate( const QPointF& currentCoordinate )
 
 void RubberbandModel::addVertex()
 {
+  // Avoid double vertices accidentally
+  if ( mPointList.size() > 1 && *( mPointList.end() - 1 ) == *( mPointList.end() - 2 ) )
+    return;
+
   insertVertices( mCurrentCoordinateIndex + 1, 1 );
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
 }
