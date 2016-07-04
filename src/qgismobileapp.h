@@ -88,8 +88,6 @@ class QgisMobileapp : public QQuickView
 
     void onAfterFirstRendering();
 
-    void onLayerAdded( QgsMapLayer* ml );
-
   private:
     void initDeclarative();
 

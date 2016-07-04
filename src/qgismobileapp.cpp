@@ -213,21 +213,6 @@ void QgisMobileapp::onAfterFirstRendering()
   }
 }
 
-void QgisMobileapp::onLayerAdded( QgsMapLayer* ml )
-{
-  rootContext()->engine()->setObjectOwnership( ml, QQmlEngine::CppOwnership );
-  qDebug() << "Layer added " << ml;
-  connect( ml, SIGNAL( destroyed( QObject* ) ), this, SLOT( onLayerDeleted( QObject* ) ) );
-  QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( ml );
-  if ( vl )
-  {
-    connect( vl, SIGNAL( featureAdded( QgsFeatureId ) ), vl, SLOT( triggerRepaint() ) );
-    connect( vl, SIGNAL( featureDeleted( QgsFeatureId ) ), vl, SLOT( triggerRepaint() ) );
-    connect( vl, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), vl, SLOT( triggerRepaint() ) );
-    connect( vl, SIGNAL( geometryChanged( QgsFeatureId,QgsGeometry& ) ), vl, SLOT( triggerRepaint() ) );
-  }
-}
-
 void QgisMobileapp::loadLastProject()
 {
   QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
