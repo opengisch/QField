@@ -14,6 +14,9 @@ QgsGeometry Geometry::asQgsGeometry() const
 {
   QgsAbstractGeometryV2* geom = nullptr;
 
+  if ( !mVectorLayer )
+    return QgsGeometry();
+
   switch ( mVectorLayer->geometryType() )
   {
     case QGis::Point:
