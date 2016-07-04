@@ -35,7 +35,9 @@
       <item>Qt5Sql</item>
       <item>Qt5Svg</item>
       <item>Qt5Senors</item>
+      <item>Qt5Positioning</item>
       <item>Qt5OpenGL</item>  
+      <item>Qt5AndroidExtras</item>
      </array>
 
     <array name="bundled_in_lib">
