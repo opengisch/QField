@@ -33,6 +33,15 @@ class PlatformUtilities : public QObject
 
     virtual QString configDir() const;
     virtual QString shareDir() const;
+
+    /**
+     * Get a picture and copy it to the requested prefix
+     * @param prefix The folder where the picture should be put
+     * @return The name of the picture or null
+     */
+    Q_INVOKABLE virtual void getPicture( const QString& prefix );
+
+  signals:
+    void pictureReceived( const QString& path );
 };
 #endif // PLATFORMUTILITIES_H
-
