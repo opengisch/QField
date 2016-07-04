@@ -12,7 +12,7 @@ Item {
   property alias text: button.text
 
   property color bgcolor: "#212121"
-  property color borderColor: "#EEEEEE"
+  property color borderColor: bgcolor
 
   signal pressAndHold
   signal clicked
@@ -29,7 +29,7 @@ Item {
         implicitWidth: 100
         implicitHeight: 25
         border.width: !round
-        border.color: item.borderColor
+        border.color: borderColor
         color: bgcolor
         radius: round ? height / 2 : 0
       }
