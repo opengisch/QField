@@ -33,3 +33,9 @@ QString PlatformUtilities::shareDir() const
   return QString();
 }
 
+void PlatformUtilities::getPicture( const QString& prefix )
+{
+  Q_UNUSED( prefix )
+  emit pictureReceived( QString::null );
+}
+
