@@ -214,29 +214,6 @@ Rectangle {
       visible: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
     }
 
-/*
-    Item {
-      height: parent.height
-      width: 300*dp
-
-      Rectangle {
-        anchors.fill: parent
-        color: "#bb555555"
-        border.color: "#dddddd"
-        border.width: 1
-      }
-
-      MouseArea {
-        anchors.fill: parent
-
-        onClicked: {
-          mainMenu.popup()
-        }
-      }
-
-      visible: ( mainWindow.state === "digitize" )
-    }
-*/
     Button {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
