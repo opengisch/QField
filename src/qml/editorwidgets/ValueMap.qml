@@ -14,6 +14,9 @@ Item {
   ComboBox {
     id: comboBox
 
+    anchors.left: parent.left
+    anchors.right: parent.right
+
     currentIndex: find(_reverseConfig[value])
 
     Component.onCompleted: {

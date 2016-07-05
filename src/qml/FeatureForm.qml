@@ -25,52 +25,6 @@ Rectangle {
     }
   ]
 
-  Rectangle {
-    id: toolbar
-
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-
-    height: visible ? 48*dp : 0
-
-    Button {
-      anchors.right: parent.right
-
-      width: 48*dp
-      height: 48*dp
-
-      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
-
-      onClicked: {
-        Qt.inputMethod.hide()
-
-        if ( form.state === "Add" ) {
-          featureFormList.model.create()
-          state = "Edit"
-        }
-        featureFormList.model.save()
-
-        saved()
-      }
-    }
-
-    Button {
-      anchors.left: parent.left
-
-      width: 48*dp
-      height: 48*dp
-
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
-
-      onClicked: {
-        Qt.inputMethod.hide()
-
-        cancelled()
-      }
-    }
-  }
-
   Flickable {
     anchors.bottom: parent.bottom
     anchors.right: parent.right
@@ -108,7 +62,7 @@ Rectangle {
           Layout.row: index
           Layout.column: 1
           Layout.fillWidth: true
-          Layout.fillHeight: true
+          Layout.fillHeight: false
 
           height: childrenRect.height
 
@@ -140,6 +94,7 @@ Rectangle {
 
       Repeater {
         model: form.model
+
         Controls.CheckBox {
           Layout.row: index
           Layout.column: 2
@@ -147,7 +102,8 @@ Rectangle {
           Layout.fillHeight: false
           checkedState: RememberValue
 
-          visible: form.state === "Add" && EditorWidget !== "Hidden"
+          visible: form.state === "Add"
+          height: EditorWidget !== "Hidden"
 
           anchors.right: parent.right
 
@@ -156,6 +112,53 @@ Rectangle {
             form.model.setData(idx, checkedState, FeatureModel.RememberValue)
           }
         }
+      }
+    }
+  }
+
+
+  Rectangle {
+    id: toolbar
+
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+
+    height: visible ? 48*dp : 0
+
+    Button {
+      anchors.right: parent.right
+
+      width: 48*dp
+      height: 48*dp
+
+      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+
+      onClicked: {
+        Qt.inputMethod.hide()
+
+        if ( form.state === "Add" ) {
+          model.create()
+          state = "Edit"
+        }
+        model.save()
+
+        saved()
+      }
+    }
+
+    Button {
+      anchors.left: parent.left
+
+      width: 48*dp
+      height: 48*dp
+
+      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+
+      onClicked: {
+        Qt.inputMethod.hide()
+
+        cancelled()
       }
     }
   }

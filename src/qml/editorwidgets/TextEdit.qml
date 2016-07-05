@@ -2,10 +2,11 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 
 Item {
-  signal valueChanged( var value )
+  signal valueChanged(var value)
+  height: childrenRect.height
 
   TextField {
-    visible: config['IsMultiLine'] !== true
+    height: config['IsMultiline'] !== true ? undefined : 0
     anchors.left: parent.left
     anchors.right: parent.right
 
@@ -17,7 +18,7 @@ Item {
   }
 
   TextArea {
-    visible: config['IsMultiLine'] === true
+    height: config['IsMultiline'] === true ? undefined : 0
     anchors.left: parent.left
     anchors.right: parent.right
 
