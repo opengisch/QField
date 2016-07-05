@@ -1,6 +1,6 @@
 VERSION_MAJOR = 0
 VERSION_MINOR = 6
-VERSION_FIX   = 2
+VERSION_FIX   = 4
 
 CODENAME = 'Finsteraarhorn'
 
