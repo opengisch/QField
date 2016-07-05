@@ -20,6 +20,7 @@
 #define PLATFORMUTILITIES_H
 
 #include <QObject>
+#include "picturesource.h"
 
 class PlatformUtilities : public QObject
 {
@@ -39,9 +40,7 @@ class PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual void getPicture( const QString& prefix );
+    Q_INVOKABLE virtual PictureSource* getPicture( const QString& prefix );
 
-  signals:
-    void pictureReceived( const QString& path );
 };
 #endif // PLATFORMUTILITIES_H

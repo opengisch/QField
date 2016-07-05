@@ -122,6 +122,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
+  qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
 
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
