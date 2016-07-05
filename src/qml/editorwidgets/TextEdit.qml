@@ -1,15 +1,30 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.4
 
-TextEdit {
+Item {
   signal valueChanged( var value )
 
-  anchors.left: parent.left
-  anchors.right: parent.right
+  TextField {
+    visible: config['IsMultiLine'] !== true
+    anchors.left: parent.left
+    anchors.right: parent.right
 
-  text: value || ''
-  textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
+    text: value || ''
 
-  onTextChanged: {
-    valueChanged( text )
+    onTextChanged: {
+      valueChanged( text )
+    }
+  }
+
+  TextArea {
+    visible: config['IsMultiLine'] === true
+    anchors.left: parent.left
+    anchors.right: parent.right
+
+    text: value || ''
+    textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
+    onTextChanged: {
+      valueChanged( text )
+    }
   }
 }

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import "js/style.js" as Style
 
@@ -7,7 +8,7 @@ Rectangle {
   signal saved
   signal cancelled
 
-  property alias model: featureFormList.model
+  property FeatureModel model
   property alias toolbarVisible: toolbar.visible
 
   id: form
@@ -70,96 +71,90 @@ Rectangle {
     }
   }
 
-  ListView {
-    id: featureFormList
-
-    anchors.top: toolbar.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
+  Flickable {
     anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    anchors.left: parent.left
+    anchors.top: toolbar.bottom
 
-    delegate: Item {
+    contentHeight: grid.height
+
+    flickableDirection: Flickable.VerticalFlick
+
+    GridLayout {
+      id: grid
       anchors.left: parent.left
       anchors.right: parent.right
-      height: childrenRect.height
+      columns: 3
+      rowSpacing: 5
+      columnSpacing: 5
+      anchors.margins: 5
 
-      Rectangle {
-        anchors {
-          right: parent.right;
-          left: parent.left
+      Repeater {
+        model: form.model
+
+        Controls.Label {
+          Layout.row: index
+          Layout.column: 0
+          text: AttributeName
+          visible: EditorWidget !== "Hidden"
         }
+      }
 
-        height: Math.max( 30*dp, childrenRect.height )
+      Repeater {
+        model: form.model
 
         Item {
-          anchors {
-            verticalCenter: parent.verticalCenter;
-            right: parent.right;
-            left:parent.left
-          }
+          Layout.row: index
+          Layout.column: 1
+          Layout.fillWidth: true
+          Layout.fillHeight: true
 
           height: childrenRect.height
 
-          /* attribute name */
-          Text {
-            id: txtAttributeName
-            anchors.leftMargin: 5
-            width: featureFormList.width / 3
-            font.bold: true
-            text: AttributeName
-            clip: true
+          Loader {
+            id: attributeEditorLoader
+            anchors { left: parent.left; right: parent.right }
+
+            enabled: form.state !== "ReadOnly"
+            property var value: AttributeValue
+            property var config: EditorWidgetConfig
+
+            source: 'editorwidgets/' + EditorWidget + '.qml'
+
+            onStatusChanged: {
+              if (attributeEditorLoader.status === Loader.Error )
+              {
+                console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
+                EditorWidget = 'TextEdit'
+              }
+            }
           }
 
-          Item {
-            anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
-            height: childrenRect.height
-
-
-            /* attribute value */
-            Loader {
-              id: attributeEditorLoader
-              anchors { left: parent.left; right: parent.right }
-
-              enabled: form.state != "ReadOnly"
-              property var value: AttributeValue
-              property var config: EditorWidgetConfig
-
-              source: 'editorwidgets/' + EditorWidget + '.qml'
-
-              onStatusChanged: {
-                if (attributeEditorLoader.status == Loader.Error )
-                  attributeEditorLoader.source = 'editorwidgets/TextEdit.qml'
-              }
-            }
-
-            Connections {
-              target: attributeEditorLoader.item
-              onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
-            }
-
-            Controls.CheckBox {
-              id: rememberValueCheckbox
-
-              checkedState: RememberValue
-
-              visible: form.state === "Add"
-
-              anchors.right: parent.right
-
-              onCheckedChanged: {
-                var idx = featureFormList.model.index(index, 0)
-                featureFormList.model.setData(idx, checkedState, FeatureModel.RememberValue)
-              }
-            }
+          Connections {
+            target: attributeEditorLoader.item
+            onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
           }
         }
+      }
 
-        /* Bottom border */
-        Rectangle {
-          height: 1
-          color: "lightGray"
-          width: parent.width
-          anchors.bottom: parent.bottom
+      Repeater {
+        model: form.model
+        Controls.CheckBox {
+          Layout.row: index
+          Layout.column: 2
+          Layout.fillWidth: false
+          Layout.fillHeight: false
+          checkedState: RememberValue
+
+          visible: form.state === "Add" && EditorWidget !== "Hidden"
+
+          anchors.right: parent.right
+
+          onCheckedChanged: {
+            var idx = form.model.index(index, 0)
+            form.model.setData(idx, checkedState, FeatureModel.RememberValue)
+          }
         }
       }
     }
