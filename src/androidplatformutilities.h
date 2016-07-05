@@ -21,19 +21,15 @@
 
 #include "platformutilities.h"
 #include <QAndroidJniObject>
-#include <QAndroidActivityResultReceiver>
 
-class AndroidPlatformUtilities : public PlatformUtilities, public QAndroidActivityResultReceiver
+class AndroidPlatformUtilities : public PlatformUtilities
 {
   public:
     AndroidPlatformUtilities();
 
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
-    virtual void getPicture( const QString &prefix ) override;
-
-    //! QAndroidActivityResultReceiver
-    void handleActivityResult(int receiverRequestCode, int resultCode, const QAndroidJniObject& data) override;
+    virtual PictureSource* getPicture( const QString &prefix ) override;
 
   private:
     QMap<QString, QString> getIntentExtras( QStringList ) const;

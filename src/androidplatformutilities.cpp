@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "androidplatformutilities.h"
+#include "androidpicturesource.h"
 
 #include <QMap>
 #include <QString>
@@ -100,42 +101,23 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return 0;
 }
 
-void AndroidPlatformUtilities::getPicture( const QString& prefix )
+PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
 {
   QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
 
   QAndroidJniObject intent=QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
 
+  AndroidPictureSource* pictureSource = nullptr;
+
   if ( actionImageCapture.isValid() && intent.isValid() )
   {
-    QtAndroid::startActivity( intent.object<jobject>(), 101, this );
+    pictureSource = new AndroidPictureSource( prefix );
+    QtAndroid::startActivity( intent.object<jobject>(), 101, pictureSource );
   }
   else
   {
     qDebug() << "Something went wrong creating the picture request";
   }
-}
 
-void AndroidPlatformUtilities::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
-{
-  jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-  if ( receiverRequestCode == 101 && resultCode == RESULT_OK )
-  {
-    QAndroidJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;" );
-    QAndroidJniObject data = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore$MediaColumns", "DATA", "Ljava/lang/String;" );
-    QAndroidJniEnvironment env;
-    jobjectArray projection = ( jobjectArray )env->NewObjectArray( 1, env->FindClass( "java/lang/String" ), NULL );
-    jobject dataProjection = env->NewStringUTF( data.toString().toStdString().c_str() );
-    env->SetObjectArrayElement( projection, 0, dataProjection );
-    QAndroidJniObject contentResolver = QtAndroid::androidActivity().callObjectMethod( "getContentResolver", "()Landroid/content/ContentResolver;" );
-    QAndroidJniObject cursor = contentResolver.callObjectMethod( "query", "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;", uri.object<jobject>(), projection, NULL, NULL, NULL );
-    jint columnIndex = cursor.callMethod<jint>( "getColumnIndex", "(Ljava/lang/String;)I", data.object<jstring>() );
-    cursor.callMethod<jboolean>( "moveToFirst", "()Z" );
-    QAndroidJniObject filePath = cursor.callObjectMethod( "getString", "(I)Ljava/lang/String;", columnIndex );
-    emit pictureReceived( "file://" + filePath.toString() );
-  }
-  else
-  {
-    emit pictureReceived( QString::null );
-  }
+  return pictureSource;
 }
