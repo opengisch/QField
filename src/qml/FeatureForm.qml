@@ -110,11 +110,12 @@ Rectangle {
             clip: true
           }
 
+          /* value */
           Item {
             anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
             height: childrenRect.height
 
-            /* attribute value */
+            /* editor widget */
             Loader {
               id: attributeEditorLoader
               anchors { left: parent.left; right: parent.right }
@@ -137,6 +138,7 @@ Rectangle {
               onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
             }
 
+            /* remember checkbox */
             Controls.CheckBox {
               id: rememberValueCheckbox
 

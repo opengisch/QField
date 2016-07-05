@@ -1,6 +1,7 @@
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls.Styles 1.4
 import QtQuick 2.5
+import QtGraphicalEffects 1.0
 
 Item {
   id: item
@@ -26,8 +27,6 @@ Item {
 
     style: ButtonStyle {
       background: Rectangle {
-        implicitWidth: 100
-        implicitHeight: 25
         border.width: !round
         border.color: borderColor
         color: bgcolor
@@ -41,5 +40,16 @@ Item {
       onClicked: item.clicked()
       onPressAndHold: item.pressAndHold()
     }
+  }
+
+  DropShadow {
+    visible: round
+    anchors.fill: source
+    horizontalOffset: 1 * dp
+    verticalOffset: 1 * dp
+    radius: 4 * dp
+    samples: 17
+    color: "#80000000"
+    source: button
   }
 }
