@@ -39,6 +39,7 @@
 #endif
 
 class AppInterface;
+class QgsOfflineEditing;
 
 class QgisMobileapp : public QQuickView
 {
@@ -93,6 +94,7 @@ class QgisMobileapp : public QQuickView
 
     void loadProjectQuirks();
 
+    QgsOfflineEditing* mOfflineEditing;
     QgsMapCanvas* mMapCanvas;
     QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
     QgsLayerTreeModel* mLayerTree;

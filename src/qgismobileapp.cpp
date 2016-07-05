@@ -47,6 +47,7 @@
 #include "modelhelper.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
+#include "qgsofflineediting.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -92,6 +93,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
   connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
   connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
+
+  mOfflineEditing = new QgsOfflineEditing();
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
@@ -231,6 +234,7 @@ void QgisMobileapp::loadProjectFile( const QString& path )
 
 QgisMobileapp::~QgisMobileapp()
 {
+  delete mOfflineEditing;
   QgsMapLayerRegistry::instance()->removeAllMapLayers();
   // Reintroduce when created on the heap
   // delete QgsEditorWidgetRegistry::instance();
