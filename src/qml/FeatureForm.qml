@@ -81,7 +81,7 @@ Rectangle {
     delegate: Item {
       anchors.left: parent.left
       anchors.right: parent.right
-      height: childrenRect.height
+      height: EditorWidget !== "Hidden" ? childrenRect.height : 0
 
       Rectangle {
         anchors {
@@ -89,7 +89,7 @@ Rectangle {
           left: parent.left
         }
 
-        height: Math.max( 30*dp, childrenRect.height )
+        height: childrenRect.height
 
         Item {
           anchors {
@@ -103,7 +103,7 @@ Rectangle {
           /* attribute name */
           Text {
             id: txtAttributeName
-            anchors.leftMargin: 5
+            anchors.leftMargin: 4 * dp
             width: featureFormList.width / 3
             font.bold: true
             text: AttributeName
@@ -113,7 +113,6 @@ Rectangle {
           Item {
             anchors { leftMargin: 5; right: parent.right; left: txtAttributeName.right }
             height: childrenRect.height
-
 
             /* attribute value */
             Loader {
@@ -127,8 +126,9 @@ Rectangle {
               source: 'editorwidgets/' + EditorWidget + '.qml'
 
               onStatusChanged: {
-                if (attributeEditorLoader.status == Loader.Error )
-                  attributeEditorLoader.source = 'editorwidgets/TextEdit.qml'
+                if (attributeEditorLoader.status === Loader.Error )
+                  console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
+                  EditorWidget = 'TextEdit'
               }
             }
 
