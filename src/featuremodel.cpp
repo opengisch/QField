@@ -138,9 +138,9 @@ bool FeatureModel::save()
   if ( !mFeature.layer() )
     return false;
 
-  mFeature.layer()->startEditing();
+  Q_ASSERT( mFeature.layer()->startEditing() );
   QgsFeature feat = mFeature.qgsFeature();
-  mFeature.layer()->updateFeature( feat );
+  Q_ASSERT( mFeature.layer()->updateFeature( feat ) );
   bool rv = mFeature.layer()->commitChanges();
   if ( rv )
   {
