@@ -65,6 +65,7 @@ Rectangle {
           Layout.fillWidth: true
           Layout.fillHeight: true
           Layout.preferredHeight: childrenRect.height
+          visible: EditorWidget !== "Hidden"
 
           Loader {
             id: attributeEditorLoader
