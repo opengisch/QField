@@ -59,12 +59,12 @@ Rectangle {
         model: form.model
 
         Item {
+          id: placeholder
           Layout.row: index
           Layout.column: 1
           Layout.fillWidth: true
-          Layout.fillHeight: false
-
-          height: childrenRect.height
+          Layout.fillHeight: true
+          Layout.preferredHeight: childrenRect.height
 
           Loader {
             id: attributeEditorLoader
@@ -73,21 +73,22 @@ Rectangle {
             enabled: form.state !== "ReadOnly"
             property var value: AttributeValue
             property var config: EditorWidgetConfig
+            property var widget: EditorWidget
 
-            source: 'editorwidgets/' + EditorWidget + '.qml'
+            source: 'editorwidgets/' + widget + '.qml'
 
             onStatusChanged: {
               if (attributeEditorLoader.status === Loader.Error )
               {
                 console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
-                EditorWidget = 'TextEdit'
+                widget = 'TextEdit'
               }
             }
           }
 
           Connections {
             target: attributeEditorLoader.item
-            onValueChanged: featureFormList.model.setAttribute( index, value, FeatureModel.AttributeValue )
+            onValueChanged: form.model.setAttribute( index, value, FeatureModel.AttributeValue )
           }
         }
       }
@@ -102,8 +103,7 @@ Rectangle {
           Layout.fillHeight: false
           checkedState: RememberValue
 
-          visible: form.state === "Add"
-          height: EditorWidget !== "Hidden"
+          visible: form.state === "Add" && EditorWidget !== "Hidden"
 
           anchors.right: parent.right
 

@@ -6,6 +6,7 @@ Item {
   height: childrenRect.height
 
   TextField {
+    id: textField
     height: config['IsMultiline'] !== true ? undefined : 0
     anchors.left: parent.left
     anchors.right: parent.right
@@ -18,6 +19,7 @@ Item {
   }
 
   TextArea {
+    id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
     anchors.left: parent.left
     anchors.right: parent.right
