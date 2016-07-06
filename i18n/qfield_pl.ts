@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -58,11 +56,7 @@
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="43"/>
         <source>Coordinates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Coordinate</source>
-        <translation type="vanished">Współrzędne</translation>
+        <translation>Współrzędne</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="58"/>
@@ -84,35 +78,19 @@
         <translation>Aktywacja usługi lokalizacyjnej...</translation>
     </message>
     <message>
-        <source>Using cached position. Press and hold the positioning button to turn on real-time positioning.</source>
-        <translation type="vanished">Użyto zapisanej wcześniej lokalizacji. Wciśnij i przytrzymaj klawisz lokalizacji, aby włączyć pozycjonowanie w czasie rzeczywistym.</translation>
-    </message>
-    <message>
-        <source>Positioning is now on</source>
-        <translation type="vanished">Pozycjonowanie jest teraz włączone</translation>
-    </message>
-    <message>
-        <source>Positioning is now off</source>
-        <translation type="vanished">Pozycjonowanie jest teraz wyłączone</translation>
-    </message>
-    <message>
-        <source>Please choose a project</source>
-        <translation type="vanished">Proszę wybrać projekt</translation>
-    </message>
-    <message>
         <location filename="../src/qml/qgismobileapp.qml" line="302"/>
         <source>Positioning activated</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozycjonowanie włączone</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="307"/>
         <source>Positioning turned off</source>
-        <translation type="unfinished"></translation>
+        <translation>Pozycjonowanie wyłączone</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="371"/>
         <source>Open project</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz projekt</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="373"/>
