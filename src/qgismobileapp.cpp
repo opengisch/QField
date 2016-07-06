@@ -225,6 +225,7 @@ void QgisMobileapp::loadLastProject()
 
 void QgisMobileapp::loadProjectFile( const QString& path )
 {
+  QgsMapLayerRegistry::instance()->removeAllMapLayers();
   emit loadProjectStarted( path );
   QgsProject::instance()->read( path );
   loadProjectQuirks();
