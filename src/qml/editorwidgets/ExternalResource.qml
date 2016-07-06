@@ -19,15 +19,16 @@ Item {
     width: parent.width
     autoTransform: true
     fillMode: Image.PreserveAspectFit
-    // source: 'file:///home/mku/Pictures/tra-atlas.png'
 
-    source: 'file://' + project.homePath + '/' + value;
+    source: value ? 'file://' + project.homePath + '/' + value : undefined
   }
 
   QField.Button {
     id: button
     width: 36 * dp
     height: 36 * dp
+
+    round: true
 
     anchors.right: parent.right
     anchors.bottom: parent.bottom
