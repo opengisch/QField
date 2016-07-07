@@ -13,8 +13,8 @@ Build [OSGeo4A](https://github.com/opengisch/OSGeo4A)
 
 ### For Desktop
 
-Install Qt 5.6 dev libraries
-Build QGIS using Qt5
+* Install Qt 5.6 dev libraries
+* Build QGIS using Qt5
 
 ### For both
 
