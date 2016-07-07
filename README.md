@@ -25,6 +25,6 @@ git submodule init
 git submodule update
 ```
 
-and add the right paths to config.pri
-open QField.pro with QtCreator installed during OSGeo4A installation
-hit build.
+ * adjust the paths in config.pri
+ * open QField.pro with QtCreator (installed during OSGeo4A installation)
+ * hit build
