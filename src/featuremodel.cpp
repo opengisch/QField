@@ -169,6 +169,9 @@ bool FeatureModel::suppressFeatureForm() const
 
 void FeatureModel::resetAttributes( bool skipRemembered )
 {
+  if ( !mFeature.layer() )
+    return;
+
   beginResetModel();
   for ( int i = 0; i < mFeature.layer()->fields().count(); ++i )
   {
