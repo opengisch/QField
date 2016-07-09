@@ -20,6 +20,7 @@
 #define PLATFORMUTILITIES_H
 
 #include <QObject>
+#include "picturesource.h"
 
 class PlatformUtilities : public QObject
 {
@@ -33,6 +34,13 @@ class PlatformUtilities : public QObject
 
     virtual QString configDir() const;
     virtual QString shareDir() const;
+
+    /**
+     * Get a picture and copy it to the requested prefix
+     * @param prefix The folder where the picture should be put
+     * @return The name of the picture or null
+     */
+    Q_INVOKABLE virtual PictureSource* getPicture( const QString& prefix );
+
 };
 #endif // PLATFORMUTILITIES_H
-

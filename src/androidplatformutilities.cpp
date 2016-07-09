@@ -17,10 +17,13 @@
  ***************************************************************************/
 
 #include "androidplatformutilities.h"
+#include "androidpicturesource.h"
 
 #include <QMap>
 #include <QString>
 #include <QtAndroid>
+#include <QDebug>
+#include <QAndroidJniEnvironment>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
@@ -36,7 +39,6 @@ QString AndroidPlatformUtilities::shareDir() const
 {
   return getIntentExtra( "SHARE_DIR" );
 }
-
 
 QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObject extras ) const
 {
@@ -97,4 +99,25 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
     return extras;
   }
   return 0;
+}
+
+PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
+{
+  QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
+
+  QAndroidJniObject intent=QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
+
+  AndroidPictureSource* pictureSource = nullptr;
+
+  if ( actionImageCapture.isValid() && intent.isValid() )
+  {
+    pictureSource = new AndroidPictureSource( prefix );
+    QtAndroid::startActivity( intent.object<jobject>(), 101, pictureSource );
+  }
+  else
+  {
+    qDebug() << "Something went wrong creating the picture request";
+  }
+
+  return pictureSource;
 }

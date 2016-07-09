@@ -3,13 +3,15 @@ CONFIG += ordered
 
 TARGET = qfield
 
-QT += widgets  concurrent xml positioning printsupport svg sql opengl sensors quick
+QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick
 # MISSING in apk: printsupport svg sql opengl sensors
 
 android {
     QT += androidextras
-    HEADERS += androidplatformutilities.h
-    SOURCES += androidplatformutilities.cpp
+    HEADERS += androidplatformutilities.h \
+               androidpicturesource.h
+    SOURCES += androidplatformutilities.cpp \
+               androidpicturesource.cpp
 }
 include( ../qfield.pri )
 include( ../qgis.pri )
@@ -38,7 +40,8 @@ HEADERS += \
     geometry.h \
     modelhelper.h \
     rubberbandmodel.h \
-    rubberband.h
+    rubberband.h \
+    picturesource.h
 
 SOURCES += \
     appinterface.cpp \
@@ -63,7 +66,8 @@ SOURCES += \
     geometry.cpp \
     modelhelper.cpp \
     rubberbandmodel.cpp \
-    rubberband.cpp
+    rubberband.cpp \
+    picturesource.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
@@ -106,3 +110,17 @@ android {
 !android {
   message( "* Using QGIS from $${QGIS_INSTALL_PATH}" )
 }
+
+DISTFILES += \
+    ../android/AndroidManifest.xml \
+    ../android/gradle/wrapper/gradle-wrapper.jar \
+    ../android/gradlew \
+    ../android/res/values/libs.xml \
+    ../android/build.gradle \
+    ../android/gradle/wrapper/gradle-wrapper.properties \
+    ../android/gradlew.bat \
+    ../images/themes/qfield/hdpi/ic_camera_white_48dp.png \
+    ../images/themes/qfield/mdpi/ic_camera_white_48dp.png \
+    ../images/themes/qfield/xhdpi/ic_camera_white_48dp.png \
+    ../images/themes/qfield/xxhdpi/ic_camera_white_48dp.png \
+    ../images/themes/qfield/xxxhdpi/ic_camera_white_48dp.png

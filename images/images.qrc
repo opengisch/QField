@@ -131,5 +131,10 @@
         <file>themes/qfield/xxxhdpi/ic_map_white_48dp.png</file>
         <file>themes/qfield/xxxhdpi/remove-line-vertex.png</file>
         <file>themes/qfield/xxxhdpi/start-new-line.png</file>
+        <file>themes/qfield/hdpi/ic_camera_white_36dp.png</file>
+        <file>themes/qfield/mdpi/ic_camera_white_36dp.png</file>
+        <file>themes/qfield/xhdpi/ic_camera_white_36dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_camera_white_36dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_camera_white_36dp.png</file>
     </qresource>
 </RCC>
