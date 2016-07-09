@@ -7,7 +7,8 @@ Item {
 
   TextField {
     id: textField
-    height: config['IsMultiline'] !== true ? undefined : 0
+    height: textArea.height == 0 ? undefined : 0
+    visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
 
@@ -21,6 +22,7 @@ Item {
   TextArea {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
+    visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
 
