@@ -13,7 +13,6 @@
 
     <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
               android:name="org.qtproject.qt5.android.bindings.QtActivity"
-              android:screenOrientation="userLandscape"
               android:launchMode="singleTop">
       <!-- TODO: Change screenOrientation to userLandscape, once Android api 18 can be expected to be present -->
       <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
