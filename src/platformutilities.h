@@ -42,5 +42,7 @@ class PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual PictureSource* getPicture( const QString& prefix );
 
+    Q_INVOKABLE virtual void open( const QString& data, const QString& type );
+
 };
 #endif // PLATFORMUTILITIES_H

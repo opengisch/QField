@@ -30,6 +30,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
     virtual PictureSource* getPicture( const QString &prefix ) override;
+    virtual void open( const QString& data, const QString& type );
 
   private:
     QMap<QString, QString> getIntentExtras( QStringList ) const;

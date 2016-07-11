@@ -39,3 +39,9 @@ PictureSource* PlatformUtilities::getPicture( const QString& prefix )
   return nullptr;
 }
 
+void PlatformUtilities::open( const QString& data, const QString& type )
+{
+  Q_UNUSED( data )
+  Q_UNUSED( type )
+}
+

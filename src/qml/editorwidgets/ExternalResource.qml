@@ -16,11 +16,28 @@ Item {
 
   Image {
     id: image
-    width: parent.width
+    width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
 
-    source: value ? 'file://' + project.homePath + '/' + value : undefined
+    source: {
+      if ( image.status === Image.Error )
+        Style.getThemeIcon( "ic_broken_image_black_24dp" )
+      else if ( value )
+        'file://' + project.homePath + '/' + value
+      else
+        Style.getThemeIcon( "ic_photo_notavailable_white_48dp" )
+    }
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        if ( value )
+          console.log( "OOPENING " + image.source );
+          platformUtilities.open( image.source, "image/*" );
+      }
+    }
   }
 
   QField.Button {
@@ -28,22 +45,19 @@ Item {
     width: 36 * dp
     height: 36 * dp
 
-    round: true
-
     anchors.right: parent.right
     anchors.bottom: parent.bottom
 
-    bgcolor: enabled ? "#66BB6A" : "#888888"
+    bgcolor: "transparent"
 
     onClicked: __pictureSource = platformUtilities.getPicture( project.homePath + '/DCIM' )
 
-    iconSource: Style.getThemeIcon( "ic_camera_white_36dp" )
+    iconSource: Style.getThemeIcon( "ic_camera_alt_border_24dp" )
   }
 
   Connections {
     target: __pictureSource
     onPictureReceived: {
-      console.info( "QML Picture received " + path )
       value = 'DCIM/' + path
       valueChanged( value )
     }
