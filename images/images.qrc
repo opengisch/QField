@@ -103,7 +103,6 @@
         <file>themes/qfield/hdpi/ic_map_white_48dp.png</file>
         <file>themes/qfield/hdpi/remove-line-vertex.png</file>
         <file>themes/qfield/hdpi/start-new-line.png</file>
-        <file>themes/qfield/mdpi/add-line-vertex.png</file>
         <file>themes/qfield/mdpi/add-point.png</file>
         <file>themes/qfield/mdpi/cancel-line.png</file>
         <file>themes/qfield/mdpi/confirm-line.png</file>
@@ -136,5 +135,25 @@
         <file>themes/qfield/xhdpi/ic_camera_white_36dp.png</file>
         <file>themes/qfield/xxhdpi/ic_camera_white_36dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_camera_white_36dp.png</file>
+        <file>themes/qfield/hdpi/ic_camera_alt_white_36dp.png</file>
+        <file>themes/qfield/mdpi/ic_camera_alt_white_36dp.png</file>
+        <file>themes/qfield/xhdpi/ic_camera_alt_white_36dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_camera_alt_white_36dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_camera_alt_white_36dp.png</file>
+        <file>themes/qfield/hdpi/ic_broken_image_black_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_camera_alt_border_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_broken_image_black_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_camera_alt_border_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_broken_image_black_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_camera_alt_border_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_broken_image_black_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_camera_alt_border_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_broken_image_black_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_camera_alt_border_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_photo_notavailable_white_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_photo_notavailable_white_48dp.png</file>
+        <file>themes/qfield/xhdpi/ic_photo_notavailable_white_48dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_photo_notavailable_white_48dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_photo_notavailable_white_48dp.png</file>
     </qresource>
 </RCC>
