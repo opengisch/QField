@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 
 Item {
-  signal valueChanged(var value)
+  signal valueChanged(var value, bool isNull)
   height: childrenRect.height
 
   TextField {
@@ -14,8 +14,8 @@ Item {
 
     text: value || ''
 
-    onTextChanged: {
-      valueChanged( text )
+    onEditingFinished: {
+      valueChanged( text, text == '' )
     }
   }
 
@@ -28,8 +28,15 @@ Item {
 
     text: value || ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
-    onTextChanged: {
-      valueChanged( text )
+
+    onEditingFinished: {
+      valueChanged( text, text == '' )
     }
   }
+/*
+  function pushChanges() {
+    console.info( "Pushing Changes " + textField.text)
+    valueChanged( textArea.visible ? textArea.text : textField.text )
+  }
+*/
 }

@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 
 Item {
-  signal valueChanged(var value)
+  signal valueChanged(var value, bool isNull)
 
   anchors.left: parent.left
   anchors.right: parent.right
@@ -28,7 +28,7 @@ Item {
     }
 
     onCurrentTextChanged: {
-      valueChanged(config[currentText])
+      valueChanged(config[currentText], false)
     }
   }
 }

@@ -5,7 +5,7 @@ import "../js/style.js" as Style
 import ".." as QField
 
 Item {
-  signal valueChanged( var value )
+  signal valueChanged( var value, bool isNull )
 
   anchors.left: parent.left
   anchors.right: parent.right
@@ -34,7 +34,6 @@ Item {
 
       onClicked: {
         if ( value )
-          console.log( "OOPENING " + image.source );
           platformUtilities.open( image.source, "image/*" );
       }
     }
@@ -59,7 +58,7 @@ Item {
     target: __pictureSource
     onPictureReceived: {
       value = 'DCIM/' + path
-      valueChanged( value )
+      valueChanged( value, false )
     }
   }
 }

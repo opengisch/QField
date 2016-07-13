@@ -249,7 +249,7 @@ Rectangle {
     }
 
     onSave: {
-      featureFormList.model.save()
+      featureFormList.save()
       featureForm.state = "FeatureForm"
     }
 

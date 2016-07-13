@@ -7,6 +7,7 @@ import "js/style.js" as Style
 Rectangle {
   signal saved
   signal cancelled
+  signal aboutToSave
 
   property FeatureModel model
   property alias toolbarVisible: toolbar.visible
@@ -67,6 +68,17 @@ Rectangle {
           Layout.preferredHeight: childrenRect.height
           visible: EditorWidget !== "Hidden"
 
+          Connections {
+            target: form
+            onAboutToSave: {
+              try {
+                attributeEditorLoader.item.pushChanges()
+              }
+              catch ( err )
+              {}
+            }
+          }
+
           Loader {
             id: attributeEditorLoader
             anchors { left: parent.left; right: parent.right }
@@ -79,7 +91,7 @@ Rectangle {
             source: 'editorwidgets/' + widget + '.qml'
 
             onStatusChanged: {
-              if (attributeEditorLoader.status === Loader.Error )
+              if ( attributeEditorLoader.status === Loader.Error )
               {
                 console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
                 widget = 'TextEdit'
@@ -89,7 +101,7 @@ Rectangle {
 
           Connections {
             target: attributeEditorLoader.item
-            onValueChanged: form.model.setAttribute( index, value, FeatureModel.AttributeValue )
+            onValueChanged: form.model.setAttribute( index, value, isNull )
           }
         }
       }
@@ -136,15 +148,7 @@ Rectangle {
       iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
 
       onClicked: {
-        Qt.inputMethod.hide()
-
-        if ( form.state === "Add" ) {
-          model.create()
-          state = "Edit"
-        }
-        model.save()
-
-        saved()
+        save()
       }
     }
 
@@ -161,6 +165,28 @@ Rectangle {
 
         cancelled()
       }
+    }
+  }
+
+  function save() {
+    aboutToSave()
+
+    if ( form.state === "Add" ) {
+      model.create()
+      state = "Edit"
+    }
+    else
+    {
+      model.save()
+    }
+
+    saved()
+  }
+
+  Connections {
+    target: Qt.inputMethod
+    onVisibleChanged: {
+      Qt.inputMethod.commit()
     }
   }
 }
