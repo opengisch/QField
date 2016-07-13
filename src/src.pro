@@ -41,7 +41,8 @@ HEADERS += \
     modelhelper.h \
     rubberbandmodel.h \
     rubberband.h \
-    picturesource.h
+    picturesource.h \
+    messagelogmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -67,7 +68,8 @@ SOURCES += \
     modelhelper.cpp \
     rubberbandmodel.cpp \
     rubberband.cpp \
-    picturesource.cpp
+    picturesource.cpp \
+    messagelogmodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

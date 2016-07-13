@@ -18,8 +18,6 @@
         <file>FeatureForm.qml</file>
         <file>js/style.js</file>
         <file>editorwidgets/ExternalResource.qml</file>
-    </qresource>
-    <qresource prefix="/">
-        <file>editorwidgets/ExternalResource.qml</file>
+        <file>MessageLog.qml</file>
     </qresource>
 </RCC>

@@ -48,6 +48,7 @@
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
+#include "messagelogmodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -103,11 +104,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
 void QgisMobileapp::initDeclarative()
 {
-  // Register QML custom types
+  // Register QGIS QML types
+  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
+  qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
+  qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
+  qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
+  qRegisterMetaType<QGis::GeometryType>( "QGIS::GeometryType" );
+
+  // Register QField QML types
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
-  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
@@ -123,11 +130,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
-
-  qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
-  qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
-
-  qRegisterMetaType<QGis::GeometryType>( "QGIS::GeometryType" );
+  qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

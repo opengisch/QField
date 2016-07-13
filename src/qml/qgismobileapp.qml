@@ -393,6 +393,14 @@ Rectangle {
       }
     }
 
+    Controls.MenuItem {
+      text: qsTr( "Log" )
+
+      onTriggered: {
+        messageLog.visible = true
+      }
+    }
+
     Controls.MenuSeparator {}
 
     Controls.MenuItem {
@@ -506,6 +514,23 @@ Rectangle {
         busyMessage.visible = false
       }
     }
+  }
+
+  MessageLog {
+    id: messageLog
+    anchors.fill: parent
+
+    model: MessageLogModel {}
+
+    visible: false
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back) {
+        event.accepted = true
+        visible = false
+      }
+    }
+    onVisibleChanged: focus = true
   }
 
   About {
