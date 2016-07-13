@@ -4,30 +4,49 @@ import org.qgis 1.0
 
 Item {
   property alias model: table.model
-  signal clicked
+  property bool unreadMessages: false
 
-  TableView {
+  id: item
+  anchors.fill: parent
+
+  Rectangle {
+    color: "white"
+    anchors.fill: parent
+  }
+
+  ListView {
     id: table
     anchors.fill: parent
 
-    TableViewColumn {
-      role: "MessageTag"
-      title: "Tag"
-    }
-    TableViewColumn {
-      role: "Message"
-      title: "Message"
-    }
-
-    itemDelegate: Item {
+    delegate: Column {
       Text {
-        anchors.verticalCenter: parent.verticalCenter
-        color: styleData.textColor
-        elide: styleData.elideMode
-        text: styleData.value
+        text: MessageTag
+        font.bold: true
+      }
+
+      Text {
+        text: Message
+        wrapMode: Text.WordWrap
+      }
+
+      Rectangle {
+        color: "gray"
+        height: 1*dp
       }
     }
   }
 
-  onVisibleChanged: table.resizeColumnsToContents()
+  Connections {
+    target: model
+
+    onRowsInserted: {
+      if ( !visible )
+        unreadMessages = true
+    }
+  }
+
+  onVisibleChanged: {
+    if ( visible )
+      unreadMessages = false
+  }
 }
