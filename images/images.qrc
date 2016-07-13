@@ -155,5 +155,10 @@
         <file>themes/qfield/xhdpi/ic_photo_notavailable_white_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_photo_notavailable_white_48dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_photo_notavailable_white_48dp.png</file>
+        <file>themes/qfield/hdpi/ic_add_alert_black_36dp.png</file>
+        <file>themes/qfield/mdpi/ic_add_alert_black_36dp.png</file>
+        <file>themes/qfield/xhdpi/ic_add_alert_black_36dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_add_alert_black_36dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_add_alert_black_36dp.png</file>
     </qresource>
 </RCC>

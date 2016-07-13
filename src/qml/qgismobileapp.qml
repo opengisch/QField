@@ -337,7 +337,6 @@ Rectangle {
       else
       {
         digitizingFeature.create()
-        digitizingFeature.save()
         digitizingRubberband.model.reset()
       }
     }
@@ -513,6 +512,23 @@ Rectangle {
       onLoadProjectEnded: {
         busyMessage.visible = false
       }
+    }
+  }
+
+  Image {
+    source: Style.getThemeIcon( "ic_add_alert_black_36dp" )
+
+    visible: messageLog.unreadMessages
+
+    anchors.right: mapCanvas.right
+    anchors.top: parent.right
+    anchors.margins: 4 * dp
+    width: 36*dp
+    height: 36*dp
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: messageLog.visible = true
     }
   }
 
