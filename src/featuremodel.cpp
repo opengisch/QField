@@ -19,8 +19,10 @@
 
 #include "feature.h"
 
-FeatureModel::FeatureModel( QObject *parent ) :
-  QAbstractListModel( parent )
+#include <qgsmessagelog.h>
+
+FeatureModel::FeatureModel( QObject *parent )
+  : QAbstractListModel( parent )
 {
   connect( this, SIGNAL( modelReset() ), this, SIGNAL( featureChanged() ) );
 }
@@ -128,9 +130,20 @@ bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int
 }
 
 
-void FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
+bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value, bool null )
 {
-  mFeature.setAttribute( fieldIndex, value );
+  QVariant val = value;
+  QgsField fld = mFeature.fields()->at( fieldIndex );
+
+  if ( null )
+    val = QVariant( fld.type() );
+
+  if ( !fld.convertCompatible( val ) )
+  {
+    QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
+    return false;
+  }
+  return mFeature.setAttribute( fieldIndex, val );
 }
 
 bool FeatureModel::save()
@@ -138,15 +151,25 @@ bool FeatureModel::save()
   if ( !mFeature.layer() )
     return false;
 
-  Q_ASSERT( mFeature.layer()->startEditing() );
+  bool rv = true;
+
+  if ( !startEditing() )
+  {
+    rv = false;
+  }
+
   QgsFeature feat = mFeature.qgsFeature();
-  Q_ASSERT( mFeature.layer()->updateFeature( feat ) );
-  bool rv = mFeature.layer()->commitChanges();
+  if ( !mFeature.layer()->updateFeature( feat ) )
+    QgsMessageLog::logMessage( tr( "Cannot update feature" ), "QField", QgsMessageLog::WARNING );
+  rv = commit();
+
   if ( rv )
   {
     QgsFeature feat;
     if ( mFeature.layer()->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
       setFeature( Feature( feat, mFeature.layer() ), true );
+    else
+      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", QgsMessageLog::WARNING );
   }
   return rv;
 }
@@ -193,6 +216,41 @@ void FeatureModel::create()
   if ( !mFeature.layer() )
     return;
 
-  mFeature.layer()->startEditing(); // better safe than sorry
-  mFeature.create();
+  startEditing();
+  if ( !mFeature.create() )
+  {
+    QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", QgsMessageLog::CRITICAL );
+  }
+  commit();
+}
+
+bool FeatureModel::commit()
+{
+  if ( !mFeature.layer()->commitChanges() )
+  {
+    QgsMessageLog::logMessage( tr( "Could not save changes. Rolling back." ), "QField", QgsMessageLog::CRITICAL );
+    mFeature.layer()->rollBack();
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+bool FeatureModel::startEditing()
+{
+  // Already an edit session active
+  if ( mFeature.layer()->editBuffer() )
+    return true;
+
+  if ( !mFeature.layer()->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", QgsMessageLog::WARNING );
+    return false;
+  }
+  else
+  {
+    return true;
+  }
 }

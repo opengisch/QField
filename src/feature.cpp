@@ -29,9 +29,9 @@ Feature::Feature()
 {
 }
 
-void Feature::setAttribute( int index, const QVariant& value )
+bool Feature::setAttribute( int index, const QVariant& value )
 {
-  mFeature.setAttribute( index, value );
+  return mFeature.setAttribute( index, value );
 }
 
 void Feature::setGeometry( const QgsGeometry& geom )
@@ -39,12 +39,13 @@ void Feature::setGeometry( const QgsGeometry& geom )
   mFeature.setGeometry( geom );
 }
 
-void Feature::create()
+bool Feature::create()
 {
   if ( !mLayer )
-    return;
+    return false;
 
-  mLayer->addFeature( mFeature );
+  return mLayer->addFeature( mFeature );
+
 }
 
 QString Feature::displayText() const

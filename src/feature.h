@@ -44,7 +44,7 @@ class Feature
       return mFeature.attribute( index );
     }
 
-    void setAttribute( int index, const QVariant& value );
+    bool setAttribute( int index, const QVariant& value );
 
     void setLayer( QgsVectorLayer* layer )
     {
@@ -72,7 +72,7 @@ class Feature
 
     void setGeometry( const QgsGeometry& geom );
 
-    void create();
+    bool create();
 
     QString displayText() const;
 

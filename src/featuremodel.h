@@ -69,9 +69,10 @@ class FeatureModel : public QAbstractListModel
      *
      * @param fieldindex The field to change
      * @param value Value to set
+     * @param null Force NULL value. At the moment null QVariants are not pushed from QML.
      * @return Success of the operation
      */
-    Q_INVOKABLE void setAttribute( int fieldIndex, const QVariant& value );
+    Q_INVOKABLE bool setAttribute( int fieldIndex, const QVariant& value, bool null = false );
 
     /**
      * Will commit the edit buffer of this layer.
@@ -100,7 +101,12 @@ class FeatureModel : public QAbstractListModel
     void geometryChanged();
     void layerChanged();
 
+    void warning( const QString& text );
+
   private:
+    bool commit();
+    bool startEditing();
+
     Feature mFeature;
     Geometry* mGeometry;
     QVector<bool> mRememberedAttributes;
