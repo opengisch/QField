@@ -169,6 +169,7 @@ Rectangle {
   }
 
   function save() {
+    parent.focus = true
     aboutToSave()
 
     if ( form.state === "Add" ) {
