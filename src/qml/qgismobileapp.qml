@@ -516,7 +516,7 @@ Rectangle {
   }
 
   Image {
-    source: Style.getThemeIcon( "ic_add_alert_black_36dp" )
+    source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
 
     visible: messageLog.unreadMessages
 
