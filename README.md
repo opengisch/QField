@@ -18,9 +18,9 @@ Check the [documentation](https://opengisch.github.io/QField-docs/installation-g
 
 QField is an open source project, licensed under the terms of the GPLv2 or later. This means that it is free to use and modify and will stay like that.
 
-We are very happy if this app helps you to get your job done.
+We are very happy if this app helps you to get your job done or in whatever creative way you may use it.
 
-If you enjoyed it, we will be very happy if you could give us something back. A couple of things you can do are
+If you found it useful, we will be even happier if you could give us something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
