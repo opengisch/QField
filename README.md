@@ -23,10 +23,10 @@ We are very happy if this app helps you to get your job done or in whatever crea
 If you found it useful, we will be even happier if you could give us something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
+ * [Tweet about it](https://twitter.com/share?text=Looking for a good tool for field work in GIS? Check out %23QField!)
+ * Write about your experience (please [let us know](mailto:info@opengis.ch)!)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
  * [Translate the documentation](https://github.com/opengisch/QField-docs#translation-process) or [the app](https://www.transifex.com/opengisch/qfield-for-qgis/)
- * Write about your experience (please [let us know](mailto:info@opengis.ch)!)
- * [Tweet about it](https://twitter.com/share?text=Looking for a good tool for field work in GIS? Check out %23QField!)
  * [Sponsor a feature](https://opengisch.github.io/QField-docs/development/index.html#make-it-grow-make-it-yours)
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
 
