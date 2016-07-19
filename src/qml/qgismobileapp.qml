@@ -333,6 +333,7 @@ Rectangle {
         digitizingFeature.resetAttributes();
         overlayFeatureForm.visible = true;
         overlayFeatureForm.state = "Add"
+        digitizingRubberband.model.reset()
       }
       else
       {
