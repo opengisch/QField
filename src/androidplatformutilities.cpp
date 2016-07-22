@@ -59,22 +59,6 @@ QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObje
   return "";
 }
 
-
-QMap<QString, QString> AndroidPlatformUtilities::getIntentExtras( QStringList intentExtras ) const
-{
-  QAndroidJniObject extras = getNativeExtras();
-  QString extraValue, extraName;
-  QMap<QString, QString> extraMap;
-
-  for ( int i = 0; i < intentExtras.size(); ++i )
-  {
-    extraName = intentExtras.at( i ).toLocal8Bit().constData();
-    extraValue = getIntentExtra( extraValue, extras );
-    extraMap.insert( extraName, extraValue );
-  }
-  return extraMap;
-}
-
 QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
   QAndroidJniObject activity = QtAndroid::androidActivity();

@@ -33,8 +33,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual void open( const QString& data, const QString& type );
 
   private:
-    QMap<QString, QString> getIntentExtras( QStringList ) const;
-    QString getIntentExtra( QString, QAndroidJniObject=0 ) const;
+    QString getIntentExtra( QString, QAndroidJniObject = 0 ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
 };
