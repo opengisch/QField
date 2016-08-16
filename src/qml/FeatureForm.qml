@@ -40,7 +40,7 @@ Rectangle {
       id: grid
       anchors.left: parent.left
       anchors.right: parent.right
-      columns: 3
+      columns: 2
       rowSpacing: 5
       columnSpacing: 5
       anchors.margins: 5
@@ -48,60 +48,63 @@ Rectangle {
       Repeater {
         model: form.model
 
-        Controls.Label {
+        ColumnLayout
+        {
           Layout.row: index
           Layout.column: 0
-          text: AttributeName
-          visible: EditorWidget !== "Hidden"
-        }
-      }
-
-      Repeater {
-        model: form.model
-
-        Item {
-          id: placeholder
-          Layout.row: index
-          Layout.column: 1
           Layout.fillWidth: true
           Layout.fillHeight: true
           Layout.preferredHeight: childrenRect.height
+
           visible: EditorWidget !== "Hidden"
 
-          Connections {
-            target: form
-            onAboutToSave: {
-              try {
-                attributeEditorLoader.item.pushChanges()
-              }
-              catch ( err )
-              {}
-            }
+          Controls.Label {
+            text: AttributeName
+            font.bold: true
           }
 
-          Loader {
-            id: attributeEditorLoader
-            anchors { left: parent.left; right: parent.right }
+          Item {
+            id: placeholder
+            height: childrenRect.height
+            anchors.left: parent.left
+            anchors.right: parent.right
 
-            enabled: form.state !== "ReadOnly"
-            property var value: AttributeValue
-            property var config: EditorWidgetConfig
-            property var widget: EditorWidget
-
-            source: 'editorwidgets/' + widget + '.qml'
-
-            onStatusChanged: {
-              if ( attributeEditorLoader.status === Loader.Error )
-              {
-                console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
-                widget = 'TextEdit'
+            Connections {
+              target: form
+              onAboutToSave: {
+                try {
+                  attributeEditorLoader.item.pushChanges()
+                }
+                catch ( err )
+                {}
               }
             }
-          }
 
-          Connections {
-            target: attributeEditorLoader.item
-            onValueChanged: form.model.setAttribute( index, value, isNull )
+            Loader {
+              id: attributeEditorLoader
+              anchors { left: parent.left; right: parent.right }
+
+              enabled: form.state !== "ReadOnly"
+              property var value: AttributeValue
+              property var config: EditorWidgetConfig
+              property var widget: EditorWidget
+              property var field: Field
+
+              source: 'editorwidgets/' + widget + '.qml'
+
+              onStatusChanged: {
+                if ( attributeEditorLoader.status === Loader.Error )
+                {
+                  console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
+                  widget = 'TextEdit'
+                }
+              }
+            }
+
+            Connections {
+              target: attributeEditorLoader.item
+              onValueChanged: form.model.setAttribute( index, value, isNull )
+            }
           }
         }
       }
@@ -111,7 +114,7 @@ Rectangle {
 
         Controls.CheckBox {
           Layout.row: index
-          Layout.column: 2
+          Layout.column: 1
           Layout.fillWidth: false
           Layout.fillHeight: false
           checkedState: RememberValue
