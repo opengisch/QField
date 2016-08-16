@@ -522,7 +522,7 @@ Rectangle {
     visible: messageLog.unreadMessages
 
     anchors.right: mapCanvas.right
-    anchors.top: parent.right
+    anchors.top: parent.top
     anchors.margins: 4 * dp
     width: 36*dp
     height: 36*dp
