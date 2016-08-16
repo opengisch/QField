@@ -14,6 +14,8 @@ Item {
 
     text: value || ''
 
+    inputMethodHints: field.isNumeric ? Qt.ImhDigitsOnly : Qt.ImhNone
+
     onEditingFinished: {
       valueChanged( text, text == '' )
     }
@@ -33,10 +35,4 @@ Item {
       valueChanged( text, text == '' )
     }
   }
-/*
-  function pushChanges() {
-    console.info( "Pushing Changes " + textField.text)
-    valueChanged( textArea.visible ? textArea.text : textField.text )
-  }
-*/
 }
