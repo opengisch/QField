@@ -91,7 +91,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
   switch ( role )
   {
     case AttributeName:
-      return mFeature.fields()->at( index.row() ).name();
+      return mFeature.layer()->attributeDisplayName( index.row() );
       break;
 
     case AttributeValue:
