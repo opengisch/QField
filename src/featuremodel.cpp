@@ -73,6 +73,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   roles[EditorWidget] = "EditorWidget";
   roles[EditorWidgetConfig] = "EditorWidgetConfig";
   roles[RememberValue] = "RememberValue";
+  roles[Field] = "Field";
 
   return roles;
 }
@@ -112,6 +113,10 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
 
     case RememberValue:
       return mRememberedAttributes.at( index.row() ) ? Qt::Checked : Qt::Unchecked;
+      break;
+
+    case Field:
+      return mFeature.layer()->fields().at( index.row() );
       break;
   }
 

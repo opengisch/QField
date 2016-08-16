@@ -38,7 +38,8 @@ class FeatureModel : public QAbstractListModel
       AttributeEditable,
       EditorWidget,
       EditorWidgetConfig,
-      RememberValue
+      RememberValue,
+      Field
     };
 
     explicit FeatureModel( QObject *parent = 0 );
