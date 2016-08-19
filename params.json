@@ -1,6 +1,0 @@
-{
-  "name": "QField",
-  "tagline": "A simplified touch optimized interface for QGIS",
-  "body": "QField for QGIS\r\n===============\r\n\r\nA simplified touch optimized interface for QGIS.\r\n\r\nPerfect for field work on portable touch devices.\r\n\r\n\r\nBuild\r\n-----\r\nFirst build [OSGeo4A](https://github.com/opengisch/OSGeo4A) then call:\r\n\r\n```sh\r\ncd QField\r\ncp config.pri.default config.pri\r\ngit submodule init\r\ngit submodule update\r\n```\r\n\r\nand add the right paths to config.pri\r\nopen QField.pro with QtCreator installed during OSGeo4A installation\r\nhit build \r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}

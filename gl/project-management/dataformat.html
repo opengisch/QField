@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Formatos de datos admitidos &mdash; QField Documentation 0.7 - Gonnus Mons documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/qfield.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7 - Gonnus Mons',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="top" title="QField Documentation 0.7 - Gonnus Mons documentation" href="../index.html" />
+    <link rel="next" title="Guía de Usuario de QField" href="../user-guide/index.html" />
+    <link rel="prev" title="Xestión do Proxecto QField" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+              <span>
+              
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="100%"
+                   height="100%"
+                   viewBox="0 0 128 128"
+                   id="qfield-logo"
+                   version="1.1">
+                  <g
+                     id="layer1"
+                     transform="translate(0,-924.36216)">
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z "
+                       transform="translate(0,924.36216)" />
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="m 87.99112,976.2721 22,58 -56.000001,-22 z" />
+                  </g>
+                </svg>
+            
+              </span>
+        </a>
+        <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Formatos de datos admitidos</a><ul>
+<li><a class="reference internal" href="#table">Táboa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#raster-data">Datos ráster</a><ul>
+<li><a class="reference internal" href="#use-geopackage">Utilizar Geopackage</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="index.html" title="Previous Chapter: Xestión do Proxecto QField"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Xestión do Pr...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../user-guide/index.html" title="Next Chapter: Guía de Usuario de QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Guía de Usuar... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container"><span class="shadow-background"><img src="../_static/qfield-logo.svg"></span>
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Xestión do Proxecto QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Formatos de datos admitidos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#raster-data">Datos ráster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="supported-data-formats">
+<h1>Formatos de datos admitidos<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
+<p>QField admite unha ampla variedade de formatos a través dos provedores de datos de QGIS e GDAL. Esta páxina ofrece unha lista non exhaustiva de formatos de datos admitidos.</p>
+<div class="section" id="table">
+<h2>Táboa<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="23%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">Formato dos Datos</p>
+</th>
+<th class="head"><p class="first last">Asistencia</p>
+</th>
+<th class="head"><p class="first last">Notas</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">SpatiaLite</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Geopackage</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WMS</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Postgis</td>
+<td><span class="yay">✔</span></td>
+<td><p class="first last">Compatibilidade ssl aínda non implantada.</p>
+</td>
+</tr>
+<tr class="row-even"><td>MBTiles</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Shapefile</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Tiff</td>
+<td><span class="moreorless">~</span></td>
+<td><p class="first last">A compresión JPEG aínda non está admitida.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>ECW</td>
+<td><span class="nay">✘</span></td>
+<td><p class="first last">A licenza restrinxe o uso.</p>
+</td>
+</tr>
+<tr class="row-even"><td>MrSID</td>
+<td><span class="nay">✘</span></td>
+<td><p class="first last">A licenza restrinxe o uso.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Se non atopas o teu formato de datos favorito nesta táboa, comproba se funciona e adapta a lista de enriba &lt;<a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst</a>&gt;`_  para compartir os teus descubrimentos. Se non funciona, <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">abre unha incidencia</a>. Estaremos encantados de axudarche coa implantación.</p>
+</div>
+</div>
+<div class="section" id="raster-data">
+<h1>Datos ráster<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h1>
+<p>Os datos ráster poden chegar a ser bastante grandes rapidamente, cando se traballa con ficheiros tiff descomprimidos estes son de varios Gb de datos. En dispositivos móbiles especialmente, isto é ineficiente.</p>
+<div class="section" id="use-geopackage">
+<h2>Utilizar Geopackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
+<p>Recomendamos utilizar o formato geopackage para tratar datos ráster. Os seguintes comandos converterán un ficheiro denominado <code class="code docutils literal"><span class="pre">raster.tif</span></code> a un ficheiro <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> con pirámides. Asegúrate de axustar o EPSG:21781 (CH1903 LV03) ó SRC desexado.</p>
+<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
+gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/project-management/dataformat.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, The QField Project/OPENGIS.ch.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
