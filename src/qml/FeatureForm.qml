@@ -32,6 +32,11 @@ Rectangle {
     id: formElement
 
     property AttributeFormModel model
+
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    anchors.left: parent.left
+    anchors.top: toolbar.bottom
   }
 
   Controls.TabView
