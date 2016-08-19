@@ -15,6 +15,8 @@
 
 #include "featurelistmodelhighlight.h"
 
+#include <qgsvectorlayer.h>
+
 #include "qgssggeometry.h"
 
 FeatureListModelHighlight::FeatureListModelHighlight( QQuickItem* parent )
@@ -79,19 +81,19 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
     QgsSGGeometry* sn = 0;
 
     QModelIndex firstIndex = mModel->index( 0, 0, QModelIndex() );
-    Feature firstFeature = mModel->data( firstIndex, FeatureListModel::FeatureRole ).value<Feature>();
-    if ( firstFeature.layer() )
+    QgsVectorLayer* layer = mModel->data( firstIndex, FeatureListModel::LayerRole ).value<QgsVectorLayer*>();
+    if ( layer )
     {
-      QgsCoordinateTransform transf( firstFeature.layer()->crs(), mMapSettings->crs()->crs() );
+      QgsCoordinateTransform transf( layer->crs(), mMapSettings->crs()->crs() );
 
       for ( int i = 0; i < count; ++i )
       {
         QgsSGGeometry* gn;
 
         QModelIndex index = mModel->index( i, 0, QModelIndex() );
-        const Feature& feature = mModel->data( index, FeatureListModel::FeatureRole ).value<Feature>();
+        QgsFeature feature = mModel->data( index, FeatureListModel::FeatureRole ).value<QgsFeature>();
 
-        QgsGeometry geom( *feature.qgsFeature().constGeometry() );
+        QgsGeometry geom( feature.geometry() );
         geom.transform( transf );
 
         if ( mSelection && mSelection->selection() == i )

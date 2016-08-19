@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
+import org.qfield 1.0
 import "js/style.js" as Style
 
 Rectangle {
@@ -9,8 +10,9 @@ Rectangle {
   signal cancelled
   signal aboutToSave
 
-  property FeatureModel model
+  property FeatureModel feature
   property alias toolbarVisible: toolbar.visible
+  property alias model: formElement.model
 
   id: form
 
@@ -25,6 +27,25 @@ Rectangle {
       name: "Add"
     }
   ]
+
+  Component {
+    id: formElement
+
+    property AttributeFormModel model
+  }
+
+  Controls.TabView
+  {
+    focus: true
+
+    Repeater {
+      id: repeater;
+
+      model: attributeFormModel
+
+      Controls.Tab { title: DisplayRole }
+    }
+  }
 
   Flickable {
     anchors.bottom: parent.bottom

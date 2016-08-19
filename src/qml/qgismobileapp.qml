@@ -20,6 +20,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Dialogs 1.2
 import QtQml 2.2
 import org.qgis 1.0
+import org.qfield 1.0
 import QtPositioning 5.4
 import "js/style.js" as Style
 
@@ -463,7 +464,9 @@ Rectangle {
 
     anchors.fill: parent
 
-    model: digitizingFeature
+    attributeFormModel: AttributeFormModel {
+      featureModel: digitizingFeature
+    }
 
     state: "Add"
 

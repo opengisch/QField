@@ -33,6 +33,7 @@
 #include <qgsmaptoolidentify.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
+#include <qgssnappingutils.h>
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
@@ -49,6 +50,9 @@
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
 #include "messagelogmodel.h"
+#include "attributeformmodel.h"
+#include "geometry.h"
+#include "featuremodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -110,14 +114,15 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
-  qRegisterMetaType<QGis::GeometryType>( "QGIS::GeometryType" );
+  qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" );
+  qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
+  qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
 
   // Register QField QML types
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
-  qmlRegisterType<FeatureModel>( "org.qgis", 1, 0, "FeatureModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
@@ -131,6 +136,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
   qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
+  qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
+  qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

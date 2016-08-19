@@ -17,7 +17,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
 
   switch ( gg.type() )
   {
-    case QGis::Point:
+    case QgsWkbTypes::PointGeometry:
       if ( gg.isMultipart() )
       {
         const QgsMultiPoint& points = gg.asMultiPoint();
@@ -42,7 +42,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
 
       break;
 
-    case QGis::Line:
+    case QgsWkbTypes::LineGeometry:
       if ( gg.isMultipart() )
       {
         const QgsMultiPolyline& lines = gg.asMultiPolyline();
@@ -66,7 +66,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       }
       break;
 
-    case QGis::Polygon:
+    case QgsWkbTypes::PolygonGeometry:
       if ( gg.isMultipart() )
       {
         const QgsMultiPolygon& polygons = gg.asMultiPolygon();

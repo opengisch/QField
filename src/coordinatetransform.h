@@ -28,9 +28,9 @@ class CoordinateTransform : public QObject
     Q_PROPERTY( CRS* destinationCRS READ destinationCRS WRITE setDestinationCRS NOTIFY destinationCRSChanged )
 
   public:
-    explicit CoordinateTransform(QObject *parent = 0);
+    explicit CoordinateTransform( QObject *parent = 0 );
 
-    Q_INVOKABLE const QPointF transform( const QPointF& pt ) const;
+    Q_INVOKABLE const QPointF transform( const QPointF& pt  ) const;
 
     CRS* sourceCRS() const;
     CRS* destinationCRS() const;

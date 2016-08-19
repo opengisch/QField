@@ -23,8 +23,6 @@
 
 #include <QStandardItemModel>
 
-#include "feature.h"
-
 class QgisMobileapp;
 
 class AppInterface : public QObject
@@ -51,8 +49,6 @@ class AppInterface : public QObject
     void identifyFeatures( const QPointF point );
 
     void openFeatureForm();
-
-    void addFeature( const Feature* feature );
 
   signals:
     void openFeatureFormRequested();

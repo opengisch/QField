@@ -19,6 +19,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
+import org.qfield 1.0
 import "js/style.js" as Style
 
 Rectangle {
@@ -221,8 +222,11 @@ Rectangle {
 
     toolbarVisible: false
 
-    model: FeatureModel {
-      feature: featureForm.selection.selectedFeature
+    attributeFormModel: AttributeFormModel {
+      featureModel: FeatureModel {
+        currentLayer: featureForm.selection.selectedLayer
+        feature: featureForm.selection.selectedFeature
+      }
     }
 
     focus: true

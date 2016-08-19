@@ -20,7 +20,7 @@
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
   , mCurrentCoordinateIndex( 0 )
-  , mGeometryType( QGis::Line )
+  , mGeometryType( QgsWkbTypes::LineGeometry )
 {
   mPointList.insert( 0, QPointF() );
 }
@@ -51,9 +51,9 @@ QVector<QgsPoint> RubberbandModel::flatVertices() const
   return points;
 }
 
-QgsPointSequenceV2 RubberbandModel::pointSequenceV2() const
+QgsPointSequence RubberbandModel::pointSequence() const
 {
-  QgsPointSequenceV2 sequence;
+  QgsPointSequence sequence;
 
   Q_FOREACH( const QPointF& pt, mPointList )
   {
@@ -150,12 +150,12 @@ void RubberbandModel::reset()
   removeVertices( 0, mPointList.size() - 1 );
 }
 
-QGis::GeometryType RubberbandModel::geometryType() const
+QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
 {
   return mGeometryType;
 }
 
-void RubberbandModel::setGeometryType( const QGis::GeometryType& geometryType )
+void RubberbandModel::setGeometryType( const QgsWkbTypes::GeometryType& geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -169,7 +169,7 @@ QgsVectorLayer* RubberbandModel::vectorLayer() const
   return mLayer;
 }
 
-void RubberbandModel::setVectorLayer(QgsVectorLayer* layer)
+void RubberbandModel::setVectorLayer( QgsVectorLayer* layer )
 {
   if ( layer == mLayer )
     return;

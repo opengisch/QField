@@ -21,8 +21,7 @@
 #include <QAbstractItemModel>
 
 #include <qgsmaptoolidentify.h>
-
-#include "feature.h"
+#include <qgsfeaturerequest.h>
 
 class FeatureListModel : public QAbstractItemModel
 {
@@ -36,6 +35,7 @@ class FeatureListModel : public QAbstractItemModel
       FeatureIdRole = Qt::UserRole + 1,
       FeatureRole,
       LayerNameRole,
+      LayerRole,
       DeleteFeatureRole
     };
 
@@ -77,20 +77,20 @@ class FeatureListModel : public QAbstractItemModel
     void countChanged();
 
   private slots:
-    void layerDeleted();
+    void layerDeleted(QObject* object);
 
     void featureDeleted( QgsFeatureId fid );
 
     void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant & value );
 
   private:
-    inline Feature* toFeature( const QModelIndex& index ) const
+    inline QPair< QgsVectorLayer*, QgsFeature >* toFeature( const QModelIndex& index ) const
     {
-      return static_cast<Feature*>( index.internalPointer() );
+      return static_cast<QPair< QgsVectorLayer*, QgsFeature >*>( index.internalPointer() );
     }
 
   private:
-    QList<Feature*> mFeatures;
+    QList< QPair< QgsVectorLayer*, QgsFeature > > mFeatures;
 };
 
 #endif // FEATURELISTMODEL_H

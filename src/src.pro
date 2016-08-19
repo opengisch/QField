@@ -22,7 +22,6 @@ HEADERS += \
     appinterface.h \
     coordinatetransform.h \
     crs.h \
-    feature.h \
     featurelistextentcontroller.h \
     featurelistmodel.h \
     featurelistmodelhighlight.h \
@@ -42,13 +41,13 @@ HEADERS += \
     rubberbandmodel.h \
     rubberband.h \
     picturesource.h \
-    messagelogmodel.h
+    messagelogmodel.h \
+    attributeformmodel.h
 
 SOURCES += \
     appinterface.cpp \
     coordinatetransform.cpp \
     crs.cpp \
-    feature.cpp \
     featurelistextentcontroller.cpp \
     featurelistmodel.cpp \
     featurelistmodelhighlight.cpp \
@@ -69,7 +68,8 @@ SOURCES += \
     rubberbandmodel.cpp \
     rubberband.cpp \
     picturesource.cpp \
-    messagelogmodel.cpp
+    messagelogmodel.cpp \
+    attributeformmodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

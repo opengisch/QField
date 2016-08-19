@@ -1,22 +1,21 @@
 #include "qgsmapcanvasproxy.h"
 
 #include <qgsmapcanvas.h>
-#include <qgsmaprenderer.h>
 #include <QApplication>
 
 QgsMapCanvasProxy::QgsMapCanvasProxy( QGraphicsItem *parent ) :
-    QGraphicsProxyWidget( parent )
+  QGraphicsProxyWidget( parent )
 {
-    mMapCanvas = new QgsMapCanvas();
-    mMapCanvas->enableAntiAliasing(true);
-    mMapCanvas->setCanvasColor( Qt::white );
+  mMapCanvas = new QgsMapCanvas();
+  mMapCanvas->enableAntiAliasing( true );
+  mMapCanvas->setCanvasColor( Qt::white );
 
-    setWidget(mMapCanvas);
+  setWidget( mMapCanvas );
 
-    grabGesture( Qt::TapAndHoldGesture );
+  grabGesture( Qt::TapAndHoldGesture );
 
-    connect(mMapCanvas, SIGNAL( renderStarting() ), this, SIGNAL( renderStarted() ) );
-    connect(mMapCanvas, SIGNAL( renderComplete(QPainter*) ), this, SIGNAL( renderCompleted() ) );
+  connect( mMapCanvas, SIGNAL( renderStarting() ), this, SIGNAL( renderStarted() ) );
+  connect( mMapCanvas, SIGNAL( renderComplete( QPainter* ) ), this, SIGNAL( renderCompleted() ) );
 }
 
 QgsMapCanvasProxy::~QgsMapCanvasProxy()
@@ -58,14 +57,14 @@ bool QgsMapCanvasProxy::gestureEvent( QGestureEvent *event )
 
 void QgsMapCanvasProxy::tapAndHoldTriggered( QTapAndHoldGesture *gesture )
 {
-    if ( gesture->state() == Qt::GestureFinished )
-    {
-      QPoint pos = gesture->position().toPoint();
-      QWidget *receiver = QApplication::widgetAt( pos );
-      qDebug() << "tapAndHoldTriggered: LONG CLICK gesture happened at " << pos;
-      qDebug() << "widget under point of click: " << receiver;
+  if ( gesture->state() == Qt::GestureFinished )
+  {
+    QPoint pos = gesture->position().toPoint();
+    QWidget *receiver = QApplication::widgetAt( pos );
+    qDebug() << "tapAndHoldTriggered: LONG CLICK gesture happened at " << pos;
+    qDebug() << "widget under point of click: " << receiver;
 
-      QApplication::postEvent( receiver, new QMouseEvent( QEvent::MouseButtonPress, receiver->mapFromGlobal( pos ), Qt::RightButton, Qt::RightButton, Qt::NoModifier ) );
-      QApplication::postEvent( receiver, new QMouseEvent( QEvent::MouseButtonRelease, receiver->mapFromGlobal( pos ), Qt::RightButton, Qt::RightButton, Qt::NoModifier ) );
-    }
+    QApplication::postEvent( receiver, new QMouseEvent( QEvent::MouseButtonPress, receiver->mapFromGlobal( pos ), Qt::RightButton, Qt::RightButton, Qt::NoModifier ) );
+    QApplication::postEvent( receiver, new QMouseEvent( QEvent::MouseButtonRelease, receiver->mapFromGlobal( pos ), Qt::RightButton, Qt::RightButton, Qt::NoModifier ) );
+  }
 }

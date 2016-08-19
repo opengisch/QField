@@ -19,13 +19,12 @@
 #define FEATUREMODEL_H
 
 #include <QAbstractListModel>
-#include "feature.h"
 #include "geometry.h"
 
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY( Feature feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
     Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setLayer NOTIFY layerChanged )
     Q_ENUMS( FeatureRoles )
@@ -35,27 +34,23 @@ class FeatureModel : public QAbstractListModel
     {
       AttributeName = Qt::UserRole + 1,
       AttributeValue,
-      AttributeEditable,
-      EditorWidget,
-      EditorWidgetConfig,
-      RememberValue,
       Field
     };
 
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
 
-    void setFeature( const QVariant& feature );
-    void setFeature( const Feature& feature , bool force = false );
-
-    void setLayer( QgsVectorLayer* layer );
-    QgsVectorLayer* layer() const;
-
+    void setFeature(const QgsFeature& feature );
 
     /**
      * Return the feature wrapped in a QVariant for passing it around in QML
      */
-    Feature feature() const;
+    QgsFeature feature() const;
+
+
+    void setLayer( QgsVectorLayer* layer );
+    QgsVectorLayer* layer() const;
+
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex& parent ) const override;
@@ -90,7 +85,7 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE bool suppressFeatureForm() const;
 
-    Q_INVOKABLE void resetAttributes( bool skipRemembered = true );
+    Q_INVOKABLE void resetAttributes();
 
   public slots:
     void applyGeometry();
@@ -108,9 +103,9 @@ class FeatureModel : public QAbstractListModel
     bool commit();
     bool startEditing();
 
-    Feature mFeature;
+    QgsVectorLayer* mLayer;
+    QgsFeature mFeature;
     Geometry* mGeometry;
-    QVector<bool> mRememberedAttributes;
 };
 
 #endif // FEATUREMODEL_H

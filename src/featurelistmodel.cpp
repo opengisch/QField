@@ -38,18 +38,17 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
 {
   beginResetModel();
 
-  qDeleteAll( mFeatures );
   mFeatures.clear();
 
-  disconnect( this, SLOT( layerDeleted() ) );
+  disconnect( this, SLOT( layerDeleted(QObject*)) );
 
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
-    Feature* f = new Feature( res.mFeature, qobject_cast<QgsVectorLayer*>( res.mLayer ) );
-    mFeatures.append( f );
-    connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
-    connect( f->layer(), SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
-    connect( f->layer(), SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId,int,QVariant ) ), Qt::UniqueConnection );
+    QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( res.mLayer );
+    mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( layer, res.mFeature ) );
+    connect( layer, SIGNAL( destroyed(QObject*) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
+    connect( layer, SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
+    connect( layer, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId,int,QVariant ) ), Qt::UniqueConnection );
   }
 
   endResetModel();
@@ -59,7 +58,6 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
 {
   beginResetModel();
 
-  qDeleteAll( mFeatures );
   mFeatures.clear();
 
   QMap<QgsVectorLayer*, QgsFeatureRequest>::ConstIterator it;
@@ -69,9 +67,8 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
     QgsFeatureIterator fit = it.key()->getFeatures( it.value() );
     while ( fit.nextFeature( feat ) )
     {
-      Feature* f = new Feature( feat, it.key() );
-      mFeatures.append( f );
-      connect( f->layer(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
+      mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( it.key(), feat ) );
+      connect( it.key(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
     }
   }
 
@@ -86,6 +83,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roleNames[FeatureIdRole] = "featureId";
   roleNames[FeatureRole] = "feature";
   roleNames[LayerNameRole] = "layerName";
+  roleNames[LayerNameRole] = "layer";
   roleNames[DeleteFeatureRole] = "deleteFeatureCapability";
 
   return roleNames;
@@ -98,7 +96,7 @@ QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& par
   if ( row < 0 || row >= mFeatures.size() || column != 0 )
     return QModelIndex();
 
-  return createIndex( row, column, mFeatures.at( row ) );
+  return createIndex( row, column, const_cast<QPair< QgsVectorLayer*, QgsFeature >*>( &mFeatures.at( row ) ) );
 }
 
 QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
@@ -123,26 +121,36 @@ int FeatureListModel::columnCount( const QModelIndex& parent ) const
 
 QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
 {
-  Feature* feature = toFeature( index );
+  QPair< QgsVectorLayer*, QgsFeature >* feature = toFeature( index );
   if ( !feature )
     return QVariant();
 
   switch( role )
   {
     case FeatureIdRole:
-      return feature->id();
+      return feature->second.id();
 
     case FeatureRole:
-      return QVariant::fromValue<Feature>( *feature );
+      return feature->second;
 
     case Qt::DisplayRole:
-      return feature->displayText();
+    {
+      QgsExpressionContext context = QgsExpressionContext()
+          << QgsExpressionContextUtils::globalScope()
+          << QgsExpressionContextUtils::projectScope()
+          << QgsExpressionContextUtils::layerScope( feature->first );
+      context.setFeature( feature->second );
+      return QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
+    }
 
     case LayerNameRole:
-      return feature->layer()->name();
+      return feature->first->name();
+
+    case LayerRole:
+      return QVariant::fromValue<QgsVectorLayer*>( feature->first );
 
     case DeleteFeatureRole:
-      bool a = !feature->layer()->readOnly() && ( feature->layer()->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures );
+      bool a = !feature->first->readOnly() && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures );
       return a;
   }
 
@@ -155,7 +163,7 @@ bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent
     return true;
 
   int i = 0;
-  QMutableListIterator<Feature*> it( mFeatures );
+  QMutableListIterator<QPair< QgsVectorLayer*, QgsFeature >> it( mFeatures );
   while ( i < row )
   {
     it.next();
@@ -168,7 +176,6 @@ bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent
   while ( i <= last )
   {
     it.next();
-    delete ( it.value() );
     it.remove();
     i++;
   }
@@ -182,11 +189,8 @@ int FeatureListModel::count() const
   return mFeatures.size();
 }
 
-void FeatureListModel::layerDeleted()
+void FeatureListModel::layerDeleted( QObject* object )
 {
-  QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
-  Q_ASSERT( l );
-
   int firstRowToRemove = -1;
   int count = 0;
   int currentRow = 0;
@@ -198,9 +202,9 @@ void FeatureListModel::layerDeleted()
    * Once there is a feature of a different layer found
    * we can stop searching.
    */
-  Q_FOREACH( Feature* f, mFeatures )
+  for( auto it = mFeatures.constBegin(); it != mFeatures.constEnd(); it++ )
   {
-    if ( f->layer() == l )
+    if ( it->first == object )
     {
       if ( firstRowToRemove == -1 )
         firstRowToRemove = currentRow;
@@ -223,9 +227,9 @@ void FeatureListModel::featureDeleted( QgsFeatureId fid )
   Q_ASSERT( l );
 
   int i = 0;
-  Q_FOREACH( Feature* f, mFeatures )
+  for( auto it = mFeatures.constBegin(); it != mFeatures.constEnd(); it++ )
   {
-    if ( f->layer() == l && f->id() == fid )
+    if ( it->first == l && it->second.id() == fid )
     {
       removeRows( i, 1 );
       break;
@@ -240,11 +244,11 @@ void FeatureListModel::attributeValueChanged( QgsFeatureId fid, int idx, const Q
   Q_ASSERT( l );
 
   int i = 0;
-  Q_FOREACH( Feature* f, mFeatures )
+  for( auto it = mFeatures.begin(); it != mFeatures.end(); it++ )
   {
-    if ( f->layer() == l && f->id() == fid )
+    if ( it->first == l && it->second.id() == fid )
     {
-      f->setAttribute( idx, value );
+      it->second.setAttribute( idx, value );
       break;
     }
     ++i;

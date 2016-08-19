@@ -15,6 +15,7 @@
 
 #include "featurelistextentcontroller.h"
 
+#include <qgsvectorlayer.h>
 #include <qgsgeometry.h>
 
 FeatureListExtentController::FeatureListExtentController( QObject* parent )
@@ -37,10 +38,11 @@ void FeatureListExtentController::zoomToSelected() const
 {
   if ( mModel && mSelection && mMapSettings )
   {
-    Feature feat = mSelection->selectedFeature();
+    QgsFeature feat = mSelection->selectedFeature();
+    QgsVectorLayer* layer = mSelection->selectedLayer();
 
-    QgsCoordinateTransform transf( feat.layer()->crs(), mMapSettings->crs()->crs() );
-    QgsGeometry geom( *feat.qgsFeature().constGeometry() );
+    QgsCoordinateTransform transf( layer->crs(), mMapSettings->crs()->crs() );
+    QgsGeometry geom( feat.geometry() );
     geom.transform( transf );
 
     QgsRectangle featureExtent = geom.boundingBox();

@@ -14,15 +14,17 @@
  ***************************************************************************/
 
 #include "coordinatetransform.h"
+#include "qgspoint.h"
+
 #include <QDebug>
 
-CoordinateTransform::CoordinateTransform(QObject *parent) :
-  QObject(parent)
-, mSourceCRS( 0 )
-, mDestinationCRS( 0 )
+CoordinateTransform::CoordinateTransform( QObject *parent ) :
+  QObject( parent )
+  , mSourceCRS( 0 )
+  , mDestinationCRS( 0 )
 {
-  connect( this, SIGNAL(destinationCRSChanged()), this, SLOT(updateTransform()));
-  connect( this, SIGNAL(sourceCRSChanged()), this, SLOT(updateTransform()));
+  connect( this, SIGNAL( destinationCRSChanged() ), this, SLOT( updateTransform() ) );
+  connect( this, SIGNAL( sourceCRSChanged() ), this, SLOT( updateTransform() ) );
 }
 
 const QPointF CoordinateTransform::transform( const QPointF& pt ) const
@@ -49,7 +51,7 @@ void CoordinateTransform::setSourceCRS( CRS* sourceCRS )
   if ( mSourceCRS != sourceCRS )
   {
     mSourceCRS = sourceCRS;
-    connect( mSourceCRS, SIGNAL(sridChanged()), this, SLOT(updateTransform()) );
+    connect( mSourceCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
     updateTransform();
     emit sourceCRSChanged();
   }
@@ -60,7 +62,7 @@ void CoordinateTransform::setDestinationCRS( CRS* destCRS )
   if ( mDestinationCRS != destCRS )
   {
     mDestinationCRS = destCRS;
-    connect( mDestinationCRS, SIGNAL(sridChanged()), this, SLOT(updateTransform()) );
+    connect( mDestinationCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
     updateTransform();
     emit destinationCRSChanged();
   }
@@ -71,7 +73,7 @@ void CoordinateTransform::updateTransform()
   if ( mSourceCRS && mDestinationCRS )
   {
     mTransform.setSourceCrs( mSourceCRS->crs() );
-    mTransform.setDestCRS( mDestinationCRS->crs() );
+    mTransform.setDestinationCrs( mDestinationCRS->crs() );
     mTransform.initialise();
   }
 }

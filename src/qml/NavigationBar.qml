@@ -184,7 +184,7 @@ Rectangle {
 
       onSelectionChanged:
       {
-        editButton.readOnly = selection.selectedFeature.readOnly()
+        editButton.readOnly = selection.selectedLayer.readOnly
       }
     }
   }

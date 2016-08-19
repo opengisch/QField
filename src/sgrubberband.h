@@ -5,7 +5,7 @@
 #include <QtQuick/QSGFlatColorMaterial>
 
 #include <qgspoint.h>
-#include <qgis.h>
+#include <qgswkbtypes.h>
 
 
 class RubberbandModel;
@@ -19,7 +19,7 @@ class RubberbandModel;
 class SGRubberband : public QSGNode
 {
   public:
-    SGRubberband( const QVector<QgsPoint>& points, QGis::GeometryType type, const QColor& color, qreal width );
+    SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::GeometryType type, const QColor& color, qreal width );
 
   private:
     QSGFlatColorMaterial mMaterial;

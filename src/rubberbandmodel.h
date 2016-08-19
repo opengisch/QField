@@ -21,7 +21,7 @@
 #include <QPointF>
 #include <qgis.h>
 #include <qgspoint.h>
-#include <qgsabstractgeometryv2.h>
+#include <qgsabstractgeometry.h>
 
 class QgsVectorLayer;
 
@@ -37,7 +37,7 @@ class RubberbandModel : public QObject
 
     Q_PROPERTY( QPointF currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
-    Q_PROPERTY( QGis::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
+    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
 
@@ -52,7 +52,7 @@ class RubberbandModel : public QObject
 
     QVector<QgsPoint> flatVertices() const;
 
-    QgsPointSequenceV2 pointSequenceV2() const;
+    QgsPointSequence pointSequence() const;
 
     void setVertex( int index, QPointF coordinate );
 
@@ -71,10 +71,10 @@ class RubberbandModel : public QObject
 
     Q_INVOKABLE void reset();
 
-    QGis::GeometryType geometryType() const;
+    QgsWkbTypes::GeometryType geometryType() const;
 
     QgsVectorLayer* vectorLayer() const;
-    void setVectorLayer(QgsVectorLayer* vectorLayer);
+    void setVectorLayer( QgsVectorLayer* vectorLayer );
 
   signals:
     void vertexChanged( int index );
@@ -87,11 +87,11 @@ class RubberbandModel : public QObject
     void vertexCountChanged();
 
   private:
-    void setGeometryType( const QGis::GeometryType& geometryType );
+    void setGeometryType( const QgsWkbTypes::GeometryType& geometryType );
 
     QVector<QPointF> mPointList;
     int mCurrentCoordinateIndex;
-    QGis::GeometryType mGeometryType;
+    QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;
 };
 

@@ -1,7 +1,7 @@
 #include "geometry.h"
 
 #include <qgspointv2.h>
-#include <qgslinestringv2.h>
+#include <qgslinestring.h>
 #include <qgsvectorlayer.h>
 
 Geometry::Geometry( QObject* parent )
@@ -12,30 +12,30 @@ Geometry::Geometry( QObject* parent )
 
 QgsGeometry Geometry::asQgsGeometry() const
 {
-  QgsAbstractGeometryV2* geom = nullptr;
+  QgsAbstractGeometry* geom = nullptr;
 
   if ( !mVectorLayer )
     return QgsGeometry();
 
   switch ( mVectorLayer->geometryType() )
   {
-    case QGis::Point:
+    case QgsWkbTypes::PointGeometry:
     {
       geom = new QgsPointV2( mRubberbandModel->currentCoordinate().x(), mRubberbandModel->currentCoordinate().y() );
       break;
     }
-    case QGis::Line:
+    case QgsWkbTypes::LineGeometry:
     {
-      QgsLineStringV2* line = new QgsLineStringV2();
-      line->setPoints( mRubberbandModel->pointSequenceV2() );
+      QgsLineString* line = new QgsLineString();
+      line->setPoints( mRubberbandModel->pointSequence() );
       geom = line;
       break;
     }
-    case QGis::Polygon:
+    case QgsWkbTypes::PolygonGeometry:
       break;
-    case QGis::UnknownGeometry:
+    case QgsWkbTypes::UnknownGeometry:
       break;
-    case QGis::NoGeometry:
+    case QgsWkbTypes::NullGeometry:
       break;
 
   }
@@ -67,7 +67,7 @@ QgsVectorLayer* Geometry::vectorLayer() const
   return mVectorLayer;
 }
 
-void Geometry::setVectorLayer(QgsVectorLayer* vectorLayer)
+void Geometry::setVectorLayer( QgsVectorLayer* vectorLayer )
 {
   if ( mVectorLayer == vectorLayer )
     return;

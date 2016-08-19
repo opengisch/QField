@@ -1,17 +1,17 @@
 #include "sgrubberband.h"
 
-SGRubberband::SGRubberband(const QVector<QgsPoint>& points, QGis::GeometryType type, const QColor& color, qreal width )
+SGRubberband::SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::GeometryType type, const QColor& color, qreal width )
   : QSGNode()
 {
   mMaterial.setColor( color );
 
   switch ( type )
   {
-    case QGis::Point:
+    case QgsWkbTypes::PointGeometry:
       // TODO: Implement
       break;
 
-    case QGis::Line:
+    case QgsWkbTypes::LineGeometry:
     {
       QSGGeometryNode* node = new QSGGeometryNode;
       QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), points.count() );
@@ -33,12 +33,12 @@ SGRubberband::SGRubberband(const QVector<QgsPoint>& points, QGis::GeometryType t
       break;
     }
 
-    case QGis::Polygon:
+    case QgsWkbTypes::PolygonGeometry:
       // TODO: Implement
       break;
 
-    case QGis::UnknownGeometry:
-    case QGis::NoGeometry:
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
       break;
   }
 }

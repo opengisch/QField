@@ -28,7 +28,8 @@ class FeatureListModelSelection : public QObject
     Q_OBJECT
     Q_PROPERTY( FeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
-    Q_PROPERTY( Feature selectedFeature READ selectedFeature NOTIFY selectionChanged )
+    Q_PROPERTY( QgsVectorLayer* selectedLayer READ selectedLayer NOTIFY selectionChanged )
+    Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
 
   public:
     explicit FeatureListModelSelection( QObject *parent = 0 );
@@ -39,7 +40,8 @@ class FeatureListModelSelection : public QObject
     FeatureListModel* model() const;
     void setModel( FeatureListModel* model );
 
-    const Feature selectedFeature() const;
+    QgsVectorLayer* selectedLayer() const;
+    const QgsFeature selectedFeature() const;
 
   signals:
     void modelChanged();

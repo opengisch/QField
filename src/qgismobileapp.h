@@ -29,7 +29,6 @@
 #include <qgsmaplayerproxymodel.h>
 
 // QGIS mobile includes
-#include "featuremodel.h"
 #include "featurelistmodel.h"
 #include "settings.h"
 
@@ -50,8 +49,6 @@ class QgisMobileapp : public QQuickView
 
     // interface methods
     void identifyFeatures( const QPointF& point );
-
-    void showFeatureForm( const Feature& feature );
 
     /**
      * When called loads the project file found at path.
@@ -100,7 +97,6 @@ class QgisMobileapp : public QQuickView
     QgsLayerTreeModel* mLayerTree;
     QgsMapLayerProxyModel* mLayerList;
     AppInterface* mIface;
-    FeatureModel mFeatureModel;
     FeatureListModel mFeatureListModel;
     Settings mSettings;
     bool mFirstRenderingFlag;
@@ -111,6 +107,8 @@ class QgisMobileapp : public QQuickView
 #endif
 };
 
-Q_DECLARE_METATYPE( QGis::GeometryType )
+Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
+Q_DECLARE_METATYPE( QgsFeatureId )
+Q_DECLARE_METATYPE( QgsAttributes )
 
 #endif // QGISMOBILEAPP_H

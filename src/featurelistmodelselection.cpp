@@ -17,6 +17,7 @@
 
 #include <QDebug>
 
+#include <qgsvectorlayer.h>
 #include "featurelistmodelselection.h"
 
 FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
@@ -62,11 +63,20 @@ void FeatureListModelSelection::setModel( FeatureListModel* model )
   }
 }
 
-const Feature FeatureListModelSelection::selectedFeature() const
+QgsVectorLayer*FeatureListModelSelection::selectedLayer() const
 {
   if ( mSelection->selectedIndexes().count() )
   {
-    return mModel->data( mSelection->selectedIndexes().first(), FeatureListModel::FeatureRole ).value<Feature>();
+    return mModel->data( mSelection->selectedIndexes().first(), FeatureListModel::LayerRole ).value<QgsVectorLayer*>();
   }
-  return Feature();
+  return nullptr;
+}
+
+const QgsFeature FeatureListModelSelection::selectedFeature() const
+{
+  if ( mSelection->selectedIndexes().count() )
+  {
+    return mModel->data( mSelection->selectedIndexes().first(), FeatureListModel::FeatureRole ).value<QgsFeature>();
+  }
+  return QgsFeature();
 }
