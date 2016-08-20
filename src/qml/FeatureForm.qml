@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
+import QtQml.Models 2.2
+
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
@@ -12,7 +14,7 @@ Rectangle {
 
   property FeatureModel feature
   property alias toolbarVisible: toolbar.visible
-  property alias model: formElement.model
+  property alias model: rootElement.model
 
   id: form
 
@@ -28,30 +30,105 @@ Rectangle {
     }
   ]
 
-  Component {
-    id: formElement
-
-    property AttributeFormModel model
-
+  Item {
     anchors.bottom: parent.bottom
     anchors.right: parent.right
     anchors.left: parent.left
     anchors.top: toolbar.bottom
-  }
 
-  Controls.TabView
-  {
-    focus: true
+    // Tabs
+    Column {
+      anchors.fill: parent
 
-    Repeater {
-      id: repeater;
+      Row {
+        Repeater {
+          model: DelegateModel {
+            id: rootElement
+            delegate: Button {
+              text: Name
 
-      model: attributeFormModel
+              onClicked: {
+                content.sourceComponent = undefined
 
-      Controls.Tab { title: DisplayRole }
+                content.pRootIndex = rootElement.modelIndex(index)
+                content.ptype = Type
+                content.pname = ""
+
+                content.sourceComponent = element
+              }
+            }
+          }
+        }
+      }
+
+      Rectangle {
+        id: spacer
+
+        color: "white"
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 1
+      }
+
+      Flickable {
+        anchors.top: spacer.bottom
+        Loader {
+          id: content
+
+          property var pRootIndex
+          property var ptype
+          property var pname
+        }
+      }
     }
   }
 
+  Component {
+    id: element
+
+    Item {
+      height: childrenRect.height
+      width: childrenRect.width
+
+      Controls.GroupBox {
+        visible: ptype != 'field'
+        title: pname
+        Column {
+          Repeater {
+            model: DelegateModel {
+              id: delegateModel
+
+              model: rootElement.model
+              rootIndex: pRootIndex
+              delegate: Loader {
+                property var pRootIndex
+                property var ptype
+                property var pname
+
+                id: content
+
+                Component.onCompleted: {
+                  content.sourceComponent = undefined
+
+                  content.pRootIndex = delegateModel.modelIndex(index)
+                  content.ptype = Type
+                  content.pname = Name
+
+                  content.sourceComponent = element
+                }
+              }
+            }
+          }
+        }
+      }
+
+      Controls.Label {
+        text: pname
+        visible: ptype == 'field'
+      }
+    }
+  }
+/*
   Flickable {
     anchors.bottom: parent.bottom
     anchors.right: parent.right
@@ -157,7 +234,7 @@ Rectangle {
       }
     }
   }
-
+*/
 
   Rectangle {
     id: toolbar

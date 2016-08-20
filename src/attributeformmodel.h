@@ -32,7 +32,7 @@ class AttributeFormModel : public QAbstractItemModel
     enum FeatureRoles
     {
       ElementType = Qt::UserRole + 1,
-      AttributeName,
+      Name,
       AttributeValue,
       AttributeEditable,
       EditorWidget,

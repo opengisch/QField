@@ -222,7 +222,7 @@ Rectangle {
 
     toolbarVisible: false
 
-    attributeFormModel: AttributeFormModel {
+    model: AttributeFormModel {
       featureModel: FeatureModel {
         currentLayer: featureForm.selection.selectedLayer
         feature: featureForm.selection.selectedFeature

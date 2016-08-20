@@ -50,7 +50,9 @@ QModelIndex AttributeFormModel::parent( const QModelIndex& index ) const
 QHash<int, QByteArray> AttributeFormModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
-  roles[AttributeName]  = "AttributeName";
+
+  roles[ElementType]  = "Type";
+  roles[Name]  = "Name";
   roles[AttributeValue] = "AttributeValue";
   roles[EditorWidget] = "EditorWidget";
   roles[EditorWidgetConfig] = "EditorWidgetConfig";
@@ -94,6 +96,28 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
   if ( !index.isValid() )
     return QVariant();
 
+  if ( role == ElementType )
+  {
+    switch ( indexToElement( index )->type() )
+    {
+      case QgsAttributeEditorElement::AeTypeContainer:
+        return "container";
+        break;
+
+      case QgsAttributeEditorElement::AeTypeField:
+        return "field";
+        break;
+
+      case QgsAttributeEditorElement::AeTypeRelation:
+        return "relation";
+        break;
+
+      case QgsAttributeEditorElement::AeTypeInvalid:
+        return QVariant();
+        break;
+    }
+  }
+
   switch( indexToElement( index )->type() )
   {
     case QgsAttributeEditorElement::AeTypeContainer:
@@ -102,7 +126,7 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
 
       switch ( role )
       {
-        case Qt::DisplayRole:
+        case Name:
           return container->name();
       }
       break;
@@ -114,7 +138,7 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
 
       switch ( role )
       {
-        case AttributeName:
+        case Name:
           return mLayer->attributeDisplayName( editorField->idx() );
 
         case AttributeValue:
@@ -182,7 +206,7 @@ FeatureModel* AttributeFormModel::featureModel() const
   return mFeatureModel;
 }
 
-void AttributeFormModel::setFeatureModel(FeatureModel* featureModel)
+void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
 {
   if ( mFeatureModel == featureModel )
     return;
@@ -202,6 +226,9 @@ void AttributeFormModel::onLayerChanged()
 {
   beginResetModel();
   mLayer = mFeatureModel->layer();
+  if ( mLayer )
+    mRememberedAttributes.resize( mLayer->fields().size() );
+  mRememberedAttributes.fill( false );
   endResetModel();
 }
 
