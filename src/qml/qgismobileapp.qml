@@ -464,7 +464,7 @@ Rectangle {
 
     anchors.fill: parent
 
-    attributeFormModel: AttributeFormModel {
+    model: AttributeFormModel {
       featureModel: digitizingFeature
     }
 
@@ -515,6 +515,7 @@ Rectangle {
 
       onLoadProjectEnded: {
         busyMessage.visible = false
+        openProjectDialog.folder = project.homePath
       }
     }
   }
