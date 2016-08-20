@@ -17,6 +17,8 @@
 #define COORDINATETRANSFORM_H
 
 #include <QObject>
+#include <QPointF>
+
 #include <crs.h>
 #include <qgscoordinatetransform.h>
 
