@@ -1,6 +1,10 @@
 QField documentation
 ====================
 
+.. note::
+
+  :download:`Slides from FOSS4G 2016 <files/slides_foss4g16.pdf>` are available.
+
 QField is an app to access a GIS outdoors. It is a simple user interface for Android devices optimized for touch interaction but with the full power of `QGIS <https://qgis.org>`_ under the hood.
 
 .. container:: text-center
