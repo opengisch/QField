@@ -102,8 +102,8 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField Projektverwaltung</a><ul>
-<li><a class="reference internal" href="#portable-project">Ein portables Projekt</a></li>
-<li><a class="reference internal" href="#coordinate-reference-systems">Koordinatenbezugssysteme</a></li>
+<li><a class="reference internal" href="#portable-project">Portable Project</a></li>
+<li><a class="reference internal" href="#coordinate-reference-systems">Coordinate Reference Systems</a></li>
 <li><a class="reference internal" href="#vector-layer-settings">Vektorebeneneinstellungen</a><ul>
 <li><a class="reference internal" href="#style">Stil</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare und Felder</a></li>
@@ -112,7 +112,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Eigene SVG Symbole und Einstellungen</a></li>
-<li><a class="reference internal" href="#external-sd-card">Externe SD-Karte</a></li>
+<li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 </ul>
 </ul>
 </li>
@@ -160,9 +160,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Konzepte</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">QField Projektverwaltung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Eigene SVG Symbole und Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Externe SD-Karte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Unterstützte Datenformate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Benutzerhandbuch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Entwicklung und Support</a></li>
 </ul>
@@ -175,7 +175,7 @@
   <div class="section" id="qfield-project-management">
 <h1>QField Projektverwaltung<a class="headerlink" href="#qfield-project-management" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="portable-project">
-<h2>Ein portables Projekt<a class="headerlink" href="#portable-project" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Portable Project<a class="headerlink" href="#portable-project" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Es wird eine portable Version der QGIS Projektdatei (.qgs) benötigt. Portabel heisst, dass alle Pfade relativ sind und Datensätze für das Gerät erreichbar sind.</p>
 <p><span class="menuselection">Projekt ‣ Projekteigenschaften ‣ Allgemein ‣ Pfade speichern</span> muss auf &#8220;Relativ&#8221; gestellt sein und alle benötigten Dateien müssen im selben Ordner wie die Projektdatei sein oder einem Unterordner davon.</p>
 <p>Um die Arbeit zu erleichtern empfehlen wir, die folgenden Plugins zu probieren:</p>
@@ -187,19 +187,18 @@
 </ul>
 </div>
 <div class="section" id="coordinate-reference-systems">
-<h2>Koordinatenbezugssysteme<a class="headerlink" href="#coordinate-reference-systems" title="Link zu dieser Überschrift">¶</a></h2>
-<p>QField benutzt die in der Projektdatei vorhandenen Informationen zum Koordinatenbezugssystem (KBS)</p>
+<h2>Coordinate Reference Systems<a class="headerlink" href="#coordinate-reference-systems" title="Link zu dieser Überschrift">¶</a></h2>
+<p>QField uses the Coordinate Reference System (CRS) information found in the project file.</p>
 <ul class="simple">
-<li><p class="first">Projekt KBS</p>
-</li>
-<li><p class="first">Spontantransformation wird für die Visualisierung benutzt</p>
-</li>
-<li><p class="first">KBS der Layer</p>
-</li>
+<li>Project CRS</li>
+<li>On the fly reprojection (OTF) is used for visualization</li>
+<li>Layer CRS</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Bemerkung</p>
-<p class="last">QField berücksichtigt die Spontantransformation nicht, wenn neue Objekte digitalisiert werden. Es muss sichergestellt werden, dass sämtliche Layer, auf denen digitalilsiert werden soll das selbe KBS wie das Projekt benutzen. Falls dies nicht der Fall ist scheint es so, dass Objekte nicht gespeichert werden, weil sie irgendwo in weit-weit-weg erzeugt werden.</p>
+<p class="last">QField does not respect OTF when digitizing new features.
+Make sure that all the layers on which you digitize are in the same CRS like the project.
+If you fail to do so it will look as if new features are not saved because they end up in far far away.</p>
 </div>
 </div>
 <div class="section" id="vector-layer-settings">
@@ -257,24 +256,21 @@
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Versteckt</p>
-</td>
+<tr class="row-odd"><td>Hidden</td>
 <td><span class="yay">✔</span></td>
 <td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></td>
 </tr>
-<tr class="row-even"><td><p class="first last">Externe Resource</p>
-</td>
+<tr class="row-even"><td>External Resource</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">Dieser Typ ist kombiniert mit der Kameraintegration. Bis jetzt können nur Bilder angeschaut werden. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></p>
-</td>
+<td>This field is combined with camera integration.
+Only images can be viewed so far.
+<a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Datum/Zei</p>
-</td>
+<tr class="row-odd"><td>Date Time</td>
 <td><span class="nay">✘</span></td>
 <td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></td>
 </tr>
-<tr class="row-even"><td><p class="first last">Andere</p>
-</td>
+<tr class="row-even"><td>Others</td>
 <td><span class="nay">✘</span></td>
 <td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></td>
 </tr>
@@ -287,12 +283,12 @@
 </div>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Eigene SVG Symbole und Einstellungen<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Im &#8220;Über&#8221; Dialog sind die Ordner sichtbar, die auf dem Gerät dafür verwendet werden.</p>
-<p>Falls eigene SVG Symbole verwendet werden sollen, müssen diese manuell mit einem Dateimanager in den entsprechenden Ordner kopiert werden.</p>
+<p>In the about dialog you can see where the shared folders are on your device.</p>
+<p>If you want to use custom symbols you need to put them there using a file manager.</p>
 </div>
 <div class="section" id="external-sd-card">
-<h1>Externe SD-Karte<a class="headerlink" href="#external-sd-card" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Um Schreibzugriff auf Projekte zu haben, welche sich auf der externen SD Karte befinden, müssen diese in den folgenden Ordner gelegt werden:</p>
+<h1>External SD card<a class="headerlink" href="#external-sd-card" title="Link zu dieser Überschrift">¶</a></h1>
+<p>In order to have write access to projects which are on an external SD card, you will have to put it into the following folder:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>

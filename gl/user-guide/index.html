@@ -110,8 +110,8 @@
 </li>
 <li><a class="reference internal" href="#gps">GPS</a></li>
 <li><a class="reference internal" href="#digitize">Dixitalizar</a><ul>
-<li><a class="reference internal" href="#points">Puntos</a></li>
-<li><a class="reference internal" href="#lines">Liñas</a></li>
+<li><a class="reference internal" href="#points">Points</a></li>
+<li><a class="reference internal" href="#lines">Lines</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulario de atributos</a></li>
 </ul>
 </li>
@@ -169,7 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">External SD card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatos de datos admitidos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Datos ráster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
 </ul>
@@ -201,29 +201,38 @@
 </div>
 <div class="section" id="gps">
 <h3>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h3>
-<p>Unha pulsación curta no botón do GPS acenderá o GPS e centrará á localización actual unha vez que a información do posicionamento estea dispoñible.</p>
-<p>Unha pulsación longa no botón do GPS amosará o menú de posicionamento.</p>
-<p>Dentro do menú de posicionamento pode acender a visualización do posicionamento o cal amosará as coordenadas actuais as cales son reproxectadas ó SRC do proxecto xunto coa información da precisión.</p>
+<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
+<p>A long press on the GPS button will show the positioning menu.</p>
+<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Se ve información de lat/lon WGS 84 en vez de información no SRC do seu proxecto, probablemente aínda non teña sinal.</p>
+<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
 </div>
 </div>
 <div class="section" id="digitize">
 <h3>Dixitalizar<a class="headerlink" href="#digitize" title="Permalink to this headline">¶</a></h3>
 <p>Para comezar a dixitalizar novas entidades premer <a href="#id1"><span class="problematic" id="id2">`Alternar modos`_</span></a>.</p>
-<p>Aparecerá un novo cadro combinado próximo ó botón do menú que amosará as capas dispoñibles para dixitalización. De momento (QField 0.7) QField admite capas de puntos e capas de liñas.</p>
+<p>A new combobox will appear next to the menu button which lists the layers
+available for digitizing.
+At the moment (QField 0.7), QField supports point and line layers.</p>
 <div class="section" id="points">
-<h4>Puntos<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h4>
-<p>Move o punto de mira no centro da pantalla ata a localización desexada e preme o lapis na parte dereita inferior da pantalla para confirmar unha nova entidade de puntos.</p>
+<h4>Points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h4>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the pencil at the lower right of the screen to confirm the creation of a
+new point feature.</p>
 </div>
 <div class="section" id="lines">
-<h4>Liñas<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h4>
-<p>Move o punto de mira no centro da pantalla ata o inicio desexado da liña e preme  o lapis na parte inferior da pantalla. Continuar engadindo ou eliminando puntos ata que a liña estea finalizada e logo premer en gardar.</p>
+<h4>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h4>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line
+and click the pencil at the lower right of the screen.
+Proceed with adding points or removing points until the line is finished and then click save.</p>
 </div>
 <div class="section" id="attribute-form">
 <h4>Formulario de atributos<a class="headerlink" href="#attribute-form" title="Permalink to this headline">¶</a></h4>
-<p>Logo de dixitalizar unha xeometría, amosarase o formulario de atributo se non é cancelado e preguntaraselle ó usuario pola introdución de atributos na nova entidade. As caixas de verificación na dereita de cada atributo permiten ter en conta cada atributo individualmente.</p>
+<p>After digitizing a geometry, the attribute form will be displaied if it is not suppressed
+and the user will be asked to enter the attributes for the new feature.
+The form which appears allows entering attribute values for the new feature. The checkboxes
+at the right of every attribute allow for remembering each attribute individually.</p>
 </div>
 </div>
 <div class="section" id="delete-features">
