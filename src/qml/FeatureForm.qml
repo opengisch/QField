@@ -217,12 +217,6 @@ Rectangle {
           font.bold: true
         }
 
-        Controls.TextField {
-          text: "XXY"
-          anchors { top: fieldLabel.bottom }
-          anchors { left: parent.left; right: parent.right }
-        }
-/*
         Item {
           id: placeholder
           height: childrenRect.height
@@ -280,7 +274,6 @@ Rectangle {
             form.model.setData(idx, checkedState, FeatureModel.RememberValue)
           }
         }
-      */
       }
     }
   }
