@@ -22,6 +22,9 @@ class SGRubberband : public QSGNode
     SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::GeometryType type, const QColor& color, qreal width );
 
   private:
+    QSGGeometryNode* createLineGeometry( const QVector<QgsPoint>& points, qreal width );
+    QSGGeometryNode* createPolygonGeometry( const QVector<QgsPoint>& points );
+
     QSGFlatColorMaterial mMaterial;
 };
 

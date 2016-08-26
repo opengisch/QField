@@ -57,9 +57,15 @@ Row {
       {
         true
       }
-      else
+      else if  ( Number( rubberbandModel.geometryType ) === 1 )
       {
+        // Line: at least 2 points
         rubberbandModel.vertexCount > 1
+      }
+      else if  ( Number( rubberbandModel.geometryType ) === 2 )
+      {
+        // Polygon: at least 3 points
+        rubberbandModel.vertexCount > 2
       }
     }
     round: true

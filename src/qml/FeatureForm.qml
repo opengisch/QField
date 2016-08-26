@@ -59,7 +59,6 @@ Rectangle {
 
               delegate: Item {
                 height: childrenRect.height
-                width: childrenRect.width
 
                 Button {
                   id: button
