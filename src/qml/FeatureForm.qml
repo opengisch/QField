@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
+import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
 
 import org.qgis 1.0
@@ -13,8 +14,10 @@ Rectangle {
   signal aboutToSave
 
   property FeatureModel feature
+  property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
-  property alias model: rootElement.model
+
+  property var __currentTab
 
   id: form
 
@@ -36,48 +39,111 @@ Rectangle {
     anchors.left: parent.left
     anchors.top: toolbar.bottom
 
+    id: container
+
     // Tabs
-    Column {
+    Item {
       anchors.fill: parent
 
-      Row {
-        Repeater {
-          model: DelegateModel {
-            id: rootElement
-            delegate: Button {
-              text: Name
+      Rectangle {
+        id: tabBar
 
-              onClicked: {
-                content.sourceComponent = undefined
+        anchors { left: parent.left; right:parent.right; top: parent.top }
+        height: childrenRect.height
 
-                content.pRootIndex = rootElement.modelIndex(index)
-                content.ptype = Type
-                content.pname = ""
+        Row {
+          Repeater {
+            model: DelegateModel {
+              id: rootElement
+              model: form.model
 
-                content.sourceComponent = element
+              delegate: Item {
+                height: childrenRect.height
+                width: childrenRect.width
+
+                Button {
+                  id: button
+                  text: Name
+
+                  bgcolor: "white"
+
+                  onClicked: {
+                    activate(parent)
+                  }
+                }
+
+                Rectangle {
+                  color: __currentTab === parent ? "orange" : "gray"
+
+                  height: 2 * dp
+                  anchors.right: parent.right
+                  anchors.left: parent.left
+                  anchors.bottom: button.bottom
+
+                  Behavior on color {
+                    ColorAnimation {
+                      easing.type: Easing.InOutQuad
+
+                    }
+                  }
+                }
+
+                Component.onCompleted: {
+                  if ( index === 0 )
+                    activate(this)
+                }
+
+                function activate(tab) {
+                  __currentTab = tab
+
+                  content.sourceComponent = undefined
+
+                  content.pRootIndex = rootElement.modelIndex(index)
+                  content.pType = Type
+                  content.pName = ""
+                  content.pEditorWidget = EditorWidget
+                  content.pEditorWidgetConfig = EditorWidgetConfig
+                  content.pAttributeValue = AttributeValue
+                  content.pField = Field
+                  content.pRememberValue = RememberValue
+
+                  content.sourceComponent = element
+                }
               }
             }
           }
         }
       }
 
-      Rectangle {
-        id: spacer
-
-        color: "white"
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 1
+      DropShadow {
+        anchors.fill: tabBar
+        horizontalOffset: 0
+        verticalOffset: 3
+        radius: 8.0
+        samples: 17
+        color: "#80000000"
+        source: tabBar
       }
 
       Flickable {
-        anchors.top: spacer.bottom
+        anchors { top: tabBar.bottom; bottom: parent.bottom; left: parent.left; right: parent.right }
+        clip: true
+
+        flickableDirection: Flickable.VerticalFlick
+
         Loader {
           id: content
 
+          anchors { left: parent.left; right: parent.right }
+
           property var pRootIndex
-          property var ptype
-          property var pname
+          property var pType
+          property var pName
+          property var pEditorWidget
+          property var pEditorWidgetConfig
+          property var pField
+          property var pAttributeValue
+          property var pRememberValue
         }
       }
     }
@@ -88,31 +154,47 @@ Rectangle {
 
     Item {
       height: childrenRect.height
-      width: childrenRect.width
+      anchors { left: parent.left; right: parent.right }
 
       Controls.GroupBox {
-        visible: ptype != 'field'
-        title: pname
+        visible: pType != 'field'
+        title: pName
+        anchors { left: parent.left; right: parent.right }
+
         Column {
+          anchors { left: parent.left; right: parent.right }
+
           Repeater {
             model: DelegateModel {
               id: delegateModel
 
-              model: rootElement.model
+              model: form.model
               rootIndex: pRootIndex
               delegate: Loader {
                 property var pRootIndex
-                property var ptype
-                property var pname
+                property var pType
+                property var pName
+                property var pEditorWidget
+                property var pEditorWidgetConfig
+                property var pField
+                property var pAttributeValue
+                property var pRememberValue
 
                 id: content
+
+                anchors { left: parent.left; right: parent.right }
 
                 Component.onCompleted: {
                   content.sourceComponent = undefined
 
                   content.pRootIndex = delegateModel.modelIndex(index)
-                  content.ptype = Type
-                  content.pname = Name
+                  content.pType = Type
+                  content.pName = Name
+                  content.pEditorWidget = EditorWidget
+                  content.pEditorWidgetConfig = EditorWidgetConfig
+                  content.pAttributeValue = AttributeValue
+                  content.pField = Field
+                  content.pRememberValue = RememberValue
 
                   content.sourceComponent = element
                 }
@@ -122,12 +204,100 @@ Rectangle {
         }
       }
 
-      Controls.Label {
-        text: pname
-        visible: ptype == 'field'
+      Item {
+        id: fieldContainer
+        visible: pType == 'field'
+        height: childrenRect.height
+        anchors { left: parent.left; right: parent.right }
+
+        Controls.Label {
+          id: fieldLabel
+
+          text: pName
+          font.bold: true
+        }
+
+        Controls.TextField {
+          text: "XXY"
+          anchors { top: fieldLabel.bottom }
+          anchors { left: parent.left; right: parent.right }
+        }
+/*
+        Item {
+          id: placeholder
+          height: childrenRect.height
+          anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
+
+          Connections {
+            target: form
+            onAboutToSave: {
+              try {
+                attributeEditorLoader.item.pushChanges()
+              }
+              catch ( err )
+              {}
+            }
+          }
+
+          Loader {
+            id: attributeEditorLoader
+
+            height: childrenRect.height
+            anchors { left: parent.left; right: parent.right }
+
+            enabled: form.state !== "ReadOnly"
+            property var value: pAttributeValue
+            property var config: pEditorWidgetConfig
+            property var widget: pEditorWidget
+            property var field: pField
+
+            source: 'editorwidgets/' + widget + '.qml'
+
+            onStatusChanged: {
+              if ( attributeEditorLoader.status === Loader.Error )
+              {
+                console.warn( "Editor widget type '" + pEditorWidget + "' not avaliable." )
+                widget = 'TextEdit'
+              }
+            }
+          }
+
+          Connections {
+            target: attributeEditorLoader.item
+            onValueChanged: form.model.setAttribute( index, value, isNull )
+          }
+        }
+
+        Controls.CheckBox {
+          checkedState: pRememberValue
+
+          visible: form.state === "Add" && pEditorWidget !== "Hidden"
+
+          anchors.right: parent.right
+
+          onCheckedChanged: {
+            var idx = form.model.index(index, 0)
+            form.model.setData(idx, checkedState, FeatureModel.RememberValue)
+          }
+        }
+      */
       }
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
   Flickable {
     anchors.bottom: parent.bottom
