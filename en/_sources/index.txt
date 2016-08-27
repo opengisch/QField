@@ -1,15 +1,42 @@
-QField documentation
-====================
+QField - your mobile [Q]GIS solution
+====================================
+QField allows you to efficiently work on your GIS data outdoor.
+
+QField's optimized user interface for Android devices hides the full power of `QGIS <https://qgis.org>`_ under the hood.
+
+
+.. container::
+
+  .. vimeo:: 173774749
+
 
 .. note::
 
-  :download:`Slides from FOSS4G 2016 <files/slides_foss4g16.pdf>` are available.
+    :download:`Slides from FOSS4G 2016 <files/slides_foss4g16.pdf>` are available.
 
-QField is an app to access a GIS outdoors. It is a simple user interface for Android devices optimized for touch interaction but with the full power of `QGIS <https://qgis.org>`_ under the hood.
 
-.. container:: text-center
+Prepare once - Deploy everywhere
+--------------------------------
+- Uses QGIS projects (including symbology and edit widgets)
+- Supports most QGIS supported formats (ideal with PostGIS)
+- Automatic syncronization capabilities (Cable, WiFi, Cloud)
+- Extends seamlessly your GDI
 
-  .. vimeo:: 173774749
+Made for touch - Field-work friendly
+------------------------------------
+- Lean UI with few and large buttons
+- GPS centric
+- Fully working offline and online using live and cached* DB connections
+- Switchable working modes (display, inspection, digitizing, measuring)*
+- Cross mode tools (Pan, zoom, identify, GPS coordinates, scalebar, central crosshair with snapping)
+
+Make it grow - Make it yours
+----------------------------
+- Paid feature development
+- Customizable to your needs
+- Donations and sponsoring (qfield.opengis.ch/donate)
+- Hire us for development, consulting and training for QField, C++, Python, Web, QGIS, Android, ...
+
 
 .. This document can also be downloaded as a single PDF document: `QField.pdf <./QField.pdf>`__ |image|.
   .. |image| image:: ../_static/pdf.png
@@ -36,17 +63,17 @@ Translations
 
 The documentation is available in several languages
 
-`English </QField-docs/en>`_
+`English </en>`_
 
-`Deutsch </QField-docs/de>`_
+`Deutsch </de>`_
 
-`Français </QField-docs/fr>`_
+`Français </fr>`_
 
-`Galician </QField-docs/gl>`_
+`Galician </gl>`_
 
-`Portuguese </QField-docs/pt>`_
+`Portuguese </pt>`_
 
-`Catalan </QField-docs/ca>`_
+`Catalan </ca>`_
 
 If there is an error with a translation, please `help to improve it <https://www.transifex.com/opengisch/qfield-documentation/>`_.
 

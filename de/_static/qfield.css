@@ -80,3 +80,7 @@ path {
 .unobtrusive path {
   stroke-width: 1;
 }
+
+footer.footer {
+    margin-top: 20px;
+}
