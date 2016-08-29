@@ -30,7 +30,6 @@ HEADERS += \
     mapsettings.h \
     maptransform.h \
     qgismobileapp.h \
-    qgsmapcanvasproxy.h \
     qgsquickmapcanvasmap.h \
     qgssggeometry.h \
     sgrubberband.h \
@@ -58,7 +57,6 @@ SOURCES += \
     mapsettings.cpp \
     maptransform.cpp \
     qgismobileapp.cpp \
-    qgsmapcanvasproxy.cpp \
     qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
