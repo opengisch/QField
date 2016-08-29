@@ -24,19 +24,23 @@
 #include <qgsmessagelog.h>
 #include <QQuickWindow>
 #include <QScreen>
+#include <qgspallabeling.h>
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   : QQuickPaintedItem( parent )
   , mMapSettings( new MapSettings() )
   , mPinching( false )
   , mJobCancelled( false )
-  , mRefreshScheduled( false )
+  , mJob( nullptr )
   , mCache( nullptr )
   , mLabelingResults( nullptr )
-  , mJob( nullptr )
 {
   setRenderTarget( QQuickPaintedItem::FramebufferObject );
-  connect( window(), SIGNAL(screenChanged(QScreen*)), this, SLOT(onScreenChanged(QScreen*)));
+  connect( this, SIGNAL( windowChanged( QQuickWindow* ) ), this, SLOT( onWindowChanged( QQuickWindow* ) ) );
+  connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
+  connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
+  mRefreshTimer.setSingleShot( true );
+  setTransformOrigin( QQuickItem::TopLeft );
 }
 
 QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
@@ -45,8 +49,7 @@ QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
 
 void QgsQuickMapCanvasMap::paint( QPainter* painter )
 {
-  int w = qRound( boundingRect().width() ) - 2, h = qRound( boundingRect().height() ) - 2; // setRect() makes the size +2 :-(
-  painter->drawImage( QRect( 0, 0, w, h ), mImage );
+  painter->drawImage( QRect( 0, 0, mImageMapSettings.outputSize().width(), mImageMapSettings.outputSize().height() ), mImage );
 }
 
 MapSettings* QgsQuickMapCanvasMap::mapSettings() const
@@ -75,8 +78,6 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   // same as zoomWithCenter (no coordinate transformations are needed)
   visibleExtent.scale( scale, &newCenter );
   mMapSettings->setExtent( visibleExtent );
-
-  refresh();
 }
 
 void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
@@ -115,18 +116,11 @@ void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
   }
 
   mMapSettings->setExtent( visibleExtent );
-
-  refresh();
 }
 
 void QgsQuickMapCanvasMap::refreshMap()
 {
-  Q_ASSERT( mRefreshScheduled );
-
   stopRendering(); // if any...
-
-  // from now on we can accept refresh requests again
-  mRefreshScheduled = false;
 
   QgsMapSettings mapSettings = prepareMapSettings();
 
@@ -176,6 +170,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
     mLabelingResults = mJob->takeLabelingResults();
 
     mImage = mJob->renderedImage();
+    mImageMapSettings = mJob->mapSettings();
   }
 
   // now we are in a slot called from mJob - do not delete it immediately
@@ -183,13 +178,30 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   mJob->deleteLater();
   mJob = nullptr;
 
+  updateTransform();
+
   update();
   emit mapCanvasRefreshed();
 }
 
-void QgsQuickMapCanvasMap::onScreenChanged(QScreen* screen)
+void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow* window )
 {
+  disconnect( this, SLOT( onScreenChanged( QScreen* ) ) );
+  connect( window, SIGNAL( screenChanged( QScreen* ) ), this, SLOT( onScreenChanged( QScreen* ) ) );
+}
+
+void QgsQuickMapCanvasMap::onScreenChanged( QScreen* screen )
+{
+  qWarning() << "Output DPI: " << screen->physicalDotsPerInch();
   mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
+}
+
+void QgsQuickMapCanvasMap::onExtentChanged()
+{
+  updateTransform();
+
+  // And trigger a new rendering job
+  refresh();
 }
 
 QgsMapSettings QgsQuickMapCanvasMap::prepareMapSettings() const
@@ -202,6 +214,18 @@ QgsMapSettings QgsQuickMapCanvasMap::prepareMapSettings() const
 
   mapSettings.setLayers( ids );
   return mapSettings;
+}
+
+void QgsQuickMapCanvasMap::updateTransform()
+{
+  QgsMapSettings currentMapSettings = mMapSettings->mapSettings();
+  QgsMapToPixel mtp = currentMapSettings.mapToPixel();
+
+  QgsPoint pixelPt = mtp.transform( mImageMapSettings.visibleExtent().xMinimum(), mImageMapSettings.visibleExtent().yMaximum() );
+  setScale( mImageMapSettings.scale() / currentMapSettings.scale() );
+
+  setX( pixelPt.x() );
+  setY( pixelPt.y() );
 }
 
 QgsRectangle QgsQuickMapCanvasMap::extent() const
@@ -272,14 +296,13 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
     extent.combineExtentWith( layer->extent() );
   }
   mMapSettings->setExtent( extent );
+
+  refresh();
 }
 
 void QgsQuickMapCanvasMap::refresh()
 {
-  if ( mRefreshScheduled )
-    return;
-
-  mRefreshScheduled = true;
-
-  QTimer::singleShot( 1, this, SLOT( refreshMap() ) );
+  // Within a 10 ms interval no new job will be triggered.
+  // Prevents hammering the renderer with requests while panning or zooming
+  mRefreshTimer.start( 10 );
 }

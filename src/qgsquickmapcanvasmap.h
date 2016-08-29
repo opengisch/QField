@@ -84,22 +84,26 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
   private slots:
     void refreshMap();
     void renderJobFinished();
+    void onWindowChanged( QQuickWindow* window );
     void onScreenChanged( QScreen* screen );
+    void onExtentChanged();
 
   private:
     QgsMapSettings prepareMapSettings() const;
+    void updateTransform();
 
     MapSettings* mMapSettings;
     QList<QgsMapLayer*> mMapLayers;
 
     bool mPinching;
     bool mJobCancelled;
-    bool mRefreshScheduled;
     QPoint mPinchStartPoint;
     QgsMapRendererParallelJob* mJob;
     QgsMapRendererCache* mCache;
     QgsLabelingResults* mLabelingResults;
     QImage mImage;
+    QgsMapSettings mImageMapSettings;
+    QTimer mRefreshTimer;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H
