@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QField User Guide &mdash; QField Documentation 0.7 - Gonnus Mons documentazione</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/qfield.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7 - Gonnus Mons',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="top" title="QField Documentation 0.7 - Gonnus Mons documentazione" href="../index.html" />
+    <link rel="next" title="Development and support" href="../development/index.html" />
+    <link rel="prev" title="Supported data formats" href="../project-management/dataformat.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+              <span>
+              
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="100%"
+                   height="100%"
+                   viewBox="0 0 128 128"
+                   id="qfield-logo"
+                   version="1.1">
+                  <g
+                     id="layer1"
+                     transform="translate(0,-924.36216)">
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z "
+                       transform="translate(0,924.36216)" />
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="m 87.99112,976.2721 22,58 -56.000001,-22 z" />
+                  </g>
+                </svg>
+            
+              </span>
+        </a>
+        <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#basic-workflow">Basic workflow</a><ul>
+<li><a class="reference internal" href="#switch-modes">Switch modes</a></li>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
+<li><a class="reference internal" href="#identify-features">Identify features</a><ul>
+<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions to identified layers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gps">GPS</a></li>
+<li><a class="reference internal" href="#digitize">Digitize</a><ul>
+<li><a class="reference internal" href="#points">Points</a></li>
+<li><a class="reference internal" href="#lines">Lines</a></li>
+<li><a class="reference internal" href="#attribute-form">Attribute form</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="../project-management/dataformat.html" title="Previous Chapter: Supported data formats"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Supported dat...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../development/index.html" title="Next Chapter: Development and support"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Development a... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container"><span class="shadow-background"><img src="../_static/qfield-logo.svg"></span>
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="qfield-user-guide">
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="basic-workflow">
+<h2>Basic workflow<a class="headerlink" href="#basic-workflow" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="switch-modes">
+<h3>Switch modes<a class="headerlink" href="#switch-modes" title="Link a questa intestazione">¶</a></h3>
+<p>Modes are switched via <span class="menuselection">Menu button ‣ mode</span></p>
+</div>
+<div class="section" id="opening-a-project">
+<h3>Opening a project<a class="headerlink" href="#opening-a-project" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="identify-features">
+<h3>Identify features<a class="headerlink" href="#identify-features" title="Link a questa intestazione">¶</a></h3>
+<p>A long press on a feature will identify it. Pressing the back button will close the identify window.</p>
+<div class="section" id="exceptions-to-identified-layers">
+<h4>Exceptions to identified layers<a class="headerlink" href="#exceptions-to-identified-layers" title="Link a questa intestazione">¶</a></h4>
+<p>Often it is not required to be able to query every layer. Some layers are only present as basemap and their attributes are not of interest.</p>
+<p>You can manage this layerlist in QGIS desktop in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> and uncheck the base layers.</p>
+</div>
+</div>
+<div class="section" id="gps">
+<h3>GPS<a class="headerlink" href="#gps" title="Link a questa intestazione">¶</a></h3>
+<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
+<p>A long press on the GPS button will show the positioning menu.</p>
+<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
+</div>
+</div>
+<div class="section" id="digitize">
+<h3>Digitize<a class="headerlink" href="#digitize" title="Link a questa intestazione">¶</a></h3>
+<p>To start digitizing new features <a class="reference internal" href="#switch-modes">Switch modes</a> to digitizing.</p>
+<p>A new combobox will appear next to the menu button which lists the layers
+available for digitizing.
+At the moment (QField 0.7), QField supports point and line layers.</p>
+<div class="section" id="points">
+<h4>Points<a class="headerlink" href="#points" title="Link a questa intestazione">¶</a></h4>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the pencil at the lower right of the screen to confirm the creation of a
+new point feature.</p>
+</div>
+<div class="section" id="lines">
+<h4>Lines<a class="headerlink" href="#lines" title="Link a questa intestazione">¶</a></h4>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line
+and click the pencil at the lower right of the screen.
+Proceed with adding points or removing points until the line is finished and then click save.</p>
+</div>
+<div class="section" id="attribute-form">
+<h4>Attribute form<a class="headerlink" href="#attribute-form" title="Link a questa intestazione">¶</a></h4>
+<p>After digitizing a geometry, the attribute form will be displaied if it is not suppressed
+and the user will be asked to enter the attributes for the new feature.
+The form which appears allows entering attribute values for the new feature. The checkboxes
+at the right of every attribute allow for remembering each attribute individually.</p>
+</div>
+</div>
+<div class="section" id="delete-features">
+<h3>Delete Features<a class="headerlink" href="#delete-features" title="Link a questa intestazione">¶</a></h3>
+<p>To delete a feature, identify it first and tap the trash icon.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/user-guide/index.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, The QField Project/OPENGIS.ch.<br/>
+      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
