@@ -22,6 +22,8 @@
 #include <qgsmaplayerregistry.h>
 #include <qgsvectorlayer.h>
 #include <qgsmessagelog.h>
+#include <QQuickWindow>
+#include <QScreen>
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   : QQuickPaintedItem( parent )
@@ -34,6 +36,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   , mJob( nullptr )
 {
   setRenderTarget( QQuickPaintedItem::FramebufferObject );
+  connect( window(), SIGNAL(screenChanged(QScreen*)), this, SLOT(onScreenChanged(QScreen*)));
 }
 
 QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
@@ -63,62 +66,57 @@ void QgsQuickMapCanvasMap::setMapUnits( const QgsUnitTypes::DistanceUnit& mapUni
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {
-  /*
-  QgsPoint oldCenter( mMapCanvas->mapSettings().visibleExtent().center() );
-  QgsPoint mousePos( mMapCanvas->getCoordinateTransform()->toMapPoint( center.x(), center.y() ) );
+  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  QgsPoint oldCenter( visibleExtent.center() );
+  QgsPoint mousePos( mMapSettings->screenToCoordinate( center ) );
   QgsPoint newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
                       mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
 
   // same as zoomWithCenter (no coordinate transformations are needed)
-  QgsRectangle extent = mMapCanvas->mapSettings().visibleExtent();
-  extent.scale( scale, &newCenter );
-  mMapCanvas->setExtent( extent );
+  visibleExtent.scale( scale, &newCenter );
+  mMapSettings->setExtent( visibleExtent );
 
-  update();
-  */
+  refresh();
 }
 
 void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
 {
-  /*
-
-  QgsPoint start = mMapCanvas->getCoordinateTransform()->toMapCoordinates( oldPos.toPoint() );
-  QgsPoint end = mMapCanvas->getCoordinateTransform()->toMapCoordinates( newPos.toPoint() );
+  QgsPoint start = mMapSettings->screenToCoordinate( oldPos.toPoint() );
+  QgsPoint end = mMapSettings->screenToCoordinate( newPos.toPoint() );
 
   double dx = qAbs( end.x() - start.x() );
   double dy = qAbs( end.y() - start.y() );
 
   // modify the extent
-  QgsRectangle r = mMapCanvas->mapSettings().visibleExtent();
+  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
 
   if ( end.x() > start.x() )
   {
-    r.setXMinimum( r.xMinimum() + dx );
-    r.setXMaximum( r.xMaximum() + dx );
+    visibleExtent.setXMinimum( visibleExtent.xMinimum() + dx );
+    visibleExtent.setXMaximum( visibleExtent.xMaximum() + dx );
   }
   else
   {
-    r.setXMinimum( r.xMinimum() - dx );
-    r.setXMaximum( r.xMaximum() - dx );
+    visibleExtent.setXMinimum( visibleExtent.xMinimum() - dx );
+    visibleExtent.setXMaximum( visibleExtent.xMaximum() - dx );
   }
 
   if ( end.y() > start.y() )
   {
-    r.setYMaximum( r.yMaximum() + dy );
-    r.setYMinimum( r.yMinimum() + dy );
+    visibleExtent.setYMaximum( visibleExtent.yMaximum() + dy );
+    visibleExtent.setYMinimum( visibleExtent.yMinimum() + dy );
 
   }
   else
   {
-    r.setYMaximum( r.yMaximum() - dy );
-    r.setYMinimum( r.yMinimum() - dy );
+    visibleExtent.setYMaximum( visibleExtent.yMaximum() - dy );
+    visibleExtent.setYMinimum( visibleExtent.yMinimum() - dy );
 
   }
 
-  mMapCanvas->setExtent( r );
+  mMapSettings->setExtent( visibleExtent );
 
-  update();
-  */
+  refresh();
 }
 
 void QgsQuickMapCanvasMap::refreshMap()
@@ -187,6 +185,11 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
   update();
   emit mapCanvasRefreshed();
+}
+
+void QgsQuickMapCanvasMap::onScreenChanged(QScreen* screen)
+{
+  mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
 }
 
 QgsMapSettings QgsQuickMapCanvasMap::prepareMapSettings() const

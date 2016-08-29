@@ -84,6 +84,7 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
   private slots:
     void refreshMap();
     void renderJobFinished();
+    void onScreenChanged( QScreen* screen );
 
   private:
     QgsMapSettings prepareMapSettings() const;
