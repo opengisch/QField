@@ -67,7 +67,7 @@ Rectangle {
      * It may change any time and items that hold a reference to this property
      * are responsible to handle this properly.
      */
-    property MapSettings mapSettings: MapSettings {}
+    property MapSettings mapSettings: mapCanvasMap.mapSettings
 
     /* Placement and size. Share right anchor with featureForm */
     anchors.top: parent.top
@@ -78,7 +78,6 @@ Rectangle {
     /* The base map */
     MapCanvas {
       id: mapCanvasMap
-      mapSettings: mapCanvas.mapSettings
 
       anchors.fill: parent
     }
@@ -140,7 +139,7 @@ Rectangle {
         sourceCRS: CRS {
           srid: 4326
         }
-        destinationCRS: mapCanvas.mapSettings.crs
+        destinationCRS: mapCanvas.mapSettings.destinationCrs
       }
       anchors.fill: parent
       visible: positionSource.active

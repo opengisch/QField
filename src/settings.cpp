@@ -34,7 +34,7 @@ QVariant Settings::value( const QString& key, const QVariant& defaultValue )
   return QSettings::value( key, defaultValue );
 }
 
-bool Settings::valueBool(const QString& key, bool defaultValue)
+bool Settings::valueBool( const QString& key, bool defaultValue )
 {
   return QSettings::value( key, defaultValue ).toBool();
 }

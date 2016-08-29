@@ -77,7 +77,7 @@ class FeatureListModel : public QAbstractItemModel
     void countChanged();
 
   private slots:
-    void layerDeleted(QObject* object);
+    void layerDeleted( QObject* object );
 
     void featureDeleted( QgsFeatureId fid );
 

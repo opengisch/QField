@@ -26,7 +26,6 @@ Item {
 
   MapCanvasMap {
     id: mapCanvasWrapper
-    parallelRendering: true
 
     anchors.fill: parent
   }

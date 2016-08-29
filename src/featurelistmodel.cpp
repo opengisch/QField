@@ -40,13 +40,13 @@ void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResu
 
   mFeatures.clear();
 
-  disconnect( this, SLOT( layerDeleted(QObject*)) );
+  disconnect( this, SLOT( layerDeleted( QObject* ) ) );
 
   Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
   {
     QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( res.mLayer );
     mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( layer, res.mFeature ) );
-    connect( layer, SIGNAL( destroyed(QObject*) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
+    connect( layer, SIGNAL( destroyed( QObject* ) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
     connect( layer, SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
     connect( layer, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId,int,QVariant ) ), Qt::UniqueConnection );
   }
@@ -136,9 +136,9 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
     case Qt::DisplayRole:
     {
       QgsExpressionContext context = QgsExpressionContext()
-          << QgsExpressionContextUtils::globalScope()
-          << QgsExpressionContextUtils::projectScope()
-          << QgsExpressionContextUtils::layerScope( feature->first );
+                                     << QgsExpressionContextUtils::globalScope()
+                                     << QgsExpressionContextUtils::projectScope()
+                                     << QgsExpressionContextUtils::layerScope( feature->first );
       context.setFeature( feature->second );
       return QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
     }

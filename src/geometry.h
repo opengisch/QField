@@ -24,7 +24,7 @@ class Geometry : public QObject
     Q_INVOKABLE void applyRubberband();
 
     QgsVectorLayer* vectorLayer() const;
-    void setVectorLayer(QgsVectorLayer* vectorLayer);
+    void setVectorLayer( QgsVectorLayer* vectorLayer );
 
   signals:
     void rubberbandModelChanged();

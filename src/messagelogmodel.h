@@ -27,23 +27,25 @@ class MessageLogModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    struct LogMessage {
-        LogMessage()
-        {}
+    struct LogMessage
+    {
+      LogMessage()
+      {}
 
-        LogMessage( const QString& tag, const QString& message, QgsMessageLog::MessageLevel level )
-        {
-          this->tag = tag;
-          this->message = message;
-          this->level = level;
-        }
+      LogMessage( const QString& tag, const QString& message, QgsMessageLog::MessageLevel level )
+      {
+        this->tag = tag;
+        this->message = message;
+        this->level = level;
+      }
 
-        QString tag;
-        QString message;
-        QgsMessageLog::MessageLevel level;
+      QString tag;
+      QString message;
+      QgsMessageLog::MessageLevel level;
     };
 
-    enum Roles {
+    enum Roles
+    {
       MessageRole = Qt::UserRole,
       MessageTagRole,
       MessageLevelRole
@@ -54,8 +56,8 @@ class MessageLogModel : public QAbstractListModel
 
     QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount(const QModelIndex& parent) const override;
-    QVariant data(const QModelIndex& index, int role) const override;
+    int rowCount( const QModelIndex& parent ) const override;
+    QVariant data( const QModelIndex& index, int role ) const override;
 
   private slots:
     void onMessageReceived( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level );

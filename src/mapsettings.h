@@ -28,27 +28,27 @@ class MapSettings : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
-    Q_PROPERTY( CRS* crs READ crs NOTIFY crsChanged )
-    // Q_PROPERTY( QPointF center READ center WRITE setCenter NOTIFY centerChanged )
-    // Q_PROPERTY( qreal scale READ scale WRITE setScale NOTIFY scaleChanged )
+    Q_PROPERTY( QgsRectangle visibleExtent READ visibleExtent NOTIFY visibleExtentChanged )
+    Q_PROPERTY( double mapUnitsPerPixel READ mapUnitsPerPixel NOTIFY mapUnitsPerPixelChanged )
+    Q_PROPERTY( double rotation READ rotation WRITE setRotation NOTIFY rotationChanged )
+    Q_PROPERTY( QSize outputSize READ outputSize WRITE setOutputSize NOTIFY outputSizeChanged )
+    Q_PROPERTY( double outputDpi READ outputDpi WRITE setOutputDpi NOTIFY outputDpiChanged )
+    Q_PROPERTY( QgsUnitTypes::DistanceUnit mapUnits READ mapUnits WRITE setMapUnits NOTIFY mapUnitsChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
+    Q_PROPERTY( bool crsTransformEnabled READ hasCrsTransformEnabled WRITE setCrsTransformEnabled NOTIFY crsTransformEnabledChanged )
 
   public:
     MapSettings( QObject* parent = 0 );
     ~MapSettings();
 
-    const QgsRectangle extent() const;
+    QgsRectangle extent() const;
     void setExtent( const QgsRectangle& extent );
-
-    // TODO: We don't want to really store this in here
-    void setQgsMapCanvas( QgsMapCanvas* mapCanvas );
-    QgsMapCanvas* qgsMapCanvas();
 
     Q_INVOKABLE void setCenter( const QPointF& center );
 
-    double mapUnitsPerPixel();
-    const QgsRectangle visibleExtent();
+    double mapUnitsPerPixel() const;
 
-    CRS* crs() const;
+    QgsRectangle visibleExtent() const;
 
     /**
      * Convert a map coordinate to screen pixel coordinates
@@ -69,20 +69,39 @@ class MapSettings : public QObject
      */
     Q_INVOKABLE const QPointF screenToCoordinate( const QPointF& p ) const;
 
+    double rotation() const;
+    void setRotation( double rotation );
+
+    QgsMapSettings mapSettings() const;
+
+    QSize outputSize() const;
+    void setOutputSize( const QSize& outputSize );
+
+    double outputDpi() const;
+    void setOutputDpi( double outputDpi );
+
+    QgsCoordinateReferenceSystem destinationCrs() const;
+    void setDestinationCrs( const QgsCoordinateReferenceSystem& destinationCrs );
+
+    QgsUnitTypes::DistanceUnit mapUnits() const;
+    void setMapUnits( const QgsUnitTypes::DistanceUnit& mapUnits );
+
+    bool hasCrsTransformEnabled() const;
+    void setCrsTransformEnabled( bool crsTransformEnabled );
+
   signals:
     void extentChanged();
-    void crsChanged();
-    // void centerChanged();
-    // void scaleChanged();
-
-  private slots:
-    void onMapCrsChanged();
+    void destinationCrsChanged();
+    void mapUnitsPerPixelChanged();
+    void rotationChanged();
+    void visibleExtentChanged();
+    void outputSizeChanged();
+    void outputDpiChanged();
+    void mapUnitsChanged();
+    void crsTransformEnabledChanged();
 
   private:
-    // As of now, this will be used to own and handle the mapSettings
-    // THIS SHOULD BE CHANGED!
-    QgsMapCanvas* mMapCanvas;
-    CRS* mCrs;
+    QgsMapSettings mMapSettings;
 };
 
 #endif // MAPSETTINGS_H

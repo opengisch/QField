@@ -40,7 +40,7 @@ class FeatureModel : public QAbstractListModel
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
 
-    void setFeature(const QgsFeature& feature );
+    void setFeature( const QgsFeature& feature );
 
     /**
      * Return the feature wrapped in a QVariant for passing it around in QML

@@ -17,10 +17,13 @@
 
 MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
-  , mMapCanvas( 0 )
-  , mCrs( new CRS )
 {
-
+  // Connect signals for derived values
+  connect( this, SIGNAL( mapUnitsChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
+  connect( this, SIGNAL( extentChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
+  connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
+  connect( this, SIGNAL( extentChanged() ), this, SIGNAL( visibleExtentChanged() ) );
+  connect( this, SIGNAL( rotationChanged() ), this, SIGNAL( visibleExtentChanged() ) );
 }
 
 MapSettings::~MapSettings()
@@ -28,39 +31,25 @@ MapSettings::~MapSettings()
 
 }
 
-const QgsRectangle MapSettings::extent() const
+QgsRectangle MapSettings::extent() const
 {
-  return mMapCanvas->mapSettings().extent();
+  return mMapSettings.extent();
 }
 
 void MapSettings::setExtent( const QgsRectangle& extent )
 {
-  if ( mMapCanvas && mMapCanvas->mapSettings().extent() != extent )
-  {
-    mMapCanvas->setExtent( extent );
-    mMapCanvas->refresh();
-  }
-}
+  if ( mMapSettings.extent() == extent )
+    return;
 
-void MapSettings::setQgsMapCanvas( QgsMapCanvas* mapCanvas )
-{
-  mMapCanvas = mapCanvas;
-  mCrs->setCrs( mMapCanvas->mapSettings().destinationCrs() );
-  emit crsChanged();
-  connect( mMapCanvas, SIGNAL( destinationCrsChanged() ), this, SLOT( onMapCrsChanged() ) );
-  connect( mMapCanvas, SIGNAL( extentsChanged() ), this, SIGNAL( extentChanged() ) );
-}
-
-QgsMapCanvas* MapSettings::qgsMapCanvas()
-{
-  return mMapCanvas;
+  mMapSettings.setExtent( extent );
+  emit extentChanged();
 }
 
 void MapSettings::setCenter( const QPointF& center )
 {
-  QgsVector delta = QgsPoint( center.x(), center.y() ) - mMapCanvas->mapSettings().extent().center();
+  QgsVector delta = QgsPoint( center.x(), center.y() ) - mMapSettings.extent().center();
 
-  QgsRectangle e = mMapCanvas->mapSettings().extent();
+  QgsRectangle e = mMapSettings.extent();
   e.setXMinimum( e.xMinimum() + delta.x() );
   e.setXMaximum( e.xMaximum() + delta.x() );
   e.setYMinimum( e.yMinimum() + delta.y() );
@@ -69,50 +58,114 @@ void MapSettings::setCenter( const QPointF& center )
   setExtent( e );
 }
 
-double MapSettings::mapUnitsPerPixel()
+double MapSettings::mapUnitsPerPixel() const
 {
-  return mMapCanvas->mapSettings().mapUnitsPerPixel();
+  return mMapSettings.mapUnitsPerPixel();
 }
 
-const QgsRectangle MapSettings::visibleExtent()
+QgsRectangle MapSettings::visibleExtent() const
 {
-  return mMapCanvas->mapSettings().visibleExtent();
-}
-
-CRS* MapSettings::crs() const
-{
-  return mCrs;
+  return mMapSettings.visibleExtent();
 }
 
 const QPointF MapSettings::coordinateToScreen( const QPointF& p ) const
 {
-  if ( mMapCanvas )
-  {
-    QgsPoint pt( p.x(), p.y() );
-    QgsPoint pp = mMapCanvas->mapSettings().mapToPixel().transform( pt );
-    return QPointF( pp.x(), pp.y() );
-  }
-  else
-  {
-    return p;
-  }
+  QgsPoint pt( p.x(), p.y() );
+  QgsPoint pp = mMapSettings.mapToPixel().transform( pt );
+  return QPointF( pp.x(), pp.y() );
 }
 
 const QPointF MapSettings::screenToCoordinate( const QPointF& p ) const
 {
-  if ( mMapCanvas )
-  {
-    const QgsPoint pp = mMapCanvas->mapSettings().mapToPixel().toMapCoordinates( p.toPoint() );
-    return QPointF( pp.x(), pp.y() );
-  }
-  else
-  {
-    return p;
-  }
+  const QgsPoint pp = mMapSettings.mapToPixel().toMapCoordinates( p.toPoint() );
+  return QPointF( pp.x(), pp.y() );
 }
 
-void MapSettings::onMapCrsChanged()
+QgsMapSettings MapSettings::mapSettings() const
 {
-  mCrs->setCrs( mMapCanvas->mapSettings().destinationCrs() );
-  emit crsChanged();
+  return mMapSettings;
+}
+
+QSize MapSettings::outputSize() const
+{
+  return mMapSettings.outputSize();
+}
+
+void MapSettings::setOutputSize( const QSize& outputSize )
+{
+  if ( mMapSettings.outputSize() == outputSize )
+    return;
+
+  mMapSettings.setOutputSize( outputSize );
+  emit outputSizeChanged();
+}
+
+double MapSettings::outputDpi() const
+{
+  return mMapSettings.outputDpi();
+}
+
+void MapSettings::setOutputDpi( double outputDpi )
+{
+  if ( mMapSettings.outputDpi() == outputDpi )
+    return;
+
+  mMapSettings.setOutputDpi( outputDpi );
+  emit outputDpiChanged();
+}
+
+QgsCoordinateReferenceSystem MapSettings::destinationCrs() const
+{
+  return mMapSettings.destinationCrs();
+}
+
+void MapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem& destinationCrs )
+{
+  if ( mMapSettings.destinationCrs() == destinationCrs )
+    return;
+
+  mMapSettings.setDestinationCrs( destinationCrs );
+  emit destinationCrsChanged();
+}
+
+QgsUnitTypes::DistanceUnit MapSettings::mapUnits() const
+{
+  return mMapSettings.mapUnits();
+}
+
+void MapSettings::setMapUnits( const QgsUnitTypes::DistanceUnit& mapUnits )
+{
+  if ( mMapSettings.mapUnits() == mapUnits )
+    return;
+
+  mMapSettings.setMapUnits( mapUnits );
+  emit mapUnitsChanged();
+}
+
+bool MapSettings::hasCrsTransformEnabled() const
+{
+  return mMapSettings.hasCrsTransformEnabled();
+}
+
+void MapSettings::setCrsTransformEnabled( bool crsTransformEnabled )
+{
+  if ( mMapSettings.hasCrsTransformEnabled() == crsTransformEnabled )
+    return;
+
+  mMapSettings.setCrsTransformEnabled( crsTransformEnabled );
+  emit crsTransformEnabledChanged();
+}
+
+double MapSettings::rotation() const
+{
+  return mMapSettings.rotation();
+}
+
+void MapSettings::setRotation( double rotation )
+{
+  if ( rotation == mMapSettings.rotation() )
+    return;
+
+  mMapSettings.setRotation( rotation );
+  emit rotationChanged();
 }

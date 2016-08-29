@@ -10,25 +10,25 @@
 class QgsMapCanvasProxy : public QGraphicsProxyWidget
 {
     Q_OBJECT
-public:
-    explicit QgsMapCanvasProxy(QGraphicsItem *parent = 0);
+  public:
+    explicit QgsMapCanvasProxy( QGraphicsItem *parent = 0 );
     ~QgsMapCanvasProxy();
 
     QgsMapCanvas* mapCanvas() const;
 
     virtual bool event( QEvent * event );
 
-signals:
+  signals:
     void renderStarted();
     void renderCompleted();
 
-public slots:
+  public slots:
 
-private:
+  private:
     bool gestureEvent( QGestureEvent *event );
     void tapAndHoldTriggered( QTapAndHoldGesture *gesture );
 
-  QgsMapCanvas *mMapCanvas;
+    QgsMapCanvas *mMapCanvas;
 };
 
 #endif // QGSMAPCANVASPROXY_H

@@ -42,7 +42,8 @@ HEADERS += \
     rubberband.h \
     picturesource.h \
     messagelogmodel.h \
-    attributeformmodel.h
+    attributeformmodel.h \
+    layertreemapcanvasbridge.h
 
 SOURCES += \
     appinterface.cpp \
@@ -69,7 +70,8 @@ SOURCES += \
     rubberband.cpp \
     picturesource.cpp \
     messagelogmodel.cpp \
-    attributeformmodel.cpp
+    attributeformmodel.cpp \
+    layertreemapcanvasbridge.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

@@ -84,7 +84,7 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
     QgsVectorLayer* layer = mModel->data( firstIndex, FeatureListModel::LayerRole ).value<QgsVectorLayer*>();
     if ( layer )
     {
-      QgsCoordinateTransform transf( layer->crs(), mMapSettings->crs()->crs() );
+      QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs() );
 
       for ( int i = 0; i < count; ++i )
       {

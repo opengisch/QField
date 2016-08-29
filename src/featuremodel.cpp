@@ -26,7 +26,7 @@ FeatureModel::FeatureModel( QObject *parent )
   connect( this, SIGNAL( modelReset() ), this, SIGNAL( featureChanged() ) );
 }
 
-void FeatureModel::setFeature(const QgsFeature& feature )
+void FeatureModel::setFeature( const QgsFeature& feature )
 {
   if ( mFeature == feature )
     return;

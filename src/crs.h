@@ -22,7 +22,7 @@
 
 class CRS : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
     Q_PROPERTY( int srid READ srid WRITE setSrid NOTIFY sridChanged )
 

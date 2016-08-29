@@ -99,7 +99,7 @@ qreal Rubberband::width() const
   return mWidth;
 }
 
-void Rubberband::setWidth(qreal width)
+void Rubberband::setWidth( qreal width )
 {
   mWidth = width;
 }
@@ -109,7 +109,7 @@ QColor Rubberband::color() const
   return mColor;
 }
 
-void Rubberband::setColor(const QColor& color)
+void Rubberband::setColor( const QColor& color )
 {
   mColor = color;
 }

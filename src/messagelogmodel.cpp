@@ -20,7 +20,7 @@ MessageLogModel::MessageLogModel( QObject* parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsMessageLog::instance() )
 {
-  connect( mMessageLog, SIGNAL(messageReceived(QString,QString,QgsMessageLog::MessageLevel)), this, SLOT( onMessageReceived(QString,QString,QgsMessageLog::MessageLevel)));
+  connect( mMessageLog, SIGNAL( messageReceived( QString,QString,QgsMessageLog::MessageLevel ) ), this, SLOT( onMessageReceived( QString,QString,QgsMessageLog::MessageLevel ) ) );
 }
 
 QHash<int, QByteArray> MessageLogModel::roleNames() const
@@ -54,7 +54,7 @@ QVariant MessageLogModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::onMessageReceived(const QString& message, const QString& tag, QgsMessageLog::MessageLevel level)
+void MessageLogModel::onMessageReceived( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level )
 {
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );

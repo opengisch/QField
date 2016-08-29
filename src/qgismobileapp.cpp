@@ -42,7 +42,6 @@
 #include "featurelistmodelhighlight.h"
 #include "qgseditorwidgetregistry.h"
 #include "maptransform.h"
-#include "mapsettings.h"
 #include "featurelistextentcontroller.h"
 #include "coordinatetransform.h"
 #include "modelhelper.h"
@@ -50,9 +49,11 @@
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
 #include "messagelogmodel.h"
+#include "mapsettings.h"
 #include "attributeformmodel.h"
 #include "geometry.h"
 #include "featuremodel.h"
+#include "layertreemapcanvasbridge.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -79,20 +80,15 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   setMinimumHeight( 480 );
   setMinimumWidth( 800 );
 
-  QgsQuickMapCanvasMap* mapCanvasBridge = rootObject()->findChild<QgsQuickMapCanvasMap*>();
+  QgsQuickMapCanvasMap* mMapCanvas = rootObject()->findChild<QgsQuickMapCanvasMap*>();
 
-  Q_ASSERT_X( mapCanvasBridge, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
-
-  // Setup map canvas
-  mMapCanvas = mapCanvasBridge->mapCanvas();
-
-  mMapCanvas->setVisible( true );
+  Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
   connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
 
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
-  mLayerTreeCanvasBridge = new QgsLayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
@@ -176,11 +172,14 @@ void QgisMobileapp::loadProjectQuirks()
 
 void QgisMobileapp::identifyFeatures( const QPointF& point )
 {
+  // TODO: FIX IDENTIFY
+#if 0
   QgsMapToolIdentify identify( mMapCanvas );
   QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll, QgsMapToolIdentify::VectorLayer );
 
   mFeatureListModel.setFeatures( results );
   mIface->openFeatureForm();
+#endif
 }
 
 void QgisMobileapp::onReadProject( const QDomDocument& doc )

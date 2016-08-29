@@ -39,6 +39,8 @@
 
 class AppInterface;
 class QgsOfflineEditing;
+class QgsQuickMapCanvasMap;
+class LayerTreeMapCanvasBridge;
 
 class QgisMobileapp : public QQuickView
 {
@@ -92,13 +94,13 @@ class QgisMobileapp : public QQuickView
     void loadProjectQuirks();
 
     QgsOfflineEditing* mOfflineEditing;
-    QgsMapCanvas* mMapCanvas;
-    QgsLayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
+    LayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
     QgsLayerTreeModel* mLayerTree;
     QgsMapLayerProxyModel* mLayerList;
     AppInterface* mIface;
     FeatureListModel mFeatureListModel;
     Settings mSettings;
+    QgsQuickMapCanvasMap* mMapCanvas;
     bool mFirstRenderingFlag;
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
