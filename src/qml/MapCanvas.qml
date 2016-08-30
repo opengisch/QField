@@ -24,6 +24,8 @@ Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
 
+  signal clicked(var mouse)
+
   MapCanvasMap {
     id: mapCanvasWrapper
 
@@ -68,7 +70,7 @@ Item {
         }
         else
         {
-          iface.identifyFeatures( Qt.point( mouse.x, mouse.y ) )
+          mapArea.clicked( mouse )
         }
       }
 

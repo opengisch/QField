@@ -20,8 +20,9 @@
 
 #include <QAbstractItemModel>
 
-#include <qgsmaptoolidentify.h>
 #include <qgsfeaturerequest.h>
+
+#include "identifytool.h"
 
 class FeatureListModel : public QAbstractItemModel
 {
@@ -40,19 +41,16 @@ class FeatureListModel : public QAbstractItemModel
     };
 
     explicit FeatureListModel( QObject *parent = 0 );
-    FeatureListModel( QList<QgsMapToolIdentify::IdentifyResult> features, QObject* parent = 0 );
-
-    /**
-     * @brief setFeatures
-     * @param results
-     */
-    void setFeatures( const QList<QgsMapToolIdentify::IdentifyResult>& results );
 
     /**
      * @brief setFeatures
      * @param requests
      */
     void setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests );
+
+    void appendFeatures( const QList<IdentifyTool::IdentifyResult>& results );
+
+    void clear();
 
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const override;

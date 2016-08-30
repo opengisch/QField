@@ -28,7 +28,7 @@ MapSettings::MapSettings( QObject* parent )
   connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
   connect( this, SIGNAL( extentChanged() ), this, SIGNAL( visibleExtentChanged() ) );
   connect( this, SIGNAL( rotationChanged() ), this, SIGNAL( visibleExtentChanged() ) );
-  connect( QgsProject::instance(), SIGNAL(readProject(QDomDocument)), this, SLOT(onReadProject(QDomDocument)));
+  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 }
 
 MapSettings::~MapSettings()
@@ -189,7 +189,7 @@ void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
   emit layersChanged();
 }
 
-void MapSettings::onReadProject(const QDomDocument& doc)
+void MapSettings::onReadProject( const QDomDocument& doc )
 {
   QDomNodeList nodes = doc.elementsByTagName( "mapcanvas" );
   if ( nodes.count() )
@@ -203,12 +203,12 @@ void MapSettings::onReadProject(const QDomDocument& doc)
 
 double MapSettings::rotation() const
 {
-    return mMapSettings.rotation();
+  return mMapSettings.rotation();
 }
 
 void MapSettings::setRotation( double rotation )
 {
-    if ( rotation == mMapSettings.rotation() )
+  if ( rotation == mMapSettings.rotation() )
     return;
 
   mMapSettings.setRotation( rotation );

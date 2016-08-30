@@ -80,6 +80,11 @@ Rectangle {
       id: mapCanvasMap
 
       anchors.fill: parent
+
+      onClicked: {
+        identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+        featureForm.show()
+      }
     }
 
     /* A transformation node for overlays in map coordinates */
@@ -92,7 +97,7 @@ Rectangle {
 
       /* Highlight the currently selected item on the feature list */
       FeatureListModelHighlight {
-        model: featureListModel
+        model: featureForm.selection.model
         selection: featureForm.selection
         mapSettings: mapCanvas.mapSettings
         color: "yellow"
@@ -119,6 +124,15 @@ Rectangle {
         anchors.fill: parent
 
         visible: mainWindow.state === "digitize"
+      }
+
+
+      /** The identify tool **/
+      IdentifyTool {
+        id: identifyTool
+
+        mapSettings: mapCanvas.mapSettings
+        model: featureForm.selection.model
       }
     }
 
@@ -169,7 +183,7 @@ Rectangle {
 
     PositionInformationView {
       positionSource: positionSource
-      crs: mapCanvas.mapSettings.crs
+      crs: mapCanvas.mapSettings.destinationCrs
 
       anchors.margins: 5
     }
@@ -189,7 +203,10 @@ Rectangle {
     border.color: "lightGray"
     border.width: 1
 
-    selection: FeatureListModelSelection { model: featureListModel }
+    selection: FeatureListModelSelection {
+      model: FeatureListModel {
+      }
+    }
     selectionColor: "#ff7777"
   }
 

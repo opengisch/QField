@@ -28,6 +28,7 @@ Rectangle {
   property FeatureListModelSelection selection
   property MapSettings mapSettings
   property color selectionColor
+  property alias model: globalFeaturesList.model
 
   states: [
     State {
@@ -100,7 +101,6 @@ Rectangle {
 
     clip: true
 
-    model: featureListModel
     section.property: "layerName"
     section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
     section.delegate: Component {
@@ -236,10 +236,10 @@ Rectangle {
 
   NavigationBar {
     id: featureListToolBar
-    model: featureListModel
+    model: globalFeaturesList.model
     selection: featureForm.selection
     extentController: FeaturelistExtentController {
-      model: featureListModel
+      model: globalFeaturesList.model
       selection: featureForm.selection
       mapSettings: featureForm.mapSettings
     }
@@ -277,7 +277,7 @@ Rectangle {
   }
 
   Connections {
-    target: featureListModel
+    target: globalFeaturesList.model
 
     onModelReset: {
       state = "FeatureList"

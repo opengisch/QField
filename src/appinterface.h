@@ -40,14 +40,6 @@ class AppInterface : public QObject
     Q_INVOKABLE void loadProject( const QString& path );
 
   public slots:
-    /**
-     * When called, it will request any features at this position and after doing so emit a
-     * featuresIdentified signal to which you may connect.
-     *
-     * @param point Coordinate at which to identify features
-     */
-    void identifyFeatures( const QPointF point );
-
     void openFeatureForm();
 
   signals:

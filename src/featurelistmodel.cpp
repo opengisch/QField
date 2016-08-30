@@ -28,32 +28,6 @@ FeatureListModel::FeatureListModel( QObject *parent )
   connect( this, SIGNAL( modelReset() ), this, SIGNAL( countChanged() ) );
 }
 
-FeatureListModel::FeatureListModel( QList<QgsMapToolIdentify::IdentifyResult> features, QObject* parent )
-  : QAbstractItemModel( parent )
-{
-  setFeatures( features );
-}
-
-void FeatureListModel::setFeatures( const QList<QgsMapToolIdentify::IdentifyResult>& results )
-{
-  beginResetModel();
-
-  mFeatures.clear();
-
-  disconnect( this, SLOT( layerDeleted( QObject* ) ) );
-
-  Q_FOREACH( const QgsMapToolIdentify::IdentifyResult& res, results )
-  {
-    QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( res.mLayer );
-    mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( layer, res.mFeature ) );
-    connect( layer, SIGNAL( destroyed( QObject* ) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
-    connect( layer, SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
-    connect( layer, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId,int,QVariant ) ), Qt::UniqueConnection );
-  }
-
-  endResetModel();
-}
-
 void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests )
 {
   beginResetModel();
@@ -72,6 +46,28 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
     }
   }
 
+  endResetModel();
+}
+
+void FeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult>& results )
+{
+  beginInsertRows( QModelIndex(), mFeatures.count(), mFeatures.count() + results.count() -1 );
+  Q_FOREACH( const IdentifyTool::IdentifyResult& result, results )
+  {
+    QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( result.layer );
+    mFeatures.append( QPair<QgsVectorLayer*, QgsFeature>( layer, result.feature ) );
+    connect( layer, SIGNAL( destroyed( QObject* ) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
+    connect( layer, SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
+    connect( layer, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId, int, QVariant ) ), Qt::UniqueConnection );
+  }
+  endInsertRows();
+}
+
+void FeatureListModel::clear()
+{
+
+  beginResetModel();
+  mFeatures.clear();
   endResetModel();
 }
 

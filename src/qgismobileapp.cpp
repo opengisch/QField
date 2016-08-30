@@ -55,6 +55,7 @@
 #include "featuremodel.h"
 #include "layertreemapcanvasbridge.h"
 #include "qgscoordinatereferencesystem.h"
+#include "identifytool.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -89,7 +90,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas, this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas->mapSettings(), this );
   connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
   connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
@@ -135,6 +136,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
+  qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -146,7 +148,6 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "iface", mIface );
-  rootContext()->setContextProperty( "featureListModel", &mFeatureListModel );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
@@ -172,18 +173,6 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
-void QgisMobileapp::identifyFeatures( const QPointF& point )
-{
-  // TODO: FIX IDENTIFY
-#if 0
-  QgsMapToolIdentify identify( mMapCanvas );
-  QList<QgsMapToolIdentify::IdentifyResult> results = identify.identify( point.x(), point.y(), QgsMapToolIdentify::TopDownAll, QgsMapToolIdentify::VectorLayer );
-
-  mFeatureListModel.setFeatures( results );
-  mIface->openFeatureForm();
-#endif
-}
-
 void QgisMobileapp::onReadProject( const QDomDocument& doc )
 {
   Q_UNUSED( doc );
@@ -204,7 +193,6 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
   if ( requests.count() )
   {
     qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
-    mFeatureListModel.setFeatures( requests );
     mIface->openFeatureForm();
   }
 }

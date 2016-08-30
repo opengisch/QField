@@ -49,9 +49,6 @@ class QgisMobileapp : public QQuickView
     QgisMobileapp( QgsApplication *app, QWindow* parent = 0 );
     ~QgisMobileapp();
 
-    // interface methods
-    void identifyFeatures( const QPointF& point );
-
     /**
      * When called loads the project file found at path.
      *
@@ -98,7 +95,6 @@ class QgisMobileapp : public QQuickView
     QgsLayerTreeModel* mLayerTree;
     QgsMapLayerProxyModel* mLayerList;
     AppInterface* mIface;
-    FeatureListModel mFeatureListModel;
     Settings mSettings;
     QgsQuickMapCanvasMap* mMapCanvas;
     bool mFirstRenderingFlag;
