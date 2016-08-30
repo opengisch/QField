@@ -42,7 +42,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
 
   connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
-  connect( mMapSettings, SIGNAL(layersChanged()), this,SLOT(onLayersChange()));
+  connect( mMapSettings, SIGNAL( layersChanged() ), this,SLOT( onLayersChange() ) );
 
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
@@ -224,7 +224,7 @@ bool QgsQuickMapCanvasMap::freeze() const
   return mFreeze;
 }
 
-void QgsQuickMapCanvasMap::setFreeze(bool freeze)
+void QgsQuickMapCanvasMap::setFreeze( bool freeze )
 {
   if ( freeze == mFreeze )
     return;
@@ -247,7 +247,7 @@ void QgsQuickMapCanvasMap::setExtent( const QgsRectangle& extent )
   mMapSettings->setExtent( extent );
 }
 
-QSGNode* QgsQuickMapCanvasMap::updatePaintNode(QSGNode* oldNode, QQuickItem::UpdatePaintNodeData*)
+QSGNode* QgsQuickMapCanvasMap::updatePaintNode( QSGNode* oldNode, QQuickItem::UpdatePaintNodeData* )
 {
   if ( mDirty )
   {
@@ -257,12 +257,13 @@ QSGNode* QgsQuickMapCanvasMap::updatePaintNode(QSGNode* oldNode, QQuickItem::Upd
   }
 
   QSGSimpleTextureNode* node = static_cast<QSGSimpleTextureNode*>( oldNode );
-  if ( !node ) {
-      node = new QSGSimpleTextureNode();
-      QSGTexture* texture = window()->createTextureFromImage(mImage);
-      node->setTexture(texture);
+  if ( !node )
+  {
+    node = new QSGSimpleTextureNode();
+    QSGTexture* texture = window()->createTextureFromImage( mImage );
+    node->setTexture( texture );
   }
-  node->setRect(boundingRect());
+  node->setRect( boundingRect() );
   return node;
 }
 

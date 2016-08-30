@@ -23,7 +23,7 @@
 #include <qgsmaplayer.h>
 #include <qgslayertreeutils.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge(QgsLayerTreeGroup* root, MapSettings* mapSettings, QObject* parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, MapSettings* mapSettings, QObject* parent )
   : QObject( parent )
   , mRoot( root )
   , mMapSettings( mapSettings )

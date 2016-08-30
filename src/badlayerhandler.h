@@ -25,7 +25,7 @@ class BadLayerHandler : public QgsProjectBadLayerHandler
     ~BadLayerHandler();
 
   public:
-    void handleBadLayers(QList<QDomNode> layers, QDomDocument projectDom);
+    void handleBadLayers( QList<QDomNode> layers, QDomDocument projectDom );
 };
 
 #endif // BADLAYERHANDLER_H

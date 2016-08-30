@@ -89,7 +89,7 @@ class MapSettings : public QObject
     void setCrsTransformEnabled( bool crsTransformEnabled );
 
     QList<QgsMapLayer*> layers() const;
-    void setLayers(const QList<QgsMapLayer*>& layers);
+    void setLayers( const QList<QgsMapLayer*>& layers );
 
   signals:
     void extentChanged();
@@ -104,7 +104,7 @@ class MapSettings : public QObject
     void layersChanged();
 
   private slots:
-    void onReadProject(const QDomDocument& doc);
+    void onReadProject( const QDomDocument& doc );
 
   private:
     QgsMapSettings mMapSettings;

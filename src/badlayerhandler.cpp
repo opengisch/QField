@@ -28,6 +28,6 @@ BadLayerHandler::~BadLayerHandler()
 
 
 
-void BadLayerHandler::handleBadLayers(QList<QDomNode> layers, QDomDocument projectDom)
+void BadLayerHandler::handleBadLayers( QList<QDomNode> layers, QDomDocument projectDom )
 {
 }

@@ -61,7 +61,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     virtual QSGNode* updatePaintNode( QSGNode* oldNode, QQuickItem::UpdatePaintNodeData* );
 
     bool freeze() const;
-    void setFreeze(bool freeze);
+    void setFreeze( bool freeze );
 
   signals:
     void renderStarting();
