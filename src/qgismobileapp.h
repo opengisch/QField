@@ -102,6 +102,8 @@ class QgisMobileapp : public QQuickView
     Settings mSettings;
     QgsQuickMapCanvasMap* mMapCanvas;
     bool mFirstRenderingFlag;
+    // Dummpy CRS object. We are not able to call static functions from QML, so we need something here.
+    QgsCoordinateReferenceSystem mCrsFactory;
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
 #else
@@ -112,5 +114,6 @@ class QgisMobileapp : public QQuickView
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
 Q_DECLARE_METATYPE( QgsAttributes )
+Q_DECLARE_METATYPE( QgsCoordinateReferenceSystem )
 
 #endif // QGISMOBILEAPP_H

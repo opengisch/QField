@@ -19,26 +19,25 @@
 #include <QObject>
 #include <QPointF>
 
-#include <crs.h>
 #include <qgscoordinatetransform.h>
 
 class CoordinateTransform : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( CRS* sourceCRS READ sourceCRS WRITE setSourceCRS NOTIFY sourceCRSChanged )
-    Q_PROPERTY( CRS* destinationCRS READ destinationCRS WRITE setDestinationCRS NOTIFY destinationCRSChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem sourceCRS READ sourceCRS WRITE setSourceCRS NOTIFY sourceCRSChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem destinationCRS READ destinationCRS WRITE setDestinationCRS NOTIFY destinationCRSChanged )
 
   public:
     explicit CoordinateTransform( QObject *parent = 0 );
 
     Q_INVOKABLE const QPointF transform( const QPointF& pt  ) const;
 
-    CRS* sourceCRS() const;
-    CRS* destinationCRS() const;
+    QgsCoordinateReferenceSystem sourceCRS() const;
+    QgsCoordinateReferenceSystem destinationCRS() const;
 
-    void setSourceCRS( CRS* sourceCRS );
-    void setDestinationCRS( CRS* destCRS );
+    void setSourceCRS( QgsCoordinateReferenceSystem sourceCRS );
+    void setDestinationCRS( QgsCoordinateReferenceSystem destCRS );
 
   signals:
     void destinationCRSChanged();
@@ -48,8 +47,8 @@ class CoordinateTransform : public QObject
     void updateTransform();
 
   private:
-    CRS* mSourceCRS;
-    CRS* mDestinationCRS;
+    QgsCoordinateReferenceSystem mSourceCRS;
+    QgsCoordinateReferenceSystem mDestinationCRS;
 
     QgsCoordinateTransform mTransform;
 };

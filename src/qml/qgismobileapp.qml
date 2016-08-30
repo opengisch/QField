@@ -136,9 +136,7 @@ Rectangle {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       coordinateTransform: CoordinateTransform {
-        sourceCRS: CRS {
-          srid: 4326
-        }
+        sourceCRS: CrsFactory.fromEpsgId(4326)
         destinationCRS: mapCanvas.mapSettings.destinationCrs
       }
       anchors.fill: parent

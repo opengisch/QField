@@ -36,33 +36,33 @@ const QPointF CoordinateTransform::transform( const QPointF& pt ) const
   return QPointF( p.x(), p.y() );
 }
 
-CRS* CoordinateTransform::sourceCRS() const
+QgsCoordinateReferenceSystem CoordinateTransform::sourceCRS() const
 {
   return mSourceCRS;
 }
 
-CRS* CoordinateTransform::destinationCRS() const
+QgsCoordinateReferenceSystem CoordinateTransform::destinationCRS() const
 {
   return mDestinationCRS;
 }
 
-void CoordinateTransform::setSourceCRS( CRS* sourceCRS )
+void CoordinateTransform::setSourceCRS( QgsCoordinateReferenceSystem sourceCRS )
 {
   if ( mSourceCRS != sourceCRS )
   {
     mSourceCRS = sourceCRS;
-    connect( mSourceCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
+    // connect( mSourceCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
     updateTransform();
     emit sourceCRSChanged();
   }
 }
 
-void CoordinateTransform::setDestinationCRS( CRS* destCRS )
+void CoordinateTransform::setDestinationCRS( QgsCoordinateReferenceSystem destCRS )
 {
   if ( mDestinationCRS != destCRS )
   {
     mDestinationCRS = destCRS;
-    connect( mDestinationCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
+    // connect( mDestinationCRS, SIGNAL( sridChanged() ), this, SLOT( updateTransform() ) );
     updateTransform();
     emit destinationCRSChanged();
   }
@@ -70,10 +70,11 @@ void CoordinateTransform::setDestinationCRS( CRS* destCRS )
 
 void CoordinateTransform::updateTransform()
 {
-  if ( mSourceCRS && mDestinationCRS )
-  {
-    mTransform.setSourceCrs( mSourceCRS->crs() );
-    mTransform.setDestinationCrs( mDestinationCRS->crs() );
-    mTransform.initialise();
-  }
+  /*
+   if ( mSourceCRS && mDestinationCRS )
+   {
+     mTransform.setSourceCrs( mSourceCRS );
+     mTransform.setDestinationCrs( mDestinationCRS );
+     mTransform.initialise();
+   }*/
 }

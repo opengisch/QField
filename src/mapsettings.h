@@ -21,8 +21,6 @@
 #include <qgsrectangle.h>
 #include <qgsmapcanvas.h>
 
-#include "crs.h"
-
 class MapSettings : public QObject
 {
     Q_OBJECT

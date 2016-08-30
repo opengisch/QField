@@ -54,6 +54,7 @@
 #include "geometry.h"
 #include "featuremodel.h"
 #include "layertreemapcanvasbridge.h"
+#include "qgscoordinatereferencesystem.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
   : QQuickView( parent )
@@ -118,6 +119,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
+  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
@@ -125,7 +127,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
-  qmlRegisterType<CRS>( "org.qgis", 1, 0, "CRS" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
@@ -151,6 +152,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
+  rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
 }
 
 void QgisMobileapp::loadProjectQuirks()

@@ -6,12 +6,11 @@ import org.qgis 1.0
 
 Item {
   property PositionSource positionSource
-  property CRS crs
+  property alias crs: _coordinateTransform.destinationCRS
 
-  property CoordinateTransform _coordinateTransform: CoordinateTransform {
-    sourceCRS: CRS {
-      srid: 4326
-    }
+  CoordinateTransform {
+    id: _coordinateTransform
+    sourceCRS: CrsFactory.fromEpsgId(4326)
     destinationCRS: crs
   }
   property point _currentPosition

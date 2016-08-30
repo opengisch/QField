@@ -21,7 +21,6 @@ include( ../version.pri )
 HEADERS += \
     appinterface.h \
     coordinatetransform.h \
-    crs.h \
     featurelistextentcontroller.h \
     featurelistmodel.h \
     featurelistmodelhighlight.h \
@@ -47,7 +46,6 @@ HEADERS += \
 SOURCES += \
     appinterface.cpp \
     coordinatetransform.cpp \
-    crs.cpp \
     featurelistextentcontroller.cpp \
     featurelistmodel.cpp \
     featurelistmodelhighlight.cpp \
