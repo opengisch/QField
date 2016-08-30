@@ -34,6 +34,7 @@ class MapSettings : public QObject
     Q_PROPERTY( QgsUnitTypes::DistanceUnit mapUnits READ mapUnits WRITE setMapUnits NOTIFY mapUnitsChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
     Q_PROPERTY( bool crsTransformEnabled READ hasCrsTransformEnabled WRITE setCrsTransformEnabled NOTIFY crsTransformEnabledChanged )
+    Q_PROPERTY( QList<QgsMapLayer*> layers READ layers WRITE setLayers NOTIFY layersChanged )
 
   public:
     MapSettings( QObject* parent = 0 );
@@ -87,6 +88,9 @@ class MapSettings : public QObject
     bool hasCrsTransformEnabled() const;
     void setCrsTransformEnabled( bool crsTransformEnabled );
 
+    QList<QgsMapLayer*> layers() const;
+    void setLayers(const QList<QgsMapLayer*>& layers);
+
   signals:
     void extentChanged();
     void destinationCrsChanged();
@@ -97,9 +101,14 @@ class MapSettings : public QObject
     void outputDpiChanged();
     void mapUnitsChanged();
     void crsTransformEnabledChanged();
+    void layersChanged();
+
+  private slots:
+    void onReadProject(const QDomDocument& doc);
 
   private:
     QgsMapSettings mMapSettings;
+
 };
 
 #endif // MAPSETTINGS_H

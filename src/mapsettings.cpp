@@ -15,6 +15,10 @@
 
 #include "mapsettings.h"
 
+#include "qgsmaplayerregistry.h"
+#include "qgsmaplayer.h"
+#include "qgsproject.h"
+
 MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
 {
@@ -24,6 +28,7 @@ MapSettings::MapSettings( QObject* parent )
   connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
   connect( this, SIGNAL( extentChanged() ), this, SIGNAL( visibleExtentChanged() ) );
   connect( this, SIGNAL( rotationChanged() ), this, SIGNAL( visibleExtentChanged() ) );
+  connect( QgsProject::instance(), SIGNAL(readProject(QDomDocument)), this, SLOT(onReadProject(QDomDocument)));
 }
 
 MapSettings::~MapSettings()
@@ -156,14 +161,54 @@ void MapSettings::setCrsTransformEnabled( bool crsTransformEnabled )
   emit crsTransformEnabledChanged();
 }
 
+QList<QgsMapLayer*> MapSettings::layers() const
+{
+  QList <QgsMapLayer*> layers;
+
+  Q_FOREACH( const QString& id, mMapSettings.layers() )
+  {
+    QgsMapLayer* layer = QgsMapLayerRegistry::instance()->mapLayer( id );
+    if ( layer )
+      layers << layer;
+  }
+  return layers;
+}
+
+void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
+{
+  QStringList layerIds;
+  Q_FOREACH( QgsMapLayer* layer, layers )
+  {
+    layerIds << layer->id();
+  }
+
+  if ( layerIds == mMapSettings.layers() )
+    return;
+
+  mMapSettings.setLayers( layerIds );
+  emit layersChanged();
+}
+
+void MapSettings::onReadProject(const QDomDocument& doc)
+{
+  QDomNodeList nodes = doc.elementsByTagName( "mapcanvas" );
+  if ( nodes.count() )
+  {
+    QDomNode node = nodes.item( 0 );
+
+    mMapSettings.readXml( node );
+    emit extentChanged();
+  }
+}
+
 double MapSettings::rotation() const
 {
-  return mMapSettings.rotation();
+    return mMapSettings.rotation();
 }
 
 void MapSettings::setRotation( double rotation )
 {
-  if ( rotation == mMapSettings.rotation() )
+    if ( rotation == mMapSettings.rotation() )
     return;
 
   mMapSettings.setRotation( rotation );
