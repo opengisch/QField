@@ -40,7 +40,10 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
 {
   connect( this, SIGNAL( windowChanged( QQuickWindow* ) ), this, SLOT( onWindowChanged( QQuickWindow* ) ) );
   connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
+
   connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
+  connect( mMapSettings, SIGNAL(layersChanged()), this,SLOT(onLayersChange()));
+
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
   setFlags( QQuickItem::ItemHasContents );
@@ -120,7 +123,7 @@ void QgsQuickMapCanvasMap::refreshMap()
 {
   stopRendering(); // if any...
 
-  QgsMapSettings mapSettings = prepareMapSettings();
+  QgsMapSettings mapSettings = mMapSettings->mapSettings();
 
   //build the expression context
   QgsExpressionContext expressionContext;
@@ -138,7 +141,7 @@ void QgsQuickMapCanvasMap::refreshMap()
   mJob->setCache( mCache );
 
   QStringList layersForGeometryCache;
-  Q_FOREACH ( QgsMapLayer* layer, mMapLayers )
+  Q_FOREACH ( QgsMapLayer* layer, mMapSettings->layers() )
   {
     if ( QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer ) )
     {
@@ -202,18 +205,6 @@ void QgsQuickMapCanvasMap::onExtentChanged()
 
   // And trigger a new rendering job
   refresh();
-}
-
-QgsMapSettings QgsQuickMapCanvasMap::prepareMapSettings() const
-{
-  QgsMapSettings mapSettings = mMapSettings->mapSettings();
-
-  QStringList ids;
-  Q_FOREACH( QgsMapLayer* layer, mMapLayers )
-    ids << layer->id();
-
-  mapSettings.setLayers( ids );
-  return mapSettings;
 }
 
 void QgsQuickMapCanvasMap::updateTransform()
@@ -302,14 +293,8 @@ void QgsQuickMapCanvasMap::setCrsTransformEnabled( bool crsTransformEnabled )
   mMapSettings->setCrsTransformEnabled( crsTransformEnabled );
 }
 
-QList<QgsMapLayer*> QgsQuickMapCanvasMap::layerSet() const
+void QgsQuickMapCanvasMap::onLayersChanged()
 {
-  return mMapLayers;
-}
-
-void QgsQuickMapCanvasMap::setLayerSet( const QList<QgsMapLayer*>& layerSet )
-{
-  mMapLayers = layerSet;
   if ( mMapSettings->extent().isEmpty() )
     zoomToFullExtent();
   refresh();
@@ -328,7 +313,7 @@ void QgsQuickMapCanvasMap::stopRendering()
 void QgsQuickMapCanvasMap::zoomToFullExtent()
 {
   QgsRectangle extent;
-  Q_FOREACH( QgsMapLayer* layer, mMapLayers )
+  Q_FOREACH( QgsMapLayer* layer, mMapSettings->layers() )
   {
     extent.combineExtentWith( layer->extent() );
   }

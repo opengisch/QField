@@ -92,13 +92,13 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void onWindowChanged( QQuickWindow* window );
     void onScreenChanged( QScreen* screen );
     void onExtentChanged();
+    void onLayersChanged();
 
   private:
     QgsMapSettings prepareMapSettings() const;
     void updateTransform();
 
     MapSettings* mMapSettings;
-    QList<QgsMapLayer*> mMapLayers;
 
     bool mPinching;
     bool mJobCancelled;

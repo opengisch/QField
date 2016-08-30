@@ -16,16 +16,17 @@
 
 #include "layertreemapcanvasbridge.h"
 #include "qgsquickmapcanvasmap.h"
+#include "mapsettings.h"
 
 #include <qgslayertreegroup.h>
 #include <qgslayertree.h>
 #include <qgsmaplayer.h>
 #include <qgslayertreeutils.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, QgsQuickMapCanvasMap* canvas, QObject* parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge(QgsLayerTreeGroup* root, MapSettings* mapSettings, QObject* parent )
   : QObject( parent )
   , mRoot( root )
-  , mCanvas( canvas )
+  , mMapSettings( mapSettings )
   , mPendingCanvasUpdate( false )
   , mHasCustomLayerOrder( false )
   , mAutoSetupOnFirstLayer( true )
@@ -136,7 +137,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   if ( firstLayers )
   {
     // also setup destination CRS and map units if the OTF projections are not yet enabled
-    if ( !mCanvas->hasCrsTransformEnabled() )
+    if ( !mMapSettings->hasCrsTransformEnabled() )
     {
       Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
       {
@@ -145,21 +146,15 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
 
         if ( layerNode->layer()->isSpatial() )
         {
-          mCanvas->setDestinationCrs( layerNode->layer()->crs() );
-          mCanvas->setMapUnits( layerNode->layer()->crs().mapUnits() );
+          mMapSettings->setDestinationCrs( layerNode->layer()->crs() );
+          mMapSettings->setMapUnits( layerNode->layer()->crs().mapUnits() );
           break;
         }
       }
     }
   }
 
-  mCanvas->setLayerSet( layers );
-
-  if ( firstLayers )
-  {
-    // if we are moving from zero to non-zero layers, let's zoom to those data
-    mCanvas->zoomToFullExtent();
-  }
+  mMapSettings->setLayers( layers );
 
   if ( !mFirstCRS.isValid() )
   {
@@ -174,15 +169,15 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     }
   }
 
-  if ( mAutoEnableCrsTransform && mFirstCRS.isValid() && !mCanvas->hasCrsTransformEnabled() )
+  if ( mAutoEnableCrsTransform && mFirstCRS.isValid() && !mMapSettings->hasCrsTransformEnabled() )
   {
     // check whether all layers still have the same CRS
     Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
     {
       if ( layerNode->layer() && layerNode->layer()->crs().isValid() && layerNode->layer()->crs() != mFirstCRS )
       {
-        mCanvas->setDestinationCrs( mFirstCRS );
-        mCanvas->setCrsTransformEnabled( true );
+        mMapSettings->setDestinationCrs( mFirstCRS );
+        mMapSettings->setCrsTransformEnabled( true );
         break;
       }
     }

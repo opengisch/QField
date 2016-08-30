@@ -23,7 +23,7 @@
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
-class QgsQuickMapCanvasMap;
+class MapSettings;
 class QgsMapCanvasLayer;
 class QgsMapLayer;
 
@@ -47,7 +47,7 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, QgsQuickMapCanvasMap* canvas, QObject* parent = nullptr );
+    LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, MapSettings* mapSettings, QObject* parent = nullptr );
 
     void clear();
 
@@ -55,9 +55,10 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
     {
       return mRoot;
     }
-    QgsQuickMapCanvasMap* mapCanvas() const
+
+    MapSettings* mapSettings() const
     {
-      return mCanvas;
+      return mMapSettings;
     }
 
     bool hasCustomLayerOrder() const
@@ -123,7 +124,7 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
 
   private:
     QgsLayerTreeGroup* mRoot;
-    QgsQuickMapCanvasMap* mCanvas;
+    MapSettings* mMapSettings;
 
     bool mPendingCanvasUpdate;
 
