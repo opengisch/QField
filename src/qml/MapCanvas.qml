@@ -47,7 +47,6 @@ Item {
     MouseArea {
       id: mouseArea
 
-      property bool __isPanning: false
       property int __lastX: -1
       property int __lastY: -1
       property int __initDistance: -1
@@ -80,23 +79,19 @@ Item {
       }
 
       onReleased: {
-        if ( __isPanning )
-        {
-          __isPanning = false
-          mapCanvasWrapper.refresh()
-        }
+        mapCanvasWrapper.freeze = false
       }
 
       onPositionChanged: {
-        if ( !__isPanning )
+        if ( !mapCanvasWrapper.freeze )
         {
           __initDistance = Math.abs( mouse.x - __lastX ) + Math.abs( mouse.y - __lastY )
 
           if ( __initDistance > 10*dp )
-            __isPanning = true
+            mapCanvasWrapper.freeze = true
         }
 
-        if ( __isPanning ) {
+        if ( mapCanvasWrapper.freeze ) {
           mapCanvasWrapper.pan( Qt.point( mouse.x, mouse.y ), Qt.point( __lastX, __lastY ) )
           __lastX = mouse.x
           __lastY = mouse.y
@@ -106,7 +101,7 @@ Item {
 
       onCanceled: {
         // Does that ever happen on a touch device?
-        __isPanning = false;
+        mapCanvasWrapper.freeze = false;
       }
     }
   }

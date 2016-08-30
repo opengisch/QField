@@ -25,31 +25,29 @@
 #include <QQuickWindow>
 #include <QScreen>
 #include <qgspallabeling.h>
+#include <QSGSimpleTextureNode>
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
-  : QQuickPaintedItem( parent )
+  : QQuickItem( parent )
   , mMapSettings( new MapSettings() )
   , mPinching( false )
   , mJobCancelled( false )
   , mJob( nullptr )
   , mCache( nullptr )
   , mLabelingResults( nullptr )
+  , mDirty( false )
+  , mFreeze( false )
 {
-  setRenderTarget( QQuickPaintedItem::FramebufferObject );
   connect( this, SIGNAL( windowChanged( QQuickWindow* ) ), this, SLOT( onWindowChanged( QQuickWindow* ) ) );
   connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
   connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
+  setFlags( QQuickItem::ItemHasContents );
 }
 
 QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
 {
-}
-
-void QgsQuickMapCanvasMap::paint( QPainter* painter )
-{
-  painter->drawImage( QRect( 0, 0, mImageMapSettings.outputSize().width(), mImageMapSettings.outputSize().height() ), mImage );
 }
 
 MapSettings* QgsQuickMapCanvasMap::mapSettings() const
@@ -178,6 +176,8 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   mJob->deleteLater();
   mJob = nullptr;
 
+  mDirty = true;
+
   updateTransform();
 
   update();
@@ -187,12 +187,12 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow* window )
 {
   disconnect( this, SLOT( onScreenChanged( QScreen* ) ) );
-  connect( window, SIGNAL( screenChanged( QScreen* ) ), this, SLOT( onScreenChanged( QScreen* ) ) );
+  if ( window )
+    connect( window, SIGNAL( screenChanged( QScreen* ) ), this, SLOT( onScreenChanged( QScreen* ) ) );
 }
 
 void QgsQuickMapCanvasMap::onScreenChanged( QScreen* screen )
 {
-  qWarning() << "Output DPI: " << screen->physicalDotsPerInch();
   mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
 }
 
@@ -228,6 +228,24 @@ void QgsQuickMapCanvasMap::updateTransform()
   setY( pixelPt.y() );
 }
 
+bool QgsQuickMapCanvasMap::freeze() const
+{
+  return mFreeze;
+}
+
+void QgsQuickMapCanvasMap::setFreeze(bool freeze)
+{
+  if ( freeze == mFreeze )
+    return;
+
+  mFreeze = freeze;
+
+  if ( !mFreeze )
+    refresh();
+
+  emit freezeChanged();
+}
+
 QgsRectangle QgsQuickMapCanvasMap::extent() const
 {
   return mMapSettings->extent();
@@ -236,6 +254,25 @@ QgsRectangle QgsQuickMapCanvasMap::extent() const
 void QgsQuickMapCanvasMap::setExtent( const QgsRectangle& extent )
 {
   mMapSettings->setExtent( extent );
+}
+
+QSGNode* QgsQuickMapCanvasMap::updatePaintNode(QSGNode* oldNode, QQuickItem::UpdatePaintNodeData*)
+{
+  if ( mDirty )
+  {
+    delete oldNode;
+    oldNode = nullptr;
+    mDirty = false;
+  }
+
+  QSGSimpleTextureNode* node = static_cast<QSGSimpleTextureNode*>( oldNode );
+  if ( !node ) {
+      node = new QSGSimpleTextureNode();
+      QSGTexture* texture = window()->createTextureFromImage(mImage);
+      node->setTexture(texture);
+  }
+  node->setRect(boundingRect());
+  return node;
 }
 
 QgsCoordinateReferenceSystem QgsQuickMapCanvasMap::destinationCrs() const
@@ -302,7 +339,6 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
 
 void QgsQuickMapCanvasMap::refresh()
 {
-  // Within a 10 ms interval no new job will be triggered.
-  // Prevents hammering the renderer with requests while panning or zooming
-  mRefreshTimer.start( 10 );
+  if ( !mFreeze )
+    mRefreshTimer.start( 1 );
 }

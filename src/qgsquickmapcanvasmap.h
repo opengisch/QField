@@ -17,7 +17,7 @@
 #ifndef QGSQUICKMAPCANVASMAP_H
 #define QGSQUICKMAPCANVASMAP_H
 
-#include <QtQuick/QQuickPaintedItem>
+#include <QtQuick/QQuickItem>
 #include <QTimer>
 #include <qgspoint.h>
 #include <qgsmapsettings.h>
@@ -27,19 +27,17 @@ class QgsMapRendererCache;
 class QgsLabelingResults;
 class MapSettings;
 
-class QgsQuickMapCanvasMap : public QQuickPaintedItem
+class QgsQuickMapCanvasMap : public QQuickItem
 {
     Q_OBJECT
 
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings )
+    Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
 
   public:
     QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
     ~QgsQuickMapCanvasMap();
-
-    // QQuickPaintedItem interface
-    void paint( QPainter* painter );
 
     QgsPoint toMapCoordinates( QPoint canvasCoordinates );
 
@@ -60,6 +58,11 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     QgsRectangle extent() const;
     void setExtent( const QgsRectangle& extent );
 
+    virtual QSGNode* updatePaintNode( QSGNode* oldNode, QQuickItem::UpdatePaintNodeData* );
+
+    bool freeze() const;
+    void setFreeze(bool freeze);
+
   signals:
     void renderStarting();
 
@@ -68,6 +71,8 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     void extentChanged();
 
     void destinationCrsChanged();
+
+    void freezeChanged();
 
   protected:
     void geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry );
@@ -104,6 +109,8 @@ class QgsQuickMapCanvasMap : public QQuickPaintedItem
     QImage mImage;
     QgsMapSettings mImageMapSettings;
     QTimer mRefreshTimer;
+    bool mDirty;
+    bool mFreeze;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H
