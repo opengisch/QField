@@ -103,6 +103,10 @@ Item {
         // Does that ever happen on a touch device?
         mapCanvasWrapper.freeze = false;
       }
+
+      onWheel: {
+        mapCanvasWrapper.zoom( Qt.point( wheel.x, wheel.y ), Math.pow( 0.8, wheel.angleDelta.y / 60 ) )
+      }
     }
   }
 }
