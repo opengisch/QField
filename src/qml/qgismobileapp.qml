@@ -97,7 +97,7 @@ Rectangle {
 
       /* Highlight the currently selected item on the feature list */
       FeatureListModelHighlight {
-        model: featureForm.selection.model
+        model: featureForm.model
         selection: featureForm.selection
         mapSettings: mapCanvas.mapSettings
         color: "yellow"
@@ -132,7 +132,7 @@ Rectangle {
         id: identifyTool
 
         mapSettings: mapCanvas.mapSettings
-        model: featureForm.selection.model
+        model: featureForm.model
       }
     }
 
@@ -203,10 +203,12 @@ Rectangle {
     border.color: "lightGray"
     border.width: 1
 
+    model: FeatureListModel {}
+
     selection: FeatureListModelSelection {
-      model: FeatureListModel {
-      }
+      model: featureForm.model
     }
+
     selectionColor: "#ff7777"
   }
 
