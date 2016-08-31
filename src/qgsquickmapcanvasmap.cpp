@@ -42,7 +42,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
 
   connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
-  connect( mMapSettings, SIGNAL( layersChanged() ), this,SLOT( onLayersChange() ) );
+  connect( mMapSettings, SIGNAL( layersChanged() ), this,SLOT( onLayersChanged() ) );
 
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
