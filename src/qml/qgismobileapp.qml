@@ -18,6 +18,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Dialogs 1.2
+import QtGraphicalEffects 1.0
 import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
@@ -210,6 +211,16 @@ Rectangle {
     }
 
     selectionColor: "#ff7777"
+  }
+
+  DropShadow {
+    anchors.fill: featureForm
+    horizontalOffset: -3
+    verticalOffset: 0
+    radius: 8.0
+    samples: 17
+    color: "#80000000"
+    source: featureForm
   }
 
   /* The main menu */
