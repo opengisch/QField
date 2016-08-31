@@ -49,7 +49,7 @@ Rectangle {
         id: tabBar
 
         anchors { left: parent.left; right:parent.right; top: parent.top }
-        height: childrenRect.height
+        visible: model.hasTabs ? childrenRect.height : 0
 
         Row {
           Repeater {
@@ -59,6 +59,7 @@ Rectangle {
 
               delegate: Item {
                 height: childrenRect.height
+                width: childrenRect.width
 
                 Button {
                   id: button
@@ -122,6 +123,18 @@ Rectangle {
         samples: 17
         color: "#80000000"
         source: tabBar
+      }
+
+      Connections {
+        target: tabBar
+        onVisibleChanged: {
+          content.sourceComponent = undefined
+
+          content.pRootIndex = none
+          content.pType = 'tab'
+
+          content.sourceComponent = element
+        }
       }
 
       Flickable {

@@ -226,8 +226,13 @@ void AttributeFormModel::onLayerChanged()
 {
   beginResetModel();
   mLayer = mFeatureModel->layer();
+
   if ( mLayer )
+  {
+    setHasTabs( QgsEditFormConfig::TabLayout == mLayer->editFormConfig().layout() );
+
     mRememberedAttributes.resize( mLayer->fields().size() );
+  }
   mRememberedAttributes.fill( false );
   endResetModel();
 }
@@ -235,4 +240,18 @@ void AttributeFormModel::onLayerChanged()
 void AttributeFormModel::onFeatureChanged()
 {
 
+}
+
+bool AttributeFormModel::hasTabs() const
+{
+    return mHasTabs;
+}
+
+void AttributeFormModel::setHasTabs(bool hasTabs)
+{
+  if ( hasTabs == mHasTabs )
+    return;
+
+  mHasTabs = hasTabs;
+  emit hasTabsChanged();
 }

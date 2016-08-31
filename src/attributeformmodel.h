@@ -27,6 +27,7 @@ class AttributeFormModel : public QAbstractItemModel
     Q_OBJECT
 
     Q_PROPERTY( FeatureModel* featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+    Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
 
   public:
     enum FeatureRoles
@@ -67,8 +68,12 @@ class AttributeFormModel : public QAbstractItemModel
     FeatureModel* featureModel() const;
     void setFeatureModel( FeatureModel* featureModel );
 
+    bool hasTabs() const;
+    void setHasTabs(bool hasTabs);
+
   signals:
     void featureModelChanged();
+    void hasTabsChanged();
 
   private slots:
     void onLayerChanged();
@@ -84,6 +89,7 @@ class AttributeFormModel : public QAbstractItemModel
     FeatureModel* mFeatureModel;
     QVector<bool> mRememberedAttributes;
     QgsVectorLayer* mLayer;
+    bool mHasTabs;
 };
 
 #endif // ATTRIBUTEFORMMODEL_H
