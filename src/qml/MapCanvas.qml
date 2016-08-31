@@ -53,7 +53,6 @@ Item {
       property int __lastY: -1
       property int __initDistance: -1
 
-
       anchors.fill : parent
 
       onDoubleClicked: {
@@ -70,7 +69,8 @@ Item {
         }
         else
         {
-          mapArea.clicked( mouse )
+          if ( __initDistance < 2 * dp)
+            mapArea.clicked( mouse )
         }
       }
 
@@ -78,6 +78,7 @@ Item {
         __lastX = mouse.x
         __lastY = mouse.y
         __initDistance = 0
+        __initTime = (new Date()).getTime()
       }
 
       onReleased: {
