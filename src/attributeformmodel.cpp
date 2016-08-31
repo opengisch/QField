@@ -13,8 +13,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "attributeformmodel.h"
 #include "qgsvectorlayer.h"
+
+#include <QDebug>
 
 AttributeFormModel::AttributeFormModel( QObject* parent )
   : QAbstractItemModel( parent )
@@ -180,25 +183,13 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
 {
   if ( data( index, role ) != value )
   {
+    QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
+    mFeatureModel->setAttribute( editorField->idx(), value );
     // FIXME: Implement me!
     emit dataChanged( index, index, QVector<int>() << role );
     return true;
   }
   return false;
-}
-
-bool AttributeFormModel::insertRows( int row, int count, const QModelIndex& parent )
-{
-  beginInsertRows( parent, row, row + count - 1 );
-  // FIXME: Implement me!
-  endInsertRows();
-}
-
-bool AttributeFormModel::removeRows( int row, int count, const QModelIndex& parent )
-{
-  beginRemoveRows( parent, row, row + count - 1 );
-  // FIXME: Implement me!
-  endRemoveRows();
 }
 
 FeatureModel* AttributeFormModel::featureModel() const
@@ -229,7 +220,8 @@ void AttributeFormModel::onLayerChanged()
 
   if ( mLayer )
   {
-    setHasTabs( QgsEditFormConfig::TabLayout == mLayer->editFormConfig().layout() );
+    QgsAttributeEditorContainer* root = mLayer->editFormConfig().invisibleRootContainer();
+    setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
 
     mRememberedAttributes.resize( mLayer->fields().size() );
   }
@@ -244,14 +236,24 @@ void AttributeFormModel::onFeatureChanged()
 
 bool AttributeFormModel::hasTabs() const
 {
-    return mHasTabs;
+  return mHasTabs;
 }
 
-void AttributeFormModel::setHasTabs(bool hasTabs)
+void AttributeFormModel::setHasTabs( bool hasTabs )
 {
   if ( hasTabs == mHasTabs )
     return;
 
   mHasTabs = hasTabs;
   emit hasTabsChanged();
+}
+
+void AttributeFormModel::save()
+{
+  mFeatureModel->save();
+}
+
+void AttributeFormModel::create()
+{
+  mFeatureModel->create();
 }

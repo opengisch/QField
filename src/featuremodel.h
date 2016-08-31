@@ -56,19 +56,16 @@ class FeatureModel : public QAbstractListModel
     int rowCount( const QModelIndex& parent ) const override;
     QVariant data( const QModelIndex& index, int role ) const override;
 
-    virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
-
     /**
      * Will change an attribute to a given value in the edit buffer.
      * At the moment only allows to AttributeValue as role.
      * May change in the future to commit changes to a local feature instead of the layer edit buffer.
      *
      * @param fieldindex The field to change
-     * @param value Value to set
-     * @param null Force NULL value. At the moment null QVariants are not pushed from QML.
+     * @param value Value to set, use a "undefined" value in QML for NULL values.
      * @return Success of the operation
      */
-    Q_INVOKABLE bool setAttribute( int fieldIndex, const QVariant& value, bool null = false );
+    Q_INVOKABLE bool setAttribute( int fieldIndex, const QVariant& value );
 
     /**
      * Will commit the edit buffer of this layer.

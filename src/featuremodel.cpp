@@ -95,19 +95,10 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int role )
-{
-  return false;
-}
-
-
-bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value, bool null )
+bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
 {
   QVariant val = value;
   QgsField fld = mFeature.fields().at( fieldIndex );
-
-  if ( null )
-    val = QVariant( fld.type() );
 
   if ( !fld.convertCompatible( val ) )
   {

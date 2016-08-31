@@ -49,7 +49,8 @@ Rectangle {
         id: tabBar
 
         anchors { left: parent.left; right:parent.right; top: parent.top }
-        visible: model.hasTabs ? childrenRect.height : 0
+        height: model.hasTabs ? childrenRect.height : 0
+        clip: true
 
         Row {
           Repeater {
@@ -128,12 +129,15 @@ Rectangle {
       Connections {
         target: tabBar
         onVisibleChanged: {
-          content.sourceComponent = undefined
+          if ( !tabBar.visible )
+          {
+            content.sourceComponent = undefined
 
-          content.pRootIndex = none
-          content.pType = 'tab'
+            content.pRootIndex = undefined
+            content.pType = 'tab'
 
-          content.sourceComponent = element
+            content.sourceComponent = element
+          }
         }
       }
 
@@ -183,6 +187,8 @@ Rectangle {
               model: form.model
               rootIndex: pRootIndex
               delegate: Loader {
+                id: content
+
                 property var pRootIndex
                 property var pType
                 property var pName
@@ -191,8 +197,6 @@ Rectangle {
                 property var pField
                 property var pAttributeValue
                 property var pRememberValue
-
-                id: content
 
                 anchors { left: parent.left; right: parent.right }
 
@@ -232,7 +236,7 @@ Rectangle {
         Item {
           id: placeholder
           height: childrenRect.height
-          anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
+          anchors { left: parent.left; right: rememberCheckbox.left; top: fieldLabel.bottom }
 
           Connections {
             target: form
@@ -257,6 +261,7 @@ Rectangle {
             property var widget: pEditorWidget
             property var field: pField
 
+            active: widget !== 'Hidden'
             source: 'editorwidgets/' + widget + '.qml'
 
             onStatusChanged: {
@@ -270,16 +275,21 @@ Rectangle {
 
           Connections {
             target: attributeEditorLoader.item
-            onValueChanged: form.model.setAttribute( index, value, isNull )
+            onValueChanged: {
+
+              // QML translates undefined to a NULL QVariant
+              model.setData( pRootIndex, isNull ? undefined : value, AttributeFormModel.AttributeValue )
+            }
           }
         }
 
         Controls.CheckBox {
+          id: rememberCheckbox
           checkedState: pRememberValue
 
           visible: form.state === "Add" && pEditorWidget !== "Hidden"
 
-          anchors.right: parent.right
+          anchors { right: parent.right; top: fieldLabel.bottom }
 
           onCheckedChanged: {
             var idx = form.model.index(index, 0)
@@ -290,126 +300,7 @@ Rectangle {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-  Flickable {
-    anchors.bottom: parent.bottom
-    anchors.right: parent.right
-    anchors.left: parent.left
-    anchors.top: toolbar.bottom
-
-    contentHeight: grid.height
-
-    flickableDirection: Flickable.VerticalFlick
-
-    GridLayout {
-      id: grid
-      anchors.left: parent.left
-      anchors.right: parent.right
-      columns: 2
-      rowSpacing: 5
-      columnSpacing: 5
-      anchors.margins: 5
-
-      Repeater {
-        model: form.model
-
-        ColumnLayout
-        {
-          Layout.row: index
-          Layout.column: 0
-          Layout.fillWidth: true
-          Layout.fillHeight: true
-          Layout.preferredHeight: childrenRect.height
-
-          visible: EditorWidget !== "Hidden"
-
-          Controls.Label {
-            text: AttributeName
-            font.bold: true
-          }
-
-          Item {
-            id: placeholder
-            height: childrenRect.height
-            anchors.left: parent.left
-            anchors.right: parent.right
-
-            Connections {
-              target: form
-              onAboutToSave: {
-                try {
-                  attributeEditorLoader.item.pushChanges()
-                }
-                catch ( err )
-                {}
-              }
-            }
-
-            Loader {
-              id: attributeEditorLoader
-              anchors { left: parent.left; right: parent.right }
-
-              enabled: form.state !== "ReadOnly"
-              property var value: AttributeValue
-              property var config: EditorWidgetConfig
-              property var widget: EditorWidget
-              property var field: Field
-
-              source: 'editorwidgets/' + widget + '.qml'
-
-              onStatusChanged: {
-                if ( attributeEditorLoader.status === Loader.Error )
-                {
-                  console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
-                  widget = 'TextEdit'
-                }
-              }
-            }
-
-            Connections {
-              target: attributeEditorLoader.item
-              onValueChanged: form.model.setAttribute( index, value, isNull )
-            }
-          }
-        }
-      }
-
-      Repeater {
-        model: form.model
-
-        Controls.CheckBox {
-          Layout.row: index
-          Layout.column: 1
-          Layout.fillWidth: false
-          Layout.fillHeight: false
-          checkedState: RememberValue
-
-          visible: form.state === "Add" && EditorWidget !== "Hidden"
-
-          anchors.right: parent.right
-
-          onCheckedChanged: {
-            var idx = form.model.index(index, 0)
-            form.model.setData(idx, checkedState, FeatureModel.RememberValue)
-          }
-        }
-      }
-    }
-  }
-*/
+  /** The title toolbar **/
 
   Rectangle {
     id: toolbar

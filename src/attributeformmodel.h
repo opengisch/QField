@@ -42,6 +42,8 @@ class AttributeFormModel : public QAbstractItemModel
       Field
     };
 
+    Q_ENUM( FeatureRoles )
+
     explicit AttributeFormModel( QObject* parent = nullptr );
     ~AttributeFormModel();
 
@@ -59,17 +61,15 @@ class AttributeFormModel : public QAbstractItemModel
     // Editable:
     bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
 
-    // Add data:
-    bool insertRows( int row, int count, const QModelIndex& parent = QModelIndex() ) override;
-
-    // Remove data:
-    bool removeRows( int row, int count, const QModelIndex& parent = QModelIndex() ) override;
-
     FeatureModel* featureModel() const;
     void setFeatureModel( FeatureModel* featureModel );
 
     bool hasTabs() const;
-    void setHasTabs(bool hasTabs);
+    void setHasTabs( bool hasTabs );
+
+    Q_INVOKABLE void save();
+
+    Q_INVOKABLE void create();
 
   signals:
     void featureModelChanged();
