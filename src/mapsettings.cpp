@@ -28,6 +28,7 @@ MapSettings::MapSettings( QObject* parent )
   connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
   connect( this, SIGNAL( extentChanged() ), this, SIGNAL( visibleExtentChanged() ) );
   connect( this, SIGNAL( rotationChanged() ), this, SIGNAL( visibleExtentChanged() ) );
+  connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( visibleExtentChanged() ) );
   connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
 }
 
