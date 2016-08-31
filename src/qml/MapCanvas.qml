@@ -78,7 +78,6 @@ Item {
         __lastX = mouse.x
         __lastY = mouse.y
         __initDistance = 0
-        __initTime = (new Date()).getTime()
       }
 
       onReleased: {
