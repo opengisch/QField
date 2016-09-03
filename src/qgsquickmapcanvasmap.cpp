@@ -263,7 +263,24 @@ QSGNode* QgsQuickMapCanvasMap::updatePaintNode( QSGNode* oldNode, QQuickItem::Up
     QSGTexture* texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
   }
-  node->setRect( boundingRect() );
+
+  QRectF rect( boundingRect() );
+
+  // Check for resizes that change the w/h ratio
+  if ( !rect.isEmpty() && !mImage.size().isEmpty() && rect.width() / rect.height() != mImage.width() / mImage.height() )
+  {
+    if ( rect.height() == mImage.height() )
+    {
+      rect.setHeight( rect.width() / mImage.width() * mImage.height() );
+    }
+    else
+    {
+      rect.setWidth( rect.height() / mImage.height() * mImage.width() );
+    }
+  }
+
+  node->setRect( rect );
+
   return node;
 }
 
@@ -279,6 +296,13 @@ void QgsQuickMapCanvasMap::setDestinationCrs( const QgsCoordinateReferenceSystem
 
 void QgsQuickMapCanvasMap::geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry )
 {
+  Q_UNUSED( oldGeometry )
+  // The Qt documentation advices to call the base method here.
+  // However, this introduces instabilities and heavy performance impacts on Android.
+  // It seems on desktop disabling it prevents us from downsizing the window...
+  // Be careful when re-enabling it.
+  // QQuickItem::geometryChanged( newGeometry, oldGeometry );
+
   mMapSettings->setOutputSize( newGeometry.size().toSize() );
   refresh();
 }

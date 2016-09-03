@@ -24,12 +24,35 @@ Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
 
+  property int __freezecount: 0
+
   signal clicked(var mouse)
+
+  /**
+   * Freezes the map canvas refreshes.
+   *
+   * In case of repeated geometry changes (animated resizes, pinch, pan...)
+   * triggering refreshes all the time can cause severe performance impacts.
+   *
+   * If freeze is called, an internal counter is incremented and only when the
+   * counter is 0, refreshes will happen.
+   * It is therefore important to call freeze() and unfreeze() exactly the same
+   * number of times.
+   */
+  function freeze() {
+    __freezecount += 1
+  }
+
+  function unfreeze() {
+    __freezecount -= 1
+  }
 
   MapCanvasMap {
     id: mapCanvasWrapper
 
     anchors.fill: parent
+
+    freeze: __freezecount != 0
   }
 
   PinchArea {
@@ -38,7 +61,7 @@ Item {
     anchors.fill: parent
 
     onPinchStarted: {
-      mapCanvasWrapper.freeze = true
+      freeze()
     }
 
     onPinchUpdated: {
@@ -47,7 +70,7 @@ Item {
     }
 
     onPinchFinished: {
-      mapCanvasWrapper.freeze = false
+      unfreeze()
       mapCanvasWrapper.refresh()
     }
 
@@ -83,19 +106,17 @@ Item {
         __lastX = mouse.x
         __lastY = mouse.y
         __initDistance = 0
+        freeze()
       }
 
       onReleased: {
-        mapCanvasWrapper.freeze = false
+        unfreeze()
       }
 
       onPositionChanged: {
         if ( !mapCanvasWrapper.freeze )
         {
           __initDistance = Math.abs( mouse.x - __lastX ) + Math.abs( mouse.y - __lastY )
-
-          if ( __initDistance > 10 * dp )
-            mapCanvasWrapper.freeze = true
         }
 
         if ( mapCanvasWrapper.freeze ) {
@@ -107,8 +128,7 @@ Item {
       }
 
       onCanceled: {
-        // Does that ever happen on a touch device?
-        mapCanvasWrapper.freeze = false;
+        unfreeze()
       }
 
       onWheel: {

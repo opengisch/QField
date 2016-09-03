@@ -273,6 +273,13 @@ Rectangle {
   Behavior on width {
     PropertyAnimation {
       easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze()
+        else
+          mapCanvasMap.unfreeze()
+      }
     }
   }
 
