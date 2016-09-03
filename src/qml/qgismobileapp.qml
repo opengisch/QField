@@ -116,6 +116,7 @@ Rectangle {
         model: RubberbandModel {
           currentCoordinate: coordinateLocator.coordinate
           vectorLayer: layerSelector.currentLayer
+          crs: mapCanvas.mapSettings.destinationCrs
 
           onCurrentCoordinateChanged: {
             coordinateLocator.coordinate = currentCoordinate

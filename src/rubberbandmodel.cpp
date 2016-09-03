@@ -51,13 +51,15 @@ QVector<QgsPoint> RubberbandModel::flatVertices() const
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence() const
+QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem& crs ) const
 {
   QgsPointSequence sequence;
 
+  QgsCoordinateTransform ct( mCrs, crs );
+
   Q_FOREACH( const QPointF& pt, mPointList )
   {
-    sequence.append( QgsPointV2( pt.x(), pt.y() ) );
+    sequence.append( QgsPointV2( ct.transform( pt.x(), pt.y() ) ) );
   }
 
   return sequence;
@@ -114,6 +116,14 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
   emit currentCoordinateChanged();
 }
 
+QgsPointV2 RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs ) const
+{
+  QgsCoordinateTransform ct( mCrs, crs );
+
+  const QPointF& pt = mPointList.at( mCurrentCoordinateIndex );
+  return  QgsPointV2( ct.transform( pt.x(), pt.y() ) );
+}
+
 QPointF RubberbandModel::currentCoordinate() const
 {
   return mPointList.at( mCurrentCoordinateIndex );
@@ -162,6 +172,20 @@ void RubberbandModel::setGeometryType( const QgsWkbTypes::GeometryType& geometry
 
   mGeometryType = geometryType;
   emit geometryTypeChanged();
+}
+
+QgsCoordinateReferenceSystem RubberbandModel::crs() const
+{
+  return mCrs;
+}
+
+void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem& crs )
+{
+  if ( crs == mCrs )
+    return;
+
+  mCrs = crs;
+  emit crsChanged();
 }
 
 QgsVectorLayer* RubberbandModel::vectorLayer() const

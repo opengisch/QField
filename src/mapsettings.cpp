@@ -199,6 +199,13 @@ void MapSettings::onReadProject( const QDomDocument& doc )
 
     mMapSettings.readXml( node );
     emit extentChanged();
+    emit destinationCrsChanged();
+    emit rotationChanged();
+    emit outputSizeChanged();
+    emit outputDpiChanged();
+    emit mapUnitsChanged();
+    emit crsTransformEnabledChanged();
+    emit layersChanged();
   }
 }
 

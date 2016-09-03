@@ -2,6 +2,7 @@
 
 #include <qgspointv2.h>
 #include <qgslinestring.h>
+#include <qgspolygon.h>
 #include <qgsvectorlayer.h>
 
 Geometry::Geometry( QObject* parent )
@@ -21,18 +22,27 @@ QgsGeometry Geometry::asQgsGeometry() const
   {
     case QgsWkbTypes::PointGeometry:
     {
-      geom = new QgsPointV2( mRubberbandModel->currentCoordinate().x(), mRubberbandModel->currentCoordinate().y() );
+      geom = new QgsPointV2( mRubberbandModel->currentPoint(  mVectorLayer->crs() ) );
       break;
     }
     case QgsWkbTypes::LineGeometry:
     {
       QgsLineString* line = new QgsLineString();
-      line->setPoints( mRubberbandModel->pointSequence() );
+      line->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs() ) );
       geom = line;
       break;
     }
     case QgsWkbTypes::PolygonGeometry:
+    {
+      QgsPolygonV2* polygon = new QgsPolygonV2();
+      QgsLineString* ring = new QgsLineString();
+      ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs() ) );
+      polygon->setExteriorRing( ring );
+      geom = polygon;
       break;
+    }
+
+    break;
     case QgsWkbTypes::UnknownGeometry:
       break;
     case QgsWkbTypes::NullGeometry:
@@ -40,6 +50,8 @@ QgsGeometry Geometry::asQgsGeometry() const
 
   }
 
+  // QgsCoordinateTransform ct( mRubberbandModel->crs(), mVectorLayer->crs() );
+  // return ct.transform( QgsGeometry( geom ) );
   return QgsGeometry( geom );
 }
 

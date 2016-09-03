@@ -40,6 +40,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
+    Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = 0 );
@@ -52,7 +53,13 @@ class RubberbandModel : public QObject
 
     QVector<QgsPoint> flatVertices() const;
 
-    QgsPointSequence pointSequence() const;
+    /**
+     * The target CRS into which points should be reprojected.
+     * To retrieve unprojected points pass an invalid QgsCoordinateReferenceSystem object.
+     *
+     * By default coordinates will be returned unprojected.
+     */
+    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
     void setVertex( int index, QPointF coordinate );
 
@@ -62,6 +69,8 @@ class RubberbandModel : public QObject
 
     int currentCoordinateIndex() const;
     void setCurrentCoordinateIndex( int currentCoordinateIndex );
+
+    QgsPointV2 currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
     QPointF currentCoordinate() const;
     void setCurrentCoordinate( const QPointF& currentCoordinate );
@@ -76,6 +85,9 @@ class RubberbandModel : public QObject
     QgsVectorLayer* vectorLayer() const;
     void setVectorLayer( QgsVectorLayer* vectorLayer );
 
+    QgsCoordinateReferenceSystem crs() const;
+    void setCrs( const QgsCoordinateReferenceSystem& crs );
+
   signals:
     void vertexChanged( int index );
     void verticesInserted( int index, int count );
@@ -85,6 +97,7 @@ class RubberbandModel : public QObject
     void geometryTypeChanged();
     void vectorLayerChanged();
     void vertexCountChanged();
+    void crsChanged();
 
   private:
     void setGeometryType( const QgsWkbTypes::GeometryType& geometryType );
@@ -93,6 +106,7 @@ class RubberbandModel : public QObject
     int mCurrentCoordinateIndex;
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;
+    QgsCoordinateReferenceSystem mCrs;
 };
 
 #endif // RUBBERBANDMODEL_H
