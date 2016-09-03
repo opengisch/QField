@@ -37,12 +37,17 @@ Item {
 
     anchors.fill: parent
 
+    onPinchStarted: {
+      mapCanvasWrapper.freeze = true
+    }
+
     onPinchUpdated: {
       mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
       mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
     }
 
     onPinchFinished: {
+      mapCanvasWrapper.freeze = false
       mapCanvasWrapper.refresh()
     }
 
@@ -69,7 +74,7 @@ Item {
         }
         else
         {
-          if ( __initDistance < 2 * dp)
+          if ( __initDistance < 5 * dp)
             mapArea.clicked( mouse )
         }
       }
@@ -89,7 +94,7 @@ Item {
         {
           __initDistance = Math.abs( mouse.x - __lastX ) + Math.abs( mouse.y - __lastY )
 
-          if ( __initDistance > 10*dp )
+          if ( __initDistance > 10 * dp )
             mapCanvasWrapper.freeze = true
         }
 

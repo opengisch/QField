@@ -279,7 +279,6 @@ void QgsQuickMapCanvasMap::setDestinationCrs( const QgsCoordinateReferenceSystem
 
 void QgsQuickMapCanvasMap::geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry )
 {
-  Q_UNUSED( oldGeometry )
   mMapSettings->setOutputSize( newGeometry.size().toSize() );
   refresh();
 }
