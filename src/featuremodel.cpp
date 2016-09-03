@@ -43,6 +43,9 @@ void FeatureModel::setLayer( QgsVectorLayer* layer )
     return;
 
   mLayer = layer;
+  if ( mLayer )
+    mFeature = QgsFeature( mLayer->fields() );
+
   emit layerChanged();
 }
 
