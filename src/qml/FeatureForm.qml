@@ -95,6 +95,8 @@ Rectangle {
                 }
 
                 function activate(tab) {
+                  if ( !model.hasTabs )
+                    return;
                   __currentTab = tab
 
                   content.sourceComponent = undefined
@@ -119,8 +121,8 @@ Rectangle {
       DropShadow {
         anchors.fill: tabBar
         horizontalOffset: 0
-        verticalOffset: 3
-        radius: 8.0
+        verticalOffset: 3 * dp
+        radius: 8.0 * dp
         samples: 17
         color: "#80000000"
         source: tabBar
@@ -151,6 +153,7 @@ Rectangle {
           id: content
 
           anchors { left: parent.left; right: parent.right }
+          height: childrenRect.height
 
           property var pRootIndex
           property var pType
@@ -171,6 +174,10 @@ Rectangle {
     Item {
       height: childrenRect.height
       anchors { left: parent.left; right: parent.right }
+
+      onHeightChanged: {
+        console.info(height)
+      }
 
       Controls.GroupBox {
         visible: pType != 'field'
@@ -288,6 +295,7 @@ Rectangle {
           checkedState: pRememberValue
 
           visible: form.state === "Add" && pEditorWidget !== "Hidden"
+          width: visible ? undefined : 0
 
           anchors { right: parent.right; top: fieldLabel.bottom }
 
