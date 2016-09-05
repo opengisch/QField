@@ -23,6 +23,7 @@ import org.qgis 1.0
 Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
+  property alias isRendering: mapCanvasWrapper.isRendering
 
   signal clicked(var mouse)
 

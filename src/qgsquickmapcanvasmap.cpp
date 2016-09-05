@@ -41,8 +41,11 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
 
-  connect( mMapSettings, &MapSettings::extentChanged, this,&QgsQuickMapCanvasMap::onExtentChanged );
-  connect( mMapSettings, &MapSettings::layersChanged, this,&QgsQuickMapCanvasMap::onLayersChanged );
+  connect( mMapSettings, &MapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
+  connect( mMapSettings, &MapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
+
+  connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
+  connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
 
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
@@ -235,6 +238,11 @@ void QgsQuickMapCanvasMap::setFreeze( bool freeze )
     refresh();
 
   emit freezeChanged();
+}
+
+bool QgsQuickMapCanvasMap::isRendering() const
+{
+  return mJob;
 }
 
 QgsRectangle QgsQuickMapCanvasMap::extent() const

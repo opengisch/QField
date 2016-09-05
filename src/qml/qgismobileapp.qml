@@ -548,7 +548,16 @@ Rectangle {
     }
   }
 
+  Controls.BusyIndicator {
+    id: busyIndicator
+    anchors { right: alertIcon.left; top: parent.top }
+    width: 36 * dp
+    height: 36 * dp
+    running: mapCanvasMap.isRendering
+  }
+
   Image {
+    id: alertIcon
     source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
 
     visible: messageLog.unreadMessages
@@ -556,8 +565,8 @@ Rectangle {
     anchors.right: mapCanvas.right
     anchors.top: parent.top
     anchors.margins: 4 * dp
-    width: 36*dp
-    height: 36*dp
+    width: 36 * dp
+    height: 36 * dp
 
     MouseArea {
       anchors.fill: parent

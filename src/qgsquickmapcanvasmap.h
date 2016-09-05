@@ -34,6 +34,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings )
     Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
+    Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
 
   public:
     QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
@@ -63,6 +64,8 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool freeze() const;
     void setFreeze( bool freeze );
 
+    bool isRendering() const;
+
   signals:
     void renderStarting();
 
@@ -73,6 +76,8 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void destinationCrsChanged();
 
     void freezeChanged();
+
+    void isRenderingChanged();
 
   protected:
     void geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry );
