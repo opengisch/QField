@@ -95,7 +95,7 @@ Rectangle {
                 }
 
                 function activate(tab) {
-                  if ( !model.hasTabs )
+                  if ( !form.model.hasTabs )
                     return;
                   __currentTab = tab
 
