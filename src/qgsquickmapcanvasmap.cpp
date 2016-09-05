@@ -184,7 +184,11 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
   mDirty = true;
 
+  // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
+  bool freeze = mFreeze;
+  mFreeze = true;
   updateTransform();
+  mFreeze = freeze;
 
   update();
   emit mapCanvasRefreshed();
