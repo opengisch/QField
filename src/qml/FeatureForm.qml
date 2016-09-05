@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
@@ -62,14 +63,18 @@ Rectangle {
                 height: childrenRect.height
                 width: childrenRect.width
 
-                Button {
+                Controls.Button {
                   id: button
                   text: Name
 
-                  bgcolor: "white"
-
                   onClicked: {
                     activate(parent)
+                  }
+
+                  style: ButtonStyle {
+                    background: Rectangle {
+                      color: "white"
+                    }
                   }
                 }
 
@@ -121,8 +126,8 @@ Rectangle {
       DropShadow {
         anchors.fill: tabBar
         horizontalOffset: 0
-        verticalOffset: 3 * dp
-        radius: 8.0 * dp
+        verticalOffset: 2 * dp
+        radius: 6.0 * dp
         samples: 17
         color: "#80000000"
         source: tabBar

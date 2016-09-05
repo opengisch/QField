@@ -216,9 +216,9 @@ Rectangle {
 
   DropShadow {
     anchors.fill: featureForm
-    horizontalOffset: -3 * dp
+    horizontalOffset: -2 * dp
     verticalOffset: 0
-    radius: 8.0 * dp
+    radius: 6.0 * dp
     samples: 17
     color: "#80000000"
     source: featureForm

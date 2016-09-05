@@ -24,8 +24,6 @@ Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
 
-  property int __freezecount: 0
-
   signal clicked(var mouse)
 
   /**
@@ -40,17 +38,19 @@ Item {
    * number of times.
    */
   function freeze() {
-    __freezecount += 1
+    mapCanvasWrapper.__freezecount += 1
   }
 
   function unfreeze() {
-    __freezecount -= 1
+    mapCanvasWrapper.__freezecount -= 1
   }
 
   MapCanvasMap {
     id: mapCanvasWrapper
 
     anchors.fill: parent
+
+    property int __freezecount: 0
 
     freeze: __freezecount != 0
   }
