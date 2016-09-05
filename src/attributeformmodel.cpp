@@ -23,11 +23,13 @@ AttributeFormModel::AttributeFormModel( QObject* parent )
   : QAbstractItemModel( parent )
   , mFeatureModel( nullptr )
   , mLayer( nullptr )
+  , mTemporaryContainer( nullptr )
 {
 }
 
 AttributeFormModel::~AttributeFormModel()
 {
+  delete mTemporaryContainer;
 }
 
 QModelIndex AttributeFormModel::index( int row, int column, const QModelIndex& parent ) const
@@ -35,7 +37,7 @@ QModelIndex AttributeFormModel::index( int row, int column, const QModelIndex& p
   QgsAttributeEditorContainer* container;
   if ( !parent.isValid() )
   {
-    container = mLayer->editFormConfig().invisibleRootContainer();
+    container = invisibleRootContainer();
   }
   else
   {
@@ -72,7 +74,7 @@ int AttributeFormModel::rowCount( const QModelIndex& parent ) const
 
   QgsAttributeEditorElement* element;
   if ( !parent.isValid() )
-    element = mLayer->editFormConfig().invisibleRootContainer();
+    element = invisibleRootContainer();
   else
     element = indexToElement( parent );
 
@@ -232,7 +234,20 @@ void AttributeFormModel::onLayerChanged()
 
   if ( mLayer )
   {
-    QgsAttributeEditorContainer* root = mLayer->editFormConfig().invisibleRootContainer();
+    QgsAttributeEditorContainer* root;
+    delete mTemporaryContainer;
+    mTemporaryContainer = nullptr;
+
+    if ( mLayer->editFormConfig().layout() == QgsEditFormConfig::TabLayout )
+    {
+      root = mLayer->editFormConfig().invisibleRootContainer();
+    }
+    else
+    {
+      root = generateRootContainer();
+      mTemporaryContainer = root;
+    }
+
     setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
   }
   endResetModel();
@@ -242,6 +257,23 @@ void AttributeFormModel::onFeatureChanged()
 {
   if ( mLayer )
     emit dataChanged( QModelIndex(), QModelIndex() );
+}
+
+QgsAttributeEditorContainer* AttributeFormModel::generateRootContainer() const
+{
+  QgsAttributeEditorContainer* root = new QgsAttributeEditorContainer( QString(), nullptr );
+  QgsFields fields = mLayer->fields();
+  for ( int i = 0; i < fields.size(); ++i )
+  {
+    QgsAttributeEditorField* field = new QgsAttributeEditorField( fields.at( i ).displayName(), i, root );
+    root->addChildElement( field );
+  }
+  return root;
+}
+
+QgsAttributeEditorContainer* AttributeFormModel::invisibleRootContainer() const
+{
+  return mTemporaryContainer ? mTemporaryContainer : mLayer->editFormConfig().invisibleRootContainer();
 }
 
 bool AttributeFormModel::hasTabs() const
