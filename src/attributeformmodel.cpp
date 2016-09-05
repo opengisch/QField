@@ -157,7 +157,7 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
           return mLayer->editFormConfig().widgetConfig( editorField->name() );
 
         case RememberValue:
-          return mRememberedAttributes.at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked;
+          return mFeatureModel->rememberedAttributes().at ( editorField->idx() ) ? Qt::Checked : Qt::Unchecked;
 
         case Field:
           return mLayer->fields().at( editorField->idx() );
@@ -183,11 +183,22 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
 {
   if ( data( index, role ) != value )
   {
-    QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
-    mFeatureModel->setAttribute( editorField->idx(), value );
-    // FIXME: Implement me!
-    emit dataChanged( index, index, QVector<int>() << role );
-    return true;
+    switch ( role )
+    {
+      case RememberValue:
+      {
+        QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
+        return mFeatureModel->setData( mFeatureModel->index( editorField->idx() ), value, FeatureModel::RememberAttribute );
+        break;
+      }
+
+      case AttributeValue:
+      {
+        QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
+        return mFeatureModel->setData( mFeatureModel->index( editorField->idx() ), value, FeatureModel::AttributeValue );
+        break;
+      }
+    }
   }
   return false;
 }
@@ -204,6 +215,7 @@ void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
 
   disconnect( mFeatureModel, &FeatureModel::layerChanged, this, &AttributeFormModel::onLayerChanged );
   disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModel::onFeatureChanged );
+
 
   mFeatureModel = featureModel;
 
@@ -222,19 +234,14 @@ void AttributeFormModel::onLayerChanged()
   {
     QgsAttributeEditorContainer* root = mLayer->editFormConfig().invisibleRootContainer();
     setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
-
-    mRememberedAttributes.resize( mLayer->fields().size() );
   }
-  mRememberedAttributes.fill( false );
   endResetModel();
 }
 
 void AttributeFormModel::onFeatureChanged()
 {
-#if 0
   if ( mLayer )
-    emit dataChanged( index( 0, 0 ), index( 0, 0 ) );
-#endif
+    emit dataChanged( QModelIndex(), QModelIndex() );
 }
 
 bool AttributeFormModel::hasTabs() const

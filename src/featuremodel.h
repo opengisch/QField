@@ -34,7 +34,8 @@ class FeatureModel : public QAbstractListModel
     {
       AttributeName = Qt::UserRole + 1,
       AttributeValue,
-      Field
+      Field,
+      RememberAttribute
     };
 
     explicit FeatureModel( QObject *parent = 0 );
@@ -55,17 +56,7 @@ class FeatureModel : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex& parent ) const override;
     QVariant data( const QModelIndex& index, int role ) const override;
-
-    /**
-     * Will change an attribute to a given value in the edit buffer.
-     * At the moment only allows to AttributeValue as role.
-     * May change in the future to commit changes to a local feature instead of the layer edit buffer.
-     *
-     * @param fieldindex The field to change
-     * @param value Value to set, use a "undefined" value in QML for NULL values.
-     * @return Success of the operation
-     */
-    Q_INVOKABLE bool setAttribute( int fieldIndex, const QVariant& value );
+    bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
 
     /**
      * Will commit the edit buffer of this layer.
@@ -85,6 +76,8 @@ class FeatureModel : public QAbstractListModel
 
     Q_INVOKABLE void resetAttributes();
 
+    QVector<bool> rememberedAttributes() const;
+
   public slots:
     void applyGeometry();
 
@@ -102,6 +95,7 @@ class FeatureModel : public QAbstractListModel
     QgsVectorLayer* mLayer;
     QgsFeature mFeature;
     Geometry* mGeometry;
+    QVector<bool> mRememberedAttributes;
 };
 
 #endif // FEATUREMODEL_H

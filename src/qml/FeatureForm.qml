@@ -144,9 +144,9 @@ Rectangle {
       }
 
       Connections {
-        target: tabBar
-        onVisibleChanged: {
-          if ( !tabBar.visible )
+        target: model
+        onHasTabsChanged: {
+          if ( !model.hasTabs )
           {
             content.sourceComponent = undefined
 
@@ -158,6 +158,9 @@ Rectangle {
         }
       }
 
+      /**
+       * The tab bar
+       */
       Flickable {
         anchors { top: tabBar.bottom; bottom: parent.bottom; left: parent.left; right: parent.right }
         clip: true
@@ -184,12 +187,20 @@ Rectangle {
     }
   }
 
+  /**
+   * An item inside the form.
+   * Can be either a group box or a field editor.
+   * There is also a container groupbox without title constructed for tabs.
+   */
   Component {
     id: element
 
     Item {
       height: childrenRect.height
 
+      /**
+       * A group box, only visible if the item type is tab or groupbox ( != field )
+       */
       Controls.GroupBox {
         visible: pType != 'field'
         title: pName
@@ -238,6 +249,10 @@ Rectangle {
         }
       }
 
+
+      /**
+       * A field editor
+       */
       Item {
         id: fieldContainer
         visible: pType == 'field'
@@ -311,8 +326,7 @@ Rectangle {
           anchors { right: parent.right; top: fieldLabel.bottom }
 
           onCheckedChanged: {
-            var idx = form.model.index(index, 0)
-            form.model.setData(idx, checkedState, FeatureModel.RememberValue)
+            model.setData( pRootIndex, checkedState, AttributeFormModel.RememberValue )
           }
         }
       }

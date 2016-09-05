@@ -58,7 +58,6 @@ class AttributeFormModel : public QAbstractItemModel
 
     QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
 
-    // Editable:
     bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
 
     FeatureModel* featureModel() const;
@@ -87,7 +86,6 @@ class AttributeFormModel : public QAbstractItemModel
     }
 
     FeatureModel* mFeatureModel;
-    QVector<bool> mRememberedAttributes;
     QgsVectorLayer* mLayer;
     bool mHasTabs;
 };

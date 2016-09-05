@@ -44,7 +44,12 @@ void FeatureModel::setLayer( QgsVectorLayer* layer )
 
   mLayer = layer;
   if ( mLayer )
+  {
     mFeature = QgsFeature( mLayer->fields() );
+
+    mRememberedAttributes.resize( layer->fields().size() );
+    mRememberedAttributes.fill( false );
+  }
 
   emit layerChanged();
 }
@@ -65,6 +70,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   roles[AttributeName]  = "AttributeName";
   roles[AttributeValue] = "AttributeValue";
   roles[Field] = "Field";
+  roles[RememberAttribute] = "RememberAttribute";
 
   return roles;
 }
@@ -93,22 +99,48 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
     case Field:
       return mLayer->fields().at( index.row() );
       break;
+
+    case RememberAttribute:
+      return mRememberedAttributes.at( index.row() );
+      break;
   }
 
   return QVariant();
 }
 
-bool FeatureModel::setAttribute( int fieldIndex, const QVariant& value )
+bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int role )
 {
-  QVariant val = value;
-  QgsField fld = mFeature.fields().at( fieldIndex );
+  if ( data( index, role ) == value )
+    return true;
 
-  if ( !fld.convertCompatible( val ) )
+  switch( role )
   {
-    QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
-    return false;
+    case AttributeValue:
+    {
+      QVariant val( value );
+      QgsField fld = mFeature.fields().at( index.row() );
+
+      if ( !fld.convertCompatible( val ) )
+      {
+        QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
+        return false;
+      }
+      bool success = mFeature.setAttribute( index.row(), val );
+      if ( success )
+        emit dataChanged( index, index, QVector<int>() << role );
+      return success;
+      break;
+    }
+
+    case RememberAttribute:
+    {
+      mRememberedAttributes[ index.row() ] = value.toBool();
+      emit dataChanged( index, index, QVector<int>() << role );
+      break;
+    }
   }
-  return mFeature.setAttribute( fieldIndex, val );
+
+  return false;
 }
 
 bool FeatureModel::save()
@@ -163,7 +195,8 @@ void FeatureModel::resetAttributes()
   beginResetModel();
   for ( int i = 0; i < mLayer->fields().count(); ++i )
   {
-    mFeature.setAttribute( i, QVariant() );
+    if ( !mRememberedAttributes.at( i ) )
+      mFeature.setAttribute( i, QVariant() );
   }
   endResetModel();
 }
@@ -215,4 +248,9 @@ bool FeatureModel::startEditing()
   {
     return true;
   }
+}
+
+QVector<bool> FeatureModel::rememberedAttributes() const
+{
+  return mRememberedAttributes;
 }
