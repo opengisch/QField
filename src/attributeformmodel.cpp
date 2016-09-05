@@ -151,10 +151,10 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
           return mLayer->editFormConfig().readOnly( editorField->idx() );
 
         case EditorWidget:
-          return mLayer->editFormConfig().widgetType( editorField->idx() );
+          return mLayer->editFormConfig().widgetType( editorField->name() );
 
         case EditorWidgetConfig:
-          return mLayer->editFormConfig().widgetConfig( editorField->idx() );
+          return mLayer->editFormConfig().widgetConfig( editorField->name() );
 
         case RememberValue:
           return mRememberedAttributes.at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked;
@@ -231,7 +231,10 @@ void AttributeFormModel::onLayerChanged()
 
 void AttributeFormModel::onFeatureChanged()
 {
-
+#if 0
+  if ( mLayer )
+    emit dataChanged( index( 0, 0 ), index( 0, 0 ) );
+#endif
 }
 
 bool AttributeFormModel::hasTabs() const
