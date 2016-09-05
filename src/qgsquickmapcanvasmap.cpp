@@ -321,6 +321,19 @@ void QgsQuickMapCanvasMap::onLayersChanged()
 {
   if ( mMapSettings->extent().isEmpty() )
     zoomToFullExtent();
+
+  Q_FOREACH( const QMetaObject::Connection& conn, mLayerConnections )
+  {
+    disconnect( conn );
+  }
+  mLayerConnections.clear();
+
+  Q_FOREACH( QgsMapLayer* layer, mMapSettings->layers() )
+  {
+    // QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
+    mLayerConnections << connect( layer, SIGNAL( repaintRequested() ), this, SLOT( refresh() ) );
+  }
+
   refresh();
 }
 

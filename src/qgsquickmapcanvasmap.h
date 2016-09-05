@@ -111,6 +111,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QTimer mRefreshTimer;
     bool mDirty;
     bool mFreeze;
+    QList<QMetaObject::Connection> mLayerConnections;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H
