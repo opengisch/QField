@@ -73,12 +73,14 @@ Rectangle {
                   height: childrenRect.height
                   width: childrenRect.width
 
+                  property int idx
+
                   Controls.Button {
                     id: button
                     text: Name
 
                     onClicked: {
-                      activate( parent )
+                      container.activate( parent )
                     }
 
                     style: ButtonStyle {
@@ -104,27 +106,9 @@ Rectangle {
                   }
 
                   Component.onCompleted: {
+                    idx = index
                     if ( index === 0 )
-                      activate( this )
-                  }
-
-                  function activate( tab ) {
-                    if ( !form.model.hasTabs )
-                      return;
-                    __currentTab = tab
-
-                    content.sourceComponent = undefined
-
-                    content.pRootIndex = rootElement.modelIndex(index)
-                    content.pType = Type
-                    content.pName = ""
-                    content.pEditorWidget = EditorWidget
-                    content.pEditorWidgetConfig = EditorWidgetConfig
-                    content.pAttributeValue = AttributeValue
-                    content.pField = Field
-                    content.pRememberValue = RememberValue
-
-                    content.sourceComponent = element
+                      container.activate( this )
                   }
                 }
               }
@@ -144,18 +128,13 @@ Rectangle {
       }
 
       Connections {
-        target: model
-        onHasTabsChanged: {
-          if ( !model.hasTabs )
-          {
-            content.sourceComponent = undefined
+        target: form.model
+        onHasTabsChanged: container.checkTabs()
+      }
 
-            content.pRootIndex = undefined
-            content.pType = 'tab'
-
-            content.sourceComponent = element
-          }
-        }
+      Connections {
+        target: form.model
+        onFeatureChanged: container.activate( __currentTab )
       }
 
       /**
@@ -184,7 +163,38 @@ Rectangle {
           property var pRememberValue
         }
       }
+
+      Component.onCompleted: container.checkTabs()
     }
+
+    function activate( tab ) {
+      if ( !form.model.hasTabs )
+        return;
+      __currentTab = tab
+
+      content.sourceComponent = undefined
+
+      content.pRootIndex = rootElement.modelIndex(tab.idx)
+      content.pType = 'tab'
+      content.pName = ''
+
+      content.sourceComponent = element
+    }
+
+    function checkTabs()
+    {
+      if ( !form.model.hasTabs )
+      {
+        content.sourceComponent = undefined
+
+        content.pRootIndex = undefined
+        content.pType = 'tab'
+
+        content.sourceComponent = element
+      }
+    }
+
+
   }
 
   /**
@@ -195,139 +205,147 @@ Rectangle {
   Component {
     id: element
 
-    Item {
+    Loader {
+      sourceComponent: pType === 'field' ? fieldItem : groupBoxItem
+
+      anchors { left: parent.left; right: parent.right }
       height: childrenRect.height
 
-      /**
-       * A group box, only visible if the item type is tab or groupbox ( != field )
-       */
-      Controls.GroupBox {
-        visible: pType != 'field'
-        title: pName
+      property var xRootIndex: pRootIndex
+      property var type: pType
+      property var name: pName
+      property var editorWidget: pEditorWidget
+      property var editorWidgetConfig: pEditorWidgetConfig
+      property var xField: pField
+      property var attributeValue: pAttributeValue
+      property var rememberValue: pRememberValue
+    }
+  }
+
+  /**
+   * A group box, only visible if the item type is tab or groupbox ( != field )
+   */
+  Component {
+    id: groupBoxItem
+
+    Controls.GroupBox {
+      title: name
+      height: fieldsColumn.height
+      anchors { left: parent.left; right: parent.right }
+
+      Column {
+        id: fieldsColumn
         anchors { left: parent.left; right: parent.right }
+        height: childrenRect.height
 
-        Column {
-          anchors { left: parent.left; right: parent.right }
+        Repeater {
+          model: DelegateModel {
+            id: delegateModel
 
-          Repeater {
-            model: DelegateModel {
-              id: delegateModel
+            model: form.model
+            rootIndex: xRootIndex
 
-              model: form.model
-              rootIndex: pRootIndex
-              delegate: Loader {
-                id: content
+            delegate: Loader {
+              height: childrenRect.height
 
-                property var pRootIndex
-                property var pType
-                property var pName
-                property var pEditorWidget
-                property var pEditorWidgetConfig
-                property var pField
-                property var pAttributeValue
-                property var pRememberValue
+              property var pRootIndex: delegateModel.modelIndex( index )
+              property string pType: Type
+              property string pName: Name
+              property var pEditorWidget: EditorWidget
+              property var pEditorWidgetConfig: EditorWidgetConfig
+              property var pField: Field
+              property var pAttributeValue: AttributeValue
+              property var pRememberValue: RememberValue
 
-                anchors { left: parent.left; right: parent.right }
+              sourceComponent: element
 
-                Component.onCompleted: {
-                  content.sourceComponent = undefined
-
-                  content.pRootIndex = delegateModel.modelIndex(index)
-                  content.pType = Type
-                  content.pName = Name
-                  content.pEditorWidget = EditorWidget
-                  content.pEditorWidgetConfig = EditorWidgetConfig
-                  content.pAttributeValue = AttributeValue
-                  content.pField = Field
-                  content.pRememberValue = RememberValue
-
-                  content.sourceComponent = element
-                }
-              }
+              anchors { left: parent.left; right: parent.right }
             }
           }
         }
       }
+    }
+  }
 
+  /**
+   * A field editor
+   */
+  Component {
+    id: fieldItem
 
-      /**
-       * A field editor
-       */
+    Item {
+      id: fieldContainer
+      visible: type === 'field'
+      height: childrenRect.height
+
+      Controls.Label {
+        id: fieldLabel
+
+        text: name
+        font.bold: true
+      }
+
       Item {
-        id: fieldContainer
-        visible: pType == 'field'
+        id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: parent.right }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: fieldLabel.bottom }
 
-        Controls.Label {
-          id: fieldLabel
-
-          text: pName
-          font.bold: true
+        Connections {
+          target: form
+          onAboutToSave: {
+            try {
+              attributeEditorLoader.item.pushChanges()
+            }
+            catch ( err )
+            {}
+          }
         }
 
-        Item {
-          id: placeholder
+        Loader {
+          id: attributeEditorLoader
+
           height: childrenRect.height
-          anchors { left: parent.left; right: rememberCheckbox.left; top: fieldLabel.bottom }
+          anchors { left: parent.left; right: parent.right }
 
-          Connections {
-            target: form
-            onAboutToSave: {
-              try {
-                attributeEditorLoader.item.pushChanges()
-              }
-              catch ( err )
-              {}
-            }
-          }
+          enabled: form.state !== "ReadOnly"
+          property var value: attributeValue
+          property var config: editorWidgetConfig
+          property var widget: editorWidget
+          property var field: xField
 
-          Loader {
-            id: attributeEditorLoader
+          active: widget !== 'Hidden'
+          source: 'editorwidgets/' + widget + '.qml'
 
-            height: childrenRect.height
-            anchors { left: parent.left; right: parent.right }
-
-            enabled: form.state !== "ReadOnly"
-            property var value: pAttributeValue
-            property var config: pEditorWidgetConfig
-            property var widget: pEditorWidget
-            property var field: pField
-
-            active: widget !== 'Hidden'
-            source: 'editorwidgets/' + widget + '.qml'
-
-            onStatusChanged: {
-              if ( attributeEditorLoader.status === Loader.Error )
-              {
-                console.warn( "Editor widget type '" + pEditorWidget + "' not avaliable." )
-                widget = 'TextEdit'
-              }
-            }
-          }
-
-          Connections {
-            target: attributeEditorLoader.item
-            onValueChanged: {
-
-              // QML translates undefined to a NULL QVariant
-              model.setData( pRootIndex, isNull ? undefined : value, AttributeFormModel.AttributeValue )
+          onStatusChanged: {
+            if ( attributeEditorLoader.status === Loader.Error )
+            {
+              console.warn( "Editor widget type '" + editorWidget + "' not avaliable." )
+              widget = 'TextEdit'
             }
           }
         }
 
-        Controls.CheckBox {
-          id: rememberCheckbox
-          checkedState: pRememberValue
+        Connections {
+          target: attributeEditorLoader.item
+          onValueChanged: {
 
-          visible: form.state === "Add" && pEditorWidget !== "Hidden"
-          width: visible ? undefined : 0
-
-          anchors { right: parent.right; top: fieldLabel.bottom }
-
-          onCheckedChanged: {
-            model.setData( pRootIndex, checkedState, AttributeFormModel.RememberValue )
+            // QML translates undefined to a NULL QVariant
+            model.setData( xRootIndex, isNull ? undefined : value, AttributeFormModel.AttributeValue )
           }
+        }
+      }
+
+      Controls.CheckBox {
+        id: rememberCheckbox
+        checkedState: rememberValue
+
+        visible: form.state === "Add" && editorWidget !== "Hidden"
+        width: visible ? undefined : 0
+
+        anchors { right: parent.right; top: fieldLabel.bottom }
+
+        onCheckedChanged: {
+          model.setData( xRootIndex, checkedState, AttributeFormModel.RememberValue )
         }
       }
     }

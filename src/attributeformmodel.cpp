@@ -34,6 +34,8 @@ AttributeFormModel::~AttributeFormModel()
 
 QModelIndex AttributeFormModel::index( int row, int column, const QModelIndex& parent ) const
 {
+  if ( row < 0 )
+    return QModelIndex();
   QgsAttributeEditorContainer* container;
   if ( !parent.isValid() )
   {
@@ -44,7 +46,6 @@ QModelIndex AttributeFormModel::index( int row, int column, const QModelIndex& p
     container = indexToElement<QgsAttributeEditorContainer*>( parent );
   }
   return createIndex( row, column, container->children().at( row ) );
-
 }
 
 QModelIndex AttributeFormModel::parent( const QModelIndex& index ) const
@@ -256,7 +257,9 @@ void AttributeFormModel::onLayerChanged()
 void AttributeFormModel::onFeatureChanged()
 {
   if ( mLayer )
-    emit dataChanged( QModelIndex(), QModelIndex() );
+  {
+    emit featureChanged();
+  }
 }
 
 QgsAttributeEditorContainer* AttributeFormModel::generateRootContainer() const

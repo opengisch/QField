@@ -73,6 +73,7 @@ class AttributeFormModel : public QAbstractItemModel
   signals:
     void featureModelChanged();
     void hasTabsChanged();
+    void featureChanged();
 
   private slots:
     void onLayerChanged();
