@@ -199,11 +199,13 @@ void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow* window )
   disconnect( this, SLOT( onScreenChanged( QScreen* ) ) );
   if ( window )
     connect( window, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );
+  onScreenChanged( window->screen() );
 }
 
 void QgsQuickMapCanvasMap::onScreenChanged( QScreen* screen )
 {
-  mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
+  if ( screen )
+    mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
 }
 
 void QgsQuickMapCanvasMap::onExtentChanged()
