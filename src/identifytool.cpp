@@ -101,7 +101,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
   try
   {
     // create the search rectangle
-    double searchRadius = searchRadiusMU( mMapSettings->mapSettings() );
+    double searchRadius = searchRadiusMU();
 
     QgsRectangle r;
     r.setXMinimum( point.x() - searchRadius );
@@ -109,7 +109,13 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
     r.setYMinimum( point.y() - searchRadius );
     r.setYMaximum( point.y() + searchRadius );
 
-    QgsFeatureIterator fit = layer->getFeatures( QgsFeatureRequest().setFilterRect( r ).setFlags( QgsFeatureRequest::ExactIntersect ) );
+    r = toLayerCoordinates( layer, r );
+
+    QgsFeatureRequest req;
+    req.setFilterRect( r );
+    req.setLimit( QSettings().value( "/QField/identify/limit" , 100 ).toInt() );
+
+    QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;
     while ( fit.nextFeature( f ) )
       featureList << QgsFeature( f );
@@ -169,10 +175,15 @@ double IdentifyTool::searchRadiusMU( const QgsRenderContext& context ) const
   return mSearchRadiusMm * context.scaleFactor() * context.mapToPixel().mapUnitsPerPixel();
 }
 
-double IdentifyTool::searchRadiusMU( const QgsMapSettings& mapSettings ) const
+double IdentifyTool::searchRadiusMU() const
 {
-  QgsRenderContext context = QgsRenderContext::fromMapSettings( mapSettings );
+  QgsRenderContext context = QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() );
   return searchRadiusMU( context );
+}
+
+QgsRectangle IdentifyTool::toLayerCoordinates( QgsMapLayer* layer, const QgsRectangle& rect ) const
+{
+  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, rect );
 }
 
 double IdentifyTool::searchRadiusMm() const

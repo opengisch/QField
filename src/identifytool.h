@@ -75,7 +75,9 @@ class IdentifyTool : public QObject
     FeatureListModel* mModel;
 
     double searchRadiusMU( const QgsRenderContext& context ) const;
-    double searchRadiusMU( const QgsMapSettings& mapSettings ) const;
+    double searchRadiusMU() const;
+
+    QgsRectangle toLayerCoordinates( QgsMapLayer* layer, const QgsRectangle& rect ) const;
 
     double mSearchRadiusMm;
 };
