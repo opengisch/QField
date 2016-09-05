@@ -77,9 +77,8 @@ Item {
     MouseArea {
       id: mouseArea
 
-      property int __lastX: -1
-      property int __lastY: -1
-      property int __initDistance: -1
+      property point __initialPosition
+      property point __lastPosition
 
       anchors.fill : parent
 
@@ -97,15 +96,16 @@ Item {
         }
         else
         {
-          if ( __initDistance < 5 * dp)
+          var distance = Math.abs( mouse.x - __initialPosition.x ) + Math.abs( mouse.y - __initialPosition.y )
+
+          if ( distance < 5 * dp)
             mapArea.clicked( mouse )
         }
       }
 
       onPressed: {
-        __lastX = mouse.x
-        __lastY = mouse.y
-        __initDistance = 0
+        __lastPosition = Qt.point( mouse.x, mouse.y)
+        __initialPosition = __lastPosition
         freeze()
       }
 
@@ -114,17 +114,9 @@ Item {
       }
 
       onPositionChanged: {
-        if ( !mapCanvasWrapper.freeze )
-        {
-          __initDistance = Math.abs( mouse.x - __lastX ) + Math.abs( mouse.y - __lastY )
-        }
-
-        if ( mapCanvasWrapper.freeze ) {
-          mapCanvasWrapper.pan( Qt.point( mouse.x, mouse.y ), Qt.point( __lastX, __lastY ) )
-          __lastX = mouse.x
-          __lastY = mouse.y
-
-        }
+        var currentPosition = Qt.point( mouse.x, mouse.y )
+        mapCanvasWrapper.pan( currentPosition, __lastPosition )
+        __lastPosition = currentPosition
       }
 
       onCanceled: {
