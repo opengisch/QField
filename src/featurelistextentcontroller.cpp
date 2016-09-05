@@ -25,9 +25,9 @@ FeatureListExtentController::FeatureListExtentController( QObject* parent )
   , mMapSettings( 0 )
   , mAutoZoom( false )
 {
-  connect( this, SIGNAL( autoZoomChanged() ), SLOT( zoomToSelected() ) );
-  connect( this, SIGNAL( modelChanged() ), SLOT( onModelChanged() ) );
-  connect( this, SIGNAL( selectionChanged() ), SLOT( onModelChanged() ) );
+  connect( this, &FeatureListExtentController::autoZoomChanged, this, &FeatureListExtentController::zoomToSelected );
+  connect( this, &FeatureListExtentController::modelChanged, this, &FeatureListExtentController::onModelChanged );
+  connect( this, &FeatureListExtentController::selectionChanged, this, &FeatureListExtentController::onModelChanged );
 }
 
 FeatureListExtentController::~FeatureListExtentController()
@@ -56,7 +56,7 @@ void FeatureListExtentController::onModelChanged()
 {
   if ( mModel && mSelection )
   {
-    connect( mSelection, SIGNAL( selectionChanged() ), SLOT( onCurrentSelectionChanged() ) );
+    connect( mSelection, &FeatureListModelSelection::selectionChanged, this, &FeatureListExtentController::onCurrentSelectionChanged );
   }
 }
 

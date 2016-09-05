@@ -44,9 +44,9 @@ void Rubberband::setModel( RubberbandModel* model )
 
   // TODO connect to changes
 
-  connect( mModel, SIGNAL( vertexChanged( int ) ), this, SLOT( markDirty() ) );
-  connect( mModel, SIGNAL( verticesRemoved( int,int ) ), this, SLOT( markDirty() ) );
-  connect( mModel, SIGNAL( verticesInserted( int,int ) ), this, SLOT( markDirty() ) );
+  connect( mModel, &RubberbandModel::vertexChanged, this, &Rubberband::markDirty );
+  connect( mModel, &RubberbandModel::verticesRemoved, this, &Rubberband::markDirty );
+  connect( mModel, &RubberbandModel::verticesInserted, this, &Rubberband::markDirty );
 
   markDirty();
 

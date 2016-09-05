@@ -22,6 +22,7 @@
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickItem>
+#include <QtQuick/QQuickWindow>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
@@ -57,7 +58,7 @@
 #include "qgscoordinatereferencesystem.h"
 #include "identifytool.h"
 
-QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
+QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
@@ -77,7 +78,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   setSource( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
-  connect( engine(), SIGNAL( quit() ), app, SLOT( quit() ) );
+  connect( engine(), &QQmlEngine::quit, app, &QgsApplication::quit );
 
   setMinimumHeight( 480 );
   setMinimumWidth( 800 );
@@ -86,16 +87,16 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QWindow *parent )
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  connect( this, SIGNAL( closing( QQuickCloseEvent* ) ), QgsApplication::instance(), SLOT( quit() ) );
+  connect( this, SIGNAL( closing( QQuickCloseEvent* ) ) , QgsApplication::instance(), SLOT( quit() ) );
 
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
+  connect( QgsProject::instance(), &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas->mapSettings(), this );
-  connect( QgsProject::instance(), SIGNAL( writeProject( QDomDocument& ) ), mLayerTreeCanvasBridge, SLOT( writeProject( QDomDocument& ) ) );
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), mLayerTreeCanvasBridge, SLOT( readProject( QDomDocument ) ) );
-  connect( this, SIGNAL( loadProjectStarted( QString ) ), mIface, SIGNAL( loadProjectStarted( QString ) ) );
-  connect( this, SIGNAL( loadProjectEnded() ), mIface, SIGNAL( loadProjectEnded() ) );
-  connect( this, SIGNAL( afterRendering() ), SLOT( onAfterFirstRendering() ), Qt::QueuedConnection );
+  connect( QgsProject::instance(), &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
+  connect( QgsProject::instance(), &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
+  connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
+  connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
+  connect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering, Qt::QueuedConnection );
 
   mOfflineEditing = new QgsOfflineEditing();
 
@@ -200,7 +201,7 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
 void QgisMobileapp::onAfterFirstRendering()
 {
   // This should get triggered exactly once, so we disconnect it right away
-  disconnect( this, SIGNAL( afterRendering() ), this, SLOT( onAfterFirstRendering() ) );
+  disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
 
   if ( mFirstRenderingFlag )
   {

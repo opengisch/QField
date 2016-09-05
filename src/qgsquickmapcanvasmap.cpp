@@ -38,11 +38,11 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   , mDirty( false )
   , mFreeze( false )
 {
-  connect( this, SIGNAL( windowChanged( QQuickWindow* ) ), this, SLOT( onWindowChanged( QQuickWindow* ) ) );
-  connect( &mRefreshTimer, SIGNAL( timeout() ), this, SLOT( refreshMap() ) );
+  connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
+  connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
 
-  connect( mMapSettings, SIGNAL( extentChanged() ), this,SLOT( onExtentChanged() ) );
-  connect( mMapSettings, SIGNAL( layersChanged() ), this,SLOT( onLayersChanged() ) );
+  connect( mMapSettings, &MapSettings::extentChanged, this,&QgsQuickMapCanvasMap::onExtentChanged );
+  connect( mMapSettings, &MapSettings::layersChanged, this,&QgsQuickMapCanvasMap::onLayersChanged );
 
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
@@ -137,7 +137,7 @@ void QgsQuickMapCanvasMap::refreshMap()
   Q_ASSERT( !mJob );
   mJobCancelled = false;
   mJob = new QgsMapRendererParallelJob( mapSettings );
-  connect( mJob, SIGNAL( finished() ), SLOT( renderJobFinished() ) );
+  connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
   mJob->setCache( mCache );
 
   QStringList layersForGeometryCache;
@@ -191,7 +191,7 @@ void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow* window )
 {
   disconnect( this, SLOT( onScreenChanged( QScreen* ) ) );
   if ( window )
-    connect( window, SIGNAL( screenChanged( QScreen* ) ), this, SLOT( onScreenChanged( QScreen* ) ) );
+    connect( window, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );
 }
 
 void QgsQuickMapCanvasMap::onScreenChanged( QScreen* screen )
@@ -331,7 +331,7 @@ void QgsQuickMapCanvasMap::onLayersChanged()
   Q_FOREACH( QgsMapLayer* layer, mMapSettings->layers() )
   {
     // QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
-    mLayerConnections << connect( layer, SIGNAL( repaintRequested() ), this, SLOT( refresh() ) );
+    mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &QgsQuickMapCanvasMap::refresh );
   }
 
   refresh();

@@ -43,13 +43,7 @@ class CoordinateTransform : public QObject
     void destinationCRSChanged();
     void sourceCRSChanged();
 
-  private slots:
-    void updateTransform();
-
   private:
-    QgsCoordinateReferenceSystem mSourceCRS;
-    QgsCoordinateReferenceSystem mDestinationCRS;
-
     QgsCoordinateTransform mTransform;
 };
 

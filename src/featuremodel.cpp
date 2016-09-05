@@ -23,7 +23,7 @@
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( this, SIGNAL( modelReset() ), this, SIGNAL( featureChanged() ) );
+  connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
 }
 
 void FeatureModel::setFeature( const QgsFeature& feature )

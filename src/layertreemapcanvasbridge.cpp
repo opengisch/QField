@@ -33,10 +33,10 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, Map
   , mAutoEnableCrsTransform( true )
   , mNoLayersLoaded( !root->findLayers().isEmpty() )
 {
-  connect( root, SIGNAL( addedChildren( QgsLayerTreeNode*, int, int ) ), this, SLOT( nodeAddedChildren( QgsLayerTreeNode*, int, int ) ) );
-  connect( root, SIGNAL( customPropertyChanged( QgsLayerTreeNode*, QString ) ), this, SLOT( nodeCustomPropertyChanged( QgsLayerTreeNode*, QString ) ) );
-  connect( root, SIGNAL( removedChildren( QgsLayerTreeNode*, int, int ) ), this, SLOT( nodeRemovedChildren() ) );
-  connect( root, SIGNAL( visibilityChanged( QgsLayerTreeNode*, Qt::CheckState ) ), this, SLOT( nodeVisibilityChanged() ) );
+  connect( root, &QgsLayerTreeGroup::addedChildren, this, &LayerTreeMapCanvasBridge::nodeAddedChildren );
+  connect( root, &QgsLayerTreeGroup::customPropertyChanged, this, &LayerTreeMapCanvasBridge::nodeCustomPropertyChanged );
+  connect( root, &QgsLayerTreeGroup::removedChildren, this, &LayerTreeMapCanvasBridge::nodeRemovedChildren );
+  connect( root, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
 
   setCanvasLayers();
 }

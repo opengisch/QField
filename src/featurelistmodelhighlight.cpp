@@ -21,25 +21,25 @@
 
 FeatureListModelHighlight::FeatureListModelHighlight( QQuickItem* parent )
   : QQuickItem( parent )
-  , mModel( 0 )
-  , mSelection( 0 )
+  , mModel( nullptr )
+  , mSelection( nullptr )
   , mDirty( false )
-  , mMapSettings( 0 )
+  , mMapSettings( nullptr )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
 
-  connect( this, SIGNAL( modelChanged() ), this, SLOT( onDataChanged() ) );
-  connect( this, SIGNAL( selectionChanged() ), this, SLOT( onDataChanged() ) );
+  connect( this, &FeatureListModelHighlight::modelChanged, this, &FeatureListModelHighlight::onDataChanged );
+  connect( this, &FeatureListModelHighlight::selectionChanged, this, &FeatureListModelHighlight::onDataChanged );
 }
 
 void FeatureListModelHighlight::setSelection( FeatureListModelSelection* selection )
 {
   if ( selection != mSelection )
   {
-    disconnect( this, SLOT( onSelectionChanged() ) );
+    disconnect( mSelection, &FeatureListModelSelection::selectionChanged, this, &FeatureListModelHighlight::onSelectionChanged );
     mSelection = selection;
-    connect( selection, SIGNAL( selectionChanged() ), this, SLOT( onSelectionChanged() ) );
+    connect( mSelection, &FeatureListModelSelection::selectionChanged, this, &FeatureListModelHighlight::onSelectionChanged );
     emit selectionChanged();
   }
 }
@@ -53,8 +53,8 @@ void FeatureListModelHighlight::onDataChanged()
 {
   if ( mModel )
   {
-    connect( mModel, SIGNAL( modelReset() ), this, SLOT( onModelDataChanged() ) );
-    connect( mModel, SIGNAL( rowsRemoved( QModelIndex,int,int ) ), this, SLOT( onModelDataChanged() ) );
+    connect( mModel, &FeatureListModel::modelReset, this, &FeatureListModelHighlight::onModelDataChanged );
+    connect( mModel, &FeatureListModel::rowsRemoved, this, &FeatureListModelHighlight::onModelDataChanged );
   }
 }
 

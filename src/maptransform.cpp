@@ -41,7 +41,7 @@ void MapTransform::setMapSettings( MapSettings* mapSettings )
   if ( mapSettings != mMapSettings )
   {
     mMapSettings = mapSettings;
-    connect( mMapSettings, SIGNAL( visibleExtentChanged() ), SLOT( updateMatrix() ) );
+    connect( mMapSettings, &MapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
     emit mapSettingsChanged();
   }
 }

@@ -23,13 +23,13 @@ MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
 {
   // Connect signals for derived values
-  connect( this, SIGNAL( mapUnitsChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
-  connect( this, SIGNAL( extentChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
-  connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( mapUnitsPerPixelChanged() ) );
-  connect( this, SIGNAL( extentChanged() ), this, SIGNAL( visibleExtentChanged() ) );
-  connect( this, SIGNAL( rotationChanged() ), this, SIGNAL( visibleExtentChanged() ) );
-  connect( this, SIGNAL( outputSizeChanged() ), this, SIGNAL( visibleExtentChanged() ) );
-  connect( QgsProject::instance(), SIGNAL( readProject( QDomDocument ) ), this, SLOT( onReadProject( QDomDocument ) ) );
+  connect( this, &MapSettings::mapUnitsChanged, this, &MapSettings::mapUnitsPerPixelChanged );
+  connect( this, &MapSettings::extentChanged, this, &MapSettings::mapUnitsPerPixelChanged );
+  connect( this, &MapSettings::outputSizeChanged, this, &MapSettings::mapUnitsPerPixelChanged );
+  connect( this, &MapSettings::extentChanged, this, &MapSettings::visibleExtentChanged );
+  connect( this, &MapSettings::rotationChanged, this, &MapSettings::visibleExtentChanged );
+  connect( this, &MapSettings::outputSizeChanged, this, &MapSettings::visibleExtentChanged );
+  connect( QgsProject::instance(), &QgsProject::readProject, this, &MapSettings::onReadProject );
 }
 
 MapSettings::~MapSettings()

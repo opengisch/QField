@@ -25,7 +25,7 @@
 FeatureListModel::FeatureListModel( QObject *parent )
   :  QAbstractItemModel( parent )
 {
-  connect( this, SIGNAL( modelReset() ), this, SIGNAL( countChanged() ) );
+  connect( this, &FeatureListModel::modelReset, this, &FeatureListModel::countChanged );
 }
 
 void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests )
@@ -42,7 +42,7 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
     while ( fit.nextFeature( feat ) )
     {
       mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( it.key(), feat ) );
-      connect( it.key(), SIGNAL( layerDeleted() ), this, SLOT( layerDeleted() ), Qt::UniqueConnection );
+      connect( it.key(), &QgsVectorLayer::destroyed, this, &FeatureListModel::layerDeleted, Qt::UniqueConnection );
     }
   }
 
@@ -56,9 +56,9 @@ void FeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult>
   {
     QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( result.layer );
     mFeatures.append( QPair<QgsVectorLayer*, QgsFeature>( layer, result.feature ) );
-    connect( layer, SIGNAL( destroyed( QObject* ) ), this, SLOT( layerDeleted( QObject* ) ), Qt::UniqueConnection );
-    connect( layer, SIGNAL( featureDeleted( QgsFeatureId ) ), this, SLOT( featureDeleted( QgsFeatureId ) ), Qt::UniqueConnection );
-    connect( layer, SIGNAL( attributeValueChanged( QgsFeatureId,int,QVariant ) ), this, SLOT( attributeValueChanged( QgsFeatureId, int, QVariant ) ), Qt::UniqueConnection );
+    connect( layer, &QObject::destroyed, this, &FeatureListModel::layerDeleted, Qt::UniqueConnection );
+    connect( layer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::featureDeleted, Qt::UniqueConnection );
+    connect( layer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::attributeValueChanged, Qt::UniqueConnection );
   }
   endInsertRows();
 }

@@ -20,7 +20,7 @@ MessageLogModel::MessageLogModel( QObject* parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsMessageLog::instance() )
 {
-  connect( mMessageLog, SIGNAL( messageReceived( QString,QString,QgsMessageLog::MessageLevel ) ), this, SLOT( onMessageReceived( QString,QString,QgsMessageLog::MessageLevel ) ) );
+  connect( mMessageLog, static_cast<void ( QgsMessageLog::* ) ( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
 }
 
 QHash<int, QByteArray> MessageLogModel::roleNames() const
