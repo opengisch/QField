@@ -53,69 +53,79 @@ Rectangle {
         height: model.hasTabs ? childrenRect.height : 0
         clip: true
 
-        Row {
-          Repeater {
-            model: DelegateModel {
-              id: rootElement
-              model: form.model
+        Flickable {
+          flickableDirection: Flickable.HorizontalFlick
 
-              delegate: Item {
-                height: childrenRect.height
-                width: childrenRect.width
+          anchors { left: parent.left; right: parent.right; top: parent.top }
+          height: tabRow.height
+          contentWidth: tabRow.width
 
-                Controls.Button {
-                  id: button
-                  text: Name
+          Row {
+            id: tabRow
+            height: childrenRect.height
 
-                  onClicked: {
-                    activate(parent)
-                  }
+            Repeater {
+              model: DelegateModel {
+                id: rootElement
+                model: form.model
 
-                  style: ButtonStyle {
-                    background: Rectangle {
-                      color: "white"
+                delegate: Item {
+                  height: childrenRect.height
+                  width: childrenRect.width
+
+                  Controls.Button {
+                    id: button
+                    text: Name
+
+                    onClicked: {
+                      activate( parent )
+                    }
+
+                    style: ButtonStyle {
+                      background: Rectangle {
+                        color: "white"
+                      }
                     }
                   }
-                }
 
-                Rectangle {
-                  color: __currentTab === parent ? "orange" : "gray"
+                  Rectangle {
+                    color: __currentTab === parent ? "orange" : "gray"
 
-                  height: 2 * dp
-                  anchors.right: parent.right
-                  anchors.left: parent.left
-                  anchors.bottom: button.bottom
+                    height: 2 * dp
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.bottom: button.bottom
 
-                  Behavior on color {
-                    ColorAnimation {
-                      easing.type: Easing.InOutQuad
-
+                    Behavior on color {
+                      ColorAnimation {
+                        easing.type: Easing.InOutQuad
+                      }
                     }
                   }
-                }
 
-                Component.onCompleted: {
-                  if ( index === 0 )
-                    activate(this)
-                }
+                  Component.onCompleted: {
+                    if ( index === 0 )
+                      activate( this )
+                  }
 
-                function activate(tab) {
-                  if ( !form.model.hasTabs )
-                    return;
-                  __currentTab = tab
+                  function activate( tab ) {
+                    if ( !form.model.hasTabs )
+                      return;
+                    __currentTab = tab
 
-                  content.sourceComponent = undefined
+                    content.sourceComponent = undefined
 
-                  content.pRootIndex = rootElement.modelIndex(index)
-                  content.pType = Type
-                  content.pName = ""
-                  content.pEditorWidget = EditorWidget
-                  content.pEditorWidgetConfig = EditorWidgetConfig
-                  content.pAttributeValue = AttributeValue
-                  content.pField = Field
-                  content.pRememberValue = RememberValue
+                    content.pRootIndex = rootElement.modelIndex(index)
+                    content.pType = Type
+                    content.pName = ""
+                    content.pEditorWidget = EditorWidget
+                    content.pEditorWidgetConfig = EditorWidgetConfig
+                    content.pAttributeValue = AttributeValue
+                    content.pField = Field
+                    content.pRememberValue = RememberValue
 
-                  content.sourceComponent = element
+                    content.sourceComponent = element
+                  }
                 }
               }
             }
@@ -153,6 +163,7 @@ Rectangle {
         clip: true
 
         flickableDirection: Flickable.VerticalFlick
+        contentHeight: content.height
 
         Loader {
           id: content
@@ -178,11 +189,6 @@ Rectangle {
 
     Item {
       height: childrenRect.height
-      anchors { left: parent.left; right: parent.right }
-
-      onHeightChanged: {
-        console.info(height)
-      }
 
       Controls.GroupBox {
         visible: pType != 'field'
