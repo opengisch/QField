@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
@@ -64,6 +64,9 @@ Rectangle {
             id: tabRow
             height: childrenRect.height
 
+            padding: 8 * dp
+            spacing: 8 * dp
+
             Repeater {
               model: DelegateModel {
                 id: rootElement
@@ -86,6 +89,11 @@ Rectangle {
                     style: ButtonStyle {
                       background: Rectangle {
                         color: "white"
+                      }
+
+                      label: Controls.Label {
+                        font.bold: true
+                        text: control.text
                       }
                     }
                   }
