@@ -206,7 +206,7 @@ Rectangle {
     id: element
 
     Loader {
-      sourceComponent: pType === 'field' ? fieldItem : groupBoxItem
+      sourceComponent: pType === 'field' ? ( pEditorWidget === 'Hidden' ? undefined : fieldItem ): groupBoxItem
 
       anchors { left: parent.left; right: parent.right }
       height: childrenRect.height
@@ -290,17 +290,6 @@ Rectangle {
         height: childrenRect.height
         anchors { left: parent.left; right: rememberCheckbox.left; top: fieldLabel.bottom }
 
-        Connections {
-          target: form
-          onAboutToSave: {
-            try {
-              attributeEditorLoader.item.pushChanges()
-            }
-            catch ( err )
-            {}
-          }
-        }
-
         Loader {
           id: attributeEditorLoader
 
@@ -322,6 +311,17 @@ Rectangle {
               console.warn( "Editor widget type '" + editorWidget + "' not avaliable." )
               widget = 'TextEdit'
             }
+          }
+        }
+
+        Connections {
+          target: form
+          onAboutToSave: {
+            try {
+              attributeEditorLoader.item.pushChanges()
+            }
+            catch ( err )
+            {}
           }
         }
 
