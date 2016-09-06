@@ -172,29 +172,33 @@ Rectangle {
         return;
       __currentTab = tab
 
-      content.sourceComponent = undefined
+      if ( !container.visible )
+        content.sourceComponent = undefined
 
       content.pRootIndex = rootElement.modelIndex(tab.idx)
       content.pType = 'tab'
       content.pName = ''
-
-      content.sourceComponent = element
     }
 
     function checkTabs()
     {
       if ( !form.model.hasTabs )
       {
-        content.sourceComponent = undefined
+        if ( !container.visible )
+          content.sourceComponent = undefined
 
         content.pRootIndex = undefined
         content.pType = 'tab'
-
-        content.sourceComponent = element
       }
     }
 
-
+    Connections {
+      target: container
+      onVisibleChanged: {
+        if ( container.visible )
+          content.sourceComponent = element
+      }
+    }
   }
 
   /**
@@ -208,7 +212,7 @@ Rectangle {
     Loader {
       sourceComponent: pType === 'field' ? ( pEditorWidget === 'Hidden' ? undefined : fieldItem ): groupBoxItem
 
-      anchors { left: parent.left; right: parent.right }
+      // anchors { left: parent.left; right: parent.right }
       height: childrenRect.height
 
       property var xRootIndex: pRootIndex
@@ -231,7 +235,7 @@ Rectangle {
     Controls.GroupBox {
       title: name
       height: fieldsColumn.height
-      anchors { left: parent.left; right: parent.right }
+      // anchors { left: parent.left; right: parent.right }
 
       Column {
         id: fieldsColumn
