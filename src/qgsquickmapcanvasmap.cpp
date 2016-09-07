@@ -140,6 +140,7 @@ void QgsQuickMapCanvasMap::refreshMap()
   Q_ASSERT( !mJob );
   mJobCancelled = false;
   mJob = new QgsMapRendererParallelJob( mapSettings );
+  connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
   mJob->setCache( mCache );
 
@@ -157,6 +158,21 @@ void QgsQuickMapCanvasMap::refreshMap()
   mJob->start();
 
   emit renderStarting();
+}
+
+void QgsQuickMapCanvasMap::renderJobUpdated()
+{
+  mImage = mJob->renderedImage();
+  mImageMapSettings = mJob->mapSettings();
+  mDirty = true;
+  // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
+  bool freeze = mFreeze;
+  mFreeze = true;
+  updateTransform();
+  mFreeze = freeze;
+
+  update();
+  emit mapCanvasRefreshed();
 }
 
 void QgsQuickMapCanvasMap::renderJobFinished()
