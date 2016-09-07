@@ -141,6 +141,8 @@ QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
     case QgsAttributeEditorElement::AeTypeField:
     {
       QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
+      if ( editorField->idx() < 0 )
+        return QVariant();
 
       switch ( role )
       {
