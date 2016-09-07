@@ -1,6 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls.Private 1.0
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
@@ -41,6 +42,16 @@ Rectangle {
     anchors.top: toolbar.bottom
 
     id: container
+
+
+    // A container for the main form area (below the tabs)
+    Connections {
+      target: container
+      onVisibleChanged: {
+        if ( container.visible )
+          content.sourceComponent = element
+      }
+    }
 
     // Tabs
     Item {
@@ -199,14 +210,6 @@ Rectangle {
         content.pType = 'tab'
       }
     }
-
-    Connections {
-      target: container
-      onVisibleChanged: {
-        if ( container.visible )
-          content.sourceComponent = element
-      }
-    }
   }
 
   /**
@@ -249,7 +252,7 @@ Rectangle {
         text: name
         height: name === '' ? 0 : undefined
         anchors { left: parent.left; right: parent.right }
-        font { pointSize: 20 * dp; bold: true }
+        font { pixelSize: 1.4 * TextSingleton.font.pixelSize; bold: true }
       }
 
       Column {
@@ -328,7 +331,7 @@ Rectangle {
             if ( attributeEditorLoader.status === Loader.Error )
             {
               console.warn( "Editor widget type '" + editorWidget + "' not avaliable." )
-              widget = 'TextEdit'
+              source = 'editorwidgets/TextEdit.qml'
             }
           }
         }
