@@ -93,6 +93,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
   private slots:
     void refreshMap();
+    void renderJobUpdated();
     void renderJobFinished();
     void onWindowChanged( QQuickWindow* window );
     void onScreenChanged( QScreen* screen );
