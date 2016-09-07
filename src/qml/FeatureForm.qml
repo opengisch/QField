@@ -158,7 +158,7 @@ Rectangle {
         Loader {
           id: content
 
-          anchors { left: parent.left; right: parent.right }
+          anchors { left: parent.left; right: parent.right; margins: 8 * dp }
           height: childrenRect.height
 
           property var pRootIndex
@@ -240,14 +240,21 @@ Rectangle {
   Component {
     id: groupBoxItem
 
-    Controls.GroupBox {
-      title: name
-      height: fieldsColumn.height
-      // anchors { left: parent.left; right: parent.right }
+    Item {
+      height: childrenRect.height
+      anchors { left: parent.left; right: parent.right }
+
+      Controls.Label {
+        id: label
+        text: name
+        height: name === '' ? 0 : undefined
+        anchors { left: parent.left; right: parent.right }
+        font { pointSize: 20 * dp; bold: true }
+      }
 
       Column {
         id: fieldsColumn
-        anchors { left: parent.left; right: parent.right }
+        anchors { left: parent.left; right: parent.right; top: label.bottom; margins: 8 * dp }
         height: childrenRect.height
 
         Repeater {
