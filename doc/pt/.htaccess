@@ -1,2 +1,0 @@
-Redirect 302 /get https://play.google.com/store/apps/details?id=ch.opengis.qfield
-Redirect 302 /sync https://github.com/opengisch/QFieldSync
