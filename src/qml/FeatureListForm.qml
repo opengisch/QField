@@ -276,9 +276,9 @@ Rectangle {
 
       onRunningChanged: {
         if ( running )
-          mapCanvasMap.freeze()
+          mapCanvasMap.freeze('formresize')
         else
-          mapCanvasMap.unfreeze()
+          mapCanvasMap.unfreeze('formresize')
       }
     }
   }
