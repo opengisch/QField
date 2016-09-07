@@ -38,12 +38,14 @@ Item {
    * It is therefore important to call freeze() and unfreeze() exactly the same
    * number of times.
    */
-  function freeze() {
-    mapCanvasWrapper.__freezecount += 1
+  function freeze(id) {
+    mapCanvasWrapper.__freezecount[id] = true
+    mapCanvasWrapper.freeze = true
   }
 
-  function unfreeze() {
-    mapCanvasWrapper.__freezecount -= 1
+  function unfreeze(id) {
+    delete mapCanvasWrapper.__freezecount[id]
+    mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0
   }
 
   MapCanvasMap {
@@ -51,9 +53,9 @@ Item {
 
     anchors.fill: parent
 
-    property int __freezecount: 0
+    property var __freezecount: ({})
 
-    freeze: __freezecount != 0
+    freeze: false
   }
 
   PinchArea {
@@ -62,7 +64,7 @@ Item {
     anchors.fill: parent
 
     onPinchStarted: {
-      freeze()
+      freeze('pinch')
     }
 
     onPinchUpdated: {
@@ -71,7 +73,7 @@ Item {
     }
 
     onPinchFinished: {
-      unfreeze()
+      unfreeze('pinch')
       mapCanvasWrapper.refresh()
     }
 
@@ -107,11 +109,11 @@ Item {
       onPressed: {
         __lastPosition = Qt.point( mouse.x, mouse.y)
         __initialPosition = __lastPosition
-        freeze()
+        freeze('pan')
       }
 
       onReleased: {
-        unfreeze()
+        unfreeze('pan')
       }
 
       onPositionChanged: {
@@ -121,11 +123,19 @@ Item {
       }
 
       onCanceled: {
-        unfreeze()
+        unfreezePanTimer.start()
       }
 
       onWheel: {
         mapCanvasWrapper.zoom( Qt.point( wheel.x, wheel.y ), Math.pow( 0.8, wheel.angleDelta.y / 60 ) )
+      }
+
+      Timer {
+        id: unfreezePanTimer
+        interval: 500;
+        running: false;
+        repeat: false
+        onTriggered: unfreeze('pan')
       }
     }
   }
