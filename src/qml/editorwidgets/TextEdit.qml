@@ -14,7 +14,7 @@ Item {
 
     text: value || ''
 
-    inputMethodHints: field.isNumeric ? Qt.ImhDigitsOnly : Qt.ImhNone
+    inputMethodHints: field.isNumeric || widget == 'Range' ? Qt.ImhDigitsOnly : Qt.ImhNone
 
     onEditingFinished: {
       valueChanged( text, text == '' )
