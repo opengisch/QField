@@ -19,8 +19,6 @@ Rectangle {
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
 
-  property var __currentTab
-
   id: form
 
   states: [
@@ -59,6 +57,8 @@ Rectangle {
 
       Rectangle {
         id: tabBar
+
+        property var __currentTab
 
         anchors { left: parent.left; right:parent.right; top: parent.top }
         height: model.hasTabs ? childrenRect.height : 0
@@ -110,7 +110,7 @@ Rectangle {
                   }
 
                   Rectangle {
-                    color: __currentTab === parent ? "orange" : "gray"
+                    color: tabBar.__currentTab === parent ? "orange" : "gray"
 
                     height: 2 * dp
                     anchors.right: parent.right
@@ -153,11 +153,11 @@ Rectangle {
 
       Connections {
         target: form.model
-        onFeatureChanged: container.activate( __currentTab )
+        onFeatureChanged: container.activate( tabBar.__currentTab )
       }
 
       /**
-       * The tab bar
+       * The main form content area
        */
       Flickable {
         anchors { top: tabBar.bottom; bottom: parent.bottom; left: parent.left; right: parent.right }
@@ -187,16 +187,22 @@ Rectangle {
     }
 
     function activate( tab ) {
-      if ( !form.model.hasTabs )
-        return;
-      __currentTab = tab
-
       if ( !container.visible )
         content.sourceComponent = undefined
 
-      content.pRootIndex = rootElement.modelIndex(tab.idx)
-      content.pType = 'tab'
-      content.pName = ''
+      if ( !form.model.hasTabs )
+      {
+        tabBar.__currentTab = undefined
+        content.pRootIndex = undefined
+      }
+      else
+      {
+        tabBar.__currentTab = tab
+
+        content.pRootIndex = rootElement.modelIndex(tab.idx)
+        content.pType = 'tab'
+        content.pName = ''
+      }
     }
 
     function checkTabs()
