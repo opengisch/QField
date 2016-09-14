@@ -86,8 +86,6 @@ Rectangle {
   ]
   state: "Hidden"
 
-  focus: props.isVisible
-
   clip: true
 
   width: props.isVisible ? state == "FeatureList" ? parent.width / 3 : parent.width : 0
@@ -303,10 +301,12 @@ Rectangle {
   function show()
   {
     props.isVisible = true
+    focus = true
   }
 
   function hide()
   {
     props.isVisible = false
+    focus = false
   }
 }

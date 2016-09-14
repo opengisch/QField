@@ -71,10 +71,7 @@ Rectangle {
     property MapSettings mapSettings: mapCanvasMap.mapSettings
 
     /* Placement and size. Share right anchor with featureForm */
-    anchors.top: parent.top
-    anchors.left: parent.left
-    anchors.bottom: parent.bottom
-    anchors.right: featureForm.left
+    anchors.fill: parent
 
     /* The base map */
     MapCanvas {
