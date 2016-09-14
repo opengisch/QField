@@ -71,6 +71,8 @@ class FeatureListModel : public QAbstractItemModel
 
     int count() const;
 
+    Q_INVOKABLE void deleteFeature( QgsVectorLayer* layer, QgsFeatureId fid );
+
   signals:
     void countChanged();
 

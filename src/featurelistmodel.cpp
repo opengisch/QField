@@ -79,7 +79,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   roleNames[FeatureIdRole] = "featureId";
   roleNames[FeatureRole] = "feature";
   roleNames[LayerNameRole] = "layerName";
-  roleNames[LayerNameRole] = "layer";
+  roleNames[LayerRole] = "currentLayer";
   roleNames[DeleteFeatureRole] = "deleteFeatureCapability";
 
   return roleNames;
@@ -183,6 +183,13 @@ bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent
 int FeatureListModel::count() const
 {
   return mFeatures.size();
+}
+
+void FeatureListModel::deleteFeature( QgsVectorLayer* layer, QgsFeatureId fid )
+{
+  layer->startEditing();
+  layer->deleteFeature( fid );
+  layer->commitChanges();
 }
 
 void FeatureListModel::layerDeleted( QObject* object )

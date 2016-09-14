@@ -18,6 +18,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
+import QtQuick.Dialogs 1.2
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
@@ -179,7 +180,9 @@ Rectangle {
         iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
 
         onClicked: {
-          feature.remove()
+          deleteDialog.currentLayer = currentLayer
+          deleteDialog.featureId = featureId
+          deleteDialog.visible = true
         }
       }
 
@@ -308,5 +311,26 @@ Rectangle {
   {
     props.isVisible = false
     focus = false
+  }
+
+  MessageDialog {
+      id: deleteDialog
+
+      property int featureId
+      property VectorLayer currentLayer
+
+      visible: false
+
+      title: qsTr( "Delete feature" )
+      text: qsTr( "Should this feature really be deleted?" )
+      standardButtons: StandardButton.Ok | StandardButton.Cancel
+      onAccepted: {
+        featureForm.model.deleteFeature( currentLayer, featureId )
+        visible = false
+      }
+      onRejected: {
+        visible = false
+      }
+
   }
 }
