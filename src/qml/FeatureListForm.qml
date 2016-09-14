@@ -29,6 +29,7 @@ Rectangle {
   property MapSettings mapSettings
   property color selectionColor
   property alias model: globalFeaturesList.model
+  property bool allowDelete
 
   states: [
     State {
@@ -173,7 +174,7 @@ Rectangle {
         width: 48*dp
         height: 48*dp
 
-        visible: deleteFeatureCapability
+        visible: deleteFeatureCapability && allowDelete
 
         anchors { top: parent.top; right: parent.right }
 

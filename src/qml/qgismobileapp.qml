@@ -196,12 +196,9 @@ Rectangle {
     id: featureForm
     mapSettings: mapCanvas.mapSettings
 
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.bottom: parent.bottom
-
-    border.color: "lightGray"
-    border.width: 1
+    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    border { color: "lightGray"; width: 1 }
+    allowDelete: mainWindow.state === "digitize"
 
     model: FeatureListModel {}
 
