@@ -1,35 +1,35 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../src/qml/About.qml" line="24"/>
         <source>QField Version: %1</source>
-        <translation>QField Version: %1</translation>
+        <translation>QField Versio: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="29"/>
         <source>QField Settings folder: %1</source>
-        <translation>QField Einstellung Ordner: %1</translation>
+        <translation>QField asetusten hakemisto: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="34"/>
         <source>QField Shared items folder: %1</source>
-        <translation>QField Ordner für gemeinsam genutzte Elemente: %1</translation>
+        <translation>QField Jaettujen osien hakemisto: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="49"/>
         <source>Developed by</source>
-        <translation>Entwickelt von</translation>
+        <translation>Kehittänyt</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="67"/>
         <source>Support the development</source>
-        <translation>Die Entwicklung unterstützen</translation>
+        <translation>Tue kehitystyötä</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="85"/>
         <source>Buy the Karma edition</source>
-        <translation>Die Karmaversion kaufen</translation>
+        <translation>Osta Karma julkaisu</translation>
     </message>
 </context>
 <context>
@@ -37,12 +37,12 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="324"/>
         <source>Delete feature</source>
-        <translation>Objekt löschen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="325"/>
         <source>Should this feature really be deleted?</source>
-        <translation>Soll dieses Objekt wirklich gelöscht werden?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="27"/>
         <source>Altitude</source>
-        <translation>Höhe</translation>
+        <translation>Korkeus</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="30"/>
@@ -59,22 +59,22 @@
         <location filename="../src/qml/PositionInformationView.qml" line="53"/>
         <location filename="../src/qml/PositionInformationView.qml" line="60"/>
         <source>N/A</source>
-        <translation>N. a.</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="34"/>
         <source>Accuracy</source>
-        <translation>Genauigkeit</translation>
+        <translation>Tarkkuus</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="42"/>
         <source>Coordinates</source>
-        <translation>Koordinaten</translation>
+        <translation>Koordinaatit</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="57"/>
         <source>Speed</source>
-        <translation>Geschwindigkeit</translation>
+        <translation>Nopeus</translation>
     </message>
 </context>
 <context>
@@ -82,108 +82,108 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="280"/>
         <source>Waiting for location...</source>
-        <translation>Warte auf Position...</translation>
+        <translation>Odotetaan sijaintitietoa...</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="271"/>
         <location filename="../src/qml/qgismobileapp.qml" line="285"/>
         <source>Activating positioning service...</source>
-        <translation>Positionierung wird gestartet...</translation>
+        <translation>Odotetaan sijaintipalvelua...</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="300"/>
         <source>Positioning activated</source>
-        <translation>Positionierung aktiviert</translation>
+        <translation>Sijaintiosoitus aktivoitu</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="305"/>
         <source>Positioning turned off</source>
-        <translation>Positionierung deaktiviert</translation>
+        <translation>Sijainninosoitus poistettu</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="369"/>
         <source>Open project</source>
-        <translation>Projekt öffnen</translation>
+        <translation>Avaa projekti</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="371"/>
         <source>QGIS projects (*.qgs)</source>
-        <translation>QGIS Projekte (*.qgs)</translation>
+        <translation>QGIS projektit (*.qgs)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="371"/>
         <source>All files (*)</source>
-        <translation>Alle Dateien (*)</translation>
+        <translation>Kaikki tiedostot (*)</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="383"/>
         <source>Main Menu</source>
-        <translation>Hauptmenü</translation>
+        <translation>Päävalikko</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="386"/>
         <source>Mode</source>
-        <translation>Modus</translation>
+        <translation>Tila</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="389"/>
         <source>Browse</source>
-        <translation>Navigieren</translation>
+        <translation>Selaile</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="394"/>
         <source>Digitize</source>
-        <translation>Digitalisieren</translation>
+        <translation>Digitoi</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="400"/>
         <source>Open Project</source>
-        <translation>Projekt öffnen</translation>
+        <translation>Avaa projekti</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="410"/>
         <source>About</source>
-        <translation>Über</translation>
+        <translation>Yleistä</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="418"/>
         <source>Log</source>
-        <translation>Log</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="428"/>
         <source>Quit</source>
-        <translation>Beenden</translation>
+        <translation>Lopeta</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="438"/>
         <source>GPS Options</source>
-        <translation>GPS Optionen</translation>
+        <translation>GPS vaihtoehdot</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="441"/>
         <source>Enable GPS</source>
-        <translation>GPS einschalten</translation>
+        <translation>Ota GPS käyttöön</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="450"/>
         <source>Center current location</source>
-        <translation>Auf aktuelle Position zentrieren</translation>
+        <translation>Keskitä nykyiseen sijaintiin</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="461"/>
         <source>Show position information</source>
-        <translation>Positionsinformationen anzeigen</translation>
+        <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="525"/>
         <source>Loading Project</source>
-        <translation>Projekt laden</translation>
+        <translation>Ladataan projektia</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="532"/>
         <source>Loading Project: %1</source>
-        <translation>Lade Projekt: %1</translation>
+        <translation>Ladataan projektia: %1</translation>
     </message>
 </context>
 </TS>
