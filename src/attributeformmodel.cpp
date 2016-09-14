@@ -270,7 +270,7 @@ QgsAttributeEditorContainer* AttributeFormModel::generateRootContainer() const
   QgsFields fields = mLayer->fields();
   for ( int i = 0; i < fields.size(); ++i )
   {
-    QgsAttributeEditorField* field = new QgsAttributeEditorField( fields.at( i ).displayName(), i, root );
+    QgsAttributeEditorField* field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
     root->addChildElement( field );
   }
   return root;
