@@ -87,8 +87,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  connect( this, SIGNAL( closing( QQuickCloseEvent* ) ) , QgsApplication::instance(), SLOT( quit() ) );
-
   connect( QgsProject::instance(), &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas->mapSettings(), this );
@@ -232,6 +230,14 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   loadProjectQuirks();
 
   emit loadProjectEnded();
+}
+
+bool QgisMobileapp::event( QEvent* event )
+{
+  if ( event->type() == QEvent::Close )
+    QgsApplication::instance()->quit();
+
+  return QQuickView::event( event );
 }
 
 QgisMobileapp::~QgisMobileapp()

@@ -56,6 +56,8 @@ class QgisMobileapp : public QQuickView
      */
     void loadProjectFile( const QString& path );
 
+    bool event( QEvent* event ) override;
+
   signals:
     /**
      * Emitted when a project file is being loaded
