@@ -85,9 +85,17 @@ Rectangle {
   ]
   state: "Hidden"
 
-  focus: ( state != "Hidden" )
+  focus: props.isVisible
 
   clip: true
+
+  width: props.isVisible ? state == "FeatureList" ? parent.width / 3 : parent.width : 0
+
+  QtObject {
+    id: props
+
+    property bool isVisible: false
+  }
 
   ListView {
     id: globalFeaturesList
@@ -293,15 +301,11 @@ Rectangle {
 
   function show()
   {
-    var widthDenominator = settings.value( "featureForm/widthDenominator", 3 );
-    width = parent.width / widthDenominator
-    // Focus to retrieve back button events
-    focus = true
+    props.isVisible = true
   }
 
   function hide()
   {
-    width = 0
-    focus = false
+    props.isVisible = false
   }
 }

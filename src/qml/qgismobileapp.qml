@@ -200,8 +200,6 @@ Rectangle {
     anchors.top: parent.top
     anchors.bottom: parent.bottom
 
-    width: 0
-
     border.color: "lightGray"
     border.width: 1
 
