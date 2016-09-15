@@ -12,7 +12,7 @@ Perfect for field work on portable touch devices.
 
 Check the [documentation](http://qfield.org/docs)
 
-[![Get in Google play](https://opengisch.github.io/QField-docs/_images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
+[![Get in Google play](http://www.qfield.org/images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
 ## Contribute
 
