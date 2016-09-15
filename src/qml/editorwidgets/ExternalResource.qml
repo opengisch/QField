@@ -10,7 +10,7 @@ Item {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  implicitHeight: Math.max( image.height, button.height)
+  height: Math.max( image.height, button.height)
 
   property PictureSource __pictureSource
 
