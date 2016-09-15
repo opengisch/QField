@@ -1,4 +1,4 @@
-[![Read the documentation](https://img.shields.io/badge/Read-the%20docs-green.svg)](https://opengisch.github.io/QField-docs/installation-guide/index.html)
+[![Read the documentation](https://img.shields.io/badge/Read-the%20docs-green.svg)](http://qfield.org/docs/installation-guide/index.html)
 [![Join the chat at https://gitter.im/opengisch/QField](https://badges.gitter.im/opengisch/QField.svg)](https://gitter.im/opengisch/QField?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Release](https://img.shields.io/github/release/opengisch/QField.svg)](https://github.com/opengisch/QField/releases)
 
@@ -10,7 +10,7 @@ Perfect for field work on portable touch devices.
 
 ## Get it
 
-Check the [documentation](https://opengisch.github.io/QField-docs/installation-guide/index.html)
+Check the [documentation](http://qfield.org/docs)
 
 [![Get in Google play](https://opengisch.github.io/QField-docs/_images/Get_it_on_Google_play.png)](https://play.google.com/store/apps/details?id=ch.opengis.qfield)
 
