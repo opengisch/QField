@@ -48,94 +48,6 @@ QHash<int, QByteArray> AttributeFormModel::roleNames() const
   return roles;
 }
 
-#if 0
-QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
-{
-  if ( !index.isValid() )
-    return QVariant();
-
-  if ( role == ElementType )
-  {
-    switch ( indexToElement( index )->type() )
-    {
-      case QgsAttributeEditorElement::AeTypeContainer:
-        return "container";
-        break;
-
-      case QgsAttributeEditorElement::AeTypeField:
-        return "field";
-        break;
-
-      case QgsAttributeEditorElement::AeTypeRelation:
-        return "relation";
-        break;
-
-      case QgsAttributeEditorElement::AeTypeInvalid:
-        return QVariant();
-        break;
-    }
-  }
-
-  switch( indexToElement( index )->type() )
-  {
-    case QgsAttributeEditorElement::AeTypeContainer:
-    {
-      QgsAttributeEditorContainer* container = indexToElement<QgsAttributeEditorContainer*>( index );
-
-      switch ( role )
-      {
-        case Name:
-          return container->name();
-      }
-      break;
-    }
-
-    case QgsAttributeEditorElement::AeTypeField:
-    {
-      QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
-      if ( editorField->idx() < 0 )
-        return QVariant();
-
-      switch ( role )
-      {
-        case Name:
-          return mLayer->attributeDisplayName( editorField->idx() );
-
-        case AttributeValue:
-          return mFeatureModel->feature().attribute( editorField->idx() );
-
-        case AttributeEditable:
-          return mLayer->editFormConfig().readOnly( editorField->idx() );
-
-        case EditorWidget:
-          return mLayer->editFormConfig().widgetType( editorField->name() );
-
-        case EditorWidgetConfig:
-          return mLayer->editFormConfig().widgetConfig( editorField->name() );
-
-        case RememberValue:
-          return mFeatureModel->rememberedAttributes().at ( editorField->idx() ) ? Qt::Checked : Qt::Unchecked;
-
-        case Field:
-          return mLayer->fields().at( editorField->idx() );
-
-        case Qt::DisplayRole:
-          return mLayer->attributeDisplayName( editorField->idx() );
-      }
-      break;
-    }
-
-    case QgsAttributeEditorElement::AeTypeRelation:
-      // TODO
-      break;
-
-    case QgsAttributeEditorElement::AeTypeInvalid:
-      break;
-  }
-
-  return QVariant();
-}
-
 bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& value, int role )
 {
   if ( data( index, role ) != value )
@@ -144,22 +56,26 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
     {
       case RememberValue:
       {
-        QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
-        return mFeatureModel->setData( mFeatureModel->index( editorField->idx() ), value, FeatureModel::RememberAttribute );
+        QStandardItem* item = itemFromIndex( index );
+        int fieldIndex = item->data( FieldIndex ).toInt();
+        item->setData( value, RememberValue );
+        return mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
         break;
       }
 
       case AttributeValue:
       {
-        QgsAttributeEditorField* editorField = indexToElement<QgsAttributeEditorField*>( index );
-        return mFeatureModel->setData( mFeatureModel->index( editorField->idx() ), value, FeatureModel::AttributeValue );
+        QStandardItem* item = itemFromIndex( index );
+        int fieldIndex = item->data( FieldIndex ).toInt();
+        item->setData( value, AttributeValue );
+        return mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         break;
       }
     }
   }
   return false;
 }
-#endif
+
 FeatureModel* AttributeFormModel::featureModel() const
 {
   return mFeatureModel;

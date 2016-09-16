@@ -52,11 +52,7 @@ class AttributeFormModel : public QStandardItemModel
 
     QHash<int, QByteArray> roleNames() const override;
 
-#if 0
-    QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
-
     bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
-#endif
 
     FeatureModel* featureModel() const;
     void setFeatureModel( FeatureModel* featureModel );

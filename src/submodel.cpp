@@ -52,6 +52,16 @@ QVariant SubModel::data( const QModelIndex& index, int role ) const
   return mModel->data( index, role );
 }
 
+bool SubModel::setData( const QModelIndex& index, const QVariant& value, int role )
+{
+  return mModel->setData( index, value, role );
+}
+
+bool SubModel::setModelData( int row, const QVariant& value, int role )
+{
+  return setData( mModel->index( row, 0, mRootIndex ), value, role );
+}
+
 QHash<int, QByteArray> SubModel::roleNames() const
 {
   return mModel->roleNames();
@@ -123,18 +133,19 @@ void SubModel::onRowsRemoved( const QModelIndex& parent, int first, int last )
 
 void SubModel::onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles )
 {
-  emit dataChanged( toSourceIndex( topLeft ), toSourceIndex( bottomRight ), roles );
+  emit dataChanged( topLeft, bottomRight, roles );
 }
-
-QModelIndex SubModel::fromSourceIndex( const QModelIndex& sourceIndex )
+#if 0
+QModelIndex SubModel::fromSourceIndex( const QModelIndex& sourceIndex ) const
 {
   return createIndex( sourceIndex.row(), sourceIndex.column(), sourceIndex.internalId() );
 }
 
-QModelIndex SubModel::toSourceIndex( const QModelIndex& index )
+QModelIndex SubModel::toSourceIndex( const QModelIndex& index ) const
 {
   if ( !index.isValid() )
     return mRootIndex;
 
   return mModel->index( index.row(), index.column(), toSourceIndex( index.parent() ) );
 }
+#endif

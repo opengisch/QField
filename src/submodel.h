@@ -32,6 +32,8 @@ class SubModel : public QAbstractItemModel
     int rowCount( const QModelIndex& parent ) const override;
     int columnCount( const QModelIndex& parent ) const override;
     QVariant data( const QModelIndex& index, int role ) const override;
+    bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
+    Q_INVOKABLE bool setModelData( int row, const QVariant& value, int role = Qt::EditRole );
     QHash<int, QByteArray> roleNames() const override;
 
     QModelIndex rootIndex() const;
@@ -52,8 +54,10 @@ class SubModel : public QAbstractItemModel
     void onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles = QVector<int>() );
 
   private:
-    QModelIndex fromSourceIndex( const QModelIndex& sourceIndex );
-    QModelIndex toSourceIndex( const QModelIndex& index );
+#if 0
+    QModelIndex fromSourceIndex( const QModelIndex& sourceIndex ) const;
+    QModelIndex toSourceIndex( const QModelIndex& index ) const;
+#endif
 
     QAbstractItemModel* mModel;
     QPersistentModelIndex mRootIndex;

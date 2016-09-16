@@ -268,7 +268,7 @@ Rectangle {
           onValueChanged: {
 
             // QML translates undefined to a NULL QVariant
-            model.setData( xRootIndex, isNull ? undefined : value, AttributeFormModel.AttributeValue )
+            contentModel.setModelData( index, isNull ? undefined : value, AttributeFormModel.AttributeValue )
           }
         }
       }
