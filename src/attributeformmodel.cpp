@@ -20,7 +20,7 @@
 #include <QDebug>
 
 AttributeFormModel::AttributeFormModel( QObject* parent )
-  : QAbstractItemModel( parent )
+  : QStandardItemModel( 0, 1, parent )
   , mFeatureModel( nullptr )
   , mLayer( nullptr )
   , mTemporaryContainer( nullptr )
@@ -30,27 +30,6 @@ AttributeFormModel::AttributeFormModel( QObject* parent )
 AttributeFormModel::~AttributeFormModel()
 {
   delete mTemporaryContainer;
-}
-
-QModelIndex AttributeFormModel::index( int row, int column, const QModelIndex& parent ) const
-{
-  if ( row < 0 )
-    return QModelIndex();
-  QgsAttributeEditorContainer* container;
-  if ( !parent.isValid() )
-  {
-    container = invisibleRootContainer();
-  }
-  else
-  {
-    container = indexToElement<QgsAttributeEditorContainer*>( parent );
-  }
-  return createIndex( row, column, container->children().at( row ) );
-}
-
-QModelIndex AttributeFormModel::parent( const QModelIndex& index ) const
-{
-  return createIndex( 0, 0, indexToElement( index )->parent() );
 }
 
 QHash<int, QByteArray> AttributeFormModel::roleNames() const
@@ -64,39 +43,12 @@ QHash<int, QByteArray> AttributeFormModel::roleNames() const
   roles[EditorWidgetConfig] = "EditorWidgetConfig";
   roles[RememberValue] = "RememberValue";
   roles[Field] = "Field";
+  roles[Group] = "Group";
 
   return roles;
 }
 
-int AttributeFormModel::rowCount( const QModelIndex& parent ) const
-{
-  if ( !mLayer )
-    return 0;
-
-  QgsAttributeEditorElement* element;
-  if ( !parent.isValid() )
-    element = invisibleRootContainer();
-  else
-    element = indexToElement( parent );
-
-  if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
-  {
-    QgsAttributeEditorContainer* container = static_cast<QgsAttributeEditorContainer*>( element );
-    if ( container )
-      return container->children().length();
-  }
-
-  return 0;
-}
-
-int AttributeFormModel::columnCount( const QModelIndex& parent ) const
-{
-  if ( !parent.isValid() )
-    return 0;
-
-  return 1;
-}
-
+#if 0
 QVariant AttributeFormModel::data( const QModelIndex& index, int role ) const
 {
   if ( !index.isValid() )
@@ -207,7 +159,7 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
   }
   return false;
 }
-
+#endif
 FeatureModel* AttributeFormModel::featureModel() const
 {
   return mFeatureModel;
@@ -232,7 +184,8 @@ void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
 
 void AttributeFormModel::onLayerChanged()
 {
-  beginResetModel();
+  clear();
+
   mLayer = mFeatureModel->layer();
 
   if ( mLayer )
@@ -252,15 +205,34 @@ void AttributeFormModel::onLayerChanged()
     }
 
     setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
+
+    QList<QStandardItem*> items;
+    if ( mHasTabs )
+    {
+      Q_FOREACH( QgsAttributeEditorElement* element, root->children() )
+      {
+        QStandardItem* item = new QStandardItem();
+        item->setData( element->name(), Name );
+        item->setData( "container", ElementType );
+        item->appendRows( flatten( static_cast<QgsAttributeEditorContainer*>( element ) ) );
+        items.append( item );
+      }
+    }
+    else
+    {
+      items += flatten( invisibleRootContainer() );
+    }
+
+    invisibleRootItem()->setColumnCount( 1 );
+    invisibleRootItem()->appendRows( items );
   }
-  endResetModel();
 }
 
 void AttributeFormModel::onFeatureChanged()
 {
-  if ( mLayer )
+  for ( int i = 0 ; i < invisibleRootItem()->rowCount(); ++i )
   {
-    emit featureChanged();
+    updateAttributeValue( invisibleRootItem()->child( i ) );
   }
 }
 
@@ -279,6 +251,55 @@ QgsAttributeEditorContainer* AttributeFormModel::generateRootContainer() const
 QgsAttributeEditorContainer* AttributeFormModel::invisibleRootContainer() const
 {
   return mTemporaryContainer ? mTemporaryContainer : mLayer->editFormConfig().invisibleRootContainer();
+}
+
+void AttributeFormModel::updateAttributeValue( QStandardItem* item )
+{
+  if ( item->data( ElementType ) == "field" )
+    item->setData( mFeatureModel->feature().attribute( item->data( FieldIndex ).toInt() ), AttributeValue );
+  else
+    for ( int i = 0; i < item->rowCount(); ++i )
+      updateAttributeValue( item->child( i ) );
+}
+
+QList<QStandardItem*> AttributeFormModel::flatten( QgsAttributeEditorContainer* container )
+{
+  QList<QStandardItem*> items;
+
+  Q_FOREACH( QgsAttributeEditorElement* element, container->children() )
+  {
+    switch ( element->type() )
+    {
+      case QgsAttributeEditorElement::AeTypeContainer:
+        items += flatten( static_cast<QgsAttributeEditorContainer*>( element ) );
+        break;
+
+      case QgsAttributeEditorElement::AeTypeField:
+      {
+        QgsAttributeEditorField* editorField = static_cast<QgsAttributeEditorField*>( element );
+        if ( editorField->idx() == -1 )
+          continue;
+
+        QStandardItem* item = new QStandardItem();
+
+        item->setData( mLayer->attributeDisplayName( editorField->idx() ), Name );
+        item->setData( mFeatureModel->feature().attribute( editorField->idx() ), AttributeValue );
+        item->setData( mLayer->editFormConfig().readOnly( editorField->idx() ), AttributeEditable );
+        item->setData( mLayer->editFormConfig().widgetType( editorField->name() ), EditorWidget );
+        qWarning() << mLayer->editFormConfig().widgetType( editorField->name() );
+        item->setData( mLayer->editFormConfig().widgetConfig( editorField->name() ), EditorWidgetConfig );
+        item->setData( mFeatureModel->rememberedAttributes().at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked, RememberValue );
+        item->setData( mLayer->fields().at( editorField->idx() ), Field );
+        item->setData( "field", ElementType );
+        item->setData( editorField->idx(), FieldIndex );
+        item->setData( container->isGroupBox() ? container->name() : QString(), Group );
+
+        items.append( item );
+        break;
+      }
+    }
+  }
+  return items;
 }
 
 bool AttributeFormModel::hasTabs() const

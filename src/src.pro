@@ -42,7 +42,8 @@ HEADERS += \
     messagelogmodel.h \
     attributeformmodel.h \
     layertreemapcanvasbridge.h \
-    identifytool.h
+    identifytool.h \
+    submodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -69,7 +70,8 @@ SOURCES += \
     messagelogmodel.cpp \
     attributeformmodel.cpp \
     layertreemapcanvasbridge.cpp \
-    identifytool.cpp
+    identifytool.cpp \
+    submodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

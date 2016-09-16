@@ -57,6 +57,7 @@
 #include "layertreemapcanvasbridge.h"
 #include "qgscoordinatereferencesystem.h"
 #include "identifytool.h"
+#include "submodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -136,6 +137,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
+  qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

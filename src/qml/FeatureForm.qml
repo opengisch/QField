@@ -41,16 +41,6 @@ Rectangle {
 
     id: container
 
-
-    // A container for the main form area (below the tabs)
-    Connections {
-      target: container
-      onVisibleChanged: {
-        if ( container.visible )
-          content.sourceComponent = element
-      }
-    }
-
     // Tabs
     Item {
       anchors.fill: parent
@@ -159,49 +149,48 @@ Rectangle {
       /**
        * The main form content area
        */
-      Flickable {
+      ListView {
+        id: content
         anchors { top: tabBar.bottom; bottom: parent.bottom; left: parent.left; right: parent.right }
         clip: true
+        section.property: "Group"
+        section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+        section.delegate: Component {
+          /* section header: layer name */
+          Rectangle {
+            width: parent.width
+            height: 30*dp
+            color: "lightGray"
 
-        flickableDirection: Flickable.VerticalFlick
-        contentHeight: content.height
-
-        Loader {
-          id: content
-
-          anchors { left: parent.left; right: parent.right; margins: 8 * dp }
-          height: childrenRect.height
-
-          property var pRootIndex
-          property var pType
-          property var pName
-          property var pEditorWidget
-          property var pEditorWidgetConfig
-          property var pField
-          property var pAttributeValue
-          property var pRememberValue
+            Text {
+              anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+              font.bold: true
+              text: section
+            }
+          }
         }
+
+        model: SubModel {
+          id: contentModel
+          model: form.model
+        }
+
+        delegate: fieldItem
       }
 
       Component.onCompleted: container.checkTabs()
     }
 
     function activate( tab ) {
-      if ( !container.visible )
-        content.sourceComponent = undefined
-
       if ( !form.model.hasTabs )
       {
         tabBar.__currentTab = undefined
-        content.pRootIndex = undefined
       }
       else
       {
         tabBar.__currentTab = tab
 
-        content.pRootIndex = rootElement.modelIndex(tab.idx)
-        content.pType = 'tab'
-        content.pName = ''
+        contentModel.rootIndex = rootElement.modelIndex(tab.idx)
       }
     }
 
@@ -209,88 +198,7 @@ Rectangle {
     {
       if ( !form.model.hasTabs )
       {
-        if ( !container.visible )
-          content.sourceComponent = undefined
-
-        content.pRootIndex = undefined
-        content.pType = 'tab'
-      }
-    }
-  }
-
-  /**
-   * An item inside the form.
-   * Can be either a group box or a field editor.
-   * There is also a container groupbox without title constructed for tabs.
-   */
-  Component {
-    id: element
-
-    Loader {
-      sourceComponent: pType === 'field' ? ( pEditorWidget === 'Hidden' ? undefined : fieldItem ): groupBoxItem
-
-      // anchors { left: parent.left; right: parent.right }
-      height: childrenRect.height
-
-      property var xRootIndex: pRootIndex
-      property var type: pType
-      property var name: pName
-      property var editorWidget: pEditorWidget
-      property var editorWidgetConfig: pEditorWidgetConfig
-      property var xField: pField
-      property var attributeValue: pAttributeValue
-      property var rememberValue: pRememberValue
-    }
-  }
-
-  /**
-   * A group box, only visible if the item type is tab or groupbox ( != field )
-   */
-  Component {
-    id: groupBoxItem
-
-    Item {
-      height: childrenRect.height
-      anchors { left: parent.left; right: parent.right }
-
-      Controls.Label {
-        id: label
-        text: name
-        height: name === '' ? 0 : undefined
-        anchors { left: parent.left; right: parent.right }
-        font { pixelSize: 1.4 * TextSingleton.font.pixelSize; bold: true }
-      }
-
-      Column {
-        id: fieldsColumn
-        anchors { left: parent.left; right: parent.right; top: label.bottom; margins: 8 * dp }
-        height: childrenRect.height
-
-        Repeater {
-          model: DelegateModel {
-            id: delegateModel
-
-            model: form.model
-            rootIndex: xRootIndex
-
-            delegate: Loader {
-              height: childrenRect.height
-
-              property var pRootIndex: delegateModel.modelIndex( index )
-              property string pType: Type
-              property string pName: Name
-              property var pEditorWidget: EditorWidget
-              property var pEditorWidgetConfig: EditorWidgetConfig
-              property var pField: Field
-              property var pAttributeValue: AttributeValue
-              property var pRememberValue: RememberValue
-
-              sourceComponent: element
-
-              anchors { left: parent.left; right: parent.right }
-            }
-          }
-        }
+        contentModel.rootIndex = undefined
       }
     }
   }
@@ -303,13 +211,15 @@ Rectangle {
 
     Item {
       id: fieldContainer
-      visible: type === 'field'
+      visible: Type === 'field'
       height: childrenRect.height
+
+      anchors { left: parent.left; right: parent.right }
 
       Controls.Label {
         id: fieldLabel
 
-        text: name
+        text: Name
         font.bold: true
       }
 
@@ -325,10 +235,10 @@ Rectangle {
           anchors { left: parent.left; right: parent.right }
 
           enabled: form.state !== "ReadOnly"
-          property var value: attributeValue
-          property var config: editorWidgetConfig
-          property var widget: editorWidget
-          property var field: xField
+          property var value: AttributeValue
+          property var config: EditorWidgetConfig
+          property var widget: EditorWidget
+          property var field: Field
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + widget + '.qml'
@@ -336,7 +246,7 @@ Rectangle {
           onStatusChanged: {
             if ( attributeEditorLoader.status === Loader.Error )
             {
-              console.warn( "Editor widget type '" + editorWidget + "' not avaliable." )
+              console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
               source = 'editorwidgets/TextEdit.qml'
             }
           }
@@ -365,9 +275,9 @@ Rectangle {
 
       Controls.CheckBox {
         id: rememberCheckbox
-        checkedState: rememberValue
+        checkedState: RememberValue
 
-        visible: form.state === "Add" && editorWidget !== "Hidden"
+        visible: form.state === "Add" && EditorWidget !== "Hidden"
         width: visible ? undefined : 0
 
         anchors { right: parent.right; top: fieldLabel.bottom }
