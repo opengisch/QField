@@ -84,7 +84,7 @@ class AttributeFormModel : public QStandardItemModel
 
     void updateAttributeValue( QStandardItem* item );
 
-    QList<QStandardItem*> flatten( QgsAttributeEditorContainer* container );
+    void flatten( QgsAttributeEditorContainer* container , QStandardItem* parent );
 
     FeatureModel* mFeatureModel;
     QgsVectorLayer* mLayer;

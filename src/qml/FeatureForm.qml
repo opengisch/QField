@@ -156,10 +156,10 @@ Rectangle {
         section.property: "Group"
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
-          /* section header: layer name */
+          /* section header: group box name */
           Rectangle {
             width: parent.width
-            height: 30*dp
+            height: 30 * dp
             color: "lightGray"
 
             Text {

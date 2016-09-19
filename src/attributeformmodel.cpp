@@ -58,8 +58,13 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
       {
         QStandardItem* item = itemFromIndex( index );
         int fieldIndex = item->data( FieldIndex ).toInt();
-        item->setData( value, RememberValue );
-        return mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
+        bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
+        if ( changed )
+        {
+          item->setData( value, RememberValue );
+          emit dataChanged( index, index, QVector<int>() << role );
+        }
+        return changed;
         break;
       }
 
@@ -67,8 +72,13 @@ bool AttributeFormModel::setData( const QModelIndex& index, const QVariant& valu
       {
         QStandardItem* item = itemFromIndex( index );
         int fieldIndex = item->data( FieldIndex ).toInt();
-        item->setData( value, AttributeValue );
-        return mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+        bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+        if ( changed )
+        {
+          item->setData( value, AttributeValue );
+          emit dataChanged( index, index, QVector<int>() << role );
+        }
+        return changed;
         break;
       }
     }
@@ -122,7 +132,7 @@ void AttributeFormModel::onLayerChanged()
 
     setHasTabs( !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type() );
 
-    QList<QStandardItem*> items;
+    invisibleRootItem()->setColumnCount( 1 );
     if ( mHasTabs )
     {
       Q_FOREACH( QgsAttributeEditorElement* element, root->children() )
@@ -130,17 +140,14 @@ void AttributeFormModel::onLayerChanged()
         QStandardItem* item = new QStandardItem();
         item->setData( element->name(), Name );
         item->setData( "container", ElementType );
-        item->appendRows( flatten( static_cast<QgsAttributeEditorContainer*>( element ) ) );
-        items.append( item );
+        invisibleRootItem()->appendRow( item );
+        flatten( static_cast<QgsAttributeEditorContainer*>( element ), item );
       }
     }
     else
     {
-      items += flatten( invisibleRootContainer() );
+      flatten( invisibleRootContainer(), invisibleRootItem() );
     }
-
-    invisibleRootItem()->setColumnCount( 1 );
-    invisibleRootItem()->appendRows( items );
   }
 }
 
@@ -150,6 +157,7 @@ void AttributeFormModel::onFeatureChanged()
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
   }
+  emit dataChanged( QModelIndex(), QModelIndex() );
 }
 
 QgsAttributeEditorContainer* AttributeFormModel::generateRootContainer() const
@@ -172,22 +180,23 @@ QgsAttributeEditorContainer* AttributeFormModel::invisibleRootContainer() const
 void AttributeFormModel::updateAttributeValue( QStandardItem* item )
 {
   if ( item->data( ElementType ) == "field" )
+  {
     item->setData( mFeatureModel->feature().attribute( item->data( FieldIndex ).toInt() ), AttributeValue );
+    emit dataChanged( item->index(), item->index(), QVector<int>() << AttributeValue );
+  }
   else
     for ( int i = 0; i < item->rowCount(); ++i )
       updateAttributeValue( item->child( i ) );
 }
 
-QList<QStandardItem*> AttributeFormModel::flatten( QgsAttributeEditorContainer* container )
+void AttributeFormModel::flatten( QgsAttributeEditorContainer* container, QStandardItem* parent )
 {
-  QList<QStandardItem*> items;
-
   Q_FOREACH( QgsAttributeEditorElement* element, container->children() )
   {
     switch ( element->type() )
     {
       case QgsAttributeEditorElement::AeTypeContainer:
-        items += flatten( static_cast<QgsAttributeEditorContainer*>( element ) );
+        flatten( static_cast<QgsAttributeEditorContainer*>( element ), parent );
         break;
 
       case QgsAttributeEditorElement::AeTypeField:
@@ -210,12 +219,17 @@ QList<QStandardItem*> AttributeFormModel::flatten( QgsAttributeEditorContainer* 
         item->setData( editorField->idx(), FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), Group );
 
-        items.append( item );
+        parent->appendRow( item );
         break;
       }
+      case QgsAttributeEditorElement::AeTypeRelation:
+        // todo
+        break;
+      case QgsAttributeEditorElement::AeTypeInvalid:
+        // todo
+        break;
     }
   }
-  return items;
 }
 
 bool AttributeFormModel::hasTabs() const

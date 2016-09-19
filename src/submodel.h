@@ -51,16 +51,18 @@ class SubModel : public QAbstractItemModel
     void onRowsInserted( const QModelIndex &parent, int first, int last );
     void onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last );
     void onRowsRemoved( const QModelIndex &parent, int first, int last );
+    void onModelAboutToBeReset();
     void onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles = QVector<int>() );
 
   private:
-#if 0
-    QModelIndex fromSourceIndex( const QModelIndex& sourceIndex ) const;
-    QModelIndex toSourceIndex( const QModelIndex& index ) const;
-#endif
+    QModelIndex mapFromSource( const QModelIndex& sourceIndex ) const;
+    QModelIndex mapToSource( const QModelIndex& index ) const;
 
     QAbstractItemModel* mModel;
     QPersistentModelIndex mRootIndex;
+
+    // Map internal id to parent index
+    mutable QHash<qintptr, QModelIndex> mMappings;
 };
 
 #endif // SUBMODEL_H
