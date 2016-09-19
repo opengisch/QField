@@ -188,24 +188,6 @@ Rectangle {
     }
   }
 
-  /* The feature form */
-  FeatureListForm {
-    id: featureForm
-    mapSettings: mapCanvas.mapSettings
-
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
-    border { color: "lightGray"; width: 1 }
-    allowDelete: mainWindow.state === "digitize"
-
-    model: FeatureListModel {}
-
-    selection: FeatureListModelSelection {
-      model: featureForm.model
-    }
-
-    selectionColor: "#ff7777"
-  }
-
   DropShadow {
     anchors.fill: featureForm
     horizontalOffset: -2 * dp
@@ -479,6 +461,42 @@ Rectangle {
     color: "white"
   }
 
+  Image {
+    id: alertIcon
+    source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
+
+    visible: messageLog.unreadMessages
+
+    anchors.right: mapCanvas.right
+    anchors.top: parent.top
+    anchors.margins: 4 * dp
+    width: 36 * dp
+    height: 36 * dp
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: messageLog.visible = true
+    }
+  }
+
+  /* The feature form */
+  FeatureListForm {
+    id: featureForm
+    mapSettings: mapCanvas.mapSettings
+
+    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    border { color: "lightGray"; width: 1 }
+    allowDelete: mainWindow.state === "digitize"
+
+    model: FeatureListModel {}
+
+    selection: FeatureListModelSelection {
+      model: featureForm.model
+    }
+
+    selectionColor: "#ff7777"
+  }
+
   FeatureForm {
     id: overlayFeatureForm
 
@@ -546,24 +564,6 @@ Rectangle {
     width: 36 * dp
     height: 36 * dp
     running: mapCanvasMap.isRendering
-  }
-
-  Image {
-    id: alertIcon
-    source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
-
-    visible: messageLog.unreadMessages
-
-    anchors.right: mapCanvas.right
-    anchors.top: parent.top
-    anchors.margins: 4 * dp
-    width: 36 * dp
-    height: 36 * dp
-
-    MouseArea {
-      anchors.fill: parent
-      onClicked: messageLog.visible = true
-    }
   }
 
   MessageLog {
