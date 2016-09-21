@@ -33,16 +33,34 @@
     </message>
 </context>
 <context>
+    <name>FeatureForm</name>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="323"/>
+        <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="325"/>
+        <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/FeatureForm.qml" line="327"/>
+        <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FeatureListForm</name>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="324"/>
         <source>Delete feature</source>
-        <translation type="unfinished"/>
+        <translation>Poista ominaisuus</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="325"/>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko todella poistaa tämän ominaisuuden?</translation>
     </message>
 </context>
 <context>
@@ -80,108 +98,108 @@
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="280"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="262"/>
         <source>Waiting for location...</source>
         <translation>Odotetaan sijaintitietoa...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="271"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="285"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="253"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="267"/>
         <source>Activating positioning service...</source>
         <translation>Odotetaan sijaintipalvelua...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="300"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="282"/>
         <source>Positioning activated</source>
         <translation>Sijaintiosoitus aktivoitu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="305"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="287"/>
         <source>Positioning turned off</source>
         <translation>Sijainninosoitus poistettu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
         <source>Open project</source>
         <translation>Avaa projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="371"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
         <source>QGIS projects (*.qgs)</source>
         <translation>QGIS projektit (*.qgs)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="371"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="353"/>
         <source>All files (*)</source>
         <translation>Kaikki tiedostot (*)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="383"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="365"/>
         <source>Main Menu</source>
         <translation>Päävalikko</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="386"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="368"/>
         <source>Mode</source>
         <translation>Tila</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="389"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="371"/>
         <source>Browse</source>
         <translation>Selaile</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="394"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="376"/>
         <source>Digitize</source>
         <translation>Digitoi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="400"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="382"/>
         <source>Open Project</source>
         <translation>Avaa projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="410"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="392"/>
         <source>About</source>
         <translation>Yleistä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="418"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="400"/>
         <source>Log</source>
-        <translation type="unfinished"/>
+        <translation>Loki</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="428"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="410"/>
         <source>Quit</source>
         <translation>Lopeta</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="438"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="420"/>
         <source>GPS Options</source>
         <translation>GPS vaihtoehdot</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="441"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="423"/>
         <source>Enable GPS</source>
         <translation>Ota GPS käyttöön</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="450"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="432"/>
         <source>Center current location</source>
         <translation>Keskitä nykyiseen sijaintiin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="461"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="443"/>
         <source>Show position information</source>
         <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="525"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="543"/>
         <source>Loading Project</source>
         <translation>Ladataan projektia</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="532"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="550"/>
         <source>Loading Project: %1</source>
         <translation>Ladataan projektia: %1</translation>
     </message>
