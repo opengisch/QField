@@ -35,7 +35,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="documentation QField Documentation 0.7 - Gonnus Mons" href="../index.html" />
-    <link rel="next" title="Development and support" href="../development/index.html" />
+    <link rel="next" title="Support et développement" href="../development/index.html" />
     <link rel="prev" title="Formats de données supportés" href="../project-management/dataformat.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -112,7 +112,7 @@
 <li><a class="reference internal" href="#gps">GPS</a></li>
 <li><a class="reference internal" href="#digitize">Digitaliser</a><ul>
 <li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines">Lines</a></li>
+<li><a class="reference internal" href="#lines">Lignes</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulaire d&#8217;attributs</a></li>
 </ul>
 </li>
@@ -134,7 +134,7 @@
     </a>
   </li>
   <li>
-    <a href="../development/index.html" title="Next Chapter: Development and support"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Development a... &raquo;</span>
+    <a href="../development/index.html" title="Next Chapter: Support et développement"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Support et dé... &raquo;</span>
     </a>
   </li>
             
@@ -167,12 +167,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Gestion du projet QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">Carte SD externe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formats de données supportés</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 </ul>
 
 </ul>
@@ -202,38 +203,29 @@
 </div>
 <div class="section" id="gps">
 <h3>GPS<a class="headerlink" href="#gps" title="Lien permanent vers ce titre">¶</a></h3>
-<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
-<p>A long press on the GPS button will show the positioning menu.</p>
-<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
+<p>Un touché court sur le bouton du GPS l&#8217;active et centre la carte sur la localisation actuelle, dès que les données de géoloclisation sont disponibles.</p>
+<p>Un touché long sur le bouton du GPS affiche le menu de géolocalisation.</p>
+<p>Dans le menu de géolocalisation, l&#8217;affichage des données de position peut être activé. Les coordonnées affichées sont reprojetées dans le SCR du projet.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
+<p class="last">Si les informations sont affichées en WGS84, c&#8217;est probablement car aucun signal n&#8217;est disponible.</p>
 </div>
 </div>
 <div class="section" id="digitize">
 <h3>Digitaliser<a class="headerlink" href="#digitize" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour commencer à digitaliser de nouveaux objets <a href="#id1"><span class="problematic" id="id2">`Switch modes`_</span></a> to digitizing.</p>
-<p>A new combobox will appear next to the menu button which lists the layers
-available for digitizing.
-At the moment (QField 0.7), QField supports point and line layers.</p>
+<p>Une nouvelle liste apparaîtra près du bouton du menu. Elle contiendra les couches disponibles pour la numérisation. Pour le moment (v 0.7), QField ne supporte que les points et les lignes.</p>
 <div class="section" id="points">
 <h4>Points<a class="headerlink" href="#points" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the pencil at the lower right of the screen to confirm the creation of a
-new point feature.</p>
+<p>Déplacer la carte jusqu&#8217;à ce que la croix du centre de l&#8217;écran soit sur la position désirée, puis cliquer sur le crayon situé en-bas à droite de l&#8217;écran pour confirmer la création d&#8217;un nouveau point.</p>
 </div>
 <div class="section" id="lines">
-<h4>Lines<a class="headerlink" href="#lines" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line
-and click the pencil at the lower right of the screen.
-Proceed with adding points or removing points until the line is finished and then click save.</p>
+<h4>Lignes<a class="headerlink" href="#lines" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Déplacer la carte jusqu&#8217;à ce que la croix du centre de l&#8217;écran se trouve au début de la ligne, puis cliquer sur le crayon situé en-bas à droite de l&#8217;écran. Procéder à nouveau de cette manière pour ajouter ou supprimer des points jusqu&#8217;à ce que la ligne soit terminée, puis cliquer sur enregistrer.</p>
 </div>
 <div class="section" id="attribute-form">
 <h4>Formulaire d&#8217;attributs<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h4>
-<p>After digitizing a geometry, the attribute form will be displaied if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.</p>
+<p>Après avoir numérisé une géométrie, le formulaire d&#8217;attributs s&#8217;ouvre et l&#8217;utilisateur doit saisir les données pour le nouvel objet. Les cases à cocher à droite de chaque attribut permettent d&#8217;enregistrer des valeurs par défaut.</p>
 </div>
 </div>
 <div class="section" id="delete-features">

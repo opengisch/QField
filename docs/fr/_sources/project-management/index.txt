@@ -10,10 +10,7 @@ means that all paths are relative and datasets are reachable from the device.
 Check that :menuselection:`Project --> Project Properties --> General --> Save paths` 
 is set to "Relative" and that all required data files are in the same folder like the .qgs file or a subfolder of it.
 
-For increased productivity, we suggest having a look at the following plugins:
-
-* `QConsolidate plugin <https://plugins.qgis.org/plugins/qconsolidate/>`_
-* `Offline Editing plugin <https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_offline_editing.html>`_
+For increased productivity, we suggest having a look at the `QFieldSync plugin <https://plugins.qgis.org/plugins/qfieldsync>`_.
 
 Coordinate Reference Systems
 ----------------------------
@@ -77,6 +74,21 @@ Field settings
   +-------------------+-----------------+-------------------------------------------------+
   | Others            | :nay:`✘`        | :ref:`make_it_grow`                             |
   +-------------------+-----------------+-------------------------------------------------+
+
+
+Display Expression
+==================
+
+In QField, objects are identified with a name. The expression to generate this name can be defined
+by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
+field or an expression in the list there. Starting from QGIS 3, this can be done directly from
+the :menuselection:`Vector Layer Properties --> Display` page.
+
+.. container:: clearer text-center
+
+  .. image:: /images/define_display_expression.png
+     :width: 500px
+     :alt: Define display expression
 
 Custom SVG symbols and settings
 ===============================

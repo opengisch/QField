@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QField - your mobile [Q]GIS solution &mdash; documentation QField Documentation 0.7 - Gonnus Mons</title>
+    <title>QField - la solution [Q]GIS mobile &mdash; documentation QField Documentation 0.7 - Gonnus Mons</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -100,14 +100,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField - your mobile [Q]GIS solution</a><ul>
-<li><a class="reference internal" href="#prepare-once-deploy-everywhere">Prepare once - Deploy everywhere</a></li>
-<li><a class="reference internal" href="#made-for-touch-field-work-friendly">Made for touch - Field-work friendly</a></li>
-<li><a class="reference internal" href="#make-it-grow-make-it-yours">Make it grow - Make it yours</a></li>
+<li><a class="reference internal" href="#">QField - la solution [Q]GIS mobile</a><ul>
+<li><a class="reference internal" href="#prepare-once-deploy-everywhere">Préparer une fois - Déployer partout</a></li>
+<li><a class="reference internal" href="#made-for-touch-field-work-friendly">Conçu pour le &#8220;touch&#8221;, travail convicial</a></li>
+<li><a class="reference internal" href="#make-it-grow-make-it-yours">Faites le grandir - Faites le vôtre</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">Contenu</a></li>
-<li><a class="reference internal" href="#translations">Translations</a></li>
+<li><a class="reference internal" href="#translations">Traductions</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Table et index</a></li>
 </ul>
 </ul>
@@ -151,12 +151,13 @@
 <li class="toctree-l1"><a class="reference internal" href="installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/index.html">Gestion du projet QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/index.html#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#external-sd-card">Carte SD externe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html">Formats de données supportés</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Support et développement</a></li>
 </ul>
 
 </ul>
@@ -165,42 +166,55 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-your-mobile-q-gis-solution">
-<h1>QField - your mobile [Q]GIS solution<a class="headerlink" href="#qfield-your-mobile-q-gis-solution" title="Lien permanent vers ce titre">¶</a></h1>
-<p>QField allows you to efficiently work on your GIS data outdoor.</p>
-<p>QField&#8217;s optimized user interface for Android devices hides the full power of <a class="reference external" href="https://qgis.org">QGIS</a> under the hood.</p>
+<h1>QField - la solution [Q]GIS mobile<a class="headerlink" href="#qfield-your-mobile-q-gis-solution" title="Lien permanent vers ce titre">¶</a></h1>
+<p>QField permet de travailler efficacement avec des données SIG dans le terrain.</p>
+<p>L&#8217;interface de QField optimisée pour Android permet de cacher la puissance de <a class="reference external" href="https://qgis.org">QGIS</a> .</p>
 <div class="container">
 <iframe src="https://player.vimeo.com/video/173774749" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a class="reference download internal" href="_downloads/slides_foss4g16.pdf"><code class="xref download docutils literal"><span class="pre">Slides</span> <span class="pre">from</span> <span class="pre">FOSS4G</span> <span class="pre">2016</span></code></a> are available.</p>
+<p class="last"><a class="reference download internal" href="_downloads/slides_foss4g16.pdf"><code class="xref download docutils literal"><span class="pre">Les</span> <span class="pre">slides</span> <span class="pre">de</span> <span class="pre">FOSS4G</span> <span class="pre">2016</span></code></a> sont disponibles.</p>
 </div>
 <div class="section" id="prepare-once-deploy-everywhere">
-<h2>Prepare once - Deploy everywhere<a class="headerlink" href="#prepare-once-deploy-everywhere" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Préparer une fois - Déployer partout<a class="headerlink" href="#prepare-once-deploy-everywhere" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Uses QGIS projects (including symbology and edit widgets)</li>
-<li>Supports most QGIS supported formats (ideal with PostGIS)</li>
-<li>Automatic syncronization capabilities (Cable, WiFi, Cloud)</li>
-<li>Extends seamlessly your GDI</li>
+<li><p class="first">Utilise les projets QGIS (incluant symbologie et widgets d&#8217;édition)</p>
+</li>
+<li><p class="first">Supporte la majorité des formations supportés par QGIS (idéal avec PostGIS)</p>
+</li>
+<li><p class="first">Possibilités de synchronisation automatique (câble, wifi, cloud)</p>
+</li>
+<li><p class="first">Étend de manière transparente votre IDG</p>
+</li>
 </ul>
 </div>
 <div class="section" id="made-for-touch-field-work-friendly">
-<h2>Made for touch - Field-work friendly<a class="headerlink" href="#made-for-touch-field-work-friendly" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Conçu pour le &#8220;touch&#8221;, travail convicial<a class="headerlink" href="#made-for-touch-field-work-friendly" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Lean UI with few and large buttons</li>
-<li>GPS centric</li>
-<li>Fully working offline and online using live and cached* DB connections</li>
-<li>Switchable working modes (display, inspection, digitizing, measuring)*</li>
-<li>Cross mode tools (Pan, zoom, identify, GPS coordinates, scalebar, central crosshair with snapping)</li>
+<li><p class="first">Peu et gros bouton pour l&#8217;UI</p>
+</li>
+<li><p class="first">Centré GPS</p>
+</li>
+<li><p class="first">Utilisation offline ou online avec connections BD en direct ou en cache</p>
+</li>
+<li><p class="first">Mode de travail commutables (affichage, inspection, numérisation, mesures)*</p>
+</li>
+<li><p class="first">Outils (pan, zoom, interrogation, coordonnées GPS, barre d&#8217;échelle, croix centrale avec snapping)</p>
+</li>
 </ul>
 </div>
 <div class="section" id="make-it-grow-make-it-yours">
-<h2>Make it grow - Make it yours<a class="headerlink" href="#make-it-grow-make-it-yours" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Faites le grandir - Faites le vôtre<a class="headerlink" href="#make-it-grow-make-it-yours" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li>Paid feature development</li>
-<li>Customizable to your needs</li>
-<li>Donations and sponsoring (qfield.opengis.ch/donate)</li>
-<li>Hire us for development, consulting and training for QField, C++, Python, Web, QGIS, Android, ...</li>
+<li><p class="first">Développement de fonctions payantes</p>
+</li>
+<li><p class="first">Personnalisable</p>
+</li>
+<li><p class="first">Donations et sponsoring (qfield.opengis.ch/donate)</p>
+</li>
+<li><p class="first">Engagez-nous pour du développement, du consulting ou de la formation sur QField, C++, Python, Web, QGIS, Android, etc.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -211,25 +225,26 @@
 <li class="toctree-l1"><a class="reference internal" href="installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/index.html">Gestion du projet QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/index.html#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/index.html#external-sd-card">Carte SD externe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html">Formats de données supportés</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-management/dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Support et développement</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="translations">
-<h1>Translations<a class="headerlink" href="#translations" title="Lien permanent vers ce titre">¶</a></h1>
-<p>The documentation is available in several languages</p>
-<p><a class="reference external" href="/en">English</a></p>
-<p><a class="reference external" href="/de">Deutsch</a></p>
+<h1>Traductions<a class="headerlink" href="#translations" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La documentation est disponible dans plusieurs langues</p>
+<p><a class="reference external" href="/en">Anglais</a></p>
+<p><a class="reference external" href="/de">Allemand</a></p>
 <p><a class="reference external" href="/fr">Français</a></p>
-<p><a class="reference external" href="/gl">Galician</a></p>
-<p><a class="reference external" href="/pt">Portuguese</a></p>
+<p><a class="reference external" href="/gl">Galicien</a></p>
+<p><a class="reference external" href="/pt">Portuguais</a></p>
 <p><a class="reference external" href="/ca">Catalan</a></p>
-<p>If there is an error with a translation, please <a class="reference external" href="https://www.transifex.com/opengisch/qfield-documentation/">help to improve it</a>.</p>
+<p>S&#8217;il y a une erreur avec une traduction, merci d&#8217; <a class="reference external" href="https://www.transifex.com/opengisch/qfield-documentation/">aider à l&#8217;améliorer</a>.</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Table et index<a class="headerlink" href="#indices-and-tables" title="Lien permanent vers ce titre">¶</a></h1>

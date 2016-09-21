@@ -110,6 +110,7 @@
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Definições e símbolos SVG personalizados</a></li>
 <li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 </ul>
@@ -158,6 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">QField - Gestão do Projeto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
@@ -179,13 +181,7 @@
 means that all paths are relative and datasets are reachable from the device.</p>
 <p>Check that <span class="menuselection">Project ‣ Project Properties ‣ General ‣ Save paths</span>
 is set to &#8220;Relative&#8221; and that all required data files are in the same folder like the .qgs file or a subfolder of it.</p>
-<p>For increased productivity, we suggest having a look at the following plugins:</p>
-<ul class="simple">
-<li><p class="first">Plug-in <a class="reference external" href="https://plugins.qgis.org/plugins/qconsolidate/">QConsolidate</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_offline_editing.html">Plug-in de Edição Off-line</a></p>
-</li>
-</ul>
+<p>For increased productivity, we suggest having a look at the <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">QFieldSync plugin</a>.</p>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Coordinate Reference Systems<a class="headerlink" href="#coordinate-reference-systems" title="Link permanente para este título">¶</a></h2>
@@ -281,6 +277,16 @@ Only images can be viewed so far.
 </dd>
 </dl>
 </div>
+</div>
+</div>
+<div class="section" id="display-expression">
+<h1>Display Expression<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h1>
+<p>In QField, objects are identified with a name. The expression to generate this name can be defined
+by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
+field or an expression in the list there. Starting from QGIS 3, this can be done directly from
+the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<div class="clearer text-center container">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="custom-svg-symbols-and-settings">

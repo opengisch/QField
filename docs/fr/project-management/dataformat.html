@@ -105,8 +105,8 @@
 <li><a class="reference internal" href="#table">Table</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#raster-data">Raster data</a><ul>
-<li><a class="reference internal" href="#use-geopackage">Use GeoPackage</a></li>
+<li><a class="reference internal" href="#raster-data">Données raster</a><ul>
+<li><a class="reference internal" href="#use-geopackage">Utiliser GeoPackage</a></li>
 </ul>
 </li>
 </ul>
@@ -155,12 +155,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">Carte SD externe</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Formats de données supportés</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#raster-data">Données raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 </ul>
 
 </ul>
@@ -214,7 +215,8 @@
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td>JPEG compression not yet supported.</td>
+<td><p class="first last">La compression JPEG n&#8217;est pas encore supportée</p>
+</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
@@ -228,18 +230,15 @@
 </tr>
 </tbody>
 </table>
-<p>If you don&#8217;t find your favorite data format on this table, please check if it
-works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
-please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
-happy to help you with the implementation.</p>
+<p>Si vous ne trouvez pas votre format favoris dans cette table, merci de tester s&#8217;il fonctionne et <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">d&#8217;adapter la liste ci-dessous</a> pour partager votre expérience. Si cela ne fonctionne pas, merci <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">d&#8217;ouvrir une issue</a>. Nous serons heureux de vous aider dans l&#8217;implémentation.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
-<h1>Raster data<a class="headerlink" href="#raster-data" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it&#8217;s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<h1>Données raster<a class="headerlink" href="#raster-data" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les données raster peuvent vite devenir très lourdes si l&#8217;on travaille avec du tiff sans compression, jusqu&#8217;à plusieurs Go de données. Spécialement sur des appareils mobiles, ce n&#8217;est pas efficace.</p>
 <div class="section" id="use-geopackage">
-<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Lien permanent vers ce titre">¶</a></h2>
-<p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust EPSG:21781 (CH1903 LV03) to your desired CRS.</p>
+<h2>Utiliser GeoPackage<a class="headerlink" href="#use-geopackage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous recommandons d&#8217;utiliser le format GeoPackage pour travailler avec des données raster. Les commandes suivantes permettent de convertir un fichier nommé <code class="code docutils literal"><span class="pre">raster.tif</span></code> en un fichier <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> avec pyramides. Remplacer EPSG:21781 (CH1903 LV03) avec votre SCR.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
 </pre></div>

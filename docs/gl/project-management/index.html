@@ -101,8 +101,8 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Xestión do Proxecto QField</a><ul>
-<li><a class="reference internal" href="#portable-project">Portable Project</a></li>
-<li><a class="reference internal" href="#coordinate-reference-systems">Coordinate Reference Systems</a></li>
+<li><a class="reference internal" href="#portable-project">Proxecto Portable</a></li>
+<li><a class="reference internal" href="#coordinate-reference-systems">Sistemas de Referencia de Coordenadas</a></li>
 <li><a class="reference internal" href="#vector-layer-settings">Configuración de Capa Vectorial</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a></li>
@@ -110,8 +110,9 @@
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
-<li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
+<li><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 </ul>
 </ul>
 </li>
@@ -158,10 +159,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Xestión do Proxecto QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#display-expression">Display Expression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos admitidos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos ráster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
 </ul>
@@ -174,30 +176,25 @@
   <div class="section" id="qfield-project-management">
 <h1>Xestión do Proxecto QField<a class="headerlink" href="#qfield-project-management" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="portable-project">
-<h2>Portable Project<a class="headerlink" href="#portable-project" title="Permalink to this headline">¶</a></h2>
+<h2>Proxecto Portable<a class="headerlink" href="#portable-project" title="Permalink to this headline">¶</a></h2>
 <p>Precisarás unha versión portable do ficheiro de proxecto QGIS (.qgs). Por portable enténdese que tódalas rutas son relativas e os conxuntos de datos están accesibles dende o dispositivo.</p>
 <p>Comproba que <span class="menuselection">Proxecto ‣ Propiedades de Proxecto ‣ Xeral ‣ Gardar rutas</span> está establecida a &#8220;Relativa&#8221; e que tódolos ficheiros de datos solicitados están no mesmo cartafol que o ficheiro .qgs ou nun sub-cartafol del.</p>
-<p>Para incrementar a produtividade, suxerimos botar unha vista ós seguintes plugins:</p>
-<ul class="simple">
-<li><p class="first"><a class="reference external" href="https://plugins.qgis.org/plugins/qconsolidate/">Plugin QConsolidate</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_offline_editing.html">Plugin de Edición sen Conexión</a></p>
-</li>
-</ul>
+<p>For increased productivity, we suggest having a look at the <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">QFieldSync plugin</a>.</p>
 </div>
 <div class="section" id="coordinate-reference-systems">
-<h2>Coordinate Reference Systems<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
-<p>QField uses the Coordinate Reference System (CRS) information found in the project file.</p>
+<h2>Sistemas de Referencia de Coordenadas<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
+<p>QField utiliza a información do Sistema de Referencia de Coordenadas (SRC) atopado no ficheiro de proxecto.</p>
 <ul class="simple">
-<li>Project CRS</li>
-<li>On the fly reprojection (OTF) is used for visualization</li>
-<li>Layer CRS</li>
+<li><p class="first">SRC do Proxecto</p>
+</li>
+<li><p class="first">Utilízase a reproxección &#8216;sobre a marcha&#8217; para a visualización</p>
+</li>
+<li><p class="first">SRC da capa</p>
+</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">QField does not respect OTF when digitizing new features.
-Make sure that all the layers on which you digitize are in the same CRS like the project.
-If you fail to do so it will look as if new features are not saved because they end up in far far away.</p>
+<p class="last">QField non respecta a reproxección sobre a marcha cando dixitaliza novas entidades. Asegúrese de que tódalas capas nas cales dixitalice estean no mesmo SRC que o proxecto. Se deixa de facelo parecerá que as novas entidades non están gardadas porque ficarán moi moi lonxe.</p>
 </div>
 </div>
 <div class="section" id="vector-layer-settings">
@@ -256,23 +253,29 @@ If you fail to do so it will look as if new features are not saved because they 
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td><p class="first last">Oculto</p>
+</td>
 <td><span class="yay">✔</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Faino medrar, faino teu</span></a></td>
+<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
+</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td><p class="first last">Recurso externo</p>
+</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../development/index.html#make-it-grow"><span>Faino medrar, faino teu</span></a></td>
+<td><p class="first last">Este campo combínase coa integración da cámara. Ata o de agora só poden verse imaxes. <span class="xref std std-ref">faino_medrar</span></p>
+</td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td><p class="first last">Data Hora</p>
+</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Faino medrar, faino teu</span></a></td>
+<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
+</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td><p class="first last">Outros</p>
+</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Faino medrar, faino teu</span></a></td>
+<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -281,14 +284,24 @@ Only images can be viewed so far.
 </div>
 </div>
 </div>
+<div class="section" id="display-expression">
+<h1>Display Expression<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h1>
+<p>In QField, objects are identified with a name. The expression to generate this name can be defined
+by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
+field or an expression in the list there. Starting from QGIS 3, this can be done directly from
+the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<div class="clearer text-center container">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+</div>
+</div>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Configuración e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>
-<p>In the about dialog you can see where the shared folders are on your device.</p>
-<p>If you want to use custom symbols you need to put them there using a file manager.</p>
+<p>No diálogo &#8216;acerca de&#8217; podes ver onde están os cartafoles compartidos no dispositivo.</p>
+<p>Se queres utilizar símbolos personalizados tes que poñelos alí empregando un xestor de ficheiros.</p>
 </div>
 <div class="section" id="external-sd-card">
-<h1>External SD card<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h1>
-<p>In order to have write access to projects which are on an external SD card, you will have to put it into the following folder:</p>
+<h1>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h1>
+<p>Para ter acceso de escritura a proxectos que están nunha tarxeta SD externa, teraos que poñer no seguinte cartafol:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>

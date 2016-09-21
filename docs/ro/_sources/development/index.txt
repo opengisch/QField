@@ -14,8 +14,19 @@ modified.
 
 You can find the sourcecode `on github <https://github.com/opengisch/QField>`_
 
+*******
+Support
+*******
+
+You can ask your questions on `gis.stackexchange <http://gis.stackexchange.com/questions/tagged/qfield?sort=newest>`_
+
+You can use the `user mailing list <http://lists.qfield.org/listinfo.cgi/users-qfield.org>`_
+
+We also provide commercial support, `contact us <http://www.opengis.ch/contact/>`_
+
+*******
 Credits
-=======
+*******
 
 QField is developped by OPENGIS.ch. OPENGIS.ch does consulting, development and
 training for open source software including QField and QGIS.
@@ -24,9 +35,9 @@ training for open source software including QField and QGIS.
    :alt: OPENGIS.ch
    :target: http://www.opengis.ch
 
-
+*******
 Funding
--------
+*******
 
 The following oranizations have contributed to make QField what it currently is.
 We would like to warmly say: Thanks a lot!
@@ -68,7 +79,7 @@ We would like to warmly say: Thanks a lot!
 .. _make_it_grow:
 
 Make it grow, make it yours
----------------------------
+===========================
 
 This is a list of features which we think are very useful for a nice user experience
 and an effective workflow.
@@ -84,7 +95,8 @@ and an effective workflow.
 * Legend
 * [Your favorite feature]
 
+*************
 API stability
-=============
+*************
 
 QField is currently not considered API stable.
