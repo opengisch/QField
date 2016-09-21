@@ -274,7 +274,8 @@ Rectangle {
   }
 
   Keys.onReleased: {
-    if (event.key === Qt.Key_Back) {
+    if ( event.key === Qt.Key_Back ||
+        event.key === Qt.Key_Escape ) {
       state = "Hidden"
       event.accepted = true
     }
@@ -311,26 +312,26 @@ Rectangle {
   {
     props.isVisible = false
     focus = false
+    model.clear()
   }
 
   MessageDialog {
-      id: deleteDialog
+    id: deleteDialog
 
-      property int featureId
-      property VectorLayer currentLayer
+    property int featureId
+    property VectorLayer currentLayer
 
-      visible: false
+    visible: false
 
-      title: qsTr( "Delete feature" )
-      text: qsTr( "Should this feature really be deleted?" )
-      standardButtons: StandardButton.Ok | StandardButton.Cancel
-      onAccepted: {
-        featureForm.model.deleteFeature( currentLayer, featureId )
-        visible = false
-      }
-      onRejected: {
-        visible = false
-      }
-
+    title: qsTr( "Delete feature" )
+    text: qsTr( "Should this feature really be deleted?" )
+    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    onAccepted: {
+      featureForm.model.deleteFeature( currentLayer, featureId )
+      visible = false
+    }
+    onRejected: {
+      visible = false
+    }
   }
 }

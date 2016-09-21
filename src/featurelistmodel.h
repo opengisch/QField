@@ -50,7 +50,7 @@ class FeatureListModel : public QAbstractItemModel
 
     void appendFeatures( const QList<IdentifyTool::IdentifyResult>& results );
 
-    void clear();
+    Q_INVOKABLE void clear();
 
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const override;
