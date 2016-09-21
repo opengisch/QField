@@ -17,7 +17,6 @@
 #include "attributeformmodel.h"
 #include "qgsvectorlayer.h"
 
-#include <QDebug>
 
 AttributeFormModel::AttributeFormModel( QObject* parent )
   : QStandardItemModel( 0, 1, parent )
@@ -96,13 +95,13 @@ void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
   if ( mFeatureModel == featureModel )
     return;
 
-  disconnect( mFeatureModel, &FeatureModel::layerChanged, this, &AttributeFormModel::onLayerChanged );
+  disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModel::onLayerChanged );
   disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModel::onFeatureChanged );
 
 
   mFeatureModel = featureModel;
 
-  connect( mFeatureModel, &FeatureModel::layerChanged, this, &AttributeFormModel::onLayerChanged );
+  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModel::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModel::onFeatureChanged );
 
   emit featureModelChanged();
@@ -211,7 +210,6 @@ void AttributeFormModel::flatten( QgsAttributeEditorContainer* container, QStand
         item->setData( mFeatureModel->feature().attribute( editorField->idx() ), AttributeValue );
         item->setData( mLayer->editFormConfig().readOnly( editorField->idx() ), AttributeEditable );
         item->setData( mLayer->editFormConfig().widgetType( editorField->name() ), EditorWidget );
-        qWarning() << mLayer->editFormConfig().widgetType( editorField->name() );
         item->setData( mLayer->editFormConfig().widgetConfig( editorField->name() ), EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked, RememberValue );
         item->setData( mLayer->fields().at( editorField->idx() ), Field );

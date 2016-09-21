@@ -37,7 +37,7 @@ void FeatureModel::setFeature( const QgsFeature& feature )
   emit featureChanged();
 }
 
-void FeatureModel::setLayer( QgsVectorLayer* layer )
+void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
 {
   if ( layer == mLayer )
     return;
@@ -51,7 +51,7 @@ void FeatureModel::setLayer( QgsVectorLayer* layer )
     mRememberedAttributes.fill( false );
   }
 
-  emit layerChanged();
+  emit currentLayerChanged();
 }
 
 QgsVectorLayer* FeatureModel::layer() const
