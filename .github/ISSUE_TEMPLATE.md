@@ -18,6 +18,8 @@
 
 ![Screenshots and GIFs which follow reproduction steps to demonstrate the problem](url)
 
+[Please also attach additional files if a specific project/dataset is useful to investigate the problem.]
+
 **QField version:** [Enter QField version here]
 
 ## Additional information:
