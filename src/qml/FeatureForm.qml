@@ -15,7 +15,6 @@ Rectangle {
   signal cancelled
   signal aboutToSave
 
-  property FeatureModel feature
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
 
@@ -283,7 +282,7 @@ Rectangle {
         anchors { right: parent.right; top: fieldLabel.bottom }
 
         onCheckedChanged: {
-          model.setData( xRootIndex, checkedState, AttributeFormModel.RememberValue )
+          contentModel.setModelData( index, checkedState, AttributeFormModel.RememberValue )
         }
       }
     }
@@ -301,6 +300,7 @@ Rectangle {
     height: visible ? 48*dp : 0
 
     Button {
+      id: saveButton
       anchors.right: parent.right
 
       width: 48*dp
@@ -313,7 +313,25 @@ Rectangle {
       }
     }
 
+    Controls.Label {
+      id: titleLabel
+      anchors { right: saveButton.left; left: closeButton.right }
+      height: closeButton.height
+      text:
+      {
+        if ( form.state === 'Add' )
+          qsTr( 'Add feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+        else if ( form.state === 'Edit' )
+          qsTr( 'Edit feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+        else
+          qsTr( 'View feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+      }
+      font.bold: true
+      horizontalAlignment: Text.AlignHCenter
+    }
+
     Button {
+      id: closeButton
       anchors.left: parent.left
 
       width: 48*dp
