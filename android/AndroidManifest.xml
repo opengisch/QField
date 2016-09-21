@@ -59,4 +59,5 @@
        Remove the comment if you do not require these default features. -->
   <!-- %%INSERT_FEATURES -->
   <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.location.gps" />
 </manifest>
