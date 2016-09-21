@@ -22,6 +22,6 @@
 
 ## Additional information:
 
-* Problem started happening recently, didn't happen in an older version of Atom: [Yes/No]
+* Problem started happening recently, didn't happen in an older version of QField: [Yes/No]
 * Problem can be reliably reproduced, doesn't happen randomly: [Yes/No]
 * Problem happens with all files and projects, not only some files or projects: [Yes/No]
