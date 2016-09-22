@@ -40,10 +40,11 @@ HEADERS += \
     rubberband.h \
     picturesource.h \
     messagelogmodel.h \
-    attributeformmodel.h \
+    attributeformmodelbase.h \
     layertreemapcanvasbridge.h \
     identifytool.h \
-    submodel.h
+    submodel.h \
+    attributeformmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -68,10 +69,11 @@ SOURCES += \
     rubberband.cpp \
     picturesource.cpp \
     messagelogmodel.cpp \
-    attributeformmodel.cpp \
+    attributeformmodelbase.cpp \
     layertreemapcanvasbridge.cpp \
     identifytool.cpp \
-    submodel.cpp
+    submodel.cpp \
+    attributeformmodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
