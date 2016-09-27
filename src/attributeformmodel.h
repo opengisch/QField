@@ -56,6 +56,9 @@ class AttributeFormModel : public QSortFilterProxyModel
     FeatureModel* featureModel() const;
     void setFeatureModel( FeatureModel* featureModel );
 
+    Q_INVOKABLE void save();
+    Q_INVOKABLE void create();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();

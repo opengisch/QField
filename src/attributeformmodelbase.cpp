@@ -201,8 +201,12 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem* item )
     item->setData( mFeatureModel->feature().attribute( item->data( AttributeFormModel::FieldIndex ).toInt() ), AttributeFormModel::AttributeValue );
   }
   else
+  {
     for ( int i = 0; i < item->rowCount(); ++i )
+    {
       updateAttributeValue( item->child( i ) );
+    }
+  }
 }
 
 void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QStandardItem* parent, const QString& visibilityExpressions, QVector<QStandardItem*>& items )

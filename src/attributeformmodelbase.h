@@ -45,9 +45,9 @@ class AttributeFormModelBase : public QStandardItemModel
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
-    Q_INVOKABLE void save();
+    void save();
 
-    Q_INVOKABLE void create();
+    void create();
 
   signals:
     void featureModelChanged();

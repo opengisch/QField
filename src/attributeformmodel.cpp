@@ -47,6 +47,16 @@ void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
   mSourceModel->setFeatureModel( featureModel );
 }
 
+void AttributeFormModel::save()
+{
+  mSourceModel->save();
+}
+
+void AttributeFormModel::create()
+{
+  mSourceModel->create();
+}
+
 bool AttributeFormModel::filterAcceptsRow( int source_row, const QModelIndex& source_parent ) const
 {
   return mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), CurrentlyVisible ).toBool();
