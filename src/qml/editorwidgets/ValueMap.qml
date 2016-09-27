@@ -9,13 +9,14 @@ Item {
 
   height: childrenRect.height
 
-  property var _reverseConfig: ({})
 
   ComboBox {
     id: comboBox
 
-    anchors.left: parent.left
-    anchors.right: parent.right
+    property var _reverseConfig: ({})
+    property var currentValue: value
+
+    anchors { left: parent.left; right: parent.right }
 
     currentIndex: find(_reverseConfig[value])
 
@@ -29,6 +30,11 @@ Item {
 
     onCurrentTextChanged: {
       valueChanged(config[currentText], false)
+    }
+
+    // Workaround to get a signal when the value has changed
+    onCurrentValueChanged: {
+      currentIndex = find(_reverseConfig[value])
     }
   }
 }
