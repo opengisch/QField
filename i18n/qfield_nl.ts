@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,17 +37,17 @@
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="323"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Object toevoegen op &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="325"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk object op &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="327"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekijk object op &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -57,12 +55,12 @@
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="324"/>
         <source>Delete feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijder object</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="325"/>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"></translation>
+        <translation>Object echt verwijderen?</translation>
     </message>
 </context>
 <context>
@@ -168,7 +166,7 @@
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="400"/>
         <source>Log</source>
-        <translation type="unfinished"></translation>
+        <translation>Log</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="410"/>
