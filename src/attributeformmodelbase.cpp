@@ -43,6 +43,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::Group] = "Group";
+  roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
+  roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
 
   return roles;
 }
@@ -113,6 +115,8 @@ void AttributeFormModelBase::onLayerChanged()
   clear();
 
   mLayer = mFeatureModel->layer();
+  mVisibilityExpressions.clear();
+  mConstraints.clear();
 
   if ( mLayer )
   {
@@ -254,6 +258,13 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QS
         item->setData( editorField->idx(), AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( true, AttributeFormModel::ConstraintValid );
+        item->setData( mLayer->editFormConfig().constraintDescription( editorField->idx() ), AttributeFormModel::ConstraintDescription );
+
+        if ( !mLayer->editFormConfig().constraintExpression( editorField->idx() ).isEmpty() )
+        {
+          mConstraints.insert( item, mLayer->editFormConfig().constraintExpression( editorField->idx() ) );
+        }
 
         items.append( item );
 
@@ -295,6 +306,45 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
       }
     }
   }
+
+  bool allConstraintsValid = true;
+  QMap<QStandardItem*, QgsExpression>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
+  {
+    QStandardItem* item = constraintIterator.key();
+    if ( item->data( AttributeFormModel::FieldIndex ) == fieldIndex || fieldIndex == -1 )
+    {
+      QgsExpression exp = constraintIterator.value();
+      exp.prepare( &mExpressionContext );
+      bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
+
+      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
+      {
+        item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
+      }
+    }
+
+    if ( !item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    {
+      allConstraintsValid = false;
+    }
+  }
+
+  setConstraintsValid( allConstraintsValid );
+}
+
+bool AttributeFormModelBase::constraintsValid() const
+{
+  return mConstraintsValid;
+}
+
+void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
+{
+  if ( constraintsValid == mConstraintsValid )
+    return;
+
+  mConstraintsValid = constraintsValid;
+  emit constraintsValidChanged();
 }
 
 bool AttributeFormModelBase::hasTabs() const

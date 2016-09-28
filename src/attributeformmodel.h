@@ -28,6 +28,7 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_PROPERTY( FeatureModel* featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
+    Q_PROPERTY( bool constraintsValid READ constraintsValid NOTIFY constraintsValidChanged )
 
   public:
     enum FeatureRoles
@@ -43,7 +44,9 @@ class AttributeFormModel : public QSortFilterProxyModel
       FieldIndex,
       Group,
       AttributeEditorElement,
-      CurrentlyVisible
+      CurrentlyVisible,
+      ConstraintValid,
+      ConstraintDescription
     };
 
     Q_ENUM( FeatureRoles )
@@ -56,6 +59,8 @@ class AttributeFormModel : public QSortFilterProxyModel
     FeatureModel* featureModel() const;
     void setFeatureModel( FeatureModel* featureModel );
 
+    bool constraintsValid() const;
+
     Q_INVOKABLE void save();
     Q_INVOKABLE void create();
 
@@ -63,6 +68,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     void featureModelChanged();
     void hasTabsChanged();
     void featureChanged();
+    void constraintsValidChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex& source_parent ) const override;

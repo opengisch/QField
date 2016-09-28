@@ -14,6 +14,8 @@ Item {
 
     text: value || ''
 
+    textColor: constraintValid ? "black" : "#c0392b"
+
     inputMethodHints: field.isNumeric || widget == 'Range' ? Qt.ImhDigitsOnly : Qt.ImhNone
 
     onEditingFinished: {

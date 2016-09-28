@@ -30,6 +30,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     Q_PROPERTY( FeatureModel* featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
+    Q_PROPERTY( bool constraintsValid READ constraintsValid NOTIFY constraintsValidChanged )
 
   public:
     explicit AttributeFormModelBase( QObject* parent = nullptr );
@@ -49,10 +50,13 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void create();
 
+    bool constraintsValid() const;
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
     void featureChanged();
+    void constraintsValidChanged();
 
   private slots:
     void onLayerChanged();
@@ -73,6 +77,8 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void updateVisibility( int fieldIndex = -1 );
 
+    void setConstraintsValid( bool constraintsValid );
+
     FeatureModel* mFeatureModel;
     QgsVectorLayer* mLayer;
     QgsAttributeEditorContainer* mTemporaryContainer;
@@ -80,8 +86,10 @@ class AttributeFormModelBase : public QStandardItemModel
 
     typedef QPair<QgsExpression, QVector<QStandardItem*> > VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
+    QMap<QStandardItem*, QgsExpression> mConstraints;
 
     QgsExpressionContext mExpressionContext;
+    bool mConstraintsValid;
 };
 
 #endif // ATTRIBUTEFORMMODELBASE_H

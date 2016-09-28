@@ -220,12 +220,23 @@ Rectangle {
 
         text: Name
         font.bold: true
+        color: ConstraintValid ? "black" : "#c0392b"
+      }
+
+      Controls.Label {
+        id: constraintDescriptionLabel
+        anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
+
+        text: ConstraintDescription
+        height: ConstraintValid ? 0 : undefined
+
+        color: "#e67e22"
       }
 
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: fieldLabel.bottom }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
 
         Loader {
           id: attributeEditorLoader
@@ -238,6 +249,7 @@ Rectangle {
           property var config: EditorWidgetConfig
           property var widget: EditorWidget
           property var field: Field
+          property var constraintValid: ConstraintValid
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + widget + '.qml'
@@ -307,6 +319,9 @@ Rectangle {
       height: 48*dp
 
       iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+
+      enabled: model.constraintsValid
+      bgcolor: model.constraintsValid ? "#212121" : "#bdc3c7"
 
       onClicked: {
         save()
