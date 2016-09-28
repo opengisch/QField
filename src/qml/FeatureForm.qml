@@ -158,7 +158,7 @@ Rectangle {
           /* section header: group box name */
           Rectangle {
             width: parent.width
-            height: 30 * dp
+            height: section === "" ? 0 : 30 * dp
             color: "lightGray"
 
             Text {
