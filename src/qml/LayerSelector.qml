@@ -2,34 +2,44 @@ import QtQuick 2.3
 import QtQuick.Controls 1.4
 import org.qgis 1.0
 
-ComboBox {
+Item {
   property VectorLayer currentLayer
+  height: comboBox.height
 
-  model: modelHelper.model
-  textRole: "display"
+  Rectangle {
+    anchors.fill: parent
+    color: "white"
+  }
 
-  onCurrentIndexChanged: __updateCurrentLayer()
-  onModelChanged: __updateCurrentLayer()
+  ComboBox {
+    id: comboBox
+    anchors { left: parent.left; right: parent.right }
+    model: modelHelper.model
+    textRole: "display"
+
+    onCurrentIndexChanged: __updateCurrentLayer()
+    onModelChanged: __updateCurrentLayer()
+
+    Connections {
+      target: model
+
+      onRowsInserted: __updateCurrentLayer()
+      onRowsRemoved: __updateCurrentLayer()
+    }
+
+    function __updateCurrentLayer() {
+      var lyr = modelHelper.data( currentIndex, 0, "layer" )
+      if ( lyr === undefined )
+        currentLayer = null
+      else
+        currentLayer = lyr
+    }
+  }
 
   ModelHelper {
     id: modelHelper
     model: MapLayerModel {
       filters: MapLayerModel.VectorLayer | MapLayerModel.WritableLayer
     }
-  }
-
-  Connections {
-    target: model
-
-    onRowsInserted: __updateCurrentLayer()
-    onRowsRemoved: __updateCurrentLayer()
-  }
-
-  function __updateCurrentLayer() {
-    var lyr = modelHelper.data( currentIndex, 0, "layer" )
-    if ( lyr === undefined )
-      currentLayer = null
-    else
-      currentLayer = lyr
   }
 }
