@@ -44,7 +44,8 @@ HEADERS += \
     layertreemapcanvasbridge.h \
     identifytool.h \
     submodel.h \
-    attributeformmodel.h
+    attributeformmodel.h \
+    expressionvariablemodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -73,7 +74,8 @@ SOURCES += \
     layertreemapcanvasbridge.cpp \
     identifytool.cpp \
     submodel.cpp \
-    attributeformmodel.cpp
+    attributeformmodel.cpp \
+    expressionvariablemodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

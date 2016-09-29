@@ -346,20 +346,6 @@ Rectangle {
     }
   }
 
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
-    visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
-
-    width: parent.width
-    height: parent.height
-
-    onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-    }
-  }
-
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
@@ -387,6 +373,14 @@ Rectangle {
     }
 
     Controls.MenuSeparator {}
+
+    Controls.MenuItem {
+      text: qsTr( "Settings" )
+
+      onTriggered: {
+        variableEditor.visible = true
+      }
+    }
 
     Controls.MenuItem {
       text: qsTr( "About" )
@@ -588,6 +582,29 @@ Rectangle {
     anchors.fill: parent
 
     visible: false
+  }
+
+  FileDialog {
+    id: openProjectDialog
+    title: qsTr( "Open project" )
+    visible: false
+    nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
+
+    width: parent.width
+    height: parent.height
+
+    onAccepted: {
+      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
+    }
+  }
+
+  VariableEditor {
+    id: variableEditor
+
+    anchors.fill: parent
+    visible: false
+
+    onFinished: visible = false
   }
 
   WelcomeScreen {

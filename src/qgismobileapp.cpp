@@ -58,6 +58,7 @@
 #include "qgscoordinatereferencesystem.h"
 #include "identifytool.h"
 #include "submodel.h"
+#include "expressionvariablemodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -138,6 +139,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
+  qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

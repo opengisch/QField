@@ -19,5 +19,7 @@
         <file>js/style.js</file>
         <file>editorwidgets/ExternalResource.qml</file>
         <file>MessageLog.qml</file>
+        <file>VariableEditor.qml</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
