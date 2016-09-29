@@ -192,11 +192,27 @@ void FeatureModel::resetAttributes()
   if ( !mLayer )
     return;
 
+  QgsExpressionContext expressionContext = mLayer->createExpressionContext();
+  expressionContext.setFeature( mFeature );
+
+  QgsFields fields = mLayer->fields();
+
   beginResetModel();
-  for ( int i = 0; i < mLayer->fields().count(); ++i )
+  for ( int i = 0; i < fields.count(); ++i )
   {
     if ( !mRememberedAttributes.at( i ) )
-      mFeature.setAttribute( i, QVariant() );
+    {
+      if ( !fields.at( i ).defaultValueExpression().isEmpty() )
+      {
+        QgsExpression exp( fields.at( i ).defaultValueExpression() );
+        QVariant value = exp.evaluate( &expressionContext );
+        mFeature.setAttribute( i , value );
+      }
+      else
+      {
+        mFeature.setAttribute( i, QVariant() );
+      }
+    }
   }
   endResetModel();
 }
