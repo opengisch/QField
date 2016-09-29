@@ -12,6 +12,7 @@ Item {
 
     onCheckedChanged: {
       valueChanged( checked ? config['CheckedState'] : config['UncheckedState'], false )
+      forceActiveFocus()
     }
   }
 }

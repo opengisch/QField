@@ -13,19 +13,19 @@ Item {
   ComboBox {
     id: comboBox
 
-    property var _reverseConfig: ({})
+    property var reverseConfig: ({})
     property var currentValue: value
 
     anchors { left: parent.left; right: parent.right }
 
-    currentIndex: find(_reverseConfig[value])
+    currentIndex: find(reverseConfig[value])
 
     Component.onCompleted: {
       model = Object.keys(config);
       for(var key in config) {
-        _reverseConfig[config[key]] = key;
+        reverseConfig[config[key]] = key;
       }
-      currentIndex = find(_reverseConfig[value])
+      currentIndex = find(reverseConfig[value])
     }
 
     onCurrentTextChanged: {
@@ -34,7 +34,19 @@ Item {
 
     // Workaround to get a signal when the value has changed
     onCurrentValueChanged: {
-      currentIndex = find(_reverseConfig[value])
+      currentIndex = find(reverseConfig[value])
+    }
+
+    MouseArea {
+      anchors.fill: parent
+      propagateComposedEvents: true
+
+      onClicked: mouse.accepted = false
+      onPressed: { forceActiveFocus(); mouse.accepted = false; }
+      onReleased: mouse.accepted = false;
+      onDoubleClicked: mouse.accepted = false;
+      onPositionChanged: mouse.accepted = false;
+      onPressAndHold: mouse.accepted = false;
     }
   }
 }

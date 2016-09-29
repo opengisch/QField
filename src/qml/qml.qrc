@@ -1,28 +1,29 @@
 <RCC>
     <qresource prefix="/qml">
-        <file alias="qgismobileapp.qml">qgismobileapp.qml</file>
-        <file alias="MapCanvas.qml">MapCanvas.qml</file>
-        <file>FeatureListForm.qml</file>
-        <file>NavigationBar.qml</file>
-        <file>editorwidgets/CheckBox.qml</file>
-        <file>editorwidgets/TextEdit.qml</file>
-        <file>editorwidgets/ValueMap.qml</file>
-        <file>WelcomeScreen.qml</file>
-        <file>LocationMarker.qml</file>
-        <file>PositionInformationView.qml</file>
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
-        <file>CoordinateLocator.qml</file>
-        <file>DigitizingToolbar.qml</file>
         <file>Button.qml</file>
-        <file>LayerSelector.qml</file>
-        <file>FeatureForm.qml</file>
-        <file>js/style.js</file>
-        <file>editorwidgets/ExternalResource.qml</file>
-        <file>MessageLog.qml</file>
-        <file>VariableEditor.qml</file>
-        <file>ScaleBar.qml</file>
-        <file>QFieldSettings.qml</file>
+        <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
+        <file>DigitizingToolbar.qml</file>
+        <file>FeatureForm.qml</file>
+        <file>FeatureListForm.qml</file>
+        <file>LayerSelector.qml</file>
+        <file>LocationMarker.qml</file>
+        <file>MapCanvas.qml</file>
+        <file>MessageLog.qml</file>
+        <file>NavigationBar.qml</file>
+        <file>PositionInformationView.qml</file>
+        <file>QFieldSettings.qml</file>
+        <file>ScaleBar.qml</file>
+        <file>VariableEditor.qml</file>
+        <file>WelcomeScreen.qml</file>
+        <file>editorwidgets/CheckBox.qml</file>
+        <file>editorwidgets/DateTime.qml</file>
+        <file>editorwidgets/ExternalResource.qml</file>
+        <file>editorwidgets/TextEdit.qml</file>
+        <file>editorwidgets/ValueMap.qml</file>
+        <file>js/style.js</file>
+        <file>qgismobileapp.qml</file>
     </qresource>
 </RCC>
