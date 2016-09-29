@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QField - Gestão do Projeto &mdash; Documentação QField Documentation 0.7 - Gonnus Mons</title>
+    <title>QField - Gestão do Projeto &mdash; Documentação QField Documentation 0.8 - Hiendertelltihoren</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -18,7 +18,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7 - Gonnus Mons',
+        VERSION:     '0.8 - Hiendertelltihoren',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="Documentação QField Documentation 0.7 - Gonnus Mons" href="../index.html" />
+    <link rel="top" title="Documentação QField Documentation 0.8 - Hiendertelltihoren" href="../index.html" />
     <link rel="next" title="Formatos de dados suportados" href="dataformat.html" />
     <link rel="prev" title="Conceitos" href="../concepts/index.html" />
 <meta charset='utf-8'>
@@ -83,7 +83,7 @@
               </span>
         </a>
         <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
-        <span class="navbar-text navbar-version pull-left"><b>0.7</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
       <div class="collapse navbar-collapse nav-collapse">
@@ -105,7 +105,6 @@
 <li><a class="reference internal" href="#coordinate-reference-systems">Coordinate Reference Systems</a></li>
 <li><a class="reference internal" href="#vector-layer-settings">Definições da Camada de Vetor</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
-<li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a></li>
 </ul>
 </li>
 </ul>
@@ -191,12 +190,6 @@ is set to &#8220;Relative&#8221; and that all required data files are in the sam
 <li>On the fly reprojection (OTF) is used for visualization</li>
 <li>Layer CRS</li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Nota</p>
-<p class="last">QField does not respect OTF when digitizing new features.
-Make sure that all the layers on which you digitize are in the same CRS like the project.
-If you fail to do so it will look as if new features are not saved because they end up in far far away.</p>
-</div>
 </div>
 <div class="section" id="vector-layer-settings">
 <h2>Definições da Camada de Vetor<a class="headerlink" href="#vector-layer-settings" title="Link permanente para este título">¶</a></h2>
@@ -205,8 +198,17 @@ If you fail to do so it will look as if new features are not saved because they 
 <h3>Estilo<a class="headerlink" href="#style" title="Link permanente para este título">¶</a></h3>
 <p>All style settings from QGIS are directly supported by QField. This includes all renderer types like graduated, categorized, rule based, 2.5D as well as data defined symbology.</p>
 </div>
-<div class="section" id="forms-and-fields">
-<h3>Formulários e Campos<a class="headerlink" href="#forms-and-fields" title="Link permanente para este título">¶</a></h3>
+</div>
+</div>
+<div class="section" id="display-expression">
+<h1>Display Expression<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h1>
+<p>In QField, objects are identified with a name. The expression to generate this name can be defined
+by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
+field or an expression in the list there. Starting from QGIS 3, this can be done directly from
+the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<div class="clearer text-center container">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+</div>
 <p>QField cria formulários semelhantes, mas não igual ao QGIS.</p>
 <dl class="docutils">
 <dt>Suppress Feature Form</dt>
@@ -241,6 +243,8 @@ If you fail to do so it will look as if new features are not saved because they 
 </li>
 <li><p class="first">HTML não é suportado</p>
 </li>
+<li>Numerical input is enforced based on the
+type.</li>
 </ul>
 </td>
 </tr>
@@ -275,19 +279,41 @@ Only images can be viewed so far.
 </tbody>
 </table>
 </dd>
+<dt>Drag and drop designer forms</dt>
+<dd>Groups and Tabs from Drag and Drop designer forms are supported.</dd>
+<dt>Conditional visibility</dt>
+<dd>Groups can be hidden based on an expression. This is useful when certain attributes are
+only required under certain conditions. As an example imagine mapping trees. Some of them
+might have a disease and you have a list of possible deseases. To not clutter the form with
+many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
+a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
+will be available to the user.</dd>
+<dt>Constraints</dt>
+<dd><p class="first">Attribute fields can have constraints attached. Constraints are expressions that needs to
+evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
+are configured on a per-field basis and a description can be added that will be shown to the
+user if a constraint is not satisfied.</p>
+<p>Common use cases are:</p>
+<ul class="last simple">
+<li><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>You cannot enter an elevation value higher than the highest mountain in this country.</cite></li>
+<li><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>It is required to fill in an identifier.</cite></li>
+</ul>
+</dd>
+<dt>Default values</dt>
+<dd><p class="first">Fields can have default values configured. Default values are inserted into the
+attribute form when digitizing a new feature. They are visible to the user and can
+be modified as long as the field is editable. They can be based on the geometry or
+expression variables.</p>
+<p>Common use cases are:</p>
+<ul class="last simple">
+<li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
+<li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
+<li><code class="code docutils literal"><span class="pre">&#64;operator_name`</span></code>: Configure <span class="xref std std-ref">global variables</span> on the device and insert them.</li>
+</ul>
+</dd>
+<dt>Editable</dt>
+<dd>The editable flag of fields is respected.</dd>
 </dl>
-</div>
-</div>
-</div>
-<div class="section" id="display-expression">
-<h1>Display Expression<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h1>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
-<div class="clearer text-center container">
-<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-</div>
 </div>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Definições e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanente para este título">¶</a></h1>

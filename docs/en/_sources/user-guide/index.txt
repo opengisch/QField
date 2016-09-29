@@ -73,4 +73,6 @@ at the right of every attribute allow for remembering each attribute individuall
 Delete Features
 ===============
 
+Deleting features is only possible in digitize mode.
+
 To delete a feature, identify it first and tap the trash icon.
