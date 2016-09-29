@@ -38,6 +38,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::ElementType]  = "Type";
   roles[AttributeFormModel::Name]  = "Name";
   roles[AttributeFormModel::AttributeValue] = "AttributeValue";
+  roles[AttributeFormModel::AttributeEditable] = "AttributeEditable";
   roles[AttributeFormModel::EditorWidget] = "EditorWidget";
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
@@ -249,7 +250,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QS
 
         item->setData( mLayer->attributeDisplayName( editorField->idx() ), AttributeFormModel::Name );
         item->setData( mFeatureModel->feature().attribute( editorField->idx() ), AttributeFormModel::AttributeValue );
-        item->setData( mLayer->editFormConfig().readOnly( editorField->idx() ), AttributeFormModel::AttributeEditable );
+        item->setData( !mLayer->editFormConfig().readOnly( editorField->idx() ), AttributeFormModel::AttributeEditable );
         item->setData( mLayer->editFormConfig().widgetType( editorField->name() ), AttributeFormModel::EditorWidget );
         item->setData( mLayer->editFormConfig().widgetConfig( editorField->name() ), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );

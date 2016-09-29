@@ -229,6 +229,7 @@ Rectangle {
 
         text: ConstraintDescription
         height: ConstraintValid ? 0 : undefined
+        visible: !ConstraintValid
 
         color: "#e67e22"
       }
@@ -244,7 +245,7 @@ Rectangle {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: form.state !== "ReadOnly"
+          enabled: form.state !== "ReadOnly" && AttributeEditable
           property var value: AttributeValue
           property var config: EditorWidgetConfig
           property var widget: EditorWidget
