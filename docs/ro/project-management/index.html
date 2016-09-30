@@ -109,7 +109,10 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a></li>
+<li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
 <li><a class="reference internal" href="#external-sd-card">Card SD extern</a></li>
 </ul>
@@ -207,6 +210,8 @@
 <div class="clearer text-center container">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
+<div class="section" id="forms-and-fields">
+<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField creează formulare similare, dar nu identice cu cele din QGIS.</p>
 <dl class="docutils">
 <dt>Suprimarea Formularului Entității</dt>
@@ -215,6 +220,8 @@
 <dt>Memorarea ultimelor valori</dt>
 <dd><p class="first last">QField oferă un control mult mai fin asupra ultimei valori utilizate, ignorând setarea din QGIS.</p>
 </dd>
+</dl>
+<dl class="docutils" id="edit-field-widgets">
 <dt>Setarea câmpurilor</dt>
 <dd><p class="first">S-au depus cele mai mari eforturi pentru a susține setarea câmpurilor prin intermediul QGIS, lucru în permanență îmbunătățit.</p>
 <table border="1" class="last docutils">
@@ -309,12 +316,13 @@ expression variables.</p>
 <ul class="last simple">
 <li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
 <li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
-<li><code class="code docutils literal"><span class="pre">&#64;operator_name`</span></code>: Configure <span class="xref std std-ref">global variables</span> on the device and insert them.</li>
+<li><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure global variables on the device and insert them.</li>
 </ul>
 </dd>
 <dt>Editable</dt>
 <dd>The editable flag of fields is respected.</dd>
 </dl>
+</div>
 </div>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Simboluri și setări SVG personalizate<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>

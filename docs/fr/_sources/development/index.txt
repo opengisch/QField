@@ -81,19 +81,118 @@ We would like to warmly say: Thanks a lot!
 Make it grow, make it yours
 ===========================
 
-This is a list of features which we think are very useful for a nice user experience
-and an effective workflow.
+This is a list of features which we think are very useful for a nice user
+experience and an effective workflow.
 
-* Polygon digitizing
-* Edit widgets
-* Connection based on-/offline synchronization
-* Improved coordinate precision
-* Editing geometries (can be split into several pieces)
-* Saving GPS status information into attributes when digitizing (precision, rtk status...)
-* Search functionality
-* Attach external measurement devices
-* Legend
-* [Your favorite feature]
+Edit widgets
+............
+
+Edit widgets are a core part of efficient field work. Entering attributes
+on a touch device is one of the jobs that takes the most time and
+keeping this task as easy as possible is key for pleasuring work.
+
+Some important :ref:`edit field widgets are already
+available<edit_field_widgets>` but much more is possible `for example in QGIS
+<http://gis.stackexchange.com/a/30051/9839>`_.
+
+Legend
+......
+
+To properly interpret the contents of a map, a legend is a very useful tool.
+It gives a user the required context to understand the semantic meaning of
+colors, shapes, strokes and other visual coding.
+
+It can also be used to access additional meta data of individual layers or
+chose which layer to work on.
+
+Connection based on-/offline synchronization
+............................................
+
+Data collection is one of the domains where QField can help a lot. The final
+destination of data is normally not on the device itself but somewhere on a
+database. Currently it is possible to directly work on the database but since
+network access is often unreliable when in the field, it boils down to manual
+synchronization on a desktop computer.
+
+It would be great to have a synchronization process running on the devices
+where data will be synchronized automatically with a server when the network
+is available and cache data locally whenever no network connection is available.
+
+This may be combined with `GeoGIG <http://geogig.org/>`_ or other server
+components like a database.
+
+Improved coordinate precision
+.............................
+
+Computers work mostly with two different datatypes for storing decimals (floating
+point numbers) internally. `Single <https://en.wikipedia.org/wiki/Single-precision_floating-point_format>`_
+and `double <https://en.wikipedia.org/wiki/Double-precision_floating-point_format>`_
+precision. With single precision only the first 6 digits of a number
+are significant and can be trusted, with double precision the first 15
+digits can be trusted. This takes all digits (before and after the decimal
+point) into account.
+
+When working with coordinates this is very important when a high accurracy is
+required. Only having 6 significant digits often means having a maximum
+accurracy around one meter but depends on the CRS and location on the earth
+surface.
+
+Some parts of QField currently treat coordinates with single point precision. It
+would be a very good improvement to be able to use the full precision of
+accurate positioning devices by fixing this shortcoming.
+
+Saving GPS status information into attributes
+.............................................
+
+Positioning devices offer more information than just latitude and longitude.
+They are also able to estimate the precision which they are currently able to
+provide. This information can be a radius calculated from variables like the
+number of satellites but also additional flags for parameters like the RTK
+status.
+
+Editing geometries
+..................
+
+QField offers to digitize new geometries, edit existing attributes or delete
+features. What it lacks is the feature to edit existing geometries.
+
+This can be split into different pieces like moving points, moving other
+features, editing verices, moving edges...
+
+Search functionality
+....................
+
+Locating features with the help of a search field is something that can really
+help to work more efficient. In general this can be split into two categories:
+
+Attribute based search
+  Search results are provided based on the attributes of features on layers
+  within the project.
+  Either a local database for searching is available. The data inside is based
+  on the customized data you work with or the layers are queried directly for
+  features with attributes in question.
+
+Geocoding
+  Search results are provided based on real world addresses. Services like
+  `Nominatim <http://nominatim.openstreetmap.org/>`_ can be accessed via a web
+  interface and convert real-world addresses to locations on a map. Just try the
+  link.
+
+External measurement devices
+............................
+
+Are you working with external devices with sensors? Air pressure, temperature,
+slope, carbon monoxide concentration, you name it... Wouldn't it be great to not
+having to read the information from your external device and manually typing it
+again? We would love to make life easier for you by adding support for directly
+connecting your external measurement device to QField.
+
+[Your favorite feature]
+.......................
+
+You probably have plenty of ideas for other nice features. Please contact us and
+we can discuss the best approach to integrate this idea into QField or a derived
+app.
 
 *************
 API stability

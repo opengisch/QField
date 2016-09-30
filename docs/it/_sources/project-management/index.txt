@@ -46,7 +46,7 @@ the :menuselection:`Vector Layer Properties --> Display` page.
      :alt: Define display expression
 
 Forms and Fields
-................
+----------------
 
 QField creates forms similar to, but not equal to QGIS.
 
@@ -55,6 +55,8 @@ Suppress Feature Form
 
 Remember last values
   QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.
+
+.. _edit_field_widgets:
 
 Field settings
   The field settings from QGIS are supported on a beste effort basis and is constantly being improved.
@@ -119,7 +121,7 @@ Default values
 
   - :code:`now()`: Insert the current date and time
   - :code:`length($geometry)`: Insert the length of the digitized line
-  - :code:`@operator_name``: Configure :ref:`global variables` on the device and insert them.
+  - :code:`@operator_name`: Configure global variables on the device and insert them.
 
 Editable
   The editable flag of fields is respected.

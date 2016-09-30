@@ -110,7 +110,10 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li><a class="reference internal" href="#display-expression">Display Expression</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Eigene SVG Symbole und Einstellungen</a></li>
 <li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 </ul>
@@ -208,6 +211,8 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 <div class="clearer text-center container">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
+<div class="section" id="forms-and-fields">
+<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Link zu dieser Überschrift">¶</a></h2>
 <p>QField erzeugt Formulare ähnlich wie, aber nicht komplett gleich wie QGIS</p>
 <dl class="docutils">
 <dt>Formulare unterdrücken</dt>
@@ -216,6 +221,8 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 <dt>Letzte Werte erinnern</dt>
 <dd><p class="first last">QField bietet eine viel finkörnigere Kontrolle über das Erinnern von Attributen als QGIS und ignoriert die entsprechende QGIS Einstellung.</p>
 </dd>
+</dl>
+<dl class="docutils" id="edit-field-widgets">
 <dt>Feldeinstellungen</dt>
 <dd><p class="first">Die Feldeinstellungen von QGIS sind so gut wie möglich unterstützt und werden kontinuierlich verbessert.</p>
 <table border="1" class="last docutils">
@@ -306,12 +313,13 @@ expression variables.</p>
 <ul class="last simple">
 <li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
 <li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
-<li><code class="code docutils literal"><span class="pre">&#64;operator_name`</span></code>: Configure <span class="xref std std-ref">global variables</span> on the device and insert them.</li>
+<li><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure global variables on the device and insert them.</li>
 </ul>
 </dd>
 <dt>Editable</dt>
 <dd>The editable flag of fields is respected.</dd>
 </dl>
+</div>
 </div>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Eigene SVG Symbole und Einstellungen<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link zu dieser Überschrift">¶</a></h1>
