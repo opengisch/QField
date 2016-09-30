@@ -77,7 +77,7 @@ Field settings
   +-------------------+-----------------+-------------------------------------------------+
   | Value Map         | :yay:`✔`        |                                                 |
   +-------------------+-----------------+-------------------------------------------------+
-  | Hidden            | :yay:`✔`        | :ref:`make_it_grow`                             |
+  | Hidden            | :yay:`✔`        |                                                 |
   +-------------------+-----------------+-------------------------------------------------+
   | External Resource | :moreorless:`~` | This field is combined with camera integration. |
   |                   |                 | Only images can be viewed so far.               |
