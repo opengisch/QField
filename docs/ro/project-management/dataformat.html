@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Supported data formats &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
+    <title>Formatele de date acceptate &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
-    <link rel="next" title="QField User Guide" href="../user-guide/index.html" />
-    <link rel="prev" title="QField Project Management" href="index.html" />
+    <link rel="next" title="Ghidul de Utilizare a QField" href="../user-guide/index.html" />
+    <link rel="prev" title="Managementul Proiectelor în QField" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -100,12 +100,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Supported data formats</a><ul>
-<li><a class="reference internal" href="#table">Table</a></li>
+<li><a class="reference internal" href="#">Formatele de date acceptate</a><ul>
+<li><a class="reference internal" href="#table">Tabel</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#raster-data">Raster data</a><ul>
-<li><a class="reference internal" href="#use-geopackage">Use GeoPackage</a></li>
+<li><a class="reference internal" href="#raster-data">Datele raster</a><ul>
+<li><a class="reference internal" href="#use-geopackage">Folosirea GeoPackage</a></li>
 </ul>
 </li>
 </ul>
@@ -117,11 +117,11 @@
             
               
   <li>
-    <a href="index.html" title="Previous Chapter: QField Project Management"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; QField Projec...</span>
+    <a href="index.html" title="Previous Chapter: Managementul Proiectelor în QField"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Managementul ...</span>
     </a>
   </li>
   <li>
-    <a href="../user-guide/index.html" title="Next Chapter: QField User Guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField User G... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: Ghidul de Utilizare a QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Ghidul de Uti... &raquo;</span>
     </a>
   </li>
             
@@ -151,16 +151,16 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">QField Project Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#display-expression">Display Expression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Custom SVG symbols and settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">External SD card</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Supported data formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#raster-data">Raster data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#display-expression">Afișarea Expresiei</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">Card SD extern</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Formatele de date acceptate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#raster-data">Datele raster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Ghidul de Utilizare a QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
 </ul>
 
 </ul>
@@ -169,11 +169,10 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Supported data formats<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
-<p>QField supports a wide variety of formats via QGIS data providers and GDAL.
-This page offers a non-exhaustive list of supported data formats.</p>
+<h1>Formatele de date acceptate<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
+<p>QField suportă o mare varietate de formate, prin intermediul furnizorilor de date QGIS și GDAL. Această pagină oferă o listă neexhaustivă a formatelor de date permise.</p>
 <div class="section" id="table">
-<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<h2>Tabel<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -181,9 +180,12 @@ This page offers a non-exhaustive list of supported data formats.</p>
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Data Format</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head"><p class="first last">Formatul Datelor</p>
+</th>
+<th class="head"><p class="first last">Acceptat</p>
+</th>
+<th class="head"><p class="first last">Observații</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -201,42 +203,44 @@ This page offers a non-exhaustive list of supported data formats.</p>
 </tr>
 <tr class="row-odd"><td>Postgis</td>
 <td><span class="yay">✔</span></td>
-<td>Ssl support not yet implemented.</td>
+<td><p class="first last">Suportul ssl încă nu a fost implementat.</p>
+</td>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Shapefile</td>
+<tr class="row-odd"><td><p class="first last">Fișier shape</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td>JPEG compression not yet supported.</td>
+<td><p class="first last">Compresia JPEG nu este permisă încă.</p>
+</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td><p class="first last">Licența restricționează utilizarea.</p>
+</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td><p class="first last">Licența restricționează utilizarea.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>If you don&#8217;t find your favorite data format on this table, please check if it
-works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
-please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
-happy to help you with the implementation.</p>
+<p>În cazul în care nu găsiți în acest tabel formatul de date favorit, vă rugăm să verificați dacă acesta funcționează și <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">completați lista de mai sus</a> împărtășindu-vă concluziile. În cazul în care nu funcționează, vă rugăm să <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">deschideți un tichet</a>. Vom fi bucuroși să vă ajutăm la implementare.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
-<h1>Raster data<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h1>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it&#8217;s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<h1>Datele raster<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h1>
+<p>Datele raster pot deveni repede destul de mari, mai ales atunci când se lucrează cu fișiere TIFF necomprimate, care au mulți Gb de date. În special pe dispozitive mobile, acest lucru este ineficient.</p>
 <div class="section" id="use-geopackage">
-<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
-<p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust EPSG:21781 (CH1903 LV03) to your desired CRS.</p>
+<h2>Folosirea GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
+<p>Vă recomandăm formatul geopackage pentru a lucra cu datele raster. Urmatoarele comenzi vor converti un fișier denumit <code class="code docutils literal"><span class="pre">raster.tif</span></code> în fișierul cu piramide <code class="code docutils literal"><span class="pre">raster.gpkg</span></code>. Asigurați-vă că ați schimbat EPSG:21781 (CH1903 LV03) în CRS-ul dorit.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
 </pre></div>
