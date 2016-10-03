@@ -21,6 +21,7 @@ RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
   , mCurrentCoordinateIndex( 0 )
   , mGeometryType( QgsWkbTypes::LineGeometry )
+  , mLayer( nullptr )
 {
   mPointList.insert( 0, QPointF() );
 }
