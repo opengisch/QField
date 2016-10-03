@@ -241,7 +241,7 @@ Rectangle {
 
     focus: true
 
-    visible: (!globalFeaturesList.shown)
+    visible: !globalFeaturesList.shown
   }
 
   NavigationBar {
@@ -268,7 +268,7 @@ Rectangle {
     }
 
     onCancel: {
-      featureFormList.model.reset()
+      featureFormList.model.featureModel.reset()
       featureForm.state = "FeatureForm"
     }
   }
