@@ -21,10 +21,10 @@ Item {
     onModelChanged: __updateCurrentLayer()
 
     Connections {
-      target: model
+      target: comboBox.model
 
-      onRowsInserted: __updateCurrentLayer()
-      onRowsRemoved: __updateCurrentLayer()
+      onRowsInserted: comboBox.__updateCurrentLayer()
+      onRowsRemoved: comboBox.__updateCurrentLayer()
     }
 
     function __updateCurrentLayer() {
