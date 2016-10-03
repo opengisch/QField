@@ -33,19 +33,46 @@
     </message>
 </context>
 <context>
+    <name>BadLayerItem</name>
+    <message>
+        <location filename="../src/qml/BadLayerItem.qml" line="22"/>
+        <source>Layer Name</source>
+        <translation>Ebenenname</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BadLayerItem.qml" line="28"/>
+        <source>Data Source</source>
+        <translation>Datenquelle</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BadLayerItem.qml" line="36"/>
+        <source>The following layers could not be loaded.
+Please review them and reconfigure the QGIS project.
+You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
+        <translation>Die folgenden Ebenen konnten nicht geladen werden.
+Das QGIS Projekt muss überprüft und neu konfiguriert werden.
+Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation können weitere Informationen gefunden werden.</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/BadLayerItem.qml" line="57"/>
+        <source>Unable to load some layers</source>
+        <translation>Einige Ebenen konnten nicht geladen werden</translation>
+    </message>
+</context>
+<context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="338"/>
+        <location filename="../src/qml/FeatureForm.qml" line="339"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Objekt zu &lt;i&gt;%1&lt;/i&gt; hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="340"/>
+        <location filename="../src/qml/FeatureForm.qml" line="341"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Objekt in &lt;i&gt;%1&lt;/i&gt; bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="342"/>
+        <location filename="../src/qml/FeatureForm.qml" line="343"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Objekt in &lt;i&gt;%1&lt;/i&gt; ansehen</translation>
     </message>
@@ -137,17 +164,17 @@
         <translation>Positionierung deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="589"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="608"/>
         <source>Open project</source>
         <translation>Projekt öffnen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="591"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="610"/>
         <source>QGIS projects (*.qgs)</source>
         <translation>QGIS Projekte (*.qgs)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="591"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="610"/>
         <source>All files (*)</source>
         <translation>Alle Dateien (*)</translation>
     </message>
