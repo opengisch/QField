@@ -59,6 +59,7 @@
 #include "identifytool.h"
 #include "submodel.h"
 #include "expressionvariablemodel.h"
+#include "badlayerhandler.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -140,6 +141,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
+  qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -149,7 +151,7 @@ void QgisMobileapp::initDeclarative()
 
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
-  rootContext()->setContextProperty( "project", QgsProject::instance() );
+  rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );

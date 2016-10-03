@@ -11,6 +11,7 @@
         <file>LocationMarker.qml</file>
         <file>PositionInformationView.qml</file>
         <file>About.qml</file>
+        <file>BadLayerItem.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DigitizingToolbar.qml</file>
         <file>Button.qml</file>

@@ -45,7 +45,8 @@ HEADERS += \
     identifytool.h \
     submodel.h \
     attributeformmodel.h \
-    expressionvariablemodel.h
+    expressionvariablemodel.h \
+    badlayerhandler.h
 
 SOURCES += \
     appinterface.cpp \
@@ -75,7 +76,8 @@ SOURCES += \
     identifytool.cpp \
     submodel.cpp \
     attributeformmodel.cpp \
-    expressionvariablemodel.cpp
+    expressionvariablemodel.cpp \
+    badlayerhandler.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

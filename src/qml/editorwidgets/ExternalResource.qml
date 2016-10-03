@@ -24,7 +24,7 @@ Item {
       if ( image.status === Image.Error )
         Style.getThemeIcon( "ic_broken_image_black_24dp" )
       else if ( value )
-        'file://' + project.homePath + '/' + value
+        'file://' + qgisProject.homePath + '/' + value
       else
         Style.getThemeIcon( "ic_photo_notavailable_white_48dp" )
     }
@@ -49,7 +49,7 @@ Item {
 
     bgcolor: "transparent"
 
-    onClicked: __pictureSource = platformUtilities.getPicture( project.homePath + '/DCIM' )
+    onClicked: __pictureSource = platformUtilities.getPicture( qgisProject.homePath + '/DCIM' )
 
     iconSource: Style.getThemeIcon( "ic_camera_alt_border_24dp" )
   }

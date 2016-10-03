@@ -547,7 +547,7 @@ Rectangle {
 
       onLoadProjectEnded: {
         busyMessage.visible = false
-        openProjectDialog.folder = project.homePath
+        openProjectDialog.folder = qgisProject.homePath
       }
     }
   }
@@ -575,6 +575,25 @@ Rectangle {
       }
     }
     onVisibleChanged: focus = true
+  }
+
+  BadLayerItem {
+    id: badLayersView
+
+    anchors.fill: parent
+    model: BadLayerHandler {
+      project: qgisProject
+
+      onBadLayersFound: {
+        badLayersView.visible = true
+      }
+    }
+
+    visible: false
+
+    onFinished: {
+      visible = false
+    }
   }
 
   About {

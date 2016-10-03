@@ -1,9 +1,10 @@
 /***************************************************************************
+  badlayerhandler.h - BadLayerHandler
 
-               ----------------------------------------------------
-              date                 : 15.2.2015
-              copyright            : (C) 2015 by Matthias Kuhn
-              email                : matthias (at) opengis.ch
+ ---------------------
+ begin                : 3.10.2016
+ copyright            : (C) 2016 by Matthias Kuhn
+ email                : matthias@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -12,20 +13,45 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 #ifndef BADLAYERHANDLER_H
 #define BADLAYERHANDLER_H
 
+#include <QStandardItemModel>
 #include <qgsproject.h>
 
-class BadLayerHandler : public QgsProjectBadLayerHandler
+class QgsProject;
+
+class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {
-  public:
-    BadLayerHandler();
-    ~BadLayerHandler();
+    Q_OBJECT
+
+    Q_PROPERTY( QgsProject* project READ project WRITE setProject NOTIFY projectChanged )
 
   public:
-    void handleBadLayers( QList<QDomNode> layers, QDomDocument projectDom );
+    enum Roles
+    {
+      DataSourceRole = Qt::UserRole,
+      LayerNameRole
+    };
+
+    BadLayerHandler( QObject* parent = nullptr );
+
+    QHash<int, QByteArray> roleNames() const override;
+
+    QgsProject* project() const;
+    void setProject( QgsProject* project );
+
+    void handleBadLayers( const QList<QDomNode>& layers, const QDomDocument& projectDom ) override;
+
+  signals:
+    void projectChanged();
+    void badLayersFound();
+
+  private:
+    QString dataSource( const QDomNode& layerNode ) const;
+    QString layerName( const QDomNode& layerNode ) const;
+
+    QgsProject* mProject;
 };
 
 #endif // BADLAYERHANDLER_H
