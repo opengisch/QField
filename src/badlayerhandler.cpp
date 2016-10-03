@@ -49,6 +49,7 @@ void BadLayerHandler::setProject( QgsProject* project )
 
 void BadLayerHandler::handleBadLayers( const QList<QDomNode>& layers, const QDomDocument& projectDom )
 {
+  Q_UNUSED( projectDom )
   clear();
 
   for ( const QDomNode& node : layers )
