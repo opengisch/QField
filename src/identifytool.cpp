@@ -75,8 +75,7 @@ void IdentifyTool::identify( const QPointF& point ) const
     QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( ml );
     if ( vl )
     {
-      QgsPoint vlPoint = QgsCoordinateTransform( mMapSettings->destinationCrs(), vl->crs() ).transform( mapPoint );
-      QList<IdentifyResult> results = identifyVectorLayer( vl, vlPoint );
+      QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );
 
       mModel->appendFeatures( results );
     }
