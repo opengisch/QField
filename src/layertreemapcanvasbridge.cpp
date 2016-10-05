@@ -141,10 +141,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     {
       Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
       {
-        if ( !layerNode->layer() )
-          continue;
-
-        if ( layerNode->layer()->isSpatial() )
+        if ( layerNode->layer() && layerNode->isVisible() && layerNode->layer()->isSpatial() )
         {
           mMapSettings->setDestinationCrs( layerNode->layer()->crs() );
           mMapSettings->setMapUnits( layerNode->layer()->crs().mapUnits() );
