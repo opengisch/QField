@@ -110,7 +110,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a></li>
+<li><a class="reference internal" href="#forms-and-fields">Formulare și Câmpuri</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
@@ -211,7 +211,7 @@
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
+<h2>Formulare și Câmpuri<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField creează formulare similare, dar nu identice cu cele din QGIS.</p>
 <dl class="docutils">
 <dt>Suprimarea Formularului Entității</dt>
@@ -248,8 +248,8 @@
 </li>
 <li><p class="first">Codul HTML nu este acceptat</p>
 </li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li><p class="first">Introducerea valorilor numerice are loc în funcție de tip.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -287,21 +287,15 @@ type.</li>
 </tbody>
 </table>
 </dd>
-<dt>Drag and drop designer forms</dt>
-<dd>Groups and Tabs from Drag and Drop designer forms are supported.</dd>
-<dt>Conditional visibility</dt>
-<dd>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</dd>
-<dt>Constraints</dt>
-<dd><p class="first">Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
-<p>Common use cases are:</p>
+<dt>Proiectare de tip drag and drop pentru formulare</dt>
+<dd><p class="first last">Designerul Drag and Drop al formularelor permite crearea de Grupuri și File.</p>
+</dd>
+<dt>Vizibilitate condiționată</dt>
+<dd><p class="first last">Grupurile pot fi ascunse în baza unei expresii. Acest lucru este util atunci când unele atribute sunt cerute doar în anumite condiții. Un astfel de exemplu o reprezintă cartografierea copacilor. Unii dintre ei s-ar putea să fie atacați de o anumită boală, iar dvs. aveți o listă cu posibile afecțiuni. Pentru a nu aglomera cu multe câmpuri formularul, creați un grup și stabiliți o expresie de vizibilitate pentru grupul &#8220;boli&#8221;. Adăugați câmpul &#8220;boli&#8221; și o casetă de bifare. Numai atunci când este bifată caseta de selectare, lista bolilor va fi disponibilă utilizatorului.</p>
+</dd>
+<dt>Constrângeri</dt>
+<dd><p class="first">Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
+<p>Cazurile frecvente de utilizare sunt:</p>
 <ul class="last simple">
 <li><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>You cannot enter an elevation value higher than the highest mountain in this country.</cite></li>
 <li><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>It is required to fill in an identifier.</cite></li>
@@ -312,7 +306,7 @@ user if a constraint is not satisfied.</p>
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
 expression variables.</p>
-<p>Common use cases are:</p>
+<p>Cazurile frecvente de utilizare sunt:</p>
 <ul class="last simple">
 <li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
 <li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
