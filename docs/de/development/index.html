@@ -108,10 +108,10 @@
 <li><a class="reference internal" href="#legend">Legende</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Automatische Synchronisation basierend auf der Netzwerkverbindung</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Verbesserte Koordinatenpräzision</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
-<li><a class="reference internal" href="#editing-geometries">Editing geometries</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">GPS Status Informationen in Attribute speichern</a></li>
+<li><a class="reference internal" href="#editing-geometries">Geometrien bearbeiten</a></li>
 <li><a class="reference internal" href="#search-functionality">Suche</a></li>
-<li><a class="reference internal" href="#external-measurement-devices">External measurement devices</a></li>
+<li><a class="reference internal" href="#external-measurement-devices">Externe Messgeräte anschliessen</a></li>
 <li><a class="reference internal" href="#your-favorite-feature">[Deine Ideen!]</a></li>
 </ul>
 </li>
@@ -164,11 +164,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installationsleitfaden</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Konzepte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Projektverwaltung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Display Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Anzeigeausdruck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Eigene SVG Symbole und Einstellungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">External SD card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">Externe SD Karte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Unterstützte Datenformate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Rasterdaten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Benutzerhandbuch</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Entwicklung und Support</a></li>
 </ul>
@@ -187,9 +187,9 @@
 </div>
 <div class="section" id="support">
 <h2>Support<a class="headerlink" href="#support" title="Link zu dieser Überschrift">¶</a></h2>
-<p>You can ask your questions on <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a></p>
-<p>You can use the <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">user mailing list</a></p>
-<p>We also provide commercial support, <a class="reference external" href="http://www.opengis.ch/contact/">contact us</a></p>
+<p>Fragen können auf <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a> gestellt werden</p>
+<p>Es gibt eine <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">Mailing List</a></p>
+<p>Wir bieten auch kommerziellen Support an, <a class="reference external" href="http://www.opengis.ch/contact/">kontaktiere uns</a></p>
 <div class="section" id="make-it-grow-make-it-yours">
 <span id="make-it-grow"></span><h3>Lass es wachsen, mach es Deins<a class="headerlink" href="#make-it-grow-make-it-yours" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Dies ist eine Liste mit Features, die unserer Meinung nach wichtig und nützlich sind für einen effizienten Arbeitsablauf.</p>
@@ -240,7 +240,7 @@ would be a very good improvement to be able to use the full precision of
 accurate positioning devices by fixing this shortcoming.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Saving GPS status information into attributes<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>GPS Status Informationen in Attribute speichern<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Positioning devices offer more information than just latitude and longitude.
 They are also able to estimate the precision which they are currently able to
 provide. This information can be a radius calculated from variables like the
@@ -248,7 +248,7 @@ number of satellites but also additional flags for parameters like the RTK
 status.</p>
 </div>
 <div class="section" id="editing-geometries">
-<h4>Editing geometries<a class="headerlink" href="#editing-geometries" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Geometrien bearbeiten<a class="headerlink" href="#editing-geometries" title="Link zu dieser Überschrift">¶</a></h4>
 <p>QField offers to digitize new geometries, edit existing attributes or delete
 features. What it lacks is the feature to edit existing geometries.</p>
 <p>This can be split into different pieces like moving points, moving other
@@ -265,7 +265,7 @@ within the project.
 Either a local database for searching is available. The data inside is based
 on the customized data you work with or the layers are queried directly for
 features with attributes in question.</dd>
-<dt>Geocoding</dt>
+<dt>Geokodierung</dt>
 <dd>Search results are provided based on real world addresses. Services like
 <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> can be accessed via a web
 interface and convert real-world addresses to locations on a map. Just try the
@@ -273,7 +273,7 @@ link.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
-<h4>External measurement devices<a class="headerlink" href="#external-measurement-devices" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Externe Messgeräte anschliessen<a class="headerlink" href="#external-measurement-devices" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Are you working with external devices with sensors? Air pressure, temperature,
 slope, carbon monoxide concentration, you name it... Wouldn&#8217;t it be great to not
 having to read the information from your external device and manually typing it
