@@ -30,6 +30,7 @@
 #include "qgslogger.h"
 #include <qmainwindow.h>
 #include <QApplication>
+#include <QDebug>
 
 int main( int argc, char ** argv )
 {
@@ -61,9 +62,13 @@ int main( int argc, char ** argv )
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( "QField" );
 
-  QTranslator appTranslator;
-  appTranslator.load( QLocale(), "qfield", "_", ":/" );
-  app.installTranslator( &appTranslator );
+  QTranslator qfieldTranslator;
+  QTranslator qtTranslator;
+  qWarning() << qfieldTranslator.load( QLocale( "de_DE" ), "qfield", "_", ":/" );
+  qWarning() << qtTranslator.load( QLocale( "de_DE" ), "qt", "_", ":/" );
+  qWarning() << qtTranslator.translate( "MessageDialog", "Cancel" );
+  app.installTranslator( &qtTranslator );
+  app.installTranslator( &qfieldTranslator );
 
   QgisMobileapp mApp( &app );
   return app.exec();

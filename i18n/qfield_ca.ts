@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,24 +37,24 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de la capa</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Font de la dada</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible carregar algunes capes</translation>
     </message>
 </context>
 <context>
@@ -64,17 +62,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="339"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Afegir objecte espacial a &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="341"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="343"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Veure objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -82,12 +80,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="326"/>
         <source>Delete feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar objecte espacial</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="327"/>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"></translation>
+        <translation>Realment ha de ser eliminat aquest objecte espacial??</translation>
     </message>
 </context>
 <context>
@@ -127,17 +125,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="37"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Nou nom de variable]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="77"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Nou valor de variable]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="135"/>
         <source>Edit global variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar variables golbals</translation>
     </message>
 </context>
 <context>
@@ -206,7 +204,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="378"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Opccions</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="386"/>
@@ -216,7 +214,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="394"/>
         <source>Log</source>
-        <translation type="unfinished"></translation>
+        <translation>Log</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="404"/>
