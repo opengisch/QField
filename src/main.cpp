@@ -64,9 +64,8 @@ int main( int argc, char ** argv )
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;
-  qWarning() << qfieldTranslator.load( QLocale( "de_DE" ), "qfield", "_", ":/" );
-  qWarning() << qtTranslator.load( QLocale( "de_DE" ), "qt", "_", ":/" );
-  qWarning() << qtTranslator.translate( "MessageDialog", "Cancel" );
+  qfieldTranslator.load( QLocale(), "qfield", "_", ":/" );
+  qtTranslator.load( QLocale(), "qt", "_", ":/" );
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 
