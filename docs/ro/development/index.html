@@ -107,10 +107,10 @@
 <li><a class="reference internal" href="#legend">Legenda</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Sincronizare pe baza conexiunilor conectate/deconectate</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Precizie îmbunătățită a coordonatelor</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Salvarea în atribute a informațiilor privind starea GPS-ului</a></li>
 <li><a class="reference internal" href="#editing-geometries">Editarea geometriilor</a></li>
 <li><a class="reference internal" href="#search-functionality">Funcție de căutare</a></li>
-<li><a class="reference internal" href="#external-measurement-devices">External measurement devices</a></li>
+<li><a class="reference internal" href="#external-measurement-devices">Dispozitivele externe de măsurare</a></li>
 <li><a class="reference internal" href="#your-favorite-feature">[Caracteristica dvs. favorită]</a></li>
 </ul>
 </li>
@@ -195,93 +195,53 @@
 <div class="section" id="edit-widgets">
 <h4>Editarea controalelor grafice<a class="headerlink" href="#edit-widgets" title="Permalink to this headline">¶</a></h4>
 <p>Controalele grafice de editare reprezintă o parte esențială a muncii de teren eficiente. Introducerea atributelor pe un dispozitiv cu ecran tactil este o activitate mare consumatoare de timp, iar ușurarea acestei sarcini este cheia spre o muncă mai plăcută.</p>
-<p>Some important <a class="reference internal" href="../project-management/index.html#edit-field-widgets"><span>edit field widgets are already
-available</span></a> but much more is possible <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">for example in QGIS</a>.</p>
+<p>Sunt disponibile deja unele <a class="reference internal" href="../project-management/index.html#edit-field-widgets"><span>controale de editare ale câmpurilor importante</span></a> dar există mult mai multe, <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">de exemplu, în QGIS</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Legenda<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h4>
-<p>To properly interpret the contents of a map, a legend is a very useful tool.
-It gives a user the required context to understand the semantic meaning of
-colors, shapes, strokes and other visual coding.</p>
-<p>It can also be used to access additional meta data of individual layers or
-chose which layer to work on.</p>
+<p>Pentru a interpreta în mod corespunzător conținutul unei hărți, o legendă reprezintă un instrument foarte util. Aceasta oferă utilizatorului contextul necesar pentru a înțelege conținutul semantic al culorilor, formelor, liniilor și al altor reprezentări vizuale.</p>
+<p>Aceasta poate fi, de asemenea, utilizată pentru a accesa metadatele suplimentare ale straturilor individuale sau pentru a alege stratul la care să lucrați.</p>
 </div>
 <div class="section" id="connection-based-on-offline-synchronization">
 <h4>Sincronizare pe baza conexiunilor conectate/deconectate<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Permalink to this headline">¶</a></h4>
-<p>Data collection is one of the domains where QField can help a lot. The final
-destination of data is normally not on the device itself but somewhere on a
-database. Currently it is possible to directly work on the database but since
-network access is often unreliable when in the field, it boils down to manual
-synchronization on a desktop computer.</p>
-<p>It would be great to have a synchronization process running on the devices
-where data will be synchronized automatically with a server when the network
-is available and cache data locally whenever no network connection is available.</p>
-<p>This may be combined with <a class="reference external" href="http://geogig.org/">GeoGIG</a> or other server
-components like a database.</p>
+<p>Colectarea datelor reprezintă unul dintre domeniile în care QField poate fi de mare ajutor. Destinația finală a datelor nu este, în mod normal, dispozitivul în sine, ci undeva, într-o bază de date. În prezent, este posibil lucrul direct în baza de date, dar, deoarece accesul la rețea este adesea nesigur atunci când vă aflați în teren, acesta se va reduce la sincronizarea manuală cu un computer aflat la birou.</p>
+<p>Ar fi de mare folos un proces care să ruleze pe dispozitive, cu ajutorul căruia datele să fie sincronizate automat cu un server atunci când rețeaua este disponibilă, și care să înmagazineze datele la nivel local în lipsa conexiunii la rețea.</p>
+<p>Acesta ar putea fi combinat cu <a class="reference external" href="http://geogig.org/">GeoGIG</a> sau alte componente de server, cum ar fi o bază de date.</p>
 </div>
 <div class="section" id="improved-coordinate-precision">
 <h4>Precizie îmbunătățită a coordonatelor<a class="headerlink" href="#improved-coordinate-precision" title="Permalink to this headline">¶</a></h4>
-<p>Computers work mostly with two different datatypes for storing decimals (floating
-point numbers) internally. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single</a>
-and <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a>
-precision. With single precision only the first 6 digits of a number
-are significant and can be trusted, with double precision the first 15
-digits can be trusted. This takes all digits (before and after the decimal
-point) into account.</p>
-<p>When working with coordinates this is very important when a high accurracy is
-required. Only having 6 significant digits often means having a maximum
-accurracy around one meter but depends on the CRS and location on the earth
-surface.</p>
-<p>Some parts of QField currently treat coordinates with single point precision. It
-would be a very good improvement to be able to use the full precision of
-accurate positioning devices by fixing this shortcoming.</p>
+<p>Calculatoarele lucrează mai ales cu două tipuri de date diferite pentru stocarea zecimalelor (numere în virgulă mobilă) pe plan intern. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Simplă</a> și <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">dublă</a> precizie. În cazul unei precizii simple doar primele 6 cifre ale unui număr sunt semnificative și pot fi de încredere, iar în cazul dublei precizii pot fi de încredere primele 15 cifre. Sunt luate în considerare toate cifrele (înainte și după punctul zecimal).</p>
+<p>În lucrul cu coordonate acest lucru este foarte important, mai ales atunci când este necesară o acuratețe ridicată. Având, de multe ori, doar 6 cifre semnificative, va rezulta o acuratețe maximă în jurul valorii de un metru, dar contează și CRS-ul și locația de pe suprafața pământului.</p>
+<p>În prezent, unele părți din QField reprezintă coordonatele în precizie simplă. Eliminarea acestui neajuns, prin introducerea capabilității de utilizare a preciziei complete a dispozitivelor de poziționare, ar constitui o mare îmbunătățire.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Saving GPS status information into attributes<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Permalink to this headline">¶</a></h4>
-<p>Positioning devices offer more information than just latitude and longitude.
-They are also able to estimate the precision which they are currently able to
-provide. This information can be a radius calculated from variables like the
-number of satellites but also additional flags for parameters like the RTK
-status.</p>
+<h4>Salvarea în atribute a informațiilor privind starea GPS-ului<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Permalink to this headline">¶</a></h4>
+<p>Dispozitivele de poziționare oferă mai multe informații decât latitudinea și longitudinea. Ele sunt, de asemenea, în măsură să estimeze precizia pe care o oferă în mod curent. Această informație poate fi o rază, calculată din variabile cum ar fi numărul de sateliți, dar poate proveni și din fanioanele suplimentare ale parametrilor referitori la starea RTK.</p>
 </div>
 <div class="section" id="editing-geometries">
 <h4>Editarea geometriilor<a class="headerlink" href="#editing-geometries" title="Permalink to this headline">¶</a></h4>
-<p>QField offers to digitize new geometries, edit existing attributes or delete
-features. What it lacks is the feature to edit existing geometries.</p>
-<p>This can be split into different pieces like moving points, moving other
-features, editing verices, moving edges...</p>
+<p>QField pune la dispoziție digitizarea geometriilor noi, editarea atributelor existente, sau ștergerea entităților. Ceea ce îi lipsește este funcționalitatea de editare a geometriilor existente.</p>
+<p>Acestea pot fi împărțite în diferite părți, cum ar fi deplasarea punctelor, a altor entități, editarea vertecșilor, deplasarea muchiilor...</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Funcție de căutare<a class="headerlink" href="#search-functionality" title="Permalink to this headline">¶</a></h4>
-<p>Locating features with the help of a search field is something that can really
-help to work more efficient. In general this can be split into two categories:</p>
+<p>Localizarea entităților cu ajutorul unui câmp de căutare este ceva care poate ajuta în lucrul eficient. În general, ea se poate împărți în două categorii:</p>
 <dl class="docutils">
 <dt>Attribute based search</dt>
-<dd>Search results are provided based on the attributes of features on layers
-within the project.
-Either a local database for searching is available. The data inside is based
-on the customized data you work with or the layers are queried directly for
-features with attributes in question.</dd>
-<dt>Geocoding</dt>
-<dd>Search results are provided based on real world addresses. Services like
-<a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> can be accessed via a web
-interface and convert real-world addresses to locations on a map. Just try the
-link.</dd>
+<dd><p class="first last">Rezultatele căutării sunt furnizate pe baza atributelor entităților din straturile aflate în cadrul proiectului. Pentru căutare este disponibilă o bază de date locală. Datele interne se bazează pe datele personalizate cu care lucrați, sau straturile sunt interogate în mod direct pentru entitățile cu atributele în cauză.</p>
+</dd>
+<dt>Geocodificarea</dt>
+<dd><p class="first last">Rezultatele căutării sunt furnizate pe baza adreselor din lumea reală. Servicii de genul <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> pot fi accesate prin intermediul unei interfețe web, și pot converti adresele din lumea reală în locații pe hartă. Este suficient să apăsați link-ul.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
-<h4>External measurement devices<a class="headerlink" href="#external-measurement-devices" title="Permalink to this headline">¶</a></h4>
-<p>Are you working with external devices with sensors? Air pressure, temperature,
-slope, carbon monoxide concentration, you name it... Wouldn&#8217;t it be great to not
-having to read the information from your external device and manually typing it
-again? We would love to make life easier for you by adding support for directly
-connecting your external measurement device to QField.</p>
+<h4>Dispozitivele externe de măsurare<a class="headerlink" href="#external-measurement-devices" title="Permalink to this headline">¶</a></h4>
+<p>Lucrați cu dispozitive externe cu senzori? Presiunea aerului, temperatura, panta, concentrația de monoxid de carbon, altceva... Nu ar fi grozav să nu trebuiască să citiți informațiile de pe dispozitivul extern, apoi să le tastați manual? Ne-ar plăcea să vă ușurăm viața prin adăugarea suportului pentru conectarea directă a dispozitivului de măsurare extern la QField.</p>
 </div>
 <div class="section" id="your-favorite-feature">
 <h4>[Caracteristica dvs. favorită]<a class="headerlink" href="#your-favorite-feature" title="Permalink to this headline">¶</a></h4>
-<p>You probably have plenty of ideas for other nice features. Please contact us and
-we can discuss the best approach to integrate this idea into QField or a derived
-app.</p>
+<p>Probabil că aveți o mulțime de idei pentru alte funcțiuni interesante. Vă rugăm să ne contactați, pentru a putea discuta despre cea mai bună abordare pentru a integra această idee în QField sau într-o aplicație derivată.</p>
 </div>
 </div>
 </div>

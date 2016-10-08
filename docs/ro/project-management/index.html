@@ -298,24 +298,27 @@
 <dd><p class="first">Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
 <p>Cazurile frecvente de utilizare sunt:</p>
 <ul class="last simple">
-<li><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>You cannot enter an elevation value higher than the highest mountain in this country.</cite></li>
-<li><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>It is required to fill in an identifier.</cite></li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Nu puteți introduce pentru altitudine o valoare mai mare decât cea a celui mai înalt munte din această țară.</cite></p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Este necesară introducerea unui identificator.</cite></p>
+</li>
 </ul>
 </dd>
-<dt>Default values</dt>
-<dd><p class="first">Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<dt>Valori implicite</dt>
+<dd><p class="first">Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
 <p>Cazurile frecvente de utilizare sunt:</p>
 <ul class="last simple">
-<li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
-<li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
-<li><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure global variables on the device and insert them.</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Inserează data și ora curentă</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Inserează lungimea liniei digitizate</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configurați și introduceți în dispozitiv variabilele globale.</p>
+</li>
 </ul>
 </dd>
-<dt>Editable</dt>
-<dd>The editable flag of fields is respected.</dd>
+<dt>Editabile</dt>
+<dd><p class="first last">Se respectă fanionul editabil al câmpurilor.</p>
+</dd>
 </dl>
 </div>
 </div>
