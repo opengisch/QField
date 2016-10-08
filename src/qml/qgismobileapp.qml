@@ -111,13 +111,9 @@ Rectangle {
         mapSettings: mapCanvas.mapSettings
 
         model: RubberbandModel {
-          currentCoordinate: coordinateLocator.coordinate
+          currentCoordinate: coordinateLocator.snappedCoordinate
           vectorLayer: layerSelector.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
-
-          onCurrentCoordinateChanged: {
-            coordinateLocator.coordinate = currentCoordinate
-          }
         }
 
         anchors.fill: parent
@@ -142,6 +138,7 @@ Rectangle {
       visible: mainWindow.state === "digitize"
       highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
+      currentLayer: layerSelector.currentLayer
     }
 
     /* GPS marker  */

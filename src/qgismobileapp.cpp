@@ -60,6 +60,8 @@
 #include "submodel.h"
 #include "expressionvariablemodel.h"
 #include "badlayerhandler.h"
+#include "snappingutils.h"
+#include "snappingresult.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -117,6 +119,9 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
+  qRegisterMetaType<SnappingResult>( "SnappingResult" );
+  qRegisterMetaType<QgsPoint>( "QgsPoint" );
+  qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
 
   // Register QField QML types
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
@@ -142,6 +147,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
+  qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

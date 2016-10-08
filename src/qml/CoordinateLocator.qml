@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import org.qgis 1.0
+import org.qfield 1.0
 
 import QtPositioning 5.3
 
@@ -9,10 +10,36 @@ Item {
   property color color: "#263238"
   property color highlightColor: "#CFD8DC"
 
-  property point coordinate
+  property point sourcePoint: Qt.point( width / 2, height / 2 ) // In screen coordinates
+  property alias currentLayer: snappingUtils.currentLayer
 
-  property bool __coordinateChangedByMapSettings: false
+  readonly property alias snappingResult: snappingUtils.snappingResult
+  readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
+  readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
 
+  SnappingUtils {
+    id: snappingUtils
+
+    mapSettings: locator.mapSettings
+    inputCoordinate: sourcePoint
+    config: qgisProject.snappingConfig
+
+    property point snappedCoordinate
+    property point snappedPoint
+
+    onSnappingResultChanged: {
+      if ( snappingResult.isValid )
+      {
+        snappedCoordinate = Qt.point( snappingResult.point.x, snappingResult.point.y )
+        snappedPoint = mapSettings.coordinateToScreen( snappedCoordinate )
+      }
+      else
+      {
+        snappedPoint = sourcePoint
+        snappedCoordinate = mapSettings.screenToCoordinate( snappedPoint )
+      }
+    }
+  }
 
   Rectangle {
     id: crosshairCircleInnerBuffer
@@ -30,10 +57,16 @@ Item {
   Rectangle {
     id: crosshairCircle
 
-    x: parent.width / 2 - radius
-    y: parent.height / 2 - radius
+    x: snappedPoint.x - radius
+    y: snappedPoint.y - radius
 
     border.color: parent.color
+
+    Connections {
+      target: snappingUtils
+      onSnappingResultChanged: crosshairCircle.border.color = snappingResult.isValid ? "#9b59b6" : locator.color
+    }
+
     border.width: 1.2 * dp
     color: "transparent"
     antialiasing: true
@@ -41,30 +74,24 @@ Item {
     width: 48 * dp
     height: width
     radius: width / 2
-  }
 
-  Rectangle {
-    anchors.centerIn: crosshairCircle
+    Rectangle {
+      anchors.centerIn: parent
 
-    color: parent.color
+      color: parent.border.color
 
-    width: 1.2 * dp
-    height: crosshairCircle.height * 4 / 6
-  }
+      width: 1.2 * dp
+      height: parent.height * 4 / 6
+    }
 
-  Rectangle {
-    anchors.centerIn: crosshairCircle
+    Rectangle {
+      anchors.centerIn: parent
 
-    color: parent.color
+      color: parent.border.color
 
-    width: crosshairCircle.width * 4 / 6
-    height: 1.2 * dp
-  }
-
-  Connections {
-    target: mapSettings
-
-    onExtentChanged: __updateCoordinate()
+      width: parent.width * 4 / 6
+      height: 1.2 * dp
+    }
   }
 
   ParallelAnimation {
@@ -112,17 +139,5 @@ Item {
   function flash()
   {
     flashAnimation.start()
-  }
-
-  function __updateCoordinate()
-  {
-    __coordinateChangedByMapSettings = true
-    coordinate = mapSettings.screenToCoordinate( Qt.point( crosshairCircle.x + crosshairCircle.radius, crosshairCircle.y + crosshairCircle.radius ) )
-    __coordinateChangedByMapSettings = false
-  }
-
-  onCoordinateChanged: {
-    if ( !__coordinateChangedByMapSettings )
-      mapSettings.setCenter( coordinate )
   }
 }

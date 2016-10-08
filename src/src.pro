@@ -46,7 +46,9 @@ HEADERS += \
     submodel.h \
     attributeformmodel.h \
     expressionvariablemodel.h \
-    badlayerhandler.h
+    badlayerhandler.h \
+    snappingutils.h \
+    snappingresult.h
 
 SOURCES += \
     appinterface.cpp \
@@ -77,7 +79,9 @@ SOURCES += \
     submodel.cpp \
     attributeformmodel.cpp \
     expressionvariablemodel.cpp \
-    badlayerhandler.cpp
+    badlayerhandler.cpp \
+    snappingutils.cpp \
+    snappingresult.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
