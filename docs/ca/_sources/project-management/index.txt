@@ -1,6 +1,8 @@
 QField Project Management
 =========================
 
+QField does not have a built-in project management. You need to set up and configure your project first inside QGIS and then copy the project file (.qgs) and any additional files to your device and open it with QField.
+
 Portable Project
 ----------------
 
