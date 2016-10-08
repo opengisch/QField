@@ -294,6 +294,7 @@ QSGNode* QgsQuickMapCanvasMap::updatePaintNode( QSGNode* oldNode, QQuickItem::Up
     node = new QSGSimpleTextureNode();
     QSGTexture* texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
+    node->setOwnsTexture( true );
   }
 
   QRectF rect( boundingRect() );
