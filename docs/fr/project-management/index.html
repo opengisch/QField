@@ -110,8 +110,8 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a></li>
+<li><a class="reference internal" href="#display-expression">Expression d&#8217;affichage</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Formulaires et champs</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
@@ -162,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Gestion du projet QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#display-expression">Expression d&#8217;affichage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Carte SD externe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formats de données supportés</a></li>
@@ -178,12 +178,12 @@
       
   <div class="section" id="qfield-project-management">
 <h1>Gestion du projet QField<a class="headerlink" href="#qfield-project-management" title="Lien permanent vers ce titre">¶</a></h1>
-<p>QField does not have a built-in project management. You need to set up and configure your project first inside QGIS and then copy the project file (.qgs) and any additional files to your device and open it with QField.</p>
+<p>QField n&#8217;a pas une gestion de projet intégrée. Il est nécessaire de d&#8217;abord configurer le projet dans QGIS et de le copier ensuite (.qgs) sur l&#8217;appareil avec les fichiers additionnels puis de l&#8217;ouvrir avec QField.</p>
 <div class="section" id="portable-project">
 <h2>Projet portable<a class="headerlink" href="#portable-project" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une version &#8220;portable&#8221; du projet QGIS (.qgs) est nécessaire. &#8220;Portable&#8221; signifie que les chemins sont définis de manière relative et que les données sont accessibles sur l&#8217;appareil mobile.</p>
 <p>Pour contrôler cela <span class="menuselection">Projet ‣ Propriétés du projet ‣ Général ‣ Enregistrer les chemins</span> doit être &#8220;relatif&#8221; et toutes les données doivent être dans le même dossier que le fichier .qgs, ou dans un sous-dossier.</p>
-<p>For increased productivity, we suggest having a look at the <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">QFieldSync plugin</a>.</p>
+<p>Pour augmenter la productivité, il est suggéré de jeter un oeil au <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">plugin QFieldSync</a>.</p>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Système de coordonnées de référence<a class="headerlink" href="#coordinate-reference-systems" title="Lien permanent vers ce titre">¶</a></h2>
@@ -207,16 +207,13 @@
 </div>
 </div>
 <div class="section" id="display-expression">
-<h1>Display Expression<a class="headerlink" href="#display-expression" title="Lien permanent vers ce titre">¶</a></h1>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<h1>Expression d&#8217;affichage<a class="headerlink" href="#display-expression" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans QField, les objets sont identifiés par un nom. L&#8217;expression pour générer ce nom peut être définie en ouvrant la table d&#8217;attributs dans QGIS et en switchant sur la vue formulaire. Choisir le champ approprié ou une expression dans la liste. A partie de QGIS 3, cela pourra être fait directement dans <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
 <div class="clearer text-center container">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Formulaires et champs<a class="headerlink" href="#forms-and-fields" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les formulaires QField sont similaires à ceux de QGIS, mais pas identiques.</p>
 <dl class="docutils">
 <dt>Formulaire de suppression d&#8217;objet</dt>
@@ -251,8 +248,8 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 </li>
 <li><p class="first">HTML n&#8217;est pas supporté</p>
 </li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li><p class="first">La saisie numérique est obligatoire en fonction du type.</p>
+</li>
 </ul>
 </td>
 </tr>
