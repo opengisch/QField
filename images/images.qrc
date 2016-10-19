@@ -160,5 +160,12 @@
         <file>themes/qfield/xhdpi/ic_add_alert_black_18dp.png</file>
         <file>themes/qfield/xxhdpi/ic_add_alert_black_18dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_add_alert_black_18dp.png</file>
+        <file>themes/qfield/hdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_camera_alt_border_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_photo_notavailable_white_48dp.svg</file>
+        <file>themes/qfield/xhdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_settings_white_24dp.png</file>
     </qresource>
 </RCC>
