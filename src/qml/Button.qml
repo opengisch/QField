@@ -17,6 +17,10 @@ Item {
   signal pressAndHold
   signal clicked
 
+  function rotate() {
+    rotation.angle = rotation.angle ? 0 : 180
+  }
+
   height: 48 * dp
   width: 48 * dp
 
@@ -32,6 +36,12 @@ Item {
         border.color: borderColor
         color: bgcolor
         radius: round ? height / 2 : 0
+
+        Behavior on color {
+          ColorAnimation {
+            duration: 200
+          }
+        }
       }
     }
 
@@ -40,6 +50,17 @@ Item {
 
       onClicked: item.clicked()
       onPressAndHold: item.pressAndHold()
+    }
+  }
+
+  transform: Rotation {
+    id: rotation
+    origin.x: width / 2; origin.y: height / 2;
+
+    Behavior on angle {
+      NumberAnimation {
+        duration: 200
+      }
     }
   }
 }

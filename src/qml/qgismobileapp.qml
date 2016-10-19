@@ -235,9 +235,17 @@ Rectangle {
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: {
         if ( dashBoard.width > 0 )
+        {
           dashBoard.width = 0
+          bgcolor = "#212121"
+          rotate()
+        }
         else
+        {
           dashBoard.width = 200 * dp
+          bgcolor = "#C8E6C9"
+          rotate()
+        }
       }
     }
   }
@@ -266,6 +274,7 @@ Rectangle {
 
     states: [
       State {
+
         name: "Off"
         PropertyChanges {
           target: gpsButton
