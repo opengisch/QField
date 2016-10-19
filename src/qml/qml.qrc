@@ -21,6 +21,8 @@
         <file>editorwidgets/ExternalResource.qml</file>
         <file>MessageLog.qml</file>
         <file>VariableEditor.qml</file>
+        <file>ScaleBar.qml</file>
+        <file>QFieldSettings.qml</file>
+        <file>DashBoard.qml</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

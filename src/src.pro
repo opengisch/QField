@@ -137,4 +137,6 @@ DISTFILES += \
     ../images/themes/qfield/mdpi/ic_camera_white_48dp.png \
     ../images/themes/qfield/xhdpi/ic_camera_white_48dp.png \
     ../images/themes/qfield/xxhdpi/ic_camera_white_48dp.png \
-    ../images/themes/qfield/xxxhdpi/ic_camera_white_48dp.png
+    ../images/themes/qfield/xxxhdpi/ic_camera_white_48dp.png \
+    QFieldSettings.qml \
+    qml/qmldir

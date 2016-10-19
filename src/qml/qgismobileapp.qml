@@ -25,6 +25,8 @@ import org.qfield 1.0
 import QtPositioning 5.4
 import "js/style.js" as Style
 
+import '.'
+
 Rectangle {
   id: mainWindow
   anchors.fill: parent
@@ -112,7 +114,7 @@ Rectangle {
 
         model: RubberbandModel {
           currentCoordinate: coordinateLocator.snappedCoordinate
-          vectorLayer: layerSelector.currentLayer
+          vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
         }
 
@@ -138,7 +140,7 @@ Rectangle {
       visible: mainWindow.state === "digitize"
       highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
-      currentLayer: layerSelector.currentLayer
+      currentLayer: dashBoard.currentLayer
     }
 
     /* GPS marker  */
@@ -195,6 +197,35 @@ Rectangle {
     source: featureForm
   }
 
+  DashBoard {
+    id: dashBoard
+    anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
+
+    width: 0
+    clip: true
+
+    showLayerSelector: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
+
+    Behavior on width {
+      NumberAnimation {
+        duration: 200
+        easing: Easing.InOutQuad
+      }
+    }
+
+    onShowMenu: mainMenu.popup()
+  }
+
+  DropShadow {
+    anchors.fill: dashBoard
+    horizontalOffset: 2 * dp
+    verticalOffset: 0
+    radius: 6.0 * dp
+    samples: 17
+    color: "#80000000"
+    source: dashBoard
+  }
+
   /* The main menu */
   Row {
     id: mainMenuBar
@@ -203,87 +234,100 @@ Rectangle {
     Button {
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: {
-        mainMenu.popup()
+        if ( dashBoard.width > 0 )
+          dashBoard.width = 0
+        else
+          dashBoard.width = 200 * dp
       }
     }
+  }
 
-    LayerSelector {
-      id: layerSelector
 
-      width: 200*dp
-      visible: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
-    }
+  ScaleBar {
+    visible: qfieldSettings.showScaleBar
+    mapSettings: mapCanvas.mapSettings
 
-    Button {
-      id: gpsButton
-      state: positionSource.active ? "On" : "Off"
-      visible: positionSource.valid
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+  }
 
-      states: [
-        State {
-          name: "Off"
-          PropertyChanges {
-            target: gpsButton
-            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-          }
-        },
+  Button {
+    id: gpsButton
+    state: positionSource.active ? "On" : "Off"
+    visible: positionSource.valid
+    round: true
 
-        State {
-          name: "On"
-          PropertyChanges {
-            target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-          }
+    anchors.left: dashBoard.right
+    anchors.leftMargin: 4 * dp
+    anchors.top: mainMenuBar.bottom
+    anchors.topMargin: 4 * dp
+
+    bgcolor: "#64B5F6"
+
+    states: [
+      State {
+        name: "Off"
+        PropertyChanges {
+          target: gpsButton
+          iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
         }
-      ]
+      },
 
-      onClicked: {
-        if ( positionSource.position.latitudeValid )
+      State {
+        name: "On"
+        PropertyChanges {
+          target: gpsButton
+          iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+        }
+      }
+    ]
+
+    onClicked: {
+      if ( positionSource.position.latitudeValid )
+      {
+        var coord = positionSource.position.coordinate;
+        var loc = Qt.point( coord.longitude, coord.latitude );
+        mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+
+        if ( !positionSource.active )
         {
-          var coord = positionSource.position.coordinate;
-          var loc = Qt.point( coord.longitude, coord.latitude );
-          mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
-
-          if ( !positionSource.active )
+          positionSource.active = true;
+          displayToast( qsTr( "Activating positioning service..." ) )
+        }
+      }
+      else
+      {
+        if ( positionSource.valid )
+        {
+          if ( positionSource.active )
           {
-            positionSource.active = true;
+            displayToast( qsTr( "Waiting for location..." ) )
+          }
+          else
+          {
+            positionSource.active = true
             displayToast( qsTr( "Activating positioning service..." ) )
           }
         }
-        else
-        {
-          if ( positionSource.valid )
-          {
-            if ( positionSource.active )
-            {
-              displayToast( qsTr( "Waiting for location..." ) )
-            }
-            else
-            {
-              positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
-            }
-          }
-        }
       }
+    }
 
-      onPressAndHold: {
-        gpsMenu.popup()
-      }
+    onPressAndHold: {
+      gpsMenu.popup()
+    }
 
-      function toggleGps() {
-        switch ( gpsButton.state )
-        {
-          case "Off":
-            gpsButton.state = "On"
-            displayToast( qsTr( "Positioning activated" ) )
-            break;
+    function toggleGps() {
+      switch ( gpsButton.state )
+      {
+        case "Off":
+          gpsButton.state = "On"
+          displayToast( qsTr( "Positioning activated" ) )
+          break;
 
-          case "On":
-            gpsButton.state = "Off"
-            displayToast( qsTr( "Positioning turned off" ) )
-            break;
-        }
+        case "On":
+          gpsButton.state = "Off"
+          displayToast( qsTr( "Positioning turned off" ) )
+          break;
       }
     }
   }
@@ -299,11 +343,11 @@ Rectangle {
 
     FeatureModel {
       id: digitizingFeature
-      currentLayer: layerSelector.currentLayer
+      currentLayer: dashBoard.currentLayer
 
       geometry: Geometry {
         rubberbandModel: digitizingRubberband.model
-        vectorLayer: layerSelector.currentLayer
+        vectorLayer: dashBoard.currentLayer
       }
     }
 
@@ -375,7 +419,7 @@ Rectangle {
       text: qsTr( "Settings" )
 
       onTriggered: {
-        variableEditor.visible = true
+        qfieldSettings.visible = true
       }
     }
 
@@ -614,13 +658,15 @@ Rectangle {
     }
   }
 
-  VariableEditor {
-    id: variableEditor
+  QFieldSettings {
+    id: qfieldSettings
 
     anchors.fill: parent
     visible: false
 
-    onFinished: visible = false
+    onFinished: {
+      visible = false
+    }
   }
 
   WelcomeScreen {

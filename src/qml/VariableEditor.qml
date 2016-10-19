@@ -5,11 +5,20 @@ import org.qfield 1.0
 import "js/style.js" as Style
 
 Item {
-  signal finished
+  height: variableEditor.contentItem.height
+
+  function reset() {
+    Qt.inputMethod.hide()
+    variableEditor.model.reloadVariables()
+  }
+
+  function apply() {
+    variableEditor.model.save()
+  }
 
   Controls.TableView {
     id: variableEditor
-    anchors { left: parent.left; right: parent.right; bottom: parent.bottom; top: toolbar.bottom }
+    anchors.fill: parent
 
     /* The column for the variable name */
     Controls.TableViewColumn {
@@ -100,58 +109,5 @@ Item {
     }
 
     model: ExpressionVariableModel {}
-  }
-
-  /** The title toolbar **/
-  Rectangle {
-    id: toolbar
-
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-
-    height: visible ? 48 * dp : 0
-
-    Button {
-      id: saveButton
-      anchors.right: parent.right
-
-      width: 48 * dp
-      height: 48 * dp
-
-      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
-
-      onClicked: {
-        variableEditor.model.save()
-
-        finished()
-      }
-    }
-
-    Controls.Label {
-      id: titleLabel
-      anchors { right: saveButton.left; left: closeButton.right }
-      height: closeButton.height
-      text: qsTr( 'Edit global variables' )
-      font.bold: true
-      horizontalAlignment: Text.AlignHCenter
-    }
-
-    Button {
-      id: closeButton
-      anchors.left: parent.left
-
-      width: 48 * dp
-      height: 48 * dp
-
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
-
-      onClicked: {
-        Qt.inputMethod.hide()
-
-        variableEditor.model.reloadVariables()
-        finished()
-      }
-    }
   }
 }
