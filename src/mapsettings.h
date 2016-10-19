@@ -19,7 +19,9 @@
 #include <QObject>
 
 #include <qgsrectangle.h>
-#include <qgsmapcanvas.h>
+#include <qgsmapthemecollection.h>
+#include <qgsmapsettings.h>
+#include <qgsproject.h>
 
 class MapSettings : public QObject
 {
@@ -102,6 +104,9 @@ class MapSettings : public QObject
     void mapUnitsChanged();
     void crsTransformEnabledChanged();
     void layersChanged();
+
+  public slots:
+    void setMapTheme( QgsProject* project, const QString& mapThemeName );
 
   private slots:
     void onReadProject( const QDomDocument& doc );

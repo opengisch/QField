@@ -205,6 +205,7 @@ Rectangle {
     clip: true
 
     showLayerSelector: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
+    mapSettings: mapCanvas.mapSettings
 
     Behavior on width {
       NumberAnimation {

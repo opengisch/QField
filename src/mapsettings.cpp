@@ -19,6 +19,9 @@
 #include "qgsmaplayer.h"
 #include "qgsproject.h"
 
+#include <qgsmaplayerstylemanager.h>
+
+
 MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
 {
@@ -185,6 +188,27 @@ void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
 
   if ( layerIds == mMapSettings.layers() )
     return;
+
+  mMapSettings.setLayers( layerIds );
+  emit layersChanged();
+}
+
+void MapSettings::setMapTheme( QgsProject* project, const QString& mapThemeName )
+{
+  QStringList layerIds;
+
+  QgsMapThemeCollection::MapThemeRecord mapTheme = project->mapThemeCollection()->mapThemeState( mapThemeName );
+
+  Q_FOREACH( const QString& layerId, mapTheme.visibleLayerIds() )
+  {
+    QgsMapLayer* layer = QgsMapLayerRegistry::instance()->mapLayer( layerId );
+    if ( layer )
+    {
+      layer->styleManager()->setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
+
+      layerIds << layerId;
+    }
+  }
 
   mMapSettings.setLayers( layerIds );
   emit layersChanged();

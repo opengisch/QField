@@ -62,6 +62,7 @@
 #include "badlayerhandler.h"
 #include "snappingutils.h"
 #include "snappingresult.h"
+#include "qgsmapthemecollection.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -148,6 +149,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
+  qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();

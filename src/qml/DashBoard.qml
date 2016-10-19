@@ -3,13 +3,14 @@ import org.qgis 1.0
 import QtQuick.Controls 1.4 as Controls
 import "js/style.js" as Style
 
-Item {
+  Item {
   id: dashBoard
 
   signal showMenu
 
   property alias showLayerSelector: layerSelectorContainer.visible
   property alias currentLayer: layerSelector.currentLayer
+  property MapSettings mapSettings
 
   property color mainColor: "#C8E6C9"
 
@@ -55,6 +56,7 @@ Item {
     }
 
     Controls.GroupBox {
+      id: mapThemeContainer
       title: qsTr( "Map Theme" )
 
       Controls.ComboBox {
@@ -62,9 +64,19 @@ Item {
         anchors { left: parent.left; right: parent.right }
 
         Connections {
-          target: qgisProject.mapThemeCollection
-          onMapThemesChanged:
-              mapThemeComboBox.model = qgisProject.mapThemeCollection.mapThemes
+          target: iface
+
+          onLoadProjectEnded: {
+            mapThemeComboBox.model = qgisProject.mapThemeCollection.mapThemes
+            mapThemeContainer.visible = qgisProject.mapThemeCollection.mapThemes.length > 1
+          }
+        }
+
+        onCurrentIndexChanged: {
+          if ( qgisProject.mapThemeCollection.mapThemes.length > 1 )
+          {
+            mapSettings.setMapTheme( qgisProject, mapThemeComboBox.currentText )
+          }
         }
       }
     }
