@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QField Projektmenedzsment &mdash; QField Documentation 0.8 - Hiendertelltihoren dokumentáció</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/qfield.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8 - Hiendertelltihoren',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren dokumentáció" href="../index.html" />
+    <link rel="next" title="Támogatott adatformátumok" href="dataformat.html" />
+    <link rel="prev" title="Vezérelvek" href="../concepts/index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+              <span>
+              
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="100%"
+                   height="100%"
+                   viewBox="0 0 128 128"
+                   id="qfield-logo"
+                   version="1.1">
+                  <g
+                     id="layer1"
+                     transform="translate(0,-924.36216)">
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z "
+                       transform="translate(0,924.36216)" />
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="m 87.99112,976.2721 22,58 -56.000001,-22 z" />
+                  </g>
+                </svg>
+            
+              </span>
+        </a>
+        <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">QField Projektmenedzsment</a><ul>
+<li><a class="reference internal" href="#portable-project">Hordozható Projekt</a></li>
+<li><a class="reference internal" href="#coordinate-reference-systems">Koordináta Referencia-rendszerek</a></li>
+<li><a class="reference internal" href="#vector-layer-settings">Vektor Réteg Beállítások</a><ul>
+<li><a class="reference internal" href="#style">Stílus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#display-expression">Kifejezés megjelenítés</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Űrlapok és Mezők</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Szokásos SVG jelképek és beállítások</a></li>
+<li><a class="reference internal" href="#external-sd-card">Külső SD kártya</a></li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="../concepts/index.html" title="Previous Chapter: Vezérelvek"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Vezérelvek</span>
+    </a>
+  </li>
+  <li>
+    <a href="dataformat.html" title="Next Chapter: Támogatott adatformátumok"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Támogatott ad... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container"><span class="shadow-background"><img src="../_static/qfield-logo.svg"></span>
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Telepítési Útmutató</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">QField Projektmenedzsment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#display-expression">Kifejezés megjelenítés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Szokásos SVG jelképek és beállítások</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Külső SD kártya</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Támogatott adatformátumok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raszter adat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Használati Útmutató</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Fejlesztés és támogatás</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="qfield-project-management">
+<h1>QField Projektmenedzsment<a class="headerlink" href="#qfield-project-management" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>A QField nem rendelkezik beépített projekt kezelővel. A projektjét először a QGIS-ben kell elkészítenie és konfigurálnia és utána a projekt fájlt (.qgs) és a többi fájlt másolja át a mobil eszközére és nyissa meg a QField-del.</p>
+<div class="section" id="portable-project">
+<h2>Hordozható Projekt<a class="headerlink" href="#portable-project" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Szüksége lesz a QGIS projekt fájl (.qgs) egy hordozható verziójára. A &#8220;hordozható&#8221; azt jelenti, hogy valamennyi elérési útvonal relatív és az adatállományok elérhetők a készülékről.</p>
+<p>Ellenőrizze, hogy a :menuselection:<a href="#id1"><span class="problematic" id="id2">`</span></a>Project &#8211;&gt; Project Properties &#8211;&gt; General &#8211;&gt; Save paths beállítás értéke &#8220;relatív&#8221;-ra legyen állítva, valamint az összes szükséges adatfájl ugyanabba a mappába (vagy annak valamely almappájába) kerüljön, ahol a .qgs projektfájl is található.</p>
+<p>A hatékonyság növelése érdekében javasoljuk, hogy tekintse meg a <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">QFieldSync modult</a>.</p>
+</div>
+<div class="section" id="coordinate-reference-systems">
+<h2>Koordináta Referencia-rendszerek<a class="headerlink" href="#coordinate-reference-systems" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QField a projekt fájlban rögzített koordináta referencia-rendszer (coordinate reference system - CRS) információt használja.</p>
+<ul class="simple">
+<li><p class="first">Projekt CRS</p>
+</li>
+<li><p class="first">A megjelenítéshez az ún. &#8220;röptében&#8221; történő vetületi transzformáció (on the fly reprojection - OTF) kerül alkalmazásra.</p>
+</li>
+<li><p class="first">Réteg CRS</p>
+</li>
+</ul>
+</div>
+<div class="section" id="vector-layer-settings">
+<h2>Vektor Réteg Beállítások<a class="headerlink" href="#vector-layer-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QField külön teendők elvégzésének szükségessége nélkül, közvetlenül támogatja a QGIS-ben alkalmazott beállítások többségét.</p>
+<div class="section" id="style">
+<h3>Stílus<a class="headerlink" href="#style" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A QField közvetlenül támogatja a QGIS-ben rendelkezésre álló összes stílusbeállítást. Mindez magában foglalja valamennyi számítási (ábrázolási) metódust, mint amilyen a &#8220;graduált&#8221;, a &#8220;kategorizált&#8221;, a &#8220;szabály alapú&#8221;, a &#8220;2.5D&#8221; vagy az &#8220;adat alapú&#8221;.</p>
+</div>
+</div>
+</div>
+<div class="section" id="display-expression">
+<h1>Kifejezés megjelenítés<a class="headerlink" href="#display-expression" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>A QField-ben az objektumokat névvel azonosítjuk. Ezt a nevet generáló kifejezést a QGIS-ben az attribútum tábla megnyitásával és űrlap nézetre váltással definiálhatjuk. Válassza a megfelelő mező nevet vagy egy kifejezést az ott található listából. A QGIS 3-tól ez közvetlenül megtehető a <span class="menuselection">Vektor réteg tulajdonságok -&gt; Megjelenítés</span> oldalon.</p>
+<div class="clearer text-center container">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+</div>
+<div class="section" id="forms-and-fields">
+<h2>Űrlapok és Mezők<a class="headerlink" href="#forms-and-fields" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QField által létrehozott űrlapok hasonlóak, de nem azonosak a QGIS űrlapokkal.</p>
+<dl class="docutils">
+<dt>Elem űrlap tiltása</dt>
+<dd><p class="first last">Az elem űrlap kikapcsolása beállítást közvetlenül alkalmazzuk a QFiled űrlapra.</p>
+</dd>
+<dt>Utolsó értékek megjegyzése</dt>
+<dd><p class="first last">A QField sokkal részletesebb felügyeletet biztosít az utoljára használt értékek kezelésében és figyelmen kívül hagyja a QGIS beállításokat.</p>
+</dd>
+</dl>
+<dl class="docutils" id="edit-field-widgets">
+<dt>Mező beállítások</dt>
+<dd><p class="first">A QGIS-ből származó mező beállításokat támogatjuk az optimális befektetett munka alapján és folyamatosan fejlesztjük.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">Mező típus</p>
+</th>
+<th class="head"><p class="first last">Támogatás</p>
+</th>
+<th class="head"><p class="first last">Megjegyzés</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">Szövegszerkesztés</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td><ul class="first last simple">
+<li><p class="first">A többsoros szövegbevitel mindig engedélyezett.</p>
+</li>
+<li><p class="first">A HTML nem támogatott</p>
+</li>
+<li><p class="first">A numerikus adatbevitel a típusnak megfelelően ellenőrizzük.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Jelölőnégyzet</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Érték térkép</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Rejtett</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Külső forrás</p>
+</td>
+<td><span class="moreorless">~</span></td>
+<td><p class="first last">Ezt a mező a fényképezőgép integrációhoz kapcsolódik. Még csak képek jeleníthetők meg. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Segítsd a fejlődését, kezeld a sajátodként</span></a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Dátum idő</p>
+</td>
+<td><span class="nay">✘</span></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Segítsd a fejlődését, kezeld a sajátodként</span></a></td>
+</tr>
+<tr class="row-even"><td><p class="first last">Továbbiak</p>
+</td>
+<td><span class="nay">✘</span></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Segítsd a fejlődését, kezeld a sajátodként</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Húzd és ejtsd tervező űrlapok</dt>
+<dd><p class="first last">A csoportokat és a füleket támogatjuk a Húzd és ejtsd tervező űrlapokról.</p>
+</dd>
+<dt>Feltételes láthatóság</dt>
+<dd><p class="first last">Egy kifejezés alapján a csoportok elrejthetők. Ez akkor hasznos, ha bizonyos körülmények között csak bizonyos attribútumokra van szükség. Példaként képzeljük el, hogy fákat térképezünk. Néhány közülük beteg lehet és van egy lehetséges betegségek listánk. Hogy ne zsúfoljuk tele mezőkkel az űrlapot, készítsünk egy csoportot és állítsuk be a láthatósági kifejezést a &#8220;betegségekre&#8221;. Adjon hozzá egy betegség jelölőnégyzetet. A betegségek listája csak akkor jelenik meg a felhasználónak, ha a jelölőnégyzetet kiválasztotta.</p>
+</dd>
+<dt>Korlátozások</dt>
+<dd><p class="first">Az attribútum mezőkhöz korlatozásokat rendelhetünk. A korlátozások kifejezések melyeknek <code class="code docutils literal"><span class="pre">True</span></code> (vagy <code class="code docutils literal"><span class="pre">1</span></code>) értéket kell adniuk, hogy az űrlapot el tudjuk menteni. A korlátozásokat mezőnként állíthatjuk be és egy leírást adhatunk meg mellé, melyet a felhasználó akkor lát, ha a korlátozó feltétel nem teljesül.</p>
+<p>Általános felhasználási esetek:</p>
+<ul class="last simple">
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Nem adhat meg az ország legmagasabb hegyénél nagyobb magasságot</cite>.</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Az identifier értéket kötelező kitölteni.</cite></p>
+</li>
+</ul>
+</dd>
+<dt>Alapértelmezett értékek</dt>
+<dd><p class="first">A mezőkre alapértelmezett értéket állíthatunk be. Az alapértelmezett értékek az új elem digitalizálásánál jelennek meg az attribútum űrlapban. A felhasználó látja azokat és módosíthatja, ha szerkeszthető a mező. Az alapértelmezett értékek geometria vagy kifejezés változóktól függhetnek.</p>
+<p>Általános felhasználási esetek:</p>
+<ul class="last simple">
+<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Aktuális dátum és idő beszúrása</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: A digitalizált vonal hosszát szúrja be</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Konfigurálja a globális változókat az eszközön és szúrja be őket.</p>
+</li>
+</ul>
+</dd>
+<dt>Szerkeszthető</dt>
+<dd><p class="first last">A mezők szerkeszthetőségének beállítását figyelembe vesszük.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="custom-svg-symbols-and-settings">
+<h1>Szokásos SVG jelképek és beállítások<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>A fenti párbeszédablakban láthatja hol vannak az eszközén a megosztott mappák.</p>
+<p>Ha egyéni szimbólumokat akar használni, akkor oda kell másolnia a fájl kezelő segítségével.</p>
+</div>
+<div class="section" id="external-sd-card">
+<h1>Külső SD kártya<a class="headerlink" href="#external-sd-card" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>A külső SD kártyán található projektekhez írási jogunk akkor lesz,ha a következő mappák egyékébe tesszük:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/project-management/index.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Minden jog fenntartva 2016, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 használatával készült.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
