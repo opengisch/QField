@@ -60,11 +60,32 @@ Item {
     x: snappedPoint.x - radius
     y: snappedPoint.y - radius
 
+    Behavior on x {
+      NumberAnimation { duration: 100 }
+    }
+
+    Behavior on y {
+      NumberAnimation { duration: 100 }
+    }
+
     border.color: parent.color
+
+    Behavior on border.color {
+      ColorAnimation {
+        duration: 200
+      }
+    }
+
+    Behavior on width {
+      SmoothedAnimation { duration: 2000 }
+    }
 
     Connections {
       target: snappingUtils
-      onSnappingResultChanged: crosshairCircle.border.color = snappingResult.isValid ? "#9b59b6" : locator.color
+      onSnappingResultChanged: {
+        crosshairCircle.border.color = snappingResult.isValid ? "#9b59b6" : locator.color
+        crosshairCircle.width = snappingResult.isValid ? 32 * dp : 48 * dp
+      }
     }
 
     border.width: 1.2 * dp
