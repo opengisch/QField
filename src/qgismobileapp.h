@@ -100,8 +100,11 @@ class QgisMobileapp : public QQuickView
     Settings mSettings;
     QgsQuickMapCanvasMap* mMapCanvas;
     bool mFirstRenderingFlag;
-    // Dummpy CRS object. We are not able to call static functions from QML, so we need something here.
+
+    // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
+    QgsUnitTypes mUnitTypes;
+
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
 #else

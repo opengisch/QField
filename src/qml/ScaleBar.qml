@@ -3,18 +3,43 @@ import org.qgis 1.0
 
 Row {
   property MapSettings mapSettings
-  property int referenceWidth: 192 * dp
+  property int referenceWidth: 300 * dp
 
   QtObject {
     id: vars
 
     property real range: referenceWidth * mapSettings.mapUnitsPerPixel
-    property int exponent: Math.log(range) /  Math.LN10
+    property int exponent: Math.floor(Math.log(range) /  Math.LN10)
     property int magnitude: Math.pow(10, exponent)
+    property int adjustedMagnitude: magnitude / (1 + Math.round((magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth))
   }
 
   Repeater {
-    model: 4
+    model: 1
+
+    delegate: Loader {
+      sourceComponent: scaleBarPart
+
+      property int factor: 2
+      property int xindex: index
+      property string labelText: vars.adjustedMagnitude * factor + ' ' + UnitTypes.encodeUnit(mapSettings.mapUnits)
+    }
+  }
+
+  Repeater {
+    model: 2
+
+    delegate: Loader {
+      sourceComponent: scaleBarPart
+
+      property int factor: 1
+      property int xindex: index + 1
+      property string labelText: undefined
+    }
+  }
+
+  Component {
+    id: scaleBarPart
 
     Item {
       width: rect.width
@@ -22,9 +47,13 @@ Row {
 
       Rectangle {
         id: rect
-        width: vars.magnitude / mapSettings.mapUnitsPerPixel
+        width: factor * vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel
         height: 20
-        color: index % 2 ? "black" : "white"
+        color: xindex % 2 ? "white" : "black"
+
+        Behavior on width {
+          SmoothedAnimation { duration: 200 }
+        }
       }
 
       Text {
@@ -32,9 +61,9 @@ Row {
         anchors.rightMargin: 1 * dp
         anchors.verticalCenter: rect.verticalCenter
 
-        color: index % 2 ? "white" : "black"
+        color: xindex % 2 ? "black" : "white"
 
-        text: Math.floor( ( vars.magnitude / mapSettings.mapUnitsPerPixel ) * ( 1 + index ) * mapSettings.mapUnitsPerPixel )
+        text: labelText || vars.adjustedMagnitude * factor
       }
     }
   }

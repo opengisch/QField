@@ -87,6 +87,14 @@ Rectangle {
       }
     }
 
+  /**************************************************
+   * Position markers
+   * - Coordinate Locator
+   * - GPS Marker
+   * - Identify Highlight
+   * - Digitizing Rubberband
+   **************************************************/
+
     /* A transformation node for overlays in map coordinates */
     Item {
       anchors.fill: parent
@@ -123,7 +131,6 @@ Rectangle {
         visible: mainWindow.state === "digitize"
       }
 
-
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
@@ -154,6 +161,20 @@ Rectangle {
       anchors.fill: parent
       visible: positionSource.active
     }
+  }
+
+  /**************************************************
+   * Map Canvas Decorations like
+   * - Position Information View
+   * - Scale Bar
+   **************************************************/
+
+  ScaleBar {
+    visible: qfieldSettings.showScaleBar
+    mapSettings: mapCanvas.mapSettings
+
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
   }
 
   Item {
@@ -249,15 +270,6 @@ Rectangle {
         }
       }
     }
-  }
-
-
-  ScaleBar {
-    visible: qfieldSettings.showScaleBar
-    mapSettings: mapCanvas.mapSettings
-
-    anchors.left: parent.left
-    anchors.bottom: parent.bottom
   }
 
   Button {

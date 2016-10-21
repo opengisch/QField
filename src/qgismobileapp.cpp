@@ -35,6 +35,9 @@
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 #include <qgssnappingutils.h>
+#include <qgsunittypes.h>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsmapthemecollection.h>
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
@@ -55,14 +58,12 @@
 #include "geometry.h"
 #include "featuremodel.h"
 #include "layertreemapcanvasbridge.h"
-#include "qgscoordinatereferencesystem.h"
 #include "identifytool.h"
 #include "submodel.h"
 #include "expressionvariablemodel.h"
 #include "badlayerhandler.h"
 #include "snappingutils.h"
 #include "snappingresult.h"
-#include "qgsmapthemecollection.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   : QQuickView( parent )
@@ -123,12 +124,15 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
+  qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
 
   // Register QField QML types
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
+  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
+
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
@@ -167,6 +171,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "project", QgsProject::instance() );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
+  rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
 }
 
 void QgisMobileapp::loadProjectQuirks()
