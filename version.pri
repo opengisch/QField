@@ -1,6 +1,6 @@
 VERSION_MAJOR = 0
 VERSION_MINOR = 8
-VERSION_FIX   = 6
+VERSION_FIX   = 7
 
 CODENAME = 'Hiendertelltihoren'
 
