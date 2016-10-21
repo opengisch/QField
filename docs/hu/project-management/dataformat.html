@@ -35,7 +35,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren dokumentáció" href="../index.html" />
-    <link rel="next" title="QField Használati Útmutató" href="../user-guide/index.html" />
+    <link rel="next" title="QField Felhasználói Útmutató" href="../user-guide/index.html" />
     <link rel="prev" title="QField Projektmenedzsment" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -105,7 +105,7 @@
 <li><a class="reference internal" href="#table">Táblázat</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#raster-data">Raszter adat</a><ul>
+<li><a class="reference internal" href="#raster-data">Raszter adatok</a><ul>
 <li><a class="reference internal" href="#use-geopackage">Geopackage használata</a></li>
 </ul>
 </li>
@@ -122,7 +122,7 @@
     </a>
   </li>
   <li>
-    <a href="../user-guide/index.html" title="Next Chapter: QField Használati Útmutató"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField Haszná... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: QField Felhasználói Útmutató"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField Felhas... &raquo;</span>
     </a>
   </li>
             
@@ -156,11 +156,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">QField Projektmenedzsment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#display-expression">Kifejezés megjelenítés</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Szokásos SVG jelképek és beállítások</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#custom-svg-symbols-and-settings">Egyéni SVG szimbólumok és beállítások</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#external-sd-card">Külső SD kártya</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Támogatott adatformátumok</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#raster-data">Raszter adat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Használati Útmutató</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#raster-data">Raszter adatok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Felhasználói Útmutató</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Fejlesztés és támogatás</a></li>
 </ul>
 
@@ -241,11 +241,11 @@
 </div>
 </div>
 <div class="section" id="raster-data">
-<h1>Raszter adat<a class="headerlink" href="#raster-data" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>Raszter adatok<a class="headerlink" href="#raster-data" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
 <p>A raszter adatok gyorsan egész naggyá válhatnak, amikor tömörítetlen tiff fájlokkal dolgozunk, ez gyakran több Gb adat. Főként mobil eszközökön ez nem hatékony.</p>
 <div class="section" id="use-geopackage">
 <h2>Geopackage használata<a class="headerlink" href="#use-geopackage" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>A geopackage formátumot tanácsoljuk önnek, ha raszter adatokkal dolgozik. A következő parancs a <code class="code docutils literal"><span class="pre">raster.tif</span></code> nevű fájl konvertálja a :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>raster.gpkg fájlba piramisokkal. Győződjön meg róla, hogy módosította az EPSG:21781 (CH1903 LV03) beállítást az ön számára kívánatos CRS-re.</p>
+<p>A geopackage formátumot tanácsoljuk önnek, ha raszter adatokkal dolgozik. A következő parancs a <code class="code docutils literal"><span class="pre">raster.tif</span></code> nevű fájl konvertálja a <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> fájlba piramisokkal. Győződjön meg róla, hogy módosította az EPSG:21781 (CH1903 LV03) beállítást az ön számára kívánatos CRS-re.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
 </pre></div>
