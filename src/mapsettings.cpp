@@ -183,7 +183,8 @@ void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
   QStringList layerIds;
   Q_FOREACH( QgsMapLayer* layer, layers )
   {
-    layerIds << layer->id();
+    if ( layer )
+      layerIds << layer->id();
   }
 
   if ( layerIds == mMapSettings.layers() )
