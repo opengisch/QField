@@ -20,7 +20,7 @@ QField is an open source project, licensed under the terms of the GPLv2 or later
 
 We are very happy if this app helps you to get your job done or in whatever creative way you may use it.
 
-If you found it useful, we will be even happier if you could give us something back. A couple of things you can do are
+If you found it useful, we will be even happier if you could give something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
  * [Tweet about it](https://twitter.com/share?text=Looking for a good tool for field work in GIS? Check out %23QField!)
