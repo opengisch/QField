@@ -738,4 +738,27 @@ Rectangle {
       onTriggered: { toast.opacity = 0 }
     }
   }
+
+  DropArea {
+    id: dropArea
+    anchors.fill: parent
+    onEntered: {
+      if ( drag.urls.length !== 1
+         || !validateFileExtension( drag.urls[0] ) ) {
+          drag.accepted = false
+      }
+      else {
+        drag.accept (Qt.CopyAction)
+        drag.accepted = true
+      }
+    }
+    onDropped: {
+      iface.loadProject( drop.urls[0] )
+    }
+
+    function validateFileExtension(filePath) {
+      return filePath.split('.').pop() === "qgs"
+    }
+  }
+
 }

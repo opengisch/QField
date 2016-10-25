@@ -27,7 +27,7 @@ AppInterface::AppInterface( QgisMobileapp* app )
 
 void AppInterface::loadProject( const QString& path )
 {
-  return mApp->loadProjectFile( path );
+  return mApp->loadProjectFile( QUrl( path ).path() );
 }
 
 void AppInterface::openFeatureForm()
