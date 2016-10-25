@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "badlayerhandler.h"
+#include <qgsproject.h>
 
 BadLayerHandler::BadLayerHandler( QObject* parent )
   : QStandardItemModel( parent )
@@ -47,9 +48,8 @@ void BadLayerHandler::setProject( QgsProject* project )
   emit projectChanged();
 }
 
-void BadLayerHandler::handleBadLayers( const QList<QDomNode>& layers, const QDomDocument& projectDom )
+void BadLayerHandler::handleBadLayers( const QList<QDomNode>& layers )
 {
-  Q_UNUSED( projectDom )
   clear();
 
   for ( const QDomNode& node : layers )
@@ -61,11 +61,6 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode>& layers, const QDom
   }
 
   emit badLayersFound();
-}
-
-QString BadLayerHandler::dataSource( const QDomNode& layerNode ) const
-{
-  return layerNode.namedItem( "datasource" ).toElement().text();
 }
 
 QString BadLayerHandler::layerName( const QDomNode& layerNode ) const

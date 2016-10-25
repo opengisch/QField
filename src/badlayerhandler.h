@@ -17,7 +17,7 @@
 #define BADLAYERHANDLER_H
 
 #include <QStandardItemModel>
-#include <qgsproject.h>
+#include <qgsprojectbadlayerhandler.h>
 
 class QgsProject;
 
@@ -41,14 +41,13 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
     QgsProject* project() const;
     void setProject( QgsProject* project );
 
-    void handleBadLayers( const QList<QDomNode>& layers, const QDomDocument& projectDom ) override;
+    void handleBadLayers( const QList<QDomNode>& layers ) override;
 
   signals:
     void projectChanged();
     void badLayersFound();
 
   private:
-    QString dataSource( const QDomNode& layerNode ) const;
     QString layerName( const QDomNode& layerNode ) const;
 
     QgsProject* mProject;
