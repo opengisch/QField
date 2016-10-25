@@ -47,6 +47,7 @@ import "js/style.js" as Style
     }
 
     Controls.GroupBox {
+      anchors { left: parent.left; right: parent.right }
       id: layerSelectorContainer
       title: qsTr( "Active Layer" )
       LayerSelector {
