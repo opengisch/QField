@@ -264,7 +264,7 @@ Rectangle {
         }
         else
         {
-          dashBoard.width = 200 * dp
+          dashBoard.width = 300 * dp
           bgcolor = "#C8E6C9"
           rotate()
         }
