@@ -48,7 +48,7 @@ Row {
       Rectangle {
         id: rect
         width: factor * vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel
-        height: 20
+        height: label.height + 8 * dp
         color: xindex % 2 ? "white" : "black"
 
         Behavior on width {
@@ -57,6 +57,7 @@ Row {
       }
 
       Text {
+        id: label
         anchors.right: rect.right
         anchors.rightMargin: 1 * dp
         anchors.verticalCenter: rect.verticalCenter
