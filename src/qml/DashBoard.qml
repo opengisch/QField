@@ -47,9 +47,9 @@ import "js/style.js" as Style
     }
 
     Controls.GroupBox {
-      anchors { left: parent.left; right: parent.right }
       id: layerSelectorContainer
       title: qsTr( "Active Layer" )
+      anchors { left: parent.left; right: parent.right }
       LayerSelector {
         id: layerSelector
         anchors { left: parent.left; right: parent.right }
@@ -59,6 +59,7 @@ import "js/style.js" as Style
     Controls.GroupBox {
       id: mapThemeContainer
       title: qsTr( "Map Theme" )
+      anchors { left: parent.left; right: parent.right }
 
       Controls.ComboBox {
         id: mapThemeComboBox
