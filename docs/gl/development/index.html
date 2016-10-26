@@ -107,10 +107,10 @@
 <li><a class="reference internal" href="#legend">Lenda</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Conexión baseada na sincronización en liña/desconectado</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Precisión de coordenada mellorada</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
-<li><a class="reference internal" href="#editing-geometries">Editing geometries</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Gardar información do estado do GPS nos atributos</a></li>
+<li><a class="reference internal" href="#editing-geometries">Editar xeometrías</a></li>
 <li><a class="reference internal" href="#search-functionality">Función de busca</a></li>
-<li><a class="reference internal" href="#external-measurement-devices">External measurement devices</a></li>
+<li><a class="reference internal" href="#external-measurement-devices">Dispositivos de medida externos</a></li>
 <li><a class="reference internal" href="#your-favorite-feature">[A túa funcionalidade favorita]</a></li>
 </ul>
 </li>
@@ -163,7 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Xestión do Proxecto QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Display Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Amosar Expresión</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">Tarxeta SD externa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatos de datos admitidos</a></li>
@@ -194,96 +194,54 @@
 <p>Esta é unha lista de funcionalidades que cremos que son moi útiles para unha boa experiencia de usuario  e un fluxo de traballo efectivo.</p>
 <div class="section" id="edit-widgets">
 <h4>Widgets de edición<a class="headerlink" href="#edit-widgets" title="Permalink to this headline">¶</a></h4>
-<p>Edit widgets are a core part of efficient field work. Entering attributes
-on a touch device is one of the jobs that takes the most time and
-keeping this task as easy as possible is key for pleasuring work.</p>
-<p>Some important <a class="reference internal" href="../project-management/index.html#edit-field-widgets"><span>edit field widgets are already
-available</span></a> but much more is possible <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">for example in QGIS</a>.</p>
+<p>Os widgets de edición son unha parte nuclear dun traballo de campo eficiente. Introducir atributos nun dispositivo táctil é un dos traballos que leva máis tempo e manter estas tarefas o máis doadas posible é clave para un traballo pracenteiro.</p>
+<p>Importantes <a class="reference internal" href="../project-management/index.html#edit-field-widgets"><span>widgets de edición de campo xa están dispoñibles</span></a> pero é posible moito máis <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">por exemplo en QGIS</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Lenda<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h4>
-<p>To properly interpret the contents of a map, a legend is a very useful tool.
-It gives a user the required context to understand the semantic meaning of
-colors, shapes, strokes and other visual coding.</p>
-<p>It can also be used to access additional meta data of individual layers or
-chose which layer to work on.</p>
+<p>Para interpretar apropiadamente os contidos dun mapa, unha lenda é unha ferramenta moi útil. Dálle ó usuario o contexto preciso para entender o contido semántico de cores, formas, trazos e outros códigos visuais.</p>
+<p>Tamén se pode utilizar para acceder a metadatos adicionais de capas individuais ou escoller a capa coa que traballar.</p>
 </div>
 <div class="section" id="connection-based-on-offline-synchronization">
 <h4>Conexión baseada na sincronización en liña/desconectado<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Permalink to this headline">¶</a></h4>
-<p>Data collection is one of the domains where QField can help a lot. The final
-destination of data is normally not on the device itself but somewhere on a
-database. Currently it is possible to directly work on the database but since
-network access is often unreliable when in the field, it boils down to manual
-synchronization on a desktop computer.</p>
-<p>It would be great to have a synchronization process running on the devices
-where data will be synchronized automatically with a server when the network
-is available and cache data locally whenever no network connection is available.</p>
-<p>This may be combined with <a class="reference external" href="http://geogig.org/">GeoGIG</a> or other server
-components like a database.</p>
+<p>A captura de datos é un dos dominios onde QField pode axudar un montón. O destino final dos datos non está normalmente no propio dispositivo senón en algures nunha base de datos. Actualmente é posible traballar directamente coa base de datos pero dado que o acceso á rede é a miúdo dubidoso en campo, todo se reduce a unha sincronización manual nun ordenador de escritorio.</p>
+<p>Sería marabilloso ter un proceso de sincronización executándose en dispositivos onde os datos se sincronizaran automaticamente cun servidor cando a rede estivese dispoñible e almacenase o datos localmente cando non houbese dispoñible conexión á rede.</p>
+<p>Isto pode combinarse con <a class="reference external" href="http://geogig.org/">GeoGIG</a> ou outras compoñentes do servidor como unha base de datos.</p>
 </div>
 <div class="section" id="improved-coordinate-precision">
 <h4>Precisión de coordenada mellorada<a class="headerlink" href="#improved-coordinate-precision" title="Permalink to this headline">¶</a></h4>
-<p>Computers work mostly with two different datatypes for storing decimals (floating
-point numbers) internally. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single</a>
-and <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a>
-precision. With single precision only the first 6 digits of a number
-are significant and can be trusted, with double precision the first 15
-digits can be trusted. This takes all digits (before and after the decimal
-point) into account.</p>
-<p>When working with coordinates this is very important when a high accurracy is
-required. Only having 6 significant digits often means having a maximum
-accurracy around one meter but depends on the CRS and location on the earth
-surface.</p>
-<p>Some parts of QField currently treat coordinates with single point precision. It
-would be a very good improvement to be able to use the full precision of
-accurate positioning devices by fixing this shortcoming.</p>
+<p>Os ordenadores funcionan maioritariamente con dous tipo de datos diferentes para almacenar decimais internamente (números de punto flotante). Precisión <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Simple</a> e <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">dobre</a>. Coa precisión simple só os primeiros 6 díxitos dun número son significativos e poden ser de confianza, coa precisión dobre pódese confiar nos primeiros 15 díxitos. Isto toma en consideración tódolos díxitos (antes e despois do punto decimal).</p>
+<p>Cando se traballa con coordenadas isto é moi importante cando se precisa unha gran precisión. Tendo só 6 díxitos con significación a miúdo significa ter unha precisión máxima arredor dun metro, pero depende do SRC e a localización na superficie da terra.</p>
+<p>Algunhas partes de QField actualmente tratan as coordenadas cunha precisión de punto simple. Sería unha moi boa mellora ser capaz de utilizar a precisión plena de dispositivos de posicionamento precisos amañando esta falla.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Saving GPS status information into attributes<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Permalink to this headline">¶</a></h4>
-<p>Positioning devices offer more information than just latitude and longitude.
-They are also able to estimate the precision which they are currently able to
-provide. This information can be a radius calculated from variables like the
-number of satellites but also additional flags for parameters like the RTK
-status.</p>
+<h4>Gardar información do estado do GPS nos atributos<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Permalink to this headline">¶</a></h4>
+<p>Os dispositivos de posicionamento ofrecen máis información que só a latitude e a lonxitude. Tamén son capaces de estimar a precisión que son capaces de proporcionar actualmente. Esta información pode ser un radio calculado dende variables como o número de satélites pero tamén etiquetas adicionais para parámetros como o estado RTK.</p>
 </div>
 <div class="section" id="editing-geometries">
-<h4>Editing geometries<a class="headerlink" href="#editing-geometries" title="Permalink to this headline">¶</a></h4>
-<p>QField offers to digitize new geometries, edit existing attributes or delete
-features. What it lacks is the feature to edit existing geometries.</p>
-<p>This can be split into different pieces like moving points, moving other
-features, editing verices, moving edges...</p>
+<h4>Editar xeometrías<a class="headerlink" href="#editing-geometries" title="Permalink to this headline">¶</a></h4>
+<p>QField se ofrece para dixitalizar novas xeometrías, editar os atributos existentes ou eliminar entidades. O que falta é a característica de editar as xeometrías existentes.</p>
+<p>Isto pode dividirse en distintas pezas como mover puntos, mover outras entidades, editar vértices, mover límites...</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Función de busca<a class="headerlink" href="#search-functionality" title="Permalink to this headline">¶</a></h4>
-<p>Locating features with the help of a search field is something that can really
-help to work more efficient. In general this can be split into two categories:</p>
+<p>Localizar entidades coa axuda dun campo de busca é algo que pode realmente axudar a traballar máis eficientemente. En xeral isto pode dividirse en dúas categorías:</p>
 <dl class="docutils">
-<dt>Attribute based search</dt>
-<dd>Search results are provided based on the attributes of features on layers
-within the project.
-Either a local database for searching is available. The data inside is based
-on the customized data you work with or the layers are queried directly for
-features with attributes in question.</dd>
-<dt>Geocoding</dt>
-<dd>Search results are provided based on real world addresses. Services like
-<a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> can be accessed via a web
-interface and convert real-world addresses to locations on a map. Just try the
-link.</dd>
+<dt>Busca baseada en atributos</dt>
+<dd><p class="first last">Os resultados da busca proporciónanse en base ós atributos das entidades das capas dentro do proxecto. Hai dispoñible unha base de datos local para a busca. Os datos baséanse nos datos personalizados cos que traballas ou se consultan directamente as capas para características con atributos en cuestión.</p>
+</dd>
+<dt>Xeocodificación</dt>
+<dd><p class="first last">Os resultados da busca proporciónanse en base a enderezos reais. Servizos coma <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> poden accederse a través dunha interface web e converter direccións do mundo real a localizacións no mapa. Proba o enlace.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
-<h4>External measurement devices<a class="headerlink" href="#external-measurement-devices" title="Permalink to this headline">¶</a></h4>
-<p>Are you working with external devices with sensors? Air pressure, temperature,
-slope, carbon monoxide concentration, you name it... Wouldn&#8217;t it be great to not
-having to read the information from your external device and manually typing it
-again? We would love to make life easier for you by adding support for directly
-connecting your external measurement device to QField.</p>
+<h4>Dispositivos de medida externos<a class="headerlink" href="#external-measurement-devices" title="Permalink to this headline">¶</a></h4>
+<p>Estás a traballar con dispositivos externos con sensores? Presión do aire, temperatura, pendente, concentración de monóxido de carbono, chámalle como queiras... Non sería magnífico non ter que ler a información dende o dispositivo externo e non ter que teclear de novo manualmente? Gustaríanos facilitarche a vida engadindo asistencia para conectar directamente ou teu dispositivo de medida externo a QField.</p>
 </div>
 <div class="section" id="your-favorite-feature">
 <h4>[A túa funcionalidade favorita]<a class="headerlink" href="#your-favorite-feature" title="Permalink to this headline">¶</a></h4>
-<p>You probably have plenty of ideas for other nice features. Please contact us and
-we can discuss the best approach to integrate this idea into QField or a derived
-app.</p>
+<p>Probablemente teñas un montón de ideas para outras magníficas características. Contáctanos e poderemos discutir o mellor enfoque para integrar esta idea en QField ou nunha aplicación derivada.</p>
 </div>
 </div>
 </div>

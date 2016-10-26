@@ -109,8 +109,8 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a></li>
+<li><a class="reference internal" href="#display-expression">Amosar Expresión</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
@@ -161,7 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Xestión do Proxecto QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#display-expression">Amosar Expresión</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos admitidos</a></li>
@@ -177,12 +177,12 @@
       
   <div class="section" id="qfield-project-management">
 <h1>Xestión do Proxecto QField<a class="headerlink" href="#qfield-project-management" title="Permalink to this headline">¶</a></h1>
-<p>QField does not have a built-in project management. You need to set up and configure your project first inside QGIS and then copy the project file (.qgs) and any additional files to your device and open it with QField.</p>
+<p>QField non ten un xestor de proxecto propio. Necesitas establecer e configurar o proxecto primeiro dentro de QGIS e logo copiar o ficheiro de proxecto (.qgs) e calquera ficheiro adicional ó dispositivo e abrilo con QField.</p>
 <div class="section" id="portable-project">
 <h2>Proxecto Portable<a class="headerlink" href="#portable-project" title="Permalink to this headline">¶</a></h2>
 <p>Precisarás unha versión portable do ficheiro de proxecto QGIS (.qgs). Por portable enténdese que tódalas rutas son relativas e os conxuntos de datos están accesibles dende o dispositivo.</p>
 <p>Comproba que <span class="menuselection">Proxecto ‣ Propiedades de Proxecto ‣ Xeral ‣ Gardar rutas</span> está establecida a &#8220;Relativa&#8221; e que tódolos ficheiros de datos solicitados están no mesmo cartafol que o ficheiro .qgs ou nun sub-cartafol del.</p>
-<p>For increased productivity, we suggest having a look at the <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">QFieldSync plugin</a>.</p>
+<p>Para unha maior produtividade, suxerimos botar unha vista ó <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">Plugin QFieldSync</a>.</p>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Sistemas de Referencia de Coordenadas<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
@@ -201,21 +201,18 @@
 <p>A maioría dos axustes que ofrece QGIS son admitidos directamente por QField sen ningún esforzo extra.</p>
 <div class="section" id="style">
 <h3>Estilo<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
-<p>Toda a configuración de estilo de QGIS admítese directamente por QField. Isto inclúe tódolos tipos de renderización como graduado, por categorías, baseado en normas, 2.5D así como a simboloxía definida polos datos.</p>
+<p>Toda a configuración de estilo de QGIS admítese directamente por QField. Isto inclúe tódolos tipos de representación como graduado, por categorías, baseado en normas, 2.5D así como a simboloxía definida polos datos.</p>
 </div>
 </div>
 </div>
 <div class="section" id="display-expression">
-<h1>Display Expression<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h1>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<h1>Amosar Expresión<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h1>
+<p>En QField, os obxectos identifícanse cun nome. A expresión para xerar este nome pode definirse abrindo a táboa de atributos e QGIS e alternar á vista de formulario. Escolla alí o campo apropiado ou unha expresión na lista. Comezando dende QGIS 3, isto pode facerse directamente dende a páxina <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualizar</span>.</p>
 <div class="clearer text-center container">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
+<h2>Formularios e Campos<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField crea formularios de forma similar, pero non igual a QGIS.</p>
 <dl class="docutils">
 <dt>Eliminar Formulario de Entidade</dt>
@@ -252,8 +249,8 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 </li>
 <li><p class="first">O HTML non está admitido</p>
 </li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li><p class="first">Aplícase a introdución numérica en función do tipo.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -293,40 +290,37 @@ type.</li>
 </tbody>
 </table>
 </dd>
-<dt>Drag and drop designer forms</dt>
-<dd>Groups and Tabs from Drag and Drop designer forms are supported.</dd>
-<dt>Conditional visibility</dt>
-<dd>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</dd>
-<dt>Constraints</dt>
-<dd><p class="first">Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
-<p>Common use cases are:</p>
+<dt>Formularios do deseñador arrastrar e soltar</dt>
+<dd><p class="first last">Admítense os formularios de Grupos e Lapelas do deseñador Arrastrar e Soltar.</p>
+</dd>
+<dt>Visibilidade condicional</dt>
+<dd><p class="first last">Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo &#8220;enfermidades&#8221;. Engade un campo &#8220;enfermidade&#8221; cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
+</dd>
+<dt>Restricións</dt>
+<dd><p class="first">Os campos de atributo poden ter ligadas restricións. As restricións son expresións que precisan avaliarse a <code class="code docutils literal"><span class="pre">Certo</span></code> (ou <code class="code docutils literal"><span class="pre">1</span></code>) para poder gardar o formulario. As restricións configúranse por en base a un campo e pode engadirse unha descrición que se lle amosará ó usuario se a restrición non é satisfeita.</p>
+<p>Son casos comúns de uso:</p>
 <ul class="last simple">
-<li><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>You cannot enter an elevation value higher than the highest mountain in this country.</cite></li>
-<li><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>It is required to fill in an identifier.</cite></li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevación&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Non pode introducir un valor de elevación maior que a montaña máis alta neste país.</cite></p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identificador&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Precisa encher cun identificador.</cite></p>
+</li>
 </ul>
 </dd>
-<dt>Default values</dt>
-<dd><p class="first">Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
-<p>Common use cases are:</p>
+<dt>Valores predeterminados</dt>
+<dd><p class="first">Os campos poden ter valores predeterminados configurados. Os valores predeterminados se introducen no formulario de atributos cando se dixitaliza unha nova entidade. Son visibles ó usuario e poden modificarse en tanto o campo sexa editable. Poden basearse en variables de xeometría ou expresións.</p>
+<p>Son casos comúns de uso:</p>
 <ul class="last simple">
-<li><code class="code docutils literal"><span class="pre">now()</span></code>: Insert the current date and time</li>
-<li><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Insert the length of the digitized line</li>
-<li><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure global variables on the device and insert them.</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Introduce a data e a hora actuais</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Introduce a lonxitude da liña dixitalizada</p>
+</li>
+<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure as variables globais no dispositivo e introdúzaas.</p>
+</li>
 </ul>
 </dd>
 <dt>Editable</dt>
-<dd>The editable flag of fields is respected.</dd>
+<dd><p class="first last">Respéctase a marca de editable dos campos.</p>
+</dd>
 </dl>
 </div>
 </div>
