@@ -46,7 +46,6 @@ To start digitizing new features `Switch modes`_ to digitizing.
 
 A new combobox will appear next to the menu button which lists the layers
 available for digitizing.
-At the moment (QField 0.7), QField supports point and line layers.
 
 Points
 ------
@@ -55,12 +54,13 @@ Navigate the crosshair in the center of the screen to the desired location and
 click the pencil at the lower right of the screen to confirm the creation of a
 new point feature.
 
-Lines
------
+Lines and polygons
+------------------
 
 Navigate the crosshair in the center of the screen to the desired start of the line
 and click the pencil at the lower right of the screen.
-Proceed with adding points or removing points until the line is finished and then click save.
+Proceed with adding points or removing points until the line or polygon is finished
+and then click save.
 
 Attribute form
 --------------
