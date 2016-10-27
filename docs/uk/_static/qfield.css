@@ -1,0 +1,98 @@
+body {
+  padding-top: 120px;
+}
+
+div.navbar{
+  background-color:#80CC28;
+  // Animation
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  height: 100px !important;
+}
+
+div.navbar.shrink {
+  background-color:#CCC;
+  height: 35px !important;
+}
+
+.navbar-nav>li {
+  height: 100%;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  background-color: #444;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  background-color: #444;
+}
+
+span.menuselection {
+    background-color: #ddd;
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+
+span.shadow-background {
+  position: fixed;
+  top: 12px;
+}
+
+.navbar-brand {
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar-brand>span,
+span.shadow-background {
+  // Animation
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+
+  display: block;
+  height: 128px;
+  width: 128px;
+}
+
+.navbar-brand>span.unobtrusive,
+span.shadow-background.unobtrusive {
+  // Animation
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+
+  height: 24px;
+  width: 24px;
+}
+
+.navbar-brand>span>img {
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-brand>span.unobtrusive>img {
+  content: url('qfield-logo-noborder.svg');
+}
+
+path {
+  stroke-width: 4;
+}
+
+.unobtrusive path {
+  stroke-width: 1;
+}
+
+footer.footer {
+    margin-top: 20px;
+}
+
+h4 {
+  margin-top: 25px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+dd {
+  margin-left: 2em;
+}
