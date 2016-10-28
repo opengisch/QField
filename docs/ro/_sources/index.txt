@@ -63,9 +63,11 @@ Translations
 
 The documentation is available in several languages
 
-`English </en>`_
+`Catalan </ca>`_
 
 `Deutsch </de>`_
+
+`English </en>`_
 
 `Français </fr>`_
 
@@ -73,7 +75,10 @@ The documentation is available in several languages
 
 `Portuguese </pt>`_
 
-`Catalan </ca>`_
+`Romanian </ro>`_
+
+`Ukranian </uk>`_
+
 
 If there is an error with a translation, please `help to improve it <https://www.transifex.com/opengisch/qfield-documentation/>`_.
 
