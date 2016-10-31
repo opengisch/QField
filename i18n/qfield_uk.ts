@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="uk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,24 +37,26 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я шару</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Джерело даних</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося завантажити наступні шари.
+Будь ласка перевірте їх та відкорегуйте проектQGIS.
+За додатковою інформацією зверніться до розділу &lt;i&gt;Переносний проект&lt;/i&gt; посібника користувача QField.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося завантажи деякі шари</translation>
     </message>
 </context>
 <context>
@@ -64,12 +64,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/DashBoard.qml" line="52"/>
         <source>Active Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>Активний шар</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="61"/>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема мапи</translation>
     </message>
 </context>
 <context>
@@ -77,17 +77,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="339"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати об&apos;єкт до &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="341"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Редагувати об&apos;єкт в &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="343"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Переглянути об&apos;єкт з &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -95,12 +95,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="326"/>
         <source>Delete feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалити об&apos;єкт</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="327"/>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви дійсно хочете видалити цей об&apos;єкт?</translation>
     </message>
 </context>
 <context>
@@ -140,22 +140,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="26"/>
         <source>Map Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Елементи карти</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="31"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати масштабну лінійку</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="43"/>
         <source>Global Expression Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Глобальні змінні виразів</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="88"/>
         <source>QField Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки QField</translation>
     </message>
 </context>
 <context>
@@ -163,12 +163,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="46"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Ім&apos;я нової змінної]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Значення нової змінної]</translation>
     </message>
 </context>
 <context>
@@ -237,7 +237,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="441"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="449"/>
@@ -247,7 +247,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="457"/>
         <source>Log</source>
-        <translation type="unfinished"></translation>
+        <translation>Журнал</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="467"/>

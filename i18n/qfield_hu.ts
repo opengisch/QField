@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,24 +37,26 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Réteg név</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatforrás</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation>A következő rétegeket nem tudom betölteni.
+Ellenőrizze és konfigurálja újra a QGIS projektet.
+Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokumentációban.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Néhány réteget nem tudok betölteni</translation>
     </message>
 </context>
 <context>
@@ -64,12 +64,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/DashBoard.qml" line="52"/>
         <source>Active Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktív réteg</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="61"/>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép téma</translation>
     </message>
 </context>
 <context>
@@ -77,17 +77,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="339"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem hozzáadása &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="341"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem szerkesztése &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="343"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem megtekintése &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
 </context>
 <context>
@@ -95,12 +95,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="326"/>
         <source>Delete feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem törlés</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="327"/>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"></translation>
+        <translation>Valóban törölni akarja ezt az elemet?</translation>
     </message>
 </context>
 <context>
@@ -117,7 +117,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <location filename="../src/qml/PositionInformationView.qml" line="53"/>
         <location filename="../src/qml/PositionInformationView.qml" line="60"/>
         <source>N/A</source>
-        <translation>Nem áll rendelkezésre</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../src/qml/PositionInformationView.qml" line="34"/>
@@ -140,22 +140,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="26"/>
         <source>Map Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Térkép elemek</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="31"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Léptékvonalzó</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="43"/>
         <source>Global Expression Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Globális kifejezés változók</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="88"/>
         <source>QField Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>QField beállítások</translation>
     </message>
 </context>
 <context>
@@ -163,12 +163,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="46"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"></translation>
+        <translation>[új változónév]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"></translation>
+        <translation>[új változó értéke]</translation>
     </message>
 </context>
 <context>
@@ -237,7 +237,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="441"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="449"/>
@@ -247,7 +247,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="457"/>
         <source>Log</source>
-        <translation type="unfinished"></translation>
+        <translation>Napló</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="467"/>

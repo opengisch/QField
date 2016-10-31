@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,24 +37,26 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Tason nimi</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Datan lähde</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seuraavia tasoja ei voitu ladata.
+Ole hyvä ja tarkasta ne sekä konfiguroi uudelleen QGIS projekti.
+Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dokumentoinnissa.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Joitain tasoja ei voida ladata</translation>
     </message>
 </context>
 <context>
@@ -64,12 +64,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/DashBoard.qml" line="52"/>
         <source>Active Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiivinen taso</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="61"/>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Karttateema</translation>
     </message>
 </context>
 <context>
@@ -77,17 +77,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="339"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää ominaisuus tietoon &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="341"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Muokkaa ominaisuutta tiedossa &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="343"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä ominaisuutta tiedossa &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -140,22 +140,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="26"/>
         <source>Map Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Kartan jäsenet</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="31"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä mittakaavajana</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="43"/>
         <source>Global Expression Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Gloaalit lausekemuuttujat</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="88"/>
         <source>QField Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>QField asetukset</translation>
     </message>
 </context>
 <context>
@@ -163,12 +163,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="46"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Uusi muuttujan nimi]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Uusi muuttujan arvo]</translation>
     </message>
 </context>
 <context>
@@ -237,7 +237,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="441"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="449"/>
