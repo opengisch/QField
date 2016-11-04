@@ -243,10 +243,13 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QS
       case QgsAttributeEditorElement::AeTypeField:
       {
         QgsAttributeEditorField* editorField = static_cast<QgsAttributeEditorField*>( element );
-        if ( editorField->idx() == -1 )
+        if ( editorField->idx() < 0 || editorField->idx() >= mLayer->fields().size() )
           continue;
 
+        QgsField field = mLayer->fields().at( editorField->idx() );
+
         QStandardItem* item = new QStandardItem();
+
 
         item->setData( mLayer->attributeDisplayName( editorField->idx() ), AttributeFormModel::Name );
         item->setData( mFeatureModel->feature().attribute( editorField->idx() ), AttributeFormModel::AttributeValue );
@@ -260,11 +263,11 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QS
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
-        item->setData( mLayer->editFormConfig().constraintDescription( editorField->idx() ), AttributeFormModel::ConstraintDescription );
+        item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
 
-        if ( !mLayer->editFormConfig().constraintExpression( editorField->idx() ).isEmpty() )
+        if ( !field.constraints().constraintExpression().isEmpty() )
         {
-          mConstraints.insert( item, mLayer->editFormConfig().constraintExpression( editorField->idx() ) );
+          mConstraints.insert( item, field.constraints().constraintExpression() );
         }
 
         items.append( item );
