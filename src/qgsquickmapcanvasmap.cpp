@@ -31,7 +31,6 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   : QQuickItem( parent )
   , mMapSettings( new MapSettings() )
   , mPinching( false )
-  , mJobCancelled( false )
   , mJob( nullptr )
   , mCache( nullptr )
   , mLabelingResults( nullptr )
@@ -138,7 +137,6 @@ void QgsQuickMapCanvasMap::refreshMap()
 
   // create the renderer job
   Q_ASSERT( !mJob );
-  mJobCancelled = false;
   mJob = new QgsMapRendererParallelJob( mapSettings );
   connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
@@ -182,16 +180,13 @@ void QgsQuickMapCanvasMap::renderJobFinished()
     QgsMessageLog::logMessage( error.layerID + " :: " + error.message, tr( "Rendering" ) );
   }
 
-  if ( !mJobCancelled )
-  {
-    // take labeling results before emitting renderComplete, so labeling map tools
-    // connected to signal work with correct results
-    delete mLabelingResults;
-    mLabelingResults = mJob->takeLabelingResults();
+  // take labeling results before emitting renderComplete, so labeling map tools
+  // connected to signal work with correct results
+  delete mLabelingResults;
+  mLabelingResults = mJob->takeLabelingResults();
 
-    mImage = mJob->renderedImage();
-    mImageMapSettings = mJob->mapSettings();
-  }
+  mImage = mJob->renderedImage();
+  mImageMapSettings = mJob->mapSettings();
 
   // now we are in a slot called from mJob - do not delete it immediately
   // so the class is still valid when the execution returns to the class
@@ -370,13 +365,23 @@ void QgsQuickMapCanvasMap::onLayersChanged()
   refresh();
 }
 
+void QgsQuickMapCanvasMap::destroyJob( QgsMapRendererJob* job )
+{
+  job->cancel();
+  job->deleteLater();
+}
+
 void QgsQuickMapCanvasMap::stopRendering()
 {
   if ( mJob )
   {
-    mJobCancelled = true;
-    mJob->cancel();
-    Q_ASSERT( !mJob ); // no need to delete here: already deleted in finished()
+    disconnect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
+    disconnect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
+
+    // Destroy job in separate worker thread, killing an iterator may take some time
+    // and reduce responsiveness
+    QtConcurrent::run( this, &QgsQuickMapCanvasMap::destroyJob, mJob );
+    mJob = nullptr;
   }
 }
 

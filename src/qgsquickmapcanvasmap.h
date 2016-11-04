@@ -101,13 +101,16 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void onLayersChanged();
 
   private:
+    /**
+     * Should only be called ba stopRendering()!
+     */
+    void destroyJob( QgsMapRendererJob* job );
     QgsMapSettings prepareMapSettings() const;
     void updateTransform();
 
     MapSettings* mMapSettings;
 
     bool mPinching;
-    bool mJobCancelled;
     QPoint mPinchStartPoint;
     QgsMapRendererParallelJob* mJob;
     QgsMapRendererCache* mCache;
