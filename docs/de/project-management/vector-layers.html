@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Vektorebeneneinstellungen &mdash; QField Documentation 0.8 - Hiendertelltihoren Dokumentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/qfield.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8 - Hiendertelltihoren',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren Dokumentation" href="../index.html" />
+    <link rel="next" title="QField Benutzerhandbuch" href="../user-guide/index.html" />
+    <link rel="prev" title="Portable Projekte" href="portable-project.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+              <span>
+              
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="100%"
+                   height="100%"
+                   viewBox="0 0 128 128"
+                   id="qfield-logo"
+                   version="1.1">
+                  <g
+                     id="layer1"
+                     transform="translate(0,-924.36216)">
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z "
+                       transform="translate(0,924.36216)" />
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="m 87.99112,976.2721 22,58 -56.000001,-22 z" />
+                  </g>
+                </svg>
+            
+              </span>
+        </a>
+        <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Vektorebeneneinstellungen</a><ul>
+<li><a class="reference internal" href="#style">Stil</a></li>
+<li><a class="reference internal" href="#display-expression">Anzeigeausdruck</a></li>
+<li><a class="reference internal" href="#forms-and-fields">Formulare und Felder</a><ul>
+<li><a class="reference internal" href="#suppress-feature-form">Formulare unterdrücken</a></li>
+<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and Drop Designer Formulare</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Bedingte Sichtbarkeit</a></li>
+<li><a class="reference internal" href="#constraints">Bedingungen</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#default-values">Standardwerte</a><ul>
+<li><a class="reference internal" href="#id1">Common use cases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#editable">Editierbar</a></li>
+<li><a class="reference internal" href="#remember-last-values">Letzte Werte erinnern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="portable-project.html" title="Previous Chapter: Portable Projekte"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Portable Proj...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../user-guide/index.html" title="Next Chapter: QField Benutzerhandbuch"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField Benutz... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container"><span class="shadow-background"><img src="../_static/qfield-logo.svg"></span>
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installationsleitfaden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Konzepte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Unterstützte Datenformate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Rasterdaten</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Projektverwaltung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Projekte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Vektorebeneneinstellungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Benutzerhandbuch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Entwicklung und Support</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="vector-layer-settings">
+<h1>Vektorebeneneinstellungen<a class="headerlink" href="#vector-layer-settings" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die meisten Einstellungen, welche QGIS anbietet werden direkt von QField unterstützt, ohne zusätzlichen Aufwand.</p>
+<div class="section" id="style">
+<h2>Stil<a class="headerlink" href="#style" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Alle Stileinstellungen von QGIS werden direkt von QField unterstützt. Die beinhalteet alle Renderertypen wie Graduiert, Kategorisiert, Regelbasiert und 2.5D ebenso wie datendefinierte Symbologie.</p>
+</div>
+<div class="section" id="display-expression">
+<h2>Anzeigeausdruck<a class="headerlink" href="#display-expression" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In QField werden Objekte mit einem Namen bezeichnet. Der Ausdruck der für die Generierung dieses Namens verwendet wird kann in QGIS konfiguriert werdne, indem die Attributtabelle geöffnet wird und in die Formularansicht gewechselt wird. Das entsprechende Feld oder ein Ausdruck kann in der Liste ausgewählt werden. Mit QGIS 3 kann das direkt über die <span class="menuselection">Vectorebeneneigenschaften ‣ Anzeige</span> Einstellung gemacht werden.</p>
+<div class="clearer text-center container">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+</div>
+</div>
+<div class="section" id="forms-and-fields">
+<h2>Formulare und Felder<a class="headerlink" href="#forms-and-fields" title="Link zu dieser Überschrift">¶</a></h2>
+<p>QField erzeugt Formulare ähnlich wie, aber nicht komplett gleich wie QGIS</p>
+<div class="section" id="suppress-feature-form">
+<h3>Formulare unterdrücken<a class="headerlink" href="#suppress-feature-form" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Diese Option wird direkt unterstützt. Wenn Sie gesetzt ist wird das Formular in QField beim Erzeugen eines Objektes nicht angezeigt.</p>
+</div>
+<div class="section" id="field-widget">
+<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Link zu dieser Überschrift">¶</a></h3>
+<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">Feldtyp</p>
+</th>
+<th class="head"><p class="first last">Unterstützung</p>
+</th>
+<th class="head"><p class="first last">Notiz</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Text Edit</td>
+<td><span class="yay">✔</span></td>
+<td><ul class="first last simple">
+<li><p class="first">HTML wird nicht unterstützt</p>
+</li>
+<li><p class="first">Numerische Eingabe wird automatisch eingeschaltet, wenn der Feldtyp dies erfordert</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Kontrollkästchen</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Werteabbildung</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Versteckt</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Externe Resource</p>
+</td>
+<td><span class="moreorless">~</span></td>
+<td><p class="first last">Dieses Feld ist kombiniert mit der Kameraintegration. Bis jetzt könenn nur Bilder angeschaut werden. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">Datum Zeit</p>
+</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Andere</p>
+</td>
+<td><span class="nay">✘</span></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Lass es wachsen, mach es Deins</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="drag-and-drop-designer-forms">
+<h3>Drag and Drop Designer Formulare<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Gruppen und Reiter von Drag and Drop Designer Formularen werden unterstützt.</p>
+</div>
+<div class="section" id="conditional-visibility">
+<h3>Bedingte Sichtbarkeit<a class="headerlink" href="#conditional-visibility" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Gruppen können dynamisch versteckt und angezeigt werden. Dies ist oft nützlich wenn einige Attribute nur unter bestimmten Bedingungen benötigt werden. Ein Beispiel ist die Kartierung von Bäumen. Einige können eine Krankheit haben, die genauer definiert werden kann. Damit das Formular übersichtlich bleibt, kann eine neue Gruppe mit den Feldern, die die Krankheit genauer definieren erstellt werden. Auf dieser Gruppe kann nun ein Sichtbarkeitsausdruck konfiguriert werden, der auf einem separaten Feld &#8220;Krankeit&#8221; mit einem Kreuzkästchen basiert. Nur wenn dieses angekreuzt ist, stehen die zusätzlichen Felder zur Verfügung.</p>
+</div>
+<div class="section" id="constraints">
+<h3>Bedingungen<a class="headerlink" href="#constraints" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Attributfelder können Bedingungen haben. Bedingungen sind Ausdrücke, die entweder zu <code class="code docutils literal"><span class="pre">True</span></code> (oder <code class="code docutils literal"><span class="pre">1</span></code>) aufgelöst werden müssen, damit das Formular gespeichert werden kann. Bedingungen werden auf Feldebene konfiguriert und eine Beschreibung kann hinzugefügt werden, die dem Nutzer angezeigt wird, wenn eine Bedingung nicht erfüllt ist.</p>
+<div class="section" id="common-use-cases">
+<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h4>
+<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
+</pre></div>
+</div>
+<p>It is required to fill in an identifier.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="default-values">
+<h3>Standardwerte<a class="headerlink" href="#default-values" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Felder können Standardwerte haben. Standardwerte werden automatisch in das Formular eingefügt, wenn ein neues Objekt erzeugt wird. Sie sind für den Nutzer sichtbar und können bearbeitet werden, sofern das Feld editierbar ist. Sie können auch auf der Geometrie oder Ausdrucksvariablen basieren.</p>
+<div class="section" id="id1">
+<h4>Common use cases<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Insert the current date and time:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Insert the length of the digitized line:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
+</pre></div>
+</div>
+<p>Configure global variables on the device and insert them.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
+</pre></div>
+</div>
+<p>If you want to assign a region code based on the location where a new feature is
+inserted, you can do so by using an aggregate expression:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="editable">
+<h3>Editierbar<a class="headerlink" href="#editable" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Das Flag für Editierbarkeit eines Felds wird berücksichtigt</p>
+</div>
+<div class="section" id="remember-last-values">
+<h3>Letzte Werte erinnern<a class="headerlink" href="#remember-last-values" title="Link zu dieser Überschrift">¶</a></h3>
+<p>QField bietet eine viel finkörnigere Kontrolle über das Erinnern von Attributen als QGIS und ignoriert die entsprechende QGIS Einstellung.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/project-management/vector-layers.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, The QField Project/OPENGIS.ch.<br/>
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

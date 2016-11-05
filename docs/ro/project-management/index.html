@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
-    <link rel="next" title="Formatele de date acceptate" href="dataformat.html" />
-    <link rel="prev" title="Concepte de bază" href="../concepts/index.html" />
+    <link rel="next" title="Proiect Portabil" href="portable-project.html" />
+    <link rel="prev" title="Formatele de date acceptate" href="dataformat.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -101,20 +101,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Managementul Proiectelor în QField</a><ul>
-<li><a class="reference internal" href="#portable-project">Proiect Portabil</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#coordinate-reference-systems">Sisteme de Coordonate de Referință</a></li>
-<li><a class="reference internal" href="#vector-layer-settings">Setările Straturilor Vectoriale</a><ul>
-<li><a class="reference internal" href="#style">Stilul</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Formulare și Câmpuri</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
-<li><a class="reference internal" href="#external-sd-card">Card SD extern</a></li>
 </ul>
 </ul>
 </li>
@@ -124,11 +114,11 @@
             
               
   <li>
-    <a href="../concepts/index.html" title="Previous Chapter: Concepte de bază"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Concepte de bază</span>
+    <a href="dataformat.html" title="Previous Chapter: Formatele de date acceptate"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Formatele de ...</span>
     </a>
   </li>
   <li>
-    <a href="dataformat.html" title="Next Chapter: Formatele de date acceptate"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Formatele de ... &raquo;</span>
+    <a href="portable-project.html" title="Next Chapter: Proiect Portabil"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Proiect Portabil &raquo;</span>
     </a>
   </li>
             
@@ -160,12 +150,13 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Managementul Proiectelor în QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#display-expression">Afișarea Expresiei</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Card SD extern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Managementul Proiectelor în QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Setările Straturilor Vectoriale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Ghidul de Utilizare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
 </ul>
@@ -178,11 +169,28 @@
   <div class="section" id="qfield-project-management">
 <h1>Managementul Proiectelor în QField<a class="headerlink" href="#qfield-project-management" title="Permalink to this headline">¶</a></h1>
 <p>QField nu dispune de un management integrat al proiectului. Trebuie să creați și să configurați proiectul mai întâi în interiorul QGIS, să copiați fișierul proiectului (.qgs), împreună cu orice alte fișiere pe dispozitiv, aopi să-l deschideți cu QField.</p>
-<div class="section" id="portable-project">
-<h2>Proiect Portabil<a class="headerlink" href="#portable-project" title="Permalink to this headline">¶</a></h2>
-<p>Veți avea nevoie de o versiune portabilă a fișierului proiect QGIS (.qgs). Portabilitatea se referă la faptul că toate căile portabile sunt relative, iar seturile de date sunt accesibile din aparat.</p>
-<p>Asigurați-vă că <span class="menuselection">Proiect ‣ Proprietățile Proiectului ‣ General ‣ Salvarea căilor</span> este setată pe &#8216;relativă&#8217; și că toate fișierele de date necesare se află, de asemenea, în același folder cu fișierul .qgs sau într-un subfolder al acestuia.</p>
-<p>Pentru creșterea productivității, vă sugerăm să aruncați o privire la <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">Plugin-ul QFieldSync</a>.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Setările Straturilor Vectoriale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#style">Stilul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#display-expression">Afișarea Expresiei</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#forms-and-fields">Formulare și Câmpuri</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map-themes.html#creating-a-map-theme">Creating a Map Theme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#external-sd-card">Card SD extern</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Sisteme de Coordonate de Referință<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
@@ -195,143 +203,6 @@
 <li><p class="first">CRS-ul stratului</p>
 </li>
 </ul>
-</div>
-<div class="section" id="vector-layer-settings">
-<h2>Setările Straturilor Vectoriale<a class="headerlink" href="#vector-layer-settings" title="Permalink to this headline">¶</a></h2>
-<p>Cele mai multe dintre setările pe care le oferă QGIS sunt acceptate direct de către QField, fără nici un efort suplimentar.</p>
-<div class="section" id="style">
-<h3>Stilul<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
-<p>Toate setările de stil din QGIS sunt suportate direct de QField. Acesta include toate tipurile de render, cum ar fi cele clasificate pe grade sau pe categorii, simbologia 2.5D sau cea definită cu ajutorul datelor.</p>
-</div>
-</div>
-</div>
-<div class="section" id="display-expression">
-<h1>Afișarea Expresiei<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h1>
-<p>În QField, obiectele sunt identificate după nume. Expresia care va genera acest nume poate fi definită prin deschiderea tabelului de atribute din QGIS și trecerea la vizualizarea formularului. Alegeți câmpul corespunzător sau o expresie din acea listă. Începând de la QGIS 3, acest lucru se poate face direct din pagina <span class="menuselection">Proprietățile Stratului Vectorial ‣ Afișare</span>.</p>
-<div class="clearer text-center container">
-<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-</div>
-<div class="section" id="forms-and-fields">
-<h2>Formulare și Câmpuri<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
-<p>QField creează formulare similare, dar nu identice cu cele din QGIS.</p>
-<dl class="docutils">
-<dt>Suprimarea Formularului Entității</dt>
-<dd><p class="first last">Setarea de suprimare a formularului entității se aplică direct formularului QField.</p>
-</dd>
-<dt>Memorarea ultimelor valori</dt>
-<dd><p class="first last">QField oferă un control mult mai fin asupra ultimei valori utilizate, ignorând setarea din QGIS.</p>
-</dd>
-</dl>
-<dl class="docutils" id="edit-field-widgets">
-<dt>Setarea câmpurilor</dt>
-<dd><p class="first">S-au depus cele mai mari eforturi pentru a susține setarea câmpurilor prin intermediul QGIS, lucru în permanență îmbunătățit.</p>
-<table border="1" class="last docutils">
-<colgroup>
-<col width="22%" />
-<col width="20%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Tipul câmpului</p>
-</th>
-<th class="head"><p class="first last">Acceptat</p>
-</th>
-<th class="head"><p class="first last">Observații</p>
-</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first last">Editare Text</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td><ul class="first last simple">
-<li><p class="first">Multiliniile sunt întotdeauna permise</p>
-</li>
-<li><p class="first">Codul HTML nu este acceptat</p>
-</li>
-<li><p class="first">Introducerea valorilor numerice are loc în funcție de tip.</p>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Caseta de bifare</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Harta de Valori</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Ascunsă</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Resursă Externă</p>
-</td>
-<td><span class="moreorless">~</span></td>
-<td><p class="first last">Acest câmp este combinat cu camera integrată. Numai imaginile pot fi vizualizate până în prezent. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Dezvoltați-l și intrați în posesia lui</span></a></p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Data și Ora</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Dezvoltați-l și intrați în posesia lui</span></a></td>
-</tr>
-<tr class="row-even"><td><p class="first last">Altele</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Dezvoltați-l și intrați în posesia lui</span></a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Proiectare de tip drag and drop pentru formulare</dt>
-<dd><p class="first last">Designerul Drag and Drop al formularelor permite crearea de Grupuri și File.</p>
-</dd>
-<dt>Vizibilitate condiționată</dt>
-<dd><p class="first last">Grupurile pot fi ascunse în baza unei expresii. Acest lucru este util atunci când unele atribute sunt cerute doar în anumite condiții. Un astfel de exemplu o reprezintă cartografierea copacilor. Unii dintre ei s-ar putea să fie atacați de o anumită boală, iar dvs. aveți o listă cu posibile afecțiuni. Pentru a nu aglomera cu multe câmpuri formularul, creați un grup și stabiliți o expresie de vizibilitate pentru grupul &#8220;boli&#8221;. Adăugați câmpul &#8220;boli&#8221; și o casetă de bifare. Numai atunci când este bifată caseta de selectare, lista bolilor va fi disponibilă utilizatorului.</p>
-</dd>
-<dt>Constrângeri</dt>
-<dd><p class="first">Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
-<p>Cazurile frecvente de utilizare sunt:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Nu puteți introduce pentru altitudine o valoare mai mare decât cea a celui mai înalt munte din această țară.</cite></p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Este necesară introducerea unui identificator.</cite></p>
-</li>
-</ul>
-</dd>
-<dt>Valori implicite</dt>
-<dd><p class="first">Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
-<p>Cazurile frecvente de utilizare sunt:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Inserează data și ora curentă</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Inserează lungimea liniei digitizate</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configurați și introduceți în dispozitiv variabilele globale.</p>
-</li>
-</ul>
-</dd>
-<dt>Editabile</dt>
-<dd><p class="first last">Se respectă fanionul editabil al câmpurilor.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h1>Simboluri și setări SVG personalizate<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>
-<p>În dialogul &#8220;About&#8221; puteți vedea unde se află pe dispozitiv folderele partajate.</p>
-<p>În cazul în care doriți să utilizați simboluri personalizate, trebuie să le stocați acolo cu ajutorul unui manager de fișiere.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h1>Card SD extern<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h1>
-<p>Pentru a putea avea acces de scriere la proiectele de pe un card SD extern, va trebui să-l puneți în următorul folder:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
 </div>
 </div>
 

@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
     <link rel="next" title="Desenvolvemento e asistencia" href="../development/index.html" />
-    <link rel="prev" title="Formatos de datos admitidos" href="../project-management/dataformat.html" />
+    <link rel="prev" title="Configuración de Capa Vectorial" href="../project-management/vector-layers.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -111,7 +111,7 @@
 <li><a class="reference internal" href="#gps">GPS</a></li>
 <li><a class="reference internal" href="#digitize">Dixitalizar</a><ul>
 <li><a class="reference internal" href="#points">Puntos</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">Liñas e polígonos</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulario de atributos</a></li>
 </ul>
 </li>
@@ -129,7 +129,7 @@
             
               
   <li>
-    <a href="../project-management/dataformat.html" title="Previous Chapter: Formatos de datos admitidos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Formatos de d...</span>
+    <a href="../project-management/vector-layers.html" title="Previous Chapter: Configuración de Capa Vectorial"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configuración...</span>
     </a>
   </li>
   <li>
@@ -165,12 +165,13 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Xestión do Proxecto QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#display-expression">Amosar Expresión</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html#external-sd-card">Tarxeta SD externa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatos de datos admitidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Datos ráster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Xestión do Proxecto QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Proxecto Portable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
 </ul>
@@ -193,7 +194,7 @@
 </div>
 <div class="section" id="identify-features">
 <h3>Identificar entidades<a class="headerlink" href="#identify-features" title="Permalink to this headline">¶</a></h3>
-<p>Unha pulsación longa nunha entidade identificaraa. Premer o botón de retroceso pechará a xanela de identificación.</p>
+<p>A tap on a feature will identify it. Pressing the back button will close the identify window.</p>
 <div class="section" id="exceptions-to-identified-layers">
 <h4>Excepcións ás capas identificadas<a class="headerlink" href="#exceptions-to-identified-layers" title="Permalink to this headline">¶</a></h4>
 <p>A miúdo non se precisa ser capaz de consultar cada capa. Algunhas capas están presentes só como capa base e os seus atributos non son interesantes.</p>
@@ -213,18 +214,14 @@
 <div class="section" id="digitize">
 <h3>Dixitalizar<a class="headerlink" href="#digitize" title="Permalink to this headline">¶</a></h3>
 <p>Para comezar a dixitalizar novas entidades premer <a href="#id1"><span class="problematic" id="id2">`Alternar modos`_</span></a>.</p>
-<p>A new combobox will appear next to the menu button which lists the layers
-available for digitizing.</p>
+<p>Aparecerá un novo cadro combinado próximo ó botón do menú que lista as capas dispoñibles para a dixitalización.</p>
 <div class="section" id="points">
 <h4>Puntos<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h4>
 <p>Move o punto de mira no centro da pantalla ata a localización desexada e preme o lapis na parte dereita inferior da pantalla para confirmar unha nova entidade de puntos.</p>
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="Permalink to this headline">¶</a></h4>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line
-and click the pencil at the lower right of the screen.
-Proceed with adding points or removing points until the line or polygon is finished
-and then click save.</p>
+<h4>Liñas e polígonos<a class="headerlink" href="#lines-and-polygons" title="Permalink to this headline">¶</a></h4>
+<p>Move o punto de mira no centro da pantalla para o inicio desexado da liña e preme o lapis na dereita abaixo da pantalla. Procede a engadir puntos ou eliminar puntos ata que a liña ou polígono estea acabado e entón preme gardar</p>
 </div>
 <div class="section" id="attribute-form">
 <h4>Formulario de atributos<a class="headerlink" href="#attribute-form" title="Permalink to this headline">¶</a></h4>

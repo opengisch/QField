@@ -135,6 +135,19 @@ having to read the information from your external device and manually typing it
 again? We would love to make life easier for you by adding support for directly
 connecting your external measurement device to QField.
 
+Record Audio
+............
+
+Ever wondered how you would write a lot of text when out in the field with a
+touch screen?
+
+Just don't!
+
+It would be amazing to have the possibility to have audio integration just like
+image integration. When back in the office, you could just type in the
+information on a regular keyboard.
+
+
 [Your favorite feature]
 .......................
 

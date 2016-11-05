@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
-    <link rel="next" title="Formatos de datos admitidos" href="dataformat.html" />
-    <link rel="prev" title="Conceptos" href="../concepts/index.html" />
+    <link rel="next" title="Proxecto Portable" href="portable-project.html" />
+    <link rel="prev" title="Formatos de datos admitidos" href="dataformat.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -101,20 +101,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Xestión do Proxecto QField</a><ul>
-<li><a class="reference internal" href="#portable-project">Proxecto Portable</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#coordinate-reference-systems">Sistemas de Referencia de Coordenadas</a></li>
-<li><a class="reference internal" href="#vector-layer-settings">Configuración de Capa Vectorial</a><ul>
-<li><a class="reference internal" href="#style">Estilo</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#display-expression">Amosar Expresión</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
-<li><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 </ul>
 </ul>
 </li>
@@ -124,11 +114,11 @@
             
               
   <li>
-    <a href="../concepts/index.html" title="Previous Chapter: Conceptos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Conceptos</span>
+    <a href="dataformat.html" title="Previous Chapter: Formatos de datos admitidos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Formatos de d...</span>
     </a>
   </li>
   <li>
-    <a href="dataformat.html" title="Next Chapter: Formatos de datos admitidos"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Formatos de d... &raquo;</span>
+    <a href="portable-project.html" title="Next Chapter: Proxecto Portable"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Proxecto Port... &raquo;</span>
     </a>
   </li>
             
@@ -160,12 +150,13 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Xestión do Proxecto QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#display-expression">Amosar Expresión</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos admitidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos ráster</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Xestión do Proxecto QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
 </ul>
@@ -178,11 +169,28 @@
   <div class="section" id="qfield-project-management">
 <h1>Xestión do Proxecto QField<a class="headerlink" href="#qfield-project-management" title="Permalink to this headline">¶</a></h1>
 <p>QField non ten un xestor de proxecto propio. Necesitas establecer e configurar o proxecto primeiro dentro de QGIS e logo copiar o ficheiro de proxecto (.qgs) e calquera ficheiro adicional ó dispositivo e abrilo con QField.</p>
-<div class="section" id="portable-project">
-<h2>Proxecto Portable<a class="headerlink" href="#portable-project" title="Permalink to this headline">¶</a></h2>
-<p>Precisarás unha versión portable do ficheiro de proxecto QGIS (.qgs). Por portable enténdese que tódalas rutas son relativas e os conxuntos de datos están accesibles dende o dispositivo.</p>
-<p>Comproba que <span class="menuselection">Proxecto ‣ Propiedades de Proxecto ‣ Xeral ‣ Gardar rutas</span> está establecida a &#8220;Relativa&#8221; e que tódolos ficheiros de datos solicitados están no mesmo cartafol que o ficheiro .qgs ou nun sub-cartafol del.</p>
-<p>Para unha maior produtividade, suxerimos botar unha vista ó <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">Plugin QFieldSync</a>.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuración de Capa Vectorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#style">Estilo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#display-expression">Amosar Expresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#forms-and-fields">Formularios e Campos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map-themes.html#creating-a-map-theme">Creating a Map Theme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#custom-svg-symbols-and-settings">Configuración e símbolos SVG personalizados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#external-sd-card">Tarxeta SD externa</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Sistemas de Referencia de Coordenadas<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
@@ -195,145 +203,6 @@
 <li><p class="first">SRC da capa</p>
 </li>
 </ul>
-</div>
-<div class="section" id="vector-layer-settings">
-<h2>Configuración de Capa Vectorial<a class="headerlink" href="#vector-layer-settings" title="Permalink to this headline">¶</a></h2>
-<p>A maioría dos axustes que ofrece QGIS son admitidos directamente por QField sen ningún esforzo extra.</p>
-<div class="section" id="style">
-<h3>Estilo<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
-<p>Toda a configuración de estilo de QGIS admítese directamente por QField. Isto inclúe tódolos tipos de representación como graduado, por categorías, baseado en normas, 2.5D así como a simboloxía definida polos datos.</p>
-</div>
-</div>
-</div>
-<div class="section" id="display-expression">
-<h1>Amosar Expresión<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h1>
-<p>En QField, os obxectos identifícanse cun nome. A expresión para xerar este nome pode definirse abrindo a táboa de atributos e QGIS e alternar á vista de formulario. Escolla alí o campo apropiado ou unha expresión na lista. Comezando dende QGIS 3, isto pode facerse directamente dende a páxina <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualizar</span>.</p>
-<div class="clearer text-center container">
-<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-</div>
-<div class="section" id="forms-and-fields">
-<h2>Formularios e Campos<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
-<p>QField crea formularios de forma similar, pero non igual a QGIS.</p>
-<dl class="docutils">
-<dt>Eliminar Formulario de Entidade</dt>
-<dd><p class="first last">A configuración suprimir formulario de entidade aplícase directamente ó formulario de QField.</p>
-</dd>
-<dt>Lembrar os últimos valores</dt>
-<dd><p class="first last">QField ofrece un control máis refinado sobre os últimos valores usados e ignora a configuración de QGIS.</p>
-</dd>
-</dl>
-<dl class="docutils" id="edit-field-widgets">
-<dt>Configuración do campo</dt>
-<dd><p class="first">A configuración de campo de QGIS está dispoñible en base ó mellor esforzo e constantemente está sendo mellorado.</p>
-<table border="1" class="last docutils">
-<colgroup>
-<col width="22%" />
-<col width="20%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Tipo de campo</p>
-</th>
-<th class="head"><p class="first last">Asistencia</p>
-</th>
-<th class="head"><p class="first last">Notas</p>
-</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first last">Edición de texto</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td><ul class="first last simple">
-<li><p class="first">A multiliña é sempre permitida</p>
-</li>
-<li><p class="first">O HTML non está admitido</p>
-</li>
-<li><p class="first">Aplícase a introdución numérica en función do tipo.</p>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Caixa de selección</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Mapa de valores</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Oculto</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Recurso externo</p>
-</td>
-<td><span class="moreorless">~</span></td>
-<td><p class="first last">Este campo combínase coa integración da cámara. Ata o de agora só poden verse imaxes. <span class="xref std std-ref">faino_medrar</span></p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Data Hora</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Outros</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Formularios do deseñador arrastrar e soltar</dt>
-<dd><p class="first last">Admítense os formularios de Grupos e Lapelas do deseñador Arrastrar e Soltar.</p>
-</dd>
-<dt>Visibilidade condicional</dt>
-<dd><p class="first last">Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo &#8220;enfermidades&#8221;. Engade un campo &#8220;enfermidade&#8221; cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
-</dd>
-<dt>Restricións</dt>
-<dd><p class="first">Os campos de atributo poden ter ligadas restricións. As restricións son expresións que precisan avaliarse a <code class="code docutils literal"><span class="pre">Certo</span></code> (ou <code class="code docutils literal"><span class="pre">1</span></code>) para poder gardar o formulario. As restricións configúranse por en base a un campo e pode engadirse unha descrición que se lle amosará ó usuario se a restrición non é satisfeita.</p>
-<p>Son casos comúns de uso:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevación&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Non pode introducir un valor de elevación maior que a montaña máis alta neste país.</cite></p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identificador&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Precisa encher cun identificador.</cite></p>
-</li>
-</ul>
-</dd>
-<dt>Valores predeterminados</dt>
-<dd><p class="first">Os campos poden ter valores predeterminados configurados. Os valores predeterminados se introducen no formulario de atributos cando se dixitaliza unha nova entidade. Son visibles ó usuario e poden modificarse en tanto o campo sexa editable. Poden basearse en variables de xeometría ou expresións.</p>
-<p>Son casos comúns de uso:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Introduce a data e a hora actuais</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Introduce a lonxitude da liña dixitalizada</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Configure as variables globais no dispositivo e introdúzaas.</p>
-</li>
-</ul>
-</dd>
-<dt>Editable</dt>
-<dd><p class="first last">Respéctase a marca de editable dos campos.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h1>Configuración e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>
-<p>No diálogo &#8216;acerca de&#8217; podes ver onde están os cartafoles compartidos no dispositivo.</p>
-<p>Se queres utilizar símbolos personalizados tes que poñelos alí empregando un xestor de ficheiros.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h1>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h1>
-<p>Para ter acceso de escritura a proxectos que están nunha tarxeta SD externa, teraos que poñer no seguinte cartafol:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
 </div>
 </div>
 

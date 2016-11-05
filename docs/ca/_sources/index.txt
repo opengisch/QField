@@ -50,11 +50,11 @@ Contents
 
 .. toctree::
    :maxdepth: 1
+   :glob:
 
    installation-guide/index
    concepts/index
-   project-management/index
-   project-management/dataformat
+   project-management/*
    user-guide/index
    development/index
 

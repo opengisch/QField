@@ -18,7 +18,7 @@ Opening a project
 Identify features
 =================
 
-A long press on a feature will identify it. Pressing the back button will close the identify window.
+A tap on a feature will identify it. Pressing the back button will close the identify window.
 
 Exceptions to identified layers
 -------------------------------

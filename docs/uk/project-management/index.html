@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
-    <link rel="next" title="Підтримувані формати даних" href="dataformat.html" />
-    <link rel="prev" title="Принципи" href="../concepts/index.html" />
+    <link rel="next" title="Portable проект" href="portable-project.html" />
+    <link rel="prev" title="Підтримувані формати даних" href="dataformat.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -101,20 +101,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Управління проектами QField</a><ul>
-<li><a class="reference internal" href="#portable-project">Portable проект</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#coordinate-reference-systems">Системи координат</a></li>
-<li><a class="reference internal" href="#vector-layer-settings">Налаштування векторних шарів</a><ul>
-<li><a class="reference internal" href="#style">Стилі</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#display-expression">Вираз для відображення</a><ul>
-<li><a class="reference internal" href="#forms-and-fields">Форми та поля</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Нестандарні символи SVG та налаштування</a></li>
-<li><a class="reference internal" href="#external-sd-card">Зовнішня SD карта</a></li>
 </ul>
 </ul>
 </li>
@@ -124,11 +114,11 @@
             
               
   <li>
-    <a href="../concepts/index.html" title="Previous Chapter: Принципи"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Принципи</span>
+    <a href="dataformat.html" title="Previous Chapter: Підтримувані формати даних"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Підтримувані ...</span>
     </a>
   </li>
   <li>
-    <a href="dataformat.html" title="Next Chapter: Підтримувані формати даних"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Підтримувані ... &raquo;</span>
+    <a href="portable-project.html" title="Next Chapter: Portable проект"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Portable проект &raquo;</span>
     </a>
   </li>
             
@@ -160,12 +150,13 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Встановлення QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Принципи</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Управління проектами QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#display-expression">Вираз для відображення</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#custom-svg-symbols-and-settings">Нестандарні символи SVG та налаштування</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#external-sd-card">Зовнішня SD карта</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Підтримувані формати даних</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Растрові дані</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Управління проектами QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Розробка та підтримка</a></li>
 </ul>
@@ -178,11 +169,28 @@
   <div class="section" id="qfield-project-management">
 <h1>Управління проектами QField<a class="headerlink" href="#qfield-project-management" title="Постійне посилання на цей заголовок">¶</a></h1>
 <p>QField не має вбудованої підтримки проектів. Ви повинні налаштувати свій проект в QGIS та скопіювати файл проекту (.qgs) та будь-які додаткові файли на ваш пристрій і відкрити його в QField.</p>
-<div class="section" id="portable-project">
-<h2>Portable проект<a class="headerlink" href="#portable-project" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Вам знадобиться portable версія вашого проекта QGIS (файла <code class="code docutils literal"><span class="pre">.qgs</span></code>). Portable означає, що всі шляхи є відносними та всі дані доступні з пристрою.</p>
-<p>Переконайтеся, що <span class="menuselection">Project ‣ Project Properties ‣ General ‣ Save paths`встановлено у &#8220;Relative&#8221; та всі файли даних знаходяться у тому ж каталозі що й файл :code:</span>.qgs` або у його вкладеному каталозі.</p>
-<p>Для більш продуктивної роботи ми радимо встановити <a class="reference external" href="https://plugins.qgis.org/plugins/qfieldsync">плаґін QFieldSync</a>.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Налаштування векторних шарів</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#style">Стилі</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#display-expression">Вираз для відображення</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layers.html#forms-and-fields">Форми та поля</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map-themes.html#creating-a-map-theme">Creating a Map Theme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#custom-svg-symbols-and-settings">Нестандарні символи SVG та налаштування</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android-data-structure.html#external-sd-card">Зовнішня SD карта</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="coordinate-reference-systems">
 <h2>Системи координат<a class="headerlink" href="#coordinate-reference-systems" title="Постійне посилання на цей заголовок">¶</a></h2>
@@ -195,143 +203,6 @@
 <li><p class="first">Система координат шару</p>
 </li>
 </ul>
-</div>
-<div class="section" id="vector-layer-settings">
-<h2>Налаштування векторних шарів<a class="headerlink" href="#vector-layer-settings" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Більшість настройок, доступних в QGIS, підтримуються QField без додаткових зусиль.</p>
-<div class="section" id="style">
-<h3>Стилі<a class="headerlink" href="#style" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Всі налаштування стилів з QGIS напряму підтримуються QField. Включаючи всі типи відображдення на кшалт градуйованого, категорій, правил, 2.5D та стилів, які залежать від даних.</p>
-</div>
-</div>
-</div>
-<div class="section" id="display-expression">
-<h1>Вираз для відображення<a class="headerlink" href="#display-expression" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>В QField об&#8217;єкти ідентифікуються за іменем. Вираз, що генерує це ім&#8217;я можна налаштувати. Для цього відкрийте таблицю атрибутів в QGIS та перейдіть у режим форми. Виберіть відповідне поле або вираз зі списку. Починаючи з QGIS 3, це можна зробити напряму на сторінці <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
-<div class="clearer text-center container">
-<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-</div>
-<div class="section" id="forms-and-fields">
-<h2>Форми та поля<a class="headerlink" href="#forms-and-fields" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>QField створює форми, схожі на форми QGIS, але не однакові з ними.</p>
-<dl class="docutils">
-<dt>Не показувати форму</dt>
-<dd><p class="first last">Ця настройка застосовується до форм QField напряму.</p>
-</dd>
-<dt>Запам&#8217;ятовувати останні значення</dt>
-<dd><p class="first last">QField пропонує більш гнучке налаштування використання останніх внесених значень та ігнорує настройку QGIS.</p>
-</dd>
-</dl>
-<dl class="docutils" id="edit-field-widgets">
-<dt>Налаштування полів</dt>
-<dd><p class="first">Налаштування полів QGIS підтримуються так добре, як це можливо і ця підтримка постійно вдосконалюється.</p>
-<table border="1" class="last docutils">
-<colgroup>
-<col width="22%" />
-<col width="20%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Тип поля</p>
-</th>
-<th class="head"><p class="first last">Підтримка</p>
-</th>
-<th class="head"><p class="first last">Примітки</p>
-</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first last">Текстове поле</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td><ul class="first last simple">
-<li><p class="first">Підтримка багаторядковості завжди включена</p>
-</li>
-<li><p class="first">HTML не підтримується</p>
-</li>
-<li><p class="first">Введення чисел забезпечується на основі типу даних.</p>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Перемикач</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Карта значень</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Приховане</p>
-</td>
-<td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td><p class="first last">Зовнішній ресурс</p>
-</td>
-<td><span class="moreorless">~</span></td>
-<td><p class="first last">Це поле інтегрується з камерою. Станом на сьогодні переглядати можна лише зображення. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Зроби краще, зроби для себе</span></a></p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">Дата і час</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Зроби краще, зроби для себе</span></a></td>
-</tr>
-<tr class="row-even"><td><p class="first last">Інші</p>
-</td>
-<td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Зроби краще, зроби для себе</span></a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Інтерактивний редактор форм</dt>
-<dd><p class="first last">Повна підтримка груп та вкладок інтерактивного редактора форм QGIS.</p>
-</dd>
-<dt>Умовна видимість</dt>
-<dd><p class="first last">Групи можуть бути приховані в залежності від результатів виразу. Це може бути корисним, коли певні атрибути необхідні лише в певних умовах. Наприклад, під час картографування дерев. Деякі з них можуть мати захворювання і у вас є список можливих захворювань. Щоб не перевантажувати форму багатьма полями, зробіть групу та налаштуйте вираз видимості для групи &#8220;diseases&#8221;. Додайте поле-перемикач &#8220;desease&#8221;. Список захворювань буде видимий лише коли перемикач активний.</p>
-</dd>
-<dt>Обмеження</dt>
-<dd><p class="first">На атрибути можна накладати обмеження. Обмеження &#8212; це вирази, які повинні повертати <code class="code docutils literal"><span class="pre">True</span></code> (або <code class="code docutils literal"><span class="pre">1</span></code>) щоб вміст форми можна було зберегти. Обмеження налаштовуються дл кожного поля окремо, також можна вказати текст, який буде показаний користувачу, якщо обмеження не виконується.</p>
-<p>Приклади:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;elevation&quot;</span> <span class="pre">&lt;</span> <span class="pre">5000</span></code>: <cite>Ви не можете вказати висоту більшу ніж найвища гора у країні.</cite></p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&quot;identifier&quot;</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code>: <cite>Необхідно вказати ідентифікатор.</cite></p>
-</li>
-</ul>
-</dd>
-<dt>Типові значення</dt>
-<dd><p class="first">Поля можуть мати типові значення. Типові значення вставляються у форму атрибутів під час оцифровки об&#8217;єкта. Користувач їх бачить та може змінити, якщо поле може редагуватися. Типові значення можуть базуватися на значеннях геометрії чи виразів.</p>
-<p>Приклади:</p>
-<ul class="last simple">
-<li><p class="first"><code class="code docutils literal"><span class="pre">now()</span></code>: Вставити поточну дату та час</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">length($geometry)</span></code>: Вставити довжину оцифрованої лінії</p>
-</li>
-<li><p class="first"><code class="code docutils literal"><span class="pre">&#64;operator_name</span></code>: Створити глобальну змінну на пристрої та вставити її значення.</p>
-</li>
-</ul>
-</dd>
-<dt>Редагування</dt>
-<dd><p class="first last">Атрибут редагування поля має значення.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h1>Нестандарні символи SVG та налаштування<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>У діалозі &#8220;Про програму&#8221; ви можете побачити де знаходяться каталоги даних на вашому пристрої.</p>
-<p>Якщо ви хочете використовувати нестандартні символи, їх слід розмістити у цьому каталозі за допомогою файлового менеджера.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h1>Зовнішня SD карта<a class="headerlink" href="#external-sd-card" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>Щоб мати можливість редагувати проекти, які знаходяться на зовнішній SD картці, їх слід розмістити у каталозі:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
 </div>
 </div>
 
