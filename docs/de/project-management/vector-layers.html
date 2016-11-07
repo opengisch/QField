@@ -106,15 +106,15 @@
 <li><a class="reference internal" href="#display-expression">Anzeigeausdruck</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare und Felder</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulare unterdrücken</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#field-widget">Feldwidget</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and Drop Designer Formulare</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Bedingte Sichtbarkeit</a></li>
 <li><a class="reference internal" href="#constraints">Bedingungen</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">Übliche Anwendungsfälle</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Standardwerte</a><ul>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#id1">Übliche Anwendungsfälle</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editierbar</a></li>
@@ -168,11 +168,11 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installationsleitfaden</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Konzepte</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Spezielle Anmerkungen zum Dateisystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Unterstützte Datenformate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Rasterdaten</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Projektverwaltung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Kartenthemen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Projekte</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Vektorebeneneinstellungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Benutzerhandbuch</a></li>
@@ -206,8 +206,8 @@
 <p>Diese Option wird direkt unterstützt. Wenn Sie gesetzt ist wird das Formular in QField beim Erzeugen eines Objektes nicht angezeigt.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Link zu dieser Überschrift">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h3>Feldwidget<a class="headerlink" href="#field-widget" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Die Feldwidgets von QGIS werden nach besten Möglichkeiten unterstützt</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -280,12 +280,12 @@
 <h3>Bedingungen<a class="headerlink" href="#constraints" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Attributfelder können Bedingungen haben. Bedingungen sind Ausdrücke, die entweder zu <code class="code docutils literal"><span class="pre">True</span></code> (oder <code class="code docutils literal"><span class="pre">1</span></code>) aufgelöst werden müssen, damit das Formular gespeichert werden kann. Bedingungen werden auf Feldebene konfiguriert und eine Beschreibung kann hinzugefügt werden, die dem Nutzer angezeigt wird, wenn eine Bedingung nicht erfüllt ist.</p>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Übliche Anwendungsfälle<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Es kann keine Höhe eingegeben werden, die höher ist als der höchste Berg in diesem Land.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Es ist nötig, eine Bezeichnung einzugeben.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
 </pre></div>
 </div>
@@ -295,21 +295,20 @@
 <h3>Standardwerte<a class="headerlink" href="#default-values" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Felder können Standardwerte haben. Standardwerte werden automatisch in das Formular eingefügt, wenn ein neues Objekt erzeugt wird. Sie sind für den Nutzer sichtbar und können bearbeitet werden, sofern das Feld editierbar ist. Sie können auch auf der Geometrie oder Ausdrucksvariablen basieren.</p>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
-<p>Insert the current date and time:</p>
+<h4>Übliche Anwendungsfälle<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Aktuelles Datum und Zeit einfüllen.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Die Länge der digitalisierten Linie einfügen:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Globale Variablen auf dem Gerät konfigurieren und verwenden.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Falls ein neues Objekt ein Code entsprechend der Region, in der es digitalisiert wurde erhalten soll, kann dies mit einem aggregierten Ausdruck gemacht werden:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
