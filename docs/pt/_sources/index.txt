@@ -55,7 +55,7 @@ Contents
    installation-guide/index
    concepts/index
    project-management/*
-   user-guide/index
+   user-guide/*
    development/index
 
 Translations
