@@ -105,15 +105,15 @@
 <li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare și Câmpuri</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimarea Formularului Entității</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#field-widget">Controalele grafice de tip câmp</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Proiectare de tip drag and drop pentru formulare</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Vizibilitate condiționată</a></li>
 <li><a class="reference internal" href="#constraints">Constrângeri</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">Cazuri obișnuite de utilizare</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Valori implicite</a><ul>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#id1">Cazuri obișnuite de utilizare</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editabile</a></li>
@@ -167,7 +167,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Observații referitoare la accesul la fișierele speciale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
@@ -206,8 +206,8 @@
 <p>Setarea de suprimare a formularului entității se aplică direct formularului QField.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h3>Controalele grafice de tip câmp<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h3>
+<p>Controalele grafice de tip câmp din QGIS sunt permise, datorită unui efort susținut.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -281,12 +281,12 @@
 <h3>Constrângeri<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
 <p>Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Cazuri obișnuite de utilizare<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
+<p>Nu puteți introduce o valoare cu o altitudine mai mare decât a celui mai înalt munte din această țară.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Este necesar să introduceți un identificator.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
 </pre></div>
 </div>
@@ -296,21 +296,20 @@
 <h3>Valori implicite<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
 <p>Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Insert the current date and time:</p>
+<h4>Cazuri obișnuite de utilizare<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Introduceți data și ora curente:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Inserați lungimea liniei digitizate:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configurați variabilele globale ale dispozitivului și introduceți-le.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>În cazul în care doriți să alocați un cod de regiune, în funcție de locația din care se introduce o entitate nouă, puteți face acest lucru prin utilizarea unei expresii de agregare:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
