@@ -195,7 +195,10 @@
 <h2>Afișarea Expresiei<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>În QField, obiectele sunt identificate după nume. Expresia care va genera acest nume poate fi definită prin deschiderea tabelului de atribute din QGIS și trecerea la vizualizarea formularului. Alegeți câmpul corespunzător sau o expresie din acea listă. Începând de la QGIS 3, acest lucru se poate face direct din pagina <span class="menuselection">Proprietățile Stratului Vectorial ‣ Afișare</span>.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -277,14 +280,20 @@
 <h3>Vizibilitate condiționată<a class="headerlink" href="#conditional-visibility" title="Permalink to this headline">¶</a></h3>
 <p>Grupurile pot fi ascunse în baza unei expresii. Acest lucru este util atunci când unele atribute sunt cerute doar în anumite condiții. Un astfel de exemplu o reprezintă cartografierea copacilor. Unii dintre ei s-ar putea să fie atacați de o anumită boală, iar dvs. aveți o listă cu posibile afecțiuni. Pentru a nu aglomera cu multe câmpuri formularul, creați un grup și stabiliți o expresie de vizibilitate pentru grupul &#8220;boli&#8221;. Adăugați câmpul &#8220;boli&#8221; și o casetă de bifare. Numai atunci când este bifată caseta de selectare, lista bolilor va fi disponibilă utilizatorului.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Constrângeri<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
 <p>Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Cazuri obișnuite de utilizare<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
@@ -293,7 +302,7 @@
 </pre></div>
 </div>
 <p>Este necesar să introduceți un identificator.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -302,7 +311,10 @@
 <h3>Valori implicite<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
 <p>Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Cazuri obișnuite de utilizare<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>

@@ -195,7 +195,10 @@
 <h2>Вираз для відображення<a class="headerlink" href="#display-expression" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>В QField об&#8217;єкти ідентифікуються за іменем. Вираз, що генерує це ім&#8217;я можна налаштувати. Для цього відкрийте таблицю атрибутів в QGIS та перейдіть у режим форми. Виберіть відповідне поле або вираз зі списку. Починаючи з QGIS 3, це можна зробити напряму на сторінці <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -277,14 +280,20 @@
 <h3>Умовна видимість<a class="headerlink" href="#conditional-visibility" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Групи можуть бути приховані в залежності від результатів виразу. Це може бути корисним, коли певні атрибути необхідні лише в певних умовах. Наприклад, під час картографування дерев. Деякі з них можуть мати захворювання і у вас є список можливих захворювань. Щоб не перевантажувати форму багатьма полями, зробіть групу та налаштуйте вираз видимості для групи &#8220;diseases&#8221;. Додайте поле-перемикач &#8220;desease&#8221;. Список захворювань буде видимий лише коли перемикач активний.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Обмеження<a class="headerlink" href="#constraints" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>На атрибути можна накладати обмеження. Обмеження &#8212; це вирази, які повинні повертати <code class="code docutils literal"><span class="pre">True</span></code> (або <code class="code docutils literal"><span class="pre">1</span></code>) щоб вміст форми можна було зберегти. Обмеження налаштовуються дл кожного поля окремо, також можна вказати текст, який буде показаний користувачу, якщо обмеження не виконується.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Постійне посилання на цей заголовок">¶</a></h4>
@@ -293,7 +302,7 @@
 </pre></div>
 </div>
 <p>It is required to fill in an identifier.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -302,7 +311,10 @@
 <h3>Типові значення<a class="headerlink" href="#default-values" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Поля можуть мати типові значення. Типові значення вставляються у форму атрибутів під час оцифровки об&#8217;єкта. Користувач їх бачить та може змінити, якщо поле може редагуватися. Типові значення можуть базуватися на значеннях геометрії чи виразів.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Common use cases<a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h4>

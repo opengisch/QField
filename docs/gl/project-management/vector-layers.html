@@ -195,7 +195,10 @@
 <h2>Amosar Expresión<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>En QField, os obxectos identifícanse cun nome. A expresión para xerar este nome pode definirse abrindo a táboa de atributos e QGIS e alternar á vista de formulario. Escolla alí o campo apropiado ou unha expresión na lista. Comezando dende QGIS 3, isto pode facerse directamente dende a páxina <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualizar</span>.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -278,14 +281,20 @@
 <h3>Visibilidade condicional<a class="headerlink" href="#conditional-visibility" title="Permalink to this headline">¶</a></h3>
 <p>Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo &#8220;enfermidades&#8221;. Engade un campo &#8220;enfermidade&#8221; cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Restricións<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
 <p>Os campos de atributo poden ter ligadas restricións. As restricións son expresións que precisan avaliarse a <code class="code docutils literal"><span class="pre">Certo</span></code> (ou <code class="code docutils literal"><span class="pre">1</span></code>) para poder gardar o formulario. As restricións configúranse por en base a un campo e pode engadirse unha descrición que se lle amosará ó usuario se a restrición non é satisfeita.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
@@ -294,7 +303,7 @@
 </pre></div>
 </div>
 <p>It is required to fill in an identifier.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -303,7 +312,10 @@
 <h3>Valores predeterminados<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
 <p>Os campos poden ter valores predeterminados configurados. Os valores predeterminados se introducen no formulario de atributos cando se dixitaliza unha nova entidade. Son visibles ó usuario e poden modificarse en tanto o campo sexa editable. Poden basearse en variables de xeometría ou expresións.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Common use cases<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>

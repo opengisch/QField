@@ -200,7 +200,10 @@ by opening the attribute table in QGIS and switching to the form view. Choose th
 field or an expression in the list there. Starting from QGIS 3, this can be done directly from
 the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -277,7 +280,10 @@ many fields, make a group and configure a visibility expression for a group &#82
 a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
 will be available to the user.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
@@ -287,7 +293,10 @@ evaluate to <code class="code docutils literal"><span class="pre">True</span></c
 are configured on a per-field basis and a description can be added that will be shown to the
 user if a constraint is not satisfied.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
@@ -296,7 +305,7 @@ user if a constraint is not satisfied.</p>
 </pre></div>
 </div>
 <p>It is required to fill in an identifier.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -308,7 +317,10 @@ attribute form when digitizing a new feature. They are visible to the user and c
 be modified as long as the field is editable. They can be based on the geometry or
 expression variables.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Common use cases<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>

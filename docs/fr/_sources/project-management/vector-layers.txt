@@ -21,9 +21,11 @@ the :menuselection:`Vector Layer Properties --> Display` page.
 
 .. container:: clearer text-center
 
-  .. image:: /images/define_display_expression.png
+  .. figure:: /images/define_display_expression.png
      :width: 500px
      :alt: Define display expression
+
+     The display expression will be used to represent features with an identification string throughout QField.
 
 Forms and Fields
 ================
@@ -86,9 +88,11 @@ will be available to the user.
 
 .. container:: clearer text-center
 
-  .. image:: /images/conditional_visibility_configuration.png
+  .. figure:: /images/conditional_visibility_configuration.png
      :width: 600px
      :alt: Conditional visibility configuration
+
+     Configuration of a group box that will only be shown if the checkbox "measures_taken" is checked.
 
 Constraints
 -----------
@@ -100,9 +104,11 @@ user if a constraint is not satisfied.
 
 .. container:: clearer text-center
 
-  .. image:: /images/constraint_configuration.png
+  .. figure:: /images/constraint_configuration.png
      :width: 600px
      :alt: Constraint configuration
+
+     Configuration of a constraint within a range
 
 Common use cases
 ................
@@ -117,7 +123,7 @@ It is required to fill in an identifier.
 
 .. code-block:: sql
 
- "identifier" IS NOT NULL`
+  "identifier" IS NOT NULL
 
 Default values
 --------------
@@ -129,9 +135,11 @@ expression variables.
 
 .. container:: clearer text-center
 
-  .. image:: /images/default_value_configuration.png
+  .. figure:: /images/default_value_configuration.png
      :width: 600px
      :alt: Default value configuration
+
+     Configuration of a formatted date as default value
 
 Common use cases
 ................

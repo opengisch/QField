@@ -196,7 +196,10 @@
 <h2>Anzeigeausdruck<a class="headerlink" href="#display-expression" title="Link zu dieser Überschrift">¶</a></h2>
 <p>In QField werden Objekte mit einem Namen bezeichnet. Der Ausdruck der für die Generierung dieses Namens verwendet wird kann in QGIS konfiguriert werdne, indem die Attributtabelle geöffnet wird und in die Formularansicht gewechselt wird. Das entsprechende Feld oder ein Ausdruck kann in der Liste ausgewählt werden. Mit QGIS 3 kann das direkt über die <span class="menuselection">Vectorebeneneigenschaften ‣ Anzeige</span> Einstellung gemacht werden.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -277,14 +280,20 @@
 <h3>Bedingte Sichtbarkeit<a class="headerlink" href="#conditional-visibility" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Gruppen können dynamisch versteckt und angezeigt werden. Dies ist oft nützlich wenn einige Attribute nur unter bestimmten Bedingungen benötigt werden. Ein Beispiel ist die Kartierung von Bäumen. Einige können eine Krankheit haben, die genauer definiert werden kann. Damit das Formular übersichtlich bleibt, kann eine neue Gruppe mit den Feldern, die die Krankheit genauer definieren erstellt werden. Auf dieser Gruppe kann nun ein Sichtbarkeitsausdruck konfiguriert werden, der auf einem separaten Feld &#8220;Krankeit&#8221; mit einem Kreuzkästchen basiert. Nur wenn dieses angekreuzt ist, stehen die zusätzlichen Felder zur Verfügung.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Bedingungen<a class="headerlink" href="#constraints" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Attributfelder können Bedingungen haben. Bedingungen sind Ausdrücke, die entweder zu <code class="code docutils literal"><span class="pre">True</span></code> (oder <code class="code docutils literal"><span class="pre">1</span></code>) aufgelöst werden müssen, damit das Formular gespeichert werden kann. Bedingungen werden auf Feldebene konfiguriert und eine Beschreibung kann hinzugefügt werden, die dem Nutzer angezeigt wird, wenn eine Bedingung nicht erfüllt ist.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Übliche Anwendungsfälle<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h4>
@@ -293,7 +302,7 @@
 </pre></div>
 </div>
 <p>Es ist nötig, eine Bezeichnung einzugeben.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -302,7 +311,10 @@
 <h3>Standardwerte<a class="headerlink" href="#default-values" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Felder können Standardwerte haben. Standardwerte werden automatisch in das Formular eingefügt, wenn ein neues Objekt erzeugt wird. Sie sind für den Nutzer sichtbar und können bearbeitet werden, sofern das Feld editierbar ist. Sie können auch auf der Geometrie oder Ausdrucksvariablen basieren.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Übliche Anwendungsfälle<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>

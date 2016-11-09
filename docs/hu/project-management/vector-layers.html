@@ -196,7 +196,10 @@
 <h2>Kifejezés megjelenítés<a class="headerlink" href="#display-expression" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>A QField-ben az objektumokat névvel azonosítjuk. Ezt a nevet generáló kifejezést a QGIS-ben az attribútum tábla megnyitásával és űrlap nézetre váltással definiálhatjuk. Válassza a megfelelő mező nevet vagy egy kifejezést az ott található listából. A QGIS 3-tól ez közvetlenül megtehető a <span class="menuselection">Vektor réteg tulajdonságok -&gt; Megjelenítés</span> oldalon.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
@@ -278,14 +281,20 @@
 <h3>Feltételes láthatóság<a class="headerlink" href="#conditional-visibility" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>Egy kifejezés alapján a csoportok elrejthetők. Ez akkor hasznos, ha bizonyos körülmények között csak bizonyos attribútumokra van szükség. Példaként képzeljük el, hogy fákat térképezünk. Néhány közülük beteg lehet és van egy lehetséges betegségek listánk. Hogy ne zsúfoljuk tele mezőkkel az űrlapot, készítsünk egy csoportot és állítsuk be a láthatósági kifejezést a &#8220;betegségekre&#8221;. Adjon hozzá egy betegség jelölőnégyzetet. A betegségek listája csak akkor jelenik meg a felhasználónak, ha a jelölőnégyzetet kiválasztotta.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Korlátozások<a class="headerlink" href="#constraints" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>Az attribútum mezőkhöz korlatozásokat rendelhetünk. A korlátozások kifejezések melyeknek <code class="code docutils literal"><span class="pre">True</span></code> (vagy <code class="code docutils literal"><span class="pre">1</span></code>) értéket kell adniuk, hogy az űrlapot el tudjuk menteni. A korlátozásokat mezőnként állíthatjuk be és egy leírást adhatunk meg mellé, melyet a felhasználó akkor lát, ha a korlátozó feltétel nem teljesül.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+</div>
 </div>
 <div class="section" id="common-use-cases">
 <h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
@@ -294,7 +303,7 @@
 </pre></div>
 </div>
 <p>It is required to fill in an identifier.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="o">`</span>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -303,7 +312,10 @@
 <h3>Alapértelmezett értékek<a class="headerlink" href="#default-values" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>A mezőkre alapértelmezett értéket állíthatunk be. Az alapértelmezett értékek az új elem digitalizálásánál jelennek meg az attribútum űrlapban. A felhasználó látja azokat és módosíthatja, ha szerkeszthető a mező. Az alapértelmezett értékek geometria vagy kifejezés változóktól függhetnek.</p>
 <div class="clearer text-center container">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+</div>
 </div>
 <div class="section" id="id1">
 <h4>Common use cases<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
