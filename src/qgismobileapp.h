@@ -19,8 +19,7 @@
 #define QGISMOBILEAPP_H
 
 // Qt includes
-#include <QtQuick/QQuickWindow>
-#include <QtQuick/QQuickView>
+#include <QtQml/QQmlApplicationEngine>
 
 // QGIS includes
 #include <qgsapplication.h>
@@ -42,11 +41,11 @@ class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
 
-class QgisMobileapp : public QQuickView
+class QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:
-    QgisMobileapp( QgsApplication *app, QWindow* parent = 0 );
+    QgisMobileapp( QgsApplication *app , QObject* parent = nullptr );
     ~QgisMobileapp();
 
     /**

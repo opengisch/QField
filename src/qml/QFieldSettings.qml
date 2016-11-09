@@ -1,7 +1,9 @@
 import QtQuick 2.0
 
 import Qt.labs.settings 1.0
-import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.0 as Controls
+import QtQuick.Layouts 1.3
+
 import "js/style.js" as Style
 
 Item {
@@ -14,38 +16,48 @@ Item {
   }
 
   Rectangle {
-    anchors.fill: parent
     color: "white"
+    anchors.fill: parent
   }
 
-  Column {
+  ColumnLayout {
     anchors { left: parent.left; right: parent.right; bottom: parent.bottom; top: toolbar.bottom; leftMargin: 4 * dp }
 
-    Controls.GroupBox {
-      anchors { left: parent.left; right: parent.right }
-      title: qsTr( "Map Items" )
+    Controls.TabBar {
+      id: bar
+      anchors { right: parent.right; left: parent.left }
 
-      Controls.CheckBox {
-        id: showScaleBarCheckBox
-        anchors { left: parent.left; right: parent.right }
-        text: qsTr( "Show Scalebar" )
-        checked: true
-
-        onCheckedChanged: {
-          QFieldSettingsManager.scaleBarVisible = checked
-        }
+      Controls.TabButton {
+        text: qsTr("Layout")
+      }
+      Controls.TabButton {
+        text: qsTr("Global Variables")
       }
     }
 
-    Controls.GroupBox {
-      anchors { left: parent.left; right: parent.right }
-      height: childrenRect.height
-      title: qsTr( "Global Expression Variables" )
+    StackLayout {
+      width: parent.width
+      currentIndex: bar.currentIndex
 
-      VariableEditor {
-        id: variableEditor
+      Item {
+        Controls.CheckBox {
+          id: showScaleBarCheckBox
+          anchors { left: parent.left; right: parent.right }
+          text: qsTr( "Show Scalebar" )
+          checked: true
 
-        anchors { left: parent.left; right: parent.right }
+          onCheckedChanged: {
+            QFieldSettingsManager.scaleBarVisible = checked
+          }
+        }
+      }
+
+      Item {
+        VariableEditor {
+          id: variableEditor
+
+          anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+        }
       }
     }
   }

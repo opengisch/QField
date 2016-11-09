@@ -3,7 +3,7 @@ import org.qgis 1.0
 import QtQuick.Controls 1.4 as Controls
 import "js/style.js" as Style
 
-  Item {
+Item {
   id: dashBoard
 
   signal showMenu

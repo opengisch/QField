@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.0
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -14,12 +14,15 @@ Item {
 
     text: value || ''
 
-    textColor: constraintValid ? "black" : "#c0392b"
-
     inputMethodHints: field.isNumeric || widget == 'Range' ? Qt.ImhDigitsOnly : Qt.ImhNone
 
     onTextChanged: {
       valueChanged( text, text == '' )
+    }
+
+    background: Rectangle {
+      color: control.enabled ? "transparent" : "#353637"
+      border.color: control.enabled ? constraintValid ? "#21be2b" : "#c0392b" : "transparent"
     }
   }
 

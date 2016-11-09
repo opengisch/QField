@@ -17,6 +17,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.0
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import QtQml 2.2
@@ -27,10 +28,11 @@ import "js/style.js" as Style
 
 import '.'
 
-Rectangle {
+ApplicationWindow {
   id: mainWindow
-  anchors.fill: parent
-
+  visible: true
+  //anchors.fill: parent
+/*
   states: [
     State {
       name: "browse"
@@ -41,7 +43,7 @@ Rectangle {
     }
   ]
   state: "browse"
-
+*/
   /*
    * The position source to access the GPS
    */

@@ -21,8 +21,7 @@
 
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
-#include <QtQuick/QQuickItem>
-#include <QtQuick/QQuickWindow>
+#include <QtQml/QQmlApplicationEngine>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
@@ -65,8 +64,8 @@
 #include "snappingutils.h"
 #include "snappingresult.h"
 
-QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
-  : QQuickView( parent )
+QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
+  : QQmlApplicationEngine( parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
 {
@@ -83,14 +82,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
 
   QgsEditorWidgetRegistry::initEditors();
 
-  setSource( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
+  load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
-  connect( engine(), &QQmlEngine::quit, app, &QgsApplication::quit );
+  connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
-  setMinimumHeight( 480 );
-  setMinimumWidth( 800 );
-
-  QgsQuickMapCanvasMap* mMapCanvas = rootObject()->findChild<QgsQuickMapCanvasMap*>();
+  QgsQuickMapCanvasMap* mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap*>();
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -101,13 +97,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QWindow* parent )
   connect( QgsProject::instance(), &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
-  connect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering, Qt::QueuedConnection );
+  QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
 
   mOfflineEditing = new QgsOfflineEditing();
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
-
-  show();
 }
 
 void QgisMobileapp::initDeclarative()
@@ -218,7 +212,7 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
 void QgisMobileapp::onAfterFirstRendering()
 {
   // This should get triggered exactly once, so we disconnect it right away
-  disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
+  // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
 
   if ( mFirstRenderingFlag )
   {
@@ -256,7 +250,7 @@ bool QgisMobileapp::event( QEvent* event )
   if ( event->type() == QEvent::Close )
     QgsApplication::instance()->quit();
 
-  return QQuickView::event( event );
+  return QQmlApplicationEngine::event( event );
 }
 
 QgisMobileapp::~QgisMobileapp()
