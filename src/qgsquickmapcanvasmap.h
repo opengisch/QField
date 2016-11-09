@@ -18,6 +18,7 @@
 #define QGSQUICKMAPCANVASMAP_H
 
 #include <QtQuick/QQuickItem>
+#include <QFutureSynchronizer>
 #include <QTimer>
 #include <qgspoint.h>
 #include <qgsmapsettings.h>
@@ -121,6 +122,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mDirty;
     bool mFreeze;
     QList<QMetaObject::Connection> mLayerConnections;
+    QFutureSynchronizer<void> mZombieJobs;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H

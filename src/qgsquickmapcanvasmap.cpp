@@ -380,7 +380,7 @@ void QgsQuickMapCanvasMap::stopRendering()
 
     // Destroy job in separate worker thread, killing an iterator may take some time
     // and reduce responsiveness
-    QtConcurrent::run( this, &QgsQuickMapCanvasMap::destroyJob, mJob );
+    mZombieJobs.addFuture( QtConcurrent::run( this, &QgsQuickMapCanvasMap::destroyJob, mJob ) );
     mJob = nullptr;
   }
 }
