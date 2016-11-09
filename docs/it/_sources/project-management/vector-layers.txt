@@ -84,6 +84,12 @@ many fields, make a group and configure a visibility expression for a group "dis
 a field "desease" with a checkbox. Only when the checkbox is checked, the list of diseases
 will be available to the user.
 
+.. container:: clearer text-center
+
+  .. image:: /images/conditional_visibility_configuration.png
+     :width: 600px
+     :alt: Conditional visibility configuration
+
 Constraints
 -----------
 
@@ -91,6 +97,12 @@ Attribute fields can have constraints attached. Constraints are expressions that
 evaluate to :code:`True` (or :code:`1`) in order to be able to save the form. Constraints
 are configured on a per-field basis and a description can be added that will be shown to the
 user if a constraint is not satisfied.
+
+.. container:: clearer text-center
+
+  .. image:: /images/constraint_configuration.png
+     :width: 600px
+     :alt: Constraint configuration
 
 Common use cases
 ................
@@ -114,6 +126,12 @@ Fields can have default values configured. Default values are inserted into the
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
 expression variables.
+
+.. container:: clearer text-center
+
+  .. image:: /images/default_value_configuration.png
+     :width: 600px
+     :alt: Default value configuration
 
 Common use cases
 ................
