@@ -63,21 +63,21 @@ Translations
 
 The documentation is available in several languages
 
-`Catalan </ca>`_
+`Catalan </docs/ca>`_
 
-`Deutsch </de>`_
+`Deutsch </docs/de>`_
 
-`English </en>`_
+`English </docs/en>`_
 
-`Français </fr>`_
+`Français </docs/fr>`_
 
-`Galician </gl>`_
+`Galician </docs/gl>`_
 
-`Portuguese </pt>`_
+`Portuguese </docs/pt>`_
 
-`Romanian </ro>`_
+`Romanian </docs/ro>`_
 
-`Ukranian </uk>`_
+`Ukranian </docs/uk>`_
 
 
 `Hungarian </hu>`_
