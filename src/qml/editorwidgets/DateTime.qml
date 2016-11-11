@@ -1,5 +1,6 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4 as Controls
 import "../js/style.js" as Style
 
 /*
@@ -27,7 +28,7 @@ Item {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-          calendar.forceActiveFocus()
+          popup.open()
         }
       }
 
@@ -45,16 +46,22 @@ Item {
       }
     }
 
-    Calendar {
-      id: calendar
-      selectedDate: currentValue
-      weekNumbersVisible: true
-      focus: false
-      height: activeFocus ? undefined : 0
-      visible: config['display_format'] && activeFocus
+    Popup {
+      id: popup
+      modal: true
+      focus: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
-      onSelectedDateChanged: {
-        main.currentValue = selectedDate
+      Controls.Calendar {
+        id: calendar
+        selectedDate: currentValue
+        weekNumbersVisible: true
+        focus: false
+        anchors.fill: parent
+
+        onSelectedDateChanged: {
+          main.currentValue = selectedDate
+        }
       }
     }
 

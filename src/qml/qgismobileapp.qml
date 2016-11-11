@@ -31,20 +31,23 @@ import '.'
 ApplicationWindow {
   id: mainWindow
   visible: true
-  //anchors.fill: parent
-/*
-  states: [
-    State {
-      name: "browse"
-    },
 
-    State {
-      name: "digitize"
-    }
-  ]
-  state: "browse"
-*/
-  /*
+  Item {
+    id: stateMachine
+
+    states: [
+      State {
+        name: "browse"
+      },
+
+      State {
+        name: "digitize"
+      }
+    ]
+    state: "browse"
+  }
+
+  /**
    * The position source to access the GPS
    */
   PositionSource {
@@ -130,7 +133,7 @@ ApplicationWindow {
 
         anchors.fill: parent
 
-        visible: mainWindow.state === "digitize"
+        visible: stateMachine.state === "digitize"
       }
 
       /** The identify tool **/
@@ -146,7 +149,7 @@ ApplicationWindow {
     CoordinateLocator {
       id: coordinateLocator
       anchors.fill: parent
-      visible: mainWindow.state === "digitize"
+      visible: stateMachine.state === "digitize"
       highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
@@ -227,7 +230,7 @@ ApplicationWindow {
     width: 0
     clip: true
 
-    showLayerSelector: mainWindow.state === "digitize" && !digitizingToolbar.isDigitizing
+    showLayerSelector: stateMachine.state === "digitize" && !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
 
     Behavior on width {
@@ -237,7 +240,7 @@ ApplicationWindow {
       }
     }
 
-    onShowMenu: mainMenu.popup()
+    onShowMenu: mainMenu.open()
   }
 
   DropShadow {
@@ -337,7 +340,7 @@ ApplicationWindow {
     }
 
     onPressAndHold: {
-      gpsMenu.popup()
+      gpsMenu.open()
     }
 
     function toggleGps() {
@@ -362,7 +365,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( mainWindow.state === "digitize" )
+    visible: ( stateMachine.state === "digitize" )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -411,35 +414,39 @@ ApplicationWindow {
     }
   }
 
-  Controls.Menu {
+  Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    Controls.Menu {
-      title: qsTr( "Mode" )
+    MenuItem {
+      text: qsTr( "Mode" )
+      onTriggered: modeMenu.open()
 
-      Controls.MenuItem {
-        text: qsTr( "Browse" )
-        onTriggered: mainWindow.state = "browse"
-      }
+      Menu {
+        id: modeMenu
+        MenuItem {
+          text: qsTr( "Browse" )
+          onTriggered: stateMachine.state = "browse"
+        }
 
-      Controls.MenuItem {
-        text: qsTr( "Digitize" )
-        onTriggered: mainWindow.state = "digitize"
+        MenuItem {
+          text: qsTr( "Digitize" )
+          onTriggered: stateMachine.state = "digitize"
+        }
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Open Project" )
-      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
+      // iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         openProjectDialog.visible = true
       }
     }
 
-    Controls.MenuSeparator {}
+    // MenuSeparator {}
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Settings" )
 
       onTriggered: {
@@ -447,7 +454,7 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "About" )
 
       onTriggered: {
@@ -455,7 +462,7 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Log" )
 
       onTriggered: {
@@ -463,22 +470,22 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuSeparator {}
+    // MenuSeparator {}
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Quit" )
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      // iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
       onTriggered: {
         Qt.quit()
       }
     }
   }
 
-  Controls.Menu {
+  Menu {
     id: gpsMenu
     title: qsTr( "GPS Options" )
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Enable GPS" )
       checkable: true
       checked: positionSource.active
@@ -487,7 +494,7 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Center current location" )
       onTriggered: {
         var coord = positionSource.position.coordinate;
@@ -496,9 +503,9 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuSeparator {}
+    // MenuSeparator {}
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Show position information" )
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
@@ -545,7 +552,7 @@ ApplicationWindow {
 
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
-    allowDelete: mainWindow.state === "digitize"
+    allowDelete: stateMachine.state === "digitize"
 
     model: FeatureListModel {}
 
@@ -686,7 +693,7 @@ ApplicationWindow {
     id: qfieldSettings
 
     anchors.fill: parent
-    visible: false
+    visible: true
 
     onFinished: {
       visible = false

@@ -1,12 +1,12 @@
 import QtQuick 2.0
 
 import Qt.labs.settings 1.0
-import QtQuick.Controls 2.0 as Controls
+import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
 import "js/style.js" as Style
 
-Item {
+Page {
   signal finished
 
   property alias showScaleBar: showScaleBarCheckBox.checked
@@ -21,16 +21,16 @@ Item {
   }
 
   ColumnLayout {
-    anchors { left: parent.left; right: parent.right; bottom: parent.bottom; top: toolbar.bottom; leftMargin: 4 * dp }
+    anchors.fill: parent
 
-    Controls.TabBar {
+    TabBar {
       id: bar
       anchors { right: parent.right; left: parent.left }
 
-      Controls.TabButton {
+      TabButton {
         text: qsTr("Layout")
       }
-      Controls.TabButton {
+      TabButton {
         text: qsTr("Global Variables")
       }
     }
@@ -40,7 +40,7 @@ Item {
       currentIndex: bar.currentIndex
 
       Item {
-        Controls.CheckBox {
+        CheckBox {
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show Scalebar" )
@@ -55,65 +55,63 @@ Item {
       Item {
         VariableEditor {
           id: variableEditor
-
-          anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
         }
       }
     }
   }
 
   /** The title toolbar **/
-  Rectangle {
+  header: ToolBar {
     id: toolbar
 
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
+    RowLayout {
+      spacing: 20
+      anchors.fill: parent
 
-    height: visible ? 48 * dp : 0
+      ToolButton {
+        id: saveButton
 
-    Button {
-      id: saveButton
-      anchors.right: parent.right
+        contentItem: Image {
+          fillMode: Image.Pad
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source:Style.getThemeIcon( "ic_save_white_24dp" )
+        }
 
-      width: 48 * dp
-      height: 48 * dp
-
-      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
-
-      onClicked: {
-        variableEditor.apply()
-        finished()
+        onClicked: {
+          variableEditor.apply()
+          finished()
+        }
       }
-    }
 
-    Rectangle {
-      color: "#FFEB3B"
+      Label {
+        id: titleLabel
+        text: qsTr( 'QField Settings' )
+        font.bold: true
+        font.pixelSize: 20
+        elide: Label.ElideRight
+        horizontalAlignment: Qt.AlignHCenter
+        verticalAlignment: Qt.AlignVCenter
+        Layout.fillWidth: true
+      }
 
-      anchors.fill: titleLabel
-    }
+      Button {
+        id: closeButton
 
-    Controls.Label {
-      id: titleLabel
-      anchors { right: saveButton.left; left: closeButton.right }
-      height: closeButton.height
-      text: qsTr( 'QField Settings' )
-      font.bold: true
-      horizontalAlignment: Text.AlignHCenter
-    }
+        width: 48 * dp
+        height: 48 * dp
 
-    Button {
-      id: closeButton
-      anchors.left: parent.left
+        contentItem: Image {
+          fillMode: Image.Pad
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Style.getThemeIcon( "ic_close_white_24dp" )
+        }
 
-      width: 48 * dp
-      height: 48 * dp
-
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
-
-      onClicked: {
-        variableEditor.reset()
-        finished()
+        onClicked: {
+          variableEditor.reset()
+          finished()
+        }
       }
     }
   }

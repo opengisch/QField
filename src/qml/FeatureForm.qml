@@ -1,7 +1,5 @@
 import QtQuick 2.6
-import QtQuick.Controls 1.4 as Controls
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Controls.Private 1.0
+import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
@@ -78,7 +76,7 @@ Rectangle {
 
                   property int idx
 
-                  Controls.Button {
+                  Button {
                     id: button
                     text: Name
 
@@ -86,15 +84,13 @@ Rectangle {
                       container.activate( parent )
                     }
 
-                    style: ButtonStyle {
-                      background: Rectangle {
-                        color: "white"
-                      }
+                    background: Rectangle {
+                      color: "white"
+                    }
 
-                      label: Controls.Label {
-                        font.bold: true
-                        text: control.text
-                      }
+                    contentItem: Text {
+                      font.bold: true
+                      text: control.text
                     }
                   }
 
@@ -215,7 +211,7 @@ Rectangle {
 
       anchors { left: parent.left; right: parent.right }
 
-      Controls.Label {
+      Label {
         id: fieldLabel
 
         text: Name
@@ -223,7 +219,7 @@ Rectangle {
         color: ConstraintValid ? "black" : "#c0392b"
       }
 
-      Controls.Label {
+      Label {
         id: constraintDescriptionLabel
         anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
 
@@ -285,9 +281,9 @@ Rectangle {
         }
       }
 
-      Controls.CheckBox {
+      CheckBox {
         id: rememberCheckbox
-        checkedState: RememberValue
+        checkState: RememberValue
 
         visible: form.state === "Add" && EditorWidget !== "Hidden"
         width: visible ? undefined : 0
@@ -319,17 +315,22 @@ Rectangle {
       width: 48*dp
       height: 48*dp
 
-      iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+      contentItem: Image {
+        source: Style.getThemeIcon( "ic_save_white_24dp" )
+      }
+
+      background: Rectangle {
+        color: model.constraintsValid ? "#212121" : "#bdc3c7"
+      }
 
       enabled: model.constraintsValid
-      bgcolor: model.constraintsValid ? "#212121" : "#bdc3c7"
 
       onClicked: {
         save()
       }
     }
 
-    Controls.Label {
+    Label {
       id: titleLabel
       anchors { right: saveButton.left; left: closeButton.right }
       height: closeButton.height
@@ -353,7 +354,9 @@ Rectangle {
       width: 48*dp
       height: 48*dp
 
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      contentItem: Image {
+        source: Style.getThemeIcon( "ic_close_white_24dp" )
+      }
 
       onClicked: {
         Qt.inputMethod.hide()
