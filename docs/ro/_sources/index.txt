@@ -71,15 +71,15 @@ The documentation is available in several languages
 
 `Français </docs/fr>`_
 
-`Galician </docs/gl>`_
+`Galego </docs/gl>`_
 
-`Portuguese </docs/pt>`_
+`Português </docs/pt>`_
 
-`Romanian </docs/ro>`_
+`Română </docs/ro>`_
 
-`Ukranian </docs/uk>`_
+`український </docs/uk>`_
 
-`Hungarian </docs/hu>`_
+`Magyar </docs/hu>`_
 
 If there is an error with a translation, please `help to improve it <https://www.transifex.com/opengisch/qfield-documentation/>`_.
 
