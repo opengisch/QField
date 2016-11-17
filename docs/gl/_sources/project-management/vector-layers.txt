@@ -179,3 +179,33 @@ Remember last values
 
 QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.
 
+Snapping
+========
+
+While digitizing new features, new points can be snapped to existing
+geometries.
+
+All configuration can be done in :menuselection:`Project --> Snapping Settings`
+(:menuselection:`Settings --> Snapping Settings` in QGIS 2.x).
+
+Snapping Types
+--------------
+
+It is possible to snap new points
+
+- only to nodes of existing geomtries
+- only to segments of existing geomtries
+- to nodes and segments of existing geomtries
+
+Snapping to layers
+------------------
+
+It is also possible to only snap to one or a few layers.
+
+Snapping tolerance
+------------------
+
+The snapping tolerance can be specified in map units or pixels.
+
+In almost any case, the units should be set to pixels. We made good
+experiences with a tolerance value of 20.

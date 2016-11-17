@@ -120,6 +120,12 @@
 <li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#snapping">Snapping</a><ul>
+<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -351,6 +357,32 @@ inserted, you can do so by using an aggregate expression:</p>
 <div class="section" id="remember-last-values">
 <h3>Remember last values<a class="headerlink" href="#remember-last-values" title="Permalink to this headline">¶</a></h3>
 <p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+</div>
+</div>
+<div class="section" id="snapping">
+<h2>Snapping<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h2>
+<p>While digitizing new features, new points can be snapped to existing
+geometries.</p>
+<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
+(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<div class="section" id="snapping-types">
+<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to snap new points</p>
+<ul class="simple">
+<li>only to nodes of existing geomtries</li>
+<li>only to segments of existing geomtries</li>
+<li>to nodes and segments of existing geomtries</li>
+</ul>
+</div>
+<div class="section" id="snapping-to-layers">
+<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to only snap to one or a few layers.</p>
+</div>
+<div class="section" id="snapping-tolerance">
+<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Permalink to this headline">¶</a></h3>
+<p>The snapping tolerance can be specified in map units or pixels.</p>
+<p>In almost any case, the units should be set to pixels. We made good
+experiences with a tolerance value of 20.</p>
 </div>
 </div>
 </div>
