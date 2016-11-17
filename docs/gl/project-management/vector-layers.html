@@ -105,15 +105,15 @@
 <li><a class="reference internal" href="#display-expression">Amosar Expresión</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Eliminar Formulario de Entidade</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#field-widget">Widget de campo</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Formularios do deseñador arrastrar e soltar</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilidade condicional</a></li>
 <li><a class="reference internal" href="#constraints">Restricións</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">Casos comúns de uso</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Valores predeterminados</a><ul>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#id1">Casos comúns de uso</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editable</a></li>
@@ -167,11 +167,11 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Notas de Acceso a Ficheiros Especiais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos admitidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos ráster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Xestión do Proxecto QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas de Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
@@ -198,7 +198,7 @@
 <div class="clearer text-center container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+<p class="caption"><span class="caption-text">A expresión visualizada utilizarase para representar entidades cunha cadea de identificación en QField.</span></p>
 </div>
 </div>
 </div>
@@ -210,8 +210,8 @@
 <p>A configuración suprimir formulario de entidade aplícase directamente ó formulario de QField.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h3>Widget de campo<a class="headerlink" href="#field-widget" title="Permalink to this headline">¶</a></h3>
+<p>Os widgets de campo de QGIS están dispoñibles en base ó mellor esforzo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -284,7 +284,7 @@
 <div class="clearer text-center container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+<p class="caption"><span class="caption-text">Configuración dunha caixa de grupo que só se amosará se a caixa de verificación &#8220;tomar_medidas&#8221; está marcada.</span></p>
 </div>
 </div>
 </div>
@@ -294,16 +294,16 @@
 <div class="clearer text-center container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configuración dunha restrición dentro dun rango</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Casos comúns de uso<a class="headerlink" href="#common-use-cases" title="Permalink to this headline">¶</a></h4>
+<p>Non pode introducir un valor de elevación maior que a montaña máis alta neste país.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Precisa encher cun identificador.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
@@ -315,25 +315,24 @@
 <div class="clearer text-center container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Configuración dunha data con formato como valor predeterminado</span></p>
 </div>
 </div>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Insert the current date and time:</p>
+<h4>Casos comúns de uso<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Introduce a data e a hora actuais:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Introduce a lonxitude da liña dixitalizada:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configure as variables globais no dispositivo e introdúzaas.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Se queres asignar un código de rexión baseado na localización onde se insire unha nova entidade, podes facelo empregando unha expresión agregada:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
