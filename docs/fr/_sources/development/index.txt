@@ -196,6 +196,13 @@ We would like to warmly say: Thanks a lot!
        :alt: Ville de Morges
        :target: http://www.morges.ch
 
+.. container:: clearer text-center
+
+    .. image:: /images/logo_ibw.png
+       :width: 200px
+       :alt: ibW Höhere Fachschule Südostschweiz
+       :target: http://www.ibw.ch
+
 *******
 Credits
 *******

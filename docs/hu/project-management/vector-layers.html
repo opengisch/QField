@@ -121,10 +121,10 @@
 <li><a class="reference internal" href="#remember-last-values">Utolsó értékek megjegyzése</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#snapping">Tárgyraszter</a><ul>
+<li><a class="reference internal" href="#snapping-types">Tárgyraszter típusok</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Tárgyraszter rétegekhez</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Tárgyraszter tolerancia</a></li>
 </ul>
 </li>
 </ul>
@@ -305,7 +305,7 @@
 </div>
 <div class="section" id="common-use-cases">
 <h4>Általános felhasználási esetek<a class="headerlink" href="#common-use-cases" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<p>Nem adhat meg az ország legmagasabb hegyénél nagyobb magasságot.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
@@ -355,29 +355,29 @@ inserted, you can do so by using an aggregate expression:</p>
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Snapping<a class="headerlink" href="#snapping" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<h2>Tárgyraszter<a class="headerlink" href="#snapping" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Új elemek digitalizálása közben az új pontok illeszthetők a meglévő geometriákhoz.</p>
+<p>Minden konfigurálás megtehető a <span class="menuselection">Projekt ‣ Tárgyraszter beállítások</span>-ban (<span class="menuselection">Beállítások ‣ Tárgyraszter beállítások</span> QGIS 2.x-ben).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>It is possible to snap new points</p>
+<h3>Tárgyraszter típusok<a class="headerlink" href="#snapping-types" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Új pontokat illeszthetünk</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
-<li>to nodes and segments of existing geomtries</li>
+<li><p class="first">meglévő geometriák töréspontjaihoz</p>
+</li>
+<li><p class="first">meglévő geometriák szakaszaihoz</p>
+</li>
+<li><p class="first">meglévő geometriák töréspontjaihoz és szakaszaihoz</p>
+</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Tárgyraszter rétegekhez<a class="headerlink" href="#snapping-to-layers" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Az is lehetséges, hogy egy vagy csak néhány réteghez adjunk tárgyrasztert.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<h3>Tárgyraszter tolerancia<a class="headerlink" href="#snapping-tolerance" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A tárgyraszter tolerancia térképi egységekben vagy pixelekben adható meg.</p>
+<p>Szinte minden esetben az egységet pixelekben állítsuk be. Jó tapasztalataink vannak a 20 pixeles toleranciával.</p>
 </div>
 </div>
 </div>
