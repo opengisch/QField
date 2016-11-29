@@ -121,10 +121,10 @@
 <li><a class="reference internal" href="#remember-last-values">Letzte Werte erinnern</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#snapping">Objektfang</a><ul>
+<li><a class="reference internal" href="#snapping-types">Objektfangtypen</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Objektfang an Layern</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Toleranz für Objektfang</a></li>
 </ul>
 </li>
 </ul>
@@ -185,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Das aktive Kartenthema wechseln</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globale Variablen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Entwicklung und Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
 </ul>
 
 </ul>
@@ -353,29 +354,29 @@
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Snapping<a class="headerlink" href="#snapping" title="Link zu dieser Überschrift">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<h2>Objektfang<a class="headerlink" href="#snapping" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Während dem Digitalisieren von neuen Objekten können Punkte von bestehenden Geometrien gefangen werden.</p>
+<p>Die gesamte Konfiguration kann in QGIS under <span class="menuselection">Projekt ‣ Objektfangeinstellungen</span> (<span class="menuselection">Einstellungen ‣ Objektfangeinstellungen</span> in QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Link zu dieser Überschrift">¶</a></h3>
-<p>It is possible to snap new points</p>
+<h3>Objektfangtypen<a class="headerlink" href="#snapping-types" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Es ist möglich Punkte zu fangen</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
-<li>to nodes and segments of existing geomtries</li>
+<li><p class="first">anhand von Knoten in existierenden Geometrien</p>
+</li>
+<li><p class="first">anhand von Segmenten von existierenden Geometrien</p>
+</li>
+<li><p class="first">anhand von beidem, Knoten und Segmenten von bestehenden Geometrien</p>
+</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Link zu dieser Überschrift">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Objektfang an Layern<a class="headerlink" href="#snapping-to-layers" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Es ist auch möglich, nur auf einen oder wenige Layer zu fangen.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Link zu dieser Überschrift">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<h3>Toleranz für Objektfang<a class="headerlink" href="#snapping-tolerance" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Die Toleranz für den Objektfang kann in Karteneinheiten oder Pixel angegeben werden.</p>
+<p>In den allermeisten Fällen sollte die Einheit in Pixel angegeben werden. Wir haben gute Erfahrungen gemacht mit Werten von 20 Pixeln.</p>
 </div>
 </div>
 </div>

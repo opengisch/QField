@@ -1,3 +1,5 @@
+.. _portable_project:
+
 Portable Project
 ================
 

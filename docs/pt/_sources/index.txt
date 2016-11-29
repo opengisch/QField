@@ -57,6 +57,7 @@ Contents
    project-management/*
    user-guide/*
    development/index
+   qfieldsync/index
 
 Translations
 ============
