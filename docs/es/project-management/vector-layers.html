@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Vector Layer Settings &mdash; documentación de QField Documentation - 0.8 - Hiendertelltihoren</title>
+    <title>Ajustes de capas vectoriales &mdash; documentación de QField Documentation - 0.8 - Hiendertelltihoren</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -101,20 +101,20 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Vector Layer Settings</a><ul>
-<li><a class="reference internal" href="#style">Style</a></li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
-<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a><ul>
+<li><a class="reference internal" href="#">Ajustes de capas vectoriales</a><ul>
+<li><a class="reference internal" href="#style">Estilo</a></li>
+<li><a class="reference internal" href="#display-expression">Visualizar expresión</a></li>
+<li><a class="reference internal" href="#forms-and-fields">Formas y campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suppress Feature Form</a></li>
 <li><a class="reference internal" href="#field-widget">Field widget</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Visibilidad condicional</a></li>
 <li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">Casos de uso comunes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Valores predeterminados</a><ul>
+<li><a class="reference internal" href="#id1">Casos de uso comunes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editable</a></li>
@@ -174,16 +174,16 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Notas de acceso de archivos especiales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos soportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos Raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestión de Proyectos de QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configuración de temas de mapas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto Portable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Ajustes de capas vectoriales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambia el Tema de Mapa activo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desarrollo y soporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
 </ul>
@@ -194,30 +194,25 @@
     <div class="col-md-9 content">
       
   <div class="section" id="vector-layer-settings">
-<h1>Vector Layer Settings<a class="headerlink" href="#vector-layer-settings" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Most of the settings which QGIS offers are directly supported by QField without any extra effort.</p>
+<h1>Ajustes de capas vectoriales<a class="headerlink" href="#vector-layer-settings" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La mayoria de los ajustes que ofrece QGIS son soportados directamente por QField sin ningún esfuerzo extra.</p>
 <div class="section" id="style">
-<h2>Style<a class="headerlink" href="#style" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>All style settings from QGIS are directly supported by QField.
-This includes all renderer types like graduated, categorized,
-rule based, 2.5D as well as data defined symbology.</p>
+<h2>Estilo<a class="headerlink" href="#style" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Todos los ajustes de estilo de QGIS son soportados directamente por QField. Esto incluye todos los tipos de renderizado como graduado, categorizado, basado en reglas, 2.5D así como simbología definida de datos.</p>
 </div>
 <div class="section" id="display-expression">
-<h2>Display Expression<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<h2>Visualizar expresión<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En QField, los objetos son identificados con un nombre. La expresión para generar este nombre puede ser definido abriendo la tabla de atributos en QGIS y cambiando a la vista de forma. Elije el campo apropiado o una expresión en la lista. Comenzando con QGIS 3, esto puede ser hecho directamente desde la página <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualización</span> .</p>
 <div class="clearer text-center container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+<p class="caption"><span class="caption-text">La expresión de visualización será usada para representar elementos con una cadena de identificación a través de QField.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<h2>Formas y campos<a class="headerlink" href="#forms-and-fields" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>QField crea formas similares a, pero no iguales a QGIS</p>
 <div class="section" id="suppress-feature-form">
 <h3>Suppress Feature Form<a class="headerlink" href="#suppress-feature-form" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>The setting suppress feature form is directly applied to the QField form.</p>
@@ -232,7 +227,8 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
+<tr class="row-odd"><th class="head"><p class="first last">Tipo de campo</p>
+</th>
 <th class="head"><p class="first last">Soporte</p>
 </th>
 <th class="head"><p class="first last">Notas</p>
@@ -240,34 +236,40 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td><p class="first last">Edición de Texto</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li><p class="first">HTML no es soportado</p>
+</li>
+<li><p class="first">La entrada numérica es forzada basada en el tipo.</p>
+</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td><p class="first last">Caja de Chequeo</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td><p class="first last">Mapa de valores</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td><p class="first last">Oculto</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td><p class="first last">Recurso Externo</p>
+</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../development/index.html#make-it-grow"><span>Hazlo crecer, hazlo tuyo</span></a></td>
+<td><p class="first last">Este campo es combinado con integracion de la cámara. Sólo imágenes pueden ser vistas por ahora.:ref:<cite>make_it_grow</cite></p>
+</td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td><p class="first last">Fecha Hora</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -284,13 +286,8 @@ Only images can be viewed so far.
 <p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h3>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h3>Visibilidad condicional<a class="headerlink" href="#conditional-visibility" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los grupos pueden ser ocultados basados en una expresión. Esto es útil cuando ciertos atributos son sólo requeridos bajo ciertas condiciones. Como ejemplo imagina el mapeo de árboles. Algunos de ellos podrían tener una enfermedad y tú tienes una lista de posibles enfermedades. Para no sobrecargar la forma con muchos campos, haz un grupo y configura una expresión de visibilidad para el grupo &#8220;enfermedades&#8221;. Agrega un campo &#8220;enfermedad&#8221; con una caja de chequeo. Sólo cuando la caja de chequeo esté seleccionada, la lista de enfermedades estará disponible para el usuario.</p>
 <div class="clearer text-center container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
@@ -311,8 +308,8 @@ user if a constraint is not satisfied.</p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Casos de uso comunes<a class="headerlink" href="#common-use-cases" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>No puedes entrar un valor de elevación más alto que la montaña más alta en este país.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
@@ -323,7 +320,7 @@ user if a constraint is not satisfied.</p>
 </div>
 </div>
 <div class="section" id="default-values">
-<h3>Default values<a class="headerlink" href="#default-values" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Valores predeterminados<a class="headerlink" href="#default-values" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Fields can have default values configured. Default values are inserted into the
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
@@ -331,25 +328,24 @@ expression variables.</p>
 <div class="clearer text-center container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Configuración de una fecha con formato como valor predeterminado.</span></p>
 </div>
 </div>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>Insert the current date and time:</p>
+<h4>Casos de uso comunes<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Inserta la fecha y hora actuales.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Inserta la longitud de la línea digitalizada.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configura las variables globales en el dispositivo e insértalas.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Si quieres asignar un código de región basado en una localización donde un nuevo elemento es insertado, puedes hacerlo usando una expresión agregada.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
@@ -361,7 +357,7 @@ inserted, you can do so by using an aggregate expression:</p>
 </div>
 <div class="section" id="remember-last-values">
 <h3>Remember last values<a class="headerlink" href="#remember-last-values" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<p>QField ofrece un control mucho más preciso sobre los últimos valores usados e ignora los ajustes de QGIS.</p>
 </div>
 </div>
 <div class="section" id="snapping">
@@ -374,8 +370,10 @@ geometries.</p>
 <h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>It is possible to snap new points</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
+<li><p class="first">sólo a nodos de geometrías existentes</p>
+</li>
+<li><p class="first">sólo a segmentos de geometrías existentes</p>
+</li>
 <li>to nodes and segments of existing geomtries</li>
 </ul>
 </div>

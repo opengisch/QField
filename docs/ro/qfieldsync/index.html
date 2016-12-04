@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
+    <title>Plugin-ul QFieldSync &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -99,12 +99,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">Plugin-ul QFieldSync</a><ul>
+<li><a class="reference internal" href="#workflow">Fluxul de lucru</a></li>
+<li><a class="reference internal" href="#configuration">Configurare</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Configurarea stratului</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configurarea hărții de bază</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configurarea editării offline</a></li>
 </ul>
 </li>
 </ul>
@@ -161,7 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Schimbă Tema de Hartă activă</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variabile globale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Plugin-ul QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -170,81 +170,72 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>Plugin-ul QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
+<p>Plugin-ul QFieldSync ajută la pregătirea și împachetarea proiectelor QGIS pentru QField.</p>
+<p>QFieldSync permite pregătirea proiectului, automatizând următoarele:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proiect Portabil</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">Pașii necesari configurării proiectului (ex.: <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proiect Portabil</span></a>)</p>
+</li>
+<li><p class="first">Crearea hărților topografice pornind de la un singur strat raster sau de la un stil definit într-o temă pentru hartă.</p>
+</li>
+<li><p class="first">Configurarea funcționalității de editare offline și sincronizarea anulării modificărilor.</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Fluxul de lucru<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a obține o scurtă prezentare a procesului, iată o listă de pași tipici:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Creați un pachet QField. Acesta reprezintă o copie de lucru, într-un dosar separat.</p>
+</li>
+<li><p class="first">Copiați pachetul QField pe dispozitivul țintă.</p>
+</li>
+<li><p class="first">Mergeți pe teren și colectați datele.</p>
+</li>
+<li><p class="first">Copiați datele modificate, înapoi pe computerul dvs.</p>
+</li>
+<li><p class="first">Sincronizați datele modificate cu baza de date sau fișierele.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Configurare<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Configurația proiectul este salvată în fișier master, .qgs, al proiect. În acest fel este posibilă pre-configurarea o dată a unui proiect, apoi să-l utilizați în mod repetat.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
+<p>În dialogul de configurare a proiectului, o <em>acțiune</em> poate fi definită, în mod individual, pentru fiecare strat. În funcție de tipul stratului, sunt disponibile diferite tipuri de acțiuni.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Copiere</dt>
+<dd><p class="first last">Stratul va fi copiat în directorul pachetului. Acest lucru este posibil numai pentru straturile stocate în fișiere.</p>
+</dd>
+<dt>Fără acțiune</dt>
+<dd><p class="first last">Sursa stratului va fi lăsată intactă. Acest lucru este disponibil numai pentru straturi nestocate în fișiere, cum ar fi WMS, WFS, PostGIS...</p>
+</dd>
+<dt>Editare offline</dt>
+<dd><p class="first last">O copie de lucru a stratului este copiată în directorul pachetului. Fiecare schimbare care se face, pe durata lucrului, în proiectul împachetat, se înregistrează într-un jurnal al modificărilor. Atunci când are loc sincronizarea modificărilor, acest jurnal va fi urmat, toate modificările fiind aplicate asupra bazei de date principale. Nu are loc nici un conflict de manipulare.</p>
+</dd>
+<dt>Eliminare</dt>
+<dd><p class="first last">Stratul va fi eliminat din copia de lucru. Acest lucru este util în cazul în care un strat este utilizat în harta de bază, și nu va fi disponibil în cadrul proiectului împachetat.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Configurarea hărții de bază<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
+<p>O hartă de bază este un strat raster, care se adaugă ca fundal la fișierul împachetat al proiectului.</p>
+<p>În cazul în care este activată opțiunea hărții de bază, va fi randată o hartă de bază, la fiecare împachetare a proiectului. Aria de interes - extinderea care va fi randată - va fi aleasă la momentul împachetării.</p>
+<p>Există două surse posibile pentru o hartă de bază:</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>Strat</dt>
+<dd><p class="first last">Un strat raster. Acest lucru este util pentru a obține o copie offline a unui strat on-line, cum ar fi un WMS, sau pentru a avea o copie de lucru a unui format neacceptat, cum ar straturile ECW sau MrSID.</p>
+</dd>
+<dt>Tema Hărții</dt>
+<dd><p class="first last">O temă de hartă. Aceasta este utilă pentru a crea o hartă de fundal, cu un anumit stil, bazată pe o combinație a mai multor straturi. Aceste straturi pot fi ulterior eliminate din pachetul de lucru, nefiind nevoie să fie randate pe dispozitiv. În acest mod se poate economisi spațiul de pe disc, și se protejează bateria dispozitivului.</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>Dimensiunea plăcuțelor definește rezoluția spațială. Ea determină numărul de unități de hartă per pixel. Atunci când CRS-ul canevasului hărții are metrul ca unitate și dimensiunea plăcuței este setată la 1, fiecare pixel raster va avea o extindere spațială de 1x1 m, iar în cazul în care aceasta este setată la 1000, fiecare pixel raster va avea o extindere spațială de 1 kilometru pătrat.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
+<p>În cazul în care este bifată <em>sincronizarea doar a entităților din zona de interes</em>, numai entitățile care sunt incluse în extinderea canevasului hărții la momentul împachetării, vor fi copiate în copia de lucru editabilă offline.</p>
 </div>
 </div>
 </div>

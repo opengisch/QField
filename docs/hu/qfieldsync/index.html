@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 0.8 - Hiendertelltihoren dokumentáció</title>
+    <title>QFieldSync modul &mdash; QField Documentation 0.8 - Hiendertelltihoren dokumentáció</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -100,10 +100,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
+<li><a class="reference internal" href="#">QFieldSync modul</a><ul>
+<li><a class="reference internal" href="#workflow">Munkafolyamat</a></li>
+<li><a class="reference internal" href="#configuration">Konfiguráció</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Réteg konfiguráció</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
 </ul>
@@ -162,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Aktív térkép téma módosítása</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globális változók</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Fejlesztés és támogatás</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync modul</a></li>
 </ul>
 
 </ul>
@@ -171,31 +171,36 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>QFieldSync modul<a class="headerlink" href="#qfieldsync-plugin" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>A QFieldSync modul segít a QGIS projektek előkészítésében és összecsomagolásában a QFields-hez.</p>
+<p>A QFieldSync a következők automatizálásával segíti a projektjének előkészítését:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Hordozható Projekt</span></a>)</li>
+<li><p class="first">A projekt beállításhoz szükséges lépések (pl. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Hordozható Projekt</span></a>)</p>
+</li>
 <li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
 <li>Configuring the offline editing functionality and synchronizing changes back.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Munkafolyamat<a class="headerlink" href="#workflow" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Az eljárás gyors áttekintéséhez itt egy lista a tipikus lépésekkel:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
+<li><p class="first">Hozzon létre egy QField csomagot. Ez egy munka másolat egy külön könyvtárban.</p>
+</li>
+<li><p class="first">Másolja át a QField csomagot a cél eszközre.</p>
+</li>
+<li><p class="first">Menjen ki és gyűjtse össze az adatokat.</p>
+</li>
+<li><p class="first">Másolja vissza a módosított adatokat az asztali számítógépére.</p>
+</li>
 <li>Synchronize the modified data with your database or files.</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Konfiguráció<a class="headerlink" href="#configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>The project configuration is saved in the master .qgs project file.
 This way it is possible to pre-configure a project once and use it repeatedly.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>Réteg konfiguráció<a class="headerlink" href="#layer-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>In the project configuration dialog, an <em>action</em> can be defined for each layer
 individually. Depending on the layer type, different types of actions are
 available.</p>
@@ -226,7 +231,7 @@ project is packaged. The area of interest - the extent which will be rendered -
 will be chosen at packaging time.</p>
 <p>There are two possible sources for a base map:</p>
 <dl class="docutils">
-<dt>Layer</dt>
+<dt>Réteg</dt>
 <dd>A raster layer. This is useful to take an offline copy of an online layer like
 a WMS or to take a working copy of an unsupported format like an ECW or MrSID
 layer.</dd>
