@@ -230,8 +230,6 @@ Rectangle {
     anchors.bottom: parent.bottom
     height: parent.height - globalFeaturesList.height
 
-    toolbarVisible: false
-
     model: AttributeFormModel {
       featureModel: FeatureModel {
         currentLayer: featureForm.selection.selectedLayer

@@ -143,5 +143,6 @@
         <file>themes/qfield/xhdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xxhdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_clear_black_18dp.png</file>
+        <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

@@ -236,7 +236,7 @@ ApplicationWindow {
     Behavior on width {
       NumberAnimation {
         duration: 200
-        easing: Easing.InOutQuad
+        easing.type: Easing.InOutQuad
       }
     }
 
@@ -693,7 +693,7 @@ ApplicationWindow {
     id: qfieldSettings
 
     anchors.fill: parent
-    visible: true
+    visible: false
 
     onFinished: {
       visible = false

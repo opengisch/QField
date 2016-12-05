@@ -1,9 +1,10 @@
 import QtQuick 2.0
 import org.qgis 1.0
-import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.0 as Controls
+import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
-Item {
+Controls.Pane {
   id: dashBoard
 
   signal showMenu
@@ -13,14 +14,11 @@ Item {
   property MapSettings mapSettings
 
   property color mainColor: "#C8E6C9"
+  padding: 0
 
-  Rectangle {
+  ColumnLayout {
     anchors.fill: parent
-    color: "white"
-  }
 
-  Column {
-    anchors { left: parent.left; right: parent.right }
     Rectangle {
       anchors { left: parent.left; right: parent.right }
       height: childrenRect.height
@@ -30,16 +28,41 @@ Item {
       Row {
         height: childrenRect.height
 
-        Button {
+        Controls.ToolButton {
           // dummy button, is hidden behind main button
-          iconSource: Style.getThemeIcon( 'ic_menu_white_24dp' )
-          bgcolor: mainColor
+          height: 48 * dp
+          width: 48 * dp
+
+          contentItem: Rectangle {
+            anchors.fill: parent
+            color: mainColor
+            Image {
+              anchors.fill: parent
+              fillMode: Image.Pad
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Style.getThemeIcon( 'ic_menu_white_24dp' )
+
+            }
+          }
         }
 
-        Button {
-          iconSource: Style.getThemeIcon( 'ic_settings_white_24dp' )
+        Controls.ToolButton {
+          height: 48 * dp
+          width: 48 * dp
 
-          bgcolor: mainColor
+          contentItem: Rectangle {
+            anchors.fill: parent
+            color: mainColor
+            Image {
+              anchors.fill: parent
+              fillMode: Image.Pad
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Style.getThemeIcon( 'ic_settings_white_24dp' )
+
+            }
+          }
 
           onClicked: showMenu()
         }
@@ -81,6 +104,12 @@ Item {
           }
         }
       }
+    }
+
+    Legend {
+      id: legend
+      anchors { left: parent.left; right: parent.right }
+      Layout.fillHeight: true
     }
   }
 }

@@ -3,12 +3,13 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
+import QtQml 2.2
 
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 
-Rectangle {
+Pane {
   signal saved
   signal cancelled
   signal aboutToSave
@@ -39,161 +40,32 @@ Rectangle {
     id: container
 
     // Tabs
-    Item {
-      anchors.fill: parent
+    TabBar {
+      id: tabRow
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: 200
+      // visible: model.hasTabs
 
-      Rectangle {
-        id: tabBar
-
-        property var __currentTab
-
-        anchors { left: parent.left; right:parent.right; top: parent.top }
-        height: model.hasTabs ? childrenRect.height : 0
-        clip: true
-
-        Flickable {
-          flickableDirection: Flickable.HorizontalFlick
-
-          anchors { left: parent.left; right: parent.right; top: parent.top }
-          height: tabRow.height
-          contentWidth: tabRow.width
-
-          Row {
-            id: tabRow
-            height: childrenRect.height
-
-            padding: 8 * dp
-            spacing: 8 * dp
-
-            Repeater {
-              model: DelegateModel {
-                id: rootElement
-                model: form.model
-
-                delegate: Item {
-                  height: childrenRect.height
-                  width: childrenRect.width
-
-                  property int idx
-
-                  Button {
-                    id: button
-                    text: Name
-
-                    onClicked: {
-                      container.activate( parent )
-                    }
-
-                    background: Rectangle {
-                      color: "white"
-                    }
-
-                    contentItem: Text {
-                      font.bold: true
-                      text: control.text
-                    }
-                  }
-
-                  Rectangle {
-                    color: tabBar.__currentTab === parent ? "orange" : "gray"
-
-                    height: 2 * dp
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                    anchors.bottom: button.bottom
-
-                    Behavior on color {
-                      ColorAnimation {
-                        easing.type: Easing.InOutQuad
-                      }
-                    }
-                  }
-
-                  Component.onCompleted: {
-                    idx = index
-                    if ( index === 0 )
-                      container.activate( this )
-                  }
-                }
-              }
-            }
-          }
+      TabButton {
+        text: "XYX"
+        Component.onCompleted: {
+          console.info( "creating tab button " + text + " " + instantiator.count )
         }
       }
 
-      DropShadow {
-        anchors.fill: tabBar
-        horizontalOffset: 0
-        verticalOffset: 2 * dp
-        radius: 6.0 * dp
-        samples: 17
-        color: "#80000000"
-        source: tabBar
-      }
+      Repeater {
+        id: instantiator
+        model: form.model
 
-      Connections {
-        target: form.model
-        onHasTabsChanged: container.checkTabs()
-      }
-
-      Connections {
-        target: form.model
-        onFeatureChanged: container.activate( tabBar.__currentTab )
-      }
-
-      /**
-       * The main form content area
-       */
-      ListView {
-        id: content
-        anchors { top: tabBar.bottom; bottom: parent.bottom; left: parent.left; right: parent.right }
-        clip: true
-        section.property: "Group"
-        section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-        section.delegate: Component {
-          /* section header: group box name */
-          Rectangle {
-            width: parent.width
-            height: section === "" ? 0 : 30 * dp
-            color: "lightGray"
-
-            Text {
-              anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
-              font.bold: true
-              text: section
-            }
+        TabButton {
+          text: "XYX"
+          Component.onCompleted: {
+            console.info( "creating tab button " + text + " " + instantiator.count )
           }
         }
 
-        model: SubModel {
-          id: contentModel
-          model: form.model
-        }
-
-        delegate: fieldItem
-      }
-
-      Component.onCompleted: container.checkTabs()
-    }
-
-    function activate( tab ) {
-      if ( !form.model.hasTabs )
-      {
-        tabBar.__currentTab = undefined
-      }
-      else
-      {
-        tabBar.__currentTab = tab
-
-        contentModel.rootIndex = rootElement.modelIndex(tab.idx)
-      }
-    }
-
-    function checkTabs()
-    {
-      if ( !form.model.hasTabs )
-      {
-        contentModel.rootIndex = undefined
+        onCountChanged: console.info( "Count changed" )
       }
     }
   }

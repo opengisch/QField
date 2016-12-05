@@ -25,5 +25,7 @@
         <file>editorwidgets/ValueMap.qml</file>
         <file>js/style.js</file>
         <file>qgismobileapp.qml</file>
+        <file>Legend.qml</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
