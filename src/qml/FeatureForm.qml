@@ -47,19 +47,12 @@ Pane {
       height: 200
       // visible: model.hasTabs
 
-      TabButton {
-        text: "XYX"
-        Component.onCompleted: {
-          console.info( "creating tab button " + text + " " + instantiator.count )
-        }
-      }
-
       Repeater {
         id: instantiator
         model: form.model
 
         TabButton {
-          text: "XYX"
+          text: Name
           Component.onCompleted: {
             console.info( "creating tab button " + text + " " + instantiator.count )
           }
