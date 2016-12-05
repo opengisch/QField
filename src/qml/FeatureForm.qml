@@ -9,7 +9,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 
-Pane {
+Rectangle {
   signal saved
   signal cancelled
   signal aboutToSave
@@ -39,13 +39,19 @@ Pane {
 
     id: container
 
+
     Flickable {
+      id: flickable
       anchors { left: parent.left; right: parent.right }
-      height: childrenRect.height
+      height: tabRow.height
+
+      flickableDirection: Flickable.HorizontalFlick
+      contentWidth: tabRow.width
 
       // Tabs
       TabBar {
         id: tabRow
+        currentIndex: swipeView.currentIndex
         // visible: model.hasTabs
 
         Repeater {
@@ -61,12 +67,25 @@ Pane {
               width: paintedWidth
               text: tabButton.text
               font: tabButton.font
-              opacity: enabled ? 1.0 : 0.3
               color: tabButton.down ? "#17a81a" : "#21be2b"
               horizontalAlignment: Text.AlignHCenter
               verticalAlignment: Text.AlignVCenter
             }
           }
+        }
+      }
+    }
+
+    SwipeView {
+      id: swipeView
+      currentIndex: tabRow.currentIndex
+      anchors { top: flickable.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
+
+      Repeater {
+        model: form.model
+
+        Label {
+          text: Name
         }
       }
     }
