@@ -39,26 +39,35 @@ Pane {
 
     id: container
 
-    // Tabs
-    TabBar {
-      id: tabRow
-      anchors.left: parent.left
-      anchors.right: parent.right
-      height: 200
-      // visible: model.hasTabs
+    Flickable {
+      anchors { left: parent.left; right: parent.right }
+      height: childrenRect.height
 
-      Repeater {
-        id: instantiator
-        model: form.model
+      // Tabs
+      TabBar {
+        id: tabRow
+        // visible: model.hasTabs
 
-        TabButton {
-          text: Name
-          Component.onCompleted: {
-            console.info( "creating tab button " + text + " " + instantiator.count )
+        Repeater {
+          model: form.model
+
+          TabButton {
+            id: tabButton
+            text: Name
+
+            width: contentItem.width + leftPadding + rightPadding
+
+            contentItem: Text {
+              width: paintedWidth
+              text: tabButton.text
+              font: tabButton.font
+              opacity: enabled ? 1.0 : 0.3
+              color: tabButton.down ? "#17a81a" : "#21be2b"
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+            }
           }
         }
-
-        onCountChanged: console.info( "Count changed" )
       }
     }
   }
