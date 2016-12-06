@@ -43,7 +43,6 @@
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
-#include "qgseditorwidgetregistry.h"
 #include "maptransform.h"
 #include "featurelistextentcontroller.h"
 #include "coordinatetransform.h"
@@ -79,8 +78,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
 
   initDeclarative();
-
-  QgsEditorWidgetRegistry::initEditors();
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
@@ -258,6 +255,5 @@ QgisMobileapp::~QgisMobileapp()
   delete mOfflineEditing;
   QgsMapLayerRegistry::instance()->removeAllMapLayers();
   // Reintroduce when created on the heap
-  // delete QgsEditorWidgetRegistry::instance();
   delete QgsProject::instance();
 }

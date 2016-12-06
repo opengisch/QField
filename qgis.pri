@@ -6,15 +6,13 @@ include( paths.pri )
 
 !android {
   INCLUDEPATH += $${QGIS_INSTALL_PATH}/include/qgis
-  LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so \
-          $${QGIS_INSTALL_PATH}/lib/libqgis_gui.so
+  LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so
 }
 
 android {
   QGIS_INSTALL_PATH = $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/files
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
-  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so \
-          $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_gui.so
+  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so
 
   system( mkdir -p $$shadowed($$PWD)/tmp )
   CURRENT_PATH = $$shadowed($$PWD)
