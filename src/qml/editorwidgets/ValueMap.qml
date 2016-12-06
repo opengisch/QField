@@ -21,15 +21,15 @@ Item {
     currentIndex: find(reverseConfig[value])
 
     Component.onCompleted: {
-      model = Object.keys(config);
-      for(var key in config) {
-        reverseConfig[config[key]] = key;
+      model = Object.keys(config['map']);
+      for(var key in config['map']) {
+        reverseConfig[config['map'][key]] = key;
       }
       currentIndex = find(reverseConfig[value])
     }
 
     onCurrentTextChanged: {
-      valueChanged(config[currentText], false)
+      valueChanged(config['map'][currentText], false)
     }
 
     // Workaround to get a signal when the value has changed

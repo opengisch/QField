@@ -243,23 +243,25 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QS
       case QgsAttributeEditorElement::AeTypeField:
       {
         QgsAttributeEditorField* editorField = static_cast<QgsAttributeEditorField*>( element );
-        if ( editorField->idx() < 0 || editorField->idx() >= mLayer->fields().size() )
+        int fieldIndex = editorField->idx();
+        if ( fieldIndex < 0 || fieldIndex >= mLayer->fields().size() )
           continue;
 
-        QgsField field = mLayer->fields().at( editorField->idx() );
+        QgsField field = mLayer->fields().at( fieldIndex );
 
         QStandardItem* item = new QStandardItem();
 
 
-        item->setData( mLayer->attributeDisplayName( editorField->idx() ), AttributeFormModel::Name );
-        item->setData( mFeatureModel->feature().attribute( editorField->idx() ), AttributeFormModel::AttributeValue );
-        item->setData( !mLayer->editFormConfig().readOnly( editorField->idx() ), AttributeFormModel::AttributeEditable );
-        item->setData( mLayer->editFormConfig().widgetType( editorField->name() ), AttributeFormModel::EditorWidget );
-        item->setData( mLayer->editFormConfig().widgetConfig( editorField->name() ), AttributeFormModel::EditorWidgetConfig );
-        item->setData( mFeatureModel->rememberedAttributes().at( editorField->idx() ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
-        item->setData( mLayer->fields().at( editorField->idx() ), AttributeFormModel::Field );
+        item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
+        item->setData( mFeatureModel->feature().attribute( fieldIndex ), AttributeFormModel::AttributeValue );
+        item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
+        QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( fieldIndex );
+        item->setData( setup.type(), AttributeFormModel::EditorWidget );
+        item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
+        item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
+        item->setData( mLayer->fields().at( fieldIndex ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
-        item->setData( editorField->idx(), AttributeFormModel::FieldIndex );
+        item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );

@@ -19,11 +19,6 @@ Item {
     onTextChanged: {
       valueChanged( text, text == '' )
     }
-
-    background: Rectangle {
-      color: control.enabled ? "transparent" : "#353637"
-      border.color: control.enabled ? constraintValid ? "#21be2b" : "#c0392b" : "transparent"
-    }
   }
 
   TextArea {
