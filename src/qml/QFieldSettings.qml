@@ -95,11 +95,8 @@ Page {
         Layout.fillWidth: true
       }
 
-      Button {
+      ToolButton {
         id: closeButton
-
-        width: 48 * dp
-        height: 48 * dp
 
         contentItem: Image {
           fillMode: Image.Pad

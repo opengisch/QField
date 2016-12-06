@@ -1,6 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
 import QtQml 2.2
@@ -9,7 +9,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 
-Rectangle {
+Page {
   signal saved
   signal cancelled
   signal aboutToSave
@@ -32,13 +32,14 @@ Rectangle {
   ]
 
   Item {
-    anchors.bottom: parent.bottom
-    anchors.right: parent.right
-    anchors.left: parent.left
-    anchors.top: toolbar.bottom
-
     id: container
 
+    anchors {
+      bottom: parent.bottom
+      right: parent.right
+      left: parent.left
+      top: toolbar.bottom
+    }
 
     Flickable {
       id: flickable
@@ -84,8 +85,47 @@ Rectangle {
       Repeater {
         model: form.model
 
-        Label {
-          text: Name
+        Item {
+          id: formPage
+          property int currentIndex: index
+
+          Rectangle {
+            anchors.fill: swipeView
+            color: "white"
+          }
+
+          /**
+           * The main form content area
+           */
+          ListView {
+            id: content
+            anchors.fill: parent
+            clip: true
+            section.property: "Group"
+            section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+            section.delegate: Component {
+              // section header: group box name
+              Rectangle {
+                width: parent.width
+                height: section === "" ? 0 : 30 * dp
+                color: "lightGray"
+
+                Text {
+                  anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                  font.bold: true
+                  text: section
+                }
+              }
+            }
+
+            model: SubModel {
+              id: contentModel
+              model: form.model
+              rootIndex: console.warn( "INDEX " + currentIndex ) || form.model.index(currentIndex, 0)
+            }
+
+            delegate: fieldItem
+          }
         }
       }
     }
@@ -190,75 +230,6 @@ Rectangle {
     }
   }
 
-  /** The title toolbar **/
-
-  Rectangle {
-    id: toolbar
-
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-
-    height: visible ? 48*dp : 0
-
-    Button {
-      id: saveButton
-      anchors.right: parent.right
-
-      width: 48*dp
-      height: 48*dp
-
-      contentItem: Image {
-        source: Style.getThemeIcon( "ic_save_white_24dp" )
-      }
-
-      background: Rectangle {
-        color: model.constraintsValid ? "#212121" : "#bdc3c7"
-      }
-
-      enabled: model.constraintsValid
-
-      onClicked: {
-        save()
-      }
-    }
-
-    Label {
-      id: titleLabel
-      anchors { right: saveButton.left; left: closeButton.right }
-      height: closeButton.height
-      text:
-      {
-        if ( form.state === 'Add' )
-          qsTr( 'Add feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
-        else if ( form.state === 'Edit' )
-          qsTr( 'Edit feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
-        else
-          qsTr( 'View feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
-      }
-      font.bold: true
-      horizontalAlignment: Text.AlignHCenter
-    }
-
-    Button {
-      id: closeButton
-      anchors.left: parent.left
-
-      width: 48*dp
-      height: 48*dp
-
-      contentItem: Image {
-        source: Style.getThemeIcon( "ic_close_white_24dp" )
-      }
-
-      onClicked: {
-        Qt.inputMethod.hide()
-
-        cancelled()
-      }
-    }
-  }
-
   function save() {
     parent.focus = true
     aboutToSave()
@@ -279,6 +250,72 @@ Rectangle {
     target: Qt.inputMethod
     onVisibleChanged: {
       Qt.inputMethod.commit()
+    }
+  }
+
+  /** The title toolbar **/
+  header: ToolBar {
+    id: toolbar
+    RowLayout {
+      spacing: 20
+      anchors.fill: parent
+
+      ToolButton {
+        id: saveButton
+
+        contentItem: Image {
+          fillMode: Image.Pad
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Style.getThemeIcon( "ic_save_white_24dp" )
+        }
+
+        background: model.constraintsValid ? "#212121" : "#bdc3c7"
+
+        enabled: model.constraintsValid
+
+        onClicked: {
+          save()
+        }
+      }
+
+      Label {
+        id: titleLabel
+
+        text:
+        {
+          if ( form.state === 'Add' )
+            qsTr( 'Add feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+          else if ( form.state === 'Edit' )
+            qsTr( 'Edit feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+          else
+            qsTr( 'View feature on <i>%1</i>' ).arg( model.featureModel.currentLayer.name )
+        }
+        font.bold: true
+        font.pixelSize: 20
+        elide: Label.ElideRight
+        horizontalAlignment: Qt.AlignHCenter
+        verticalAlignment: Qt.AlignVCenter
+        Layout.fillWidth: true
+      }
+
+      ToolButton {
+        id: closeButton
+        anchors.right: parent.right
+
+        contentItem: Image {
+          fillMode: Image.Pad
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Style.getThemeIcon( "ic_close_white_24dp" )
+        }
+
+        onClicked: {
+          Qt.inputMethod.hide()
+
+          cancelled()
+        }
+      }
     }
   }
 }
