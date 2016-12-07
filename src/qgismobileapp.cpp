@@ -28,6 +28,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QStandardItemModel>
 
+#include <qgslayertreemodel.h>
 #include <qgsproject.h>
 #include <qgsmaplayerregistry.h>
 #include <qgsmaptoolidentify.h>
@@ -62,6 +63,7 @@
 #include "badlayerhandler.h"
 #include "snappingutils.h"
 #include "snappingresult.h"
+#include "layertreemodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -75,7 +77,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   create();
 #endif
 
-  mLayerTree = new QgsLayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
+  mLayerTree = new LayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
 
   initDeclarative();
 
@@ -123,6 +125,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
+  qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
 
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );

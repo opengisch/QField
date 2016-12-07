@@ -31,6 +31,8 @@ import '.'
 ApplicationWindow {
   id: mainWindow
   visible: true
+  minimumWidth: 600
+  minimumHeight: 400
 
   Item {
     id: stateMachine
@@ -230,7 +232,7 @@ ApplicationWindow {
     width: 0
     clip: true
 
-    showLayerSelector: stateMachine.state === "digitize" && !digitizingToolbar.isDigitizing
+    allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
 
     Behavior on width {

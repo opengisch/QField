@@ -24,7 +24,6 @@
 // QGIS includes
 #include <qgsapplication.h>
 #include <qgslayertreemapcanvasbridge.h>
-#include <qgslayertreemodel.h>
 #include <qgsmaplayerproxymodel.h>
 
 // QGIS mobile includes
@@ -40,6 +39,7 @@ class AppInterface;
 class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
+class LayerTreeModel;
 
 class QgisMobileapp : public QQmlApplicationEngine
 {
@@ -93,7 +93,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     QgsOfflineEditing* mOfflineEditing;
     LayerTreeMapCanvasBridge* mLayerTreeCanvasBridge;
-    QgsLayerTreeModel* mLayerTree;
+    LayerTreeModel* mLayerTree;
     QgsMapLayerProxyModel* mLayerList;
     AppInterface* mIface;
     Settings mSettings;

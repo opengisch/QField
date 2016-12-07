@@ -48,7 +48,8 @@ HEADERS += \
     expressionvariablemodel.h \
     badlayerhandler.h \
     snappingutils.h \
-    snappingresult.h
+    snappingresult.h \
+    layertreemodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -81,7 +82,8 @@ SOURCES += \
     expressionvariablemodel.cpp \
     badlayerhandler.cpp \
     snappingutils.cpp \
-    snappingresult.cpp
+    snappingresult.cpp \
+    layertreemodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

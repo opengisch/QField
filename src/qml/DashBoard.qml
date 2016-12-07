@@ -9,8 +9,8 @@ Controls.Pane {
 
   signal showMenu
 
-  property alias showLayerSelector: layerSelectorContainer.visible
-  property alias currentLayer: layerSelector.currentLayer
+  property alias allowLayerChange: legend.enabled
+  property alias currentLayer: legend.currentLayer
   property MapSettings mapSettings
 
   property color mainColor: "#C8E6C9"
@@ -66,16 +66,6 @@ Controls.Pane {
 
           onClicked: showMenu()
         }
-      }
-    }
-
-    Controls.GroupBox {
-      id: layerSelectorContainer
-      title: qsTr( "Active Layer" )
-      anchors { left: parent.left; right: parent.right }
-      LayerSelector {
-        id: layerSelector
-        anchors { left: parent.left; right: parent.right }
       }
     }
 
