@@ -76,6 +76,17 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
       return id;
     }
 
+    case Type:
+    {
+      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+        return QStringLiteral( "layer" );
+      else if ( QgsLayerTree::isGroup( node ) )
+        return QStringLiteral( "group" );
+      else
+        return QStringLiteral( "legend" );
+    }
+
     default:
       return QSortFilterProxyModel::data( index, role );
   }

@@ -34,7 +34,7 @@ Row {
 
       property int factor: 1
       property int xindex: index + 1
-      property string labelText: undefined
+      property string labelText: ''
     }
   }
 

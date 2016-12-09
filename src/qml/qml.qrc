@@ -26,6 +26,7 @@
         <file>js/style.js</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
+        <file>TreeView.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

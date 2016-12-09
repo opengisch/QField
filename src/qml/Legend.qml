@@ -5,23 +5,30 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import org.qfield 1.0
+import QtQml.Models 2.2
 
 import "js/style.js" as Style
 
-Controls.TreeView {
+TreeView {
   id: listView
   model: layerTree
 
   headerVisible: false
 
-  property VectorLayer currentLayer: model.data(currentIndex, LayerTreeModel.VectorLayer)
+  QtObject {
+    id: properties
+
+    property var previousIndex
+  }
+
+  property VectorLayer currentLayer: model.data(currentIndex, LayerTreeModel.VectorLayer) || null
 
   Controls.TableViewColumn {
     role: "display"
   }
 
   rowDelegate: Rectangle {
-    height: 48 * dp
+    height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
     color: styleData.selected ? "#999" : "#fff"
   }
 
@@ -30,7 +37,7 @@ Controls.TreeView {
     property int implicitWidth: label.implicitWidth + 20
 
     RowLayout {
-      height: 48 * dp
+      height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
       Image {
         source: "image://legend/" + layerTree.data(styleData.index, LayerTreeModel.LegendImage)
         width: 24 * dp
@@ -49,5 +56,17 @@ Controls.TreeView {
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
       }
     }
+  }
+
+  /**
+   * User clicked an item
+   *
+   * @param index : QModelIndex
+   */
+  onClicked: {
+    if ( layerTree.data(index, LayerTreeModel.Type) !== 'layer' )
+      listView.selectRow(layerTree.lastIndex)
+    else
+      layerTree.lastIndex = index
   }
 }

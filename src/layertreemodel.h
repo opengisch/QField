@@ -28,7 +28,8 @@ class LayerTreeModel : public QSortFilterProxyModel
     enum Roles
     {
       VectorLayer = Qt::UserRole + 1,
-      LegendImage
+      LegendImage,
+      Type
     };
     Q_ENUMS( Roles )
 
