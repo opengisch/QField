@@ -64,6 +64,7 @@
 #include "snappingutils.h"
 #include "snappingresult.h"
 #include "layertreemodel.h"
+#include "legendimageprovider.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -78,6 +79,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
 #endif
 
   mLayerTree = new LayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
+  mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
 
   initDeclarative();
 
@@ -166,6 +168,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+
+  addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
 
 void QgisMobileapp::loadProjectQuirks()

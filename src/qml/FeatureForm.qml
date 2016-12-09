@@ -121,7 +121,7 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: console.warn( "INDEX " + currentIndex ) || form.model.index(currentIndex, 0)
+              rootIndex: form.model.index(currentIndex, 0)
             }
 
             delegate: fieldItem

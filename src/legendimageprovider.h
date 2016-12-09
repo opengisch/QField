@@ -1,8 +1,8 @@
 /***************************************************************************
-  layertreemodel.h - LayerTree
+  legendimageprovider.h - LegendImageProvider
 
  ---------------------
- begin                : 6.12.2016
+ begin                : 7.12.2016
  copyright            : (C) 2016 by Matthias Kuhn
  email                : matthias@opengis.ch
  ***************************************************************************
@@ -13,35 +13,24 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef LAYERTREEMODEL_H
-#define LAYERTREEMODEL_H
+#ifndef LEGENDIMAGEPROVIDER_H
+#define LEGENDIMAGEPROVIDER_H
 
-#include <QSortFilterProxyModel>
+#include <QQuickImageProvider>
 
-class QgsLayerTreeGroup;
 class QgsLayerTreeModel;
+class QgsLayerTreeGroup;
 
-class LayerTreeModel : public QSortFilterProxyModel
+class LegendImageProvider : public QQuickImageProvider
 {
-    Q_OBJECT
   public:
-    enum Roles
-    {
-      VectorLayer = Qt::UserRole + 1,
-      LegendImage
-    };
-    Q_ENUMS( Roles )
+    LegendImageProvider( QgsLayerTreeModel* layerTreeRoot );
 
-    explicit LayerTreeModel( QgsLayerTreeGroup* rootNode, QObject* parent = nullptr );
-
-    Q_INVOKABLE QVariant data( const QModelIndex& index, int role ) const override;
-
-    QHash<int, QByteArray> roleNames() const override;
-
-    QgsLayerTreeModel* layerTreeModel() const;
+    QPixmap requestPixmap( const QString &id, QSize *size, const QSize& requestedSize );
 
   private:
     QgsLayerTreeModel* mLayerTreeModel;
+    QgsLayerTreeGroup* mRootNode;
 };
 
-#endif // LAYERTREEMODEL_H
+#endif // LEGENDIMAGEPROVIDER_H

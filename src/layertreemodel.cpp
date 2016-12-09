@@ -19,6 +19,7 @@
 #include <qgslayertreenode.h>
 #include <qgslayertree.h>
 #include <qgsvectorlayer.h>
+#include <qgslayertreemodellegendnode.h>
 
 LayerTreeModel::LayerTreeModel( QgsLayerTreeGroup* rootNode, QObject* parent )
   : QSortFilterProxyModel( parent )
@@ -46,6 +47,35 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
       }
     }
 
+    case LegendImage:
+    {
+      QString id;
+
+      if ( QgsLayerTreeModelLegendNode* sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        id += QStringLiteral( "legend" );
+        id += '/' + sym->layerNode()->layerId();
+        id += '/' + sym->userLabel();
+      }
+      else
+      {
+        QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+
+        if ( QgsLayerTree::isLayer( node ) )
+        {
+          QgsLayerTreeLayer* nodeLayer = QgsLayerTree::toLayer( node );
+          id += QStringLiteral( "layer" );
+          id += '/' +  nodeLayer->layerId();
+        }
+        /*
+        else if ( QgsLayerTree::isGroup( node ) )
+        {
+          id += QStringLiteral( "group" );
+        }*/
+      }
+      return id;
+    }
+
     default:
       return QSortFilterProxyModel::data( index, role );
   }
@@ -58,4 +88,9 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   roleNames[VectorLayer] = "VectorLayer";
 
   return roleNames;
+}
+
+QgsLayerTreeModel* LayerTreeModel::layerTreeModel() const
+{
+  return mLayerTreeModel;
 }
