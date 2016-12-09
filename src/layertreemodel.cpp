@@ -55,7 +55,7 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
       {
         id += QStringLiteral( "legend" );
         id += '/' + sym->layerNode()->layerId();
-        id += '/' + sym->userLabel();
+        id += '/' + sym->data( Qt::DisplayRole ).toString();
       }
       else
       {

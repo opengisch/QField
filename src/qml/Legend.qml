@@ -23,7 +23,7 @@ Controls.TreeView {
   rowDelegate: Rectangle {
     height: 48 * dp
     color: styleData.selected ? "#999" : "#fff"
-}
+  }
 
   itemDelegate: Item {
     height: Math.max(16, label.implicitHeight)
