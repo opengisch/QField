@@ -36,6 +36,7 @@ int main( int argc, char ** argv )
 {
   QSettings settings;
 
+  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QgsApplication app( argc, argv, true );
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
