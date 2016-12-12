@@ -64,9 +64,24 @@ TreeView {
    * @param index : QModelIndex
    */
   onClicked: {
-    if ( layerTree.data(index, LayerTreeModel.Type) !== 'layer' )
-      listView.selectRow(layerTree.lastIndex)
-    else
+    var nodeType = layerTree.data(index, LayerTreeModel.Type)
+    if ( nodeType === 'layer' )
+    {
       layerTree.lastIndex = index
+      listView.selectRow(index)
+    }
+    else
+    {
+      if (!!layerTree.lastIndex)
+        listView.selectRow(layerTree.lastIndex)
+
+      if (nodeType === 'group')
+      {
+        if (listView.isExpanded(index))
+            listView.collapse(index)
+        else
+            listView.expand(index)
+      }
+    }
   }
 }
