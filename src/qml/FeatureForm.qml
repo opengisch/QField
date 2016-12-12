@@ -265,8 +265,9 @@ Page {
           verticalAlignment: Image.AlignVCenter
           source: Style.getThemeIcon( "ic_save_white_24dp" )
         }
-
-        background: model.constraintsValid ? "#212121" : "#bdc3c7"
+        background: Rectangle {
+          color: model.constraintsValid ? "#212121" : "#bdc3c7"
+        }
 
         enabled: model.constraintsValid
 
