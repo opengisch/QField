@@ -203,16 +203,14 @@ Page {
         Connections {
           target: attributeEditorLoader.item
           onValueChanged: {
-
-            // QML translates undefined to a NULL QVariant
-            contentModel.setModelData( index, isNull ? undefined : value, AttributeFormModel.AttributeValue )
+            AttributeValue = isNull ? undefined : value
           }
         }
       }
 
       CheckBox {
         id: rememberCheckbox
-        checkState: RememberValue
+        checked: RememberValue ? true : false
 
         visible: form.state === "Add" && EditorWidget !== "Hidden"
         width: visible ? undefined : 0
@@ -220,7 +218,7 @@ Page {
         anchors { right: parent.right; top: fieldLabel.bottom }
 
         onCheckedChanged: {
-          contentModel.setModelData( index, checkedState, AttributeFormModel.RememberValue )
+          RememberValue = checked
         }
       }
     }

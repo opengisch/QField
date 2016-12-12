@@ -60,13 +60,8 @@ bool AttributeFormModelBase::setData( const QModelIndex& index, const QVariant& 
       {
         QStandardItem* item = itemFromIndex( index );
         int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
-        bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
-        if ( changed )
-        {
-          item->setData( value, AttributeFormModel::RememberValue );
-          emit dataChanged( index, index, QVector<int>() << role );
-        }
-        return changed;
+        mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
+        item->setData( value, AttributeFormModel::RememberValue );
         break;
       }
 
@@ -101,12 +96,13 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel* featureModel )
 
   disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-
+  disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   mFeatureModel = featureModel;
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
 }

@@ -57,11 +57,6 @@ bool SubModel::setData( const QModelIndex& index, const QVariant& value, int rol
   return mModel->setData( mapToSource( index ), value, role );
 }
 
-bool SubModel::setModelData( int row, const QVariant& value, int role )
-{
-  return setData( mModel->index( row, 0, mRootIndex ), value, role );
-}
-
 QHash<int, QByteArray> SubModel::roleNames() const
 {
   return mModel->roleNames();

@@ -33,7 +33,6 @@ class SubModel : public QAbstractItemModel
     int columnCount( const QModelIndex& parent ) const override;
     QVariant data( const QModelIndex& index, int role ) const override;
     bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
-    Q_INVOKABLE bool setModelData( int row, const QVariant& value, int role = Qt::EditRole );
     QHash<int, QByteArray> roleNames() const override;
 
     QModelIndex rootIndex() const;
