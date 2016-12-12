@@ -48,7 +48,7 @@ Page {
       TabBar {
         id: tabRow
         currentIndex: swipeView.currentIndex
-        // visible: model.hasTabs
+        visible: model.hasTabs
 
         Repeater {
           model: form.model
@@ -78,7 +78,8 @@ Page {
       anchors { top: flickable.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
 
       Repeater {
-        model: form.model
+        // One page per tab in tabbed forms, 1 page in auto forms
+        model: form.model.hasTabs ? form.model : 1
 
         Item {
           id: formPage
@@ -116,7 +117,7 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model.index(currentIndex, 0)
+              rootIndex: form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
             }
 
             delegate: fieldItem
