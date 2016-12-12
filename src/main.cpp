@@ -34,9 +34,19 @@
 
 int main( int argc, char ** argv )
 {
+  // A dummy app for reading settings that need to be used before constructing the real app
+  QCoreApplication* dummyApp = new QCoreApplication( argc, argv );
+  // Set up the QSettings environment must be done after qapp is created
+  QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+  QCoreApplication::setOrganizationDomain( "opengis.ch" );
+  QCoreApplication::setApplicationName( "QField" );
+
   QSettings settings;
 
-  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+  if ( settings.value( "/HighDpiScaling", false ).toBool() )
+    QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+  delete dummyApp;
+
   QgsApplication app( argc, argv, true );
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 

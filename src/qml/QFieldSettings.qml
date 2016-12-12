@@ -39,15 +39,20 @@ Page {
       width: parent.width
       currentIndex: bar.currentIndex
 
-      Item {
-        CheckBox {
+      ColumnLayout {
+        Switch {
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show Scalebar" )
-          checked: true
+        }
+
+        Switch {
+          text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
+
+          checked: settings.value( "/HighDpiScaling", false )
 
           onCheckedChanged: {
-            QFieldSettingsManager.scaleBarVisible = checked
+            settings.setValue( "/HighDpiScaling", checked )
           }
         }
       }
