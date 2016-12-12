@@ -34,12 +34,7 @@ Page {
   Item {
     id: container
 
-    anchors {
-      bottom: parent.bottom
-      right: parent.right
-      left: parent.left
-      top: toolbar.bottom
-    }
+    anchors.fill: parent
 
     Flickable {
       id: flickable
