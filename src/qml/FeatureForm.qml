@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.2
@@ -66,16 +67,21 @@ Page {
           TabButton {
             id: tabButton
             text: Name
+            leftPadding: 8 * dp
+            rightPadding: 8 * dp
 
             width: contentItem.width + leftPadding + rightPadding
             height: 48 * dp
 
             contentItem: Text {
+              // Make sure the width is derived from the text so we can get wider
+              // than the parent item and the Flickable is useful
               width: paintedWidth
               text: tabButton.text
               // color: tabButton.down ? "#17a81a" : "#21be2b"
-              color: !tabButton.enabled ? tabButton.Material.hintTextColor : tabButton.down ||
-                                        tabButton.checked ? tabButton.Material.accentColor : tabButton.Material.primaryTextColor
+              color: !tabButton.enabled ? "#999999" : tabButton.down ||
+                                        tabButton.checked ? "#1B5E20" : "#4CAF50"
+              font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
               verticalAlignment: Text.AlignVCenter
@@ -135,7 +141,7 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
+              rootIndex: form.model.hasTabs ? form.model.index(currentIndex, 0) : null
             }
 
             delegate: fieldItem
@@ -162,20 +168,22 @@ Page {
         leftMargin: 12 * dp
       }
 
-      Label {
+      Controls.Label {
         id: fieldLabel
 
-        text: Name
+        text: Name || ''
         font.bold: true
-        font.pointSize: 14
         color: ConstraintValid ? "black" : "#c0392b"
       }
 
-      Label {
+      Controls.Label {
         id: constraintDescriptionLabel
-        anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
+        anchors {
+          left: parent.left
+          right: parent.right
+          top: fieldLabel.bottom
+        }
 
-        font.pointSize: 14
         text: ConstraintDescription
         height: ConstraintValid ? 0 : undefined
         visible: !ConstraintValid
@@ -194,7 +202,7 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: form.state !== "ReadOnly" && AttributeEditable
+          enabled: form.state !== "ReadOnly" && !!AttributeEditable
           property var value: AttributeValue
           property var config: EditorWidgetConfig
           property var widget: EditorWidget
@@ -232,12 +240,12 @@ Page {
         }
       }
 
-      CheckBox {
+      Controls.CheckBox {
         id: rememberCheckbox
         checked: RememberValue ? true : false
 
         visible: form.state === "Add" && EditorWidget !== "Hidden"
-        width: visible ? 24 * dp : 0
+        width: visible ? undefined : 0
 
         anchors { right: parent.right; top: fieldLabel.bottom }
 

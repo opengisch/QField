@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 import Qt.labs.settings 1.0
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
 import "js/style.js" as Style
@@ -21,7 +22,12 @@ Page {
   }
 
   ColumnLayout {
-    anchors.fill: parent
+    anchors {
+      top: toolbar.bottom
+      left: parent.left
+      right: parent.right
+      bottom: parent.bottom
+    }
 
     TabBar {
       id: bar
@@ -30,10 +36,12 @@ Page {
       TabButton {
         text: qsTr("Layout")
         font.pointSize: 14
+        height: 48 * dp
       }
       TabButton {
         text: qsTr("Global Variables")
         font.pointSize: 14
+        height: 48 * dp
       }
     }
 
@@ -42,13 +50,13 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
-        Switch {
+        Controls.CheckBox {
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show Scalebar" )
-          font.pointSize: 14
         }
-
+/*
+  // To be used in combination with code in main.cpp
         Switch {
           text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
           font.pointSize: 14
@@ -59,6 +67,7 @@ Page {
             settings.setValue( "/HighDpiScaling", checked )
           }
         }
+*/
       }
 
       Item {
@@ -70,8 +79,12 @@ Page {
   }
 
   /** The title toolbar **/
-  header: ToolBar {
+  ToolBar {
     id: toolbar
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
 
     RowLayout {
       spacing: 20

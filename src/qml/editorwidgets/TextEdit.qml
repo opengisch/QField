@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick 2.5
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -7,7 +8,8 @@ Item {
 
   TextField {
     id: textField
-    height: textArea.height == 0 ? undefined : 0
+    height: textArea.height == 0 ? fontMetrics.height + 10 * dp : 0
+    bottomPadding: 10 * dp
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
@@ -16,6 +18,13 @@ Item {
     text: value || ''
 
     inputMethodHints: field.isNumeric || widget == 'Range' ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
+
+    background: Rectangle {
+      y: textField.height - height - textField.bottomPadding / 2
+      implicitWidth: 120 * dp
+      height: textField.activeFocus ? 2 * dp : 1 * dp
+      color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
+    }
 
     onTextChanged: {
       valueChanged( text, text == '' )
@@ -35,5 +44,10 @@ Item {
     onEditingFinished: {
       valueChanged( text, text == '' )
     }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: textField.font
   }
 }

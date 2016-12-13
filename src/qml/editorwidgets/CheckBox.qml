@@ -1,11 +1,14 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
 
 Item {
   signal valueChanged( var value, bool isNull )
 
   height: childrenRect.height
-  anchors { right: parent.right; left: parent.left }
+  anchors {
+    right: parent.right
+    left: parent.left
+  }
 
   CheckBox {
     checked: value === config['CheckedState']
