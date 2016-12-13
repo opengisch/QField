@@ -47,14 +47,16 @@ T.TabButton {
                              contentItem.contentHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 12
+    padding: 12 * dp
 
     //! [contentItem]
     contentItem: Text {
         text: control.text
         font: control.font
         elide: Text.ElideRight
-        color: !control.enabled ? control.Material.hintTextColor : control.down || control.checked ? control.Material.accentColor : control.Material.primaryTextColor
+        color: !control.enabled ? control.Material.hintTextColor : control.down ||
+                                  control.checked ? control.Material.accentColor : control.Material.primaryTextColor
+
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

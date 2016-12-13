@@ -49,8 +49,8 @@ T.Switch {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 8
-    spacing: 8
+    padding: 8 * dp
+    spacing: 8 * dp
 
     //! [indicator]
     indicator: SwitchIndicator {

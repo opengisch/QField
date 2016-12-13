@@ -40,12 +40,12 @@ import QtQuick.Controls.Material.impl 2.0
 
 Item {
     id: indicator
-    implicitWidth: 38
-    implicitHeight: 32
+    implicitWidth: 38 * dp
+    implicitHeight: 32 * dp
 
     property alias control: ripple.control
 
-    Material.elevation: 1
+    Material.elevation: 1 * dp
 
     Ripple {
         id: ripple
@@ -59,7 +59,7 @@ Item {
 
     Rectangle {
         width: parent.width
-        height: 14
+        height: 14 * dp
         radius: height / 2
         y: parent.height / 2 - height / 2
         color: control.enabled ? (control.checked ? control.Material.switchCheckedTrackColor : control.Material.switchUncheckedTrackColor)
@@ -70,8 +70,8 @@ Item {
         id: handle
         x: Math.max(0, Math.min(parent.width - width, control.visualPosition * parent.width - (width / 2)))
         y: (parent.height - height) / 2
-        width: 20
-        height: 20
+        width: 20 * dp
+        height: 20 * dp
         radius: width / 2
         color: control.enabled ? (control.checked ? control.Material.switchCheckedHandleColor : control.Material.switchUncheckedHandleColor)
                                : control.Material.switchDisabledHandleColor

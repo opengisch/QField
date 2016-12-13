@@ -49,10 +49,10 @@ T.SwitchDelegate {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 16
-    topPadding: 8
-    bottomPadding: 8
-    spacing: 16
+    padding: 16 * dp
+    topPadding: 8 * dp
+    bottomPadding: 8 * dp
+    spacing: 16 * dp
 
     //! [indicator]
     indicator: SwitchIndicator {
@@ -79,7 +79,7 @@ T.SwitchDelegate {
 
     //! [background]
     background: Rectangle {
-        implicitHeight: 48
+        implicitHeight: 48 * dp
 
         visible: control.down || control.highlighted
         color: control.down ? control.Material.buttonPressColor : control.Material.listHighlightColor

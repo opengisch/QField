@@ -58,7 +58,7 @@ T.SwipeView {
         highlightRangeMode: ListView.StrictlyEnforceRange
         preferredHighlightBegin: 0
         preferredHighlightEnd: 0
-        highlightMoveDuration: 250
+        highlightMoveDuration: 50
     }
     //! [contentItem]
 }

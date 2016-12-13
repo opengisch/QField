@@ -34,11 +34,19 @@ Page {
   Item {
     id: container
 
-    anchors.fill: parent
+    anchors {
+      top: toolbar.bottom
+      bottom: parent.bottom
+      left: parent.left
+      right: parent.right
+    }
 
     Flickable {
       id: flickable
-      anchors { left: parent.left; right: parent.right }
+      anchors {
+        left: parent.left
+        right: parent.right
+      }
       height: tabRow.height
 
       flickableDirection: Flickable.HorizontalFlick
@@ -46,9 +54,11 @@ Page {
 
       // Tabs
       TabBar {
+
         id: tabRow
         currentIndex: swipeView.currentIndex
         visible: model.hasTabs
+        height: 48 * dp
 
         Repeater {
           model: form.model
@@ -58,12 +68,15 @@ Page {
             text: Name
 
             width: contentItem.width + leftPadding + rightPadding
+            height: 48 * dp
 
             contentItem: Text {
               width: paintedWidth
               text: tabButton.text
-              font: tabButton.font
-              color: tabButton.down ? "#17a81a" : "#21be2b"
+              // color: tabButton.down ? "#17a81a" : "#21be2b"
+              color: !tabButton.enabled ? tabButton.Material.hintTextColor : tabButton.down ||
+                                        tabButton.checked ? tabButton.Material.accentColor : tabButton.Material.primaryTextColor
+
               horizontalAlignment: Text.AlignHCenter
               verticalAlignment: Text.AlignVCenter
             }
@@ -75,7 +88,12 @@ Page {
     SwipeView {
       id: swipeView
       currentIndex: tabRow.currentIndex
-      anchors { top: flickable.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
+      anchors {
+        top: flickable.bottom
+        left: parent.left
+        right: parent.right
+        bottom: parent.bottom
+      }
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
@@ -138,13 +156,18 @@ Page {
       visible: Type === 'field'
       height: childrenRect.height
 
-      anchors { left: parent.left; right: parent.right }
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12 * dp
+      }
 
       Label {
         id: fieldLabel
 
         text: Name
         font.bold: true
+        font.pointSize: 14
         color: ConstraintValid ? "black" : "#c0392b"
       }
 
@@ -152,6 +175,7 @@ Page {
         id: constraintDescriptionLabel
         anchors { left: parent.left; right: parent.right; top: fieldLabel.bottom }
 
+        font.pointSize: 14
         text: ConstraintDescription
         height: ConstraintValid ? 0 : undefined
         visible: !ConstraintValid
@@ -213,7 +237,7 @@ Page {
         checked: RememberValue ? true : false
 
         visible: form.state === "Add" && EditorWidget !== "Hidden"
-        width: visible ? undefined : 0
+        width: visible ? 24 * dp : 0
 
         anchors { right: parent.right; top: fieldLabel.bottom }
 
@@ -248,8 +272,15 @@ Page {
   }
 
   /** The title toolbar **/
-  header: ToolBar {
+  ToolBar {
     id: toolbar
+    height: 48 * dp
+    anchors {
+      top: parent.top
+      left: parent.left
+      right: parent.right
+    }
+
     RowLayout {
       spacing: 20
       anchors.fill: parent
@@ -290,7 +321,7 @@ Page {
             qsTr( 'View feature on <i>%1</i>' ).arg( currentLayer.name )
         }
         font.bold: true
-        font.pixelSize: 20
+        font.pointSize: 16
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter

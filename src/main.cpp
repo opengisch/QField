@@ -31,6 +31,7 @@
 #include <qmainwindow.h>
 #include <QApplication>
 #include <QDebug>
+#include <QtQuickControls2/QQuickStyle>
 
 int main( int argc, char ** argv )
 {
@@ -49,6 +50,7 @@ int main( int argc, char ** argv )
 
   QgsApplication app( argc, argv, true );
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
+  QQuickStyle::setStyle( ":/qfieldstyle" );
 
   // load providers
 #if defined(Q_WS_WIN)

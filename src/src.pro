@@ -3,7 +3,7 @@ CONFIG += ordered
 
 TARGET = qfield
 
-QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick
+QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2
 # MISSING in apk: printsupport svg sql opengl sensors
 
 android {

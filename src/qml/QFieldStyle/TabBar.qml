@@ -51,7 +51,7 @@ T.TabBar {
     //! [contentItem]
     contentItem: ListView {
         implicitWidth: contentWidth
-        implicitHeight: 48
+        implicitHeight: 48 * dp
 
         model: control.contentModel
         currentIndex: control.currentIndex
@@ -67,7 +67,7 @@ T.TabBar {
         highlight: Item {
             z: 2
             Rectangle {
-                height: 2
+                height: 2 * dp
                 width: parent.width
                 y: control.position === T.TabBar.Footer ? 0 : parent.height - height
                 color: control.Material.accentColor

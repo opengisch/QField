@@ -28,5 +28,9 @@
         <file>Legend.qml</file>
         <file>TreeView.qml</file>
     </qresource>
-    <qresource prefix="/"/>
+    <qresource prefix="/qfieldstyle">
+        <file>QFieldStyle/Switch.qml</file>
+        <file>QFieldStyle/SwitchDelegate.qml</file>
+        <file>QFieldStyle/SwitchIndicator.qml</file>
+    </qresource>
 </RCC>

@@ -42,17 +42,22 @@ import QtQuick.Controls.Material.impl 2.0
 T.MenuItem {
     id: control
 
-    implicitWidth: Math.max(background ? background.implicitWidth : 0,
-                            contentItem.implicitWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+    implicitWidth: 200 * dp /*Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)*/
+    implicitHeight: 48 * dp /*Math.max(background ? background.implicitHeight : 0,
                              Math.max(contentItem.implicitHeight,
-                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)*/
+
+    width: implicitWidth
+    height: implicitHeight
+
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 16
-    topPadding: 12
-    bottomPadding: 12
-    spacing: 16
+    padding: 16 * dp
+    topPadding: 12 * dp
+    bottomPadding: 12 * dp
+    spacing: 16 * dp
+
 
     //! [indicator]
     indicator: CheckIndicator {
@@ -67,10 +72,9 @@ T.MenuItem {
     contentItem: Text {
         leftPadding: control.checkable && !control.mirrored ? control.indicator.width + control.spacing : 0
         rightPadding: control.checkable && control.mirrored ? control.indicator.width + control.spacing : 0
-        height: 100
 
         text: control.text
-        // font: control.font
+        font: control.font
         color: control.enabled ? control.Material.primaryTextColor : control.Material.hintTextColor
         elide: Text.ElideRight
         visible: control.text
@@ -81,9 +85,9 @@ T.MenuItem {
 
     //! [background]
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 48
-        visible: control.down || control.highlighted
+        implicitWidth: 200 * dp
+        implicitHeight: 48 * dp
+        // visible: control.down || control.highlighted
         color: control.down ? control.Material.buttonPressColor : control.Material.listHighlightColor
     }
     //! [background]

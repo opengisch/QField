@@ -11,6 +11,7 @@ Item {
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
+    font.pointSize: 14
 
     text: value || ''
 

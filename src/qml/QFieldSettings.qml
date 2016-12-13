@@ -29,9 +29,11 @@ Page {
 
       TabButton {
         text: qsTr("Layout")
+        font.pointSize: 14
       }
       TabButton {
         text: qsTr("Global Variables")
+        font.pointSize: 14
       }
     }
 
@@ -44,10 +46,12 @@ Page {
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show Scalebar" )
+          font.pointSize: 14
         }
 
         Switch {
           text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
+          font.pointSize: 14
 
           checked: settings.value( "/HighDpiScaling", false )
 
@@ -93,7 +97,7 @@ Page {
         id: titleLabel
         text: qsTr( 'QField Settings' )
         font.bold: true
-        font.pixelSize: 20
+        font.pointSize: 16
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter

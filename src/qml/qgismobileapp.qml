@@ -242,7 +242,7 @@ ApplicationWindow {
       }
     }
 
-    onShowMenu: mainMenu.open()
+    onShowMenu: mainMenu.popup()
   }
 
   DropShadow {
@@ -416,39 +416,35 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    MenuItem {
-      text: qsTr( "Mode" )
-      onTriggered: modeMenu.open()
+    Controls.Menu {
+      title: qsTr( "Mode" )
 
-      Menu {
-        id: modeMenu
-        MenuItem {
-          text: qsTr( "Browse" )
-          onTriggered: stateMachine.state = "browse"
-        }
+      Controls.MenuItem {
+        text: qsTr( "Browse" )
+        onTriggered: stateMachine.state = "browse"
+      }
 
-        MenuItem {
-          text: qsTr( "Digitize" )
-          onTriggered: stateMachine.state = "digitize"
-        }
+      Controls.MenuItem {
+        text: qsTr( "Digitize" )
+        onTriggered: stateMachine.state = "digitize"
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Open Project" )
-      // iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
+      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         openProjectDialog.visible = true
       }
     }
 
-    // MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Settings" )
 
       onTriggered: {
@@ -456,7 +452,7 @@ ApplicationWindow {
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "About" )
 
       onTriggered: {
@@ -464,7 +460,7 @@ ApplicationWindow {
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Log" )
 
       onTriggered: {
@@ -472,22 +468,22 @@ ApplicationWindow {
       }
     }
 
-    // MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Quit" )
-      // iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
       onTriggered: {
         Qt.quit()
       }
     }
   }
 
-  Menu {
+  Controls.Menu {
     id: gpsMenu
     title: qsTr( "GPS Options" )
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Enable GPS" )
       checkable: true
       checked: positionSource.active
@@ -496,7 +492,7 @@ ApplicationWindow {
       }
     }
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Center current location" )
       onTriggered: {
         var coord = positionSource.position.coordinate;
@@ -505,9 +501,9 @@ ApplicationWindow {
       }
     }
 
-    // MenuSeparator {}
+    Controls.MenuSeparator {}
 
-    MenuItem {
+    Controls.MenuItem {
       text: qsTr( "Show position information" )
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
@@ -518,6 +514,7 @@ ApplicationWindow {
       }
     }
   }
+
 
   Rectangle {
     id: overlayBackground

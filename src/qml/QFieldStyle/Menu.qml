@@ -85,8 +85,8 @@ T.Menu {
 
     //! [background]
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 48
+        implicitWidth: 400 * dp
+        implicitHeight: 48 * dp
 
         radius: 3
         color: control.Material.dialogColor

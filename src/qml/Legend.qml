@@ -21,7 +21,7 @@ TreeView {
     property var previousIndex
   }
 
-  property VectorLayer currentLayer: model.data(currentIndex, LayerTreeModel.VectorLayer) || null
+  property VectorLayer currentLayer
 
   Controls.TableViewColumn {
     role: "display"
@@ -29,7 +29,7 @@ TreeView {
 
   rowDelegate: Rectangle {
     height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
-    color: styleData.selected ? "#999" : "#fff"
+    color: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
   }
 
   itemDelegate: Item {
@@ -65,23 +65,20 @@ TreeView {
    */
   onClicked: {
     var nodeType = layerTree.data(index, LayerTreeModel.Type)
-    if ( nodeType === 'layer' )
-    {
-      layerTree.lastIndex = index
-      listView.selectRow(index)
+    if (nodeType !== 'layer') {
+      if (listView.isExpanded(index))
+          listView.collapse(index)
+      else
+          listView.expand(index)
     }
     else
-    {
-      if (!!layerTree.lastIndex)
-        listView.selectRow(layerTree.lastIndex)
+      currentLayer = layerTree.data(index, LayerTreeModel.VectorLayer)
+  }
 
-      if (nodeType === 'group')
-      {
-        if (listView.isExpanded(index))
-            listView.collapse(index)
-        else
-            listView.expand(index)
-      }
-    }
+  onDoubleClicked: {
+    if (listView.isExpanded(index))
+        listView.collapse(index)
+    else
+        listView.expand(index)
   }
 }
