@@ -8,7 +8,8 @@ Item {
 
   TextField {
     id: textField
-    height: textArea.height == 0 ? fontMetrics.height + 10 * dp : 0
+    height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
+    topPadding: 10 * dp
     bottomPadding: 10 * dp
     visible: height !== 0
     anchors.left: parent.left
