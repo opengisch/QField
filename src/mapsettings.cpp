@@ -15,7 +15,6 @@
 
 #include "mapsettings.h"
 
-#include "qgsmaplayerregistry.h"
 #include "qgsmaplayer.h"
 #include "qgsproject.h"
 
@@ -167,53 +166,34 @@ void MapSettings::setCrsTransformEnabled( bool crsTransformEnabled )
 
 QList<QgsMapLayer*> MapSettings::layers() const
 {
-  QList <QgsMapLayer*> layers;
-
-  Q_FOREACH( const QString& id, mMapSettings.layers() )
-  {
-    QgsMapLayer* layer = QgsMapLayerRegistry::instance()->mapLayer( id );
-    if ( layer )
-      layers << layer;
-  }
-  return layers;
+  return mMapSettings.layers();
 }
 
 void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
 {
-  QStringList layerIds;
-  Q_FOREACH( QgsMapLayer* layer, layers )
-  {
-    if ( layer )
-      layerIds << layer->id();
-  }
-
-  if ( layerIds == mMapSettings.layers() )
-    return;
-
-  mMapSettings.setLayers( layerIds );
+  mMapSettings.setLayers( layers );
   emit layersChanged();
 }
 
+#if 0
 void MapSettings::setMapTheme( QgsProject* project, const QString& mapThemeName )
 {
   QStringList layerIds;
 
   QgsMapThemeCollection::MapThemeRecord mapTheme = project->mapThemeCollection()->mapThemeState( mapThemeName );
 
-  Q_FOREACH( const QString& layerId, mapTheme.visibleLayerIds() )
+  Q_FOREACH( const QgsMapThemeCollection::MapThemeLayerRecord& record, mapTheme.layerRecords() )
   {
-    QgsMapLayer* layer = QgsMapLayerRegistry::instance()->mapLayer( layerId );
-    if ( layer )
-    {
-      layer->styleManager()->setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
+    record.layer()->styleManager()->setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
 
-      layerIds << layerId;
-    }
+    layerIds << layerId;
   }
-
-  mMapSettings.setLayers( layerIds );
-  emit layersChanged();
 }
+
+mMapSettings.setLayers( layerIds );
+emit layersChanged();
+}
+#endif
 
 void MapSettings::onReadProject( const QDomDocument& doc )
 {

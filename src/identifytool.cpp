@@ -18,7 +18,6 @@
 #include "mapsettings.h"
 #include "featurelistmodel.h"
 
-#include <qgsmaplayerregistry.h>
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
 #include <qgscsexception.h>
@@ -58,21 +57,14 @@ void IdentifyTool::identify( const QPointF& point ) const
 
   QgsPoint mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
 
-  QStringList noIdentifyLayerIdList = QgsProject::instance()->readListEntry( "Identify", "/disabledLayers" );
+  QStringList noIdentifyLayerIdList = QgsProject::instance()->nonIdentifiableLayers();
 
-  QStringList layerIds = mMapSettings->mapSettings().layers();
-
-  Q_FOREACH( const QString& id, layerIds )
+  Q_FOREACH( QgsMapLayer* layer, mMapSettings->mapSettings().layers() )
   {
-    if ( noIdentifyLayerIdList.contains( id ) )
+    if ( noIdentifyLayerIdList.contains( layer->id() ) )
       continue;
 
-    QgsMapLayer* ml = QgsMapLayerRegistry::instance()->mapLayer( id );
-
-    if ( !ml )
-      continue;
-
-    QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( ml );
+    QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
     if ( vl )
     {
       QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );

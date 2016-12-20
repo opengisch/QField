@@ -19,7 +19,8 @@
 #include <QObject>
 #include <QStringList>
 
-#include "qgscoordinatereferencesystem.h"
+#include <qgscoordinatereferencesystem.h>
+#include <qgsmapthemecollection.h>
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
@@ -94,6 +95,8 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
       return mAutoEnableCrsTransform;
     }
 
+    void applyMapTheme( const QgsMapThemeCollection::MapThemeRecord& mapTheme );
+
   public slots:
     void setHasCustomLayerOrder( bool state );
     void setCustomLayerOrder( const QStringList& order );
@@ -123,6 +126,10 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
     void nodeCustomPropertyChanged( QgsLayerTreeNode* node, const QString& key );
 
   private:
+    static bool findRecordForLayer( QgsMapLayer* layer, const QgsMapThemeCollection::MapThemeRecord& rec, QgsMapThemeCollection::MapThemeLayerRecord& layerRec );
+    static void applyThemeToLayer( QgsLayerTreeLayer* nodeLayer, const QgsMapThemeCollection::MapThemeRecord& rec );
+    static void applyThemeToGroup( QgsLayerTreeGroup* parent, const QgsMapThemeCollection::MapThemeRecord& rec );
+
     QgsLayerTreeGroup* mRoot;
     MapSettings* mMapSettings;
 

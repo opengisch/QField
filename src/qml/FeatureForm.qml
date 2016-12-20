@@ -319,14 +319,16 @@ Page {
         text:
         {
           var currentLayer = model.featureModel.currentLayer
-          if (!currentLayer)
-            ''
+          var layerName = 'N/A'
+          if (currentLayer !== null)
+            layerName = currentLayer.name
+
           if ( form.state === 'Add' )
-            qsTr( 'Add feature on <i>%1</i>' ).arg( currentLayer.name )
+            qsTr( 'Add feature on <i>%1</i>' ).arg(layerName )
           else if ( form.state === 'Edit' )
-            qsTr( 'Edit feature on <i>%1</i>' ).arg(currentLayer.name )
+            qsTr( 'Edit feature on <i>%1</i>' ).arg(layerName)
           else
-            qsTr( 'View feature on <i>%1</i>' ).arg( currentLayer.name )
+            qsTr( 'View feature on <i>%1</i>' ).arg(layerName)
         }
         font.bold: true
         font.pointSize: 16

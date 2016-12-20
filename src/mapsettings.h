@@ -104,10 +104,10 @@ class MapSettings : public QObject
     void mapUnitsChanged();
     void crsTransformEnabledChanged();
     void layersChanged();
-
+#if 0
   public slots:
     void setMapTheme( QgsProject* project, const QString& mapThemeName );
-
+#endif
   private slots:
     void onReadProject( const QDomDocument& doc );
 

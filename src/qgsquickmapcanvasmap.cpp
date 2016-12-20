@@ -19,7 +19,6 @@
 #include "mapsettings.h"
 
 #include <qgsmaprendererparalleljob.h>
-#include <qgsmaplayerregistry.h>
 #include <qgsvectorlayer.h>
 #include <qgsmessagelog.h>
 #include <QQuickWindow>

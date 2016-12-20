@@ -30,7 +30,6 @@
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
-#include <qgsmaplayerregistry.h>
 #include <qgsmaptoolidentify.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
@@ -78,7 +77,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   create();
 #endif
 
-  mLayerTree = new LayerTreeModel( QgsProject::instance()->layerTreeRoot(), this );
+  mProject = QgsProject::instance();
+  mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
 
   initDeclarative();
@@ -91,11 +91,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  connect( QgsProject::instance(), &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
+  connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( QgsProject::instance()->layerTreeRoot(), mMapCanvas->mapSettings(), this );
-  connect( QgsProject::instance(), &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
-  connect( QgsProject::instance(), &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mProject->layerTreeRoot(), mMapCanvas->mapSettings(), this );
+  connect( mProject, &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
+  connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
@@ -113,22 +113,19 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
+  qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
+
+  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
+  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
+
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
-  qRegisterMetaType<SnappingResult>( "SnappingResult" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
 
   // Register QField QML types
-  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
-  qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
-  qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
-  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
-  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
-  qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
-
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
@@ -149,7 +146,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
-  qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
+
+  qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
+  qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
+  qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
+  qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
+
+  qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels
   int dpiX = QApplication::desktop()->physicalDpiX();
@@ -159,12 +162,12 @@ void QgisMobileapp::initDeclarative()
 
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
-  rootContext()->setContextProperty( "qgisProject", QgsProject::instance() );
+  rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
-  rootContext()->setContextProperty( "project", QgsProject::instance() );
+  rootContext()->setContextProperty( "project", mProject );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
@@ -193,8 +196,8 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
 {
   Q_UNUSED( doc );
   QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
-  QSettings().setValue( "/qgis/project/lastProjectFile", QgsProject::instance()->fileName() );
-  Q_FOREACH( QgsMapLayer* layer, QgsMapLayerRegistry::instance()->mapLayers() )
+  QSettings().setValue( "/qgis/project/lastProjectFile", mProject->fileName() );
+  Q_FOREACH( QgsMapLayer* layer, mProject->mapLayers() )
   {
     QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
     if ( vl )
@@ -241,9 +244,9 @@ void QgisMobileapp::loadLastProject()
 
 void QgisMobileapp::loadProjectFile( const QString& path )
 {
-  QgsMapLayerRegistry::instance()->removeAllMapLayers();
+  mProject->removeAllMapLayers();
   emit loadProjectStarted( path );
-  QgsProject::instance()->read( path );
+  mProject->read( path );
   loadProjectQuirks();
 
   emit loadProjectEnded();
@@ -260,7 +263,7 @@ bool QgisMobileapp::event( QEvent* event )
 QgisMobileapp::~QgisMobileapp()
 {
   delete mOfflineEditing;
-  QgsMapLayerRegistry::instance()->removeAllMapLayers();
+  mProject->removeAllMapLayers();
   // Reintroduce when created on the heap
-  delete QgsProject::instance();
+  delete mProject;
 }

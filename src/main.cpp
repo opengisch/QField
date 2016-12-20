@@ -31,7 +31,6 @@
 #include <qmainwindow.h>
 #include <QApplication>
 #include <QDebug>
-#include <QtQuickControls2/QQuickStyle>
 
 int main( int argc, char ** argv )
 {

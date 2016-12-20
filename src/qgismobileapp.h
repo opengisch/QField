@@ -41,6 +41,7 @@ class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
 class LayerTreeModel;
 class LegendImageProvider;
+class QgsProject;
 
 class QgisMobileapp : public QQmlApplicationEngine
 {
@@ -101,6 +102,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     QgsQuickMapCanvasMap* mMapCanvas;
     bool mFirstRenderingFlag;
     LegendImageProvider* mLegendImageProvider;
+
+    QgsProject* mProject;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;

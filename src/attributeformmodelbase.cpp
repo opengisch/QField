@@ -16,7 +16,8 @@
 
 #include "attributeformmodelbase.h"
 #include "attributeformmodel.h"
-#include "qgsvectorlayer.h"
+#include <qgsvectorlayer.h>
+#include <qgseditorwidgetsetup.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject* parent )
   : QStandardItemModel( 0, 1, parent )
