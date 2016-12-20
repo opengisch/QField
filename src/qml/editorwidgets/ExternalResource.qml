@@ -5,36 +5,38 @@ import "../js/style.js" as Style
 import ".." as QField
 
 Item {
-  signal valueChanged( var value, bool isNull )
+  signal valueChanged(var value, bool isNull)
 
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: Math.max( image.height, button.height)
+  height: Math.max(image.height, button.height)
 
   property PictureSource __pictureSource
 
   Image {
+    property var currentValue: value
+
     id: image
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
 
     source: {
-      if ( image.status === Image.Error )
-        Style.getThemeIcon( "ic_broken_image_black_24dp" )
-      else if ( value )
-        'file://' + qgisProject.homePath + '/' + value
+      if (image.status === Image.Error)
+        Style.getThemeIcon("ic_broken_image_black_24dp")
+      else if (currentValue)
+        'file://' + qgisProject.homePath + '/' + currentValue
       else
-        Style.getThemeIcon( "ic_photo_notavailable_white_48dp" )
+        Style.getThemeIcon("ic_photo_notavailable_white_48dp")
     }
 
     MouseArea {
       anchors.fill: parent
 
       onClicked: {
-        if ( value )
-          platformUtilities.open( image.source, "image/*" );
+        if (currentValue)
+          platformUtilities.open(image.source, "image/*");
       }
     }
   }
@@ -49,16 +51,15 @@ Item {
 
     bgcolor: "transparent"
 
-    onClicked: __pictureSource = platformUtilities.getPicture( qgisProject.homePath + '/DCIM' )
+    onClicked: __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
 
-    iconSource: Style.getThemeIcon( "ic_camera_alt_border_24dp" )
+    iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
   }
 
   Connections {
     target: __pictureSource
     onPictureReceived: {
-      value = 'DCIM/' + path
-      valueChanged( value, false )
+      valueChanged('DCIM/' + path, false)
     }
   }
 }
