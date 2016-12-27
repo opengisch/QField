@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="gl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -39,66 +37,63 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da Capa</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte de Datos</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"></translation>
+        <translation>As seguintes capas non se poden cargar.
+Revísaas e configura de novo o proxecto de QGIS.
+Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación de QField.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de cargar algunhas capas</translation>
     </message>
 </context>
 <context>
     <name>DashBoard</name>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="52"/>
-        <source>Active Layer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/DashBoard.qml" line="61"/>
+        <location filename="../src/qml/DashBoard.qml" line="74"/>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema do Mapa</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="339"/>
+        <location filename="../src/qml/FeatureForm.qml" line="327"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="341"/>
+        <location filename="../src/qml/FeatureForm.qml" line="329"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="343"/>
+        <location filename="../src/qml/FeatureForm.qml" line="331"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ver entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="326"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="324"/>
         <source>Delete feature</source>
         <translation>Eliminar entidade</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="327"/>
+        <location filename="../src/qml/FeatureListForm.qml" line="325"/>
         <source>Should this feature really be deleted?</source>
         <translation>Debe eliminarse realmente esta entidade?</translation>
     </message>
@@ -138,24 +133,24 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="26"/>
-        <source>Map Items</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/qml/QFieldSettings.qml" line="37"/>
+        <source>Layout</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="31"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="42"/>
+        <source>Global Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar Barra de Escala</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="43"/>
-        <source>Global Expression Variables</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="88"/>
+        <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>QField Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de QField</translation>
     </message>
 </context>
 <context>
@@ -163,124 +158,129 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="46"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Nome da nova variable]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Valor da nova variable]</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="326"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="338"/>
         <source>Waiting for location...</source>
         <translation>Agardando pola localización...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="317"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="331"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="329"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="343"/>
         <source>Activating positioning service...</source>
         <translation>Activando o servizo de posicionamento...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="346"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="358"/>
         <source>Positioning activated</source>
         <translation>Posicionamento activado</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="351"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="363"/>
         <source>Positioning turned off</source>
         <translation>Posicionamento apagado</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="671"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="685"/>
         <source>Open project</source>
         <translation>Abrir proxecto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="673"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="687"/>
         <source>QGIS projects (*.qgs)</source>
         <translation>Proxectos de QGIS (*.qgs)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="673"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="687"/>
         <source>All files (*)</source>
         <translation>Tódolos ficheiros (*)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="414"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="426"/>
         <source>Main Menu</source>
         <translation>Menú Principal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="417"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="249"/>
+        <source>The layer %1 is read only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/qgismobileapp.qml" line="430"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="420"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="433"/>
         <source>Browse</source>
         <translation>Buscador</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="425"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="438"/>
         <source>Digitize</source>
         <translation>Dixitalizar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="431"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="444"/>
         <source>Open Project</source>
         <translation>Abrir Proxecto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="441"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="454"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="449"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="462"/>
         <source>About</source>
         <translation>Acerca de</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="457"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="470"/>
         <source>Log</source>
         <translation>Rexistro</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="467"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
         <source>Quit</source>
         <translation>Saír</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="477"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="490"/>
         <source>GPS Options</source>
         <translation>Opcións GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="480"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="493"/>
         <source>Enable GPS</source>
         <translation>Activar GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="489"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="502"/>
         <source>Center current location</source>
         <translation>Centrar na localización actual</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="500"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="513"/>
         <source>Show position information</source>
         <translation>Amosar información da posición</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="600"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="614"/>
         <source>Loading Project</source>
         <translation>Cargando Proxecto</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="607"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="621"/>
         <source>Loading Project: %1</source>
         <translation>Cargando Proxecto: %1</translation>
     </message>
