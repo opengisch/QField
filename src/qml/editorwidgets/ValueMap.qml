@@ -5,10 +5,13 @@ import QtGraphicalEffects 1.0
 Item {
   signal valueChanged(var value, bool isNull)
 
-  anchors.left: parent.left
-  anchors.right: parent.right
+  anchors {
+    left: parent.left
+    right: parent.right
+    rightMargin: 10 * dp
+  }
 
-  height: childrenRect.height
+  height: childrenRect.height + 10 * dp
 
 
   ComboBox {
@@ -86,7 +89,7 @@ Item {
         verticalOffset: 4 * dp
         radius: 2 * dp
         samples: 17
-        color: "#40000000"
+        color: "#20000000"
         source: backgroundRect
       }
     }
