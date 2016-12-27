@@ -243,6 +243,11 @@ ApplicationWindow {
     }
 
     onShowMenu: mainMenu.popup()
+
+    onCurrentLayerChanged: {
+      if ( currentLayer.readOnly && stateMachine.state == "digitize" )
+        displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
+    }
   }
 
   DropShadow {
@@ -367,7 +372,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" )
+    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -419,6 +424,7 @@ ApplicationWindow {
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
+
 
     Controls.Menu {
       title: qsTr( "Mode" )
