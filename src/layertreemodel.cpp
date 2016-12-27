@@ -21,8 +21,9 @@
 #include <qgsvectorlayer.h>
 #include <qgslayertreemodellegendnode.h>
 
-LayerTreeModel::LayerTreeModel( QgsLayerTreeGroup* rootNode, QObject* parent )
+LayerTreeModel::LayerTreeModel( QgsLayerTreeGroup* rootNode, QgsProject* project, QObject* parent )
   : QSortFilterProxyModel( parent )
+  , mProject( project )
 {
   mLayerTreeModel = new QgsLayerTreeModel( rootNode, this );
   setSourceModel( mLayerTreeModel );
@@ -104,4 +105,28 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
 QgsLayerTreeModel* LayerTreeModel::layerTreeModel() const
 {
   return mLayerTreeModel;
+}
+
+QgsLayerTreeGroup*LayerTreeModel::rootGroup() const
+{
+  return mLayerTreeModel->rootGroup();
+}
+
+QString LayerTreeModel::mapTheme() const
+{
+  return mMapTheme;
+}
+
+void LayerTreeModel::setMapTheme( const QString& mapTheme )
+{
+  if ( mMapTheme == mapTheme )
+    return;
+
+  mMapTheme = mapTheme;
+  emit mapThemeChanged();
+}
+
+QgsProject*LayerTreeModel::project() const
+{
+  return mProject;
 }

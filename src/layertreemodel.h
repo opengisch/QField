@@ -20,10 +20,14 @@
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeModel;
+class QgsProject;
 
 class LayerTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+
+    Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+
   public:
     enum Roles
     {
@@ -33,7 +37,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     };
     Q_ENUMS( Roles )
 
-    explicit LayerTreeModel( QgsLayerTreeGroup* rootNode, QObject* parent = nullptr );
+    explicit LayerTreeModel( QgsLayerTreeGroup* rootGroup, QgsProject* project, QObject* parent = nullptr );
 
     Q_INVOKABLE QVariant data( const QModelIndex& index, int role ) const override;
 
@@ -41,8 +45,20 @@ class LayerTreeModel : public QSortFilterProxyModel
 
     QgsLayerTreeModel* layerTreeModel() const;
 
+    QgsLayerTreeGroup* rootGroup() const;
+
+    QString mapTheme() const;
+    void setMapTheme( const QString& mapTheme );
+
+    QgsProject* project() const;
+
+  signals:
+    void mapThemeChanged();
+
   private:
     QgsLayerTreeModel* mLayerTreeModel;
+    QString mMapTheme;
+    QgsProject* mProject;
 };
 
 #endif // LAYERTREEMODEL_H

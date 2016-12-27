@@ -78,7 +78,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
 #endif
 
   mProject = QgsProject::instance();
-  mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), this );
+  mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
 
   initDeclarative();
@@ -93,7 +93,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mProject->layerTreeRoot(), mMapCanvas->mapSettings(), this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), this );
   connect( mProject, &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
   connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
@@ -167,7 +167,6 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
-  rootContext()->setContextProperty( "project", mProject );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );

@@ -22,6 +22,8 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
 
+#include "layertreemodel.h"
+
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
 class MapSettings;
@@ -29,7 +31,6 @@ class QgsMapCanvasLayer;
 class QgsMapLayer;
 
 /**
- * \ingroup gui
  * The QgsLayerTreeMapCanvasBridge class takes care of updates of layer set
  * for QgsMapCanvas from a layer tree. The class listens to the updates in the layer tree
  * and updates the list of layers for rendering whenever some layers are added, removed,
@@ -43,18 +44,18 @@ class QgsMapLayer;
  * order in the canvas.
  *
  */
-class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
+class LayerTreeMapCanvasBridge : public QObject
 {
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( QgsLayerTreeGroup* root, MapSettings* mapSettings, QObject* parent = nullptr );
+    LayerTreeMapCanvasBridge(  LayerTreeModel* model, MapSettings* mapSettings, QObject* parent = nullptr );
 
     void clear();
 
     QgsLayerTreeGroup* rootGroup() const
     {
-      return mRoot;
+      return mModel->rootGroup();
     }
 
     MapSettings* mapSettings() const
@@ -124,13 +125,14 @@ class GUI_EXPORT LayerTreeMapCanvasBridge : public QObject
     void nodeRemovedChildren();
     void nodeVisibilityChanged();
     void nodeCustomPropertyChanged( QgsLayerTreeNode* node, const QString& key );
+    void mapThemeChanged();
 
   private:
     static bool findRecordForLayer( QgsMapLayer* layer, const QgsMapThemeCollection::MapThemeRecord& rec, QgsMapThemeCollection::MapThemeLayerRecord& layerRec );
     static void applyThemeToLayer( QgsLayerTreeLayer* nodeLayer, const QgsMapThemeCollection::MapThemeRecord& rec );
     static void applyThemeToGroup( QgsLayerTreeGroup* parent, const QgsMapThemeCollection::MapThemeRecord& rec );
 
-    QgsLayerTreeGroup* mRoot;
+    LayerTreeModel* mModel;
     MapSettings* mMapSettings;
 
     bool mPendingCanvasUpdate;

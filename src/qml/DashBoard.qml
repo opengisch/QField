@@ -60,7 +60,6 @@ Controls.Pane {
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
               source: Style.getThemeIcon( 'ic_settings_white_24dp' )
-
             }
           }
 
@@ -88,9 +87,8 @@ Controls.Pane {
         }
 
         onCurrentIndexChanged: {
-          if ( qgisProject.mapThemeCollection.mapThemes.length > 1 )
-          {
-            mapSettings.setMapTheme( qgisProject, mapThemeComboBox.currentText )
+          if ( qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
+            layerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
       }
