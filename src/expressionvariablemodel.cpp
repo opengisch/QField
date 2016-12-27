@@ -49,12 +49,12 @@ void ExpressionVariableModel::removeCustomVariable( int row )
 
 void ExpressionVariableModel::save()
 {
-  QMap<QString, QString> variables;
+  QVariantMap variables;
   for ( int i = 0; i < rowCount() - 1; ++i )
   {
     if ( item( i )->isEditable() )
     {
-      variables.insert( item( i )->data( VariableName ).toString(), item( i )->data( VariableValue ).toString() );
+      variables.insert( item( i )->data( VariableName ).toString(), item( i )->data( VariableValue ) );
     }
   }
 
