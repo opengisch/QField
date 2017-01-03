@@ -347,7 +347,7 @@ ApplicationWindow {
     }
 
     onPressAndHold: {
-      gpsMenu.open()
+      gpsMenu.popup()
     }
 
     function toggleGps() {
