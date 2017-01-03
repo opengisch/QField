@@ -135,12 +135,12 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Deseño</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables Globais</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -212,7 +212,7 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>A capa %1 é de só lectura.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>

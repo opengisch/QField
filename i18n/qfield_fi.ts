@@ -135,12 +135,12 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Globaalit muuttujat</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -212,7 +212,7 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>Taso %1 on ainoastaan luettava.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>

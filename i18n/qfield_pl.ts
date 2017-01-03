@@ -140,7 +140,7 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Zmienne globalne</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -212,7 +212,7 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>Warstwa %1 jest tylko do odczytu.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>
