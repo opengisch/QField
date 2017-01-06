@@ -17,6 +17,7 @@
 
 #include "qgsmaplayer.h"
 #include "qgsproject.h"
+#include "qgsmessagelog.h"
 
 #include <qgsmaplayerstylemanager.h>
 
@@ -203,9 +204,15 @@ void MapSettings::onReadProject( const QDomDocument& doc )
     QDomNode node = nodes.item( 0 );
 
     mMapSettings.readXml( node );
+
+    if ( mMapSettings.rotation() != 0 )
+      QgsMessageLog::logMessage( tr( "Map Canvas rotation is not supported. Resetting from %1 to 0." ).arg( mMapSettings.rotation() ) );
+
+    mMapSettings.setRotation( 0 );
+
     emit extentChanged();
     emit destinationCrsChanged();
-    emit rotationChanged();
+    // emit rotationChanged();
     emit outputSizeChanged();
     emit outputDpiChanged();
     emit mapUnitsChanged();

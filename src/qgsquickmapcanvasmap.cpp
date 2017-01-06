@@ -71,15 +71,15 @@ void QgsQuickMapCanvasMap::setMapUnits( const QgsUnitTypes::DistanceUnit& mapUni
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {
-  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
-  QgsPoint oldCenter( visibleExtent.center() );
+  QgsRectangle extent = mMapSettings->extent();
+  QgsPoint oldCenter( extent.center() );
   QgsPoint mousePos( mMapSettings->screenToCoordinate( center ) );
   QgsPoint newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
                       mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
 
   // same as zoomWithCenter (no coordinate transformations are needed)
-  visibleExtent.scale( scale, &newCenter );
-  mMapSettings->setExtent( visibleExtent );
+  extent.scale( scale, &newCenter );
+  mMapSettings->setExtent( extent );
 }
 
 void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
@@ -87,37 +87,18 @@ void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
   QgsPoint start = mMapSettings->screenToCoordinate( oldPos.toPoint() );
   QgsPoint end = mMapSettings->screenToCoordinate( newPos.toPoint() );
 
-  double dx = qAbs( end.x() - start.x() );
-  double dy = qAbs( end.y() - start.y() );
+  double dx = end.x() - start.x();
+  double dy = end.y() - start.y();
 
   // modify the extent
-  QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  QgsRectangle extent = mMapSettings->extent();
 
-  if ( end.x() > start.x() )
-  {
-    visibleExtent.setXMinimum( visibleExtent.xMinimum() + dx );
-    visibleExtent.setXMaximum( visibleExtent.xMaximum() + dx );
-  }
-  else
-  {
-    visibleExtent.setXMinimum( visibleExtent.xMinimum() - dx );
-    visibleExtent.setXMaximum( visibleExtent.xMaximum() - dx );
-  }
+  extent.setXMinimum( extent.xMinimum() + dx );
+  extent.setXMaximum( extent.xMaximum() + dx );
+  extent.setYMaximum( extent.yMaximum() + dy );
+  extent.setYMinimum( extent.yMinimum() + dy );
 
-  if ( end.y() > start.y() )
-  {
-    visibleExtent.setYMaximum( visibleExtent.yMaximum() + dy );
-    visibleExtent.setYMinimum( visibleExtent.yMinimum() + dy );
-
-  }
-  else
-  {
-    visibleExtent.setYMaximum( visibleExtent.yMaximum() - dy );
-    visibleExtent.setYMinimum( visibleExtent.yMinimum() - dy );
-
-  }
-
-  mMapSettings->setExtent( visibleExtent );
+  mMapSettings->setExtent( extent );
 }
 
 void QgsQuickMapCanvasMap::refreshMap()
