@@ -106,25 +106,25 @@
 <li><a class="reference internal" href="#display-expression">Expression d&#8217;affichage</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulaires et champs</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulaire de suppression d&#8217;objet</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#field-widget">Outil d&#8217;édition de champ</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Glisser-déposer les formulaires du designer</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Visibilité conditionnelle</a></li>
+<li><a class="reference internal" href="#constraints">Contraintes</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Cas d&#8217;utilisation courante</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Valeurs par défaut</a><ul>
+<li><a class="reference internal" href="#id1">Cas d&#8217;utilisation courante</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
+<li><a class="reference internal" href="#editable">Modifiable</a></li>
 <li><a class="reference internal" href="#remember-last-values">Se souvenir des dernières valeurs</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#snapping">Accrochage</a><ul>
+<li><a class="reference internal" href="#snapping-types">Types d&#8217;accrochage</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Accrochage à des couches</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Tolérance d&#8217;accrochage</a></li>
 </ul>
 </li>
 </ul>
@@ -174,18 +174,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android : note spécial d&#8217;accès aux fichiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -203,10 +203,10 @@
 <div class="section" id="display-expression">
 <h2>Expression d&#8217;affichage<a class="headerlink" href="#display-expression" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans QField, les objets sont identifiés par un nom. L&#8217;expression pour générer ce nom peut être définie en ouvrant la table d&#8217;attributs dans QGIS et en switchant sur la vue formulaire. Choisir le champ approprié ou une expression dans la liste. A partie de QGIS 3, cela pourra être fait directement dans <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
-<div class="clearer text-center container">
+<div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+<p class="caption"><span class="caption-text">L&#8217;expression affichées sera utilisée pour représenter des entités avec une chaîne de caractères d&#8217;identification dans QField.</span></p>
 </div>
 </div>
 </div>
@@ -218,8 +218,8 @@
 <p>La configuration du formulaire de suppression d&#8217;objet est directement appliquée au formulaire QField.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Lien permanent vers ce titre">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h3>Outil d&#8217;édition de champ<a class="headerlink" href="#field-widget" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les outils d&#8217;édition de champ de QGIS sont supportés du mieux possible.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -279,83 +279,71 @@
 </table>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h3>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h3>Glisser-déposer les formulaires du designer<a class="headerlink" href="#drag-and-drop-designer-forms" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les groupes et onglets venant des formulaires du designer par glisser-déposer sont supportés.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h3>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
-<div class="clearer text-center container">
+<h3>Visibilité conditionnelle<a class="headerlink" href="#conditional-visibility" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les groupes peuvent être masqués à partir d&#8217;une expression. Cela est utile lorsque certains attributs ne sont requis que sous certaines conditions. Imaginons par exemple une cartographie d&#8217;arbres. Certains d&#8217;entre eux peuvent avoir une maladie et vous avez une liste des maladies possibles. Pour ne pas encombrer le formulaire avec trop de champs, faites un groupe et paramétrez la visibilité pour un groupe &#8220;maladies&#8221;. Ajouter un champ &#8220;maladies&#8221; avec une case à cocher. La liste des maladies sera disponible pour l&#8217;utilisateur seulement si la case à cocher est activée.</p>
+<div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+<p class="caption"><span class="caption-text">Configuration d&#8217;une boîte de groupe qui ne sera montrée que si la case à cocher  &#8220;measures_taken&#8221; est activée.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
-<h3>Constraints<a class="headerlink" href="#constraints" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
-<div class="clearer text-center container">
+<h3>Contraintes<a class="headerlink" href="#constraints" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les champs attributaires peuvent avoir des contraintes rattachées. Les contraintes sont des expressions qui doivent correspondre à <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) pour être en mesure d&#8217;enregistrer le formulaire. Les contraintes sont configurables champ par champ et une description peut être ajoutée pour être montrée à l&#8217;utilisateur si une contrainte n&#8217;est pas satisfaite.</p>
+<div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configuration de la plage de valeurs d&#8217;une contrainte</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Lien permanent vers ce titre">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Cas d&#8217;utilisation courante<a class="headerlink" href="#common-use-cases" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Vous ne pouvez saisir une altitude supérieure au plus haut sommet de ce pays.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Un identifiant est requis dans ce champ.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h3>Default values<a class="headerlink" href="#default-values" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
-<div class="clearer text-center container">
+<h3>Valeurs par défaut<a class="headerlink" href="#default-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les champs peuvent avoir des valeurs par défaut configurées. Les valeurs par défaut peuvent être insérées dans le formulaire lors de la numérisation d&#8217;une entité. Elles sont visibles pour l&#8217;utilisateur et peuvent être modifiées tant que le champ est en mode &#8220;édition&#8221;. Elles peuvent être basées sur la géométrie ou des combinaison de variables.</p>
+<div class="clearer text-center docutils container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Configuration d&#8217;une date prévue comme valeur par défaut</span></p>
 </div>
 </div>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Insert the current date and time:</p>
+<h4>Cas d&#8217;utilisation courante<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Insérer la date et l&#8217;heure actuelle :</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Insérer la longueur de la ligne numérisée :</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configurer les variables générales sur l&#8217;appareil et les insérer.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Si vous souhaitez assigner à une région un code basé sur le lieu quand une entité est insérée, vous pouvez le faire à l&#8217;aide d&#8217;expressions d’agrégation :</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h3>Editable<a class="headerlink" href="#editable" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>Modifiable<a class="headerlink" href="#editable" title="Lien permanent vers ce titre">¶</a></h3>
 <p>The editable flag of fields is respected.</p>
 </div>
 <div class="section" id="remember-last-values">
@@ -364,29 +352,29 @@ inserted, you can do so by using an aggregate expression:</p>
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Snapping<a class="headerlink" href="#snapping" title="Lien permanent vers ce titre">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<h2>Accrochage<a class="headerlink" href="#snapping" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lors de la numérisation de nouvelles entités, les nouveaux points peuvent être accrochés aux géométries existantes.</p>
+<p>Toutes la configuration peut être faire dans : menuselection:<cite>Project &#8211;&gt; Snapping Settings</cite> (<span class="menuselection">Settings ‣ Snapping Settings</span> dans QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Lien permanent vers ce titre">¶</a></h3>
-<p>It is possible to snap new points</p>
+<h3>Types d&#8217;accrochage<a class="headerlink" href="#snapping-types" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible d&#8217;accrocher de nouveaux points</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
-<li>to nodes and segments of existing geomtries</li>
+<li><p class="first">seulement aux nœuds de géométries existantes</p>
+</li>
+<li><p class="first">seulement aux segments de géométries existantes</p>
+</li>
+<li><p class="first">aux nœuds et segments de géométries existantes</p>
+</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Lien permanent vers ce titre">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Accrochage à des couches<a class="headerlink" href="#snapping-to-layers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible d&#8217;accrocher à une seule ou plusieurs couches</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Lien permanent vers ce titre">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<h3>Tolérance d&#8217;accrochage<a class="headerlink" href="#snapping-tolerance" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La tolérance d&#8217;accrochage peut être spécifiée en unités de cartes ou en pixels</p>
+<p>Dans la plupart des cas, l&#8217;unité doit être le pixel. Nous avons de bons retours avec une valeur de tolérance de 20.</p>
 </div>
 </div>
 </div>

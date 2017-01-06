@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; documentation QField Documentation 0.8 - Hiendertelltihoren</title>
+    <title>Extension QFieldSync &mdash; documentation QField Documentation 0.8 - Hiendertelltihoren</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -100,12 +100,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
+<li><a class="reference internal" href="#">Extension QFieldSync</a><ul>
+<li><a class="reference internal" href="#workflow">Flux de travail</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#layer-configuration">Configuration de la couche</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuration du fond de carte</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configuration de l&#8217;édition hors-ligne</a></li>
 </ul>
 </li>
 </ul>
@@ -151,18 +151,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android : note spécial d&#8217;accès aux fichiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Gestion du projet QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Projet portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Extension QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -171,81 +171,72 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Lien permanent vers ce titre">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>Extension QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L&#8217;extension QFieldSync aide à préparer et empaqueter les projets QGIS pour QField.</p>
+<p>QFieldSync aide à la préparation de votre projet en automatisant les éléments suivants :</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Projet portable</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">Étapes requises pour la mise en place du projet (ex. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Projet portable</span></a>)</p>
+</li>
+<li><p class="first">Création d&#8217;un fond de carte à partir d&#8217;un raster seul ou d&#8217;un style défini dans un thème de carte.</p>
+</li>
+<li><p class="first">Configuration de la fonctionnalité d&#8217;édition hors-ligne et synchronisation des changements</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Lien permanent vers ce titre">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Flux de travail<a class="headerlink" href="#workflow" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour avoir un rapide aperçu du processus, voici une liste des étapes classiques :</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Créer un paquet QField. Ceci est une copie de travail dans un dossier séparé.</p>
+</li>
+<li><p class="first">Copier le paquet QField sur le périphérique-cible.</p>
+</li>
+<li><p class="first">Sortir en extérieur et collecter des données.</p>
+</li>
+<li><p class="first">Copie-retour des données modifiées vers votre ordinateur</p>
+</li>
+<li><p class="first">Synchroniser les données modifiées avec votre base de données ou vos fichiers</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<p>La configuration du projet est enregistrée dans le projet original .qgs. Ainsi il est possible de pré-configurer une fois un projet pour l&#8217;utiliser ensuite de manière répétée.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<h3>Configuration de la couche<a class="headerlink" href="#layer-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans la boîte de dialogue de configuration du projet, une <em>action</em> peut être définie individuellement pour chaque couche. Selon le type de couche, différents types d&#8217;actions sont disponibles.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Copier</dt>
+<dd><p class="first last">La couche va être copié dans le répertoire du paquet. Cela est disponible seulement pour les couches basées sur des fichiers.</p>
+</dd>
+<dt>Pas d&#8217;action</dt>
+<dd><p class="first last">La couche-source va être abandonnée sans modification. Cela est disponible seulement pour les couches non-basées sur des fichiers telles WMS, WFS, Postgis...</p>
+</dd>
+<dt>Édition hors-ligne</dt>
+<dd><p class="first last">Une copie de travail de la couche est faite dans le répertoire du paquet. Chaque modification réalisée dans le projet empaqueté durant le travail est enregistré dans un fichier de journalisation. Plus tard, lors de la synchronisation-retour, ce fichier sera relancé et tous les changements appliqués aussi à la base de données principale. Il n&#8217;y a pas de conflit de traitement.</p>
+</dd>
+<dt>Enlever</dt>
+<dd><p class="first last">La couche va être enlevée de la copie de travail. Cela est utile si une couche est utilisée dans le fond de carte et ne sera pas disponible dans le projet empaqueté.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Configuration du fond de carte<a class="headerlink" href="#base-map-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un fond de carte est une couche raster ajoutée comme couche d&#8217;arrière-plan au fichier du projet empaqueté.</p>
+<p>Si l&#8217;option &#8220;fond de carte&#8221; est activée, un fond de carte sera affiché, dès que le projet sera empaqueté. La zone d&#8217;intérêt - l&#8217;étendue qui sera affichée - sera choisi au moment de l&#8217;empaquetqge.</p>
+<p>Il y a deux sources possibles pour un fond de carte :</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>Couche</dt>
+<dd><p class="first last">Couche raster. Utile pour faire une copie hors-ligne d&#8217;une couche en ligne tel un WMS ou réaliser une copie de travail d&#8217;un format non supporté comme une couche ECW ou MrSid.</p>
+</dd>
+<dt>Thème de carte</dt>
+<dd><p class="first last">Thème de carte. Cela est utile pour créer un fond de carte basé sur la combinaison de plusieurs couches avec une mise en forme. Ces couches peuvent être retirées du paquet de travail et n&#8217;ont plus besoin d’être affichées sur le périphérique. On peut économiser sur l&#8217;espace-disque et la batterie du périphérique.</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>La taille des tuiles définit la résolution spatiale. Elle détermine le nombre d&#8217;unités de carte par pixel. Si le SCR du canevas de carte a pour unité le mètre et que la taille de la tuile est fixée à 1, chaque pixel du raster aura une étendue spatiale d&#8216;1x1 m, si elle est fixée à 1000, chaque pixel du raster aura une étendue spatiale d&#8216;1 kilomètre carré.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Configuration de l&#8217;édition hors-ligne<a class="headerlink" href="#offline-editing-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si <em>synchroniser seulement les entités de la zone d&#8217;intérêt</em> est coché, seules les entités qui sont comprises dans l&#8217;étendue du canevas telle que définie lors de l’empaquetage seront copiées dans la copie de travail d&#8217;édition hors-ligne.</p>
 </div>
 </div>
 </div>

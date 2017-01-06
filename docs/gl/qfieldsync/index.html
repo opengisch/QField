@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
+    <title>Plugin QFieldSync &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -99,12 +99,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">Plugin QFieldSync</a><ul>
+<li><a class="reference internal" href="#workflow">Procedemento</a></li>
+<li><a class="reference internal" href="#configuration">Configuración</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Configuración de capa</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuración do mapa base</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configuración da edición sen conexión</a></li>
 </ul>
 </li>
 </ul>
@@ -161,7 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Plugin QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -170,81 +170,72 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>Plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
+<p>O plugin QFieldSync axuda a preparar e empaquetar os proxectos de QGIS para QField.</p>
+<p>QFieldSync colabora coa preparación do teu proxecto automatizando o seguinte:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proxecto Portable</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">Pasos necesarios para a configuración do proxecto (por exemplo <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proxecto Portable</span></a>)</p>
+</li>
+<li><p class="first">Crear un mapa base dende unha capa ráster única ou dende un estilo definido nun tema de mapa.</p>
+</li>
+<li><p class="first">Configurar a funcionalidade de edición sen conexión e sincronizar os cambios.</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Procedemento<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>Para obter unha vista xeral rápida do proceso, aquí hai unha lista de pasos habituais:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Crear un paquete QField. Esta é unha copia funcional nun directorio separado.</p>
+</li>
+<li><p class="first">Copiar o paquete QField ó dispositivo de destino.</p>
+</li>
+<li><p class="first">Saír e recoller datos.</p>
+</li>
+<li><p class="first">Copiar os datos modificados de regreso ó teu ordenador de escritorio.</p>
+</li>
+<li><p class="first">Sincronizar os datos modificados coa túa base de datos ou ficheiros.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Configuración<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>A configuración do proxecto gárdase no ficheiro de proxecto .qgs principal. Desta forma é posible pre-configurar un proxecto unha única vez e utilizalo repetidamente.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<h3>Configuración de capa<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
+<p>No diálogo de configuración do proxecto, pode definirse unha <em>acción</em> para cada capa individualmente. Dependendo do tipo de capa, hai dispoñibles diferentes tipos de accións.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Copiar</dt>
+<dd><p class="first last">Copiarase a capa ó directorio de empaquetado. Só dispoñible para capas baseadas en ficheiros.</p>
+</dd>
+<dt>Sen acción</dt>
+<dd><p class="first last">A fonte da capa quedará intacta. Só está dispoñible para capas non baseadas en ficheiros como WMS, WFS, Postgis...</p>
+</dd>
+<dt>Edición Sen Conexión</dt>
+<dd><p class="first last">Copiouse unha copia funcional da capa no directorio de empaquetado. Rexístrase cada cambio que se fai no proxecto empaquetado durante o traballo nun rexistro de cambios. Cando máis tarde se sincronizan os cambios, reproducirase este rexistro e aplicaranse tódolos cambios á base de datos principal. Non hai conflito ó manipular no lugar.</p>
+</dd>
+<dt>Eliminar</dt>
+<dd><p class="first last">Eliminarase a capa da copia funcional. Isto é útil se unha capa se usa na capa base e non estará dispoñible no proxecto empaquetado.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Configuración do mapa base<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Un mapa base é unha capa ráster que se engade como a capa máis ó fondo do ficheiro do proxecto empaquetado.</p>
+<p>Se a opción de mapa base está activada, representarase un mapa base, sempre que o proxecto estea empaquetado. A área de interese - a extensión que será representada - escollerase no momento do empaquetado.</p>
+<p>Hai dúas posibles orixes para un mapa base:</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>Capa</dt>
+<dd><p class="first last">Unha capa ráster. Isto é útil para tomar unha copia sen conexión dunha capa en liña como un WMS ou para tomar unha copia funcional dun formato non admitido como unha capa ECW ou MrSID.</p>
+</dd>
+<dt>Tema de Mapa</dt>
+<dd><p class="first last">Un tema de mapa. Isto é útil para crear un mapa base baseado nunha combinación de varias capas con estilo. Estas capas poden eliminarse do paquete funcional e non precisan representarse no dispositivo. Isto pode aforrar algún espazo no disco e batería no dispositivo.</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>O tamaño da tesela define a resolución espacial. Determina o número de unidades de mapa por píxel. Se o SRC da vista do mapa ten metros como unidades e o tamaño da tesela se establece a 1, cada píxel do ráster terá unha extensión espacial de 1x1 m., establecéndose a 1000, cada píxel do ráster terá unha extensión espacial de 1 quilómetro cadrado.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Configuración da edición sen conexión<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Se está marcado <em>sincronizar só entidades da área de interese</em>, só as entidades que estean dentro da extensión da vista do mapa no momento do empaquetado serán copiadas á copia funcional de edición sen conexión.</p>
 </div>
 </div>
 </div>

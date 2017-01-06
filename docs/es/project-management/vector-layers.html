@@ -107,9 +107,9 @@
 <li><a class="reference internal" href="#forms-and-fields">Formas y campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suppress Feature Form</a></li>
 <li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Formas del diseñador de arrastrar y soltar</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilidad condicional</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
+<li><a class="reference internal" href="#constraints">Restricciones</a><ul>
 <li><a class="reference internal" href="#common-use-cases">Casos de uso comunes</a></li>
 </ul>
 </li>
@@ -118,13 +118,13 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#remember-last-values">Recordar últimos valores</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
+<li><a class="reference internal" href="#snapping">Autoensamblado</a><ul>
+<li><a class="reference internal" href="#snapping-types">Tipos de autoensamblado</a></li>
 <li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Tolerancia de autoensamblado</a></li>
 </ul>
 </li>
 </ul>
@@ -203,7 +203,7 @@
 <div class="section" id="display-expression">
 <h2>Visualizar expresión<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En QField, los objetos son identificados con un nombre. La expresión para generar este nombre puede ser definido abriendo la tabla de atributos en QGIS y cambiando a la vista de forma. Elije el campo apropiado o una expresión en la lista. Comenzando con QGIS 3, esto puede ser hecho directamente desde la página <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualización</span> .</p>
-<div class="clearer text-center container">
+<div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">La expresión de visualización será usada para representar elementos con una cadena de identificación a través de QField.</span></p>
@@ -282,13 +282,13 @@
 </table>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h3>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h3>Formas del diseñador de arrastrar y soltar<a class="headerlink" href="#drag-and-drop-designer-forms" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los grupos y pestañas de las formas del diseñador de arrastrar y soltar son soportadas.</p>
 </div>
 <div class="section" id="conditional-visibility">
 <h3>Visibilidad condicional<a class="headerlink" href="#conditional-visibility" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los grupos pueden ser ocultados basados en una expresión. Esto es útil cuando ciertos atributos son sólo requeridos bajo ciertas condiciones. Como ejemplo imagina el mapeo de árboles. Algunos de ellos podrían tener una enfermedad y tú tienes una lista de posibles enfermedades. Para no sobrecargar la forma con muchos campos, haz un grupo y configura una expresión de visibilidad para el grupo &#8220;enfermedades&#8221;. Agrega un campo &#8220;enfermedad&#8221; con una caja de chequeo. Sólo cuando la caja de chequeo esté seleccionada, la lista de enfermedades estará disponible para el usuario.</p>
-<div class="clearer text-center container">
+<div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
@@ -296,15 +296,15 @@
 </div>
 </div>
 <div class="section" id="constraints">
-<h3>Constraints<a class="headerlink" href="#constraints" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Restricciones<a class="headerlink" href="#constraints" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Attribute fields can have constraints attached. Constraints are expressions that needs to
 evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
 are configured on a per-field basis and a description can be added that will be shown to the
 user if a constraint is not satisfied.</p>
-<div class="clearer text-center container">
+<div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configuración de una restricción dentro de un rango</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
@@ -313,7 +313,7 @@ user if a constraint is not satisfied.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Es requerido rellenar un identificador.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
@@ -321,11 +321,8 @@ user if a constraint is not satisfied.</p>
 </div>
 <div class="section" id="default-values">
 <h3>Valores predeterminados<a class="headerlink" href="#default-values" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
-<div class="clearer text-center container">
+<p>Los campos pueden tener valores predeterminados configurados. Los valores predeterminados son insertados en la forma de atributos cuando se digitaliza un nuevo elemento. Son visibles al usuario y pueden ser modificados siempre y cuando el campo sea editable. Pueden estar basados en la geometría o en expresiones de variables.</p>
+<div class="clearer text-center docutils container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuración de una fecha con formato como valor predeterminado.</span></p>
@@ -353,28 +350,28 @@ expression variables.</p>
 </div>
 <div class="section" id="editable">
 <h3>Editable<a class="headerlink" href="#editable" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The editable flag of fields is respected.</p>
+<p>La bandera de edición de los campos es respetada.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h3>Remember last values<a class="headerlink" href="#remember-last-values" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Recordar últimos valores<a class="headerlink" href="#remember-last-values" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>QField ofrece un control mucho más preciso sobre los últimos valores usados e ignora los ajustes de QGIS.</p>
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Snapping<a class="headerlink" href="#snapping" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
+<h2>Autoensamblado<a class="headerlink" href="#snapping" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Cuando se digitalizan nuevos elementos, se pueden autoensamblar puntos nuevos a geometrías existentes.</p>
 <p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
 (<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Tipos de autoensamblado<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>It is possible to snap new points</p>
 <ul class="simple">
 <li><p class="first">sólo a nodos de geometrías existentes</p>
 </li>
 <li><p class="first">sólo a segmentos de geometrías existentes</p>
 </li>
-<li>to nodes and segments of existing geomtries</li>
+<li><p class="first">a nodos y segmentos de geometrías existentes.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
@@ -382,10 +379,9 @@ geometries.</p>
 <p>It is also possible to only snap to one or a few layers.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<h3>Tolerancia de autoensamblado<a class="headerlink" href="#snapping-tolerance" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La tolerancia de autoensamblado puede ser especificada en unidades de mapa o pixeles.</p>
+<p>En casi cualquier caso, las unidades deberían ser establecidas a pixeles. Hemos tenido buenas experiencias con un valor de tolerancia de 20.</p>
 </div>
 </div>
 </div>

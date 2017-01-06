@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Special File Access Notes &mdash; documentation QField Documentation 0.8 - Hiendertelltihoren</title>
+    <title>Android : note spécial d’accès aux fichiers &mdash; documentation QField Documentation 0.8 - Hiendertelltihoren</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -36,8 +36,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="documentation QField Documentation 0.8 - Hiendertelltihoren" href="../index.html" />
     <link rel="up" title="Gestion du projet QField" href="index.html" />
-    <link rel="next" title="Configure Map Themes" href="map-themes.html" />
-    <link rel="prev" title="Configure Map Themes" href="map-themes.html" />
+    <link rel="next" title="Configurer les thèmes de carte" href="map-themes.html" />
+    <link rel="prev" title="Configurer les thèmes de carte" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -102,7 +102,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Special File Access Notes</a><ul>
+<li><a class="reference internal" href="#">Android : note spécial d&#8217;accès aux fichiers</a><ul>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Symboles SVG personnalisés et configuration</a></li>
 <li><a class="reference internal" href="#external-sd-card">Carte SD externe</a></li>
 </ul>
@@ -116,11 +116,11 @@
             
               
   <li>
-    <a href="map-themes.html" title="Previous Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configure Map...</span>
+    <a href="map-themes.html" title="Previous Chapter: Configurer les thèmes de carte"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configurer le...</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configure Map... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Configurer les thèmes de carte"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configurer le... &raquo;</span>
     </a>
   </li>
             
@@ -152,18 +152,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Special File Access Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Android : note spécial d&#8217;accès aux fichiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -172,11 +172,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="android-special-file-access-notes">
-<h1>Android: Special File Access Notes<a class="headerlink" href="#android-special-file-access-notes" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>Android : note spécial d&#8217;accès aux fichiers<a class="headerlink" href="#android-special-file-access-notes" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h2>Symboles SVG personnalisés et configuration<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le chemin aux dossiers partagés de l&#8217;appareil peuvent être consulté dans la boîte de dialogue &#8220;A propos&#8221;.</p>
-<p>Les symboles personnalisés doivent être copié à l&#8217;aide d&#8217;un gestionnaire de fichiers.</p>
+<p>Les symboles personnalisés doivent être copiés à l&#8217;aide d&#8217;un gestionnaire de fichiers.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Carte SD externe<a class="headerlink" href="#external-sd-card" title="Lien permanent vers ce titre">¶</a></h2>

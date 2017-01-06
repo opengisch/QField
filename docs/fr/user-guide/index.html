@@ -35,7 +35,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="documentation QField Documentation 0.8 - Hiendertelltihoren" href="../index.html" />
-    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="next" title="Changer le thème de carte actif" href="map-themes.html" />
     <link rel="prev" title="Configuration des couches vecteur" href="../project-management/vector-layers.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -102,17 +102,17 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Guide d&#8217;utilisateur QField</a><ul>
-<li><a class="reference internal" href="#basic-workflow">Workflow basic</a><ul>
+<li><a class="reference internal" href="#basic-workflow">Flux de travail de base</a><ul>
 <li><a class="reference internal" href="#switch-modes">Changement du mode</a></li>
 <li><a class="reference internal" href="#opening-a-project">Ouvrir un projet</a></li>
 <li><a class="reference internal" href="#identify-features">Interroger des objets</a><ul>
-<li><a class="reference internal" href="#exceptions-to-identified-layers">Couche identifiables</a></li>
+<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions to identified layers</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#gps">GPS</a></li>
-<li><a class="reference internal" href="#digitize">Digitaliser</a><ul>
+<li><a class="reference internal" href="#digitize">Numériser</a><ul>
 <li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">Lignes et polygones</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulaire d&#8217;attributs</a></li>
 </ul>
 </li>
@@ -134,7 +134,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Changer le thème de carte actif"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Changer le th... &raquo;</span>
     </a>
   </li>
             
@@ -166,18 +166,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android : note spécial d&#8217;accès aux fichiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Gestion du projet QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Projet portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Guide d&#8217;utilisateur QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Changer le thème de carte actif</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables d&#8217;ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -188,7 +188,7 @@
   <div class="section" id="qfield-user-guide">
 <h1>Guide d&#8217;utilisateur QField<a class="headerlink" href="#qfield-user-guide" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="basic-workflow">
-<h2>Workflow basic<a class="headerlink" href="#basic-workflow" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Flux de travail de base<a class="headerlink" href="#basic-workflow" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="switch-modes">
 <h3>Changement du mode<a class="headerlink" href="#switch-modes" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mode peut être changé via <span class="menuselection">Menu button ‣ mode</span></p>
@@ -198,42 +198,38 @@
 </div>
 <div class="section" id="identify-features">
 <h3>Interroger des objets<a class="headerlink" href="#identify-features" title="Lien permanent vers ce titre">¶</a></h3>
-<p>A tap on a feature will identify it. Pressing the back button will close the identify window.</p>
+<p>Une pression sur un objet l&#8217;identifiera. Pour clore la fenêtre d&#8217;identification, presser le bouton &#8220;Retour&#8221;.</p>
 <div class="section" id="exceptions-to-identified-layers">
-<h4>Couche identifiables<a class="headerlink" href="#exceptions-to-identified-layers" title="Lien permanent vers ce titre">¶</a></h4>
+<h4>Exceptions to identified layers<a class="headerlink" href="#exceptions-to-identified-layers" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Il n&#8217;est souvent pas nécessaire de pouvoir interroger chacune des couches du projet. Certaines couches sont uniquement utiles comme fond de plan et leurs attributs n&#8217;ont pas d’intérêt.</p>
 <p>Il est possible de gérer la liste des couches interrogeables dans QGIS desktop <span class="menuselection">Projet ‣ Propriétés du projet ‣ Identifier les couches</span> . Décocher à cet endroit les couches qui ne doivent pas être interrogeables.</p>
 </div>
 </div>
 <div class="section" id="gps">
 <h3>GPS<a class="headerlink" href="#gps" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Un touché court sur le bouton du GPS l&#8217;active et centre la carte sur la localisation actuelle, dès que les données de géoloclisation sont disponibles.</p>
-<p>Un touché long sur le bouton du GPS affiche le menu de géolocalisation.</p>
+<p>Une courte pression sur le bouton du GPS l&#8217;active et centre la carte sur la localisation actuelle, dès que les données de géolocalisation sont disponibles.</p>
+<p>Une longue pression sur le bouton du GPS affiche le menu de géolocalisation.</p>
 <p>Dans le menu de géolocalisation, l&#8217;affichage des données de position peut être activé. Les coordonnées affichées sont reprojetées dans le SCR du projet.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Si les informations sont affichées en WGS84, c&#8217;est probablement car aucun signal n&#8217;est disponible.</p>
+<p class="last">Si les informations sont affichées en WGS84 au lieu de votre propre SCR, c&#8217;est probablement parce qu&#8217;aucun signal n&#8217;est disponible.</p>
 </div>
 </div>
 <div class="section" id="digitize">
-<h3>Digitaliser<a class="headerlink" href="#digitize" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour commencer à digitaliser de nouveaux objets <a href="#id1"><span class="problematic" id="id2">`Switch modes`_</span></a> to digitizing.</p>
-<p>A new combobox will appear next to the menu button which lists the layers
-available for digitizing.</p>
+<h3>Numériser<a class="headerlink" href="#digitize" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour commencer à numériser de nouveaux objets <a href="#id1"><span class="problematic" id="id2">`Switch modes`_</span></a> to digitizing.</p>
+<p>Une nouvelle boîte de dialogue apparaîtra près du bouton Menu pour lister les couches disponibles pour numérisation.</p>
 <div class="section" id="points">
 <h4>Points<a class="headerlink" href="#points" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Déplacer la carte jusqu&#8217;à ce que la croix du centre de l&#8217;écran soit sur la position désirée, puis cliquer sur le crayon situé en-bas à droite de l&#8217;écran pour confirmer la création d&#8217;un nouveau point.</p>
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line
-and click the pencil at the lower right of the screen.
-Proceed with adding points or removing points until the line or polygon is finished
-and then click save.</p>
+<h4>Lignes et polygones<a class="headerlink" href="#lines-and-polygons" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Positionner le viseur du centre de l&#8217;écran vers le point de démarrage souhaité de la ligne et cliquer sur le crayon en bas à droite de l&#8217;écran. Continuer en ajoutant ou supprimant des points jusqu&#8217;à ce que la ligne ou le polygone soit terminé puis cliquer sur &#8220;Enregistrer&#8221;.</p>
 </div>
 <div class="section" id="attribute-form">
 <h4>Formulaire d&#8217;attributs<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Après avoir numérisé une géométrie, le formulaire d&#8217;attributs s&#8217;ouvre et l&#8217;utilisateur doit saisir les données pour le nouvel objet. Les cases à cocher à droite de chaque attribut permettent d&#8217;enregistrer des valeurs par défaut.</p>
+<p>Après avoir numérisé une géométrie, le formulaire d&#8217;attributs s&#8217;ouvre et l&#8217;utilisateur peut saisir les données pour le nouvel objet. Les cases à cocher à droite de chaque attribut permettent d&#8217;enregistrer des valeurs par défaut pour chacun d&#8217;entre eux.</p>
 </div>
 </div>
 <div class="section" id="delete-features">
