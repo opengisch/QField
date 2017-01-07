@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 0.8 - Hiendertelltihoren Dokumentation</title>
+    <title>QFieldSync Plugin &mdash; QField Documentation 0.8 - Hiendertelltihoren Dokumentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -100,12 +100,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">QFieldSync Plugin</a><ul>
+<li><a class="reference internal" href="#workflow">Arbeitsablauf</a></li>
+<li><a class="reference internal" href="#configuration">Konfiguration</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Layerkonfiguration</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Hintergrundkartenkonfiguration</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Konfiguration von Offline Bearbeiten</a></li>
 </ul>
 </li>
 </ul>
@@ -162,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Das aktive Kartenthema wechseln</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globale Variablen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Entwicklung und Support</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync Plugin</a></li>
 </ul>
 
 </ul>
@@ -171,66 +171,67 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Link zu dieser Überschrift">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>QFieldSync Plugin<a class="headerlink" href="#qfieldsync-plugin" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Das QFieldSync Plugin hilft dabei, ein QGIS Projekt für QField vorzubereiten und zu verpacken.</p>
+<p>QFieldSync unterstützt die Projektvorbereitung durch die Automatisierung der folgenden Vorgänge:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable Projekte</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">Benötigte Schritte für die Grundkonfiguration (z.B. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable Projekte</span></a>)</p>
+</li>
+<li><p class="first">Erstellen einer Basiskarte von einem Rasterlayer oder von einem Kartenthema.</p>
+</li>
+<li><p class="first">Konfiguration der Offlineeditierfunktion und Rücksynchronisierung der Änderungen.</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Link zu dieser Überschrift">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Arbeitsablauf<a class="headerlink" href="#workflow" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Um einen kurzen Überblick über den Prozess zu erhalten, ist hier eine Liste der typischen Schritte:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Erzeugen eines QField Paketes. Dies ist eine Arbeitskopie in einem separaten Ordner.</p>
+</li>
+<li><p class="first">Das QField Pake auf das Zielgerät kopieren.</p>
+</li>
+<li><p class="first">Daten im Feld sammeln</p>
+</li>
+<li><p class="first">Zurückkopieren der Bearbeiteten Daten auf den Desktopcomputer.</p>
+</li>
+<li><p class="first">Synchronisation der modifizierten Daten mit der Datenbank oder Dateien.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Konfiguration<a class="headerlink" href="#configuration" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Projektkonfiguration ist in der Haupt-QGIS-Projektdatei gespeichert. Auf diese Weise ist es möglich, einmalig eine Vorkonfiguration zu erzeugen und diese wiederholt zu verwenden.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Link zu dieser Überschrift">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<h3>Layerkonfiguration<a class="headerlink" href="#layer-configuration" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Im Projektkonfigurationsdialog kann für jeden Layer individuell eine <em>Aktion</em> definiert werden. Abhängig vom Layertyp sind unterschiedliche Aktionen verfügbar.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
+<dt>Kopieren</dt>
+<dd><p class="first last">Der Layer wird in den Paketordner kopiert. Dies ist nur für Dateibasierte Layer verfügbar.</p>
+</dd>
+<dt>Keine Aktion</dt>
+<dd><p class="first last">Die Quelle des Layers wird nicht verändert. Dies ist nur verfügbar für nicht-Dateibasierte Layer wie WMS, WFS, Postgis...</p>
+</dd>
+<dt>Offline Bearbeiten</dt>
 <dd>A working copy of the layer is copied into the package folder. Every change
 which is done in the packaged project during work is recorded in a changelog.
 When synchronizing the changes back later on, this log will be replayed and
 all changes also be applied to the main data base. There is no conflict
 handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Entfernen</dt>
+<dd><p class="first last">Der Layer wird von der Arbeitskopie entfernt. Dies ist nützlich falls der Layer in der Basiskarte verwendet wird und nicht im verpackten Projekt verfügbar sein muss.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Link zu dieser Überschrift">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Hintergrundkartenkonfiguration<a class="headerlink" href="#base-map-configuration" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Eine Basiskarte ist ein Rasterlayer, der als unterster Layer zum verpackten Projekt hinzugefügt wird.</p>
+<p>Falls die Basiskartenoption aktiviert ist, wird beim verpacken des Projektes eine Basiskarte gezeichnet. Das Interessensgebiet - der gezeichnete Ausschnitt - wird zur Zeit des Verpackens gewählt.</p>
+<p>Es gibt zwei mögliche Quellen für eine Basiskarte:</p>
 <dl class="docutils">
 <dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
+<dd><p class="first last">Ein Rasterlayer. Dies ist nützlich um eine Offlinekopie eines Netzbasierten Layers wie einem WMS oder eine Kopie von einem nichtunterstützten Dateiformat wie ECW oder MrSID zu nehmen.</p>
+</dd>
+<dt>Kartenthema</dt>
 <dd>A map theme. This is useful to create a base map based on a combination of
 several layers with styling. These layers can then be removed from the working
 package and do not need to be rendered on the device. This can save some disk
@@ -242,10 +243,8 @@ to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
 1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Link zu dieser Überschrift">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Konfiguration von Offline Bearbeiten<a class="headerlink" href="#offline-editing-configuration" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Falls die Option <em>nur Objekte im Interessensgebiet</em> aktiviert ist, werden nur Objekte kopiert, die beim verpacken des Projektes auf dem Kartenausschnitt sichtbar sind.</p>
 </div>
 </div>
 </div>
