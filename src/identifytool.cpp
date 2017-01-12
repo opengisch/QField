@@ -105,6 +105,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
     QgsFeatureRequest req;
     req.setFilterRect( r );
     req.setLimit( QSettings().value( "/QField/identify/limit" , 100 ).toInt() );
+    req.setFlags( QgsFeatureRequest::ExactIntersect );
 
     QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;
