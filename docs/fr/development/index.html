@@ -109,11 +109,11 @@
 <li><a class="reference internal" href="#legend">Légende</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Connexion basée sur-/synchronisation offline</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Amélioration de la précision des coordonnées</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
-<li><a class="reference internal" href="#editing-geometries">Editing geometries</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Enregistrer l&#8217;état du GPS dans des attributs</a></li>
+<li><a class="reference internal" href="#editing-geometries">Éditer des géométries</a></li>
 <li><a class="reference internal" href="#search-functionality">Fonction de recherche</a></li>
-<li><a class="reference internal" href="#external-measurement-devices">External measurement devices</a></li>
-<li><a class="reference internal" href="#record-audio">Record Audio</a></li>
+<li><a class="reference internal" href="#external-measurement-devices">Appareils de mesure externes</a></li>
+<li><a class="reference internal" href="#record-audio">Enregistrement audio</a></li>
 <li><a class="reference internal" href="#your-favorite-feature">[Votre fonction préférée]</a></li>
 </ul>
 </li>
@@ -231,60 +231,39 @@ would be a very good improvement to be able to use the full precision of
 accurate positioning devices by fixing this shortcoming.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Saving GPS status information into attributes<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Positioning devices offer more information than just latitude and longitude.
-They are also able to estimate the precision which they are currently able to
-provide. This information can be a radius calculated from variables like the
-number of satellites but also additional flags for parameters like the RTK
-status.</p>
+<h4>Enregistrer l&#8217;état du GPS dans des attributs<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les appareils de positionnement offrent plus d&#8217;information que la longitude et la latitude. Ils permettent d&#8217;estimer la précision des coordonnées. Cette information peut être un rayon calculé à partir de variables comme le nombre de satellites mais également des flags additionnels comme le statut RTK.</p>
 </div>
 <div class="section" id="editing-geometries">
-<h4>Editing geometries<a class="headerlink" href="#editing-geometries" title="Lien permanent vers ce titre">¶</a></h4>
-<p>QField offers to digitize new geometries, edit existing attributes or delete
-features. What it lacks is the feature to edit existing geometries.</p>
-<p>This can be split into different pieces like moving points, moving other
-features, editing vertices, moving edges...</p>
+<h4>Éditer des géométries<a class="headerlink" href="#editing-geometries" title="Lien permanent vers ce titre">¶</a></h4>
+<p>QField permet de numériser de nouvelles géométries, éditer des attributs existants ou supprimer des géométries. Ce qui manque est la possibilité de modifier des géométries.</p>
+<p>Cela peut être séparé en plusieurs éléments comme déplacer des points, déplacer d&#8217;autres objets, éditer les noeuds, déplacer des noeuds.</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Fonction de recherche<a class="headerlink" href="#search-functionality" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Locating features with the help of a search field is something that can really
-help to work more efficient. In general this can be split into two categories:</p>
+<p>Localiser des objets à partir d&#8217;un champs de recherche et quelque chose qui peut permettre d&#8217;avoir un travail plus efficient. Généralement, cela peut être séparé en deux catégories:</p>
 <dl class="docutils">
-<dt>Attribute based search</dt>
-<dd>Search results are provided based on the attributes of features on layers
-within the project.
-Either a local database for searching is available. The data inside is based
-on the customized data you work with or the layers are queried directly for
-features with attributes in question.</dd>
+<dt>Recherche basée sur attributs</dt>
+<dd><p class="first last">Les résultats de la recherche sont basés sur les attributs d&#8217;objets de couches présentes dans le projet. Ou alors à partir d&#8217;une base de données locale contenant les éléments à rechercher.</p>
+</dd>
 <dt>Géocodage</dt>
-<dd>Search results are provided based on real world addresses. Services like
-<a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> can be accessed via a web
-interface and convert real-world addresses to locations on a map. Just try the
-link.</dd>
+<dd><p class="first last">Les résultats de la recherche sont basés sur les adresses du monde réel. Des services comme <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> peuvent être utilisés au travers d&#8217;une interface web. Tester le lien.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
-<h4>External measurement devices<a class="headerlink" href="#external-measurement-devices" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Are you working with external devices with sensors? Air pressure, temperature,
-slope, carbon monoxide concentration, you name it... Wouldn&#8217;t it be great to not
-having to read the information from your external device and manually typing it
-again? We would love to make life easier for you by adding support for directly
-connecting your external measurement device to QField.</p>
+<h4>Appareils de mesure externes<a class="headerlink" href="#external-measurement-devices" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Travaillez-vous avec des capteurs externes ? Pression de l&#8217;air, température, pente, concentration de monoxyde de carbone, etc. Ne serait-il pas intéressant de ne pas avoir à lire l&#8217;information et la saisir manuellement ? Nous aurions plaisir à intégrer un support pour la connexion directe entre un capteur externe et QField.</p>
 </div>
 <div class="section" id="record-audio">
-<h4>Record Audio<a class="headerlink" href="#record-audio" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Ever wondered how you would write a lot of text when out in the field with a
-touch screen?</p>
-<p>Just don&#8217;t!</p>
-<p>It would be amazing to have the possibility to have audio integration just like
-image integration. When back in the office, you could just type in the
-information on a regular keyboard.</p>
+<h4>Enregistrement audio<a class="headerlink" href="#record-audio" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Toujours voulu écrire beaucoup de texte sur un écran tactile lors d&#8217;un travail à l&#8217;extérieur ?</p>
+<p>Ne le faites pas !</p>
+<p>Il serait très intéressant d&#8217;avoir la possibilité de faire de l&#8217;enregistrement audio de la même manière que la prise de photos. De retour au bureau, l&#8217;information pourrait être saisie depuis un clavier standard.</p>
 </div>
 <div class="section" id="your-favorite-feature">
 <h4>[Votre fonction préférée]<a class="headerlink" href="#your-favorite-feature" title="Lien permanent vers ce titre">¶</a></h4>
-<p>You probably have plenty of ideas for other nice features. Please contact us and
-we can discuss the best approach to integrate this idea into QField or a derived
-app.</p>
+<p>Vous avez probablement beaucoup d&#8217;autres idées pour des développements. Merci de nous contacter pour discuter de la meilleure intégration possible de vos idées dans QField.</p>
 </div>
 </div>
 </div>
