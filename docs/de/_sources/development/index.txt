@@ -147,6 +147,11 @@ It would be amazing to have the possibility to have audio integration just like
 image integration. When back in the office, you could just type in the
 information on a regular keyboard.
 
+Open QGS files on click
+.......................
+
+Symply open a QGIS project in QField by clicking on it in your file manager
+
 
 [Your favorite feature]
 .......................
