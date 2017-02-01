@@ -24,7 +24,7 @@
 
 #include "identifytool.h"
 
-class FeatureListModel : public QAbstractItemModel
+class MultiFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -40,7 +40,7 @@ class FeatureListModel : public QAbstractItemModel
       DeleteFeatureRole
     };
 
-    explicit FeatureListModel( QObject *parent = 0 );
+    explicit MultiFeatureListModel( QObject *parent = 0 );
 
     /**
      * @brief setFeatures

@@ -21,12 +21,12 @@
 #include <QObject>
 #include <QItemSelectionModel>
 
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 
 class FeatureListModelSelection : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( FeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( MultiFeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
     Q_PROPERTY( QgsVectorLayer* selectedLayer READ selectedLayer NOTIFY selectionChanged )
     Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
@@ -37,8 +37,8 @@ class FeatureListModelSelection : public QObject
     int selection();
     void setSelection( int selection );
 
-    FeatureListModel* model() const;
-    void setModel( FeatureListModel* model );
+    MultiFeatureListModel* model() const;
+    void setModel( MultiFeatureListModel* model );
 
     QgsVectorLayer* selectedLayer() const;
     const QgsFeature selectedFeature() const;
@@ -48,7 +48,7 @@ class FeatureListModelSelection : public QObject
     void selectionChanged();
 
   private:
-    FeatureListModel* mModel;
+    MultiFeatureListModel* mModel;
     QItemSelectionModel* mSelection;
 };
 

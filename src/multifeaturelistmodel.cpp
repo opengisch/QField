@@ -15,20 +15,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 
 #include <qgsvectorlayer.h>
 #include <qgsvectordataprovider.h>
 
 #include <QDebug>
 
-FeatureListModel::FeatureListModel( QObject *parent )
+MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   :  QAbstractItemModel( parent )
 {
-  connect( this, &FeatureListModel::modelReset, this, &FeatureListModel::countChanged );
+  connect( this, &MultiFeatureListModel::modelReset, this, &MultiFeatureListModel::countChanged );
 }
 
-void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests )
+void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests )
 {
   beginResetModel();
 
@@ -42,28 +42,28 @@ void FeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureReques
     while ( fit.nextFeature( feat ) )
     {
       mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( it.key(), feat ) );
-      connect( it.key(), &QgsVectorLayer::destroyed, this, &FeatureListModel::layerDeleted, Qt::UniqueConnection );
+      connect( it.key(), &QgsVectorLayer::destroyed, this, &MultiFeatureListModel::layerDeleted, Qt::UniqueConnection );
     }
   }
 
   endResetModel();
 }
 
-void FeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult>& results )
+void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult>& results )
 {
   beginInsertRows( QModelIndex(), mFeatures.count(), mFeatures.count() + results.count() -1 );
   Q_FOREACH( const IdentifyTool::IdentifyResult& result, results )
   {
     QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( result.layer );
     mFeatures.append( QPair<QgsVectorLayer*, QgsFeature>( layer, result.feature ) );
-    connect( layer, &QObject::destroyed, this, &FeatureListModel::layerDeleted, Qt::UniqueConnection );
-    connect( layer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::featureDeleted, Qt::UniqueConnection );
-    connect( layer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::attributeValueChanged, Qt::UniqueConnection );
+    connect( layer, &QObject::destroyed, this, &MultiFeatureListModel::layerDeleted, Qt::UniqueConnection );
+    connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModel::featureDeleted, Qt::UniqueConnection );
+    connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModel::attributeValueChanged, Qt::UniqueConnection );
   }
   endInsertRows();
 }
 
-void FeatureListModel::clear()
+void MultiFeatureListModel::clear()
 {
 
   beginResetModel();
@@ -71,7 +71,7 @@ void FeatureListModel::clear()
   endResetModel();
 }
 
-QHash<int, QByteArray> FeatureListModel::roleNames() const
+QHash<int, QByteArray> MultiFeatureListModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames;
 
@@ -85,7 +85,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   return roleNames;
 }
 
-QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& parent ) const
+QModelIndex MultiFeatureListModel::index( int row, int column, const QModelIndex& parent ) const
 {
   Q_UNUSED( parent )
 
@@ -95,13 +95,13 @@ QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& par
   return createIndex( row, column, const_cast<QPair< QgsVectorLayer*, QgsFeature >*>( &mFeatures.at( row ) ) );
 }
 
-QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
+QModelIndex MultiFeatureListModel::parent( const QModelIndex& child ) const
 {
   Q_UNUSED( child );
   return QModelIndex();
 }
 
-int FeatureListModel::rowCount( const QModelIndex& parent ) const
+int MultiFeatureListModel::rowCount( const QModelIndex& parent ) const
 {
   if ( parent.isValid() )
     return 0;
@@ -109,13 +109,13 @@ int FeatureListModel::rowCount( const QModelIndex& parent ) const
     return mFeatures.count();
 }
 
-int FeatureListModel::columnCount( const QModelIndex& parent ) const
+int MultiFeatureListModel::columnCount( const QModelIndex& parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
+QVariant MultiFeatureListModel::data( const QModelIndex& index, int role ) const
 {
   QPair< QgsVectorLayer*, QgsFeature >* feature = toFeature( index );
   if ( !feature )
@@ -153,7 +153,7 @@ QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent = QModelIndex() )
+bool MultiFeatureListModel::removeRows( int row, int count, const QModelIndex& parent = QModelIndex() )
 {
   if ( !count )
     return true;
@@ -180,19 +180,19 @@ bool FeatureListModel::removeRows( int row, int count, const QModelIndex& parent
   return true;
 }
 
-int FeatureListModel::count() const
+int MultiFeatureListModel::count() const
 {
   return mFeatures.size();
 }
 
-void FeatureListModel::deleteFeature( QgsVectorLayer* layer, QgsFeatureId fid )
+void MultiFeatureListModel::deleteFeature( QgsVectorLayer* layer, QgsFeatureId fid )
 {
   layer->startEditing();
   layer->deleteFeature( fid );
   layer->commitChanges();
 }
 
-void FeatureListModel::layerDeleted( QObject* object )
+void MultiFeatureListModel::layerDeleted( QObject* object )
 {
   int firstRowToRemove = -1;
   int count = 0;
@@ -224,7 +224,7 @@ void FeatureListModel::layerDeleted( QObject* object )
   removeRows( firstRowToRemove, count );
 }
 
-void FeatureListModel::featureDeleted( QgsFeatureId fid )
+void MultiFeatureListModel::featureDeleted( QgsFeatureId fid )
 {
   QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
   Q_ASSERT( l );
@@ -241,7 +241,7 @@ void FeatureListModel::featureDeleted( QgsFeatureId fid )
   }
 }
 
-void FeatureListModel::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant& value )
+void MultiFeatureListModel::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant& value )
 {
   QgsVectorLayer* l = qobject_cast<QgsVectorLayer*>( sender() );
   Q_ASSERT( l );

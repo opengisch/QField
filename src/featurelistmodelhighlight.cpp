@@ -53,8 +53,8 @@ void FeatureListModelHighlight::onDataChanged()
 {
   if ( mModel )
   {
-    connect( mModel, &FeatureListModel::modelReset, this, &FeatureListModelHighlight::onModelDataChanged );
-    connect( mModel, &FeatureListModel::rowsRemoved, this, &FeatureListModelHighlight::onModelDataChanged );
+    connect( mModel, &MultiFeatureListModel::modelReset, this, &FeatureListModelHighlight::onModelDataChanged );
+    connect( mModel, &MultiFeatureListModel::rowsRemoved, this, &FeatureListModelHighlight::onModelDataChanged );
   }
 }
 
@@ -81,7 +81,7 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
     QgsSGGeometry* sn = 0;
 
     QModelIndex firstIndex = mModel->index( 0, 0, QModelIndex() );
-    QgsVectorLayer* layer = mModel->data( firstIndex, FeatureListModel::LayerRole ).value<QgsVectorLayer*>();
+    QgsVectorLayer* layer = mModel->data( firstIndex, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer*>();
     if ( layer )
     {
       QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs() );
@@ -91,7 +91,7 @@ QSGNode* FeatureListModelHighlight::updatePaintNode( QSGNode* n, QQuickItem::Upd
         QgsSGGeometry* gn;
 
         QModelIndex index = mModel->index( i, 0, QModelIndex() );
-        QgsFeature feature = mModel->data( index, FeatureListModel::FeatureRole ).value<QgsFeature>();
+        QgsFeature feature = mModel->data( index, MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
 
         QgsGeometry geom( feature.geometry() );
         geom.transform( transf );

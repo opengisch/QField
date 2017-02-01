@@ -16,7 +16,7 @@
 #include "identifytool.h"
 
 #include "mapsettings.h"
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
@@ -148,12 +148,12 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
   return results;
 }
 
-FeatureListModel* IdentifyTool::model() const
+MultiFeatureListModel* IdentifyTool::model() const
 {
   return mModel;
 }
 
-void IdentifyTool::setModel( FeatureListModel* model )
+void IdentifyTool::setModel( MultiFeatureListModel* model )
 {
   if ( model == mModel )
     return;

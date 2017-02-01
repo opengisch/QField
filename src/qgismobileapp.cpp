@@ -126,7 +126,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
 
   // Register QField QML types
-  qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
+  qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );

@@ -22,7 +22,7 @@ HEADERS += \
     appinterface.h \
     coordinatetransform.h \
     featurelistextentcontroller.h \
-    featurelistmodel.h \
+    multifeaturelistmodel.h \
     featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
@@ -56,7 +56,7 @@ SOURCES += \
     appinterface.cpp \
     coordinatetransform.cpp \
     featurelistextentcontroller.cpp \
-    featurelistmodel.cpp \
+    multifeaturelistmodel.cpp \
     featurelistmodelhighlight.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \

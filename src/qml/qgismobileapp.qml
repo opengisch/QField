@@ -559,7 +559,7 @@ ApplicationWindow {
     border { color: "lightGray"; width: 1 }
     allowDelete: stateMachine.state === "digitize"
 
-    model: FeatureListModel {}
+    model: MultiFeatureListModel {}
 
     selection: FeatureListModelSelection {
       model: featureForm.model

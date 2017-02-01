@@ -27,7 +27,7 @@
 #include <qgsmaplayerproxymodel.h>
 
 // QGIS mobile includes
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 #include "settings.h"
 
 #include "platformutilities.h"

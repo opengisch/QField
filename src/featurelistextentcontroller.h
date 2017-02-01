@@ -18,7 +18,7 @@
 
 #include <QObject>
 
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
 #include "mapsettings.h"
 
@@ -26,7 +26,7 @@ class FeatureListExtentController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( FeatureListModel* model MEMBER mModel NOTIFY modelChanged )
+    Q_PROPERTY( MultiFeatureListModel* model MEMBER mModel NOTIFY modelChanged )
     Q_PROPERTY( FeatureListModelSelection* selection MEMBER mSelection NOTIFY selectionChanged )
     Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
     Q_PROPERTY( MapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
@@ -49,7 +49,7 @@ class FeatureListExtentController : public QObject
     void onCurrentSelectionChanged();
 
   private:
-    FeatureListModel* mModel;
+    MultiFeatureListModel* mModel;
     FeatureListModelSelection* mSelection;
     MapSettings* mMapSettings;
     bool mAutoZoom;

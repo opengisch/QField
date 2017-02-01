@@ -20,7 +20,7 @@
 
 #include <qgshighlight.h>
 
-#include "featurelistmodel.h"
+#include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
 
 #include "mapsettings.h"
@@ -33,7 +33,7 @@ class FeatureListModelHighlight : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY( FeatureListModel* model MEMBER mModel NOTIFY modelChanged )
+    Q_PROPERTY( MultiFeatureListModel* model MEMBER mModel NOTIFY modelChanged )
     Q_PROPERTY( FeatureListModelSelection* selection READ selection WRITE setSelection NOTIFY selectionChanged )
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( QColor selectionColor MEMBER mSelectionColor NOTIFY selectionColorChanged )
@@ -65,7 +65,7 @@ class FeatureListModelHighlight : public QQuickItem
 
     QColor mColor;
     QColor mSelectionColor;
-    FeatureListModel* mModel;
+    MultiFeatureListModel* mModel;
     FeatureListModelSelection* mSelection;
     bool mDirty;
     unsigned int mWidth;

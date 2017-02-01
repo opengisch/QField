@@ -25,7 +25,7 @@ Rectangle {
 
   property string currentName: ''
   property bool showEditButtons
-  property FeatureListModel model
+  property MultiFeatureListModel model
   property FeatureListModelSelection selection
   property FeaturelistExtentController extentController
 

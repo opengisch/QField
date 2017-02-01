@@ -26,7 +26,7 @@
 class QgsMapLayer;
 class MapSettings;
 class QgsVectorLayer;
-class FeatureListModel;
+class MultiFeatureListModel;
 
 class IdentifyTool : public QObject
 {
@@ -34,7 +34,7 @@ class IdentifyTool : public QObject
 
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
-    Q_PROPERTY( FeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( MultiFeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
 
   public:
     struct IdentifyResult
@@ -57,8 +57,8 @@ class IdentifyTool : public QObject
     double searchRadiusMm() const;
     void setSearchRadiusMm( double searchRadiusMm );
 
-    FeatureListModel* model() const;
-    void setModel( FeatureListModel* model );
+    MultiFeatureListModel* model() const;
+    void setModel( MultiFeatureListModel* model );
 
   signals:
     void mapSettingsChanged();
@@ -72,7 +72,7 @@ class IdentifyTool : public QObject
 
   private:
     MapSettings* mMapSettings;
-    FeatureListModel* mModel;
+    MultiFeatureListModel* mModel;
 
     double searchRadiusMU( const QgsRenderContext& context ) const;
     double searchRadiusMU() const;
