@@ -80,10 +80,10 @@ public class QFieldActivity extends Activity {
     super.onCreate(savedInstanceState);
     // get preferences, 0 = mode private. only this app can read these
     mPrefs = this.getApplicationContext().getSharedPreferences("qgisPrefs",
-        0);
+             0);
     try {
       mActivityInfo = getPackageManager().getActivityInfo(
-          getComponentName(), PackageManager.GET_META_DATA);
+                        getComponentName(), PackageManager.GET_META_DATA);
     } catch (NameNotFoundException e) {
       e.printStackTrace();
       finish();
@@ -124,25 +124,25 @@ public class QFieldActivity extends Activity {
 
     case NOEXTERNALSTORAGE_DIALOG:
       return new AlertDialog.Builder(QFieldActivity.this)
-          .setTitle(getString(R.string.external_storage_unavailable))
-          .setMessage(getString(R.string.noexternalstorage_dialog))
-          .setPositiveButton(
-              getString(R.string.use_internal_storage),
-              new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog,
-                    int whichButton) {
-                  dialog.cancel();
-                  startFirstRun();
-                }
-              })
-          .setNegativeButton(getString(android.R.string.no),
-              new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog,
-                    int whichButton) {
-                  finish();
+             .setTitle(getString(R.string.external_storage_unavailable))
+             .setMessage(getString(R.string.noexternalstorage_dialog))
+             .setPositiveButton(
+               getString(R.string.use_internal_storage),
+      new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog,
+                            int whichButton) {
+          dialog.cancel();
+          startFirstRun();
+        }
+      })
+      .setNegativeButton(getString(android.R.string.no),
+      new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog,
+                            int whichButton) {
+          finish();
 
-                }
-              }).create();
+        }
+      }).create();
 
     default:
       return null;
@@ -181,14 +181,14 @@ public class QFieldActivity extends Activity {
       Runtime.getRuntime().exec(cmd);
       cmd = "ln -s " + path + " " + pathAlias;
       Runtime.getRuntime().exec(cmd);
-      
+
       Log.i(QtTAG, "Symlinked '" + path + " to " + pathAlias + "'");
-      
+
     } catch (IOException e) {
       Log.w(QtTAG, "Can't symlink '" + path + " to " + pathAlias + "'", e);
     }
   }
-  
+
   private class UnzipTask extends AsyncTask<String, Integer, String> {
     protected String doInBackground(String... urlString) {
       extractFolder(urlString[0]);
@@ -228,7 +228,7 @@ public class QFieldActivity extends Activity {
             // write the current file to disk
             FileOutputStream fos = new FileOutputStream(destFile);
             BufferedOutputStream dest = new BufferedOutputStream(
-                fos, BUFFER);
+              fos, BUFFER);
 
             // read and write until last byte is encountered
             while ((currentByte = is.read(data, 0, BUFFER)) != -1) {
@@ -261,7 +261,7 @@ public class QFieldActivity extends Activity {
       // alias paths for storage dir (/sdcard or similar)
       String storagePathAlias = getFilesDir() + "/storage";
       String storagePath = Environment.getExternalStorageDirectory()
-          .getAbsolutePath();
+                           .getAbsolutePath();
 
       if (mExternalStorageAvailable) {
         if (mExternalStorageWriteable) {
@@ -274,7 +274,7 @@ public class QFieldActivity extends Activity {
           mShareDir = externalFilesDir + "/share";
           new File(mShareDir).mkdir();
           makeSymlink(mShareDir, pathAlias);
-          
+
           // put .qgis to externalFilesDir
           pathAlias = filesDir + "/.qgis2";
           mDotQgis2Dir = externalFilesDir + "/.qgis2";
@@ -286,7 +286,7 @@ public class QFieldActivity extends Activity {
         makeSymlink(storagePath, storagePathAlias);
       }
     }
-    
+
     protected void onProgressUpdate(Integer... progress) {
       super.onProgressUpdate(progress);
       mProgressDialog.setProgress(progress[0]);
