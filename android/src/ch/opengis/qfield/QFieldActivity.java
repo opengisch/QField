@@ -55,6 +55,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -171,6 +172,13 @@ public class QFieldActivity extends Activity {
     intent.setClass(QFieldActivity.this, QtActivity.class);
     intent.putExtra("DOTQGIS2_DIR", mDotQgis2Dir);
     intent.putExtra("SHARE_DIR", mShareDir);
+
+    Intent sourceIntent = getIntent();
+    if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
+      Uri uri = sourceIntent.getData();
+      intent.putExtra("QGS_PROJECT", (uri.getPath()));
+    }
+
     startActivity(intent);
     finish();
   }

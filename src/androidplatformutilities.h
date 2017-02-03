@@ -29,11 +29,12 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
+    virtual QString qgsProject() const override;
     virtual PictureSource* getPicture( const QString &prefix ) override;
     virtual void open( const QString& data, const QString& type );
 
   private:
-    QString getIntentExtra( QString, QAndroidJniObject = 0 ) const;
+    QString getIntentExtra( const QString&, QAndroidJniObject = 0 ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
 };

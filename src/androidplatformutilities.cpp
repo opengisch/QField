@@ -40,7 +40,12 @@ QString AndroidPlatformUtilities::shareDir() const
   return getIntentExtra( "SHARE_DIR" );
 }
 
-QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObject extras ) const
+QString AndroidPlatformUtilities::qgsProject() const
+{
+  return getIntentExtra( "QGS_PROJECT" );
+}
+
+QString AndroidPlatformUtilities::getIntentExtra( const QString& extra, QAndroidJniObject extras ) const
 {
   if ( extras == 0 )
   {
@@ -52,11 +57,10 @@ QString AndroidPlatformUtilities::getIntentExtra( QString extra, QAndroidJniObje
     extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
     if ( extraJni.isValid() )
     {
-      extra = extraJni.toString();
-      return extra;
+      return extraJni.toString();
     }
   }
-  return "";
+  return QString();
 }
 
 QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
@@ -65,10 +69,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
   if ( activity.isValid() )
   {
     QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
-    if ( intent.isValid() )
-    {
-      return intent;
-    }
+    return intent;
   }
   return 0;
 }

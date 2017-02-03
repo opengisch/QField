@@ -33,6 +33,11 @@ QString PlatformUtilities::shareDir() const
   return QString();
 }
 
+QString PlatformUtilities::qgsProject() const
+{
+  return QString();
+}
+
 PictureSource* PlatformUtilities::getPicture( const QString& prefix )
 {
   Q_UNUSED( prefix )

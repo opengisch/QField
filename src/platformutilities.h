@@ -34,6 +34,7 @@ class PlatformUtilities : public QObject
 
     virtual QString configDir() const;
     virtual QString shareDir() const;
+    virtual QString qgsProject() const;
 
     /**
      * Get a picture and copy it to the requested prefix

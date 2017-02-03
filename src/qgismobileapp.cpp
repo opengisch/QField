@@ -226,6 +226,10 @@ void QgisMobileapp::onAfterFirstRendering()
     {
       loadProjectFile( qApp->arguments().last() );
     }
+    else if ( !mPlatformUtils.qgsProject().isNull() )
+    {
+      loadProjectFile( mPlatformUtils.qgsProject() );
+    }
     else
     {
       QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );

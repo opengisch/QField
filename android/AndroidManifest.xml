@@ -6,6 +6,15 @@
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="file" />
+        <data android:mimeType="*/*" />
+        <data android:pathPattern=".*\\.qgs" />
+        <data android:host="*" />
+      </intent-filter>
       <!-- Git Revision -->
       <meta-data android:name="android.app.git_rev" android:value="@string/git_rev"/>
       <!-- Git Revision -->
