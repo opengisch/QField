@@ -185,8 +185,11 @@ QgsAttributeEditorContainer* AttributeFormModelBase::generateRootContainer() con
   QgsFields fields = mLayer->fields();
   for ( int i = 0; i < fields.size(); ++i )
   {
-    QgsAttributeEditorField* field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
-    root->addChildElement( field );
+    if ( fields.at( i ).editorWidgetSetup().type() != QStringLiteral( "Hidden" ) )
+    {
+      QgsAttributeEditorField* field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
+      root->addChildElement( field );
+    }
   }
   return root;
 }
