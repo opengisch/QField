@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FEATURELISTMODEL_H
-#define FEATURELISTMODEL_H
+#ifndef MULTIFEATURELISTMODEL_H
+#define MULTIFEATURELISTMODEL_H
 
 #include <QAbstractItemModel>
 
@@ -93,4 +93,4 @@ class MultiFeatureListModel : public QAbstractItemModel
     QList< QPair< QgsVectorLayer*, QgsFeature > > mFeatures;
 };
 
-#endif // FEATURELISTMODEL_H
+#endif // MULTIFEATURELISTMODEL_H

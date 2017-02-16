@@ -19,6 +19,7 @@
 
 #include <qgsvectorlayer.h>
 #include <qgsvectordataprovider.h>
+#include <qgsproject.h>
 
 #include <QDebug>
 
@@ -133,7 +134,7 @@ QVariant MultiFeatureListModel::data( const QModelIndex& index, int role ) const
     {
       QgsExpressionContext context = QgsExpressionContext()
                                      << QgsExpressionContextUtils::globalScope()
-                                     << QgsExpressionContextUtils::projectScope()
+                                     << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
                                      << QgsExpressionContextUtils::layerScope( feature->first );
       context.setFeature( feature->second );
       return QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();

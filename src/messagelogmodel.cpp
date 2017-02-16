@@ -14,11 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 #include "messagelogmodel.h"
+
+#include <qgsapplication.h>
 #include <QDebug>
 
 MessageLogModel::MessageLogModel( QObject* parent )
   : QAbstractListModel( parent )
-  , mMessageLog( QgsMessageLog::instance() )
+  , mMessageLog( QgsApplication::messageLog() )
 {
   connect( mMessageLog, static_cast<void ( QgsMessageLog::* ) ( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
 }

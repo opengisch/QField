@@ -355,7 +355,7 @@ void LayerTreeMapCanvasBridge::applyThemeToLayer( QgsLayerTreeLayer* nodeLayer, 
   QgsMapThemeCollection::MapThemeLayerRecord layerRec;
   bool isVisible = findRecordForLayer( nodeLayer->layer(), rec, layerRec );
 
-  nodeLayer->setVisible( isVisible ? Qt::Checked : Qt::Unchecked );
+  nodeLayer->setItemVisibilityChecked( isVisible );
 
   if ( !isVisible )
     return;

@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include "androidpicturesource.h"
 #include "qgsmessagelog.h"
+#include "qgsapplication.h"
 #include <QAndroidJniEnvironment>
 #include <QtAndroid>
 #include <QDir>
@@ -48,7 +49,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
     if ( !QDir::root().mkpath( mPrefix ) )
     {
-      QgsMessageLog::instance()->logMessage( tr( "Could not create folder %1" ).arg( mPrefix ), "QField", QgsMessageLog::CRITICAL );
+      QgsApplication::messageLog()->logMessage( tr( "Could not create folder %1" ).arg( mPrefix ), "QField", QgsMessageLog::CRITICAL );
       return;
     }
 
@@ -62,7 +63,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       qDebug() << "Couldn't rename file! Trying to copy instead";
       if ( !QFile( filePath.toString() ).copy( dir.absoluteFilePath( filename ) ) )
       {
-        QgsMessageLog::instance()->logMessage( tr( "Image %1 could not be copied to project folder %2.", "QField", QgsMessageLog::CRITICAL ).arg( filePath.toString(), mPrefix ) );
+        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2.", "QField", QgsMessageLog::CRITICAL ).arg( filePath.toString(), mPrefix ) );
       }
     }
 
