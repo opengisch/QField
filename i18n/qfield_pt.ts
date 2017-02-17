@@ -37,24 +37,26 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome da camada</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
         <source>Data Source</source>
-        <translation type="unfinished"/>
+        <translation>Origem de dados</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="36"/>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"/>
+        <translation>As camadas seguintes não foram carregadas.
+Reveja-as e reconfigure-as no projeto do QGIS.
+Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentação do QField.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível carregar todas as camadas</translation>
     </message>
 </context>
 <context>
@@ -62,7 +64,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/DashBoard.qml" line="74"/>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema do mapa</translation>
     </message>
 </context>
 <context>
@@ -133,22 +135,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Varáveis globais</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar barra de escala</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>QField Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições do QField</translation>
     </message>
 </context>
 <context>
@@ -156,12 +158,12 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="46"/>
         <source>[New variable name]</source>
-        <translation type="unfinished"/>
+        <translation>[Novo nome de variável]</translation>
     </message>
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation type="unfinished"/>
+        <translation>[Novo valor de variável]</translation>
     </message>
 </context>
 <context>
@@ -210,7 +212,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>A camada %1 é só de leitura</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>
@@ -235,7 +237,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="454"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="462"/>
