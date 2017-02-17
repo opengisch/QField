@@ -70,6 +70,10 @@ class FeatureListModel : public QAbstractItemModel
     void currentLayerChanged();
     void keyFieldChanged();
 
+  private slots:
+    void onFeatureAdded();
+    void onFeatureDeleted();
+
   private:
     void reloadLayer();
 

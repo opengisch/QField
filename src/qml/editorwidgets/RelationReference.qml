@@ -22,6 +22,7 @@ Item {
 
     property var currentValue: value
     property var _relation
+    property var _cachedCurrentValue
 
     anchors { left: parent.left; right: parent.right }
 
@@ -46,6 +47,18 @@ Item {
     onCurrentValueChanged: {
       currentIndex = featureListModel.findKey(value)
       // currentIndex = find(reverseConfig[value])
+    }
+
+    Connections {
+      target: featureListModel.currentLayer
+
+      onModelAboutToBeReset: {
+        comboBox._cachedCurrentValue = value
+      }
+
+      onModelReset: {
+        currentIndex = featureListModel.findKey(value)
+      }
     }
 
     MouseArea {

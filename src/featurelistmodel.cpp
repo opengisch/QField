@@ -80,7 +80,19 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer* currentLayer )
   if ( mCurrentLayer == currentLayer )
     return;
 
+  if ( mCurrentLayer )
+  {
+    disconnect( currentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    disconnect( currentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+  }
+
   mCurrentLayer = currentLayer;
+
+  if ( mCurrentLayer )
+  {
+    connect( currentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    connect( currentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+  }
 
   reloadLayer();
 
@@ -107,6 +119,16 @@ void FeatureListModel::setKeyField( const QString& keyField )
 int FeatureListModel::findKey( const QVariant& key )
 {
   return mKeys.indexOf( key );
+}
+
+void FeatureListModel::onFeatureAdded()
+{
+  reloadLayer();
+}
+
+void FeatureListModel::onFeatureDeleted()
+{
+  reloadLayer();
 }
 
 void FeatureListModel::reloadLayer()
