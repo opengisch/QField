@@ -31,6 +31,7 @@ Rectangle {
   property color selectionColor
   property alias model: globalFeaturesList.model
   property bool allowDelete
+  property int formViewWidthDivisor
 
   states: [
     State {
@@ -89,7 +90,7 @@ Rectangle {
 
   clip: true
 
-  width: props.isVisible ? state == "FeatureList" ? parent.width / 3 : parent.width : 0
+  width: props.isVisible ? state == "FeatureList" ? parent.width / 3 : parent.width / formViewWidthDivisor : 0
 
   QtObject {
     id: props
