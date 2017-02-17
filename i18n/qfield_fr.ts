@@ -135,12 +135,12 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Mise en page</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables globales</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -212,7 +212,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>La couche %1 est en lecture seule.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>

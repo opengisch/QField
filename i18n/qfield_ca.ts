@@ -49,7 +49,9 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;han pogut carregar les següents capes.
+Si us plau revisa-les i reconfigura el projecte de QGIS.
+Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la documentació de QGIS.</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="57"/>
@@ -62,7 +64,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/DashBoard.qml" line="74"/>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema del Mapa</translation>
     </message>
 </context>
 <context>
@@ -133,22 +135,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Presentació</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables Globals</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar la barra d&apos;escala</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>QField Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajusts de Qfield</translation>
     </message>
 </context>
 <context>
@@ -210,7 +212,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>La capa %1 es només de lectura.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>

@@ -49,7 +49,7 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>No se pueden cargar las siguientes capas.
+        <translation>No se han podido cargar las siguientes capas.
 Por favor revisa y configura el proyecto QGIS.
 Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentación de QField.</translation>
     </message>
@@ -95,7 +95,7 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="325"/>
         <source>Should this feature really be deleted?</source>
-        <translation>¿Quieres eliminar realmente esta característica?</translation>
+        <translation>¿Debería eliminarse realmente este objeto espacial?</translation>
     </message>
 </context>
 <context>
@@ -135,12 +135,12 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Presentación</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables Globales</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -150,7 +150,7 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>QField Settings</source>
-        <translation>Configuración de QField</translation>
+        <translation>Ajustes de QField</translation>
     </message>
 </context>
 <context>
@@ -212,7 +212,7 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>La capa %1 es solo de lectura</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>

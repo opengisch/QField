@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/qml/About.qml" line="34"/>
         <source>QField Shared items folder: %1</source>
-        <translation>QField bendrų elementų katalogas: %1</translation>
+        <translation>QField bendrinamų elementų katalogas: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="49"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="22"/>
         <source>Layer Name</source>
-        <translation>Sluoksnio vardas</translation>
+        <translation>Sluoksnio pavadinimas</translation>
     </message>
     <message>
         <location filename="../src/qml/BadLayerItem.qml" line="28"/>
@@ -64,7 +64,7 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/DashBoard.qml" line="74"/>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation>Žemėlapio tema</translation>
     </message>
 </context>
 <context>
@@ -135,22 +135,22 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Įdėti</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Globalūs kintamieji</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
         <source>Show Scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Rodyti mastelį</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>QField Settings</source>
-        <translation type="unfinished"/>
+        <translation>QField nustatymai</translation>
     </message>
 </context>
 <context>
@@ -163,7 +163,7 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/VariableEditor.qml" line="86"/>
         <source>[New variable value]</source>
-        <translation>[Naujo kintamojo vardas]</translation>
+        <translation>[Naujo kintamojo reikšmė]</translation>
     </message>
 </context>
 <context>
@@ -212,12 +212,12 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>Sluoksnis %1 tik peržiūrėjimui</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>
         <source>Mode</source>
-        <translation>Metodas</translation>
+        <translation>Būsena</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="433"/>
@@ -267,12 +267,12 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="502"/>
         <source>Center current location</source>
-        <translation>Centruoti dabartinę poziciją</translation>
+        <translation>Centruoti dabartinę vietą</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="513"/>
         <source>Show position information</source>
-        <translation>Rodyti pozicijos informaciją</translation>
+        <translation>Rodyti vietos informaciją</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="614"/>

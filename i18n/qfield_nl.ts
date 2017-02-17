@@ -135,12 +135,12 @@ Zie de &lt;i&gt;Portable Project&lt;/i&gt; sectie in de QField handleiding voor 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="37"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Layout</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="42"/>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Globale variabelen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="56"/>
@@ -212,7 +212,7 @@ Zie de &lt;i&gt;Portable Project&lt;/i&gt; sectie in de QField handleiding voor 
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="249"/>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>De laag is %1 alleen-lezen</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="430"/>
