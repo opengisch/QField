@@ -78,19 +78,10 @@ Item {
       Rectangle {
         anchors.fill: parent
         id: backgroundRect
-        border.color: control.pressed ? "#17a81a" : "#21be2b"
-        border.width: control.visualFocus ? 2 : 1
+        border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
+        border.width: comboBox.visualFocus ? 2 : 1
+        color: "#dddddd"
         radius: 2
-      }
-
-      DropShadow {
-        anchors.fill: backgroundRect
-        horizontalOffset: 4 * dp
-        verticalOffset: 4 * dp
-        radius: 2 * dp
-        samples: 17
-        color: "#20000000"
-        source: backgroundRect
       }
     }
     // [/hidpi fixes]
