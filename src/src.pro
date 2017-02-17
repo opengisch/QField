@@ -50,7 +50,8 @@ HEADERS += \
     snappingutils.h \
     snappingresult.h \
     layertreemodel.h \
-    legendimageprovider.h
+    legendimageprovider.h \
+    featurelistmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -85,7 +86,8 @@ SOURCES += \
     snappingutils.cpp \
     snappingresult.cpp \
     layertreemodel.cpp \
-    legendimageprovider.cpp
+    legendimageprovider.cpp \
+    featurelistmodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

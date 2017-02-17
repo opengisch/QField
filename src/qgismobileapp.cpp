@@ -64,6 +64,8 @@
 #include "snappingresult.h"
 #include "layertreemodel.h"
 #include "legendimageprovider.h"
+#include "featurelistmodel.h"
+#include "qgsrelationmanager.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -124,9 +126,11 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
+  qRegisterMetaType<QgsRelation>( "QgsRelation" );
 
   // Register QField QML types
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
+  qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
@@ -151,6 +155,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
+  qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 

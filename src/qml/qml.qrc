@@ -23,6 +23,7 @@
         <file>editorwidgets/ExternalResource.qml</file>
         <file>editorwidgets/TextEdit.qml</file>
         <file>editorwidgets/ValueMap.qml</file>
+        <file>editorwidgets/RelationReference.qml</file>
         <file>js/style.js</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
