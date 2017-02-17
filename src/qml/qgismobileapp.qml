@@ -558,6 +558,7 @@ ApplicationWindow {
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowDelete: stateMachine.state === "digitize"
+    formViewWidthDivisor: qfieldSettings.fullScreenIdentifyView ? 1 : 3
 
     model: MultiFeatureListModel {}
 
@@ -774,5 +775,4 @@ ApplicationWindow {
       return filePath.split('.').pop() === "qgs"
     }
   }
-
 }

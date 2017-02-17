@@ -11,9 +11,11 @@ Page {
   signal finished
 
   property alias showScaleBar: showScaleBarCheckBox.checked
+  property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
 
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
+    property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
   }
 
   Rectangle {
@@ -53,7 +55,13 @@ Page {
         Controls.CheckBox {
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
-          text: qsTr( "Show Scalebar" )
+          text: qsTr( "Show scalebar" )
+        }
+
+        Controls.CheckBox {
+          id: fullScreenIdentifyViewCheckBox
+          anchors { left: parent.left; right: parent.right }
+          text: qsTr( "Show identify view in full screen" )
         }
 /*
   // To be used in combination with code in main.cpp
