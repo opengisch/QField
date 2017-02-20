@@ -282,7 +282,8 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
-    height: 48 * dp
+    height: visible ? 48 * dp : 0
+    visible: form.state === 'Add'
     anchors {
       top: parent.top
       left: parent.left
