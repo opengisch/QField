@@ -242,7 +242,8 @@ ApplicationWindow {
       }
     }
 
-    onShowMenu: mainMenu.popup()
+    /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
+    onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
 
     onCurrentLayerChanged: {
       if ( currentLayer.readOnly && stateMachine.state == "digitize" )
@@ -266,6 +267,8 @@ ApplicationWindow {
     height: childrenRect.height
 
     Button {
+      id: menuButton
+
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: {
         if ( dashBoard.width > 0 )
