@@ -176,6 +176,23 @@ ApplicationWindow {
    * - Scale Bar
    **************************************************/
 
+  Text {
+    x: mainWindow.width / 2 + 24 * dp
+    y: mainWindow.height / 2 + 24 * dp
+
+    text: '<p>%1 / %2</p>%3%4'.arg(coordinateLocator.snappedCoordinate.x.toFixed(3))
+      .arg(coordinateLocator.snappedCoordinate.y.toFixed(3))
+      .arg(digitizingGeometry.lengthValid ? '<p>%1 m %2</p>'
+        .arg(digitizingGeometry.segmentLength.toFixed(3)) : '')
+        .arg(digitizingGeometry.length !== -1 ? '(%1 m)'.arg(digitizingGeometry.length.toFixed(3)) : '' )
+      .arg(digitizingGeometry.areaValid ? '<p>%1 m²</p>'.arg(digitizingGeometry.area.toFixed(3)) : '')
+
+    font.pointSize: 10
+    style: Text.Outline
+    font.weight: Font.Bold
+    styleColor: "white"
+  }
+
   ScaleBar {
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
@@ -383,6 +400,7 @@ ApplicationWindow {
       currentLayer: dashBoard.currentLayer
 
       geometry: Geometry {
+        id: digitizingGeometry
         rubberbandModel: digitizingRubberband.model
         vectorLayer: dashBoard.currentLayer
       }
