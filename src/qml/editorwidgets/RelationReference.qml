@@ -36,6 +36,7 @@ Item {
       _relation = qgisProject.relationManager.relation(config['Relation'])
       featureListModel.currentLayer = _relation.referencedLayer
       featureListModel.keyField = _relation.resolveReferencedField(field.name)
+      currentIndex = featureListModel.findKey(value)
     }
 
     onCurrentIndexChanged: {
