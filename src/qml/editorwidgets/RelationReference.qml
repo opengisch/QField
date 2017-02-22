@@ -35,12 +35,13 @@ Item {
     Component.onCompleted: {
       _relation = qgisProject.relationManager.relation(config['Relation'])
       featureListModel.currentLayer = _relation.referencedLayer
-      featureListModel.keyField = _relation.resolveReferencingField(field.name)
+      featureListModel.keyField = _relation.resolveReferencedField(field.name)
     }
 
     onCurrentIndexChanged: {
       var idx = featureListModel.index(currentIndex, 0, undefined)
-      valueChanged(featureListModel.data(idx, FeatureListModel.KeyFieldRole), false)
+      var newValue = featureListModel.data(idx, FeatureListModel.KeyFieldRole)
+      valueChanged(newValue, false)
     }
 
     // Workaround to get a signal when the value has changed
