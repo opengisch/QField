@@ -66,6 +66,7 @@
 #include "legendimageprovider.h"
 #include "featurelistmodel.h"
 #include "qgsrelationmanager.h"
+#include "distancearea.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -150,6 +151,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
+  qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

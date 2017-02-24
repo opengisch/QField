@@ -65,23 +65,8 @@ void Geometry::setRubberbandModel( RubberbandModel* rubberbandModel )
   if ( mRubberbandModel == rubberbandModel )
     return;
 
-  if ( mRubberbandModel )
-  {
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::lengthChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::areaChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::segmentLengthChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Geometry::areaValidChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Geometry::lengthValidChanged );
-  }
   mRubberbandModel = rubberbandModel;
-  if ( mRubberbandModel )
-  {
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::lengthChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::areaChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &Geometry::segmentLengthChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Geometry::areaValidChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Geometry::lengthValidChanged );
-  }
+
   emit rubberbandModelChanged();
 }
 
@@ -102,74 +87,4 @@ void Geometry::setVectorLayer( QgsVectorLayer* vectorLayer )
 
   mVectorLayer = vectorLayer;
   emit vectorLayerChanged();
-}
-
-qreal Geometry::length() const
-{
-  return asQgsGeometry().length();
-}
-
-bool Geometry::lengthValid() const
-{
-  if ( !mVectorLayer )
-    return false;
-
-  switch ( mVectorLayer->geometryType() )
-  {
-    case QgsWkbTypes::PointGeometry:
-      return false;
-
-    case QgsWkbTypes::LineGeometry:
-      FALLTHROUGH;
-    case QgsWkbTypes::PolygonGeometry:
-      return mRubberbandModel->vertexCount() >= 2;
-
-    default:
-      return false;
-  }
-}
-
-qreal Geometry::area() const
-{
-  return asQgsGeometry().area();
-}
-
-bool Geometry::areaValid() const
-{
-  if ( !mVectorLayer )
-    return false;
-
-  switch ( mVectorLayer->geometryType() )
-  {
-    case QgsWkbTypes::PointGeometry:
-      return false;
-
-    case QgsWkbTypes::LineGeometry:
-      return false;
-
-    case QgsWkbTypes::PolygonGeometry:
-      return mRubberbandModel->vertexCount() >= 3;
-
-    default:
-      return false;
-  }
-}
-
-qreal Geometry::segmentLength() const
-{
-  if ( !mRubberbandModel )
-    return qQNaN();
-
-  if ( mRubberbandModel->vertexCount() < 2 )
-    return qQNaN();
-
-  QgsPointSequence points = mRubberbandModel->pointSequence( mVectorLayer->crs() );
-
-  auto pointIt = points.constEnd() - 1;
-
-  const QgsPointV2& pt1 = *pointIt;
-  pointIt--;
-  const QgsPointV2& pt2 = *pointIt;
-
-  return qSqrt( qPow( pt1.x() - pt2.x(), 2 ) + qPow( pt1.y() - pt2.y(), 2 ) );
 }

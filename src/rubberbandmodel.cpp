@@ -66,6 +66,20 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   return sequence;
 }
 
+QList<QgsPoint> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem& crs ) const
+{
+  QList<QgsPoint> sequence;
+
+  QgsCoordinateTransform ct( mCrs, crs );
+
+  Q_FOREACH( const QPointF& pt, mPointList )
+  {
+    sequence.append( QgsPoint( ct.transform( pt.x(), pt.y() ) ) );
+  }
+
+  return sequence;
+}
+
 void RubberbandModel::setVertex( int index, QPointF coordinate )
 {
   if ( mPointList.at( index ) != coordinate )

@@ -61,6 +61,8 @@ class RubberbandModel : public QObject
      */
     QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
+    QList<QgsPoint> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+
     void setVertex( int index, QPointF coordinate );
 
     void insertVertices( int index, int count );
