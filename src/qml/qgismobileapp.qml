@@ -85,6 +85,7 @@ ApplicationWindow {
     /* The base map */
     MapCanvas {
       id: mapCanvasMap
+      incrementalRendering: qfieldSettings.incrementalRendering
 
       anchors.fill: parent
 

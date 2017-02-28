@@ -12,10 +12,12 @@ Page {
 
   property alias showScaleBar: showScaleBarCheckBox.checked
   property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
+  property alias incrementalRendering: incrementalRenderingCheckBox.checked
 
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
     property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
+    property alias incrementalRendering: incrementalRenderingCheckBox.checked
   }
 
   Rectangle {
@@ -62,6 +64,12 @@ Page {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show identify view in full screen" )
+        }
+
+        Controls.CheckBox {
+          id: incrementalRenderingCheckBox
+          anchors { left: parent.left; right: parent.right }
+          text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 /*
   // To be used in combination with code in main.cpp

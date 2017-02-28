@@ -36,6 +36,13 @@ class QgsQuickMapCanvasMap : public QQuickItem
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings )
     Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
     Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
+    /**
+     * Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing.
+     * This only has an effect if incrementalRendering is activated.
+     * Default is 250 [ms].
+     */
+    Q_PROPERTY( int mapUpdateInterval READ mapUpdateInterval WRITE setMapUpdateInterval NOTIFY mapUpdateIntervalChanged )
+    Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
 
   public:
     QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
@@ -67,6 +74,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
     bool isRendering() const;
 
+    int mapUpdateInterval() const;
+    void setMapUpdateInterval( int mapUpdateInterval );
+
+    bool incrementalRendering() const;
+    void setIncrementalRendering( bool incrementalRendering );
+
   signals:
     void renderStarting();
 
@@ -79,6 +92,10 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void freezeChanged();
 
     void isRenderingChanged();
+
+    void mapUpdateIntervalChanged();
+
+    void incrementalRenderingChanged();
 
   protected:
     void geometryChanged( const QRectF& newGeometry, const QRectF& oldGeometry );
@@ -123,6 +140,9 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mFreeze;
     QList<QMetaObject::Connection> mLayerConnections;
     QFutureSynchronizer<void> mZombieJobs;
+    QTimer mMapUpdateTimer;
+    int mMapUpdateInterval;
+    bool mIncrementalRendering;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H

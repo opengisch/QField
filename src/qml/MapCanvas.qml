@@ -24,6 +24,7 @@ Item {
   id: mapArea
   property alias mapSettings: mapCanvasWrapper.mapSettings
   property alias isRendering: mapCanvasWrapper.isRendering
+  property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   signal clicked(var mouse)
 

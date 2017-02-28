@@ -35,9 +35,11 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   , mLabelingResults( nullptr )
   , mDirty( false )
   , mFreeze( false )
+  , mIncrementalRendering( false )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
+  connect( &mMapUpdateTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::renderJobUpdated );
 
   connect( mMapSettings, &MapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
   connect( mMapSettings, &MapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
@@ -45,6 +47,8 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
   connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
 
+  mMapUpdateTimer.setSingleShot( false );
+  mMapUpdateTimer.setInterval( 250 );
   mRefreshTimer.setSingleShot( true );
   setTransformOrigin( QQuickItem::TopLeft );
   setFlags( QQuickItem::ItemHasContents );
@@ -118,6 +122,10 @@ void QgsQuickMapCanvasMap::refreshMap()
   // create the renderer job
   Q_ASSERT( !mJob );
   mJob = new QgsMapRendererParallelJob( mapSettings );
+
+  if ( mIncrementalRendering )
+    mMapUpdateTimer.start();
+
   connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
   mJob->setCache( mCache );
@@ -172,8 +180,8 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   // so the class is still valid when the execution returns to the class
   mJob->deleteLater();
   mJob = nullptr;
-
   mDirty = true;
+  mMapUpdateTimer.stop();
 
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
@@ -219,6 +227,35 @@ void QgsQuickMapCanvasMap::updateTransform()
 
   setX( pixelPt.x() );
   setY( pixelPt.y() );
+}
+
+int QgsQuickMapCanvasMap::mapUpdateInterval() const
+{
+  return mMapUpdateTimer.interval();
+}
+
+void QgsQuickMapCanvasMap::setMapUpdateInterval( int mapUpdateInterval )
+{
+  if ( mMapUpdateInterval == mapUpdateInterval )
+    return;
+
+  mMapUpdateTimer.setInterval( mapUpdateInterval );
+
+  emit mapUpdateIntervalChanged();
+}
+
+bool QgsQuickMapCanvasMap::incrementalRendering() const
+{
+  return mIncrementalRendering;
+}
+
+void QgsQuickMapCanvasMap::setIncrementalRendering( bool incrementalRendering )
+{
+  if ( incrementalRendering == mIncrementalRendering )
+    return;
+
+  mIncrementalRendering = incrementalRendering;
+  emit incrementalRenderingChanged();
 }
 
 bool QgsQuickMapCanvasMap::freeze() const
