@@ -52,6 +52,8 @@ class AttributeFormModelBase : public QStandardItemModel
 
     bool constraintsValid() const;
 
+    QVariant attribute( const QString& name );
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();

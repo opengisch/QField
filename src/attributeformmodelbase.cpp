@@ -344,6 +344,15 @@ bool AttributeFormModelBase::constraintsValid() const
   return mConstraintsValid;
 }
 
+QVariant AttributeFormModelBase::attribute( const QString& name )
+{
+  if ( !mLayer )
+    return QVariant();
+
+  int idx = mLayer->fields().indexOf( name );
+  return mFeatureModel->feature().attribute( idx );
+}
+
 void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
 {
   if ( constraintsValid == mConstraintsValid )

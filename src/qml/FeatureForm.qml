@@ -291,8 +291,8 @@ Page {
     }
 
     RowLayout {
-      spacing: 20
       anchors.fill: parent
+      Layout.margins: 0
 
       ToolButton {
         id: saveButton
