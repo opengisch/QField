@@ -13,11 +13,13 @@ Page {
   property alias showScaleBar: showScaleBarCheckBox.checked
   property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
   property alias incrementalRendering: incrementalRenderingCheckBox.checked
+  property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
 
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
     property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
     property alias incrementalRendering: incrementalRenderingCheckBox.checked
+    property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
   }
 
   Rectangle {
@@ -71,6 +73,14 @@ Page {
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
+
+        Controls.CheckBox {
+          id: numericalDigitizingInformationCheckBox
+          anchors { left: parent.left; right: parent.right }
+          text: qsTr( "Show numerical information while digitizing" )
+          checked: true
+        }
+
 /*
   // To be used in combination with code in main.cpp
         Switch {

@@ -191,15 +191,17 @@ ApplicationWindow {
     x: mainWindow.width / 2 + 24 * dp
     y: mainWindow.height / 2 + 24 * dp
 
-    text: '<p>%1 / %2</p>%3%4'
-      .arg(coordinateLocator.snappedCoordinate.x.toFixed(3))
-      .arg(coordinateLocator.snappedCoordinate.y.toFixed(3))
+    text: qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ?
+            '<p>%1 / %2</p>%3%4'
+              .arg(coordinateLocator.snappedCoordinate.x.toFixed(3))
+              .arg(coordinateLocator.snappedCoordinate.y.toFixed(3))
 
-      .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 m %2</p>'
-        .arg(digitizingGeometryMeasure.segmentLength.toFixed(3))
-        .arg(digitizingGeometryMeasure.length !== -1 ? '(%1 m)'.arg(digitizingGeometryMeasure.length.toFixed(3)) : '' ) : '' )
+              .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 m %2</p>'
+                .arg(digitizingGeometryMeasure.segmentLength.toFixed(3))
+                .arg(digitizingGeometryMeasure.length !== -1 ? '(%1 m)'.arg(digitizingGeometryMeasure.length.toFixed(3)) : '' ) : '' )
 
-      .arg(digitizingGeometryMeasure.areaValid ? '<p>%1 m²</p>'.arg(digitizingGeometryMeasure.area.toFixed(3)) : '')
+              .arg(digitizingGeometryMeasure.areaValid ? '<p>%1 m²</p>'.arg(digitizingGeometryMeasure.area.toFixed(3)) : '' )
+            : ''
 
     font.pointSize: 10
     style: Text.Outline
