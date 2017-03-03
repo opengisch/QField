@@ -31,7 +31,7 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel* model, MapSe
   , mMapSettings( mapSettings )
   , mPendingCanvasUpdate( false )
   , mHasCustomLayerOrder( false )
-  , mAutoSetupOnFirstLayer( true )
+  , mAutoSetupOnFirstLayer( false )
   , mAutoEnableCrsTransform( true )
   , mNoLayersLoaded( !model->rootGroup()->findLayers().isEmpty() )
 {
@@ -140,21 +140,16 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     setCanvasLayers( mModel->rootGroup(), layers );
 
   QList<QgsLayerTreeLayer*> layerNodes = mModel->rootGroup()->findLayers();
-  bool firstLayers = mAutoSetupOnFirstLayer && mNoLayersLoaded == 0 && !layerNodes.empty();
+  bool firstLayers = mAutoSetupOnFirstLayer && mNoLayersLoaded && !layerNodes.empty();
 
   if ( firstLayers )
   {
-    // also setup destination CRS and map units if the OTF projections are not yet enabled
-    if ( !mMapSettings->hasCrsTransformEnabled() )
+    Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
     {
-      Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
+      if ( layerNode->layer() && layerNode->isVisible() && layerNode->layer()->isSpatial() )
       {
-        if ( layerNode->layer() && layerNode->isVisible() && layerNode->layer()->isSpatial() )
-        {
-          mMapSettings->setDestinationCrs( layerNode->layer()->crs() );
-          mMapSettings->setMapUnits( layerNode->layer()->crs().mapUnits() );
-          break;
-        }
+        mMapSettings->setDestinationCrs( layerNode->layer()->crs() );
+        break;
       }
     }
   }
@@ -174,18 +169,10 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     }
   }
 
-  if ( mAutoEnableCrsTransform && mFirstCRS.isValid() && !mMapSettings->hasCrsTransformEnabled() )
+  if ( mFirstCRS.isValid() && firstLayers )
   {
-    // check whether all layers still have the same CRS
-    Q_FOREACH ( QgsLayerTreeLayer* layerNode, layerNodes )
-    {
-      if ( layerNode->layer() && layerNode->layer()->crs().isValid() && layerNode->layer()->crs() != mFirstCRS )
-      {
-        mMapSettings->setDestinationCrs( mFirstCRS );
-        mMapSettings->setCrsTransformEnabled( true );
-        break;
-      }
-    }
+    mMapSettings->setDestinationCrs( mFirstCRS );
+    QgsProject::instance()->setCrs( mFirstCRS );
   }
 
   mNoLayersLoaded = layerNodes.isEmpty();

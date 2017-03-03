@@ -63,16 +63,6 @@ MapSettings* QgsQuickMapCanvasMap::mapSettings() const
   return mMapSettings;
 }
 
-QgsUnitTypes::DistanceUnit QgsQuickMapCanvasMap::mapUnits() const
-{
-  return mMapSettings->mapUnits();
-}
-
-void QgsQuickMapCanvasMap::setMapUnits( const QgsUnitTypes::DistanceUnit& mapUnits )
-{
-  mMapSettings->setMapUnits( mapUnits );
-}
-
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {
   QgsRectangle extent = mMapSettings->extent();
@@ -350,16 +340,6 @@ void QgsQuickMapCanvasMap::geometryChanged( const QRectF& newGeometry, const QRe
 
   mMapSettings->setOutputSize( newGeometry.size().toSize() );
   refresh();
-}
-
-bool QgsQuickMapCanvasMap::hasCrsTransformEnabled() const
-{
-  return mMapSettings->hasCrsTransformEnabled();
-}
-
-void QgsQuickMapCanvasMap::setCrsTransformEnabled( bool crsTransformEnabled )
-{
-  mMapSettings->setCrsTransformEnabled( crsTransformEnabled );
 }
 
 void QgsQuickMapCanvasMap::onLayersChanged()

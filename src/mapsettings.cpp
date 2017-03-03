@@ -26,7 +26,7 @@ MapSettings::MapSettings( QObject* parent )
   : QObject( parent )
 {
   // Connect signals for derived values
-  connect( this, &MapSettings::mapUnitsChanged, this, &MapSettings::mapUnitsPerPixelChanged );
+  connect( this, &MapSettings::destinationCrsChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::outputSizeChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::visibleExtentChanged );
@@ -137,34 +137,6 @@ void MapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem& destina
   emit destinationCrsChanged();
 }
 
-QgsUnitTypes::DistanceUnit MapSettings::mapUnits() const
-{
-  return mMapSettings.mapUnits();
-}
-
-void MapSettings::setMapUnits( const QgsUnitTypes::DistanceUnit& mapUnits )
-{
-  if ( mMapSettings.mapUnits() == mapUnits )
-    return;
-
-  mMapSettings.setMapUnits( mapUnits );
-  emit mapUnitsChanged();
-}
-
-bool MapSettings::hasCrsTransformEnabled() const
-{
-  return mMapSettings.hasCrsTransformEnabled();
-}
-
-void MapSettings::setCrsTransformEnabled( bool crsTransformEnabled )
-{
-  if ( mMapSettings.hasCrsTransformEnabled() == crsTransformEnabled )
-    return;
-
-  mMapSettings.setCrsTransformEnabled( crsTransformEnabled );
-  emit crsTransformEnabledChanged();
-}
-
 QList<QgsMapLayer*> MapSettings::layers() const
 {
   return mMapSettings.layers();
@@ -212,11 +184,8 @@ void MapSettings::onReadProject( const QDomDocument& doc )
 
     emit extentChanged();
     emit destinationCrsChanged();
-    // emit rotationChanged();
     emit outputSizeChanged();
     emit outputDpiChanged();
-    emit mapUnitsChanged();
-    emit crsTransformEnabledChanged();
     emit layersChanged();
   }
 }

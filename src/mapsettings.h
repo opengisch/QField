@@ -33,9 +33,7 @@ class MapSettings : public QObject
     Q_PROPERTY( double rotation READ rotation WRITE setRotation NOTIFY rotationChanged )
     Q_PROPERTY( QSize outputSize READ outputSize WRITE setOutputSize NOTIFY outputSizeChanged )
     Q_PROPERTY( double outputDpi READ outputDpi WRITE setOutputDpi NOTIFY outputDpiChanged )
-    Q_PROPERTY( QgsUnitTypes::DistanceUnit mapUnits READ mapUnits WRITE setMapUnits NOTIFY mapUnitsChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
-    Q_PROPERTY( bool crsTransformEnabled READ hasCrsTransformEnabled WRITE setCrsTransformEnabled NOTIFY crsTransformEnabledChanged )
     Q_PROPERTY( QList<QgsMapLayer*> layers READ layers WRITE setLayers NOTIFY layersChanged )
 
   public:
@@ -84,12 +82,6 @@ class MapSettings : public QObject
     QgsCoordinateReferenceSystem destinationCrs() const;
     void setDestinationCrs( const QgsCoordinateReferenceSystem& destinationCrs );
 
-    QgsUnitTypes::DistanceUnit mapUnits() const;
-    void setMapUnits( const QgsUnitTypes::DistanceUnit& mapUnits );
-
-    bool hasCrsTransformEnabled() const;
-    void setCrsTransformEnabled( bool crsTransformEnabled );
-
     QList<QgsMapLayer*> layers() const;
     void setLayers( const QList<QgsMapLayer*>& layers );
 
@@ -101,13 +93,8 @@ class MapSettings : public QObject
     void visibleExtentChanged();
     void outputSizeChanged();
     void outputDpiChanged();
-    void mapUnitsChanged();
-    void crsTransformEnabledChanged();
     void layersChanged();
-#if 0
-  public slots:
-    void setMapTheme( QgsProject* project, const QString& mapThemeName );
-#endif
+
   private slots:
     void onReadProject( const QDomDocument& doc );
 
