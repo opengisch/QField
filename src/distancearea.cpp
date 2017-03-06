@@ -34,6 +34,9 @@ void DistanceArea::init()
   else
     mDistanceArea.setEllipsoid( GEO_NONE );
   mDistanceArea.setSourceCrs( mCrs );
+
+  emit lengthUnitsChanged();
+  emit areaUnitsChanged();
 }
 
 QgsProject* DistanceArea::project() const
@@ -203,4 +206,14 @@ qreal DistanceArea::segmentLength() const
   flatPoints << *pointIt;
 
   return mDistanceArea.measureLine( flatPoints );
+}
+
+QgsUnitTypes::DistanceUnit DistanceArea::lengthUnits() const
+{
+  return mDistanceArea.lengthUnits();
+}
+
+QgsUnitTypes::AreaUnit DistanceArea::areaUnits() const
+{
+  return mDistanceArea.areaUnits();
 }

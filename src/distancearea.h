@@ -36,6 +36,8 @@ class DistanceArea : public QObject
     Q_PROPERTY( bool lengthValid READ lengthValid NOTIFY lengthValidChanged )
     Q_PROPERTY( qreal area READ area NOTIFY areaChanged )
     Q_PROPERTY( bool areaValid READ areaValid NOTIFY areaValidChanged )
+    Q_PROPERTY( QgsUnitTypes::DistanceUnit lengthUnits READ lengthUnits NOTIFY lengthUnitsChanged )
+    Q_PROPERTY( QgsUnitTypes::AreaUnit areaUnits READ areaUnits NOTIFY areaUnitsChanged )
 
     /**
      * Contains the length of the last segment
@@ -50,6 +52,9 @@ class DistanceArea : public QObject
     qreal area() const;
     bool areaValid() const;
     qreal segmentLength() const;
+
+    QgsUnitTypes::DistanceUnit lengthUnits() const;
+    QgsUnitTypes::AreaUnit areaUnits() const;
 
     QgsCoordinateReferenceSystem crs() const;
     void setCrs( const QgsCoordinateReferenceSystem& crs );
@@ -70,6 +75,8 @@ class DistanceArea : public QObject
     void areaChanged();
     void areaValidChanged();
     void segmentLengthChanged();
+    void lengthUnitsChanged();
+    void areaUnitsChanged();
 
   private slots:
     void init();

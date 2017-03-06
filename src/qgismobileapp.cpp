@@ -127,6 +127,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
+  qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
 
   // Register QField QML types

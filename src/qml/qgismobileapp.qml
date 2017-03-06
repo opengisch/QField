@@ -196,11 +196,11 @@ ApplicationWindow {
               .arg(coordinateLocator.snappedCoordinate.x.toFixed(3))
               .arg(coordinateLocator.snappedCoordinate.y.toFixed(3))
 
-              .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 m %2</p>'
-                .arg(digitizingGeometryMeasure.segmentLength.toFixed(3))
-                .arg(digitizingGeometryMeasure.length !== -1 ? '(%1 m)'.arg(digitizingGeometryMeasure.length.toFixed(3)) : '' ) : '' )
+              .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
+                .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' ) : '' )
 
-              .arg(digitizingGeometryMeasure.areaValid ? '<p>%1 m²</p>'.arg(digitizingGeometryMeasure.area.toFixed(3)) : '' )
+              .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'.arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) ) : '' )
             : ''
 
     font.pointSize: 10
