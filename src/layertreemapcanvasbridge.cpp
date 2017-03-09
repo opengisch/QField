@@ -59,7 +59,6 @@ QStringList LayerTreeMapCanvasBridge::defaultLayerOrder() const
 
 void LayerTreeMapCanvasBridge::applyMapTheme( const QgsMapThemeCollection::MapThemeRecord& mapTheme )
 {
-  applyThemeToGroup( mModel->rootGroup(), mapTheme );
 }
 
 void LayerTreeMapCanvasBridge::defaultLayerOrder( QgsLayerTreeNode* node, QStringList& order ) const
@@ -133,7 +132,10 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     {
       QgsLayerTreeLayer* nodeLayer = mModel->rootGroup()->findLayer( layerId );
       if ( nodeLayer )
-        layers << nodeLayer->layer();
+      {
+        if ( nodeLayer->isVisible() )
+          layers << nodeLayer->layer();
+      }
     }
   }
   else
@@ -238,7 +240,9 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode* node, QList<Qg
   {
     QgsLayerTreeLayer* nodeLayer = QgsLayerTree::toLayer( node );
     if ( nodeLayer->isVisible() )
+    {
       layers << nodeLayer->layer();
+    }
   }
 
   Q_FOREACH ( QgsLayerTreeNode* child, node->children() )
@@ -319,8 +323,7 @@ void LayerTreeMapCanvasBridge::nodeCustomPropertyChanged( QgsLayerTreeNode* node
 
 void LayerTreeMapCanvasBridge::mapThemeChanged()
 {
-  QgsMapThemeCollection::MapThemeRecord record = mModel->project()->mapThemeCollection()->mapThemeState( mModel->mapTheme() );
-  applyMapTheme( record );
+  QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mModel->rootGroup(), mModel->layerTreeModel() );
 }
 
 
