@@ -88,7 +88,7 @@ Controls.Pane {
           }
         }
 
-        onCurrentIndexChanged: {
+        onCurrentTextChanged: {
           if ( qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
             layerTree.mapTheme = mapThemeComboBox.currentText
           }
