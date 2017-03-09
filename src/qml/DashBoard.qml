@@ -81,8 +81,7 @@ Controls.Pane {
           target: iface
 
           onLoadProjectEnded: {
-            var themes = qgisProject.mapThemeCollection.mapThemes.slice()
-            themes.reverse()
+            var themes =
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
           }
