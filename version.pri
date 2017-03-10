@@ -1,6 +1,6 @@
 VERSION_MAJOR = 0
 VERSION_MINOR = 9
-VERSION_FIX   = 7
+VERSION_FIX   = 8
 
 CODENAME = 'Jungfraujoch'
 
