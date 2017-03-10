@@ -448,6 +448,7 @@ ApplicationWindow {
         digitizingFeature.resetAttributes();
         overlayFeatureForm.visible = true;
         overlayFeatureForm.state = "Add"
+        overlayFeatureForm.reset()
         digitizingRubberband.model.reset()
       }
       else

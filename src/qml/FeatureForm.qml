@@ -18,6 +18,10 @@ Page {
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
 
+  function reset() {
+    master.reset()
+  }
+
   id: form
 
   states: [
@@ -31,6 +35,19 @@ Page {
       name: "Add"
     }
   ]
+
+  /**
+   * This is a relay to forward private signals to internal components.
+   */
+  QtObject {
+    id: master
+
+    /**
+     * This signal is emitted whenever the state of Flickables and TabBars should
+     * be restored.
+     */
+    signal reset
+  }
 
   Item {
     id: container
@@ -55,11 +72,19 @@ Page {
 
       // Tabs
       TabBar {
-
         id: tabRow
-        currentIndex: swipeView.currentIndex
         visible: model.hasTabs
         height: 48 * dp
+
+        Connections {
+          target: master
+          onReset: tabRow.currentIndex = 0
+        }
+
+        Connections {
+          target: swipeView
+          onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+        }
 
         Repeater {
           model: form.model
@@ -136,6 +161,11 @@ Page {
                   text: section
                 }
               }
+            }
+
+            Connections {
+              target: master
+              onReset: content.contentY = 0
             }
 
             model: SubModel {
