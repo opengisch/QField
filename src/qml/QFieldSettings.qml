@@ -65,7 +65,7 @@ Page {
         Controls.CheckBox {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
-          text: qsTr( "Show identify view in full screen" )
+          text: qsTr( "Show attribute form in full screen" )
         }
 
         Controls.CheckBox {

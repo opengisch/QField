@@ -90,8 +90,11 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
-        featureForm.show()
+        if ( !overlayFeatureForm.visible )
+        {
+          identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+          featureForm.show()
+        }
       }
     }
 
@@ -249,6 +252,17 @@ ApplicationWindow {
   }
 
   DropShadow {
+    anchors.fill: overlayFeatureForm
+    visible: overlayFeatureForm.visible
+    horizontalOffset: -2 * dp
+    verticalOffset: 0
+    radius: 6.0 * dp
+    samples: 17
+    color: "#80000000"
+    source: overlayFeatureForm
+  }
+
+  DropShadow {
     anchors.fill: featureForm
     horizontalOffset: -2 * dp
     verticalOffset: 0
@@ -260,9 +274,14 @@ ApplicationWindow {
 
   DashBoard {
     id: dashBoard
+
     anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
 
-    width: 0
+    property bool preventFromOpening: overlayFeatureForm.visible
+    readonly property bool open: dashBoard.visible && !preventFromOpening
+
+    width: open ? 300 * dp : 0
+    visible: false
     clip: true
 
     allowLayerChange: !digitizingToolbar.isDigitizing
@@ -303,19 +322,11 @@ ApplicationWindow {
       id: menuButton
 
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
-      onClicked: {
-        if ( dashBoard.width > 0 )
-        {
-          dashBoard.width = 0
-          bgcolor = "#212121"
-          rotate()
-        }
-        else
-        {
-          dashBoard.width = 300 * dp
-          bgcolor = "#C8E6C9"
-          rotate()
-        }
+      onClicked: dashBoard.visible = !dashBoard.visible
+      bgcolor: dashBoard.visible ? "#C8E6C9" : "#212121"
+      Connections {
+        target: dashBoard
+        onOpenChanged: menuButton.rotate()
       }
     }
   }
@@ -559,17 +570,6 @@ ApplicationWindow {
     }
   }
 
-
-  Rectangle {
-    id: overlayBackground
-
-    anchors.fill: parent
-
-    visible: overlayFeatureForm.visible
-
-    color: "white"
-  }
-
   Image {
     id: alertIcon
     source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
@@ -610,7 +610,8 @@ ApplicationWindow {
   FeatureForm {
     id: overlayFeatureForm
 
-    anchors.fill: parent
+    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
 
     model: AttributeFormModel {
       featureModel: digitizingFeature
