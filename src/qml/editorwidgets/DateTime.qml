@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Layouts 1.1
 import "../js/style.js" as Style
 
 /*
@@ -17,30 +18,48 @@ Item {
   height: childrenRect.height
   anchors { right: parent.right; left: parent.left }
 
-  Column {
+  ColumnLayout {
     id: main
     property var currentValue: value
 
     anchors { right: parent.right; left: parent.left }
 
-    Label {
-      id: label
-      MouseArea {
+    Item {
+      anchors { right: parent.right; left: parent.left }
+      Layout.minimumHeight: 48 * dp
+
+      Rectangle {
         anchors.fill: parent
-        onClicked: {
-          popup.open()
-        }
+        id: backgroundRect
+        border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
+        border.width: comboBox.visualFocus ? 2 : 1
+        color: "#dddddd"
+        radius: 2
       }
 
-      Image {
-        source: Style.getThemeIcon( "ic_clear_black_18dp" )
-        anchors.left: parent.right
-        visible: main.currentValue !== undefined && config['allow_null']
+      Label {
+        id: label
+
+        anchors.fill: parent
+        verticalAlignment: Text.AlignVCenter
 
         MouseArea {
           anchors.fill: parent
           onClicked: {
-            main.currentValue = undefined
+            popup.open()
+          }
+        }
+
+        Image {
+          source: Style.getThemeIcon("ic_clear_black_18dp")
+          anchors.left: parent.right
+          visible: main.currentValue !== undefined && config['allow_null']
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              main.currentValue = undefined
+            }
           }
         }
       }
@@ -51,13 +70,13 @@ Item {
       modal: true
       focus: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+      parent: ApplicationWindow.overlay
 
       Controls.Calendar {
         id: calendar
         selectedDate: currentValue
         weekNumbersVisible: true
         focus: false
-        anchors.fill: parent
 
         onSelectedDateChanged: {
           main.currentValue = selectedDate
@@ -69,7 +88,7 @@ Item {
       valueChanged(currentValue, main.currentValue === undefined)
       if (main.currentValue === undefined)
       {
-        label.text = 'NULL'
+        label.text = qsTr('(no date)')
         label.color = 'gray'
       }
       else
