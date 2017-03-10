@@ -203,7 +203,7 @@ ApplicationWindow {
               .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'.arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) ) : '' )
             : ''
 
-    font.pointSize: 10
+    font.pointSize: 11
     style: Text.Outline
     font.weight: Font.Bold
     styleColor: "white"
