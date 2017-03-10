@@ -96,7 +96,8 @@ LIBS += ../3rdparty/tessellate/libtessellate.a
 
 # Make qml files translatable
 lupdate_only{
-  SOURCES = qml/*.qml
+  SOURCES = qml/*.qml \
+  SOURCES = qml/editorwidgets/*.qml
 }
 
 RESOURCES += \
