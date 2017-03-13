@@ -72,14 +72,25 @@ Item {
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
       parent: ApplicationWindow.overlay
 
-      Controls.Calendar {
-        id: calendar
-        selectedDate: currentValue
-        weekNumbersVisible: true
-        focus: false
+      ColumnLayout {
+        Controls.Calendar {
+          id: calendar
+          selectedDate: currentValue
+          weekNumbersVisible: true
+          focus: false
 
-        onSelectedDateChanged: {
-          main.currentValue = selectedDate
+          onSelectedDateChanged: {
+            main.currentValue = selectedDate
+          }
+        }
+
+        RowLayout {
+          Button {
+            text: qsTr( "Ok" )
+            Layout.fillWidth: true
+
+            onClicked: popup.close()
+          }
         }
       }
     }
