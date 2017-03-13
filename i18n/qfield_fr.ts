@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>About</name>
     <message>
@@ -70,9 +72,14 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="91"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(pas de date)</translation>
     </message>
 </context>
 <context>
@@ -158,7 +165,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"/>
+        <translation>Afficher le formulaire d&apos;attributs en plein écran</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
@@ -168,7 +175,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"/>
+        <translation>Afficher les mesures pendant la numérisation. </translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>

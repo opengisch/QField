@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="nl">
 <context>
     <name>About</name>
     <message>
@@ -70,9 +72,14 @@ Zie de &lt;i&gt;Portable Project&lt;/i&gt; sectie in de QField handleiding voor 
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="91"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(geen datum)</translation>
     </message>
 </context>
 <context>
@@ -153,22 +160,22 @@ Zie de &lt;i&gt;Portable Project&lt;/i&gt; sectie in de QField handleiding voor 
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="62"/>
         <source>Show scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Schaalbalk weergeven</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"/>
+        <translation>Toon attribuutformulier in volledig scherm modus</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"/>
+        <translation>Herteken kaart iedere 250 ms tijdens het opbouwen van het scherm</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"/>
+        <translation>Tijdens digitaliseren numerieke informatie tonen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>

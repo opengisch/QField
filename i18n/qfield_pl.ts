@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>About</name>
     <message>
@@ -64,15 +66,20 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <location filename="../src/qml/DashBoard.qml" line="73"/>
         <source>Map Theme</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="91"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(brak daty)</translation>
     </message>
 </context>
 <context>
@@ -143,7 +150,7 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="43"/>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Układ</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="48"/>
@@ -153,22 +160,22 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="62"/>
         <source>Show scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż pasek skali</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż formularz atrybutów w trybie pełnoekranowym</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"/>
+        <translation>Przerysuj mapę podczas renderowania co 250 ms</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż informację numeryczną podczas rysowania</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>

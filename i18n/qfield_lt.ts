@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="lt">
 <context>
     <name>About</name>
     <message>
@@ -70,9 +72,14 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="91"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(be datos)</translation>
     </message>
 </context>
 <context>
@@ -153,22 +160,22 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="62"/>
         <source>Show scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Rodyti mastelio juostą</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"/>
+        <translation>Atributus rodyti per visą ekraną</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"/>
+        <translation>Atnaujinti vaizdą kas 250 ms kol jis generuojamas</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"/>
+        <translation>Rodyti skaitinę informaciją kai braižoma</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>

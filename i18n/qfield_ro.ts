@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ro">
 <context>
     <name>About</name>
     <message>
@@ -70,9 +72,14 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="91"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(fără dată)</translation>
     </message>
 </context>
 <context>
@@ -153,22 +160,22 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="62"/>
         <source>Show scalebar</source>
-        <translation type="unfinished"/>
+        <translation>Arată scara grafică</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"/>
+        <translation>Afișează formularul de atribute în ecran complet</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"/>
+        <translation>Redesenează harta pe durata randării, o dată la 250 ms</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"/>
+        <translation>Afișează informațiile numerice pe durata digitizării</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
