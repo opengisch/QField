@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; documentación de QField Documentation - 0.8 - Hiendertelltihoren</title>
+    <title>Complemento QFieldSync &mdash; documentación de QField Documentation - 0.8 - Hiendertelltihoren</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -100,12 +100,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
+<li><a class="reference internal" href="#">Complemento QFieldSync</a><ul>
+<li><a class="reference internal" href="#workflow">Flujo de trabajo</a></li>
 <li><a class="reference internal" href="#configuration">Configuración</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuración de capas</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuración mapa base</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configuración edición offline</a></li>
 </ul>
 </li>
 </ul>
@@ -162,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambia el Tema de Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desarrollo y soporte</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Complemento QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -171,8 +171,8 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
+<h1>Complemento QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El complemento QFieldSync ayuda a preparar y empaquetar proyectos de QGIS para QField.</p>
 <p>QFieldSync supports your project preparation with automating the following:</p>
 <ul class="simple">
 <li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proyecto Portable</span></a>)</li>
@@ -180,14 +180,15 @@
 <li>Configuring the offline editing functionality and synchronizing changes back.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Flujo de trabajo<a class="headerlink" href="#workflow" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>To get a quick overview of the process, here is a list of typical steps:</p>
 <ol class="arabic simple">
 <li>Create a QField package. This is a working copy in a separate folder.</li>
 <li>Copy the QField package to the target device.</li>
 <li>Go out and collect data.</li>
 <li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Sincronizar la información modificada con su base de datos o ficheros</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
@@ -198,37 +199,37 @@ This way it is possible to pre-configure a project once and use it repeatedly.</
 <h3>Configuración de capas<a class="headerlink" href="#layer-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En el cuadro de diálogo de configuración del proyecto, un &#8220;acción&#8221; puede definirse para cada capa de forma individual. Dependiendo del tipo de capa, diferentes tipos de acciones están disponibles.</p>
 <dl class="docutils">
-<dt>Copy</dt>
+<dt>Copiar</dt>
 <dd>The layer will be copied to the package folder. This is only available for
 file-based layers.</dd>
-<dt>No action</dt>
+<dt>Ninguna acción</dt>
 <dd>The layer source will be left untouched. This is only available for
 non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
+<dt>Edición offline</dt>
 <dd>A working copy of the layer is copied into the package folder. Every change
 which is done in the packaged project during work is recorded in a changelog.
 When synchronizing the changes back later on, this log will be replayed and
 all changes also be applied to the main data base. There is no conflict
 handling in place.</dd>
-<dt>Remove</dt>
+<dt>Borrar</dt>
 <dd>The layer will be removed from the working copy. This is useful if a layer is
 used in the basemap and will not be available in the packaged project.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Configuración mapa base<a class="headerlink" href="#base-map-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A base map is a raster layer which is added as the bottommost layer to the
 packaged project file.</p>
 <p>If the base map option is enabled, a base map will be rendered, whenever the
 project is packaged. The area of interest - the extent which will be rendered -
 will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<p>Existen dos posibles recursos para un mapa de base:</p>
 <dl class="docutils">
-<dt>Layer</dt>
+<dt>Capa</dt>
 <dd>A raster layer. This is useful to take an offline copy of an online layer like
 a WMS or to take a working copy of an unsupported format like an ECW or MrSID
 layer.</dd>
-<dt>Map Theme</dt>
+<dt>Tema de Mapa</dt>
 <dd>A map theme. This is useful to create a base map based on a combination of
 several layers with styling. These layers can then be removed from the working
 package and do not need to be rendered on the device. This can save some disk
@@ -240,7 +241,7 @@ to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
 1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Configuración edición offline<a class="headerlink" href="#offline-editing-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>If <em>only synchronize features in area of interest</em> is checked, only features
 which are within the extent of the map canvas as packaging time will be copied
 to the offline editing working copy.</p>
