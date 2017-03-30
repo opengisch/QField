@@ -11,11 +11,18 @@ Item {
   }
 
   CheckBox {
+    property var currentValue: value
+
     checked: value === config['CheckedState']
 
     onCheckedChanged: {
       valueChanged( checked ? config['CheckedState'] : config['UncheckedState'], false )
       forceActiveFocus()
+    }
+
+    // Workaround to get a signal when the value has changed
+    onCurrentValueChanged: {
+      checked = currentValue === config['CheckedState']
     }
   }
 }
