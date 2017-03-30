@@ -52,6 +52,8 @@ Page {
   Item {
     id: container
 
+    clip: true
+
     anchors {
       top: toolbar.bottom
       bottom: parent.bottom
