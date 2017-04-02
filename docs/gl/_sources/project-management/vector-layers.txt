@@ -27,6 +27,27 @@ the :menuselection:`Vector Layer Properties --> Display` page.
 
      The display expression will be used to represent features with an identification string throughout QField.
 
+Read only and non-identifiable layers
+=====================================
+
+Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.
+
+Some other layers serve as source of information and shouldn't be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.
+
+To configure identify and readonly behavior, go to the :menuselection:`Project --> Project Properties --> Identify Layers`
+page and activate the checkboxes to match your desired behavior.
+
+.. container:: clearer text-center
+
+  .. figure:: /images/project_configuration_readonly.png
+     :width: 500px
+     :alt: Identify and readonly configuration
+
+     Configuration of layers that will not be identifiable and/or not be modifiable.
+
 Forms and Fields
 ================
 

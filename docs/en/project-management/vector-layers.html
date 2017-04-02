@@ -103,6 +103,7 @@
 <li><a class="reference internal" href="#">Vector Layer Settings</a><ul>
 <li><a class="reference internal" href="#style">Style</a></li>
 <li><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suppress Feature Form</a></li>
 <li><a class="reference internal" href="#field-widget">Field widget</a></li>
@@ -214,6 +215,22 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 </div>
 </div>
 </div>
+<div class="section" id="read-only-and-non-identifiable-layers">
+<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<p>Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.</p>
+<p>Some other layers serve as source of information and shouldn&#8217;t be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.</p>
+<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="forms-and-fields">
 <h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField creates forms similar to, but not equal to QGIS.</p>
@@ -288,7 +305,7 @@ many fields, make a group and configure a visibility expression for a group &#82
 a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
 will be available to the user.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
 </div>
@@ -301,7 +318,7 @@ evaluate to <code class="code docutils literal"><span class="pre">True</span></c
 are configured on a per-field basis and a description can be added that will be shown to the
 user if a constraint is not satisfied.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
 </div>
@@ -325,7 +342,7 @@ attribute form when digitizing a new feature. They are visible to the user and c
 be modified as long as the field is editable. They can be based on the geometry or
 expression variables.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
 </div>

@@ -104,6 +104,7 @@
 <li><a class="reference internal" href="#">Configuration des couches vecteur</a><ul>
 <li><a class="reference internal" href="#style">Style</a></li>
 <li><a class="reference internal" href="#display-expression">Expression d&#8217;affichage</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulaires et champs</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulaire de suppression d&#8217;objet</a></li>
 <li><a class="reference internal" href="#field-widget">Outil d&#8217;édition de champ</a></li>
@@ -210,6 +211,22 @@
 </div>
 </div>
 </div>
+<div class="section" id="read-only-and-non-identifiable-layers">
+<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.</p>
+<p>Some other layers serve as source of information and shouldn&#8217;t be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.</p>
+<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="forms-and-fields">
 <h2>Formulaires et champs<a class="headerlink" href="#forms-and-fields" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les formulaires QField sont similaires à ceux de QGIS, mais pas identiques.</p>
@@ -286,7 +303,7 @@
 <h3>Visibilité conditionnelle<a class="headerlink" href="#conditional-visibility" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les groupes peuvent être masqués à partir d&#8217;une expression. Cela est utile lorsque certains attributs ne sont requis que sous certaines conditions. Imaginons par exemple une cartographie d&#8217;arbres. Certains d&#8217;entre eux peuvent avoir une maladie et vous avez une liste des maladies possibles. Pour ne pas encombrer le formulaire avec trop de champs, faites un groupe et paramétrez la visibilité pour un groupe &#8220;maladies&#8221;. Ajouter un champ &#8220;maladies&#8221; avec une case à cocher. La liste des maladies sera disponible pour l&#8217;utilisateur seulement si la case à cocher est activée.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration d&#8217;une boîte de groupe qui ne sera montrée que si la case à cocher  &#8220;measures_taken&#8221; est activée.</span></p>
 </div>
@@ -296,7 +313,7 @@
 <h3>Contraintes<a class="headerlink" href="#constraints" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les champs attributaires peuvent avoir des contraintes rattachées. Les contraintes sont des expressions qui doivent correspondre à <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) pour être en mesure d&#8217;enregistrer le formulaire. Les contraintes sont configurables champ par champ et une description peut être ajoutée pour être montrée à l&#8217;utilisateur si une contrainte n&#8217;est pas satisfaite.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration de la plage de valeurs d&#8217;une contrainte</span></p>
 </div>
@@ -317,7 +334,7 @@
 <h3>Valeurs par défaut<a class="headerlink" href="#default-values" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les champs peuvent avoir des valeurs par défaut configurées. Les valeurs par défaut peuvent être insérées dans le formulaire lors de la numérisation d&#8217;une entité. Elles sont visibles pour l&#8217;utilisateur et peuvent être modifiées tant que le champ est en mode &#8220;édition&#8221;. Elles peuvent être basées sur la géométrie ou des combinaison de variables.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuration d&#8217;une date prévue comme valeur par défaut</span></p>
 </div>

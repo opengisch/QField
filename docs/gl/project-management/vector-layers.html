@@ -103,6 +103,7 @@
 <li><a class="reference internal" href="#">Configuración de Capa Vectorial</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Amosar Expresión</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Eliminar Formulario de Entidade</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de campo</a></li>
@@ -209,6 +210,22 @@
 </div>
 </div>
 </div>
+<div class="section" id="read-only-and-non-identifiable-layers">
+<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<p>Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.</p>
+<p>Some other layers serve as source of information and shouldn&#8217;t be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.</p>
+<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="forms-and-fields">
 <h2>Formularios e Campos<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField crea formularios de forma similar, pero non igual a QGIS.</p>
@@ -289,7 +306,7 @@
 <h3>Visibilidade condicional<a class="headerlink" href="#conditional-visibility" title="Permalink to this headline">¶</a></h3>
 <p>Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo &#8220;enfermidades&#8221;. Engade un campo &#8220;enfermidade&#8221; cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuración dunha caixa de grupo que só se amosará se a caixa de verificación &#8220;tomar_medidas&#8221; está marcada.</span></p>
 </div>
@@ -299,7 +316,7 @@
 <h3>Restricións<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
 <p>Os campos de atributo poden ter ligadas restricións. As restricións son expresións que precisan avaliarse a <code class="code docutils literal"><span class="pre">Certo</span></code> (ou <code class="code docutils literal"><span class="pre">1</span></code>) para poder gardar o formulario. As restricións configúranse por en base a un campo e pode engadirse unha descrición que se lle amosará ó usuario se a restrición non é satisfeita.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuración dunha restrición dentro dun rango</span></p>
 </div>
@@ -320,7 +337,7 @@
 <h3>Valores predeterminados<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
 <p>Os campos poden ter valores predeterminados configurados. Os valores predeterminados se introducen no formulario de atributos cando se dixitaliza unha nova entidade. Son visibles ó usuario e poden modificarse en tanto o campo sexa editable. Poden basearse en variables de xeometría ou expresións.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configuración dunha data con formato como valor predeterminado</span></p>
 </div>

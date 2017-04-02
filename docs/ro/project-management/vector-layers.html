@@ -103,6 +103,7 @@
 <li><a class="reference internal" href="#">Setările Straturilor Vectoriale</a><ul>
 <li><a class="reference internal" href="#style">Stilul</a></li>
 <li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare și Câmpuri</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimarea Formularului Entității</a></li>
 <li><a class="reference internal" href="#field-widget">Controalele grafice de tip câmp</a></li>
@@ -209,6 +210,22 @@
 </div>
 </div>
 </div>
+<div class="section" id="read-only-and-non-identifiable-layers">
+<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<p>Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.</p>
+<p>Some other layers serve as source of information and shouldn&#8217;t be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.</p>
+<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="forms-and-fields">
 <h2>Formulare și Câmpuri<a class="headerlink" href="#forms-and-fields" title="Permalink to this headline">¶</a></h2>
 <p>QField creează formulare similare, dar nu identice cu cele din QGIS.</p>
@@ -288,7 +305,7 @@
 <h3>Vizibilitate condiționată<a class="headerlink" href="#conditional-visibility" title="Permalink to this headline">¶</a></h3>
 <p>Grupurile pot fi ascunse în baza unei expresii. Acest lucru este util atunci când unele atribute sunt cerute doar în anumite condiții. Un astfel de exemplu o reprezintă cartografierea copacilor. Unii dintre ei s-ar putea să fie atacați de o anumită boală, iar dvs. aveți o listă cu posibile afecțiuni. Pentru a nu aglomera cu multe câmpuri formularul, creați un grup și stabiliți o expresie de vizibilitate pentru grupul &#8220;boli&#8221;. Adăugați câmpul &#8220;boli&#8221; și o casetă de bifare. Numai atunci când este bifată caseta de selectare, lista bolilor va fi disponibilă utilizatorului.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configurarea unui grup de casete, care va fi afișat numai dacă este bifată opțiunea &#8216;measures_taken&#8217;.</span></p>
 </div>
@@ -298,7 +315,7 @@
 <h3>Constrângeri<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h3>
 <p>Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configurarea unei constrângeri în cadrul unui interval</span></p>
 </div>
@@ -319,7 +336,7 @@
 <h3>Valori implicite<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
 <p>Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
 <div class="clearer text-center docutils container">
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Configurarea ca valoare implicită s unei date formatate</span></p>
 </div>
