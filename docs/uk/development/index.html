@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
-    <link rel="next" title="QFieldSync plugin" href="../qfieldsync/index.html" />
-    <link rel="prev" title="Global variables" href="../user-guide/variables.html" />
+    <link rel="next" title="Плаґін QFieldSync" href="../qfieldsync/index.html" />
+    <link rel="prev" title="Глобальні змінні" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -112,8 +112,8 @@
 <li><a class="reference internal" href="#editing-geometries">Редагування геометрій</a></li>
 <li><a class="reference internal" href="#search-functionality">Підтримка пошуку</a></li>
 <li><a class="reference internal" href="#external-measurement-devices">Зовнішні вимірювальні пристрої</a></li>
-<li><a class="reference internal" href="#record-audio">Record Audio</a></li>
-<li><a class="reference internal" href="#open-qgs-files-on-click">Open QGS files on click</a></li>
+<li><a class="reference internal" href="#record-audio">Запис звуку</a></li>
+<li><a class="reference internal" href="#open-qgs-files-on-click">Відкривання файлів QGIS в один клік</a></li>
 <li><a class="reference internal" href="#your-favorite-feature">[Функціонал, необхідний саме вам]</a></li>
 </ul>
 </li>
@@ -133,11 +133,11 @@
             
               
   <li>
-    <a href="../user-guide/variables.html" title="Previous Chapter: Global variables"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Global variables</span>
+    <a href="../user-guide/variables.html" title="Previous Chapter: Глобальні змінні"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Глобальні змінні</span>
     </a>
   </li>
   <li>
-    <a href="../qfieldsync/index.html" title="Next Chapter: QFieldSync plugin"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QFieldSync plugin &raquo;</span>
+    <a href="../qfieldsync/index.html" title="Next Chapter: Плаґін QFieldSync"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Плаґін QFieldSync &raquo;</span>
     </a>
   </li>
             
@@ -169,18 +169,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Встановлення QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Принципи</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: доступ до спеціальних файлів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Підтримувані формати даних</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Растрові дані</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Управління проектами QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Настройка тем мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable проект</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Глобальні змінні</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Розробка та підтримка</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Плаґін QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -251,17 +251,14 @@
 <p>Ви працюєте з зовнішніми пристроями, що мають датчики? Атмосферний тиск, температура, кут нахилу, концентрація оксиду вуглецю, тощо... Було б круто мати можливість автоматично записувати покази зовнішнього пристрою, а не вносити їх вручну, чи не так? Ми радо зробимо ваше життя легше шляхом реалізації підтримки вашого зовнішнього пристрою в QField.</p>
 </div>
 <div class="section" id="record-audio">
-<h4>Record Audio<a class="headerlink" href="#record-audio" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Ever wondered how you would write a lot of text when out in the field with a
-touch screen?</p>
-<p>Just don&#8217;t!</p>
-<p>It would be amazing to have the possibility to have audio integration just like
-image integration. When back in the office, you could just type in the
-information on a regular keyboard.</p>
+<h4>Запис звуку<a class="headerlink" href="#record-audio" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Коли-небудь думали про те як ви будете записувати купу тексту під час виходу в поле з пристроєм із сенсорним екраном?</p>
+<p>Не треба!</p>
+<p>Було б класно мати можливість інтеграції зі звуком, як це вже зроблено з зображеннями. Повернувшись до офісу ви могли б просто внести цю інформацію за допомогою звичайної клавіатури.</p>
 </div>
 <div class="section" id="open-qgs-files-on-click">
-<h4>Open QGS files on click<a class="headerlink" href="#open-qgs-files-on-click" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Simply open a QGIS project in QField by clicking on it in your file manager.</p>
+<h4>Відкривання файлів QGIS в один клік<a class="headerlink" href="#open-qgs-files-on-click" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Просто відкривати проект QGIS у QField клацнувши по ньому в вашому файловому менеджері.</p>
 </div>
 <div class="section" id="your-favorite-feature">
 <h4>[Функціонал, необхідний саме вам]<a class="headerlink" href="#your-favorite-feature" title="Постійне посилання на цей заголовок">¶</a></h4>

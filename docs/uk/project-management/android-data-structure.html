@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Special File Access Notes &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
+    <title>Android: доступ до спеціальних файлів &mdash; QField Documentation 0.8 - Hiendertelltihoren documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -35,8 +35,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.8 - Hiendertelltihoren documentation" href="../index.html" />
     <link rel="up" title="Управління проектами QField" href="index.html" />
-    <link rel="next" title="Configure Map Themes" href="map-themes.html" />
-    <link rel="prev" title="Configure Map Themes" href="map-themes.html" />
+    <link rel="next" title="Настройка тем мапи" href="map-themes.html" />
+    <link rel="prev" title="Настройка тем мапи" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -101,7 +101,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Special File Access Notes</a><ul>
+<li><a class="reference internal" href="#">Android: доступ до спеціальних файлів</a><ul>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Нестандарні символи SVG та налаштування</a></li>
 <li><a class="reference internal" href="#external-sd-card">Зовнішня SD карта</a></li>
 </ul>
@@ -115,11 +115,11 @@
             
               
   <li>
-    <a href="map-themes.html" title="Previous Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configure Map Themes</span>
+    <a href="map-themes.html" title="Previous Chapter: Настройка тем мапи"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Настройка тем мапи</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configure Map Themes &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Настройка тем мапи"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Настройка тем мапи &raquo;</span>
     </a>
   </li>
             
@@ -151,18 +151,18 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Встановлення QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Принципи</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Special File Access Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Android: доступ до спеціальних файлів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Підтримувані формати даних</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Растрові дані</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Управління проектами QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Настройка тем мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Глобальні змінні</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Розробка та підтримка</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Плаґін QFieldSync</a></li>
 </ul>
 
 </ul>
@@ -171,7 +171,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="android-special-file-access-notes">
-<h1>Android: Special File Access Notes<a class="headerlink" href="#android-special-file-access-notes" title="Постійне посилання на цей заголовок">¶</a></h1>
+<h1>Android: доступ до спеціальних файлів<a class="headerlink" href="#android-special-file-access-notes" title="Постійне посилання на цей заголовок">¶</a></h1>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h2>Нестандарні символи SVG та налаштування<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>У діалозі &#8220;Про програму&#8221; ви можете побачити де знаходяться каталоги даних на вашому пристрої.</p>
