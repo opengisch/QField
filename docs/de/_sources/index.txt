@@ -78,7 +78,7 @@ The documentation is available in several languages
 
 `Română </docs/ro>`_
 
-`український </docs/uk>`_
+`Українська </docs/uk>`_
 
 `Magyar </docs/hu>`_
 
