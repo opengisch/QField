@@ -222,14 +222,9 @@
 </div>
 <div class="section" id="improved-coordinate-precision">
 <h4>Amélioration de la précision des coordonnées<a class="headerlink" href="#improved-coordinate-precision" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Les ordinateurs travaillent généralement avec deux types de données différentes pour stocker des décimales (nombres flottants) en interne. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Simple</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a> precision. Avec la simple précision seuls les 6 premiers chiffres d&#8217;un nombre sont significatifs, avec la double précision les 15 premiers chiffres peuvent être utilisés. Cela tient compte de tous les chiffres (avant et après la virgule).</p>
-<p>When working with coordinates this is very important when a high accurracy is
-required. Only having 6 significant digits often means having a maximum
-accurracy around one meter but depends on the CRS and location on the earth
-surface.</p>
-<p>Some parts of QField currently treat coordinates with single point precision. It
-would be a very good improvement to be able to use the full precision of
-accurate positioning devices by fixing this shortcoming.</p>
+<p>Les ordinateurs travaillent généralement avec deux types de données différentes pour stocker des décimales (nombres flottants) en interne. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Simple</a> et <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a> précision. Avec la simple précision seuls les 6 premiers chiffres d&#8217;un nombre sont significatifs, avec la double précision les 15 premiers chiffres peuvent être utilisés. Cela tient compte de tous les chiffres (avant et après la virgule).</p>
+<p>Ceci est très important lorsque vous travaillez avec des coordonnées nécessitant une grande précision. 6 chiffres significatifs implique une précision maximum de l&#8217;ordre du mètre, en fonction sur SCR utilisé et de la position sur la surface terrestre.</p>
+<p>Certaines parties de QField gèrent actuellement les coordonnées avec un seul chiffre après la virgule. Une bonne amélioration serait de pouvoir utiliser la précision complète des périphériques de positionnement précis pour corriger ce problème.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
 <h4>Enregistrer l&#8217;état du GPS dans des attributs<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Lien permanent vers ce titre">¶</a></h4>
