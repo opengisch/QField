@@ -5,6 +5,27 @@
  * Sphinx stylesheet -- Bootstrap theme.
  */
 
+/*
+ * Imports to aggregate everything together.
+ */
+
+@import url("./basic.css");
+
+
+  
+
+
+
+  
+  
+    @import url("./bootswatch-3.3.6/yeti/bootstrap.min.css");
+  
+
+
+/*
+ * Styles
+ */
+
 .navbar-inverse .brand {
   color: #FFF;
 }
