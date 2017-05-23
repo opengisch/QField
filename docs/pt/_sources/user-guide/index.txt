@@ -38,6 +38,16 @@ Inside the positioning menu you can turn on the positioning display which will s
 
 .. note::
     If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.
+    
+Using external GNSS-Reciever
+----------------------------
+
+It is possible to provide a mock location provided by an other android app to qfield.
+eg. http://lefebure.com/software/android-ntripclient/
+
+To use this you have to enable mock locations in your anroid device.
+eg. https://www.youtube.com/watch?v=v1eRHmMiRJQ
+
 
 Digitize
 ========
