@@ -46,7 +46,8 @@ It is possible to provide a mock location a separate android app to qfield.
 There are several options for this, one of them is `Android NTRIP Client 
 <http://lefebure.com/software/android-ntripclient/>`_.
 
-To use this you have to `enable mock locations on your anroid device<https://www.youtube.com/watch?v=v1eRHmMiRJQ>`_.
+To use this you have to `enable mock locations on your Android device 
+<https://www.youtube.com/watch?v=v1eRHmMiRJQ>`_.
 
 
 Digitize
