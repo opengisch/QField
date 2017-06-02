@@ -70,9 +70,17 @@ The documentation is available in several languages
 
 `English </docs/en>`_
 
+`Castellano </docs/es>`_
+
+`Eesti </docs/et>`_
+
+`Suomalainen </docs/fi>`_
+
 `Français </docs/fr>`_
 
 `Galego </docs/gl>`_
+
+`Lietuvos </docs/lt>`_
 
 `Português </docs/pt>`_
 
