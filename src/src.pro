@@ -52,7 +52,8 @@ HEADERS += \
     layertreemodel.h \
     legendimageprovider.h \
     featurelistmodel.h \
-    distancearea.h
+    distancearea.h \
+    coordinatetransformer.h
 
 SOURCES += \
     appinterface.cpp \
@@ -89,7 +90,8 @@ SOURCES += \
     layertreemodel.cpp \
     legendimageprovider.cpp \
     featurelistmodel.cpp \
-    distancearea.cpp
+    distancearea.cpp \
+    coordinatetransformer.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

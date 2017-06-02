@@ -22,6 +22,7 @@
 #include <qgsmapthemecollection.h>
 #include <qgsmapsettings.h>
 #include <qgsproject.h>
+#include <qgspointv2.h>
 
 class MapSettings : public QObject
 {
@@ -43,7 +44,7 @@ class MapSettings : public QObject
     QgsRectangle extent() const;
     void setExtent( const QgsRectangle& extent );
 
-    Q_INVOKABLE void setCenter( const QPointF& center );
+    Q_INVOKABLE void setCenter( const QgsPointV2& center );
 
     double mapUnitsPerPixel() const;
 
@@ -56,7 +57,7 @@ class MapSettings : public QObject
      *
      * @return A coordinate in pixel / screen space
      */
-    Q_INVOKABLE const QPointF coordinateToScreen( const QPointF& p ) const;
+    Q_INVOKABLE QPointF coordinateToScreen( const QgsPointV2& p ) const;
 
 
     /**
@@ -66,7 +67,7 @@ class MapSettings : public QObject
      *
      * @return A coordinate in map coordinates
      */
-    Q_INVOKABLE const QPointF screenToCoordinate( const QPointF& p ) const;
+    Q_INVOKABLE QgsPointV2 screenToCoordinate( const QPointF& p ) const;
 
     double rotation() const;
     void setRotation( double rotation );

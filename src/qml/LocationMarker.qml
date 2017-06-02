@@ -4,9 +4,8 @@ import org.qgis 1.0
 Item {
   id: item
 
-  property point location
+  property variant location // QgsPointV2
   property MapSettings mapSettings
-  property CoordinateTransform coordinateTransform
 
   Rectangle {
     id: marker
@@ -44,12 +43,12 @@ Item {
     Connections {
       target: mapSettings
       onExtentChanged: {
-        marker.location = mapSettings.coordinateToScreen( coordinateTransform.transform( location ) )
+        marker.location = mapSettings.coordinateToScreen( location )
       }
     }
   }
 
   onLocationChanged: {
-    marker.location = mapSettings.coordinateToScreen( coordinateTransform.transform( location ) )
+    marker.location = mapSettings.coordinateToScreen( location )
   }
 }

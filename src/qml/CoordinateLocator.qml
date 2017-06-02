@@ -10,10 +10,25 @@ Item {
   property color color: "#263238"
   property color highlightColor: "#CFD8DC"
 
-  property point sourcePoint: Qt.point( width / 2, height / 2 ) // In screen coordinates
+  /**
+   * Set the current layer on which snapping should be performed
+   */
   property alias currentLayer: snappingUtils.currentLayer
+  /**
+   * Overrides any possibility for the user to modify the coordinate.
+   * There will be no user interaction or snapping if this is set to a QgsPoint.
+   * Set this to `undefined` to revert to the user and snapping controlled behavior.
+   */
+  property variant overrideLocation: undefined // QgsPointV2
 
-  readonly property alias snappingResult: snappingUtils.snappingResult
+  readonly property variant currentCoordinate: {
+    if ( !!overrideLocation )
+      return overrideLocation
+    else
+      return snappingUtils.snappedCoordinate
+  }
+  readonly property point displayPosition: mapSettings.coordinateToScreen(currentCoordinate)
+
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
 
@@ -21,22 +36,22 @@ Item {
     id: snappingUtils
 
     mapSettings: locator.mapSettings
-    inputCoordinate: sourcePoint
+    inputCoordinate: Qt.point( locator.width / 2, locator.height / 2 ) // In screen coordinates
     config: qgisProject.snappingConfig
 
-    property point snappedCoordinate
+    property variant snappedCoordinate
     property point snappedPoint
 
     onSnappingResultChanged: {
       if ( snappingResult.isValid )
       {
-        snappedCoordinate = Qt.point( snappingResult.point.x, snappingResult.point.y )
-        snappedPoint = mapSettings.coordinateToScreen( snappedCoordinate )
+        snappedCoordinate = snappingResult.point
+        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate)
       }
       else
       {
-        snappedPoint = sourcePoint
-        snappedCoordinate = mapSettings.screenToCoordinate( snappedPoint )
+        snappedPoint = inputCoordinate
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint)
       }
     }
   }
@@ -57,8 +72,16 @@ Item {
   Rectangle {
     id: crosshairCircle
 
-    x: snappedPoint.x - radius
-    y: snappedPoint.y - radius
+    x: displayPosition.x - radius
+    y: displayPosition.y - radius
+
+    border.width: 1.2 * dp
+    color: "transparent"
+    antialiasing: true
+
+    width: 48 * dp
+    height: width
+    radius: width / 2
 
     Behavior on x {
       NumberAnimation { duration: 100 }
@@ -83,18 +106,10 @@ Item {
     Connections {
       target: snappingUtils
       onSnappingResultChanged: {
-        crosshairCircle.border.color = snappingResult.isValid ? "#9b59b6" : locator.color
-        crosshairCircle.width = snappingResult.isValid ? 32 * dp : 48 * dp
+        crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.color ) : "#AD1457"
+        crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32 * dp : 48 * dp
       }
     }
-
-    border.width: 1.2 * dp
-    color: "transparent"
-    antialiasing: true
-
-    width: 48 * dp
-    height: width
-    radius: width / 2
 
     Rectangle {
       anchors.centerIn: parent

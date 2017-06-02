@@ -67,6 +67,7 @@
 #include "featurelistmodel.h"
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
+#include "coordinatetransformer.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -118,17 +119,20 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
 
+  qRegisterMetaType<QgsPointV2>( "QgsPointV2" );
+  qRegisterMetaType<QgsPoint>( "QgsPoint" );
+
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
 
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
-  qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
+
 
   // Register QField QML types
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
@@ -153,6 +157,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
+  qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

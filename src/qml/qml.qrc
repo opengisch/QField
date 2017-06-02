@@ -28,5 +28,6 @@
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TreeView.qml</file>
+        <file>TransformedPositionSource.qml</file>
     </qresource>
 </RCC>

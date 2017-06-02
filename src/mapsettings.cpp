@@ -15,9 +15,9 @@
 
 #include "mapsettings.h"
 
-#include "qgsmaplayer.h"
-#include "qgsproject.h"
-#include "qgsmessagelog.h"
+#include <qgsmaplayer.h>
+#include <qgsproject.h>
+#include <qgsmessagelog.h>
 
 #include <qgsmaplayerstylemanager.h>
 
@@ -54,9 +54,9 @@ void MapSettings::setExtent( const QgsRectangle& extent )
   emit extentChanged();
 }
 
-void MapSettings::setCenter( const QPointF& center )
+void MapSettings::setCenter( const QgsPointV2& center )
 {
-  QgsVector delta = QgsPoint( center.x(), center.y() ) - mMapSettings.extent().center();
+  QgsVector delta = QgsPoint( center ) - mMapSettings.extent().center();
 
   QgsRectangle e = mMapSettings.extent();
   e.setXMinimum( e.xMinimum() + delta.x() );
@@ -77,17 +77,17 @@ QgsRectangle MapSettings::visibleExtent() const
   return mMapSettings.visibleExtent();
 }
 
-const QPointF MapSettings::coordinateToScreen( const QPointF& p ) const
+QPointF MapSettings::coordinateToScreen( const QgsPointV2& p ) const
 {
   QgsPoint pt( p.x(), p.y() );
   QgsPoint pp = mMapSettings.mapToPixel().transform( pt );
   return QPointF( pp.x(), pp.y() );
 }
 
-const QPointF MapSettings::screenToCoordinate( const QPointF& p ) const
+QgsPointV2 MapSettings::screenToCoordinate( const QPointF& p ) const
 {
   const QgsPoint pp = mMapSettings.mapToPixel().toMapCoordinates( p.toPoint() );
-  return QPointF( pp.x(), pp.y() );
+  return QgsPointV2( pp );
 }
 
 QgsMapSettings MapSettings::mapSettings() const

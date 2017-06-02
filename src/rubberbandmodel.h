@@ -20,7 +20,7 @@
 #include <QObject>
 #include <QPointF>
 #include <qgis.h>
-#include <qgspoint.h>
+#include <qgspointv2.h>
 #include <qgsabstractgeometry.h>
 
 class QgsVectorLayer;
@@ -35,7 +35,7 @@ class RubberbandModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QPointF currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
+    Q_PROPERTY( QgsPointV2 currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
@@ -49,7 +49,7 @@ class RubberbandModel : public QObject
 
     bool isEmpty() const;
 
-    QVector<QPointF> vertices() const;
+    QVector<QgsPointV2> vertices() const;
 
     QVector<QgsPoint> flatVertices() const;
 
@@ -63,7 +63,7 @@ class RubberbandModel : public QObject
 
     QList<QgsPoint> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
-    void setVertex( int index, QPointF coordinate );
+    void setVertex( int index, QgsPointV2 coordinate );
 
     void insertVertices( int index, int count );
 
@@ -74,8 +74,8 @@ class RubberbandModel : public QObject
 
     QgsPointV2 currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
-    QPointF currentCoordinate() const;
-    void setCurrentCoordinate( const QPointF& currentCoordinate );
+    QgsPointV2 currentCoordinate() const;
+    void setCurrentCoordinate( const QgsPointV2& currentCoordinate );
 
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();
@@ -104,7 +104,7 @@ class RubberbandModel : public QObject
   private:
     void setGeometryType( const QgsWkbTypes::GeometryType& geometryType );
 
-    QVector<QPointF> mPointList;
+    QVector<QgsPointV2> mPointList;
     int mCurrentCoordinateIndex;
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;

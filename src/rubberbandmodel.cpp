@@ -15,7 +15,6 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include <qgsvectorlayer.h>
-#include <qgspointv2.h>
 
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
@@ -23,7 +22,7 @@ RubberbandModel::RubberbandModel( QObject* parent )
   , mGeometryType( QgsWkbTypes::LineGeometry )
   , mLayer( nullptr )
 {
-  mPointList.insert( 0, QPointF() );
+  mPointList.insert( 0, QgsPointV2() );
 }
 
 int RubberbandModel::vertexCount() const
@@ -36,7 +35,7 @@ bool RubberbandModel::isEmpty() const
   return mPointList.isEmpty();
 }
 
-QVector<QPointF> RubberbandModel::vertices() const
+QVector<QgsPointV2> RubberbandModel::vertices() const
 {
   return mPointList;
 }
@@ -44,7 +43,7 @@ QVector<QPointF> RubberbandModel::vertices() const
 QVector<QgsPoint> RubberbandModel::flatVertices() const
 {
   QVector<QgsPoint> points;
-  Q_FOREACH( const QPointF& pt, mPointList )
+  Q_FOREACH( const QgsPointV2& pt, mPointList )
   {
     points << QgsPoint( pt );
   }
@@ -58,9 +57,11 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 
   QgsCoordinateTransform ct( mCrs, crs );
 
-  Q_FOREACH( const QPointF& pt, mPointList )
+  Q_FOREACH( const QgsPointV2& pt, mPointList )
   {
-    sequence.append( QgsPointV2( ct.transform( pt.x(), pt.y() ) ) );
+    QgsPointV2 p2( ct.transform( pt.x(), pt.y() ) );
+    p2.setZ( pt.z() );
+    sequence.append( p2 );
   }
 
   return sequence;
@@ -72,7 +73,7 @@ QList<QgsPoint> RubberbandModel::flatPointSequence( const QgsCoordinateReference
 
   QgsCoordinateTransform ct( mCrs, crs );
 
-  Q_FOREACH( const QPointF& pt, mPointList )
+  Q_FOREACH( const QgsPointV2& pt, mPointList )
   {
     sequence.append( QgsPoint( ct.transform( pt.x(), pt.y() ) ) );
   }
@@ -80,7 +81,7 @@ QList<QgsPoint> RubberbandModel::flatPointSequence( const QgsCoordinateReference
   return sequence;
 }
 
-void RubberbandModel::setVertex( int index, QPointF coordinate )
+void RubberbandModel::setVertex( int index, QgsPointV2 coordinate )
 {
   if ( mPointList.at( index ) != coordinate )
   {
@@ -135,16 +136,26 @@ QgsPointV2 RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& cr
 {
   QgsCoordinateTransform ct( mCrs, crs );
 
-  const QPointF& pt = mPointList.at( mCurrentCoordinateIndex );
-  return  QgsPointV2( ct.transform( pt.x(), pt.y() ) );
+  QgsPointV2 currentPt = mPointList.at( mCurrentCoordinateIndex );
+  double x = currentPt.x();
+  double y = currentPt.y();
+  double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
+
+  ct.transformInPlace( x, y, z );
+
+  QgsPointV2 resultPt( x, y );
+  if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) )
+    resultPt.addZValue( z );
+
+  return resultPt;
 }
 
-QPointF RubberbandModel::currentCoordinate() const
+QgsPointV2 RubberbandModel::currentCoordinate() const
 {
   return mPointList.at( mCurrentCoordinateIndex );
 }
 
-void RubberbandModel::setCurrentCoordinate( const QPointF& currentCoordinate )
+void RubberbandModel::setCurrentCoordinate( const QgsPointV2& currentCoordinate )
 {
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;

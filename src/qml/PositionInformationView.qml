@@ -3,17 +3,17 @@ import QtQuick.Controls 1.2
 import QtPositioning 5.3
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
+import org.qfield 1.0
 
 Item {
   property PositionSource positionSource
-  property alias crs: _coordinateTransform.destinationCRS
+  property alias crs: _ct.destinationCrs
 
-  CoordinateTransform {
-    id: _coordinateTransform
-    sourceCRS: CrsFactory.fromEpsgId(4326)
-    destinationCRS: crs
+  CoordinateTransformer {
+    id: _ct
+    sourceCrs: CrsFactory.fromEpsgId(4326)
+    sourcePosition: positionSource.position.coordinate
   }
-  property point _currentPosition
 
   width: childrenRect.width + 8 * dp
   height: childrenRect.height + 8 * dp
@@ -46,11 +46,11 @@ Item {
       Layout.columnSpan: 2
       Text {
         leftPadding: 8 * dp
-        text: positionSource.position.latitudeValid ? Number( _currentPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" )
+        text: positionSource.position.latitudeValid ? Number( _ct.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" )
       }
       Text {
         leftPadding: 8 * dp
-        text: positionSource.position.longitudeValid ? Number( _currentPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" )
+        text: positionSource.position.longitudeValid ? Number( _ct.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" )
       }
     }
     Text {
@@ -59,15 +59,5 @@ Item {
     Text {
       text: positionSource.position.speedValid ? positionSource.position.speed.toFixed(3) + " m/s" : qsTr( "N/A" )
     }
-  }
-
-  Connections {
-    target: positionSource.position
-    onCoordinateChanged: _updatePosition()
-  }
-  onCrsChanged: _updatePosition()
-
-  function _updatePosition() {
-    _currentPosition = _coordinateTransform.transform( Qt.point( positionSource.position.coordinate.longitude, positionSource.position.coordinate.latitude ) )
   }
 }

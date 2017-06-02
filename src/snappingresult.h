@@ -16,14 +16,14 @@
 #ifndef SNAPPINGRESULT_H
 #define SNAPPINGRESULT_H
 
-#include <qgspoint.h>
+#include <qgspointv2.h>
 #include <qgsvectorlayer.h>
 #include <qgspointlocator.h>
 
 class SnappingResult
 {
     Q_GADGET
-    Q_PROPERTY( QgsPoint point READ point )
+    Q_PROPERTY( QgsPointV2 point READ point )
     Q_PROPERTY( bool isValid READ isValid )
 
   public:
@@ -61,9 +61,7 @@ class SnappingResult
 
     //! for vertex / edge match
     //! coords depending on what class returns it (geom.cache: layer coords, map canvas snapper: dest coords)
-    QgsPoint point() const;
-
-    void setPoint( const QgsPoint& pt );
+    QgsPointV2 point() const;
 
     //! for vertex / edge match (first vertex of the edge)
     int vertexIndex() const;
@@ -87,7 +85,7 @@ class SnappingResult
 
     Type mType;
     double mDist;
-    QgsPoint mPoint;
+    QgsPointV2 mPoint;
     QgsVectorLayer* mLayer;
     QgsFeatureId mFid;
     int mVertexIndex; // e.g. vertex index

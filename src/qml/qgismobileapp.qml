@@ -52,15 +52,10 @@ ApplicationWindow {
   /**
    * The position source to access the GPS
    */
-  PositionSource {
+  TransformedPositionSource {
     id: positionSource
-    // active: true
     active: settings.valueBool( "/QField/Positioning/Active", false )
-
-    onPositionChanged: {
-      var coord = positionSource.position.coordinate;
-      locationMarker.location = Qt.point( coord.longitude, coord.latitude )
-    }
+    destinationCrs: mapCanvas.mapSettings.destinationCrs
   }
 
   Item {
@@ -132,7 +127,7 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
 
         model: RubberbandModel {
-          currentCoordinate: coordinateLocator.snappedCoordinate
+          currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
         }
@@ -159,18 +154,16 @@ ApplicationWindow {
       highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
+      overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
     }
 
     /* GPS marker  */
     LocationMarker {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
-      coordinateTransform: CoordinateTransform {
-        sourceCRS: CrsFactory.fromEpsgId(4326)
-        destinationCRS: mapCanvas.mapSettings.destinationCrs
-      }
       anchors.fill: parent
       visible: positionSource.active
+      location: positionSource.projectedPosition
     }
   }
 
@@ -196,8 +189,8 @@ ApplicationWindow {
 
     text: qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ?
             '<p>%1 / %2</p>%3%4'
-              .arg(coordinateLocator.snappedCoordinate.x.toFixed(3))
-              .arg(coordinateLocator.snappedCoordinate.y.toFixed(3))
+              .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
+              .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
 
               .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
                 .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
@@ -364,11 +357,11 @@ ApplicationWindow {
     ]
 
     onClicked: {
-      if ( positionSource.position.latitudeValid )
+      console.warn("Centering")
+      if ( positionSource.projectedPosition.x )
       {
-        var coord = positionSource.position.coordinate;
-        var loc = Qt.point( coord.longitude, coord.latitude );
-        mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+        console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
 
         if ( !positionSource.active )
         {
@@ -411,6 +404,24 @@ ApplicationWindow {
           break;
       }
     }
+  }
+
+  Button {
+    id: gpsLinkButton
+    visible: gpsButton.state == "On"
+    round: true
+    checkable: true
+
+    anchors.left: dashBoard.right
+    anchors.leftMargin: 4 * dp
+    anchors.top: gpsButton.bottom
+    anchors.topMargin: 4 * dp
+
+    bgcolor: linkActive ? "#334455" : "#64B5F6"
+
+    readonly property bool linkActive: gpsButton.state == "On" && checked
+
+    onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
   }
 
   DigitizingToolbar {

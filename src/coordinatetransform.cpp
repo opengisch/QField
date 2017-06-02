@@ -23,13 +23,10 @@ CoordinateTransform::CoordinateTransform( QObject *parent ) :
 {
 }
 
-const QPointF CoordinateTransform::transform( const QPointF& pt ) const
+QgsPoint CoordinateTransform::transform( QgsPoint pt ) const
 {
-  QgsPoint p( pt.x(), pt.y() );
-
-  p = mTransform.transform( p );
-
-  return QPointF( p.x(), p.y() );
+  pt = mTransform.transform( pt );
+  return pt;
 }
 
 QgsCoordinateReferenceSystem CoordinateTransform::sourceCRS() const
