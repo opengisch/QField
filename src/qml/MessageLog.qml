@@ -36,6 +36,13 @@ Item {
     }
   }
 
+  MouseArea {
+    anchors.fill: parent
+    onClicked: {
+      parent.visible = false
+    }
+  }
+
   Connections {
     target: model
 
