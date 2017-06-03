@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Development and support &mdash; QField Documentation 0.8 - Hiendertelltihoren dokumentatsioon</title>
+    <title>Arendus ja tugi &mdash; QField Documentation 0.8 - Hiendertelltihoren dokumentatsioon</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,14 +98,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Development and support</a><ul>
-<li><a class="reference internal" href="#license">License</a></li>
-<li><a class="reference internal" href="#support">Support</a><ul>
-<li><a class="reference internal" href="#make-it-grow-make-it-yours">Make it grow, make it yours</a><ul>
-<li><a class="reference internal" href="#edit-widgets">Edit widgets</a></li>
+<li><a class="reference internal" href="#">Arendus ja tugi</a><ul>
+<li><a class="reference internal" href="#license">Litsents</a></li>
+<li><a class="reference internal" href="#support">Tugi</a><ul>
+<li><a class="reference internal" href="#make-it-grow-make-it-yours">Pane see kasvama, tee see omaks</a><ul>
+<li><a class="reference internal" href="#edit-widgets">Editeerimise vidinad</a></li>
 <li><a class="reference internal" href="#legend">Legend</a></li>
-<li><a class="reference internal" href="#connection-based-on-offline-synchronization">Connection based on-/offline synchronization</a></li>
-<li><a class="reference internal" href="#improved-coordinate-precision">Improved coordinate precision</a></li>
+<li><a class="reference internal" href="#connection-based-on-offline-synchronization">Ühenduse-põhine võrgus-/võrguväline sünkroniseerimine</a></li>
+<li><a class="reference internal" href="#improved-coordinate-precision">Parandatud asukohatäpsus</a></li>
 <li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
 <li><a class="reference internal" href="#editing-geometries">Editing geometries</a></li>
 <li><a class="reference internal" href="#search-functionality">Search functionality</a></li>
@@ -165,8 +165,8 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField paigaldusjuhend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Kontseptsioon</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
@@ -174,10 +174,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField kasutajajuhend</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Development and support</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Arendus ja tugi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
 </ul>
 
@@ -187,56 +187,40 @@
     <div class="col-md-9 content">
       
   <div class="section" id="development-and-support">
-<h1>Development and support<a class="headerlink" href="#development-and-support" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<h1>Arendus ja tugi<a class="headerlink" href="#development-and-support" title="Püsiviit sellele pealkirjale">¶</a></h1>
 <div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>QField is released under the GNU Public License (GPL) Version 2 or above.
-Developing QField under this license means that you can inspect and modify
-the source code and guarantees that you will always have access to a QGIS
-based field data collection app that is free of cost and can be freely
-modified.</p>
-<p>You can find the sourcecode <a class="reference external" href="https://github.com/opengisch/QField">on github</a></p>
+<h2>Litsents<a class="headerlink" href="#license" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>QField on avalikustatud GNU Public License (GPL) versiooni 2 või kõrgema alusel. QFieldi arendamine selle litsentsi alusel tähendab, et saad tutvuda ja muuta lähtekoodi ning tagab, et sulle jääb alatiseks ligipääs QGIS&#8217;il põhinevale välitöö käigus andmete kogumise äpile, mis on tasuta ja vabalt muudetav.</p>
+<p>Lähtekood on leitav  <a class="reference external" href="https://github.com/opengisch/QField">github&#8217;is</a></p>
 </div>
 <div class="section" id="support">
-<h2>Support<a class="headerlink" href="#support" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>You can ask your questions on <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a></p>
-<p>You can use the <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">user mailing list</a></p>
-<p>We also provide commercial support, <a class="reference external" href="http://www.opengis.ch/contact/">contact us</a></p>
+<h2>Tugi<a class="headerlink" href="#support" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Küsimusi saab esitada foorumis <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a></p>
+<p>Saad kasutada <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">kasutajate meililisti</a></p>
+<p>Pakume ka tasulist tuge, <a class="reference external" href="http://www.opengis.ch/contact/">võta meiega ühendust</a></p>
 <div class="section" id="make-it-grow-make-it-yours">
-<span id="make-it-grow"></span><h3>Make it grow, make it yours<a class="headerlink" href="#make-it-grow-make-it-yours" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<p>This is a list of features which we think are very useful for a nice user
-experience and an effective workflow.</p>
+<span id="make-it-grow"></span><h3>Pane see kasvama, tee see omaks<a class="headerlink" href="#make-it-grow-make-it-yours" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Siin on loetelu funktsioonidest, mis meie arvates annavad hea kasutajakogemuse ja efektiivse töövoo.</p>
 <div class="section" id="edit-widgets">
-<h4>Edit widgets<a class="headerlink" href="#edit-widgets" title="Püsiviit sellele pealkirjale">¶</a></h4>
-<p>Edit widgets are a core part of efficient field work. Entering attributes
-on a touch device is one of the jobs that takes the most time and
-keeping this task as easy as possible is key for pleasuring work.</p>
-<p>Some important <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>edit field widgets are already
-available</span></a> but much more is possible <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">for example in QGIS</a>.</p>
+<h4>Editeerimise vidinad<a class="headerlink" href="#edit-widgets" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<p>Editeerimise vidinad on välitöö põhiosa. Atribuutide sisestamine puutetundlikul seadmel on üks ülesandeid, mille peale kulub põhiosa ajast ja selle ülesande võimalikult lihtsana hoidmine on mugavalt töötamiseks väga oluline.</p>
+<p>Mõned olulised <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>välja editeerimise vidinad on juba kättesaadavad</span></a> aga palju rohkem võimalusi on näiteks QGIS&#8217;is &lt;<a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">http://gis.stackexchange.com/a/30051/9839</a>&gt;`_.</p>
 </div>
 <div class="section" id="legend">
 <h4>Legend<a class="headerlink" href="#legend" title="Püsiviit sellele pealkirjale">¶</a></h4>
-<p>To properly interpret the contents of a map, a legend is a very useful tool.
-It gives a user the required context to understand the semantic meaning of
-colors, shapes, strokes and other visual coding.</p>
-<p>It can also be used to access additional meta data of individual layers or
-chose which layer to work on.</p>
+<p>Legend on väga oluline vahend, mis aitab õigesti tõlgendada kaardi sisu. See annab kasutajale vajaliku taustainfo värvide, kujundite, viirutuse ja ülejäänud visuaalse keele semantiliseks tõlgendamiseks.</p>
+<p>Seda saab kasutada ka kihtide kohta täiendava taustainfo saamiseks või muudetava kihi valimiseks.</p>
 </div>
 <div class="section" id="connection-based-on-offline-synchronization">
-<h4>Connection based on-/offline synchronization<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Püsiviit sellele pealkirjale">¶</a></h4>
-<p>Data collection is one of the domains where QField can help a lot. The final
-destination of data is normally not on the device itself but somewhere on a
-database. Currently it is possible to directly work on the database but since
-network access is often unreliable when in the field, it boils down to manual
-synchronization on a desktop computer.</p>
+<h4>Ühenduse-põhine võrgus-/võrguväline sünkroniseerimine<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<p>Andmekogumine on üks valdkondi, kus QField on suureks abiks. Andmete lõplik sihtpunkt ei ole tavaliselt seade ise vaid mõni andmebaas.  Hetkel saab töötada otse andmebaasis, aga kuna võrguühendus on välitööl tihti ebaühtlane, siis taandub lõpuks kõik käsitsi laua-arvuti kaudu sünkroniseerimisele.</p>
 <p>It would be great to have a synchronization process running on the devices
 where data will be synchronized automatically with a server when the network
 is available and cache data locally whenever no network connection is available.</p>
-<p>This may be combined with <a class="reference external" href="http://geogig.org/">GeoGIG</a> or other server
-components like a database.</p>
+<p>Seda võiks kombineerida  <a class="reference external" href="http://geogig.org/">GeoGIG&#8217;iga</a> või mõne teise serveri-komponendiga nagu andmebaas.</p>
 </div>
 <div class="section" id="improved-coordinate-precision">
-<h4>Improved coordinate precision<a class="headerlink" href="#improved-coordinate-precision" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<h4>Parandatud asukohatäpsus<a class="headerlink" href="#improved-coordinate-precision" title="Püsiviit sellele pealkirjale">¶</a></h4>
 <p>Computers work mostly with two different datatypes for storing decimals (floating
 point numbers) internally. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single</a>
 and <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a>
