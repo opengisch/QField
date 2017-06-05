@@ -212,16 +212,14 @@
 <dd><p class="first last">A rétegről egy másolatot készítünk a csomag mappájába. Minden változást, amit munka közben az összecsomagolt projekten hajtunk végre,  a változásnaplóban rögzítünk.</p>
 </dd>
 <dt>Eltávolítás</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dd><p class="first last">A réteget eltávolítjuk a munka példányból. Ez hasznos, ha a réteget háttértérképként használjuk és nem lesz elérhető a becsomagolt projektben.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
 <h3>Alaptérkép konfiguráció<a class="headerlink" href="#base-map-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>Az alaptérkép egy raszter, mely a legalsó réteg az összecsomagolt projekt fájlban.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
+<p>Ha a háttértérkép beállítást engedélyezi, a háttértérkép megjelenik amikor a projektet becsomagolja. Az érdekes területet - a terjedelem, ami megjelenik - a csomagolás során választhatja ki.</p>
 <p>Két lehetséges forrása van az alaptérképnek:</p>
 <dl class="docutils">
 <dt>Réteg</dt>
@@ -233,10 +231,7 @@ several layers with styling. These layers can then be removed from the working
 package and do not need to be rendered on the device. This can save some disk
 space and battery on the device.</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>A csempe méret adja meg a térbeli felbontást. Meghatározza a térképi egységek számát pixelenként. Ha a térképvászon vetülete méter egységű és a csempe méretet 1-re állították, akkor minden raszter pixel 1x1 m térbeli kiterjedésű lesz, ha 1000-re állítják, minden raszter pixel 1 négyzetkilométer területű lesz.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
 <h3>Offline szerkesztés konfigurácó<a class="headerlink" href="#offline-editing-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
