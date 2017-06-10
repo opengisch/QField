@@ -106,9 +106,9 @@
 <li><a class="reference internal" href="#legend">Legend</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Ühenduse-põhine võrgus-/võrguväline sünkroniseerimine</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Parandatud asukohatäpsus</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Saving GPS status information into attributes</a></li>
-<li><a class="reference internal" href="#editing-geometries">Editing geometries</a></li>
-<li><a class="reference internal" href="#search-functionality">Search functionality</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">GPS oleku info salvestamine atribuutidesse.</a></li>
+<li><a class="reference internal" href="#editing-geometries">Ruumikujude muutmine</a></li>
+<li><a class="reference internal" href="#search-functionality">Otsingu funktsionaalsus</a></li>
 <li><a class="reference internal" href="#external-measurement-devices">External measurement devices</a></li>
 <li><a class="reference internal" href="#record-audio">Record Audio</a></li>
 <li><a class="reference internal" href="#open-qgs-files-on-click">Open QGS files on click</a></li>
@@ -214,9 +214,7 @@
 <div class="section" id="connection-based-on-offline-synchronization">
 <h4>Ühenduse-põhine võrgus-/võrguväline sünkroniseerimine<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Püsiviit sellele pealkirjale">¶</a></h4>
 <p>Andmekogumine on üks valdkondi, kus QField on suureks abiks. Andmete lõplik sihtpunkt ei ole tavaliselt seade ise vaid mõni andmebaas.  Hetkel saab töötada otse andmebaasis, aga kuna võrguühendus on välitööl tihti ebaühtlane, siis taandub lõpuks kõik käsitsi laua-arvuti kaudu sünkroniseerimisele.</p>
-<p>It would be great to have a synchronization process running on the devices
-where data will be synchronized automatically with a server when the network
-is available and cache data locally whenever no network connection is available.</p>
+<p>Oleks äge kui seadmetes töötaks serveriga sünkroniseerimise protsess, mis sünkroniseeriks automaatselt kui võrguühendus on olemas ja varuks lokaalselt kui võrguühendust pole.</p>
 <p>Seda võiks kombineerida  <a class="reference external" href="http://geogig.org/">GeoGIG&#8217;iga</a> või mõne teise serveri-komponendiga nagu andmebaas.</p>
 </div>
 <div class="section" id="improved-coordinate-precision">
@@ -228,16 +226,13 @@ precision. With single precision only the first 6 digits of a number
 are significant and can be trusted, with double precision the first 15
 digits can be trusted. This takes all digits (before and after the decimal
 point) into account.</p>
-<p>When working with coordinates this is very important when a high accurracy is
-required. Only having 6 significant digits often means having a maximum
-accurracy around one meter but depends on the CRS and location on the earth
-surface.</p>
+<p>Koordinaatidega töötamisel on see väga oluline, kui suurem täpsus on nõutav. Kui saad kasutada ainult 6 numbrit tähendab tihti et suurim võimalik täpsus jääb meetri kanti, aga see sõltub konkreetsest koordinaatsüsteemist ja asukohast.</p>
 <p>Some parts of QField currently treat coordinates with single point precision. It
 would be a very good improvement to be able to use the full precision of
 accurate positioning devices by fixing this shortcoming.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Saving GPS status information into attributes<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<h4>GPS oleku info salvestamine atribuutidesse.<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Püsiviit sellele pealkirjale">¶</a></h4>
 <p>Positioning devices offer more information than just latitude and longitude.
 They are also able to estimate the precision which they are currently able to
 provide. This information can be a radius calculated from variables like the
@@ -245,18 +240,17 @@ number of satellites but also additional flags for parameters like the RTK
 status.</p>
 </div>
 <div class="section" id="editing-geometries">
-<h4>Editing geometries<a class="headerlink" href="#editing-geometries" title="Püsiviit sellele pealkirjale">¶</a></h4>
-<p>QField offers to digitize new geometries, edit existing attributes or delete
-features. What it lacks is the feature to edit existing geometries.</p>
+<h4>Ruumikujude muutmine<a class="headerlink" href="#editing-geometries" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<p>QField võimaldab uute nähtuste geomeetria digimist, olemasolevate nähtuste atribuutide muutmist ja nähtuste kustutamist. Puudu on olemasolevate nähtuste ruumikuju muutmine.</p>
 <p>This can be split into different pieces like moving points, moving other
 features, editing vertices, moving edges...</p>
 </div>
 <div class="section" id="search-functionality">
-<h4>Search functionality<a class="headerlink" href="#search-functionality" title="Püsiviit sellele pealkirjale">¶</a></h4>
+<h4>Otsingu funktsionaalsus<a class="headerlink" href="#search-functionality" title="Püsiviit sellele pealkirjale">¶</a></h4>
 <p>Locating features with the help of a search field is something that can really
 help to work more efficient. In general this can be split into two categories:</p>
 <dl class="docutils">
-<dt>Attribute based search</dt>
+<dt>Atribuudi-põhine otsing</dt>
 <dd>Search results are provided based on the attributes of features on layers
 within the project.
 Either a local database for searching is available. The data inside is based
