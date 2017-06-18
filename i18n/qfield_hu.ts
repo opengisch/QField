@@ -74,28 +74,28 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
         <source>(no date)</source>
-        <translation type="unfinished"></translation>
+        <translation>(nincs dátum)</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="358"/>
+        <location filename="../src/qml/FeatureForm.qml" line="360"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Elem hozzáadása &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="360"/>
+        <location filename="../src/qml/FeatureForm.qml" line="362"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Elem szerkesztése &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="362"/>
+        <location filename="../src/qml/FeatureForm.qml" line="364"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Elem megtekintése &lt;i&gt;%1&lt;/i&gt;-en</translation>
     </message>
@@ -160,22 +160,22 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="62"/>
         <source>Show scalebar</source>
-        <translation type="unfinished"></translation>
+        <translation>Léptékvonalzó</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="68"/>
         <source>Show attribute form in full screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes képernyős attribútum űrlap</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="74"/>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"></translation>
+        <translation>250 ms-enként újrarajzolás a megjelenítés közben</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="80"/>
         <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"></translation>
+        <translation>Numerikus adatok megjelenítése digitalizálás közben</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="137"/>
@@ -199,118 +199,118 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="302"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="295"/>
         <source>The layer %1 is read only.</source>
         <translation>A(z) %1 réteg csak olvasható.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="376"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="390"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="383"/>
         <source>Activating positioning service...</source>
         <translation>A helymeghatározás bekapcsolása...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="385"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="378"/>
         <source>Waiting for location...</source>
         <translation>Helymeghatározás...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="405"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="398"/>
         <source>Positioning activated</source>
         <translation>A helymeghatározás bekapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="410"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="403"/>
         <source>Positioning turned off</source>
         <translation>A helymeghatározás kikapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="475"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="486"/>
         <source>Main Menu</source>
         <translation>Főmenü</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="479"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="490"/>
         <source>Mode</source>
         <translation>Üzemmód</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="482"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="493"/>
         <source>Browse</source>
         <translation>Böngészés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="487"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="498"/>
         <source>Digitize</source>
         <translation>Digitalizálás</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="493"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="504"/>
         <source>Open Project</source>
         <translation>Projekt megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="503"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="514"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="511"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="522"/>
         <source>About</source>
         <translation>Az alkalmazásról</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="519"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="530"/>
         <source>Log</source>
         <translation>Napló</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="529"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="540"/>
         <source>Quit</source>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="550"/>
         <source>GPS Options</source>
         <translation>GPS Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="553"/>
         <source>Enable GPS</source>
         <translation>GPS Bekapcsolása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="562"/>
         <source>Center current location</source>
         <translation>Az aktuális pozíció megjelenítése középen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="562"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="573"/>
         <source>Show position information</source>
         <translation>A helyzetinformációk mutatása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="654"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="665"/>
         <source>Loading Project</source>
         <translation>Projekt Betöltése</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="661"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="672"/>
         <source>Loading Project: %1</source>
         <translation>Projekt Betöltése: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="725"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="736"/>
         <source>Open project</source>
         <translation>Projekt megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="727"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>QGIS projects (*.qgs)</source>
         <translation>QGIS projekt fájlok (*.qgs)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="727"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>All files (*)</source>
         <translation>Minden fájl (*)</translation>
     </message>

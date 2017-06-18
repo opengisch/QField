@@ -74,7 +74,7 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="89"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerai</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="102"/>
@@ -85,17 +85,17 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="358"/>
+        <location filename="../src/qml/FeatureForm.qml" line="360"/>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Pridėti objektų į &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="360"/>
+        <location filename="../src/qml/FeatureForm.qml" line="362"/>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Redaguoti objektus &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="362"/>
+        <location filename="../src/qml/FeatureForm.qml" line="364"/>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Peržiūrėti objektą &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
@@ -199,118 +199,118 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="302"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="295"/>
         <source>The layer %1 is read only.</source>
         <translation>Sluoksnis %1 tik peržiūrėjimui</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="376"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="390"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="369"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="383"/>
         <source>Activating positioning service...</source>
         <translation>Aktyvuojamas padėties nustatymo servisas</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="385"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="378"/>
         <source>Waiting for location...</source>
         <translation>Laukiama dabartinės vietos</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="405"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="398"/>
         <source>Positioning activated</source>
         <translation>Padėties nustatymas aktyvuotas</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="410"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="403"/>
         <source>Positioning turned off</source>
         <translation>Padėties nustatymas išjungtas</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="475"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="486"/>
         <source>Main Menu</source>
         <translation>Pagrindinis meniu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="479"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="490"/>
         <source>Mode</source>
         <translation>Būsena</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="482"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="493"/>
         <source>Browse</source>
         <translation>Naršyti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="487"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="498"/>
         <source>Digitize</source>
         <translation>Skaitmeninti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="493"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="504"/>
         <source>Open Project</source>
         <translation>Atverti projektą</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="503"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="514"/>
         <source>Settings</source>
         <translation>Nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="511"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="522"/>
         <source>About</source>
         <translation>Apie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="519"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="530"/>
         <source>Log</source>
         <translation>Log&apos;as</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="529"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="540"/>
         <source>Quit</source>
         <translation>Išeiti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="539"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="550"/>
         <source>GPS Options</source>
         <translation>GPS parinktys</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="542"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="553"/>
         <source>Enable GPS</source>
         <translation>Įjungti GPS</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="551"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="562"/>
         <source>Center current location</source>
         <translation>Centruoti dabartinę vietą</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="562"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="573"/>
         <source>Show position information</source>
         <translation>Rodyti vietos informaciją</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="654"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="665"/>
         <source>Loading Project</source>
         <translation>Įkeliamas projektas</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="661"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="672"/>
         <source>Loading Project: %1</source>
         <translation>Įkeliamas projektas: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="725"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="736"/>
         <source>Open project</source>
         <translation>Atverti projektą</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="727"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>QGIS projects (*.qgs)</source>
         <translation>QGIS projektai (*.qgs)</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="727"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="738"/>
         <source>All files (*)</source>
         <translation>Visi failai (*)</translation>
     </message>
