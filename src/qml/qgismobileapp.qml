@@ -408,7 +408,7 @@ ApplicationWindow {
 
   Button {
     id: gpsLinkButton
-    visible: gpsButton.state == "On"
+    visible: gpsButton.state == "On" && stateMachine.state === "digitize"
     round: true
     checkable: true
 
@@ -417,7 +417,7 @@ ApplicationWindow {
     anchors.top: gpsButton.bottom
     anchors.topMargin: 4 * dp
 
-    bgcolor: linkActive ? "#334455" : "#64B5F6"
+    iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
 
     readonly property bool linkActive: gpsButton.state == "On" && checked
 
