@@ -27,7 +27,10 @@ Item {
     else
       return snappingUtils.snappedCoordinate
   }
-  readonly property point displayPosition: mapSettings.coordinateToScreen(currentCoordinate)
+
+  // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
+  // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
+  readonly property point displayPosition: !mapSettings.visibleExtent ? mapSettings.coordinateToScreen(currentCoordinate) : 0
 
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
@@ -84,10 +87,12 @@ Item {
     radius: width / 2
 
     Behavior on x {
+      enabled: !overrideLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
       NumberAnimation { duration: 100 }
     }
 
     Behavior on y {
+      enabled: !overrideLocation
       NumberAnimation { duration: 100 }
     }
 
