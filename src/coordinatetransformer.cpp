@@ -102,10 +102,7 @@ void CoordinateTransformer::updatePosition()
   mCoordinateTransform.transformInPlace( x, y, z );
 
   mProjectedPosition = QgsPointV2( x, y );
-  if ( !qIsNaN( mSourcePosition.altitude() ) )
-  {
-    mProjectedPosition.addZValue( z );
-  }
+  mProjectedPosition.addZValue( mSourcePosition.altitude() );
 
   emit projectedPositionChanged();
 }
