@@ -101,7 +101,7 @@
 <li><a class="reference internal" href="#">Ajustes de capas vectoriales</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Visualizar expresión</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Capas de sólo lectura y no identificables</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formas y campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir formulario emergente de atributos despuès de crear objetos espaciales</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de campo</a></li>
@@ -121,7 +121,7 @@
 </li>
 <li><a class="reference internal" href="#snapping">Autoensamblado</a><ul>
 <li><a class="reference internal" href="#snapping-types">Tipos de autoensamblado</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Autoajustar las capas</a></li>
 <li><a class="reference internal" href="#snapping-tolerance">Tolerancia de autoensamblado</a></li>
 </ul>
 </li>
@@ -209,18 +209,14 @@
 </div>
 </div>
 <div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Some layers in a project are just there for pure visual purpose. Such
-layers should not show up when a user taps somewhere to identify objects.</p>
-<p>Some other layers serve as source of information and shouldn&#8217;t be modified
-by the user. It is possible to protect layers from editing attributes or
-adding and deleting features.</p>
-<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<h2>Capas de sólo lectura y no identificables<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Algunas capas en un proyecto sólo están ahí motivos puramente visuales. Estas capas no deben aparecer cuando un usuario pulsa en algún lugar para identificar objetos.</p>
+<p>Algunas otras capas sirven como fuente de información y no deben ser modificadas por el usuario. Es posible proteger las capas de edición de atributos o añadir y eliminar entidades.</p>
+<p>Para configurar la identificación y el comportamiento de sólo lectura, vaya a la opción de menú: &#8220;Proyecto -&gt; Propiedades del proyecto -&gt; Identificar capas&#8221; y active las casillas para que coincidan con su comportamiento deseado.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+<p class="caption"><span class="caption-text">Configuración de capas que no serán identificables y / o no serán modificables.</span></p>
 </div>
 </div>
 </div>
@@ -229,11 +225,11 @@ page and activate the checkboxes to match your desired behavior.</p>
 <p>QField crea formas similares a, pero no iguales a QGIS</p>
 <div class="section" id="suppress-feature-form">
 <h3>Suprimir formulario emergente de atributos despuès de crear objetos espaciales<a class="headerlink" href="#suppress-feature-form" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The setting suppress feature form is directly applied to the QField form.</p>
+<p>La configuración de suprimir formulario&nbsp;de entidades se aplica directamente al formulario QField.</p>
 </div>
 <div class="section" id="field-widget">
 <span id="edit-field-widgets"></span><h3>Widget de campo<a class="headerlink" href="#field-widget" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<p>Los widgets de campo de QGIS son compatibles con el mejor esfuerzo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -305,16 +301,13 @@ page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+<p class="caption"><span class="caption-text">Configuración de un cuadro de grupo que sólo se mostrará si la casilla de verificación &#8220;tomar_medidas&#8221; está marcada.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Restricciones<a class="headerlink" href="#constraints" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<p>Los campos de atributos pueden tener restricciones adjuntas. Las restricciones son expresiones que deben evaluarse en: code: <cite>Verdadero</cite> (o: code:` 1`) para poder guardar el formulario. Las restricciones pueden configurarse en base por campo y se puede agregar una descripción que se mostrará al usuario si la restricción no se cumple.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
@@ -374,11 +367,10 @@ user if a constraint is not satisfied.</p>
 <div class="section" id="snapping">
 <h2>Autoensamblado<a class="headerlink" href="#snapping" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Cuando se digitalizan nuevos elementos, se pueden autoensamblar puntos nuevos a geometrías existentes.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<p>Toda la configuración puede hacerse en: menuselection: <cite>Proyecto &#8211;&gt; Configuración de Snapping</cite> (: menuselection:` Configuración &#8211;&gt; Configuración de Snapping` en QGIS 2.x).</p>
 <div class="section" id="snapping-types">
 <h3>Tipos de autoensamblado<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>It is possible to snap new points</p>
+<p>Es posible autoajustar nuevos puntos</p>
 <ul class="simple">
 <li><p class="first">sólo a nodos de geometrías existentes</p>
 </li>
@@ -389,8 +381,8 @@ user if a constraint is not satisfied.</p>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Autoajustar las capas<a class="headerlink" href="#snapping-to-layers" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>También es posible autoajustar sólo a una o varias capas.</p>
 </div>
 <div class="section" id="snapping-tolerance">
 <h3>Tolerancia de autoensamblado<a class="headerlink" href="#snapping-tolerance" title="Enlazar permanentemente con este título">¶</a></h3>
