@@ -7,10 +7,11 @@ include( paths.pri )
 QMAKE_CXXFLAGS += -std=c++11
 
 android {
-  LIBS += -L$${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/lib                      
+  LIBS += -L$${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include
 
   ANDROID_EXTRA_LIBS = \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrystax.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libexpat.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgeos.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgeos_c.so \
@@ -34,7 +35,6 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libdelimitedtextprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgdalprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgpxprovider.so \
-    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libmemoryprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libmssqlprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libogrprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libowsprovider.so \
