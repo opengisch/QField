@@ -1,6 +1,6 @@
 #include "geometry.h"
 
-#include <qgspointv2.h>
+#include <qgspoint.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsvectorlayer.h>
@@ -22,7 +22,7 @@ QgsGeometry Geometry::asQgsGeometry() const
   {
     case QgsWkbTypes::PointGeometry:
     {
-      geom = new QgsPointV2( mRubberbandModel->currentPoint(  mVectorLayer->crs() ) );
+      geom = new QgsPoint( mRubberbandModel->currentPoint(  mVectorLayer->crs() ) );
       break;
     }
     case QgsWkbTypes::LineGeometry:

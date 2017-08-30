@@ -119,8 +119,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
 
-  qRegisterMetaType<QgsPointV2>( "QgsPointV2" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
+  qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
 
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );

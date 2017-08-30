@@ -54,9 +54,9 @@ void MapSettings::setExtent( const QgsRectangle& extent )
   emit extentChanged();
 }
 
-void MapSettings::setCenter( const QgsPointV2& center )
+void MapSettings::setCenter( const QgsPoint& center )
 {
-  QgsVector delta = QgsPoint( center ) - mMapSettings.extent().center();
+  QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
 
   QgsRectangle e = mMapSettings.extent();
   e.setXMinimum( e.xMinimum() + delta.x() );
@@ -77,17 +77,17 @@ QgsRectangle MapSettings::visibleExtent() const
   return mMapSettings.visibleExtent();
 }
 
-QPointF MapSettings::coordinateToScreen( const QgsPointV2& p ) const
+QPointF MapSettings::coordinateToScreen( const QgsPoint& p ) const
 {
-  QgsPoint pt( p.x(), p.y() );
-  QgsPoint pp = mMapSettings.mapToPixel().transform( pt );
-  return QPointF( pp.x(), pp.y() );
+  QgsPointXY pt( p.x(), p.y() );
+  QgsPointXY pp = mMapSettings.mapToPixel().transform( pt );
+  return pp.toQPointF();
 }
 
-QgsPointV2 MapSettings::screenToCoordinate( const QPointF& p ) const
+QgsPoint MapSettings::screenToCoordinate( const QPointF& p ) const
 {
-  const QgsPoint pp = mMapSettings.mapToPixel().toMapCoordinates( p.toPoint() );
-  return QgsPointV2( pp );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( p.toPoint() );
+  return QgsPoint( pp );
 }
 
 QgsMapSettings MapSettings::mapSettings() const

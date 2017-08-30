@@ -22,7 +22,7 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry& geom, const QColor& color , int
       {
         const QgsMultiPoint& points = gg.asMultiPoint();
 
-        Q_FOREACH( const QgsPoint& point, points )
+        Q_FOREACH( const QgsPointXY& point, points )
         {
           QSGGeometryNode* geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPointToQSGGeometry ( point, width ) );
@@ -126,7 +126,7 @@ QSGGeometry* QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolyline& line , 
   QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
 
   int i = 0;
-  Q_FOREACH( const QgsPoint& pt, line )
+  Q_FOREACH( const QgsPointXY& pt, line )
   {
     vertices[i].set( pt.x(), pt.y() );
     i++;
@@ -152,7 +152,7 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
   const double* contours_array[] = { vertices_in, vertices_in + ring.size() * 2 };
   int i = 0;
 
-  Q_FOREACH( const QgsPoint &point, ring )
+  Q_FOREACH( const QgsPointXY &point, ring )
   {
     vertices_in[i++] = point.x();
     vertices_in[i++] = point.y();
@@ -181,7 +181,7 @@ QSGGeometry* QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygon& polygon )
   return sgGeom;
 }
 
-QSGGeometry* QgsSGGeometry::qgsPointToQSGGeometry( const QgsPoint& point, int width )
+QSGGeometry* QgsSGGeometry::qgsPointToQSGGeometry( const QgsPointXY& point, int width )
 {
   QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), 1 );
 

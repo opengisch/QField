@@ -28,7 +28,6 @@ DistanceArea::DistanceArea( QObject* parent )
 
 void DistanceArea::init()
 {
-  mDistanceArea.setEllipsoidalMode( true );
   if ( mProject )
     mDistanceArea.setEllipsoid( mProject->ellipsoid() );
   else
@@ -195,11 +194,11 @@ qreal DistanceArea::segmentLength() const
   if ( mRubberbandModel->vertexCount() < 2 )
     return qQNaN();
 
-  QList<QgsPoint> points = mRubberbandModel->flatPointSequence( mCrs );
+  QList<QgsPointXY> points = mRubberbandModel->flatPointSequence( mCrs );
 
   auto pointIt = points.constEnd() - 1;
 
-  QList<QgsPoint> flatPoints;
+  QList<QgsPointXY> flatPoints;
 
   flatPoints << *pointIt;
   pointIt--;

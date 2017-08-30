@@ -53,9 +53,9 @@ class LayerTreeMapCanvasBridge : public QObject
 
     void clear();
 
-    QgsLayerTreeGroup* rootGroup() const
+    QgsLayerTree* layerTree() const
     {
-      return mModel->rootGroup();
+      return mModel->layerTree();
     }
 
     MapSettings* mapSettings() const

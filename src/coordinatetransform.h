@@ -18,7 +18,7 @@
 
 #include <QObject>
 #include <QPointF>
-#include <qgspointv2.h>
+#include <qgspoint.h>
 
 #include <qgscoordinatetransform.h>
 
@@ -32,7 +32,7 @@ class CoordinateTransform : public QObject
   public:
     explicit CoordinateTransform( QObject *parent = 0 );
 
-    Q_INVOKABLE QgsPoint transform( QgsPoint pt ) const;
+    Q_INVOKABLE QgsPointXY transform( QgsPointXY pt ) const;
 
     QgsCoordinateReferenceSystem sourceCRS() const;
     QgsCoordinateReferenceSystem destinationCRS() const;

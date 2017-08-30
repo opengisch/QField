@@ -18,8 +18,6 @@
 #include "appinterface.h"
 #include "qgismobileapp.h"
 
-#include <qgsmaptoolidentify.h>
-
 AppInterface::AppInterface( QgisMobileapp* app )
   : mApp( app )
 {

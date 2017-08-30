@@ -20,7 +20,7 @@
 #include <QObject>
 #include <QPointF>
 #include <qgis.h>
-#include <qgspointv2.h>
+#include <qgspoint.h>
 #include <qgsabstractgeometry.h>
 
 class QgsVectorLayer;
@@ -35,7 +35,7 @@ class RubberbandModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsPointV2 currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
+    Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
@@ -49,7 +49,7 @@ class RubberbandModel : public QObject
 
     bool isEmpty() const;
 
-    QVector<QgsPointV2> vertices() const;
+    QVector<QgsPoint> vertices() const;
 
     QVector<QgsPoint> flatVertices() const;
 
@@ -61,9 +61,9 @@ class RubberbandModel : public QObject
      */
     QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
-    QList<QgsPoint> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+    QList<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
-    void setVertex( int index, QgsPointV2 coordinate );
+    void setVertex( int index, QgsPoint coordinate );
 
     void insertVertices( int index, int count );
 
@@ -72,10 +72,10 @@ class RubberbandModel : public QObject
     int currentCoordinateIndex() const;
     void setCurrentCoordinateIndex( int currentCoordinateIndex );
 
-    QgsPointV2 currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+    QgsPoint currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
-    QgsPointV2 currentCoordinate() const;
-    void setCurrentCoordinate( const QgsPointV2& currentCoordinate );
+    QgsPoint currentCoordinate() const;
+    void setCurrentCoordinate( const QgsPoint& currentCoordinate );
 
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();
@@ -104,7 +104,7 @@ class RubberbandModel : public QObject
   private:
     void setGeometryType( const QgsWkbTypes::GeometryType& geometryType );
 
-    QVector<QgsPointV2> mPointList;
+    QVector<QgsPoint> mPointList;
     int mCurrentCoordinateIndex;
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;

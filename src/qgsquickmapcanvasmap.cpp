@@ -25,6 +25,7 @@
 #include <QScreen>
 #include <qgspallabeling.h>
 #include <QSGSimpleTextureNode>
+#include <QtConcurrent>
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   : QQuickItem( parent )
@@ -68,8 +69,8 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   QgsRectangle extent = mMapSettings->extent();
   QgsPoint oldCenter( extent.center() );
   QgsPoint mousePos( mMapSettings->screenToCoordinate( center ) );
-  QgsPoint newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
-                      mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
+  QgsPointXY newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
+                        mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
 
   // same as zoomWithCenter (no coordinate transformations are needed)
   extent.scale( scale, &newCenter );
@@ -119,17 +120,6 @@ void QgsQuickMapCanvasMap::refreshMap()
   connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
   mJob->setCache( mCache );
-
-  QStringList layersForGeometryCache;
-  Q_FOREACH ( QgsMapLayer* layer, mMapSettings->layers() )
-  {
-    if ( QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer ) )
-    {
-      if ( vl->isEditable() )
-        layersForGeometryCache << vl->id();
-    }
-  }
-  mJob->setRequestedGeometryCacheForLayers( layersForGeometryCache );
 
   mJob->start();
 
@@ -212,7 +202,7 @@ void QgsQuickMapCanvasMap::updateTransform()
   QgsMapSettings currentMapSettings = mMapSettings->mapSettings();
   QgsMapToPixel mtp = currentMapSettings.mapToPixel();
 
-  QgsPoint pixelPt = mtp.transform( mImageMapSettings.visibleExtent().xMinimum(), mImageMapSettings.visibleExtent().yMaximum() );
+  QgsPointXY pixelPt = mtp.transform( mImageMapSettings.visibleExtent().xMinimum(), mImageMapSettings.visibleExtent().yMaximum() );
   setScale( mImageMapSettings.scale() / currentMapSettings.scale() );
 
   setX( pixelPt.x() );

@@ -18,7 +18,7 @@
 
 #include <QSortFilterProxyModel>
 
-class QgsLayerTreeGroup;
+class QgsLayerTree;
 class QgsLayerTreeModel;
 class QgsProject;
 
@@ -37,7 +37,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     };
     Q_ENUMS( Roles )
 
-    explicit LayerTreeModel( QgsLayerTreeGroup* rootGroup, QgsProject* project, QObject* parent = nullptr );
+    explicit LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QObject* parent = nullptr );
 
     Q_INVOKABLE QVariant data( const QModelIndex& index, int role ) const override;
 
@@ -45,7 +45,7 @@ class LayerTreeModel : public QSortFilterProxyModel
 
     QgsLayerTreeModel* layerTreeModel() const;
 
-    QgsLayerTreeGroup* rootGroup() const;
+    QgsLayerTree* layerTree() const;
 
     QString mapTheme() const;
     void setMapTheme( const QString& mapTheme );

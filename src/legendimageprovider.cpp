@@ -16,7 +16,7 @@
 #include "legendimageprovider.h"
 
 #include <qgsproject.h>
-#include <qgslayertreegroup.h>
+#include <qgslayertree.h>
 #include <qgslayertreelayer.h>
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>

@@ -33,12 +33,12 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel* model, MapSe
   , mHasCustomLayerOrder( false )
   , mAutoSetupOnFirstLayer( false )
   , mAutoEnableCrsTransform( true )
-  , mNoLayersLoaded( !model->rootGroup()->findLayers().isEmpty() )
+  , mNoLayersLoaded( !model->layerTree()->findLayers().isEmpty() )
 {
-  connect( model->rootGroup(), &QgsLayerTreeGroup::addedChildren, this, &LayerTreeMapCanvasBridge::nodeAddedChildren );
-  connect( model->rootGroup(), &QgsLayerTreeGroup::customPropertyChanged, this, &LayerTreeMapCanvasBridge::nodeCustomPropertyChanged );
-  connect( model->rootGroup(), &QgsLayerTreeGroup::removedChildren, this, &LayerTreeMapCanvasBridge::nodeRemovedChildren );
-  connect( model->rootGroup(), &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
+  connect( model->layerTree(), &QgsLayerTreeGroup::addedChildren, this, &LayerTreeMapCanvasBridge::nodeAddedChildren );
+  connect( model->layerTree(), &QgsLayerTreeGroup::customPropertyChanged, this, &LayerTreeMapCanvasBridge::nodeCustomPropertyChanged );
+  connect( model->layerTree(), &QgsLayerTreeGroup::removedChildren, this, &LayerTreeMapCanvasBridge::nodeRemovedChildren );
+  connect( model->layerTree(), &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
 
   setCanvasLayers();
@@ -53,7 +53,7 @@ void LayerTreeMapCanvasBridge::clear()
 QStringList LayerTreeMapCanvasBridge::defaultLayerOrder() const
 {
   QStringList order;
-  defaultLayerOrder( mModel->rootGroup(), order );
+  defaultLayerOrder( mModel->layerTree(), order );
   return order;
 }
 
@@ -130,7 +130,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   {
     Q_FOREACH ( const QString& layerId, mCustomLayerOrder )
     {
-      QgsLayerTreeLayer* nodeLayer = mModel->rootGroup()->findLayer( layerId );
+      QgsLayerTreeLayer* nodeLayer = mModel->layerTree()->findLayer( layerId );
       if ( nodeLayer )
       {
         if ( nodeLayer->isVisible() )
@@ -139,9 +139,9 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
     }
   }
   else
-    setCanvasLayers( mModel->rootGroup(), layers );
+    setCanvasLayers( mModel->layerTree(), layers );
 
-  QList<QgsLayerTreeLayer*> layerNodes = mModel->rootGroup()->findLayers();
+  QList<QgsLayerTreeLayer*> layerNodes = mModel->layerTree()->findLayers();
   bool firstLayers = mAutoSetupOnFirstLayer && mNoLayersLoaded && !layerNodes.empty();
 
   if ( firstLayers )
@@ -298,7 +298,7 @@ void LayerTreeMapCanvasBridge::nodeRemovedChildren()
   QList<int> toRemove;
   for ( int i = 0; i < mCustomLayerOrder.count(); ++i )
   {
-    QgsLayerTreeLayer* node = mModel->rootGroup()->findLayer( mCustomLayerOrder[i] );
+    QgsLayerTreeLayer* node = mModel->layerTree()->findLayer( mCustomLayerOrder[i] );
     if ( !node )
       toRemove << i;
   }
@@ -323,7 +323,7 @@ void LayerTreeMapCanvasBridge::nodeCustomPropertyChanged( QgsLayerTreeNode* node
 
 void LayerTreeMapCanvasBridge::mapThemeChanged()
 {
-  QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mModel->rootGroup(), mModel->layerTreeModel() );
+  QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mModel->layerTree(), mModel->layerTreeModel() );
 }
 
 

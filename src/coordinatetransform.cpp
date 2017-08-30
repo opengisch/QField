@@ -16,14 +16,12 @@
 #include "coordinatetransform.h"
 #include "qgspoint.h"
 
-#include <QDebug>
-
 CoordinateTransform::CoordinateTransform( QObject *parent ) :
   QObject( parent )
 {
 }
 
-QgsPoint CoordinateTransform::transform( QgsPoint pt ) const
+QgsPointXY CoordinateTransform::transform( QgsPointXY pt ) const
 {
   pt = mTransform.transform( pt );
   return pt;

@@ -119,6 +119,5 @@ class QgisMobileapp : public QQmlApplicationEngine
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
 Q_DECLARE_METATYPE( QgsAttributes )
-Q_DECLARE_METATYPE( QgsCoordinateReferenceSystem )
 
 #endif // QGISMOBILEAPP_H

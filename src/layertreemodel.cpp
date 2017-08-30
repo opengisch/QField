@@ -21,11 +21,11 @@
 #include <qgsvectorlayer.h>
 #include <qgslayertreemodellegendnode.h>
 
-LayerTreeModel::LayerTreeModel( QgsLayerTreeGroup* rootNode, QgsProject* project, QObject* parent )
+LayerTreeModel::LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QObject* parent )
   : QSortFilterProxyModel( parent )
   , mProject( project )
 {
-  mLayerTreeModel = new QgsLayerTreeModel( rootNode, this );
+  mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   setSourceModel( mLayerTreeModel );
 }
 
@@ -107,7 +107,7 @@ QgsLayerTreeModel* LayerTreeModel::layerTreeModel() const
   return mLayerTreeModel;
 }
 
-QgsLayerTreeGroup*LayerTreeModel::rootGroup() const
+QgsLayerTree* LayerTreeModel::layerTree() const
 {
   return mLayerTreeModel->rootGroup();
 }

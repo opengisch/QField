@@ -20,7 +20,6 @@
 
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
-#include <qgscsexception.h>
 #include <qgsrenderer.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
@@ -55,7 +54,7 @@ void IdentifyTool::identify( const QPointF& point ) const
 
   mModel->clear();
 
-  QgsPoint mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
+  QgsPointXY mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
 
   QStringList noIdentifyLayerIdList = QgsProject::instance()->nonIdentifiableLayers();
 
@@ -74,11 +73,11 @@ void IdentifyTool::identify( const QPointF& point ) const
   }
 }
 
-QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVectorLayer* layer, const QgsPoint& point ) const
+QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVectorLayer* layer, const QgsPointXY& point ) const
 {
   QList<IdentifyResult> results;
 
-  if ( !layer || !layer->hasGeometryType() )
+  if ( !layer || !layer->isSpatial() )
     return results;
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )

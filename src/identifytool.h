@@ -68,7 +68,7 @@ class IdentifyTool : public QObject
   public slots:
     void identify( const QPointF& point ) const;
 
-    QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer* layer, const QgsPoint& point ) const;
+    QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer* layer, const QgsPointXY& point ) const;
 
   private:
     MapSettings* mMapSettings;

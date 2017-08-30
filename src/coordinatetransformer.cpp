@@ -23,7 +23,7 @@ CoordinateTransformer::CoordinateTransformer( QObject *parent )
   mCoordinateTransform.setSourceCrs( QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
 }
 
-QgsPointV2 CoordinateTransformer::projectedPosition() const
+QgsPoint CoordinateTransformer::projectedPosition() const
 {
   return mProjectedPosition;
 }
@@ -101,7 +101,7 @@ void CoordinateTransformer::updatePosition()
 
   mCoordinateTransform.transformInPlace( x, y, z );
 
-  mProjectedPosition = QgsPointV2( x, y );
+  mProjectedPosition = QgsPoint( x, y );
   mProjectedPosition.addZValue( mSourcePosition.altitude() );
 
   emit projectedPositionChanged();

@@ -19,20 +19,20 @@
 #include <QObject>
 #include <QtPositioning/QGeoCoordinate>
 
-#include <qgspointv2.h>
+#include <qgspoint.h>
 
 class CoordinateTransformer : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsPointV2 projectedPosition READ projectedPosition NOTIFY projectedPositionChanged )
+    Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY projectedPositionChanged )
     Q_PROPERTY( QGeoCoordinate sourcePosition READ sourcePosition WRITE setSourcePosition NOTIFY sourcePositionChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem sourceCrs READ sourceCrs WRITE setSourceCrs NOTIFY sourceCrsChanged )
 
   public:
     explicit CoordinateTransformer( QObject *parent = 0 );
-    QgsPointV2 projectedPosition() const;
+    QgsPoint projectedPosition() const;
 
     QGeoCoordinate sourcePosition() const;
     void setSourcePosition( QGeoCoordinate sourcePosition );
@@ -53,7 +53,7 @@ class CoordinateTransformer : public QObject
     void sourceCrsChanged();
 
   private:
-    QgsPointV2 mProjectedPosition;
+    QgsPoint mProjectedPosition;
     QGeoCoordinate mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
 };

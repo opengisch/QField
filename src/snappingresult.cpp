@@ -79,7 +79,7 @@ double SnappingResult::distance() const
   return mDist;
 }
 
-QgsPointV2 SnappingResult::point() const
+QgsPoint SnappingResult::point() const
 {
   return mPoint;
 }

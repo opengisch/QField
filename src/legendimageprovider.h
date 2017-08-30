@@ -19,7 +19,7 @@
 #include <QQuickImageProvider>
 
 class QgsLayerTreeModel;
-class QgsLayerTreeGroup;
+class QgsLayerTree;
 
 class LegendImageProvider : public QQuickImageProvider
 {
@@ -30,7 +30,7 @@ class LegendImageProvider : public QQuickImageProvider
 
   private:
     QgsLayerTreeModel* mLayerTreeModel;
-    QgsLayerTreeGroup* mRootNode;
+    QgsLayerTree* mRootNode;
 };
 
 #endif // LEGENDIMAGEPROVIDER_H
