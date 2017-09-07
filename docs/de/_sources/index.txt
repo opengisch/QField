@@ -58,6 +58,7 @@ Contents
    user-guide/*
    development/index
    qfieldsync/index
+   case-studies/*
 
 Translations
 ============
