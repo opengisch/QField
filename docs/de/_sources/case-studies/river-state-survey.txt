@@ -11,12 +11,12 @@ their territory.
 Project
 -------
 
-To facilitate the technicien’s field work (usually done with a map, a  notebook
-and a camera), a QField project was created and made enable on a Tablet. The
-cadastral and river layers were used as basemap.
+To facilitate the technician’s field work (usually done with a map, a  notebook
+and a camera), a QField project was created and made available on a Tablet.
+Cadastral and river layers were used as basemap.
 
-The structure of the input tables was designed along with the technicien to
-assure that it would fit its field requirements. The idea was to have two
+The structure of the input tables was designed along with the technician to
+assure that it would fit their field requirements. The idea was to have two
 tables:
 
 Sector table
@@ -25,8 +25,8 @@ Sector table
   elements (wall, bridge, bottom of the canal) could also be documented. 
 
 Point table
-  To take ponctual photography of the water courses and of its
-  elements and if necessary add remarks.
+  To take punctual photography of the water courses and of its
+  elements and where necessary add remarks.
 
 .. container:: clearer text-center
 
@@ -45,7 +45,7 @@ Point table
 Result
 ------
 
-In less than 3 days, the techinicien surveyed successfully all the 10’894
+In less than 3 days, the techinician surveyed successfully all the 10’894
 kilometers of water courses. Back at the office, it took only 2 hours to treat
 the data and get the final result.
 
