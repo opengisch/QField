@@ -46,7 +46,7 @@ Result
 ------
 
 In less than 3 days, the techinician surveyed successfully all the 10’894
-kilometers of water courses. Back at the office, it took only 2 hours to treat
+meters of water courses. Back at the office, it took only 2 hours to treat
 the data and get the final result.
 
 - Facilitated the field survey 
