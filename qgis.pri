@@ -25,9 +25,7 @@ android {
   INSTALLS += qgis_providers
 }
 
-DEFINES += "CORE_EXPORT=" \
-           "GUI_EXPORT=" \
-           "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
+DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
            "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
 
 QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}/lib/
