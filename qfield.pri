@@ -30,7 +30,10 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libspatialite.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqca-qt5.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_native.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_gui.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqt5keychain.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libzip.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libspatialiteprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libdelimitedtextprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgdalprovider.so \
