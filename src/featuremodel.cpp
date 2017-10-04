@@ -206,7 +206,7 @@ void FeatureModel::resetAttributes()
   {
     if ( !mRememberedAttributes.at( i ) )
     {
-      if ( !fields.at( i ).defaultValueDefinition().expression().isEmpty() )
+      if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
         QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
         QVariant value = exp.evaluate( &expressionContext );
