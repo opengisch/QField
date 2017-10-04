@@ -46,7 +46,7 @@ void FeatureListExtentController::zoomToSelected() const
     geom.transform( transf );
 
     QgsRectangle featureExtent = geom.boundingBox();
-    QgsRectangle bufferedExtent = featureExtent.buffer( qMax( featureExtent.width(), featureExtent.height() ) );
+    QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
 
     mMapSettings->setExtent( bufferedExtent );
   }
