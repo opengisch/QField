@@ -18,8 +18,6 @@
 
 #include <QtQuick/QQuickItem>
 
-#include <qgshighlight.h>
-
 #include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
 

@@ -30,7 +30,6 @@
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
-#include <qgsmaptoolidentify.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
 #include <qgssnappingutils.h>

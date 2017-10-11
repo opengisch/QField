@@ -23,7 +23,6 @@
 
 // QGIS includes
 #include <qgsapplication.h>
-#include <qgslayertreemapcanvasbridge.h>
 #include <qgsmaplayerproxymodel.h>
 
 // QGIS mobile includes
