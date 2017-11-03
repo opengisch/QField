@@ -15,8 +15,8 @@ class QgsSGGeometry : public QSGNode
   private:
     void applyStyle( QSGGeometryNode* geomNode );
 
-    static QSGGeometry* qgsPolylineToQSGGeometry( const QgsPolyline& line, int width );
-    static QSGGeometry* qgsPolygonToQSGGeometry( const QgsPolygon& polygon );
+    static QSGGeometry* qgsPolylineToQSGGeometry(const QgsPolylineXY& line, int width );
+    static QSGGeometry* qgsPolygonToQSGGeometry(const QgsPolygonXY& polygon );
     static QSGGeometry* qgsPointToQSGGeometry( const QgsPointXY& point, int width );
 
     QSGFlatColorMaterial mMaterial;
