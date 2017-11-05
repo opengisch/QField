@@ -33,6 +33,8 @@ Rectangle {
   property bool allowDelete
   property int formViewWidthDivisor
 
+  signal showMessage(string message)
+
   states: [
     State {
       name: "Hidden"
@@ -296,8 +298,11 @@ Rectangle {
   Connections {
     target: globalFeaturesList.model
 
-    onModelReset: {
-      state = "FeatureList"
+    onRowsInserted: {
+      if ( model.rowCount() > 0 )
+        state = "FeatureList"
+      else
+        showMessage( qsTr('No feature at this position') )
     }
   }
 

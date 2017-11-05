@@ -88,7 +88,6 @@ ApplicationWindow {
         if ( !overlayFeatureForm.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
-          featureForm.show()
         }
       }
     }
@@ -616,6 +615,8 @@ ApplicationWindow {
     }
 
     selectionColor: "#ff7777"
+
+    onShowMessage: displayToast(message)
   }
 
   FeatureForm {
