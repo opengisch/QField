@@ -42,12 +42,10 @@ Page {
       TabButton {
         text: qsTr("Layout")
         font.pointSize: 14
-        height: 48 * dp
       }
       TabButton {
         text: qsTr("Global Variables")
         font.pointSize: 14
-        height: 48 * dp
       }
     }
 
