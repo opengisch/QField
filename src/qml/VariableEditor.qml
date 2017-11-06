@@ -33,6 +33,7 @@ Controls.TableView {
 
       TextField {
         id: nameEditor
+        anchors.fill: parent
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
 
@@ -73,6 +74,7 @@ Controls.TableView {
 
       TextField {
         id: varEditor
+        anchors.fill: parent
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
 
