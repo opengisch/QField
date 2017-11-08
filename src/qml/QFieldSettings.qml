@@ -38,12 +38,15 @@ Page {
     TabBar {
       id: bar
       anchors { right: parent.right; left: parent.left }
+      Layout.preferredHeight: 36*dp
 
       TabButton {
+        height: 36*dp
         text: qsTr("Layout")
         font.pointSize: 14
       }
       TabButton {
+        height: 36*dp
         text: qsTr("Global Variables")
         font.pointSize: 14
       }
