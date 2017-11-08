@@ -34,8 +34,10 @@ Controls.TableView {
       TextField {
         id: nameEditor
         anchors.fill: parent
+        anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
+        font.pointSize: 14
 
         onTextChanged: {
           variableEditor.model.setName( styleData.row, text )
@@ -48,6 +50,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
+        font.pointSize: 14
       }
 
       Text {
@@ -75,8 +78,10 @@ Controls.TableView {
       TextField {
         id: varEditor
         anchors.fill: parent
+        anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
+        font.pointSize: 14
 
         onTextChanged: {
           variableEditor.model.setValue( styleData.row, text )
@@ -89,6 +94,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
+        font.pointSize: 14
       }
 
       Text {
@@ -124,8 +130,10 @@ Controls.TableView {
         colorGroup: SystemPalette.Active
      }
      color: {
-        var baseColor = styleData.alternate ? myPalette.alternateBase : myPalette.base
-        return styleData.selected ? myPalette.highlight : baseColor
+       var baseColor = styleData.alternate ? myPalette.alternateBase : myPalette.base
+       // Using the selection color renders the text input almost unusable
+       // return styleData.selected ? myPalette.highlight : baseColor
+       return baseColor
      }
   }
 }
