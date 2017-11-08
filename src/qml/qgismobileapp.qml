@@ -34,6 +34,10 @@ ApplicationWindow {
   minimumWidth: 600
   minimumHeight: 400
 
+  Keys.onReleased: {
+    console.warn( "KEY PRESS " + event.key )
+  }
+
   Item {
     id: stateMachine
 
