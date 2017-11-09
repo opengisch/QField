@@ -19,7 +19,7 @@ Item {
    * There will be no user interaction or snapping if this is set to a QgsPoint.
    * Set this to `undefined` to revert to the user and snapping controlled behavior.
    */
-  property variant overrideLocation: undefined // QgsPointV2
+  property variant overrideLocation: undefined // QgsPoint
 
   readonly property variant currentCoordinate: {
     if ( !!overrideLocation )
@@ -30,7 +30,7 @@ Item {
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
-  readonly property point displayPosition: !mapSettings.visibleExtent ? mapSettings.coordinateToScreen(currentCoordinate) : 0
+  readonly property point displayPosition: !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
 
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
