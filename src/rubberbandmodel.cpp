@@ -67,9 +67,9 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   return sequence;
 }
 
-QList<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem& crs ) const
+QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem& crs ) const
 {
-  QList<QgsPointXY> sequence;
+  QVector<QgsPointXY> sequence;
 
   QgsCoordinateTransform ct( mCrs, crs );
 
