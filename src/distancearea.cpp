@@ -194,11 +194,11 @@ qreal DistanceArea::segmentLength() const
   if ( mRubberbandModel->vertexCount() < 2 )
     return qQNaN();
 
-  QList<QgsPointXY> points = mRubberbandModel->flatPointSequence( mCrs );
+  QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( mCrs );
 
   auto pointIt = points.constEnd() - 1;
 
-  QList<QgsPointXY> flatPoints;
+  QVector<QgsPointXY> flatPoints;
 
   flatPoints << *pointIt;
   pointIt--;
