@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "featuremodel.h"
+#include "expressioncontextutils.h"
 
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
@@ -197,6 +198,7 @@ void FeatureModel::resetAttributes()
     return;
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
+  expressionContext << ExpressionContextUtils::positionScope( mPositionSource );
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -268,6 +270,16 @@ bool FeatureModel::startEditing()
   {
     return true;
   }
+}
+
+QGeoPositionInfoSource* FeatureModel::positionSource() const
+{
+  return mPositionSource;
+}
+
+void FeatureModel::setPositionSource(QGeoPositionInfoSource* positionSource)
+{
+  mPositionSource = positionSource;
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const

@@ -21,12 +21,15 @@
 #include <QAbstractListModel>
 #include "geometry.h"
 
+class QGeoPositionInfoSource;
+
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
     Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+    Q_PROPERTY( QGeoPositionInfoSource *positionSource READ positionSource WRITE setPositionSource NOTIFY positionSourceChanged )
     Q_ENUMS( FeatureRoles )
 
   public:
@@ -78,6 +81,9 @@ class FeatureModel : public QAbstractListModel
 
     QVector<bool> rememberedAttributes() const;
 
+    QGeoPositionInfoSource* positionSource() const;
+    void setPositionSource(QGeoPositionInfoSource* positionSource);
+
   public slots:
     void applyGeometry();
 
@@ -85,6 +91,7 @@ class FeatureModel : public QAbstractListModel
     void featureChanged();
     void geometryChanged();
     void currentLayerChanged();
+    void positionSourceChanged();
 
     void warning( const QString& text );
 
@@ -96,6 +103,7 @@ class FeatureModel : public QAbstractListModel
     QgsFeature mFeature;
     Geometry* mGeometry;
     QVector<bool> mRememberedAttributes;
+    QGeoPositionInfoSource *mPositionSource;
 };
 
 #endif // FEATUREMODEL_H

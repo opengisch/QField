@@ -53,7 +53,8 @@ HEADERS += \
     legendimageprovider.h \
     featurelistmodel.h \
     distancearea.h \
-    coordinatetransformer.h
+    coordinatetransformer.h \
+    expressioncontextutils.h
 
 SOURCES += \
     appinterface.cpp \
@@ -91,7 +92,8 @@ SOURCES += \
     legendimageprovider.cpp \
     featurelistmodel.cpp \
     distancearea.cpp \
-    coordinatetransformer.cpp
+    coordinatetransformer.cpp \
+    expressioncontextutils.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
