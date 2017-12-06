@@ -33,13 +33,16 @@ class LayerTreeModel : public QSortFilterProxyModel
     {
       VectorLayer = Qt::UserRole + 1,
       LegendImage,
-      Type
+      Type,
+      Visible
     };
     Q_ENUMS( Roles )
 
     explicit LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QObject* parent = nullptr );
 
     Q_INVOKABLE QVariant data( const QModelIndex& index, int role ) const override;
+
+    Q_INVOKABLE bool setData( const QModelIndex& index, const QVariant &value, int role ) override;
 
     QHash<int, QByteArray> roleNames() const override;
 

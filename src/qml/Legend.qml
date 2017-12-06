@@ -54,6 +54,7 @@ TreeView {
         elide: styleData.elideMode
         text: styleData.value !== undefined ? styleData.value : ""
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
+        color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
     }
   }
@@ -75,10 +76,24 @@ TreeView {
       currentLayer = layerTree.data(index, LayerTreeModel.VectorLayer)
   }
 
+  onPressAndHold: {
+    itemProperties.index = index
+    itemProperties.open()
+  }
+
   onDoubleClicked: {
     if (listView.isExpanded(index))
         listView.collapse(index)
     else
         listView.expand(index)
+  }
+
+  LayerTreeItemProperties {
+      id: itemProperties
+      layerTree: listView.model
+
+      modal: true
+      closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+      parent: ApplicationWindow.overlay
   }
 }

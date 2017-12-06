@@ -88,16 +88,36 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
         return QStringLiteral( "legend" );
     }
 
+    case Visible:
+    {
+      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      return node->isVisible();
+    }
+
     default:
       return QSortFilterProxyModel::data( index, role );
   }
 }
+
+bool LayerTreeModel::setData(const QModelIndex& index, const QVariant& value, int role)
+{
+  if ( role == Visible )
+  {
+    QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+    node->setItemVisibilityCheckedRecursive( value.toBool() );
+    return true;
+  }
+  return false;
+}
+
+
 
 QHash<int, QByteArray> LayerTreeModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QSortFilterProxyModel::roleNames();
 
   roleNames[VectorLayer] = "VectorLayer";
+  roleNames[Visible] = "Visible";
 
   return roleNames;
 }
