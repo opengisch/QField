@@ -13,7 +13,7 @@ LayerTreeItemProperties {
 
   onIndexChanged: {
     itemVisible = layerTree.data(index, LayerTreeModel.Visible)
-    title = layerTree.data(index, 0)
+    title = qsTr("%1 : Properties").arg(layerTree.data(index, 0))
   }
 
   onItemVisibleChanged: {

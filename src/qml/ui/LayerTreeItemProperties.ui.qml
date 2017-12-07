@@ -6,15 +6,15 @@ Popup {
     property alias itemVisible: itemVisibleCheckBox.checked
 
     Page {
-        Layout.margins: 50 * dp
-
         header: Label {
             text: title
+            font.pointSize: 14
         }
 
         CheckBox {
             id: itemVisibleCheckBox
-            text: qsTr("Layer visitibility")
+            text: qsTr("Show on map canvas")
+            font.pointSize: 14
         }
     }
 }
