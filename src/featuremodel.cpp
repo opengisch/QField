@@ -20,6 +20,7 @@
 
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
+#include <QGeoPositionInfoSource>
 #include <QDebug>
 
 FeatureModel::FeatureModel( QObject *parent )
@@ -272,14 +273,15 @@ bool FeatureModel::startEditing()
   }
 }
 
-QGeoPositionInfoSource* FeatureModel::positionSource() const
+QString FeatureModel::positionSourceName() const
 {
-  return mPositionSource;
+  return mPositionSource ? mPositionSource->sourceName() : QString();
 }
 
-void FeatureModel::setPositionSource(QGeoPositionInfoSource* positionSource)
+void FeatureModel::setPositionSourceName( const QString& positionSourceName )
 {
-  mPositionSource = positionSource;
+  delete mPositionSource;
+  mPositionSource = QGeoPositionInfoSource::createSource( positionSourceName, this );
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const

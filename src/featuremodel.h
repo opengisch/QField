@@ -29,7 +29,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
     Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
-    Q_PROPERTY( QGeoPositionInfoSource *positionSource READ positionSource WRITE setPositionSource NOTIFY positionSourceChanged )
+    Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
     Q_ENUMS( FeatureRoles )
 
   public:
@@ -81,8 +81,8 @@ class FeatureModel : public QAbstractListModel
 
     QVector<bool> rememberedAttributes() const;
 
-    QGeoPositionInfoSource* positionSource() const;
-    void setPositionSource(QGeoPositionInfoSource* positionSource);
+    QString positionSourceName() const;
+    void setPositionSourceName(const QString &positionSourceName);
 
   public slots:
     void applyGeometry();
@@ -103,7 +103,7 @@ class FeatureModel : public QAbstractListModel
     QgsFeature mFeature;
     Geometry* mGeometry;
     QVector<bool> mRememberedAttributes;
-    QGeoPositionInfoSource *mPositionSource;
+    QGeoPositionInfoSource *mPositionSource = nullptr;
 };
 
 #endif // FEATUREMODEL_H

@@ -439,7 +439,7 @@ ApplicationWindow {
     FeatureModel {
       id: digitizingFeature
       currentLayer: dashBoard.currentLayer
-      positionSource: positionSource
+      positionSourceName: positionSource.name
 
       geometry: Geometry {
         id: digitizingGeometry
