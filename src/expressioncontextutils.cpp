@@ -1,5 +1,5 @@
 #include "expressioncontextutils.h"
-
+#include "qgsgeometry.h"
 #include <QtPositioning/QGeoPositionInfoSource>
 
 QgsExpressionContextScope* ExpressionContextUtils::positionScope( QGeoPositionInfoSource *source )
@@ -8,7 +8,7 @@ QgsExpressionContextScope* ExpressionContextUtils::positionScope( QGeoPositionIn
   QGeoPositionInfo positionInfo = source->lastKnownPosition();
 
   const QGeoCoordinate geoCoord = positionInfo.coordinate();
-  const QgsPoint point( geoCoord.longitude(), geoCoord.latitude(), geoCoord.altitude() );
+  const QgsGeometry point = QgsGeometry( new QgsPoint( geoCoord.longitude(), geoCoord.latitude(), geoCoord.altitude() ) );
   const QDateTime timestamp = positionInfo.timestamp();
   const qreal direction = positionInfo.attribute( QGeoPositionInfo::Attribute::Direction );
   const qreal groundSpeed = positionInfo.attribute( QGeoPositionInfo::Attribute::GroundSpeed );
@@ -17,7 +17,7 @@ QgsExpressionContextScope* ExpressionContextUtils::positionScope( QGeoPositionIn
   const qreal verticalAccuracy = positionInfo.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy );
   const qreal verticalSpeed = positionInfo.attribute( QGeoPositionInfo::Attribute::VerticalSpeed );
 
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_coordinate" ), QVariant::fromValue<QgsPoint>( point ), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_coordinate" ), QVariant::fromValue<QgsGeometry>( point ), true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_timestamp" ), timestamp, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_direction" ), direction, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_ground_speed" ), groundSpeed, true, true ) );
@@ -25,6 +25,7 @@ QgsExpressionContextScope* ExpressionContextUtils::positionScope( QGeoPositionIn
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), source->sourceName(), true, true ) );
 
   return scope;
 }
