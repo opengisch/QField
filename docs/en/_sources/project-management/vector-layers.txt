@@ -162,6 +162,28 @@ expression variables.
 
      Configuration of a formatted date as default value
 
+Additional variables
+....................
+
+In QField, there are some additional variables available regarding the current
+positioning information.
+
+- `position_coordinate` (Geometry in WGS84!) : Lon, Lat, Altitude as delivered 
+  by the sensor. Is also available when the crosshair is not snapped to the sensor.
+- `position_timestamp` (DateTime) : Timestamp of the position information
+- `position_direction` (float) : Direction in degrees from true north.
+- `position_ground_speed` (float) : Groundspeed in meters / second.
+- `position_magnetic_variation` (float) : The angle between the horizontal 
+  component of the magnetic field and true north, in degrees. Also known as 
+  magnetic declination. A positive value indicates a clockwise direction from 
+  true north and a negative value indicates a counter-clockwise direction.
+- `position_horizontal_accuracy` (float) : The horizontal accuracy of the 
+  coordinate (in meters). 
+- `position_vertical_accuracy` (float) : The vertical accuracy of the 
+  coordinate (in meters).
+- `position_vertical_speed` (float) : The value of the vertical speed in meters
+  per second. 
+
 Common use cases
 ................
 
@@ -230,3 +252,9 @@ The snapping tolerance can be specified in map units or pixels.
 
 In almost any case, the units should be set to pixels. We made good
 experiences with a tolerance value of 20.
+
+3D Coordinates
+==============
+
+GPS devices are capable of measuring the altitude next to the current 2D 
+position on the earth surface. This information can be saved 

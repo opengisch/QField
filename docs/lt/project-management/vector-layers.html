@@ -112,6 +112,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Default values</a><ul>
+<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
 <li><a class="reference internal" href="#id1">Common use cases</a></li>
 </ul>
 </li>
@@ -125,6 +126,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
 </ul>
 </li>
 </ul>
@@ -346,6 +348,28 @@ expression variables.</p>
 <p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
 </div>
 </div>
+<div class="section" id="additional-variables">
+<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Nuoroda į šią antraštę">¶</a></h4>
+<p>In QField, there are some additional variables available regarding the current
+positioning information.</p>
+<ul class="simple">
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
+by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
+<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
+<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
+<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
+<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
+component of the magnetic field and true north, in degrees. Also known as
+magnetic declination. A positive value indicates a clockwise direction from
+true north and a negative value indicates a counter-clockwise direction.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
+coordinate (in meters).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
+coordinate (in meters).</li>
+<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
+per second.</li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h4>Common use cases<a class="headerlink" href="#id1" title="Nuoroda į šią antraštę">¶</a></h4>
 <p>Insert the current date and time:</p>
@@ -401,6 +425,11 @@ geometries.</p>
 <p>In almost any case, the units should be set to pixels. We made good
 experiences with a tolerance value of 20.</p>
 </div>
+</div>
+<div class="section" id="d-coordinates">
+<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Nuoroda į šią antraštę">¶</a></h2>
+<p>GPS devices are capable of measuring the altitude next to the current 2D
+position on the earth surface. This information can be saved</p>
 </div>
 </div>
 

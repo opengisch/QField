@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Типові значення</a><ul>
+<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
 <li><a class="reference internal" href="#id1">Приклади використання</a></li>
 </ul>
 </li>
@@ -124,6 +125,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Поріг приклеювання</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
 </ul>
 </li>
 </ul>
@@ -335,6 +337,28 @@
 <p class="caption"><span class="caption-text">Настройка дати як величини за замовчуванням</span></p>
 </div>
 </div>
+<div class="section" id="additional-variables">
+<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>In QField, there are some additional variables available regarding the current
+positioning information.</p>
+<ul class="simple">
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
+by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
+<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
+<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
+<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
+<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
+component of the magnetic field and true north, in degrees. Also known as
+magnetic declination. A positive value indicates a clockwise direction from
+true north and a negative value indicates a counter-clockwise direction.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
+coordinate (in meters).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
+coordinate (in meters).</li>
+<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
+per second.</li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h4>Приклади використання<a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h4>
 <p>Вставити поточну дату та час:</p>
@@ -389,6 +413,11 @@
 <p>Поріг приклеювання можна задавати у пікселях чи одиницях мапи.</p>
 <p>Практично у всіх випадках в якості одиниць слід вибирати пікселі. Ми радимо встановити величину порогу у 20 пікселів.</p>
 </div>
+</div>
+<div class="section" id="d-coordinates">
+<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>GPS devices are capable of measuring the altitude next to the current 2D
+position on the earth surface. This information can be saved</p>
 </div>
 </div>
 
