@@ -19,9 +19,9 @@
 #define FEATUREMODEL_H
 
 #include <QAbstractListModel>
+#include <QGeoPositionInfoSource>
+#include <memory>
 #include "geometry.h"
-
-class QGeoPositionInfoSource;
 
 class FeatureModel : public QAbstractListModel
 {
@@ -81,8 +81,17 @@ class FeatureModel : public QAbstractListModel
 
     QVector<bool> rememberedAttributes() const;
 
+    /**
+     * The name of the position source to use.
+     * A QGeoPositionInfoSource is created internally based on this name.
+     */
     QString positionSourceName() const;
-    void setPositionSourceName(const QString &positionSourceName);
+
+    /**
+     * The name of the position source to use.
+     * A QGeoPositionInfoSource is created internally based on this name.
+     */
+    void setPositionSourceName( const QString &positionSourceName );
 
   public slots:
     void applyGeometry();
@@ -103,7 +112,8 @@ class FeatureModel : public QAbstractListModel
     QgsFeature mFeature;
     Geometry* mGeometry;
     QVector<bool> mRememberedAttributes;
-    QGeoPositionInfoSource *mPositionSource = nullptr;
+    std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
+    QString mTempName;
 };
 
 #endif // FEATUREMODEL_H

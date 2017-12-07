@@ -199,7 +199,7 @@ void FeatureModel::resetAttributes()
     return;
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  expressionContext << ExpressionContextUtils::positionScope( mPositionSource );
+  expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -212,7 +212,16 @@ void FeatureModel::resetAttributes()
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
         QgsExpression exp( fields.at( i ).defaultValueDefinition().expression() );
+        exp.prepare( &expressionContext );
+        if ( exp.hasParserError() )
+          QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has parser error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.parserErrorString() ), QStringLiteral( "QField" ) );
+
         QVariant value = exp.evaluate( &expressionContext );
+
+        if ( exp.hasEvalError() )
+          QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
+
+
         mFeature.setAttribute( i , value );
       }
       else
@@ -280,8 +289,11 @@ QString FeatureModel::positionSourceName() const
 
 void FeatureModel::setPositionSourceName( const QString& positionSourceName )
 {
-  delete mPositionSource;
-  mPositionSource = QGeoPositionInfoSource::createSource( positionSourceName, this );
+  if ( mPositionSource && mPositionSource->sourceName() == positionSourceName )
+    return;
+
+  mPositionSource.reset( QGeoPositionInfoSource::createSource( positionSourceName, this ) );
+  emit positionSourceChanged();
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const
