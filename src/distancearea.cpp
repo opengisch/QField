@@ -32,7 +32,7 @@ void DistanceArea::init()
     mDistanceArea.setEllipsoid( mProject->ellipsoid() );
   else
     mDistanceArea.setEllipsoid( GEO_NONE );
-  mDistanceArea.setSourceCrs( mCrs );
+  mDistanceArea.setSourceCrs( mCrs, mProject->transformContext() );
 
   emit lengthUnitsChanged();
   emit areaUnitsChanged();
