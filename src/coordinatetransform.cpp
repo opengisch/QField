@@ -43,7 +43,6 @@ void CoordinateTransform::setSourceCRS( QgsCoordinateReferenceSystem sourceCRS )
     return;
 
   mTransform.setSourceCrs( sourceCRS );
-  mTransform.initialize();
   emit sourceCRSChanged();
 }
 
@@ -53,6 +52,5 @@ void CoordinateTransform::setDestinationCRS( QgsCoordinateReferenceSystem destCR
     return;
 
   mTransform.setDestinationCrs( destCRS );
-  mTransform.initialize();
   emit destinationCRSChanged();
 }
