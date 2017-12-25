@@ -7,7 +7,7 @@ astyle.*.diff
 *.autosave
 QField.pro.user
 QField.pro.user.*
-config.pri
+/config.pri
 build*
 android/gradle.properties
 android/local.properties
