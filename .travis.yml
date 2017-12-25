@@ -12,7 +12,7 @@ jobs:
   - stage: test
     script: true
   - stage: deploy
-    if: tag IS present
+    # if: tag IS present
     script: docker run -v $(pwd):/usr/src/qfield opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
 env:
   global:
