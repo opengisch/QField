@@ -5,7 +5,8 @@
 
 mkdir -p /home/build
 pushd /home/build
-/opt/Qt/${QT_VERSION}/android_armv7/bin/qmake /usr/src/qfield/QField.pro
+cp /usr/src/qfield/docker/config.pri /usr/src/qfield/config.pri
+${QT_ANDROID}/bin/qmake /usr/src/qfield/QField.pro
 make
 make install INSTALL_ROOT=/home/install
 androiddeployqt --input /home/build/src/android-libqfield.so-deployment-settings.json --output /home/install --deployment bundled --android-platform ${ANDROID_NDK_PLATFORM} --gradle
