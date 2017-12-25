@@ -13,7 +13,7 @@ jobs:
     script: true
   - stage: deploy
     if: tag IS present
-    script: docker run -v $(pwd):/usr/src/qfield qfield-sdk /usr/src/qfield/docker/build.sh
+    script: docker run -v $(pwd):/usr/src/qfield opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
 env:
   global:
     secure: fYC4YWxJHQJBWfBi7K/lRx1D58n22H1xs421m6QGh8DPF+R6LvkgeoFdbi/tiG+8JnjrbYdK4pnLk3MmFVD8Qr/yDaDlbVJEGBUY+yV+G6mpfditgVPQ32YV45D1QuhENrbru2wTASkSnO6I/nQ5yacwbZiKj0w37cbAPv0Pv3M=
