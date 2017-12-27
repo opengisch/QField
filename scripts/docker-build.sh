@@ -26,7 +26,7 @@ make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then
     androiddeployqt \
-	    --sign ${SOURCE_DIR}/playstore_keystore.jks "${KEYNAME}" \
+	    --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
 	    --storepass "${STOREPASS}" \
 	    --keypass "${KEYPASS}" \
 	    --input ${BUILD_DIR}/src/android-libqfield.so-deployment-settings.json \
