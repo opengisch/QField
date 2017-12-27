@@ -34,22 +34,49 @@ If you found it useful, we will be even happier if you could give something back
 
 ### For Android
 
+#### Quick and dirty
+
+Use the dockerized QField SDK.
+
+```
+cd QField
+
+git submodule init
+git submodule update
+
+docker run -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh --rm
+```
+
+This will put the apk into a subfolder `build-docker/out/build/outputs/apk`
+
+#### Go the hard way
+
 Build [OSGeo4A](https://github.com/opengisch/OSGeo4A)
-
-### For Desktop
-
-* Install Qt 5.6 dev libraries
-* Build QGIS using Qt5
-
-### For both
 
 ```sh
 cd QField
-cp config.pri.default config.pri
+
 git submodule init
 git submodule update
+
+cp config.pri.default config.pri
+# Edit config.pri
 ```
 
- * adjust the paths in config.pri
+The advantage of this is, you will be able to build and deploy directly from QtCreator.
+
+### For Desktop
+
+* Get QGIS 2.99 (3.0) development libraries.
+
+```sh
+cd QField
+git submodule init
+git submodule update
+
+cp config.pri.default config.pri
+# Edit config.pri
+```
+
  * open QField.pro with QtCreator (installed during OSGeo4A installation)
  * hit build
