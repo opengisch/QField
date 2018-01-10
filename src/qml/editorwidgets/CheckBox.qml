@@ -13,7 +13,7 @@ Item {
   CheckBox {
     property var currentValue: value
 
-    checked: value === config['CheckedState']
+    checked: value == config['CheckedState']
 
     onCheckedChanged: {
       valueChanged( checked ? config['CheckedState'] : config['UncheckedState'], false )
@@ -22,7 +22,7 @@ Item {
 
     // Workaround to get a signal when the value has changed
     onCurrentValueChanged: {
-      checked = currentValue === config['CheckedState']
+      checked = currentValue == config['CheckedState']
     }
   }
 }
