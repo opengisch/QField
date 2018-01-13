@@ -112,7 +112,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Valeurs par défaut</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
+<li><a class="reference internal" href="#additional-variables">Variables supplémentaires</a></li>
 <li><a class="reference internal" href="#id1">Cas d&#8217;utilisation courante</a></li>
 </ul>
 </li>
@@ -126,7 +126,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Tolérance d&#8217;accrochage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">Coordonnées 3D</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +196,7 @@
       
   <div class="section" id="vector-layer-settings">
 <h1>Configuration des couches vecteur<a class="headerlink" href="#vector-layer-settings" title="Lien permanent vers ce titre">¶</a></h1>
-<p>La majeur partie des configuration offertes par QGIS sont directement supportées par QField sans développement supplémentaire.</p>
+<p>La plupart des configurations offertes par QGIS sont directement supportées par QField sans développement supplémentaire.</p>
 <div class="section" id="style">
 <h2>Style<a class="headerlink" href="#style" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Toutes les configurations de style de QGIS sont directement supportées dans QField. Cela inclut tous les types de rendu comme les dégradés, la thématisation, les règles, le 2.5D ainsi que la symbologie définie par les données.</p>
@@ -213,7 +213,7 @@
 </div>
 <div class="section" id="read-only-and-non-identifiable-layers">
 <h2>Couches en lecture seule ou non identifiables<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Certaines couches sont présentes dans un projet juste dans un but de visualisation. De telles couches ne doivent pas apparaître quand un utilisateur pianote quelque part pour identifier un objet.</p>
+<p>Certaines couches sont présentes dans un projet juste dans un but de visualisation. De telles couches ne doivent pas apparaître quand un utilisateur touche l&#8217;écran quelque part pour identifier un objet.</p>
 <p>Certaines couches sont seulement là à titre informatif et ne devraient pas être modifiées par l&#8217;utilisateur. Il est possible de protéger les couches de l&#8217;édition d&#8217;attributs ou de l&#8217;ajout ou la suppression d&#8217;objets.</p>
 <p>Pour configurer le comportement d&#8217;identification et de lecture-seule, aller à la page : <cite>Project &#8211;&gt; Project Properties &#8211;&gt; Identify Layers</cite> et activer les cases à cocher pour obtenir le comportement souhaité.</p>
 <div class="clearer text-center docutils container">
@@ -336,29 +336,28 @@
 <div class="clearer text-center docutils container">
 <div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration d&#8217;une date prévue comme valeur par défaut</span></p>
+<p class="caption"><span class="caption-text">Configuration d&#8217;une date en valeur par défaut</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Lien permanent vers ce titre">¶</a></h4>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h4>Variables supplémentaires<a class="headerlink" href="#additional-variables" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Dans QField il existe des variables supplémentaires pour les informations relatives à la localisation en cours.</p>
 <ul class="simple">
 <li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
 by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
 <li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_direction</cite> (float) : Ecart en degrés avec le Nord géographique.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (float) : Vitesse en mètres par seconde.</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float) : Angle entre le composant horizontal du champ magnétique et le Nord géographique, en degrés. Aussi connu sous le nom de déclinaison magnétique. Une valeur positive indique une direction dans le sens des aiguilles d&#8217;une montre par rapport au Nord géographique et une valeur négative indique une direction inverse.</p>
+</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (float) : Précision horizontale (en mètres).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (float) : Précision verticale (en mètres).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float) : vitesse verticale en mètres par seconde.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -393,7 +392,7 @@ per second.</li>
 <div class="section" id="snapping">
 <h2>Accrochage<a class="headerlink" href="#snapping" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lors de la numérisation de nouvelles entités, les nouveaux points peuvent être accrochés aux géométries existantes.</p>
-<p>Toutes la configuration peut être faire dans : menuselection:<cite>Project &#8211;&gt; Snapping Settings</cite> (<span class="menuselection">Settings ‣ Snapping Settings</span> dans QGIS 2.x).</p>
+<p>Toute la configuration peut être faite dans : menuselection:<cite>Project &#8211;&gt; Snapping Settings</cite> (<span class="menuselection">Settings ‣ Snapping Settings</span> dans QGIS 2.x).</p>
 <div class="section" id="snapping-types">
 <h3>Types d&#8217;accrochage<a class="headerlink" href="#snapping-types" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il est possible d&#8217;accrocher de nouveaux points</p>
@@ -417,7 +416,7 @@ per second.</li>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Coordonnées 3D<a class="headerlink" href="#d-coordinates" title="Lien permanent vers ce titre">¶</a></h2>
 <p>GPS devices are capable of measuring the altitude next to the current 2D
 position on the earth surface. This information can be saved</p>
 </div>
