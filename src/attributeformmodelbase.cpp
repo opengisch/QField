@@ -214,16 +214,15 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem* item )
   }
 }
 
-void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QStandardItem* parent, const QString& visibilityExpressions, QVector<QStandardItem*>& items )
+void AttributeFormModelBase::flatten( QgsAttributeEditorContainer* container, QStandardItem* parent, const QString& parentVisibilityExpressions, QVector<QStandardItem*>& items )
 {
-  QString visibilityExpression = visibilityExpressions;
-
   Q_FOREACH( QgsAttributeEditorElement* element, container->children() )
   {
     switch ( element->type() )
     {
       case QgsAttributeEditorElement::AeTypeContainer:
       {
+        QString visibilityExpression = parentVisibilityExpressions;
         QgsAttributeEditorContainer* container = static_cast<QgsAttributeEditorContainer*>( element );
         if ( container->visibilityExpression().enabled() )
         {
@@ -318,16 +317,13 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem* item = constraintIterator.key();
-    if ( item->data( AttributeFormModel::FieldIndex ) == fieldIndex || fieldIndex == -1 )
-    {
-      QgsExpression exp = constraintIterator.value();
-      exp.prepare( &mExpressionContext );
-      bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
+    QgsExpression exp = constraintIterator.value();
+    exp.prepare( &mExpressionContext );
+    bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
 
-      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
-      {
-        item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
-      }
+    if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    {
+      item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
     }
 
     if ( !item->data( AttributeFormModel::ConstraintValid ).toBool() )
