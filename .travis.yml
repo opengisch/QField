@@ -21,8 +21,8 @@ jobs:
     - stage: test
       script: true
     - stage: deploy
-      # if: tag IS present
-      script: docker run -v $(pwd):/usr/src/qfield  -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" -e "TRAVIS_TAG=${TRAVIS_TAG}" opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
+      # if: tag is present AND type = push
+      script: docker run -v $(pwd):/usr/src/qfield  -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
       before_deploy: mv build-docker/out/build/outputs/apk/out-release-signed.apk build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
       deploy:
         provider: releases
@@ -30,3 +30,5 @@ jobs:
           secure: YOUR_API_KEY_ENCRYPTED
         file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
         skip_cleanup: true
+        on:
+          tags: true
