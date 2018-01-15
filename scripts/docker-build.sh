@@ -9,6 +9,10 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
+echo $(stat -c "%u" .)
+echo $(stat -c "%g" .)
+cho $(ls -la)
+
 SOURCE_DIR=/usr/src/qfield
 BUILD_DIR=${SOURCE_DIR}/build-docker
 INSTALL_DIR=${SOURCE_DIR}/build-docker/out
