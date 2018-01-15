@@ -75,7 +75,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void updateAttributeValue( QStandardItem* item );
 
-    void flatten( QgsAttributeEditorContainer* container , QStandardItem* parent , const QString& visibilityExpressions, QVector<QStandardItem*>& items );
+    void flatten( QgsAttributeEditorContainer* container , QStandardItem* parent , const QString& parentVisibilityExpressions, QVector<QStandardItem*>& items );
 
     void updateVisibility( int fieldIndex = -1 );
 
