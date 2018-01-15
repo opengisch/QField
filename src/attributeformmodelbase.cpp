@@ -317,16 +317,13 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem* item = constraintIterator.key();
-    if ( item->data( AttributeFormModel::FieldIndex ) == fieldIndex || fieldIndex == -1 )
-    {
-      QgsExpression exp = constraintIterator.value();
-      exp.prepare( &mExpressionContext );
-      bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
+    QgsExpression exp = constraintIterator.value();
+    exp.prepare( &mExpressionContext );
+    bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
 
-      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
-      {
-        item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
-      }
+    if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    {
+      item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
     }
 
     if ( !item->data( AttributeFormModel::ConstraintValid ).toBool() )
