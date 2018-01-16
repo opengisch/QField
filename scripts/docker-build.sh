@@ -48,5 +48,5 @@ else
 	    --android-platform ${ANDROID_NDK_PLATFORM} \
 	    --gradle
 fi
-chown -R $(stat -c "%U" .):$(stat -c "%G" .) .
+chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
 popd
