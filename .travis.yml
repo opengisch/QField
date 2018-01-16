@@ -21,7 +21,7 @@ jobs:
     - stage: deploy
       # if: tag is present AND type = push
       before_script: echo $(stat -c "%G" .) $(stat -c "%g" .) $(stat -c "%G" .) $(stat -c "%g" .)
-      script: docker run -v --user 2000 $(pwd):/usr/src/qfield  -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
+      script: docker run --user 2000 -v $(pwd):/usr/src/qfield  -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
       before_deploy: mv build-docker/out/build/outputs/apk/out-release-signed.apk build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
       deploy:
         provider: releases
