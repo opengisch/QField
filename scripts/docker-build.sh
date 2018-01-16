@@ -11,8 +11,8 @@
 
 echo 'dockout stat -c %u: '$(stat -c "%u" .)
 echo 'dockout stat -c %g: '$(stat -c "%g" .)
-echo 'dockout stat -c %u: '$(stat -c "%U" .)
-echo 'dockout stat -c %g: '$(stat -c "%G" .)
+echo 'dockout stat -c %U: '$(stat -c "%U" .)
+echo 'dockout stat -c %G: '$(stat -c "%G" .)
 echo 'dockout ls -la: '$(ls -la)
 
 SOURCE_DIR=/usr/src/qfield
@@ -49,4 +49,5 @@ else
 	    --gradle
 fi
 chown -R $(stat -c "%U" .):$(stat -c "%G" .) .
+chmod -R 777 .
 popd
