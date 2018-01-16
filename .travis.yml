@@ -25,6 +25,7 @@ jobs:
       before_deploy: sudo mv build-docker/out/build/outputs/apk/out-release-signed.apk build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
       deploy:
         provider: releases
+        file_glob: true
         api_key:
           secure: YOUR_API_KEY_ENCRYPTED
         file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
