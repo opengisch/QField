@@ -49,5 +49,4 @@ else
 	    --gradle
 fi
 chown -R $(stat -c "%U" .):$(stat -c "%G" .) .
-chmod -R 777 .
 popd
