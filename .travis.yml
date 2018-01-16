@@ -30,6 +30,7 @@ jobs:
         provider: releases
         api_key:
           secure: YOUR_API_KEY_ENCRYPTED
+        file: "$DEPLOY_FILENAME"
         skip_cleanup: true
         on:
           tags: true
