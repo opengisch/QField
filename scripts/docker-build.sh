@@ -9,9 +9,6 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
-RUN useradd -r -u 2000 -g docker docker
-USER docker
-
 echo 'dockout stat -c %u: '$(stat -c "%u" .)
 echo 'dockout stat -c %g: '$(stat -c "%g" .)
 echo 'dockout stat -c %U: '$(stat -c "%U" .)
