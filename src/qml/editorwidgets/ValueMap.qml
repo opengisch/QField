@@ -19,21 +19,50 @@ Item {
 
     property var reverseConfig: ({})
     property var currentValue: value
+    property var currentMap
+    property var currentKey
+
 
     anchors { left: parent.left; right: parent.right }
 
     currentIndex: find(reverseConfig[value])
 
+    ListModel {
+        id: listModel
+    }
+
     Component.onCompleted: {
-      model = Object.keys(config['map']);
-      for(var key in config['map']) {
-        reverseConfig[config['map'][key]] = key;
+      if( config['map'] )
+      {
+        if( config['map'].length )
+        {
+          //it's a list (>=QGIS3.0)
+          for(var i=0; i<config['map'].length; i++)
+          {
+            currentMap = config['map'][i]
+            currentKey = Object.keys(currentMap)[0]
+            listModel.append( { text: currentKey } )
+            reverseConfig[currentMap[currentKey]] = currentKey;
+          }
+          model=listModel
+          textRole = 'text'
+        }
+        else
+        {
+          //it's a map (<=QGIS2.18)
+          model = Object.keys(config['map']);
+          for(var key in config['map']) {
+            reverseConfig[config['map'][key]] = key;
+          }
+        }
       }
+
       currentIndex = find(reverseConfig[value])
     }
 
     onCurrentTextChanged: {
-      valueChanged(config['map'][currentText], false)
+      currentMap= config['map'].length ? config['map'][currentIndex] : config['map']
+      valueChanged(currentMap[currentText], false)
     }
 
     // Workaround to get a signal when the value has changed
@@ -57,7 +86,7 @@ Item {
     delegate: ItemDelegate {
       width: comboBox.width
       height: 36 * dp
-      text: modelData
+      text: config['map'].length ? model.text : modelData
       font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
       font.pointSize: 12
       highlighted: comboBox.highlightedIndex == index
