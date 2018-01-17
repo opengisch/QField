@@ -9,11 +9,11 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
-echo 'dockout stat -c %u: '$(stat -c "%u" .)
-echo 'dockout stat -c %g: '$(stat -c "%g" .)
-echo 'dockout stat -c %U: '$(stat -c "%U" .)
-echo 'dockout stat -c %G: '$(stat -c "%G" .)
-echo 'dockout ls -la: '$(ls -la)
+echo 'docker-debug output stat -c %u: '$(stat -c "%u" .)
+echo 'docker-debug output stat -c %g: '$(stat -c "%g" .)
+echo 'docker-debug output stat -c %U: '$(stat -c "%U" .)
+echo 'docker-debug output stat -c %G: '$(stat -c "%G" .)
+echo 'docker-debug output ls -la: '$(ls -la)
 
 SOURCE_DIR=/usr/src/qfield
 BUILD_DIR=${SOURCE_DIR}/build-docker
