@@ -15,7 +15,11 @@ before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
-  - rvm install 2.0.0
+  - ruby -v
+  - sudo rvm install 2.0.0
+  - ruby -v
+  - sudo rvm use 2.0.0
+  - ruby -v
 
 jobs:
   include:
@@ -30,10 +34,8 @@ jobs:
       deploy:
         provider: releases
         api_key:
-          secure: SIGNEDAVSGITHUBOAUTHTOKEN
+          secure: YOUR_API_KEY_ENCRYPTED
         file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
         skip_cleanup: true
         on:
           tags: true
-          repo: opengisch/QField
-
