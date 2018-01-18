@@ -35,3 +35,5 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+          repo: opengisch/QField
+
