@@ -1,7 +1,9 @@
-language: ruby 
+language: python
 python:
   - 3.5
 rvm:
+  - 2.0.0
+ruby:
   - 2.0.0
 
 # Handle git submodules manually
@@ -29,8 +31,8 @@ jobs:
       - sudo mv build-docker/out/build/outputs/apk/out-release-signed.apk build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
       deploy:
         provider: releases
-        api_key:		
-          secure: YOUR_API_KEY_ENCRYPTED
+        user: $DAVE_GITNAME
+        password: $DAVE_GITPASS
         file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
         skip_cleanup: true
         on:
