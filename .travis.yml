@@ -16,9 +16,9 @@ before_install:
   - git submodule update --init --recursive
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
   - ruby -v
-  - sudo rvm install 2.0.0
+  - rvm install 2.0.0
   - ruby -v
-  - sudo rvm use 2.0.0
+  - rvm use 2.0.0
   - ruby -v
 
 jobs:
