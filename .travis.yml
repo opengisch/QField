@@ -1,4 +1,4 @@
-language: python
+language: ruby 
 python:
   - 3.5
 rvm:
