@@ -6,12 +6,17 @@ python:
 git:
   submodules: false
 
-services:
-  - docker
+#services:
+#- docker
 
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu
+    $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y install docker-ce
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
   - rvm install 2.0.0
 
