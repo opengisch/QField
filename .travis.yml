@@ -31,7 +31,7 @@ jobs:
       deploy:
         provider: releases
         api_key:
-          secure: YOUR_API_KEY_ENCRYPTED
+          secure: ${GITHUB_API_TOKEN}
         file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
         skip_cleanup: true
         on:
