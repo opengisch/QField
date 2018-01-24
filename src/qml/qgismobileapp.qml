@@ -831,4 +831,28 @@ ApplicationWindow {
       return filePath.split('.').pop() === "qgs"
     }
   }
+
+  property bool alreadyCloseRequested: false
+
+  onClosing: {
+      if( !alreadyCloseRequested )
+      {
+        close.accepted = false
+        alreadyCloseRequested = true
+        displayToast( qsTr( "Press back again to close project and app" ) )
+        closingTimer.start()
+      }
+      else
+      {
+        close.accepted = true
+      }
+  }
+
+  Timer {
+    id: closingTimer
+    interval: 2000
+    onTriggered: {
+        alreadyCloseRequested = false
+    }
+  }
 }
