@@ -41,7 +41,7 @@ void FeatureListExtentController::zoomToSelected() const
     QgsFeature feat = mSelection->selectedFeature();
     QgsVectorLayer* layer = mSelection->selectedLayer();
 
-    QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs() );
+    QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feat.geometry() );
     geom.transform( transf );
 
