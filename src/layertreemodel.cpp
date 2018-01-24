@@ -90,10 +90,16 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
 
     case Visible:
     {
-      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
-      return node->isVisible();
+      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        return sym->data( Qt::CheckStateRole ).toBool();
+      }
+      else
+      {
+        QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+        return node->isVisible();
+      }
     }
-
     default:
       return QSortFilterProxyModel::data( index, role );
   }
@@ -103,8 +109,19 @@ bool LayerTreeModel::setData(const QModelIndex& index, const QVariant& value, in
 {
   if ( role == Visible )
   {
-    QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
-    node->setItemVisibilityCheckedRecursive( value.toBool() );
+    if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+    {
+      QVariant checked = Qt::Unchecked;
+      if( value.toBool() )
+        checked=Qt::Checked;
+
+      sym->setData( checked, Qt::CheckStateRole );
+    }
+    else
+    {
+      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      node->setItemVisibilityCheckedRecursive( value.toBool() );
+    }
     return true;
   }
   return false;
