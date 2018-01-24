@@ -538,6 +538,13 @@ ApplicationWindow {
       }
     }
 
+
+    /*
+    We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
+    But we keep the code in case, the concept changes or we need to close the app completely (remove from background)
+    */
+
+    /*
     Controls.MenuSeparator {}
 
     Controls.MenuItem {
@@ -547,6 +554,7 @@ ApplicationWindow {
         Qt.quit()
       }
     }
+    */
   }
 
   Controls.Menu {
