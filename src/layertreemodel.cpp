@@ -90,7 +90,8 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
 
     case Visible:
     {
-      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
+      if ( sym )
       {
         return sym->data( Qt::CheckStateRole ).toBool();
       }
@@ -109,12 +110,10 @@ bool LayerTreeModel::setData(const QModelIndex& index, const QVariant& value, in
 {
   if ( role == Visible )
   {
-    if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+    QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
+    if ( sym )
     {
-      QVariant checked = Qt::Unchecked;
-      if( value.toBool() )
-        checked=Qt::Checked;
-
+      QVariant checked = value.toBool() ? Qt::Checked : Qt::Unchecked;
       sym->setData( checked, Qt::CheckStateRole );
     }
     else
