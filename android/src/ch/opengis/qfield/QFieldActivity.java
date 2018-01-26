@@ -59,7 +59,9 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 public class QFieldActivity extends Activity {
@@ -75,6 +77,7 @@ public class QFieldActivity extends Activity {
   private boolean mExternalStorageWriteable = false;
   private String mDotQgis2Dir;
   private String mShareDir;
+  private boolean alreadyCloseRequested = false;
 
   /** Called when the activity is first created. */
   public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +151,24 @@ public class QFieldActivity extends Activity {
     default:
       return null;
     }
+  }
+
+  public void onBackPressed() {
+    if (alreadyCloseRequested) {
+        finish();
+        return;
+    }
+
+    this.alreadyCloseRequested = true;
+    Toast.makeText(this, "Press back again to close project and app.", Toast.LENGTH_SHORT).show();
+
+    new Handler().postDelayed(new Runnable() {
+
+        @Override
+        public void run() {
+            alreadyCloseRequested = false;
+        }
+    }, 2000);
   }
 
   private void startFirstRun() {
