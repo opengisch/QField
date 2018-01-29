@@ -340,7 +340,7 @@ ApplicationWindow {
 
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.visible = !dashBoard.visible
-      bgcolor: dashBoard.visible ? "#C8E6C9" : "#212121"
+      bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
       Connections {
         target: dashBoard
         onOpenChanged: menuButton.rotate()

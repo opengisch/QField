@@ -13,7 +13,7 @@ Controls.Pane {
   property alias currentLayer: legend.currentLayer
   property MapSettings mapSettings
 
-  property color mainColor: "#C8E6C9"
+  property color mainColor: "#80CC28"
   padding: 0
 
   ColumnLayout {
