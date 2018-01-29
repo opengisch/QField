@@ -35,9 +35,11 @@ ApplicationWindow {
   minimumHeight: 400
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
+
   Item {
     id: keyHandler
     focus: true
+
     Keys.onReleased: {
       console.warn( "KEY PRESS " + event.key )
       if ( event.key === Qt.Key_Back ||
@@ -775,7 +777,7 @@ ApplicationWindow {
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      dashBoard.focus=true
+      mainWindow.keyHandler.focus=true
     }
   }
 
