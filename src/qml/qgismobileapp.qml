@@ -293,6 +293,15 @@ ApplicationWindow {
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
 
+    Keys.onReleased: {
+      console.warn( "KEY PRESS " + event.key )
+      if ( event.key === Qt.Key_Back ||
+        event.key === Qt.Key_Escape ) {
+        mainWindow.close();
+        event.accepted = true
+      }
+    }
+
     Behavior on width {
       NumberAnimation {
         duration: 200
@@ -766,6 +775,7 @@ ApplicationWindow {
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
+      dashBoard.focus=true
     }
   }
 
