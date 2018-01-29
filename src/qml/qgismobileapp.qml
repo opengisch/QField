@@ -34,8 +34,18 @@ ApplicationWindow {
   minimumWidth: 600
   minimumHeight: 400
 
-  Keys.onReleased: {
-    console.warn( "KEY PRESS " + event.key )
+  //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
+  Item {
+    id: keyHandler
+    focus: true
+    Keys.onReleased: {
+      console.warn( "KEY PRESS " + event.key )
+      if ( event.key === Qt.Key_Back ||
+        event.key === Qt.Key_Escape ) {
+        mainWindow.close();
+        event.accepted = true
+      }
+    }
   }
 
   Item {
