@@ -31,5 +31,6 @@
         <file>TransformedPositionSource.qml</file>
         <file>LayerTreeItemProperties.qml</file>
         <file>ui/LayerTreeItemProperties.ui.qml</file>
+        <file>QFieldCamera.qml</file>
     </qresource>
 </RCC>
