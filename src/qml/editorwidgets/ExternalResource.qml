@@ -76,8 +76,8 @@ Item {
 
         x: 0
         y: 0
-        height: 400//Screen.height
-        width: 500//Screen.width
+        height: parent.height //Screen.height
+        width: parent.width //Screen.width
 
         modal: true
         focus: true

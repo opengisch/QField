@@ -64,7 +64,7 @@ Item{
 
           onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM')
 
-          iconSource: Style.getThemeIcon("ic_camera_white_36dp.png")
+          iconSource: Style.getThemeIcon("ic_camera_white_36dp")
         }
         Button {
           id: video_button_cancel
@@ -79,7 +79,7 @@ Item{
 
           onClicked: canceled()
 
-          iconSource: Style.getThemeIcon("ic_clear_white_24dp.png")
+          iconSource: Style.getThemeIcon("ic_clear_white_24dp")
         }
     }
 
@@ -87,6 +87,8 @@ Item{
         id: photoPreview
 
         visible: cameraItem.state == "PhotoPreview"
+
+        anchors.fill: parent
 
         fillMode: Image.PreserveAspectFit
         smooth: true
@@ -105,7 +107,7 @@ Item{
 
           onClicked: finished( currentPath)
 
-          iconSource: Style.getThemeIcon("ic_save_white_24dp.png")
+          iconSource: Style.getThemeIcon("ic_save_white_24dp")
         }
 
 
@@ -122,7 +124,7 @@ Item{
 
           onClicked: cameraItem.state = "PhotoCapture"
 
-          iconSource: Style.getThemeIcon("ic_clear_white_24dp.png")
+          iconSource: Style.getThemeIcon("ic_clear_white_24dp")
         }
 
     }
