@@ -163,7 +163,7 @@ bool FeatureModel::save()
 
   QgsFeature feat = mFeature;
   if ( !mLayer->updateFeature( feat ) )
-    QgsMessageLog::logMessage( tr( "Cannot update feature" ), "QField", QgsMessageLog::Warning );
+    QgsMessageLog::logMessage( tr( "Cannot update feature" ), "QField", QgsMessageLog::WARNING );
   rv = commit();
 
   if ( rv )
@@ -172,7 +172,7 @@ bool FeatureModel::save()
     if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
       setFeature( feat );
     else
-      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", QgsMessageLog::Warning );
+      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", QgsMessageLog::WARNING );
   }
   return rv;
 }
@@ -246,7 +246,7 @@ void FeatureModel::create()
   startEditing();
   if ( !mLayer->addFeature( mFeature ) )
   {
-    QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", QgsMessageLog::Critical );
+    QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", QgsMessageLog::CRITICAL );
   }
   commit();
 }
@@ -255,7 +255,7 @@ bool FeatureModel::commit()
 {
   if ( !mLayer->commitChanges() )
   {
-    QgsMessageLog::logMessage( tr( "Could not save changes. Rolling back." ), "QField", QgsMessageLog::Critical );
+    QgsMessageLog::logMessage( tr( "Could not save changes. Rolling back." ), "QField", QgsMessageLog::CRITICAL );
     mLayer->rollBack();
     return false;
   }
@@ -273,7 +273,7 @@ bool FeatureModel::startEditing()
 
   if ( !mLayer->startEditing() )
   {
-    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", QgsMessageLog::Warning );
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", QgsMessageLog::WARNING );
     return false;
   }
   else
