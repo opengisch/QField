@@ -13,6 +13,8 @@ SOURCE_DIR=/usr/src/qfield
 BUILD_DIR=${SOURCE_DIR}/build-docker
 INSTALL_DIR=${SOURCE_DIR}/build-docker/out
 
+apt-get install zip
+
 set -e
 
 mkdir -p ${BUILD_DIR}/.gradle
