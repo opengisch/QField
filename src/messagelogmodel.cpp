@@ -22,7 +22,7 @@ MessageLogModel::MessageLogModel( QObject* parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsApplication::messageLog() )
 {
-  connect( mMessageLog, static_cast<void ( QgsMessageLog::* ) ( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
+  connect( mMessageLog, static_cast<void ( QgsMessageLog::* ) ( const QString& message, const QString& tag, Qgis::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
 }
 
 QHash<int, QByteArray> MessageLogModel::roleNames() const
@@ -56,7 +56,7 @@ QVariant MessageLogModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::onMessageReceived( const QString& message, const QString& tag, QgsMessageLog::MessageLevel level )
+void MessageLogModel::onMessageReceived( const QString& message, const QString& tag, Qgis::MessageLevel level )
 {
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );
