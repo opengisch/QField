@@ -49,7 +49,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
     if ( !QDir::root().mkpath( mPrefix ) )
     {
-      QgsApplication::messageLog()->logMessage( tr( "Could not create folder %1" ).arg( mPrefix ), "QField", QgsMessageLog::CRITICAL );
+      QgsApplication::messageLog()->logMessage( tr( "Could not create folder %1" ).arg( mPrefix ), "QField", Qgis::Critical );
       return;
     }
 
@@ -63,7 +63,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       qDebug() << "Couldn't rename file! Trying to copy instead";
       if ( !QFile( filePath.toString() ).copy( dir.absoluteFilePath( filename ) ) )
       {
-        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2.", "QField", QgsMessageLog::CRITICAL ).arg( filePath.toString(), mPrefix ) );
+        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2.", "QField", Qgis::Critical ).arg( filePath.toString(), mPrefix ) );
       }
     }
 
