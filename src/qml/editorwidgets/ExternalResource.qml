@@ -52,7 +52,9 @@ Item {
 
     bgcolor: "transparent"
 
-    onClicked: camloader.active = true
+    onClicked: {
+        camloader.active = true
+    }
 
     iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
   }
@@ -67,40 +69,35 @@ Item {
   }
 
   Component {
-      id: camcomponent
+    id: camcomponent
 
-      Popup {
-        id: campopup
+    Popup {
+      id: campopup
 
-        parent: ApplicationWindow.overlay
+      parent: ApplicationWindow.overlay
 
-        x: 0
-        y: 0
-        height: parent.height //Screen.height
-        width: parent.width //Screen.width
+      x: 0
+      y: 0
+      height: parent.height //Screen.height
+      width: parent.width //Screen.width
 
-        modal: true
-        focus: true
-        closePolicy: Popup.CloseOnEscape
+      modal: true
+      focus: true
+      closePolicy: Popup.CloseOnEscape
 
-        QField.QFieldCamera {
-          id: qfieldCamera
+      QField.QFieldCamera {
+        id: qfieldCamera
 
-          visible: true
+        visible: true
 
-          onFinished: {
-            valueChanged(path, false)
-            campopup.close()
-          }
-          onCanceled: {
-            campopup.close()
-          }
+        onFinished: {
+          valueChanged(path, false)
+          camloader.active = false
         }
-
-        onClosed: {
+        onCanceled: {
           camloader.active = false
         }
       }
-
+    }
   }
 }

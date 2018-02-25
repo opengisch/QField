@@ -19,7 +19,6 @@ Item{
             StateChangeScript {
                 script: {
                     camera.captureMode = Camera.CaptureStillImage
-                    camera.start()
                 }
             }
         },
@@ -31,8 +30,6 @@ Item{
     Camera {
         id: camera
 
-        captureMode: Camera.CaptureStillImage
-
         imageCapture {
             onImageSaved: {
                 currentPath  = path
@@ -42,7 +39,6 @@ Item{
                 cameraItem.state = "PhotoPreview"
             }
         }
-
     }
 
     VideoOutput {
@@ -50,6 +46,7 @@ Item{
         visible: true
         focus : visible
         source: camera
+        autoOrientation: true
 
         Button {
           id: video_button_click
@@ -60,11 +57,10 @@ Item{
           anchors.right: parent.right
           anchors.top: parent.top
 
-          bgcolor: "transparent"
+          bgcolor: "#80CC28"
+          iconSource: Style.getThemeIcon("ic_camera_white_36dp")
 
           onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM')
-
-          iconSource: Style.getThemeIcon("ic_camera_white_36dp")
         }
         Button {
           id: video_button_cancel
@@ -75,11 +71,10 @@ Item{
           anchors.right: parent.right
           anchors.bottom: parent.bottom
 
-          bgcolor: "transparent"
-
-          onClicked: canceled()
-
+          bgcolor: "#80CC28"
           iconSource: Style.getThemeIcon("ic_clear_white_24dp")
+
+          onClicked: cameraItem.canceled()
         }
     }
 
@@ -103,11 +98,10 @@ Item{
           anchors.right: parent.right
           anchors.top: parent.top
 
-          bgcolor: "transparent"
-
-          onClicked: finished( currentPath)
-
+          bgcolor: "#80CC28"
           iconSource: Style.getThemeIcon("ic_save_white_24dp")
+
+          onClicked: cameraItem.finished( currentPath )
         }
 
 
@@ -120,12 +114,10 @@ Item{
           anchors.right: parent.right
           anchors.bottom: parent.bottom
 
-          bgcolor: "transparent"
+          bgcolor: "#80CC28"
+          iconSource: Style.getThemeIcon("ic_clear_white_24dp")
 
           onClicked: cameraItem.state = "PhotoCapture"
-
-          iconSource: Style.getThemeIcon("ic_clear_white_24dp")
         }
-
     }
 }
