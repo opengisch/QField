@@ -98,7 +98,6 @@ SOURCES += \
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
 
-
 # Make qml files translatable
 lupdate_only{
   SOURCES = qml/*.qml \

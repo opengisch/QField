@@ -4,32 +4,21 @@
 
 include( paths.pri )
 
-!android:macx {
-  QMAKE_LFLAGS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/
-  LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/
-  LIBS += -framework qgis_core
+!android {
+  macx {
+    QMAKE_LFLAGS += -F$${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/
+    LIBS += -F$${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/
+    LIBS += -framework qgis_core
 
-  INCLUDEPATH += /Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/3.1/Headers
-  INCLUDEPATH += $${GEOS_INCLUDE_PATH}
-
-#  LIBS += -F /Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/qgis_core.framework/qgis_core
-#  LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/
-#  LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/
-#  LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL
-#  LIBS += -framework qgis_core.framework
-
-
-LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/
-#LIBS += -F/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/
-LIBS += -framework qgis_core
+    INCLUDEPATH += $${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current/Headers
+    INCLUDEPATH += $${GEOS_INCLUDE_PATH}
+  }
+  !macx {
+    INCLUDEPATH += $${QGIS_INSTALL_PATH}/include/qgis
+    INCLUDEPATH += $${GEOS_INCLUDE_PATH}
+    LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so
+  }
 }
-else:!android
-{
-  INCLUDEPATH += $${QGIS_INSTALL_PATH}/include/qgis
-  INCLUDEPATH += $${GEOS_INCLUDE_PATH}
-  LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so
-}
-
 android {
   QGIS_INSTALL_PATH = $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/files
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
@@ -47,14 +36,14 @@ android {
 }
 
 macx {
-DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/QGIS.app/Contents/PlugIns/qgis\\\"" \
-           "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
+  DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/QGIS.app/Contents/PlugIns/qgis\\\"" \
+             "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
+  QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}//Contents/MacOS/lib/
 } else {
-DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
-           "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
+  DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
+             "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
+  QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}/lib/
 }
-
-QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}/lib/
 
 # Add QWT and QScintilla custom build paths if your distro only ships Qt4 versions
 # and you had to build them manually for Qt5

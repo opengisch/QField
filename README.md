@@ -81,19 +81,15 @@ cp config.pri.default config.pri
  * open QField.pro with QtCreator (installed during OSGeo4A installation)
  * hit build
 
- #### On mac
+ #### On Mac
 
- 1. Qt Creator > Projects > Run >
-Check "Use debug version of frameworks"
-Run Environment
-DYLD_FRAMEWORK_PATH: /usr/local/Cellar/qt/5.10.1/lib:/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks
-DYLD_LIBRARY_PATH: /usr/local/Cellar/qt/5.10.1/lib:/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current
+Building on a Mac requires some adjustments:
 
+1. In Qt Creator > Projects > Run >
+* Check "Use debug version of frameworks"
+* In Run Environment, edit following variables (replace `_QGIS_INSTALL_` by QGIS installation path):
+  * `DYLD_FRAMEWORK_PATH` add `:_QGIS_INSTALL_/QGIS.app/Contents/Frameworks`
+  * `DYLD_LIBRARY_PATH` add `:_QGIS_INSTALL_/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
 
-2. In /usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf
-Change line
-version_min_flag = -m$${version_identifier}-version-min=10.10
-
-sed -i '' "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/\
-+    version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" \
-+    /usr/local/Cellar/qt/5.9.1/mkspecs/features/mac/default_post.prf
+2. If you get the error `invalid version number in '-mmacosx-version-min='`, you might need to modify some Qt file. In `/usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`, hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10`
+Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`
