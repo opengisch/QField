@@ -51,7 +51,7 @@ QVector<QgsPoint> RubberbandModel::flatVertices() const
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem& crs ) const
+QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem& crs, QgsWkbTypes::Type wkbType ) const
 {
   QgsPointSequence sequence;
 
@@ -60,7 +60,8 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   Q_FOREACH( const QgsPoint& pt, mPointList )
   {
     QgsPoint p2( ct.transform( pt.x(), pt.y() ) );
-    p2.setZ( pt.z() );
+    if ( QgsWkbTypes::hasZ( wkbType ) )
+      p2.setZ( pt.z() );
     sequence.append( p2 );
   }
 
@@ -132,7 +133,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
   emit currentCoordinateChanged();
 }
 
-QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs ) const
+QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs, QgsWkbTypes::Type wkbType ) const
 {
   QgsCoordinateTransform ct( mCrs, crs );
 
@@ -144,7 +145,7 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs 
   ct.transformInPlace( x, y, z );
 
   QgsPoint resultPt( x, y );
-  if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) )
+  if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
     resultPt.addZValue( z );
 
   return resultPt;
