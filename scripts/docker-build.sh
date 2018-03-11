@@ -35,7 +35,7 @@ ${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro
 make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then
-    androiddeployqt \
+    ${QT_ANDROID}/bin/androiddeployqt \
 	    --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
 	    --storepass "${STOREPASS}" \
 	    --keypass "${KEYPASS}" \
@@ -45,7 +45,7 @@ if [ -n "${KEYNAME}" ]; then
 	    --android-platform ${ANDROID_NDK_PLATFORM} \
 	    --gradle
 else
-    androiddeployqt \
+    ${QT_ANDROID}/bin/androiddeployqt \
 	    --input ${BUILD_DIR}/src/android-libqfield.so-deployment-settings.json \
 	    --output ${INSTALL_DIR} \
 	    --deployment bundled \
