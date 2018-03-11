@@ -80,3 +80,20 @@ cp config.pri.default config.pri
 
  * open QField.pro with QtCreator (installed during OSGeo4A installation)
  * hit build
+
+ #### On mac
+
+ 1. Qt Creator > Projects > Run >
+Check "Use debug version of frameworks"
+Run Environment
+DYLD_FRAMEWORK_PATH: /usr/local/Cellar/qt/5.10.1/lib:/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks
+DYLD_LIBRARY_PATH: /usr/local/Cellar/qt/5.10.1/lib:/Users/denis/opt/qgis/QGIS_INSTALL/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current
+
+
+2. In /usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf
+Change line
+version_min_flag = -m$${version_identifier}-version-min=10.10
+
+sed -i '' "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/\
++    version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" \
++    /usr/local/Cellar/qt/5.9.1/mkspecs/features/mac/default_post.prf

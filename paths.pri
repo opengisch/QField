@@ -15,5 +15,5 @@ android {
 
 }
 !android {
-  LIBS += -lproj
+  #LIBS += -lproj
 }
