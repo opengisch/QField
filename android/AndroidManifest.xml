@@ -73,12 +73,8 @@
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
          Remove the comment if you do not require these default permissions. -->
     <!-- %%INSERT_PERMISSIONS -->
-    <uses-permission android:name="android.permission.CAMERA" />
 
   <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
        Remove the comment if you do not require these default features. -->
-  <!-- %%INSERT_FEATURES -->
-  <uses-feature android:name="android.hardware.camera" android:required="false" />
-  <uses-feature android:name="android.hardware.camera.autofocus" />
   <uses-feature android:name="android.hardware.location.gps" />
 </manifest>
