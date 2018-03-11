@@ -9,6 +9,7 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
+SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
 else
@@ -17,7 +18,6 @@ fi
 if [[ -z ${ARCH+x} ]]; then
     ARCH=armv7
 fi
-SOURCE_DIR=/usr/src/qfield
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
