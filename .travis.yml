@@ -34,14 +34,3 @@ jobs:
       if: type = pull_request OR tag IS present
       script:
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
-
-before_deploy: 
-  - sudo mv build-docker/out/build/outputs/apk/out-release-signed.apk build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
-deploy:
-  provider: releases
-  api_key:
-    secure: ${GITHUB_API_TOKEN}
-  file: build-docker/out/build/outputs/apk/qfield-${TRAVIS_TAG}.apk
-  skip_cleanup: true
-  on:
-    tags: true
