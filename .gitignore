@@ -5,6 +5,7 @@ astyle.*.diff
 *.orig
 *.iml
 *.autosave
+.DS_Store
 QField.pro.user
 QField.pro.user.*
 /config.pri

@@ -14,6 +14,6 @@ android {
   QT_LIBS_DIR = $$dirname(QMAKE_QMAKE)/../lib
 
 }
-!android {
+!android:!macx {
   LIBS += -lproj
 }
