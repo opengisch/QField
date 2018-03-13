@@ -4,6 +4,9 @@
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
         <file alias="karma-logo.svg">icons/karma-logo.svg</file>
         <file alias="karma-logo-playstore.svg">icons/karma-logo-playstore.svg</file>
+        <file>themes/qfield/nodpi/ic_save_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_clear_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_camera_alt_white_36dp.png</file>
     </qresource>
     <qresource prefix="/">
         <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
