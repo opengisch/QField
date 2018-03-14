@@ -35,10 +35,12 @@ android {
 
 macx {
   DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/QGIS.app/Contents/PlugIns/qgis\\\"" \
+             "QGIS_DATA_DIR=\\\"$$QGIS_INSTALL_PATH$$/QGIS.app/Contents/Resources\\\"" \
              "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
   QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}/Contents/MacOS/lib/
 } else {
   DEFINES += "QGIS_PLUGIN_DIR=\\\"$$QGIS_INSTALL_PATH$$/lib/qgis/plugins/\\\"" \
+             "QGIS_DATA_DIR=\\\"$$QGIS_INSTALL_PATH$$/share/qgis\\\"" \
              "QGIS_INSTALL_DIR=\\\"$$QGIS_INSTALL_PATH$$\\\""
   QMAKE_RPATHDIR += $${QGIS_INSTALL_PATH}/lib/
 }
