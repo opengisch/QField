@@ -496,7 +496,6 @@ ApplicationWindow {
         overlayFeatureForm.visible = true;
         overlayFeatureForm.state = "Add"
         overlayFeatureForm.reset()
-        digitizingRubberband.model.reset()
       }
       else
       {
@@ -669,10 +668,12 @@ ApplicationWindow {
 
     onSaved: {
       visible = false
-      if ( state === "Add" )
-        digitizingRubberband.model.reset()
+      digitizingRubberband.model.reset()
     }
-    onCancelled: visible = false
+    onCancelled: {
+        digitizingRubberband.model.reset()
+        visible = false
+    }
   }
 
   function displayToast( message ) {
