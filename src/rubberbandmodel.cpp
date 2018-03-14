@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include <qgsvectorlayer.h>
+#include <qgsproject.h>
 
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
@@ -55,7 +56,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 {
   QgsPointSequence sequence;
 
-  QgsCoordinateTransform ct( mCrs, crs );
+  QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
   Q_FOREACH( const QgsPoint& pt, mPointList )
   {
@@ -71,7 +72,7 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
 {
   QVector<QgsPointXY> sequence;
 
-  QgsCoordinateTransform ct( mCrs, crs );
+  QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
   Q_FOREACH( const QgsPoint& pt, mPointList )
   {
@@ -134,7 +135,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 
 QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs ) const
 {
-  QgsCoordinateTransform ct( mCrs, crs );
+  QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
   QgsPoint currentPt = mPointList.at( mCurrentCoordinateIndex );
   double x = currentPt.x();
