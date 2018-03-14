@@ -172,6 +172,7 @@ public class QFieldActivity extends Activity {
     intent.setClass(QFieldActivity.this, QtActivity.class);
     intent.putExtra("DOTQGIS2_DIR", mDotQgis2Dir);
     intent.putExtra("SHARE_DIR", mShareDir);
+    intent.putExtra("PACKAGE_PATH", getFilesDir().toString());
 
     Intent sourceIntent = getIntent();
     if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
