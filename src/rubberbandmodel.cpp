@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include <qgsvectorlayer.h>
+#include <qgsproject.h>
 
 RubberbandModel::RubberbandModel( QObject* parent )
   : QObject( parent )
