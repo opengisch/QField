@@ -637,6 +637,8 @@ ApplicationWindow {
     id: featureForm
     mapSettings: mapCanvas.mapSettings
 
+    focus: visibility
+
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowDelete: stateMachine.state === "digitize"
