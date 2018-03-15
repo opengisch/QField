@@ -240,6 +240,7 @@ Page {
           property var widget: EditorWidget
           property var field: Field
           property var constraintValid: ConstraintValid
+          property bool featureUsePlatformUtilitiesCamera: usePlatformUtilitiesCamera
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + widget + '.qml'

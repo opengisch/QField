@@ -72,7 +72,7 @@ Item{
       bgcolor: "red"
       round: true
 
-      onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM')
+      onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
     }
   }
 

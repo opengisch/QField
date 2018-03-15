@@ -27,9 +27,21 @@ Item {
       if (image.status === Image.Error)
         Style.getThemeIcon("ic_broken_image_black_24dp")
       else if (currentValue)
-        'file://' + currentValue
+        if ( featureUsePlatformUtilitiesCamera )
+          'file://' + qgisProject.homePath + '/' + currentValue
+        else
+          'file://' + currentValue
       else
         Style.getThemeIcon("ic_photo_notavailable_white_48dp")
+    }
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        if (currentValue && featureUsePlatformUtilitiesCamera)
+          platformUtilities.open(image.source, "image/*");
+      }
     }
   }
 
@@ -44,7 +56,10 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-      camloader.active = true
+      if (featureUsePlatformUtilitiesCamera)
+        __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
+      else
+        camloader.active = true
     }
 
     iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
@@ -88,6 +103,13 @@ Item {
         }
       }
       onClosed: camloader.active = false
+    }
+  }
+
+  Connections {
+    target: __pictureSource
+    onPictureReceived: {
+      valueChanged('DCIM/' + path, false)
     }
   }
 }
