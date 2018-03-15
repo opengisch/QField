@@ -27,7 +27,7 @@ Item {
       if (image.status === Image.Error)
         Style.getThemeIcon("ic_broken_image_black_24dp")
       else if (currentValue)
-        if ( featureUsePlatformUtilitiesCamera )
+        if ( featureUseNativeCamera )
           'file://' + qgisProject.homePath + '/' + currentValue
         else
           'file://' + currentValue
@@ -39,7 +39,7 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (currentValue && featureUsePlatformUtilitiesCamera)
+        if (currentValue && featureUseNativeCamera)
           platformUtilities.open(image.source, "image/*");
       }
     }
@@ -56,7 +56,7 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-      if (featureUsePlatformUtilitiesCamera)
+      if (featureUseNativeCamera)
         __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
       else
         camloader.active = true

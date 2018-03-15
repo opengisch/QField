@@ -655,7 +655,7 @@ ApplicationWindow {
   FeatureForm {
     id: overlayFeatureForm
 
-    property bool usePlatformUtilitiesCamera: qfieldSettings.usePlatformUtilitiesCamera
+    property bool useNativeCamera: qfieldSettings.useNativeCamera
 
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
