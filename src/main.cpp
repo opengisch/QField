@@ -63,6 +63,7 @@ int main( int argc, char ** argv )
   app.setPrefixPath( prefixPath, true );
 #ifdef ANDROID
   app.setPluginPath( QApplication::applicationDirPath() );
+  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
   app.setPluginPath( "" QGIS_PLUGIN_DIR );
 #endif

@@ -40,6 +40,11 @@ QString AndroidPlatformUtilities::shareDir() const
   return getIntentExtra( "SHARE_DIR" );
 }
 
+QString AndroidPlatformUtilities::packagePath() const
+{
+  return getIntentExtra( "PACKAGE_PATH" );
+}
+
 QString AndroidPlatformUtilities::qgsProject() const
 {
   return getIntentExtra( "QGS_PROJECT" );
