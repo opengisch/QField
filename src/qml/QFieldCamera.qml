@@ -111,7 +111,10 @@ Item{
       round: true
 
       iconSource: Style.getThemeIcon("ic_clear_white_24dp")
-      onClicked: cameraItem.state = "PhotoCapture"
+      onClicked: {
+        platformUtilities.rmFile( qgisProject.homePath + '/DCIM', path )
+        cameraItem.state = "PhotoCapture"
+      }
     }
   }
 }

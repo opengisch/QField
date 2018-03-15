@@ -59,6 +59,7 @@ Item {
       if (featureUseNativeCamera)
         __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
       else
+        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
         camloader.active = true
     }
 

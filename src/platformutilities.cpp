@@ -38,6 +38,20 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
+bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
+{
+  Q_UNUSED( path )
+  Q_UNUSED( dirname )
+  return true;
+}
+
+bool PlatformUtilities::rmFile( const QString &path, const QString &filename ) const
+{
+  Q_UNUSED( path )
+  Q_UNUSED( filename )
+  return true;
+}
+
 PictureSource* PlatformUtilities::getPicture( const QString& prefix )
 {
   Q_UNUSED( prefix )
