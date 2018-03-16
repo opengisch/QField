@@ -96,8 +96,6 @@ class LayerTreeMapCanvasBridge : public QObject
       return mAutoEnableCrsTransform;
     }
 
-    void applyMapTheme( const QgsMapThemeCollection::MapThemeRecord& mapTheme );
-
   public slots:
     void setHasCustomLayerOrder( bool state );
     void setCustomLayerOrder( const QStringList& order );
