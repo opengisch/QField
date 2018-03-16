@@ -57,10 +57,6 @@ QStringList LayerTreeMapCanvasBridge::defaultLayerOrder() const
   return order;
 }
 
-void LayerTreeMapCanvasBridge::applyMapTheme( const QgsMapThemeCollection::MapThemeRecord& mapTheme )
-{
-}
-
 void LayerTreeMapCanvasBridge::defaultLayerOrder( QgsLayerTreeNode* node, QStringList& order ) const
 {
   if ( QgsLayerTree::isLayer( node ) )
