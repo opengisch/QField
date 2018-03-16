@@ -51,21 +51,12 @@ int main( int argc, char ** argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
   // load providers
-#if defined(Q_WS_WIN)
-  QString prefixPath = QApplication::applicationDirPath();
-#elif defined( ANDROID)
-  QDir myDir( QDir::homePath() );
-  myDir.cdUp();
-  QString prefixPath = myDir.absolutePath();
-#else
-  QString prefixPath = "" QGIS_INSTALL_DIR;
-#endif
-  app.setPrefixPath( prefixPath, true );
 #ifdef ANDROID
+  app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
-  app.setPluginPath( "" QGIS_PLUGIN_DIR );
+  app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
   app.initQgis();
 
