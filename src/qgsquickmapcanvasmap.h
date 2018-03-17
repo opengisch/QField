@@ -139,7 +139,6 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mDirty;
     bool mFreeze;
     QList<QMetaObject::Connection> mLayerConnections;
-    QFutureSynchronizer<void> mZombieJobs;
     QTimer mMapUpdateTimer;
     int mMapUpdateInterval;
     bool mIncrementalRendering;
