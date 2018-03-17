@@ -727,18 +727,18 @@ ApplicationWindow {
   MessageLog {
     id: messageLog
     anchors.fill: parent
+    focus: visible
 
     model: MessageLogModel {}
 
     visible: false
 
     Keys.onReleased: {
-      if (event.key === Qt.Key_Back) {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
         visible = false
       }
     }
-    onVisibleChanged: focus = true
   }
 
   BadLayerItem {
@@ -763,8 +763,16 @@ ApplicationWindow {
   About {
     id: aboutDialog
     anchors.fill: parent
+    focus: visible
 
     visible: false
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
+      }
+    }
   }
 
   FileDialog {
@@ -787,9 +795,17 @@ ApplicationWindow {
 
     anchors.fill: parent
     visible: false
+    focus: visible
 
     onFinished: {
       visible = false
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
+      }
     }
   }
 
