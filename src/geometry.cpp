@@ -22,13 +22,13 @@ QgsGeometry Geometry::asQgsGeometry() const
   {
     case QgsWkbTypes::PointGeometry:
     {
-      geom = new QgsPoint( mRubberbandModel->currentPoint(  mVectorLayer->crs() ) );
+      geom = new QgsPoint( mRubberbandModel->currentPoint(  mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       break;
     }
     case QgsWkbTypes::LineGeometry:
     {
       QgsLineString* line = new QgsLineString();
-      line->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs() ) );
+      line->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       geom = line;
       break;
     }
@@ -36,7 +36,7 @@ QgsGeometry Geometry::asQgsGeometry() const
     {
       QgsPolygon* polygon = new QgsPolygon();
       QgsLineString* ring = new QgsLineString();
-      ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs() ) );
+      ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       polygon->setExteriorRing( ring );
       geom = polygon;
       break;

@@ -59,7 +59,7 @@ class RubberbandModel : public QObject
      *
      * By default coordinates will be returned unprojected.
      */
-    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
 
@@ -72,7 +72,7 @@ class RubberbandModel : public QObject
     int currentCoordinateIndex() const;
     void setCurrentCoordinateIndex( int currentCoordinateIndex );
 
-    QgsPoint currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+    QgsPoint currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint& currentCoordinate );
