@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 #include "androidpicturesource.h"
-#include "qgsmessagelog.h"
-#include "qgsapplication.h"
+#include <qgsmessagelog.h>
+#include <qgsapplication.h>
 #include <QAndroidJniEnvironment>
 #include <QtAndroid>
 #include <QDir>
