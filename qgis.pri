@@ -7,7 +7,7 @@ include( paths.pri )
 !android {
   macx {
     LIBS += -F$${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/
-    LIBS += -framework qgis_core
+    LIBS += -framework qgis_core qgis_quick
 
     INCLUDEPATH += $${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current/Headers
     INCLUDEPATH += $${GEOS_INCLUDE_PATH}
@@ -15,12 +15,14 @@ include( paths.pri )
   !macx {
     INCLUDEPATH += $${QGIS_INSTALL_PATH}/include/qgis
     LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so
+    LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_quick.so
   }
 }
 android {
   QGIS_INSTALL_PATH = $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/files
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
   LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so
+  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_quick.so
 
   system( mkdir -p $$shadowed($$PWD)/tmp )
   CURRENT_PATH = $$shadowed($$PWD)

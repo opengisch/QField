@@ -81,6 +81,11 @@ cp config.pri.default config.pri
  * open QField.pro with QtCreator (installed during OSGeo4A installation)
  * hit build
 
+# Run 
+ * Set QGIS_PREFIX_PATH to QGIS/install/path
+ * Set QML2_IMPORT_PATH to QGIS/install/path/qml
+ * Set LD_LIBRARY_PATH tp QGIS/install/path/lib
+ 
  #### On Mac
 
 Building on a Mac requires some adjustments:
