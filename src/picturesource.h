@@ -28,7 +28,7 @@ class PictureSource : public QObject
   public:
     explicit PictureSource( QObject* parent = nullptr );
 
-    virtual ~PictureSource();
+    virtual ~PictureSource() = default;
 
   signals:
     /**

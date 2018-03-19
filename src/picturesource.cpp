@@ -21,7 +21,3 @@ PictureSource::PictureSource( QObject* parent )
 
 }
 
-PictureSource::~PictureSource()
-{
-
-}
