@@ -43,7 +43,6 @@ HEADERS += \
     attributeformmodelbase.h \
     layertreemapcanvasbridge.h \
     identifytool.h \
-    submodel.h \
     attributeformmodel.h \
     expressionvariablemodel.h \
     badlayerhandler.h \
@@ -82,7 +81,6 @@ SOURCES += \
     attributeformmodelbase.cpp \
     layertreemapcanvasbridge.cpp \
     identifytool.cpp \
-    submodel.cpp \
     attributeformmodel.cpp \
     expressionvariablemodel.cpp \
     badlayerhandler.cpp \

@@ -9,6 +9,7 @@ import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
+import QgisQuick 0.1 as QgsQuick
 
 Page {
   signal saved
@@ -170,7 +171,7 @@ Page {
               onReset: content.contentY = 0
             }
 
-            model: SubModel {
+            model: QgsQuick.SubModel {
               id: contentModel
               model: form.model
               rootIndex: form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
