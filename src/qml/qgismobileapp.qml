@@ -25,6 +25,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import QtPositioning 5.4
 import "js/style.js" as Style
+import QgisQuick 0.1 as QgsQuick
 
 import '.'
 
@@ -459,7 +460,7 @@ ApplicationWindow {
 
     FeatureModel {
       id: digitizingFeature
-      currentLayer: dashBoard.currentLayer
+      layer: dashBoard.currentLayer
       positionSourceName: positionSource.name
 
       geometry: Geometry {
@@ -658,7 +659,7 @@ ApplicationWindow {
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
 
-    model: AttributeFormModel {
+    model: QgsQuick.AttributeFormModel {
       featureModel: digitizingFeature
     }
 

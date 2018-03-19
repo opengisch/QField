@@ -22,64 +22,17 @@
 #include <QGeoPositionInfoSource>
 #include <memory>
 #include "geometry.h"
+#include "qgsquickfeaturemodel.h"
 
-class FeatureModel : public QAbstractListModel
+class FeatureModel : public QgsQuickFeatureModel
 {
     Q_OBJECT
-    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
-    Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
-    Q_ENUMS( FeatureRoles )
 
   public:
-    enum FeatureRoles
-    {
-      AttributeName = Qt::UserRole + 1,
-      AttributeValue,
-      Field,
-      RememberAttribute
-    };
-
     explicit FeatureModel( QObject *parent = 0 );
     explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
-
-    void setFeature( const QgsFeature& feature );
-
-    /**
-     * Return the feature wrapped in a QVariant for passing it around in QML
-     */
-    QgsFeature feature() const;
-
-
-    void setCurrentLayer( QgsVectorLayer* layer );
-    QgsVectorLayer* layer() const;
-
-
-    QHash<int, QByteArray> roleNames() const override;
-    int rowCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
-    bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
-
-    /**
-     * Will commit the edit buffer of this layer.
-     * May change in the future to only commit the changes buffered in this model.
-     *
-     * @return Success of the operation
-     */
-    Q_INVOKABLE bool save();
-
-    /**
-     * Will reset the feature to the original values and dismiss any buffered edits.
-     */
-    Q_INVOKABLE void reset();
-    Q_INVOKABLE void create();
-
-    Q_INVOKABLE bool suppressFeatureForm() const;
-
-    Q_INVOKABLE void resetAttributes();
-
-    QVector<bool> rememberedAttributes() const;
 
     /**
      * The name of the position source to use.
@@ -93,25 +46,19 @@ class FeatureModel : public QAbstractListModel
      */
     void setPositionSourceName( const QString &positionSourceName );
 
+    Q_INVOKABLE void resetAttributes() override;
+
   public slots:
     void applyGeometry();
 
   signals:
-    void featureChanged();
     void geometryChanged();
-    void currentLayerChanged();
     void positionSourceChanged();
 
     void warning( const QString& text );
 
   private:
-    bool commit();
-    bool startEditing();
-
-    QgsVectorLayer* mLayer;
-    QgsFeature mFeature;
     Geometry* mGeometry;
-    QVector<bool> mRememberedAttributes;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
     QString mTempName;
 };

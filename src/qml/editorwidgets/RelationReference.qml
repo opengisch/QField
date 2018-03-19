@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.0
 import ".."
 import "../js/style.js" as Style
 
+import QgisQuick 0.1 as QgsQuick
 import org.qfield 1.0
 import org.qgis 1.0
 
@@ -146,7 +147,7 @@ Item {
       closePolicy: Popup.CloseOnEscape
 
       FeatureForm {
-        model: AttributeFormModel {
+        model: QgsQuick.AttributeFormModel {
           id: attributeFormModel
 
           featureModel: FeatureModel {

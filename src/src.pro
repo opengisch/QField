@@ -40,10 +40,8 @@ HEADERS += \
     rubberband.h \
     picturesource.h \
     messagelogmodel.h \
-    attributeformmodelbase.h \
     layertreemapcanvasbridge.h \
     identifytool.h \
-    attributeformmodel.h \
     expressionvariablemodel.h \
     badlayerhandler.h \
     snappingutils.h \
@@ -78,10 +76,8 @@ SOURCES += \
     rubberband.cpp \
     picturesource.cpp \
     messagelogmodel.cpp \
-    attributeformmodelbase.cpp \
     layertreemapcanvasbridge.cpp \
     identifytool.cpp \
-    attributeformmodel.cpp \
     expressionvariablemodel.cpp \
     badlayerhandler.cpp \
     snappingutils.cpp \

@@ -16,7 +16,7 @@ Page {
   signal cancelled
   signal aboutToSave
 
-  property AttributeFormModel model
+  property QgsQuick.AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
 
   function reset() {

@@ -22,6 +22,7 @@ import QtQuick.Dialogs 1.2
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
+import QgisQuick 0.1 as QgsQuick
 
 Rectangle {
   id: featureForm
@@ -233,9 +234,9 @@ Rectangle {
     anchors.bottom: parent.bottom
     height: parent.height - globalFeaturesList.height
 
-    model: AttributeFormModel {
+    model: QgsQuick.AttributeFormModel {
       featureModel: FeatureModel {
-        currentLayer: featureForm.selection.selectedLayer
+        layer: featureForm.selection.selectedLayer
         feature: featureForm.selection.selectedFeature
       }
     }

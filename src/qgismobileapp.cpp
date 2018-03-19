@@ -51,7 +51,6 @@
 #include "qgsofflineediting.h"
 #include "messagelogmodel.h"
 #include "mapsettings.h"
-#include "attributeformmodel.h"
 #include "geometry.h"
 #include "featuremodel.h"
 #include "layertreemapcanvasbridge.h"
@@ -147,7 +146,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
   qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
-  qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
   qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
