@@ -21,7 +21,6 @@
 
 #include <QMap>
 #include <QString>
-#include <QDir>
 #include <QtAndroid>
 #include <QDebug>
 #include <QAndroidJniEnvironment>
@@ -49,18 +48,6 @@ QString AndroidPlatformUtilities::packagePath() const
 QString AndroidPlatformUtilities::qgsProject() const
 {
   return getIntentExtra( "QGS_PROJECT" );
-}
-
-bool AndroidPlatformUtilities::createDir( const QString &path, const QString &dirname ) const{
-
-  QDir parentDir( path );
-  return parentDir.mkdir( dirname );
-}
-
-bool AndroidPlatformUtilities::rmFile( const QString &filename ) const {
-
-  QFile file (filename);
-  return file.remove( filename );
 }
 
 QString AndroidPlatformUtilities::getIntentExtra( const QString& extra, QAndroidJniObject extras ) const

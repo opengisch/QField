@@ -46,7 +46,9 @@ Item{
 
   VideoOutput {
     anchors.fill: parent
-    visible: true
+
+    visible: cameraItem.state == "PhotoCapture"
+
     focus : visible
     source: camera
 
