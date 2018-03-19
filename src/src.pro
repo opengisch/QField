@@ -9,9 +9,11 @@ QT += widgets concurrent xml positioning printsupport svg sql opengl sensors qui
 android {
     QT += androidextras
     HEADERS += androidplatformutilities.h \
-               androidpicturesource.h
+               androidpicturesource.h\
+               androidprojectsource.h
     SOURCES += androidplatformutilities.cpp \
-               androidpicturesource.cpp
+               androidpicturesource.cpp \
+               androidprojectsource.cpp
 }
 include( ../qfield.pri )
 include( ../qgis.pri )
@@ -55,7 +57,9 @@ HEADERS += \
     distancearea.h \
     coordinatetransformer.h \
     expressioncontextutils.h \
-    focusstack.h
+    focusstack.h \
+    printlayoutlistmodel.h \
+    projectsource.h
 
 SOURCES += \
     appinterface.cpp \
@@ -95,7 +99,9 @@ SOURCES += \
     distancearea.cpp \
     coordinatetransformer.cpp \
     expressioncontextutils.cpp \
-    focusstack.cpp
+    focusstack.cpp \
+    printlayoutlistmodel.cpp \
+    projectsource.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

@@ -530,10 +530,16 @@ ApplicationWindow {
     }
 
     Controls.MenuItem {
+      id: openProjectMenuItem
+      property ProjectSource __projectSource
+
       text: qsTr( "Open Project" )
       iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
-        openProjectDialog.visible = true
+        __projectSource = platformUtilities.openProject()
+
+        if (!__projectSource)
+          openProjectDialog.visible = true
       }
     }
 
@@ -980,6 +986,14 @@ ApplicationWindow {
     interval: 2000
     onTriggered: {
         alreadyCloseRequested = false
+    }
+  }
+
+  Connections {
+    target: openProjectMenuItem.__projectSource
+
+    onProjectOpened: {
+      iface.loadProject( path )
     }
   }
 }
