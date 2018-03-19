@@ -32,7 +32,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QString packagePath() const;
     virtual QString qgsProject() const override;
     virtual bool createDir( const QString &path, const QString &dirname ) const override;
-    virtual bool rmFile( const QString &path, const QString &filename ) const override;
+    virtual bool rmFile( const QString &filename ) const override;
     virtual PictureSource* getPicture( const QString &prefix ) override;
     virtual void open( const QString& data, const QString& type );
 

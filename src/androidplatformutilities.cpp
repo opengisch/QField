@@ -57,10 +57,10 @@ bool AndroidPlatformUtilities::createDir( const QString &path, const QString &di
   return parentDir.mkdir( dirname );
 }
 
-bool AndroidPlatformUtilities::rmFile( const QString &path, const QString &filename ) const {
+bool AndroidPlatformUtilities::rmFile( const QString &filename ) const {
 
-  QDir parentDir( path );
-  return parentDir.mkdir( filename );
+  QFile file (filename);
+  return file.remove( filename );
 }
 
 QString AndroidPlatformUtilities::getIntentExtra( const QString& extra, QAndroidJniObject extras ) const

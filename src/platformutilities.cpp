@@ -45,9 +45,8 @@ bool PlatformUtilities::createDir( const QString &path, const QString &dirname )
   return true;
 }
 
-bool PlatformUtilities::rmFile( const QString &path, const QString &filename ) const
+bool PlatformUtilities::rmFile( const QString &filename ) const
 {
-  Q_UNUSED( path )
   Q_UNUSED( filename )
   return true;
 }

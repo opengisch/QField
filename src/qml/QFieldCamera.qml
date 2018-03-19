@@ -112,7 +112,7 @@ Item{
 
       iconSource: Style.getThemeIcon("ic_clear_white_24dp")
       onClicked: {
-        platformUtilities.rmFile( qgisProject.homePath + '/DCIM', path )
+        platformUtilities.rmFile( currentPath )
         cameraItem.state = "PhotoCapture"
       }
     }
