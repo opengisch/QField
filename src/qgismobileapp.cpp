@@ -67,6 +67,8 @@
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
 #include "coordinatetransformer.h"
+#include "printlayoutlistmodel.h"
+#include "picturesource.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
