@@ -730,7 +730,7 @@ ApplicationWindow {
     anchors.fill: parent
     focus: visible
 
-    model: MessageLogModel {}
+    model: QgsQuick.MessageLogModel {}
 
     visible: false
 

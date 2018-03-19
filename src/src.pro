@@ -39,7 +39,6 @@ HEADERS += \
     rubberbandmodel.h \
     rubberband.h \
     picturesource.h \
-    messagelogmodel.h \
     layertreemapcanvasbridge.h \
     identifytool.h \
     expressionvariablemodel.h \
@@ -75,7 +74,6 @@ SOURCES += \
     rubberbandmodel.cpp \
     rubberband.cpp \
     picturesource.cpp \
-    messagelogmodel.cpp \
     layertreemapcanvasbridge.cpp \
     identifytool.cpp \
     expressionvariablemodel.cpp \
