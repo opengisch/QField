@@ -21,7 +21,8 @@
 
 #include <QObject>
 #include <qgsfield.h>
-#include "picturesource.h"
+
+class PictureSource;
 
 class PlatformUtilities : public QObject
 {
