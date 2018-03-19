@@ -65,14 +65,18 @@ Item{
       }
     }
 
+
     Button {
       id: video_button_click
       visible: true
 
       anchors.right: parent.right
-      anchors.top: parent.verticalCenter
-      bgcolor: "red"
+      anchors.verticalCenter: parent.verticalCenter
+
       round: true
+      roundborder: true
+      bgcolor: "grey"
+      borderColor: "#80CC28"
 
       onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
     }
@@ -94,7 +98,7 @@ Item{
       visible: true
 
       anchors.right: parent.right
-      anchors.top: parent.verticalCenter
+      anchors.verticalCenter: parent.verticalCenter
       bgcolor: "#80CC28"
       round: true
 

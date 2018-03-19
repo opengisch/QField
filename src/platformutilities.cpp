@@ -39,15 +39,15 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
-bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const{
-
+bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
+{
   QDir parentDir( path );
   return parentDir.mkdir( dirname );
 }
 
-bool PlatformUtilities::rmFile( const QString &filename ) const {
-
-  QFile file (filename);
+bool PlatformUtilities::rmFile( const QString &filename ) const
+{
+  QFile file ( filename );
   return file.remove( filename );
 }
 

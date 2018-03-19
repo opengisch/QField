@@ -86,7 +86,7 @@ Page {
         Controls.CheckBox {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
-          text: qsTr( "Use native camera function" )
+          text: qsTr( "Use native camera function (unstable on recent Android versions)" )
         }
 
 /*
