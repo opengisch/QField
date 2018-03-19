@@ -33,6 +33,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual QString qgsProject() const override;
     virtual PictureSource* getPicture( const QString &prefix ) override;
     virtual void open( const QString& data, const QString& type );
+    virtual ProjectSource *openProject() override;
 
   private:
     QString getIntentExtra( const QString&, QAndroidJniObject = 0 ) const;
