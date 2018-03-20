@@ -9,6 +9,7 @@ Item {
   property alias checked: button.checked
   property alias checkable: button.checkable
   property bool round: false
+  property bool roundborder: false
   property alias text: button.text
 
   property color bgcolor: "#212121"
@@ -32,7 +33,7 @@ Item {
       background: Rectangle {
         implicitWidth: 100
         implicitHeight: 25
-        border.width: !round
+        border.width: round&&roundborder ? height/6 : !round
         border.color: borderColor
         color: bgcolor
         radius: round ? height / 2 : 0

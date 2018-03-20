@@ -18,6 +18,7 @@
 
 #include "platformutilities.h"
 #include <QDebug>
+#include <QDir>
 
 PlatformUtilities::~PlatformUtilities()
 {
@@ -36,6 +37,18 @@ QString PlatformUtilities::shareDir() const
 QString PlatformUtilities::qgsProject() const
 {
   return QString();
+}
+
+bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
+{
+  QDir parentDir( path );
+  return parentDir.mkdir( dirname );
+}
+
+bool PlatformUtilities::rmFile( const QString &filename ) const
+{
+  QFile file ( filename );
+  return file.remove( filename );
 }
 
 PictureSource* PlatformUtilities::getPicture( const QString& prefix )

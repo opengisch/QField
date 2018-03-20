@@ -14,12 +14,14 @@ Page {
   property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
   property alias incrementalRendering: incrementalRenderingCheckBox.checked
   property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
+  property alias useNativeCamera: useNativeCameraCheckBox.checked
 
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
     property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
     property alias incrementalRendering: incrementalRenderingCheckBox.checked
     property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
+    property alias useNativeCamera: useNativeCameraCheckBox.checked
   }
 
   Rectangle {
@@ -80,6 +82,11 @@ Page {
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
+        }
+        Controls.CheckBox {
+          id: useNativeCameraCheckBox
+          anchors { left: parent.left; right: parent.right }
+          text: qsTr( "Use native camera function (unstable on recent Android versions)" )
         }
 
 /*
