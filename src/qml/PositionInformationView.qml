@@ -13,7 +13,7 @@ Item {
 
   QgsQuick.CoordinateTransformer {
     id: _ct
-    sourceCrs: CrsFactory.fromEpsgId(4326)
+    sourceCrs: QgsQuick.Utils.coordinateReferenceSystemFromEpsgId(4326)
     sourcePosition: QgsQuick.Utils.coordinateToPoint(positionSource.position.coordinate)
   }
 

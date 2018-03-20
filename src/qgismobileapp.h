@@ -104,8 +104,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     QgsProject* mProject;
 
-    // Dummy objects. We are not able to call static functions from QML, so we need something here.
-    QgsCoordinateReferenceSystem mCrsFactory;
+    // Dummy object. We are not able to call static functions from QML, so we need something here.
     QgsUnitTypes mUnitTypes;
 
 #if defined(Q_OS_ANDROID)
