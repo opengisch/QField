@@ -1,11 +1,12 @@
 import QtQuick 2.0
 import org.qgis 1.0
+import QgisQuick 0.1 as QgsQuick
 
 Item {
   id: item
 
   property variant location // QgsPointV2
-  property MapSettings mapSettings
+  property QgsQuick.MapSettings mapSettings
 
   Rectangle {
     id: marker

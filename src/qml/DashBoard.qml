@@ -3,6 +3,7 @@ import org.qgis 1.0
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
+import QgisQuick 0.1 as QgsQuick
 
 Controls.Pane {
   id: dashBoard
@@ -11,7 +12,7 @@ Controls.Pane {
 
   property alias allowLayerChange: legend.enabled
   property alias currentLayer: legend.currentLayer
-  property MapSettings mapSettings
+  property QgsQuick.MapSettings mapSettings
 
   property color mainColor: "#80CC28"
   padding: 0

@@ -28,7 +28,7 @@ Rectangle {
   id: featureForm
 
   property FeatureListModelSelection selection
-  property MapSettings mapSettings
+  property QgsQuick.MapSettings mapSettings
   property color selectionColor
   property alias model: globalFeaturesList.model
   property bool allowDelete

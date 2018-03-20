@@ -1,8 +1,9 @@
 import QtQuick 2.0
 import org.qgis 1.0
+import QgisQuick 0.1 as QgsQuick
 
 Row {
-  property MapSettings mapSettings
+  property QgsQuick.MapSettings mapSettings
   property int referenceWidth: 300 * dp
 
   QtObject {

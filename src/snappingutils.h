@@ -17,7 +17,7 @@
 #ifndef SNAPPINGUTILS_H
 #define SNAPPINGUTILS_H
 
-class MapSettings;
+class QgsQuickMapSettings;
 
 #include <qgssnappingutils.h>
 
@@ -27,7 +27,7 @@ class SnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT
 
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsVectorLayer* currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
     Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
@@ -35,8 +35,8 @@ class SnappingUtils : public QgsSnappingUtils
   public:
     SnappingUtils( QObject* parent = nullptr );
 
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* settings );
+    QgsQuickMapSettings* mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings* settings );
 
     QgsVectorLayer* currentLayer() const;
     void setCurrentLayer( QgsVectorLayer* currentLayer );
@@ -66,7 +66,7 @@ class SnappingUtils : public QgsSnappingUtils
   private:
     void snap();
 
-    MapSettings* mSettings;
+    QgsQuickMapSettings* mSettings;
     QgsVectorLayer* mCurrentLayer;
 
     int mIndexLayerCount;

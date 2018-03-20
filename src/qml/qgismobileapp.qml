@@ -90,15 +90,16 @@ ApplicationWindow {
      * It may change any time and items that hold a reference to this property
      * are responsible to handle this properly.
      */
-    property MapSettings mapSettings: mapCanvasMap.mapSettings
+    property QgsQuick.MapSettings mapSettings: mapCanvasMap.mapSettings
 
     /* Placement and size. Share right anchor with featureForm */
     anchors.fill: parent
 
     /* The base map */
-    MapCanvas {
+    QgsQuick.MapCanvas {
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
+      mapSettings.project: qgisProject
 
       anchors.fill: parent
 

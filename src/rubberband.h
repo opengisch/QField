@@ -19,14 +19,14 @@
 #include <QQuickItem>
 
 class RubberbandModel;
-class MapSettings;
+class QgsQuickMapSettings;
 
 class Rubberband : public QQuickItem
 {
     Q_OBJECT
 
     Q_PROPERTY( RubberbandModel* model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     Q_PROPERTY( qreal width READ width WRITE setWidth NOTIFY widthChanged )
 
@@ -36,8 +36,8 @@ class Rubberband : public QQuickItem
     RubberbandModel* model() const;
     void setModel( RubberbandModel* model );
 
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* mapSettings );
+    QgsQuickMapSettings* mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings* mapSettings );
 
     QColor color() const;
     void setColor( const QColor& color );
@@ -58,7 +58,7 @@ class Rubberband : public QQuickItem
     QSGNode* updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* );
 
     RubberbandModel* mModel;
-    MapSettings* mMapSettings;
+    QgsQuickMapSettings* mMapSettings;
     bool mDirty;
     QColor mColor;
     qreal mWidth;

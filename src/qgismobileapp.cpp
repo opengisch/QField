@@ -36,9 +36,9 @@
 #include <qgsunittypes.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
+#include <qgsquickmapcanvasmap.h>
 
 #include "qgismobileapp.h"
-#include "qgsquickmapcanvasmap.h"
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
@@ -48,7 +48,6 @@
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
-#include "mapsettings.h"
 #include "geometry.h"
 #include "featuremodel.h"
 #include "layertreemapcanvasbridge.h"
@@ -107,7 +106,6 @@ void QgisMobileapp::initDeclarative()
 {
   // Register QGIS QML types
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
@@ -133,7 +131,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
-  qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );

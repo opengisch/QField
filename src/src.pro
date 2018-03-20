@@ -26,9 +26,7 @@ HEADERS += \
     featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
-    mapsettings.h \
     qgismobileapp.h \
-    qgsquickmapcanvasmap.h \
     qgssggeometry.h \
     sgrubberband.h \
     settings.h \
@@ -59,9 +57,7 @@ SOURCES += \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
     main.cpp \
-    mapsettings.cpp \
     qgismobileapp.cpp \
-    qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
     settings.cpp \

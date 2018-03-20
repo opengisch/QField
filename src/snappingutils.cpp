@@ -15,7 +15,7 @@
  ***************************************************************************/
 
 #include "snappingutils.h"
-#include "mapsettings.h"
+#include <qgsquickmapsettings.h>
 
 #include "qgsvectorlayer.h"
 
@@ -92,19 +92,19 @@ void SnappingUtils::setCurrentLayer( QgsVectorLayer* currentLayer )
   emit currentLayerChanged();
 }
 
-MapSettings* SnappingUtils::mapSettings() const
+QgsQuickMapSettings* SnappingUtils::mapSettings() const
 {
   return mSettings;
 }
 
-void SnappingUtils::setMapSettings( MapSettings* settings )
+void SnappingUtils::setMapSettings( QgsQuickMapSettings* settings )
 {
   if ( mSettings == settings )
     return;
 
-  connect( settings, &MapSettings::extentChanged, this, &SnappingUtils::onMapSettingsUpdated );
-  connect( settings, &MapSettings::destinationCrsChanged, this, &SnappingUtils::onMapSettingsUpdated );
-  connect( settings, &MapSettings::layersChanged, this, &SnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::extentChanged, this, &SnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::destinationCrsChanged, this, &SnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::layersChanged, this, &SnappingUtils::onMapSettingsUpdated );
 
   mSettings = settings;
   emit mapSettingsChanged();

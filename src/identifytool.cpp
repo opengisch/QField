@@ -15,7 +15,7 @@
  ***************************************************************************/
 #include "identifytool.h"
 
-#include "mapsettings.h"
+#include <qgsquickmapsettings.h>
 #include "multifeaturelistmodel.h"
 
 #include <qgsvectorlayer.h>
@@ -30,12 +30,12 @@ IdentifyTool::IdentifyTool( QObject *parent )
 
 }
 
-MapSettings* IdentifyTool::mapSettings() const
+QgsQuickMapSettings* IdentifyTool::mapSettings() const
 {
   return mMapSettings;
 }
 
-void IdentifyTool::setMapSettings( MapSettings* mapSettings )
+void IdentifyTool::setMapSettings( QgsQuickMapSettings* mapSettings )
 {
   if ( mapSettings == mMapSettings )
     return;

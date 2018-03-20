@@ -18,6 +18,7 @@
 #include <qgsvectorlayer.h>
 
 #include "qgssggeometry.h"
+#include "qgsproject.h"
 
 FeatureListModelHighlight::FeatureListModelHighlight( QQuickItem* parent )
   : QQuickItem( parent )

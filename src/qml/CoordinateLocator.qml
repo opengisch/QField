@@ -3,10 +3,11 @@ import org.qgis 1.0
 import org.qfield 1.0
 
 import QtPositioning 5.3
+import QgisQuick 0.1 as QgsQuick
 
 Item {
   id: locator
-  property MapSettings mapSettings
+  property QgsQuick.MapSettings mapSettings
   property color color: "#263238"
   property color highlightColor: "#CFD8DC"
 

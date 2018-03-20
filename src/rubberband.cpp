@@ -18,6 +18,7 @@
 
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
+#include <qgsquickmapsettings.h>
 
 Rubberband::Rubberband( QQuickItem* parent )
   : QQuickItem( parent )
@@ -53,12 +54,12 @@ void Rubberband::setModel( RubberbandModel* model )
   emit modelChanged();
 }
 
-MapSettings* Rubberband::mapSettings() const
+QgsQuickMapSettings* Rubberband::mapSettings() const
 {
   return mMapSettings;
 }
 
-void Rubberband::setMapSettings( MapSettings* mapSettings )
+void Rubberband::setMapSettings( QgsQuickMapSettings* mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
