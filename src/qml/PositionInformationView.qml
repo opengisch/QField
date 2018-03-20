@@ -4,15 +4,17 @@ import QtPositioning 5.3
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import org.qfield 1.0
+import QgisQuick 0.1 as QgsQuick
 
 Item {
   property PositionSource positionSource
   property alias crs: _ct.destinationCrs
+  property alias mapSettings: _ct.mapSettings
 
-  CoordinateTransformer {
+  QgsQuick.CoordinateTransformer {
     id: _ct
     sourceCrs: CrsFactory.fromEpsgId(4326)
-    sourcePosition: positionSource.position.coordinate
+    sourcePosition: QgsQuick.Utils.coordinateToPoint(positionSource.position.coordinate)
   }
 
   width: childrenRect.width + 8 * dp

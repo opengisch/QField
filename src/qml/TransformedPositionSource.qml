@@ -1,17 +1,19 @@
 import QtQuick 2.0
 import QtPositioning 5.3
 import org.qfield 1.0
+import QgisQuick 0.1 as QgsQuick
 
 PositionSource {
   id: positionSource
 
   property alias destinationCrs: _ct.destinationCrs
   property alias projectedPosition: _ct.projectedPosition
+  property alias mapSettings: _ct.mapSettings
 
-  property CoordinateTransformer ct: CoordinateTransformer {
+  property QgsQuick.CoordinateTransformer ct: QgsQuick.CoordinateTransformer {
     id: _ct
     sourceCrs: CrsFactory.fromEpsgId(4326)
-    sourcePosition: _pos.coordinate
+    sourcePosition: QgsQuick.Utils.coordinateToPoint(_pos.coordinate)
 
     property Position _pos: positionSource.position
   }

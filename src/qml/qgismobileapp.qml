@@ -73,6 +73,7 @@ ApplicationWindow {
     id: positionSource
     active: settings.valueBool( "/QField/Positioning/Active", false )
     destinationCrs: mapCanvas.mapSettings.destinationCrs
+    mapSettings: mapCanvas.mapSettings
   }
 
   Item {
@@ -255,6 +256,7 @@ ApplicationWindow {
     PositionInformationView {
       positionSource: positionSource
       crs: mapCanvas.mapSettings.destinationCrs
+      mapSettings: mapCanvas.mapSettings
 
       anchors.margins: 5
     }
