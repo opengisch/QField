@@ -4,54 +4,18 @@ extern "C" {
 }
 
 SGRubberband::SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::GeometryType type, const QColor& color, qreal width )
-  : QSGNode()
+  : QgsQuickHighlightSGNode(points, type, color, width)
 {
-  mMaterial.setColor( color );
-
-  switch ( type )
+  // Everything else is implemented in base class
+  if (type == QgsWkbTypes::PolygonGeometry)
   {
-    case QgsWkbTypes::PointGeometry:
-      // TODO: Implement
-      break;
-
-    case QgsWkbTypes::LineGeometry:
-    {
-      appendChildNode( createLineGeometry( points, width ) );
-      break;
-    }
-
-    case QgsWkbTypes::PolygonGeometry:
-    {
       appendChildNode( createLineGeometry( points, width ) );
       appendChildNode( createPolygonGeometry( points ) );
-      break;
-    }
-
-    case QgsWkbTypes::UnknownGeometry:
-    case QgsWkbTypes::NullGeometry:
-      break;
   }
 }
 
-QSGGeometryNode* SGRubberband::createLineGeometry( const QVector<QgsPoint>& points, qreal width )
+SGRubberband::~SGRubberband()
 {
-  QSGGeometryNode* node = new QSGGeometryNode;
-  QSGGeometry* sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), points.count() );
-  QSGGeometry::Point2D* vertices = sgGeom->vertexDataAsPoint2D();
-
-  int i = 0;
-  Q_FOREACH( const QgsPoint& pt, points )
-  {
-    vertices[i++].set( pt.x(), pt.y() );
-  }
-
-  sgGeom->setLineWidth( width );
-  sgGeom->setDrawingMode( GL_LINE_STRIP );
-  node->setGeometry( sgGeom );
-  node->setMaterial( &mMaterial );
-  node->setFlag( QSGNode::OwnsGeometry );
-  node->setFlag( QSGNode::OwnedByParent );
-  return node;
 }
 
 QSGGeometryNode*SGRubberband::createPolygonGeometry( const QVector<QgsPoint>& points )

@@ -6,7 +6,7 @@
 
 #include <qgspoint.h>
 #include <qgswkbtypes.h>
-
+#include "qgsquickhighlightsgnode.h"
 
 class RubberbandModel;
 
@@ -16,16 +16,14 @@ class RubberbandModel;
  * This cannot be considered stable API.
  */
 
-class SGRubberband : public QSGNode
+class SGRubberband : public QgsQuickHighlightSGNode
 {
   public:
     SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::GeometryType type, const QColor& color, qreal width );
+    ~SGRubberband();
 
-  private:
-    QSGGeometryNode* createLineGeometry( const QVector<QgsPoint>& points, qreal width );
-    QSGGeometryNode* createPolygonGeometry( const QVector<QgsPoint>& points );
-
-    QSGFlatColorMaterial mMaterial;
+  protected:
+    QSGGeometryNode* createPolygonGeometry( const QVector<QgsPoint>& points ) override;
 };
 
 #endif // QGSSGRUBBERBAND_H
