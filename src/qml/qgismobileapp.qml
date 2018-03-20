@@ -121,7 +121,7 @@ ApplicationWindow {
     Item {
       anchors.fill: parent
 
-      transform: MapTransform {
+      transform: QgsQuick.MapTransform {
         mapSettings: mapCanvas.mapSettings
       }
 

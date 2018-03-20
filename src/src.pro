@@ -27,7 +27,6 @@ HEADERS += \
     featurelistmodelselection.h \
     featuremodel.h \
     mapsettings.h \
-    maptransform.h \
     qgismobileapp.h \
     qgsquickmapcanvasmap.h \
     qgssggeometry.h \
@@ -62,7 +61,6 @@ SOURCES += \
     featuremodel.cpp \
     main.cpp \
     mapsettings.cpp \
-    maptransform.cpp \
     qgismobileapp.cpp \
     qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \

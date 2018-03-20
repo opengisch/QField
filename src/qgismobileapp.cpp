@@ -42,7 +42,6 @@
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
-#include "maptransform.h"
 #include "featurelistextentcontroller.h"
 #include "coordinatetransform.h"
 #include "modelhelper.h"
@@ -135,7 +134,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
-  qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
   qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
