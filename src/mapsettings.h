@@ -24,84 +24,16 @@
 #include <qgsproject.h>
 #include <qgspoint.h>
 
-class MapSettings : public QObject
+#include "qgsquickmapsettings.h"
+
+
+class MapSettings : public QgsQuickMapSettings
 {
     Q_OBJECT
-
-    Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
-    Q_PROPERTY( QgsRectangle visibleExtent READ visibleExtent NOTIFY visibleExtentChanged )
-    Q_PROPERTY( double mapUnitsPerPixel READ mapUnitsPerPixel NOTIFY mapUnitsPerPixelChanged )
-    Q_PROPERTY( double rotation READ rotation WRITE setRotation NOTIFY rotationChanged )
-    Q_PROPERTY( QSize outputSize READ outputSize WRITE setOutputSize NOTIFY outputSizeChanged )
-    Q_PROPERTY( double outputDpi READ outputDpi WRITE setOutputDpi NOTIFY outputDpiChanged )
-    Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
-    Q_PROPERTY( QList<QgsMapLayer*> layers READ layers WRITE setLayers NOTIFY layersChanged )
 
   public:
     MapSettings( QObject* parent = 0 );
     ~MapSettings();
-
-    QgsRectangle extent() const;
-    void setExtent( const QgsRectangle& extent );
-
-    Q_INVOKABLE void setCenter( const QgsPoint& center );
-
-    double mapUnitsPerPixel() const;
-
-    QgsRectangle visibleExtent() const;
-
-    /**
-     * Convert a map coordinate to screen pixel coordinates
-     *
-     * @param p A coordinate in map coordinates
-     *
-     * @return A coordinate in pixel / screen space
-     */
-    Q_INVOKABLE QPointF coordinateToScreen( const QgsPoint& p ) const;
-
-
-    /**
-     * Convert a screen coordinate to a map coordinate
-     *
-     * @param p A coordinate in pixel / screen coordinates
-     *
-     * @return A coordinate in map coordinates
-     */
-    Q_INVOKABLE QgsPoint screenToCoordinate( const QPointF& p ) const;
-
-    double rotation() const;
-    void setRotation( double rotation );
-
-    QgsMapSettings mapSettings() const;
-
-    QSize outputSize() const;
-    void setOutputSize( const QSize& outputSize );
-
-    double outputDpi() const;
-    void setOutputDpi( double outputDpi );
-
-    QgsCoordinateReferenceSystem destinationCrs() const;
-    void setDestinationCrs( const QgsCoordinateReferenceSystem& destinationCrs );
-
-    QList<QgsMapLayer*> layers() const;
-    void setLayers( const QList<QgsMapLayer*>& layers );
-
-  signals:
-    void extentChanged();
-    void destinationCrsChanged();
-    void mapUnitsPerPixelChanged();
-    void rotationChanged();
-    void visibleExtentChanged();
-    void outputSizeChanged();
-    void outputDpiChanged();
-    void layersChanged();
-
-  private slots:
-    void onReadProject( const QDomDocument& doc );
-
-  private:
-    QgsMapSettings mMapSettings;
-
 };
 
 #endif // MAPSETTINGS_H
