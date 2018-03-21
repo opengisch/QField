@@ -49,7 +49,7 @@ def main():
     # address associated with the key that was created.
     credentials = ServiceAccountCredentials.from_p12_keyfile(
         SERVICE_ACCOUNT_EMAIL,
-        'play_developer.p12',
+        '../.ci/play_developer.p12',
         scopes='https://www.googleapis.com/auth/androidpublisher')
     http = httplib2.Http()
     http = credentials.authorize(http)
