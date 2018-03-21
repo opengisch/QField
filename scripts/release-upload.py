@@ -66,7 +66,7 @@ if __name__ == "__main__":
         help="Specify the changelog file", metavar="/tmp/changelog")
     options, args = parser.parse_args()
     if len(args) != 1:
-        print("Please a release file.\n")
+        print("Please specify at least a release file.\n")
         parser.print_help()
         sys.exit(1)
 

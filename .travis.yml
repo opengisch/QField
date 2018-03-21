@@ -33,4 +33,6 @@ jobs:
     - stage: deploy
       if: type = pull_request OR tag IS present
       script:
+        - pip install pyopenssl
+        - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible

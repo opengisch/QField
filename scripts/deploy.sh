@@ -13,9 +13,11 @@ then
   if [ "${TRAVIS_TAG}X" != "X" ];
   then
     echo -e "\e[31mDeploying app to releases\e[0m"
+    openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
     wget -o /tmp/qfield-${TRAVIS_TAG}-armv7.apk https://opengis.ch/download/qfield/ci-builds/qfield-dev-'${TRAVIS_PULL_REQUEST}'-'${TRAVIS_COMMIT}'-armv7.apk
     wget -o /tmp/qfield-${TRAVIS_TAG}-x86.apk https://opengis.ch/download/qfield/ci-builds/qfield-dev-'${TRAVIS_PULL_REQUEST}'-'${TRAVIS_COMMIT}'-x86.apk
+    ./basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7.apk
+    ./basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk
     ./release-upload.py --release=${TRAVIS_TAG} --oauth-token=${GITHUB_API_TOKEN} /tmp/qfield-${TRAVIS_TAG}-armv7.apk /tmp/qfield-${TRAVIS_TAG}-x86.apk
-    echo -e "Skipping dev build upload because"
   fi
 fi
