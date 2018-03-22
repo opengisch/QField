@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 #
 # Copyright 2014 Marta Rodriguez.
 #
@@ -18,7 +18,7 @@
 
 import argparse
 
-from apiclient.discovery import build
+from googleapiclient.discovery import build
 import httplib2
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import client
@@ -40,7 +40,7 @@ argparser.add_argument('apk_file',
 def main():
     # Load the key in PKCS 12 format that you downloaded from the Google APIs
     # Console when you created your Service account.
-    with open('play_developer.p12', 'rb') as f:
+    with open('.ci/play_developer.p12', 'rb') as f:
         key = f.read()
 
     # Create an httplib2.Http object to handle our HTTP requests and authorize it
@@ -49,7 +49,7 @@ def main():
     # address associated with the key that was created.
     credentials = ServiceAccountCredentials.from_p12_keyfile(
         SERVICE_ACCOUNT_EMAIL,
-        '../.ci/play_developer.p12',
+        '.ci/play_developer.p12',
         scopes='https://www.googleapis.com/auth/androidpublisher')
     http = httplib2.Http()
     http = credentials.authorize(http)
