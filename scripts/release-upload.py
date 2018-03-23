@@ -5,8 +5,6 @@
         Author: Matthias Kuhn (matthias@opengis.ch)
         git sha              : $TemplateVCSFormat
 """
-from __future__ import print_function
-from future import standard_library
 
 import sys
 import json
