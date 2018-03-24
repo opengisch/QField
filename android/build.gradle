@@ -54,6 +54,7 @@ android {
 
     lintOptions {
         abortOnError false
+        disable 'MissingTranslation'
     }
     
     def versionPropsFile = file('version.properties')
