@@ -42,7 +42,8 @@ def main(parameters, arguments):
     conn = http.client.HTTPSConnection('uploads.github.com')
     headers['Content-Type'] = 'application/octet-stream'
     for filename in arguments:
-        url = '{}?name={}'.format(release['upload_url'][:-13], filename)
+        _, basename = os.path.split(filename)
+        url = '{}?name={}'.format(release['upload_url'][:-13], basename)
         print('Upload to {}'.format(url))
 
         with open(filename, 'rb') as f:
@@ -63,7 +64,7 @@ if __name__ == "__main__":
         "-c", "--changelog", dest="changelog",
         help="Specify the changelog file", metavar="/tmp/changelog")
     options, args = parser.parse_args()
-    if len(args) != 1:
+    if len(args) < 1:
         print("Please specify at least a release file.\n")
         parser.print_help()
         sys.exit(1)
