@@ -19,9 +19,9 @@ then
     wget -O /tmp/qfield-${TRAVIS_TAG}-armv7.apk https://opengis.ch/download/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-armv7.apk
     wget -O /tmp/qfield-${TRAVIS_TAG}-x86.apk https://opengis.ch/download/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-x86.apk
 
-    echo -e "\e[31m * Deploying app to google play...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7.apk
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk
+#    echo -e "\e[31m * Deploying app to google play...\e[0m"
+#    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7.apk
+#    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk
 
     echo -e "\e[31m * Deploying app to github release...\e[0m"
     ./scripts/release-upload.py --release=${TRAVIS_TAG} --oauth-token=${GITHUB_API_TOKEN} /tmp/qfield-${TRAVIS_TAG}-armv7.apk /tmp/qfield-${TRAVIS_TAG}-x86.apk
