@@ -67,6 +67,7 @@
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
 #include "coordinatetransformer.h"
+#include <qgsmessagelog.h>
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -106,6 +107,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   mOfflineEditing = new QgsOfflineEditing();
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
+  QgsApplication::instance()->messageLog()->logMessage( QStringLiteral("SRS DB POath : %1").arg(AndroidPlatformUtilities().packagePath()));
 }
 
 void QgisMobileapp::initDeclarative()
