@@ -18,7 +18,7 @@ Item {
 
     text: value || ''
 
-    inputMethodHints: field.isNumeric || widget == 'Range' ? field.precision === 0 ? Qt.ImhDigitsOnly : Qt.ImhFormattedNumbersOnly : Qt.ImhNone
+    inputMethodHints: field.isNumeric || widget == 'Range' ? platformUtilities.fieldType( field ) === 'double' ? Qt.ImhFormattedNumbersOnly : Qt.ImhDigitsOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
