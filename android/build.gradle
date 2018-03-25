@@ -17,8 +17,10 @@ allprojects {
 
 apply plugin: 'com.android.application'
 
+def outputPathName = "some.apk"
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 android {
@@ -38,6 +40,15 @@ android {
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
     buildToolsVersion androidBuildToolsVersion
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+             outputFileName = new File(
+                 "..",
+                 outputFileName)
+        }
+    }
 
     sourceSets {
         main {
