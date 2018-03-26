@@ -18,7 +18,19 @@ Item {
 
     text: value || ''
 
-    inputMethodHints: field.isNumeric || widget == 'Range' ? platformUtilities.fieldType( field ) === 'double' ? Qt.ImhFormattedNumbersOnly : Qt.ImhDigitsOnly : Qt.ImhNone
+    validator: {
+      if (field.isNumeric || widget == 'Range') {
+        if (platformUtilities.fieldType( field ) === 'double')
+          doubleValidator;
+        else
+          intValidator;
+      }
+      else {
+        null;
+      }
+    }
+
+    inputMethodHints: field.isNumeric || widget == 'Range' ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
@@ -50,5 +62,13 @@ Item {
   FontMetrics {
     id: fontMetrics
     font: textField.font
+  }
+
+  IntValidator {
+    id: intValidator
+  }
+
+  DoubleValidator {
+    id: doubleValidator
   }
 }
