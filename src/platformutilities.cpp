@@ -63,3 +63,8 @@ void PlatformUtilities::open( const QString& data, const QString& type )
   Q_UNUSED( type )
 }
 
+QString PlatformUtilities::fieldType( const QgsField &field ) const
+{
+  return QVariant( field.type() ).typeName();
+}
+

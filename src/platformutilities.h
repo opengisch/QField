@@ -20,6 +20,7 @@
 #define PLATFORMUTILITIES_H
 
 #include <QObject>
+#include <qgsfield.h>
 #include "picturesource.h"
 
 class PlatformUtilities : public QObject
@@ -47,5 +48,10 @@ class PlatformUtilities : public QObject
 
     Q_INVOKABLE virtual void open( const QString& data, const QString& type );
 
+    /**
+     * Returns the QVariant typeName of a field.
+     * This is a stable identifier (compared to the provider field name).
+     */
+    Q_INVOKABLE QString fieldType( const QgsField& field ) const;
 };
 #endif // PLATFORMUTILITIES_H
