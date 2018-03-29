@@ -30,7 +30,7 @@ Item {
         if ( settings.value("useNativeCamera", false) )
           'file://' + qgisProject.homePath + '/' + currentValue
         else
-          'file://' + currentValue
+          'file://' + qgisProject.homePath + '/' + currentValue
       } else {
         Style.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
@@ -98,7 +98,10 @@ Item {
         visible: true
 
         onFinished: {
-          valueChanged(path, false)
+          var timestamp = (new Date()).toISOString().replace(/[^0-9]/g, "")
+          var filename = timestamp+'.jpg';
+          platformUtilities.renameFile( path, qgisProject.homePath +'/DCIM/' + filename)
+          valueChanged('DCIM/' + filename, false)
           campopup.close()
         }
         onCanceled: {
