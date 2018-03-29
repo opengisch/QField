@@ -24,22 +24,23 @@ Item {
     fillMode: Image.PreserveAspectFit
 
     source: {
-      if (image.status === Image.Error)
+      if (image.status === Image.Error) {
         Style.getThemeIcon("ic_broken_image_black_24dp")
-      else if (currentValue)
-        if ( featureUseNativeCamera )
+      } else if (currentValue) {
+        if ( settings.value("useNativeCamera", false) )
           'file://' + qgisProject.homePath + '/' + currentValue
         else
           'file://' + currentValue
-      else
+      } else {
         Style.getThemeIcon("ic_photo_notavailable_white_48dp")
+      }
     }
 
     MouseArea {
       anchors.fill: parent
 
       onClicked: {
-        if (currentValue && featureUseNativeCamera)
+        if (currentValue && settings.value("useNativeCamera", false))
           platformUtilities.open(image.source, "image/*");
       }
     }
@@ -56,11 +57,12 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-      if (featureUseNativeCamera)
+      if ( settings.valueBool("useNativeCamera", false) ) {
         __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
-      else
+      } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
         camloader.active = true
+      }
     }
 
     iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
