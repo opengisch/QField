@@ -953,10 +953,14 @@ ApplicationWindow {
     id: welcomeScreen
     anchors.fill: parent
     visible: !settings.value( "/QField/FirstRunFlag", false )
+    property ProjectSource __projectSource
 
     onShowOpenProjectDialog: {
       welcomeScreen.visible = false
-      openProjectDialog.visible = true
+
+      __projectSource = platformUtilities.openProject()
+      if (!__projectSource)
+        openProjectDialog.visible = true
     }
   }
   // Toast
@@ -1064,6 +1068,14 @@ ApplicationWindow {
     interval: 2000
     onTriggered: {
         alreadyCloseRequested = false
+    }
+  }
+
+  Connections {
+    target: welcomeScreen.__projectSource
+
+    onProjectOpened: {
+      iface.loadProject( path )
     }
   }
 
