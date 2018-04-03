@@ -27,10 +27,7 @@ Item {
       if (image.status === Image.Error) {
         Style.getThemeIcon("ic_broken_image_black_24dp")
       } else if (currentValue) {
-        if ( settings.value("useNativeCamera", false) )
-          'file://' + qgisProject.homePath + '/' + currentValue
-        else
-          'file://' + qgisProject.homePath + '/' + currentValue
+        'file://' + qgisProject.homePath + '/' + currentValue
       } else {
         Style.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
