@@ -51,6 +51,12 @@ bool PlatformUtilities::rmFile( const QString &filename ) const
   return file.remove( filename );
 }
 
+bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
+{
+  QFile file ( filename );
+  return file.rename( newname );
+}
+
 PictureSource* PlatformUtilities::getPicture( const QString& prefix )
 {
   Q_UNUSED( prefix )

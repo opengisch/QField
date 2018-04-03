@@ -38,6 +38,7 @@ class PlatformUtilities : public QObject
     virtual QString qgsProject() const;
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
+    Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
 
     /**
      * Get a picture and copy it to the requested prefix
