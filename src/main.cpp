@@ -46,8 +46,10 @@ int main( int argc, char ** argv )
     QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   delete dummyApp;
 #endif
+
   QgsApplication app( argc, argv, true );
   QSettings settings;
+
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 
   // load providers
@@ -59,6 +61,9 @@ int main( int argc, char ** argv )
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
   app.initQgis();
+
+  //set NativeFormat for settings
+  QSettings::setDefaultFormat( QSettings::NativeFormat );
 
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
