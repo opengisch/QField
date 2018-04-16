@@ -28,6 +28,7 @@
 // QGIS mobile includes
 #include "multifeaturelistmodel.h"
 #include "settings.h"
+#include "focusstack.h"
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)

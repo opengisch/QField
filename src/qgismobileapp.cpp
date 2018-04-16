@@ -157,6 +157,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
   qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
+  qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

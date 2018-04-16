@@ -243,6 +243,7 @@ Rectangle {
     focus: true
 
     visible: !globalFeaturesList.shown
+
   }
 
   NavigationBar {
@@ -277,7 +278,10 @@ Rectangle {
   Keys.onReleased: {
     if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-      state = "Hidden"
+      if( state != "FeatureList" )
+        state = "FeatureList"
+      else
+        state = "Hidden"
       event.accepted = true
     }
   }

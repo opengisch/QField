@@ -34,10 +34,17 @@ ApplicationWindow {
   minimumWidth: 600
   minimumHeight: 400
 
+  FocusStack{
+      id: focusstack
+  }
+
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
 
   Item {
     id: keyHandler
+    objectName: "keyHandler"
+
+    visible: true
     focus: true
 
     Keys.onReleased: {
@@ -48,6 +55,8 @@ ApplicationWindow {
         event.accepted = true
       }
     }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   Item {
@@ -282,6 +291,7 @@ ApplicationWindow {
 
   DashBoard {
     id: dashBoard
+    objectName: "dashBoard"
 
     anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
 
@@ -290,6 +300,7 @@ ApplicationWindow {
 
     width: open ? 300 * dp : 0
     visible: false
+    focus: visible
     clip: true
 
     allowLayerChange: !digitizingToolbar.isDigitizing
@@ -299,7 +310,7 @@ ApplicationWindow {
       console.warn( "KEY PRESS " + event.key )
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-        mainWindow.close();
+        visible=false
         event.accepted = true
       }
     }
@@ -318,6 +329,8 @@ ApplicationWindow {
       if ( currentLayer.readOnly && stateMachine.state == "digitize" )
         displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
     }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   DropShadow {
@@ -634,7 +647,11 @@ ApplicationWindow {
   /* The feature form */
   FeatureListForm {
     id: featureForm
+    objectName: "featureForm"
     mapSettings: mapCanvas.mapSettings
+
+    visible: state != "Hidden"
+    focus: visible
 
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
@@ -650,6 +667,20 @@ ApplicationWindow {
     selectionColor: "#ff7777"
 
     onShowMessage: displayToast(message)
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
+
+    /*
+    MouseArea {
+      anchors.fill: parent
+      propagateComposedEvents: true
+      onClicked: {
+        if (state != "Hidden" )
+          forceActiveFocus()
+        mouse.accepted = false;
+      }
+    }
+    */
   }
 
   FeatureForm {
@@ -665,6 +696,7 @@ ApplicationWindow {
     state: "Add"
 
     visible: false
+    focus: visible
 
     onSaved: {
       visible = false
@@ -674,6 +706,15 @@ ApplicationWindow {
         digitizingRubberband.model.reset()
         visible = false
     }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        visible = false
+        event.accepted = true
+      }
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   function displayToast( message ) {
@@ -739,6 +780,8 @@ ApplicationWindow {
         visible = false
       }
     }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   BadLayerItem {
@@ -773,6 +816,8 @@ ApplicationWindow {
         visible = false
       }
     }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   FileDialog {
@@ -807,6 +852,8 @@ ApplicationWindow {
         visible = false
       }
     }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   WelcomeScreen {
@@ -853,7 +900,6 @@ ApplicationWindow {
     Timer {
       id: toastTimer
       interval: 3000
-      onTriggered: { toast.opacity = 0 }
     }
   }
 
