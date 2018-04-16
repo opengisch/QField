@@ -899,6 +899,7 @@ ApplicationWindow {
     Timer {
       id: toastTimer
       interval: 3000
+      onTriggered: { toast.opacity = 0 }
     }
   }
 

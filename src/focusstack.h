@@ -1,5 +1,5 @@
 /***************************************************************************
-  focusstack.h - %{Cpp:License:ClassName}
+  focusstack.h
 
  ---------------------
  begin                : 11.4.2018
@@ -19,19 +19,18 @@
 #include <QList>
 #include <QtQuick/QQuickItem>
 
-class FocusStack : public QObject, public QList<QQuickItem*>
+class FocusStack : public QObject
 {
   Q_OBJECT
 
   public:
-    explicit FocusStack( QObject* parent = 0 );
-
     Q_INVOKABLE void addFocusTaker( QQuickItem* item );
 
   private slots:
     void itemFocusChanged( bool itemActiveFocus );
 
   private:
+    QList<QQuickItem*> mStackList;
     void setFocused( QQuickItem* item );
     void setUnfocused( QQuickItem* item );
 };

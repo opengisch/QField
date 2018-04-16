@@ -1,5 +1,5 @@
 /***************************************************************************
-  focusstack.cpp - %{Cpp:License:ClassName}
+  focusstack.cpp
 
  ---------------------
  begin                : 11.4.2018
@@ -15,25 +15,13 @@
  ***************************************************************************/
 #include "focusstack.h"
 
-#include <QDebug>
-
-FocusStack::FocusStack( QObject* parent )
-  : QObject( parent ),
-  QList<QQuickItem*>()
-{
-
-}
-
 void FocusStack::addFocusTaker( QQuickItem *item )
 {
-  qDebug() << "Add focus taker item " << item->objectName();
   connect( item, &QQuickItem::activeFocusChanged, this, &FocusStack::itemFocusChanged );
 }
 
 void FocusStack::itemFocusChanged( bool itemActiveFocus )
 {
-  qDebug() << "Item " << sender()->objectName() << " changed focus to " << itemActiveFocus;
-
   if( itemActiveFocus )
   {
     setFocused( qobject_cast<QQuickItem*>( sender() ) );
@@ -46,33 +34,18 @@ void FocusStack::itemFocusChanged( bool itemActiveFocus )
 
 void FocusStack::setFocused( QQuickItem* item  )
 {
-  qDebug() << "Set item focused: " << item->objectName();
-
-  removeAll( item );
-  qDebug() << "Size of focusstack after remove: " << size();
-  append( item );
-  qDebug() << "Size of focusstack after append: " << size();
+  mStackList.removeAll( item );
+  mStackList.append( item );
 }
 
 void FocusStack::setUnfocused( QQuickItem* item  )
 {
-  qDebug() << "Unset item focused: " << item->objectName();
-
   if( !item->isVisible() )
   {
-
-    qDebug() << "Size of stacklist before remove: " << size();
-    removeAll( item );
-    qDebug() << "Size of stacklist after remove: " << size();
-    if( !isEmpty() )
+    mStackList.removeAll( item );
+    if( !mStackList.isEmpty() )
     {
-      last()->forceActiveFocus();
-      qDebug() << "Forced focus to: " << last()->objectName();
+      mStackList.last()->forceActiveFocus();
     }
   }
-  else
-  {
-    qDebug() << "Size of focusstack after doing nothing: " << size();
-  }
-
 }
