@@ -670,17 +670,16 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker( this )
 
-    /*
+    //this is that the focus is set by selecting the empty space
     MouseArea {
+      enabled: parent.state!="FeatureFormEdit"
       anchors.fill: parent
       propagateComposedEvents: true
       onClicked: {
-        if (state != "Hidden" )
-          forceActiveFocus()
-        mouse.accepted = false;
+        parent.focus=true
+        mouse.accepted=false
       }
     }
-    */
   }
 
   FeatureForm {
