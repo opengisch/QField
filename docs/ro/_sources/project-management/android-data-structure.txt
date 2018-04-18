@@ -17,3 +17,6 @@ In order to have write access to projects which are on an external SD card, you 
 
     /Android/data/ch.opengis.qfield/files
 
+Warning!
+--------
+By storing data in this folder, you risk losing data. You can lose data by uninstalling QField from your Android device. Android system will delete the /Android/data/ch.opengis.qfield directory. This is important if you keep the data in the External sd card.
