@@ -674,6 +674,8 @@ ApplicationWindow {
     MouseArea {
       anchors.fill: parent
       propagateComposedEvents: true
+      enabled: !parent.activeFocus
+
       //onPressed because onClicked shall be handled in underlying MouseArea
       onPressed: {
         parent.focus=true
