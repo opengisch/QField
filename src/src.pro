@@ -54,7 +54,8 @@ HEADERS += \
     featurelistmodel.h \
     distancearea.h \
     coordinatetransformer.h \
-    expressioncontextutils.h
+    expressioncontextutils.h \
+    focusstack.h
 
 SOURCES += \
     appinterface.cpp \
@@ -93,7 +94,8 @@ SOURCES += \
     featurelistmodel.cpp \
     distancearea.cpp \
     coordinatetransformer.cpp \
-    expressioncontextutils.cpp
+    expressioncontextutils.cpp \
+    focusstack.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
