@@ -16,7 +16,7 @@ Item {
     anchors.right: parent.right
     font.pointSize: 14
 
-    text: value || ''
+    text: value !== undefined ? value : ''
 
     validator: {
       if (field.isNumeric || widget == 'Range') {
@@ -51,7 +51,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
 
-    text: value || ''
+    text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     onEditingFinished: {
