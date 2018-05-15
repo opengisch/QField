@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 0.10 - Kesch" href="../index.html" />
-    <link rel="next" title="Android: Special File Access Notes" href="../project-management/android-data-structure.html" />
+    <link rel="next" title="Android: Notas sobre Acesso Especial a Ficheiros" href="../project-management/android-data-structure.html" />
     <link rel="prev" title="QField - Guia do Utilizador" href="../installation-guide/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,9 +98,9 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Conceitos</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Manter simples</a></li>
+<li><a class="reference internal" href="#keep-it-simple">Simplificar</a></li>
 <li><a class="reference internal" href="#be-compatible-with-qgis">Ser compatível com o QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Baseado em modo</a></li>
+<li><a class="reference internal" href="#mode-based">Baseado em modos de utilização</a></li>
 </ul>
 </li>
 </ul>
@@ -116,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="../project-management/android-data-structure.html" title="Next Chapter: Android: Special File Access Notes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Android: Spec... &raquo;</span>
+    <a href="../project-management/android-data-structure.html" title="Next Chapter: Android: Notas sobre Acesso Especial a Ficheiros"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Android: Nota... &raquo;</span>
     </a>
   </li>
             
@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Conceitos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Notas sobre Acesso Especial a Ficheiros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField - Gestão do Projeto</a></li>
@@ -158,8 +158,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
 
@@ -172,27 +172,20 @@
 <h1>Conceitos<a class="headerlink" href="#concepts" title="Link permanente para este título">¶</a></h1>
 <p>QField foi criado com alguns conceitos chave em mente.</p>
 <div class="section" id="keep-it-simple">
-<h2>Manter simples<a class="headerlink" href="#keep-it-simple" title="Link permanente para este título">¶</a></h2>
-<p>Os requisitos neste campo não são os mesmos como em PC. O ecrã é mais pequeno, os dipositivos de entrada são diferentes e as tarefas são diferentes.</p>
-<p>O Qffield tem como objectivo ajudar o utilizador a realizar tarefas que ele necessita sem ter uma interface confusa. Isto significa, que apenas estão disponíveis as tarefas que precisa de ser executar no campo. O resto não é necessário.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h2>Simplificar<a class="headerlink" href="#keep-it-simple" title="Link permanente para este título">¶</a></h2>
+<p>Os requisitos no campo não são os mesmos que num computador de secretária. O ecrã é mais pequeno, os dispositivos de entrada são diferentes e as tarefas são diferentes.</p>
+<p>O QField tem como objectivo ajudar o utilizador a realizar as tarefas que ele necessita, num interface simples. Isto significa, que apenas estão disponíveis no interface as tarefas que necessitam ser executadas no campo. Tudo o resto não é disponibilizado.</p>
+<p>Isto significa que tudo que tem a ver com estilos de camadas, definições de formulários e outros passos de configuração do projeto devem primeiro ser feitos num computador com o QGIS instalado.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
 <h2>Ser compatível com o QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Link permanente para este título">¶</a></h2>
-<p>QField é baseado no QGIS. Não é uma recriação do QGIS, este realmente <em>utiliza</em> as bibliotecas do QGIS. O mecanismo de renderização é exatamente o mesmo como no QGIS para PC e o seu projeto irá por isso, parecer exatamente o mesmo no seu dispositivo móvel como no seu computador.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<p>O QField é baseado no QGIS. Não sendo uma reconstrução do QGIS, utiliza contudo as bibliotecas do QGIS. O mecanismo de renderização é idêntico ao do QGIS para desktop e o seu projecto irá, por isso, ter o mesmo aspecto no seu dispositivo móvel, que tem no seu computador.</p>
+<p>Se algo já estiver disponível como opção de configuração num projecto QGIS, tal não deve ser reinventado. Portanto, o QField usa os mesmos widgets de edição que o QGIS para desktop. Se um projeto já estiver configurado para desktop, deverá igualmente executar em dispositivos móveis.</p>
+<p>Lembre-se, este é apenas o <em>conceito</em>. É isso que temos em mente quando desenvolvemos o QField. Tal não significa que já esteja completamente implementado.</p>
 </div>
 <div class="section" id="mode-based">
-<h2>Baseado em modo<a class="headerlink" href="#mode-based" title="Link permanente para este título">¶</a></h2>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h2>Baseado em modos de utilização<a class="headerlink" href="#mode-based" title="Link permanente para este título">¶</a></h2>
+<p>O QField é construído em torno de <em>modos</em> de utilização. Os modos são semelhantes a uma <em>ferramenta de mapa</em> do QGIS desktop. Um modo define a tarefa que o utilizador está a fazer actualmente. Um utilizador ou está a <em>explorar</em> os dados ou está a <em>digitalizar</em> algo novo.</p>
 </div>
 </div>
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Special File Access Notes &mdash; Documentação QField Documentation 0.10 - Kesch</title>
+    <title>Android: Notas sobre Acesso Especial a Ficheiros &mdash; Documentação QField Documentation 0.10 - Kesch</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,10 +98,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Special File Access Notes</a><ul>
+<li><a class="reference internal" href="#">Android: Notas sobre Acesso Especial a Ficheiros</a><ul>
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Definições e símbolos SVG personalizados</a></li>
-<li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
-<li><a class="reference internal" href="#warning">Warning!</a></li>
+<li><a class="reference internal" href="#external-sd-card">Cartão SD externo</a></li>
+<li><a class="reference internal" href="#warning">Atenção!</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">How to turn external SD card into internal storage on Android 6 and 7.</a></li>
 </ul>
 </li>
@@ -150,7 +150,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Special File Access Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Notas sobre Acesso Especial a Ficheiros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
@@ -160,8 +160,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
 
@@ -171,7 +171,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="android-special-file-access-notes">
-<h1>Android: Special File Access Notes<a class="headerlink" href="#android-special-file-access-notes" title="Link permanente para este título">¶</a></h1>
+<h1>Android: Notas sobre Acesso Especial a Ficheiros<a class="headerlink" href="#android-special-file-access-notes" title="Link permanente para este título">¶</a></h1>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h2>Definições e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanente para este título">¶</a></h2>
 <p>In the about dialog you can see where the shared folders are on your device.</p>
@@ -179,19 +179,19 @@
 <p><em>Warning</em> : some apps may block your access to svg folder. On Samsung devices, you have to deactivate Samsung &#8220;Secured Folder&#8221; app in order to access to the svg folder. Otherwise, this folder is hidden.</p>
 </div>
 <div class="section" id="external-sd-card">
-<h2>External SD card<a class="headerlink" href="#external-sd-card" title="Link permanente para este título">¶</a></h2>
+<h2>Cartão SD externo<a class="headerlink" href="#external-sd-card" title="Link permanente para este título">¶</a></h2>
 <p>In order to have write access to projects which are on an external SD card, you will have to put it into the following folder:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 </div>
 <div class="section" id="warning">
-<h2>Warning!<a class="headerlink" href="#warning" title="Link permanente para este título">¶</a></h2>
+<h2>Atenção!<a class="headerlink" href="#warning" title="Link permanente para este título">¶</a></h2>
 <p>By storing data in this folder, you risk losing data. You can lose data by uninstalling QField from your Android device. Android system will delete the /Android/data/ch.opengis.qfield directory. This is important if you keep the data in the External sd card.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
 <h2>How to turn external SD card into internal storage on Android 6 and 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Link permanente para este título">¶</a></h2>
-<p>We recommend turn external SD card into internal storage.</p>
+<p>Recomendamos a conversão do cartão SD externo em armazenamento interno.</p>
 <p>NOTE: Please be sure you start with a blank SD card. It needs to be blank because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped) and encoded (making the cards data only readable by that device).</p>
 <ol class="arabic simple">
 <li>Go to device “Settings”, then select “Storage”.</li>
