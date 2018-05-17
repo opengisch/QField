@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Concepts &mdash; QField Documentation 0.10 - Kesch documentation</title>
+    <title>Įdėja &mdash; QField Documentation 0.10 - Kesch documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.10 - Kesch documentation" href="../index.html" />
     <link rel="next" title="Android: Special File Access Notes" href="../project-management/android-data-structure.html" />
-    <link rel="prev" title="QField Installation Guide" href="../installation-guide/index.html" />
+    <link rel="prev" title="QField diegimo vadovas" href="../installation-guide/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -98,9 +98,9 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
+<li><a class="reference internal" href="#">Įdėja</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">Kuo paprastesnė</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">Suderinamumas su QGIS</a></li>
 <li><a class="reference internal" href="#mode-based">Mode based</a></li>
 </ul>
 </li>
@@ -113,7 +113,7 @@
             
               
   <li>
-    <a href="../installation-guide/index.html" title="Previous Chapter: QField Installation Guide"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; QField Instal...</span>
+    <a href="../installation-guide/index.html" title="Previous Chapter: QField diegimo vadovas"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; QField diegim...</span>
     </a>
   </li>
   <li>
@@ -147,8 +147,8 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField diegimo vadovas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Įdėja</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
@@ -170,24 +170,17 @@
     <div class="col-md-9 content">
       
   <div class="section" id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="Nuoroda į šią antraštę">¶</a></h1>
-<p>QField was designed with a few key concepts in mind.</p>
+<h1>Įdėja<a class="headerlink" href="#concepts" title="Nuoroda į šią antraštę">¶</a></h1>
+<p>QField buvo sukurta dėl keletos pagrindinių priežasčių.</p>
 <div class="section" id="keep-it-simple">
-<h2>Keep it simple<a class="headerlink" href="#keep-it-simple" title="Nuoroda į šią antraštę">¶</a></h2>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h2>Kuo paprastesnė<a class="headerlink" href="#keep-it-simple" title="Nuoroda į šią antraštę">¶</a></h2>
+<p>Darbo sąlygos dirbant lauke skiriasi nuo darbo prie kompiuterio. Mažesnis ekranas , skirtingi įvesties įrenginiai bei užduotys.</p>
+<p>Su QField siekiama padėti vartotojui atlikti užduotis neapkraunant vartotojo sąsajos. Tai reiškia, jog tik tie įrankiai, kurie reikalingi dirbant lauke yra prieinami vartotojo sąsajoje. VIsa kita nepasiekiama.</p>
+<p>Tokios užduotys kaip sluoksnio stilizavimas, įvedimo formų detalizavimas bei kiti projekto paruošimo žingsniai pirmiausia turi būti atlikti kompiuteryje įdiegtoje QGIS programoje.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h2>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Nuoroda į šią antraštę">¶</a></h2>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
+<h2>Suderinamumas su QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Nuoroda į šią antraštę">¶</a></h2>
+<p>QField yra paremta QGIS. Tai nėra perdaryta QGIS versija - naudojamos QGIS bibliotekos. Vaizdavimo varikliukas naudojamas įdentiškas kaip ir QGIS pilnoje versijoje, todėl projektai visada atrodys taip pat mobiliam įrenginyje bei kompiuteryje.</p>
 <p>If something is already available as a configuration option in a QGIS project,
 it should not be re-invented. QField therefore uses the same edit widgets as
 QGIS desktop does. If a project is already configured for the desktop, it

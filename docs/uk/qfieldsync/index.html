@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 0.10 - Kesch documentation</title>
+    <title>Плаґін QFieldSync &mdash; QField Documentation 0.10 - Kesch documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 0.10 - Kesch documentation" href="../index.html" />
     <link rel="next" title="River State Survey Using QField" href="../case-studies/river-state-survey.html" />
-    <link rel="prev" title="Development and support" href="../development/index.html" />
+    <link rel="prev" title="Розробка та підтримка" href="../development/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -97,12 +97,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">Плаґін QFieldSync</a><ul>
+<li><a class="reference internal" href="#workflow">Порядок роботи</a></li>
+<li><a class="reference internal" href="#configuration">Настройки</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Настройки шарів</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Настройка базових карт</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Настройка офлайнового редагування</a></li>
 </ul>
 </li>
 </ul>
@@ -116,7 +116,7 @@
             
               
   <li>
-    <a href="../development/index.html" title="Previous Chapter: Development and support"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Development a...</span>
+    <a href="../development/index.html" title="Previous Chapter: Розробка та підтримка"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Розробка та підтримка</span>
     </a>
   </li>
   <li>
@@ -150,20 +150,20 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Встановлення QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Принципи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: доступ до спеціальних файлів</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Підтримувані формати даних</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Растрові дані</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Управління проектами QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Настройка тем мапи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable проект</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Налаштування векторних шарів</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Глобальні змінні</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Розробка та підтримка</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Плаґін QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
 
@@ -173,81 +173,72 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>Плаґін QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Постійне посилання на цей заголовок">¶</a></h1>
+<p>Плаґін QFieldSync допомогає підготувати проект QGIS для QField.</p>
+<p>QFieldSync спрощує підготовку проектів шляхом автоматизації наступних кроків:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable Project</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">обов&#8217;язкові настройки проекту (наприклад <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable проект</span></a>)</p>
+</li>
+<li><p class="first">створення базових карт з растрового шару чи стилю, заданого темою мапи.</p>
+</li>
+<li><p class="first">настройкою офлайнового редагування та синхронізацією змін.</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Порядок роботи<a class="headerlink" href="#workflow" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Ось перелік типових кроків:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Створити пакет QField. Це буде робоча копія в окремому каталозі.</p>
+</li>
+<li><p class="first">Скопіювати пакет QField на пристрій.</p>
+</li>
+<li><p class="first">Вийти в поле та зібрати дані.</p>
+</li>
+<li><p class="first">Перенести модифіковані дані на комп&#8217;ютер.</p>
+</li>
+<li><p class="first">Синхронізувати модифіковані дані з вашою базою даних чи файлами.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Настройки<a class="headerlink" href="#configuration" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Настройки проекту зберігаються в основному файлі проекту. Тобто ви можете налаштувати проект лише один раз і постійно його використовувати.</p>
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<h3>Настройки шарів<a class="headerlink" href="#layer-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>У діалозі настройок проекту для кожного шару можна задати свою <em>дію</em>. В залежності від типу шару, список доступних дій може відрізнятися.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Копіювати</dt>
+<dd><p class="first last">Шар слід скопіювати у каталог пакету. Доступно лише для шарів на основі файлів.</p>
+</dd>
+<dt>Без дії</dt>
+<dd><p class="first last">Шар буде залишено без змін. Доступно лише для шарів, які використовують файли, таких як WMS, WFS, Postgis...</p>
+</dd>
+<dt>Офлайнове редагування</dt>
+<dd><p class="first last">Робочу копію шару буде створено у каталозі пакету. Всі зміни, внесені в цей шар під час польової роботи, записуються в список змін. Пізніше, під час синхронізації, список змін буде застосований до основної бази даних. Вирішення конфліктів відсутнє.</p>
+</dd>
+<dt>Видалити</dt>
+<dd><p class="first last">Шар буде видалений з робочої копії. Корисно коли шар використовуються в якості базової карти та не буде доступний у пакеті.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Настройка базових карт<a class="headerlink" href="#base-map-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Базова карта це растровий шар, який буде найнижчим у списку шарів проекту.</p>
+<p>Якщо вибрано цю настройку, базова карта буде генеруватися кожного разу під час підготовки проекту. Область інтересу &#8212; тобто регіон, який буде оброблятися &#8212; буде вибрано під час створення пакету.</p>
+<p>В якості базової карти може виступати:</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>шар</dt>
+<dd><p class="first last">растровий шар. Виберіть цей варіант, щоб створити офлайнову копію онлайнових шарів на кшалт WMS або щоб створити робочу копію шару у несумісному форматі на зразок ECW чи MrSID.</p>
+</dd>
+<dt>Тема мапи</dt>
+<dd><p class="first last">тема мапи. Виберіть цей варіант, щоб створити базову карту з декількох шарів. Ці шари потім можна буде видалити з робочого пакету.Завдяки цьому зберігається місце та економиться заряд батареї пристрою.</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>Розмір тайлів впливає на просторову роздільну здатніть. Він визначає число одиниць мапи в одному пікселі. Якщо мапа використовує метри в якості одиниць виміру, а розмір тайлу дорівнює 1, кожний піксель растру буде мати просторову роздільну здатність 1х1 м. Якщо ж розмір тайлу буде дорівнювати 1000, кожний піксель буде мати просторову роздільну здатність 1 квадратний кілометр.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Настройка офлайнового редагування<a class="headerlink" href="#offline-editing-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Якщо встановлено прапорець <em>Синхронізувати об&#8217;єкти лише в області інтересу</em>, то до офлайнової робочої копії потраплять лише об&#8217;єкти, що знаходяться всередини видимої області мапи.</p>
 </div>
 </div>
 </div>
