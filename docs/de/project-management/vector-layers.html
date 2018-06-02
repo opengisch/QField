@@ -112,7 +112,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Standardwerte</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
+<li><a class="reference internal" href="#additional-variables">Zusätzliche Variablen</a></li>
 <li><a class="reference internal" href="#id1">Übliche Anwendungsfälle</a></li>
 </ul>
 </li>
@@ -126,7 +126,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Toleranz für Objektfang</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">3D-Koordinaten</a></li>
 </ul>
 </li>
 </ul>
@@ -285,7 +285,8 @@
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td><p class="first last">Beziehungen</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -342,25 +343,25 @@
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Link zu dieser Überschrift">¶</a></h4>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h4>Zusätzliche Variablen<a class="headerlink" href="#additional-variables" title="Link zu dieser Überschrift">¶</a></h4>
+<p>In QField stehen einige zusätzliche Variablen bezüglich der aktuellen Positionierungsinformationen zur Verfügung.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_coordinate</cite> (Geometrie in WGS84!) : Lon, Lat, Altitude wie vom Sensor geliefert. Ist auch verfügbar, wenn das Fadenkreuz nicht am Sensor eingerastet ist.</p>
+</li>
+<li><p class="first"><cite>position_timestamp</cite> (DateTime) : Zeitstempel der Positionsinformation</p>
+</li>
+<li><p class="first"><cite>position_direction</cite> (float) : Richtung in Grad vom wahren Norden.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (float) : Geschwindigkeit in Meter / Sekunde.</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float) : Der Winkel zwischen der horizontalen Komponente des Magnetfeldes und dem wahren Norden, in Grad. Auch bekannt als magnetische Deklination. Ein positiver Wert zeigt im Uhrzeigersinn eine Richtung vom wahren Norden aus gesehen an, ein negativer Wert zeigt eine Richtung gegen den Uhrzeigersinn an.</p>
+</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (float) : Die horizontale Genauigkeit der Koordinate (in Metern).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (float) : Die vertikale Genauigkeit der Koordinate (in Metern).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float) : Der Wert der vertikalen Geschwindigkeit in Metern pro Sekunde.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -419,9 +420,8 @@ per second.</li>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Link zu dieser Überschrift">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<h2>3D-Koordinaten<a class="headerlink" href="#d-coordinates" title="Link zu dieser Überschrift">¶</a></h2>
+<p>GPS-Geräte sind in der Lage, neben der aktuellen 2D-Position auch die Höhe der Erdoberfläche zu messen. Diese Informationen können gespeichert werden</p>
 </div>
 </div>
 
