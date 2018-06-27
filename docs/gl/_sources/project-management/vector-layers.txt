@@ -189,6 +189,12 @@ positioning information.
 Common use cases
 ................
 
+Insert positioning information as variable:
+
+.. code-block:: sql
+
+  @position_horizontal_accuracy
+
 Insert the current date and time:
 
 .. code-block:: sql
