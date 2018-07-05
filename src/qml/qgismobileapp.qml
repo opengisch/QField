@@ -110,7 +110,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        if ( !overlayFeatureForm.visible )
+        if ( !overlayFeatureFormDrawer.opened )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
@@ -270,17 +270,6 @@ ApplicationWindow {
   }
 
   DropShadow {
-    anchors.fill: overlayFeatureForm
-    visible: overlayFeatureForm.visible
-    horizontalOffset: -2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: overlayFeatureForm
-  }
-
-  DropShadow {
     anchors.fill: featureForm
     horizontalOffset: -2 * dp
     verticalOffset: 0
@@ -296,7 +285,7 @@ ApplicationWindow {
 
     anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
 
-    property bool preventFromOpening: overlayFeatureForm.visible
+    property bool preventFromOpening: overlayFeatureFormDrawer.opened
     readonly property bool open: dashBoard.visible && !preventFromOpening
 
     width: open ? 300 * dp : 0
@@ -509,7 +498,7 @@ ApplicationWindow {
       if ( !digitizingFeature.suppressFeatureForm() )
       {
         digitizingFeature.resetAttributes();
-        overlayFeatureForm.visible = true;
+        overlayFeatureFormDrawer.open()
         overlayFeatureForm.state = "Add"
         overlayFeatureForm.reset()
       }
@@ -687,39 +676,45 @@ ApplicationWindow {
     }
   }
 
-  FeatureForm {
-    id: overlayFeatureForm
-
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+  Drawer {
+    id: overlayFeatureFormDrawer
+    height: parent.height
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
+    edge: Qt.RightEdge
+    interactive: opened
 
-    model: AttributeFormModel {
-      featureModel: digitizingFeature
-    }
+    FeatureForm {
+      id: overlayFeatureForm
+      height: parent.height
+      width: parent.width
+      visible: true
 
-    state: "Add"
-
-    visible: false
-    focus: visible
-
-    onSaved: {
-      visible = false
-      digitizingRubberband.model.reset()
-    }
-    onCancelled: {
-        digitizingRubberband.model.reset()
-        visible = false
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        digitizingRubberband.model.reset()
-        visible = false
-        event.accepted = true
+      model: AttributeFormModel {
+        featureModel: digitizingFeature
       }
-    }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+      state: "Add"
+
+      focus: parent.opened
+
+      onSaved: {
+        overlayFeatureFormDrawer.close()
+        digitizingRubberband.model.reset()
+      }
+      onCancelled: {
+          digitizingRubberband.model.reset()
+          overlayFeatureFormDrawer.close()
+      }
+
+      Keys.onReleased: {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          overlayFeatureFormDrawer.close()
+          event.accepted = true
+        }
+      }
+
+      Component.onCompleted: focusstack.addFocusTaker( this )
+    }
   }
 
   function displayToast( message ) {
