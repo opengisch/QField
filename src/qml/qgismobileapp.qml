@@ -110,7 +110,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        if ( !overlayFeatureFormDrawer.opened )
+        if ( !overlayFeatureFormDrawer.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
@@ -284,7 +284,7 @@ ApplicationWindow {
 
     anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
 
-    property bool preventFromOpening: overlayFeatureFormDrawer.opened
+    property bool preventFromOpening: overlayFeatureFormDrawer.visible
     readonly property bool open: dashBoard.visible && !preventFromOpening
 
     width: open ? 300 * dp : 0
@@ -679,6 +679,7 @@ ApplicationWindow {
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
     edge: Qt.RightEdge
     interactive: opened
+    dragMargin: 0
 
     FeatureForm {
       id: overlayFeatureForm
@@ -710,7 +711,12 @@ ApplicationWindow {
         }
       }
 
-      Component.onCompleted: focusstack.addFocusTaker( this )
+      Component.onCompleted: {
+          focusstack.addFocusTaker( this )
+      }
+    }
+    Component.onCompleted: {
+        close()
     }
   }
 
