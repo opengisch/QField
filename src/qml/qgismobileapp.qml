@@ -721,8 +721,8 @@ ApplicationWindow {
   }
 
   function displayToast( message ) {
-    toastMessage.text = message
-    toast.opacity = 1
+    //toastMessage.text = message
+    toast.show(message)
   }
 
   Rectangle {
@@ -869,42 +869,66 @@ ApplicationWindow {
       openProjectDialog.visible = true
     }
   }
-
   // Toast
-  Rectangle {
-    id: toast
-    anchors.horizontalCenter: parent.horizontalCenter
-    color: "#272727"
-    height: 40*dp;
-    width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
-    opacity: 0
-    radius: 20*dp
-    y: parent.height - 112*dp
-    z: 1
-    Behavior on opacity {
-      NumberAnimation { duration: 500 }
-    }
+  Popup {
+      id: toast
+      opacity: 0
+      height: 40*dp;
+      width: parent.width
+      y: parent.height - 112*dp
+      margins: 0
+      background: none
+      closePolicy: Popup.NoAutoClose
 
-    // Visible only for 3 seconds
-    onOpacityChanged: {
-      toast.visible = (toast.opacity > 0)
-      if ( toast.opacity == 1 ) {
-        toastTimer.start()
+      function show(text) {
+          toastMessage.text = text
+          toast.open()
+          toastContent.visible = true
+          toast.opacity = 1
+          toastTimer.start()
       }
-    }
 
-    Text {
-      id: toastMessage
-      anchors.centerIn: parent
-      font.pixelSize: 16*dp
-      color: "#ffffff"
-    }
+      Behavior on opacity {
+        NumberAnimation { duration: 500 }
+      }
+
+      Rectangle {
+          id: toastContent
+        color: "#272727"
+
+        height: 40*dp
+        width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
+
+        anchors.centerIn: parent
+
+        radius: 20*dp
+
+        z: 1
+
+        Text {
+          id: toastMessage
+          anchors.centerIn: parent
+          font.pixelSize: 16*dp
+          color: "#ffffff"
+        }
+      }
+
       // Visible only for 3 seconds
-    Timer {
-      id: toastTimer
-      interval: 3000
-      onTriggered: { toast.opacity = 0 }
-    }
+      Timer {
+          id: toastTimer
+          interval: 3000
+          onTriggered: {
+              toast.opacity = 0
+          }
+      }
+
+      onOpacityChanged: {
+
+          if ( opacity == 0 ) {
+              toastContent.visible = false
+              toast.close()
+          }
+      }
   }
 
   DropArea {
