@@ -38,7 +38,7 @@ class MapSettings : public QObject
     Q_PROPERTY( QList<QgsMapLayer*> layers READ layers WRITE setLayers NOTIFY layersChanged )
 
   public:
-    MapSettings( QObject* parent = 0 );
+    MapSettings( QObject* parent = nullptr );
     ~MapSettings();
 
     QgsRectangle extent() const;

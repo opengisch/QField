@@ -25,7 +25,7 @@ class ModelHelper : public QObject
 
     Q_PROPERTY( QAbstractItemModel* model READ model WRITE setModel NOTIFY modelChanged )
   public:
-    explicit ModelHelper( QObject* parent = 0 );
+    explicit ModelHelper( QObject* parent = nullptr );
 
     Q_INVOKABLE QModelIndex index( int row, int column );
 

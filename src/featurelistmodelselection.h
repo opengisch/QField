@@ -32,7 +32,7 @@ class FeatureListModelSelection : public QObject
     Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
 
   public:
-    explicit FeatureListModelSelection( QObject *parent = 0 );
+    explicit FeatureListModelSelection( QObject *parent = nullptr );
 
     int selection();
     void setSelection( int selection );

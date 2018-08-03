@@ -32,7 +32,7 @@ class FeatureListExtentController : public QObject
     Q_PROPERTY( MapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    FeatureListExtentController( QObject* parent = 0 );
+    FeatureListExtentController( QObject* parent = nullptr );
     ~FeatureListExtentController();
 
   public slots:

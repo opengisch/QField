@@ -45,7 +45,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
 
   public:
-    QgsQuickMapCanvasMap( QQuickItem* parent = 0 );
+    QgsQuickMapCanvasMap( QQuickItem* parent = nullptr );
     ~QgsQuickMapCanvasMap();
 
     QgsPoint toMapCoordinates( QPoint canvasCoordinates );

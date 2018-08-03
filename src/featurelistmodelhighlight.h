@@ -39,7 +39,7 @@ class FeatureListModelHighlight : public QQuickItem
     Q_PROPERTY( MapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    explicit FeatureListModelHighlight( QQuickItem *parent = 0 );
+    explicit FeatureListModelHighlight( QQuickItem *parent = nullptr );
 
     void setSelection( FeatureListModelSelection* selection );
     FeatureListModelSelection* selection() const;

@@ -30,7 +30,7 @@ class CoordinateTransform : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCRS READ destinationCRS WRITE setDestinationCRS NOTIFY destinationCRSChanged )
 
   public:
-    explicit CoordinateTransform( QObject *parent = 0 );
+    explicit CoordinateTransform( QObject *parent = nullptr );
 
     Q_INVOKABLE QgsPointXY transform( QgsPointXY pt ) const;
 

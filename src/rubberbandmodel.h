@@ -43,7 +43,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
-    explicit RubberbandModel( QObject *parent = 0 );
+    explicit RubberbandModel( QObject *parent = nullptr );
 
     int vertexCount() const;
 
