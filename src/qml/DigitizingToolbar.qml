@@ -72,7 +72,11 @@ Row {
     bgcolor: "#FFD600"
 
     onClicked: {
-      vertexRemoved()
+      if ( Number( rubberbandModel.geometryType ) !== 0 )
+      {
+        // remove editing vertex for lines and polygons
+        vertexRemoved()
+      }
       confirm()
     }
   }
