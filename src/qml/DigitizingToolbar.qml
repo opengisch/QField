@@ -72,6 +72,7 @@ Row {
     bgcolor: "#FFD600"
 
     onClicked: {
+      vertexRemoved()
       confirm()
     }
   }

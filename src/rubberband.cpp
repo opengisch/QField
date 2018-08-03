@@ -113,3 +113,5 @@ void Rubberband::setColor( const QColor& color )
 {
   mColor = color;
 }
+
+

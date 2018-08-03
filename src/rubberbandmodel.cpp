@@ -22,6 +22,7 @@ RubberbandModel::RubberbandModel( QObject* parent )
   , mCurrentCoordinateIndex( 0 )
   , mGeometryType( QgsWkbTypes::LineGeometry )
   , mLayer( nullptr )
+  , mFreezed ( false )
 {
   mPointList.insert( 0, QgsPoint() );
 }
@@ -162,6 +163,9 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint& currentCoordinate )
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
 
+  if (mFreezed)
+    return;
+
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
   emit currentCoordinateChanged();
   emit vertexChanged( mCurrentCoordinateIndex );
@@ -186,6 +190,7 @@ void RubberbandModel::removeVertex()
 void RubberbandModel::reset()
 {
   removeVertices( 0, mPointList.size() - 1 );
+  mFreezed = false;
 }
 
 QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
@@ -232,4 +237,15 @@ void RubberbandModel::setVectorLayer( QgsVectorLayer* layer )
     setGeometryType( mLayer->geometryType() );
 
   emit vectorLayerChanged();
+}
+
+
+bool RubberbandModel::freezed() const
+{
+  return mFreezed;
+}
+
+void RubberbandModel::setFreezed(const bool &freezed )
+{
+  mFreezed = freezed;
 }
