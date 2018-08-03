@@ -40,7 +40,7 @@ class MultiFeatureListModel : public QAbstractItemModel
       DeleteFeatureRole
     };
 
-    explicit MultiFeatureListModel( QObject *parent = 0 );
+    explicit MultiFeatureListModel( QObject *parent = nullptr );
 
     /**
      * @brief setFeatures

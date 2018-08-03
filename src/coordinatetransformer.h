@@ -31,7 +31,7 @@ class CoordinateTransformer : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem sourceCrs READ sourceCrs WRITE setSourceCrs NOTIFY sourceCrsChanged )
 
   public:
-    explicit CoordinateTransformer( QObject *parent = 0 );
+    explicit CoordinateTransformer( QObject *parent = nullptr );
     QgsPoint projectedPosition() const;
 
     QGeoCoordinate sourcePosition() const;

@@ -41,8 +41,8 @@ class FeatureModel : public QAbstractListModel
       RememberAttribute
     };
 
-    explicit FeatureModel( QObject *parent = 0 );
-    explicit FeatureModel( const QgsFeature& feat, QObject *parent = 0 );
+    explicit FeatureModel( QObject *parent = nullptr );
+    explicit FeatureModel( const QgsFeature& feat, QObject *parent = nullptr );
 
     void setFeature( const QgsFeature& feature );
 

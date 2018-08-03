@@ -25,7 +25,7 @@ class Settings : public QSettings
     Q_OBJECT
 
   public:
-    explicit Settings( QObject *parent = 0 );
+    explicit Settings( QObject *parent = nullptr );
 
     Q_INVOKABLE void setValue( const QString &key, const QVariant &value );
 

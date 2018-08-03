@@ -49,7 +49,7 @@ class IdentifyTool : public QObject
     };
 
   public:
-    explicit IdentifyTool( QObject *parent = 0 );
+    explicit IdentifyTool( QObject *parent = nullptr );
 
     MapSettings* mapSettings() const;
     void setMapSettings( MapSettings* mapSettings );
