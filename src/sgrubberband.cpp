@@ -8,6 +8,9 @@ SGRubberband::SGRubberband( const QVector<QgsPoint>& points, QgsWkbTypes::Geomet
 {
   mMaterial.setColor( color );
 
+  if ( points.count() == 0 )
+    return;
+
   switch ( type )
   {
     case QgsWkbTypes::PointGeometry:

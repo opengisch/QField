@@ -57,11 +57,13 @@ class Rubberband : public QQuickItem
   private:
     QSGNode* updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* );
 
-    RubberbandModel* mModel;
+    RubberbandModel* mModel = nullptr;
     MapSettings* mMapSettings;
-    bool mDirty;
-    QColor mColor;
-    qreal mWidth;
+    bool mDirty = false;
+    QColor mColor = QColor( 192, 57, 43, 200 );
+    qreal mWidth = 1.8;
+    QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
+    qreal mWidthCurrentPoint = 1.2;
 };
 
 #endif // RUBBERBAND_H
