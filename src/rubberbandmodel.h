@@ -41,7 +41,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
-    Q_PROPERTY( bool freezed READ freezed WRITE setFreezed NOTIFY freezedChanged )
+    Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = nullptr );
@@ -91,8 +91,8 @@ class RubberbandModel : public QObject
     QgsCoordinateReferenceSystem crs() const;
     void setCrs( const QgsCoordinateReferenceSystem& crs );
 
-    bool freezed() const;
-    void setFreezed( const bool &freezed );
+    bool frozen() const;
+    void setFrozen( const bool &frozen );
 
 
   signals:
@@ -105,7 +105,7 @@ class RubberbandModel : public QObject
     void vectorLayerChanged();
     void vertexCountChanged();
     void crsChanged();
-    void freezedChanged();
+    void frozenChanged();
 
 
   private:
@@ -116,7 +116,7 @@ class RubberbandModel : public QObject
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer* mLayer;
     QgsCoordinateReferenceSystem mCrs;
-    bool mFreezed;
+    bool mFrozen = false;
 };
 
 #endif // RUBBERBANDMODEL_H
