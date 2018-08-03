@@ -59,13 +59,13 @@ Row {
       }
       else if  ( Number( rubberbandModel.geometryType ) === 1 )
       {
-        // Line: at least 2 points
-        rubberbandModel.vertexCount > 1
+        // Line: at least 2 points (last point not saved)
+        rubberbandModel.vertexCount > 2
       }
       else if  ( Number( rubberbandModel.geometryType ) === 2 )
       {
-        // Polygon: at least 3 points
-        rubberbandModel.vertexCount > 2
+        // Polygon: at least 3 points (last point not saved)
+        rubberbandModel.vertexCount > 3
       }
     }
     round: true
