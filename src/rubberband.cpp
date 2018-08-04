@@ -86,7 +86,7 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
 
       if ( !mModel->frozen() )
       {
-        SGRubberband* rbCurrentPoint = new SGRubberband( mModel->flatVertices(true), mModel->geometryType(), mColor, mWidth );
+        SGRubberband* rbCurrentPoint = new SGRubberband( mModel->flatVertices( true ), mModel->geometryType(), mColorCurrentPoint, mWidthCurrentPoint );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
       }
@@ -116,4 +116,23 @@ void Rubberband::setColor( const QColor& color )
   mColor = color;
 }
 
+qreal Rubberband::widthCurrentPoint() const
+{
+  return mWidthCurrentPoint;
+}
+
+void Rubberband::setWidthCurrentPoint( qreal width )
+{
+  mWidthCurrentPoint = width;
+}
+
+QColor Rubberband::colorCurrentPoint() const
+{
+  return mColorCurrentPoint;
+}
+
+void Rubberband::setColorCurrentPoint( const QColor& color )
+{
+  mColorCurrentPoint = color;
+}
 

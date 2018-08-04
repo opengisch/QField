@@ -45,6 +45,12 @@ class Rubberband : public QQuickItem
     qreal width() const;
     void setWidth( qreal width );
 
+    QColor colorCurrentPoint() const;
+    void setColorCurrentPoint( const QColor& color );
+
+    qreal widthCurrentPoint() const;
+    void setWidthCurrentPoint( qreal width );
+
   signals:
     void modelChanged();
     void mapSettingsChanged();
