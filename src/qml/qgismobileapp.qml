@@ -110,7 +110,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        if ( !overlayFeatureForm.visible )
+        if ( !overlayFeatureForm.visible && !digitizingToolbar.isDigitizing )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
