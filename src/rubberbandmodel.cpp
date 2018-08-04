@@ -191,7 +191,6 @@ void RubberbandModel::removeVertex()
 void RubberbandModel::reset()
 {
   removeVertices( 0, mPointList.size() - 1 );
-  mFrozen = false;
 }
 
 QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
