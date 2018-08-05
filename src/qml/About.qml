@@ -74,7 +74,7 @@ Item {
             id: donate_image
             source: "qrc:/images/karma-logo.svg"
           }
-          onClicked: Qt.openUrlExternally("http://qfield.opengis.ch/supportus")
+          onClicked: Qt.openUrlExternally("http://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
         }
       }
       ColumnLayout{
