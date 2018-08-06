@@ -504,7 +504,7 @@ ApplicationWindow {
       digitizingFeature.geometry.applyRubberband()
       digitizingFeature.applyGeometry()
 
-      digitizingRubberband.model.frozen = overlayFeatureForm.visible
+      digitizingRubberband.model.frozen = true
 
       if ( !digitizingFeature.suppressFeatureForm() )
       {
