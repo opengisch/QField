@@ -1,12 +1,10 @@
 /***************************************************************************
-                            qgsquickmapcanvasmap.cpp
-                              -------------------
-              begin                : 10.12.2014
-              copyright            : (C) 2014 by Matthias Kuhn
-              email                : matthias (at) opengis.ch
- ***************************************************************************/
-
-/***************************************************************************
+  qgsquickmapcanvasmap.cpp
+  --------------------------------------
+  Date                 : 10.12.2014
+  Copyright            : (C) 2014 by Matthias Kuhn
+  Email                : matthias (at) opengis.ch
+ ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,23 +25,16 @@
 #include <QSGSimpleTextureNode>
 #include <QtConcurrent>
 
-QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
+QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem *parent )
   : QQuickItem( parent )
   , mMapSettings( new MapSettings() )
-  , mPinching( false )
-  , mJob( nullptr )
-  , mCache( nullptr )
-  , mLabelingResults( nullptr )
-  , mDirty( false )
-  , mFreeze( false )
-  , mIncrementalRendering( false )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
   connect( &mMapUpdateTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::renderJobUpdated );
 
-  connect( mMapSettings, &MapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
-  connect( mMapSettings, &MapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
+  connect( mMapSettings.get(), &MapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
+  connect( mMapSettings.get(), &MapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
 
   connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
   connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
@@ -55,13 +46,9 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap(  QQuickItem* parent )
   setFlags( QQuickItem::ItemHasContents );
 }
 
-QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
+MapSettings *QgsQuickMapCanvasMap::mapSettings() const
 {
-}
-
-MapSettings* QgsQuickMapCanvasMap::mapSettings() const
-{
-  return mMapSettings;
+  return mMapSettings.get();
 }
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
@@ -143,9 +130,10 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
 
 void QgsQuickMapCanvasMap::renderJobFinished()
 {
-  Q_FOREACH ( const QgsMapRendererJob::Error& error, mJob->errors() )
+  const QgsMapRendererJob::Errors errors = mJob->errors();
+  for ( const QgsMapRendererJob::Error &error : errors )
   {
-    QgsMessageLog::logMessage( error.layerID + " :: " + error.message, tr( "Rendering" ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1 :: %2" ).arg( error.layerID, error.message ), tr( "Rendering" ) );
   }
 
   // take labeling results before emitting renderComplete, so labeling map tools
@@ -183,7 +171,7 @@ void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow* window )
   }
 }
 
-void QgsQuickMapCanvasMap::onScreenChanged( QScreen* screen )
+void QgsQuickMapCanvasMap::onScreenChanged( QScreen *screen )
 {
   if ( screen )
     mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
@@ -343,16 +331,16 @@ void QgsQuickMapCanvasMap::onLayersChanged()
   }
   mLayerConnections.clear();
 
-  Q_FOREACH( QgsMapLayer* layer, mMapSettings->layers() )
+  const QList<QgsMapLayer *> layers = mMapSettings->layers();
+  for ( QgsMapLayer *layer : layers )
   {
-    // QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
     mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &QgsQuickMapCanvasMap::refresh );
   }
 
   refresh();
 }
 
-void QgsQuickMapCanvasMap::destroyJob( QgsMapRendererJob* job )
+void QgsQuickMapCanvasMap::destroyJob( QgsMapRendererJob *job )
 {
   job->cancel();
   job->deleteLater();
@@ -373,7 +361,8 @@ void QgsQuickMapCanvasMap::stopRendering()
 void QgsQuickMapCanvasMap::zoomToFullExtent()
 {
   QgsRectangle extent;
-  Q_FOREACH( QgsMapLayer* layer, mMapSettings->layers() )
+  const QList<QgsMapLayer *> layers = mMapSettings->layers();
+  for ( QgsMapLayer *layer : layers )
   {
     extent.combineExtentWith( layer->extent() );
   }
@@ -384,6 +373,9 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
 
 void QgsQuickMapCanvasMap::refresh()
 {
+  if ( mMapSettings->outputSize().isNull() )
+    return;  // the map image size has not been set yet
+
   if ( !mFreeze )
     mRefreshTimer.start( 1 );
 }
