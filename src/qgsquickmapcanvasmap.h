@@ -21,6 +21,8 @@
 #include <qgspoint.h>
 #include <qgsmapsettings.h>
 
+#include "mapsettings.h"
+
 class QgsMapRendererParallelJob;
 class QgsMapRendererCache;
 class QgsLabelingResults;
