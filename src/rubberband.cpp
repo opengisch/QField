@@ -21,10 +21,6 @@
 
 Rubberband::Rubberband( QQuickItem* parent )
   : QQuickItem( parent )
-  , mModel ( nullptr )
-  , mDirty ( false )
-  , mColor ( 192, 57, 43, 200 )
-  , mWidth ( 1.5 )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
@@ -86,8 +82,14 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
     {
       SGRubberband* rb = new SGRubberband( mModel->flatVertices(), mModel->geometryType(), mColor, mWidth );
       rb->setFlag( QSGNode::OwnedByParent );
-
       n->appendChildNode( rb );
+
+      if ( !mModel->frozen() )
+      {
+        SGRubberband* rbCurrentPoint = new SGRubberband( mModel->flatVertices( true ), mModel->geometryType(), mColorCurrentPoint, mWidthCurrentPoint );
+        rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
+        n->appendChildNode( rbCurrentPoint );
+      }
     }
   }
 
@@ -101,7 +103,12 @@ qreal Rubberband::width() const
 
 void Rubberband::setWidth( qreal width )
 {
+  if ( mWidth == width )
+    return;
+
   mWidth = width;
+
+  emit widthChanged();
 }
 
 QColor Rubberband::color() const
@@ -111,5 +118,41 @@ QColor Rubberband::color() const
 
 void Rubberband::setColor( const QColor& color )
 {
+  if ( mColor == color )
+    return;
+
   mColor = color;
+
+  emit colorChanged();
 }
+
+qreal Rubberband::widthCurrentPoint() const
+{
+  return mWidthCurrentPoint;
+}
+
+void Rubberband::setWidthCurrentPoint( qreal width )
+{
+  if ( mWidthCurrentPoint == width )
+    return;
+
+  mWidthCurrentPoint = width;
+
+  emit widthCurrentPointChanged();
+}
+
+QColor Rubberband::colorCurrentPoint() const
+{
+  return mColorCurrentPoint;
+}
+
+void Rubberband::setColorCurrentPoint( const QColor& color )
+{
+  if ( mColorCurrentPoint == color )
+    return;
+
+  mColorCurrentPoint = color;
+
+  emit colorCurrentPointChanged();
+}
+

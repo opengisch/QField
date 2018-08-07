@@ -41,13 +41,15 @@ QVector<QgsPoint> RubberbandModel::vertices() const
   return mPointList;
 }
 
-QVector<QgsPoint> RubberbandModel::flatVertices() const
+QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
   Q_FOREACH( const QgsPoint& pt, mPointList )
   {
     points << QgsPoint( pt );
   }
+  if (skipCurrentPoint)
+      points.remove( mCurrentCoordinateIndex );
 
   return points;
 }
@@ -162,6 +164,9 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint& currentCoordinate )
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
 
+  if (mFrozen)
+    return;
+
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
   emit currentCoordinateChanged();
   emit vertexChanged( mCurrentCoordinateIndex );
@@ -186,6 +191,8 @@ void RubberbandModel::removeVertex()
 void RubberbandModel::reset()
 {
   removeVertices( 0, mPointList.size() - 1 );
+  mFrozen = false;
+  emit frozenChanged();
 }
 
 QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
@@ -232,4 +239,20 @@ void RubberbandModel::setVectorLayer( QgsVectorLayer* layer )
     setGeometryType( mLayer->geometryType() );
 
   emit vectorLayerChanged();
+}
+
+
+bool RubberbandModel::frozen() const
+{
+  return mFrozen;
+}
+
+void RubberbandModel::setFrozen(const bool &frozen )
+{
+  if ( mFrozen == frozen )
+    return;
+
+  mFrozen = frozen;
+
+  emit frozenChanged();
 }

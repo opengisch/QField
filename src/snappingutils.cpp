@@ -34,7 +34,7 @@ void SnappingUtils::onMapSettingsUpdated()
 
 void SnappingUtils::snap()
 {
-  QgsPointLocator::Match match = snapToMap( QPoint( mInputCoordinate .x(), mInputCoordinate .y() ) );
+  QgsPointLocator::Match match = snapToMap( QPoint( mInputCoordinate.x(), mInputCoordinate.y() ) );
   mSnappingResult = SnappingResult( match );
 
   emit snappingResultChanged();

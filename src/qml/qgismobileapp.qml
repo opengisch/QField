@@ -151,6 +151,7 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
 
         model: RubberbandModel {
+          frozen: false
           currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
@@ -502,6 +503,8 @@ ApplicationWindow {
 
       digitizingFeature.geometry.applyRubberband()
       digitizingFeature.applyGeometry()
+
+      digitizingRubberband.model.frozen = true
 
       if ( !digitizingFeature.suppressFeatureForm() )
       {
