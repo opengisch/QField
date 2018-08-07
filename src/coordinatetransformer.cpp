@@ -85,6 +85,17 @@ void CoordinateTransformer::setSourceCrs( const QgsCoordinateReferenceSystem &so
   updatePosition();
 }
 
+void CoordinateTransformer::setTransformContext( const QgsCoordinateTransformContext &context )
+{
+  mCoordinateTransform.setContext( context );
+  emit transformContextChanged();
+}
+
+QgsCoordinateTransformContext CoordinateTransformer::transformContext() const
+{
+  return mCoordinateTransform.context();
+}
+
 void CoordinateTransformer::updatePosition()
 {
   double x = mSourcePosition.longitude();

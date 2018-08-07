@@ -45,6 +45,9 @@ class CoordinateTransformer : public QObject
     //! Source CRS, default 4326
     Q_PROPERTY( QgsCoordinateReferenceSystem sourceCrs READ sourceCrs WRITE setSourceCrs NOTIFY sourceCrsChanged )
 
+    //! Transformation context, can be set from MapSettings::transformContext()
+    Q_PROPERTY( QgsCoordinateTransformContext transformContext READ transformContext WRITE setTransformContext NOTIFY transformContextChanged )
+
   public:
     //! Creates new coordinate transformer
     explicit CoordinateTransformer( QObject *parent = nullptr );
@@ -70,7 +73,11 @@ class CoordinateTransformer : public QObject
     //!\copydoc CoordinateTransformer::sourceCrs
     void setSourceCrs( const QgsCoordinateReferenceSystem &sourceCrs );
 
+    //!\copydoc CoordinateTransformer::transformContext
+    void setTransformContext( const QgsCoordinateTransformContext &context );
 
+    //!\copydoc CoordinateTransformer::transformContext
+    QgsCoordinateTransformContext transformContext() const;
 
   signals:
     //!\copydoc CoordinateTransformer::projectedPosition
@@ -84,6 +91,9 @@ class CoordinateTransformer : public QObject
 
     //!\copydoc CoordinateTransformer::sourceCrs
     void sourceCrsChanged();
+
+    //!\copydoc CoordinateTransformer::transformContext
+    void transformContextChanged();
 
   private:
     void updatePosition();
