@@ -14,45 +14,45 @@
  ***************************************************************************/
 
 #include "maptransform.h"
+#include "mapsettings.h"
 
 #include <QDebug>
 
-MapTransform::MapTransform()
-{
-}
-
-MapTransform::~MapTransform()
-{
-}
-
-void MapTransform::applyTo( QMatrix4x4* matrix ) const
+void MapTransform::applyTo( QMatrix4x4 *matrix ) const
 {
   *matrix *= mMatrix;
   matrix->optimize();
 }
 
-MapSettings* MapTransform::mapSettings() const
+MapSettings *MapTransform::mapSettings() const
 {
   return mMapSettings;
 }
 
-void MapTransform::setMapSettings( MapSettings* mapSettings )
+void MapTransform::setMapSettings( MapSettings *mapSettings )
 {
-  if ( mapSettings != mMapSettings )
-  {
-    mMapSettings = mapSettings;
+  if ( mapSettings == mMapSettings )
+    return;
+
+  if ( mMapSettings )
+    disconnect( mMapSettings, &MapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
+
+  mMapSettings = mapSettings;
+
+  if ( mMapSettings )
     connect( mMapSettings, &MapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
-    emit mapSettingsChanged();
-  }
+
+  emit mapSettingsChanged();
 }
 
 void MapTransform::updateMatrix()
 {
   QMatrix4x4 matrix;
-  float scaleFactor = 1 / mMapSettings->mapUnitsPerPixel();
+  float scaleFactor = static_cast<float>( 1.0 / mMapSettings->mapUnitsPerPixel() );
 
   matrix.scale( scaleFactor, -scaleFactor );
-  matrix.translate( -mMapSettings->visibleExtent().xMinimum(), -mMapSettings->visibleExtent().yMaximum() );
+  matrix.translate( static_cast<float>( -mMapSettings->visibleExtent().xMinimum( ) ),
+                    static_cast<float>( -mMapSettings->visibleExtent().yMaximum() ) );
 
   mMatrix = matrix;
   update();
