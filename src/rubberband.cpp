@@ -103,7 +103,12 @@ qreal Rubberband::width() const
 
 void Rubberband::setWidth( qreal width )
 {
+  if ( mWidth == width )
+    return;
+
   mWidth = width;
+
+  emit widthChanged();
 }
 
 QColor Rubberband::color() const
@@ -113,7 +118,12 @@ QColor Rubberband::color() const
 
 void Rubberband::setColor( const QColor& color )
 {
+  if ( mColor == color )
+    return;
+
   mColor = color;
+
+  emit colorChanged();
 }
 
 qreal Rubberband::widthCurrentPoint() const
@@ -123,7 +133,12 @@ qreal Rubberband::widthCurrentPoint() const
 
 void Rubberband::setWidthCurrentPoint( qreal width )
 {
+  if ( mWidthCurrentPoint == width )
+    return;
+
   mWidthCurrentPoint = width;
+
+  emit widthCurrentPointChanged();
 }
 
 QColor Rubberband::colorCurrentPoint() const
@@ -133,6 +148,11 @@ QColor Rubberband::colorCurrentPoint() const
 
 void Rubberband::setColorCurrentPoint( const QColor& color )
 {
+  if ( mColorCurrentPoint == color )
+    return;
+
   mColorCurrentPoint = color;
+
+  emit colorCurrentPointChanged();
 }
 

@@ -192,6 +192,7 @@ void RubberbandModel::reset()
 {
   removeVertices( 0, mPointList.size() - 1 );
   mFrozen = false;
+  emit frozenChanged();
 }
 
 QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
@@ -248,5 +249,10 @@ bool RubberbandModel::frozen() const
 
 void RubberbandModel::setFrozen(const bool &frozen )
 {
+  if ( mFrozen == frozen )
+    return;
+
   mFrozen = frozen;
+
+  emit frozenChanged();
 }

@@ -41,6 +41,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
+    //! freeze the rubberband so it doesn't get modified while panning map
     Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
 
   public:
@@ -91,7 +92,9 @@ class RubberbandModel : public QObject
     QgsCoordinateReferenceSystem crs() const;
     void setCrs( const QgsCoordinateReferenceSystem& crs );
 
+    //! \copydoc frozen
     bool frozen() const;
+    //! \copydoc frozen
     void setFrozen( const bool &frozen );
 
 
@@ -105,6 +108,7 @@ class RubberbandModel : public QObject
     void vectorLayerChanged();
     void vertexCountChanged();
     void crsChanged();
+    //! \copydoc frozen
     void frozenChanged();
 
 

@@ -27,8 +27,14 @@ class Rubberband : public QQuickItem
 
     Q_PROPERTY( RubberbandModel* model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
+    //! Line width of the main rubberband
     Q_PROPERTY( qreal width READ width WRITE setWidth NOTIFY widthChanged )
+    //! Color of the aleternative rubberband for current point
+    Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
+    //! Line width  of the aleternative rubberband for current point
+    Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
 
   public:
     Rubberband( QQuickItem* parent = nullptr );
@@ -39,23 +45,38 @@ class Rubberband : public QQuickItem
     MapSettings* mapSettings() const;
     void setMapSettings( MapSettings* mapSettings );
 
+    //! \copydoc color
     QColor color() const;
+    //! \copydoc color
     void setColor( const QColor& color );
 
+    //! \copydoc width
     qreal width() const;
+    //! \copydoc width
     void setWidth( qreal width );
 
+    //! \copydoc colorCurrentPoint
     QColor colorCurrentPoint() const;
+    //! \copydoc
     void setColorCurrentPoint( const QColor& color );
 
+    //! \copydoc widthCurrentPoint
     qreal widthCurrentPoint() const;
+    //! \copydoc widthCurrentPoint
     void setWidthCurrentPoint( qreal width );
 
   signals:
     void modelChanged();
     void mapSettingsChanged();
+    //! \copydoc color
     void colorChanged();
+    //! \copydoc width
     void widthChanged();
+    //! \copydoc colorCurrentPoint
+    void colorCurrentPointChanged();
+    //! \copydoc widthCurrentPoint
+    void widthCurrentPointChanged();
+
 
   private slots:
     void markDirty();
