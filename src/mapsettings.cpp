@@ -1,9 +1,9 @@
 /***************************************************************************
-
-               ----------------------------------------------------
-              date                 : 27.12.2014
-              copyright            : (C) 2014 by Matthias Kuhn
-              email                : matthias (at) opengis.ch
+  mapsettings.cpp
+  --------------------------------------
+  Date                 : 27.12.2014
+  Copyright            : (C) 2014 by Matthias Kuhn
+  Email                : matthias (at) opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,7 +13,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "mapsettings.h"
 
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
@@ -21,8 +20,9 @@
 
 #include <qgsmaplayerstylemanager.h>
 
+#include "mapsettings.h"
 
-MapSettings::MapSettings( QObject* parent )
+MapSettings::MapSettings( QObject *parent )
   : QObject( parent )
 {
   // Connect signals for derived values
@@ -35,9 +35,9 @@ MapSettings::MapSettings( QObject* parent )
   connect( QgsProject::instance(), &QgsProject::readProject, this, &MapSettings::onReadProject );
 }
 
-MapSettings::~MapSettings()
+QgsCoordinateTransformContext MapSettings::transformContext() const
 {
-
+  return mMapSettings.transformContext();
 }
 
 QgsRectangle MapSettings::extent() const
@@ -45,7 +45,7 @@ QgsRectangle MapSettings::extent() const
   return mMapSettings.extent();
 }
 
-void MapSettings::setExtent( const QgsRectangle& extent )
+void MapSettings::setExtent( const QgsRectangle &extent )
 {
   if ( mMapSettings.extent() == extent )
     return;
@@ -54,7 +54,7 @@ void MapSettings::setExtent( const QgsRectangle& extent )
   emit extentChanged();
 }
 
-void MapSettings::setCenter( const QgsPoint& center )
+void MapSettings::setCenter( const QgsPoint &center )
 {
   QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
 
@@ -77,16 +77,16 @@ QgsRectangle MapSettings::visibleExtent() const
   return mMapSettings.visibleExtent();
 }
 
-QPointF MapSettings::coordinateToScreen( const QgsPoint& p ) const
+QPointF MapSettings::coordinateToScreen( const QgsPoint &point ) const
 {
-  QgsPointXY pt( p.x(), p.y() );
+  QgsPointXY pt( point.x(), point.y() );
   QgsPointXY pp = mMapSettings.mapToPixel().transform( pt );
   return pp.toQPointF();
 }
 
-QgsPoint MapSettings::screenToCoordinate( const QPointF& p ) const
+QgsPoint MapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( p.toPoint() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.toPoint() );
   return QgsPoint( pp );
 }
 
@@ -100,7 +100,7 @@ QSize MapSettings::outputSize() const
   return mMapSettings.outputSize();
 }
 
-void MapSettings::setOutputSize( const QSize& outputSize )
+void MapSettings::setOutputSize( const QSize &outputSize )
 {
   if ( mMapSettings.outputSize() == outputSize )
     return;
@@ -128,7 +128,7 @@ QgsCoordinateReferenceSystem MapSettings::destinationCrs() const
   return mMapSettings.destinationCrs();
 }
 
-void MapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem& destinationCrs )
+void MapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( mMapSettings.destinationCrs() == destinationCrs )
     return;
@@ -137,12 +137,12 @@ void MapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem& destina
   emit destinationCrsChanged();
 }
 
-QList<QgsMapLayer*> MapSettings::layers() const
+QList<QgsMapLayer *> MapSettings::layers() const
 {
   return mMapSettings.layers();
 }
 
-void MapSettings::setLayers( const QList<QgsMapLayer*>& layers )
+void MapSettings::setLayers( const QList<QgsMapLayer *> &layers )
 {
   mMapSettings.setLayers( layers );
   emit layersChanged();
@@ -168,7 +168,7 @@ emit layersChanged();
 }
 #endif
 
-void MapSettings::onReadProject( const QDomDocument& doc )
+void MapSettings::onReadProject( const QDomDocument &doc )
 {
   QDomNodeList nodes = doc.elementsByTagName( "mapcanvas" );
   if ( nodes.count() )
