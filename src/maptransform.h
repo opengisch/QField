@@ -19,30 +19,54 @@
 #include <QtQuick/QQuickTransform>
 #include <QtGui/QMatrix4x4>
 
-#include "mapsettings.h"
 
+class MapSettings;
+
+/**
+ * The MapTransform is transformation that can be attached to any QQuickItem.
+ *
+ * If the item is based on the map coordinates, MapTransform will
+ * transform it to the device coordintes based on the attached map settings.
+ *
+ * \note QML Type: MapTransform
+ */
 class MapTransform : public QQuickTransform
 {
     Q_OBJECT
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+
+    /**
+     * Associated map settings. Should be initialized before the first use from mapcanvas map settings.
+     */
+    Q_PROPERTY( MapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    MapTransform();
-    ~MapTransform();
+    //! Creates a new map transform
+    MapTransform() = default;
+    ~MapTransform() = default;
 
-    void applyTo( QMatrix4x4* matrix ) const;
+    /**
+     * Applies transformation based on current map settings to a matrix.
+     *
+     * Also optimize resulting matrix after transformation
+     * \param matrix Matrix to be transformed
+     */
+    void applyTo( QMatrix4x4 *matrix ) const;
 
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* mapSettings );
+    //! \copydoc MapTransform::mapSettings
+    MapSettings *mapSettings() const;
+
+    //! \copydoc MapTransform::mapSettings
+    void setMapSettings( MapSettings *mapSettings );
 
   signals:
+    //! \copydoc MapTransform::mapSettings
     void mapSettingsChanged();
 
   private slots:
     void updateMatrix();
 
   private:
-    MapSettings* mMapSettings;
+    MapSettings *mMapSettings = nullptr; // not owned
     QMatrix4x4 mMatrix;
 };
 
