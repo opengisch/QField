@@ -13,6 +13,7 @@ Item {
     id: _ct
     sourceCrs: CrsFactory.fromEpsgId(4326)
     sourcePosition: positionSource.position.coordinate
+    transformContext: qgisProject.transformContext
   }
 
   width: childrenRect.width + 8 * dp
