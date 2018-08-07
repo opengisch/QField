@@ -14,7 +14,6 @@
  ***************************************************************************/
 
 #include "qgsquickmapcanvasmap.h"
-#include "mapsettings.h"
 
 #include <qgsmaprendererparalleljob.h>
 #include <qgsvectorlayer.h>
