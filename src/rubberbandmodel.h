@@ -53,7 +53,7 @@ class RubberbandModel : public QObject
 
     QVector<QgsPoint> vertices() const;
 
-    QVector<QgsPoint> flatVertices( const bool &skipCurrentPoint = false ) const;
+    QVector<QgsPoint> flatVertices( bool skipCurrentPoint = false ) const;
 
     /**
      * The target CRS into which points should be reprojected.

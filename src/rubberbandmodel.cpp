@@ -41,7 +41,7 @@ QVector<QgsPoint> RubberbandModel::vertices() const
   return mPointList;
 }
 
-QVector<QgsPoint> RubberbandModel::flatVertices(const bool &skipCurrentPoint) const
+QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
   Q_FOREACH( const QgsPoint& pt, mPointList )
@@ -49,7 +49,7 @@ QVector<QgsPoint> RubberbandModel::flatVertices(const bool &skipCurrentPoint) co
     points << QgsPoint( pt );
   }
   if (skipCurrentPoint)
-      points.remove(mCurrentCoordinateIndex);
+      points.remove( mCurrentCoordinateIndex );
 
   return points;
 }
