@@ -713,6 +713,7 @@ ApplicationWindow {
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        digitizingRubberband.model.reset()
         visible = false
         event.accepted = true
       }
