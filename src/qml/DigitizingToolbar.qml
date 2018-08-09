@@ -43,19 +43,12 @@ Row {
   Button {
     id: confirmButton
     iconSource: {
-      if ( Number( rubberbandModel.geometryType ) === 0 )
-      {
-        Style.getThemeIcon( "ic_create_white_24dp" )
-      }
-      else
-      {
-        Style.getThemeIcon( "ic_save_white_24dp" )
-      }
+      Style.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
       if ( Number( rubberbandModel.geometryType ) === 0 )
       {
-        true
+        false
       }
       else if  ( Number( rubberbandModel.geometryType ) === 1 )
       {
@@ -72,11 +65,8 @@ Row {
     bgcolor: "#FFD600"
 
     onClicked: {
-      if ( Number( rubberbandModel.geometryType ) !== 0 )
-      {
-        // remove editing vertex for lines and polygons
-        vertexRemoved()
-      }
+      // remove editing vertex for lines and polygons
+      vertexRemoved()
       confirm()
     }
   }
@@ -84,18 +74,16 @@ Row {
   Button {
     id: addVertexButton
     iconSource: {
-      if( digitizingToolbar.rubberbandModel.vertexCount === 1 )
-        Style.getThemeIcon( "ic_create_white_24dp" )
-      else
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
-    // Not for points
-    visible: Number(rubberbandModel.geometryType) === 1 || Number(rubberbandModel.geometryType) === 2
     round: true
     bgcolor: "#2E7D32"
 
     onClicked: {
-      vertexAdded()
+      if ( Number( rubberbandModel.geometryType ) === 0 )
+        confirm()
+      else
+        vertexAdded()
     }
   }
 }
