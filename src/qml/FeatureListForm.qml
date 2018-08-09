@@ -74,7 +74,7 @@ Rectangle {
 
       }
     },
-    /* Shows an edibale form for the currently selected feature */
+    /* Shows an editable form for the currently selected feature */
     State {
       name: "FeatureFormEdit"
       PropertyChanges {
