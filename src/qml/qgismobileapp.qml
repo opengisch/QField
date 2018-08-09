@@ -110,7 +110,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        if ( !overlayFeatureForm.visible )
+        if ( !overlayFeatureFormDrawer.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
@@ -270,17 +270,6 @@ ApplicationWindow {
   }
 
   DropShadow {
-    anchors.fill: overlayFeatureForm
-    visible: overlayFeatureForm.visible
-    horizontalOffset: -2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: overlayFeatureForm
-  }
-
-  DropShadow {
     anchors.fill: featureForm
     horizontalOffset: -2 * dp
     verticalOffset: 0
@@ -296,7 +285,7 @@ ApplicationWindow {
 
     anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
 
-    property bool preventFromOpening: overlayFeatureForm.visible
+    property bool preventFromOpening: overlayFeatureFormDrawer.visible
     readonly property bool open: dashBoard.visible && !preventFromOpening
 
     width: open ? 300 * dp : 0
@@ -509,7 +498,7 @@ ApplicationWindow {
       if ( !digitizingFeature.suppressFeatureForm() )
       {
         digitizingFeature.resetAttributes();
-        overlayFeatureForm.visible = true;
+        overlayFeatureFormDrawer.open()
         overlayFeatureForm.state = "Add"
         overlayFeatureForm.reset()
       }
@@ -687,44 +676,56 @@ ApplicationWindow {
     }
   }
 
-  FeatureForm {
-    id: overlayFeatureForm
-
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+  Drawer {
+    id: overlayFeatureFormDrawer
+    height: parent.height
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
+    edge: Qt.RightEdge
+    interactive: opened
+    dragMargin: 0
 
-    model: AttributeFormModel {
-      featureModel: digitizingFeature
-    }
+    FeatureForm {
+      id: overlayFeatureForm
+      height: parent.height
+      width: parent.width
+      visible: true
 
-    state: "Add"
+      model: AttributeFormModel {
+        featureModel: digitizingFeature
+      }
 
-    visible: false
-    focus: visible
+      state: "Add"
 
-    onSaved: {
-      visible = false
-      digitizingRubberband.model.reset()
-    }
-    onCancelled: {
+      focus: parent.opened
+
+      onSaved: {
+        overlayFeatureFormDrawer.close()
         digitizingRubberband.model.reset()
-        visible = false
-    }
+      }
+      onCancelled: {
+          digitizingRubberband.model.reset()
+          overlayFeatureFormDrawer.close()
+      }
 
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        digitizingRubberband.model.reset()
-        visible = false
-        event.accepted = true
+      Keys.onReleased: {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          overlayFeatureFormDrawer.close()
+          event.accepted = true
+        }
+      }
+
+      Component.onCompleted: {
+          focusstack.addFocusTaker( this )
       }
     }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: {
+        close()
+    }
   }
 
   function displayToast( message ) {
-    toastMessage.text = message
-    toast.opacity = 1
+    //toastMessage.text = message
+    toast.show(message)
   }
 
   Rectangle {
@@ -871,42 +872,66 @@ ApplicationWindow {
       openProjectDialog.visible = true
     }
   }
-
   // Toast
-  Rectangle {
-    id: toast
-    anchors.horizontalCenter: parent.horizontalCenter
-    color: "#272727"
-    height: 40*dp;
-    width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
-    opacity: 0
-    radius: 20*dp
-    y: parent.height - 112*dp
-    z: 1
-    Behavior on opacity {
-      NumberAnimation { duration: 500 }
-    }
+  Popup {
+      id: toast
+      opacity: 0
+      height: 40*dp;
+      width: parent.width
+      y: parent.height - 112*dp
+      margins: 0
+      background: none
+      closePolicy: Popup.NoAutoClose
 
-    // Visible only for 3 seconds
-    onOpacityChanged: {
-      toast.visible = (toast.opacity > 0)
-      if ( toast.opacity == 1 ) {
-        toastTimer.start()
+      function show(text) {
+          toastMessage.text = text
+          toast.open()
+          toastContent.visible = true
+          toast.opacity = 1
+          toastTimer.start()
       }
-    }
 
-    Text {
-      id: toastMessage
-      anchors.centerIn: parent
-      font.pixelSize: 16*dp
-      color: "#ffffff"
-    }
+      Behavior on opacity {
+        NumberAnimation { duration: 500 }
+      }
+
+      Rectangle {
+          id: toastContent
+        color: "#272727"
+
+        height: 40*dp
+        width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
+
+        anchors.centerIn: parent
+
+        radius: 20*dp
+
+        z: 1
+
+        Text {
+          id: toastMessage
+          anchors.centerIn: parent
+          font.pixelSize: 16*dp
+          color: "#ffffff"
+        }
+      }
+
       // Visible only for 3 seconds
-    Timer {
-      id: toastTimer
-      interval: 3000
-      onTriggered: { toast.opacity = 0 }
-    }
+      Timer {
+          id: toastTimer
+          interval: 3000
+          onTriggered: {
+              toast.opacity = 0
+          }
+      }
+
+      onOpacityChanged: {
+
+          if ( opacity == 0 ) {
+              toastContent.visible = false
+              toast.close()
+          }
+      }
   }
 
   DropArea {
