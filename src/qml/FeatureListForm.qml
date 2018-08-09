@@ -30,7 +30,7 @@ Rectangle {
   property MapSettings mapSettings
   property color selectionColor
   property alias model: globalFeaturesList.model
-  property bool allowDelete
+  property bool allowEdit
   property int formViewWidthDivisor
 
   signal showMessage(string message)
@@ -183,23 +183,41 @@ Rectangle {
         }
       }
 
-      Button {
-        id: deleteButton
+      Row {
+          id: editRow
+          anchors { top: parent.top; right: parent.right }
 
-        width: 48*dp
-        height: 48*dp
+          Button {
+            id: editGeomButton
 
-        visible: deleteFeatureCapability && allowDelete
+            width: 48*dp
+            height: 48*dp
 
-        anchors { top: parent.top; right: parent.right }
+            visible: editGeometryCapability && allowEdit
 
-        iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
+            iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
 
-        onClicked: {
-          deleteDialog.currentLayer = currentLayer
-          deleteDialog.featureId = featureId
-          deleteDialog.visible = true
-        }
+            onClicked: {
+              featureForm.state = "Hidden"
+            }
+          }
+
+          Button {
+            id: deleteButton
+
+            width: 48*dp
+            height: 48*dp
+
+            visible: deleteFeatureCapability && allowEdit
+
+            iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
+
+            onClicked: {
+              deleteDialog.currentLayer = currentLayer
+              deleteDialog.featureId = featureId
+              deleteDialog.visible = true
+            }
+          }
       }
 
       /* bottom border */
