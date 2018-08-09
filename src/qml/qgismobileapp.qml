@@ -684,6 +684,10 @@ ApplicationWindow {
     interactive: opened
     dragMargin: 0
 
+    onClosed: {
+        digitizingRubberband.model.reset()
+    }
+
     FeatureForm {
       id: overlayFeatureForm
       height: parent.height
@@ -700,10 +704,8 @@ ApplicationWindow {
 
       onSaved: {
         overlayFeatureFormDrawer.close()
-        digitizingRubberband.model.reset()
       }
       onCancelled: {
-          digitizingRubberband.model.reset()
           overlayFeatureFormDrawer.close()
       }
 
