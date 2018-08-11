@@ -215,11 +215,8 @@
 <dd><p class="first last">Die Quelle des Layers wird nicht verändert. Dies ist nur verfügbar für nicht-Dateibasierte Layer wie WMS, WFS, Postgis...</p>
 </dd>
 <dt>Offline Bearbeiten</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
+<dd><p class="first last">Von jedem Layer wird eine Arbeitskopie im Paketordner erstellt. Jede Änderung am paketierten Projekt während der Arbeit wird in ein Änderungsprotokoll geschrieben. Bei der späteren Synchronisation wird dieses Protokoll erneut abgespielt und sämtliche Änderungen werden auch auf die zentralen Datenbank angewendet. Es gibt dabei keine Konfliktbehandlung.</p>
+</dd>
 <dt>Entfernen</dt>
 <dd><p class="first last">Der Layer wird von der Arbeitskopie entfernt. Dies ist nützlich falls der Layer in der Basiskarte verwendet wird und nicht im verpackten Projekt verfügbar sein muss.</p>
 </dd>
@@ -235,15 +232,10 @@ handling in place.</dd>
 <dd><p class="first last">Ein Rasterlayer. Dies ist nützlich um eine Offlinekopie eines Netzbasierten Layers wie einem WMS oder eine Kopie von einem nichtunterstützten Dateiformat wie ECW oder MrSID zu nehmen.</p>
 </dd>
 <dt>Kartenthema</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dd><p class="first last">Ein Kartenthema. Das ist nützlich um eine Basiskarte basierend auf mehreren Layer mit Stilen zu erstellen. Diese Layer können dann vom Arbeitspaket entfernt werden und müssen auf QField nicht mehr zusätzlich angezeigt werden. Dies kann Speicherplatz und Batterie schonen.</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>Die Kachelgrösse definiert die räumliche Auflösung. Sie wird in Pixel pro Karteneinheit festgelegt. Wenn das KBS des Projektes in Metern ist und die Kachelgrösse auf 1 gesetzt ist, heisst das jeder Pixel des Rasters wird 1x1m repräsentieren. Wenn die Kachelgrösse auf 1000 gesetzt wird, hat jeder Pixel eine räumliche Auflösung von einem Quadratkilometer.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
 <h3>Konfiguration von Offline Bearbeiten<a class="headerlink" href="#offline-editing-configuration" title="Link zu dieser Überschrift">¶</a></h3>
