@@ -34,6 +34,7 @@ Rectangle {
   property int formViewWidthDivisor
 
   signal showMessage(string message)
+  signal editGeometry
 
   states: [
     State {
@@ -183,41 +184,27 @@ Rectangle {
         }
       }
 
-      Row {
-          id: editRow
-          anchors { top: parent.top; right: parent.right }
+      Row
+      {
+        id: editRow
+        anchors { top: parent.top; right: parent.right }
 
-          Button {
-            id: editGeomButton
+        Button {
+          id: deleteButton
 
-            width: 48*dp
-            height: 48*dp
+          width: 48*dp
+          height: 48*dp
 
-            visible: editGeometryCapability && allowEdit
+          visible: deleteFeatureCapability && allowEdit
 
-            iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
+          iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
 
-            onClicked: {
-              featureForm.state = "Hidden"
-            }
+          onClicked: {
+            deleteDialog.currentLayer = currentLayer
+            deleteDialog.featureId = featureId
+            deleteDialog.visible = true
           }
-
-          Button {
-            id: deleteButton
-
-            width: 48*dp
-            height: 48*dp
-
-            visible: deleteFeatureCapability && allowEdit
-
-            iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
-
-            onClicked: {
-              deleteDialog.currentLayer = currentLayer
-              deleteDialog.featureId = featureId
-              deleteDialog.visible = true
-            }
-          }
+        }
       }
 
       /* bottom border */
@@ -291,8 +278,12 @@ Rectangle {
       featureForm.state = "FeatureList"
     }
 
-    onEditButtonClicked: {
+    onEditAttributesButtonClicked: {
       featureForm.state = "FeatureFormEdit"
+    }
+
+    onEditGeometryButtonClicked: {
+      editGeometry()
     }
 
     onSave: {
