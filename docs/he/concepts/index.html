@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Concepts &mdash; תיעוד QField Documentation 0.10 - Kesch</title>
+    <title>תפישות &mdash; תיעוד QField Documentation 0.10 - Kesch</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,10 +98,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Mode based</a></li>
+<li><a class="reference internal" href="#">תפישות</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">פשטות</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">התאמה ל-QGIS</a></li>
+<li><a class="reference internal" href="#mode-based">מבוסס מצבים</a></li>
 </ul>
 </li>
 </ul>
@@ -148,7 +148,7 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">תפישות</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
@@ -159,7 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">פיתוח ותמיכה</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
@@ -170,36 +170,23 @@
     <div class="col-md-9 content">
       
   <div class="section" id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="קישור קבוע לכותרת זו">¶</a></h1>
-<p>QField was designed with a few key concepts in mind.</p>
+<h1>תפישות<a class="headerlink" href="#concepts" title="קישור קבוע לכותרת זו">¶</a></h1>
+<p>QField עוצב עם מספר תפישות מפתח.</p>
 <div class="section" id="keep-it-simple">
-<h2>Keep it simple<a class="headerlink" href="#keep-it-simple" title="קישור קבוע לכותרת זו">¶</a></h2>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h2>פשטות<a class="headerlink" href="#keep-it-simple" title="קישור קבוע לכותרת זו">¶</a></h2>
+<p>הצרכים בשטח אינם זהים לצרכים על מחשב שולחני. המסך קטן יותר, מכשירי הקלט שונים והמשימות שונות.</p>
+<p>QField מנסה לעזור למשתמש לבצע את המשימות שהוא צריך מבלי להעמיס על ממשק המשתמש. הכוונה היא שרק משימות שנדרשות לביצוע בשטח ניתון לביצוע מהממשק. כל השאר לא.</p>
+<p>זה אומר שכל דבק, כמו עיצוב שכבות, הגדרות טפסים ושאר שלבי הקמת פרוקייטים צריכים להיעשות תחילה על מחשב בו מותקנת תוכנת QGIS.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h2>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="קישור קבוע לכותרת זו">¶</a></h2>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<h2>התאמה ל-QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="קישור קבוע לכותרת זו">¶</a></h2>
+<p>QField מבוססת על QGIS. היא לא בניה מחדש של QGIS היא <em>באמת</em> משתמשת בספריות קוד של QGIS. מנוע התצגוה הוא זהה לחלוטין לזה של QGIS השולחנית ולכן הפרוייקט יראה זהה במכשיר הנייד ובמסך המחשב.</p>
+<p>אם משהו כבר קיים כהגדרות התאמה בפרוייקט QGIS, אין סיבה להמציאו מחדש. לפיכך QField משתמשת באותו יישומון עריכה כמו ש-QGIS השולחנית. אם הפרוייקט כבר מוגדר עם הגרסה השולחנית, הוא אמור פשוט לרוץ על המכשיר הנייד.</p>
+<p>זכרו, זוהי רק ה*תפישה*. זה מה שיש לנו בראש כשאנו מפתחים את QField. זה לא אמר שהיא לגמרי בשלה עדיין.</p>
 </div>
 <div class="section" id="mode-based">
-<h2>Mode based<a class="headerlink" href="#mode-based" title="קישור קבוע לכותרת זו">¶</a></h2>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h2>מבוסס מצבים<a class="headerlink" href="#mode-based" title="קישור קבוע לכותרת זו">¶</a></h2>
+<p>QField בנויה סביב &#8220;מצבים&#8221;. מצבים דומים ל&#8221;כלי מפה&#8221; ב-QGIS. מצב מגדיר את המשימה שהמשתמש מבצע ברגע זה. המשמש יכול &#8220;לעיין&#8221; בתוך המידע, או שהוא יכול &#8220;לקלוט&#8221; משהו חדש.</p>
 </div>
 </div>
 
