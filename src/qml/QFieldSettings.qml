@@ -59,7 +59,7 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
-        Controls.CheckBox {
+        Controls.CheckBox{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show scalebar" )
@@ -124,22 +124,6 @@ Page {
       spacing: 20
       anchors.fill: parent
 
-      ToolButton {
-        id: saveButton
-
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source:Style.getThemeIcon( "ic_save_white_24dp" )
-        }
-
-        onClicked: {
-          variableEditor.apply()
-          finished()
-        }
-      }
-
       Label {
         id: titleLabel
         text: qsTr( 'QField Settings' )
@@ -149,22 +133,6 @@ Page {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
         Layout.fillWidth: true
-      }
-
-      ToolButton {
-        id: closeButton
-
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_close_white_24dp" )
-        }
-
-        onClicked: {
-          variableEditor.reset()
-          finished()
-        }
       }
     }
   }

@@ -852,12 +852,13 @@ ApplicationWindow {
 
     onFinished: {
       visible = false
+      variableEditor.apply()
     }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
-        visible = false
+        finished()
       }
     }
 
