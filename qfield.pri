@@ -48,6 +48,7 @@ android {
     $$QT_LIBS_DIR/libQt5PrintSupport.so \
     $$QT_LIBS_DIR/libQt5Sensors.so \
     $$QT_LIBS_DIR/libQt5Sql.so \
-    $$QT_LIBS_DIR/libQt5Svg.so
+    $$QT_LIBS_DIR/libQt5Svg.so \
+    $$QT_LIBS_DIR/libQt5SerialPort.so
 }
 
