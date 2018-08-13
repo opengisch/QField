@@ -165,7 +165,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">מדריך התקנה QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">תפישות</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Special File Access Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
@@ -191,7 +191,7 @@
 <h1>פיתוח ותמיכה<a class="headerlink" href="#development-and-support" title="קישור קבוע לכותרת זו">¶</a></h1>
 <div class="section" id="license">
 <h2>רשיון הפעלה<a class="headerlink" href="#license" title="קישור קבוע לכותרת זו">¶</a></h2>
-<p>QField משוחררת תחת (GNU Public License (GPL גרסה 2 או גבוהה ממנה. פיתוח QField תחת רשיון זה אומה שניתן לבדוק ולשנות את קוד המקור ומבטיח שתמיד תהיה גישה ליישומון קליטת נתונים בשטח מבוסס QGIS שהוא ללא עלות וניתן להתאמה חופשית.</p>
+<p>QField משוחררת תחת GNU Public License - (GPL)  גרסה 2 או גבוהה ממנה. פיתוח QField תחת רשיון זה אומה שניתן לבדוק ולשנות את קוד המקור ומבטיח שתמיד תהיה גישה ליישומון קליטת נתונים בשטח מבוסס QGIS שהוא ללא עלות וניתן להתאמה חופשית.</p>
 <p>ניתן למצוא את קוד המקור ב-<a class="reference external" href="https://github.com/opengisch/QField">github</a></p>
 </div>
 <div class="section" id="support">
@@ -220,17 +220,8 @@
 </div>
 <div class="section" id="improved-coordinate-precision">
 <h4>דיוק קואורדינות משופר<a class="headerlink" href="#improved-coordinate-precision" title="קישור קבוע לכותרת זו">¶</a></h4>
-<p>Computers work mostly with two different datatypes for storing decimals (floating
-point numbers) internally. <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single</a>
-and <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a>
-precision. With single precision only the first 6 digits of a number
-are significant and can be trusted, with double precision the first 15
-digits can be trusted. This takes all digits (before and after the decimal
-point) into account.</p>
-<p>When working with coordinates this is very important when a high accurracy is
-required. Only having 6 significant digits often means having a maximum
-accurracy around one meter but depends on the CRS and location on the earth
-surface.</p>
+<p>מחשבים לרוב עובדים עם שני סוגי נתונים לשמירת מספרים עשרוניים (נקודה צפה, float). <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Single</a> ו-<a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double</a>. עם הנתון בדיוק Single רק 6 הספרות הראשונות במספר נתמחות, ועם דיוק Double 15 הספרות הראשונות נתמכות. הנ&#8221;ל לוקח בחשבון את כל הספרות בחשבון (לפני ואחרי הנקודה העשרונית).</p>
+<p>כאשר עובדים עם קואורדינטות חשובה מאוד רמת דיוק גבוהה. שימוש בדיוק עם 6 ספרות אומר לרוב דיוק מקסימאלי של כמטר אחד, אך זה תלוי ברשת הקואורדינטות שבשימוש והמיקום על גבי פני כדור הארץ.</p>
 <p>Some parts of QField currently treat coordinates with single point precision. It
 would be a very good improvement to be able to use the full precision of
 accurate positioning devices by fixing this shortcoming.</p>
