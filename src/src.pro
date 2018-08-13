@@ -19,6 +19,7 @@ include( ../version.pri )
 
 
 HEADERS += \
+    qgsquick/qgsquickutils.h \
     appinterface.h \
     coordinatetransform.h \
     featurelistextentcontroller.h \
@@ -58,6 +59,7 @@ HEADERS += \
     focusstack.h
 
 SOURCES += \
+    qgsquick/qgsquickutils.cpp \
     appinterface.cpp \
     coordinatetransform.cpp \
     featurelistextentcontroller.cpp \
