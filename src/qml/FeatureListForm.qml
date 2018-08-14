@@ -267,11 +267,13 @@ Rectangle {
     onSave: {
       featureFormList.save()
       featureForm.state = "FeatureForm"
+      displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
       featureFormList.model.featureModel.reset()
       featureForm.state = "FeatureForm"
+      displayToast( qsTr( "Changes discarded" ) )
     }
   }
 
