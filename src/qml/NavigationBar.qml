@@ -60,7 +60,7 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: "#80CC28"
+    color: featureFormList.model.constraintsValid ? "#80CC28" : "orange"
 
     clip: true
 
@@ -124,6 +124,7 @@ Rectangle {
     iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
+      selection.selectionChanged()
       toolBar.cancel()
     }
 

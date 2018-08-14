@@ -51,7 +51,6 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        currentName: selection.objectName
         state: "Indication"
       }
       StateChangeScript {
@@ -67,7 +66,6 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
-        currentName: selection.objectName
         state: "Navigation"
       }
       PropertyChanges {
