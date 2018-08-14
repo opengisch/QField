@@ -106,7 +106,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QgsRectangle extent() const;
     void setExtent( const QgsRectangle& extent );
 
-    virtual QSGNode* updatePaintNode( QSGNode* oldNode, QQuickItem::UpdatePaintNodeData* );
+    QSGNode* updatePaintNode( QSGNode* oldNode, QQuickItem::UpdatePaintNodeData* ) override;
 
     //! \copydoc MapCanvasMap::freeze
     bool freeze() const;
