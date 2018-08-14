@@ -681,10 +681,17 @@ ApplicationWindow {
     height: parent.height
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
     edge: Qt.RightEdge
-    interactive: opened
+    interactive: overlayFeatureForm.model.constraintsValid
     dragMargin: 0
+    Keys.enabled: true
 
     onClosed: {
+        if( !overlayFeatureForm.aboutToCancel ) {
+          overlayFeatureForm.save()
+        } else {
+          overlayFeatureForm.aboutToCancel = false
+        }
+
         digitizingRubberband.model.reset()
     }
 
@@ -703,15 +710,21 @@ ApplicationWindow {
       focus: parent.opened
 
       onSaved: {
-        overlayFeatureFormDrawer.close()
+        displayToast( qsTr( "Changes saved" ) )
       }
+
       onCancelled: {
-          overlayFeatureFormDrawer.close()
+        displayToast( qsTr( "Changes discarded" ) )
+        overlayFeatureFormDrawer.close()
       }
 
       Keys.onReleased: {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          overlayFeatureFormDrawer.close()
+          if( overlayFeatureForm.model.constraintsValid ) {
+            overlayFeatureFormDrawer.close()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
           event.accepted = true
         }
       }
@@ -722,6 +735,24 @@ ApplicationWindow {
     }
     Component.onCompleted: {
         close()
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        if( overlayFeatureForm.model.constraintsValid ) {
+          overlayFeatureFormDrawer.close()
+        } else {
+          displayToast( "Constraints not valid" )
+        }
+        event.accepted = true
+      }
+    }
+
+  }
+
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true
     }
   }
 

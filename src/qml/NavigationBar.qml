@@ -113,31 +113,9 @@ Rectangle {
   }
 
   Button {
-    id: saveButton
-
-    anchors.right: parent.right
-
-    width: ( parent.state == "Edit" ? 48*dp : 0 )
-    height: 48*dp
-    clip: true
-
-    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
-
-    onClicked: {
-      toolBar.save()
-    }
-
-    Behavior on width {
-      PropertyAnimation {
-        easing.type: Easing.InQuart
-      }
-    }
-  }
-
-  Button {
     id: cancelButton
 
-    anchors.left: parent.left
+    anchors.right: parent.right
 
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp

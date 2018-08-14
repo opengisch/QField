@@ -9,6 +9,7 @@ import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
+import QtQuick.Controls.Styles 1.4
 
 Page {
   signal saved
@@ -17,6 +18,7 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
+  property bool aboutToCancel: false
 
   function reset() {
     master.reset()
@@ -316,35 +318,20 @@ Page {
     id: toolbar
     height: visible ? 48 * dp : 0
     visible: form.state === 'Add'
+
     anchors {
       top: parent.top
       left: parent.left
       right: parent.right
     }
 
+    background: Rectangle {
+      color: model.constraintsValid ? "blue" : "orange"
+    }
+
     RowLayout {
       anchors.fill: parent
       Layout.margins: 0
-
-      ToolButton {
-        id: saveButton
-
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_save_white_24dp" )
-        }
-        background: Rectangle {
-          color: model.constraintsValid ? "#212121" : "#bdc3c7"
-        }
-
-        enabled: model.constraintsValid
-
-        onClicked: {
-          save()
-        }
-      }
 
       Label {
         id: titleLabel
@@ -384,7 +371,7 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-
+          aboutToCancel = true
           cancelled()
         }
       }

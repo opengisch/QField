@@ -51,6 +51,7 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
+        currentName: selection.objectName
         state: "Indication"
       }
       StateChangeScript {
@@ -66,6 +67,7 @@ Rectangle {
       }
       PropertyChanges {
         target: featureListToolBar
+        currentName: selection.objectName
         state: "Navigation"
       }
       PropertyChanges {
@@ -278,10 +280,19 @@ Rectangle {
   Keys.onReleased: {
     if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-      if( state != "FeatureList" )
-        state = "FeatureList"
-      else
+      if( state != "FeatureList" ) {
+        if( featureListToolBar.state === "Edit"){
+          if( featureFormList.model.constraintsValid ) {
+            featureListToolBar.save()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
+        }else{
+          state = "FeatureList"
+        }
+      }else{
         state = "Hidden"
+      }
       event.accepted = true
     }
   }
@@ -303,10 +314,12 @@ Rectangle {
     target: globalFeaturesList.model
 
     onRowsInserted: {
-      if ( model.rowCount() > 0 )
+      if ( model.rowCount() > 0 ) {
         state = "FeatureList"
-      else
+      } else {
         showMessage( qsTr('No feature at this position') )
+        state = "Hidden"
+      }
     }
   }
 
