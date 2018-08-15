@@ -60,7 +60,7 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: featureFormList.model.constraintsValid ? "#80CC28" : "orange"
+    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? "#80CC28" : "orange"
 
     clip: true
 

@@ -39,7 +39,13 @@ Rectangle {
     State {
       name: "Hidden"
       StateChangeScript {
-        script: hide()
+        script: {
+          hide()
+          if( featureFormList.state === "Edit" ){
+            //e.g. tip on the canvas during an edit
+            featureFormList.save()
+          }
+        }
       }
     },
     /* Shows a list of features */
@@ -48,13 +54,20 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: true
+
       }
       PropertyChanges {
         target: featureListToolBar
         state: "Indication"
       }
       StateChangeScript {
-        script: show()
+        script: {
+          show()
+          if( featureFormList.state === "Edit" ){
+            ///e.g. tip on the canvas during an edit
+            featureFormList.save()
+          }
+        }
       }
     },
     /* Shows the form for the currently selected feature */

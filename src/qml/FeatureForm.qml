@@ -290,6 +290,13 @@ Page {
   }
 
   function save() {
+    //if this is for some reason not handled before (like when tiping on a map while editing)
+    if( !model.constraintsValid ) {
+        displayToast( "Constraints not valid - cancel editing" )
+        cancelled()
+        return
+    }
+
     parent.focus = true
     aboutToSave()
 
