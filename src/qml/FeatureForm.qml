@@ -334,7 +334,14 @@ Page {
 
       ToolButton {
         id: saveButton
-         contentItem: Image {
+        anchors.left: parent.left
+
+        background: Rectangle {
+          color: "#212121"
+          height: 48*dp
+        }
+
+        contentItem: Image {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
@@ -378,6 +385,11 @@ Page {
       ToolButton {
         id: closeButton
         anchors.right: parent.right
+
+        background: Rectangle {
+          color: "#212121"
+          height: 48*dp
+        }
 
         contentItem: Image {
           fillMode: Image.Pad
