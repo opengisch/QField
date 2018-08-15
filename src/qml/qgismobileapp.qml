@@ -685,11 +685,17 @@ ApplicationWindow {
     dragMargin: 0
     Keys.enabled: true
 
+    /**
+     * If the save/cancel was initiated by button, the drawer needs to be closed in the end
+     * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
+     * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
+     */
+
     onClosed: {
-        if( !overlayFeatureForm.aboutToCancel ) {
+        if( !overlayFeatureForm.isSaved ) {
           overlayFeatureForm.save()
         } else {
-          overlayFeatureForm.aboutToCancel = false
+          overlayFeatureForm.isSaved=false //reset
         }
 
         digitizingRubberband.model.reset()
@@ -701,6 +707,8 @@ ApplicationWindow {
       width: parent.width
       visible: true
 
+      property bool isSaved: false
+
       model: AttributeFormModel {
         featureModel: digitizingFeature
       }
@@ -711,10 +719,16 @@ ApplicationWindow {
 
       onSaved: {
         displayToast( qsTr( "Changes saved" ) )
+        //close drawer if still open
+        if( overlayFeatureFormDrawer.position > 0 ) {
+          overlayFeatureForm.isSaved=true //because just saved
+          overlayFeatureFormDrawer.close()
+        }
       }
 
       onCancelled: {
         displayToast( qsTr( "Changes discarded" ) )
+        overlayFeatureForm.isSaved=true //because never changed
         overlayFeatureFormDrawer.close()
       }
 

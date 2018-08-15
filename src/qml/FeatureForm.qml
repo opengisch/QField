@@ -18,7 +18,6 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
-  property bool aboutToCancel: false
 
   function reset() {
     master.reset()
@@ -333,6 +332,24 @@ Page {
       anchors.fill: parent
       Layout.margins: 0
 
+      ToolButton {
+        id: saveButton
+         contentItem: Image {
+          fillMode: Image.Pad
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Style.getThemeIcon( "ic_save_white_24dp" )
+        }
+
+        onClicked: {
+          if( model.constraintsValid ) {
+            save()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
+        }
+      }
+
       Label {
         id: titleLabel
 
@@ -371,7 +388,6 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-          aboutToCancel = true
           cancelled()
         }
       }

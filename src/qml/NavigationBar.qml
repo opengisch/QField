@@ -113,6 +113,28 @@ Rectangle {
   }
 
   Button {
+    id: saveButton
+    anchors.left: parent.left
+    width: ( parent.state == "Edit" ? 48*dp : 0 )
+    height: 48*dp
+    clip: true
+
+    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+    onClicked: {
+     if( featureFormList.model.constraintsValid ) {
+       toolBar.save()
+     } else {
+       displayToast( "Constraints not valid" )
+     }
+    }
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  Button {
     id: cancelButton
 
     anchors.right: parent.right
