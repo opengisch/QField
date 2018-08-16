@@ -28,6 +28,11 @@ void AppInterface::loadProject( const QString& path )
   return mApp->loadProjectFile( QUrl( path ).path() );
 }
 
+void AppInterface::print()
+{
+  return mApp->print();
+}
+
 void AppInterface::openFeatureForm()
 {
   emit openFeatureFormRequested();

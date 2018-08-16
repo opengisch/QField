@@ -563,6 +563,13 @@ ApplicationWindow {
       }
     }
 
+    Controls.MenuItem {
+      text: qsTr( "Print to PDF" )
+
+      onTriggered: {
+        iface.print()
+      }
+    }
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.

@@ -38,6 +38,9 @@
 #include <qgsunittypes.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
+#include <qgsprintlayout.h>
+#include <qgslayoutmanager.h>
+#include <qgslayoutpagecollection.h>
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
@@ -228,23 +231,6 @@ void QgisMobileapp::onReadProject( const QDomDocument& doc )
     qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
     mIface->openFeatureForm();
   }
-
-  QPrinter printer;
-
-  QPrintDialog *dialog = new QPrintDialog(&printer);
-  dialog->setWindowTitle(tr("Print Document"));
-  if (dialog->exec() != QDialog::Accepted)
-    return;
-
-  QPainter painter;
-  painter.begin(&printer);
-
-  painter.drawText(10, 10, "Test");
-  printer.newPage();
-
-  painter.drawText(10, 10, "Test 2");
-
-  painter.end();
 }
 
 void QgisMobileapp::onAfterFirstRendering()
@@ -285,6 +271,56 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   loadProjectQuirks();
 
   emit loadProjectEnded();
+}
+
+void QgisMobileapp::print(){
+
+  //get layouts
+  const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
+  QStringList layoutTitles;
+  for ( const auto &layout : projectLayouts )
+  {
+    layoutTitles << layout->name();
+  }
+
+  if( projectLayouts.count()>0 )
+  {
+    const auto &layoutToPrint = projectLayouts.first();
+
+    if ( layoutToPrint->pageCollection()->pageCount() == 0 )
+      return;
+
+    QPrinter printer;
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName("test.pdf");
+
+    //QPrintDialog *dialog = new QPrintDialog(&printer);
+    //dialog->setWindowTitle(tr("Print Layout %1").arg(layoutToPrint->name()));
+    //if (dialog->exec() != QDialog::Accepted)
+    //  return;
+
+    QgsLayoutExporter::PrintExportSettings printSettings;
+    printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+
+    layoutToPrint->refresh();
+
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+
+    exporter.print( printer, printSettings );
+
+    /*
+    QPainter painter;
+    painter.begin(&printer);
+
+    painter.drawText(10, 10, "Test");
+    printer.newPage();
+
+    painter.drawText(10, 10, "Test 2");
+
+    painter.end();
+    */
+  }
 }
 
 bool QgisMobileapp::event( QEvent* event )
