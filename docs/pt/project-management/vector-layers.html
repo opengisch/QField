@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 0.10 - Kesch" href="../index.html" />
     <link rel="next" title="Guia do Utilizador do QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Portable Project" href="portable-project.html" />
+    <link rel="prev" title="Projecto Portátil" href="portable-project.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -99,19 +99,19 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Definições da Camada de Vetor</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li><a class="reference internal" href="#display-expression">Exibir Expressão</a></li>
 <li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
-<li><a class="reference internal" href="#forms-and-fields">Forms and Fields</a><ul>
+<li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suppress Feature Form</a></li>
 <li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Design de formulários arrastar e largar</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Visibilidade condicionada</a></li>
+<li><a class="reference internal" href="#constraints">Restrições</a><ul>
 <li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
+<li><a class="reference internal" href="#default-values">Valores pré-definidos</a><ul>
+<li><a class="reference internal" href="#additional-variables">Variáveis adicionais</a></li>
 <li><a class="reference internal" href="#id1">Common use cases</a></li>
 </ul>
 </li>
@@ -120,12 +120,12 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#snapping-types">Tipos de Snapping</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Snapping a camadas</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Tolerância de Snapping</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">Coordenadas 3D</a></li>
 </ul>
 </li>
 </ul>
@@ -137,7 +137,7 @@
             
               
   <li>
-    <a href="portable-project.html" title="Previous Chapter: Portable Project"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Portable Project</span>
+    <a href="portable-project.html" title="Previous Chapter: Projecto Portátil"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Projecto Portátil</span>
     </a>
   </li>
   <li>
@@ -175,14 +175,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Android: Notas sobre Acesso Especial a Ficheiros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas do Mapa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projecto Portátil</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
@@ -203,7 +203,7 @@ This includes all renderer types like graduated, categorized,
 rule based, 2.5D as well as data defined symbology.</p>
 </div>
 <div class="section" id="display-expression">
-<h2>Display Expression<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h2>
+<h2>Exibir Expressão<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h2>
 <p>In QField, objects are identified with a name. The expression to generate this name can be defined
 by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
 field or an expression in the list there. Starting from QGIS 3, this can be done directly from
@@ -232,7 +232,7 @@ page and activate the checkboxes to match your desired behavior.</p>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Forms and Fields<a class="headerlink" href="#forms-and-fields" title="Link permanente para este título">¶</a></h2>
+<h2>Formulários e Campos<a class="headerlink" href="#forms-and-fields" title="Link permanente para este título">¶</a></h2>
 <p>QField cria formulários semelhantes, mas não igual ao QGIS.</p>
 <div class="section" id="suppress-feature-form">
 <h3>Suppress Feature Form<a class="headerlink" href="#suppress-feature-form" title="Link permanente para este título">¶</a></h3>
@@ -278,17 +278,20 @@ type.</li>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td><p class="first last">Escondido</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td><p class="first last">Recursos Externo</p>
+</td>
 <td><span class="moreorless">~</span></td>
 <td>This field is combined with camera integration.
 Only images can be viewed so far.
-<a class="reference internal" href="../development/index.html#make-it-grow"><span>Make it grow, make it yours</span></a></td>
+<a class="reference internal" href="../development/index.html#make-it-grow"><span>Faça-o crescer, Faça-o seu</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td><p class="first last">Data Tempo</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -296,19 +299,20 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Others</td>
+<tr class="row-odd"><td><p class="first last">Outros</p>
+</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Make it grow, make it yours</span></a></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Faça-o crescer, Faça-o seu</span></a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h3>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link permanente para este título">¶</a></h3>
+<h3>Design de formulários arrastar e largar<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link permanente para este título">¶</a></h3>
 <p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h3>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Link permanente para este título">¶</a></h3>
+<h3>Visibilidade condicionada<a class="headerlink" href="#conditional-visibility" title="Link permanente para este título">¶</a></h3>
 <p>Groups can be hidden based on an expression. This is useful when certain attributes are
 only required under certain conditions. As an example imagine mapping trees. Some of them
 might have a disease and you have a list of possible deseases. To not clutter the form with
@@ -323,7 +327,7 @@ will be available to the user.</p>
 </div>
 </div>
 <div class="section" id="constraints">
-<h3>Constraints<a class="headerlink" href="#constraints" title="Link permanente para este título">¶</a></h3>
+<h3>Restrições<a class="headerlink" href="#constraints" title="Link permanente para este título">¶</a></h3>
 <p>Attribute fields can have constraints attached. Constraints are expressions that needs to
 evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
 are configured on a per-field basis and a description can be added that will be shown to the
@@ -347,7 +351,7 @@ user if a constraint is not satisfied.</p>
 </div>
 </div>
 <div class="section" id="default-values">
-<h3>Default values<a class="headerlink" href="#default-values" title="Link permanente para este título">¶</a></h3>
+<h3>Valores pré-definidos<a class="headerlink" href="#default-values" title="Link permanente para este título">¶</a></h3>
 <p>Fields can have default values configured. Default values are inserted into the
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
@@ -359,7 +363,7 @@ expression variables.</p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Link permanente para este título">¶</a></h4>
+<h4>Variáveis adicionais<a class="headerlink" href="#additional-variables" title="Link permanente para este título">¶</a></h4>
 <p>In QField, there are some additional variables available regarding the current
 positioning information.</p>
 <ul class="simple">
@@ -421,27 +425,30 @@ geometries.</p>
 <p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
 (<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Link permanente para este título">¶</a></h3>
-<p>It is possible to snap new points</p>
+<h3>Tipos de Snapping<a class="headerlink" href="#snapping-types" title="Link permanente para este título">¶</a></h3>
+<p>É possível fazer snap a novos pontos</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
-<li>to nodes and segments of existing geomtries</li>
+<li><p class="first">apenas a vértices de geometrias existentes</p>
+</li>
+<li><p class="first">apenas a segmentos de geometrias existentes</p>
+</li>
+<li><p class="first">a vértices e segmentos de geometrias existentes</p>
+</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Link permanente para este título">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Snapping a camadas<a class="headerlink" href="#snapping-to-layers" title="Link permanente para este título">¶</a></h3>
+<p>É também possível apenas atrair a uma ou a poucas camadas.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Link permanente para este título">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
+<h3>Tolerância de Snapping<a class="headerlink" href="#snapping-tolerance" title="Link permanente para este título">¶</a></h3>
+<p>A tolerância do snapping pode ser especificada em unidades de mapa ou pixeis.</p>
 <p>In almost any case, the units should be set to pixels. We made good
 experiences with a tolerance value of 20.</p>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Link permanente para este título">¶</a></h2>
+<h2>Coordenadas 3D<a class="headerlink" href="#d-coordinates" title="Link permanente para este título">¶</a></h2>
 <p>GPS devices are capable of measuring the altitude next to the current 2D
 position on the earth surface. This information can be saved</p>
 </div>

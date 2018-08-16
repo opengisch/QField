@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Global variables &mdash; Documentação QField Documentation 0.10 - Kesch</title>
+    <title>Variáveis Globais &mdash; Documentação QField Documentation 0.10 - Kesch</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 0.10 - Kesch" href="../index.html" />
     <link rel="next" title="Desenvolvimento e suporte" href="../development/index.html" />
-    <link rel="prev" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Alterar o Tema do Mapa activo" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -97,7 +97,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Global variables</a></li>
+<li><a class="reference internal" href="#">Variáveis Globais</a></li>
 </ul>
 </ul>
 </li>
@@ -107,7 +107,7 @@
             
               
   <li>
-    <a href="map-themes.html" title="Previous Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Change the ac...</span>
+    <a href="map-themes.html" title="Previous Chapter: Alterar o Tema do Mapa activo"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Alterar o Tem...</span>
     </a>
   </li>
   <li>
@@ -145,14 +145,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Android: Notas sobre Acesso Especial a Ficheiros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatos de dados suportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField - Gestão do Projeto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configurar Temas do Mapa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Projecto Portátil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Guia do Utilizador do QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Alterar o Tema do Mapa activo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
@@ -164,21 +164,16 @@
     <div class="col-md-9 content">
       
   <div class="section" id="global-variables">
-<span id="id1"></span><h1>Global variables<a class="headerlink" href="#global-variables" title="Link permanente para este título">¶</a></h1>
-<p>Variables are used in QField and QGIS to dynamically set values based on
-the current project file, the layer or the system. They can be used for
-styling, setting default values for fields and much more.</p>
-<p>To configure a device-specific variable, open the settings and click the &#8220;Global
-Variables&#8221; tab.</p>
+<span id="id1"></span><h1>Variáveis Globais<a class="headerlink" href="#global-variables" title="Link permanente para este título">¶</a></h1>
+<p>As variáveis são usadas no QField e no QGIS para definir valores dinamicamente com base no arquivo de projecto actual, na camada ou no sistema. Estes podem ser usados para estilo, definição de valores padrão para campos e muito mais. Clique em Guardar.</p>
+<p>Para configurar uma variável específica do dispositivo, abra as configurações e clique no separador &#8220;Variáveis Globais&#8221;.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/configure_global_variables.png"><img alt="Configure global variables" src="../_images/configure_global_variables.png" style="width: 640px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of two new global variables in addition to the pre-defined
-system variables.</span></p>
+<p class="caption"><span class="caption-text">Configuração de duas novas variáveis globais além das variáveis do sistema predefinidas.</span></p>
 </div>
 </div>
-<p>On the variable page, you can see predefined variables. To add new variables,
-click on the empty cell at the bottom and write the content.</p>
+<p>Na página de variáveis, você pode ver variáveis predefinidas. Para adicionar novas variáveis, clique na célula vazia na parte inferior e escreva o conteúdo.</p>
 </div>
 
 
