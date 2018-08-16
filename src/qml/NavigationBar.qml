@@ -119,7 +119,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+    iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
     onClicked: {
      if( featureFormList.model.constraintsValid ) {
        toolBar.save()

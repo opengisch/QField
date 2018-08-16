@@ -352,7 +352,7 @@ Page {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_save_white_24dp" )
+          source: Style.getThemeIcon( "ic_check_white_48dp" )
         }
 
         onClicked: {
@@ -402,7 +402,7 @@ Page {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_close_white_24dp" )
+          source: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
         }
 
         onClicked: {
