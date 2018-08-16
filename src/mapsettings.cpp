@@ -148,6 +148,11 @@ void MapSettings::setLayers( const QList<QgsMapLayer *> &layers )
   emit layersChanged();
 }
 
+QString MapSettings::abbreviatedStringOfDistanceUnit() const
+{
+  return QgsUnitTypes::toAbbreviatedString( mMapSettings.destinationCrs().mapUnits() );
+}
+
 #if 0
 void MapSettings::setMapTheme( QgsProject* project, const QString& mapThemeName )
 {
