@@ -100,22 +100,22 @@
 <li><a class="reference internal" href="#">Definições da Camada de Vetor</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Exibir Expressão</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Read only and non-identifiable layers</a></li>
+<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Apenas de Leitura e camadas não identificáveis</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a><ul>
-<li><a class="reference internal" href="#suppress-feature-form">Suppress Feature Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#suppress-feature-form">Suprimir Formulário de Elemento</a></li>
+<li><a class="reference internal" href="#field-widget">Widget de Campo</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Design de formulários arrastar e largar</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilidade condicionada</a></li>
 <li><a class="reference internal" href="#constraints">Restrições</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">Casos de uso comuns</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Valores pré-definidos</a><ul>
 <li><a class="reference internal" href="#additional-variables">Variáveis adicionais</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#id1">Casos de uso comuns</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
+<li><a class="reference internal" href="#editable">Editável</a></li>
 <li><a class="reference internal" href="#remember-last-values">Lembrar os últimos valores</a></li>
 </ul>
 </li>
@@ -195,39 +195,30 @@
       
   <div class="section" id="vector-layer-settings">
 <h1>Definições da Camada de Vetor<a class="headerlink" href="#vector-layer-settings" title="Link permanente para este título">¶</a></h1>
-<p>Most of the settings which QGIS offers are directly supported by QField without any extra effort.</p>
+<p>A maioria das configurações que o QGIS oferece estão directamente suportados pelo Qfield sem esforço extra.</p>
 <div class="section" id="style">
 <h2>Estilo<a class="headerlink" href="#style" title="Link permanente para este título">¶</a></h2>
-<p>All style settings from QGIS are directly supported by QField.
-This includes all renderer types like graduated, categorized,
-rule based, 2.5D as well as data defined symbology.</p>
+<p>Todas as configurações de estilo do QGIS são directamente suportadas pelo Qfield. Isso inclui todos os tipos de renderização como graduado, categorizado, baseado em regras, 2.5D assim como a simbologia definida por dados.</p>
 </div>
 <div class="section" id="display-expression">
 <h2>Exibir Expressão<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h2>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<p>No QField, os objectos são identificados com um nome. A expressão para gerar esse nome pode ser definida abrindo a tabela de atributos no QGIS e alterando para a visualização de formulário. Escolha o campo apropriado ou uma expressão da lista. A partir do QGIS 3, isso pode ser feito directamente da página: menuselection: <a href="#id1"><span class="problematic" id="id2">`</span></a>Propriedades da Camada do Vector -&gt; Mostrar».</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+<p class="caption"><span class="caption-text">A expressão exibida será usada para representar os elementos com uma identificação de texto através do Qfield.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Read only and non-identifiable layers<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Link permanente para este título">¶</a></h2>
-<p>Some layers in a project are just there for pure visual purpose. Such
-layers should not show up when a user taps somewhere to identify objects.</p>
-<p>Some other layers serve as source of information and shouldn&#8217;t be modified
-by the user. It is possible to protect layers from editing attributes or
-adding and deleting features.</p>
-<p>To configure identify and readonly behavior, go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<h2>Apenas de Leitura e camadas não identificáveis<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Link permanente para este título">¶</a></h2>
+<p>Algumas camadas no projecto são apenas para um propósito visual. Essas camadas não aparecerão quando se procurar identificar objectos.</p>
+<p>Outras camadas podem servir como fontes de informação e não devem ser modificadas pelo utilizador. É possível proteger as camadas do projecto da edição de atributos ou adicionar e apagar elementos.</p>
+<p>Para configurar o comportamento de identificação e apenas de leitura, vá à página <span class="menuselection">Projecto ‣ Propriedades do Projecto ‣ Identificar Camadas</span></p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+<p class="caption"><span class="caption-text">Configuração das camadas que não serão identificadas e/ou não serão modificadas.</span></p>
 </div>
 </div>
 </div>
@@ -235,12 +226,12 @@ page and activate the checkboxes to match your desired behavior.</p>
 <h2>Formulários e Campos<a class="headerlink" href="#forms-and-fields" title="Link permanente para este título">¶</a></h2>
 <p>QField cria formulários semelhantes, mas não igual ao QGIS.</p>
 <div class="section" id="suppress-feature-form">
-<h3>Suppress Feature Form<a class="headerlink" href="#suppress-feature-form" title="Link permanente para este título">¶</a></h3>
+<h3>Suprimir Formulário de Elemento<a class="headerlink" href="#suppress-feature-form" title="Link permanente para este título">¶</a></h3>
 <p>A função de suprimir a definição é aplicada diretamente para o formulário QField.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Field widget<a class="headerlink" href="#field-widget" title="Link permanente para este título">¶</a></h3>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h3>Widget de Campo<a class="headerlink" href="#field-widget" title="Link permanente para este título">¶</a></h3>
+<p>Os widgets de campo a partir do QGIS são suportados no melhor esforço básico.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -263,8 +254,8 @@ page and activate the checkboxes to match your desired behavior.</p>
 <td><ul class="first last simple">
 <li><p class="first">HTML não é suportado</p>
 </li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li><p class="first">Os inputs numéricos é forçado baseando-se no seu tipo.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -286,16 +277,16 @@ type.</li>
 <tr class="row-even"><td><p class="first last">Recursos Externo</p>
 </td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../development/index.html#make-it-grow"><span>Faça-o crescer, Faça-o seu</span></a></td>
+<td><p class="first last">Este campo é combinado com a integração da câmara. Para já apenas imagens podem ser vistas. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Faça-o crescer, Faça-o seu</span></a></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p class="first last">Data Tempo</p>
 </td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td><p class="first last">Referência de Relações</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -309,42 +300,34 @@ Only images can be viewed so far.
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
 <h3>Design de formulários arrastar e largar<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link permanente para este título">¶</a></h3>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<p>Grupos e separadores a partir do designer de formulários Arrastar e Largar são suportados.</p>
 </div>
 <div class="section" id="conditional-visibility">
 <h3>Visibilidade condicionada<a class="headerlink" href="#conditional-visibility" title="Link permanente para este título">¶</a></h3>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<p>Grupos podem ser ocultos com base numa expressão. Isso é útil quando determinados atributos são necessários apenas sob determinadas condições. Como por exemplo, o mapeamento de árvores. Algumas delas podem ter uma doença e tem uma lista de possíveis doenças. Para não desorganizar o formulário com muitos campos, crie um grupo e configure uma expressão de visibilidade para um grupo &#8220;doenças&#8221;. Adicione um campo &#8220;doença&#8221; com uma caixa de selecção. Somente quando a caixa de selecção estiver marcada, a lista de doenças estará disponível para o utilizador.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+<p class="caption"><span class="caption-text">A configuração de uma caixa de grupo que será mostrada apenas se a caixa de selecção &#8220;measures_taken&#8221; estiver marcada.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Restrições<a class="headerlink" href="#constraints" title="Link permanente para este título">¶</a></h3>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<p>Os campos dos atributos podem ter restrições anexadas. Restrições são expressões que precisam ser avaliadas para: code: <cite>Verdadeiro</cite> (ou: code:` 1`) para poder guardar o formulário. As restrições são configuradas numa pré-definição por campo e uma descrição pode ser adicionada e que será mostrada ao utilizador se uma restrição não for satisfeita.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configuração de uma restrição dentro de um intervalo</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h4>Common use cases<a class="headerlink" href="#common-use-cases" title="Link permanente para este título">¶</a></h4>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h4>Casos de uso comuns<a class="headerlink" href="#common-use-cases" title="Link permanente para este título">¶</a></h4>
+<p>Não pode introduzir um valor de elevação maior que a montanha mais alta deste país.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>É necessário preenchê-lo com um identificador.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
@@ -352,66 +335,62 @@ user if a constraint is not satisfied.</p>
 </div>
 <div class="section" id="default-values">
 <h3>Valores pré-definidos<a class="headerlink" href="#default-values" title="Link permanente para este título">¶</a></h3>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<p>Os campos podem ter valores pré-definidos configurados. Os valores pré-definidos são inseridos no formulário do atributo quando se digitaliza um novo elemento. Eles são visíveis ao utilizador e podem ser modificados desde que o campo possa ser editado. Eles podem basear-se na geometria ou nas variáveis de expressão.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Configuração de uma data formatada como valor pré-definido</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
 <h4>Variáveis adicionais<a class="headerlink" href="#additional-variables" title="Link permanente para este título">¶</a></h4>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<p>No Qfield, existem algumas variáveis adicionadas disponíveis tendo em conta a informação actual de posicionamento.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_coordinate</cite> (Geometria em WGS84!): Lon, Lat, Altitude como é entregue pelo sensor. Também está disponível quando a cruz não está atraída ao sensor.</p>
+</li>
+<li><p class="first"><cite>position_timestamp</cite> (DateTime): data e hora da informação de posição</p>
+</li>
+<li><p class="first"><cite>position_direction</cite> (float): Direcção em graus do norte verdadeiro.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (float): Velocidade em metros / segundo.</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float): O ângulo entre a componente horizontal do campo magnético e o norte verdadeiro, em graus. Também conhecida como declinação magnética. Um valor positivo indica uma direcção no sentido horário do norte verdadeiro e um valor negativo indica uma direcção no sentido anti-horário.</p>
+</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (float): A precisão horizontal da coordenada (em metros).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (float): A precisão vertical da coordenada (em metros).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float): O valor da velocidade vertical em metros por segundo.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h4>Common use cases<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h4>
-<p>Insert positioning information as variable:</p>
+<h4>Casos de uso comuns<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h4>
+<p>Inserir informação de posicionamento como variável:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Iserir a data e hora actual:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Inserir o comprimento da linha digitalizada:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configurar as variáveis globais no dispositivo e inseri-las.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Se quer atribuir um código de região baseado na localização onde o novo elemento é inserido, pode-o fazer usando a expressão de agregação:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h3>Editable<a class="headerlink" href="#editable" title="Link permanente para este título">¶</a></h3>
-<p>The editable flag of fields is respected.</p>
+<h3>Editável<a class="headerlink" href="#editable" title="Link permanente para este título">¶</a></h3>
+<p>O parâmetro editável dos campos é respeitado.</p>
 </div>
 <div class="section" id="remember-last-values">
 <h3>Lembrar os últimos valores<a class="headerlink" href="#remember-last-values" title="Link permanente para este título">¶</a></h3>
@@ -420,10 +399,8 @@ inserted, you can do so by using an aggregate expression:</p>
 </div>
 <div class="section" id="snapping">
 <h2>Snapping<a class="headerlink" href="#snapping" title="Link permanente para este título">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<p>Enquanto digitaliza novos elementos, novos pontos podem ser atraídos a geometrias existentes.</p>
+<p>Toda a configuração pode ser feita em  <span class="menuselection">Projecto ‣ Configurações de Snapping</span> (<span class="menuselection">Configurações ‣ Configurações d e Snapping</span> no QGIS 2.x).</p>
 <div class="section" id="snapping-types">
 <h3>Tipos de Snapping<a class="headerlink" href="#snapping-types" title="Link permanente para este título">¶</a></h3>
 <p>É possível fazer snap a novos pontos</p>
@@ -443,14 +420,12 @@ geometries.</p>
 <div class="section" id="snapping-tolerance">
 <h3>Tolerância de Snapping<a class="headerlink" href="#snapping-tolerance" title="Link permanente para este título">¶</a></h3>
 <p>A tolerância do snapping pode ser especificada em unidades de mapa ou pixeis.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<p>Na maioria dos casos, as unidades devem ser definidas para pixeis. Fizemos boas experiências com o valor de tolerância de 20.</p>
 </div>
 </div>
 <div class="section" id="d-coordinates">
 <h2>Coordenadas 3D<a class="headerlink" href="#d-coordinates" title="Link permanente para este título">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<p>Os dispositivos GPS são capazes de medir a altitude perto da posição actual 2D da superfície da terra. Esta informação pode ser guardada.</p>
 </div>
 </div>
 

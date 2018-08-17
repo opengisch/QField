@@ -172,8 +172,7 @@
       
   <div class="section" id="supported-data-formats">
 <h1>Formatos de dados suportados<a class="headerlink" href="#supported-data-formats" title="Link permanente para este título">¶</a></h1>
-<p>QField supports a wide variety of formats via QGIS data providers and GDAL.
-This page offers a non-exhaustive list of supported data formats.</p>
+<p>O Qfield suporta uma variedade ampla de formatos através dos fornecedores de dados QGIS e GDAL. Esta página oferece uma lista não exaustiva dos formatos de dados suportados.</p>
 <div class="section" id="table">
 <h2>Tabela<a class="headerlink" href="#table" title="Link permanente para este título">¶</a></h2>
 <table border="1" class="docutils">
@@ -227,30 +226,30 @@ This page offers a non-exhaustive list of supported data formats.</p>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td>JPEG compression not yet supported.</td>
+<td><p class="first last">Compressão JPEG ainda não suportada.</p>
+</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td><p class="first last">Licença de utilização restrita.</p>
+</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td><p class="first last">Licença de utilização restrita.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>If you don&#8217;t find your favorite data format on this table, please check if it
-works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
-please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
-happy to help you with the implementation.</p>
+<p>Se não encontrar o seu formato de dados favorito nesta tabela, por favor, verifique se funciona e <cite>adapte a lista acima &lt;https://github.com/opengisch/QField-docs/edit/master/en/project-management/ dataformat.rst&gt; `_ para partilhar as suas descobertas. Se isso não funcionar, por favor, `abra um issue &lt;https://github.com/opengisch/OSGeo4A/issues&gt;</cite> _. Ficaremos felizes em ajudá-lo com a implementação.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
 <h1>Dados raster<a class="headerlink" href="#raster-data" title="Link permanente para este título">¶</a></h1>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it&#8217;s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<p>Os dados raster podem se tornar muito grandes rapidamente, quando se trabalha com arquivos tiff não compactados, geralmente há vários Gb de dados. Especialmente em dispositivos móveis, isso é ineficiente.</p>
 <div class="section" id="use-geopackage">
 <h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Link permanente para este título">¶</a></h2>
-<p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust EPSG:21781 (CH1903 LV03) to your desired CRS.</p>
+<p>Recomendamos o formato geopackage para lidar com dados raster. Os seguintes comandos irão converter um arquivo chamado: code: <cite>raster.tif</cite> para um arquivo: code:` raster.gpkg` com pirâmides. Certifique-se de ajustar o EPSG: 21781 (CH1903 LV03) ao seu SRC desejado.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
 </pre></div>

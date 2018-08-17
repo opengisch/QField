@@ -102,7 +102,7 @@
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Definições e símbolos SVG personalizados</a></li>
 <li><a class="reference internal" href="#external-sd-card">Cartão SD externo</a></li>
 <li><a class="reference internal" href="#warning">Atenção!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">How to turn external SD card into internal storage on Android 6 and 7.</a></li>
+<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">Como tornar o cartão externo SD em armazenamento interno no Android 6 e 7.</a></li>
 </ul>
 </li>
 </ul>
@@ -174,34 +174,38 @@
 <h1>Android: Notas sobre Acesso Especial a Ficheiros<a class="headerlink" href="#android-special-file-access-notes" title="Link permanente para este título">¶</a></h1>
 <div class="section" id="custom-svg-symbols-and-settings">
 <h2>Definições e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanente para este título">¶</a></h2>
-<p>In the about dialog you can see where the shared folders are on your device.</p>
-<p>If you want to use custom symbols you need to put them there using a file manager.</p>
-<p><em>Warning</em> : some apps may block your access to svg folder. On Samsung devices, you have to deactivate Samsung &#8220;Secured Folder&#8221; app in order to access to the svg folder. Otherwise, this folder is hidden.</p>
+<p>Na janela sobre pode ver onde as pastas partilhadas estão no seu dispositivo.</p>
+<p>Se quer usar símbolos personalizados necessita de pôr-los usando um gestor de ficheiros.</p>
+<p><em>Aviso</em>: algumas apps podem bloquear o acesso à pasta svg. Nos dispositivos Samsung, tem de desactivar a app Samsung &#8220;Pasta Segura&#8221; de forma a poder aceder à pasta svg. Caso contrários, esta pasta estará escondida.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Cartão SD externo<a class="headerlink" href="#external-sd-card" title="Link permanente para este título">¶</a></h2>
-<p>In order to have write access to projects which are on an external SD card, you will have to put it into the following folder:</p>
+<p>Para que possa ter acesso de escrita nos projectos que estão no cartão SD externo, necessita de por na seguinte pasta:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 </div>
 <div class="section" id="warning">
 <h2>Atenção!<a class="headerlink" href="#warning" title="Link permanente para este título">¶</a></h2>
-<p>By storing data in this folder, you risk losing data. You can lose data by uninstalling QField from your Android device. Android system will delete the /Android/data/ch.opengis.qfield directory. This is important if you keep the data in the External sd card.</p>
+<p>Ao armazenar os dados nesta pasta, pode correr o risco de a perder. Pode perde-la através da desinstalação do Qfield a partir do seu dispositivo Android. O sistema Android irá apagar o directório /Android/data/ch.opengis.qfield. Isto é importante se quiser manter os dados no cartão externo SD.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
-<h2>How to turn external SD card into internal storage on Android 6 and 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Link permanente para este título">¶</a></h2>
+<h2>Como tornar o cartão externo SD em armazenamento interno no Android 6 e 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Link permanente para este título">¶</a></h2>
 <p>Recomendamos a conversão do cartão SD externo em armazenamento interno.</p>
-<p>NOTE: Please be sure you start with a blank SD card. It needs to be blank because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped) and encoded (making the cards data only readable by that device).</p>
+<p>NOTA: Por favor, certifique-se de começar com um cartão SD vazio. Ele precisa estar vazio porque quando o cartão é convertido para armazenamento &#8220;Interno&#8221;, ele será formatado (limpo) e codificado (tornando os dados dos cartões somente legíveis por esse dispositivo).</p>
 <ol class="arabic simple">
-<li>Go to device “Settings”, then select “Storage”.</li>
-<li>Select your &#8220;SD Card&#8221;, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
-<li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
-<li>Your SD Card will now be formatted as internal storage.</li>
+<li><p class="first">Vá às &#8220;Definições&#8221; do dispositivo, e de seguida &#8220;Armazenamento&#8221;.</p>
+</li>
+<li><p class="first">Seleccione o seu &#8220;Cartão SD&#8221;, e de seguida toque no &#8220;three-dot menu&#8221; (canto superior direito), seleccione em &#8220;Definições&#8221; a partir daí.</p>
+</li>
+<li><p class="first">Agora seleccione &#8220;Formatar como interno&#8221;, e depois &#8220;Apagar &amp; Formatar&#8221;.</p>
+</li>
+<li><p class="first">O seu cartão SD será formatado como armazenamento interno.</p>
+</li>
 <li><p class="first">Reinicie o seu telefone.</p>
 </li>
 </ol>
-<p>NOTE: If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>NOTA: Se não reiniciar o seu telemóvel, muitas das coidas podem não funcionar correctamente, portanto garanta que o faz.</p>
 </div>
 </div>
 
