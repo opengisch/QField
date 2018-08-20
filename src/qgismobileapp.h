@@ -56,7 +56,7 @@ class QgisMobileapp : public QQmlApplicationEngine
      * @param path The project file to load
      */
     void loadProjectFile( const QString& path );
-    void print();
+    void print( int layoutIndex );
 
     bool event( QEvent* event ) override;
 

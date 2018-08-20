@@ -69,6 +69,12 @@ void PlatformUtilities::open( const QString& data, const QString& type )
   Q_UNUSED( type )
 }
 
+void PlatformUtilities::openExternalFile( const QString& fileName, const QString& type )
+{
+  Q_UNUSED( fileName )
+  Q_UNUSED( type )
+}
+
 QString PlatformUtilities::fieldType( const QgsField &field ) const
 {
   return QVariant( field.type() ).typeName();

@@ -72,6 +72,7 @@
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
 #include "coordinatetransformer.h"
+#include "printlayoutlistmodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -163,6 +164,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
   qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
+  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel");
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -273,10 +275,12 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   emit loadProjectEnded();
 }
 
-void QgisMobileapp::print(){
+void QgisMobileapp::print( int layoutIndex ){
 
   //get layouts
   const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
+  //const QgsPrintLayout * projectLayout = mProject->layoutManager()->printLayouts().at( layoutIndex );
+
   QStringList layoutTitles;
   for ( const auto &layout : projectLayouts )
   {
@@ -285,7 +289,7 @@ void QgisMobileapp::print(){
 
   if( projectLayouts.count()>0 )
   {
-    const auto &layoutToPrint = projectLayouts.first();
+    const auto &layoutToPrint = projectLayouts.at( layoutIndex );
 
     if ( layoutToPrint->pageCollection()->pageCount() == 0 )
       return;
@@ -293,7 +297,7 @@ void QgisMobileapp::print(){
     QPrinter printer;
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(QPrinter::A4);
-    printer.setOutputFileName("test.pdf");
+    printer.setOutputFileName( mProject->homePath() + "/test.pdf" );
 
     //QPrintDialog *dialog = new QPrintDialog(&printer);
     //dialog->setWindowTitle(tr("Print Layout %1").arg(layoutToPrint->name()));
@@ -308,6 +312,10 @@ void QgisMobileapp::print(){
     QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
 
     exporter.print( printer, printSettings );
+
+    //AndroidPlatformUtilities().open( printer.outputFileName(), "application/pdf");
+
+    mPlatformUtils.open( printer.outputFileName(), "application/pdf");
 
     /*
     QPainter painter;

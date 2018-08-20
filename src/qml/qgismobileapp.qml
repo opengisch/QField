@@ -563,12 +563,36 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
-      text: qsTr( "Print to PDF" )
+    Controls.Menu {
+        id: printMenu
+        title: qsTr( "Print to PDF" )
 
-      onTriggered: {
-        iface.print()
-      }
+        Instantiator {
+
+          id: layoutListInstantiator
+
+          model: PrintLayoutListModel {
+          }
+
+          Controls.MenuItem {
+            text: Title
+
+            onTriggered: {
+              iface.print( Index )
+            }
+          }
+          //The trick is on those two lines
+          onObjectAdded: printMenu.insertItem(index, object)
+          onObjectRemoved: printMenu.removeItem(object)
+        }
+
+        Connections {
+            target: iface
+
+            onLoadProjectEnded: {
+                layoutListInstantiator.model.project = qgisProject
+            }
+        }
     }
 
     /*

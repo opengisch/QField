@@ -49,6 +49,8 @@ class PlatformUtilities : public QObject
 
     Q_INVOKABLE virtual void open( const QString& data, const QString& type );
 
+    Q_INVOKABLE virtual void openExternalFile( const QString& fileName, const QString& type );
+
     /**
      * Returns the QVariant typeName of a field.
      * This is a stable identifier (compared to the provider field name).
