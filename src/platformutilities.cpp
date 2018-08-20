@@ -19,6 +19,8 @@
 #include "platformutilities.h"
 #include <QDebug>
 #include <QDir>
+#include <QDesktopServices>
+#include <QUrl>
 
 PlatformUtilities::~PlatformUtilities()
 {
@@ -65,13 +67,7 @@ PictureSource* PlatformUtilities::getPicture( const QString& prefix )
 
 void PlatformUtilities::open( const QString& data, const QString& type )
 {
-  Q_UNUSED( data )
-  Q_UNUSED( type )
-}
-
-void PlatformUtilities::openExternalFile( const QString& fileName, const QString& type )
-{
-  Q_UNUSED( fileName )
+  QDesktopServices::openUrl( QUrl( data ) );
   Q_UNUSED( type )
 }
 

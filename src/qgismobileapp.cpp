@@ -29,6 +29,7 @@
 #include <QStandardItemModel>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QTemporaryFile>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -275,60 +276,29 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   emit loadProjectEnded();
 }
 
-void QgisMobileapp::print( int layoutIndex ){
-
-  //get layouts
+void QgisMobileapp::print( int layoutIndex )
+{
   const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
-  //const QgsPrintLayout * projectLayout = mProject->layoutManager()->printLayouts().at( layoutIndex );
 
-  QStringList layoutTitles;
-  for ( const auto &layout : projectLayouts )
-  {
-    layoutTitles << layout->name();
-  }
+  const auto &layoutToPrint = projectLayouts.at( layoutIndex );
 
-  if( projectLayouts.count()>0 )
-  {
-    const auto &layoutToPrint = projectLayouts.at( layoutIndex );
+  if ( layoutToPrint->pageCollection()->pageCount() == 0 )
+    return;
 
-    if ( layoutToPrint->pageCollection()->pageCount() == 0 )
-      return;
+  QPrinter printer;
+  printer.setOutputFormat(QPrinter::PdfFormat);
+  printer.setPaperSize(QPrinter::A4);
+  printer.setOutputFileName( mProject->homePath() + "/" + layoutToPrint->name() + ".pdf" );
 
-    QPrinter printer;
-    printer.setOutputFormat(QPrinter::PdfFormat);
-    printer.setPaperSize(QPrinter::A4);
-    printer.setOutputFileName( mProject->homePath() + "/test.pdf" );
+  QgsLayoutExporter::PrintExportSettings printSettings;
+  printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
 
-    //QPrintDialog *dialog = new QPrintDialog(&printer);
-    //dialog->setWindowTitle(tr("Print Layout %1").arg(layoutToPrint->name()));
-    //if (dialog->exec() != QDialog::Accepted)
-    //  return;
+  layoutToPrint->refresh();
 
-    QgsLayoutExporter::PrintExportSettings printSettings;
-    printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+  exporter.print( printer, printSettings );
 
-    layoutToPrint->refresh();
-
-    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-
-    exporter.print( printer, printSettings );
-
-    //AndroidPlatformUtilities().open( printer.outputFileName(), "application/pdf");
-
-    mPlatformUtils.open( printer.outputFileName(), "application/pdf");
-
-    /*
-    QPainter painter;
-    painter.begin(&printer);
-
-    painter.drawText(10, 10, "Test");
-    printer.newPage();
-
-    painter.drawText(10, 10, "Test 2");
-
-    painter.end();
-    */
-  }
+  mPlatformUtils.open( printer.outputFileName(), "application/pdf");
 }
 
 bool QgisMobileapp::event( QEvent* event )
