@@ -681,10 +681,23 @@ ApplicationWindow {
     height: parent.height
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
     edge: Qt.RightEdge
-    interactive: opened
+    interactive: overlayFeatureForm.model.constraintsValid
     dragMargin: 0
+    Keys.enabled: true
+
+    /**
+     * If the save/cancel was initiated by button, the drawer needs to be closed in the end
+     * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
+     * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
+     */
 
     onClosed: {
+        if( !overlayFeatureForm.isSaved ) {
+          overlayFeatureForm.save()
+        } else {
+          overlayFeatureForm.isSaved=false //reset
+        }
+
         digitizingRubberband.model.reset()
     }
 
@@ -693,6 +706,8 @@ ApplicationWindow {
       height: parent.height
       width: parent.width
       visible: true
+
+      property bool isSaved: false
 
       model: AttributeFormModel {
         featureModel: digitizingFeature
@@ -703,15 +718,27 @@ ApplicationWindow {
       focus: parent.opened
 
       onSaved: {
-        overlayFeatureFormDrawer.close()
-      }
-      onCancelled: {
+        displayToast( qsTr( "Changes saved" ) )
+        //close drawer if still open
+        if( overlayFeatureFormDrawer.position > 0 ) {
+          overlayFeatureForm.isSaved=true //because just saved
           overlayFeatureFormDrawer.close()
+        }
+      }
+
+      onCancelled: {
+        displayToast( qsTr( "Changes discarded" ) )
+        overlayFeatureForm.isSaved=true //because never changed
+        overlayFeatureFormDrawer.close()
       }
 
       Keys.onReleased: {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          overlayFeatureFormDrawer.close()
+          if( overlayFeatureForm.model.constraintsValid ) {
+            overlayFeatureFormDrawer.close()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
           event.accepted = true
         }
       }
@@ -722,6 +749,24 @@ ApplicationWindow {
     }
     Component.onCompleted: {
         close()
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        if( overlayFeatureForm.model.constraintsValid ) {
+          overlayFeatureFormDrawer.close()
+        } else {
+          displayToast( "Constraints not valid" )
+        }
+        event.accepted = true
+      }
+    }
+
+  }
+
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true
     }
   }
 
@@ -852,12 +897,13 @@ ApplicationWindow {
 
     onFinished: {
       visible = false
+      variableEditor.apply()
     }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
-        visible = false
+        finished()
       }
     }
 

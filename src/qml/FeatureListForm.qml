@@ -39,7 +39,13 @@ Rectangle {
     State {
       name: "Hidden"
       StateChangeScript {
-        script: hide()
+        script: {
+          hide()
+          if( featureFormList.state === "Edit" ){
+            //e.g. tip on the canvas during an edit
+            featureFormList.save()
+          }
+        }
       }
     },
     /* Shows a list of features */
@@ -48,13 +54,20 @@ Rectangle {
       PropertyChanges {
         target: globalFeaturesList
         shown: true
+
       }
       PropertyChanges {
         target: featureListToolBar
         state: "Indication"
       }
       StateChangeScript {
-        script: show()
+        script: {
+          show()
+          if( featureFormList.state === "Edit" ){
+            ///e.g. tip on the canvas during an edit
+            featureFormList.save()
+          }
+        }
       }
     },
     /* Shows the form for the currently selected feature */
@@ -267,21 +280,32 @@ Rectangle {
     onSave: {
       featureFormList.save()
       featureForm.state = "FeatureForm"
+      displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
       featureFormList.model.featureModel.reset()
       featureForm.state = "FeatureForm"
+      displayToast( qsTr( "Changes discarded" ) )
     }
   }
 
   Keys.onReleased: {
     if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-      if( state != "FeatureList" )
-        state = "FeatureList"
-      else
+      if( state != "FeatureList" ) {
+        if( featureListToolBar.state === "Edit"){
+          if( featureFormList.model.constraintsValid ) {
+            featureListToolBar.save()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
+        }else{
+          state = "FeatureList"
+        }
+      }else{
         state = "Hidden"
+      }
       event.accepted = true
     }
   }
@@ -303,10 +327,12 @@ Rectangle {
     target: globalFeaturesList.model
 
     onRowsInserted: {
-      if ( model.rowCount() > 0 )
+      if ( model.rowCount() > 0 ) {
         state = "FeatureList"
-      else
+      } else {
         showMessage( qsTr('No feature at this position') )
+        state = "Hidden"
+      }
     }
   }
 

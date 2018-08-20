@@ -59,31 +59,31 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
-        Controls.CheckBox {
+        Switch{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show scalebar" )
         }
 
-        Controls.CheckBox {
+        Switch {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show attribute form in full screen" )
         }
 
-        Controls.CheckBox {
+        Switch {
           id: incrementalRenderingCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 
-        Controls.CheckBox {
+        Switch {
           id: numericalDigitizingInformationCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
-        Controls.CheckBox {
+        Switch {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )
@@ -124,22 +124,6 @@ Page {
       spacing: 20
       anchors.fill: parent
 
-      ToolButton {
-        id: saveButton
-
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source:Style.getThemeIcon( "ic_save_white_24dp" )
-        }
-
-        onClicked: {
-          variableEditor.apply()
-          finished()
-        }
-      }
-
       Label {
         id: titleLabel
         text: qsTr( 'QField Settings' )
@@ -149,22 +133,6 @@ Page {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
         Layout.fillWidth: true
-      }
-
-      ToolButton {
-        id: closeButton
-
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_close_white_24dp" )
-        }
-
-        onClicked: {
-          variableEditor.reset()
-          finished()
-        }
       }
     }
   }
