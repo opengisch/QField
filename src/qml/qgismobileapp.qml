@@ -510,6 +510,35 @@ ApplicationWindow {
     }
   }
 
+  GeometryEditingToolbar {
+    id: geometryEditingToolbbar
+
+    anchors.bottom: mapCanvas.bottom
+    anchors.right: mapCanvas.right
+
+    visible: ( stateMachine.state === "editGeometry" )
+    /*
+    rubberbandModel: digitizingRubberband.model
+
+    FeatureModel {
+      id: digitizingFeature
+      currentLayer: dashBoard.currentLayer
+      positionSourceName: positionSource.name
+
+      geometry: Geometry {
+        id: digitizingGeometry
+        rubberbandModel: digitizingRubberband.model
+        vectorLayer: dashBoard.currentLayer
+      }
+    }
+
+    onVertexAdded: {
+      coordinateLocator.flash()
+      digitizingRubberband.model.addVertex()
+    }
+    */
+  }
+
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
@@ -678,7 +707,7 @@ ApplicationWindow {
 
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
-    allowDelete: stateMachine.state === "digitize"
+    allowEdit: stateMachine.state === "digitize"
     formViewWidthDivisor: qfieldSettings.fullScreenIdentifyView ? 1 : 3
 
     model: MultiFeatureListModel {}
@@ -692,7 +721,10 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
-        // TODO: implement
+
+        vertexModel.setGeometry(featureForm.selection.selectedFeature.geometry,
+                                featureForm.selection.selectedLayer.crs)
+        featureForm.state = "Hidden"
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
@@ -1063,5 +1095,10 @@ ApplicationWindow {
     onTriggered: {
         alreadyCloseRequested = false
     }
+  }
+
+  // ! MODELS !
+  VertexModel {
+      id: vertexModel
   }
 }
