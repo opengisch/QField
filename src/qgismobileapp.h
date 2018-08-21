@@ -73,6 +73,18 @@ class QgisMobileapp : public QQmlApplicationEngine
      */
     void loadProjectEnded();
 
+    /**
+     * Emitted when a layout is printing
+     *
+     * @param layoutname The layoutname of the printlayout
+     */
+    void printingStarted( const QString& layoutname );
+
+    /**
+     * Emitted when the layout is printed
+     */
+    void printingEnded();
+
   private slots:
 
     /**

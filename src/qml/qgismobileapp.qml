@@ -581,7 +581,6 @@ ApplicationWindow {
               iface.print( Index )
             }
           }
-          //The trick is on those two lines
           onObjectAdded: printMenu.insertItem(index, object)
           onObjectRemoved: printMenu.removeItem(object)
         }
@@ -772,6 +771,8 @@ ApplicationWindow {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
+      width: 100 * dp
+      height: 100 * dp
     }
 
     Text {
@@ -792,6 +793,15 @@ ApplicationWindow {
       onLoadProjectEnded: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
+      }
+
+      onPrintingStarted: {
+        busyMessageText.text = qsTr( "Printing layout: %1" ).arg( layoutfile )
+        busyMessage.visible = true
+      }
+
+      onPrintingEnded: {
+        busyMessage.visible = false
       }
     }
   }

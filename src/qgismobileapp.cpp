@@ -108,6 +108,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
+  connect( this, &QgisMobileapp::printingStarted, mIface, &AppInterface::printingStarted );
+  connect( this, &QgisMobileapp::printingEnded, mIface, &AppInterface::printingEnded );
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
 
   mOfflineEditing = new QgsOfflineEditing();
@@ -282,6 +284,8 @@ void QgisMobileapp::print( int layoutIndex )
 
   const auto &layoutToPrint = projectLayouts.at( layoutIndex );
 
+  emit printingStarted( layoutToPrint->name() );
+
   if ( layoutToPrint->pageCollection()->pageCount() == 0 )
     return;
 
@@ -298,7 +302,10 @@ void QgisMobileapp::print( int layoutIndex )
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.print( printer, printSettings );
 
-  mPlatformUtils.open( printer.outputFileName(), "application/pdf");
+  mPlatformUtils.open( "file:///"+printer.outputFileName(), "application/pdf");
+
+
+  emit printingEnded();
 }
 
 bool QgisMobileapp::event( QEvent* event )

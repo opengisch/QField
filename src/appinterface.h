@@ -50,6 +50,10 @@ class AppInterface : public QObject
 
     void loadProjectEnded();
 
+    void printingStarted( const QString& path );
+
+    void printingEnded();
+
   private:
     QgisMobileapp* mApp;
 };
