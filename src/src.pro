@@ -57,7 +57,8 @@ HEADERS += \
     expressioncontextutils.h \
     focusstack.h \
     printlayoutlistmodel.h \
-    vertexmodel.h
+    vertexmodel.h \
+    maptoscreen.h
 
 SOURCES += \
     qgsquick/qgsquickutils.cpp \
@@ -99,7 +100,8 @@ SOURCES += \
     expressioncontextutils.cpp \
     focusstack.cpp \
     printlayoutlistmodel.cpp \
-    vertexmodel.cpp
+    vertexmodel.cpp \
+    maptoscreen.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
