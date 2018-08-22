@@ -7,6 +7,7 @@ Row {
   id: geometryEditingToolbar
 
   property VertexModel vertexModel
+  property MapSettings mapSettings
 
   spacing: 4 * dp
   padding: 4 * dp
@@ -58,5 +59,13 @@ Row {
     onClicked: {
       vertexModel.nextVertex()
     }
+  }
+
+  Connections {
+      target: vertexModel
+      onCurrentPointChanged:
+      {
+        geometryEditingToolbar.mapSettings.setCenter(geometryEditingToolbar.vertexModel.currentPoint)
+      }
   }
 }

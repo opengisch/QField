@@ -76,22 +76,22 @@ bool VertexModel::isEmtpy()
 
 void VertexModel::previousVertex()
 {
-  if ( isEmtpy() )
-    mCurrentVertex = -1;
-  else
-    mCurrentVertex = mCurrentVertex > 0 ? mCurrentVertex-1  : rowCount()-1;
-
-  updateCurrentVertex();
+  setCurrentVertex( mCurrentVertex -1 );
 }
 
 void VertexModel::nextVertex()
 {
-  if ( isEmtpy() )
-    mCurrentVertex = -1;
-  else
-    mCurrentVertex = mCurrentVertex < rowCount()-1 ? mCurrentVertex+1 : 0;
+  setCurrentVertex( mCurrentVertex+1 );
+}
 
-  updateCurrentVertex();
+VertexModel::EditingMode VertexModel::editingMode()
+{
+  return mMode;
+}
+
+QgsPoint VertexModel::currentPoint()
+{
+  return mCurrentPoint;
 }
 
 QHash<int, QByteArray> VertexModel::roleNames() const
@@ -102,13 +102,45 @@ QHash<int, QByteArray> VertexModel::roleNames() const
   return roles;
 }
 
-void VertexModel::updateCurrentVertex()
+void VertexModel::setCurrentVertex( int newVertex )
 {
+  if ( newVertex < 0 )
+    newVertex = rowCount()-1;
+
+  if ( newVertex >= rowCount() )
+    newVertex = 0;
+
+  if ( isEmtpy() )
+  {
+    setEditingMode( NoEditing );
+    newVertex = -1;
+  }
+
+  if ( mCurrentVertex == newVertex )
+    return;
+
+  mCurrentVertex = newVertex;
+
   for ( int r=0; r<rowCount(); r++ )
   {
     QStandardItem *it = item( r );
     it->setData( r == mCurrentVertex, CurrentVertexRole );
-    //setItem( r, 0, it );
+
+    if ( r == mCurrentVertex )
+    {
+      mCurrentPoint = qvariant_cast<QgsPoint>( it->data( PointRole ) );
+      emit currentPointChanged();
+      setEditingMode( EditVertex );
+    }
   }
+}
+
+void VertexModel::setEditingMode( VertexModel::EditingMode mode )
+{
+  if ( mMode == mode )
+    return;
+
+  mMode = mode;
+  emit editingModeChanged();
 }
 
