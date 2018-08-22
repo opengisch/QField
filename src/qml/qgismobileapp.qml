@@ -521,6 +521,7 @@ ApplicationWindow {
     id: geometryEditingToolbar
 
     vertexModel: vertexModel
+    mapSettings: mapCanvas.mapSettings
 
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
