@@ -190,6 +190,13 @@ ApplicationWindow {
       visible: positionSource.active
       location: positionSource.projectedPosition
     }
+
+    /* Rubberband for vertices  */
+    VertexRubberband {
+        id: vertexRubberband
+        model: vertexModel
+        mapSettings: mapCanvas.mapSettings
+    }
   }
 
   /**************************************************
@@ -516,7 +523,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "editGeometry" )
+    visible: ( stateMachine.state === "digitize" )
     /*
     rubberbandModel: digitizingRubberband.model
 
@@ -538,6 +545,7 @@ ApplicationWindow {
     }
     */
   }
+
 
   Controls.Menu {
     id: mainMenu

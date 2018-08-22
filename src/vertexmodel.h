@@ -19,15 +19,17 @@
 #include <QStandardItemModel>
 
 class QgsGeometry;
-class QgsCoordinateReferenceSystem;
+
+#include "qgscoordinatereferencesystem.h"
 
 class VertexModel : public QStandardItemModel
 {
     Q_OBJECT
 
   public:
-    enum ColumnRole {
-        Point = Qt::UserRole + 1,
+    enum ColumnRole
+    {
+      PointRole = Qt::UserRole + 1,
     };
 
     explicit VertexModel( QObject* parent = nullptr );
@@ -35,6 +37,7 @@ class VertexModel : public QStandardItemModel
 
     Q_INVOKABLE void setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
 
+    QHash<int, QByteArray> roleNames() const;
 };
 
 #endif // VERTEXMODEL_H

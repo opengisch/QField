@@ -163,6 +163,8 @@ Rectangle {
 
     property bool readOnly: false
 
+    visible: stateMachine.state === "digitize"
+
     anchors.right: editButton.left
 
     iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
