@@ -32,27 +32,34 @@ VertexModel::VertexModel( QObject* parent )
 
 void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
 {
-    clear();
+  clear();
 
-    bool isMulti = QgsWkbTypes::isMultiType(geometry.wkbType());
+  bool isMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
 
-    setColumnCount(1);
-    setRowCount(0);
+  setColumnCount( 1 );
+  setRowCount( 0 );
 
-    const QgsAbstractGeometry *geom = geometry.constGet();
-    if ( !geom )
+  const QgsAbstractGeometry *geom = geometry.constGet();
+  if ( !geom )
+    return;
+
+  QgsVertexId vertexId;
+  QgsPoint pt;
+  while ( geom->nextVertex( vertexId, pt ) )
+  {
+    if ( vertexId.part > 1 || vertexId.ring > 1 )
       return;
 
-    QgsVertexId vertexId;
-    QgsPoint pt;
-    while ( geom->nextVertex( vertexId, pt ) )
-    {
-        if (vertexId.part > 1 || vertexId.ring > 1)
-            return;
+    QStandardItem *item = new QStandardItem();
+    item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
+    appendRow( QList<QStandardItem*>() << item );
+  }
+}
 
-        QStandardItem *item = new QStandardItem();
-        item->setData( QVariant::fromValue<QgsPoint>(pt));
-        appendRow(QList<QStandardItem*>() << item);
-    }
+QHash<int, QByteArray> VertexModel::roleNames() const
+{
+  QHash<int, QByteArray> roles;
+  roles[PointRole] = "Point";
+  return roles;
 }
 
