@@ -46,7 +46,9 @@ void PrintLayoutListModel::reloadModel()
   beginResetModel();
   mPrintLayouts.clear();
 
-  for ( const auto &layout : mProject->layoutManager()->printLayouts() )
+  const QList< QgsPrintLayout * > layouts( mProject->layoutManager()->printLayouts() );
+
+  for ( const auto &layout : layouts )
   {
     mPrintLayouts.append( PrintLayout( layout->name() ) );
   }
@@ -57,13 +59,12 @@ void PrintLayoutListModel::reloadModel()
 int PrintLayoutListModel::rowCount( const QModelIndex& parent ) const
 {
   Q_UNUSED( parent )
-  int test = mPrintLayouts.size();
-  return test;
+  return mPrintLayouts.size();
 }
 
 QVariant PrintLayoutListModel::data( const QModelIndex& index, int role ) const
 {
-  if ( index.row() >= mPrintLayouts.size() )
+  if ( index.row() >= mPrintLayouts.size() || index.row() < 0 )
     return QVariant();
 
   if ( role == TitleRow )

@@ -29,14 +29,22 @@ class PrintLayoutListModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsProject* project READ project WRITE setProject )
+    Q_PROPERTY( QgsProject* project READ project WRITE setProject NOTIFY projectChanged )
 
+     /*!
+      * Roles to get the data of the model.
+      * To get the printLayout attributes TitleRow is used.
+      * To get position in the list of PrintLayouts IndexRow is used.
+     */
     enum Roles
     {
       TitleRow,
       IndexRow
     };
 
+    /*!
+     * Struct of printLayout attributes (at the moment only for the title (name) used)
+    */
     //! at the moment only contains the title string - probably in future more attributes needed
     struct PrintLayout
     {
@@ -56,12 +64,18 @@ class PrintLayoutListModel : public QAbstractListModel
     QVariant data( const QModelIndex& index, int role ) const override;
 
     QgsProject* project() const;
+    //!Project needs to be set to have the printLayouts in the model
     void setProject( QgsProject* project );
 
+  signals:
+    void projectChanged();
+
   private:
+    //!triggered when set another project
     void reloadModel();
 
     QgsProject* mProject;
+    //!List of PrintLayouts of current project to display
     QList<PrintLayout> mPrintLayouts;
 };
 

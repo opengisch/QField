@@ -290,9 +290,7 @@ void QgisMobileapp::print( int layoutIndex )
     return;
 
   QPrinter printer;
-  printer.setOutputFormat(QPrinter::PdfFormat);
-  printer.setPaperSize(QPrinter::A4);
-  printer.setOutputFileName( mProject->homePath() + "/" + layoutToPrint->name() + ".pdf" );
+  printer.setOutputFileName( mProject->homePath() + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
 
   QgsLayoutExporter::PrintExportSettings printSettings;
   printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -302,8 +300,7 @@ void QgisMobileapp::print( int layoutIndex )
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.print( printer, printSettings );
 
-  mPlatformUtils.open( "file:///"+printer.outputFileName(), "application/pdf");
-
+  mPlatformUtils.open( QStringLiteral( "file:///" ) + printer.outputFileName(), QStringLiteral( "application/pdf" ) );
 
   emit printingEnded();
 }

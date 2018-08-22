@@ -514,7 +514,6 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-
     Controls.Menu {
       title: qsTr( "Mode" )
 
@@ -564,34 +563,34 @@ ApplicationWindow {
     }
 
     Controls.Menu {
-        id: printMenu
-        title: qsTr( "Print to PDF" )
+      id: printMenu
+      title: qsTr( "Print to PDF" )
 
-        Instantiator {
+      Instantiator {
 
-          id: layoutListInstantiator
+        id: layoutListInstantiator
 
-          model: PrintLayoutListModel {
-          }
-
-          Controls.MenuItem {
-            text: Title
-
-            onTriggered: {
-              iface.print( Index )
-            }
-          }
-          onObjectAdded: printMenu.insertItem(index, object)
-          onObjectRemoved: printMenu.removeItem(object)
+        model: PrintLayoutListModel {
         }
 
-        Connections {
-            target: iface
+        Controls.MenuItem {
+          text: Title
 
-            onLoadProjectEnded: {
-                layoutListInstantiator.model.project = qgisProject
-            }
+          onTriggered: {
+            iface.print( Index )
+          }
         }
+        onObjectAdded: printMenu.insertItem(index, object)
+        onObjectRemoved: printMenu.removeItem(object)
+      }
+
+      Connections {
+        target: iface
+
+        onLoadProjectEnded: {
+            layoutListInstantiator.model.project = qgisProject
+        }
+      }
     }
 
     /*
@@ -796,7 +795,7 @@ ApplicationWindow {
       }
 
       onPrintingStarted: {
-        busyMessageText.text = qsTr( "Printing layout: %1" ).arg( layoutfile )
+        busyMessageText.text = qsTr( "Printing Layout: %1" ).arg( path )
         busyMessage.visible = true
       }
 
@@ -809,8 +808,8 @@ ApplicationWindow {
   Controls.BusyIndicator {
     id: busyIndicator
     anchors { right: alertIcon.left; top: parent.top }
-    width: 36 * dp
-    height: 36 * dp
+    width: 96 * dp
+    height: 96 * dp
     running: mapCanvasMap.isRendering
   }
 
