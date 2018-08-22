@@ -464,7 +464,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly )
+    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly && !geometryEditingToolbar.visible )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -518,32 +518,18 @@ ApplicationWindow {
   }
 
   GeometryEditingToolbar {
-    id: geometryEditingToolbbar
+    id: geometryEditingToolbar
+
+    vertexModel: vertexModel
 
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" )
-    /*
-    rubberbandModel: digitizingRubberband.model
+    visible: ( stateMachine.state === "digitize" && !vertexModel.isEmtpy() )
 
-    FeatureModel {
-      id: digitizingFeature
-      currentLayer: dashBoard.currentLayer
-      positionSourceName: positionSource.name
-
-      geometry: Geometry {
-        id: digitizingGeometry
-        rubberbandModel: digitizingRubberband.model
-        vectorLayer: dashBoard.currentLayer
-      }
+    onCancel: {
+      vertexModel.clear()
     }
-
-    onVertexAdded: {
-      coordinateLocator.flash()
-      digitizingRubberband.model.addVertex()
-    }
-    */
   }
 
 
@@ -733,6 +719,7 @@ ApplicationWindow {
         vertexModel.setGeometry(featureForm.selection.selectedFeature.geometry,
                                 featureForm.selection.selectedLayer.crs)
         featureForm.state = "Hidden"
+        geometryEditingToolbar.visible = true
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
