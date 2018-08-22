@@ -33,6 +33,7 @@ VertexModel::VertexModel( QObject* parent )
 void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
 {
   clear();
+  mCurrentVertex = -1;
 
   bool isMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
 
@@ -45,6 +46,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
 
   QgsVertexId vertexId;
   QgsPoint pt;
+  int r = 0;
   while ( geom->nextVertex( vertexId, pt ) )
   {
     if ( vertexId.part > 1 || vertexId.ring > 1 )
@@ -52,14 +54,57 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
 
     QStandardItem *item = new QStandardItem();
     item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
+    item->setData( r == mCurrentVertex, CurrentVertexRole );
     appendRow( QList<QStandardItem*>() << item );
+    r++;
   }
+}
+
+void VertexModel::clear()
+{
+  QStandardItemModel::clear();
+}
+
+bool VertexModel::isEmtpy()
+{
+  return rowCount() == 0;
+}
+
+void VertexModel::previousVertex()
+{
+  if ( isEmtpy() )
+    mCurrentVertex = -1;
+  else
+    mCurrentVertex = std::max( 0, mCurrentVertex-1 );
+
+  updateCurrentVertex();
+}
+
+void VertexModel::nextVertex()
+{
+  if ( isEmtpy() )
+    mCurrentVertex = -1;
+  else
+    mCurrentVertex = std::min( rowCount()-1, mCurrentVertex+1 );
+
+  updateCurrentVertex();
 }
 
 QHash<int, QByteArray> VertexModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[PointRole] = "Point";
+  roles[CurrentVertexRole] = "CurrentVertex";
   return roles;
+}
+
+void VertexModel::updateCurrentVertex()
+{
+  for ( int r=0; r<rowCount(); r++ )
+  {
+    QStandardItem *it = item( r );
+    it->setData( r == mCurrentVertex, CurrentVertexRole );
+    setItem( r, 0, it );
+  }
 }
 

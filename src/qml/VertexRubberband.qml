@@ -19,7 +19,9 @@ Repeater {
 
       width: 20*dp
       height: 20*dp
-      border.color: 'red'
+
+      border.color: if (CurrentVertex) {'red'} else {'blue'}
+
       border.width: 2*dp
     }
 }
