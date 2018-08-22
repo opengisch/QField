@@ -52,6 +52,10 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
     if ( vertexId.part > 1 || vertexId.ring > 1 )
       return;
 
+    // skip first vertex on polygon, as it's duplicate from last
+    if ( geometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
+      continue;
+
     QStandardItem *item = new QStandardItem();
     item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
     item->setData( r == mCurrentVertex, CurrentVertexRole );
@@ -75,7 +79,7 @@ void VertexModel::previousVertex()
   if ( isEmtpy() )
     mCurrentVertex = -1;
   else
-    mCurrentVertex = std::max( 0, mCurrentVertex-1 );
+    mCurrentVertex = mCurrentVertex > 0 ? mCurrentVertex-1  : rowCount()-1;
 
   updateCurrentVertex();
 }
@@ -85,7 +89,7 @@ void VertexModel::nextVertex()
   if ( isEmtpy() )
     mCurrentVertex = -1;
   else
-    mCurrentVertex = std::min( rowCount()-1, mCurrentVertex+1 );
+    mCurrentVertex = mCurrentVertex < rowCount()-1 ? mCurrentVertex+1 : 0;
 
   updateCurrentVertex();
 }
@@ -104,7 +108,7 @@ void VertexModel::updateCurrentVertex()
   {
     QStandardItem *it = item( r );
     it->setData( r == mCurrentVertex, CurrentVertexRole );
-    setItem( r, 0, it );
+    //setItem( r, 0, it );
   }
 }
 
