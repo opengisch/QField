@@ -20,17 +20,26 @@
 
 class QgsGeometry;
 
-#include "qgscoordinatereferencesystem.h"
+#include "qgspoint.h"
 
 class VertexModel : public QStandardItemModel
 {
     Q_OBJECT
+    Q_PROPERTY( EditingMode editingMode READ editingMode NOTIFY editingModeChanged )
+    Q_PROPERTY( QgsPoint currentPoint READ currentPoint NOTIFY currentPointChanged )
 
   public:
     enum ColumnRole
     {
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
+    };
+
+    enum EditingMode
+    {
+      NoEditing,
+      EditVertex,
+      AddVertex
     };
 
     explicit VertexModel( QObject* parent = nullptr );
@@ -45,13 +54,21 @@ class VertexModel : public QStandardItemModel
     Q_INVOKABLE void previousVertex();
     Q_INVOKABLE void nextVertex();
 
+    EditingMode editingMode();
+    QgsPoint currentPoint();
+
     QHash<int, QByteArray> roleNames() const override;
 
+  signals:
+    void editingModeChanged();
+    void currentPointChanged();
+
   private:
-    void updateCurrentVertex();
+    void setCurrentVertex( int newVertex );
+    void setEditingMode( EditingMode mode );
+    QgsPoint mCurrentPoint = QgsPoint();
+    EditingMode mMode = NoEditing;
     int mCurrentVertex = -1;
-
-
 };
 
 #endif // VERTEXMODEL_H
