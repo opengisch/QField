@@ -30,14 +30,28 @@ class VertexModel : public QStandardItemModel
     enum ColumnRole
     {
       PointRole = Qt::UserRole + 1,
+      CurrentVertexRole,
     };
 
     explicit VertexModel( QObject* parent = nullptr );
-    ~VertexModel() = default;
+    ~VertexModel() override = default;
 
     Q_INVOKABLE void setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
 
-    QHash<int, QByteArray> roleNames() const;
+    Q_INVOKABLE void clear();
+
+    Q_INVOKABLE bool isEmtpy();
+
+    Q_INVOKABLE void previousVertex();
+    Q_INVOKABLE void nextVertex();
+
+    QHash<int, QByteArray> roleNames() const override;
+
+  private:
+    void updateCurrentVertex();
+    int mCurrentVertex = -1;
+
+
 };
 
 #endif // VERTEXMODEL_H
