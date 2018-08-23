@@ -85,7 +85,8 @@ void Rubberband::setVertexModel( VertexModel* model )
 
   if ( mVertexModel )
   {
-    connect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
+      connect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
+      connect( mVertexModel, &VertexModel::vertexCountChanged, this, &Rubberband::markDirty );
   }
 
   markDirty();
@@ -118,7 +119,7 @@ void Rubberband::markDirty()
 
 QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* )
 {
-  if ( mDirty && ( mRubberbandModel||mVertexModel ) )
+  if ( mDirty )
   {
     delete n;
     n = new QSGNode;
