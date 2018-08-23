@@ -590,6 +590,7 @@ ApplicationWindow {
         onLoadProjectEnded: {
           layoutListInstantiator.model.project = qgisProject
           layoutListInstantiator.model.reloadModel()
+          printMenu.visible = layoutListInstantiator.model.rowCount()
         }
       }
     }
