@@ -192,10 +192,23 @@ ApplicationWindow {
     }
 
     /* Rubberband for vertices  */
-    VertexRubberband {
+    Item {
+      VertexRubberband {
         id: vertexRubberband
         model: vertexModel
         mapSettings: mapCanvas.mapSettings
+      }
+
+      Rubberband {
+        id: editingRubberBand
+        vertexModel: vertexModel
+        mapSettings: mapCanvas.mapSettings
+        width: 2 * dp
+
+        transform: MapTransform {
+          mapSettings: mapCanvas.mapSettings
+        }
+      }
     }
   }
 
