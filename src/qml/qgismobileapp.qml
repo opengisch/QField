@@ -729,11 +729,13 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
+      vertexModel.setGeometry( featureForm.selection.selectedFeature.geometry,
+                               featureForm.selection.selectedLayer.crs )
+      geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
+      geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
-        vertexModel.setGeometry(featureForm.selection.selectedFeature.geometry,
-                                featureForm.selection.selectedLayer.crs)
-        featureForm.state = "Hidden"
-        geometryEditingToolbar.visible = true
+      featureForm.state = "Hidden"
+      geometryEditingToolbar.visible = true
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
@@ -1107,6 +1109,13 @@ ApplicationWindow {
   }
 
   // ! MODELS !
+  FeatureModel {
+    id: geometryEditingFeature
+    currentLayer: null
+    positionSourceName: positionSource.name
+    vertexModel: vertexModel
+  }
+
   VertexModel {
       id: vertexModel
       currentPoint: coordinateLocator.currentCoordinate
