@@ -514,7 +514,6 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-
     Controls.Menu {
       title: qsTr( "Mode" )
 
@@ -563,6 +562,38 @@ ApplicationWindow {
       }
     }
 
+    Controls.Menu {
+      id: printMenu
+      title: qsTr( "Print to PDF" )
+
+      Instantiator {
+
+        id: layoutListInstantiator
+
+        model: PrintLayoutListModel {
+        }
+
+        Controls.MenuItem {
+          text: Title
+
+          onTriggered: {
+            iface.print( Index )
+          }
+        }
+        onObjectAdded: printMenu.insertItem(index, object)
+        onObjectRemoved: printMenu.removeItem(object)
+      }
+
+      Connections {
+        target: iface
+
+        onLoadProjectEnded: {
+          layoutListInstantiator.model.project = qgisProject
+          layoutListInstantiator.model.reloadModel()
+          printMenu.visible = layoutListInstantiator.model.rowCount()
+        }
+      }
+    }
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
@@ -786,6 +817,8 @@ ApplicationWindow {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
+      width: 100 * dp
+      height: 100 * dp
     }
 
     Text {
