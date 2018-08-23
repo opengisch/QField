@@ -38,6 +38,8 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! number of points in the model
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
+    //! determines if the model has changes
+    Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
 
   public:
     enum ColumnRole
@@ -71,6 +73,7 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc editingMode
     EditingMode editingMode() const;
+
     //! \copydoc currentPoint
     QgsPoint currentPoint() const;
     //! \copydoc currentPoint
@@ -78,6 +81,9 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc vertexCount
     int vertexCount() const;
+
+    //! \copydoc dirty
+    bool dirty() const;
 
 
     QgsWkbTypes::GeometryType geometryType() const;
@@ -95,17 +101,21 @@ class VertexModel : public QStandardItemModel
     void mapSettingsChanged();
     //! \copydoc vertexCount
     void vertexCountChanged();
+    //! \copydoc dirty
+    void dirtyChanged();
+
 
   private:
+    void setDirty( bool dirty );
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeoemtry;
 
     //! CRS of the geometry, will be used to transform to map canvas coordinates
     QgsCoordinateReferenceSystem mCrs = QgsCoordinateReferenceSystem();
     bool mIsMulti = false;
+    bool mDirty = false;
     void setCurrentVertex( int newVertex );
     void setEditingMode( EditingMode mode );
-    QgsPoint mCurrentPoint = QgsPoint();
     EditingMode mMode = NoEditing;
     int mCurrentVertex = -1;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;

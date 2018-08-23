@@ -57,9 +57,7 @@ Row {
     id: applyButton
     iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
     round: true
-    bgcolor: "#616161"
-
-    // TODO only visible when changes
+    bgcolor: featureModel.vertexModel.dirty ? "#FFD600" : "#616161"
 
     onClicked: {
       featureModel.applyVertexModelToGeometry()
