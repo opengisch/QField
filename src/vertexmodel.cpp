@@ -91,6 +91,8 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
     r++;
   }
 
+  setDirty( false );
+
   emit vertexCountChanged();
 }
 
@@ -143,6 +145,7 @@ void VertexModel::clear()
 {
   QStandardItemModel::clear();
   emit vertexCountChanged();
+  setDirty( false );
 }
 
 void VertexModel::previousVertex()
@@ -162,7 +165,11 @@ VertexModel::EditingMode VertexModel::editingMode() const
 
 QgsPoint VertexModel::currentPoint() const
 {
-  return mCurrentPoint;
+  QStandardItem *it = item( mCurrentVertex );
+  if ( it )
+    return qvariant_cast<QgsPoint>( it->data( PointRole ) );
+  else
+    return QgsPoint();
 }
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
@@ -171,13 +178,24 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   {
     QStandardItem *it = item( mCurrentVertex );
     if ( it )
+    {
+      if ( qvariant_cast<QgsPoint>( it->data( PointRole ) ) != point )
+      {
+        setDirty( true );
+      }
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+    }
   }
 }
 
 int VertexModel::vertexCount() const
 {
   return rowCount();
+}
+
+bool VertexModel::dirty() const
+{
+  return mDirty;
 }
 
 QgsWkbTypes::GeometryType VertexModel::geometryType() const
@@ -209,6 +227,15 @@ QHash<int, QByteArray> VertexModel::roleNames() const
   return roles;
 }
 
+void VertexModel::setDirty( bool dirty )
+{
+  if ( mDirty == dirty )
+    return;
+
+  mDirty = dirty;
+  emit dirtyChanged();
+}
+
 void VertexModel::setCurrentVertex( int newVertex )
 {
   if ( newVertex < 0 )
@@ -235,7 +262,6 @@ void VertexModel::setCurrentVertex( int newVertex )
 
     if ( r == mCurrentVertex )
     {
-      mCurrentPoint = qvariant_cast<QgsPoint>( it->data( PointRole ) );
       emit currentPointChanged();
       setEditingMode( EditVertex );
     }
