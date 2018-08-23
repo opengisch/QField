@@ -33,19 +33,16 @@ class PrintLayoutListModel : public QAbstractListModel
 
      /*!
       * Roles to get the data of the model.
-      * To get the printLayout attributes TitleRow is used.
-      * To get position in the list of PrintLayouts IndexRow is used.
      */
     enum Roles
     {
-      TitleRow,
-      IndexRow
+      TitleRow, //! the name of the print layout
+      IndexRow  //! the position of the print layout in list
     };
 
     /*!
      * Struct of printLayout attributes (at the moment only for the title (name) used)
     */
-    //! at the moment only contains the title string - probably in future more attributes needed
     struct PrintLayout
     {
       PrintLayout(const QString& title )

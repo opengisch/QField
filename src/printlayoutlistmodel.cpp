@@ -36,7 +36,8 @@ QgsProject* PrintLayoutListModel::project() const
 
 void PrintLayoutListModel::setProject( QgsProject* project )
 {
-  mProject = project;
+  if( mProject != project )
+    mProject = project;
 
   reloadModel();
 }
@@ -58,8 +59,10 @@ void PrintLayoutListModel::reloadModel()
 
 int PrintLayoutListModel::rowCount( const QModelIndex& parent ) const
 {
-  Q_UNUSED( parent )
-  return mPrintLayouts.size();
+  if ( !parent.isValid() )
+    return mPrintLayouts.size();
+  else
+    return 0;
 }
 
 QVariant PrintLayoutListModel::data( const QModelIndex& index, int role ) const
