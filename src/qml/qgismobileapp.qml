@@ -533,7 +533,7 @@ ApplicationWindow {
   GeometryEditingToolbar {
     id: geometryEditingToolbar
 
-    vertexModel: vertexModel
+    featureModel: geometryEditingFeature
     mapSettings: mapCanvas.mapSettings
 
     anchors.bottom: mapCanvas.bottom
@@ -1119,5 +1119,6 @@ ApplicationWindow {
   VertexModel {
       id: vertexModel
       currentPoint: coordinateLocator.currentCoordinate
+      mapSettings: mapCanvas.mapSettings
   }
 }

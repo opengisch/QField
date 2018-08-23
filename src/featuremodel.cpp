@@ -17,6 +17,7 @@
 
 #include "featuremodel.h"
 #include "expressioncontextutils.h"
+#include "vertexmodel.h"
 
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
@@ -308,6 +309,14 @@ void FeatureModel::setPositionSourceName( const QString& positionSourceName )
 
   mPositionSource.reset( QGeoPositionInfoSource::createSource( positionSourceName, this ) );
   emit positionSourceChanged();
+}
+
+void FeatureModel::applyVertexModelToGeometry()
+{
+  if ( !mVertexModel )
+    return;
+
+  mFeature.setGeometry( mVertexModel->geometry() );
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const
