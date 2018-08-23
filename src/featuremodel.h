@@ -100,6 +100,10 @@ class FeatureModel : public QAbstractListModel
      */
     void setPositionSourceName( const QString &positionSourceName );
 
+    //! Apply the vertex model to the feature geometry.
+    //! \note This shall be used if the feature model is used with the vertex model rather than the geometry and rubberband model
+    Q_INVOKABLE void applyVertexModelToGeometry();
+
   public slots:
     void applyGeometry();
 

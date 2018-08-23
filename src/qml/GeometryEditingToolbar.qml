@@ -6,19 +6,14 @@ import "js/style.js" as Style
 Row {
   id: geometryEditingToolbar
 
-  property VertexModel vertexModel
+  property FeatureModel featureModel
   property MapSettings mapSettings
 
-  property variant featureId
-  property variant VectorLayer
 
   spacing: 4 * dp
   padding: 4 * dp
 
-  signal vertexAdded
-  signal vertexRemoved
   signal cancel
-  signal confirm
 
   Button {
     id: cancelButton
@@ -32,13 +27,28 @@ Row {
   }
 
   Button {
+    id: applyButton
+    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+    round: true
+    bgcolor: "#616161"
+
+    // TODO only visible when changes
+
+    onClicked: {
+      featureModel.applyVertexModelToGeometry()
+      featureModel.save()
+    }
+  }
+
+
+  Button {
     id: previousVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
     bgcolor: "#616161"
 
     onClicked: {
-      vertexModel.previousVertex()
+      featureModel.vertexModel.previousVertex()
     }
   }
 
@@ -48,8 +58,10 @@ Row {
     round: true
     bgcolor: "#616161"
 
+    // TODO: visible when possible
+
     onClicked: {
-      vertexRemoved()
+      // TODO
     }
   }
 
@@ -60,7 +72,7 @@ Row {
     bgcolor: "#616161"
 
     onClicked: {
-      vertexModel.nextVertex()
+      featureModel.vertexModel.nextVertex()
     }
   }
 
@@ -69,7 +81,7 @@ Row {
       onCurrentPointChanged:
       {
 // TODO check mode
-        geometryEditingToolbar.mapSettings.setCenter(geometryEditingToolbar.vertexModel.currentPoint)
+        mapSettings.setCenter(featureModel.vertexModel.currentPoint)
       }
   }
 }

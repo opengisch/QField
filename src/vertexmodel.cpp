@@ -20,35 +20,62 @@
 #include "qgsgeometry.h"
 #include "qgswkbtypes.h"
 #include "qgscoordinatereferencesystem.h"
+#include "qgswkbtypes.h"
+#include "qgslinestring.h"
+#include "qgspolygon.h"
 
 #include "vertexmodel.h"
+#include "mapsettings.h"
 
 
 VertexModel::VertexModel( QObject* parent )
   : QStandardItemModel( parent )
 {
+}
 
+void VertexModel::setMapSettings( MapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+
+  emit mapSettingsChanged();
+}
+
+MapSettings *VertexModel::mapSettings()
+{
+  return mMapSettings;
 }
 
 void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
 {
   clear();
+  mOriginalGeoemtry = geometry;
   mCurrentVertex = -1;
   mGeometryType = geometry.type();
+  QgsGeometry geom = QgsGeometry( geometry );
+  mCrs = crs;
 
-  bool isMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
+  if ( mMapSettings&&mCrs.isValid() )
+  {
+    QgsCoordinateTransform ct( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
+    geom.transform( ct );
+  }
+
+  mIsMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
 
   setColumnCount( 1 );
   setRowCount( 0 );
 
-  const QgsAbstractGeometry *geom = geometry.constGet();
-  if ( !geom )
+  const QgsAbstractGeometry *abstractGeom = geom.constGet();
+  if ( !abstractGeom )
     return;
 
   QgsVertexId vertexId;
   QgsPoint pt;
   int r = 0;
-  while ( geom->nextVertex( vertexId, pt ) )
+  while ( abstractGeom->nextVertex( vertexId, pt ) )
   {
     if ( vertexId.part > 1 || vertexId.ring > 1 )
       return;
@@ -65,12 +92,57 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   }
 }
 
+QgsGeometry VertexModel::geometry() const
+{
+  if ( mIsMulti )
+  {
+    // TODO: handle multi, for now return original to avoid any data destruction
+    return mOriginalGeoemtry;
+  }
+
+  QVector<QgsPoint> vertices = flatVertices();
+  QgsGeometry geometry;
+
+  switch ( mGeometryType )
+  {
+    case QgsWkbTypes::PointGeometry:
+    {
+      geometry.set( new QgsPoint( vertices.first() ) );
+      break;
+    }
+    case QgsWkbTypes::LineGeometry:
+    {
+      geometry = QgsGeometry::fromPolyline( vertices );
+      break;
+    }
+    case QgsWkbTypes::PolygonGeometry:
+    {
+      std::unique_ptr<QgsLineString> ls( qgis::make_unique<QgsLineString>( vertices ) );
+      std::unique_ptr<QgsPolygon> polygon( qgis::make_unique<QgsPolygon>() );
+      polygon->setExteriorRing( ls.release() );
+      geometry.set( polygon.release() );
+      break;
+    }
+    case QgsWkbTypes::NullGeometry:
+    case QgsWkbTypes::UnknownGeometry:
+      break;
+  }
+
+  if ( mMapSettings && mCrs.isValid() )
+  {
+    QgsCoordinateTransform ct( mMapSettings->destinationCrs(), mCrs, mMapSettings->transformContext() );
+    geometry.transform( ct );
+  }
+  return geometry;
+
+}
+
 void VertexModel::clear()
 {
   QStandardItemModel::clear();
 }
 
-bool VertexModel::isEmtpy()
+bool VertexModel::isEmtpy() const
 {
   return rowCount() == 0;
 }
@@ -85,12 +157,12 @@ void VertexModel::nextVertex()
   setCurrentVertex( mCurrentVertex+1 );
 }
 
-VertexModel::EditingMode VertexModel::editingMode()
+VertexModel::EditingMode VertexModel::editingMode() const
 {
   return mMode;
 }
 
-QgsPoint VertexModel::currentPoint()
+QgsPoint VertexModel::currentPoint() const
 {
   return mCurrentPoint;
 }
@@ -105,12 +177,12 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   }
 }
 
-QgsWkbTypes::GeometryType VertexModel::geometryType()
+QgsWkbTypes::GeometryType VertexModel::geometryType() const
 {
   return mGeometryType;
 }
 
-QVector<QgsPoint> VertexModel::flatVertices()
+QVector<QgsPoint> VertexModel::flatVertices() const
 {
   QVector<QgsPoint> vertices = QVector<QgsPoint>();
   for ( int r=0; r<rowCount(); r++ )
