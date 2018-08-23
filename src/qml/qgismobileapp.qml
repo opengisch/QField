@@ -1096,5 +1096,6 @@ ApplicationWindow {
   // ! MODELS !
   VertexModel {
       id: vertexModel
+      currentPoint: coordinateLocator.currentCoordinate
   }
 }
