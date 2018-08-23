@@ -793,15 +793,6 @@ ApplicationWindow {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
       }
-
-      onPrintingStarted: {
-        busyMessageText.text = qsTr( "Printing Layout: %1" ).arg( path )
-        busyMessage.visible = true
-      }
-
-      onPrintingEnded: {
-        busyMessage.visible = false
-      }
     }
   }
 
