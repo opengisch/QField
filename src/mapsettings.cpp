@@ -27,6 +27,7 @@ MapSettings::MapSettings( QObject *parent )
 {
   // Connect signals for derived values
   connect( this, &MapSettings::destinationCrsChanged, this, &MapSettings::mapUnitsPerPixelChanged );
+  connect( this, &MapSettings::destinationCrsChanged, this, &MapSettings::abbreviatedStringOfDistanceUnitChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::outputSizeChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::visibleExtentChanged );
