@@ -94,6 +94,16 @@ QgsPoint VertexModel::currentPoint()
   return mCurrentPoint;
 }
 
+void VertexModel::setCurrentPoint( const QgsPoint &point )
+{
+  if ( mMode == EditVertex )
+  {
+    QStandardItem *it = item( mCurrentVertex );
+    if ( it )
+      it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+  }
+}
+
 QHash<int, QByteArray> VertexModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
