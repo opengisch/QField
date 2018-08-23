@@ -540,10 +540,6 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
 
     stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
-
-    onCancel: {
-      vertexModel.clear()
-    }
   }
 
 
