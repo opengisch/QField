@@ -539,7 +539,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" && !vertexModel.isEmtpy() )
+    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
 
     onCancel: {
       vertexModel.clear()
@@ -735,7 +735,6 @@ ApplicationWindow {
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
       featureForm.state = "Hidden"
-      geometryEditingToolbar.visible = true
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )

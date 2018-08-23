@@ -57,7 +57,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   QgsGeometry geom = QgsGeometry( geometry );
   mCrs = crs;
 
-  if ( mMapSettings&&mCrs.isValid() )
+  if ( mMapSettings && mCrs.isValid() )
   {
     QgsCoordinateTransform ct( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
     geom.transform( ct );
@@ -90,6 +90,8 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
     appendRow( QList<QStandardItem*>() << item );
     r++;
   }
+
+  emit vertexCountChanged();
 }
 
 QgsGeometry VertexModel::geometry() const
@@ -140,11 +142,7 @@ QgsGeometry VertexModel::geometry() const
 void VertexModel::clear()
 {
   QStandardItemModel::clear();
-}
-
-bool VertexModel::isEmtpy() const
-{
-  return rowCount() == 0;
+  emit vertexCountChanged();
 }
 
 void VertexModel::previousVertex()
@@ -175,6 +173,11 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     if ( it )
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
   }
+}
+
+int VertexModel::vertexCount() const
+{
+  return rowCount();
 }
 
 QgsWkbTypes::GeometryType VertexModel::geometryType() const
@@ -214,7 +217,7 @@ void VertexModel::setCurrentVertex( int newVertex )
   if ( newVertex >= rowCount() )
     newVertex = 0;
 
-  if ( isEmtpy() )
+  if ( rowCount() == 0 )
   {
     setEditingMode( NoEditing );
     newVertex = -1;

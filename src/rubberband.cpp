@@ -136,7 +136,7 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
       if ( frozen )
         allButCurrentVertices = mRubberbandModel->flatVertices( true );
     }
-    else if ( mVertexModel && !mVertexModel->isEmtpy() )
+    else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
     {
       allVertices = mVertexModel->flatVertices();
       geomType = mVertexModel->geometryType();

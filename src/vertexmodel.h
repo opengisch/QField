@@ -30,10 +30,14 @@ class MapSettings;
 class VertexModel : public QStandardItemModel
 {
     Q_OBJECT
+    //! The current mode
     Q_PROPERTY( EditingMode editingMode READ editingMode NOTIFY editingModeChanged )
+    //! The current point being edited \see editingMode
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    //! number of points in the model
+    Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
 
   public:
     enum ColumnRole
@@ -62,14 +66,19 @@ class VertexModel : public QStandardItemModel
 
     Q_INVOKABLE void clear();
 
-    Q_INVOKABLE bool isEmtpy() const;
-
     Q_INVOKABLE void previousVertex();
     Q_INVOKABLE void nextVertex();
 
+    //! \copydoc editingMode
     EditingMode editingMode() const;
+    //! \copydoc currentPoint
     QgsPoint currentPoint() const;
+    //! \copydoc currentPoint
     void setCurrentPoint( const QgsPoint &point );
+
+    //! \copydoc vertexCount
+    int vertexCount() const;
+
 
     QgsWkbTypes::GeometryType geometryType() const;
 
@@ -78,17 +87,21 @@ class VertexModel : public QStandardItemModel
     QHash<int, QByteArray> roleNames() const override;
 
   signals:
+    //! \copydoc editingMode
     void editingModeChanged();
+    //! \copydoc currentPoint
     void currentPointChanged();
     //! \copydoc mapSettings
     void mapSettingsChanged();
+    //! \copydoc vertexCount
+    void vertexCountChanged();
 
   private:
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeoemtry;
 
     //! CRS of the geometry, will be used to transform to map canvas coordinates
-    QgsCoordinateReferenceSystem mCrs;
+    QgsCoordinateReferenceSystem mCrs = QgsCoordinateReferenceSystem();
     bool mIsMulti = false;
     void setCurrentVertex( int newVertex );
     void setEditingMode( EditingMode mode );

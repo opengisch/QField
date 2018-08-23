@@ -9,11 +9,40 @@ Row {
   property FeatureModel featureModel
   property MapSettings mapSettings
 
-
   spacing: 4 * dp
   padding: 4 * dp
 
   signal cancel
+
+  property bool stateVisible: true
+
+  states: [
+      State { when: geometryEditingToolbar.stateVisible;
+              PropertyChanges {   target: geometryEditingToolbar; opacity: 1.0    }},
+      State { when: !geometryEditingToolbar.stateVisible;
+              PropertyChanges {   target: geometryEditingToolbar; opacity: 0.0    }}
+  ]
+
+  transitions: Transition {
+    SequentialAnimation {
+      // make sure the box is always visible before the animation
+      PropertyAction {
+        target: geometryEditingToolbar;
+        property: "visible"
+        value: true
+      }
+      NumberAnimation {
+        target: geometryEditingToolbar
+        property: "opacity"
+        duration: 400
+      }
+      PropertyAction {
+        target: geometryEditingToolbar;
+        property: "visible"
+        value: !stateVisible
+      }
+    }
+  }
 
   Button {
     id: cancelButton
