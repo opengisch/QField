@@ -21,7 +21,6 @@ include( ../version.pri )
 HEADERS += \
     qgsquick/qgsquickutils.h \
     appinterface.h \
-    coordinatetransform.h \
     featurelistextentcontroller.h \
     multifeaturelistmodel.h \
     featurelistmodelhighlight.h \
@@ -62,7 +61,6 @@ HEADERS += \
 SOURCES += \
     qgsquick/qgsquickutils.cpp \
     appinterface.cpp \
-    coordinatetransform.cpp \
     featurelistextentcontroller.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelhighlight.cpp \
