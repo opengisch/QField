@@ -58,6 +58,10 @@ class VertexModel : public QStandardItemModel
     QgsPoint currentPoint();
     void setCurrentPoint( const QgsPoint &point );
 
+    QgsWkbTypes::GeometryType geometryType();
+
+    QVector<QgsPoint> flatVertices();
+
     QHash<int, QByteArray> roleNames() const override;
 
   signals:
@@ -70,6 +74,8 @@ class VertexModel : public QStandardItemModel
     QgsPoint mCurrentPoint = QgsPoint();
     EditingMode mMode = NoEditing;
     int mCurrentVertex = -1;
+    QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
+
 };
 
 #endif // VERTEXMODEL_H
