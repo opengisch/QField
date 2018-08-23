@@ -17,8 +17,6 @@
 if ! hash astyle 2>/dev/null; then
   echo "astyle not found - please install astyle on your system" >&2
   exit 1
-else
-  ASTYLE=astyle
 fi
 
 if ! type -p flip >/dev/null; then
@@ -29,7 +27,7 @@ fi
 
 set -e
 
-export ARTISTIC_STYLE_OPTIONS="\
+MY_ARTISTIC_STYLE_OPTIONS="\
 --style=allman \
 --preserve-date \
 --indent-preprocessor \
@@ -47,7 +45,7 @@ export ARTISTIC_STYLE_OPTIONS="\
 for f in "$@"; do
   case "$f" in
         *.cpp|*.h|*.c|*.h|*.cxx|*.hxx|*.c++|*.h++|*.cc|*.hh|*.C|*.H|*.hpp)
-                cmd="$ASTYLE $ARTISTIC_STYLE_OPTIONS"
+                cmd="astyle $MY_ARTISTIC_STYLE_OPTIONS"
                 ;;
 
         *.ui|*.qgm|*.txt|*.t2t|*.sip|resources/context_help/*)
