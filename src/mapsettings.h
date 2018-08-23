@@ -76,6 +76,11 @@ class MapSettings : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
 
     /**
+      * The string of the QgsUnitTypes::DistanceUnits CRS of destination coordinate reference system.
+      */
+    Q_PROPERTY( QString abbreviatedStringOfDistanceUnit READ abbreviatedStringOfDistanceUnit NOTIFY abbreviatedStringOfDistanceUnitChanged )
+
+    /**
      * Set list of layers for map rendering. The layers must be registered in QgsProject.
      * The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)
      *
@@ -163,6 +168,11 @@ class MapSettings : public QObject
     //! \copydoc QgsMapSettings::setLayers()
     void setLayers( const QList<QgsMapLayer *> &layers );
 
+    /**
+     * The string of the QgsUnitTypes::DistanceUnits CRS of destination coordinate reference system.
+     */
+    QString abbreviatedStringOfDistanceUnit() const;
+
   signals:
     //! \copydoc MapSettings::extent
     void extentChanged();
@@ -187,6 +197,9 @@ class MapSettings : public QObject
 
     //! \copydoc MapSettings::layers
     void layersChanged();
+
+    //! for recalculating the abbreviatedString when destinationCrs changed
+    void abbreviatedStringOfDistanceUnitChanged();
 
   private slots:
 
