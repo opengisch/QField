@@ -34,6 +34,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
 {
   clear();
   mCurrentVertex = -1;
+  mGeometryType = geometry.type();
 
   bool isMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
 
@@ -102,6 +103,27 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     if ( it )
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
   }
+}
+
+QgsWkbTypes::GeometryType VertexModel::geometryType()
+{
+  return mGeometryType;
+}
+
+QVector<QgsPoint> VertexModel::flatVertices()
+{
+  QVector<QgsPoint> vertices = QVector<QgsPoint>();
+  for ( int r=0; r<rowCount(); r++ )
+  {
+    QStandardItem *it = item( r );
+    vertices << qvariant_cast<QgsPoint>( it->data( PointRole ) );
+  }
+  // re-append
+  if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
+  {
+    vertices << vertices.constFirst();
+  }
+  return vertices;
 }
 
 QHash<int, QByteArray> VertexModel::roleNames() const
