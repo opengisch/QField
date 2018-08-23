@@ -12,8 +12,6 @@ Row {
   spacing: 4 * dp
   padding: 4 * dp
 
-  signal cancel
-
   property bool stateVisible: true
 
   states: [
@@ -51,7 +49,7 @@ Row {
     bgcolor: "#616161"
 
     onClicked: {
-      cancel()
+      featureModel.vertexModel.clear()
     }
   }
 
@@ -66,6 +64,7 @@ Row {
     onClicked: {
       featureModel.applyVertexModelToGeometry()
       featureModel.save()
+      featureModel.vertexModel.clear()
     }
   }
 
