@@ -9,6 +9,9 @@ Row {
   property VertexModel vertexModel
   property MapSettings mapSettings
 
+  property variant featureId
+  property variant VectorLayer
+
   spacing: 4 * dp
   padding: 4 * dp
 
