@@ -50,7 +50,6 @@
 #include "featurelistmodelhighlight.h"
 #include "maptransform.h"
 #include "featurelistextentcontroller.h"
-#include "coordinatetransform.h"
 #include "modelhelper.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
