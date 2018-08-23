@@ -23,10 +23,14 @@
 #include <memory>
 #include "geometry.h"
 
+class VertexModel;
+
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
+    //! the vertex model is used to highlight vertices on the map
+    Q_PROPERTY( VertexModel* vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
     Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
@@ -51,10 +55,13 @@ class FeatureModel : public QAbstractListModel
      */
     QgsFeature feature() const;
 
-
     void setCurrentLayer( QgsVectorLayer* layer );
     QgsVectorLayer* layer() const;
 
+    //! \copydoc vertexModel
+    VertexModel *vertexModel();
+    //! \copydoc vertexModel
+    void setVertexModel( VertexModel *model );
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex& parent ) const override;
@@ -98,6 +105,7 @@ class FeatureModel : public QAbstractListModel
 
   signals:
     void featureChanged();
+    void vertexModelChanged();
     void geometryChanged();
     void currentLayerChanged();
     void positionSourceChanged();
@@ -110,6 +118,7 @@ class FeatureModel : public QAbstractListModel
 
     QgsVectorLayer* mLayer;
     QgsFeature mFeature;
+    VertexModel *mVertexModel = nullptr;
     Geometry* mGeometry;
     QVector<bool> mRememberedAttributes;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;

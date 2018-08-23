@@ -62,6 +62,20 @@ QgsVectorLayer* FeatureModel::layer() const
   return mLayer;
 }
 
+VertexModel *FeatureModel::vertexModel()
+{
+  return mVertexModel;
+}
+
+void FeatureModel::setVertexModel( VertexModel *model )
+{
+  if ( model== mVertexModel )
+    return;
+
+  mVertexModel = model;
+  emit vertexModelChanged();
+}
+
 QgsFeature FeatureModel::feature() const
 {
   return mFeature;
@@ -222,7 +236,7 @@ void FeatureModel::resetAttributes()
           QgsMessageLog::logMessage( tr( "Default value expression for %1:%2 has evaluation error: %3" ).arg( mLayer->name(), fields.at( i ).name(), exp.evalErrorString() ), QStringLiteral( "QField" ) );
 
 
-        mFeature.setAttribute( i , value );
+        mFeature.setAttribute( i, value );
       }
       else
       {
