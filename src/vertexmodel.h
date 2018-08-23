@@ -26,7 +26,7 @@ class VertexModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY( EditingMode editingMode READ editingMode NOTIFY editingModeChanged )
-    Q_PROPERTY( QgsPoint currentPoint READ currentPoint NOTIFY currentPointChanged )
+    Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
 
   public:
     enum ColumnRole
@@ -56,6 +56,7 @@ class VertexModel : public QStandardItemModel
 
     EditingMode editingMode();
     QgsPoint currentPoint();
+    void setCurrentPoint( const QgsPoint &point );
 
     QHash<int, QByteArray> roleNames() const override;
 

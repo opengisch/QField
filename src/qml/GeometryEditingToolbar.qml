@@ -65,6 +65,7 @@ Row {
       target: vertexModel
       onCurrentPointChanged:
       {
+// TODO check mode
         geometryEditingToolbar.mapSettings.setCenter(geometryEditingToolbar.vertexModel.currentPoint)
       }
   }
