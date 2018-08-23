@@ -50,7 +50,6 @@
 #include "featurelistmodelhighlight.h"
 #include "maptransform.h"
 #include "featurelistextentcontroller.h"
-#include "coordinatetransform.h"
 #include "modelhelper.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
@@ -148,7 +147,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
   qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
-  qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
