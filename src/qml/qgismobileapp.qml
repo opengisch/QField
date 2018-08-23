@@ -588,7 +588,8 @@ ApplicationWindow {
         target: iface
 
         onLoadProjectEnded: {
-            layoutListInstantiator.model.project = qgisProject
+          layoutListInstantiator.model.project = qgisProject
+          layoutListInstantiator.model.reloadModel()
         }
       }
     }

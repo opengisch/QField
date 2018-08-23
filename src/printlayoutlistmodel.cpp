@@ -36,10 +36,10 @@ QgsProject* PrintLayoutListModel::project() const
 
 void PrintLayoutListModel::setProject( QgsProject* project )
 {
-  if( mProject != project )
-    mProject = project;
+  if( mProject == project )
+    return;
 
-  reloadModel();
+  mProject = project;
 }
 
 void PrintLayoutListModel::reloadModel()

@@ -64,13 +64,13 @@ class PrintLayoutListModel : public QAbstractListModel
     //!Project needs to be set to have the printLayouts in the model
     void setProject( QgsProject* project );
 
+    //!triggered when set another project
+    Q_INVOKABLE void reloadModel();
+
   signals:
     void projectChanged();
 
   private:
-    //!triggered when set another project
-    void reloadModel();
-
     QgsProject* mProject;
     //!List of PrintLayouts of current project to display
     QList<PrintLayout> mPrintLayouts;
