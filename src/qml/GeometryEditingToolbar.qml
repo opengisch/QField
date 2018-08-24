@@ -108,7 +108,7 @@ Row {
       target: vertexModel
       onCurrentPointChanged:
       {
-        if (featureModel.vertexModel.editingMode === VertexModel.EditVertex)
+        if (featureModel.vertexModel.editingMode == VertexModel.EditVertex)
           mapSettings.setCenter(featureModel.vertexModel.currentPoint)
       }
   }
