@@ -86,7 +86,7 @@ QPointF MapSettings::coordinateToScreen( const QgsPoint &point ) const
 
 QgsPoint MapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.toPoint() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinatesF( point.x(), point.y() );
   return QgsPoint( pp );
 }
 
