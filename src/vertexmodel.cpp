@@ -17,12 +17,10 @@
 #include <QDebug>
 #include <QStandardItem>
 
-#include "qgsgeometry.h"
-#include "qgswkbtypes.h"
-#include "qgscoordinatereferencesystem.h"
-#include "qgswkbtypes.h"
-#include "qgslinestring.h"
-#include "qgspolygon.h"
+#include <qgsgeometry.h>
+#include <qgswkbtypes.h>
+#include <qgslinestring.h>
+#include <qgspolygon.h>
 
 #include "vertexmodel.h"
 #include "mapsettings.h"
@@ -55,12 +53,11 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   mCurrentVertex = -1;
   mGeometryType = geometry.type();
   QgsGeometry geom = QgsGeometry( geometry );
-  mCrs = crs;
 
-  if ( mMapSettings && mCrs.isValid() )
+  if ( mMapSettings && crs.isValid() )
   {
-    QgsCoordinateTransform ct( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
-    geom.transform( ct );
+    mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
+    geom.transform( mTransform );
   }
 
   mIsMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
@@ -132,11 +129,9 @@ QgsGeometry VertexModel::geometry() const
       break;
   }
 
-  if ( mMapSettings && mCrs.isValid() )
-  {
-    QgsCoordinateTransform ct( mMapSettings->destinationCrs(), mCrs, mMapSettings->transformContext() );
-    geometry.transform( ct );
-  }
+  if ( mTransform.isValid() )
+    geometry.transform( mTransform, QgsCoordinateTransform::ReverseTransform );
+
   return geometry;
 
 }
@@ -181,6 +176,8 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     {
       if ( qvariant_cast<QgsPoint>( it->data( PointRole ) ) != point )
       {
+        qDebug() << point.asWkt();
+        qDebug() << qvariant_cast<QgsPoint>( it->data( PointRole ) ).asWkt();
         setDirty( true );
       }
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
@@ -262,8 +259,9 @@ void VertexModel::setCurrentVertex( int newVertex )
 
     if ( r == mCurrentVertex )
     {
-      emit currentPointChanged();
+      // following 2 lines must be in this order
       setEditingMode( EditVertex );
+      emit currentPointChanged();
     }
   }
 }
