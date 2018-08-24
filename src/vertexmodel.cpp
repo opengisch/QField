@@ -182,7 +182,7 @@ QgsPoint VertexModel::currentPoint() const
 {
   QStandardItem *it = item( mCurrentVertex );
   if ( it )
-    return qvariant_cast<QgsPoint>( it->data( PointRole ) );
+    return it->data( PointRole ).value<QgsPoint>();
   else
     return QgsPoint();
 }
@@ -194,7 +194,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     QStandardItem *it = item( mCurrentVertex );
     if ( it )
     {
-      if ( qvariant_cast<QgsPoint>( it->data( PointRole ) ) != point )
+      if ( it->data( PointRole ).value<QgsPoint>() != point )
       {
         qDebug() << point.asWkt();
         qDebug() << it->data( PointRole ).value<QgsPoint>().asWkt();
@@ -265,7 +265,7 @@ QVector<QgsPoint> VertexModel::flatVertices() const
   for ( int r=0; r<rowCount(); r++ )
   {
     QStandardItem *it = item( r );
-    vertices << qvariant_cast<QgsPoint>( it->data( PointRole ) );
+    vertices << it->data( PointRole ).value<QgsPoint>();
   }
   // re-append
   if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
