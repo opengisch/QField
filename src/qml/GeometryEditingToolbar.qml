@@ -3,7 +3,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 
-Row {
+VisibiltyFadingRow {
   id: geometryEditingToolbar
 
   property FeatureModel featureModel
@@ -11,36 +11,6 @@ Row {
 
   spacing: 4 * dp
   padding: 4 * dp
-
-  property bool stateVisible: true
-
-  states: [
-      State { when: geometryEditingToolbar.stateVisible;
-              PropertyChanges {   target: geometryEditingToolbar; opacity: 1.0    }},
-      State { when: !geometryEditingToolbar.stateVisible;
-              PropertyChanges {   target: geometryEditingToolbar; opacity: 0.0    }}
-  ]
-
-  transitions: Transition {
-    SequentialAnimation {
-      // make sure the box is always visible before the animation
-      PropertyAction {
-        target: geometryEditingToolbar;
-        property: "visible"
-        value: true
-      }
-      NumberAnimation {
-        target: geometryEditingToolbar
-        property: "opacity"
-        duration: 400
-      }
-      PropertyAction {
-        target: geometryEditingToolbar;
-        property: "visible"
-        value: !stateVisible
-      }
-    }
-  }
 
   Button {
     id: cancelButton
@@ -105,11 +75,12 @@ Row {
   }
 
   Connections {
-      target: vertexModel
-      onCurrentPointChanged:
-      {
-        if (featureModel.vertexModel.editingMode == VertexModel.EditVertex)
-          mapSettings.setCenter(featureModel.vertexModel.currentPoint)
-      }
+    target: vertexModel
+    onCurrentPointChanged:
+    {
+      if (featureModel.vertexModel.editingMode == VertexModel.EditVertex)
+        mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+    }
   }
 }
+
