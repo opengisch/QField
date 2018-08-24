@@ -27,6 +27,7 @@ class MapSettings;
 /**
  * @brief The VertexModel class is a model to highlight and edit vertices.
  * The model is used in map coordinates.
+ * There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)
  */
 class VertexModel : public QStandardItemModel
 {
@@ -130,7 +131,7 @@ class VertexModel : public QStandardItemModel
      * @param newVertex the new vertex index
      * @param forceUpdate if true, it will force to update all vertices and emit signal
      */
-    void setCurrentVertex( int newVertex, bool forceUpdate = true );
+    void setCurrentVertex( int newVertex, bool forceUpdate = false );
     void setEditingMode( EditingMode mode );
     EditingMode mMode = NoEditing;
     int mCurrentVertex = -1;
