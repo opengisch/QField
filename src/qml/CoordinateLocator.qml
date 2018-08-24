@@ -85,7 +85,7 @@ Item {
     width: 48 * dp
     height: width
     radius: width / 2
-/*
+
     Behavior on x {
       enabled: !overrideLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
       NumberAnimation { duration: 100 }
@@ -95,7 +95,7 @@ Item {
       enabled: !overrideLocation
       NumberAnimation { duration: 100 }
     }
-*/
+
     border.color: parent.color
 
     Behavior on border.color {

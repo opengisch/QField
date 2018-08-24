@@ -174,6 +174,7 @@ Rectangle {
     clip: true
 
     onClicked: {
+      extentController.zoomToSelected()
       toolBar.editGeometryButtonClicked()
     }
 

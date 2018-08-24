@@ -93,6 +93,10 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   setDirty( false );
 
   emit vertexCountChanged();
+
+  // for points, enable the editing mode directly
+// if (mGeometryType == QgsWkbTypes::PointGeometry)
+  //   setCurrentVertex(0);
 }
 
 QgsGeometry VertexModel::geometry() const
@@ -135,15 +139,14 @@ QgsGeometry VertexModel::geometry() const
     geometry.transform( mTransform, QgsCoordinateTransform::ReverseTransform );
 
   return geometry;
-
 }
 
 void VertexModel::clear()
 {
+  setEditingMode( NoEditing );
   QStandardItemModel::clear();
   emit vertexCountChanged();
   setDirty( false );
-  setEditingMode( NoEditing );
 }
 
 void VertexModel::previousVertex()
@@ -186,7 +189,7 @@ QgsPoint VertexModel::currentPoint() const
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
 {
-  if ( mMode == EditVertex )
+  if ( mMode == EditVertex && rowCount() > 0 )
   {
     QStandardItem *it = item( mCurrentVertex );
     if ( it )
@@ -194,12 +197,13 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
       if ( qvariant_cast<QgsPoint>( it->data( PointRole ) ) != point )
       {
         qDebug() << point.asWkt();
-        qDebug() << qvariant_cast<QgsPoint>( it->data( PointRole ) ).asWkt();
+        qDebug() << it->data( PointRole ).value<QgsPoint>().asWkt();
         setDirty( true );
       }
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
     }
   }
+  emit currentPointChanged();
 }
 
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
