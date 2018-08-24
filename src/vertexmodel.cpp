@@ -185,6 +185,39 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   }
 }
 
+void VertexModel::setCurrentVertex( int newVertex )
+{
+  if ( newVertex < 0 )
+    newVertex = rowCount()-1;
+
+  if ( newVertex >= rowCount() )
+    newVertex = 0;
+
+  if ( rowCount() == 0 )
+  {
+    setEditingMode( NoEditing );
+    newVertex = -1;
+  }
+
+  if ( mCurrentVertex == newVertex )
+    return;
+
+  mCurrentVertex = newVertex;
+
+  for ( int r=0; r<rowCount(); r++ )
+  {
+    QStandardItem *it = item( r );
+    it->setData( r == mCurrentVertex, CurrentVertexRole );
+
+    if ( r == mCurrentVertex )
+    {
+      // following 2 lines must be in this order
+      setEditingMode( EditVertex );
+      emit currentPointChanged();
+    }
+  }
+}
+
 int VertexModel::vertexCount() const
 {
   return rowCount();
@@ -231,39 +264,6 @@ void VertexModel::setDirty( bool dirty )
 
   mDirty = dirty;
   emit dirtyChanged();
-}
-
-void VertexModel::setCurrentVertex( int newVertex )
-{
-  if ( newVertex < 0 )
-    newVertex = rowCount()-1;
-
-  if ( newVertex >= rowCount() )
-    newVertex = 0;
-
-  if ( rowCount() == 0 )
-  {
-    setEditingMode( NoEditing );
-    newVertex = -1;
-  }
-
-  if ( mCurrentVertex == newVertex )
-    return;
-
-  mCurrentVertex = newVertex;
-
-  for ( int r=0; r<rowCount(); r++ )
-  {
-    QStandardItem *it = item( r );
-    it->setData( r == mCurrentVertex, CurrentVertexRole );
-
-    if ( r == mCurrentVertex )
-    {
-      // following 2 lines must be in this order
-      setEditingMode( EditVertex );
-      emit currentPointChanged();
-    }
-  }
 }
 
 void VertexModel::setEditingMode( VertexModel::EditingMode mode )
