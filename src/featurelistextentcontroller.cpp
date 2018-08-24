@@ -20,10 +20,6 @@
 
 FeatureListExtentController::FeatureListExtentController( QObject* parent )
   : QObject( parent )
-  , mModel( 0 )
-  , mSelection( 0 )
-  , mMapSettings( 0 )
-  , mAutoZoom( false )
 {
   connect( this, &FeatureListExtentController::autoZoomChanged, this, &FeatureListExtentController::zoomToSelected );
   connect( this, &FeatureListExtentController::modelChanged, this, &FeatureListExtentController::onModelChanged );
