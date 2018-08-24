@@ -153,7 +153,7 @@ void VertexModel::previousVertex()
 
 void VertexModel::nextVertex()
 {
-  setCurrentVertex( mCurrentVertex+1 );
+  setCurrentVertex( mCurrentVertex + 1 );
 }
 
 void VertexModel::removeCurrentVertex()
@@ -205,10 +205,10 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 {
   if ( newVertex < 0 )
-    newVertex = rowCount()-1;
+    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? rowCount()-1 : 0;
 
   if ( newVertex >= rowCount() )
-    newVertex = 0;
+    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? 0 : rowCount()-1;
 
   if ( rowCount() == 0 )
   {
