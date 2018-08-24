@@ -46,7 +46,7 @@ Row {
     id: cancelButton
     iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
     round: true
-    bgcolor: "#616161"
+    bgcolor: "#FFD600"
 
     onClicked: {
       featureModel.vertexModel.clear()
@@ -60,9 +60,11 @@ Row {
     bgcolor: featureModel.vertexModel.dirty ? "#FFD600" : "#616161"
 
     onClicked: {
-      featureModel.applyVertexModelToGeometry()
-      featureModel.save()
-      featureModel.vertexModel.clear()
+      if (featureModel.vertexModel.dirty){
+        featureModel.applyVertexModelToGeometry()
+        featureModel.save()
+        featureModel.vertexModel.clear()
+      }
     }
   }
 
@@ -71,7 +73,7 @@ Row {
     id: previousVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    bgcolor: "#616161"
+    bgcolor: "#FFD600"
 
     onClicked: {
       featureModel.vertexModel.previousVertex()
@@ -82,12 +84,12 @@ Row {
     id: removeVertexButton
     iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
     round: true
-    bgcolor: "#616161"
-
-    // TODO: visible when possible
+    bgcolor: featureModel.vertexModel.canRemoveVertex ? "#FFD600" : "#616161"
 
     onClicked: {
-      // TODO
+      if (featureModel.vertexModel.canRemoveVertex){
+        featureModel.vertexModel.removeCurrentVertex()
+      }
     }
   }
 
@@ -95,7 +97,7 @@ Row {
     id: nextVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    bgcolor: "#616161"
+    bgcolor: "#FFD600"
 
     onClicked: {
       featureModel.vertexModel.nextVertex()

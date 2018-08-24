@@ -41,6 +41,8 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
+    //! determines if one can remove current vertex
+    Q_PROPERTY( bool canRemoveVertex READ canRemoveVertex NOTIFY canRemoveVertexChanged )
 
   public:
     enum ColumnRole
@@ -55,7 +57,7 @@ class VertexModel : public QStandardItemModel
       EditVertex,
       AddVertex
     };
-    Q_ENUM( EditingMode );
+    Q_ENUM( EditingMode )
 
     explicit VertexModel( QObject* parent = nullptr );
     ~VertexModel() override = default;
@@ -72,6 +74,7 @@ class VertexModel : public QStandardItemModel
 
     Q_INVOKABLE void previousVertex();
     Q_INVOKABLE void nextVertex();
+    Q_INVOKABLE void removeCurrentVertex();
 
     //! \copydoc editingMode
     EditingMode editingMode() const;
@@ -86,6 +89,9 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc dirty
     bool dirty() const;
+
+    //! \copydoc canRemoveVertex
+    bool canRemoveVertex();
 
 
     QgsWkbTypes::GeometryType geometryType() const;
@@ -105,10 +111,13 @@ class VertexModel : public QStandardItemModel
     void vertexCountChanged();
     //! \copydoc dirty
     void dirtyChanged();
+    //! \copydoc canRemoveVertex
+    void canRemoveVertexChanged();
 
 
   private:
     void setDirty( bool dirty );
+    void updateCanRemoveVertex();
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeoemtry;
 
@@ -116,12 +125,18 @@ class VertexModel : public QStandardItemModel
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
-    void setCurrentVertex( int newVertex );
+    /**
+     * @brief setCurrentVertex set the current vertex viewed/edited in the model
+     * @param newVertex the new vertex index
+     * @param forceUpdate if true, it will force to update all vertices and emit signal
+     */
+    void setCurrentVertex( int newVertex, bool forceUpdate = true );
     void setEditingMode( EditingMode mode );
     EditingMode mMode = NoEditing;
     int mCurrentVertex = -1;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     MapSettings *mMapSettings = nullptr;
+    bool mCanRemoveVertex = false;
 };
 
 #endif // VERTEXMODEL_H

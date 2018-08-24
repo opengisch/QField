@@ -29,6 +29,8 @@
 VertexModel::VertexModel( QObject* parent )
   : QStandardItemModel( parent )
 {
+  connect( this, &VertexModel::editingModeChanged, this, &VertexModel::updateCanRemoveVertex );
+  connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanRemoveVertex );
 }
 
 void VertexModel::setMapSettings( MapSettings *mapSettings )
@@ -54,7 +56,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   mGeometryType = geometry.type();
   QgsGeometry geom = QgsGeometry( geometry );
 
-  if ( mMapSettings && crs.isValid() )
+  if ( mTransform.isValid() )
   {
     mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
     geom.transform( mTransform );
@@ -141,6 +143,7 @@ void VertexModel::clear()
   QStandardItemModel::clear();
   emit vertexCountChanged();
   setDirty( false );
+  setEditingMode( NoEditing );
 }
 
 void VertexModel::previousVertex()
@@ -151,6 +154,20 @@ void VertexModel::previousVertex()
 void VertexModel::nextVertex()
 {
   setCurrentVertex( mCurrentVertex+1 );
+}
+
+void VertexModel::removeCurrentVertex()
+{
+  if ( !mCanRemoveVertex )
+    return;
+
+  removeRow( mCurrentVertex );
+
+  setDirty( true );
+
+  emit vertexCountChanged();
+
+  setCurrentVertex( mCurrentVertex, true );
 }
 
 VertexModel::EditingMode VertexModel::editingMode() const
@@ -185,7 +202,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   }
 }
 
-void VertexModel::setCurrentVertex( int newVertex )
+void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 {
   if ( newVertex < 0 )
     newVertex = rowCount()-1;
@@ -199,7 +216,7 @@ void VertexModel::setCurrentVertex( int newVertex )
     newVertex = -1;
   }
 
-  if ( mCurrentVertex == newVertex )
+  if ( !forceUpdate && mCurrentVertex == newVertex )
     return;
 
   mCurrentVertex = newVertex;
@@ -226,6 +243,11 @@ int VertexModel::vertexCount() const
 bool VertexModel::dirty() const
 {
   return mDirty;
+}
+
+bool VertexModel::canRemoveVertex()
+{
+  return mCanRemoveVertex;
 }
 
 QgsWkbTypes::GeometryType VertexModel::geometryType() const
@@ -264,6 +286,39 @@ void VertexModel::setDirty( bool dirty )
 
   mDirty = dirty;
   emit dirtyChanged();
+}
+
+void VertexModel::updateCanRemoveVertex()
+{
+  bool canRemoveVertex = false;
+
+  if ( mMode == EditVertex )
+  {
+
+    switch ( mGeometryType )
+    {
+      case QgsWkbTypes::PointGeometry:
+        canRemoveVertex= false;
+        break;
+      case QgsWkbTypes::LineGeometry:
+        canRemoveVertex=  rowCount() > 2;
+        break;
+      case QgsWkbTypes::PolygonGeometry:
+        canRemoveVertex=  rowCount() > 3;
+        break;
+      case QgsWkbTypes::NullGeometry:
+      case QgsWkbTypes::UnknownGeometry:
+        canRemoveVertex=  false;
+        break;
+    }
+  }
+
+  if ( canRemoveVertex == mCanRemoveVertex )
+    return;
+
+  mCanRemoveVertex = canRemoveVertex;
+
+  emit canRemoveVertexChanged();
 }
 
 void VertexModel::setEditingMode( VertexModel::EditingMode mode )
