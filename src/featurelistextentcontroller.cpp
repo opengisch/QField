@@ -45,10 +45,17 @@ void FeatureListExtentController::zoomToSelected() const
     QgsGeometry geom( feat.geometry() );
     geom.transform( transf );
 
-    QgsRectangle featureExtent = geom.boundingBox();
-    QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
+    if ( geom.type() == QgsWkbTypes::PointGeometry )
+    {
+      mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );
+    }
+    else
+    {
+      QgsRectangle featureExtent = geom.boundingBox();
+      QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
 
-    mMapSettings->setExtent( bufferedExtent );
+      mMapSettings->setExtent( bufferedExtent );
+    }
   }
 }
 
