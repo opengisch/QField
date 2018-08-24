@@ -477,7 +477,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly && !geometryEditingToolbar.visible )
+    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly && !geometryEditingToolbar.stateVisible )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
