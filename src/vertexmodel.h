@@ -22,6 +22,7 @@ class MapSettings;
 
 #include "qgspoint.h"
 #include "qgsgeometry.h"
+#include "qgscoordinatetransform.h"
 
 /**
  * @brief The VertexModel class is a model to highlight and edit vertices.
@@ -32,7 +33,7 @@ class VertexModel : public QStandardItemModel
     Q_OBJECT
     //! The current mode
     Q_PROPERTY( EditingMode editingMode READ editingMode NOTIFY editingModeChanged )
-    //! The current point being edited \see editingMode
+    //! The current point being edited \see editingMode. The expected CRS to read/write is the map canvas CRS
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
     Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
@@ -54,6 +55,7 @@ class VertexModel : public QStandardItemModel
       EditVertex,
       AddVertex
     };
+    Q_ENUM( EditingMode );
 
     explicit VertexModel( QObject* parent = nullptr );
     ~VertexModel() override = default;
@@ -111,7 +113,7 @@ class VertexModel : public QStandardItemModel
     QgsGeometry mOriginalGeoemtry;
 
     //! CRS of the geometry, will be used to transform to map canvas coordinates
-    QgsCoordinateReferenceSystem mCrs = QgsCoordinateReferenceSystem();
+    QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
     void setCurrentVertex( int newVertex );
