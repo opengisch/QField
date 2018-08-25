@@ -1,7 +1,7 @@
 
 
 TARGET = test
-QT += testlib
+QT += testlib xml widgets
 TEMPLATE = app
 CONFIG += qt
 
