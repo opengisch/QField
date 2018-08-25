@@ -56,7 +56,9 @@ HEADERS += \
     coordinatetransformer.h \
     expressioncontextutils.h \
     focusstack.h \
-    printlayoutlistmodel.h
+    printlayoutlistmodel.h \
+    vertexmodel.h \
+    maptoscreen.h
 
 SOURCES += \
     qgsquick/qgsquickutils.cpp \
@@ -97,7 +99,9 @@ SOURCES += \
     coordinatetransformer.cpp \
     expressioncontextutils.cpp \
     focusstack.cpp \
-    printlayoutlistmodel.cpp
+    printlayoutlistmodel.cpp \
+    vertexmodel.cpp \
+    maptoscreen.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a
