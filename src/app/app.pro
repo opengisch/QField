@@ -1,5 +1,4 @@
-CONFIG += qt
-CONFIG += ordered
+
 
 TARGET = qfield
 
@@ -102,7 +101,11 @@ SOURCES += \
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick
 
-LIBS += ../../3rdparty/tessellate/libtessellate.a
+DEPENDPATH += ../qgsquick
+
+LIBS += ../../3rdparty/tessellate/libtessellate.a \
+       -L$$OUT_PWD/../qgsquick -lqgsquick
+
 
 
 
