@@ -194,13 +194,14 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     QStandardItem *it = item( mCurrentIndex );
     if ( it )
     {
-      if ( it->data( PointRole ).value<QgsPoint>() != point )
+      bool pointHasChanged = it->data( PointRole ).value<QgsPoint>() != point;
+      if ( pointHasChanged )
       {
         setDirty( true );
       }
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
       emit currentPointChanged();
-      if ( mMode==AddVertex )
+      if ( mMode == AddVertex && pointHasChanged )
       {
         it->setData( false, SegmentVertexRole );
         setEditingMode( EditVertex );
