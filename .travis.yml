@@ -29,6 +29,9 @@ script:
 jobs:
   include:
     - stage: test
+      script:
+        docker run
+    - stage: test
       env:
         - ARCH=armv7
     - stage: test
