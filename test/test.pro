@@ -7,6 +7,7 @@ CONFIG += qt
 
 include( ../qfield.pri )
 include( ../qgis.pri )
+include( ../version.pri )
 
 INCLUDEPATH += ../3rdparty/tessellate \
                ../src/qgsquick \
