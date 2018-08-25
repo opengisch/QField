@@ -234,7 +234,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   {
     QList<QStandardItem*> row = takeRow( oldVertex );
     Q_ASSERT( row.count()==1 && row.at( 0 ) );
-    QgsPoint point = segmentCentroid( newVertex, oldVertex );
+    QgsPoint point = segmentCentroid( newVertex, oldVertex ).point;
     row[0]->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
     insertRow( mCurrentIndex, row );
     emit currentPointChanged();
@@ -257,8 +257,10 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   }
 }
 
-QgsPoint VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allowExtension )
+VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allowExtension )
 {
+  Centroid centroid;
+
   QList<int> indexes = QList<int>() << leftIndex << rightIndex;
   qSort( indexes.begin(), indexes.end() );
 
@@ -269,9 +271,10 @@ QgsPoint VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allow
 
   if ( indexes[0] < 0 )
   {
-    if ( mGeometryType == QgsWkbTypes::LineGeometry && allowExtension )
+    if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-      isExtending = true;
+      if (allowExtension)
+        isExtending = true;
       indexes = QList<int>() << 0 << 1;
     }
     else
@@ -281,9 +284,10 @@ QgsPoint VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allow
   }
   if ( indexes[1] > rowCount()-1 )
   {
-    if ( mGeometryType == QgsWkbTypes::LineGeometry && allowExtension )
+    if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-      isExtending = true;
+        if (allowExtension)
+          isExtending = true;
       indexes = QList<int>() << rowCount()-2 << rowCount()-1;
     }
     else
@@ -302,11 +306,11 @@ QgsPoint VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allow
   Q_ASSERT( points.count()==2 );
 
   QgsLineString ls = QgsLineString( points );
-  QgsPoint centroid = ls.centroid();
+  centroid.point = ls.centroid();
 
   if ( isExtending )
   {
-    centroid = points[0] - ( centroid-points[0] )/2;
+    centroid.point = points[0] - ( centroid.point-points[0] )/2;
   }
 
   return centroid;
@@ -423,9 +427,10 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       case QgsWkbTypes::LineGeometry:
       case QgsWkbTypes::PolygonGeometry:
       {
-        QgsPoint point = segmentCentroid( mCurrentIndex, mCurrentIndex+1, false );
+        Centroid centroid = segmentCentroid( mCurrentIndex, mCurrentIndex+1, false );
+        QgsPoint point = centroid.point;
 
-        int newIndex = std::min( std::max( 0, mCurrentIndex+1 ), rowCount()-1 );
+        int newIndex = std::min( std::max( 0, mCurrentIndex ) + 1, rowCount()-1 );
 
         QStandardItem *item = new QStandardItem();
         item->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
