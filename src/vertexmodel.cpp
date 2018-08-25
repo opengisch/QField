@@ -226,21 +226,90 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   if ( !forceUpdate && mCurrentIndex == newVertex )
     return;
 
+  int oldVertex = mCurrentIndex;
   mCurrentIndex = newVertex;
 
-  for ( int r=0; r<rowCount(); r++ )
+  if ( mMode == AddVertex && oldVertex >= 0 )
   {
-    QStandardItem *it = item( r );
-    it->setData( r == mCurrentIndex, CurrentVertexRole );
-
-    if ( r == mCurrentIndex )
+    QList<QStandardItem*> row = takeRow( oldVertex );
+    Q_ASSERT( row.count()==1 && row.at( 0 ) );
+    QgsPoint point = segmentCentroid( newVertex, oldVertex );
+    row[0]->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+    insertRow( mCurrentIndex, row );
+    emit currentPointChanged();
+  }
+  else
+  {
+    for ( int r=0; r<rowCount(); r++ )
     {
-      // following 2 lines must be in this order
-      if ( mMode == NoEditing )
-        setEditingMode( EditVertex );
-      emit currentPointChanged();
+      QStandardItem *it = item( r );
+      it->setData( r == mCurrentIndex, CurrentVertexRole );
+
+      if ( r == mCurrentIndex )
+      {
+        // following 2 lines must be in this order
+        if ( mMode == NoEditing )
+          setEditingMode( EditVertex );
+        emit currentPointChanged();
+      }
     }
   }
+}
+
+QgsPoint VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allowExtension )
+{
+  QList<int> indexes = QList<int>() << leftIndex << rightIndex;
+  qSort( indexes.begin(), indexes.end() );
+
+  if ( indexes[1]-indexes[0] > 1 )
+    indexes[0] = indexes[1]-1;
+
+  bool isExtending = false;
+
+  if ( indexes[0] < 0 )
+  {
+    if ( mGeometryType == QgsWkbTypes::LineGeometry && allowExtension )
+    {
+      isExtending = true;
+      indexes = QList<int>() << 0 << 1;
+    }
+    else
+    {
+      indexes = QList<int>() << rowCount()-1 << 0;
+    }
+  }
+  if ( indexes[1] > rowCount()-1 )
+  {
+    if ( mGeometryType == QgsWkbTypes::LineGeometry && allowExtension )
+    {
+      isExtending = true;
+      indexes = QList<int>() << rowCount()-2 << rowCount()-1;
+    }
+    else
+    {
+      indexes = QList<int>() << 0 << rowCount()-1;
+    }
+  }
+
+  QVector<QgsPoint> points = QVector<QgsPoint>();
+  for ( const int row : indexes )
+  {
+    QStandardItem *it = item( row );
+    if ( it )
+      points << it->data( PointRole ).value<QgsPoint>();
+  }
+  Q_ASSERT( points.count()==2 );
+
+  QgsLineString ls = QgsLineString( points );
+  QgsPoint centroid = ls.centroid();
+
+  if ( isExtending )
+  {
+    centroid = points[0] - ( centroid-points[0] )/2;
+  }
+
+  return centroid;
+
 }
 
 int VertexModel::vertexCount() const
@@ -353,31 +422,16 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       case QgsWkbTypes::LineGeometry:
       case QgsWkbTypes::PolygonGeometry:
       {
-        QList<int> indexes = QList<int>();
-        int currentIndex = std::max( 0, mCurrentIndex );
-        if ( currentIndex < rowCount()-1 )
-          indexes << currentIndex << currentIndex+1;
-        else
-          indexes << currentIndex-1 << currentIndex;
+        QgsPoint point = segmentCentroid( mCurrentIndex, mCurrentIndex+1, false );
 
-        QVector<QgsPoint> points = QVector<QgsPoint>();
-        for ( const int row : indexes )
-        {
-          QStandardItem *it = item( row );
-          if ( it )
-            points << it->data( PointRole ).value<QgsPoint>();
-        }
-        if( points.count() != 2 )
-          return;
-        QgsLineString ls = QgsLineString( points );
-        QgsPoint point = ls.centroid();
+        int newIndex = std::min( std::max( 0, mCurrentIndex+1 ), rowCount()-1 );
 
         QStandardItem *item = new QStandardItem();
         item->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
         item->setData( true, SegmentVertexRole );
-        insertRow( indexes[1], QList<QStandardItem*>() << item );
+        insertRow( newIndex, QList<QStandardItem*>() << item );
         emit vertexCountChanged();
-        setCurrentVertex( indexes[1], true );
+        setCurrentVertex( newIndex, true );
         emit currentPointChanged();
         break;
       }

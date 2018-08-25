@@ -98,8 +98,8 @@ VisibiltyFadingRow {
     target: vertexModel
     onCurrentPointChanged:
     {
-      if (featureModel.vertexModel.editingMode === VertexModel.EditVertex /* ||
-          featureModel.vertexModel.editingMode === VertexModel.AddVertex*/)
+      if (featureModel.vertexModel.editingMode === VertexModel.EditVertex  ||
+          featureModel.vertexModel.editingMode === VertexModel.AddVertex)
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
     }
   }
