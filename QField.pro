@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 CONFIG += c++11
-CONFIG += q
+CONFIG += qt
 
 TRANSLATIONS = \
   i18n/qfield_af.ts \
@@ -29,17 +29,21 @@ TRANSLATIONS = \
   i18n/qfield_uk.ts \
   i18n/qfield_zh.ts
 
-SUBDIRS += 3rdparty qgsquick app
+SUBDIRS += 3rdparty qgsquick core app
 
 qgsquick.subdir = src/qgsquick
+core.subdir = src/core
 app.subdir = src/app
+
+core.depends = qgsquick
 
 app.depends = 3rdparty
 app.depends = qgsquick
+app.depends = core
 
 CONFIG += ordered
 
 
 # Include the tests and plugins subprojects only on debug mode
-#CONFIG(debug, debug|release): SUBDIRS += tests
+#CONFIG(debug, debug|release): SUBDIRS += test
 
