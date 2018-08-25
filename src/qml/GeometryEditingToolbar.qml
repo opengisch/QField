@@ -46,7 +46,7 @@ VisibiltyFadingRow {
     bgcolor: "#FFD600"
 
     onClicked: {
-      featureModel.vertexModel.previousVertex()
+      featureModel.vertexModel.previous()
     }
   }
 
@@ -64,13 +64,33 @@ VisibiltyFadingRow {
   }
 
   Button {
+    id: addVertexButton
+    iconSource: Style.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
+                                     "ic_my_location_white_24dp.png" : "ic_add_white_24dp" )
+
+    // TODO: not visible for points
+
+    round: true
+    bgcolor: "#FFD600"
+
+    onClicked: {
+      if (featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+        featureModel.vertexModel.editingMode = VertexModel.EditVertex
+      else
+        featureModel.vertexModel.editingMode = VertexModel.AddVertex
+      //featureModel.vertexModel.next()
+    }
+  }
+
+
+  Button {
     id: nextVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
     bgcolor: "#FFD600"
 
     onClicked: {
-      featureModel.vertexModel.nextVertex()
+      featureModel.vertexModel.next()
     }
   }
 
@@ -78,7 +98,8 @@ VisibiltyFadingRow {
     target: vertexModel
     onCurrentPointChanged:
     {
-      if (featureModel.vertexModel.editingMode == VertexModel.EditVertex)
+      if (featureModel.vertexModel.editingMode === VertexModel.EditVertex /* ||
+          featureModel.vertexModel.editingMode === VertexModel.AddVertex*/)
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
     }
   }
