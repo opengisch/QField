@@ -24,5 +24,6 @@ TRANSLATIONS = \
 
 SUBDIRS += 3rdparty
 SUBDIRS += src
+SUBDIRS += test
 
 src.depends=3rdparty
