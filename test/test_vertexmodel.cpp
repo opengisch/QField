@@ -5,7 +5,7 @@
 #include "vertexmodel.h"
 
 
-class MyFirstTest: public QObject
+class TestVertexModel: public QObject
 {
     Q_OBJECT
 private slots:
@@ -17,7 +17,10 @@ private slots:
     { QVERIFY(1 == 2); }
     void cleanupTestCase()
     { qDebug("called after myFirstTest and mySecondTest"); }
+
+private:
+    VertexModel mModel;
 };
 
-QTEST_MAIN(MyFirstTest)
+QTEST_MAIN(TestVertexModel)
 #include "test_vertexmodel.moc"

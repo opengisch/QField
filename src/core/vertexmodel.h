@@ -152,6 +152,8 @@ class VertexModel : public QStandardItemModel
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     MapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
+
+    friend class TestVertexModel;
 };
 
 #endif // VERTEXMODEL_H
