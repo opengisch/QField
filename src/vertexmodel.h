@@ -138,6 +138,9 @@ class VertexModel : public QStandardItemModel
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
 
+    QgsPoint segmentCentroid( int leftIndex, int rightIndex,
+                              bool allowExtension = false );
+
     EditingMode mMode = NoEditing;
     //!
     int mCurrentIndex = -1;
