@@ -2,6 +2,8 @@
 
 #include <QtTest>
 
+#include "vertexmodel.h"
+
 
 class MyFirstTest: public QObject
 {
