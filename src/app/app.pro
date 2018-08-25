@@ -5,6 +5,8 @@ TARGET = qfield
 include( ../../qfield.pri )
 include( ../../qgis.pri )
 
+QT += widgets xml
+
 
 SOURCES += main.cpp
 
