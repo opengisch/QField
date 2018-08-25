@@ -30,7 +30,7 @@ jobs:
   include:
     - stage: test
       script:
-        docker run
+        docker-compose -f .docker/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
     - stage: test
       env:
         - ARCH=armv7
