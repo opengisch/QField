@@ -52,7 +52,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
 {
   clear();
   mOriginalGeoemtry = geometry;
-  mCurrentVertex = -1;
+  mCurrentIndex = -1;
   mGeometryType = geometry.type();
   QgsGeometry geom = QgsGeometry( geometry );
 
@@ -85,7 +85,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
 
     QStandardItem *item = new QStandardItem();
     item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
-    item->setData( r == mCurrentVertex, CurrentVertexRole );
+    item->setData( r == mCurrentIndex, CurrentVertexRole );
     appendRow( QList<QStandardItem*>() << item );
     r++;
   }
@@ -149,14 +149,14 @@ void VertexModel::clear()
   setDirty( false );
 }
 
-void VertexModel::previousVertex()
+void VertexModel::previous()
 {
-  setCurrentVertex( mCurrentVertex -1 );
+  setCurrentVertex( mCurrentIndex -1 );
 }
 
-void VertexModel::nextVertex()
+void VertexModel::next()
 {
-  setCurrentVertex( mCurrentVertex + 1 );
+  setCurrentVertex( mCurrentIndex + 1 );
 }
 
 void VertexModel::removeCurrentVertex()
@@ -164,13 +164,13 @@ void VertexModel::removeCurrentVertex()
   if ( !mCanRemoveVertex )
     return;
 
-  removeRow( mCurrentVertex );
+  removeRow( mCurrentIndex );
 
   setDirty( true );
 
   emit vertexCountChanged();
 
-  setCurrentVertex( mCurrentVertex, true );
+  setCurrentVertex( mCurrentIndex, true );
 }
 
 VertexModel::EditingMode VertexModel::editingMode() const
@@ -180,7 +180,7 @@ VertexModel::EditingMode VertexModel::editingMode() const
 
 QgsPoint VertexModel::currentPoint() const
 {
-  QStandardItem *it = item( mCurrentVertex );
+  QStandardItem *it = item( mCurrentIndex );
   if ( it )
     return it->data( PointRole ).value<QgsPoint>();
   else
@@ -189,21 +189,24 @@ QgsPoint VertexModel::currentPoint() const
 
 void VertexModel::setCurrentPoint( const QgsPoint &point )
 {
-  if ( mMode == EditVertex && rowCount() > 0 )
+  if ( ( mMode == EditVertex || mMode == AddVertex ) && rowCount() > 0 )
   {
-    QStandardItem *it = item( mCurrentVertex );
+    QStandardItem *it = item( mCurrentIndex );
     if ( it )
     {
       if ( it->data( PointRole ).value<QgsPoint>() != point )
       {
-        qDebug() << point.asWkt();
-        qDebug() << it->data( PointRole ).value<QgsPoint>().asWkt();
         setDirty( true );
       }
       it->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+      emit currentPointChanged();
+      if ( mMode==AddVertex )
+      {
+        it->setData( false, SegmentVertexRole );
+        setEditingMode( EditVertex );
+      }
     }
   }
-  emit currentPointChanged();
 }
 
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
@@ -220,20 +223,21 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
     newVertex = -1;
   }
 
-  if ( !forceUpdate && mCurrentVertex == newVertex )
+  if ( !forceUpdate && mCurrentIndex == newVertex )
     return;
 
-  mCurrentVertex = newVertex;
+  mCurrentIndex = newVertex;
 
   for ( int r=0; r<rowCount(); r++ )
   {
     QStandardItem *it = item( r );
-    it->setData( r == mCurrentVertex, CurrentVertexRole );
+    it->setData( r == mCurrentIndex, CurrentVertexRole );
 
-    if ( r == mCurrentVertex )
+    if ( r == mCurrentIndex )
     {
       // following 2 lines must be in this order
-      setEditingMode( EditVertex );
+      if ( mMode == NoEditing )
+        setEditingMode( EditVertex );
       emit currentPointChanged();
     }
   }
@@ -280,6 +284,7 @@ QHash<int, QByteArray> VertexModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[PointRole] = "Point";
   roles[CurrentVertexRole] = "CurrentVertex";
+  roles[SegmentVertexRole] = "SegmentVertex";
   return roles;
 }
 
@@ -327,10 +332,78 @@ void VertexModel::updateCanRemoveVertex()
 
 void VertexModel::setEditingMode( VertexModel::EditingMode mode )
 {
+  if ( !rowCount() )
+    mode = NoEditing;
+
+  if ( mGeometryType==QgsWkbTypes::PointGeometry && mode == AddVertex )
+    mode = NoEditing;
+
   if ( mMode == mode )
     return;
 
+  if ( mode == AddVertex )
+  {
+    switch ( mGeometryType )
+    {
+      case QgsWkbTypes::PointGeometry:
+      {
+        // should not happen for now
+        break;
+      }
+      case QgsWkbTypes::LineGeometry:
+      case QgsWkbTypes::PolygonGeometry:
+      {
+        QList<int> indexes = QList<int>();
+        int currentIndex = std::max( 0, mCurrentIndex );
+        if ( currentIndex < rowCount()-1 )
+          indexes << currentIndex << currentIndex+1;
+        else
+          indexes << currentIndex-1 << currentIndex;
+
+        QVector<QgsPoint> points = QVector<QgsPoint>();
+        for ( const int row : indexes )
+        {
+          QStandardItem *it = item( row );
+          if ( it )
+            points << it->data( PointRole ).value<QgsPoint>();
+        }
+        if( points.count() != 2 )
+          return;
+        QgsLineString ls = QgsLineString( points );
+        QgsPoint point = ls.centroid();
+
+        QStandardItem *item = new QStandardItem();
+        item->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+        item->setData( true, SegmentVertexRole );
+        insertRow( indexes[1], QList<QStandardItem*>() << item );
+        emit vertexCountChanged();
+        setCurrentVertex( indexes[1], true );
+        emit currentPointChanged();
+        break;
+      }
+      case QgsWkbTypes::NullGeometry:
+      case QgsWkbTypes::UnknownGeometry:
+        break;
+    }
+  }
+
+  else if ( mMode == AddVertex )
+  {
+    // old mode was AddVertex, remove node to be added
+    for ( int r=rowCount()-1; r>0; r-- )
+    {
+      QStandardItem *it = item( r );
+      if ( it->data( SegmentVertexRole ).toBool() )
+      {
+        removeRow( r );
+        emit vertexCountChanged();
+        emit currentPointChanged();
+      }
+    }
+  }
+
   mMode = mode;
+
   emit editingModeChanged();
 }
 

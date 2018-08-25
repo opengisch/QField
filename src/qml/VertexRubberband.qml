@@ -7,7 +7,7 @@ Repeater {
     id: vertexRubberband
     property MapSettings mapSettings
 
-    Rectangle {
+    delegate: Rectangle {
       MapToScreen {
           id: mapToScreen
           mapSettings: vertexRubberband.mapSettings
@@ -19,6 +19,7 @@ Repeater {
 
       width: 20*dp
       height: 20*dp
+      radius: SegmentVertex ? width / 2 : 0
 
       border.color: if (CurrentVertex) {'red'} else {'blue'}
       border.width: 2*dp

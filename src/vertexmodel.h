@@ -33,7 +33,7 @@ class VertexModel : public QStandardItemModel
 {
     Q_OBJECT
     //! The current mode
-    Q_PROPERTY( EditingMode editingMode READ editingMode NOTIFY editingModeChanged )
+    Q_PROPERTY( EditingMode editingMode READ editingMode WRITE setEditingMode NOTIFY editingModeChanged )
     //! The current point being edited \see editingMode. The expected CRS to read/write is the map canvas CRS
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
@@ -50,6 +50,7 @@ class VertexModel : public QStandardItemModel
     {
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
+      SegmentVertexRole,
     };
 
     enum EditingMode
@@ -73,12 +74,16 @@ class VertexModel : public QStandardItemModel
 
     Q_INVOKABLE void clear();
 
-    Q_INVOKABLE void previousVertex();
-    Q_INVOKABLE void nextVertex();
+    //! previous vertex or segment
+    Q_INVOKABLE void previous();
+    //! next vertex or segment
+    Q_INVOKABLE void next();
     Q_INVOKABLE void removeCurrentVertex();
 
     //! \copydoc editingMode
     EditingMode editingMode() const;
+    //! \copydoc editingMode
+    void setEditingMode( EditingMode mode );
 
     //! \copydoc currentPoint
     QgsPoint currentPoint() const;
@@ -132,9 +137,10 @@ class VertexModel : public QStandardItemModel
      * @param forceUpdate if true, it will force to update all vertices and emit signal
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
-    void setEditingMode( EditingMode mode );
+
     EditingMode mMode = NoEditing;
-    int mCurrentVertex = -1;
+    //!
+    int mCurrentIndex = -1;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     MapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
