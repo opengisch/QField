@@ -45,5 +45,5 @@ CONFIG += ordered
 
 
 # Include the tests and plugins subprojects only on debug mode
-#CONFIG(debug, debug|release): SUBDIRS += test
+CONFIG(debug, debug|release): SUBDIRS += test
 
