@@ -37,13 +37,17 @@ class VertexModel : public QStandardItemModel
     //! The current point being edited \see editingMode. The expected CRS to read/write is the map canvas CRS
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( MapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! number of points in the model
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
     //! determines if one can remove current vertex
     Q_PROPERTY( bool canRemoveVertex READ canRemoveVertex NOTIFY canRemoveVertexChanged )
+    //! determines if one can go to previous vertex
+    Q_PROPERTY( bool canPreviousVertex READ canPreviousVertex NOTIFY canPreviousVertexChanged )
+    //! determines if one can go to next vertex
+    Q_PROPERTY( bool canNextVertex READ canNextVertex NOTIFY canNextVertexChanged )
 
   public:
     enum ColumnRole
@@ -61,12 +65,14 @@ class VertexModel : public QStandardItemModel
     };
     Q_ENUM( EditingMode )
 
-    struct Centroid {
-        QgsPoint point;
-        int index;
+
+    struct Centroid
+    {
+      QgsPoint point;
+      int index;
     };
 
-    explicit VertexModel( QObject* parent = nullptr );
+    explicit VertexModel( QObject *parent = nullptr );
     ~VertexModel() override = default;
 
     //! \copydoc mapSettings
@@ -75,14 +81,17 @@ class VertexModel : public QStandardItemModel
     MapSettings *mapSettings();
 
     Q_INVOKABLE void setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
+
     Q_INVOKABLE QgsGeometry geometry() const;
 
     Q_INVOKABLE void clear();
 
     //! previous vertex or segment
     Q_INVOKABLE void previous();
+
     //! next vertex or segment
     Q_INVOKABLE void next();
+
     Q_INVOKABLE void removeCurrentVertex();
 
     //! \copydoc editingMode
@@ -103,10 +112,15 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc canRemoveVertex
     bool canRemoveVertex();
+    //! \copydoc canPreviousVertex
+    bool canPreviousVertex();
+    //! \copydoc canNextVertex
+    bool canNextVertex();
 
-
+    //! Returns the geometry type
     QgsWkbTypes::GeometryType geometryType() const;
 
+    //! list of points. Segment vertex, if any, will be skipped.
     QVector<QgsPoint> flatVertices() const;
 
     QHash<int, QByteArray> roleNames() const override;
@@ -124,11 +138,16 @@ class VertexModel : public QStandardItemModel
     void dirtyChanged();
     //! \copydoc canRemoveVertex
     void canRemoveVertexChanged();
+    //! \copydoc canPreviousVertex
+    void canPreviousVertexChanged();
+    //! \copydoc canNextVertex
+    void canNextVertexChanged();
 
 
   private:
     void setDirty( bool dirty );
     void updateCanRemoveVertex();
+    void updateCanPreviousNextVertex();
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeoemtry;
 
@@ -143,8 +162,8 @@ class VertexModel : public QStandardItemModel
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
 
-    Centroid segmentCentroid(  int leftIndex, int rightIndex,
-                                  bool allowExtension = false );
+    Centroid segmentCentroid( int leftIndex, int rightIndex,
+                              bool isExtending = false );
 
     EditingMode mMode = NoEditing;
     //!
@@ -152,6 +171,8 @@ class VertexModel : public QStandardItemModel
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     MapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
+    bool mCanPreviousVertex = false;
+    bool mCanNextVertex = false;
 
     friend class TestVertexModel;
 };
