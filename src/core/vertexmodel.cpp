@@ -1,10 +1,10 @@
 /***************************************************************************
-  vertexModel.cpp - VertexModel
+  vertexmodel.h - VertexModel
 
  ---------------------
- begin                : 16.9.2016
- copyright            : (C) 2016 by Matthias Kuhn
- email                : matthias@opengis.ch
+ begin                : 18.08.2018
+ copyright            : (C) 2018 by Denis Rouzaud
+ email                : denis@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,11 +26,12 @@
 #include "mapsettings.h"
 
 
-VertexModel::VertexModel( QObject* parent )
+VertexModel::VertexModel( QObject *parent )
   : QStandardItemModel( parent )
 {
   connect( this, &VertexModel::editingModeChanged, this, &VertexModel::updateCanRemoveVertex );
   connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanRemoveVertex );
+  connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanPreviousNextVertex );
 }
 
 void VertexModel::setMapSettings( MapSettings *mapSettings )
@@ -87,7 +88,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
     QStandardItem *item = new QStandardItem();
     item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
     item->setData( r == mCurrentIndex, CurrentVertexRole );
-    appendRow( QList<QStandardItem*>() << item );
+    appendRow( QList<QStandardItem *>() << item );
     r++;
   }
 
@@ -152,12 +153,17 @@ void VertexModel::clear()
 
 void VertexModel::previous()
 {
-  setCurrentVertex( mCurrentIndex -1 );
+  if ( !mCanPreviousVertex )
+    return;
+  setCurrentVertex( mCurrentIndex == -1 ? rowCount() - 1 : mCurrentIndex - 1 );
 }
 
 void VertexModel::next()
 {
-  setCurrentVertex( mCurrentIndex + 1 );
+  if ( !mCanNextVertex )
+    return;
+
+  setCurrentVertex( mCurrentIndex == -1 ? 0 : mCurrentIndex + 1 );
 }
 
 void VertexModel::removeCurrentVertex()
@@ -214,10 +220,10 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 {
   if ( newVertex < 0 )
-    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? rowCount()-1 : 0;
+    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? rowCount() - 1 : 0;
 
   if ( newVertex >= rowCount() )
-    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? 0 : rowCount()-1;
+    newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? 0 : rowCount() - 1;
 
 
   if ( rowCount() == 0 )
@@ -234,16 +240,29 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 
   if ( mMode == AddVertex && oldVertex >= 0 )
   {
-    QList<QStandardItem*> row = takeRow( oldVertex );
-    Q_ASSERT( row.count()==1 && row.at( 0 ) );
-    QgsPoint point = segmentCentroid( newVertex, oldVertex ).point;
+    bool goingForward = newVertex > oldVertex;
+    bool isExtending = ( goingForward && newVertex == rowCount() - 1 ) || ( !goingForward && newVertex == 0 );
+    int leftVertex, rightVertex;
+    if ( goingForward )
+    {
+      leftVertex = oldVertex - ( isExtending ? 1 : 0 );
+      rightVertex = newVertex - ( isExtending ? 1 : 0 );
+    }
+    else
+    {
+      leftVertex = newVertex - 1 + ( isExtending ? 1 : 0 );
+      rightVertex = oldVertex - 1 + ( isExtending ? 1 : 0 );
+    }
+    QList<QStandardItem *> row = takeRow( oldVertex );
+    Q_ASSERT( row.count() == 1 && row.at( 0 ) );
+    QgsPoint point = segmentCentroid( leftVertex, rightVertex, isExtending ).point;
     row[0]->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
     insertRow( mCurrentIndex, row );
     emit currentPointChanged();
   }
   else
   {
-    for ( int r=0; r<rowCount(); r++ )
+    for ( int r = 0; r < rowCount(); r++ )
     {
       QStandardItem *it = item( r );
       it->setData( r == mCurrentIndex, CurrentVertexRole );
@@ -257,44 +276,40 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
       }
     }
   }
+
+  updateCanPreviousNextVertex();
 }
 
-VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool allowExtension )
+VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightIndex, bool isExtending )
 {
   Centroid centroid;
 
   QList<int> indexes = QList<int>() << leftIndex << rightIndex;
   qSort( indexes.begin(), indexes.end() );
 
-  if ( indexes[1]-indexes[0] > 1 )
-    indexes[0] = indexes[1]-1;
-
-  bool isExtending = false;
+  if ( indexes[1] - indexes[0] > 1 )
+    indexes[0] = indexes[1] - 1;
 
   if ( indexes[0] < 0 )
   {
     if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-      if ( allowExtension )
-        isExtending = true;
       indexes = QList<int>() << 0 << 1;
     }
     else
     {
-      indexes = QList<int>() << rowCount()-1 << 0;
+      indexes = QList<int>() << rowCount() - 1 << 0;
     }
   }
-  if ( indexes[1] > rowCount()-1 )
+  if ( indexes[1] > rowCount() - 1 )
   {
     if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-      if ( allowExtension )
-        isExtending = true;
-      indexes = QList<int>() << rowCount()-2 << rowCount()-1;
+      indexes = QList<int>() << rowCount() - 2 << rowCount() - 1;
     }
     else
     {
-      indexes = QList<int>() << 0 << rowCount()-1;
+      indexes = QList<int>() << 0 << rowCount() - 1;
     }
   }
 
@@ -305,7 +320,7 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
     if ( it )
       points << it->data( PointRole ).value<QgsPoint>();
   }
-  Q_ASSERT( points.count()==2 );
+  Q_ASSERT( points.count() == 2 );
 
   QgsLineString ls = QgsLineString( points );
   centroid.point = ls.centroid();
@@ -313,11 +328,11 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
 
   if ( isExtending )
   {
-    centroid.point = points[0] - ( centroid.point-points[0] )/2;
+    int idx = indexes[0] == 0 ? 0 : 1;
+    centroid.point = points[idx] - ( centroid.point - points[idx] ) / 2;
   }
 
   return centroid;
-
 }
 
 int VertexModel::vertexCount() const
@@ -335,6 +350,16 @@ bool VertexModel::canRemoveVertex()
   return mCanRemoveVertex;
 }
 
+bool VertexModel::canPreviousVertex()
+{
+  return mCanPreviousVertex;
+}
+
+bool VertexModel::canNextVertex()
+{
+  return mCanNextVertex;
+}
+
 QgsWkbTypes::GeometryType VertexModel::geometryType() const
 {
   return mGeometryType;
@@ -343,9 +368,11 @@ QgsWkbTypes::GeometryType VertexModel::geometryType() const
 QVector<QgsPoint> VertexModel::flatVertices() const
 {
   QVector<QgsPoint> vertices = QVector<QgsPoint>();
-  for ( int r=0; r<rowCount(); r++ )
+  for ( int r = 0; r < rowCount(); r++ )
   {
     QStandardItem *it = item( r );
+    if ( it->data( SegmentVertexRole ).toBool() )
+      continue;
     vertices << it->data( PointRole ).value<QgsPoint>();
   }
   // re-append
@@ -384,17 +411,17 @@ void VertexModel::updateCanRemoveVertex()
     switch ( mGeometryType )
     {
       case QgsWkbTypes::PointGeometry:
-        canRemoveVertex= false;
+        canRemoveVertex = false;
         break;
       case QgsWkbTypes::LineGeometry:
-        canRemoveVertex=  rowCount() > 2;
+        canRemoveVertex =  rowCount() > 2;
         break;
       case QgsWkbTypes::PolygonGeometry:
-        canRemoveVertex=  rowCount() > 3;
+        canRemoveVertex =  rowCount() > 3;
         break;
       case QgsWkbTypes::NullGeometry:
       case QgsWkbTypes::UnknownGeometry:
-        canRemoveVertex=  false;
+        canRemoveVertex =  false;
         break;
     }
   }
@@ -407,12 +434,47 @@ void VertexModel::updateCanRemoveVertex()
   emit canRemoveVertexChanged();
 }
 
+void VertexModel::updateCanPreviousNextVertex()
+{
+  bool canPrevious = false;
+  bool canNext = false;
+
+  switch ( mGeometryType )
+  {
+    case QgsWkbTypes::PointGeometry:
+      // todo for multi
+      break;
+    case QgsWkbTypes::LineGeometry:
+      canPrevious = mCurrentIndex > 0 || mMode == NoEditing;
+      canNext = mCurrentIndex < rowCount() - 1 || mMode == NoEditing;
+      break;
+    case QgsWkbTypes::PolygonGeometry:
+      canPrevious = true;
+      canNext = true;
+      break;
+    case QgsWkbTypes::UnknownGeometry:
+    case QgsWkbTypes::NullGeometry:
+      break;
+  }
+
+  if ( canPrevious != mCanPreviousVertex )
+  {
+    mCanPreviousVertex = canPrevious;
+    emit canPreviousVertexChanged();
+  }
+  if ( canNext != mCanNextVertex )
+  {
+    mCanNextVertex = canNext;
+    emit canNextVertexChanged();
+  }
+}
+
 void VertexModel::setEditingMode( VertexModel::EditingMode mode )
 {
   if ( !rowCount() )
     mode = NoEditing;
 
-  if ( mGeometryType==QgsWkbTypes::PointGeometry && mode == AddVertex )
+  if ( mGeometryType == QgsWkbTypes::PointGeometry && mode == AddVertex )
     mode = NoEditing;
 
   if ( mMode == mode )
@@ -430,12 +492,12 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       case QgsWkbTypes::LineGeometry:
       case QgsWkbTypes::PolygonGeometry:
       {
-        Centroid centroid = segmentCentroid( mCurrentIndex, mCurrentIndex+1, false );
+        Centroid centroid = segmentCentroid( mCurrentIndex, mCurrentIndex + 1, false );
 
         QStandardItem *item = new QStandardItem();
         item->setData( QVariant::fromValue<QgsPoint>( centroid.point ), PointRole );
         item->setData( true, SegmentVertexRole );
-        insertRow( centroid.index, QList<QStandardItem*>() << item );
+        insertRow( centroid.index, QList<QStandardItem *>() << item );
         emit vertexCountChanged();
         setCurrentVertex( centroid.index, true );
         emit currentPointChanged();
@@ -450,7 +512,7 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   else if ( mMode == AddVertex )
   {
     // old mode was AddVertex, remove node to be added
-    for ( int r=rowCount()-1; r>0; r-- )
+    for ( int r = rowCount() - 1; r > 0; r-- )
     {
       QStandardItem *it = item( r );
       if ( it->data( SegmentVertexRole ).toBool() )

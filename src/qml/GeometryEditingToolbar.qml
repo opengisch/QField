@@ -43,7 +43,7 @@ VisibiltyFadingRow {
     id: previousVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    bgcolor: "#FFD600"
+    bgcolor: featureModel.vertexModel.canPreviousVertex ? "#FFD600" : "#616161"
 
     onClicked: {
       featureModel.vertexModel.previous()
@@ -78,7 +78,6 @@ VisibiltyFadingRow {
         featureModel.vertexModel.editingMode = VertexModel.EditVertex
       else
         featureModel.vertexModel.editingMode = VertexModel.AddVertex
-      //featureModel.vertexModel.next()
     }
   }
 
@@ -87,7 +86,7 @@ VisibiltyFadingRow {
     id: nextVertexButton
     iconSource: Style.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    bgcolor: "#FFD600"
+    bgcolor: featureModel.vertexModel.canNextVertex ? "#FFD600" : "#616161"
 
     onClicked: {
       featureModel.vertexModel.next()
