@@ -59,7 +59,8 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   if ( mMapSettings )
   {
     mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
-    geom.transform( mTransform );
+    if (mTransform.isValid())
+        geom.transform( mTransform );
   }
 
   mIsMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );

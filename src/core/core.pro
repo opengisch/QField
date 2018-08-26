@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = core
 
-QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2
+QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2 qml
 # MISSING in apk: printsupport svg sql opengl sensors
 
 android {
