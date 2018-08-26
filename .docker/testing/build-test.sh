@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 mkdir /usr/src/build
 cd /usr/src/build
 cp /usr/src/config.pri.default /usr/src/config.pri
