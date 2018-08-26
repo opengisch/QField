@@ -5,8 +5,11 @@ TARGET = qfield
 include( ../../qfield.pri )
 include( ../../qgis.pri )
 
-QT += widgets xml
+QT += widgets xml qml
 
+android {
+    QT += androidextras
+}
 
 SOURCES += main.cpp
 
