@@ -33,12 +33,15 @@ jobs:
         - echo "travis_fold:start:build"
         - echo "$(tput bold)Build QField $(tput sgr0)"
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
+      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       env:
         - ARCH=armv7
+      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       env:
         - ARCH=x86
+      if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       if: type = pull_request OR tag IS present
       script:
