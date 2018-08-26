@@ -79,9 +79,9 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   while ( abstractGeom->nextVertex( vertexId, pt ) )
   {
     if ( vertexId.part > 1 || vertexId.ring > 1 )
-      return;
+      break;
 
-    // skip first vertex on polygon, as it's duplicate from last
+    // skip first vertex on polygon, as it's duplicate of the last one
     if ( geometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
       continue;
 
@@ -97,8 +97,10 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   emit vertexCountChanged();
 
   // for points, enable the editing mode directly
-// if (mGeometryType == QgsWkbTypes::PointGeometry)
-  //   setCurrentVertex(0);
+  if ( mGeometryType == QgsWkbTypes::PointGeometry )
+    setCurrentVertex( 0 );
+
+  updateCanAddVertex();
 }
 
 QgsGeometry VertexModel::geometry() const
@@ -147,6 +149,8 @@ void VertexModel::clear()
 {
   setEditingMode( NoEditing );
   QStandardItemModel::clear();
+  updateCanRemoveVertex();
+  updateCanAddVertex();
   emit vertexCountChanged();
   setDirty( false );
 }
@@ -350,6 +354,11 @@ bool VertexModel::canRemoveVertex()
   return mCanRemoveVertex;
 }
 
+bool VertexModel::canAddVertex()
+{
+  return mCanAddVertex;
+}
+
 bool VertexModel::canPreviousVertex()
 {
   return mCanPreviousVertex;
@@ -432,6 +441,17 @@ void VertexModel::updateCanRemoveVertex()
   mCanRemoveVertex = canRemoveVertex;
 
   emit canRemoveVertexChanged();
+}
+
+void VertexModel::updateCanAddVertex()
+{
+  bool canAddVertex = vertexCount() > 0 && mGeometryType != QgsWkbTypes::PointGeometry;
+
+  if ( canAddVertex == mCanAddVertex )
+    return;
+
+  mCanAddVertex = canAddVertex;
+  emit canAddVertexChanged();
 }
 
 void VertexModel::updateCanPreviousNextVertex()
