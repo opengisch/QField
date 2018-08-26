@@ -4,6 +4,7 @@ TARGET = qfield
 
 include( ../../qfield.pri )
 include( ../../qgis.pri )
+include( ../../version.pri )
 
 QT += widgets xml qml
 
