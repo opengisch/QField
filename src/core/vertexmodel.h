@@ -44,6 +44,8 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
     //! determines if one can remove current vertex
     Q_PROPERTY( bool canRemoveVertex READ canRemoveVertex NOTIFY canRemoveVertexChanged )
+    //! determines if one can add vertex
+    Q_PROPERTY( bool canAddVertex READ canAddVertex NOTIFY canAddVertexChanged )
     //! determines if one can go to previous vertex
     Q_PROPERTY( bool canPreviousVertex READ canPreviousVertex NOTIFY canPreviousVertexChanged )
     //! determines if one can go to next vertex
@@ -112,6 +114,8 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc canRemoveVertex
     bool canRemoveVertex();
+    //! \copydoc canAddVertex
+    bool canAddVertex();
     //! \copydoc canPreviousVertex
     bool canPreviousVertex();
     //! \copydoc canNextVertex
@@ -138,6 +142,8 @@ class VertexModel : public QStandardItemModel
     void dirtyChanged();
     //! \copydoc canRemoveVertex
     void canRemoveVertexChanged();
+    //! \copydoc canAddVertex
+    void canAddVertexChanged();
     //! \copydoc canPreviousVertex
     void canPreviousVertexChanged();
     //! \copydoc canNextVertex
@@ -147,6 +153,7 @@ class VertexModel : public QStandardItemModel
   private:
     void setDirty( bool dirty );
     void updateCanRemoveVertex();
+    void updateCanAddVertex();
     void updateCanPreviousNextVertex();
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeoemtry;
@@ -171,6 +178,7 @@ class VertexModel : public QStandardItemModel
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     MapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
+    bool mCanAddVertex = false;
     bool mCanPreviousVertex = false;
     bool mCanNextVertex = false;
 
