@@ -50,13 +50,23 @@ class TestVertexModel: public QObject
       QVERIFY( !mModel->canRemoveVertex() );
 
       // polygon
-      mModel->setGeometry(mPolygonGeometry, QgsCoordinateReferenceSystem());
+      mModel->setGeometry( mPolygonGeometry, QgsCoordinateReferenceSystem() );
       QCOMPARE( mModel->editingMode(), VertexModel::NoEditing );
       QVERIFY( !mModel->canRemoveVertex() );
       mModel->setCurrentVertex( 0 );
       mModel->removeCurrentVertex();
       QCOMPARE( mModel->vertexCount(), 3 );
       QVERIFY( !mModel->canRemoveVertex() );
+    }
+
+    void addVertexTest()
+    {
+      mModel->setGeometry( mPolygonGeometry, QgsCoordinateReferenceSystem() );
+      QCOMPARE( mModel->vertexCount(), 4 );
+      mModel->setEditingMode( VertexModel::AddVertex );
+      QCOMPARE( mModel->vertexCount(), 5 );
+
+
     }
 
     void transformTest()
