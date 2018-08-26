@@ -56,7 +56,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   mGeometryType = geometry.type();
   QgsGeometry geom = QgsGeometry( geometry );
 
-  if ( mTransform.isValid() )
+  if ( mMapSettings )
   {
     mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
     geom.transform( mTransform );
@@ -273,7 +273,7 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   {
     if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-      if (allowExtension)
+      if ( allowExtension )
         isExtending = true;
       indexes = QList<int>() << 0 << 1;
     }
@@ -286,8 +286,8 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   {
     if ( mGeometryType == QgsWkbTypes::LineGeometry )
     {
-        if (allowExtension)
-          isExtending = true;
+      if ( allowExtension )
+        isExtending = true;
       indexes = QList<int>() << rowCount()-2 << rowCount()-1;
     }
     else
