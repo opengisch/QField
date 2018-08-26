@@ -30,8 +30,7 @@ jobs:
   include:
     - stage: test
       script:
-        - echo "travis_fold:start:build"
-        - echo "$(tput bold)Build QField $(tput sgr0)"
+        - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
