@@ -59,8 +59,8 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
   if ( mMapSettings )
   {
     mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
-    if (mTransform.isValid())
-        geom.transform( mTransform );
+    if ( mTransform.isValid() )
+      geom.transform( mTransform );
   }
 
   mIsMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
@@ -308,6 +308,7 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
 
   QgsLineString ls = QgsLineString( points );
   centroid.point = ls.centroid();
+  centroid.index = indexes[1];
 
   if ( isExtending )
   {
@@ -429,16 +430,13 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       case QgsWkbTypes::PolygonGeometry:
       {
         Centroid centroid = segmentCentroid( mCurrentIndex, mCurrentIndex+1, false );
-        QgsPoint point = centroid.point;
-
-        int newIndex = std::min( std::max( 0, mCurrentIndex ) + 1, rowCount()-1 );
 
         QStandardItem *item = new QStandardItem();
-        item->setData( QVariant::fromValue<QgsPoint>( point ), PointRole );
+        item->setData( QVariant::fromValue<QgsPoint>( centroid.point ), PointRole );
         item->setData( true, SegmentVertexRole );
-        insertRow( newIndex, QList<QStandardItem*>() << item );
+        insertRow( centroid.index, QList<QStandardItem*>() << item );
         emit vertexCountChanged();
-        setCurrentVertex( newIndex, true );
+        setCurrentVertex( centroid.index, true );
         emit currentPointChanged();
         break;
       }
