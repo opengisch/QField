@@ -86,7 +86,7 @@ class TestVertexModel: public QObject
       mModel->next();
       QCOMPARE( mModel->mCurrentIndex, 3 );
       QCOMPARE( mModel->currentPoint().x(), 4.5 );
-      QCOMPARE( mModel->currentPoint().y(), 3 );
+      QCOMPARE( mModel->currentPoint().y(), 3.0 );
       QCOMPARE( mModel->currentPoint(), QgsPoint( 4.5, 3 ) );
       QVERIFY( !mModel->canNextVertex() );
       mModel->next();
@@ -96,7 +96,7 @@ class TestVertexModel: public QObject
       QCOMPARE( mModel->currentPoint(), QgsPoint( 3, 3 ) );
       mModel->previous();
       QCOMPARE( mModel->mCurrentIndex, 1 );
-      QCOMPARE( mModel->currentPoint().x(), 1 );
+      QCOMPARE( mModel->currentPoint().x(), 1.0 );
     }
 
     void transformTest()
