@@ -30,7 +30,9 @@ jobs:
   include:
     - stage: test
       script:
-        docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
+        - echo "travis_fold:start:build"
+        - echo "$(tput bold)Build QField $(tput sgr0)"
+        - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
     - stage: test
       env:
         - ARCH=armv7
