@@ -24,7 +24,7 @@ android {
 
   system( mkdir -p $$shadowed($$PWD)/tmp )
   CURRENT_PATH = $$shadowed($$PWD)
-  system( "cd $$QGIS_INSTALL_PATH$$; rm $$shadowed($$PWD)/tmp/assets.zip; zip -r $$shadowed($$PWD)/tmp/assets.zip share/resources/ share/svg/; cd $$CURRENT_PATH$$" )
+  system( "cd $$QGIS_INSTALL_PATH$$; rm $$shadowed($$PWD)/tmp/assets.zip 2>/dev/null; zip -r $$shadowed($$PWD)/tmp/assets.zip share/resources/ share/svg/; cd $$CURRENT_PATH$$" )
   qgis_assets.path = /assets
   qgis_assets.files = "$$shadowed($$PWD)/tmp/assets.zip"
   INSTALLS += qgis_assets
