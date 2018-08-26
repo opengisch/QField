@@ -219,6 +219,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   if ( newVertex >= rowCount() )
     newVertex = mGeometryType == QgsWkbTypes::PolygonGeometry ? 0 : rowCount()-1;
 
+
   if ( rowCount() == 0 )
   {
     setEditingMode( NoEditing );
