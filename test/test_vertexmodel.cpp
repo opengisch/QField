@@ -19,16 +19,16 @@ class TestVertexModel: public QObject
     {
       mModel = new VertexModel();
 
-      QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 1, 1 ) << QgsPoint( 2, 1 ) << QgsPoint( 3, 1 ) );
+      QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 1 ) << QgsPoint( 2, 3 ) << QgsPoint( 4, 3 ) );
       mLineGeometry = QgsGeometry( lineString );
 
       mPolygonGeometry = QgsGeometry::fromPolygonXY( QVector<QVector<QgsPointXY>>()
-                         <<  ( QVector<QgsPointXY>()
-                               << QgsPointXY( 0, 0 )
-                               << QgsPointXY( 2, 0 )
-                               << QgsPointXY( 2, 2 )
-                               << QgsPointXY( 0, 2 )
-                               << QgsPointXY( 0, 0 ) ) ) ;
+                         << ( QVector<QgsPointXY>()
+                              << QgsPointXY( 0, 0 )
+                              << QgsPointXY( 2, 0 )
+                              << QgsPointXY( 2, 2 )
+                              << QgsPointXY( 0, 2 )
+                              << QgsPointXY( 0, 0 ) ) ) ;
     }
 
     void canRemoveVertexTest()
@@ -66,7 +66,37 @@ class TestVertexModel: public QObject
       mModel->setEditingMode( VertexModel::AddVertex );
       QCOMPARE( mModel->vertexCount(), 5 );
 
+      mModel->setGeometry( mLineGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setEditingMode( VertexModel::AddVertex );
+      QCOMPARE( mModel->mCurrentIndex, 1 );
+      QVERIFY( mModel->canPreviousVertex() );
+      mModel->previous();
+      QVERIFY( !mModel->canPreviousVertex() );
+      QCOMPARE( mModel->mCurrentIndex, 0 );
+      mModel->next();
+      QCOMPARE( mModel->mCurrentIndex, 1 );
 
+      mModel->setGeometry( mLineGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setEditingMode( VertexModel::AddVertex );
+      QCOMPARE( mModel->mCurrentIndex, 1 );
+      QCOMPARE( mModel->currentPoint(), QgsPoint( 1, 2 ) );
+      mModel->next();
+      QCOMPARE( mModel->mCurrentIndex, 2 );
+      QCOMPARE( mModel->currentPoint(), QgsPoint( 3, 3 ) );
+      mModel->next();
+      QCOMPARE( mModel->mCurrentIndex, 3 );
+      QCOMPARE( mModel->currentPoint().x(), 4.5 );
+      QCOMPARE( mModel->currentPoint().y(), 3 );
+      QCOMPARE( mModel->currentPoint(), QgsPoint( 4.5, 3 ) );
+      QVERIFY( !mModel->canNextVertex() );
+      mModel->next();
+      QCOMPARE( mModel->mCurrentIndex, 3 );
+      mModel->previous();
+      QCOMPARE( mModel->mCurrentIndex, 2 );
+      QCOMPARE( mModel->currentPoint(), QgsPoint( 3, 3 ) );
+      mModel->previous();
+      QCOMPARE( mModel->mCurrentIndex, 1 );
+      QCOMPARE( mModel->currentPoint().x(), 1 );
     }
 
     void transformTest()
@@ -76,7 +106,7 @@ class TestVertexModel: public QObject
 
     void returnGeometryTest()
     {
-      // TODO
+      // TODO, also test when adding vertex mode
     }
 
     void xxxTest()
