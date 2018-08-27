@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 
 import Qt.labs.settings 1.0
 import QtQuick.Controls 2.0
@@ -6,6 +6,8 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
 import "js/style.js" as Style
+
+import "." as QField
 
 Page {
   signal finished
@@ -59,35 +61,39 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
-        Switch{
+        spacing: 2 * dp
+
+        QField.Switch{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show scalebar" )
         }
 
-        Switch {
+        QField.Switch {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show attribute form in full screen" )
         }
 
-        Switch {
+        QField.Switch {
           id: incrementalRenderingCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 
-        Switch {
+        QField.Switch {
           id: numericalDigitizingInformationCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
-        Switch {
+
+        QField.Switch {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )
         }
+
 
 /*
   // To be used in combination with code in main.cpp

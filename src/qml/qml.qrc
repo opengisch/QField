@@ -32,5 +32,9 @@
         <file>LayerTreeItemProperties.qml</file>
         <file>ui/LayerTreeItemProperties.ui.qml</file>
         <file>QFieldCamera.qml</file>
+        <file>Switch.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Switch.qml</file>
     </qresource>
 </RCC>
