@@ -51,6 +51,7 @@ jobs:
         components:
           - tools
           - sys-img-armeabi-v7a-android-26
+          - android-26
 
     # x86 Android build
     - stage: test
