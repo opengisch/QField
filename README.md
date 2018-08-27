@@ -39,12 +39,14 @@ If you found it useful, we will be even happier if you could give something back
 Use the dockerized QField SDK.
 
 ```
+# get the latest tag from https://hub.docker.com/r/opengisch/qfield-sdk/tags/
+TAG=20180821
 cd QField
 
 git submodule init
 git submodule update
 
-docker run -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh --rm
+docker run -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk:$TAG /usr/src/qfield/scripts/docker-build.sh --rm
 ```
 
 This will put the apk into a subfolder `build-docker/out/build/outputs/apk`
