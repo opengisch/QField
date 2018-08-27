@@ -321,6 +321,10 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
+
+    onChangeMode: {
+        stateMachine.state = mode
+    }
   }
 
   DropShadow {

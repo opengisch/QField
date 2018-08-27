@@ -3,11 +3,13 @@ import org.qgis 1.0
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
+import "."
 
 Controls.Pane {
   id: dashBoard
 
   signal showMenu
+  signal changeMode( string mode )
 
   property alias allowLayerChange: legend.enabled
   property alias currentLayer: legend.currentLayer
@@ -64,6 +66,58 @@ Controls.Pane {
           }
 
           onClicked: showMenu()
+        }
+
+        Controls.Switch {
+          id: modeswitch
+
+          indicator: Rectangle {
+              implicitHeight: 36 * dp
+              implicitWidth: 36 * 2 * dp
+              x: modeswitch.leftPadding
+              radius: 2 * dp
+              color:  "white"
+              border.color: "black"
+              anchors.verticalCenter: parent.verticalCenter
+
+              Image {
+                id: browse
+                anchors.left: parent.anchors.leftMargin
+                anchors.verticalCenter: parent.verticalCenter
+                source: Style.getThemeIcon( 'ic_broken_image_black_24dp' )
+              }
+
+              Image {
+                id: digitize
+                x: 42 * dp
+                anchors.verticalCenter: parent.verticalCenter
+                source: Style.getThemeIcon( 'ic_clear_black_18dp' )
+              }
+
+              Rectangle {
+                  x: modeswitch.checked ? parent.width - width : 0
+                  width: 36 * dp
+                  height: 36 * dp
+                  radius: 2 * dp
+                  opacity: 0.3
+                  color:  "red"
+                  border.color: "black"
+                  Image {
+                    x: modeswitch.checked ? 6 : 0
+                    anchors.verticalCenter: parent.verticalCenter
+                    source:  modeswitch.checked ? Style.getThemeIcon( 'ic_clear_black_18dp' ) : Style.getThemeIcon( 'ic_broken_image_black_24dp' )
+                  }
+              }
+          }
+
+
+          onPositionChanged: {
+            if ( checked ) {
+              changeMode( "digitize" )
+            } else {
+              changeMode( "browse" )
+            }
+          }
         }
       }
     }
