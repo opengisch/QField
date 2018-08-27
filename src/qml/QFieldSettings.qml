@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.3
 
 import "js/style.js" as Style
 
-import "." as QField
+import "."
 
 Page {
   signal finished
@@ -63,32 +63,32 @@ Page {
       ColumnLayout {
         spacing: 2 * dp
 
-        QField.Switch{
+        Switch{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show scalebar" )
         }
 
-        QField.Switch {
+        Switch {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show attribute form in full screen" )
         }
 
-        QField.Switch {
+        Switch {
           id: incrementalRenderingCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 
-        QField.Switch {
+        Switch {
           id: numericalDigitizingInformationCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
 
-        QField.Switch {
+        Switch {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )
