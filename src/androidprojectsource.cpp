@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 
+#include "qgsmessagelog.h"
 #include "androidprojectsource.h"
-#include <QDebug>
 
 AndroidProjectSource::AndroidProjectSource()
   : ProjectSource( nullptr )
@@ -34,6 +34,7 @@ void AndroidProjectSource::handleActivityResult( int receiverRequestCode, int re
     QAndroidJniObject file = QAndroidJniObject( "java/io/File", "(Ljava/lang/String;)V", path.object<jstring>() );
     QString absolutePath = file.callObjectMethod( "getAbsolutePath", "()Ljava/lang/String;" ).toString();
 
+    QgsMessageLog::logMessage( QStringLiteral( "Uri - absolute %1" ).arg( absolutePath ) );
     if ( absolutePath.startsWith( QStringLiteral( "/document/primary:" ) ) )
     {
       QAndroidJniObject extStorage = QAndroidJniObject::callStaticObjectMethod( "android/os/Environment", "getExternalStorageDirectory", "()Ljava/io/File;" );
