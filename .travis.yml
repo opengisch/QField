@@ -49,6 +49,7 @@ jobs:
         - adb shell input keyevent 82 &
       android:
         components:
+          - tools
           - sys-img-armeabi-v7a-android-26
 
     # x86 Android build
