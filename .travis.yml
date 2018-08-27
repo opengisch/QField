@@ -32,12 +32,27 @@ jobs:
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
-      before_script:
-        - android list targets
-        - echo no | android create avd --force -n test -t android-26 --abi armeabi-v7a
-        - emulator -avd test -no-audio -no-window &
+      android:
+        components:
+          - sys-img-armeabi-v7a-android-24
+      jdk: oraclejdk8
+      before_install:
+        - echo y | android update sdk -a --no-ui --filter android-24
+        - echo y | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-24
+        - android list targets | grep -E '^id:' | awk -F '"' '{$1=""; print $2}' # list all targets
+        - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
+        - emulator -avd test -no-skin -no-window &
         - android-wait-for-emulator
         - adb shell input keyevent 82 &
+        - adb wait-for-device get-serialno
+        - sleep 100
+        - echo y |adb devices
+          #      before_script:
+          #        - android list targets
+          #        - echo no | android create avd --force -n test -t android-26 --abi armeabi-v7a
+          #        - emulator -avd test -no-audio -no-window &
+          #        - android-wait-for-emulator
+          #        - adb shell input keyevent 82 &
       script:
         - export QFIELD_SDK_VERSION=20180815
         - echo "travis_fold:start:docker-pull"
@@ -46,13 +61,6 @@ jobs:
         - docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e "ARCH=${ARCH}" -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
         - ./scripts/upload-artifacts.sh
         - adb install build-${ARCH}/out/build/outputs/apk/out-release-signed.apk
-      android:
-        components:
-          - platform-tools
-          - tools
-          - build-tools-26.0.2
-          - sys-img-armeabi-v7a-android-22
-          - android-22
 
     # x86 Android build
     - stage: test
