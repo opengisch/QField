@@ -2,11 +2,10 @@ import QtQuick 2.6
 import org.qgis 1.0
 import "js/style.js" as Style
 
-Row {
+VisibiltyFadingRow {
   id: digitizingToolbar
   property RubberbandModel rubberbandModel
   property bool isDigitizing: rubberbandModel.vertexCount > 1 //!< Readonly
-  visible: rubberbandModel.vectorLayer !== null
 
   spacing: 4 * dp
   padding: 4 * dp
