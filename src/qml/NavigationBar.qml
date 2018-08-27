@@ -167,7 +167,7 @@ Rectangle {
 
     anchors.right: editButton.left
 
-    iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
+    iconSource: Style.getThemeIcon( "ic_edit_geometry_white" )
 
     width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
     height: 48*dp
@@ -205,7 +205,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_create_white_24dp" )
+    iconSource: Style.getThemeIcon( "ic_edit_attributes_white" )
 
     onClicked: {
       toolBar.editAttributesButtonClicked()
