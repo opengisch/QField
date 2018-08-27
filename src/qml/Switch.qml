@@ -16,18 +16,18 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
 
         indicator: Rectangle {
-            implicitHeight: 24 * dp
-            implicitWidth: 48 * dp
+            implicitHeight: 18 * dp
+            implicitWidth: 36 * dp
             x: qfieldswitch.leftPadding
-            radius: 12 * dp
+            radius: 9 * dp
             color: qfieldswitch.checked ? "#B9CCA3" : "#cccccc"
             anchors.verticalCenter: parent.verticalCenter
 
             Rectangle {
                 x: qfieldswitch.checked ? parent.width - width : 0
-                width: 24 * dp
-                height: 24 * dp
-                radius: 12 * dp
+                width: 18 * dp
+                height: 18 * dp
+                radius: 9 * dp
                 color:  qfieldswitch.checked ? qfieldswitch.down ? "#cccccc" : "#80CC28" : qfieldswitch.down ? "#80CC28" : "#ffffff"
                 border.color: "#cccccc"
             }
