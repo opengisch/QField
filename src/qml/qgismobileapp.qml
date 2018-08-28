@@ -321,6 +321,10 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
+
+    onChangeMode: {
+        stateMachine.state = mode
+    }
   }
 
   DropShadow {
@@ -513,20 +517,6 @@ ApplicationWindow {
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
-
-    Controls.Menu {
-      title: qsTr( "Mode" )
-
-      Controls.MenuItem {
-        text: qsTr( "Browse" )
-        onTriggered: stateMachine.state = "browse"
-      }
-
-      Controls.MenuItem {
-        text: qsTr( "Digitize" )
-        onTriggered: stateMachine.state = "digitize"
-      }
-    }
 
     Controls.MenuItem {
       text: qsTr( "Open Project" )

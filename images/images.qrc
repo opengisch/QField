@@ -164,5 +164,10 @@
         <file>themes/qfield/mdpi/ic_check_white_48dp.png</file>
         <file>themes/qfield/xhdpi/ic_check_white_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_check_white_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_explore_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_explore_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_explore_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_explore_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_explore_white_24dp.png</file>
     </qresource>
 </RCC>
