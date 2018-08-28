@@ -3,7 +3,6 @@ import org.qgis 1.0
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
-import "."
 
 Controls.Pane {
   id: dashBoard
@@ -81,46 +80,46 @@ Controls.Pane {
           width: 48 *2 * dp
 
           indicator: Rectangle {
-              implicitHeight: 36 * dp
-              implicitWidth: 36 * 2 * dp
-              x: modeswitch.leftPadding
-              radius: 4 * dp
-              color:  mainColor
-              border.color: "white"
+            implicitHeight: 36 * dp
+            implicitWidth: 36 * 2 * dp
+            x: modeswitch.leftPadding
+            radius: 4 * dp
+            color:  mainColor
+            border.color: "white"
+            anchors.verticalCenter: parent.verticalCenter
+
+            Image {
+              height: parent.height
+              width: parent.width / 2
+              anchors.left: parent.left
               anchors.verticalCenter: parent.verticalCenter
+              source: Style.getThemeIcon( 'ic_explore_white_24dp' )
+            }
 
-                Image {
-                  height: parent.height
-                  width: parent.width / 2
-                  anchors.left: parent.left
-                  anchors.verticalCenter: parent.verticalCenter
-                  source: Style.getThemeIcon( 'ic_explore_white_24dp' )
-                }
+            Image {
+              height: parent.height
+              width: parent.width / 2
+              anchors.right: parent.right
+              anchors.verticalCenter: parent.verticalCenter
+              source: Style.getThemeIcon( 'ic_create_white_24dp' )
+            }
 
-                Image {
-                  height: parent.height
-                  width: parent.width / 2
-                  anchors.right: parent.right
-                  anchors.verticalCenter: parent.verticalCenter
-                  source: Style.getThemeIcon( 'ic_create_white_24dp' )
-                }
-
-              Rectangle {
-                  x: modeswitch.checked ? parent.width - width : 0
-                  width: 36 * dp
-                  height: 36 * dp
-                  radius: 4 * dp
-                  color:  "#64B5F6"
-                  border.color: "white"
-                  Image {
-                    height: parent.height
-                    width: parent.height
-                    anchors.right:  modeswitch.checked ? parent.right : undefined
-                    anchors.left:  modeswitch.checked ? undefined : parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_explore_white_24dp' )
-                  }
+            Rectangle {
+              x: modeswitch.checked ? parent.width - width : 0
+              width: 36 * dp
+              height: 36 * dp
+              radius: 4 * dp
+              color:  "#64B5F6"
+              border.color: "white"
+              Image {
+                height: parent.height
+                width: parent.height
+                anchors.right:  modeswitch.checked ? parent.right : undefined
+                anchors.left:  modeswitch.checked ? undefined : parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_explore_white_24dp' )
               }
+            }
           }
           onPositionChanged: {
             if ( checked ) {
