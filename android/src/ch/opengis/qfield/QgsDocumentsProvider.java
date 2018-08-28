@@ -199,6 +199,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                     //add the parent directory
                     includeFile(result, null, f.getParentFile());
                     }
+                }
             }
         }
     }
