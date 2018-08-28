@@ -29,9 +29,11 @@ script:
 jobs:
   include:
     - stage: test
+      if: type = pull_request OR tag IS present OR branch = master
       env:
         - ARCH=armv7
     - stage: test
+      if: type = pull_request OR tag IS present OR branch = master
       env:
         - ARCH=x86
     - stage: deploy
