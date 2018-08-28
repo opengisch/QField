@@ -68,49 +68,60 @@ Controls.Pane {
           onClicked: showMenu()
         }
 
+        Rectangle {
+          //empty space
+          height: 48 * dp
+          width: 48 * dp
+          color: mainColor
+        }
+
         Controls.Switch {
           id: modeswitch
+          height: 48 * dp
+          width: 48 *2 * dp
 
           indicator: Rectangle {
               implicitHeight: 36 * dp
               implicitWidth: 36 * 2 * dp
               x: modeswitch.leftPadding
-              radius: 2 * dp
-              color:  "white"
-              border.color: "black"
+              radius: 4 * dp
+              color:  mainColor
+              border.color: "white"
               anchors.verticalCenter: parent.verticalCenter
 
-              Image {
-                id: browse
-                anchors.left: parent.anchors.leftMargin
-                anchors.verticalCenter: parent.verticalCenter
-                source: Style.getThemeIcon( 'ic_broken_image_black_24dp' )
-              }
+                Image {
+                  height: parent.height
+                  width: parent.width / 2
+                  anchors.left: parent.left
+                  anchors.verticalCenter: parent.verticalCenter
+                  source: Style.getThemeIcon( 'ic_explore_white_24dp' )
+                }
 
-              Image {
-                id: digitize
-                x: 42 * dp
-                anchors.verticalCenter: parent.verticalCenter
-                source: Style.getThemeIcon( 'ic_clear_black_18dp' )
-              }
+                Image {
+                  height: parent.height
+                  width: parent.width / 2
+                  anchors.right: parent.right
+                  anchors.verticalCenter: parent.verticalCenter
+                  source: Style.getThemeIcon( 'ic_create_white_24dp' )
+                }
 
               Rectangle {
                   x: modeswitch.checked ? parent.width - width : 0
                   width: 36 * dp
                   height: 36 * dp
-                  radius: 2 * dp
-                  opacity: 0.3
-                  color:  "red"
-                  border.color: "black"
+                  radius: 4 * dp
+                  color:  "#64B5F6"
+                  border.color: "white"
                   Image {
-                    x: modeswitch.checked ? 6 : 0
+                    height: parent.height
+                    width: parent.height
+                    anchors.right:  modeswitch.checked ? parent.right : undefined
+                    anchors.left:  modeswitch.checked ? undefined : parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    source:  modeswitch.checked ? Style.getThemeIcon( 'ic_clear_black_18dp' ) : Style.getThemeIcon( 'ic_broken_image_black_24dp' )
+                    source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_explore_white_24dp' )
                   }
               }
           }
-
-
           onPositionChanged: {
             if ( checked ) {
               changeMode( "digitize" )
