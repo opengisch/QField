@@ -27,9 +27,6 @@
 #include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
 #include <QtWidgets/QMenuBar>
 #include <QStandardItemModel>
-#include <QPrinter>
-#include <QPrintDialog>
-#include <QTemporaryFile>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -39,9 +36,6 @@
 #include <qgsunittypes.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
-#include <qgsprintlayout.h>
-#include <qgslayoutmanager.h>
-#include <qgslayoutpagecollection.h>
 
 #include "qgismobileapp.h"
 #include "qgsquickmapcanvasmap.h"
@@ -50,6 +44,7 @@
 #include "featurelistmodelhighlight.h"
 #include "maptransform.h"
 #include "featurelistextentcontroller.h"
+#include "coordinatetransform.h"
 #include "modelhelper.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
@@ -72,7 +67,6 @@
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
 #include "coordinatetransformer.h"
-#include "printlayoutlistmodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
   : QQmlApplicationEngine( parent )
@@ -147,6 +141,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
   qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
+  qmlRegisterType<CoordinateTransform>( "org.qgis", 1, 0, "CoordinateTransform" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
@@ -163,7 +158,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
   qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel");
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -272,29 +266,6 @@ void QgisMobileapp::loadProjectFile( const QString& path )
   loadProjectQuirks();
 
   emit loadProjectEnded();
-}
-
-void QgisMobileapp::print( int layoutIndex )
-{
-  const QList<QgsPrintLayout *> projectLayouts( mProject->layoutManager()->printLayouts() );
-
-  const auto &layoutToPrint = projectLayouts.at( layoutIndex );
-
-  if ( layoutToPrint->pageCollection()->pageCount() == 0 )
-    return;
-
-  QPrinter printer;
-  printer.setOutputFileName( mProject->homePath() + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
-
-  QgsLayoutExporter::PrintExportSettings printSettings;
-  printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
-
-  layoutToPrint->refresh();
-
-  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-  exporter.print( printer, printSettings );
-
-  mPlatformUtils.open( QStringLiteral( "file:///" ) + printer.outputFileName(), QStringLiteral( "application/pdf" ) );
 }
 
 bool QgisMobileapp::event( QEvent* event )
