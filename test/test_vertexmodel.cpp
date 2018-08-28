@@ -1,13 +1,12 @@
 
-
 #include <QtTest>
-
-
+#include <qgsapplication.h>
 #include <qgslinestring.h>
 #include <qgsgeometry.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
 
+#include "mapsettings.h"
 #include "vertexmodel.h"
 
 
@@ -17,6 +16,19 @@ class TestVertexModel: public QObject
   private slots:
     void initTestCase()
     {
+      int argc = 0;
+      auto closer_lambda = []( QgsApplication * app ) { app->exitQgis(); };
+      std::unique_ptr<QgsApplication, decltype( closer_lambda )> app( new QgsApplication( argc, nullptr, false ), closer_lambda );
+
+#ifdef ANDROID
+      app->setPrefixPath( "" QGIS_INSTALL_DIR, true );
+      app->setPluginPath( QApplication::applicationDirPath() );
+      app->setPkgDataPath( AndroidPlatformUtilities().packagePath() );
+#else
+      app->setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+#endif
+      app->initQgis();
+
       mModel = new VertexModel();
 
       QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 1 ) << QgsPoint( 2, 3 ) << QgsPoint( 4, 3 ) );
@@ -29,6 +41,8 @@ class TestVertexModel: public QObject
                               << QgsPointXY( 2, 2 )
                               << QgsPointXY( 0, 2 )
                               << QgsPointXY( 0, 0 ) ) ) ;
+
+      mPoint2056Geometry = QgsGeometry::fromPointXY( QgsPointXY( 2500000, 1200000 ) );
     }
 
     void canRemoveVertexTest()
@@ -101,7 +115,15 @@ class TestVertexModel: public QObject
 
     void transformTest()
     {
-      // TODO
+      MapSettings *mapSettings = new MapSettings();
+      mapSettings->setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
+      mModel->setMapSettings( mapSettings );
+      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), "EPSG:21781" );
+      mModel->setGeometry( mPoint2056Geometry, QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
+      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
+      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
+
+      delete mapSettings;
     }
 
     void returnGeometryTest()
@@ -109,20 +131,7 @@ class TestVertexModel: public QObject
       // TODO, also test when adding vertex mode
     }
 
-    void xxxTest()
-    {
-      // TODO
-    }
 
-    void yyyTest()
-    {
-      // TODO
-    }
-
-    void zzzTest()
-    {
-      // TODO
-    }
 
     void cleanupTestCase()
     {
@@ -133,6 +142,7 @@ class TestVertexModel: public QObject
     VertexModel *mModel;
     QgsGeometry mLineGeometry;
     QgsGeometry mPolygonGeometry;
+    QgsGeometry mPoint2056Geometry;
 };
 
 QTEST_MAIN( TestVertexModel )
