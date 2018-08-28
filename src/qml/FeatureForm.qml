@@ -9,7 +9,6 @@ import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
-import QtQuick.Controls.Styles 1.4
 
 Page {
   signal saved
@@ -290,13 +289,6 @@ Page {
   }
 
   function save() {
-    //if this is for some reason not handled before (like when tiping on a map while editing)
-    if( !model.constraintsValid ) {
-        displayToast( "Constraints not valid - cancel editing" )
-        cancelled()
-        return
-    }
-
     parent.focus = true
     aboutToSave()
 
@@ -324,15 +316,10 @@ Page {
     id: toolbar
     height: visible ? 48 * dp : 0
     visible: form.state === 'Add'
-
     anchors {
       top: parent.top
       left: parent.left
       right: parent.right
-    }
-
-    background: Rectangle {
-      color: model.constraintsValid ? "blue" : "orange"
     }
 
     RowLayout {
@@ -341,26 +328,21 @@ Page {
 
       ToolButton {
         id: saveButton
-        anchors.left: parent.left
-
-        background: Rectangle {
-          color: "#212121"
-          height: 48*dp
-        }
 
         contentItem: Image {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_check_white_48dp" )
+          source: Style.getThemeIcon( "ic_save_white_24dp" )
+        }
+        background: Rectangle {
+          color: model.constraintsValid ? "#212121" : "#bdc3c7"
         }
 
+        enabled: model.constraintsValid
+
         onClicked: {
-          if( model.constraintsValid ) {
-            save()
-          } else {
-            displayToast( "Constraints not valid" )
-          }
+          save()
         }
       }
 
@@ -393,20 +375,16 @@ Page {
         id: closeButton
         anchors.right: parent.right
 
-        background: Rectangle {
-          color: "#212121"
-          height: 48*dp
-        }
-
         contentItem: Image {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
-          source: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
+          source: Style.getThemeIcon( "ic_close_white_24dp" )
         }
 
         onClicked: {
           Qt.inputMethod.hide()
+
           cancelled()
         }
       }

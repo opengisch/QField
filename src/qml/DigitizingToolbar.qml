@@ -77,7 +77,7 @@ Row {
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: Number( rubberbandModel.geometryType ) === 0 ? "#FFD600" : "#2E7D32"
+    bgcolor: "#2E7D32"
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === 0 )

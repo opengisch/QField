@@ -27,7 +27,6 @@ MapSettings::MapSettings( QObject *parent )
 {
   // Connect signals for derived values
   connect( this, &MapSettings::destinationCrsChanged, this, &MapSettings::mapUnitsPerPixelChanged );
-  connect( this, &MapSettings::destinationCrsChanged, this, &MapSettings::abbreviatedStringOfDistanceUnitChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::outputSizeChanged, this, &MapSettings::mapUnitsPerPixelChanged );
   connect( this, &MapSettings::extentChanged, this, &MapSettings::visibleExtentChanged );
@@ -87,7 +86,7 @@ QPointF MapSettings::coordinateToScreen( const QgsPoint &point ) const
 
 QgsPoint MapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinatesF( point.x(), point.y() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.toPoint() );
   return QgsPoint( pp );
 }
 
@@ -147,11 +146,6 @@ void MapSettings::setLayers( const QList<QgsMapLayer *> &layers )
 {
   mMapSettings.setLayers( layers );
   emit layersChanged();
-}
-
-QString MapSettings::abbreviatedStringOfDistanceUnit() const
-{
-  return QgsUnitTypes::toAbbreviatedString( mMapSettings.destinationCrs().mapUnits() );
 }
 
 #if 0
