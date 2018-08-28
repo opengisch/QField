@@ -28,6 +28,11 @@ void AppInterface::loadProject( const QString& path )
   return mApp->loadProjectFile( QUrl( path ).path() );
 }
 
+void AppInterface::print( int layoutIndex )
+{
+  return mApp->print( layoutIndex );
+}
+
 void AppInterface::openFeatureForm()
 {
   emit openFeatureFormRequested();

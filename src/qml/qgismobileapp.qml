@@ -514,7 +514,6 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-
     Controls.Menu {
       title: qsTr( "Mode" )
 
@@ -563,6 +562,38 @@ ApplicationWindow {
       }
     }
 
+    Controls.Menu {
+      id: printMenu
+      title: qsTr( "Print to PDF" )
+
+      Instantiator {
+
+        id: layoutListInstantiator
+
+        model: PrintLayoutListModel {
+        }
+
+        Controls.MenuItem {
+          text: Title
+
+          onTriggered: {
+            iface.print( Index )
+          }
+        }
+        onObjectAdded: printMenu.insertItem(index, object)
+        onObjectRemoved: printMenu.removeItem(object)
+      }
+
+      Connections {
+        target: iface
+
+        onLoadProjectEnded: {
+          layoutListInstantiator.model.project = qgisProject
+          layoutListInstantiator.model.reloadModel()
+          printMenu.visible = layoutListInstantiator.model.rowCount()
+        }
+      }
+    }
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
@@ -681,10 +712,23 @@ ApplicationWindow {
     height: parent.height
     width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
     edge: Qt.RightEdge
-    interactive: opened
+    interactive: overlayFeatureForm.model.constraintsValid
     dragMargin: 0
+    Keys.enabled: true
+
+    /**
+     * If the save/cancel was initiated by button, the drawer needs to be closed in the end
+     * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
+     * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
+     */
 
     onClosed: {
+        if( !overlayFeatureForm.isSaved ) {
+          overlayFeatureForm.save()
+        } else {
+          overlayFeatureForm.isSaved=false //reset
+        }
+
         digitizingRubberband.model.reset()
     }
 
@@ -693,6 +737,8 @@ ApplicationWindow {
       height: parent.height
       width: parent.width
       visible: true
+
+      property bool isSaved: false
 
       model: AttributeFormModel {
         featureModel: digitizingFeature
@@ -703,15 +749,27 @@ ApplicationWindow {
       focus: parent.opened
 
       onSaved: {
-        overlayFeatureFormDrawer.close()
-      }
-      onCancelled: {
+        displayToast( qsTr( "Changes saved" ) )
+        //close drawer if still open
+        if( overlayFeatureFormDrawer.position > 0 ) {
+          overlayFeatureForm.isSaved=true //because just saved
           overlayFeatureFormDrawer.close()
+        }
+      }
+
+      onCancelled: {
+        displayToast( qsTr( "Changes discarded" ) )
+        overlayFeatureForm.isSaved=true //because never changed
+        overlayFeatureFormDrawer.close()
       }
 
       Keys.onReleased: {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          overlayFeatureFormDrawer.close()
+          if( overlayFeatureForm.model.constraintsValid ) {
+            overlayFeatureFormDrawer.close()
+          } else {
+            displayToast( "Constraints not valid" )
+          }
           event.accepted = true
         }
       }
@@ -722,6 +780,24 @@ ApplicationWindow {
     }
     Component.onCompleted: {
         close()
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        if( overlayFeatureForm.model.constraintsValid ) {
+          overlayFeatureFormDrawer.close()
+        } else {
+          displayToast( "Constraints not valid" )
+        }
+        event.accepted = true
+      }
+    }
+
+  }
+
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true
     }
   }
 
@@ -741,6 +817,8 @@ ApplicationWindow {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
+      width: 100 * dp
+      height: 100 * dp
     }
 
     Text {

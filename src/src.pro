@@ -19,8 +19,8 @@ include( ../version.pri )
 
 
 HEADERS += \
+    qgsquick/qgsquickutils.h \
     appinterface.h \
-    coordinatetransform.h \
     featurelistextentcontroller.h \
     multifeaturelistmodel.h \
     featurelistmodelhighlight.h \
@@ -55,11 +55,12 @@ HEADERS += \
     distancearea.h \
     coordinatetransformer.h \
     expressioncontextutils.h \
-    focusstack.h
+    focusstack.h \
+    printlayoutlistmodel.h
 
 SOURCES += \
+    qgsquick/qgsquickutils.cpp \
     appinterface.cpp \
-    coordinatetransform.cpp \
     featurelistextentcontroller.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelhighlight.cpp \
@@ -95,7 +96,8 @@ SOURCES += \
     distancearea.cpp \
     coordinatetransformer.cpp \
     expressioncontextutils.cpp \
-    focusstack.cpp
+    focusstack.cpp \
+    printlayoutlistmodel.cpp
 
 INCLUDEPATH += ../3rdparty/tessellate
 LIBS += ../3rdparty/tessellate/libtessellate.a

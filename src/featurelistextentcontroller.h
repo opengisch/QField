@@ -49,10 +49,10 @@ class FeatureListExtentController : public QObject
     void onCurrentSelectionChanged();
 
   private:
-    MultiFeatureListModel* mModel;
-    FeatureListModelSelection* mSelection;
-    MapSettings* mMapSettings;
-    bool mAutoZoom;
+    MultiFeatureListModel* mModel = nullptr;
+    FeatureListModelSelection* mSelection = nullptr;
+    MapSettings* mMapSettings = nullptr;
+    bool mAutoZoom = false;
 };
 
 #endif // FEATURELISTEXTENTCONTROLLER_H
