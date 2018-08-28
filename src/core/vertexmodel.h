@@ -101,9 +101,9 @@ class VertexModel : public QStandardItemModel
     //! \copydoc editingMode
     void setEditingMode( EditingMode mode );
 
-    //! \copydoc currentPoint in map coordinates
+    //! \copydoc currentPoint
     QgsPoint currentPoint() const;
-    //! \copydoc currentPoint in map coordinates
+    //! \copydoc currentPoint
     void setCurrentPoint( const QgsPoint &point );
 
     //! \copydoc vertexCount
