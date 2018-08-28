@@ -59,31 +59,31 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
-        Switch{
+        Controls.CheckBox{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show scalebar" )
         }
 
-        Switch {
+        Controls.CheckBox {
           id: fullScreenIdentifyViewCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show attribute form in full screen" )
         }
 
-        Switch {
+        Controls.CheckBox {
           id: incrementalRenderingCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 
-        Switch {
+        Controls.CheckBox {
           id: numericalDigitizingInformationCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
-        Switch {
+        Controls.CheckBox {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )

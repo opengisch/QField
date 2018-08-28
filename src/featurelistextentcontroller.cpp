@@ -20,6 +20,10 @@
 
 FeatureListExtentController::FeatureListExtentController( QObject* parent )
   : QObject( parent )
+  , mModel( 0 )
+  , mSelection( 0 )
+  , mMapSettings( 0 )
+  , mAutoZoom( false )
 {
   connect( this, &FeatureListExtentController::autoZoomChanged, this, &FeatureListExtentController::zoomToSelected );
   connect( this, &FeatureListExtentController::modelChanged, this, &FeatureListExtentController::onModelChanged );
@@ -41,17 +45,10 @@ void FeatureListExtentController::zoomToSelected() const
     QgsGeometry geom( feat.geometry() );
     geom.transform( transf );
 
-    if ( geom.type() == QgsWkbTypes::PointGeometry )
-    {
-      mMapSettings->setCenter( QgsPoint( geom.asPoint() ) );
-    }
-    else
-    {
-      QgsRectangle featureExtent = geom.boundingBox();
-      QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
+    QgsRectangle featureExtent = geom.boundingBox();
+    QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
 
-      mMapSettings->setExtent( bufferedExtent );
-    }
+    mMapSettings->setExtent( bufferedExtent );
   }
 }
 

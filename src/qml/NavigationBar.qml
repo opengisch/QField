@@ -60,7 +60,7 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? "#80CC28" : "orange"
+    color: "#80CC28"
 
     clip: true
 
@@ -114,19 +114,19 @@ Rectangle {
 
   Button {
     id: saveButton
-    anchors.left: parent.left
+
+    anchors.right: parent.right
+
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
+    iconSource: Style.getThemeIcon( "ic_save_white_24dp" )
+
     onClicked: {
-     if( featureFormList.model.constraintsValid ) {
-       toolBar.save()
-     } else {
-       displayToast( "Constraints not valid" )
-     }
+      toolBar.save()
     }
+
     Behavior on width {
       PropertyAnimation {
         easing.type: Easing.InQuart
@@ -137,7 +137,7 @@ Rectangle {
   Button {
     id: cancelButton
 
-    anchors.right: parent.right
+    anchors.left: parent.left
 
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp
@@ -146,7 +146,6 @@ Rectangle {
     iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
-      selection.selectionChanged()
       toolBar.cancel()
     }
 
