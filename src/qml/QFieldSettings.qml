@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 
 import Qt.labs.settings 1.0
 import QtQuick.Controls 2.0
@@ -6,6 +6,8 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
 import "js/style.js" as Style
+
+import "."
 
 Page {
   signal finished
@@ -59,6 +61,8 @@ Page {
       currentIndex: bar.currentIndex
 
       ColumnLayout {
+        spacing: 2 * dp
+
         Switch{
           id: showScaleBarCheckBox
           anchors { left: parent.left; right: parent.right }
@@ -83,11 +87,13 @@ Page {
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
+
         Switch {
           id: useNativeCameraCheckBox
           anchors { left: parent.left; right: parent.right }
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )
         }
+
 
 /*
   // To be used in combination with code in main.cpp
