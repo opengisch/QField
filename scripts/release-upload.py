@@ -26,15 +26,9 @@ def main(parameters, arguments):
         'Authorization': 'token {}'.format(parameters.oauth_token)
     }
 
-    raw_data = {
-        "tag_name": parameters.release
-    }
-    if parameters.changelog:
-        with open(parameters.changelog, 'r') as cl:
-            raw_data['body'] = cl.read()
     data = json.dumps(raw_data)
-    conn.request('POST', '/repos/{repo_slug}/releases'.format(
-        repo_slug=os.environ['TRAVIS_REPO_SLUG']), body=data, headers=headers)
+    conn.request('GET', '/repos/{repo_slug}/releases/tags/{tag}'.format(
+        repo_slug=os.environ['TRAVIS_REPO_SLUG'], tag=parameters.release), body=data, headers=headers)
     response = conn.getresponse()
     release = json.loads(response.read().decode())
     print(release)
