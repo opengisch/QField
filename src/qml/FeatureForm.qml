@@ -10,6 +10,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 import QtQuick.Controls.Styles 1.4
+import "."
 
 Page {
   signal saved
@@ -339,21 +340,18 @@ Page {
       anchors.fill: parent
       Layout.margins: 0
 
-      ToolButton {
+      Button {
         id: saveButton
+
         anchors.left: parent.left
+        anchors.top: parent.top
 
-        background: Rectangle {
-          color: "#212121"
-          height: 48*dp
-        }
+        width: 48*dp
+        height: 48*dp
+        clip: true
+        bgcolor: "#212121"
 
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( "ic_check_white_48dp" )
-        }
+        iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
 
         onClicked: {
           if( model.constraintsValid ) {
@@ -389,21 +387,18 @@ Page {
         Layout.fillWidth: true
       }
 
-      ToolButton {
+      Button {
         id: closeButton
+
         anchors.right: parent.right
+        anchors.top: parent.top
 
-        background: Rectangle {
-          color: "#212121"
-          height: 48*dp
-        }
+        width: 48*dp
+        height: 48*dp
+        clip: true
+        bgcolor: "#212121"
 
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
-        }
+        iconSource: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
 
         onClicked: {
           Qt.inputMethod.hide()
