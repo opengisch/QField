@@ -35,6 +35,8 @@ Item {
 
       model: FeatureListModel {
         id: featureListModel
+        addNull: config['AllowNULL']
+        orderByValue: config['OrderByValue']
       }
 
       Component.onCompleted: {

@@ -20,7 +20,9 @@
 FeatureListModel::FeatureListModel()
   : mCurrentLayer( nullptr )
 {
-
+  mReloadTimer.setInterval( 100 );
+  mReloadTimer.setSingleShot( true );
+  connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::processReloadLayer );
 }
 
 QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& parent ) const
@@ -42,7 +44,7 @@ QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
 int FeatureListModel::rowCount( const QModelIndex& parent ) const
 {
   Q_UNUSED( parent )
-  return mDisplayStrings.size();
+  return mEntries.size();
 }
 
 int FeatureListModel::columnCount( const QModelIndex& parent ) const
@@ -54,9 +56,9 @@ int FeatureListModel::columnCount( const QModelIndex& parent ) const
 QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
 {
   if ( role == Qt::DisplayRole )
-    return mDisplayStrings.value( index.row() );
+    return mEntries.value( index.row() ).displayString;
   else if ( role == KeyFieldRole )
-    return mKeys.value( index.row() );
+    return mEntries.value( index.row() ).key;
 
   return QVariant();
 }
@@ -116,9 +118,18 @@ void FeatureListModel::setKeyField( const QString& keyField )
   emit keyFieldChanged();
 }
 
-int FeatureListModel::findKey( const QVariant& key )
+int FeatureListModel::findKey( const QVariant& key ) const
 {
-  return mKeys.indexOf( key );
+  int idx = 0;
+  for ( const Entry &entry : mEntries )
+  {
+    if ( entry.key == key )
+      return idx;
+
+    ++idx;
+  }
+
+  return -1;
 }
 
 void FeatureListModel::onFeatureAdded()
@@ -131,10 +142,10 @@ void FeatureListModel::onFeatureDeleted()
   reloadLayer();
 }
 
-void FeatureListModel::reloadLayer()
+
+void FeatureListModel::processReloadLayer()
 {
-  mDisplayStrings.clear();
-  mKeys.clear();
+  mEntries.clear();
 
   QgsFeatureRequest request;
   QgsExpressionContext context = mCurrentLayer->createExpressionContext();
@@ -156,18 +167,67 @@ void FeatureListModel::reloadLayer()
 
   QgsFeature feature;
 
-  QStringList displayStrings;
-  QVariantList keys;
+  QList<Entry> entries;
+
+  if ( mAddNull )
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant( QVariant::Int ) ) );
 
   while ( iterator.nextFeature( feature ) )
   {
     context.setFeature( feature );
-    displayStrings.append( expression.evaluate( &context ).toString() );
-    keys.append( feature.attribute( keyIndex ) );
+    entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ) ) );
+  }
+
+  if ( mOrderByValue )
+  {
+    qSort( entries.begin(), entries.end(), [] ( const Entry &entry1, const Entry &entry2 )
+    {
+      if ( entry1.key.isNull() )
+        return true;
+
+      if ( entry2.key.isNull() )
+        return false;
+
+      return entry1.displayString.toLower() < entry2.displayString.toLower();
+    } );
   }
 
   beginResetModel();
-  mDisplayStrings = displayStrings;
-  mKeys = keys;
+  mEntries = entries;
   endResetModel();
+}
+
+void FeatureListModel::reloadLayer()
+{
+  mReloadTimer.start();
+}
+
+bool FeatureListModel::addNull() const
+{
+  return mAddNull;
+}
+
+void FeatureListModel::setAddNull( bool addNull )
+{
+  if ( mAddNull == addNull )
+    return;
+
+  mAddNull = addNull;
+  reloadLayer();
+  emit addNullChanged();
+}
+
+bool FeatureListModel::orderByValue() const
+{
+  return mOrderByValue;
+}
+
+void FeatureListModel::setOrderByValue( bool orderByValue )
+{
+  if ( mOrderByValue == orderByValue )
+    return;
+
+  mOrderByValue = orderByValue;
+  reloadLayer();
+  emit orderByValueChanged();
 }
