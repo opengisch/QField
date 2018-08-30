@@ -71,10 +71,25 @@ class FeatureListModel : public QAbstractItemModel
      * Get the row for a given key value.
      */
     Q_INVOKABLE int findKey( const QVariant& key ) const;
+
+    /**
+     * Orders all the values alphabethically by their displayString.
+     */
     bool orderByValue() const;
+
+    /**
+     * Orders all the values alphabethically by their displayString.
+     */
     void setOrderByValue( bool orderByValue );
 
+    /**
+     * Add a NULL value as the first entry.
+     */
     bool addNull() const;
+
+    /**
+     * Add a NULL value as the first entry.
+     */
     void setAddNull( bool addNull );
 
   signals:
