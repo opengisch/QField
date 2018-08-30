@@ -56,7 +56,7 @@ int main( int argc, char ** argv )
 #ifdef ANDROID
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
+  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() + QStringLiteral( "/share" ) );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
