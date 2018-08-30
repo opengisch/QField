@@ -19,8 +19,6 @@
 #include "platformutilities.h"
 #include <QDebug>
 #include <QDir>
-#include <QDesktopServices>
-#include <QUrl>
 
 PlatformUtilities::~PlatformUtilities()
 {
@@ -67,12 +65,17 @@ PictureSource* PlatformUtilities::getPicture( const QString& prefix )
 
 void PlatformUtilities::open( const QString& data, const QString& type )
 {
-  QDesktopServices::openUrl( QUrl( data ) );
+  Q_UNUSED( data )
   Q_UNUSED( type )
 }
 
 QString PlatformUtilities::fieldType( const QgsField &field ) const
 {
   return QVariant( field.type() ).typeName();
+}
+
+ProjectSource *PlatformUtilities::openProject()
+{
+  return nullptr;
 }
 

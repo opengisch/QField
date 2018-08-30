@@ -1,9 +1,9 @@
 /***************************************************************************
-  picturesource.h - PictureSource
+  androidprojectsource.h - AndroidProjectSource
 
  ---------------------
- begin                : 5.7.2016
- copyright            : (C) 2016 by Matthias Kuhn
+ begin                : 19.3.2018
+ copyright            : (C) 2018 by Matthias Kuhn
  email                : matthias@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -13,28 +13,21 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef PICTURESOURCE_H
-#define PICTURESOURCE_H
 
-#include <QObject>
 
-/**
- * A picture source object will be created when a new picture is requested from the system.
- * It should be subclassed and filled with platform specific code.
- */
-class PictureSource : public QObject
+#ifndef ANDROIDPROJECTSOURCE_H
+#define ANDROIDPROJECTSOURCE_H
+
+#include <QAndroidActivityResultReceiver>
+#include "projectsource.h"
+
+class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
 {
-    Q_OBJECT
   public:
-    explicit PictureSource( QObject* parent = nullptr );
+    AndroidProjectSource();
 
-    virtual ~PictureSource() = default;
+    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject& data ) override;
 
-  signals:
-    /**
-     * Emit this signal when a picture really has been received.
-     */
-    void pictureReceived( const QString& path );
 };
 
-#endif // PICTURESOURCE_H
+#endif // ANDROIDPROJECTSOURCE_H

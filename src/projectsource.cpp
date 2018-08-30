@@ -1,9 +1,9 @@
 /***************************************************************************
-  picturesource.h - PictureSource
+  projectsource.cpp - ProjectSource
 
  ---------------------
- begin                : 5.7.2016
- copyright            : (C) 2016 by Matthias Kuhn
+ begin                : 19.3.2018
+ copyright            : (C) 2018 by Matthias Kuhn
  email                : matthias@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -13,28 +13,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef PICTURESOURCE_H
-#define PICTURESOURCE_H
 
-#include <QObject>
+#include "projectsource.h"
+#include <QDebug>
 
-/**
- * A picture source object will be created when a new picture is requested from the system.
- * It should be subclassed and filled with platform specific code.
- */
-class PictureSource : public QObject
+ProjectSource::ProjectSource( QObject *parent ) : QObject( parent )
 {
-    Q_OBJECT
-  public:
-    explicit PictureSource( QObject* parent = nullptr );
-
-    virtual ~PictureSource() = default;
-
-  signals:
-    /**
-     * Emit this signal when a picture really has been received.
-     */
-    void pictureReceived( const QString& path );
-};
-
-#endif // PICTURESOURCE_H
+}

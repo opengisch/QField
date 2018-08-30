@@ -1,9 +1,9 @@
 /***************************************************************************
-  picturesource.h - PictureSource
+  projectsource.h - ProjectSource
 
  ---------------------
- begin                : 5.7.2016
- copyright            : (C) 2016 by Matthias Kuhn
+ begin                : 19.3.2018
+ copyright            : (C) 2018 by Matthias Kuhn
  email                : matthias@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -13,28 +13,33 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef PICTURESOURCE_H
-#define PICTURESOURCE_H
+
+#ifndef PROJECTSOURCE_H
+#define PROJECTSOURCE_H
 
 #include <QObject>
 
 /**
- * A picture source object will be created when a new picture is requested from the system.
- * It should be subclassed and filled with platform specific code.
+ * This class represents an ongoing open project intent.
+ * It will notify the system with the projectOpened() signal
+ * once the user has selected a project to open.
+ *
+ * The default implementation does nothing. You probably
+ * want to have a look at the AndroidProjectSource subclass.
  */
-class PictureSource : public QObject
+class ProjectSource : public QObject
 {
     Q_OBJECT
   public:
-    explicit PictureSource( QObject* parent = nullptr );
+    explicit ProjectSource( QObject *parent = nullptr );
 
-    virtual ~PictureSource() = default;
+    virtual ~ProjectSource() = default;
 
   signals:
     /**
-     * Emit this signal when a picture really has been received.
+     * This signal communitcates, when a project has been opened.
      */
-    void pictureReceived( const QString& path );
+    void projectOpened( const QString& path );
 };
 
-#endif // PICTURESOURCE_H
+#endif // PROJECTSOURCE_H

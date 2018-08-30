@@ -18,6 +18,7 @@
 
 #include "androidplatformutilities.h"
 #include "androidpicturesource.h"
+#include "androidprojectsource.h"
 
 #include <QMap>
 #include <QString>
@@ -126,4 +127,29 @@ void AndroidPlatformUtilities::open( const QString& data, const QString& type )
   intent.callObjectMethod( "setDataAndType", "(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;", jData.object<jobject>(), jType.object<jstring>() );
 
   QtAndroid::startActivity( intent.object<jobject>(), 102 );
+}
+
+ProjectSource *AndroidPlatformUtilities::openProject()
+{
+  QAndroidJniObject actionOpenDocument = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "ACTION_OPEN_DOCUMENT", "Ljava/lang/String;" );
+  QAndroidJniObject categoryOpenable = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "CATEGORY_OPENABLE", "Ljava/lang/String;" );
+
+  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionOpenDocument.object<jstring>() );
+  intent.callObjectMethod( "addCategory", "(Ljava/lang/String;)Landroid/content/Intent;", categoryOpenable.object<jstring>() );
+  QAndroidJniObject mimeType = QAndroidJniObject::fromString( QStringLiteral( "application/*" ) );
+  intent.callObjectMethod( "setType", "(Ljava/lang/String;)Landroid/content/Intent;", mimeType.object<jstring>() );
+
+  AndroidProjectSource* projectSource = nullptr;
+
+  if ( intent.isValid() )
+  {
+    projectSource = new AndroidProjectSource();
+    QtAndroid::startActivity( intent.object<jobject>(), 103, projectSource );
+  }
+  else
+  {
+    qDebug() << "Something went wrong creating the project intent";
+  }
+
+  return projectSource;
 }

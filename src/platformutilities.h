@@ -21,7 +21,9 @@
 
 #include <QObject>
 #include <qgsfield.h>
-#include "picturesource.h"
+
+class PictureSource;
+class ProjectSource;
 
 class PlatformUtilities : public QObject
 {
@@ -54,5 +56,7 @@ class PlatformUtilities : public QObject
      * This is a stable identifier (compared to the provider field name).
      */
     Q_INVOKABLE QString fieldType( const QgsField& field ) const;
+
+    Q_INVOKABLE virtual ProjectSource *openProject();
 };
 #endif // PLATFORMUTILITIES_H
