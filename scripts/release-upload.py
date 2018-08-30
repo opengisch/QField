@@ -26,9 +26,8 @@ def main(parameters, arguments):
         'Authorization': 'token {}'.format(parameters.oauth_token)
     }
 
-    data = json.dumps(raw_data)
     conn.request('GET', '/repos/{repo_slug}/releases/tags/{tag}'.format(
-        repo_slug=os.environ['TRAVIS_REPO_SLUG'], tag=parameters.release), body=data, headers=headers)
+        repo_slug=os.environ['TRAVIS_REPO_SLUG'], tag=parameters.release), headers=headers)
     response = conn.getresponse()
     release = json.loads(response.read().decode())
     print(release)
