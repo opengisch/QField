@@ -101,6 +101,10 @@ class FeatureListModel : public QAbstractItemModel
   private slots:
     void onFeatureAdded();
     void onFeatureDeleted();
+    /**
+     * Reloads a layer. This will normally be triggered
+     * by \see reloadLayer and should not be called directly.
+     */
     void processReloadLayer();
 
   private:
@@ -117,6 +121,13 @@ class FeatureListModel : public QAbstractItemModel
       QVariant key;
     };
 
+    /**
+     * Triggers a reload of the values from the layer.
+     * To avoid having the (expensive) reload operation happening for
+     * every property change, it will only execute this after a very short delay.
+     * This allows changing multiple properties at once and have a single reload
+     * in the end.
+     */
     void reloadLayer();
 
     QgsVectorLayer* mCurrentLayer;
