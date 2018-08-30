@@ -17,6 +17,7 @@
 #define FEATURELISTMODEL_H
 
 #include <QAbstractItemModel>
+#include <QTimer>
 
 class QgsVectorLayer;
 
@@ -37,6 +38,10 @@ class FeatureListModel : public QAbstractItemModel
      * The primary key field
      */
     Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
+
+    Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
+
+    Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
   public:
     enum FeatureListRoles
@@ -65,23 +70,74 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * Get the row for a given key value.
      */
-    Q_INVOKABLE int findKey( const QVariant& key );
+    Q_INVOKABLE int findKey( const QVariant& key ) const;
+
+    /**
+     * Orders all the values alphabethically by their displayString.
+     */
+    bool orderByValue() const;
+
+    /**
+     * Orders all the values alphabethically by their displayString.
+     */
+    void setOrderByValue( bool orderByValue );
+
+    /**
+     * Add a NULL value as the first entry.
+     */
+    bool addNull() const;
+
+    /**
+     * Add a NULL value as the first entry.
+     */
+    void setAddNull( bool addNull );
+
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
+    void addNullChanged();
+    void orderByValueChanged();
 
   private slots:
     void onFeatureAdded();
     void onFeatureDeleted();
+    /**
+     * Reloads a layer. This will normally be triggered
+     * by \see reloadLayer and should not be called directly.
+     */
+    void processReloadLayer();
 
   private:
+    struct Entry
+    {
+      Entry( const QString& displayString, const QVariant &key )
+        : displayString( displayString )
+        , key( key )
+      {}
+
+      Entry() = default;
+
+      QString displayString;
+      QVariant key;
+    };
+
+    /**
+     * Triggers a reload of the values from the layer.
+     * To avoid having the (expensive) reload operation happening for
+     * every property change, it will only execute this after a very short delay.
+     * This allows changing multiple properties at once and have a single reload
+     * in the end.
+     */
     void reloadLayer();
 
     QgsVectorLayer* mCurrentLayer;
 
-    QStringList mDisplayStrings;
-    QVariantList mKeys;
+    QList<Entry> mEntries;
     QString mKeyField;
+    bool mOrderByValue = false;
+    bool mAddNull = false;
+
+    QTimer mReloadTimer;
 };
 
 #endif // FEATURELISTMODEL_H
