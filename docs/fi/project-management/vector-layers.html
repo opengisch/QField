@@ -126,7 +126,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Tarttumisen herkkyys</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">3D koordinaatit</a></li>
 </ul>
 </li>
 </ul>
@@ -359,17 +359,17 @@ by the sensor. Is also available when the crosshair is not snapped to the sensor
 component of the magnetic field and true north, in degrees. Also known as
 magnetic declination. A positive value indicates a clockwise direction from
 true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (liukuluku) : Koordinaatin horisontaalinen tarkkuus  (metreissä).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (liukuluku) : Koordinaatin vertikaalinen tarkkuus (metreissä).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float) : Vertikaalisen nopeuden arvo metri per sekunti.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
 <h4>Yleiset käyttötapaukset<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Insert positioning information as variable:</p>
+<p>Lisää sijaintitieto muuttujaksi:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
@@ -427,9 +427,8 @@ per second.</li>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Permalink to this headline">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<h2>3D koordinaatit<a class="headerlink" href="#d-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>GPS laitteet kykenevät mittaamaan korkeuden nykyiselle 2D sijainnille maan pinnalla. Tämä tieto voidaan tallentaa</p>
 </div>
 </div>
 
