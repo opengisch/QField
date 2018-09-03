@@ -118,7 +118,7 @@ class TestVertexModel: public QObject
       MapSettings *mapSettings = new MapSettings();
       mapSettings->setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
       mModel->setMapSettings( mapSettings );
-      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), "EPSG:21781" );
+      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
       mModel->setGeometry( mPoint2056Geometry, QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
       QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
       QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
