@@ -112,7 +112,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Oletusarvot</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
+<li><a class="reference internal" href="#additional-variables">Lisämuuttujat</a></li>
 <li><a class="reference internal" href="#id1">Yleiset käyttötapaukset</a></li>
 </ul>
 </li>
@@ -223,7 +223,7 @@ page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable and/or not be modifiable.</span></p>
+<p class="caption"><span class="caption-text">Konfigurointi tasoille joita ei tunnisteta ja/tai joita ei voi muokata</span></p>
 </div>
 </div>
 </div>
@@ -346,24 +346,24 @@ page and activate the checkboxes to match your desired behavior.</p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h4>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h4>Lisämuuttujat<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h4>
+<p>QFieldissä on lisäksi eräitä lisämuuttujia käytettävissä nykyisen sijainnin tietoihin liittyen.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
+<li><p class="first"><cite>position_coordinate</cite> (geometria WGS84:ssa!) : Lon, Lat, Korkeus sensorin jakamana. Ovat käytettävissä huolimatta ettei sensoria ole valittu.</p>
+</li>
+<li><p class="first"><cite>position_timestamp</cite> (DateTime) : Sijaintitiedon aikaleima</p>
+</li>
+<li><p class="first"><cite>position_direction</cite> (liukuluku) : Suunta asteissa tosipohjoisesta.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (liukuluku) : Nopeus maan suhteen metriä / sekunti</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float) : Eranto eli magneettinen deklinaatio eli neulaluvunkorjaus tarkoittaa kulmaa maantieteellisen pohjoissuunnan (napapohjoinen) ja magneettisen pohjoissuunnan (neulapohjoinen) välillä. Positiivinen arvo osoittaa myötäpäiväistä suuntaa maantieteellisestä pohjoisesta ja negatiivinen arvo osoittaa suuntaa vastapäivään.</p>
+</li>
 <li><p class="first"><cite>position_horizontal_accuracy</cite> (liukuluku) : Koordinaatin horisontaalinen tarkkuus  (metreissä).</p>
 </li>
 <li><p class="first"><cite>position_vertical_accuracy</cite> (liukuluku) : Koordinaatin vertikaalinen tarkkuus (metreissä).</p>
 </li>
-<li><p class="first"><cite>position_vertical_speed</cite> (float) : Vertikaalisen nopeuden arvo metri per sekunti.</p>
+<li><p class="first"><cite>position_vertical_speed</cite> (liukuluku) : Vertikaalisen nopeuden arvo metri per sekunti.</p>
 </li>
 </ul>
 </div>
