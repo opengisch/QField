@@ -23,6 +23,14 @@ QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
 set -e
 
+# Replace the version number in version.pri with the one from the TRAVIS_TAG which is being built
+if [[ -n ${TRAVIS_TAG} ]];
+then
+  sed -i "s/VERSION_MAJOR = .*/VERSION_MAJOR = $(echo "${TRAVIS_TAG}" | cut -f 2 -d '-' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_MINOR = .*/VERSION_MINOR = $(echo "${TRAVIS_TAG}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_FIX = .*/VERSION_FIX = $(echo "${TRAVIS_TAG}" | cut -f 3 -d '.')/g" ${SOURCE_DIR}/version.pri
+fi
+
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.
 ln -s ${BUILD_DIR}/.gradle /root/.gradle
