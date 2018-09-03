@@ -23,6 +23,7 @@ QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
 set -e
 
+# Replace the version number in version.pri with the one from the TRAVIS_TAG which is being built
 if [[ -n ${TRAVIS_TAG} ]];
 then
   sed -i "s/VERSION_MAJOR = .*/VERSION_MAJOR = $(echo "${TRAVIS_TAG}" | cut -f 2 -d '-' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
