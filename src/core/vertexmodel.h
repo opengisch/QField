@@ -67,13 +67,6 @@ class VertexModel : public QStandardItemModel
     };
     Q_ENUM( EditingMode )
 
-
-    struct Centroid
-    {
-      QgsPoint point;
-      int index;
-    };
-
     explicit VertexModel( QObject *parent = nullptr );
     ~VertexModel() override = default;
 
@@ -169,6 +162,11 @@ class VertexModel : public QStandardItemModel
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
 
+    struct Centroid
+    {
+      QgsPoint point;
+      int index;
+    };
     Centroid segmentCentroid( int leftIndex, int rightIndex,
                               bool isExtending = false );
 
