@@ -1,131 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv" version="2.1">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>Versió de QField: %1</translation>
+        <translation>QField Versija: %1</translation>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
-        <translation>Opcions de carpeta de QField: %1</translation>
+        <translation>QField Iestatījumu mape: %1</translation>
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
-        <translation>Carpeta d&apos;elements compartits de QField: %1</translation>
+        <translation>QField šārēto objektu mape: %1</translation>
     </message>
     <message>
         <source>Developed by</source>
-        <translation>Desenvolupat per</translation>
+        <translation>Izstrādāts</translation>
     </message>
     <message>
         <source>Support the development</source>
-        <translation>Donar suport al desenvolupament</translation>
+        <translation>Atbalsti izstrādi</translation>
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Comprar l&apos;edició Karma </translation>
+        <translation>Nopērc Karma versiju</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
-        <translation>Nom de la capa</translation>
+        <translation>Slāņa nosaukums</translation>
     </message>
     <message>
         <source>Data Source</source>
-        <translation>Font de la dada</translation>
+        <translation>Datu avots</translation>
     </message>
     <message>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>No s&apos;han pogut carregar les següents capes.
-Si us plau revisa-les i reconfigura el projecte de QGIS.
-Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la documentació de QGIS.</translation>
+        <translation>Sekojošus slāņus nebija iespējams ielādēt.
+Lūdzu pārskati QGIS projektu failu un datu avotus.
+Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</translation>
     </message>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Impossible carregar algunes capes</translation>
+        <translation>Dažus slāņus nebija iespējams ielādēt</translation>
     </message>
 </context>
 <context>
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Tema del Mapa</translation>
+        <translation>Kartes tēma</translation>
     </message>
 </context>
 <context>
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>Labi</translation>
     </message>
     <message>
         <source>(no date)</source>
-        <translation>(sense data)</translation>
+        <translation>(nav datuma)</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Afegir objecte espacial a &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Pievienot objektu &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Editar objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Rediģēt objektu &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Veure objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Apskatīt objektu &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <source>Delete feature</source>
-        <translation>Eliminar objecte espacial</translation>
-    </message>
-    <message>
-        <source>Should this feature really be deleted?</source>
-        <translation>Realment ha de ser eliminat aquest objecte espacial??</translation>
-    </message>
-    <message>
         <source>Changes saved</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete feature</source>
+        <translation>Dzēst objektu</translation>
+    </message>
+    <message>
+        <source>Should this feature really be deleted?</source>
+        <translation>Vai tiešām dzēst šo objektu?</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation>Alçada</translation>
+        <translation>Augstums</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -133,172 +131,168 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Precisió</translation>
+        <translation>Precizitāte</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Coordenades</translation>
+        <translation>Koordinātes</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Velocitat</translation>
+        <translation>Ātrums</translation>
     </message>
 </context>
 <context>
     <name>QFieldSettings</name>
     <message>
         <source>Layout</source>
-        <translation>Presentació</translation>
+        <translation>Izkārtojums</translation>
     </message>
     <message>
         <source>Global Variables</source>
-        <translation>Variables Globals</translation>
+        <translation>Globālie mainīgie</translation>
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Mostrar barra d&apos;escala</translation>
+        <translation>Rādīt mērogjoslu</translation>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Mostrar formulari d&apos;atributs a pantalla completa</translation>
+        <translation>Rādīt atribūtu tabulu pilnekrāna režijmā </translation>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Redibuixa mapa cada 250 ms mentre reprodueix</translation>
+        <translation>Pārzīmēt karti katras 250 ms renderēšanas laikā</translation>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Mostrar informació numèrica mentre digitalitza</translation>
-    </message>
-    <message>
-        <source>QField Settings</source>
-        <translation>Ajusts de Qfield</translation>
+        <translation>Digitizējot rādīt skaitlisko informāciju</translation>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField Settings</source>
+        <translation>QField iestatījumi</translation>
     </message>
 </context>
 <context>
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
-        <translation>[Nou nom de variable]</translation>
+        <translation>[Jauns mainīgā nosaukums]</translation>
     </message>
     <message>
         <source>[New variable value]</source>
-        <translation>[Nou valor de variable]</translation>
+        <translation>[Jauna mainīgā vērtība]</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>La capa %1 es només de lectura.</translation>
+        <translation>Slānis %1 ir tikai lasāms.</translation>
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation>Activant servei de posicionament...</translation>
+        <translation>Ieslēdz pozicionēšanas servisu...</translation>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation>A l&apos;espera la localització...</translation>
+        <translation>Gaida atrašanās vietu...</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation>Posicionament activat</translation>
+        <translation>Pozicionēšana ieslēgta</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation>Posicionament apagat</translation>
+        <translation>Pozicionēšana izslēgta</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Menú principal</translation>
+        <translation>Galvenā izvēlne</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation>Režijms</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation>Pārlūkot</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalitzar</translation>
+        <translation>Digitizēt</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Obrir projecte</translation>
+        <translation>Atvērt projektu</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Opccions</translation>
+        <translation>Iestatījumi</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>A sobre</translation>
+        <translation>Par</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation>Log</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation type="vanished">Sortir</translation>
-    </message>
-    <message>
-        <source>GPS Options</source>
-        <translation>Opcions del GPS</translation>
-    </message>
-    <message>
-        <source>Enable GPS</source>
-        <translation>Activar el GPS</translation>
-    </message>
-    <message>
-        <source>Center current location</source>
-        <translation>Centrar localització actual</translation>
-    </message>
-    <message>
-        <source>Show position information</source>
-        <translation>Mostrar informació de la posició</translation>
-    </message>
-    <message>
-        <source>Loading Project</source>
-        <translation>Carregant Projecte</translation>
-    </message>
-    <message>
-        <source>Loading Project: %1</source>
-        <translation>Carregant Projecte: %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Obrir projecte</translation>
-    </message>
-    <message>
-        <source>QGIS projects (*.qgs)</source>
-        <translation>Projecte QGIS (*.qgs)</translation>
-    </message>
-    <message>
-        <source>All files (*)</source>
-        <translation>Tots els fitxers (*)</translation>
+        <translation>Žurnāls</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GPS Options</source>
+        <translation>GPS iestatījumi</translation>
+    </message>
+    <message>
+        <source>Enable GPS</source>
+        <translation>Ieslēgt GPS</translation>
+    </message>
+    <message>
+        <source>Center current location</source>
+        <translation>Centrēt pašreizējo atrašanos</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Rādīt vietas informāciju</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading Project</source>
+        <translation>Projekta ielāde</translation>
+    </message>
+    <message>
+        <source>Loading Project: %1</source>
+        <translation>Ielādē projektu: %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Atvērt projektu</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs)</source>
+        <translation>QGIS projekts (*.qgs)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>Visi faili (*)</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

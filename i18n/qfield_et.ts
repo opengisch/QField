@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<TS version="2.1" language="et">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>Versió de QField: %1</translation>
+        <translation>QField versioon: %1</translation>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
-        <translation>Opcions de carpeta de QField: %1</translation>
+        <translation>QField seadete kaust: %1</translation>
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
-        <translation>Carpeta d&apos;elements compartits de QField: %1</translation>
+        <translation>QField jagatud asjade kaust: %1</translation>
     </message>
     <message>
         <source>Developed by</source>
-        <translation>Desenvolupat per</translation>
+        <translation>Arendaja</translation>
     </message>
     <message>
         <source>Support the development</source>
-        <translation>Donar suport al desenvolupament</translation>
+        <translation>Toeta arendust</translation>
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Comprar l&apos;edició Karma </translation>
+        <translation>Osta Karma väljaanne</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
-        <translation>Nom de la capa</translation>
+        <translation>Kihi nimi</translation>
     </message>
     <message>
         <source>Data Source</source>
-        <translation>Font de la dada</translation>
+        <translation>Andmeallikas</translation>
     </message>
     <message>
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>No s&apos;han pogut carregar les següents capes.
-Si us plau revisa-les i reconfigura el projecte de QGIS.
-Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la documentació de QGIS.</translation>
+        <translation>Järgmisi kihte ei saanud laadida.
+Palun vaata need üle ja seadista QGIS projekt uuesti.
+Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhendis.</translation>
     </message>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Impossible carregar algunes capes</translation>
+        <translation>Osasid kihte ei saa laadida</translation>
     </message>
 </context>
 <context>
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Tema del Mapa</translation>
+        <translation>Kaardi teema</translation>
     </message>
 </context>
 <context>
@@ -66,33 +66,33 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>(no date)</source>
-        <translation>(sense data)</translation>
+        <translation>(ilma kuupäevata)</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Afegir objecte espacial a &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Lisa nähtus &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Editar objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Muuda nähtust &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Veure objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation>Vaata nähtust &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Delete feature</source>
-        <translation>Eliminar objecte espacial</translation>
+        <translation>Kustuta nähtus</translation>
     </message>
     <message>
         <source>Should this feature really be deleted?</source>
-        <translation>Realment ha de ser eliminat aquest objecte espacial??</translation>
+        <translation>Kindel, et tahad selle nähtuse kustutada?</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -125,54 +125,54 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation>Alçada</translation>
+        <translation>Kõrgus</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Määramata</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Precisió</translation>
+        <translation>Täpsus</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Coordenades</translation>
+        <translation>Koordinaadid</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Velocitat</translation>
+        <translation>Kiirus</translation>
     </message>
 </context>
 <context>
     <name>QFieldSettings</name>
     <message>
         <source>Layout</source>
-        <translation>Presentació</translation>
+        <translation>Asetus</translation>
     </message>
     <message>
         <source>Global Variables</source>
-        <translation>Variables Globals</translation>
+        <translation>Üldmuutujad</translation>
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Mostrar barra d&apos;escala</translation>
+        <translation>Näita mõõtkava</translation>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Mostrar formulari d&apos;atributs a pantalla completa</translation>
+        <translation>Näita atribuudivormi täisaknas</translation>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Redibuixa mapa cada 250 ms mentre reprodueix</translation>
+        <translation>Joonista kaart üle iga 250 ms järel renderdamisel</translation>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Mostrar informació numèrica mentre digitalitza</translation>
+        <translation>Näita digimisel numbrilist infot</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>Ajusts de Qfield</translation>
+        <translation>QField seaded</translation>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
@@ -183,106 +183,106 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
-        <translation>[Nou nom de variable]</translation>
+        <translation>[Uue muutuja nimi]</translation>
     </message>
     <message>
         <source>[New variable value]</source>
-        <translation>[Nou valor de variable]</translation>
+        <translation>[Uue muutuja väärtus]</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>La capa %1 es només de lectura.</translation>
+        <translation>Kiht %1 on ainult loetav.</translation>
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation>Activant servei de posicionament...</translation>
+        <translation>Aktiveerin asukohateenust...</translation>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation>A l&apos;espera la localització...</translation>
+        <translation>Ootan asukoha määramist...</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation>Posicionament activat</translation>
+        <translation>Asukohamäärang aktiveeritud</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation>Posicionament apagat</translation>
+        <translation>Asukohamäärang välja lülitatud</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Menú principal</translation>
+        <translation>Peamenüü</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation>Režiim</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation>Sirvi</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalitzar</translation>
+        <translation>Digiteeri</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Obrir projecte</translation>
+        <translation>Ava projekt</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Opccions</translation>
+        <translation>Seaded</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>A sobre</translation>
+        <translation>Lisainfo</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation>Log</translation>
+        <translation>Logi</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="vanished">Sortir</translation>
+        <translation type="vanished">Lõpeta</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opcions del GPS</translation>
+        <translation>GPS valikud</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Activar el GPS</translation>
+        <translation>Luba GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
-        <translation>Centrar localització actual</translation>
+        <translation>Tsentreeri praegune asukoht</translation>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar informació de la posició</translation>
+        <translation>Näita asukohainfot</translation>
     </message>
     <message>
         <source>Loading Project</source>
-        <translation>Carregant Projecte</translation>
+        <translation>Laen projekti</translation>
     </message>
     <message>
         <source>Loading Project: %1</source>
-        <translation>Carregant Projecte: %1</translation>
+        <translation>Laen projekti: %1</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation>Obrir projecte</translation>
+        <translation>Ava projekt</translation>
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>Projecte QGIS (*.qgs)</translation>
+        <translation>QGIS projektid (*.qgs)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Tots els fitxers (*)</translation>
+        <translation>Kõik failid (*)</translation>
     </message>
     <message>
         <source>Print to PDF</source>

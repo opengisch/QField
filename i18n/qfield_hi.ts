@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="hi">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Qfield संस्करण: %1</translation>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>QField सेटिंग्स फ़ोल्डर: %1</translation>
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>QField साझा वस्तु फ़ोल्डर:% 1</translation>
     </message>
     <message>
         <source>Developed by</source>
-        <translation type="unfinished"></translation>
+        <translation>द्वारा विकसित</translation>
     </message>
     <message>
         <source>Support the development</source>
-        <translation type="unfinished"></translation>
+        <translation>विकास का समर्थन करें</translation>
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation type="unfinished"></translation>
+        <translation>कर्म संस्करण खरीदें</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
-        <source>Layer Name</source>
-        <translation type="unfinished"></translation>
+        <source>Data Source</source>
+        <translation>डेटा स्रोत</translation>
     </message>
     <message>
-        <source>Data Source</source>
+        <source>Layer Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -53,18 +53,18 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>मानचित्र थीम</translation>
     </message>
 </context>
 <context>
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ठीक</translation>
     </message>
     <message>
         <source>(no date)</source>
-        <translation type="unfinished"></translation>
+        <translation>(कोई तारीख नहीं)</translation>
     </message>
 </context>
 <context>
@@ -85,6 +85,10 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Delete feature</source>
+        <translation>आकृति हटाना</translation>
+    </message>
+    <message>
         <source>Changes saved</source>
         <translation type="unfinished"></translation>
     </message>
@@ -94,10 +98,6 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete feature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -123,37 +123,41 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"></translation>
+        <translation>शीर्ष-लंब</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished"></translation>
+        <translation>लागू नहीं</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>परिशुद्धता</translation>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>निर्देशांक</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>वेग</translation>
     </message>
 </context>
 <context>
     <name>QFieldSettings</name>
     <message>
-        <source>Layout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Global Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>सार्वत्रिक चर</translation>
     </message>
     <message>
         <source>Show scalebar</source>
+        <translation>स्केल बार दिखाएं</translation>
+    </message>
+    <message>
+        <source>QField Settings</source>
+        <translation>QField सेटिंग्स</translation>
+    </message>
+    <message>
+        <source>Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -172,10 +176,6 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <source>Use native camera function (unstable on recent Android versions)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>QField Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>VariableEditor</name>
@@ -191,15 +191,43 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>qgismobileapp</name>
     <message>
+        <source>Waiting for location...</source>
+        <translation>स्थान की प्रतीक्षा कर रहा है ...</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>बारे में</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="vanished">बंद करें </translation>
+    </message>
+    <message>
+        <source>GPS Options</source>
+        <translation>GPS विकल्प</translation>
+    </message>
+    <message>
+        <source>Enable GPS</source>
+        <translation>GPS सक्षम करें</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>परियोजना खोलें</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs)</source>
+        <translation>QGIS परियोजनाएं (*.qgs)</translation>
+    </message>
+    <message>
+        <source>All files (*)</source>
+        <translation>सब फ़ाइलें (*)</translation>
+    </message>
+    <message>
         <source>The layer %1 is read only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Waiting for location...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -235,23 +263,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GPS Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable GPS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -276,18 +292,6 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Loading Project: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QGIS projects (*.qgs)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
