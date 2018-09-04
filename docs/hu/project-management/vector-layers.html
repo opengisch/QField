@@ -347,26 +347,27 @@
 <h4>További változók<a class="headerlink" href="#additional-variables" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
 <p>A QField-ben további változók beállítására van lehetőség az aktuális pozíciót illetően.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_coordinate</cite> (Geometry in WGS84!) : Hosszúság, szélesség, magasság ahogy a szenzorból érkezik. Akkor is elérhető, ha a szálkereszt nem mutat a szenzorra.</p>
+</li>
+<li><p class="first"><cite>position_timestamp</cite> (DateTime) : A pozíció adat időbélyege</p>
+</li>
+<li><p class="first"><cite>position_direction</cite> (float) : Az irány fokokban az igazi északtól.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (float) : Földfeletti sebesség méter/szekundum.</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float) : A mágneses tér vízszintes komponense és a valódi észak közötti szög fokokban. Mint mágneses deklináció is ismert. Egy pozitív érték óramutató járása szerinti irány a valódi északtól, a negatív érték óramutató járásával ellentétes irányt jelent.</p>
+</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (float) : A koordináta vízszintes pontossága (meterben).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (float) : A koordináta függőleges  pontossága (imeterben).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float) : A függőleges sebesség értéke méter/szekundumban.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
 <h4>Általános felhasználási esetek<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
-<p>Insert positioning information as variable:</p>
+<p>Pozíció adatok beillesztése változóként:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
