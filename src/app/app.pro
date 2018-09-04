@@ -37,6 +37,8 @@ RESOURCES += \
     ../qml/qml.qrc \
     ../../i18n/translations.qrc
 
+QML_ROOT_PATH = $$PWD/../qml
+
 android {
   message( "* Using settings for Android $$ANDROID_TARGET_ARCH$$" )
   message( "* Using OSGEO4A for Android at $${OSGEO4A_STAGE_DIR}" )
