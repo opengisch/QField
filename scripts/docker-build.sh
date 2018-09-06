@@ -26,9 +26,13 @@ set -e
 # Replace the version number in version.pri with the one from the TRAVIS_TAG which is being built
 if [[ -n ${TRAVIS_TAG} ]];
 then
+  echo "Building release version ${TRAVIS_TAG}"
   sed -i "s/VERSION_MAJOR = .*/VERSION_MAJOR = $(echo "${TRAVIS_TAG}" | cut -f 2 -d '-' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
   sed -i "s/VERSION_MINOR = .*/VERSION_MINOR = $(echo "${TRAVIS_TAG}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
   sed -i "s/VERSION_FIX = .*/VERSION_FIX = $(echo "${TRAVIS_TAG}" | cut -f 3 -d '.')/g" ${SOURCE_DIR}/version.pri
+  grep 'VERSION_MAJOR' ${SOURCE_DIR}/version.pri
+  grep 'VERSION_MINOR' ${SOURCE_DIR}/version.pri
+  grep 'VERSION_FIX' ${SOURCE_DIR}/version.pri
 fi
 
 mkdir -p ${BUILD_DIR}/.gradle
