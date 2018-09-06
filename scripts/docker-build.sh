@@ -27,9 +27,9 @@ set -e
 if [[ -n ${VERSION} ]];
 then
   echo "Building release version ${VERSION}"
-  sed -i "s/VERSION_MAJOR = .*/VERSION_MAJOR = $(echo "${VERSION}" | cut -f 2 -d '-' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_MINOR = .*/VERSION_MINOR = $(echo "${VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_FIX = .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${VERSION}" | cut -f 2 -d '-' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.')/g" ${SOURCE_DIR}/version.pri
   grep 'VERSION_MAJOR' ${SOURCE_DIR}/version.pri
   grep 'VERSION_MINOR' ${SOURCE_DIR}/version.pri
   grep 'VERSION_FIX' ${SOURCE_DIR}/version.pri
