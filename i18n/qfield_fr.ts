@@ -290,11 +290,11 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifications enregistrées</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifications ignorées</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
