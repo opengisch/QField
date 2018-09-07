@@ -298,7 +298,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Appuyez à nouveau pour fermer le projet et l'application</translation>
+        <translation>Appuyez à nouveau pour fermer le projet et l&apos;application</translation>
     </message>
 </context>
 </TS>
