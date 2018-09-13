@@ -11,7 +11,7 @@ their territory.
 Project
 -------
 
-To facilitate the technician’s field work (usually done with a map, a  notebook
+To facilitate the technician’s field work (usually done with a map, a notebook
 and a camera), a QField project was created and made available on a Tablet.
 Cadastral and river layers were used as basemap.
 
@@ -45,7 +45,7 @@ Point table
 Result
 ------
 
-In less than 3 days, the techinician surveyed successfully all the 10’894
+In less than 3 days, the technician surveyed successfully all the 10’894
 meters of water courses. Back at the office, it took only 2 hours to treat
 the data and get the final result.
 
