@@ -87,8 +87,8 @@ cp config.pri.default config.pri
 
 Building on a Mac requires some adjustments:
 
-1. In Qt Creator > Projects > Run >
-* Check "Use debug version of frameworks"
+1. In `Qt Creator` > `Projects` > `Run` >
+* Check `Use debug version of frameworks`
 * In Run Environment, add QGIS frameworks by editing following variables (Homebrew path might require adjustments):
   * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks`
   * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
