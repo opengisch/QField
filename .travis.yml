@@ -21,9 +21,8 @@ before_install:
 script:
   - export QFIELD_SDK_VERSION=20181006
   - echo "travis_fold:start:tx-pull"
-  - tx pull -a
-  - echo "travis_fold:end:tx-pull"
-  - echo "travis_fold:start:docker-pull"
+  - ./scripts/ci/tx_pull.sh
+  - ./scripts/ci/docker_pull.sh
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
   - docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e "ARCH=${ARCH}" -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" -e "VERSION=${TRAVIS_TAG}" opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
