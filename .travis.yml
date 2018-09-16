@@ -44,4 +44,4 @@ jobs:
       if: branch = master
       install:
         pip install -r requirements.txt
-      script: scripts/ci/update-translations.sh
+      script: ./scripts/ci/update-translations.sh
