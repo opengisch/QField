@@ -51,7 +51,7 @@ jobs:
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
 
     - stage: deploy
-      if: branch = master
+      if: type = push AND branch = master
       install:
         pip install -r requirements.txt
       script: ./scripts/ci/update-translations.sh
