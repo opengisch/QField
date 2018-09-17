@@ -2,7 +2,13 @@ TEMPLATE = subdirs
 CONFIG += c++11
 CONFIG += qt
 
-TRANSLATIONS = i18n/*.ts
+TRANSLATIONS = $$PWD/i18n/*.ts
+
+QMAKE_EXTRA_COMPILERS += lrelease
+lrelease.input         = TRANSLATIONS
+lrelease.output        = ${QMAKE_FILE_BASE}.qm
+lrelease.commands      = $$[QT_INSTALL_BINS]/lrelease ${QMAKE_FILE_IN} -qm ${QMAKE_FILE_BASE}.qm
+lrelease.CONFIG       += no_link target_predeps
 
 SUBDIRS += 3rdparty qgsquick core app
 
