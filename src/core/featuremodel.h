@@ -21,6 +21,8 @@
 #include <QAbstractListModel>
 #include <QGeoPositionInfoSource>
 #include <memory>
+#include <qgsfeature.h>
+
 #include "geometry.h"
 
 class VertexModel;
