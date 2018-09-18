@@ -161,7 +161,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
         if(parentDocumentId.endsWith(getContext().getPackageName()+"/files")){
 
             //TODO Fix with not only external root
-            // Which is the better to be used?
+            // Which one is the best to use?
             // - getDataDirectory()
             // - getExternalstorageDirectory()
             // - getExternalstoragePublicDirectory()
