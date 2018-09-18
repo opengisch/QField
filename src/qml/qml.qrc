@@ -35,6 +35,6 @@
         <file>GeometryEditingToolbar.qml</file>
         <file>VertexRubberband.qml</file>
         <file>Switch.qml</file>
-        <file>VisibiltyFadingRow.qml</file>
+        <file>VisibilityFadingRow.qml</file>
     </qresource>
 </RCC>

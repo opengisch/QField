@@ -3,7 +3,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import "js/style.js" as Style
 
-VisibiltyFadingRow {
+VisibilityFadingRow {
   id: geometryEditingToolbar
 
   property FeatureModel featureModel
