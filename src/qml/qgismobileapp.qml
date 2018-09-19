@@ -477,7 +477,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    stateVisible: ( stateMachine.state === "digitize"
+    visible: ( stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
                    && !geometryEditingToolbar.visible )
@@ -729,7 +729,7 @@ ApplicationWindow {
 
     onEditGeometry: {
       console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
-      console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
+      console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
       vertexModel.setGeometry( featureForm.selection.selectedFeature.geometry,
                                featureForm.selection.selectedLayer.crs )
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
@@ -737,7 +737,7 @@ ApplicationWindow {
 
       featureForm.state = "Hidden"
       console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
-      console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
+      console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
