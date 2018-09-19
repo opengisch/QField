@@ -728,12 +728,16 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
+      console.warn("GeomToolBar visible:", geometryEditingToolbar.stateVisible)
+      console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
       vertexModel.setGeometry( featureForm.selection.selectedFeature.geometry,
                                featureForm.selection.selectedLayer.crs )
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
       featureForm.state = "Hidden"
+      console.warn("GeomToolBar visible:", geometryEditingToolbar.stateVisible)
+      console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
