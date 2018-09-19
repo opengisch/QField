@@ -736,6 +736,7 @@ ApplicationWindow {
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
       featureForm.state = "Hidden"
+      console.warn("Vertex model count", vertexModel.vertexCount)
       console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
       console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
     }
