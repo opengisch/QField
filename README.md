@@ -90,8 +90,12 @@ Building on a Mac requires some adjustments:
 1. In `Qt Creator` > `Projects` > `Run` >
 * Check `Use debug version of frameworks`
 * In Run Environment, add QGIS frameworks by editing following variables (Homebrew path might require adjustments):
-  * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks`
-  * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
+  * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks`
+  * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
 
 2. If you get the error `invalid version number in '-mmacosx-version-min='`, you might need to modify some Qt file. In `/usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`, hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10`
-Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`
+Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`
+
+3. If you have any issue with qmake not finding the proper SDK, in `/usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`, replace `$$QMAKE_MAC_SDK_PATH` (3 occurences) by `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk`
+
+4. Instead of step 1, you can add a custom deployment step in Qt Creator (project config -> run). Use the scripts at `./scripts/mac_deploy.sh` and give `"${QGIS_INSTALL_PATH}"` as argument.
