@@ -480,7 +480,7 @@ ApplicationWindow {
     stateVisible: ( stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible )
+                   && !geometryEditingToolbar.visible )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -542,7 +542,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+    visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
   }
 
 
@@ -728,7 +728,7 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
-      console.warn("GeomToolBar visible:", geometryEditingToolbar.stateVisible)
+      console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
       console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
       vertexModel.setGeometry( featureForm.selection.selectedFeature.geometry,
                                featureForm.selection.selectedLayer.crs )
@@ -736,7 +736,7 @@ ApplicationWindow {
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
       featureForm.state = "Hidden"
-      console.warn("GeomToolBar visible:", geometryEditingToolbar.stateVisible)
+      console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
       console.warn("Digitizing toolbar visible:", digitizingToolbar.stateVisible)
     }
 
