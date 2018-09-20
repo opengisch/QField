@@ -84,7 +84,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
     @Override
     public boolean onCreate() {
-        Log.v(TAG, "onCreate");
+        //Log.v(TAG, "onCreate");
 
         mBaseDir = getContext().getFilesDir();
         return true;
@@ -92,7 +92,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
     @Override
     public Cursor queryRoots(String[] projection) throws FileNotFoundException {
-        Log.v(TAG, "queryRoots");
+        //Log.v(TAG, "queryRoots");
 
         // Create a cursor with either the requested fields, or the default projection.  This
         // cursor is returned to the Android system picker UI and used to display all roots from
@@ -141,7 +141,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryDocument(String documentId, String[] projection)
         throws FileNotFoundException {
-        Log.v(TAG, "queryDocument");
+        //Log.v(TAG, "queryDocument");
 
         // Create a cursor with the requested projection, or the default projection.
         final MatrixCursor result = new MatrixCursor(resolveDocumentProjection(projection));
@@ -152,7 +152,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryChildDocuments(String parentDocumentId, String[] projection,
                                       String sortOrder) throws FileNotFoundException {
-        Log.v(TAG, "queryDocument");
+        //Log.v(TAG, "queryDocument " + parentDocumentId);
 
         parentDirectories.clear();
         
