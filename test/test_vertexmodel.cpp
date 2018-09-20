@@ -48,7 +48,7 @@ class TestVertexModel: public QObject
     void canRemoveVertexTest()
     {
       // line
-      mModel->setGeometry( mLineGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setGeometry( mLineGeometry );
       QVERIFY( !mModel->canRemoveVertex() );
       mModel->setEditingMode( VertexModel::EditVertex );
       QVERIFY( mModel->canRemoveVertex() );
@@ -64,7 +64,7 @@ class TestVertexModel: public QObject
       QVERIFY( !mModel->canRemoveVertex() );
 
       // polygon
-      mModel->setGeometry( mPolygonGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setGeometry( mPolygonGeometry );
       QCOMPARE( mModel->editingMode(), VertexModel::NoEditing );
       QVERIFY( !mModel->canRemoveVertex() );
       mModel->setCurrentVertex( 0 );
@@ -75,12 +75,12 @@ class TestVertexModel: public QObject
 
     void addVertexTest()
     {
-      mModel->setGeometry( mPolygonGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setGeometry( mPolygonGeometry );
       QCOMPARE( mModel->vertexCount(), 4 );
       mModel->setEditingMode( VertexModel::AddVertex );
       QCOMPARE( mModel->vertexCount(), 5 );
 
-      mModel->setGeometry( mLineGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setGeometry( mLineGeometry );
       mModel->setEditingMode( VertexModel::AddVertex );
       QCOMPARE( mModel->mCurrentIndex, 1 );
       QVERIFY( mModel->canPreviousVertex() );
@@ -90,7 +90,7 @@ class TestVertexModel: public QObject
       mModel->next();
       QCOMPARE( mModel->mCurrentIndex, 1 );
 
-      mModel->setGeometry( mLineGeometry, QgsCoordinateReferenceSystem() );
+      mModel->setGeometry( mLineGeometry );
       mModel->setEditingMode( VertexModel::AddVertex );
       QCOMPARE( mModel->mCurrentIndex, 1 );
       QCOMPARE( mModel->currentPoint(), QgsPoint( 1, 2 ) );
@@ -119,7 +119,8 @@ class TestVertexModel: public QObject
       mapSettings->setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
       mModel->setMapSettings( mapSettings );
       QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
-      mModel->setGeometry( mPoint2056Geometry, QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
+      mModel->setGeometry( mPoint2056Geometry );
+      mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
       QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
       QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
 
