@@ -51,6 +51,16 @@ class VertexModel : public QStandardItemModel
     //! determines if one can go to next vertex
     Q_PROPERTY( bool canNextVertex READ canNextVertex NOTIFY canNextVertexChanged )
 
+    /**
+     * The geometry in layer coordinates
+     */
+    Q_PROPERTY( QgsGeometry geometry READ geometry WRITE setGeometry NOTIFY geometryChanged )
+
+    /**
+     * The coordinate reference system in which the geometry is
+     */
+    Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
+
   public:
     enum ColumnRole
     {
@@ -75,9 +85,25 @@ class VertexModel : public QStandardItemModel
     //! \copydoc mapSettings
     MapSettings *mapSettings();
 
-    Q_INVOKABLE void setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
+    /**
+     * The coorinate reference system in which the geometry is
+     */
+    void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    Q_INVOKABLE QgsGeometry geometry() const;
+    /**
+     * The coordinate reference system in which the geometry is
+     */
+    QgsCoordinateReferenceSystem crs() const;
+
+    /**
+     * The geometry in layer coordinates
+     */
+    void setGeometry( const QgsGeometry &geometry );
+
+    /**
+     * The geometry in layer coordinates
+     */
+    QgsGeometry geometry() const;
 
     Q_INVOKABLE void clear();
 
@@ -142,14 +168,25 @@ class VertexModel : public QStandardItemModel
     //! \copydoc canNextVertex
     void canNextVertexChanged();
 
+    /**
+     * The coordinate reference system in which the geometry is
+     */
+    void crsChanged();
+
+    /**
+     * The geometry in layer coordinates
+     */
+    void geometryChanged();
 
   private:
+    void refreshGeometry();
     void setDirty( bool dirty );
     void updateCanRemoveVertex();
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
     //! copy of the initial geometry, in destination (layer) CRS
-    QgsGeometry mOriginalGeoemtry;
+    QgsGeometry mOriginalGeometry;
+    QgsCoordinateReferenceSystem mCrs;
 
     //! CRS of the geometry, will be used to transform to map canvas coordinates
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();

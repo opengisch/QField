@@ -49,22 +49,45 @@ MapSettings *VertexModel::mapSettings()
   return mMapSettings;
 }
 
-void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
+void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
+  if ( crs == mCrs )
+    return;
+
+  mCrs = crs;
+  refreshGeometry();
+  emit crsChanged();
+}
+
+QgsCoordinateReferenceSystem VertexModel::crs() const
+{
+  return mCrs;
+}
+
+void VertexModel::setGeometry( const QgsGeometry &geometry )
+{
+  qDebug() << "Set geometry " << geometry.asWkt();
   clear();
-  mOriginalGeoemtry = geometry;
+  mOriginalGeometry = geometry;
   mCurrentIndex = -1;
   mGeometryType = geometry.type();
-  QgsGeometry geom = QgsGeometry( geometry );
+
+  refreshGeometry();
+  emit geometryChanged();
+}
+
+void VertexModel::refreshGeometry()
+{
+  QgsGeometry geom = mOriginalGeometry;
 
   if ( mMapSettings )
   {
-    mTransform = QgsCoordinateTransform( crs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
+    mTransform = QgsCoordinateTransform( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
     if ( mTransform.isValid() )
       geom.transform( mTransform );
   }
 
-  mIsMulti = QgsWkbTypes::isMultiType( geometry.wkbType() );
+  mIsMulti = QgsWkbTypes::isMultiType( mOriginalGeometry.wkbType() );
 
   setColumnCount( 1 );
   setRowCount( 0 );
@@ -82,7 +105,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry, const QgsCoordinateR
       break;
 
     // skip first vertex on polygon, as it's duplicate of the last one
-    if ( geometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
+    if ( mOriginalGeometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
       continue;
 
     QStandardItem *item = new QStandardItem();
@@ -108,7 +131,7 @@ QgsGeometry VertexModel::geometry() const
   if ( mIsMulti )
   {
     // TODO: handle multi, for now return original to avoid any data destruction
-    return mOriginalGeoemtry;
+    return mOriginalGeometry;
   }
 
   QVector<QgsPoint> vertices = flatVertices();
