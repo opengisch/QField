@@ -730,8 +730,8 @@ ApplicationWindow {
     onEditGeometry: {
       console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
       console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
-      vertexModel.setGeometry( featureForm.selection.selectedFeature.geometry,
-                               featureForm.selection.selectedLayer.crs )
+      vertexModel.geometry = featureForm.selection.selectedGeometry
+      vertexModel.crs = featureForm.selection.selectedLayer.crs
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 
