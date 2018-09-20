@@ -47,12 +47,12 @@ void FeatureListModelSelection::setSelection( int selection )
   }
 }
 
-MultiFeatureListModel* FeatureListModelSelection::model() const
+MultiFeatureListModel *FeatureListModelSelection::model() const
 {
   return mModel;
 }
 
-void FeatureListModelSelection::setModel( MultiFeatureListModel* model )
+void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
 {
   if ( mModel != model )
   {
@@ -63,11 +63,11 @@ void FeatureListModelSelection::setModel( MultiFeatureListModel* model )
   }
 }
 
-QgsVectorLayer*FeatureListModelSelection::selectedLayer() const
+QgsVectorLayer *FeatureListModelSelection::selectedLayer() const
 {
   if ( mSelection->selectedIndexes().count() )
   {
-    return mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer*>();
+    return mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
   }
   return nullptr;
 }
@@ -76,7 +76,13 @@ const QgsFeature FeatureListModelSelection::selectedFeature() const
 {
   if ( mSelection->selectedIndexes().count() )
   {
-    return mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+    QgsFeature feature = mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+    return feature;
   }
   return QgsFeature();
+}
+
+QgsGeometry FeatureListModelSelection::selectedGeometry() const
+{
+  return selectedFeature().geometry();
 }
