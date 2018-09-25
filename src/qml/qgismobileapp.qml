@@ -477,10 +477,10 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize"
+    stateVisible: ( stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.visible )
+                   && !geometryEditingToolbar.stateVisible )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -542,7 +542,7 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
   }
 
 
@@ -728,8 +728,6 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
-      console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
-      console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
       vertexModel.geometry = featureForm.selection.selectedGeometry
       vertexModel.crs = featureForm.selection.selectedLayer.crs
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
@@ -744,10 +742,6 @@ ApplicationWindow {
       {
         featureForm.state = "Hidden"
       }
-
-      console.warn("Vertex model count", vertexModel.vertexCount)
-      console.warn("GeomToolBar visible:", geometryEditingToolbar.visible)
-      console.warn("Digitizing toolbar visible:", digitizingToolbar.visible)
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
