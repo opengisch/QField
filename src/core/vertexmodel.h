@@ -42,6 +42,8 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
+    //! determines if the model allows editing the geometry
+    Q_PROPERTY( bool editingAllowed READ editingAllowed )
     //! determines if one can remove current vertex
     Q_PROPERTY( bool canRemoveVertex READ canRemoveVertex NOTIFY canRemoveVertexChanged )
     //! determines if one can add vertex
@@ -84,6 +86,9 @@ class VertexModel : public QStandardItemModel
     void setMapSettings( MapSettings *mapSettings );
     //! \copydoc mapSettings
     MapSettings *mapSettings();
+
+    //! \copydoc editingAllowed
+    bool editingAllowed() const;
 
     /**
      * The coorinate reference system in which the geometry is

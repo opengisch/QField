@@ -49,6 +49,13 @@ MapSettings *VertexModel::mapSettings()
   return mMapSettings;
 }
 
+bool VertexModel::editingAllowed() const
+{
+  // at the moment we do not support editing on multi geometry
+  // (not necessarly geometry layer TBC)
+  return !mIsMulti;
+}
+
 void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( crs == mCrs )
@@ -128,7 +135,7 @@ void VertexModel::refreshGeometry()
 
 QgsGeometry VertexModel::geometry() const
 {
-  if ( mIsMulti )
+  if ( !editingAllowed() )
   {
     // TODO: handle multi, for now return original to avoid any data destruction
     return mOriginalGeometry;
