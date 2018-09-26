@@ -1,10 +1,12 @@
 #!/bin/bash
-set -e
+
 
 source scripts/travis_env.sh
 
-file build-x86/out/build/outputs/apk/out-release-unsigned.apk
-find build-x86/ -name '*.apk'
+file build-${ARCH}/out/build/outputs/apk/out-release-unsigned.apk
+find build-${ARCH}/ -iname '*.apk'
+
+set -e
 
 # If we have secure env vars and are in either a pull request or a tag, we need to upload artifacts
 if [[ "${TRAVIS_SECURE_ENV_VARS}" = "true" && ( "${TRAVIS_PULL_REQUEST}" != "false" || "${TRAVIS_TAG}" ) ]];
