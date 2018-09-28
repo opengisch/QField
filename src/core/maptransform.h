@@ -20,7 +20,7 @@
 #include <QtGui/QMatrix4x4>
 
 
-class MapSettings;
+class QgsQuickMapSettings;
 
 /**
  * The MapTransform is transformation that can be attached to any QQuickItem.
@@ -37,7 +37,7 @@ class MapTransform : public QQuickTransform
     /**
      * Associated map settings. Should be initialized before the first use from mapcanvas map settings.
      */
-    Q_PROPERTY( MapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
   public:
     //! Creates a new map transform
@@ -53,10 +53,10 @@ class MapTransform : public QQuickTransform
     void applyTo( QMatrix4x4 *matrix ) const;
 
     //! \copydoc MapTransform::mapSettings
-    MapSettings *mapSettings() const;
+    QgsQuickMapSettings *mapSettings() const;
 
     //! \copydoc MapTransform::mapSettings
-    void setMapSettings( MapSettings *mapSettings );
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
   signals:
     //! \copydoc MapTransform::mapSettings
@@ -66,7 +66,7 @@ class MapTransform : public QQuickTransform
     void updateMatrix();
 
   private:
-    MapSettings *mMapSettings = nullptr; // not owned
+    QgsQuickMapSettings *mMapSettings = nullptr; // not owned
     QMatrix4x4 mMatrix;
 };
 

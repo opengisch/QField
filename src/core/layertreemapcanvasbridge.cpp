@@ -16,7 +16,7 @@
 
 #include "layertreemapcanvasbridge.h"
 #include "qgsquickmapcanvasmap.h"
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 #include <qgslayertreegroup.h>
 #include <qgslayertree.h>
@@ -25,7 +25,7 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgslayertreemodel.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel* model, MapSettings* mapSettings, QObject* parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel* model, QgsQuickMapSettings* mapSettings, QObject* parent )
   : QObject( parent )
   , mModel( model )
   , mMapSettings( mapSettings )

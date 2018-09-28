@@ -16,6 +16,7 @@
 #include "featurelistmodelhighlight.h"
 
 #include <qgsvectorlayer.h>
+#include <qgsproject.h>
 
 #include "qgssggeometry.h"
 

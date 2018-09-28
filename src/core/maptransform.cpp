@@ -14,7 +14,7 @@
  ***************************************************************************/
 
 #include "maptransform.h"
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 #include <QDebug>
 
@@ -24,23 +24,23 @@ void MapTransform::applyTo( QMatrix4x4 *matrix ) const
   matrix->optimize();
 }
 
-MapSettings *MapTransform::mapSettings() const
+QgsQuickMapSettings *MapTransform::mapSettings() const
 {
   return mMapSettings;
 }
 
-void MapTransform::setMapSettings( MapSettings *mapSettings )
+void MapTransform::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mapSettings == mMapSettings )
     return;
 
   if ( mMapSettings )
-    disconnect( mMapSettings, &MapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
 
   mMapSettings = mapSettings;
 
   if ( mMapSettings )
-    connect( mMapSettings, &MapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
+    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &MapTransform::updateMatrix );
 
   emit mapSettingsChanged();
 }

@@ -43,8 +43,11 @@
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 
-#include "qgismobileapp.h"
+#include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
+
+#include "qgismobileapp.h"
+
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
@@ -55,7 +58,6 @@
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
 #include "messagelogmodel.h"
-#include "mapsettings.h"
 #include "attributeformmodel.h"
 #include "geometry.h"
 #include "featuremodel.h"
@@ -99,6 +101,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   QgsQuickMapCanvasMap *mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
+  mMapCanvas->mapSettings()->setProject(mProject);
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -120,7 +123,6 @@ void QgisMobileapp::initDeclarative()
 {
   // Register QGIS QML types
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
@@ -140,7 +142,13 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
+  qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::LayoutUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
+
+
+  // Register QgsQuick QML types
+  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
+  qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
 
 
   // Register QField QML types
@@ -149,7 +157,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
-  qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );

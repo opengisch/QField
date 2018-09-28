@@ -25,7 +25,6 @@ HEADERS += \
     featuremodel.h \
     maptransform.h \
     qgismobileapp.h \
-    qgsquickmapcanvasmap.h \
     qgssggeometry.h \
     sgrubberband.h \
     settings.h \
@@ -65,7 +64,6 @@ SOURCES += \
     featuremodel.cpp \
     maptransform.cpp \
     qgismobileapp.cpp \
-    qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
     settings.cpp \

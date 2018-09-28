@@ -8,11 +8,15 @@ include( ../../version.pri )
 #QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2
 QT += widgets xml positioning quick printsupport
 
-SOURCES += mapsettings.cpp \
-           qgsquickutils.cpp
+SOURCES += \
+  qgsquickmapcanvasmap.cpp \
+  qgsquickutils.cpp \
+  qgsquickmapsettings.cpp
 
-HEADERS += mapsettings.h \
-           qgsquickutils.h
+HEADERS += \
+  qgsquickmapcanvasmap.h \
+  qgsquickutils.h \
+  qgsquickmapsettings.h
 
 
 

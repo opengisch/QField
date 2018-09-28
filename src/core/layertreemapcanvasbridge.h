@@ -26,7 +26,7 @@
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
-class MapSettings;
+class QgsQuickMapSettings;
 class QgsMapCanvasLayer;
 class QgsMapLayer;
 
@@ -49,7 +49,7 @@ class LayerTreeMapCanvasBridge : public QObject
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge(  LayerTreeModel* model, MapSettings* mapSettings, QObject* parent = nullptr );
+    LayerTreeMapCanvasBridge(  LayerTreeModel* model, QgsQuickMapSettings* mapSettings, QObject* parent = nullptr );
 
     void clear();
 
@@ -58,7 +58,7 @@ class LayerTreeMapCanvasBridge : public QObject
       return mModel->layerTree();
     }
 
-    MapSettings* mapSettings() const
+    QgsQuickMapSettings* mapSettings() const
     {
       return mMapSettings;
     }
@@ -131,7 +131,7 @@ class LayerTreeMapCanvasBridge : public QObject
     static void applyThemeToGroup( QgsLayerTreeGroup* parent, const QgsMapThemeCollection::MapThemeRecord& rec );
 
     LayerTreeModel* mModel;
-    MapSettings* mMapSettings;
+    QgsQuickMapSettings* mMapSettings;
 
     bool mPendingCanvasUpdate;
 

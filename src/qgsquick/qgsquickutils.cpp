@@ -24,7 +24,7 @@
 #include <qgsunittypes.h>
 
 
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
 
 
@@ -67,7 +67,7 @@ QgsPointXY QgsQuickUtils::transformPoint( const QgsCoordinateReferenceSystem &sr
   return pt;
 }
 
-double QgsQuickUtils::screenUnitsToMeters( MapSettings *mapSettings, int baseLengthPixels )
+double QgsQuickUtils::screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels )
 {
   if ( mapSettings == nullptr ) return 0.0;
 

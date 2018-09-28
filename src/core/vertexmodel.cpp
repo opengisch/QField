@@ -23,7 +23,7 @@
 #include <qgspolygon.h>
 
 #include "vertexmodel.h"
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 
 VertexModel::VertexModel( QObject *parent )
@@ -34,7 +34,7 @@ VertexModel::VertexModel( QObject *parent )
   connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanPreviousNextVertex );
 }
 
-void VertexModel::setMapSettings( MapSettings *mapSettings )
+void VertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -44,7 +44,7 @@ void VertexModel::setMapSettings( MapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-MapSettings *VertexModel::mapSettings()
+QgsQuickMapSettings *VertexModel::mapSettings()
 {
   return mMapSettings;
 }

@@ -24,7 +24,7 @@
 #include <qgsrendercontext.h>
 
 class QgsMapLayer;
-class MapSettings;
+class QgsQuickMapSettings;
 class QgsVectorLayer;
 class MultiFeatureListModel;
 
@@ -32,7 +32,7 @@ class IdentifyTool : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
     Q_PROPERTY( MultiFeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
 
@@ -51,8 +51,8 @@ class IdentifyTool : public QObject
   public:
     explicit IdentifyTool( QObject *parent = nullptr );
 
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* mapSettings );
+    QgsQuickMapSettings* mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings* mapSettings );
 
     double searchRadiusMm() const;
     void setSearchRadiusMm( double searchRadiusMm );
@@ -71,7 +71,7 @@ class IdentifyTool : public QObject
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer* layer, const QgsPointXY& point ) const;
 
   private:
-    MapSettings* mMapSettings;
+    QgsQuickMapSettings* mMapSettings;
     MultiFeatureListModel* mModel;
 
     double searchRadiusMU( const QgsRenderContext& context ) const;

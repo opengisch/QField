@@ -30,7 +30,7 @@
 #include <qgsunittypes.h>
 #include <qgscoordinateformatter.h>
 
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 
 
@@ -110,7 +110,7 @@ class QgsQuickUtils : public QObject
     /**
       * Calculates the distance in meter representing baseLengthPixels pixels on the screen based on the current map settings.
       */
-    Q_INVOKABLE static double screenUnitsToMeters( MapSettings *mapSettings, int baseLengthPixels );
+    Q_INVOKABLE static double screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels );
 
     /**
       * Returns whether file on path exists

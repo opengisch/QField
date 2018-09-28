@@ -18,7 +18,7 @@
 
 #include <QStandardItemModel>
 
-class MapSettings;
+class QgsQuickMapSettings;
 
 #include "qgspoint.h"
 #include "qgsgeometry.h"
@@ -37,7 +37,7 @@ class VertexModel : public QStandardItemModel
     //! The current point being edited \see editingMode. The expected CRS to read/write is the map canvas CRS
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
-    Q_PROPERTY( MapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! number of points in the model
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     //! determines if the model has changes
@@ -83,9 +83,9 @@ class VertexModel : public QStandardItemModel
     ~VertexModel() override = default;
 
     //! \copydoc mapSettings
-    void setMapSettings( MapSettings *mapSettings );
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
     //! \copydoc mapSettings
-    MapSettings *mapSettings();
+    QgsQuickMapSettings *mapSettings();
 
     //! \copydoc editingAllowed
     bool editingAllowed() const;
@@ -216,7 +216,7 @@ class VertexModel : public QStandardItemModel
     //!
     int mCurrentIndex = -1;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
-    MapSettings *mMapSettings = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;
     bool mCanAddVertex = false;
     bool mCanPreviousVertex = false;
