@@ -11,7 +11,7 @@ PositionSource {
   property CoordinateTransformer ct: CoordinateTransformer {
     id: _ct
     sourceCrs: CrsFactory.fromEpsgId(4326)
-    sourcePosition: _pos.coordinate
+    sourcePosition: Utils.coordinateToPoint(_pos.coordinate)
     transformContext: qgisProject.transformContext
 
     property Position _pos: positionSource.position

@@ -27,17 +27,17 @@ QgsPoint QgsQuickCoordinateTransformer::projectedPosition() const
   return mProjectedPosition;
 }
 
-QGeoCoordinate QgsQuickCoordinateTransformer::sourcePosition() const
+QgsPoint QgsQuickCoordinateTransformer::sourcePosition() const
 {
   return mSourcePosition;
 }
 
-void QgsQuickCoordinateTransformer::setSourcePosition( QGeoCoordinate sourcePosition )
+void QgsQuickCoordinateTransformer::setSourcePosition( const QgsPoint &sourcePosition )
 {
 #if 0
-  float r = static_cast <float> ( rand() ) / static_cast <float> ( RAND_MAX ) / 100;
-  float rd = static_cast <float> ( rand() ) / static_cast <float> ( RAND_MAX ) / 100;
-  float rz = static_cast <float> ( rand() ) / static_cast <float> ( RAND_MAX ) * 100;
+  float r = static_cast <float>( rand() ) / static_cast <float>( RAND_MAX ) / 100;
+  float rd = static_cast <float>( rand() ) / static_cast <float>( RAND_MAX ) / 100;
+  float rz = static_cast <float>( rand() ) / static_cast <float>( RAND_MAX ) * 100;
 
   sourcePosition.setLatitude( 46.9483 + r );
   sourcePosition.setLongitude( 7.44225 + rd );
@@ -97,9 +97,9 @@ QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext() 
 
 void QgsQuickCoordinateTransformer::updatePosition()
 {
-  double x = mSourcePosition.longitude();
-  double y = mSourcePosition.latitude();
-  double z = mSourcePosition.altitude();
+  double x = mSourcePosition.x();
+  double y = mSourcePosition.y();
+  double z = mSourcePosition.z();
 
   // If Z is NaN, coordinate transformation (proj4) will
   // also set X and Y to NaN. But we also want to get projected
@@ -119,7 +119,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
   }
 
   mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( mSourcePosition.altitude() );
+  mProjectedPosition.addZValue( mSourcePosition.z() );
 
   emit projectedPositionChanged();
 }

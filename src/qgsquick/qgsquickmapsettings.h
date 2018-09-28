@@ -39,7 +39,6 @@ class QgsProject;
  *
  * \sa QgsMapCanvas
  *
- * \since QGIS 3.2
  */
 class QgsQuickMapSettings : public QObject
 {

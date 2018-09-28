@@ -45,7 +45,6 @@ class QgsLabelingResults;
  *
  * \sa QgsQuickMapCanvas
  *
- * \since QGIS 3.2
  */
 class QgsQuickMapCanvasMap : public QQuickItem
 {

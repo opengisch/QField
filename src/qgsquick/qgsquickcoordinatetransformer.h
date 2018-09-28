@@ -17,17 +17,21 @@
 #define QGSQUICKCOORDINATETRANSFORMER_H
 
 #include <QObject>
-#include <QtPositioning/QGeoCoordinate>
 
 #include <qgspoint.h>
 
+#include <qgscoordinatetransformcontext.h>
+#include <qgscoordinatereferencesystem.h>
+#include <qgspoint.h>
+
 /**
- * Helper class for transform of coordinates (QGeoCoordinate) to a different coordinate reference system.
+ * Helper class for transform of coordinates (QgsPoint) to a different coordinate reference system.
  *
  * It requires connection of transformation context from mapSettings, source position and source CRS to
  * calculate projected position in desired destination CRS.
  *
  * \note QML Type: CoordinateTransformer
+ *
  */
 class QgsQuickCoordinateTransformer : public QObject
 {
@@ -36,8 +40,8 @@ class QgsQuickCoordinateTransformer : public QObject
     //! Projected (destination) position (in destination CRS)
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY projectedPositionChanged )
 
-    //! Source position
-    Q_PROPERTY( QGeoCoordinate sourcePosition READ sourcePosition WRITE setSourcePosition NOTIFY sourcePositionChanged )
+    //! Source position  (in source CRS)
+    Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition WRITE setSourcePosition NOTIFY sourcePositionChanged )
 
     //! Destination CRS
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
@@ -55,11 +59,11 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
     QgsPoint projectedPosition() const;
 
-    //!\copydoc CoordinateTransformer::sourcePosition
-    QGeoCoordinate sourcePosition() const;
+    //!\copydoc QgsQuickCoordinateTransformer::sourcePosition
+    QgsPoint sourcePosition() const;
 
     //!\copydoc QgsQuickCoordinateTransformer::sourcePosition
-    void setSourcePosition( QGeoCoordinate sourcePosition );
+    void setSourcePosition( const QgsPoint &sourcePosition );
 
     //!\copydoc QgsQuickCoordinateTransformer::destinationCrs
     QgsCoordinateReferenceSystem destinationCrs() const;
@@ -99,7 +103,7 @@ class QgsQuickCoordinateTransformer : public QObject
     void updatePosition();
 
     QgsPoint mProjectedPosition;
-    QGeoCoordinate mSourcePosition;
+    QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
 };
 
