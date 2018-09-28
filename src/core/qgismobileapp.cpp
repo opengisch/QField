@@ -45,6 +45,7 @@
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
+#include "qgsquickcoordinatetransformer.h"
 
 #include "qgismobileapp.h"
 
@@ -73,7 +74,6 @@
 #include "featurelistmodel.h"
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
-#include "coordinatetransformer.h"
 #include "printlayoutlistmodel.h"
 #include "vertexmodel.h"
 #include "maptoscreen.h"
@@ -101,7 +101,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   QgsQuickMapCanvasMap *mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
-  mMapCanvas->mapSettings()->setProject(mProject);
+  mMapCanvas->mapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -142,13 +142,13 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
-  qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::LayoutUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
 
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
+  qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
 
 
   // Register QField QML types
@@ -172,7 +172,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
-  qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );

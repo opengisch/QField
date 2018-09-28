@@ -48,7 +48,6 @@ HEADERS += \
     legendimageprovider.h \
     featurelistmodel.h \
     distancearea.h \
-    coordinatetransformer.h \
     expressioncontextutils.h \
     focusstack.h \
     printlayoutlistmodel.h \
@@ -87,7 +86,6 @@ SOURCES += \
     legendimageprovider.cpp \
     featurelistmodel.cpp \
     distancearea.cpp \
-    coordinatetransformer.cpp \
     expressioncontextutils.cpp \
     focusstack.cpp \
     printlayoutlistmodel.cpp \
