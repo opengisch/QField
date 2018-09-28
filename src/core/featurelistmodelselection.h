@@ -26,10 +26,11 @@
 class FeatureListModelSelection : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( MultiFeatureListModel* model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
-    Q_PROPERTY( QgsVectorLayer* selectedLayer READ selectedLayer NOTIFY selectionChanged )
+    Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectionChanged )
     Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
+    Q_PROPERTY( QgsGeometry selectedGeometry READ selectedGeometry NOTIFY selectionChanged )
 
   public:
     explicit FeatureListModelSelection( QObject *parent = nullptr );
@@ -37,19 +38,21 @@ class FeatureListModelSelection : public QObject
     int selection();
     void setSelection( int selection );
 
-    MultiFeatureListModel* model() const;
-    void setModel( MultiFeatureListModel* model );
+    MultiFeatureListModel *model() const;
+    void setModel( MultiFeatureListModel *model );
 
-    QgsVectorLayer* selectedLayer() const;
+    QgsVectorLayer *selectedLayer() const;
     const QgsFeature selectedFeature() const;
+
+    QgsGeometry selectedGeometry() const;
 
   signals:
     void modelChanged();
     void selectionChanged();
 
   private:
-    MultiFeatureListModel* mModel;
-    QItemSelectionModel* mSelection;
+    MultiFeatureListModel *mModel;
+    QItemSelectionModel *mSelection;
 };
 
 #endif // FEATURELISTMODELSELECTION_H

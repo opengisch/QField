@@ -5,13 +5,14 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.0'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
@@ -42,13 +43,15 @@ android {
     buildToolsVersion androidBuildToolsVersion
 
 
+    /*
+    // see https://bugreports.qt.io/browse/QTBUG-69755
+    // and https://forum.qt.io/topic/86570/incorrect-apk-directory/4
     applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-             outputFileName = new File(
-                 "..",
-                 outputFileName)
-        }
-    }
+            variant.outputs.all {
+                outputFileName = "../" + outputFileName
+            }
+         }
+    */
 
     sourceSets {
         main {

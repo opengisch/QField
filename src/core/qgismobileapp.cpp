@@ -73,8 +73,10 @@
 #include "distancearea.h"
 #include "coordinatetransformer.h"
 #include "printlayoutlistmodel.h"
+#include "vertexmodel.h"
+#include "maptoscreen.h"
 
-QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
+QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
   , mIface( new AppInterface( this ) )
   , mFirstRenderingFlag( true )
@@ -96,7 +98,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication* app, QObject* parent )
 
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
-  QgsQuickMapCanvasMap* mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap*>();
+  QgsQuickMapCanvasMap *mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
@@ -124,6 +126,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
 
+  qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
+  qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
 
@@ -163,7 +167,9 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
   qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel");
+  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
+  qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
+  qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -210,14 +216,14 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
-void QgisMobileapp::onReadProject( const QDomDocument& doc )
+void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
   Q_UNUSED( doc );
-  QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
+  QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
   QSettings().setValue( "/qgis/project/lastProjectFile", mProject->fileName() );
-  Q_FOREACH( QgsMapLayer* layer, mProject->mapLayers() )
+  Q_FOREACH ( QgsMapLayer *layer, mProject->mapLayers() )
   {
-    QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
+    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
     if ( vl )
     {
       const QVariant itinerary = vl->customProperty( "qgisMobile/itinerary" );
@@ -264,7 +270,7 @@ void QgisMobileapp::loadLastProject()
     loadProjectFile( lastProjectFile.toString() );
 }
 
-void QgisMobileapp::loadProjectFile( const QString& path )
+void QgisMobileapp::loadProjectFile( const QString &path )
 {
   mProject->removeAllMapLayers();
   emit loadProjectStarted( path );
@@ -297,7 +303,7 @@ void QgisMobileapp::print( int layoutIndex )
   mPlatformUtils.open( QStringLiteral( "file:///" ) + printer.outputFileName(), QStringLiteral( "application/pdf" ) );
 }
 
-bool QgisMobileapp::event( QEvent* event )
+bool QgisMobileapp::event( QEvent *event )
 {
   if ( event->type() == QEvent::Close )
     QgsApplication::instance()->quit();

@@ -30,12 +30,12 @@ IdentifyTool::IdentifyTool( QObject *parent )
 
 }
 
-MapSettings* IdentifyTool::mapSettings() const
+MapSettings *IdentifyTool::mapSettings() const
 {
   return mMapSettings;
 }
 
-void IdentifyTool::setMapSettings( MapSettings* mapSettings )
+void IdentifyTool::setMapSettings( MapSettings *mapSettings )
 {
   if ( mapSettings == mMapSettings )
     return;
@@ -44,7 +44,7 @@ void IdentifyTool::setMapSettings( MapSettings* mapSettings )
   emit mapSettingsChanged();
 }
 
-void IdentifyTool::identify( const QPointF& point ) const
+void IdentifyTool::identify( const QPointF &point ) const
 {
   if ( !mModel || !mMapSettings )
   {
@@ -56,14 +56,13 @@ void IdentifyTool::identify( const QPointF& point ) const
 
   QgsPointXY mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
 
-  QStringList noIdentifyLayerIdList = QgsProject::instance()->nonIdentifiableLayers();
 
-  Q_FOREACH( QgsMapLayer* layer, mMapSettings->mapSettings().layers() )
+  Q_FOREACH ( QgsMapLayer *layer, mMapSettings->mapSettings().layers() )
   {
-    if ( noIdentifyLayerIdList.contains( layer->id() ) )
+    if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
       continue;
 
-    QgsVectorLayer* vl = qobject_cast<QgsVectorLayer*>( layer );
+    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
     if ( vl )
     {
       QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );
@@ -73,7 +72,7 @@ void IdentifyTool::identify( const QPointF& point ) const
   }
 }
 
-QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVectorLayer* layer, const QgsPointXY& point ) const
+QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
 {
   QList<IdentifyResult> results;
 
@@ -103,7 +102,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
 
     QgsFeatureRequest req;
     req.setFilterRect( r );
-    req.setLimit( QSettings().value( "/QField/identify/limit" , 100 ).toInt() );
+    req.setLimit( QSettings().value( "/QField/identify/limit", 100 ).toInt() );
     req.setFlags( QgsFeatureRequest::ExactIntersect );
 
     QgsFeatureIterator fit = layer->getFeatures( req );
@@ -111,7 +110,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
     while ( fit.nextFeature( f ) )
       featureList << QgsFeature( f );
   }
-  catch ( QgsCsException & cse )
+  catch ( QgsCsException &cse )
   {
     Q_UNUSED( cse );
     // catch exception for 'invalid' point and proceed with no features found
@@ -121,7 +120,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
 
   QgsRenderContext context( QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() ) );
   context.expressionContext() << QgsExpressionContextUtils::layerScope( layer );
-  QgsFeatureRenderer* renderer = layer->renderer();
+  QgsFeatureRenderer *renderer = layer->renderer();
   if ( renderer && renderer->capabilities() & QgsFeatureRenderer::ScaleDependent )
   {
     // setup scale for scale dependent visibility (rule based)
@@ -129,11 +128,11 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
     filter = renderer->capabilities() & QgsFeatureRenderer::Filter;
   }
 
-  Q_FOREACH( const QgsFeature& feature, featureList )
+  Q_FOREACH ( const QgsFeature &feature, featureList )
   {
     context.expressionContext().setFeature( feature );
 
-    if ( filter && !renderer->willRenderFeature( const_cast<QgsFeature&>( feature ), context ) )
+    if ( filter && !renderer->willRenderFeature( const_cast<QgsFeature &>( feature ), context ) )
       continue;
 
     results.append( IdentifyResult( layer, feature ) );
@@ -147,12 +146,12 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer ( QgsVecto
   return results;
 }
 
-MultiFeatureListModel* IdentifyTool::model() const
+MultiFeatureListModel *IdentifyTool::model() const
 {
   return mModel;
 }
 
-void IdentifyTool::setModel( MultiFeatureListModel* model )
+void IdentifyTool::setModel( MultiFeatureListModel *model )
 {
   if ( model == mModel )
     return;
@@ -161,7 +160,7 @@ void IdentifyTool::setModel( MultiFeatureListModel* model )
   emit modelChanged();
 }
 
-double IdentifyTool::searchRadiusMU( const QgsRenderContext& context ) const
+double IdentifyTool::searchRadiusMU( const QgsRenderContext &context ) const
 {
   return mSearchRadiusMm * context.scaleFactor() * context.mapToPixel().mapUnitsPerPixel();
 }
@@ -172,7 +171,7 @@ double IdentifyTool::searchRadiusMU() const
   return searchRadiusMU( context );
 }
 
-QgsRectangle IdentifyTool::toLayerCoordinates( QgsMapLayer* layer, const QgsRectangle& rect ) const
+QgsRectangle IdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const
 {
   return mMapSettings->mapSettings().mapToLayerCoordinates( layer, rect );
 }
