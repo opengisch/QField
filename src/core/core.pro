@@ -23,7 +23,6 @@ HEADERS += \
     featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
-    maptransform.h \
     qgismobileapp.h \
     qgssggeometry.h \
     sgrubberband.h \
@@ -61,7 +60,6 @@ SOURCES += \
     featurelistmodelhighlight.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
-    maptransform.cpp \
     qgismobileapp.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \

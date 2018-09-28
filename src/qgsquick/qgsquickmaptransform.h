@@ -1,9 +1,9 @@
 /***************************************************************************
-
-               ----------------------------------------------------
-              date                 : 20.12.2014
-              copyright            : (C) 2014 by Matthias Kuhn
-              email                : matthias.kuhn (at) opengis.ch
+  qgsquickmaptransform.h
+  --------------------------------------
+  Date                 : 27.12.2014
+  Copyright            : (C) 2014 by Matthias Kuhn
+  Email                : matthias (at) opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,24 +13,25 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef MAPTRANSFORM_H
-#define MAPTRANSFORM_H
+#ifndef QGSQUICKMAPTRANSFORM_H
+#define QGSQUICKMAPTRANSFORM_H
 
-#include <QtQuick/QQuickTransform>
-#include <QtGui/QMatrix4x4>
+#include <QQuickItem>
+#include <QMatrix4x4>
 
 
 class QgsQuickMapSettings;
 
 /**
- * The MapTransform is transformation that can be attached to any QQuickItem.
+ * The QgsQuickMapTransform is transformation that can be attached to any QQuickItem.
  *
- * If the item is based on the map coordinates, MapTransform will
+ * If the item is based on the map coordinates, QgsQuickMapTransform will
  * transform it to the device coordintes based on the attached map settings.
  *
  * \note QML Type: MapTransform
+ *
  */
-class MapTransform : public QQuickTransform
+class QgsQuickMapTransform : public QQuickTransform
 {
     Q_OBJECT
 
@@ -41,8 +42,8 @@ class MapTransform : public QQuickTransform
 
   public:
     //! Creates a new map transform
-    MapTransform() = default;
-    ~MapTransform() = default;
+    QgsQuickMapTransform() = default;
+    ~QgsQuickMapTransform() = default;
 
     /**
      * Applies transformation based on current map settings to a matrix.
@@ -52,14 +53,14 @@ class MapTransform : public QQuickTransform
      */
     void applyTo( QMatrix4x4 *matrix ) const;
 
-    //! \copydoc MapTransform::mapSettings
+    //! \copydoc QgsQuickMapTransform::mapSettings
     QgsQuickMapSettings *mapSettings() const;
 
-    //! \copydoc MapTransform::mapSettings
+    //! \copydoc QgsQuickMapTransform::mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
   signals:
-    //! \copydoc MapTransform::mapSettings
+    //! \copydoc QgsQuickMapTransform::mapSettings
     void mapSettingsChanged();
 
   private slots:
@@ -70,4 +71,4 @@ class MapTransform : public QQuickTransform
     QMatrix4x4 mMatrix;
 };
 
-#endif // MAPTRANSFORM_H
+#endif // QGSQUICKMAPTRANSFORM_H

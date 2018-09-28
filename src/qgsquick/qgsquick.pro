@@ -10,6 +10,7 @@ QT += widgets xml positioning quick printsupport
 
 SOURCES += \
     qgsquickmapcanvasmap.cpp \
+    qgsquickmaptransform.cpp \
     qgsquickutils.cpp \
     qgsquickmapsettings.cpp \
     qgsquickcoordinatetransformer.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     qgsquickmapcanvasmap.h \
+    qgsquickmaptransform.h \
     qgsquickutils.h \
     qgsquickmapsettings.h \
     qgsquickcoordinatetransformer.h
