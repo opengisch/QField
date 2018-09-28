@@ -21,11 +21,11 @@
 #include <qgslogger.h>
 #include <qgsvectorlayer.h>
 #include <qgsfeature.h>
-#include <qgsunittypes.h>
 
-
+#include "qgsquickfeaturelayerpair.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
+#include <qgsunittypes.h>
 
 
 QgsQuickUtils::QgsQuickUtils( QObject *parent )
@@ -101,6 +101,11 @@ QString QgsQuickUtils::getFileName( const QString &path ) const
 void QgsQuickUtils::logMessage( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
   QgsMessageLog::logMessage( message, tag, level );
+}
+
+QgsQuickFeatureLayerPair QgsQuickUtils::featureFactory( const QgsFeature &feature, QgsVectorLayer *layer ) const
+{
+  return QgsQuickFeatureLayerPair( feature, layer );
 }
 
 const QUrl QgsQuickUtils::getThemeIcon( const QString &name ) const

@@ -9,16 +9,18 @@ include( ../../version.pri )
 QT += widgets xml positioning quick printsupport
 
 SOURCES += \
-  qgsquickmapcanvasmap.cpp \
-  qgsquickutils.cpp \
-  qgsquickmapsettings.cpp \
-    qgsquickcoordinatetransformer.cpp
+    qgsquickmapcanvasmap.cpp \
+    qgsquickutils.cpp \
+    qgsquickmapsettings.cpp \
+    qgsquickcoordinatetransformer.cpp \
+    qgsquickfeaturelayerpair.cpp
 
 HEADERS += \
-  qgsquickmapcanvasmap.h \
-  qgsquickutils.h \
-  qgsquickmapsettings.h \
+    qgsquickmapcanvasmap.h \
+    qgsquickutils.h \
+    qgsquickmapsettings.h \
     qgsquickcoordinatetransformer.h
+    qgsquickfeaturelayerpair.h \
 
 
 

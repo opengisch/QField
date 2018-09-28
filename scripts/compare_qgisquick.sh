@@ -13,7 +13,7 @@ cp -R ${QGIS_SRC}/src/quickgui/* ${OUT_PATH}
 
 
 for f in $(find ${OUT_PATH} -type f); do
-    gsed -i -r '/^ *\* \\since QGIS \d/d;' $f
+    perl -i -pe 's/( *\*\n)? *\* \\since QGIS 3.*//igs' $f
     gsed -i -r '/^ *\* \\ingroup quick/d;' $f
 	gsed -i -r '/#include "qgis_quick.h"/d;' $f
 	gsed -i -r 's/^#include "(qgs[^"]+)"/#include <\1>/; s/QUICK_EXPORT //;' $f

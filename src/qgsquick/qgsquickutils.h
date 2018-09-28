@@ -24,14 +24,14 @@
 
 #include <limits>
 
+#include <qgis.h>
 #include <qgsmessagelog.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
 #include <qgsunittypes.h>
-#include <qgscoordinateformatter.h>
-
 #include "qgsquickmapsettings.h"
-
+#include "qgsquickfeaturelayerpair.h"
+#include <qgscoordinateformatter.h>
 
 
 class QgsFeature;
@@ -39,11 +39,13 @@ class QgsVectorLayer;
 class QgsCoordinateReferenceSystem;
 
 /**
+ *
  * Encapsulating the common utilies for QgsQuick library.
  *
  * \note QML Type: Utils (Singleton)
+ *
  */
-class QgsQuickUtils : public QObject
+class QgsQuickUtils: public QObject
 {
     Q_OBJECT
 
@@ -72,35 +74,30 @@ class QgsQuickUtils : public QObject
     /**
       * Creates crs from epsg code in QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE static QgsCoordinateReferenceSystem coordinateReferenceSystemFromEpsgId( long epsg );
 
     /**
       * Creates QgsPointXY in QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE QgsPointXY pointXY( double x, double y ) const;
 
     /**
       * Creates QgsPoint in QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() ) const;
 
     /**
       * Converts QGeoCoordinate to QgsPoint
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor ) const;
 
     /**
       * Transforms point between different crs from QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE static QgsPointXY transformPoint( const QgsCoordinateReferenceSystem &srcCrs,
         const QgsCoordinateReferenceSystem &destCrs,
@@ -114,7 +111,6 @@ class QgsQuickUtils : public QObject
 
     /**
       * Returns whether file on path exists
-      * \since QGIS 3.4
       */
     Q_INVOKABLE bool fileExists( const QString &path ) const;
 
@@ -129,6 +125,14 @@ class QgsQuickUtils : public QObject
     Q_INVOKABLE void logMessage( const QString &message,
                                  const QString &tag = QString( "QgsQuick" ),
                                  Qgis::MessageLevel level = Qgis::Warning );
+
+    /**
+      * QgsQuickFeatureLayerPair factory for tuple of QgsFeature and QgsVectorLayer used in QgsQUick library.
+      * \param feature QgsFeature linked to new QgsQuickFeature instance.
+      * \param layer QgsVectorLayer which the feature belongs to, optional.
+      *
+      */
+    Q_INVOKABLE QgsQuickFeatureLayerPair featureFactory( const QgsFeature &feature, QgsVectorLayer *layer = nullptr ) const;
 
     /**
       * Returns QUrl to image from library's /images folder.
