@@ -27,11 +27,12 @@ Controls.Pane {
 
       Row {
         height: childrenRect.height
+        spacing: 4 * dp
 
         Controls.ToolButton {
           // dummy button, is hidden behind main button
-          height: 56 * dp
-          width: 56 * dp
+          height: 48 * dp
+          width: 48 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent
@@ -48,8 +49,8 @@ Controls.Pane {
         }
 
         Controls.ToolButton {
-          height: 48 * dp
-          width: 48 * dp
+          height: 56 * dp
+          width: 56 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent
