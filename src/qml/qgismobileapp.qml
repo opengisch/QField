@@ -375,21 +375,24 @@ ApplicationWindow {
     }
   }
 
-  Button {
-    id: gpsButton
-    state: positionSource.active ? "On" : "Off"
-    visible: positionSource.valid
-    round: true
-
+  Column {
+    id: mainToolBar
     anchors.left: dashBoard.right
     anchors.leftMargin: 4 * dp
     anchors.top: mainMenuBar.bottom
     anchors.topMargin: 4 * dp
+    spacing: 4*dp
 
-    bgcolor: "#64B5F6"
+    Button {
+      id: gpsButton
+      state: positionSource.active ? "On" : "Off"
+      visible: positionSource.valid
+      round: true
 
-    states: [
-      State {
+      bgcolor: "#64B5F6"
+
+      states: [
+        State {
 
         name: "Off"
         PropertyChanges {
@@ -399,15 +402,6 @@ ApplicationWindow {
         }
       },
 
-      State {
-        name: "On"
-        PropertyChanges {
-          target: gpsButton
-          bgcolor: "#64B5F6"
-          iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-        }
-      }
-    ]
 
     onClicked: {
       console.warn("Centering")
@@ -439,42 +433,49 @@ ApplicationWindow {
       }
     }
 
-    onPressAndHold: {
-      gpsMenu.popup()
-    }
+      onPressAndHold: {
+        gpsMenu.popup()
+      }
 
-    function toggleGps() {
-      switch ( gpsButton.state )
-      {
-        case "Off":
-          gpsButton.state = "On"
-          displayToast( qsTr( "Positioning activated" ) )
-          break;
+      function toggleGps() {
+        switch ( gpsButton.state )
+        {
+          case "Off":
+            gpsButton.state = "On"
+            displayToast( qsTr( "Positioning activated" ) )
+            break;
 
-        case "On":
-          gpsButton.state = "Off"
-          displayToast( qsTr( "Positioning turned off" ) )
-          break;
+          case "On":
+            gpsButton.state = "Off"
+            displayToast( qsTr( "Positioning turned off" ) )
+            break;
+        }
       }
     }
   }
 
-  Button {
+    Button {
     id: gpsLinkButton
     visible: gpsButton.state == "On" && stateMachine.state === "digitize"
     round: true
     checkable: true
-
-    anchors.left: dashBoard.right
-    anchors.leftMargin: 4 * dp
-    anchors.top: gpsButton.bottom
-    anchors.topMargin: 4 * dp
 
     iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
 
     readonly property bool linkActive: gpsButton.state == "On" && checked
 
     onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
+    }
+
+    Button {
+      id: searchButton
+
+      iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
+      bgcolor: "#80CC28"
+      round: true
+      //onClicked: TODO
+    }
+
   }
 
   DigitizingToolbar {

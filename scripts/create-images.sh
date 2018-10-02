@@ -3,7 +3,7 @@
 SKIP_EXISTING=FALSE
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-FILES=${DIR}/../images/themes/qfield/nodpi/*.svg
+FILES=${DIR}/../images/themes/qfield/nodpi/$1*.svg
 
 for f in $FILES
 do
