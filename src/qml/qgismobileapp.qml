@@ -478,6 +478,18 @@ ApplicationWindow {
 
   }
 
+  LocatorItem {
+    id: locatorItem
+    anchors.top: dashBoard.top
+    anchors.left: mainToolBar.right
+
+    QgsLocatorWidget {
+
+    }
+  }
+
+
+
   DigitizingToolbar {
     id: digitizingToolbar
 

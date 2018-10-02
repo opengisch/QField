@@ -160,7 +160,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
-  qmlRegisterType<QgsQuickLocatorWidget>( "org.qgis", 1, 0, "LocatorWidget" );
+  qmlRegisterType<QgsQuickLocatorWidget>( "org.qgis", 1, 0, "QgsLocatorWidget" );
 
   // Register QField QML types
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
