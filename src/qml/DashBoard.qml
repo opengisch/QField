@@ -30,8 +30,8 @@ Controls.Pane {
 
         Controls.ToolButton {
           // dummy button, is hidden behind main button
-          height: 48 * dp
-          width: 48 * dp
+          height: 56 * dp
+          width: 56 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent

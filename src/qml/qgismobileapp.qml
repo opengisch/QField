@@ -356,14 +356,18 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
-    height: childrenRect.height
+    height: childrenRect.height + 8*dp
 
     Button {
       id: menuButton
-
+      round: true
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.visible = !dashBoard.visible
       bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: 4 * dp
+      anchors.top: mainMenuBar.top
+      anchors.topMargin: 4 * dp
     }
   }
 
