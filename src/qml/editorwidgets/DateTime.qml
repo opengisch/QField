@@ -52,7 +52,8 @@ Item {
 
         Image {
           source: Style.getThemeIcon("ic_clear_black_18dp")
-          anchors.left: parent.right
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
           visible: main.currentValue !== undefined && config['allow_null']
 
           MouseArea {
