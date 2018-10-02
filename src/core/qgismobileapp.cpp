@@ -42,11 +42,13 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgslocator.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmaptransform.h"
+#include "qgsquicklocatorwidget.h"
 
 #include "qgismobileapp.h"
 
@@ -77,7 +79,9 @@
 #include "printlayoutlistmodel.h"
 #include "vertexmodel.h"
 #include "maptoscreen.h"
+#include "featureslocatorfilter.h"
 #include "projectsource.h"
+
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -105,6 +109,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mMapCanvas->mapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
+
+  QgsQuickLocatorWidget *mLocatorWidget = rootObjects().first()->findChild<QgsQuickLocatorWidget *>();
+  //mLocatorWidget->locator()->registerFilter(new QgsAllLayersFeaturesLocatorFilter());
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
@@ -153,6 +160,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
+  qmlRegisterType<QgsQuickLocatorWidget>( "org.qgis", 1, 0, "LocatorWidget" );
 
   // Register QField QML types
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );

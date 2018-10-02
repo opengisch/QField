@@ -14,14 +14,16 @@ SOURCES += \
     qgsquickutils.cpp \
     qgsquickmapsettings.cpp \
     qgsquickcoordinatetransformer.cpp \
-    qgsquickfeaturelayerpair.cpp
+    qgsquickfeaturelayerpair.cpp \
+    qgsquicklocatorwidget.cpp
 
 HEADERS += \
     qgsquickmapcanvasmap.h \
     qgsquickmaptransform.h \
     qgsquickutils.h \
     qgsquickmapsettings.h \
-    qgsquickcoordinatetransformer.h
+    qgsquickcoordinatetransformer.h \
+    qgsquicklocatorwidget.h
     qgsquickfeaturelayerpair.h \
 
 

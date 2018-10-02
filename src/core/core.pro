@@ -54,7 +54,8 @@ HEADERS += \
     printlayoutlistmodel.h \
     vertexmodel.h \
     maptoscreen.h \
-    projectsource.h
+    projectsource.h \
+    featureslocatorfilter.h
 
 SOURCES += \
     appinterface.cpp \
@@ -92,7 +93,8 @@ SOURCES += \
     printlayoutlistmodel.cpp \
     vertexmodel.cpp \
     maptoscreen.cpp \
-    projectsource.cpp
+    projectsource.cpp \
+    featureslocatorfilter.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
