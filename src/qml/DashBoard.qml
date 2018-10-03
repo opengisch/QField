@@ -83,7 +83,7 @@ Controls.Pane {
             implicitWidth: 36 * 2 * dp
             x: modeswitch.leftPadding
             radius: 4 * dp
-            color:  "lightgrey"
+            color:  "#80CC28"
             border.color: "white"
             anchors.verticalCenter: parent.verticalCenter
              Image {
