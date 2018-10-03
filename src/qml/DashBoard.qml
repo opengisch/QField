@@ -91,7 +91,7 @@ Controls.Pane {
               width: parent.width / 2
               anchors.left: parent.left
               anchors.verticalCenter: parent.verticalCenter
-              source: Style.getThemeIcon( 'ic_explore_white_24dp' )
+              source: Style.getThemeIcon( 'ic_info_white_18dp' )
             }
              Image {
               height: parent.height
@@ -113,7 +113,7 @@ Controls.Pane {
                 anchors.right:  modeswitch.checked ? parent.right : undefined
                 anchors.left:  modeswitch.checked ? undefined : parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_explore_white_24dp' )
+                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_info_white_18dp' )
               }
             }
           }
