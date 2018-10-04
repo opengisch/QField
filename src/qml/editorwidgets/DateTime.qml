@@ -43,6 +43,9 @@ Item {
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
 
+        text: value === undefined ?  qsTr('(no date)') : new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
+        color: value === undefined ? 'gray' : 'black'
+
         MouseArea {
           anchors.fill: parent
           onClicked: {
@@ -52,8 +55,9 @@ Item {
 
         Image {
           source: Style.getThemeIcon("ic_clear_black_18dp")
-          anchors.left: parent.right
-          visible: main.currentValue !== undefined && config['allow_null']
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          visible: ( value !== undefined ) && config['allow_null']
 
           MouseArea {
             anchors.fill: parent
@@ -97,16 +101,6 @@ Item {
 
     onCurrentValueChanged: {
       valueChanged(currentValue, main.currentValue === undefined)
-      if (main.currentValue === undefined)
-      {
-        label.text = qsTr('(no date)')
-        label.color = 'gray'
-      }
-      else
-      {
-        label.color = 'black'
-        label.text = new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
-      }
     }
   }
 }
