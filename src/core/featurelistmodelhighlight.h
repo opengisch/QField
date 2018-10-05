@@ -21,7 +21,7 @@
 #include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
 
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 /**
  * Creates map highlights for a series of geometries provided by a FeatureListModel.
@@ -36,7 +36,7 @@ class FeatureListModelHighlight : public QQuickItem
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( QColor selectionColor MEMBER mSelectionColor NOTIFY selectionColorChanged )
     Q_PROPERTY( unsigned int width MEMBER mWidth NOTIFY widthChanged )
-    Q_PROPERTY( MapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
     explicit FeatureListModelHighlight( QQuickItem *parent = nullptr );
@@ -67,7 +67,7 @@ class FeatureListModelHighlight : public QQuickItem
     FeatureListModelSelection* mSelection;
     bool mDirty;
     unsigned int mWidth;
-    MapSettings* mMapSettings;
+    QgsQuickMapSettings* mMapSettings;
 };
 
 #endif // FEATURELISTMODELHIGHLIGHT_H

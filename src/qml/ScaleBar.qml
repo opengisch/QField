@@ -22,7 +22,7 @@ Row {
 
       property int factor: 2
       property int xindex: index
-      property string labelText: vars.adjustedMagnitude * factor + ' ' + mapSettings.abbreviatedStringOfDistanceUnit
+      property string labelText: vars.adjustedMagnitude * factor + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
     }
   }
 

@@ -20,7 +20,7 @@
 
 #include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 class FeatureListExtentController : public QObject
 {
@@ -29,7 +29,7 @@ class FeatureListExtentController : public QObject
     Q_PROPERTY( MultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
     Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
     Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
-    Q_PROPERTY( MapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
     FeatureListExtentController( QObject *parent = nullptr );
@@ -53,7 +53,7 @@ class FeatureListExtentController : public QObject
   private:
     MultiFeatureListModel *mModel = nullptr;
     FeatureListModelSelection *mSelection = nullptr;
-    MapSettings *mMapSettings = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     bool mAutoZoom = false;
 };
 

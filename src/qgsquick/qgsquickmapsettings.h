@@ -1,5 +1,5 @@
 /***************************************************************************
-  mapsettings.h
+  qgsquickmapsettings.h
   --------------------------------------
   Date                 : 27.12.2014
   Copyright            : (C) 2014 by Matthias Kuhn
@@ -13,32 +13,51 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef MAPSETTINGS_H
-#define MAPSETTINGS_H
+#ifndef QGSQUICKMAPSETTINGS_H
+#define QGSQUICKMAPSETTINGS_H
 
 #include <QObject>
 
-#include <qgsrectangle.h>
-#include <qgsmapthemecollection.h>
+#include <qgscoordinatetransformcontext.h>
 #include <qgsmapsettings.h>
-#include <qgsproject.h>
+#include <qgsmapthemecollection.h>
 #include <qgspoint.h>
+#include <qgsrectangle.h>
+
+
+class QgsProject;
 
 /**
- * The MapSettings class encapsulates QgsMapSettings class to offer
+ * The QgsQuickMapSettings class encapsulates QgsMapSettings class to offer
  * settings of configuration of map rendering via QML properties.
  *
+ * On top of QgsMapSettings functionality, when QgsProject is attached,
+ * it automatically loads its default settings from the project.
+ * QgsProject should be attached before it is read.
+ *
  * \note QML Type: MapSettings
+ *
+ * \sa QgsMapCanvas
+ *
  */
-class MapSettings : public QObject
+class QgsQuickMapSettings : public QObject
 {
     Q_OBJECT
+
+    /**
+     * A project property should be used as a primary source of project all other components
+     * in the application. QgsProject should be attached to QgsQuickMapSettings before
+     * it is read (QgsProject::read)
+     *
+     * When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.
+     */
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     /**
      * Geographical coordinates of the rectangle that should be rendered.
      * The actual visible extent used for rendering could be slightly different
      * since the given extent may be expanded in order to fit the aspect ratio
-     * of output size. Use MapSettings::visibleExtent to get the resulting extent.
+     * of output size. Use QgsQuickMapSettings::visibleExtent to get the resulting extent.
      *
      * Automatically loaded from project on QgsProject::readProject
      */
@@ -76,11 +95,6 @@ class MapSettings : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
 
     /**
-      * The string of the QgsUnitTypes::DistanceUnits CRS of destination coordinate reference system.
-      */
-    Q_PROPERTY( QString abbreviatedStringOfDistanceUnit READ abbreviatedStringOfDistanceUnit NOTIFY abbreviatedStringOfDistanceUnitChanged )
-
-    /**
      * Set list of layers for map rendering. The layers must be registered in QgsProject.
      * The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)
      *
@@ -92,8 +106,8 @@ class MapSettings : public QObject
 
   public:
     //! Create new map settings
-    MapSettings( QObject *parent = nullptr );
-    ~MapSettings() = default;
+    QgsQuickMapSettings( QObject *parent = nullptr );
+    ~QgsQuickMapSettings() = default;
 
     //! Clone map settings
     QgsMapSettings mapSettings() const;
@@ -103,6 +117,12 @@ class MapSettings : public QObject
 
     //! \copydoc QgsMapSettings::setExtent()
     void setExtent( const QgsRectangle &extent );
+
+    //! \copydoc QgsQuickMapSettings::project
+    void setProject( QgsProject *project );
+
+    //! \copydoc QgsQuickMapSettings::project
+    QgsProject *project() const;
 
     //! Move current map extent to have center point defined by \a center
     Q_INVOKABLE void setCenter( const QgsPoint &center );
@@ -138,10 +158,10 @@ class MapSettings : public QObject
     //! \copydoc QgsMapSettings::setTransformContext()
     void setTransformContext( const QgsCoordinateTransformContext &context );
 
-    //! \copydoc MapSettings::rotation
+    //! \copydoc QgsQuickMapSettings::rotation
     double rotation() const;
 
-    //! \copydoc MapSettings::rotation
+    //! \copydoc QgsQuickMapSettings::rotation
     void setRotation( double rotation );
 
     //! \copydoc QgsMapSettings::outputSize()
@@ -168,38 +188,33 @@ class MapSettings : public QObject
     //! \copydoc QgsMapSettings::setLayers()
     void setLayers( const QList<QgsMapLayer *> &layers );
 
-    /**
-     * The string of the QgsUnitTypes::DistanceUnits CRS of destination coordinate reference system.
-     */
-    QString abbreviatedStringOfDistanceUnit() const;
-
   signals:
-    //! \copydoc MapSettings::extent
+    //! \copydoc QgsQuickMapSettings::project
+    void projectChanged();
+
+    //! \copydoc QgsQuickMapSettings::extent
     void extentChanged();
 
-    //! \copydoc MapSettings::destinationCrs
+    //! \copydoc QgsQuickMapSettings::destinationCrs
     void destinationCrsChanged();
 
-    //! \copydoc MapSettings::mapUnitsPerPixel
+    //! \copydoc QgsQuickMapSettings::mapUnitsPerPixel
     void mapUnitsPerPixelChanged();
 
-    //! \copydoc MapSettings::rotation
+    //! \copydoc QgsQuickMapSettings::rotation
     void rotationChanged();
 
-    //! \copydoc MapSettings::visibleExtent
+    //! \copydoc QgsQuickMapSettings::visibleExtent
     void visibleExtentChanged();
 
-    //! \copydoc MapSettings::outputSize
+    //! \copydoc QgsQuickMapSettings::outputSize
     void outputSizeChanged();
 
-    //! \copydoc MapSettings::outputDpi
+    //! \copydoc QgsQuickMapSettings::outputDpi
     void outputDpiChanged();
 
-    //! \copydoc MapSettings::layers
+    //! \copydoc QgsQuickMapSettings::layers
     void layersChanged();
-
-    //! for recalculating the abbreviatedString when destinationCrs changed
-    void abbreviatedStringOfDistanceUnitChanged();
 
   private slots:
 
@@ -211,8 +226,9 @@ class MapSettings : public QObject
     void onReadProject( const QDomDocument &doc );
 
   private:
+    QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
 
 };
 
-#endif // MAPSETTINGS_H
+#endif // QGSQUICKMAPSETTINGS_H

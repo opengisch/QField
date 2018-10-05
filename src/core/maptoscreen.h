@@ -20,7 +20,7 @@
 #include <QPointF>
 #include <qgspoint.h>
 
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 
 /**
  * @brief The MapToScreen class transform a map point to screen coordinates.
@@ -32,7 +32,7 @@ class MapToScreen : public QObject
     Q_OBJECT
 
     //! Map settings is used to define the map canvas CRS and detect any extent change
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! the point in map coordinates
     Q_PROPERTY( QgsPoint mapPoint READ mapPoint WRITE setMapPoint NOTIFY mapPointChanged )
     //! the point in screen coordinates (read-only)
@@ -42,9 +42,9 @@ class MapToScreen : public QObject
     explicit MapToScreen( QObject *parent = nullptr );
 
     //! \copydoc mapSettings
-    void setMapSettings( MapSettings *mapSettings );
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
     //! \copydoc mapSettings
-    MapSettings *mapSettings();
+    QgsQuickMapSettings *mapSettings();
 
     //! \copydoc mapPoint
     void setMapPoint( const QgsPoint &point );
@@ -67,7 +67,7 @@ class MapToScreen : public QObject
     void transformPoint();
 
   private:
-    MapSettings *mMapSettings = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     QgsPoint mMapPoint = QgsPoint();
     QPointF mScreenPoint = QPointF();
 };

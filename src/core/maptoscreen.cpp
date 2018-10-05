@@ -21,26 +21,26 @@ MapToScreen::MapToScreen( QObject *parent ) :
 {
 }
 
-void MapToScreen::setMapSettings( MapSettings *mapSettings )
+void MapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &MapSettings::extentChanged, this, &MapToScreen::transformPoint );
+    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
   }
 
   mMapSettings = mapSettings;
 
-  connect( mMapSettings, &MapSettings::extentChanged, this, &MapToScreen::transformPoint );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
 
   transformPoint();
 
   emit mapSettingsChanged();
 }
 
-MapSettings *MapToScreen::mapSettings()
+QgsQuickMapSettings *MapToScreen::mapSettings()
 {
   return mMapSettings;
 }

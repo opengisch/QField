@@ -23,9 +23,7 @@ HEADERS += \
     featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
-    maptransform.h \
     qgismobileapp.h \
-    qgsquickmapcanvasmap.h \
     qgssggeometry.h \
     sgrubberband.h \
     settings.h \
@@ -49,7 +47,6 @@ HEADERS += \
     legendimageprovider.h \
     featurelistmodel.h \
     distancearea.h \
-    coordinatetransformer.h \
     expressioncontextutils.h \
     focusstack.h \
     printlayoutlistmodel.h \
@@ -63,9 +60,7 @@ SOURCES += \
     featurelistmodelhighlight.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
-    maptransform.cpp \
     qgismobileapp.cpp \
-    qgsquickmapcanvasmap.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
     settings.cpp \
@@ -89,7 +84,6 @@ SOURCES += \
     legendimageprovider.cpp \
     featurelistmodel.cpp \
     distancearea.cpp \
-    coordinatetransformer.cpp \
     expressioncontextutils.cpp \
     focusstack.cpp \
     printlayoutlistmodel.cpp \

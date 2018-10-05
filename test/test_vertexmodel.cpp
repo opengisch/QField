@@ -6,7 +6,7 @@
 #include <qgspoint.h>
 #include <qgspointxy.h>
 
-#include "mapsettings.h"
+#include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
 
@@ -115,7 +115,7 @@ class TestVertexModel: public QObject
 
     void transformTest()
     {
-      MapSettings *mapSettings = new MapSettings();
+      QgsQuickMapSettings *mapSettings = new QgsQuickMapSettings();
       mapSettings->setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
       mModel->setMapSettings( mapSettings );
       QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );

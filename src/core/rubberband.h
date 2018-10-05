@@ -20,7 +20,7 @@
 
 class RubberbandModel;
 class VertexModel;
-class MapSettings;
+class QgsQuickMapSettings;
 
 class Rubberband : public QQuickItem
 {
@@ -28,7 +28,7 @@ class Rubberband : public QQuickItem
 
     Q_PROPERTY( RubberbandModel* model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( VertexModel* vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
-    Q_PROPERTY( MapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Line width of the main rubberband
@@ -47,8 +47,8 @@ class Rubberband : public QQuickItem
     VertexModel* vertexModel() const;
     void setVertexModel( VertexModel* vertexModel );
 
-    MapSettings* mapSettings() const;
-    void setMapSettings( MapSettings* mapSettings );
+    QgsQuickMapSettings* mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings* mapSettings );
 
     //! \copydoc color
     QColor color() const;
@@ -92,7 +92,7 @@ class Rubberband : public QQuickItem
 
     RubberbandModel* mRubberbandModel = nullptr;
     VertexModel* mVertexModel = nullptr;
-    MapSettings* mMapSettings;
+    QgsQuickMapSettings* mMapSettings;
     bool mDirty = false;
     QColor mColor = QColor( 192, 57, 43, 200 );
     qreal mWidth = 1.8;
