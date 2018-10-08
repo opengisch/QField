@@ -21,11 +21,11 @@
 #include <qgslogger.h>
 #include <qgsvectorlayer.h>
 #include <qgsfeature.h>
-#include <qgsunittypes.h>
 
-
-#include "mapsettings.h"
+#include "qgsquickfeaturelayerpair.h"
+#include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
+#include <qgsunittypes.h>
 
 
 QgsQuickUtils::QgsQuickUtils( QObject *parent )
@@ -42,17 +42,17 @@ QgsCoordinateReferenceSystem QgsQuickUtils::coordinateReferenceSystemFromEpsgId(
   return QgsCoordinateReferenceSystem::fromEpsgId( epsg );
 }
 
-QgsPointXY QgsQuickUtils::pointXY( double x, double y ) const
+QgsPointXY QgsQuickUtils::pointXY( double x, double y )
 {
   return QgsPointXY( x, y );
 }
 
-QgsPoint QgsQuickUtils::point( double x, double y, double z, double m ) const
+QgsPoint QgsQuickUtils::point( double x, double y, double z, double m )
 {
   return QgsPoint( x, y, z, m );
 }
 
-QgsPoint QgsQuickUtils::coordinateToPoint( const QGeoCoordinate &coor ) const
+QgsPoint QgsQuickUtils::coordinateToPoint( const QGeoCoordinate &coor )
 {
   return QgsPoint( coor.longitude(), coor.latitude(), coor.altitude() );
 }
@@ -67,7 +67,7 @@ QgsPointXY QgsQuickUtils::transformPoint( const QgsCoordinateReferenceSystem &sr
   return pt;
 }
 
-double QgsQuickUtils::screenUnitsToMeters( MapSettings *mapSettings, int baseLengthPixels )
+double QgsQuickUtils::screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels )
 {
   if ( mapSettings == nullptr ) return 0.0;
 
@@ -84,14 +84,14 @@ double QgsQuickUtils::screenUnitsToMeters( MapSettings *mapSettings, int baseLen
   return mDistanceArea.measureLine( p1, p2 );
 }
 
-bool QgsQuickUtils::fileExists( const QString &path ) const
+bool QgsQuickUtils::fileExists( const QString &path )
 {
   QFileInfo check_file( path );
   // check if file exists and if yes: Is it really a file and no directory?
   return ( check_file.exists() && check_file.isFile() );
 }
 
-QString QgsQuickUtils::getFileName( const QString &path ) const
+QString QgsQuickUtils::getFileName( const QString &path )
 {
   QFileInfo fileInfo( path );
   QString filename( fileInfo.fileName() );
@@ -103,7 +103,12 @@ void QgsQuickUtils::logMessage( const QString &message, const QString &tag, Qgis
   QgsMessageLog::logMessage( message, tag, level );
 }
 
-const QUrl QgsQuickUtils::getThemeIcon( const QString &name ) const
+QgsQuickFeatureLayerPair QgsQuickUtils::featureFactory( const QgsFeature &feature, QgsVectorLayer *layer )
+{
+  return QgsQuickFeatureLayerPair( feature, layer );
+}
+
+const QUrl QgsQuickUtils::getThemeIcon( const QString &name )
 {
   QString path = QStringLiteral( "qrc:/%1.svg" ).arg( name );
   QgsDebugMsg( QStringLiteral( "Using icon %1 from %2" ).arg( name, path ) );

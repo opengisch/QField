@@ -23,7 +23,7 @@ We are very happy if this app helps you to get your job done or in whatever crea
 If you found it useful, we will be even happier if you could give something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
- * [Tweet about it](https://twitter.com/share?text=Looking for a good tool for field work in GIS? Check out %23QField!)
+ * [Tweet about it](https://twitter.com/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
  * Write about your experience (please [let us know](mailto:info@opengis.ch)!)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
  * [Translate the documentation](https://github.com/opengisch/QField-docs#translation-process) or [the app](https://www.transifex.com/opengisch/qfield-for-qgis/)
@@ -90,8 +90,12 @@ Building on a Mac requires some adjustments:
 1. In `Qt Creator` > `Projects` > `Run` >
 * Check `Use debug version of frameworks`
 * In Run Environment, add QGIS frameworks by editing following variables (Homebrew path might require adjustments):
-  * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks`
-  * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3-dev/2.99/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
+  * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks`
+  * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
 
 2. If you get the error `invalid version number in '-mmacosx-version-min='`, you might need to modify some Qt file. In `/usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`, hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10`
-Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`
+Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`
+
+3. If you have any issue with qmake not finding the proper SDK, in `/usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`, replace `$$QMAKE_MAC_SDK_PATH` (3 occurences) by `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk`
+
+4. Instead of step 1, you can add a custom deployment step in Qt Creator (project config -> run). Use the scripts at `./scripts/mac_deploy.sh` and give `"${QGIS_INSTALL_PATH}"` as argument.

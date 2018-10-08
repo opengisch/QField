@@ -28,10 +28,9 @@
 #include <qgspoint.h>
 #include <qgspointxy.h>
 #include <qgsunittypes.h>
+#include "qgsquickmapsettings.h"
+#include "qgsquickfeaturelayerpair.h"
 #include <qgscoordinateformatter.h>
-
-#include "mapsettings.h"
-
 
 
 class QgsFeature;
@@ -39,11 +38,13 @@ class QgsVectorLayer;
 class QgsCoordinateReferenceSystem;
 
 /**
+ *
  * Encapsulating the common utilies for QgsQuick library.
  *
  * \note QML Type: Utils (Singleton)
+ *
  */
-class QgsQuickUtils : public QObject
+class QgsQuickUtils: public QObject
 {
     Q_OBJECT
 
@@ -72,35 +73,30 @@ class QgsQuickUtils : public QObject
     /**
       * Creates crs from epsg code in QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE static QgsCoordinateReferenceSystem coordinateReferenceSystemFromEpsgId( long epsg );
 
     /**
       * Creates QgsPointXY in QML
       *
-      * \since QGIS 3.4
       */
-    Q_INVOKABLE QgsPointXY pointXY( double x, double y ) const;
+    Q_INVOKABLE static QgsPointXY pointXY( double x, double y );
 
     /**
       * Creates QgsPoint in QML
       *
-      * \since QGIS 3.4
       */
-    Q_INVOKABLE QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() ) const;
+    Q_INVOKABLE static QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() );
 
     /**
       * Converts QGeoCoordinate to QgsPoint
       *
-      * \since QGIS 3.4
       */
-    Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor ) const;
+    Q_INVOKABLE static QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
 
     /**
       * Transforms point between different crs from QML
       *
-      * \since QGIS 3.4
       */
     Q_INVOKABLE static QgsPointXY transformPoint( const QgsCoordinateReferenceSystem &srcCrs,
         const QgsCoordinateReferenceSystem &destCrs,
@@ -110,37 +106,44 @@ class QgsQuickUtils : public QObject
     /**
       * Calculates the distance in meter representing baseLengthPixels pixels on the screen based on the current map settings.
       */
-    Q_INVOKABLE static double screenUnitsToMeters( MapSettings *mapSettings, int baseLengthPixels );
+    Q_INVOKABLE static double screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels );
 
     /**
       * Returns whether file on path exists
-      * \since QGIS 3.4
       */
-    Q_INVOKABLE bool fileExists( const QString &path ) const;
+    Q_INVOKABLE static bool fileExists( const QString &path );
 
     /**
      * Extracts filename from path
      */
-    Q_INVOKABLE QString getFileName( const QString &path ) const;
+    Q_INVOKABLE static QString getFileName( const QString &path );
 
     /**
       * Log message in QgsMessageLog
       */
-    Q_INVOKABLE void logMessage( const QString &message,
-                                 const QString &tag = QString( "QgsQuick" ),
-                                 Qgis::MessageLevel level = Qgis::Warning );
+    Q_INVOKABLE static void logMessage( const QString &message,
+                                        const QString &tag = QString( "QgsQuick" ),
+                                        Qgis::MessageLevel level = Qgis::Warning );
+
+    /**
+      * QgsQuickFeatureLayerPair factory for tuple of QgsFeature and QgsVectorLayer used in QgsQUick library.
+      * \param feature QgsFeature linked to new QgsQuickFeature instance.
+      * \param layer QgsVectorLayer which the feature belongs to, optional.
+      *
+      */
+    Q_INVOKABLE static QgsQuickFeatureLayerPair featureFactory( const QgsFeature &feature, QgsVectorLayer *layer = nullptr );
 
     /**
       * Returns QUrl to image from library's /images folder.
       */
-    Q_INVOKABLE const QUrl getThemeIcon( const QString &name ) const;
+    Q_INVOKABLE static const QUrl getThemeIcon( const QString &name );
 
     /**
       * Returns url to field editor component for a feature form.
       * If the widgetName does not match any supported widget, text edit is returned.
       * \param widgetName name of the attribute field widget
       */
-    Q_INVOKABLE const QUrl getEditorComponentSource( const QString &widgetName );
+    Q_INVOKABLE static const QUrl getEditorComponentSource( const QString &widgetName );
 
     /**
      * \copydoc QgsCoordinateFormatter::format()

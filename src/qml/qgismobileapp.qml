@@ -190,6 +190,26 @@ ApplicationWindow {
       visible: positionSource.active
       location: positionSource.projectedPosition
     }
+
+    /* Rubberband for vertices  */
+    Item {
+      VertexRubberband {
+        id: vertexRubberband
+        model: vertexModel
+        mapSettings: mapCanvas.mapSettings
+      }
+
+      Rubberband {
+        id: editingRubberBand
+        vertexModel: vertexModel
+        mapSettings: mapCanvas.mapSettings
+        width: 2 * dp
+
+        transform: MapTransform {
+          mapSettings: mapCanvas.mapSettings
+        }
+      }
+    }
   }
 
   /**************************************************
@@ -336,18 +356,18 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
-    height: childrenRect.height
+    height: childrenRect.height + 8*dp
 
     Button {
       id: menuButton
-
+      round: true
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.visible = !dashBoard.visible
       bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
-      Connections {
-        target: dashBoard
-        onOpenChanged: menuButton.rotate()
-      }
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: 4 * dp
+      anchors.top: mainMenuBar.top
+      anchors.topMargin: 4 * dp
     }
   }
 
@@ -457,7 +477,10 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    visible: ( stateMachine.state === "digitize" && !dashBoard.currentLayer.readOnly )
+    stateVisible: ( stateMachine.state === "digitize"
+                   && dashBoard.currentLayer
+                   && !dashBoard.currentLayer.readOnly
+                   && !geometryEditingToolbar.stateVisible )
     rubberbandModel: digitizingRubberband.model
 
     FeatureModel {
@@ -510,6 +533,19 @@ ApplicationWindow {
     }
   }
 
+  GeometryEditingToolbar {
+    id: geometryEditingToolbar
+
+    featureModel: geometryEditingFeature
+    mapSettings: mapCanvas.mapSettings
+
+    anchors.bottom: mapCanvas.bottom
+    anchors.right: mapCanvas.right
+
+    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+  }
+
+
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
@@ -529,16 +565,10 @@ ApplicationWindow {
     }
 
     Controls.MenuItem {
-      id: openProjectMenuItem
-      property ProjectSource __projectSource
-
       text: qsTr( "Open Project" )
       iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
-        __projectSource = platformUtilities.openProject()
-
-        if (!__projectSource)
-          openProjectDialog.visible = true
+        openProjectDialog.visible = true
       }
     }
 
@@ -684,7 +714,7 @@ ApplicationWindow {
 
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
-    allowDelete: stateMachine.state === "digitize"
+    allowEdit: stateMachine.state === "digitize"
     formViewWidthDivisor: qfieldSettings.fullScreenIdentifyView ? 1 : 3
 
     model: MultiFeatureListModel {}
@@ -696,6 +726,23 @@ ApplicationWindow {
     selectionColor: "#ff7777"
 
     onShowMessage: displayToast(message)
+
+    onEditGeometry: {
+      vertexModel.geometry = featureForm.selection.selectedGeometry
+      vertexModel.crs = featureForm.selection.selectedLayer.crs
+      geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
+      geometryEditingFeature.feature = featureForm.selection.selectedFeature
+
+      if (!vertexModel.editingAllowed)
+      {
+        displayToast( qsTr( "Editing of multi geometry layer is not supported yet." ) )
+        vertexModel.clear()
+      }
+      else
+      {
+        featureForm.state = "Hidden"
+      }
+    }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
 
@@ -953,14 +1000,10 @@ ApplicationWindow {
     id: welcomeScreen
     anchors.fill: parent
     visible: !settings.value( "/QField/FirstRunFlag", false )
-    property ProjectSource __projectSource
 
     onShowOpenProjectDialog: {
       welcomeScreen.visible = false
-
-      __projectSource = platformUtilities.openProject()
-      if (!__projectSource)
-        openProjectDialog.visible = true
+      openProjectDialog.visible = true
     }
   }
   // Toast
@@ -1071,19 +1114,17 @@ ApplicationWindow {
     }
   }
 
-  Connections {
-    target: welcomeScreen.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
-    }
+  // ! MODELS !
+  FeatureModel {
+    id: geometryEditingFeature
+    currentLayer: null
+    positionSourceName: positionSource.name
+    vertexModel: vertexModel
   }
 
-  Connections {
-    target: openProjectMenuItem.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
-    }
+  VertexModel {
+      id: vertexModel
+      currentPoint: coordinateLocator.currentCoordinate
+      mapSettings: mapCanvas.mapSettings
   }
 }

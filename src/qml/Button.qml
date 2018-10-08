@@ -18,10 +18,6 @@ Item {
   signal pressAndHold
   signal clicked
 
-  function rotate() {
-    rotation.angle = rotation.angle ? 0 : 180
-  }
-
   height: 48 * dp
   width: 48 * dp
 

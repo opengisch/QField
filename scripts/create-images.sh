@@ -1,11 +1,15 @@
 #!/bin/bash
 
-FILES=images/themes/qfield/nodpi/*.svg
+SKIP_EXISTING=FALSE
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+FILES=${DIR}/../images/themes/qfield/nodpi/*.svg
+
 for f in $FILES
 do
   filename=$(basename "$f")
   filename="${filename%.*}"
-
+  echo $filename
   for size in "mdpi" "hdpi" "xhdpi" "xxhdpi" "xxxhdpi"
   do
     case $size in
@@ -25,6 +29,11 @@ do
         res=96
         ;;
     esac
-    inkscape -z -e images/themes/qfield/$size/$filename.png -w $res -h $res $f
+    DEST_FILE=${DIR}/../images/themes/qfield/$size/$filename.png
+    if ( [[ ! -f ${DEST_FILE} ]] || [[ ${SKIP_EXISTING} != TRUE ]] ); then
+      inkscape -z -e ${DEST_FILE} -w $res -h $res $f
+    else
+      echo "  skipping"
+    fi
   done
 done
