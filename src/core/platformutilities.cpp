@@ -76,8 +76,3 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
   return QVariant( field.type() ).typeName();
 }
 
-ProjectSource *PlatformUtilities::openProject()
-{
-  return nullptr;
-}
-

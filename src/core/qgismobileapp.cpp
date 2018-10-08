@@ -43,19 +43,22 @@
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 
+#include "qgsquickmapsettings.h"
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickcoordinatetransformer.h"
+#include "qgsquickmaptransform.h"
+
 #include "qgismobileapp.h"
 
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
 #include "featurelistmodelhighlight.h"
-#include "maptransform.h"
 #include "featurelistextentcontroller.h"
 #include "modelhelper.h"
 #include "rubberband.h"
 #include "rubberbandmodel.h"
 #include "qgsofflineediting.h"
 #include "messagelogmodel.h"
-#include "mapsettings.h"
 #include "attributeformmodel.h"
 #include "geometry.h"
 #include "featuremodel.h"
@@ -71,7 +74,6 @@
 #include "featurelistmodel.h"
 #include "qgsrelationmanager.h"
 #include "distancearea.h"
-#include "coordinatetransformer.h"
 #include "printlayoutlistmodel.h"
 #include "vertexmodel.h"
 #include "maptoscreen.h"
@@ -121,7 +123,6 @@ void QgisMobileapp::initDeclarative()
 {
   // Register QGIS QML types
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
@@ -156,8 +157,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
-  qmlRegisterType<MapTransform>( "org.qgis", 1, 0, "MapTransform" );
-  qmlRegisterType<MapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
@@ -173,7 +172,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
-  qmlRegisterType<CoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
