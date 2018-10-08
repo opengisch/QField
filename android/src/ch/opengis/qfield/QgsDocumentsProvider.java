@@ -188,8 +188,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             if (f.isDirectory()){
                 scanFiles(f, result);
             }else if (f.isFile()){
-                if (f.getPath().toLowerCase().endsWith(".qgs") ||
-                    f.getPath().toLowerCase().endsWith(".qgz")){
+                if (f.getPath().toLowerCase().endsWith(".qgs")){
 
                     // If the file is in the root directory, add it
                     // otherwise add the parent directory
@@ -213,8 +212,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
         File[] fileArray = file.listFiles();
         for (File f : fileArray){
             if (f.isFile()){
-                if (f.getPath().toLowerCase().endsWith(".qgs") ||
-                    f.getPath().toLowerCase().endsWith(".qgz")){
+                if (f.getPath().toLowerCase().endsWith(".qgs")){
                     includeFile(result, null, f);
                 }
             }
