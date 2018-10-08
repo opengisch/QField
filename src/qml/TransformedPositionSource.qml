@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtPositioning 5.3
 import org.qfield 1.0
+import Utils 1.0
 
 PositionSource {
   id: positionSource

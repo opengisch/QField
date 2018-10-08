@@ -4,6 +4,7 @@ import QtPositioning 5.3
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import org.qfield 1.0
+import Utils 1.0
 
 Item {
   property PositionSource positionSource
@@ -12,7 +13,7 @@ Item {
   CoordinateTransformer {
     id: _ct
     sourceCrs: CrsFactory.fromEpsgId(4326)
-    sourcePosition: positionSource.position.coordinate
+    sourcePosition: Utils.coordinateToPoint(positionSource.position.coordinate)
     transformContext: qgisProject.transformContext
   }
 
