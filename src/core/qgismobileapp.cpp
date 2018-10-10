@@ -133,6 +133,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+  qRegisterMetaType<QgsCoordinateTransformContext>("QgsCoordinateTransformContext");
 
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
