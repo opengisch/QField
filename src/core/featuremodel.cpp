@@ -43,18 +43,29 @@ void FeatureModel::setFeature( const QgsFeature& feature )
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
 {
+  //remember the feature of old layer
+  if( mRememberings.contains( mLayer ) )
+  {
+    mRememberings[mLayer].rememberedFeature = mFeature;
+  }
+
   if ( layer == mLayer )
     return;
 
   mLayer = layer;
   if ( mLayer )
   {
-    mFeature = QgsFeature( mLayer->fields() );
-
-    mRememberedAttributes.resize( layer->fields().size() );
-    mRememberedAttributes.fill( false );
+    //load remember values or create new entry in mRememberings
+    if( mRememberings.contains( mLayer ) ){
+      mFeature = mRememberings[mLayer].rememberedFeature;
+    }else{
+      mFeature = QgsFeature( mLayer->fields() );
+      mRememberings[mLayer].rememberedAttributes.resize( layer->fields().size() );
+      mRememberings[mLayer].rememberedAttributes.fill( false );
+    }
   }
 
+  //dave: und schliesslich auch grad befüllen, denn es wird nur reset gemacht wenn nicht remember und nicht wiederhergestellt bei remember...
   emit currentLayerChanged();
 }
 
@@ -122,7 +133,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
       break;
 
     case RememberAttribute:
-      return mRememberedAttributes.at( index.row() );
+      return mRememberings[mLayer].rememberedAttributes.at( index.row() );
       break;
   }
 
@@ -155,7 +166,7 @@ bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int
 
     case RememberAttribute:
     {
-      mRememberedAttributes[ index.row() ] = value.toBool();
+      mRememberings[mLayer].rememberedAttributes[ index.row() ] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }
@@ -222,7 +233,7 @@ void FeatureModel::resetAttributes()
   beginResetModel();
   for ( int i = 0; i < fields.count(); ++i )
   {
-    if ( !mRememberedAttributes.at( i ) )
+    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
@@ -321,5 +332,5 @@ void FeatureModel::applyVertexModelToGeometry()
 
 QVector<bool> FeatureModel::rememberedAttributes() const
 {
-  return mRememberedAttributes;
+  return mRememberings[mLayer].rememberedAttributes;
 }
