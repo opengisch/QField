@@ -70,14 +70,14 @@ Controls.Pane {
 
         Rectangle {
           //empty space
-          height: 48 * dp
-          width: 48 * dp
+          height: 56 * dp
+          width: 56 * dp
           color: mainColor
         }
          Controls.Switch {
           id: modeswitch
-          height: 48 * dp
-          width: 48 *2 * dp
+          height: 56 * dp
+          width: 56 *2 * dp
            indicator: Rectangle {
             implicitHeight: 36 * dp
             implicitWidth: 36 * 2 * dp
@@ -91,7 +91,7 @@ Controls.Pane {
               width: parent.width / 2
               anchors.left: parent.left
               anchors.verticalCenter: parent.verticalCenter
-              source: Style.getThemeIcon( 'ic_info_white_18dp' )
+              source: Style.getThemeIcon( 'ic_map_white_48dp' )
             }
              Image {
               height: parent.height
@@ -113,7 +113,7 @@ Controls.Pane {
                 anchors.right:  modeswitch.checked ? parent.right : undefined
                 anchors.left:  modeswitch.checked ? undefined : parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_info_white_18dp' )
+                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
               }
             }
           }
