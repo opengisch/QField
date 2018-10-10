@@ -340,6 +340,10 @@ ApplicationWindow {
         displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
     }
 
+    onChangeMode: {
+        stateMachine.state = mode
+    }
+
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
@@ -391,6 +395,7 @@ ApplicationWindow {
         PropertyChanges {
           target: gpsButton
           iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
+          bgcolor: "lightgrey"
         }
       },
 
@@ -398,6 +403,7 @@ ApplicationWindow {
         name: "On"
         PropertyChanges {
           target: gpsButton
+          bgcolor: "#64B5F6"
           iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
         }
       }
@@ -549,20 +555,6 @@ ApplicationWindow {
   Controls.Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
-
-    Controls.Menu {
-      title: qsTr( "Mode" )
-
-      Controls.MenuItem {
-        text: qsTr( "Browse" )
-        onTriggered: stateMachine.state = "browse"
-      }
-
-      Controls.MenuItem {
-        text: qsTr( "Digitize" )
-        onTriggered: stateMachine.state = "digitize"
-      }
-    }
 
     Controls.MenuItem {
       text: qsTr( "Open Project" )
