@@ -57,7 +57,7 @@ int main( int argc, char ** argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath());
 #else
-  QgsApplication app( argc, argv, true) );
+  QgsApplication app( argc, argv, true);
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
