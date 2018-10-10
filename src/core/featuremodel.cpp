@@ -43,19 +43,19 @@ void FeatureModel::setFeature( const QgsFeature& feature )
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
 {
-  //remember the feature of old layer
+  if ( layer == mLayer )
+    return;
+
+  //remember the last feature of the old layer
   if( mRememberings.contains( mLayer ) )
   {
     mRememberings[mLayer].rememberedFeature = mFeature;
   }
 
-  if ( layer == mLayer )
-    return;
-
   mLayer = layer;
   if ( mLayer )
   {
-    //load remember values or create new entry in mRememberings
+    //load remember values or create new entry
     if( mRememberings.contains( mLayer ) ){
       mFeature = mRememberings[mLayer].rememberedFeature;
     }else{
@@ -64,8 +64,6 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
       mRememberings[mLayer].rememberedAttributes.fill( false );
     }
   }
-
-  //dave: und schliesslich auch grad befüllen, denn es wird nur reset gemacht wenn nicht remember und nicht wiederhergestellt bei remember...
   emit currentLayerChanged();
 }
 
