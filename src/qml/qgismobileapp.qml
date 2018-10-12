@@ -394,44 +394,53 @@ ApplicationWindow {
       states: [
         State {
 
-        name: "Off"
-        PropertyChanges {
-          target: gpsButton
-          iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-          bgcolor: "lightgrey"
-        }
-      },
-
-
-    onClicked: {
-      console.warn("Centering")
-      if ( positionSource.projectedPosition.x )
-      {
-        console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
-        if ( !positionSource.active )
-        {
-          positionSource.active = true;
-          displayToast( qsTr( "Activating positioning service..." ) )
-        }
-      }
-      else
-      {
-        if ( positionSource.valid )
-        {
-          if ( positionSource.active )
-          {
-            displayToast( qsTr( "Waiting for location..." ) )
+          name: "Off"
+          PropertyChanges {
+            target: gpsButton
+            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
+            bgcolor: "lightgrey"
           }
-          else
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: gpsButton
+            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+          }
+        }
+      ]
+
+      onClicked: {
+        console.warn("Centering")
+        if ( positionSource.projectedPosition.x )
+        {
+          console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
+          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+
+          if ( !positionSource.active )
           {
-            positionSource.active = true
+            positionSource.active = true;
             displayToast( qsTr( "Activating positioning service..." ) )
           }
         }
+        else
+        {
+          if ( positionSource.valid )
+          {
+            if ( positionSource.active )
+            {
+              displayToast( qsTr( "Waiting for location..." ) )
+            }
+            else
+            {
+              positionSource.active = true
+              displayToast( qsTr( "Activating positioning service..." ) )
+            }
+          }
+        }
       }
-    }
 
       onPressAndHold: {
         gpsMenu.popup()
@@ -452,19 +461,18 @@ ApplicationWindow {
         }
       }
     }
-  }
 
     Button {
-    id: gpsLinkButton
-    visible: gpsButton.state == "On" && stateMachine.state === "digitize"
-    round: true
-    checkable: true
+      id: gpsLinkButton
+      visible: gpsButton.state == "On" && stateMachine.state === "digitize"
+      round: true
+      checkable: true
 
-    iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
 
-    readonly property bool linkActive: gpsButton.state == "On" && checked
+      readonly property bool linkActive: gpsButton.state == "On" && checked
 
-    onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
+      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
 
     Button {
@@ -475,7 +483,6 @@ ApplicationWindow {
       round: true
       //onClicked: TODO
     }
-
   }
 
   LocatorItem {
@@ -487,8 +494,6 @@ ApplicationWindow {
 
     }
   }
-
-
 
   DigitizingToolbar {
     id: digitizingToolbar
