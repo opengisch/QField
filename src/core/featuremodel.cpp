@@ -60,8 +60,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
       mFeature = mRememberings[mLayer].rememberedFeature;
     }else{
       mFeature = QgsFeature( mLayer->fields() );
-      mRememberings[mLayer].rememberedAttributes.resize( layer->fields().size() );
-      mRememberings[mLayer].rememberedAttributes.fill( false );
+      mRememberings[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
   }
   emit currentLayerChanged();
