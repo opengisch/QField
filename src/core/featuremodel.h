@@ -38,7 +38,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
     Q_ENUMS( FeatureRoles )
 
-
+  //! keeping the information what attributes are remembered and the last edited feature
   struct RememberValues
   {
       QgsFeature rememberedFeature;
