@@ -56,9 +56,12 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
   if ( mLayer )
   {
     //load remember values or create new entry
-    if( mRememberings.contains( mLayer ) ){
+    if( mRememberings.contains( mLayer ) )
+    {
       mFeature = mRememberings[mLayer].rememberedFeature;
-    }else{
+    }
+    else
+    {
       mFeature = QgsFeature( mLayer->fields() );
       mRememberings[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
     }
