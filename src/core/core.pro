@@ -7,9 +7,11 @@ QT += widgets concurrent xml positioning printsupport svg sql opengl sensors qui
 android {
     QT += androidextras
     HEADERS += androidplatformutilities.h \
-               androidpicturesource.h
+               androidpicturesource.h \
+               androidprojectsource.h
     SOURCES += androidplatformutilities.cpp \
-               androidpicturesource.cpp
+               androidpicturesource.cpp \
+               androidprojectsource.cpp
 }
 
 include( ../../qfield.pri )
@@ -51,7 +53,8 @@ HEADERS += \
     focusstack.h \
     printlayoutlistmodel.h \
     vertexmodel.h \
-    maptoscreen.h
+    maptoscreen.h \
+    projectsource.h
 
 SOURCES += \
     appinterface.cpp \
@@ -88,7 +91,8 @@ SOURCES += \
     focusstack.cpp \
     printlayoutlistmodel.cpp \
     vertexmodel.cpp \
-    maptoscreen.cpp
+    maptoscreen.cpp \
+    projectsource.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

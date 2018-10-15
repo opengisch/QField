@@ -557,10 +557,13 @@ ApplicationWindow {
     title: qsTr( "Main Menu" )
 
     Controls.MenuItem {
+      id: openProjectMenuItem
+      property ProjectSource __projectSource
+
       text: qsTr( "Open Project" )
       iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
-        openProjectDialog.visible = true
+        __projectSource = platformUtilities.openProject()
       }
     }
 
@@ -992,10 +995,11 @@ ApplicationWindow {
     id: welcomeScreen
     anchors.fill: parent
     visible: !settings.value( "/QField/FirstRunFlag", false )
+    property ProjectSource __projectSource
 
     onShowOpenProjectDialog: {
       welcomeScreen.visible = false
-      openProjectDialog.visible = true
+      __projectSource = platformUtilities.openProject()
     }
   }
   // Toast
@@ -1106,6 +1110,22 @@ ApplicationWindow {
     }
   }
 
+  Connections {
+    target: openProjectMenuItem.__projectSource
+
+    onProjectOpened: {
+      iface.loadProject( path )
+    }
+  }
+
+  Connections {
+    target: welcomeScreen.__projectSource
+
+    onProjectOpened: {
+      iface.loadProject( path )
+    }
+  }
+
   // ! MODELS !
   FeatureModel {
     id: geometryEditingFeature
@@ -1120,3 +1140,4 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
   }
 }
+

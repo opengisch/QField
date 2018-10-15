@@ -47,17 +47,20 @@ int main( int argc, char ** argv )
   delete dummyApp;
 #endif
 
-  QgsApplication app( argc, argv, true );
+
+#ifdef ANDROID
+  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
-
-  // load providers
-#ifdef ANDROID
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() + QStringLiteral( "/share" ) );
+  app.setPkgDataPath( AndroidPlatformUtilities().packagePath());
 #else
+  QgsApplication app( argc, argv, true);
+  QSettings settings;
+
+  app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
   app.initQgis();

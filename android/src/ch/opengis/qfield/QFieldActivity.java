@@ -63,7 +63,7 @@ import android.util.Log;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 public class QFieldActivity extends Activity {
-  private static final String QtTAG = "FirstRun JAVA"; // string used for
+  private static final String QtTAG = "QField";
   private static final int PROGRESS_DIALOG = 0;
   private static final int NOEXTERNALSTORAGE_DIALOG = 1;
   private ProgressDialog mProgressDialog = null;
@@ -172,7 +172,7 @@ public class QFieldActivity extends Activity {
     intent.setClass(QFieldActivity.this, QtActivity.class);
     intent.putExtra("DOTQGIS2_DIR", mDotQgis2Dir);
     intent.putExtra("SHARE_DIR", mShareDir);
-    intent.putExtra("PACKAGE_PATH", getFilesDir().toString());
+    intent.putExtra("PACKAGE_PATH", getFilesDir().toString() + "/share");
 
     Intent sourceIntent = getIntent();
     if (sourceIntent.getAction() == Intent.ACTION_VIEW) {

@@ -77,6 +77,7 @@
 #include "printlayoutlistmodel.h"
 #include "vertexmodel.h"
 #include "maptoscreen.h"
+#include "projectsource.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -164,6 +165,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<Rubberband>( "org.qgis", 1, 0, "Rubberband" );
   qmlRegisterType<RubberbandModel>( "org.qgis", 1, 0, "RubberbandModel" );
   qmlRegisterType<PictureSource>( "org.qgis", 1, 0, "PictureSource" );
+  qmlRegisterType<ProjectSource>( "org.qgis", 1, 0, "ProjectSource" );
   qmlRegisterType<MessageLogModel>( "org.qgis", 1, 0, "MessageLogModel" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
   qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
