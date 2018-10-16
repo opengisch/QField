@@ -53,6 +53,9 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
   }
 
   mLayer = layer;
+
+  connect(mLayer,&QgsVectorLayer::destroyed,this,[=]{ mRememberings.clear(); }, Qt::UniqueConnection);
+
   if ( mLayer )
   {
     //load remember values or create new entry
@@ -257,11 +260,6 @@ void FeatureModel::resetAttributes()
     }
   }
   endResetModel();
-}
-
-void FeatureModel::clearRememberings()
-{
-  mRememberings.clear();
 }
 
 void FeatureModel::applyGeometry()

@@ -258,14 +258,6 @@ Rectangle {
       }
     }
 
-    Connections {
-      target: iface
-
-      onLoadProjectEnded: {
-        featureFormList.model.featureModel.clearRememberings()
-      }
-    }
-
     focus: true
 
     visible: !globalFeaturesList.shown

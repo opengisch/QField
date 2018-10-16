@@ -169,14 +169,6 @@ Item {
         onCancelled: {
           popup.close()
         }
-
-        Connections {
-          target: iface
-
-          onLoadProjectEnded: {
-            attributeFormModel.model.featureModel.clearRememberings()
-          }
-        }
       }
 
       onClosed: {
