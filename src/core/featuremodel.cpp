@@ -27,7 +27,7 @@
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged ); 
+  connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
 }
 
 void FeatureModel::setFeature( const QgsFeature& feature )
@@ -39,11 +39,6 @@ void FeatureModel::setFeature( const QgsFeature& feature )
   mFeature = feature;
   endResetModel();
   emit featureChanged();
-}
-
-void FeatureModel::clearRememberings()
-{
-  mRememberings.clear();
 }
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
@@ -262,6 +257,11 @@ void FeatureModel::resetAttributes()
     }
   }
   endResetModel();
+}
+
+void FeatureModel::clearRememberings()
+{
+  mRememberings.clear();
 }
 
 void FeatureModel::applyGeometry()
