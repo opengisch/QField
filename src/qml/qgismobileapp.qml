@@ -830,6 +830,14 @@ ApplicationWindow {
       Component.onCompleted: {
           focusstack.addFocusTaker( this )
       }
+
+      Connections {
+        target: iface
+
+        onLoadProjectEnded: {
+          overlayFeatureForm.model.featureModel.clearRememberings()
+        }
+      }
     }
     Component.onCompleted: {
         close()
