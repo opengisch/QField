@@ -54,7 +54,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
 
   mLayer = layer;
 
-  connect(mLayer,&QgsVectorLayer::destroyed,this,[=]{ mRememberings.clear(); }, Qt::UniqueConnection);
+  connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
 
   if ( mLayer )
   {
@@ -265,6 +265,11 @@ void FeatureModel::resetAttributes()
 void FeatureModel::applyGeometry()
 {
   mFeature.setGeometry( mGeometry->asQgsGeometry() );
+}
+
+void FeatureModel::removeLayer( QObject* layer )
+{
+  mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
 }
 
 void FeatureModel::create()

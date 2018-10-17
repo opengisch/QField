@@ -115,6 +115,7 @@ class FeatureModel : public QAbstractListModel
 
   public slots:
     void applyGeometry();
+    void removeLayer( QObject* layer );
 
   signals:
     void featureChanged();
