@@ -46,15 +46,29 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
   if ( layer == mLayer )
     return;
 
-  mLayer = layer;
-  if ( mLayer )
+  //remember the last feature of the old layer
+  if( mRememberings.contains( mLayer ) )
   {
-    mFeature = QgsFeature( mLayer->fields() );
-
-    mRememberedAttributes.resize( layer->fields().size() );
-    mRememberedAttributes.fill( false );
+    mRememberings[mLayer].rememberedFeature = mFeature;
   }
 
+  mLayer = layer;
+
+  connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
+
+  if ( mLayer )
+  {
+    //load remember values or create new entry
+    if( mRememberings.contains( mLayer ) )
+    {
+      mFeature = mRememberings[mLayer].rememberedFeature;
+    }
+    else
+    {
+      mFeature = QgsFeature( mLayer->fields() );
+      mRememberings[mLayer].rememberedAttributes.fill( false, layer->fields().size() );
+    }
+  }
   emit currentLayerChanged();
 }
 
@@ -122,7 +136,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
       break;
 
     case RememberAttribute:
-      return mRememberedAttributes.at( index.row() );
+      return mRememberings[mLayer].rememberedAttributes.at( index.row() );
       break;
   }
 
@@ -155,7 +169,7 @@ bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int
 
     case RememberAttribute:
     {
-      mRememberedAttributes[ index.row() ] = value.toBool();
+      mRememberings[mLayer].rememberedAttributes[ index.row() ] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }
@@ -222,7 +236,7 @@ void FeatureModel::resetAttributes()
   beginResetModel();
   for ( int i = 0; i < fields.count(); ++i )
   {
-    if ( !mRememberedAttributes.at( i ) )
+    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
@@ -251,6 +265,11 @@ void FeatureModel::resetAttributes()
 void FeatureModel::applyGeometry()
 {
   mFeature.setGeometry( mGeometry->asQgsGeometry() );
+}
+
+void FeatureModel::removeLayer( QObject* layer )
+{
+  mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
 }
 
 void FeatureModel::create()
@@ -321,5 +340,5 @@ void FeatureModel::applyVertexModelToGeometry()
 
 QVector<bool> FeatureModel::rememberedAttributes() const
 {
-  return mRememberedAttributes;
+  return mRememberings[mLayer].rememberedAttributes;
 }
