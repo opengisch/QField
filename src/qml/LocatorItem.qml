@@ -6,4 +6,5 @@ TextField {
 
   placeholderText: qsTr("Search…")
 
+  onTextChanged: locator.setSearchText(locatorItem.text)
 }

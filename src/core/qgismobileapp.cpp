@@ -43,12 +43,12 @@
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 #include <qgslocator.h>
+#include <qgslocatorwidgetcore.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmaptransform.h"
-#include "qgsquicklocatorwidget.h"
 
 #include "qgismobileapp.h"
 
@@ -98,6 +98,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
+  mLocatorWrapper = new QgsLocatorWidgetCore();
 
   initDeclarative();
 
@@ -105,17 +106,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
-  QgsQuickMapCanvasMap *mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
-  mMapCanvas->mapSettings()->setProject( mProject );
+  mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
+  mMapCanvas->quickMapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  QgsQuickLocatorWidget *mLocatorWidget = rootObjects().first()->findChild<QgsQuickLocatorWidget *>();
-  //mLocatorWidget->locator()->registerFilter(new QgsAllLayersFeaturesLocatorFilter());
+  mLocatorWrapper->locator()->registerFilter( new QgsAllLayersFeaturesLocatorFilter() );
+  //mLocatorWrapper->setMapCanvasInterface( mMapCanvas );
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->quickMapSettings(), this );
   connect( mProject, &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
   connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
@@ -135,12 +136,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
+  //qmlRegisterType<QgsLocatorWidgetCore>( "org.qgis", 1, 0, "QgsLocatorWidgetCore" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
-  qRegisterMetaType<QgsCoordinateTransformContext>("QgsCoordinateTransformContext");
+  qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
 
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
   qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
@@ -160,7 +162,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
-  qmlRegisterType<QgsQuickLocatorWidget>( "org.qgis", 1, 0, "QgsLocatorWidget" );
 
   // Register QField QML types
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
@@ -205,6 +206,7 @@ void QgisMobileapp::initDeclarative()
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "qgisProject", mProject );
+  rootContext()->setContextProperty( "locator", mLocatorWrapper );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
