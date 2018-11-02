@@ -112,7 +112,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
   mLocatorWrapper->locator()->registerFilter( new QgsAllLayersFeaturesLocatorFilter() );
-  //mLocatorWrapper->setMapCanvasInterface( mMapCanvas );
+  mLocatorWrapper->setMapCanvasInterface( mMapCanvas );
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
@@ -136,7 +136,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-  //qmlRegisterType<QgsLocatorWidgetCore>( "org.qgis", 1, 0, "QgsLocatorWidgetCore" );
+  qmlRegisterType<QgsLocatorWidgetCore>( "org.qgis", 1, 0, "QgsLocatorWidgetCore" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );

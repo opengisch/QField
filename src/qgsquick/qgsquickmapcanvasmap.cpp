@@ -54,10 +54,10 @@ QgsQuickMapSettings *QgsQuickMapCanvasMap::quickMapSettings() const
   return mMapSettings.get();
 }
 
-//const QgsMapSettings &QgsQuickMapCanvasMap::mapSettings() const
-//{
-//  return mMapSettings->mapSettings();
-//}
+const QgsMapSettings &QgsQuickMapCanvasMap::mapSettings() const
+{
+  return mMapSettings->mapSettings();
+}
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
 {

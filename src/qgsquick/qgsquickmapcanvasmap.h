@@ -47,7 +47,7 @@ class QgsLabelingResults;
  * \sa QgsQuickMapCanvas
  *
  */
-class QgsQuickMapCanvasMap : public QQuickItem//, public QgsMapCanvasInterface
+class QgsQuickMapCanvasMap : public QQuickItem, public QgsMapCanvasInterface
 {
     Q_OBJECT
 
@@ -93,14 +93,14 @@ class QgsQuickMapCanvasMap : public QQuickItem//, public QgsMapCanvasInterface
 
     QSGNode *updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * ) override;
 
-    //! \copydoc QgsQuickMapCanvasMap::mapSettings
+    //! \copydoc QgsQuickMapCanvasMap::quickMapSettings
     QgsQuickMapSettings *quickMapSettings() const;
 
     /**
      * Rerturn the native map settings
      * \since QGIS 3.6
      */
-    //const QgsMapSettings &mapSettings() const; // override;
+    const QgsMapSettings &mapSettings() const override;
 
     //! \copydoc QgsQuickMapCanvasMap::freeze
     bool freeze() const;

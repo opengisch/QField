@@ -80,7 +80,7 @@ ApplicationWindow {
   TransformedPositionSource {
     id: positionSource
     active: settings.valueBool( "/QField/Positioning/Active", false )
-    destinationCrs: mapCanvas.quickMapSettings.destinationCrs
+    destinationCrs: mapCanvas.mapSettings.destinationCrs
   }
 
   Item {
@@ -130,14 +130,14 @@ ApplicationWindow {
       anchors.fill: parent
 
       transform: MapTransform {
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
       }
 
       /* Highlight the currently selected item on the feature list */
       FeatureListModelHighlight {
         model: featureForm.model
         selection: featureForm.selection
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
         color: "yellow"
         selectionColor: "#ff7777"
         width: 5 * dp
@@ -148,13 +148,13 @@ ApplicationWindow {
         id: digitizingRubberband
         width: 2 * dp
 
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
 
         model: RubberbandModel {
           frozen: false
           currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
-          crs: mapCanvas.quickMapSettings.destinationCrs
+          crs: mapCanvas.mapSettings.destinationCrs
         }
 
         anchors.fill: parent
@@ -166,7 +166,7 @@ ApplicationWindow {
       IdentifyTool {
         id: identifyTool
 
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
         model: featureForm.model
       }
     }
@@ -177,7 +177,7 @@ ApplicationWindow {
       anchors.fill: parent
       visible: stateMachine.state === "digitize"
       highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
-      mapSettings: mapCanvas.quickMapSettings
+      mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
     }
@@ -185,7 +185,7 @@ ApplicationWindow {
     /* GPS marker  */
     LocationMarker {
       id: locationMarker
-      mapSettings: mapCanvas.quickMapSettings
+      mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
       visible: positionSource.active
       location: positionSource.projectedPosition
@@ -196,17 +196,17 @@ ApplicationWindow {
       VertexRubberband {
         id: vertexRubberband
         model: vertexModel
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
       }
 
       Rubberband {
         id: editingRubberBand
         vertexModel: vertexModel
-        mapSettings: mapCanvas.quickMapSettings
+        mapSettings: mapCanvas.mapSettings
         width: 2 * dp
 
         transform: MapTransform {
-          mapSettings: mapCanvas.quickMapSettings
+          mapSettings: mapCanvas.mapSettings
         }
       }
     }
@@ -252,7 +252,7 @@ ApplicationWindow {
 
   ScaleBar {
     visible: qfieldSettings.showScaleBar
-    mapSettings: mapCanvas.quickMapSettings
+    mapSettings: mapCanvas.mapSettings
 
     anchors.left: parent.left
     anchors.bottom: parent.bottom
@@ -283,7 +283,7 @@ ApplicationWindow {
 
     PositionInformationView {
       positionSource: positionSource
-      crs: mapCanvas.quickMapSettings.destinationCrs
+      crs: mapCanvas.mapSettings.destinationCrs
 
       anchors.margins: 5
     }
@@ -314,7 +314,7 @@ ApplicationWindow {
     clip: true
 
     allowLayerChange: !digitizingToolbar.isDigitizing
-    mapSettings: mapCanvas.quickMapSettings
+    mapSettings: mapCanvas.mapSettings
 
     Keys.onReleased: {
       console.warn( "KEY PRESS " + event.key )
@@ -417,7 +417,7 @@ ApplicationWindow {
         if ( positionSource.projectedPosition.x )
         {
           console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
-          mapCanvas.quickMapSettings.setCenter(positionSource.projectedPosition)
+          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
 
           if ( !positionSource.active )
           {
@@ -559,7 +559,7 @@ ApplicationWindow {
     id: geometryEditingToolbar
 
     featureModel: geometryEditingFeature
-    mapSettings: mapCanvas.quickMapSettings
+    mapSettings: mapCanvas.mapSettings
 
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
@@ -685,7 +685,7 @@ ApplicationWindow {
       onTriggered: {
         var coord = positionSource.position.coordinate;
         var loc = Qt.point( coord.longitude, coord.latitude );
-        mapCanvas.quickMapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+        mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
       }
     }
 
@@ -725,7 +725,7 @@ ApplicationWindow {
   FeatureListForm {
     id: featureForm
     objectName: "featureForm"
-    mapSettings: mapCanvas.quickMapSettings
+    mapSettings: mapCanvas.mapSettings
 
     visible: state != "Hidden"
     focus: visible
@@ -1160,7 +1160,7 @@ ApplicationWindow {
   VertexModel {
       id: vertexModel
       currentPoint: coordinateLocator.currentCoordinate
-      mapSettings: mapCanvas.quickMapSettings
+      mapSettings: mapCanvas.mapSettings
   }
 }
 
