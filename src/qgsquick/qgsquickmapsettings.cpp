@@ -122,7 +122,7 @@ QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &point ) const
   return QgsPoint( pp );
 }
 
-QgsMapSettings QgsQuickMapSettings::mapSettings() const
+const QgsMapSettings &QgsQuickMapSettings::mapSettings() const
 {
   return mMapSettings;
 }

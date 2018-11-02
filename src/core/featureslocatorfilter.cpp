@@ -10,7 +10,7 @@
 QgsAllLayersFeaturesLocatorFilter::QgsAllLayersFeaturesLocatorFilter( QObject *parent )
   : QgsLocatorFilter( parent )
 {
-  setUseWithoutPrefix( false );
+  setUseWithoutPrefix( true );
 }
 
 QgsAllLayersFeaturesLocatorFilter *QgsAllLayersFeaturesLocatorFilter::clone() const
@@ -20,6 +20,7 @@ QgsAllLayersFeaturesLocatorFilter *QgsAllLayersFeaturesLocatorFilter::clone() co
 
 void QgsAllLayersFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
 {
+  qDebug() << "prepare: " << string;
   if ( string.length() < 3 || context.usingPrefix )
     return;
 
@@ -58,6 +59,7 @@ void QgsAllLayersFeaturesLocatorFilter::prepare( const QString &string, const Qg
 
 void QgsAllLayersFeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
+  qDebug() << "fetch: " << string;
   int foundInCurrentLayer;
   int foundInTotal = 0;
   QgsFeature f;

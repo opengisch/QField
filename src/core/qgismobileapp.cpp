@@ -44,6 +44,7 @@
 #include <qgslayoutpagecollection.h>
 #include <qgslocator.h>
 #include <qgslocatorwidgetcore.h>
+#include <qgslocatormodel.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
@@ -137,6 +138,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
   qmlRegisterType<QgsLocatorWidgetCore>( "org.qgis", 1, 0, "QgsLocatorWidgetCore" );
+  qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
