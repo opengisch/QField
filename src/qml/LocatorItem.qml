@@ -11,15 +11,18 @@ Column {
   }
 
   Repeater {
+    id: repeater
     model: locator.proxyModel()
     anchors.top: searchField.bottom
 
-    // https://stackoverflow.com/questions/26717209/filtering-sorting-a-qabstractlistmodel-in-qml
     delegate:
       Text {
-        text: model.Text + model.ResultType
+        text: model.Text + model.ResultFilterGroupSorting
+        property bool isGroup: model.ResultFilterGroupSorting === 0
         visible: model.ResultType !== 0 // remove filter name
-        height: visible ? 30 * dp : 0
+        height: visible ? (isGroup ? 20 : 25 ) * dp : 0
+        color: isGroup ? "red" : "blue"
+        font.italic: isGroup ? true : false
         // other drawing code here.
       }
   }

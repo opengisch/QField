@@ -216,6 +216,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
