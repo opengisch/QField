@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 2.0
 
+
 Column {
   id: locatorItem
 
@@ -8,12 +9,14 @@ Column {
     id: searchField
     placeholderText: qsTr("Search…")
     onTextChanged: locator.performSearch(searchField.text)
+    width: parent.width
   }
 
   Repeater {
     id: repeater
     model: locator.proxyModel()
     anchors.top: searchField.bottom
+    width: parent.width
 
     delegate:
       Text {

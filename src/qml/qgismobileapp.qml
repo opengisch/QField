@@ -488,8 +488,10 @@ ApplicationWindow {
 
   LocatorItem {
     id: locatorItem
-    anchors.top: dashBoard.top
-    anchors.left: mainToolBar.right
+
+    width: mainWindow.width < 350*dp ? mainWindow.width : 200*dp
+    anchors.right: parent.right
+    anchors.top: parent.top
   }
 
   DigitizingToolbar {
