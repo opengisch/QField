@@ -474,23 +474,22 @@ ApplicationWindow {
 
       onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
+  }
 
-    Button {
-      id: searchButton
+  Button {
+    id: searchButton
+    anchors { right: parent.right; top: parent.top; rightMargin: 4*dp; topMargin: 4*dp }
 
-      iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
-      bgcolor: "#80CC28"
-      round: true
-      //onClicked: TODO
-    }
+    iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
+    bgcolor: "#80CC28"
+    round: true
+    //onClicked: TODO
   }
 
   LocatorItem {
     id: locatorItem
     anchors.top: dashBoard.top
     anchors.left: mainToolBar.right
-
-
   }
 
   DigitizingToolbar {

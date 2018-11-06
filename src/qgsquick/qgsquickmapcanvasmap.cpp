@@ -49,14 +49,9 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   setFlags( QQuickItem::ItemHasContents );
 }
 
-QgsQuickMapSettings *QgsQuickMapCanvasMap::quickMapSettings() const
+QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
 {
   return mMapSettings.get();
-}
-
-const QgsMapSettings &QgsQuickMapCanvasMap::mapSettings() const
-{
-  return mMapSettings->mapSettings();
 }
 
 void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )

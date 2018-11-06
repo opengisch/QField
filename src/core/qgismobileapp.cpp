@@ -43,7 +43,7 @@
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 #include <qgslocator.h>
-#include <qgslocatorwidgetcore.h>
+#include <qgslocatormodelbridge.h>
 #include <qgslocatormodel.h>
 
 #include "qgsquickmapsettings.h"
@@ -99,7 +99,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
-  mLocatorWrapper = new QgsLocatorWidgetCore();
+  mLocatorBridge = new QgsLocatorModelBridge();
 
   initDeclarative();
 
@@ -108,16 +108,21 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
-  mMapCanvas->quickMapSettings()->setProject( mProject );
+  mMapCanvas->mapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  mLocatorWrapper->locator()->registerFilter( new QgsAllLayersFeaturesLocatorFilter() );
-  mLocatorWrapper->setMapCanvasInterface( mMapCanvas );
+
+  mLocatorBridge->locator()->registerFilter( new QgsAllLayersFeaturesLocatorFilter() );
+  mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->extent() );
+  mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );
+
+  connect( mMapCanvas->mapSettings(), &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() {mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->visibleExtent() );} );
+  connect( mMapCanvas->mapSettings(), &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() {mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );} ) ;
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->quickMapSettings(), this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), this );
   connect( mProject, &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
   connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
@@ -137,7 +142,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-  qmlRegisterType<QgsLocatorWidgetCore>( "org.qgis", 1, 0, "QgsLocatorWidgetCore" );
+  qmlRegisterType<QgsLocatorModelBridge>( "org.qgis", 1, 0, "QgsLocatorModelBridge" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
@@ -208,7 +213,7 @@ void QgisMobileapp::initDeclarative()
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "qgisProject", mProject );
-  rootContext()->setContextProperty( "locator", mLocatorWrapper );
+  rootContext()->setContextProperty( "locator", mLocatorBridge );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
