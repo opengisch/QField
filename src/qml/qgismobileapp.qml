@@ -476,16 +476,6 @@ ApplicationWindow {
     }
   }
 
-  Button {
-    id: searchButton
-    anchors { right: parent.right; top: parent.top; rightMargin: 4*dp; topMargin: 4*dp }
-
-    iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
-    bgcolor: "#80CC28"
-    round: true
-    //onClicked: TODO
-  }
-
   LocatorItem {
     id: locatorItem
 
