@@ -49,15 +49,26 @@ class PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix );
 
-    Q_INVOKABLE virtual void open( const QString &data, const QString &type );
+    /**
+     * Open the resource (file, image, ...) that is available under \a uri.
+     * A \a mimeType can be provided to indicate the system how the file should
+     * be opened.
+     */
+    Q_INVOKABLE virtual void open( const QString &uri, const QString &mimeType );
 
     /**
-     * Returns the QVariant typeName of a field.
+     * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */
     Q_INVOKABLE QString fieldType( const QgsField &field ) const;
 
-
+    /**
+     * Indicates the system that we want to open a project.
+     * The system shall show a suitable user interface element (like a filebrowser)
+     * to let the user select a project.
+     * The call returns immediately and the returned ProjectSource will notify
+     * when the project has actually been chosen.
+     */
     Q_INVOKABLE virtual ProjectSource *openProject();
 
     /**

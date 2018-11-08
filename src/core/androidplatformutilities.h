@@ -32,7 +32,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QString packagePath() const;
     virtual QString qgsProject() const override;
     virtual PictureSource *getPicture( const QString &prefix ) override;
-    virtual void open( const QString &data, const QString &type ) override;
+    virtual void open( const QString &uri, const QString &mimeType ) override;
     virtual ProjectSource *openProject() override;
 
     virtual bool checkPositioningPermissions() const override;

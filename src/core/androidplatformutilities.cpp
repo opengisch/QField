@@ -116,15 +116,15 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
   return pictureSource;
 }
 
-void AndroidPlatformUtilities::open( const QString &data, const QString &type )
+void AndroidPlatformUtilities::open( const QString &uri, const QString &mimeType )
 {
   checkWriteExternalStoragePermissions();
   QAndroidJniObject actionView = QAndroidJniObject::getStaticObjectField( "android/intent/action", "ACTION_VIEW", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionView.object<jstring>() );
 
-  QAndroidJniObject jDataString = QAndroidJniObject::fromString( data );
-  QAndroidJniObject jType = QAndroidJniObject::fromString( type );
+  QAndroidJniObject jDataString = QAndroidJniObject::fromString( uri );
+  QAndroidJniObject jType = QAndroidJniObject::fromString( mimeType );
 
   QAndroidJniObject jData = QAndroidJniObject::callStaticObjectMethod( "android/net/Uri", "parse", "(Ljava/lang/String;)Landroid/net/Uri;", jDataString.object<jstring>() );
 

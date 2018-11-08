@@ -65,10 +65,10 @@ PictureSource *PlatformUtilities::getPicture( const QString &prefix )
   return nullptr;
 }
 
-void PlatformUtilities::open( const QString &data, const QString &type )
+void PlatformUtilities::open( const QString &uri, const QString &mimeType )
 {
-  QDesktopServices::openUrl( QUrl( data ) );
-  Q_UNUSED( type )
+  QDesktopServices::openUrl( QUrl( uri ) );
+  Q_UNUSED( mimeType )
 }
 
 QString PlatformUtilities::fieldType( const QgsField &field ) const
