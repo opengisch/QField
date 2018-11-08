@@ -14,8 +14,7 @@ SOURCES += \
     qgsquickutils.cpp \
     qgsquickmapsettings.cpp \
     qgsquickcoordinatetransformer.cpp \
-    qgsquickfeaturelayerpair.cpp \
-    qgsquicklocatorwrapper.cpp
+    qgsquickfeaturelayerpair.cpp
 
 HEADERS += \
     qgsquickmapcanvasmap.h \
@@ -23,8 +22,7 @@ HEADERS += \
     qgsquickutils.h \
     qgsquickmapsettings.h \
     qgsquickcoordinatetransformer.h \
-    qgsquicklocatorwrapper.h
-    qgsquickfeaturelayerpair.h \
+    qgsquickfeaturelayerpair.h
 
 
 
