@@ -646,14 +646,21 @@ ApplicationWindow {
 
   Controls.Menu {
     id: gpsMenu
-    title: qsTr( "GPS Options" )
+    title: qsTr( "Positioning Options" )
 
     Controls.MenuItem {
-      text: qsTr( "Enable GPS" )
+      text: qsTr( "Enable Positioning" )
       checkable: true
       checked: positionSource.active
       onCheckedChanged: {
-        positionSource.active = checked
+        if ( checked && platformUtilities.checkPositioningPermissions() ) {
+          positionSource.active = checked
+        }
+        else {
+          displayToast( qsTr( "QField has no permissions to use positioning." ) )
+          positionSource.active = false
+        }
+
       }
     }
 
