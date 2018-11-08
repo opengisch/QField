@@ -51,13 +51,13 @@ QString AndroidPlatformUtilities::qgsProject() const
   return getIntentExtra( "QGS_PROJECT" );
 }
 
-QString AndroidPlatformUtilities::getIntentExtra( const QString& extra, QAndroidJniObject extras ) const
+QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
-  if ( extras == 0 )
+  if ( extras == nullptr )
   {
     extras = getNativeExtras();
   }
-  if( extras.isValid() )
+  if ( extras.isValid() )
   {
     QAndroidJniObject extraJni = QAndroidJniObject::fromString( extra );
     extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
@@ -77,7 +77,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
     QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
     return intent;
   }
-  return 0;
+  return nullptr;
 }
 
 QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
@@ -89,16 +89,16 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
 
     return extras;
   }
-  return 0;
+  return nullptr;
 }
 
-PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
+PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
 {
   QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
 
-  AndroidPictureSource* pictureSource = nullptr;
+  AndroidPictureSource *pictureSource = nullptr;
 
   if ( actionImageCapture.isValid() && intent.isValid() )
   {
@@ -113,7 +113,7 @@ PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
   return pictureSource;
 }
 
-void AndroidPlatformUtilities::open( const QString& data, const QString& type )
+void AndroidPlatformUtilities::open( const QString &data, const QString &type )
 {
   QAndroidJniObject actionView = QAndroidJniObject::getStaticObjectField( "android/intent/action", "ACTION_VIEW", "Ljava/lang/String;" );
 
@@ -139,7 +139,7 @@ ProjectSource *AndroidPlatformUtilities::openProject()
   QAndroidJniObject mimeType = QAndroidJniObject::fromString( QStringLiteral( "application/*" ) );
   intent.callObjectMethod( "setType", "(Ljava/lang/String;)Landroid/content/Intent;", mimeType.object<jstring>() );
 
-  AndroidProjectSource* projectSource = nullptr;
+  AndroidProjectSource *projectSource = nullptr;
 
   if ( intent.isValid() )
   {

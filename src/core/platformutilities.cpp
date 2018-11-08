@@ -49,23 +49,23 @@ bool PlatformUtilities::createDir( const QString &path, const QString &dirname )
 
 bool PlatformUtilities::rmFile( const QString &filename ) const
 {
-  QFile file ( filename );
+  QFile file( filename );
   return file.remove( filename );
 }
 
 bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
 {
-  QFile file ( filename );
+  QFile file( filename );
   return file.rename( newname );
 }
 
-PictureSource* PlatformUtilities::getPicture( const QString& prefix )
+PictureSource *PlatformUtilities::getPicture( const QString &prefix )
 {
   Q_UNUSED( prefix )
   return nullptr;
 }
 
-void PlatformUtilities::open( const QString& data, const QString& type )
+void PlatformUtilities::open( const QString &data, const QString &type )
 {
   QDesktopServices::openUrl( QUrl( data ) );
   Q_UNUSED( type )
