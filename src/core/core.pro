@@ -55,7 +55,8 @@ HEADERS += \
     vertexmodel.h \
     maptoscreen.h \
     projectsource.h \
-    featureslocatorfilter.h
+    featureslocatorfilter.h \
+    locatormodelsuperbridge.h
 
 SOURCES += \
     appinterface.cpp \
@@ -94,7 +95,8 @@ SOURCES += \
     vertexmodel.cpp \
     maptoscreen.cpp \
     projectsource.cpp \
-    featureslocatorfilter.cpp
+    featureslocatorfilter.cpp \
+    locatormodelsuperbridge.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

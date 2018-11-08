@@ -43,7 +43,6 @@
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 #include <qgslocator.h>
-#include <qgslocatormodelbridge.h>
 #include <qgslocatormodel.h>
 
 #include "qgsquickmapsettings.h"
@@ -82,6 +81,7 @@
 #include "maptoscreen.h"
 #include "featureslocatorfilter.h"
 #include "projectsource.h"
+#include "locatormodelsuperbridge.h"
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -99,7 +99,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
-  mLocatorBridge = new QgsLocatorModelBridge();
+  mLocatorBridge = new LocatorModelSuperBridge();
 
   initDeclarative();
 
@@ -142,7 +142,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-  qmlRegisterType<QgsLocatorModelBridge>( "org.qgis", 1, 0, "QgsLocatorModelBridge" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
@@ -195,6 +194,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
+  qmlRegisterType<LocatorModelSuperBridge>( "org.qgis", 1, 0, "LocatorModelSuperBridge" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

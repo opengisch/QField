@@ -43,7 +43,7 @@ class LayerTreeMapCanvasBridge;
 class LayerTreeModel;
 class LegendImageProvider;
 class QgsProject;
-class QgsLocatorModelBridge;
+class LocatorModelSuperBridge;
 
 
 class QgisMobileapp : public QQmlApplicationEngine
@@ -108,7 +108,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
     LayerTreeModel *mLayerTree;
-    QgsLocatorModelBridge *mLocatorBridge;
+    LocatorModelSuperBridge *mLocatorBridge;
     QgsMapLayerProxyModel *mLayerList;
     AppInterface *mIface;
     Settings mSettings;

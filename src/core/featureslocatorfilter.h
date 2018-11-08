@@ -32,7 +32,7 @@ class QgsAllLayersFeaturesLocatorFilter : public QgsLocatorFilter
 
         void prepare( const QString &string, const QgsLocatorContext &context ) override;
         void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
-        void triggerResult( const QgsLocatorResult &result ) override;
+        Q_INVOKABLE void triggerResult( const QgsLocatorResult &result ) override;
 
       private:
         int mMaxResultsPerLayer = 6;

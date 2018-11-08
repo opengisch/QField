@@ -80,6 +80,15 @@ Item {
         color: isGroup ? "red" : "blue"
         font.italic: isGroup ? true : false
         // other drawing code here.
+
+        MouseArea {
+          anchors.fill: parent
+
+          onClicked: {
+            console.log( index )
+            locator.triggerResultAtRow(index)
+          }
+        }
       }
     }
   }
