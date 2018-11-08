@@ -47,18 +47,40 @@ class PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource* getPicture( const QString& prefix );
+    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix );
 
-    Q_INVOKABLE virtual void open( const QString& data, const QString& type );
+    Q_INVOKABLE virtual void open( const QString &data, const QString &type );
 
     /**
      * Returns the QVariant typeName of a field.
      * This is a stable identifier (compared to the provider field name).
      */
-    Q_INVOKABLE QString fieldType( const QgsField& field ) const;
+    Q_INVOKABLE QString fieldType( const QgsField &field ) const;
 
 
     Q_INVOKABLE virtual ProjectSource *openProject();
-    
+
+    /**
+     * Checks for positioning (GPS etc) permissions on the device.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     * It will return true, if at least coarse permissions are granted. It will
+     * ask for fine permissions if none are granted.
+     */
+    Q_INVOKABLE virtual bool checkPositioningPermissions() const;
+
+    /**
+     * Checks for camera permissions on the device.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     */
+    Q_INVOKABLE virtual bool checkCameraPermissions() const;
+
+    /**
+     * Checks for permissions to write exeternal storage.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     */
+    Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
 };
 #endif // PLATFORMUTILITIES_H

@@ -81,3 +81,18 @@ ProjectSource *PlatformUtilities::openProject()
   return nullptr;
 }
 
+bool PlatformUtilities::checkPositioningPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkCameraPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkWriteExternalStoragePermissions() const
+{
+  return true;
+}
+

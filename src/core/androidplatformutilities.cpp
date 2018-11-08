@@ -94,6 +94,9 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
 
 PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
 {
+  if ( !checkCameraPermissions() )
+    return nullptr;
+
   QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
@@ -115,6 +118,7 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
 
 void AndroidPlatformUtilities::open( const QString &data, const QString &type )
 {
+  checkWriteExternalStoragePermissions();
   QAndroidJniObject actionView = QAndroidJniObject::getStaticObjectField( "android/intent/action", "ACTION_VIEW", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionView.object<jstring>() );
@@ -131,6 +135,7 @@ void AndroidPlatformUtilities::open( const QString &data, const QString &type )
 
 ProjectSource *AndroidPlatformUtilities::openProject()
 {
+  checkWriteExternalStoragePermissions();
   QAndroidJniObject actionOpenDocument = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "ACTION_OPEN_DOCUMENT", "Ljava/lang/String;" );
   QAndroidJniObject categoryOpenable = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "CATEGORY_OPENABLE", "Ljava/lang/String;" );
 
@@ -152,4 +157,47 @@ ProjectSource *AndroidPlatformUtilities::openProject()
   }
 
   return projectSource;
+}
+
+bool AndroidPlatformUtilities::checkPositioningPermissions() const
+{
+  // First check for coarse permissions. If the user configured QField to only get coarse permissions
+  // it's his wish and we just let it be.
+  QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
+  if ( r == QtAndroid::PermissionResult::Denied )
+  {
+    // If there are no permissions available, ask for fine location permissions
+    QtAndroid::requestPermissionsSync( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
+    r = QtAndroid::checkPermission( "android.permission.ACCESS_FINE_LOCATION" );
+    if ( r == QtAndroid::PermissionResult::Denied )
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool AndroidPlatformUtilities::checkCameraPermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.CAMERA" );
+}
+
+bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
+}
+
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissionString ) const
+{
+  QtAndroid::PermissionResult r = QtAndroid::checkPermission( permissionString );
+  if ( r == QtAndroid::PermissionResult::Denied )
+  {
+    QtAndroid::requestPermissionsSync( QStringList() << permissionString );
+    r = QtAndroid::checkPermission( permissionString );
+    if ( r == QtAndroid::PermissionResult::Denied )
+    {
+      return false;
+    }
+  }
+  return true;
 }

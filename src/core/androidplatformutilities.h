@@ -35,7 +35,14 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual void open( const QString &data, const QString &type ) override;
     virtual ProjectSource *openProject() override;
 
+    virtual bool checkPositioningPermissions() const override;
+
+    virtual bool checkCameraPermissions() const override;
+
+    bool checkWriteExternalStoragePermissions() const override;
+
   private:
+    bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
