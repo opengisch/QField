@@ -10,6 +10,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 Q_OBJECT
 public:
   explicit LocatorModelSuperBridge(QObject *parent = nullptr);
+  ~LocatorModelSuperBridge() = default;
 
 public slots:
   Q_INVOKABLE void triggerResultAtRow( int row );
