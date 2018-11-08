@@ -9,6 +9,9 @@
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
+#ifdef ANDROID
+#include "androidplatformutilities.h"
+#endif
 
 class TestVertexModel: public QObject
 {

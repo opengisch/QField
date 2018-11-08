@@ -5,6 +5,10 @@ QT += testlib xml widgets
 TEMPLATE = app
 CONFIG += qt
 
+android {
+    QT += androidextras
+}
+
 include( ../qfield.pri )
 include( ../qgis.pri )
 include( ../version.pri )
