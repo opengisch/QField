@@ -66,31 +66,39 @@ Item {
     }
   }
 
-  Column {
+  ListView {
+    id: resultsList
     anchors.top: searchField.bottom
+    model: locator.proxyModel()
+    width: parent.width
+    height: mainWindow.height - searchField.height
 
-    Repeater {
-      id: repeater
-      model: locator.proxyModel()
+    delegate: Rectangle {
+      id: delegateRect
+      anchors.margins: 10*dp
+      height: visible ? 25 * dp : 0
       width: parent.width
+      visible: model.ResultType !== 0 // remove filter name
+      property bool isGroup: model.ResultFilterGroupSorting === 0
+      color: isGroup ? "#ffffff" : "#eeeeee"
+      opacity: 0.95
+      border.width: 1*dp
+      border.color: "#bbbbbb"
 
-      delegate: Text {
+      Text {
         text: model.Text
-        property bool isGroup: model.ResultFilterGroupSorting === 0
-        visible: model.ResultType !== 0 // remove filter name
-        height: visible ? (isGroup ? 20 : 25 ) * dp : 0
-        color: isGroup ? "red" : "blue"
-        font.italic: isGroup ? true : false
-        opacity: 0.7
+        anchors.fill: parent
+        padding: 5*dp
+        font.italic: delegateRect.isGroup ? true : false
         // other drawing code here.
+      }
 
-        MouseArea {
-          anchors.fill: parent
+      MouseArea {
+        anchors.fill: parent
 
-          onClicked: {
-            console.log( index )
-            locator.triggerResultAtRow(index)
-          }
+        onClicked: {
+          console.log( index )
+          locator.triggerResultAtRow(index)
         }
       }
     }
