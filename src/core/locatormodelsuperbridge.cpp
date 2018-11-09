@@ -10,7 +10,7 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
 
 void LocatorModelSuperBridge::triggerResultAtRow( int row )
 {
-  const QModelIndex index = mProxyModel->index( row, 0 );
+  const QModelIndex index = proxyModel()->index( row, 0 );
   if ( index.isValid() )
     triggerResult( index );
 }

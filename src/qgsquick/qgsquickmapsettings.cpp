@@ -86,9 +86,9 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent )
   emit extentChanged();
 }
 
-void QgsQuickMapSettings::setCenter( const QgsPoint &center )
+void QgsQuickMapSettings::setCenter( const QgsPointXY &center )
 {
-  QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
+  QgsVector delta = center - mMapSettings.extent().center();
 
   QgsRectangle e = mMapSettings.extent();
   e.setXMinimum( e.xMinimum() + delta.x() );
@@ -181,13 +181,13 @@ void QgsQuickMapSettings::setLayers( const QList<QgsMapLayer *> &layers )
 }
 
 #if 0
-void MapSettings::setMapTheme( QgsProject* project, const QString& mapThemeName )
+void MapSettings::setMapTheme( QgsProject *project, const QString &mapThemeName )
 {
   QStringList layerIds;
 
   QgsMapThemeCollection::MapThemeRecord mapTheme = project->mapThemeCollection()->mapThemeState( mapThemeName );
 
-  Q_FOREACH( const QgsMapThemeCollection::MapThemeLayerRecord& record, mapTheme.layerRecords() )
+  Q_FOREACH ( const QgsMapThemeCollection::MapThemeLayerRecord &record, mapTheme.layerRecords() )
   {
     record.layer()->styleManager()->setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
 

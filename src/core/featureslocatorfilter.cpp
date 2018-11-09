@@ -6,16 +6,18 @@
 #include <qgsmaplayermodel.h>
 #include <qgsfeedback.h>
 
+#include "qgsquickmapsettings.h"
 
-QgsAllLayersFeaturesLocatorFilter::QgsAllLayersFeaturesLocatorFilter( QObject *parent )
+QgsAllLayersFeaturesLocatorFilter::QgsAllLayersFeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent )
   : QgsLocatorFilter( parent )
+  , mMapSettings( mapSettings )
 {
   setUseWithoutPrefix( true );
 }
 
 QgsAllLayersFeaturesLocatorFilter *QgsAllLayersFeaturesLocatorFilter::clone() const
 {
-  return new QgsAllLayersFeaturesLocatorFilter();
+  return new QgsAllLayersFeaturesLocatorFilter( mMapSettings );
 }
 
 void QgsAllLayersFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
@@ -104,5 +106,16 @@ void QgsAllLayersFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &r
   if ( !layer )
     return;
 
-  //QgisApp::instance()->mapCanvas()->zoomToFeatureIds( layer, QgsFeatureIds() << id );
+  QgsFeature f;
+  QgsFeatureIterator it = layer->getFeatures( QgsFeatureRequest().setFilterFid( id ).setNoAttributes() );
+  it.nextFeature( f );
+  QgsGeometry geom = f.geometry();
+  if ( geom.isNull() || geom.constGet()->isEmpty() )
+    return;
+  QgsRectangle r = mMapSettings->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
+
+  if ( r.isEmpty() )
+    mMapSettings->setCenter( r.center() );
+  else
+    mMapSettings->setExtent( r );
 }

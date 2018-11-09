@@ -23,7 +23,6 @@ Item {
     onTextChanged: locator.performSearch(searchField.text)
     width: parent.width
     anchors.right: parent.right
-
     visible: opacity > 0
 
     transitions: Transition {
@@ -79,6 +78,7 @@ Item {
         height: visible ? (isGroup ? 20 : 25 ) * dp : 0
         color: isGroup ? "red" : "blue"
         font.italic: isGroup ? true : false
+        opacity: 0.7
         // other drawing code here.
 
         MouseArea {

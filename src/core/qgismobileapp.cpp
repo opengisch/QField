@@ -113,7 +113,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
 
-  mLocatorBridge->locator()->registerFilter( new QgsAllLayersFeaturesLocatorFilter() );
+  QgsAllLayersFeaturesLocatorFilter *filter = new QgsAllLayersFeaturesLocatorFilter( mMapCanvas->mapSettings() );
+  mLocatorBridge->locator()->registerFilter( filter );
   mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->extent() );
   mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );
 
