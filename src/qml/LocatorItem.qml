@@ -48,7 +48,10 @@ Item {
       round: true
       bgcolor: "#80CC28"
 
-      onClicked: locatorItem.searching = true
+      onClicked: {
+        locatorItem.searching = true
+        searchField.focus = true
+      }
     }
 
     visible: opacity > 0
@@ -72,7 +75,7 @@ Item {
       width: parent.width
 
       delegate: Text {
-        text: model.Text + model.ResultFilterGroupSorting
+        text: model.Text
         property bool isGroup: model.ResultFilterGroupSorting === 0
         visible: model.ResultType !== 0 // remove filter name
         height: visible ? (isGroup ? 20 : 25 ) * dp : 0
