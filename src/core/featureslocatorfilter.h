@@ -1,5 +1,5 @@
-#ifndef QGSALLLAYERSFEATURESLOCATORFILTER_H
-#define QGSALLLAYERSFEATURESLOCATORFILTER_H
+#ifndef FEATURESLOCATORFILTER_H
+#define FEATURESLOCATORFILTER_H
 
 #include <QObject>
 
@@ -9,7 +9,7 @@
 
 class QgsQuickMapSettings;
 
-class QgsAllLayersFeaturesLocatorFilter : public QgsLocatorFilter
+class FeaturesLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -25,8 +25,8 @@ class QgsAllLayersFeaturesLocatorFilter : public QgsLocatorFilter
         QIcon layerIcon;
     } ;
 
-    QgsAllLayersFeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent = nullptr );
-    QgsAllLayersFeaturesLocatorFilter *clone() const override;
+    FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent = nullptr );
+    FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
     QString displayName() const override { return tr( "Features In All Layers" ); }
     Priority priority() const override { return Medium; }
@@ -43,4 +43,4 @@ class QgsAllLayersFeaturesLocatorFilter : public QgsLocatorFilter
     QgsQuickMapSettings *mMapSettings = nullptr;
 };
 
-#endif // QGSALLLAYERSFEATURESLOCATORFILTER_H
+#endif // FEATURESLOCATORFILTER_H

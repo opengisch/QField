@@ -8,19 +8,19 @@
 
 #include "qgsquickmapsettings.h"
 
-QgsAllLayersFeaturesLocatorFilter::QgsAllLayersFeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent )
+FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent )
   : QgsLocatorFilter( parent )
   , mMapSettings( mapSettings )
 {
   setUseWithoutPrefix( true );
 }
 
-QgsAllLayersFeaturesLocatorFilter *QgsAllLayersFeaturesLocatorFilter::clone() const
+FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 {
-  return new QgsAllLayersFeaturesLocatorFilter( mMapSettings );
+  return new FeaturesLocatorFilter( mMapSettings );
 }
 
-void QgsAllLayersFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
+void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
 {
   if ( string.length() < 3 || context.usingPrefix )
     return;
@@ -58,7 +58,7 @@ void QgsAllLayersFeaturesLocatorFilter::prepare( const QString &string, const Qg
   }
 }
 
-void QgsAllLayersFeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   int foundInCurrentLayer;
   int foundInTotal = 0;
@@ -95,7 +95,7 @@ void QgsAllLayersFeaturesLocatorFilter::fetchResults( const QString &string, con
   }
 }
 
-void QgsAllLayersFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   QVariantList dataList = result.userData.toList();
   QgsFeatureId id = dataList.at( 0 ).toLongLong();
