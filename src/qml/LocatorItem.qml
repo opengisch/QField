@@ -22,8 +22,16 @@ Item {
     placeholderText: qsTr("Search…")
     onTextChanged: locator.performSearch(searchField.text)
     width: parent.width
+    height: 40*dp
     anchors.right: parent.right
     visible: opacity > 0
+    padding: 5*dp
+
+    background: Rectangle {
+      radius: 2*dp
+      border.color: "#333"
+      border.width: 1
+    }
 
     transitions: Transition {
       SequentialAnimation {
@@ -71,12 +79,13 @@ Item {
     anchors.top: searchField.bottom
     model: locator.proxyModel()
     width: parent.width
-    height: mainWindow.height - searchField.height
+    height: Math.min( 200*dp, mainWindow.height - searchField.height )
+    clip: true
 
     delegate: Rectangle {
       id: delegateRect
       anchors.margins: 10*dp
-      height: visible ? 25 * dp : 0
+      height: visible ? (isGroup ? 25 : 40 ) * dp : 0
       width: parent.width
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
@@ -84,20 +93,19 @@ Item {
       opacity: 0.95
       border.width: 1*dp
       border.color: "#bbbbbb"
+      radius: 2*dp
 
       Text {
         text: model.Text
-        anchors.fill: parent
-        padding: 5*dp
+        anchors.verticalCenter: parent.verticalCenter
+        leftPadding: 5*dp
         font.italic: delegateRect.isGroup ? true : false
-        // other drawing code here.
       }
 
       MouseArea {
         anchors.fill: parent
 
         onClicked: {
-          console.log( index )
           locator.triggerResultAtRow(index)
         }
       }
