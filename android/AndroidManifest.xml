@@ -75,12 +75,16 @@
     </provider>
     
   </application>
-  <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="22" />
+  <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="26" />
   <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
-    <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
-         Remove the comment if you do not require these default permissions. -->
-    <!-- %%INSERT_PERMISSIONS -->
+  <!-- The permissions are specified manually. This way we do not request the microphone permissions which would be pulled in
+       as dependent permissions because of qt multimedia. -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.CAMERA" />
 
   <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
        Remove the comment if you do not require these default features. -->

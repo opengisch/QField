@@ -31,12 +31,19 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual QString shareDir() const override;
     QString packagePath() const;
     virtual QString qgsProject() const override;
-    virtual PictureSource* getPicture( const QString &prefix ) override;
-    virtual void open( const QString& data, const QString& type );
+    virtual PictureSource *getPicture( const QString &prefix ) override;
+    virtual void open( const QString &uri, const QString &mimeType ) override;
     virtual ProjectSource *openProject() override;
 
+    virtual bool checkPositioningPermissions() const override;
+
+    virtual bool checkCameraPermissions() const override;
+
+    bool checkWriteExternalStoragePermissions() const override;
+
   private:
-    QString getIntentExtra( const QString&, QAndroidJniObject = 0 ) const;
+    bool checkAndAcquirePermissions( const QString &permissionString ) const;
+    QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
 };

@@ -49,26 +49,26 @@ bool PlatformUtilities::createDir( const QString &path, const QString &dirname )
 
 bool PlatformUtilities::rmFile( const QString &filename ) const
 {
-  QFile file ( filename );
+  QFile file( filename );
   return file.remove( filename );
 }
 
 bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
 {
-  QFile file ( filename );
+  QFile file( filename );
   return file.rename( newname );
 }
 
-PictureSource* PlatformUtilities::getPicture( const QString& prefix )
+PictureSource *PlatformUtilities::getPicture( const QString &prefix )
 {
   Q_UNUSED( prefix )
   return nullptr;
 }
 
-void PlatformUtilities::open( const QString& data, const QString& type )
+void PlatformUtilities::open( const QString &uri, const QString &mimeType )
 {
-  QDesktopServices::openUrl( QUrl( data ) );
-  Q_UNUSED( type )
+  QDesktopServices::openUrl( QUrl( uri ) );
+  Q_UNUSED( mimeType )
 }
 
 QString PlatformUtilities::fieldType( const QgsField &field ) const
@@ -79,5 +79,20 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 ProjectSource *PlatformUtilities::openProject()
 {
   return nullptr;
+}
+
+bool PlatformUtilities::checkPositioningPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkCameraPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkWriteExternalStoragePermissions() const
+{
+  return true;
 }
 

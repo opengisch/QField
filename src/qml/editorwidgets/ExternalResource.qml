@@ -77,7 +77,10 @@ Item {
     Popup {
       id: campopup
 
-      Component.onCompleted: open()
+      Component.onCompleted: {
+        if ( platformUtilities.checkCameraPermissions() )
+          open()
+      }
 
       parent: ApplicationWindow.overlay
 

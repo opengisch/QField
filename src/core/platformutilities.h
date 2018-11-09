@@ -47,18 +47,51 @@ class PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource* getPicture( const QString& prefix );
-
-    Q_INVOKABLE virtual void open( const QString& data, const QString& type );
+    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix );
 
     /**
-     * Returns the QVariant typeName of a field.
+     * Open the resource (file, image, ...) that is available under \a uri.
+     * A \a mimeType can be provided to indicate the system how the file should
+     * be opened.
+     */
+    Q_INVOKABLE virtual void open( const QString &uri, const QString &mimeType );
+
+    /**
+     * Returns the QVariant typeName of a \a field.
      * This is a stable identifier (compared to the provider field name).
      */
-    Q_INVOKABLE QString fieldType( const QgsField& field ) const;
+    Q_INVOKABLE QString fieldType( const QgsField &field ) const;
 
-
+    /**
+     * Indicates the system that we want to open a project.
+     * The system shall show a suitable user interface element (like a filebrowser)
+     * to let the user select a project.
+     * The call returns immediately and the returned ProjectSource will notify
+     * when the project has actually been chosen.
+     */
     Q_INVOKABLE virtual ProjectSource *openProject();
-    
+
+    /**
+     * Checks for positioning (GPS etc) permissions on the device.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     * It will return true, if at least coarse permissions are granted. It will
+     * ask for fine permissions if none are granted.
+     */
+    Q_INVOKABLE virtual bool checkPositioningPermissions() const;
+
+    /**
+     * Checks for camera permissions on the device.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     */
+    Q_INVOKABLE virtual bool checkCameraPermissions() const;
+
+    /**
+     * Checks for permissions to write exeternal storage.
+     * If the permissions are not given, the user will be asked to grant
+     * permissions.
+     */
+    Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
 };
 #endif // PLATFORMUTILITIES_H

@@ -51,13 +51,13 @@ QString AndroidPlatformUtilities::qgsProject() const
   return getIntentExtra( "QGS_PROJECT" );
 }
 
-QString AndroidPlatformUtilities::getIntentExtra( const QString& extra, QAndroidJniObject extras ) const
+QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
-  if ( extras == 0 )
+  if ( extras == nullptr )
   {
     extras = getNativeExtras();
   }
-  if( extras.isValid() )
+  if ( extras.isValid() )
   {
     QAndroidJniObject extraJni = QAndroidJniObject::fromString( extra );
     extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
@@ -77,7 +77,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
     QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
     return intent;
   }
-  return 0;
+  return nullptr;
 }
 
 QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
@@ -89,16 +89,19 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
 
     return extras;
   }
-  return 0;
+  return nullptr;
 }
 
-PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
+PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
 {
+  if ( !checkCameraPermissions() )
+    return nullptr;
+
   QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
 
-  AndroidPictureSource* pictureSource = nullptr;
+  AndroidPictureSource *pictureSource = nullptr;
 
   if ( actionImageCapture.isValid() && intent.isValid() )
   {
@@ -113,14 +116,15 @@ PictureSource* AndroidPlatformUtilities::getPicture( const QString& prefix )
   return pictureSource;
 }
 
-void AndroidPlatformUtilities::open( const QString& data, const QString& type )
+void AndroidPlatformUtilities::open( const QString &uri, const QString &mimeType )
 {
+  checkWriteExternalStoragePermissions();
   QAndroidJniObject actionView = QAndroidJniObject::getStaticObjectField( "android/intent/action", "ACTION_VIEW", "Ljava/lang/String;" );
 
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionView.object<jstring>() );
 
-  QAndroidJniObject jDataString = QAndroidJniObject::fromString( data );
-  QAndroidJniObject jType = QAndroidJniObject::fromString( type );
+  QAndroidJniObject jDataString = QAndroidJniObject::fromString( uri );
+  QAndroidJniObject jType = QAndroidJniObject::fromString( mimeType );
 
   QAndroidJniObject jData = QAndroidJniObject::callStaticObjectMethod( "android/net/Uri", "parse", "(Ljava/lang/String;)Landroid/net/Uri;", jDataString.object<jstring>() );
 
@@ -131,6 +135,7 @@ void AndroidPlatformUtilities::open( const QString& data, const QString& type )
 
 ProjectSource *AndroidPlatformUtilities::openProject()
 {
+  checkWriteExternalStoragePermissions();
   QAndroidJniObject actionOpenDocument = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "ACTION_OPEN_DOCUMENT", "Ljava/lang/String;" );
   QAndroidJniObject categoryOpenable = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "CATEGORY_OPENABLE", "Ljava/lang/String;" );
 
@@ -139,7 +144,7 @@ ProjectSource *AndroidPlatformUtilities::openProject()
   QAndroidJniObject mimeType = QAndroidJniObject::fromString( QStringLiteral( "application/*" ) );
   intent.callObjectMethod( "setType", "(Ljava/lang/String;)Landroid/content/Intent;", mimeType.object<jstring>() );
 
-  AndroidProjectSource* projectSource = nullptr;
+  AndroidProjectSource *projectSource = nullptr;
 
   if ( intent.isValid() )
   {
@@ -152,4 +157,47 @@ ProjectSource *AndroidPlatformUtilities::openProject()
   }
 
   return projectSource;
+}
+
+bool AndroidPlatformUtilities::checkPositioningPermissions() const
+{
+  // First check for coarse permissions. If the user configured QField to only get coarse permissions
+  // it's his wish and we just let it be.
+  QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
+  if ( r == QtAndroid::PermissionResult::Denied )
+  {
+    // If there are no permissions available, ask for fine location permissions
+    QtAndroid::requestPermissionsSync( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
+    r = QtAndroid::checkPermission( "android.permission.ACCESS_FINE_LOCATION" );
+    if ( r == QtAndroid::PermissionResult::Denied )
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool AndroidPlatformUtilities::checkCameraPermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.CAMERA" );
+}
+
+bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
+{
+  return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
+}
+
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissionString ) const
+{
+  QtAndroid::PermissionResult r = QtAndroid::checkPermission( permissionString );
+  if ( r == QtAndroid::PermissionResult::Denied )
+  {
+    QtAndroid::requestPermissionsSync( QStringList() << permissionString );
+    r = QtAndroid::checkPermission( permissionString );
+    if ( r == QtAndroid::PermissionResult::Denied )
+    {
+      return false;
+    }
+  }
+  return true;
 }

@@ -40,8 +40,6 @@ android {
 
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
-    buildToolsVersion androidBuildToolsVersion
-
 
     /*
     // see https://bugreports.qt.io/browse/QTBUG-69755
