@@ -45,6 +45,7 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwfsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwmsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libssl.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrypto.so \
     $$QT_LIBS_DIR/libQt5OpenGL.so \
     $$QT_LIBS_DIR/libQt5PrintSupport.so \
     $$QT_LIBS_DIR/libQt5Sensors.so \
