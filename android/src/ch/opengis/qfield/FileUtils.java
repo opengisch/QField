@@ -1,5 +1,7 @@
 package ch.opengis.qfield;
 
+import java.io.File;
+
 import android.content.Context;
 import android.net.Uri;
 import android.database.Cursor;
@@ -9,12 +11,24 @@ import android.content.ContentResolver;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 
+import ch.opengis.qfield.QFieldActivity;
+
 class FileUtils{
 
     private static final String TAG = "MyCloudProvider";
 
     public static String getPathFromUri(Uri uri, ContentResolver resolver){
+        Log.v(TAG, "context: " + QFieldActivity.getContext());
+        Log.v(TAG, "context ExternalFileDirs: " + QFieldActivity.getContext().getExternalFilesDirs(null)[0]);
+        Log.v(TAG, "context ExternalFileDirs: " + QFieldActivity.getContext().getExternalFilesDirs(null)[1]);
 
+        Context context = QFieldActivity.getContext();
+        File[] externalFilesDirs = QFieldActivity.getContext().getExternalFilesDirs(null);
+        for (int i = 0; i < externalFilesDirs.length; i++){
+            Log.v(TAG, "ext dir for: " + externalFilesDirs[i]);
+        }
+        
+        
         Log.v(TAG, "Uri Scheme: " + uri.getScheme());
         Log.v(TAG, "Authority: " + uri.getAuthority());
         Log.v(TAG, "Query: " + uri.getQuery());
