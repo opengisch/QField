@@ -94,14 +94,14 @@ void VertexModel::refreshGeometry()
       geom.transform( mTransform );
   }
 
-  mIsMulti = QgsWkbTypes::isMultiType( mOriginalGeometry.wkbType() );
-
   setColumnCount( 1 );
   setRowCount( 0 );
 
   const QgsAbstractGeometry *abstractGeom = geom.constGet();
   if ( !abstractGeom )
     return;
+
+  mIsMulti = abstractGeom->partCount() > 1;
 
   QgsVertexId vertexId;
   QgsPoint pt;
