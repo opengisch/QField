@@ -12,8 +12,8 @@ then
   sudo mv build-${ARCH}/out/build/outputs/apk/release/out-release-signed.apk /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
   openssl aes-256-cbc -K $encrypted_dev_upload_key -iv $encrypted_dev_upload_iv -in .ci/id_rsa.enc -out .ci/id_rsa -d
   chmod 400 .ci/id_rsa
-  scp -i .ci/id_rsa -o "StrictHostKeyChecking no" /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST}:~/ci-builds/
-  echo -e "\e[31Uploaded to https://opengis.ch/download/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk \e[0m"
+  scp -i .ci/id_rsa -o "StrictHostKeyChecking no" /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST}:~/download.opengis.ch/qfield/ci-builds
+  echo -e "\e[31Uploaded to https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk \e[0m"
 else
   echo -e "Not uploading artifacts ..."
   if [ "${TRAVIS_SECURE_ENV_VARS}" != "true" ];
