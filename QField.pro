@@ -2,7 +2,39 @@ TEMPLATE = subdirs
 CONFIG += c++11
 CONFIG += qt
 
-TRANSLATIONS = $$PWD/i18n/*.ts
+TRANSLATIONS = $$PWD/i18n/qfield_en.ts /
+$$PWD/18n/qfield_no.ts /
+$$PWD/i18n/qfield_hr.ts /
+$$PWD/i18n/qfield_fa.ts /
+$$PWD/i18n/qfield_hu.ts /
+$$PWD/i18n/qfield_pt.ts /
+$$PWD/i18n/qfield_rm.ts /
+$$PWD/i18n/qfield_el.ts /
+$$PWD/i18n/qfield_it.ts /
+$$PWD/i18n/qfield_ca.ts /
+$$PWD/i18n/qfield_nb_NO.ts /
+$$PWD/i18n/qfield_cs.ts /
+$$PWD/i18n/qfield_ko.ts /
+$$PWD/i18n/qfield_ro.ts /
+$$PWD/i18n/qfield_nl.ts /
+$$PWD/i18n/qfield_es.ts /
+$$PWD/i18n/qfield_lt.ts /
+$$PWD/i18n/qfield_de.ts /
+$$PWD/i18n/qfield_gl.ts /
+$$PWD/i18n/qfield_fi.ts /
+$$PWD/i18n/qfield_zh.ts /
+$$PWD/i18n/qfield_uk.ts /
+$$PWD/i18n/qfield_sv.ts /
+$$PWD/i18n/qfield_af.ts /
+$$PWD/i18n/qfield_lv.ts /
+$$PWD/i18n/qfield_et.ts /
+$$PWD/i18n/qfield_he.ts /
+$$PWD/i18n/qfield_tr_TR.ts /
+$$PWD/i18n/qfield_fr.ts /
+$$PWD/i18n/qfield_hi.ts /
+$$PWD/i18n/qfield_mn.ts /
+$$PWD/i18n/qfield_pl.ts
+
 
 QMAKE_EXTRA_COMPILERS += lrelease
 lrelease.input         = TRANSLATIONS
