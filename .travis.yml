@@ -54,4 +54,6 @@ jobs:
       if: type = push AND branch = master
       install:
         pip install -r requirements.txt
-      script: ./scripts/ci/update-translations.sh
+      script:
+        - rm qgis.pri # As soon as LIBS += qgis_core is set, lupdate will freeze otherwise
+        - ./scripts/ci/update-translations.sh
