@@ -42,6 +42,7 @@ Item {
 
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
+        font.pointSize: 16
 
         text: value === undefined ?  qsTr('(no date)') : new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
         color: value === undefined ? 'gray' : 'black'
