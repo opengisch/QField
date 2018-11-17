@@ -112,8 +112,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-
-  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( mMapCanvas->mapSettings() );
+  QList<Rubberband *> li = rootObjects().first()->findChildren<Rubberband *>();
+  Rubberband *locatorRubberband = rootObjects().first()->findChild<Rubberband *>( "locatorRubberband" );
+  Q_ASSERT_X( locatorRubberband, "QML Init", "Locator rubber band not found" );
+  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( mMapCanvas->mapSettings(), locatorRubberband );
   mLocatorBridge->locator()->registerFilter( filter );
   mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->extent() );
   mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );

@@ -485,6 +485,23 @@ ApplicationWindow {
     anchors.margins: 10*dp
   }
 
+  Rubberband {
+    id: locatorRubberband
+    objectName: "locatorRubberband"
+    width: 10 * dp
+    color: "yellow"
+    mapSettings: mapCanvas.mapSettings
+    anchors.fill: parent
+
+    vertexModel: VertexModel {
+      id: locatorRubberbandVertexModel
+    }
+
+    transform: MapTransform {
+      mapSettings: mapCanvas.mapSettings
+    }
+  }
+
   DigitizingToolbar {
     id: digitizingToolbar
 

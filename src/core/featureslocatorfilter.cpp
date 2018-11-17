@@ -1,5 +1,6 @@
 #include "featureslocatorfilter.h"
 
+#include <QTimer>
 
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -7,17 +8,20 @@
 #include <qgsfeedback.h>
 
 #include "qgsquickmapsettings.h"
+#include "rubberband.h"
+#include "vertexmodel.h"
 
-FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, QObject *parent )
+FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, Rubberband *rubberband, QObject *parent )
   : QgsLocatorFilter( parent )
   , mMapSettings( mapSettings )
+  , mRubberband( rubberband )
 {
   setUseWithoutPrefix( true );
 }
 
 FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 {
-  return new FeaturesLocatorFilter( mMapSettings );
+  return new FeaturesLocatorFilter( mMapSettings, mRubberband );
 }
 
 void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
@@ -115,5 +119,10 @@ void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
   if ( r.isEmpty() )
     mMapSettings->setCenter( QgsPoint( r.center() ) );
   else
-    mMapSettings->setExtent( r );
+    mMapSettings->setExtent( r.scaled( 1.2 ) );
+
+  mRubberband->vertexModel()->setCrs( layer->crs() );
+  mRubberband->vertexModel()->setGeometry( geom );
+
+  QTimer::singleShot( 2500, this, [ = ]() {mRubberband->vertexModel()->clear();} );
 }

@@ -1,7 +1,8 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4 as Controls
 import "js/style.js" as Style
-
+import org.qgis 1.0
+import org.qfield 1.0
 
 
 Item {
