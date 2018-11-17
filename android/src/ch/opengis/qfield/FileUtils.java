@@ -31,6 +31,8 @@ class FileUtils{
                 }
             } catch (Exception e) {
                 // Eat it
+            } finally {
+                cursor.close();
             }
 
             // Document opened by other providers (e.g. Android's "SD card" provider)
