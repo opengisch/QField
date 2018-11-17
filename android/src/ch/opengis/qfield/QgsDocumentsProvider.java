@@ -160,15 +160,18 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
         if(parentDocumentId.endsWith(getContext().getPackageName()+"/files")){
 
-            //TODO Fix with not only external root
-            // Which one is the best to use?
-            // - getDataDirectory()
-            // - getExternalstorageDirectory()
-            // - getExternalstoragePublicDirectory()
-            // - getRootDirectory()
-            File root = Environment.getExternalStorageDirectory();
-            String rootPath= root.getPath();
-            scanFiles(new File(rootPath), result);
+            // Get all external files dirs in the form of
+            // /storage/emulated/0/Android/data/ch.opengis.qfield/files
+            // and change dir to the parent 4x
+
+            File[] externalFilesDirs = getContext().getExternalFilesDirs(null);
+            for (int i = 0; i < externalFilesDirs.length; i++){
+                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                String rootPath= root.getPath();
+                scanFiles(new File(rootPath), result);
+                Log.v(TAG, "Root scanned for qgs projects: " + rootPath);
+            }
+
         }else{
             listFiles(new File(parentDocumentId), result);
         }
