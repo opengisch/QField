@@ -169,7 +169,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                 File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
                 String rootPath= root.getPath();
                 scanFiles(new File(rootPath), result);
-                Log.v(TAG, "Root scanned for qgs projects: " + rootPath);
             }
 
         }else{
