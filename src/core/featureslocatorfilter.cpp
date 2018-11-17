@@ -113,7 +113,7 @@ void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
   QgsRectangle r = mMapSettings->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
   if ( r.isEmpty() )
-    mMapSettings->setCenter( r.center() );
+    mMapSettings->setCenter( QgsPoint( r.center() ) );
   else
     mMapSettings->setExtent( r );
 }

@@ -86,9 +86,9 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent )
   emit extentChanged();
 }
 
-void QgsQuickMapSettings::setCenter( const QgsPointXY &center )
+void QgsQuickMapSettings::setCenter( const QgsPoint &center )
 {
-  QgsVector delta = center - mMapSettings.extent().center();
+  QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
 
   QgsRectangle e = mMapSettings.extent();
   e.setXMinimum( e.xMinimum() + delta.x() );
