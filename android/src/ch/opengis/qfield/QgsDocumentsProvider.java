@@ -41,7 +41,7 @@ import org.xml.sax.InputSource;
  * Manages documents and exposes them to the Android system for sharing.
  */
 public class QgsDocumentsProvider extends DocumentsProvider {
-    private static final String TAG = "MyCloudProvider";
+    private static final String TAG = "QField Documents Provider";
 
     // Use these as the default columns to return information about a root if no specific
     // columns are requested in a query.
@@ -167,8 +167,11 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             File[] externalFilesDirs = getContext().getExternalFilesDirs(null);
             for (int i = 0; i < externalFilesDirs.length; i++){
                 File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-                String rootPath= root.getPath();
-                scanFiles(new File(rootPath), result);
+                if (root.exists() && root.isDirectory()){
+                    Log.v(TAG, "Scan for qgs projects: " + root.getPath());
+                    String rootPath= root.getPath();
+                    scanFiles(new File(rootPath), result);
+                }
             }
 
         }else{

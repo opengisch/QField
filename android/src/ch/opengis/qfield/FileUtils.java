@@ -15,14 +15,16 @@ import ch.opengis.qfield.QFieldActivity;
 
 class FileUtils{
 
-    private static final String TAG = "MyCloudProvider";
+    private static final String TAG = "QField Documents Provider";
 
     public static String getPathFromUri(Uri uri, ContentResolver resolver){
 
         Context context = QFieldActivity.getContext();
+        Log.v(TAG, "Get path from Uri, authority: "+ uri.getAuthority());
 
         // Document opened by QgsDocumentsProvider
         if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
+
             Cursor cursor = null;
             try {
                 cursor = resolver.query(uri, null, null, null, null);
@@ -54,9 +56,12 @@ class FileUtils{
         File[] externalFilesDirs = context.getExternalFilesDirs(null);
         for (int i = 0; i < externalFilesDirs.length; i++){
             File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-            File guess = new File(root, pathFromUri);
-            if (guess.exists()){
-                return guess.getPath();
+            if(root.exists() && root.isDirectory()){
+                File guess = new File(root, pathFromUri);
+                Log.v(TAG, "Try "+i+", open file: "+guess.getPath());
+                if (guess.exists()){
+                    return guess.getPath();
+                }
             }
         }
         return null;
