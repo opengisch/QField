@@ -1,6 +1,5 @@
 #include "featureslocatorfilter.h"
 
-#include <QTimer>
 #include <QAction>
 
 #include <qgsproject.h>
@@ -132,7 +131,4 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
     mMapSettings->setExtent( r.scaled( 1.2 ) );
 
   mLocatorHighlight->highlightGeometry( geom, layer->crs() );
-
-  //QTimer::singleShot( 2500, this, [ = ]() {mLocatorHighlight->vertexModel()->clear();} );
-
 }

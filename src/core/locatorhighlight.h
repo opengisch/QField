@@ -20,6 +20,8 @@
 
 #include "qgsquickmapsettings.h"
 
+class QTimer;
+
 class QgsGeometry;
 class QgsCoordinateReferenceSystem;
 
@@ -49,6 +51,7 @@ class LocatorHighlight : public QQuickItem
     unsigned int mWidth;
     QgsQuickMapSettings *mMapSettings;
     QgsGeometry mGeometry;
+    QTimer *mTimer = nullptr;
 };
 
 #endif // LOCATORHIGHLIGHT_H

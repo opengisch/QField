@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <QTimer>
 
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
@@ -30,10 +31,16 @@ LocatorHighlight::LocatorHighlight( QQuickItem *parent )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
+
+  mTimer = new QTimer( this );
+  mTimer->setSingleShot( false );
+  connect( mTimer, &QTimer::timeout, this, [ = ]() {mGeometry = QgsGeometry(); mDirty = true; update();} );
+  mTimer->start( 3000 );
 }
 
 void LocatorHighlight::highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
 {
+  mTimer->stop();
   mGeometry = geometry;
   if ( mMapSettings )
   {
@@ -43,6 +50,7 @@ void LocatorHighlight::highlightGeometry( const QgsGeometry &geometry, const Qgs
 
   mDirty = true;
   update();
+  mTimer->start( 2000 );
 }
 
 QSGNode *LocatorHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
