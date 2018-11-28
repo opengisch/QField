@@ -4,10 +4,50 @@
 #include <qgslocatormodel.h>
 
 #include "locatormodelsuperbridge.h"
+#include "qgsquickmapsettings.h"
+#include "featureslocatorfilter.h"
+#include "qgslocator.h"
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
+  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( this );
+  locator()->registerFilter( filter );
+}
+
+QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
+{
+  return mMapSettings;
+}
+
+void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mapSettings == mMapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+
+  updateCanvasExtent( mMapSettings->extent() );
+  updateCanvasCrs( mMapSettings->destinationCrs() );
+
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() {updateCanvasExtent( mMapSettings->visibleExtent() );} );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() {updateCanvasCrs( mMapSettings->destinationCrs() );} ) ;
+
+  emit mapSettingsChanged();
+}
+
+LocatorHighlight *LocatorModelSuperBridge::locatorHighlight() const
+{
+  return mLocatorHighlight;
+}
+
+void LocatorModelSuperBridge::setLocatorHighlight( LocatorHighlight *locatorHighlight )
+{
+  if ( locatorHighlight == mLocatorHighlight )
+    return;
+
+  mLocatorHighlight = locatorHighlight;
+  emit locatorHighlightChanged();
 }
 
 LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )

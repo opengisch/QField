@@ -7,6 +7,11 @@ import org.qfield 1.0
 
 Item {
   id: locatorItem
+  property LocatorModelSuperBridge locator: LocatorModelSuperBridge {
+    mapSettings: mapCanvas.mapSettings
+    locatorHighlight: locatorHighlightItem
+  }
+
   property bool searching: false
 
   states: [

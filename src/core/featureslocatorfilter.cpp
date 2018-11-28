@@ -7,21 +7,21 @@
 #include <qgsmaplayermodel.h>
 #include <qgsfeedback.h>
 
+#include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 #include "locatorhighlight.h"
 
 
-FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, LocatorHighlight *locatorHighlight, QObject *parent )
+FeaturesLocatorFilter::FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
-  , mMapSettings( mapSettings )
-  , mLocatorHighlight( locatorHighlight )
+  , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( true );
 }
 
 FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 {
-  return new FeaturesLocatorFilter( mMapSettings, mLocatorHighlight );
+  return new FeaturesLocatorFilter( mLocatorBridge );
 }
 
 void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
@@ -123,12 +123,12 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
   QgsGeometry geom = f.geometry();
   if ( geom.isNull() || geom.constGet()->isEmpty() )
     return;
-  QgsRectangle r = mMapSettings->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
+  QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
   if ( r.isEmpty() )
-    mMapSettings->setCenter( QgsPoint( r.center() ) );
+    mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
   else
-    mMapSettings->setExtent( r.scaled( 1.2 ) );
+    mLocatorBridge->mapSettings()->setExtent( r.scaled( 1.2 ) );
 
-  mLocatorHighlight->highlightGeometry( geom, layer->crs() );
+  mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
 }

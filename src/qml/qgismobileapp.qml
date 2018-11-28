@@ -487,8 +487,7 @@ ApplicationWindow {
   }
 
   LocatorHighlight {
-    id: locatorHighlight
-    objectName: "locatorHighlight"
+    id: locatorHighlightItem
     width: 10 * dp
     color: "yellow"
     mapSettings: mapCanvas.mapSettings

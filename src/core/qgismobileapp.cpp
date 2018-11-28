@@ -79,10 +79,9 @@
 #include "printlayoutlistmodel.h"
 #include "vertexmodel.h"
 #include "maptoscreen.h"
-#include "featureslocatorfilter.h"
 #include "projectsource.h"
 #include "locatormodelsuperbridge.h"
-#include "locatorhighlight.h"
+
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -100,7 +99,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
-  mLocatorBridge = new LocatorModelSuperBridge();
 
   initDeclarative();
 
@@ -112,16 +110,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mMapCanvas->mapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
-
-  LocatorHighlight *locatorHighlight = rootObjects().first()->findChild<LocatorHighlight *>( "locatorHighlight" );
-  Q_ASSERT_X( locatorHighlight, "QML Init", "Locator rubber band not found" );
-  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( mMapCanvas->mapSettings(), locatorHighlight );
-  mLocatorBridge->locator()->registerFilter( filter );
-  mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->extent() );
-  mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );
-
-  connect( mMapCanvas->mapSettings(), &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() {mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->visibleExtent() );} );
-  connect( mMapCanvas->mapSettings(), &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() {mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );} ) ;
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
