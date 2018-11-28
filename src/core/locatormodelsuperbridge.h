@@ -10,7 +10,8 @@ class LocatorActionsModel : public QStandardItemModel
   public:
     enum ActionRoles
     {
-      IconRole = Qt::UserRole + 1
+      IdRole = Qt::UserRole + 1,
+      IconRole
     };
     explicit LocatorActionsModel( QObject *parent = nullptr );
     LocatorActionsModel( int rows, int columns, QObject *parent = nullptr );
@@ -27,7 +28,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
   public slots:
-    Q_INVOKABLE void triggerResultAtRow( const int row );
+    Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
 };
 
 #endif // LOCATORMODELSUPERBRIDGE_H

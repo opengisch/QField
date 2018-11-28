@@ -1,6 +1,5 @@
 
 #include <QStandardItem>
-#include <QDebug>
 
 #include <qgslocatormodel.h>
 
@@ -24,6 +23,7 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   for ( ; it != actionsMap.constEnd(); ++it )
   {
     QStandardItem *item = new QStandardItem( it.value()->text() );
+    item->setData( it.key(), LocatorActionsModel::IdRole );
     item->setData( it.value()->data().toString(), LocatorActionsModel::IconRole );
     model->setItem( r, 0, item );
     r++;
@@ -32,11 +32,11 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   return model;
 }
 
-void LocatorModelSuperBridge::triggerResultAtRow( const  int row )
+void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );
   if ( index.isValid() )
-    triggerResult( index );
+    triggerResult( index, id );
 }
 
 LocatorActionsModel::LocatorActionsModel( QObject *parent )
@@ -53,5 +53,6 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IconRole] = "icon";
+  roles[IdRole] = "id";
   return roles;
 }

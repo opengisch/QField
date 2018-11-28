@@ -90,6 +90,7 @@ Item {
       width: parent.width
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
+      property int resultIndex: index
       color: isGroup ? "#ffffff" : "#eeeeee"
       opacity: 0.95
       border.width: 1*dp
@@ -111,12 +112,13 @@ Item {
 
         Repeater {
           model: locator.contextMenuActionsModel( index )
-
           Button {
             text: model.icon
-
-            onClicked: {
-              locator.triggerResultAtRow(index)
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
+              }
             }
           }
         }
