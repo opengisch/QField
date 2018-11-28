@@ -110,8 +110,11 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        locatorItem.searching = false
-        if ( !overlayFeatureFormDrawer.visible )
+        if (locatorItem.searching)
+        {
+          locatorItem.searching = false
+        }
+        else if( !overlayFeatureFormDrawer.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
