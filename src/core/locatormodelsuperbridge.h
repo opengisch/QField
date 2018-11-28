@@ -4,6 +4,19 @@
 #include <QStandardItemModel>
 #include <qgslocatormodelbridge.h>
 
+class LocatorActionsModel : public QStandardItemModel
+{
+    Q_OBJECT
+  public:
+    enum ActionRoles
+    {
+      IconRole = Qt::UserRole + 1
+    };
+    explicit LocatorActionsModel( QObject *parent = nullptr );
+    LocatorActionsModel( int rows, int columns, QObject *parent = nullptr );
+    QHash<int, QByteArray> roleNames() const override;
+};
+
 class LocatorModelSuperBridge : public QgsLocatorModelBridge
 {
     Q_OBJECT
@@ -11,7 +24,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     explicit LocatorModelSuperBridge( QObject *parent = nullptr );
     ~LocatorModelSuperBridge() = default;
 
-    Q_INVOKABLE QStandardItemModel *contextMenuActionsModel( const int row );
+    Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row );

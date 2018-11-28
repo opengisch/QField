@@ -103,16 +103,30 @@ Item {
         font.italic: delegateRect.isGroup ? true : false
       }
 
-      Button {
+      Row {
+        id: actionsRow
         anchors.right: parent.right
         anchors.top: parent.top
         height: parent.height
-        visible: locator.contextMenuActionsModel( index ).rowCount() > 0
-        text: "test"
+
+        Repeater {
+          model: locator.contextMenuActionsModel( index )
+
+          Button {
+            text: model.icon
+
+            onClicked: {
+              locator.triggerResultAtRow(index)
+            }
+          }
+        }
       }
 
       MouseArea {
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: actionsRow.left
 
         onClicked: {
           locator.triggerResultAtRow(index)

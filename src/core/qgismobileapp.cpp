@@ -139,9 +139,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 void QgisMobileapp::initDeclarative()
 {
-  // Register Qt QML types
-  qmlRegisterType<QStandardItemModel>( "org.qt", 1, 0, "QStandardItemModel" );
-
   // Register QGIS QML types
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
@@ -201,6 +198,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
+  qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
