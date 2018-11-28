@@ -110,6 +110,7 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
+        locatorItem.searching = false
         if ( !overlayFeatureFormDrawer.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
@@ -494,9 +495,8 @@ ApplicationWindow {
     anchors.fill: parent
 
     transform: MapTransform {
-  mapSettings: mapCanvas.mapSettings
- }
-
+      mapSettings: mapCanvas.mapSettings
+    }
   }
 
   DigitizingToolbar {

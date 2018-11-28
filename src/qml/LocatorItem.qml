@@ -12,10 +12,12 @@ Item {
   states: [
       State { when: locatorItem.searching;
               PropertyChanges { target: searchButton; opacity: 0.0 }
-              PropertyChanges { target: searchField; opacity: 1.0 }},
+              PropertyChanges { target: searchField; opacity: 1.0 }
+              PropertyChanges { target: resultsList; opacity: 1.0 }},
       State { when: !locatorItem.searching;
               PropertyChanges { target: searchButton; opacity: 1.0 }
-              PropertyChanges { target: searchField; opacity: 0.0 }}
+              PropertyChanges { target: searchField; opacity: 0.0 }
+              PropertyChanges { target: resultsList; opacity: 0.0 }}
   ]
 
   Controls.TextField {
