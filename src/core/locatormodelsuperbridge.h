@@ -38,7 +38,6 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     LocatorHighlight *locatorHighlight() const;
     void setLocatorHighlight( LocatorHighlight *locatorHighlight );
 
-
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
   signals:
