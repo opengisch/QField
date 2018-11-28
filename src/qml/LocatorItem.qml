@@ -91,10 +91,10 @@ Item {
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
       property int resultIndex: index
-      color: isGroup ? "#ffffff" : "#eeeeee"
+      color: isGroup ? "#fff" : "#eee"
       opacity: 0.95
       border.width: 1*dp
-      border.color: "#bbbbbb"
+      border.color: "#bbb"
       radius: 2*dp
 
       Text {
@@ -109,11 +109,20 @@ Item {
         anchors.right: parent.right
         anchors.top: parent.top
         height: parent.height
+        anchors.rightMargin: 1*dp
 
         Repeater {
           model: locator.contextMenuActionsModel( index )
           Button {
-            text: model.icon
+            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height -2*dp
+            width: parent.height -2*dp
+            bgcolor: "#777"
+            Image {
+              anchors.fill: parent
+              source: Style.getThemeIcon( model.icon )
+              fillMode: Image.Pad
+            }
             MouseArea {
               anchors.fill: parent
               onClicked: {
