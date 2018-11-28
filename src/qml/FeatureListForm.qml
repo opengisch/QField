@@ -64,6 +64,7 @@ Rectangle {
       StateChangeScript {
         script: {
           show()
+          locatorItem.searching = false
           if( featureFormList.state === "Edit" ){
             ///e.g. tip on the canvas during an edit
             featureFormList.save()
@@ -341,6 +342,12 @@ Rectangle {
       } else {
         showMessage( qsTr('No feature at this position') )
         state = "Hidden"
+      }
+    }
+
+    onModelReset: {
+      if ( model.rowCount() > 0 ) {
+        state = "FeatureList"
       }
     }
   }

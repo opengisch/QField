@@ -10,6 +10,7 @@ Item {
   property LocatorModelSuperBridge locator: LocatorModelSuperBridge {
     mapSettings: mapCanvas.mapSettings
     locatorHighlight: locatorHighlightItem
+    model: featureForm.model
   }
 
   property bool searching: false

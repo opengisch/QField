@@ -44,6 +44,8 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureR
     {
       mFeatures.append( QPair< QgsVectorLayer*, QgsFeature >( it.key(), feat ) );
       connect( it.key(), &QgsVectorLayer::destroyed, this, &MultiFeatureListModel::layerDeleted, Qt::UniqueConnection );
+      connect( it.key(), &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModel::featureDeleted, Qt::UniqueConnection );
+      connect( it.key(), &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModel::attributeValueChanged, Qt::UniqueConnection );
     }
   }
 

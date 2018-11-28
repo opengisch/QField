@@ -50,6 +50,20 @@ void LocatorModelSuperBridge::setLocatorHighlight( LocatorHighlight *locatorHigh
   emit locatorHighlightChanged();
 }
 
+MultiFeatureListModel *LocatorModelSuperBridge::model() const
+{
+  return mModel;
+}
+
+void LocatorModelSuperBridge::setModel( MultiFeatureListModel *model )
+{
+  if ( model == mModel )
+    return;
+
+  mModel = model;
+  emit modelChanged();
+}
+
 LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );

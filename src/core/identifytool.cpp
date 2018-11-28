@@ -66,7 +66,6 @@ void IdentifyTool::identify( const QPointF &point ) const
     if ( vl )
     {
       QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );
-
       mModel->appendFeatures( results );
     }
   }

@@ -118,7 +118,18 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
     return;
 
   QgsFeature f;
-  QgsFeatureIterator it = layer->getFeatures( QgsFeatureRequest().setFilterFid( fid ).setNoAttributes() );
+  QgsFeatureRequest req;
+  req.setFilterFid( fid ).setNoAttributes();
+
+  if (id == OpenForm)
+    {
+      QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
+      requests.insert(layer, req);
+      mLocatorBridge->model()->setFeatures(requests);
+    }
+  else
+    {
+  QgsFeatureIterator it = layer->getFeatures( req );
   it.nextFeature( f );
   QgsGeometry geom = f.geometry();
   if ( geom.isNull() || geom.constGet()->isEmpty() )
@@ -131,4 +142,5 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
     mLocatorBridge->mapSettings()->setExtent( r.scaled( 1.2 ) );
 
   mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
+    }
 }
