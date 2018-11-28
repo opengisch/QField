@@ -82,6 +82,7 @@
 #include "featureslocatorfilter.h"
 #include "projectsource.h"
 #include "locatormodelsuperbridge.h"
+#include "locatorhighlight.h"
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -112,10 +113,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
 
-  QList<Rubberband *> li = rootObjects().first()->findChildren<Rubberband *>();
-  Rubberband *locatorRubberband = rootObjects().first()->findChild<Rubberband *>( "locatorRubberband" );
-  Q_ASSERT_X( locatorRubberband, "QML Init", "Locator rubber band not found" );
-  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( mMapCanvas->mapSettings(), locatorRubberband );
+  LocatorHighlight *locatorHighlight = rootObjects().first()->findChild<LocatorHighlight *>( "locatorHighlight" );
+  Q_ASSERT_X( locatorHighlight, "QML Init", "Locator rubber band not found" );
+  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( mMapCanvas->mapSettings(), locatorHighlight );
   mLocatorBridge->locator()->registerFilter( filter );
   mLocatorBridge->updateCanvasExtent( mMapCanvas->mapSettings()->extent() );
   mLocatorBridge->updateCanvasCrs( mMapCanvas->mapSettings()->destinationCrs() );
@@ -199,6 +199,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
+  qmlRegisterType<LocatorHighlight>( "org.qfield", 1, 0, "LocatorHighlight" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

@@ -8,7 +8,7 @@
 #include "qgsfeatureiterator.h"
 
 class QgsQuickMapSettings;
-class Rubberband;
+class LocatorHighlight;
 
 class FeaturesLocatorFilter : public QgsLocatorFilter
 {
@@ -33,7 +33,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
         QIcon layerIcon;
     } ;
 
-    FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, Rubberband *rubberband, QObject *parent = nullptr );
+    FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, LocatorHighlight *locatorHighlight, QObject *parent = nullptr );
     FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
     QString displayName() const override { return tr( "Features In All Layers" ); }
@@ -50,7 +50,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     int mMaxTotalResults = 12;
     QList<PreparedLayer> mPreparedLayers;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    Rubberband *mRubberband = nullptr;
+    LocatorHighlight *mLocatorHighlight = nullptr;
 };
 
 #endif // FEATURESLOCATORFILTER_H

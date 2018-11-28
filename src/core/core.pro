@@ -56,7 +56,8 @@ HEADERS += \
     maptoscreen.h \
     projectsource.h \
     featureslocatorfilter.h \
-    locatormodelsuperbridge.h
+    locatormodelsuperbridge.h \
+    locatorhighlight.h
 
 SOURCES += \
     appinterface.cpp \
@@ -96,7 +97,8 @@ SOURCES += \
     maptoscreen.cpp \
     projectsource.cpp \
     featureslocatorfilter.cpp \
-    locatormodelsuperbridge.cpp
+    locatormodelsuperbridge.cpp \
+    locatorhighlight.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

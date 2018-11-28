@@ -9,20 +9,20 @@
 #include <qgsfeedback.h>
 
 #include "qgsquickmapsettings.h"
-#include "rubberband.h"
-#include "vertexmodel.h"
+#include "locatorhighlight.h"
 
-FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, Rubberband *rubberband, QObject *parent )
+
+FeaturesLocatorFilter::FeaturesLocatorFilter( QgsQuickMapSettings *mapSettings, LocatorHighlight *locatorHighlight, QObject *parent )
   : QgsLocatorFilter( parent )
   , mMapSettings( mapSettings )
-  , mRubberband( rubberband )
+  , mLocatorHighlight( locatorHighlight )
 {
   setUseWithoutPrefix( true );
 }
 
 FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 {
-  return new FeaturesLocatorFilter( mMapSettings, mRubberband );
+  return new FeaturesLocatorFilter( mMapSettings, mLocatorHighlight );
 }
 
 void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
@@ -131,9 +131,8 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
   else
     mMapSettings->setExtent( r.scaled( 1.2 ) );
 
-  mRubberband->vertexModel()->setCrs( layer->crs() );
-  mRubberband->vertexModel()->setGeometry( geom );
+  mLocatorHighlight->highlightGeometry( geom, layer->crs() );
 
-  QTimer::singleShot( 2500, this, [ = ]() {mRubberband->vertexModel()->clear();} );
+  //QTimer::singleShot( 2500, this, [ = ]() {mLocatorHighlight->vertexModel()->clear();} );
 
 }
