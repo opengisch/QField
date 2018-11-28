@@ -788,6 +788,7 @@ ApplicationWindow {
 
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
+    featureModel: digitizingFeature
   }
 
   Keys.onReleased: {

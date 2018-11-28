@@ -4,6 +4,7 @@ import org.qfield 1.0
 
 Drawer {
   id: overlayFeatureFormDrawer
+  property alias featureModel: overlayFeatureForm.featureModel
   height: parent.height
   width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
   edge: Qt.RightEdge
@@ -32,12 +33,10 @@ Drawer {
     height: parent.height
     width: parent.width
     visible: true
-
+    property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
 
-    model: AttributeFormModel {
-      featureModel: digitizingFeature
-    }
+    model: AttributeFormModel {id: attributeFormModel}
 
     state: "Add"
 
