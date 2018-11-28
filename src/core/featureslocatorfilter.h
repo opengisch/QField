@@ -15,6 +15,13 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     Q_OBJECT
 
   public:
+
+    enum ContextMenuEntry
+    {
+      NoEntry,
+      OpenForm
+    };
+
     struct PreparedLayer
     {
       public:
@@ -35,7 +42,8 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
 
     void prepare( const QString &string, const QgsLocatorContext &context ) override;
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
-    Q_INVOKABLE void triggerResult( const QgsLocatorResult &result ) override;
+    void triggerResult( const QgsLocatorResult &result ) override;
+    void triggerResultFromContextMenu( const QgsLocatorResult &result, const int id ) override;
 
   private:
     int mMaxResultsPerLayer = 6;

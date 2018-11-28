@@ -1,6 +1,7 @@
 #include "featureslocatorfilter.h"
 
 #include <QTimer>
+#include <QAction>
 
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -87,6 +88,10 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.userData = QVariantList() << f.id() << preparedLayer.layerId;
       result.icon = preparedLayer.layerIcon;
       result.score = static_cast< double >( string.length() ) / result.displayString.size();
+      QAction *action = new QAction( tr( "Open form" ) );
+      action->setData( QStringLiteral( "ic_create_white_24dp" ) );
+      result.contextMenuActions.insert( OpenForm, action );
+
       emit resultFetched( result );
 
       foundInCurrentLayer++;
@@ -101,15 +106,20 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 
 void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
+  triggerResultFromContextMenu( result, NoEntry );
+}
+
+void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult &result, const int id )
+{
   QVariantList dataList = result.userData.toList();
-  QgsFeatureId id = dataList.at( 0 ).toLongLong();
+  QgsFeatureId fid = dataList.at( 0 ).toLongLong();
   QString layerId = dataList.at( 1 ).toString();
   QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
   if ( !layer )
     return;
 
   QgsFeature f;
-  QgsFeatureIterator it = layer->getFeatures( QgsFeatureRequest().setFilterFid( id ).setNoAttributes() );
+  QgsFeatureIterator it = layer->getFeatures( QgsFeatureRequest().setFilterFid( fid ).setNoAttributes() );
   it.nextFeature( f );
   QgsGeometry geom = f.geometry();
   if ( geom.isNull() || geom.constGet()->isEmpty() )
@@ -125,4 +135,5 @@ void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
   mRubberband->vertexModel()->setGeometry( geom );
 
   QTimer::singleShot( 2500, this, [ = ]() {mRubberband->vertexModel()->clear();} );
+
 }

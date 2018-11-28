@@ -103,6 +103,14 @@ Item {
         font.italic: delegateRect.isGroup ? true : false
       }
 
+      Button {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        height: parent.height
+        visible: locator.contextMenuActionsModel( index ).rowCount() > 0
+        text: "test"
+      }
+
       MouseArea {
         anchors.fill: parent
 
