@@ -87,9 +87,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.userData = QVariantList() << f.id() << preparedLayer.layerId;
       result.icon = preparedLayer.layerIcon;
       result.score = static_cast< double >( string.length() ) / result.displayString.size();
-      QAction *action = new QAction( tr( "Open form" ) );
-      action->setData( QStringLiteral( "ic_create_white_24dp" ) );
-      result.contextMenuActions.insert( OpenForm, action );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_create_white_24dp" ) );
 
       emit resultFetched( result );
 
@@ -105,10 +103,10 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 
 void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
-  triggerResultFromContextMenu( result, NoEntry );
+  triggerResultFromAction( result, NoEntry );
 }
 
-void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult &result, const int id )
+void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   QVariantList dataList = result.userData.toList();
   QgsFeatureId fid = dataList.at( 0 ).toLongLong();
@@ -121,26 +119,26 @@ void FeaturesLocatorFilter::triggerResultFromContextMenu( const QgsLocatorResult
   QgsFeatureRequest req;
   req.setFilterFid( fid ).setNoAttributes();
 
-  if (id == OpenForm)
-    {
-      QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
-      requests.insert(layer, req);
-      mLocatorBridge->model()->setFeatures(requests);
-    }
+  if ( actionId == OpenForm )
+  {
+    QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
+    requests.insert( layer, req );
+    mLocatorBridge->model()->setFeatures( requests );
+  }
   else
-    {
-  QgsFeatureIterator it = layer->getFeatures( req );
-  it.nextFeature( f );
-  QgsGeometry geom = f.geometry();
-  if ( geom.isNull() || geom.constGet()->isEmpty() )
-    return;
-  QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
+  {
+    QgsFeatureIterator it = layer->getFeatures( req );
+    it.nextFeature( f );
+    QgsGeometry geom = f.geometry();
+    if ( geom.isNull() || geom.constGet()->isEmpty() )
+      return;
+    QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
-  if ( r.isEmpty() )
-    mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
-  else
-    mLocatorBridge->mapSettings()->setExtent( r.scaled( 1.2 ) );
+    if ( r.isEmpty() )
+      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
+    else
+      mLocatorBridge->mapSettings()->setExtent( r.scaled( 1.2 ) );
 
-  mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
-    }
+    mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
+  }
 }

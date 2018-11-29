@@ -70,15 +70,14 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   if ( !index.isValid() )
     return nullptr;
 
-  const QMap<int, QAction *> actionsMap = proxyModel()->data( index, QgsLocatorModel::ResultContextMenuActionsRole ).value<QMap<int, QAction *>>();
+  const QList<QgsLocatorResult::ResultAction> actions = proxyModel()->data( index, QgsLocatorModel::ResultActionsRole ).value<QList<QgsLocatorResult::ResultAction>>();
   int r = 0;
-  LocatorActionsModel *model = new LocatorActionsModel( actionsMap.count(), 1 );
-  QMap<int, QAction *>::const_iterator it = actionsMap.constBegin();
-  for ( ; it != actionsMap.constEnd(); ++it )
+  LocatorActionsModel *model = new LocatorActionsModel( actions.count(), 1 );
+  for ( auto action : actions )
   {
-    QStandardItem *item = new QStandardItem( it.value()->text() );
-    item->setData( it.key(), LocatorActionsModel::IdRole );
-    item->setData( it.value()->data().toString(), LocatorActionsModel::IconRole );
+    QStandardItem *item = new QStandardItem( action.text );
+    item->setData( action.id, LocatorActionsModel::IdRole );
+    item->setData( action.iconPath, LocatorActionsModel::IconRole );
     model->setItem( r, 0, item );
     r++;
   }
