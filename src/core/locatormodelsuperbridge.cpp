@@ -77,7 +77,7 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   {
     QStandardItem *item = new QStandardItem( action.text );
     item->setData( action.id, LocatorActionsModel::IdRole );
-    item->setData( action.iconPath, LocatorActionsModel::IconRole );
+    item->setData( action.iconPath, LocatorActionsModel::IconPathRole );
     model->setItem( r, 0, item );
     r++;
   }
@@ -105,7 +105,7 @@ LocatorActionsModel::LocatorActionsModel( int rows, int columns, QObject *parent
 QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
-  roles[IconRole] = "icon";
+  roles[IconPathRole] = "iconPath";
   roles[IdRole] = "id";
   return roles;
 }

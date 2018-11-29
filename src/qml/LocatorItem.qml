@@ -128,7 +128,7 @@ Item {
             bgcolor: "#777"
             Image {
               anchors.fill: parent
-              source: Style.getThemeIcon( model.icon )
+              source: Style.getThemeIcon( model.iconPath )
               fillMode: Image.Pad
             }
             MouseArea {

@@ -16,7 +16,7 @@ class LocatorActionsModel : public QStandardItemModel
     enum ActionRoles
     {
       IdRole = Qt::UserRole + 1,
-      IconRole
+      IconPathRole
     };
     explicit LocatorActionsModel( QObject *parent = nullptr );
     LocatorActionsModel( int rows, int columns, QObject *parent = nullptr );

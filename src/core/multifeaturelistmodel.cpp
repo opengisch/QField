@@ -55,7 +55,7 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer*, QgsFeatureR
 void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult>& results )
 {
   beginInsertRows( QModelIndex(), mFeatures.count(), mFeatures.count() + results.count() -1 );
-  Q_FOREACH( const IdentifyTool::IdentifyResult& result, results )
+  for( const IdentifyTool::IdentifyResult& result : results )
   {
     QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( result.layer );
     mFeatures.append( QPair<QgsVectorLayer*, QgsFeature>( layer, result.feature ) );
@@ -68,7 +68,6 @@ void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyRe
 
 void MultiFeatureListModel::clear()
 {
-
   beginResetModel();
   mFeatures.clear();
   endResetModel();

@@ -116,8 +116,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     return;
 
   QgsFeature f;
-  QgsFeatureRequest req;
-  req.setFilterFid( fid ).setNoAttributes();
+  QgsFeatureRequest req = QgsFeatureRequest().setFilterFid( fid );
 
   if ( actionId == OpenForm )
   {
@@ -127,7 +126,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   }
   else
   {
-    QgsFeatureIterator it = layer->getFeatures( req );
+    QgsFeatureIterator it = layer->getFeatures( req.setNoAttributes() );
     it.nextFeature( f );
     QgsGeometry geom = f.geometry();
     if ( geom.isNull() || geom.constGet()->isEmpty() )
