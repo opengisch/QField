@@ -339,6 +339,10 @@ Rectangle {
     onRowsInserted: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
+        if (model.rowCount() === 1){
+          featureForm.selection.selection = 0
+          featureForm.state = "FeatureForm"
+        }
       } else {
         showMessage( qsTr('No feature at this position') )
         state = "Hidden"
@@ -348,6 +352,10 @@ Rectangle {
     onModelReset: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
+        if (model.rowCount() === 1){
+          featureForm.selection.selection = 0
+          featureForm.state = "FeatureForm"
+        }
       }
     }
   }
