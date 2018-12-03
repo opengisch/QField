@@ -24,7 +24,6 @@
 
 #include <qgsmapsettings.h>
 #include <qgspoint.h>
-#include <qgsmapcanvasinterface.h>
 
 #include "qgsquickmapsettings.h"
 
