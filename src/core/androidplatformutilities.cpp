@@ -161,14 +161,14 @@ ProjectSource *AndroidPlatformUtilities::openProject()
 
 bool AndroidPlatformUtilities::checkPositioningPermissions() const
 {
-  // First check for coarse permissions. If the user configured QField to only get coarse permissions
+  // If the user configured QField to only get coarse permissions
   // it's his wish and we just let it be.
-  QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
+  QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_FINE_LOCATION" );
   if ( r == QtAndroid::PermissionResult::Denied )
   {
-    // If there are no permissions available, ask for fine location permissions
-    QtAndroid::requestPermissionsSync( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
-    r = QtAndroid::checkPermission( "android.permission.ACCESS_FINE_LOCATION" );
+    // If there are no permissions available, ask for corase location permissions
+    QtAndroid::requestPermissionsSync( QStringList() << "android.permission.ACCESS_COARSE_LOCATION" );
+    r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
     if ( r == QtAndroid::PermissionResult::Denied )
     {
       return false;
