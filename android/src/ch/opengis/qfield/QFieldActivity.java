@@ -45,9 +45,11 @@ import java.util.zip.ZipInputStream;
 import ch.opengis.qfield.R;
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -76,9 +78,17 @@ public class QFieldActivity extends Activity {
   private String mDotQgis2Dir;
   private String mShareDir;
 
+    private static Application application;
+    
+    public static Context getContext() {
+        return application.getApplicationContext();
+    }
+    
   /** Called when the activity is first created. */
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    application = this.getApplication();
     // get preferences, 0 = mode private. only this app can read these
     mPrefs = this.getApplicationContext().getSharedPreferences("qgisPrefs",
              0);

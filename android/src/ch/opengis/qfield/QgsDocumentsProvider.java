@@ -41,7 +41,7 @@ import org.xml.sax.InputSource;
  * Manages documents and exposes them to the Android system for sharing.
  */
 public class QgsDocumentsProvider extends DocumentsProvider {
-    private static final String TAG = "MyCloudProvider";
+    private static final String TAG = "QField Documents Provider";
 
     // Use these as the default columns to return information about a root if no specific
     // columns are requested in a query.
@@ -160,15 +160,20 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
         if(parentDocumentId.endsWith(getContext().getPackageName()+"/files")){
 
-            //TODO Fix with not only external root
-            // Which one is the best to use?
-            // - getDataDirectory()
-            // - getExternalstorageDirectory()
-            // - getExternalstoragePublicDirectory()
-            // - getRootDirectory()
-            File root = Environment.getExternalStorageDirectory();
-            String rootPath= root.getPath();
-            scanFiles(new File(rootPath), result);
+            // Get all external files dirs in the form of
+            // /storage/emulated/0/Android/data/ch.opengis.qfield/files
+            // and change dir to the parent 4x
+
+            File[] externalFilesDirs = getContext().getExternalFilesDirs(null);
+            for (int i = 0; i < externalFilesDirs.length; i++){
+                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                if (root.exists() && root.isDirectory()){
+                    Log.v(TAG, "Scan for qgs projects: " + root.getPath());
+                    String rootPath= root.getPath();
+                    scanFiles(new File(rootPath), result);
+                }
+            }
+
         }else{
             listFiles(new File(parentDocumentId), result);
         }
