@@ -62,7 +62,7 @@ Drawer {
         if( overlayFeatureForm.model.constraintsValid ) {
           overlayFeatureFormDrawer.close()
         } else {
-          displayToast( "Constraints not valid" )
+          displayToast( qsTr( "Constraints not valid" ) )
         }
         event.accepted = true
       }
@@ -81,7 +81,7 @@ Drawer {
       if( overlayFeatureForm.model.constraintsValid ) {
         overlayFeatureFormDrawer.close()
       } else {
-        displayToast( "Constraints not valid" )
+        displayToast( qsTr( "Constraints not valid" ) )
       }
       event.accepted = true
     }
