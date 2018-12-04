@@ -364,7 +364,7 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
-    height: childrenRect.height + 8*dp
+    height: childrenRect.height + 8 * dp
 
     Button {
       id: menuButton
@@ -385,7 +385,7 @@ ApplicationWindow {
     anchors.leftMargin: 4 * dp
     anchors.top: mainMenuBar.bottom
     anchors.topMargin: 4 * dp
-    spacing: 4*dp
+    spacing: 4 * dp
 
     Button {
       id: gpsButton
@@ -483,10 +483,10 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: mainWindow.width < 300*dp ? mainWindow.width : 200*dp
+    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: 10*dp
+    anchors.margins: 10 * dp
   }
 
   LocatorHighlight {
@@ -954,9 +954,9 @@ ApplicationWindow {
   Popup {
       id: toast
       opacity: 0
-      height: 40*dp;
+      height: 40 * dp;
       width: parent.width
-      y: parent.height - 112*dp
+      y: parent.height - 112 * dp
       margins: 0
       background: none
       closePolicy: Popup.NoAutoClose
@@ -977,19 +977,19 @@ ApplicationWindow {
           id: toastContent
         color: "#272727"
 
-        height: 40*dp
-        width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
+        height: 40 * dp
+        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20*dp
+        radius: 20 * dp
 
         z: 1
 
         Text {
           id: toastMessage
           anchors.centerIn: parent
-          font.pixelSize: 16*dp
+          font.pixelSize: 16 * dp
           color: "#ffffff"
         }
       }

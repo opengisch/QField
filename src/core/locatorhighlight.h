@@ -25,6 +25,11 @@ class QTimer;
 class QgsGeometry;
 class QgsCoordinateReferenceSystem;
 
+
+/**
+ * LocatorHighlight allows highlighting geometries
+ * on the canvas for the specific needs of the locator.
+ */
 class LocatorHighlight : public QQuickItem
 {
     Q_OBJECT

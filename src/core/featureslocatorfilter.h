@@ -1,3 +1,20 @@
+/***************************************************************************
+  featureslocatorfilter.h
+
+ ---------------------
+ begin                : 01.12.2018
+ copyright            : (C) 2018 by Denis Rouzaud
+ email                : denis@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+
 #ifndef FEATURESLOCATORFILTER_H
 #define FEATURESLOCATORFILTER_H
 
@@ -9,15 +26,21 @@
 
 class LocatorModelSuperBridge;
 
+/**
+ * FeaturesLocatorFilter is a locator filter to search
+ * for features across layers in the project.
+ * Reimplemented from QGIS code (app).
+ */
 class FeaturesLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
   public:
 
-    enum ContextMenuEntry
+    //! Origin of the action which triggers the result
+    enum ActionOrigin
     {
-      NoEntry,
+      Normal,
       OpenForm
     };
 
