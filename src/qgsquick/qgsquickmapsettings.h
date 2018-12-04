@@ -110,7 +110,7 @@ class QgsQuickMapSettings : public QObject
     ~QgsQuickMapSettings() = default;
 
     //! Clone map settings
-    const QgsMapSettings &mapSettings() const;
+    QgsMapSettings mapSettings() const;
 
     //! \copydoc QgsMapSettings::extent()
     QgsRectangle extent() const;
