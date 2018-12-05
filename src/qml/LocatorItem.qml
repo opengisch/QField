@@ -7,15 +7,15 @@ import org.qfield 1.0
 
 Item {
   id: locatorItem
-  property LocatorModelSuperBridge locator: LocatorModelSuperBridge {
+  property bool searching: false
+  height: childrenRect.height
+
+  LocatorModelSuperBridge {
+    id: locator
     mapSettings: mapCanvas.mapSettings
     locatorHighlight: locatorHighlightItem
     model: featureForm.model
   }
-
-  property bool searching: false
-
-  height: childrenRect.height
 
   states: [
       State { when: locatorItem.searching;
