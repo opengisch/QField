@@ -489,6 +489,15 @@ ApplicationWindow {
     anchors.margins: 10 * dp
   }
 
+  DropShadow {
+    visible: locatorItem.searching
+    anchors.fill: locatorItem
+    radius: 8 * dp
+    samples: 17
+    color: "#80000000"
+    source: locatorItem
+  }
+
   LocatorHighlight {
     id: locatorHighlightItem
     width: 10 * dp

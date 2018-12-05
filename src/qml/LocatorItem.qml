@@ -15,6 +15,8 @@ Item {
 
   property bool searching: false
 
+  height: childrenRect.height
+
   states: [
       State { when: locatorItem.searching;
               PropertyChanges { target: searchButton; opacity: 0.0 }
