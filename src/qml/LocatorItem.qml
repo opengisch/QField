@@ -105,7 +105,6 @@ Item {
       opacity: 0.95
       border.width: 1*dp
       border.color: "#bbb"
-      radius: 2*dp
 
       Text {
         text: model.Text
