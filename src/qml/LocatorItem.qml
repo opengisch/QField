@@ -45,6 +45,12 @@ Item {
       border.width: 1
     }
 
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        locatorItem.searching = false
+      }
+    }
+
     transitions: Transition {
       SequentialAnimation {
         NumberAnimation {
