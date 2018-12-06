@@ -117,7 +117,7 @@ Item {
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
       property int resultIndex: index
-      color: isGroup ? "#fff" : "#eee"
+      color: isGroup ? "#eee" : "#fff"
       opacity: 0.95
       border.width: 1*dp
       border.color: "#bbb"
@@ -142,7 +142,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height -2*dp
             width: parent.height -2*dp
-            bgcolor: "#777"
+            bgcolor: "#80cc28"
             Image {
               anchors.fill: parent
               source: Style.getThemeIcon( model.iconPath )
