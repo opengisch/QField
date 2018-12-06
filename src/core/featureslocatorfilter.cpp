@@ -42,7 +42,7 @@ FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 
 void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
 {
-  if ( string.length() < 3 || context.usingPrefix )
+  if ( string.length() < 3  )
     return;
 
   const QMap<QString, QgsMapLayer *> layers = QgsProject::instance()->mapLayers();
