@@ -174,6 +174,11 @@
         <file>themes/qfield/xhdpi/ic_info_white_18dp.png</file>
         <file>themes/qfield/xxhdpi/ic_info_white_18dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_info_white_18dp.png</file>
+        <file>themes/qfield/hdpi/ic_baseline-list_alt-24px.png</file>
+        <file>themes/qfield/mdpi/ic_baseline-list_alt-24px.png</file>
+        <file>themes/qfield/xhdpi/ic_baseline-list_alt-24px.png</file>
+        <file>themes/qfield/xxhdpi/ic_baseline-list_alt-24px.png</file>
+        <file>themes/qfield/xxxhdpi/ic_baseline-list_alt-24px.png</file>
         <file>themes/qfield/hdpi/ic_edit_geometry_white.png</file>
         <file>themes/qfield/xxxhdpi/ic_edit_geometry_white.png</file>
         <file>themes/qfield/mdpi/ic_edit_geometry_white.png</file>
@@ -188,6 +193,6 @@
         <file>themes/qfield/xxxhdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/mdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/xhdpi/ic_baseline_search_white.png</file>
-        <file>themes/qfield/xxhdpi/ic_baseline_search_white.png</file>        
+        <file>themes/qfield/xxhdpi/ic_baseline_search_white.png</file>
     </qresource>
 </RCC>

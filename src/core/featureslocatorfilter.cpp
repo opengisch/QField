@@ -103,7 +103,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.userData = QVariantList() << f.id() << preparedLayer.layerId;
       result.icon = preparedLayer.layerIcon;
       result.score = static_cast< double >( string.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_create_white_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
 
       emit resultFetched( result );
 
