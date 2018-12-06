@@ -480,15 +480,6 @@ ApplicationWindow {
     }
   }
 
-  LocatorItem {
-    id: locatorItem
-
-    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.margins: 10 * dp
-  }
-
   LocatorHighlight {
     id: locatorHighlightItem
     width: 10 * dp
@@ -499,6 +490,15 @@ ApplicationWindow {
     transform: MapTransform {
       mapSettings: mapCanvas.mapSettings
     }
+  }
+
+  LocatorItem {
+    id: locatorItem
+
+    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.margins: 10 * dp
   }
 
   DigitizingToolbar {
