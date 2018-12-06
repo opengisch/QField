@@ -62,6 +62,15 @@ Item {
     }
   }
 
+  Controls.BusyIndicator {
+    id: busyIndicator
+    running: locator.isRunning
+    anchors.right: searchField.right
+    anchors.top: searchField.top
+    anchors.margins: 4 * dp
+    height: searchField.height - 8 * dp
+  }
+
   Item {
     // Button in controls 1 has no opacity
     id: searchButton
