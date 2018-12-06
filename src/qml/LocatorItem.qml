@@ -31,7 +31,7 @@ Item {
   Controls.TextField {
     id: searchField
     placeholderText: qsTr("Search…")
-    onTextChanged: locator.performSearch(searchField.text)
+    onTextEdited: locator.performSearch(searchField.text)
     width: parent.width
     height: 40*dp
     anchors.right: parent.right
