@@ -1,14 +1,21 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick 2.11
+import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import "../js/style.js" as Style
 
 /*
+  Config:
   * field_format
   * display_format
   * calendar_popup
   * allow_null
+
+  If the calendar_popup is enabled, no direct editing is possible in the TextField.
+  If not, it will try to match the display_format with the best possible InputMethodHints.
+  If the field_format matches a time, it will not construct a Date object for the display.
+  A validator is also set for common types.
+
  */
 
 
@@ -37,17 +44,41 @@ Item {
         radius: 2
       }
 
-      Label {
+      TextField {
         id: label
 
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 16
 
-        text: value === undefined ?  qsTr('(no date)') : new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
+        Component.onCompleted: {
+          if (config['display_format'] === QgsDateFormat)
+          {
+            label.inputMethodHints = Qt.ImhDate
+            label.inputMask = "0000-09-09;_"
+            label.validator = new RegExpValidator( /^[0-9]{4}:([0-5][0-9]):[0-5][0-9]$ /)
+          }
+          else if (config['display_format'] === QgsTimeFormat)
+          {
+            label.inputMethodHints = Qt.ImhTime
+            label.inputMask = "09:09:00; "
+            label.validator = new RegExpValidator( /^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):[0-5][0-9]$ / )
+          }
+          else
+          {
+            label.inputMethodHints = Qt.ImhDigitsOnly
+          }
+        }
+
+        text: value === undefined ? qsTr('(no date)') :
+                                    config['field_format'] === QgsTimeFormat ?
+                                      value :
+                                      new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
         color: value === undefined ? 'gray' : 'black'
 
+
         MouseArea {
+          enabled: config['calendar_popup']
           anchors.fill: parent
           onClicked: {
             popup.open()

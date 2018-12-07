@@ -42,6 +42,7 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgsdatetimefieldformatter.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
@@ -146,7 +147,6 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
 
-
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
@@ -204,6 +204,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "QgsTimeFormat", QgsDateTimeFieldFormatter::TIME_FORMAT );
+  rootContext()->setContextProperty( "QgsDateFormat", QgsDateTimeFieldFormatter::DATE_FORMAT );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
