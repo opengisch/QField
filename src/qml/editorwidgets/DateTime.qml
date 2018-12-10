@@ -55,14 +55,14 @@ Item {
           if (config['display_format'] === QgsDateFormat)
           {
             label.inputMethodHints = Qt.ImhDate
-            label.inputMask = "0000-09-09;_"
-            label.validator = new RegExpValidator( /^[0-9]{4}:([0-5][0-9]):[0-5][0-9]$ /)
+            label.inputMask = "9999-09-09;_"
+            label.validator = new RegExpValidator( /^[0-9]{4}:(0?[1-9]|1[0-2]):(0?[1-9]|[1-2][0-9]|3[0-1])$ /)
           }
           else if (config['display_format'] === QgsTimeFormat)
           {
             label.inputMethodHints = Qt.ImhTime
-            label.inputMask = "09:09:00; "
-            label.validator = new RegExpValidator( /^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):[0-5][0-9]$ / )
+            label.inputMask = "09:09:00;_"
+            label.validator = new RegExpValidator( /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$ / )
           }
           else
           {
