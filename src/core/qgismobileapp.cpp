@@ -42,6 +42,8 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgslocator.h>
+#include <qgslocatormodel.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
@@ -78,6 +80,9 @@
 #include "vertexmodel.h"
 #include "maptoscreen.h"
 #include "projectsource.h"
+#include "locatormodelsuperbridge.h"
+
+
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -101,7 +106,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );
 
-  QgsQuickMapCanvasMap *mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
+  mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   mMapCanvas->mapSettings()->setProject( mProject );
 
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
@@ -123,21 +128,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 void QgisMobileapp::initDeclarative()
 {
   // Register QGIS QML types
-  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
+  qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
-  qRegisterMetaType<QgsCoordinateTransformContext>("QgsCoordinateTransformContext");
-
-  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
-  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
-
+  qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" );
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
@@ -145,6 +146,11 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::DistanceUnit>( "QgsUnitTypes::DistanceUnit" );
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
+
+  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
+  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
+  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
+  qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
 
 
   // Register QgsQuick QML types
@@ -179,12 +185,14 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
+  qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
+  qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
+  qmlRegisterType<LocatorHighlight>( "org.qfield", 1, 0, "LocatorHighlight" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
-  qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -197,6 +205,7 @@ void QgisMobileapp::initDeclarative()
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "qgisProject", mProject );
+  rootContext()->setContextProperty( "locator", mLocatorBridge );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
@@ -204,6 +213,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }

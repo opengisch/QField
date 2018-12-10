@@ -110,7 +110,11 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: {
-        if ( !overlayFeatureFormDrawer.visible )
+        if (locatorItem.searching)
+        {
+          locatorItem.searching = false
+        }
+        else if( !overlayFeatureFormDrawer.visible )
         {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
@@ -360,7 +364,7 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
-    height: childrenRect.height + 8*dp
+    height: childrenRect.height + 8 * dp
 
     Button {
       id: menuButton
@@ -375,106 +379,126 @@ ApplicationWindow {
     }
   }
 
-  Button {
-    id: gpsButton
-    state: positionSource.active ? "On" : "Off"
-    visible: positionSource.valid
-    round: true
-
+  Column {
+    id: mainToolBar
     anchors.left: dashBoard.right
     anchors.leftMargin: 4 * dp
     anchors.top: mainMenuBar.bottom
     anchors.topMargin: 4 * dp
+    spacing: 4 * dp
 
-    bgcolor: "#64B5F6"
+    Button {
+      id: gpsButton
+      state: positionSource.active ? "On" : "Off"
+      visible: positionSource.valid
+      round: true
 
-    states: [
-      State {
+      bgcolor: "#64B5F6"
 
-        name: "Off"
-        PropertyChanges {
-          target: gpsButton
-          iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-          bgcolor: "lightgrey"
-        }
-      },
+      states: [
+        State {
 
-      State {
-        name: "On"
-        PropertyChanges {
-          target: gpsButton
-          bgcolor: "#64B5F6"
-          iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-        }
-      }
-    ]
-
-    onClicked: {
-      console.warn("Centering")
-      if ( positionSource.projectedPosition.x )
-      {
-        console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
-        if ( !positionSource.active )
-        {
-          positionSource.active = true;
-          displayToast( qsTr( "Activating positioning service..." ) )
-        }
-      }
-      else
-      {
-        if ( positionSource.valid )
-        {
-          if ( positionSource.active )
-          {
-            displayToast( qsTr( "Waiting for location..." ) )
+          name: "Off"
+          PropertyChanges {
+            target: gpsButton
+            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
+            bgcolor: "lightgrey"
           }
-          else
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: gpsButton
+            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+          }
+        }
+      ]
+
+      onClicked: {
+        console.warn("Centering")
+        if ( positionSource.projectedPosition.x )
+        {
+          console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
+          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+
+          if ( !positionSource.active )
           {
-            positionSource.active = true
+            positionSource.active = true;
             displayToast( qsTr( "Activating positioning service..." ) )
           }
         }
+        else
+        {
+          if ( positionSource.valid )
+          {
+            if ( positionSource.active )
+            {
+              displayToast( qsTr( "Waiting for location..." ) )
+            }
+            else
+            {
+              positionSource.active = true
+              displayToast( qsTr( "Activating positioning service..." ) )
+            }
+          }
+        }
+      }
+
+      onPressAndHold: {
+        gpsMenu.popup()
+      }
+
+      function toggleGps() {
+        switch ( gpsButton.state )
+        {
+          case "Off":
+            gpsButton.state = "On"
+            displayToast( qsTr( "Positioning activated" ) )
+            break;
+
+          case "On":
+            gpsButton.state = "Off"
+            displayToast( qsTr( "Positioning turned off" ) )
+            break;
+        }
       }
     }
 
-    onPressAndHold: {
-      gpsMenu.popup()
-    }
+    Button {
+      id: gpsLinkButton
+      visible: gpsButton.state == "On" && stateMachine.state === "digitize"
+      round: true
+      checkable: true
 
-    function toggleGps() {
-      switch ( gpsButton.state )
-      {
-        case "Off":
-          gpsButton.state = "On"
-          displayToast( qsTr( "Positioning activated" ) )
-          break;
+      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
 
-        case "On":
-          gpsButton.state = "Off"
-          displayToast( qsTr( "Positioning turned off" ) )
-          break;
-      }
+      readonly property bool linkActive: gpsButton.state == "On" && checked
+
+      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
   }
 
-  Button {
-    id: gpsLinkButton
-    visible: gpsButton.state == "On" && stateMachine.state === "digitize"
-    round: true
-    checkable: true
+  LocatorHighlight {
+    id: locatorHighlightItem
+    width: 10 * dp
+    color: "yellow"
+    mapSettings: mapCanvas.mapSettings
+    anchors.fill: parent
 
-    anchors.left: dashBoard.right
-    anchors.leftMargin: 4 * dp
-    anchors.top: gpsButton.bottom
-    anchors.topMargin: 4 * dp
+    transform: MapTransform {
+      mapSettings: mapCanvas.mapSettings
+    }
+  }
 
-    iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+  LocatorItem {
+    id: locatorItem
 
-    readonly property bool linkActive: gpsButton.state == "On" && checked
-
-    onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
+    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.margins: 10 * dp
   }
 
   DigitizingToolbar {
@@ -762,92 +786,9 @@ ApplicationWindow {
     }
   }
 
-  Drawer {
+  OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
-    height: parent.height
-    width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
-    edge: Qt.RightEdge
-    interactive: overlayFeatureForm.model.constraintsValid
-    dragMargin: 0
-    Keys.enabled: true
-
-    /**
-     * If the save/cancel was initiated by button, the drawer needs to be closed in the end
-     * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
-     * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
-     */
-
-    onClosed: {
-        if( !overlayFeatureForm.isSaved ) {
-          overlayFeatureForm.save()
-        } else {
-          overlayFeatureForm.isSaved=false //reset
-        }
-
-        digitizingRubberband.model.reset()
-    }
-
-    FeatureForm {
-      id: overlayFeatureForm
-      height: parent.height
-      width: parent.width
-      visible: true
-
-      property bool isSaved: false
-
-      model: AttributeFormModel {
-        featureModel: digitizingFeature
-      }
-
-      state: "Add"
-
-      focus: parent.opened
-
-      onSaved: {
-        displayToast( qsTr( "Changes saved" ) )
-        //close drawer if still open
-        if( overlayFeatureFormDrawer.position > 0 ) {
-          overlayFeatureForm.isSaved=true //because just saved
-          overlayFeatureFormDrawer.close()
-        }
-      }
-
-      onCancelled: {
-        displayToast( qsTr( "Changes discarded" ) )
-        overlayFeatureForm.isSaved=true //because never changed
-        overlayFeatureFormDrawer.close()
-      }
-
-      Keys.onReleased: {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          if( overlayFeatureForm.model.constraintsValid ) {
-            overlayFeatureFormDrawer.close()
-          } else {
-            displayToast( "Constraints not valid" )
-          }
-          event.accepted = true
-        }
-      }
-
-      Component.onCompleted: {
-          focusstack.addFocusTaker( this )
-      }
-    }
-    Component.onCompleted: {
-        close()
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if( overlayFeatureForm.model.constraintsValid ) {
-          overlayFeatureFormDrawer.close()
-        } else {
-          displayToast( "Constraints not valid" )
-        }
-        event.accepted = true
-      }
-    }
-
+    featureModel: digitizingFeature
   }
 
   Keys.onReleased: {
@@ -1013,9 +954,9 @@ ApplicationWindow {
   Popup {
       id: toast
       opacity: 0
-      height: 40*dp;
+      height: 40 * dp;
       width: parent.width
-      y: parent.height - 112*dp
+      y: parent.height - 112 * dp
       margins: 0
       background: none
       closePolicy: Popup.NoAutoClose
@@ -1036,19 +977,19 @@ ApplicationWindow {
           id: toastContent
         color: "#272727"
 
-        height: 40*dp
-        width: ( (toastMessage.width + 16*dp) <= 192*dp ) ? 192*dp : toastMessage.width + 16*dp
+        height: 40 * dp
+        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20*dp
+        radius: 20 * dp
 
         z: 1
 
         Text {
           id: toastMessage
           anchors.centerIn: parent
-          font.pixelSize: 16*dp
+          font.pixelSize: 16 * dp
           color: "#ffffff"
         }
       }

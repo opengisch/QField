@@ -22,13 +22,18 @@ class RubberbandModel;
 class VertexModel;
 class QgsQuickMapSettings;
 
+/**
+ * @brief The Rubberband class is used to draw rubber bands on the map canvas.
+ * It is aimed to be used with either a VertexModel or a RubberbandModel.
+ * Setting one will remove  the former definition of the other.
+ */
 class Rubberband : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY( RubberbandModel* model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( VertexModel* vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
-    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( RubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! Color of the main rubberband
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Line width of the main rubberband
@@ -39,21 +44,21 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
 
   public:
-    Rubberband( QQuickItem* parent = nullptr );
+    Rubberband( QQuickItem *parent = nullptr );
 
-    RubberbandModel* model() const;
-    void setModel( RubberbandModel* model );
+    RubberbandModel *model() const;
+    void setModel( RubberbandModel *model );
 
-    VertexModel* vertexModel() const;
-    void setVertexModel( VertexModel* vertexModel );
+    VertexModel *vertexModel() const;
+    void setVertexModel( VertexModel *vertexModel );
 
-    QgsQuickMapSettings* mapSettings() const;
-    void setMapSettings( QgsQuickMapSettings* mapSettings );
+    QgsQuickMapSettings *mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     //! \copydoc color
     QColor color() const;
     //! \copydoc color
-    void setColor( const QColor& color );
+    void setColor( const QColor &color );
 
     //! \copydoc width
     qreal width() const;
@@ -63,7 +68,7 @@ class Rubberband : public QQuickItem
     //! \copydoc colorCurrentPoint
     QColor colorCurrentPoint() const;
     //! \copydoc
-    void setColorCurrentPoint( const QColor& color );
+    void setColorCurrentPoint( const QColor &color );
 
     //! \copydoc widthCurrentPoint
     qreal widthCurrentPoint() const;
@@ -88,16 +93,17 @@ class Rubberband : public QQuickItem
     void markDirty();
 
   private:
-    QSGNode* updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* );
+    QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
 
-    RubberbandModel* mRubberbandModel = nullptr;
-    VertexModel* mVertexModel = nullptr;
-    QgsQuickMapSettings* mMapSettings;
+    RubberbandModel *mRubberbandModel = nullptr;
+    VertexModel *mVertexModel = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
     bool mDirty = false;
     QColor mColor = QColor( 192, 57, 43, 200 );
     qreal mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     qreal mWidthCurrentPoint = 1.2;
 };
+
 
 #endif // RUBBERBAND_H

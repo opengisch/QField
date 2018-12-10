@@ -21,8 +21,8 @@ HEADERS += \
     qgsquickmaptransform.h \
     qgsquickutils.h \
     qgsquickmapsettings.h \
-    qgsquickcoordinatetransformer.h
-    qgsquickfeaturelayerpair.h \
+    qgsquickcoordinatetransformer.h \
+    qgsquickfeaturelayerpair.h
 
 
 
