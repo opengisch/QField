@@ -36,5 +36,7 @@
         <file>VertexRubberband.qml</file>
         <file>Switch.qml</file>
         <file>VisibilityFadingRow.qml</file>
+        <file>LocatorItem.qml</file>
+        <file>OverlayFeatureFormDrawer.qml</file>
     </qresource>
 </RCC>

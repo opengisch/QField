@@ -3,7 +3,11 @@
 SKIP_EXISTING=FALSE
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-FILES=${DIR}/../images/themes/qfield/nodpi/*.svg
+if [[ -z $1 ]]; then
+  FILES=${DIR}/../images/themes/qfield/nodpi/$1*.svg
+else
+  FILES=$1
+fi
 
 for f in $FILES
 do
