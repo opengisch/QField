@@ -18,12 +18,18 @@ import "../js/style.js" as Style
 
  */
 
-
 Item {
   signal valueChanged(var value, bool isNull)
 
   height: childrenRect.height
   anchors { right: parent.right; left: parent.left }
+
+  QtObject {
+   id: validators
+   property var timeValidator: RegExpValidator { regExp: /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$/ }
+   property var dateValidator: RegExpValidator { regExp: /^[0-9]{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/ }
+   property var defaultValidator: RegExpValidator { regExp: /.*/ }
+  }
 
   ColumnLayout {
     id: main
@@ -51,24 +57,17 @@ Item {
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 16
 
-        Component.onCompleted: {
-          if (config['display_format'] === QgsDateFormat)
-          {
-            label.inputMethodHints = Qt.ImhDate
-            label.inputMask = "9999-09-09;_"
-            label.validator = new RegExpValidator( /^[0-9]{4}:(0?[1-9]|1[0-2]):(0?[1-9]|[1-2][0-9]|3[0-1])$ /)
-          }
-          else if (config['display_format'] === QgsTimeFormat)
-          {
-            label.inputMethodHints = Qt.ImhTime
-            label.inputMask = "09:09:00;_"
-            label.validator = new RegExpValidator( /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$ / )
-          }
-          else
-          {
-            label.inputMethodHints = Qt.ImhDigitsOnly
-          }
-        }
+        inputMethodHints: if (config['display_format'] === QgsDateFormat) { Qt.ImhDate }
+                          else if (config['display_format'] === QgsTimeFormat) { Qt.ImhTime }
+                          else { Qt.ImhDigitsOnly }
+
+        inputMask: if (config['display_format'] === QgsDateFormat) { "9999-09-09;_" }
+                   else if (config['display_format'] === QgsTimeFormat) { "09:09:00;_" }
+                   else { "" }
+
+        validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
+                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
+                   else { validators.defaultValidator }
 
         text: value === undefined ? qsTr('(no date)') :
                                     config['field_format'] === QgsTimeFormat ?
