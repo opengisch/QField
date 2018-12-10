@@ -65,9 +65,9 @@ Item {
                    else if (config['display_format'] === QgsTimeFormat) { "09:09:00;_" }
                    else { "" }
 
-        validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
-                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
-                   else { validators.defaultValidator }
+//        validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
+//                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
+//                   else { validators.defaultValidator }
 
         text: value === undefined ? qsTr('(no date)') :
                                     config['field_format'] === QgsTimeFormat ?
