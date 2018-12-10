@@ -23,6 +23,9 @@ QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
 set -e
 
+# cp libc++_shared.so, required since Qt 5.12 for some reason https://github.com/opengisch/QField/pull/403
+cp /opt/android-ndk/sources/cxx-stl/llvm-libc++/3.7/libs/${ARCH}/libc++_shared.so /home/osgeo4a/${ARCH}/lib/
+
 # Replace the version number in version.pri with the one from the VERSION which is being built
 if [[ -n ${VERSION} ]];
 then
