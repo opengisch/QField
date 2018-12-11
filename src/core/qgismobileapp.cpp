@@ -215,6 +215,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "QgsTimeFormat", QgsDateTimeFieldFormatter::TIME_FORMAT );
   rootContext()->setContextProperty( "QgsDateFormat", QgsDateTimeFieldFormatter::DATE_FORMAT );
+  rootContext()->setContextProperty( "QgsDateTimeFormat", QgsDateTimeFieldFormatter::DATETIME_FORMAT );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );

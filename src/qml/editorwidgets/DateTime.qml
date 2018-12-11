@@ -28,6 +28,7 @@ Item {
    id: validators
    property var timeValidator: RegExpValidator { regExp: /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$/ }
    property var dateValidator: RegExpValidator { regExp: /^[0-9]{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/ }
+   property var dateTimeValidator: RegExpValidator { regExp: /^[0-9]{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1]) ([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$/ }
    property var defaultValidator: RegExpValidator { regExp: /.*/ }
   }
 
@@ -63,11 +64,13 @@ Item {
 
         inputMask: if (config['display_format'] === QgsDateFormat) { "9999-09-09;_" }
                    else if (config['display_format'] === QgsTimeFormat) { "09:09:00;_" }
+                   else if (config['display_format'] === QgsDateTimeFormat ) { "9999-09-09 09:09:00;_" }
                    else { "" }
 
-//        validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
-//                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
-//                   else { validators.defaultValidator }
+        validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
+                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
+                   else if (config['display_format'] === QgsDateTimeFormat) { validators.dateTimeValidator }
+                   else { validators.defaultValidator }
 
         text: value === undefined ? qsTr('(no date)') :
                                     config['field_format'] === QgsTimeFormat ?
@@ -82,6 +85,20 @@ Item {
           onClicked: {
             popup.open()
           }
+        }
+
+        onActiveFocusChanged: {
+            if (activeFocus) {
+              var mytext = label.text
+              var cur = label.cursorPosition
+              while ( cur > 0 )
+              {
+                if (!mytext.charAt(cur-1).match("[0-9]") )
+                  break
+                cur--
+              }
+              label.cursorPosition = cur
+            }
         }
 
         Image {
