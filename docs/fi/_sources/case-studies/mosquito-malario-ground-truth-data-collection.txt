@@ -57,4 +57,6 @@ which traditionally took days of work.
        :width: 200px
        :alt: Digitalizing a new parcel and filling the attribute table
 
-// Picture 4: On the field work using Qfield
+    .. image:: /images/mosquito_4.jpg
+       :width: 200px
+       :alt: On the field work using Qfield
