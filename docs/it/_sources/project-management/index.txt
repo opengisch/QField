@@ -11,6 +11,7 @@ Contents
    :maxdepth: 2
 
    portable-project
+   configure-search
    vector-layers
    map-themes
    android-data-structure
