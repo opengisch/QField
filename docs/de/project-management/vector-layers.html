@@ -101,7 +101,7 @@
 <li><a class="reference internal" href="#">Vektorlayereinstellungen</a><ul>
 <li><a class="reference internal" href="#style">Stil</a></li>
 <li><a class="reference internal" href="#display-expression">Anzeigeausdruck</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Schreibgeschütze und nicht-identifizierbare Layer</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare und Felder</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulare unterdrücken</a></li>
 <li><a class="reference internal" href="#field-widget">Feldwidget</a></li>
@@ -205,6 +205,7 @@
 <div class="section" id="display-expression">
 <h2>Anzeigeausdruck<a class="headerlink" href="#display-expression" title="Link zu dieser Überschrift">¶</a></h2>
 <p>In QField werden Objekte mit einem Namen bezeichnet. Der Ausdruck der für die Generierung dieses Namens verwendet wird kann in QGIS konfiguriert werdne, indem die Attributtabelle geöffnet wird und in die Formularansicht gewechselt wird. Das entsprechende Feld oder ein Ausdruck kann in der Liste ausgewählt werden. Mit QGIS 3 kann das direkt über die <span class="menuselection">Vektorlayereigenschaften ‣ Anzeige</span> Einstellung gemacht werden.</p>
+<p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -212,15 +213,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Schreibgeschütze und nicht-identifizierbare Layer<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Einige Ebenen in einem Projekt sind lediglich für visuelle Zwecke vorhanden. Solche Layer sollen nicht erscheinen, wenn der Anwender eine Position antippt um Objekte zu identifizieren.</p>
 <p>Andere Layer sind dafür vorgesehen, zu Informationen Zugang zu geben aber nicht dafür, dass diese Informationen vom Nutzer verändert werden. Es ist möglich, Layer davor zu schützen, dass Attribute bearbeitet oder Objekte hinzugefügt oder gelöscht werden.</p>
-<p>Um einen Layer vor Änderungen zu schützen oder Objekte nicht-identifizierbar zu machen, können unter <span class="menuselection">Projekt ‣ Projekteigenschaften ‣ Identifizierbare Layer</span> die entsprechenden Kontrollkästchen aktiviert und deaktiviert werden.</p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Konfiguration von Layern die nicht identifziert und/oder nicht modifiziert werden können.</span></p>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
 </div>
 </div>
 </div>

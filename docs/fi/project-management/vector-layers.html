@@ -101,7 +101,7 @@
 <li><a class="reference internal" href="#">Vektoritason asetukset</a><ul>
 <li><a class="reference internal" href="#style">Tyyli</a></li>
 <li><a class="reference internal" href="#display-expression">Näyttölauseke</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Ainoastaan luettavat ja tunnistamattomat taasot</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Lomakkeet ja tiedot</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Estä ominaisuuslomake</a></li>
 <li><a class="reference internal" href="#field-widget">Tietotyökalu</a></li>
@@ -205,6 +205,7 @@
 <div class="section" id="display-expression">
 <h2>Näyttölauseke<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>QFieldissä objektit tunnistetaan nimellä. Lauseke generoitaessa tämä nimi voidaan määritellä avaamalla attribuuttitaulu QGISissä ja vaihtamalla lomakenäyttöön. Valitse asianmukainen kenttä tai lauseke luettelossa. Alkaen QGIS 3, tämä voidaan tehdä suoraan: menuselection: <cite>Vektoritason asetukset -&gt; Näyttö</cite> sivulla.</p>
+<p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -212,15 +213,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Ainoastaan luettavat ja tunnistamattomat taasot<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Permalink to this headline">¶</a></h2>
 <p>Jotkut tasot projektissa ovat vain visuaalisuuden aikaan saamiseksi. Näitä tasoja ei tulla näyttämään kun käyttäjä näpäyttää tunnistaakseen objektia.</p>
 <p>Jotkin tasot toimivat informaatiolähteinä eikä käyttäjän tule niitä muokata. On mahdollista suojata tasot attribuuttien muokkaukselta tai ominaisuuksien lisäykseltä tai poistamiselta.</p>
-<p>Tunnistaminen ja lukuoikeuksien käyttö on konfiguroitavissa, mene <span class="menuselection">Projekti ‣ Projektin ominaisuudet ‣ Tunnista tasot</span> sivulle ja aktivoi valintalaatikoissa vastaamaan haluamiasi toimintaedellytyksiä.</p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Konfigurointi tasoille joita ei tunnisteta ja/tai joita ei voi muokata</span></p>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
 </div>
 </div>
 </div>

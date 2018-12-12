@@ -100,7 +100,7 @@
 <li><a class="reference internal" href="#">Configuración de Capa Vectorial</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Amosar Expresión</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Capas de só lectura e non identificables</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formularios e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Eliminar Formulario de Entidade</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de campo</a></li>
@@ -204,6 +204,7 @@
 <div class="section" id="display-expression">
 <h2>Amosar Expresión<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>En QField, os obxectos identifícanse cun nome. A expresión para xerar este nome pode definirse abrindo a táboa de atributos e QGIS e alternar á vista de formulario. Escolla alí o campo apropiado ou unha expresión na lista. Comezando dende QGIS 3, isto pode facerse directamente dende a páxina <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualizar</span>.</p>
+<p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -211,15 +212,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Capas de só lectura e non identificables<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Permalink to this headline">¶</a></h2>
 <p>Algunhas capas nun proxecto só están aí por motivos puramente visuais. Estas capas non deben amosarse cando un usuario pulsa nalgún lugar para identificar obxectos.</p>
 <p>Algunhas outras capas serven como fonte de información e non se deben modificar polo usuario. É posible protexer capas da edición de atributos ou de engadir e eliminar entidades.</p>
-<p>Para configurar a identificación e o comportamento de só lectura, vai á páxina <span class="menuselection">Proxecto ‣ Propiedades do Proxecto ‣ Identificar Capas</span> e activa as celas para que coincidan co comportamento desexado.</p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuración de capas que non serán identificables e/ou non serán modificables.</span></p>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
 </div>
 </div>
 </div>

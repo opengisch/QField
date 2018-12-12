@@ -100,7 +100,7 @@
 <li><a class="reference internal" href="#">Setările Straturilor Vectoriale</a><ul>
 <li><a class="reference internal" href="#style">Stilul</a></li>
 <li><a class="reference internal" href="#display-expression">Afișarea Expresiei</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Straturi nemodificabile și neidentificabile</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulare și Câmpuri</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimarea Formularului Entității</a></li>
 <li><a class="reference internal" href="#field-widget">Controalele grafice de tip câmp</a></li>
@@ -204,6 +204,7 @@
 <div class="section" id="display-expression">
 <h2>Afișarea Expresiei<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
 <p>În QField, obiectele sunt identificate după nume. Expresia care va genera acest nume poate fi definită prin deschiderea tabelului de atribute din QGIS și trecerea la vizualizarea formularului. Alegeți câmpul corespunzător sau o expresie din acea listă. Începând de la QGIS 3, acest lucru se poate face direct din pagina <span class="menuselection">Proprietățile Stratului Vectorial ‣ Afișare</span>.</p>
+<p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -211,15 +212,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Straturi nemodificabile și neidentificabile<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Permalink to this headline">¶</a></h2>
 <p>Unele straturi dintr-un proiect există doar din rațiuni de vizualizare. Aceste straturi nu ar trebui să apară atunci când un utilizator încearcă identificarea obiectelor.</p>
 <p>Unele dintre straturi reprezintă sursa de informații, de aceea nu ar trebui să fie modificate de către utilizator. Este posibilă împiedicarea editării atributelor, sau adăugarea și ștergerea de entități, în cadrul straturilor.</p>
-<p>Pentru a configura comportamentul de identificare și cel exclusiv de citire, accesați pagina <span class="menuselection">Proiect ‣ Proprietățile Proiectului  ‣ Identificare Straturi</span>, apoi bifați casetele corespunzătoare comportamentului dorit.</p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configurarea straturilor care nu vor fi identificabile și/sau modificabile.</span></p>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
 </div>
 </div>
 </div>

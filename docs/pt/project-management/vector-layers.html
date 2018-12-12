@@ -100,7 +100,7 @@
 <li><a class="reference internal" href="#">Definições da Camada de Vetor</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Exibir Expressão</a></li>
-<li><a class="reference internal" href="#read-only-and-non-identifiable-layers">Apenas de Leitura e camadas não identificáveis</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir Formulário de Elemento</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de Campo</a></li>
@@ -204,6 +204,7 @@
 <div class="section" id="display-expression">
 <h2>Exibir Expressão<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h2>
 <p>No QField, os objectos são identificados com um nome. A expressão para gerar esse nome pode ser definida abrindo a tabela de atributos no QGIS e alterando para a visualização de formulário. Escolha o campo apropriado ou uma expressão da lista. A partir do QGIS 3, isso pode ser feito directamente da página: menuselection: <a href="#id1"><span class="problematic" id="id2">`</span></a>Propriedades da Camada do Vector -&gt; Mostrar».</p>
+<p>The display expression is also used to search in layers.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -211,15 +212,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-only-and-non-identifiable-layers">
-<h2>Apenas de Leitura e camadas não identificáveis<a class="headerlink" href="#read-only-and-non-identifiable-layers" title="Link permanente para este título">¶</a></h2>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Link permanente para este título">¶</a></h2>
 <p>Algumas camadas no projecto são apenas para um propósito visual. Essas camadas não aparecerão quando se procurar identificar objectos.</p>
 <p>Outras camadas podem servir como fontes de informação e não devem ser modificadas pelo utilizador. É possível proteger as camadas do projecto da edição de atributos ou adicionar e apagar elementos.</p>
-<p>Para configurar o comportamento de identificação e apenas de leitura, vá à página <span class="menuselection">Projecto ‣ Propriedades do Projecto ‣ Identificar Camadas</span></p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuração das camadas que não serão identificadas e/ou não serão modificadas.</span></p>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
 </div>
 </div>
 </div>
