@@ -22,7 +22,8 @@
 
 #include "qgslocatorfilter.h"
 #include "qgsexpressioncontext.h"
-#include "qgsfeatureiterator.h"
+#include "qgsvectorlayerfeatureiterator.h"
+
 
 class LocatorModelSuperBridge;
 
@@ -49,7 +50,8 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
       public:
         QgsExpression expression;
         QgsExpressionContext context;
-        QgsFeatureIterator iterator;
+        std::unique_ptr<QgsVectorLayerFeatureSource> featureSource;
+        QgsFeatureRequest request;
         QString layerName;
         QString layerId;
         QIcon layerIcon;
@@ -70,7 +72,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
   private:
     int mMaxResultsPerLayer = 6;
     int mMaxTotalResults = 12;
-    QList<PreparedLayer> mPreparedLayers;
+    QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
