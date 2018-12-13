@@ -552,8 +552,8 @@ ApplicationWindow {
       {
         digitizingFeature.resetAttributes();
         overlayFeatureFormDrawer.open()
-        overlayFeatureForm.state = "Add"
-        overlayFeatureForm.reset()
+        overlayFeatureFormDrawer.state = "Add"
+        overlayFeatureFormDrawer.reset()
       }
       else
       {
