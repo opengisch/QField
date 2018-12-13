@@ -45,11 +45,11 @@ which traditionally took days of work.
 
 .. container:: clearer text-center
 
-    .. image:: /images/mosquito_1.png
+    .. image:: /images/mosquito_1.jpg
        :width: 200px
        :alt: 3 land cover parcels that were digitalized on the ground
 
-    .. image:: /images/mosquito_2.png
+    .. image:: /images/mosquito_2.jpg
        :width: 200px
        :alt: Getting back to one parcel: which information was collected
 
@@ -57,6 +57,6 @@ which traditionally took days of work.
        :width: 200px
        :alt: Digitalizing a new parcel and filling the attribute table
 
-    .. image:: /images/mosquito_4.jpg
+    .. image:: /images/mosquito-4.jpg
        :width: 200px
        :alt: On the field work using Qfield
