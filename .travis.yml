@@ -36,12 +36,13 @@ jobs:
       if: type = pull_request OR tag IS present OR branch = master
       
     - stage: test
-      name: test armv7
+      name: test and build armv7
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
 
     - stage: test
+      name: test and build x86
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
