@@ -42,7 +42,7 @@ jobs:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
-      if: type = pull_request OR tag IS present
+      if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
