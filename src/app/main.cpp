@@ -71,7 +71,8 @@ int main( int argc, char ** argv )
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( "QField" );
+  qDebug() << APP_NAME;
+  QCoreApplication::setApplicationName( APP_NAME );
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;

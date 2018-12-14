@@ -9,6 +9,8 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
+set -e
+
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -18,10 +20,22 @@ fi
 if [[ -z ${ARCH+x} ]]; then
     ARCH=armv7
 fi
+if [[ -z ${TRAVIS_PULL_REQUEST} ]]; then
+  TRAVIS_PULL_REQUEST=false
+fi
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
-set -e
+
+# Replace app name if we are on a pull request
+if [[ ${TRAVIS_PULL_REQUEST} != false ]]; then
+  APP_NAME_PKG=qfield_beta_${TRAVIS_PULL_REQUEST}
+  APP_NAME_STR="QField Beta ${TRAVIS_PULL_REQUEST}"
+  sed -i 's@package=\"ch.opengis.qfield\"@package=\"ch.opengis.${APP_NAME_PKG}@\"' ${SOURCE_DIR}/android/AndroidManifest.xml
+  sed -i 's@<string name=\"app_name\" translatable=\"false\">QField</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>@' android/res/values/strings.xml
+  sed -i 's@<string name=\"lib_name\" translatable=\"false\">qfield</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>@' android/res/values/strings.xml
+fi
+
 
 # Replace the version number in version.pri with the one from the VERSION which is being built
 if [[ -n ${VERSION} ]];
@@ -41,7 +55,7 @@ ln -s ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
 cp ${SOURCE_DIR}/scripts/ci/config.pri ${SOURCE_DIR}/config.pri
-${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro
+${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro "APP_NAME=${APP_NAME_PKG}"
 make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then

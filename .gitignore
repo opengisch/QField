@@ -16,4 +16,5 @@ android/res/values/generated.xml
 android/.idea
 android/.build
 android/.gradle
+.idea
 *~
