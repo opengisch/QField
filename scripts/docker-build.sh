@@ -32,8 +32,8 @@ if [[ ${TRAVIS_PULL_REQUEST} != false ]]; then
   APP_NAME_PKG=qfield_beta_${TRAVIS_PULL_REQUEST}
   APP_NAME_STR="QField Beta ${TRAVIS_PULL_REQUEST}"
   sed -i 's@package=\"ch.opengis.qfield\"@package=\"ch.opengis.${APP_NAME_PKG}\"@' ${SOURCE_DIR}/android/AndroidManifest.xml
-  sed -i 's@<string name=\"app_name\" translatable=\"false\">QField</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>@' android/res/values/strings.xml
-  sed -i 's@<string name=\"lib_name\" translatable=\"false\">qfield</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>@' android/res/values/strings.xml
+  sed -i 's@<string name=\"app_name\" translatable=\"false\">QField</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>@' ${SOURCE_DIR}/android/res/values/strings.xml
+  sed -i 's@<string name=\"lib_name\" translatable=\"false\">qfield</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>@' ${SOURCE_DIR}/android/res/values/strings.xml
 fi
 
 
