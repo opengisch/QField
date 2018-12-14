@@ -163,7 +163,7 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize"
+    visible: stateMachine.state === "digitize" && !selection.selectedGeometry.isNull()
 
     anchors.right: editButton.left
 

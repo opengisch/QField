@@ -72,10 +72,13 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
+    void emitMessage( const QString &text );
+
   signals:
     void mapSettingsChanged();
     void locatorHighlightChanged();
     void modelChanged();
+    void messageEmitted( const QString &text );
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );

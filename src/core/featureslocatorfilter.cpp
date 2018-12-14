@@ -148,7 +148,10 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     it.nextFeature( f );
     QgsGeometry geom = f.geometry();
     if ( geom.isNull() || geom.constGet()->isEmpty() )
+    {
+      mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
       return;
+    }
     QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
     if ( r.isEmpty() )

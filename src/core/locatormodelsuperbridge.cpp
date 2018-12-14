@@ -101,6 +101,11 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   return model;
 }
 
+void LocatorModelSuperBridge::emitMessage( const QString &text )
+{
+  emit messageEmitted( text );
+}
+
 void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );

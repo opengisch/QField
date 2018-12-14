@@ -15,6 +15,10 @@ Item {
     mapSettings: mapCanvas.mapSettings
     locatorHighlight: locatorHighlightItem
     model: featureForm.model
+
+    onMessageEmitted: {
+      displayToast(text)
+    }
   }
 
   states: [
