@@ -35,7 +35,7 @@ if [[ ${TRAVIS_PULL_REQUEST} != false ]]; then
   sed -i "s@<string name=\"app_name\" translatable=\"false\">QField</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>@" ${SOURCE_DIR}/android/res/values/strings.xml
   sed -i "s@<string name=\"lib_name\" translatable=\"false\">qfield</string>@<string name=\"lib_name\" translatable=\"false\">${APP_NAME_PKG}</string>@" ${SOURCE_DIR}/android/res/values/strings.xml
   mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${APP_NAME_PKG}
-  find android -type f -exec sed -i "s/ch.opengis.qfield/ch.opengis.${APP_NAME_PKG}/g" {} \;
+  find ${SOURCE_DIR}/android -type f -exec sed -i "s/ch.opengis.qfield/ch.opengis.${APP_NAME_PKG}/g" {} \;
 fi
 
 
