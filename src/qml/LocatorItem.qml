@@ -15,6 +15,10 @@ Item {
     mapSettings: mapCanvas.mapSettings
     locatorHighlight: locatorHighlightItem
     model: featureForm.model
+
+    onMessageEmitted: {
+      displayToast(text)
+    }
   }
 
   states: [
@@ -38,6 +42,7 @@ Item {
     visible: opacity > 0
     padding: 5*dp
     inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
+    font.pointSize: 16
 
     background: Rectangle {
       radius: 2*dp

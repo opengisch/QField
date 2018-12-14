@@ -541,19 +541,24 @@ ApplicationWindow {
     }
 
     onConfirm: {
-      coordinateLocator.flash()
-
-      digitizingFeature.geometry.applyRubberband()
-      digitizingFeature.applyGeometry()
-
-      digitizingRubberband.model.frozen = true
+      if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+      {
+        digitizingRubberband.model.reset()
+      }
+      else
+      {
+        coordinateLocator.flash()
+        digitizingFeature.geometry.applyRubberband()
+        digitizingFeature.applyGeometry()
+        digitizingRubberband.model.frozen = true
+      }
 
       if ( !digitizingFeature.suppressFeatureForm() )
       {
         digitizingFeature.resetAttributes();
         overlayFeatureFormDrawer.open()
-        overlayFeatureForm.state = "Add"
-        overlayFeatureForm.reset()
+        overlayFeatureFormDrawer.state = "Add"
+        overlayFeatureFormDrawer.reset()
       }
       else
       {

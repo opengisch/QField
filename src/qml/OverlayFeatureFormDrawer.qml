@@ -5,6 +5,7 @@ import org.qfield 1.0
 Drawer {
   id: overlayFeatureFormDrawer
   property alias featureModel: overlayFeatureForm.featureModel
+  property alias state: overlayFeatureForm.state
   height: parent.height
   width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
   edge: Qt.RightEdge
