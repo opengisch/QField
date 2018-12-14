@@ -27,6 +27,7 @@ Item {
   QtObject {
    id: validators
    property var timeValidator: RegExpValidator { regExp: /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$/ }
+   property var timeHMValidator: RegExpValidator { regExp: /^([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]$/ }
    property var dateValidator: RegExpValidator { regExp: /^[0-9]{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/ }
    property var dateTimeValidator: RegExpValidator { regExp: /^[0-9]{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1]) ([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9]$/ }
    property var defaultValidator: RegExpValidator { regExp: /.*/ }
@@ -62,17 +63,19 @@ Item {
                           else if (config['display_format'] === QgsTimeFormat) { Qt.ImhTime }
                           else { Qt.ImhDigitsOnly }
 
-        inputMask: if (config['display_format'] === QgsDateFormat) { "9999-09-09;_" }
-                   else if (config['display_format'] === QgsTimeFormat) { "09:09:00;_" }
+        inputMask: if (config['display_format'] === QgsDateFormat ) { "9999-09-09;_" }
+                   else if (config['display_format'] === QgsTimeFormat ) { "09:09:00;_" }
                    else if (config['display_format'] === QgsDateTimeFormat ) { "9999-09-09 09:09:00;_" }
+                   else if (config['display_format'] === CustomTimeFormatHM ) { "09:09;_" }
                    else { "" }
 
         validator: if ( config['display_format'] === QgsDateFormat ) { validators.dateValidator }
-                   else if (config['display_format'] === QgsTimeFormat) { validators.timeValidator }
-                   else if (config['display_format'] === QgsDateTimeFormat) { validators.dateTimeValidator }
+                   else if (config['display_format'] === QgsTimeFormat ) { validators.timeValidator }
+                   else if (config['display_format'] === QgsDateTimeFormat ) { validators.dateTimeValidator }
+                   else if (config['display_format'] === CustomTimeFormatHM ) { validators.timeHMValidator }
                    else { validators.defaultValidator }
 
-        text: value === undefined ? qsTr('(no date)') :
+        text: if ( value === undefined ? qsTr('(no date)') :
                                     config['field_format'] === QgsTimeFormat ?
                                       value :
                                       new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
