@@ -6,7 +6,7 @@ source scripts/travis_env.sh
 set -e
 
 # If we have secure env vars and are in either a pull request or a tag, we need to upload artifacts
-if [[ "${TRAVIS_SECURE_ENV_VARS}" = "true" && ( "${TRAVIS_PULL_REQUEST}" != "false" || "${TRAVIS_TAG}" ) ]];
+if [[ "${TRAVIS_SECURE_ENV_VARS}" = "true" ]];
 then
   echo -e "\e[31mAbout to upload build artifacts\e[0m"
   sudo mv build-${ARCH}/out/build/outputs/apk/release/out-release-signed.apk /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
