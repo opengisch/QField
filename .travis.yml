@@ -29,25 +29,33 @@ script:
 jobs:
   include:
     - stage: test
+      name: unit testing
       script:
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
+      
     - stage: test
+      name: test armv7
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
+
     - stage: test
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
+
     - stage: deploy
+      name: save APKs
       if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
+
     - stage: deploy
+      name: update translations
       if: branch = master
       install:
         pip install -r requirements.txt
