@@ -117,7 +117,7 @@ Item {
     delegate: Rectangle {
       id: delegateRect
       anchors.margins: 10*dp
-      height: visible ? (isGroup ? 25 : 40 ) * dp : 0
+      height: if (visible) { if(isGroup){ 25*dp } else { Math.max(childrenRect.height+8*dp, 40*dp) }} else { 0 }
       width: parent.width
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
@@ -130,8 +130,12 @@ Item {
       Text {
         text: model.Text
         anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.right: actionsRow.left
         leftPadding: 5*dp
         font.italic: delegateRect.isGroup ? true : false
+        font.pointSize: 16
+        wrapMode: Text.Wrap
       }
 
       Row {
@@ -145,8 +149,8 @@ Item {
           model: locator.contextMenuActionsModel( index )
           Button {
             anchors.verticalCenter: parent.verticalCenter
-            height: parent.height -2*dp
-            width: parent.height -2*dp
+            height: parent.height*dp
+            width:  36*dp
             bgcolor: "#80cc28"
             Image {
               anchors.fill: parent
