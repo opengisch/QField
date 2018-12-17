@@ -21,9 +21,9 @@
 #include <qgslocatormodelbridge.h>
 
 #include "locatorhighlight.h"
-#include "multifeaturelistmodel.h"
 
 class QgsQuickMapSettings;
+class FeatureListExtentController;
 
 /**
  * LocatorActionsModel is a model used to dislay
@@ -55,7 +55,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     Q_OBJECT
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( LocatorHighlight *locatorHighlight READ locatorHighlight WRITE setLocatorHighlight NOTIFY locatorHighlightChanged )
-    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
 
   public:
     explicit LocatorModelSuperBridge( QObject *parent = nullptr );
@@ -67,8 +67,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     LocatorHighlight *locatorHighlight() const;
     void setLocatorHighlight( LocatorHighlight *locatorHighlight );
 
-    MultiFeatureListModel *model() const;
-    void setModel( MultiFeatureListModel *model );
+    FeatureListExtentController *featureListController() const;
+    void setFeatureListController( FeatureListExtentController *featureListController );
 
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
@@ -77,7 +77,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
   signals:
     void mapSettingsChanged();
     void locatorHighlightChanged();
-    void modelChanged();
+    void featureListControllerChanged();
     void messageEmitted( const QString &text );
 
   public slots:
@@ -86,7 +86,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
     LocatorHighlight *mLocatorHighlight = nullptr;
-    MultiFeatureListModel *mModel = nullptr;
+    FeatureListExtentController *mFeatureListController = nullptr;
 };
 
 #endif // LOCATORMODELSUPERBRIDGE_H

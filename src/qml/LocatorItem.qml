@@ -14,7 +14,7 @@ Item {
     id: locator
     mapSettings: mapCanvas.mapSettings
     locatorHighlight: locatorHighlightItem
-    model: featureForm.model
+    featureListController: featureForm.extentController
 
     onMessageEmitted: {
       displayToast(text)

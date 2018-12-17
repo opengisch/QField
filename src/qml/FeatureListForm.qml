@@ -30,6 +30,7 @@ Rectangle {
   property MapSettings mapSettings
   property color selectionColor
   property alias model: globalFeaturesList.model
+  property alias extentController: featureListToolBar.extentController
   property bool allowEdit
   property int formViewWidthDivisor
 
@@ -273,6 +274,10 @@ Rectangle {
       model: globalFeaturesList.model
       selection: featureForm.selection
       mapSettings: featureForm.mapSettings
+
+      onFeatureFormStateRequested: {
+        featureForm.state = "FeatureForm"
+      }
     }
 
     onStatusIndicatorClicked: {
@@ -339,10 +344,6 @@ Rectangle {
     onRowsInserted: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
-        if (model.rowCount() === 1){
-          featureForm.selection.selection = 0
-          featureForm.state = "FeatureForm"
-        }
       } else {
         showMessage( qsTr('No feature at this position') )
         state = "Hidden"
@@ -352,10 +353,6 @@ Rectangle {
     onModelReset: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
-        if (model.rowCount() === 1){
-          featureForm.selection.selection = 0
-          featureForm.state = "FeatureForm"
-        }
       }
     }
   }

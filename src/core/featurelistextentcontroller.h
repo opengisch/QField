@@ -35,6 +35,11 @@ class FeatureListExtentController : public QObject
     FeatureListExtentController( QObject *parent = nullptr );
     ~FeatureListExtentController();
 
+    FeatureListModelSelection *selection() const;
+    MultiFeatureListModel *model() const;
+
+    void requestFeatureFormState();
+
   public slots:
     //! zoom to the selected features.
     //! If \a skipIfIntersects is true, no change will be applied if bounding box intersects with canvas extent
@@ -45,6 +50,7 @@ class FeatureListExtentController : public QObject
     void selectionChanged();
     void modelChanged();
     void mapSettingsChanged();
+    void featureFormStateRequested();
 
   private slots:
     void onModelChanged();

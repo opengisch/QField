@@ -153,7 +153,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
 
-
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );

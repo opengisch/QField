@@ -23,6 +23,7 @@
 #include "qgsquickmapsettings.h"
 #include "featureslocatorfilter.h"
 #include "qgslocator.h"
+#include "featurelistextentcontroller.h"
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
@@ -66,18 +67,18 @@ void LocatorModelSuperBridge::setLocatorHighlight( LocatorHighlight *locatorHigh
   emit locatorHighlightChanged();
 }
 
-MultiFeatureListModel *LocatorModelSuperBridge::model() const
+FeatureListExtentController *LocatorModelSuperBridge::featureListController() const
 {
-  return mModel;
+  return mFeatureListController;
 }
 
-void LocatorModelSuperBridge::setModel( MultiFeatureListModel *model )
+void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentController *featureListController )
 {
-  if ( model == mModel )
+  if ( featureListController == mFeatureListController )
     return;
 
-  mModel = model;
-  emit modelChanged();
+  mFeatureListController = featureListController;
+  emit featureListControllerChanged();
 }
 
 LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )
