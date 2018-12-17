@@ -160,9 +160,9 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
     if ( r.isEmpty() )
-      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
+      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) ); // TODO: port QGIS code to perform density test to optimize scale
     else
-      mLocatorBridge->mapSettings()->setExtent( r.scaled( 1.2 ) );
+      mLocatorBridge->mapSettings()->setExtent( r.scaled( 5 ) );
 
     mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
   }
