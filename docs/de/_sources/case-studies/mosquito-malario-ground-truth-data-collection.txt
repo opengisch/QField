@@ -1,5 +1,5 @@
-Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitos
-===================================================================================================
+Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes
+====================================================================================================
 
 By Paul Taconet, GIS Engineer, French Research Institute for Sustainable Development (IRD)
 2018-12-11
@@ -7,7 +7,7 @@ By Paul Taconet, GIS Engineer, French Research Institute for Sustainable Develop
 Goal and field constraints :
 ----------------------------
 
-For a research work aiming at improving the knowledge on the environment of the mosquitos that transmit malaria, the French Research Institute for Sustainable Development needed to generate a land cover map of two rural areas in Africa, one in Burkina Faso and one in Ivory Coast. Two satellites images (Spot 6 at 1.5 meters spatial resolutions) are used as input of a supervised object-based image classification for this work. The supervised method implies the collection of ground truth parcels, i.e. location and geo-referencing of a set of parcels of each land cover class on the ground, preferably spread all over the study areas. Both areas are 50 km2 wide and their nature (savannahs and rural areas, where roads are mainly narrow clay tracks) imply to move around in motorbike or by feet. In addition, one could quickly get lost in the rural labyrinth tracks in absence of a map. We hence needed light and very portable equipment, as well as a way to easily explore the area without getting lost.
+For a research work aiming at improving the knowledge on the environment of the mosquitoes that transmit malaria, the French Research Institute for Sustainable Development needed to generate a land cover map of two rural areas in Africa, one in Burkina Faso and one in Ivory Coast. Two satellites images (Spot 6 at 1.5 meters spatial resolutions) are used as input of a supervised object-based image classification for this work. The supervised method implies the collection of ground truth parcels, i.e. location and geo-referencing of a set of parcels of each land cover class on the ground, preferably spread all over the study areas. Both areas are 50 km2 wide and their nature (savannahs and rural areas, where roads are mainly narrow clay tracks) imply to move around in motorbike or by feet. In addition, one could quickly get lost in the rural labyrinth tracks in absence of a map. We hence needed light and very portable equipment, as well as a way to easily explore the area without getting lost.
 
 
 Project preparation
