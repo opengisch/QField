@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/images">
-        <file alias="icon">icons/qgis_icon.svg</file>
+        <file alias="qfield-logo.svg">icons/qfield-logo.svg</file>
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
         <file alias="karma-logo.svg">icons/karma-logo.svg</file>
         <file alias="karma-logo-playstore.svg">icons/karma-logo-playstore.svg</file>
