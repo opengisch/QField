@@ -35,9 +35,13 @@ class FeatureListExtentController : public QObject
     FeatureListExtentController( QObject *parent = nullptr );
     ~FeatureListExtentController();
 
+    //! Returns the selection of the feature list model
     FeatureListModelSelection *selection() const;
+
+    //! Returns the feature list model
     MultiFeatureListModel *model() const;
 
+    //! This will emit a signal to request a state change in the feature form
     void requestFeatureFormState();
 
   public slots:
