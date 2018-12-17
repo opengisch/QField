@@ -30,6 +30,21 @@ FeatureListExtentController::~FeatureListExtentController()
 {
 }
 
+FeatureListModelSelection *FeatureListExtentController::selection() const
+{
+  return mSelection;
+}
+
+MultiFeatureListModel *FeatureListExtentController::model() const
+{
+  return mModel;
+}
+
+void FeatureListExtentController::requestFeatureFormState()
+{
+  emit featureFormStateRequested();
+}
+
 void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
   if ( mModel && mSelection && mMapSettings )

@@ -26,6 +26,7 @@
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 #include "locatorhighlight.h"
+#include "featurelistextentcontroller.h"
 
 
 FeaturesLocatorFilter::FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
@@ -42,6 +43,8 @@ FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
 
 void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
 {
+  Q_UNUSED( context );
+
   if ( string.length() < 3 )
     return;
 
@@ -140,7 +143,9 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   {
     QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
     requests.insert( layer, req );
-    mLocatorBridge->model()->setFeatures( requests );
+    mLocatorBridge->featureListController()->model()->setFeatures( requests );
+    mLocatorBridge->featureListController()->selection()->setSelection( 0 );
+    mLocatorBridge->featureListController()->requestFeatureFormState();
   }
   else
   {
