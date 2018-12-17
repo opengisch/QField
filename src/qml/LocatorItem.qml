@@ -149,7 +149,7 @@ Item {
           model: locator.contextMenuActionsModel( index )
           Button {
             anchors.verticalCenter: parent.verticalCenter
-            height: parent.height*dp
+            height: parent.height
             width:  36*dp
             bgcolor: "#80cc28"
             Image {
