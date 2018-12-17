@@ -70,8 +70,8 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
-    int mMaxResultsPerLayer = 6;
-    int mMaxTotalResults = 12;
+    int mMaxResultsPerLayer = 12;
+    int mMaxTotalResults = 16;
     QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
