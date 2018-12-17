@@ -65,8 +65,11 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
     req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).toList() );
     if ( !expression.needsGeometry() )
       req.setFlags( QgsFeatureRequest::NoGeometry );
+    QString enhancedSearch = string;
+    enhancedSearch.replace( " ", "%" );
     req.setFilterExpression( QStringLiteral( "%1 ILIKE '%%2%'" )
-                             .arg( layer->displayExpression() ).arg( string ) );
+                             .arg( layer->displayExpression() )
+                             .arg( enhancedSearch ) );
     req.setLimit( 30 );
 
     std::shared_ptr<PreparedLayer> preparedLayer( new PreparedLayer() );
