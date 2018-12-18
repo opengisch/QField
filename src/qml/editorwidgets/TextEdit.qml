@@ -1,6 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
-import QtQuick 2.5
+import QtQuick 2.11
+import QtQuick.Controls 2.4
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -50,6 +49,7 @@ Item {
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
+    wrapMode: Text.Wrap
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
