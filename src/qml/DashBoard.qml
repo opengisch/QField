@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
 Controls.Pane {
-  id: dashBoard
+  objectName: "dashBoard"
 
   signal showMenu
   signal changeMode( string mode )
@@ -16,6 +16,46 @@ Controls.Pane {
 
   property color mainColor: "#80CC28"
   padding: 0
+
+  anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
+
+  property bool preventFromOpening: overlayFeatureFormDrawer.visible
+  readonly property bool open: dashBoard.visible && !preventFromOpening
+
+  width: open ? 300 * dp : 0
+  visible: false
+  focus: visible
+  clip: true
+
+  Keys.onReleased: {
+    console.warn( "KEY PRESS " + event.key )
+    if ( event.key === Qt.Key_Back ||
+      event.key === Qt.Key_Escape ) {
+      visible=false
+      event.accepted = true
+    }
+  }
+
+  Behavior on width {
+    NumberAnimation {
+      duration: 200
+      easing.type: Easing.InOutQuad
+    }
+  }
+
+  /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
+  onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
+
+  onCurrentLayerChanged: {
+    if ( currentLayer.readOnly && stateMachine.state == "digitize" )
+      displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
+  }
+
+  onChangeMode: {
+      stateMachine.state = mode
+  }
+
+  Component.onCompleted: focusstack.addFocusTaker( this )
 
   ColumnLayout {
     anchors.fill: parent
