@@ -7,7 +7,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: "yellow"
+    color: "white"
 
     Item {
       anchors.fill: parent
