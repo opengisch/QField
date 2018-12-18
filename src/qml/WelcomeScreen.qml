@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick 2.11
+import QtQuick.Controls 1.4
 import "js/style.js" as Style
 
 Item {
@@ -13,33 +13,54 @@ Item {
       anchors.fill: parent
       anchors.margins: 10*dp
 
-      Column {
-        Text {
-          text: "QField for QGIS"
-          font.pointSize: 25
+      Row {
+        width: parent.width
+
+        Column {
+          id: column
+          width: parent.width - logo.width
+
+          Text {
+            width: parent.width
+            text: qsTr( "QField for QGIS" )
+            font.pointSize: 25
+          }
+
+          Text {
+            width: parent.width
+            text: qsTr( "To get started you first need a QGIS project."
+                + " It is very easy to create one on your desktop PC and then transfer it"
+                + " to this device." )
+            wrapMode: Text.WordWrap
+            font.pointSize: 16
+          }
+
+          Text {
+            width: parent.width
+            text: qsTr( "Once you have a project on this device, use the button below to"
+                + " locate it on the filesystem, open it and start working." )
+            wrapMode: Text.WordWrap
+            font.pointSize: 16
+          }
+
+          Button {
+            iconSource: Style.getThemeIcon( "ic_map_white_48dp" )
+            width: 48*dp
+            height: 48*dp
+            onClicked: {
+              showOpenProjectDialog()
+              settings.setValue( "/QField/FirstRunFlag", false )
+            }
+          }
         }
 
-        Text {
-          text: "<p>The app is now up and running. Well done!</p>"
-              + "<p>To get started you first need a QGIS project."
-              + " It is very easy to create one on your desktop PC and then transfer it"
-              + " to this device.</p>"
-              + "<p>Once you have a project on this device, use the buttons below to"
-              + " locate it on the filesystem, open it and start working.</p>"
-
-          wrapMode: Text.WordWrap
-        }
-
-        Button {
-          iconSource:  Style.getThemeIcon( "ic_map_white_48dp" )
-
+        Image {
+          id: logo
+          anchors.right: parent.right
+          source: "qrc:/images/qfield-logo.svg"
           width: 96*dp
           height: 96*dp
-
-          onClicked: {
-            showOpenProjectDialog()
-            settings.setValue( "/QField/FirstRunFlag", false )
-          }
+          fillMode: Image.PreserveAspectFit
         }
       }
     }
