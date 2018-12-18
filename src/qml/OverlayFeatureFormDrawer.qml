@@ -1,13 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import QtQuick.Controls 2.4
 import org.qfield 1.0
+import QtQuick.Window 2.11
 
 Drawer {
   id: overlayFeatureFormDrawer
   property alias featureModel: overlayFeatureForm.featureModel
   property alias state: overlayFeatureForm.state
   height: parent.height
-  width: qfieldSettings.fullScreenIdentifyView ? parent.width : parent.width / 3
+  width: qfieldSettings.fullScreenIdentifyView || Screen.orientation === Qt.PortraitOrientation ? parent.width : parent.width / 3
   edge: Qt.RightEdge
   interactive: overlayFeatureForm.model.constraintsValid
   dragMargin: 0
