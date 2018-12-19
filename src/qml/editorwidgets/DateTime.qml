@@ -26,7 +26,8 @@ Item {
 
   ColumnLayout {
     id: main
-    property var currentValue: value
+    property var isDateTimeType: field.type === Qt.DateTime || field.type === Qt.Date || field.type === Qt.Time
+    property var currentValue: isDateTimeType? value : Qt.formatDateTime(value, config['field_format'])
 
     anchors { right: parent.right; left: parent.left }
 
@@ -37,8 +38,8 @@ Item {
       Rectangle {
         anchors.fill: parent
         id: backgroundRect
-        border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
-        border.width: comboBox.visualFocus ? 2 : 1
+        border.color: label.activeFocus ? "#17a81a" : "#21be2b"
+        border.width: label.activeFocus ? 2 : 1
         color: "#dddddd"
         radius: 2
       }
@@ -55,37 +56,57 @@ Item {
         // this is a bit difficult to auto generate input mask out of date/time format using regex
         // mainly because number of caracters is variable (e.g. "d": the day as number without a leading zero)
         // not saying impossible, but keep it for next regex challenge or at least not the day before vacation
-        inputMask:      if (config['display_format'] === "yyyy-MM-dd" ) { "9999-09-09;_" }
-                   else if (config['display_format'] === "yyyy.MM.dd" ) { "9999.09.09;_" }
-                   else if (config['display_format'] === "yyyy-MM-dd HH:mm:ss" ) { "9999-09-09 09:09:00;_" }
-                   else if (config['display_format'] === "HH:mm:ss" ) { "09:09:00;_" }
-                   else if (config['display_format'] === "HH:mm" ) { "09:09;_" }
+        inputMask:      if (config['display_format'] === "yyyy-MM-dd" ) { "9999-99-99;_" }
+                   else if (config['display_format'] === "yyyy.MM.dd" ) { "9999.99.09;_" }
+                   else if (config['display_format'] === "yyyy-MM-dd HH:mm:ss" ) { "9999-99-09 99:99:99;_" }
+                   else if (config['display_format'] === "HH:mm:ss" ) { "99:99:99;_" }
+                   else if (config['display_format'] === "HH:mm" ) { "99:99;_" }
                    else { "" }
 
-        text: if ( value === undefined )
+        text: if ( main.currentValue === undefined )
               {
                 qsTr('(no date)')
               }
               else
               {
-                if ( value instanceof Date )
+                if ( main.isDateTimeType )
                 {
-                  Qt.formatDateTime(value, config['display_format'])
+                  Qt.formatDateTime(main.currentValue, config['display_format'])
                 }
                 else
                 {
-                  var date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
+                  var date = Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format'])
                   Qt.formatDateTime(date, config['display_format'])
                 }
               }
 
-        color: value === undefined ? 'gray' : 'black'
+        color: main.currentValue === undefined ? 'gray' : 'black'
 
         MouseArea {
           enabled: config['calendar_popup']
           anchors.fill: parent
           onClicked: {
             popup.open()
+          }
+        }
+
+        onTextEdited: {
+          var date = Date.fromLocaleString(Qt.locale(), label.text, config['display_format'])
+          if ( date.toLocaleString() !== "" )
+          {
+            if ( main.isDateTimeType )
+            {
+              main.currentValue = date
+            }
+            else
+            {
+              main.currentValue = Qt.formatDateTime(date, config['field_format'])
+            }
+            valueChanged(main.currentValue, main.currentValue === undefined)
+          }
+          else
+          {
+            valueChanged(undefined, true)
           }
         }
 
@@ -107,7 +128,7 @@ Item {
           source: Style.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
-          visible: ( value !== undefined ) && config['allow_null']
+          visible: ( main.currentValue !== undefined ) && config['allow_null']
 
           MouseArea {
             anchors.fill: parent
@@ -129,12 +150,12 @@ Item {
       ColumnLayout {
         Controls.Calendar {
           id: calendar
-          selectedDate: currentValue
+          selectedDate: main.currentValue
           weekNumbersVisible: true
           focus: false
 
           onSelectedDateChanged: {
-            if ( main.currentValue instanceof Date )
+            if ( main.isDateTimeType )
             {
               main.currentValue = selectedDate
             }
@@ -157,7 +178,7 @@ Item {
     }
 
     onCurrentValueChanged: {
-      valueChanged(currentValue, main.currentValue === undefined)
+      valueChanged(main.currentValue, main.currentValue === undefined)
     }
   }
 }

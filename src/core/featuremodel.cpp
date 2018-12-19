@@ -128,6 +128,7 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
       break;
 
     case AttributeValue:
+      qDebug() << mFeature.attribute( index.row() );
       return mFeature.attribute( index.row() );
       break;
 
