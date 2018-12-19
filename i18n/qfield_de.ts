@@ -32,10 +32,9 @@
         <source>Could not create folder %1</source>
         <translation>Ordner %1 konnte nicht erstellt werden</translation>
     </message>
-    <message numerus="yes">
+    <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <comment>QField</comment>
-        <translation><numerusform>Bild %1 konnte nicht in den Projektordner %2 kopiert werden.</numerusform><numerusform>Bild %1 konnte nicht in den Projektordner %2 kopiert werden.</numerusform></translation>
+        <translation>Bild %1 konnte nicht in den Ordner %2 kopiert werden.</translation>
     </message>
 </context>
 <context>

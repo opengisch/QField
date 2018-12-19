@@ -32,10 +32,9 @@
         <source>Could not create folder %1</source>
         <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
+    <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <comment>QField</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

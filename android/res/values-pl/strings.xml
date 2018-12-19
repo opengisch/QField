@@ -1,3 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="done_unpacking_msg">Rozpakowywanie zakończone, uruchamianie QGIS.</string>
     </resources>

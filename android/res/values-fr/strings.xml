@@ -1,3 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">Décompilation effectuée, lancez QGIS.</string>
+    <string name="unpacking_msg">Décompilation des données post-installation. Cela peut prendre un peu de temps.</string>
+    <string name="use_internal_storage">Utilisez le stockage interne</string>
+    <string name="external_storage_unavailable">Décompilation des données post-installation. Cela peut prendre un peu de temps.</string>
+    <string name="noexternalstorage_dialog">Il semble que votre stockage externe (/sdcard) soit indisponible. Cela survient quand vous connectez votre appareil à un PC en USB.\nQGIS peut être lancé depuis le stockage interne mais ce n\'est pas recommandé car la place peut être insuffisante.\nIl est suggéré de choisir ANNULER, déconnecter tout cable USB et redémarrer QGIS.</string>
+    <string name="root_summary">Vos superbes projets QField</string>
+</resources>
