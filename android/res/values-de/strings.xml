@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="unpacking_msg">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
+    <string name="external_storage_unavailable">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
+    <string name="root_summary">Deine QField Projekte</string>
+</resources>
