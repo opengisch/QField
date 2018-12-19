@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="store_title">QField for QGIS - EXPERIMENTAL</string>
+    <string name="store_short_description">Mobile GIS tool to use QGIS projects in the field and get your work done quickly</string>
+    <string name="store_long_description">QField focuses on efficiently getting GIS field work done.
+The mobile GIS app from OPENGIS.ch combines a minimal design with sophisticated technology to get data from the field to the office in a comfortable and easy way.
+
+QField unleashes the full power of the QGIS styling engine to bring your customized maps to the field, collect attributes for features with configured edit widgets like value lists, checkboxes, free text or pictures taken with the device camera.
+
+QField is an open source project, the documentation, much more information, the source code and possibilities to support the project can be found at qfield.org (preferred) or by buying the QField for QGIS Karma edition app on the Play store.
+
+QField is built from ground up to be touch oriented and easy to use outside.
+
+It is based on a few paradigms
+- GPS centric
+- QGIS desktop compatible
+- Fully working when offlinehttp://www.opengis.ch/contact/
+- Synchronization capabilities
+- Project preparation on desktop
+- Few and large buttons
+- Mode-based work (Display, Digitizing, Measuring, Inspection,...)
+
+QField is future proof using the latest technologies such as Qt5, QtQuick 2 and OpenGL
+
+OPENGIS.ch is happy to help you with the implementation of missing features. Contact us at http://www.opengis.ch/contact/
+For bug reports please file an issue at https://github.com/opengisch/QField/issues</string>
+</resources>
