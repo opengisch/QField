@@ -27,18 +27,13 @@ set -e
 if [[ -n ${VERSION} ]];
 then
   echo "Building release version ${VERSION}"
-  sed -i "s/VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${VERSION}" | cut -f 2 -d 'v' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${VERSION}" | cut -f 2 -d 'v' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
 
   export RC_SUFFIX=$(echo "${VERSION}" | cut -f 2 -d 'c' -s)
-  sed -i "s/VERSION_RC\s*= .*/VERSION_RC = ${RC_SUFFIX:-99}/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_SUFFIX\s*= .*/VERSION_SUFFIX = '${RC_SUFFIX:+-rc}$RC_SUFFIX'/g" ${SOURCE_DIR}/version.pri
-  grep 'VERSION_MAJOR' ${SOURCE_DIR}/version.pri
-  grep 'VERSION_MINOR' ${SOURCE_DIR}/version.pri
-  grep 'VERSION_FIX' ${SOURCE_DIR}/version.pri
-  grep 'VERSION_SUFFIX' ${SOURCE_DIR}/version.pri
-  grep 'VERSION_RC' ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_RC\s*= .*/VERSION_RC = ${RC_SUFFIX:-99}/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_SUFFIX\s*= .*/VERSION_SUFFIX = '${RC_SUFFIX:+-rc}$RC_SUFFIX'/g" ${SOURCE_DIR}/version.pri
 fi
 
 mkdir -p ${BUILD_DIR}/.gradle
