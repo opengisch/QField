@@ -27,24 +27,6 @@
     </message>
 </context>
 <context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation>Ordner %1 konnte nicht erstellt werden</translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>Bild %1 konnte nicht in den Ordner %2 kopiert werden.</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidProjectSource</name>
-    <message>
-        <source>File %1 does not exist</source>
-        <translation>Datei %1 existiert nicht</translation>
-    </message>
-</context>
-<context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
@@ -124,56 +106,6 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
-    <name>FeatureModel</name>
-    <message>
-        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Wert &quot;%1&quot; %4 konnte nicht in einen mit dem Feld %2(%3) kompatiblen Wert konvertiert werden</translation>
-    </message>
-    <message>
-        <source>Cannot update feature</source>
-        <translation>Feature kann nicht modifiziert werden</translation>
-    </message>
-    <message>
-        <source>Feature %1 could not be fetched after commit</source>
-        <translation>Feature %1 konnte nach dem Speichern nicht mehr geladen werden</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Standardwertausdruck für %1:%2 hat einen Parserfehler: %3</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Standardwertausdruck für %1:%2 hat einen Evaluationsfehler: %3</translation>
-    </message>
-    <message>
-        <source>Feature could not be added</source>
-        <translation>Feature konnte nicht hinzugefügt werden</translation>
-    </message>
-    <message>
-        <source>Could not save changes. Rolling back.</source>
-        <translation>Änderungen konnten nicht gespeichert werden. Rollback.</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Kann nicht mit dem Editieren beginnen</translation>
-    </message>
-</context>
-<context>
-    <name>FeaturesLocatorFilter</name>
-    <message>
-        <source>Open form</source>
-        <translation>Formular öffnen</translation>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation>Feature hat keine Geometrie</translation>
-    </message>
-    <message>
-        <source>Features In All Layers</source>
-        <translation>Features in allen Layern</translation>
-    </message>
-</context>
-<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -185,28 +117,6 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Show on map canvas</source>
         <translation>Auf der Karte anzeigen</translation>
-    </message>
-</context>
-<context>
-    <name>LocatorItem</name>
-    <message>
-        <source>Search…</source>
-        <translation>Suchen...</translation>
-    </message>
-</context>
-<context>
-    <name>OverlayFeatureFormDrawer</name>
-    <message>
-        <source>Changes saved</source>
-        <translation>Änderungen gespeichert</translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation>Änderungen verworfen</translation>
-    </message>
-    <message>
-        <source>Constraints not valid</source>
-        <translation>Bedingungen nicht gültig</translation>
     </message>
 </context>
 <context>
@@ -268,52 +178,6 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
-    <name>QObject</name>
-    <message>
-        <source>Position</source>
-        <translation>Position</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapCanvasMap</name>
-    <message>
-        <source>Rendering</source>
-        <translation>Rendering</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapSettings</name>
-    <message>
-        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Rotieren der Karte wird nicht unterstützt. Zurücksetzen von %1 auf 0.</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickUtils</name>
-    <message>
-        <source>screen resolution: %1x%2 px
-</source>
-        <translation>Bildschirmauflösung: %1x%2 px
-</translation>
-    </message>
-    <message>
-        <source>screen DPI: %1x%2
-</source>
-        <translation>Screen DPI: %1x%2
-</translation>
-    </message>
-    <message>
-        <source>screen size: %1x%2 mm
-</source>
-        <translation>Screengrösse: %1x%2
-</translation>
-    </message>
-    <message>
-        <source>screen density: %1</source>
-        <translation>Bildschirmdichte: %1</translation>
-    </message>
-</context>
-<context>
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
@@ -322,21 +186,6 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>[New variable value]</source>
         <translation>[Wert]</translation>
-    </message>
-</context>
-<context>
-    <name>WelcomeScreen</name>
-    <message>
-        <source>QField for QGIS</source>
-        <translation>QField für QGIS</translation>
-    </message>
-    <message>
-        <source>To get started you first need a QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Um mit der Arbeit zu beginnen wird zuerst ein QGIS Projekt benötigt. Es ist sehr einfach eines auf dem Desktop PC zu erzeugen und auf dieses Gerät zu verschieben.</translation>
-    </message>
-    <message>
-        <source>Once you have a project on this device, use the button below to locate it on the filesystem, open it and start working.</source>
-        <translation>Wenn das Projekt auf dem Gerät ist, kann der Knopf unten benutzt werden, um das Projekt zu öffnen und mit der Arbeit zu beginnen.</translation>
     </message>
 </context>
 <context>
@@ -366,6 +215,18 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <translation>Hauptmenü</translation>
     </message>
     <message>
+        <source>Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitize</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Open Project</source>
         <translation>Projekt öffnen</translation>
     </message>
@@ -386,12 +247,28 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <translation>Als PDF drucken</translation>
     </message>
     <message>
+        <source>GPS Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable GPS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Center current location</source>
         <translation>Auf aktuelle Position zentrieren</translation>
     </message>
     <message>
         <source>Show position information</source>
         <translation>Positionsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -416,22 +293,6 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Press back again to close project and app</source>
         <translation>Zurück erneut drücken, um QField zu beenden</translation>
-    </message>
-    <message>
-        <source>Positioning Options</source>
-        <translation>Positionierungsoptionen</translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation>Positionierung aktivieren</translation>
-    </message>
-    <message>
-        <source>QField has no permissions to use positioning.</source>
-        <translation>QField hat keine Berechtigung, die Positionierung zu nutzen</translation>
-    </message>
-    <message>
-        <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Bearbeiten von Multigeometrielayer wird noch nicht unterstützt</translation>
     </message>
 </context>
 </TS>

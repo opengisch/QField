@@ -27,24 +27,6 @@
     </message>
 </context>
 <context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>AndroidProjectSource</name>
-    <message>
-        <source>File %1 does not exist</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
@@ -124,56 +106,6 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
     </message>
 </context>
 <context>
-    <name>FeatureModel</name>
-    <message>
-        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot update feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature could not be added</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Could not save changes. Rolling back.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FeaturesLocatorFilter</name>
-    <message>
-        <source>Open form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Features In All Layers</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -185,28 +117,6 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
     <message>
         <source>Show on map canvas</source>
         <translation>지도에 표시</translation>
-    </message>
-</context>
-<context>
-    <name>LocatorItem</name>
-    <message>
-        <source>Search…</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>OverlayFeatureFormDrawer</name>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Constraints not valid</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -268,49 +178,6 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
     </message>
 </context>
 <context>
-    <name>QObject</name>
-    <message>
-        <source>Position</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapCanvasMap</name>
-    <message>
-        <source>Rendering</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapSettings</name>
-    <message>
-        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QgsQuickUtils</name>
-    <message>
-        <source>screen resolution: %1x%2 px
-</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>screen DPI: %1x%2
-</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>screen size: %1x%2 mm
-</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>screen density: %1</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
@@ -319,21 +186,6 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
     <message>
         <source>[New variable value]</source>
         <translation>[새로운 변수 값]</translation>
-    </message>
-</context>
-<context>
-    <name>WelcomeScreen</name>
-    <message>
-        <source>QField for QGIS</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started you first need a QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Once you have a project on this device, use the button below to locate it on the filesystem, open it and start working.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -363,6 +215,18 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
         <translation>주 메뉴</translation>
     </message>
     <message>
+        <source>Mode</source>
+        <translation>모드</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation>탐색</translation>
+    </message>
+    <message>
+        <source>Digitize</source>
+        <translation>디지타이징</translation>
+    </message>
+    <message>
         <source>Open Project</source>
         <translation>프로젝트 열기</translation>
     </message>
@@ -383,12 +247,28 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
         <translation>PDF로 출력</translation>
     </message>
     <message>
+        <source>GPS Options</source>
+        <translation>GPS 옵션</translation>
+    </message>
+    <message>
+        <source>Enable GPS</source>
+        <translation>GPS 활성화</translation>
+    </message>
+    <message>
         <source>Center current location</source>
         <translation>현재 위치 중심</translation>
     </message>
     <message>
         <source>Show position information</source>
         <translation>위치정보 표시</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>변경 사항이 저장되었습니다</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>변경 사항이 취소되었습니다</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -413,22 +293,6 @@ QField 설명서에서 &lt;i&gt;휴대용 프로젝트&lt;/i&gt; 섹션을 확�
     <message>
         <source>Press back again to close project and app</source>
         <translation>다시 눌러 프로젝트 및 앱을 닫습니다</translation>
-    </message>
-    <message>
-        <source>Positioning Options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

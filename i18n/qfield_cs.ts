@@ -27,24 +27,6 @@
     </message>
 </context>
 <context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation>Nelze vytvořit složku %1</translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>Obrázek %1 nelze zkopírovat do složky projektu %2.</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidProjectSource</name>
-    <message>
-        <source>File %1 does not exist</source>
-        <translation>Soubor %1 neexistuje</translation>
-    </message>
-</context>
-<context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
@@ -124,56 +106,6 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
     </message>
 </context>
 <context>
-    <name>FeatureModel</name>
-    <message>
-        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Hodnota &quot;%1&quot; %4 nemohla být převedena na kompatibilní hodnotu pro pole %2(%3).</translation>
-    </message>
-    <message>
-        <source>Cannot update feature</source>
-        <translation>Prvek nelze aktualizovat</translation>
-    </message>
-    <message>
-        <source>Feature %1 could not be fetched after commit</source>
-        <translation>Prvek %1 nebyl načten po potvrzení</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Výchozí hodnota pro %1:%2 má chybu parseru: %3</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Výchozí hodnota pro %1:%2 má chybu hodnocení: %3</translation>
-    </message>
-    <message>
-        <source>Feature could not be added</source>
-        <translation>Prvek nelze přidat</translation>
-    </message>
-    <message>
-        <source>Could not save changes. Rolling back.</source>
-        <translation>Změny nelze uložit. Změny byly vráceny zpět.</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Nelze začít editaci</translation>
-    </message>
-</context>
-<context>
-    <name>FeaturesLocatorFilter</name>
-    <message>
-        <source>Open form</source>
-        <translation>Otevřít z</translation>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation>Prvek nemá žádnou geometrii</translation>
-    </message>
-    <message>
-        <source>Features In All Layers</source>
-        <translation>Prvky ve všech vrstvách</translation>
-    </message>
-</context>
-<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -185,28 +117,6 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
     <message>
         <source>Show on map canvas</source>
         <translation>Zobrazit v mapě</translation>
-    </message>
-</context>
-<context>
-    <name>LocatorItem</name>
-    <message>
-        <source>Search…</source>
-        <translation>Hledat...</translation>
-    </message>
-</context>
-<context>
-    <name>OverlayFeatureFormDrawer</name>
-    <message>
-        <source>Changes saved</source>
-        <translation>Změny uloženy</translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation>Změny zrušeny</translation>
-    </message>
-    <message>
-        <source>Constraints not valid</source>
-        <translation>Omezení nejsou platná</translation>
     </message>
 </context>
 <context>
@@ -268,52 +178,6 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
     </message>
 </context>
 <context>
-    <name>QObject</name>
-    <message>
-        <source>Position</source>
-        <translation>Pozice</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapCanvasMap</name>
-    <message>
-        <source>Rendering</source>
-        <translation>Vykreslování</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapSettings</name>
-    <message>
-        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Rotace mapy není podporována. Resetování z %1 na 0.</translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickUtils</name>
-    <message>
-        <source>screen resolution: %1x%2 px
-</source>
-        <translation>rozlišení obrazovky: %1x%2 px
-</translation>
-    </message>
-    <message>
-        <source>screen DPI: %1x%2
-</source>
-        <translation>DPI obrazovky: %1x%2
-</translation>
-    </message>
-    <message>
-        <source>screen size: %1x%2 mm
-</source>
-        <translation>velikost obrazovky: %1x%2 mm
-</translation>
-    </message>
-    <message>
-        <source>screen density: %1</source>
-        <translation>hustota obrazovky: %1</translation>
-    </message>
-</context>
-<context>
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
@@ -322,21 +186,6 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
     <message>
         <source>[New variable value]</source>
         <translation>[Název nové hodnoty]</translation>
-    </message>
-</context>
-<context>
-    <name>WelcomeScreen</name>
-    <message>
-        <source>QField for QGIS</source>
-        <translation>QField pro QGIS</translation>
-    </message>
-    <message>
-        <source>To get started you first need a QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Chcete-li začít, potřebujete nejprve projekt QGIS. Na počítači je velmi snadné ho vytvořit a poté jej přenést do tohoto zařízení.</translation>
-    </message>
-    <message>
-        <source>Once you have a project on this device, use the button below to locate it on the filesystem, open it and start working.</source>
-        <translation>Jakmile máte v tomto zařízení projekt, použijte tlačítko níže a vyhledejte jej v systému souborů, otevřete jej a začněte pracovat.</translation>
     </message>
 </context>
 <context>
@@ -366,6 +215,18 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
         <translation>Hlavní menu</translation>
     </message>
     <message>
+        <source>Mode</source>
+        <translation>Mód</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation>Procházet</translation>
+    </message>
+    <message>
+        <source>Digitize</source>
+        <translation>Digitalizovat</translation>
+    </message>
+    <message>
         <source>Open Project</source>
         <translation>Otevřít projekt</translation>
     </message>
@@ -386,12 +247,28 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
         <translation>Tisk do PDF</translation>
     </message>
     <message>
+        <source>GPS Options</source>
+        <translation>GPS možnosti</translation>
+    </message>
+    <message>
+        <source>Enable GPS</source>
+        <translation>Zapnout GPS</translation>
+    </message>
+    <message>
         <source>Center current location</source>
         <translation>Vycentrovat</translation>
     </message>
     <message>
         <source>Show position information</source>
         <translation>Zobrazit informace o poloze</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Změny uloženy</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Změny zahozeny</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -416,22 +293,6 @@ V dokumentaci QField můžete zkontrolovat část &lt;i&gt;Portable Project&lt;/
     <message>
         <source>Press back again to close project and app</source>
         <translation>Opětovným stisknutím tlačítka zavřete projekt a aplikaci</translation>
-    </message>
-    <message>
-        <source>Positioning Options</source>
-        <translation>Možnosti polohy</translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation>Povolit polohu</translation>
-    </message>
-    <message>
-        <source>QField has no permissions to use positioning.</source>
-        <translation>QField nemá oprávnění k použití polohy.</translation>
-    </message>
-    <message>
-        <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Úprava vrstvy s více geometriemi zatím není podporována.</translation>
     </message>
 </context>
 </TS>

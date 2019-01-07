@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="gl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -26,24 +24,6 @@
     <message>
         <source>Buy the Karma edition</source>
         <translation>Merca a edición Karma</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AndroidProjectSource</name>
-    <message>
-        <source>File %1 does not exist</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -105,6 +85,18 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Cambios gardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Non hai entidade nesta posición</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Eliminar entidade</translation>
     </message>
@@ -112,103 +104,19 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <source>Should this feature really be deleted?</source>
         <translation>Debe eliminarse realmente esta entidade?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FeatureModel</name>
-    <message>
-        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot update feature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Feature could not be added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not save changes. Rolling back.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FeaturesLocatorFilter</name>
-    <message>
-        <source>Open form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Features In All Layers</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propiedades</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LocatorItem</name>
-    <message>
-        <source>Search…</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>OverlayFeatureFormDrawer</name>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Constraints not valid</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar na vista do mapa</translation>
     </message>
 </context>
 <context>
@@ -261,55 +169,12 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Amosar información numérica cando se dixitaliza</translation>
     </message>
     <message>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Utilizar a función de cámara nativa (inestable en versións recentes de Android)</translation>
+    </message>
+    <message>
         <source>QField Settings</source>
         <translation>Configuración de QField</translation>
-    </message>
-    <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapCanvasMap</name>
-    <message>
-        <source>Rendering</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickMapSettings</name>
-    <message>
-        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QgsQuickUtils</name>
-    <message>
-        <source>screen resolution: %1x%2 px
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>screen DPI: %1x%2
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>screen size: %1x%2 mm
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>screen density: %1</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -321,21 +186,6 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>[New variable value]</source>
         <translation>[Valor da nova variable]</translation>
-    </message>
-</context>
-<context>
-    <name>WelcomeScreen</name>
-    <message>
-        <source>QField for QGIS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To get started you first need a QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Once you have a project on this device, use the button below to locate it on the filesystem, open it and start working.</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -366,15 +216,15 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Mode</source>
-        <translation type="vanished">Modo</translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="vanished">Buscador</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="vanished">Dixitalizar</translation>
+        <translation>Dixitalizar</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -393,16 +243,16 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Rexistro</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Saír</translation>
+        <source>Print to PDF</source>
+        <translation>Imprimir a PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="vanished">Opcións GPS</translation>
+        <translation>Opcións do GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="vanished">Activar GPS</translation>
+        <translation>Activar GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -411,6 +261,14 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Show position information</source>
         <translation>Amosar información da posición</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Cambios gardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -433,28 +291,8 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Tódolos ficheiros (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Positioning Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Premer atrás de novo para pechar o proxecto e a aplicación</translation>
     </message>
 </context>
 </TS>

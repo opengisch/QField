@@ -1,3 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">Feito o desempaquetado, inicia QGIS.</string>
+    <string name="unpacking_msg">Desempaquetando datos postinstalación. Isto pode levar algún tempo.</string>
+    <string name="use_internal_storage">Utilizar Almacenamento Interno</string>
+    <string name="external_storage_unavailable">Desempaquetando datos postinstalación. Isto pode levar algún tempo.</string>
+    <string name="noexternalstorage_dialog">Semella que o almacenamento externo (/sdcard) non está dispoñible. Isto acontece cando conectas o dispositivo a un ordenador vía USB.\nQGIS pode funcionar dende o almacenamento interno pero non se recomenda xa que pode ser demasiado pequeno.\nSuxerimos que escollas CANCELAR, desconectes calquera cable USB e reinicies QGIS.</string>
+    <string name="root_summary">Os teus asombrosos proxectos de QField</string>
+</resources>
