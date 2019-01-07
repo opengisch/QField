@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Rozbalte a spusťte QGIS.</string>
+    <string name="unpacking_msg">Rozbalení dat po instalaci. To může chvíli trvat.</string>
+    <string name="use_internal_storage">Použijte vnitřní úložiště</string>
+    <string name="external_storage_unavailable">Rozbalení dat po instalaci. To může chvíli trvat.</string>
+    <string name="noexternalstorage_dialog">Vypadá to, že externí úložiště (/sdcard) není k dispozici. K tomu dochází, když připojíte zařízení k počítači přes USB.\nQGIS může být spuštěn z interního úložiště, ale toto není doporučeno, protože by mohlo být příliš malé.\nProto doporučujeme zvolit ZRUŠIT, odpojit kabel USB a restartovat QGIS.</string>
+    <string name="root_summary">Vaše úžasné projekty QField</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Purku tehty, aloita QGIS.</string>
+    <string name="unpacking_msg">Pura asennuksen loppudata. Tämä voi kestää jonkin aikaa.</string>
+    <string name="use_internal_storage">Käytä sisäistä tallennustilaa</string>
+    <string name="external_storage_unavailable">Pura asennuksen loppudata. Tämä voi kestää jonkin aikaa.</string>
+    <string name="noexternalstorage_dialog">Vaikuttaa ettei ulkoinen tietovarastosi (/sdcard) ole käytettävissä. Tämä tapahtuu kun liitit yhteyden laitteeseesi PC:hen USB:n kautta.\nQGIS voidaan suorittaa sisäisestä tietovarastosta mutta se eii ole suositeltavaa koska se on liian pieni.\nSuositus on että valitse CANCEL/Peruuta, poistat kaikki USB kaapeliyhteydet ja käynnistät QGIS uudelleen.</string>
+    <string name="root_summary">Sinun mainiot QField projektisi</string>
+</resources>

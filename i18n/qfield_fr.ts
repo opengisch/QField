@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -13,7 +11,7 @@
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
-        <translation>Dossier des éléments partagés de QField</translation>
+        <translation>Dossier des éléments partagés de QField : %1</translation>
     </message>
     <message>
         <source>Developed by</source>
@@ -87,6 +85,18 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Modifications enregistrées</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modifications annulées</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Aucune entité à cet endroit</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Supprimer l&apos;entité</translation>
     </message>
@@ -94,31 +104,19 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
         <source>Should this feature really be deleted?</source>
         <translation>Etes-vous sûr de vouloir effacer l&apos;entité?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propriétés</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher cette couche sur la carte</translation>
     </message>
 </context>
 <context>
@@ -129,7 +127,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>ND</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -164,19 +162,19 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Rafraîchir la carte toutes les 250 ms pendant le rendu.</translation>
+        <translation>Rafraîchir la carte toutes les 250 ms pendant le rendu</translation>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Afficher les mesures pendant la numérisation. </translation>
+        <translation>Afficher les mesures pendant la numérisation</translation>
+    </message>
+    <message>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Utiliser les fonctionnalités natives de la caméra (instable sur les versions récentes d&apos;Androïd)</translation>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>Paramètres de QField</translation>
-    </message>
-    <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navigation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Dessin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -242,15 +240,15 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Log</source>
-        <translation>Log</translation>
+        <translation>Registre</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Quitter</translation>
+        <source>Print to PDF</source>
+        <translation>Enregistrer en PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Options GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
@@ -263,6 +261,14 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     <message>
         <source>Show position information</source>
         <translation>Voir les informations sur la position actuelle</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Modifications enregistrées</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modifications annulées</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
         <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation>Modifications enregistrées</translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation>Modifications ignorées</translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation>Appuyez à nouveau pour fermer le projet et l&apos;application</translation>
+        <translation>Appuyer encore une fois sur le bouton retour pour fermer le projet et quitter l&apos;application</translation>
     </message>
 </context>
 </TS>

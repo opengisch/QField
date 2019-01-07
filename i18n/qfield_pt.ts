@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -43,7 +41,7 @@
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
         <translation>As camadas seguintes não foram carregadas.
-Reveja-as e reconfigure-as no projeto do QGIS.
+Reveja-as e reconfigure-as no projeto QGIS.
 Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentação do QField.</translation>
     </message>
     <message>
@@ -62,11 +60,11 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>(no date)</source>
-        <translation type="unfinished"></translation>
+        <translation>(sem data)</translation>
     </message>
 </context>
 <context>
@@ -87,6 +85,18 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Alterações guardadas</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Alterações descartadas </translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Não existe elemento nesta posição</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Apagar elemento</translation>
     </message>
@@ -94,31 +104,19 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
         <source>Should this feature really be deleted?</source>
         <translation>Este elemento deve ser mesmo apagado?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propriedades</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar no mapa</translation>
     </message>
 </context>
 <context>
@@ -152,31 +150,31 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Global Variables</source>
-        <translation>Varáveis globais</translation>
+        <translation>Variáveis globais</translation>
+    </message>
+    <message>
+        <source>Show scalebar</source>
+        <translation>Mostrar barra de escala</translation>
+    </message>
+    <message>
+        <source>Show attribute form in full screen</source>
+        <translation>Mostrar formulário de atributos em todo o ecrã</translation>
+    </message>
+    <message>
+        <source>Redraw map every 250 ms while rendering</source>
+        <translation>Redesenhar o mapa a cada 250 ms enquanto renderiza</translation>
+    </message>
+    <message>
+        <source>Show numerical information while digitizing</source>
+        <translation>Mostrar informação numérica enquanto digitaliza</translation>
+    </message>
+    <message>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Usar a câmara nativa (instável nas recentes versões do Android)</translation>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>Definições do QField</translation>
-    </message>
-    <message>
-        <source>Show scalebar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show attribute form in full screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Redraw map every 250 ms while rendering</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show numerical information while digitizing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalizar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
         <translation>Registo</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Sair</translation>
+        <source>Print to PDF</source>
+        <translation>Imprimir para PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opções de GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Ativar GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -262,7 +260,15 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar a informação da posição</translation>
+        <translation>Mostrar informação da posição</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
         <translation>Todos os ficheiros (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Volte a pressionar novamente o retroceder para fechar o projecto e a app</translation>
     </message>
 </context>
 </TS>

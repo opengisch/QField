@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ro">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Modificări salvate</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modificări nesalvate</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Nici o entitate în această poziție</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Ștergere entitate</translation>
     </message>
@@ -94,31 +104,19 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
         <source>Should this feature really be deleted?</source>
         <translation>Ar trebui ștearsă această entitate?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Proprietăți</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Arată pe canevasul hărții</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
         <translation>Afișează informațiile numerice pe durata digitizării</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>Setări QField</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Utilizează funcția camerei native (instabilă în versiunile Android recente)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>Setări QField</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mod</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Răsfoiește</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitizează</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
         <translation>Jurnal</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Închidere</translation>
+        <source>Print to PDF</source>
+        <translation>Creează PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opțiuni GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Activează GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     <message>
         <source>Show position information</source>
         <translation>Afișează informațiile poziției</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
         <translation>Toate fișierele (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Apăsați pe Back pentru a închide proiectul și aplicația</translation>
     </message>
 </context>
 </TS>

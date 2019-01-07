@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Kicsomagolást befejeztem, QGIS indítása.</string>
+    <string name="unpacking_msg">A telepítés utáni adatok kicsomagolása. Ez több időt vehet igénybe.</string>
+    <string name="use_internal_storage">Belső tároló használata</string>
+    <string name="external_storage_unavailable">A telepítés utáni adatok kicsomagolása. Ez több időt vehet igénybe.</string>
+    <string name="noexternalstorage_dialog">Úgy tűnik, hogy nincs külső tárolója (sd kártya). Ez történik amikor az eszközét USB-n keresztül csatlakoztatja a PC-hez.\nA QGIS futtatható a belső tárolóból, de ezt nem tanácsoljuk mivel az túl kicsi lehet.\nAzt tanácsoljuk válassza a Mégsem-et, távolítsa el az összes USB kábelt és indítsa úja a QGIS-t.</string>
+    <string name="root_summary">Az fantasztikus projektjei</string>
+</resources>

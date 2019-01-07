@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Muutokset tallennettu</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Muutokset hylätty</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Tässä sijainnissa ei ominaisuuksia</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Poista ominaisuus</translation>
     </message>
@@ -94,31 +104,19 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
         <source>Should this feature really be deleted?</source>
         <translation>Haluatko todella poistaa tämän ominaisuuden?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Ominaisuutta</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä karttapohjalla</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
         <translation>Näytä numeerinen tieto digitoitaessa</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>QField asetukset</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Käytä laitteen omaa kamera toimintoa (epävakaa Androidin viime versiossa)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>QField asetukset</translation>
     </message>
 </context>
 <context>
@@ -245,8 +243,8 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
         <translation>Loki</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Lopeta</translation>
+        <source>Print to PDF</source>
+        <translation>Tulosta PDF muotoon</translation>
     </message>
     <message>
         <source>GPS Options</source>
@@ -263,6 +261,14 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
     <message>
         <source>Show position information</source>
         <translation>Näytä sijainnin tiedot</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Muutokset tallennettu</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Muutokset hylätty</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
         <translation>Kaikki tiedostot (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Paina takaisin uudestaan sulkeaksesi projektin ja sovellutuksen</translation>
     </message>
 </context>
 </TS>

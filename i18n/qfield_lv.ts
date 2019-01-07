@@ -86,15 +86,15 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <name>FeatureListForm</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Izmaiņas saglabātas</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Izmaiņas atceltas</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"/>
+        <translation>Šajā vietā nav objektu</translation>
     </message>
     <message>
         <source>Delete feature</source>
@@ -109,14 +109,14 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"/>
+        <translation>%1 : Īpašības</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Rādīt kartes skatā</translation>
     </message>
 </context>
 <context>
@@ -170,7 +170,7 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"/>
+        <translation>Lietot iebūvēto kameras funkciju (pieejams jaunākajām Android versijām)</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -216,15 +216,15 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Mode</source>
-        <translation>Režijms</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Pārlūkot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitizēt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -244,15 +244,15 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Drukāt PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS iestatījumi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Ieslēgt GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -292,7 +292,7 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Nospied atpakaļ vēlreiz, lai aizvērtu projektu un aplikāciju</translation>
     </message>
 </context>
 </TS>

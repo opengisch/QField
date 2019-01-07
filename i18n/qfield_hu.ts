@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Módosításokat mentettem</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Módosításokat eldobtam</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Nincs elem ezen a helyen</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Elem törlés</translation>
     </message>
@@ -94,31 +104,19 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
         <source>Should this feature really be deleted?</source>
         <translation>Valóban törölni akarja ezt az elemet?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: tulajdonságok</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutasd a térképvásznon</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
         <translation>Numerikus adatok megjelenítése digitalizálás közben</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>QField beállítások</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Natív kamara funkció használata (instabil a utóbbi Android verziókon)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>QField beállítások</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Mode</source>
-        <translation>Üzemmód</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Böngészés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalizálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
         <translation>Napló</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Kilépés</translation>
+        <source>Print to PDF</source>
+        <translation>Nyomtatás PDF-be</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS Beállítások</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>GPS Bekapcsolása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Show position information</source>
         <translation>A helyzetinformációk mutatása</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
         <translation>Minden fájl (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
     </message>
 </context>
 </TS>

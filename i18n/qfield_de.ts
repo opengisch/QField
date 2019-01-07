@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -61,12 +59,12 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
 <context>
     <name>DateTime</name>
     <message>
-        <source>(no date)</source>
-        <translation>(Kein Datum)</translation>
+        <source>Ok</source>
+        <translation>Ok</translation>
     </message>
     <message>
-        <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <source>(no date)</source>
+        <translation>(Kein Datum)</translation>
     </message>
 </context>
 <context>
@@ -87,6 +85,18 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Änderungen gespeichert</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Änderungen verworfen</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Kein Objekt an dieser Position</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Objekt löschen</translation>
     </message>
@@ -94,31 +104,19 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <source>Should this feature really be deleted?</source>
         <translation>Soll dieses Objekt wirklich gelöscht werden?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Eigenschaften</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf der Karte anzeigen</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <translation>Koordinaten und Masse der aktuellen Geometrie während dem Digitalisieren anzeigen</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>QField Einstellungen</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Systemkamera verwenden (instabil auf neueren Android Versionen)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>QField Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navigieren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalisieren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <translation>Log</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Beenden</translation>
+        <source>Print to PDF</source>
+        <translation>Als PDF drucken</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS Optionen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>GPS einschalten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Show position information</source>
         <translation>Positionsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <translation>Alle Dateien (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück erneut drücken, um QField zu beenden</translation>
     </message>
 </context>
 </TS>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Klar med uppackningen, starta QGIS.</string>
+    <string name="unpacking_msg">Packar upp data efter installationen. Detta kan ta lite tid.</string>
+    <string name="use_internal_storage">Använd Internt Lagringsutrymme</string>
+    <string name="external_storage_unavailable">Packar upp data efter installationen. Detta kan ta lite tid.</string>
+    <string name="noexternalstorage_dialog">Det verkar som ditt externa lagringsutrymme (/sdcard) inte är tillgängligt. Detta inträffar när du ansluter din enhet till datorn via USB.\nQGIS kan köras från det interna lagringsutrymmet med det är inte att rekommendera då det kan vara för litet.\nDet är rekommenderat att välja AVBRYT, koppla bort USB kablar och starta om QGIS.</string>
+    <string name="root_summary">Dina fantastiska QField projekt</string>
+</resources>

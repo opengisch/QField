@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Canvis desats</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Canvis descartats</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>No hi ha objectes en aquest posició</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Eliminar objecte espacial</translation>
     </message>
@@ -94,31 +104,19 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
         <source>Should this feature really be deleted?</source>
         <translation>Realment ha de ser eliminat aquest objecte espacial??</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propietats</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar al mapa de la vista</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
         <translation>Mostrar informació numèrica mentre digitalitza</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>Ajusts de Qfield</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Fer servir les funcions natives de la càmera (inestable per a versions recents d&apos;Android)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>Ajusts de Qfield</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Explorar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalitzar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
         <translation>Log</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Sortir</translation>
+        <source>Print to PDF</source>
+        <translation>Imprimir a PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opcions del GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Activar el GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <message>
         <source>Show position information</source>
         <translation>Mostrar informació de la posició</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
         <translation>Tots els fitxers (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Preneu enrere un altre cop per tancar el projecte i l&apos;aplicació</translation>
     </message>
 </context>
 </TS>

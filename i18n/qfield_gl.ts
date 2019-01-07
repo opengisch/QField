@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="gl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Cambios gardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Non hai entidade nesta posición</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Eliminar entidade</translation>
     </message>
@@ -94,31 +104,19 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <source>Should this feature really be deleted?</source>
         <translation>Debe eliminarse realmente esta entidade?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propiedades</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Amosar na vista do mapa</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Amosar información numérica cando se dixitaliza</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>Configuración de QField</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Utilizar a función de cámara nativa (inestable en versións recentes de Android)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>Configuración de QField</translation>
     </message>
 </context>
 <context>
@@ -222,7 +220,7 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Browse</source>
-        <translation>Buscador</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Digitize</source>
@@ -245,12 +243,12 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Rexistro</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Saír</translation>
+        <source>Print to PDF</source>
+        <translation>Imprimir a PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opcións GPS</translation>
+        <translation>Opcións do GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
@@ -263,6 +261,14 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Show position information</source>
         <translation>Amosar información da posición</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Cambios gardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <translation>Tódolos ficheiros (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Premer atrás de novo para pechar o proxecto e a aplicación</translation>
     </message>
 </context>
 </TS>

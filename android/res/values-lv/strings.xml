@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Atarhivēšana pabeigta, startē QGIS.</string>
+    <string name="unpacking_msg">Atarhivē pēc instalācijas datus. Tas var aizņemt kādu laiku.</string>
+    <string name="use_internal_storage">Lietot iekšējo atmiņu</string>
+    <string name="external_storage_unavailable">Atarhivē pēc instalācijas datus. Tas var aizņemt kādu laiku.</string>
+    <string name="noexternalstorage_dialog">Izskatās, ka ārējā atmiņa (/sdcard) nav pieejama. Tā notiek, ja pieslēdz iekārtu pie datora izmantojot USB. \n QGIS var darbināt no iekšējās datu glabātavas, bet tas netiek rekomendēts.\n Ieteikums atcelt darbību. atvienot USB un pārstartēt QGIS.</string>
+    <string name="root_summary">Tavi QField projekti</string>
+</resources>

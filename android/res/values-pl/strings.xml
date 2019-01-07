@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">Rozpakowywanie zakończone, uruchamianie QGIS.</string>
+    <string name="unpacking_msg">Rozpakowywanie danych poinstalacyjnych. Może to trochę potrwać.</string>
+    <string name="use_internal_storage">Użyj pamięci wewnętrznej</string>
+    <string name="external_storage_unavailable">Rozpakowywanie danych poinstalacyjnych. Może to trochę potrwać.</string>
+    <string name="root_summary">Twoje projekty QField</string>
+</resources>

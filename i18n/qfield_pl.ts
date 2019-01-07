@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -25,7 +23,7 @@
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Kup wersję Karma</translation>
+        <translation>Kup wersję Karma</translation>
     </message>
 </context>
 <context>
@@ -55,7 +53,7 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Wygląd mapy</translation>
     </message>
 </context>
 <context>
@@ -87,6 +85,18 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Zapisano zmiany</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Odrzucono zmiany</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Brak elementu w tym miejscu</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Usuń obiekt</translation>
     </message>
@@ -94,31 +104,19 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
         <source>Should this feature really be deleted?</source>
         <translation>Czy na pewno usunąć ten obiekt?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Właściwości</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż na mapie</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
         <translation>Pokaż informację numeryczną podczas rysowania</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>Ustawienia QField</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Użyj wbudowanej funkcji aparatu (niestabilne w ostatnich wersjach Androida)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>Ustawienia QField</translation>
     </message>
 </context>
 <context>
@@ -245,8 +243,8 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
         <translation>Dziennik</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Zakończ</translation>
+        <source>Print to PDF</source>
+        <translation>Drukuj do PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
@@ -263,6 +261,14 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
     <message>
         <source>Show position information</source>
         <translation>Pokaż informacje o pozycji</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Zapisano zmiany</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Odrzucono zmiany</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Sprawdź sekcję &lt;i&gt;Portable Project&lt;/i&gt; w dokumentacji QField.</tra
         <translation>Wszystkie pliki (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Wciśnij wstecz ponownie, aby zamknąć projekt i aplikację</translation>
     </message>
 </context>
 </TS>

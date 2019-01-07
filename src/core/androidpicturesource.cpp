@@ -22,7 +22,7 @@
 #include <QFile>
 #include <QDebug>
 
-AndroidPictureSource::AndroidPictureSource( const QString& prefix )
+AndroidPictureSource::AndroidPictureSource( const QString &prefix )
   : PictureSource( nullptr )
   , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
@@ -30,7 +30,7 @@ AndroidPictureSource::AndroidPictureSource( const QString& prefix )
 
 }
 
-void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject& data )
+void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
   jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
   if ( receiverRequestCode == 101 && resultCode == RESULT_OK )
@@ -63,7 +63,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       qDebug() << "Couldn't rename file! Trying to copy instead";
       if ( !QFile( filePath.toString() ).copy( dir.absoluteFilePath( filename ) ) )
       {
-        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2.", "QField", Qgis::Critical ).arg( filePath.toString(), mPrefix ) );
+        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2." ).arg( filePath.toString(), mPrefix ), "QField", Qgis::Critical );
       }
     }
 

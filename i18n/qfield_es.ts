@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Cambios guardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>No hay objetos en esta posición</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Eliminar objeto espacial</translation>
     </message>
@@ -94,31 +104,19 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
         <source>Should this feature really be deleted?</source>
         <translation>¿Debería eliminarse realmente este objeto espacial?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : Propiedades</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar en el mapa de la vista</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
         <translation>Mostrar la información numérica mientras se digitaliza</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>Configuración de QField</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Usar funciones de la cámara nativa (inestable para versiones recientes de Android)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>Configuración de QField</translation>
     </message>
 </context>
 <context>
@@ -245,8 +243,8 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
         <translation>Log</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Cerrar</translation>
+        <source>Print to PDF</source>
+        <translation>Imprimir a PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
@@ -263,6 +261,14 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
     <message>
         <source>Show position information</source>
         <translation>Mostrar información de la posición</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Modificaciones guardadas</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Puedes revisar la sección &lt;i&gt;Proyecto Portable&lt;/i&gt; en la documentac
         <translation>Todos los ficheros (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Apretar atrás otra vez para cerrar el proyecto y la aplicación</translation>
     </message>
 </context>
 </TS>

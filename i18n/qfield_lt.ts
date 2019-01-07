@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation>Pakeitimai išsaugoti</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Pakeitimai atšaukti</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Jokio objekto šiame taške</translation>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Ištrinti objektą</translation>
     </message>
@@ -94,31 +104,19 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
         <source>Should this feature really be deleted?</source>
         <translation>Ar tikrai norite ištrinti šį objektą?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Savybės</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti žemėlapyje</translation>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
         <translation>Rodyti skaitinę informaciją kai braižoma</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>QField nustatymai</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation>Naudoti kameros funkciją (nestabilus  veikimas naujausiose Android versijose)</translation>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>QField nustatymai</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     </message>
     <message>
         <source>Mode</source>
-        <translation>Būsena</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Naršyti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Skaitmeninti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
         <translation>Log&apos;as</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Išeiti</translation>
+        <source>Print to PDF</source>
+        <translation>Spausdinti į PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS parinktys</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Įjungti GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     <message>
         <source>Show position information</source>
         <translation>Rodyti vietos informaciją</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
         <translation>Visi failai (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustelėkite atgal dar sykį norėdami uždaryti projektą ir aplikaciją</translation>
     </message>
 </context>
 </TS>

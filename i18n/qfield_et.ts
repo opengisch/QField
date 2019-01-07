@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="et">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -87,6 +85,18 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
 <context>
     <name>FeatureListForm</name>
     <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete feature</source>
         <translation>Kustuta nähtus</translation>
     </message>
@@ -94,31 +104,19 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
         <source>Should this feature really be deleted?</source>
         <translation>Kindel, et tahad selle nähtuse kustutada?</translation>
     </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -171,12 +169,12 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
         <translation>Näita digimisel numbrilist infot</translation>
     </message>
     <message>
-        <source>QField Settings</source>
-        <translation>QField seaded</translation>
+        <source>Use native camera function (unstable on recent Android versions)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"></translation>
+        <source>QField Settings</source>
+        <translation>QField seaded</translation>
     </message>
 </context>
 <context>
@@ -218,15 +216,15 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
     </message>
     <message>
         <source>Mode</source>
-        <translation>Režiim</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Sirvi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digiteeri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -245,16 +243,16 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
         <translation>Logi</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="vanished">Lõpeta</translation>
+        <source>Print to PDF</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS valikud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Luba GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -263,6 +261,14 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
     <message>
         <source>Show position information</source>
         <translation>Näita asukohainfot</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -285,20 +291,8 @@ Võid kontrollida &lt;i&gt;Portable Project&lt;/i&gt; jaotust QField&apos;i juhe
         <translation>Kõik failid (*)</translation>
     </message>
     <message>
-        <source>Print to PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
