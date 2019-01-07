@@ -1,8 +1,10 @@
-VERSION_MAJOR = 0
-VERSION_MINOR = 11
-VERSION_FIX   = 4
+VERSION_MAJOR = 1
+VERSION_MINOR = 0
+VERSION_FIX = 0
+VERSION_RC = 99
+VERSION_SUFFIX = ''
 
-CODENAME = 'Lucendro'
+CODENAME = 'M...'
 
 VERSION = '$${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_FIX}'
 
@@ -16,8 +18,8 @@ equals ( ANDROID_TARGET_ARCH, 'x86' ) {
   ANDROID_VERSION_SUFFIX = 2
 }
 
-VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
-VERSTR = '$${VERSION} - $${CODENAME}'
+VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${VERSION_RC}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
+VERSTR = '$${VERSION}$${VERSION_SUFFIX} - $${CODENAME}'
 
 message( 'Building Version $${VERSTR} ($${VERSIONCODE})' )
 
