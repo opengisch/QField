@@ -32,8 +32,8 @@ then
   sed -i "s/VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
 
   export RC_SUFFIX=$(echo "${VERSION}" | cut -f 2 -d 'c' -s)
-  sed -i "s/VERSION_SUFFIX\s*= .*/VERSION_SUFFIX = ${RC_SUFFIX:-99}/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/VERSION_RC\s*= .*/VERSION_RC = '${RC_SUFFIX:+-rc}$RC_SUFFIX'/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_RC\s*= .*/VERSION_RC = ${RC_SUFFIX:-99}/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/VERSION_SUFFIX\s*= .*/VERSION_SUFFIX = '${RC_SUFFIX:+-rc}$RC_SUFFIX'/g" ${SOURCE_DIR}/version.pri
   grep 'VERSION_MAJOR' ${SOURCE_DIR}/version.pri
   grep 'VERSION_MINOR' ${SOURCE_DIR}/version.pri
   grep 'VERSION_FIX' ${SOURCE_DIR}/version.pri
