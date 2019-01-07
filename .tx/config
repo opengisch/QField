@@ -12,3 +12,4 @@ file_filter = android/res/values-<lang>/strings.xml
 source_file = android/res/values/strings.xml
 source_lang = en
 type = ANDROID
+
