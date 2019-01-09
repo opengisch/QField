@@ -41,6 +41,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     bool checkWriteExternalStoragePermissions() const override;
 
+    void rateThisApp() const override;
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;

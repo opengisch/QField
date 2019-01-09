@@ -93,5 +93,10 @@ class PlatformUtilities : public QObject
      * permissions.
      */
     Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
+
+    /**
+     * Show rate this app page.
+     */
+    Q_INVOKABLE virtual void rateThisApp() const;
 };
 #endif // PLATFORMUTILITIES_H

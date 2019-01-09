@@ -187,6 +187,31 @@ bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
   return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
 }
 
+void AndroidPlatformUtilities::rateThisApp() const
+{
+  QAndroidJniObject uri = QAndroidJniObject::callStaticObjectMethod( "android/net/Uri", "parse", "(Ljava/lang/String;)Landroid/net/Uri;", QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) ).object<jstring>() );
+  QAndroidJniObject goToMarket = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;android/net/Uri;)V", "android.intent.action.VIEW", uri.object<jobject>() );
+
+  int intent_FLAG_ACTIVITY_NO_HISTORY = 0x40000000;
+  int intent_FLAG_ACTIVITY_NEW_DOCUMENT = 0x00080000;
+  int intent_FLAG_ACTIVITY_MULTIPLE_TASK = 0x08000000;
+  // To count with Play market backstack, After pressing back button,
+  // to taken back to our application, we need to add following flags to intent.
+  goToMarket.callObjectMethod( "addFlags", "(I)Landroid/content/Intent;", intent_FLAG_ACTIVITY_NO_HISTORY | intent_FLAG_ACTIVITY_NEW_DOCUMENT | intent_FLAG_ACTIVITY_MULTIPLE_TASK );
+  QtAndroid::startActivity( goToMarket.object<jobject>(), 100000 );
+#if 0
+  try
+  {
+    startActivity( goToMarket );
+  }
+  catch ( ActivityNotFoundException e )
+  {
+    startActivity( new Intent( Intent.ACTION_VIEW,
+                               Uri.parse( "http://play.google.com/store/apps/details?id=" + context.getPackageName() ) ) );
+  }
+#endif
+}
+
 bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissionString ) const
 {
   QtAndroid::PermissionResult r = QtAndroid::checkPermission( permissionString );

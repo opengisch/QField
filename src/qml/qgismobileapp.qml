@@ -38,6 +38,17 @@ ApplicationWindow {
       id: focusstack
   }
 
+  Settings {
+    property alias startCounter
+
+    Component.onCompleted: {
+      startCounter = startCounter + 1
+
+      if ( startCounter > 2 )
+        platformUtilities.rateThisApp()
+    }
+  }
+
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
 
   Item {

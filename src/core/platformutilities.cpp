@@ -96,3 +96,7 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
   return true;
 }
 
+void PlatformUtilities::rateThisApp() const
+{
+}
+
