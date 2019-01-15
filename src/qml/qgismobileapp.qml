@@ -15,15 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.11
 import QtQuick.Controls 1.4 as Controls
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
-import QtPositioning 5.4
+import QtPositioning 5.11
 import "js/style.js" as Style
 
 import '.'
@@ -303,52 +303,31 @@ ApplicationWindow {
     source: featureForm
   }
 
+  LocatorHighlight {
+    id: locatorHighlightItem
+    width: 10 * dp
+    color: "yellow"
+    mapSettings: mapCanvas.mapSettings
+    anchors.fill: parent
+
+    transform: MapTransform {
+      mapSettings: mapCanvas.mapSettings
+    }
+  }
+
+  LocatorItem {
+    id: locatorItem
+
+    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.margins: 10 * dp
+  }
+
   DashBoard {
     id: dashBoard
-    objectName: "dashBoard"
-
-    anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
-
-    property bool preventFromOpening: overlayFeatureFormDrawer.visible
-    readonly property bool open: dashBoard.visible && !preventFromOpening
-
-    width: open ? 300 * dp : 0
-    visible: false
-    focus: visible
-    clip: true
-
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-
-    Keys.onReleased: {
-      console.warn( "KEY PRESS " + event.key )
-      if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-        visible=false
-        event.accepted = true
-      }
-    }
-
-    Behavior on width {
-      NumberAnimation {
-        duration: 200
-        easing.type: Easing.InOutQuad
-      }
-    }
-
-    /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
-    onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
-
-    onCurrentLayerChanged: {
-      if ( currentLayer.readOnly && stateMachine.state == "digitize" )
-        displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
-    }
-
-    onChangeMode: {
-        stateMachine.state = mode
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   DropShadow {
@@ -478,27 +457,6 @@ ApplicationWindow {
 
       onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
-  }
-
-  LocatorHighlight {
-    id: locatorHighlightItem
-    width: 10 * dp
-    color: "yellow"
-    mapSettings: mapCanvas.mapSettings
-    anchors.fill: parent
-
-    transform: MapTransform {
-      mapSettings: mapCanvas.mapSettings
-    }
-  }
-
-  LocatorItem {
-    id: locatorItem
-
-    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.margins: 10 * dp
   }
 
   DigitizingToolbar {
