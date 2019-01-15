@@ -84,6 +84,22 @@ ApplicationWindow {
   }
 
   Item {
+    id: positionInformationView
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+    height: childrenRect.height
+    width: parent.width
+
+    PositionInformationView {
+      positionSource: positionSource
+      crs: mapCanvas.mapSettings.destinationCrs
+    }
+  }
+
+  Item {
     /*
      * This is the map canvas
      * On top of it are the base map and other items like GPS icon...
@@ -100,7 +116,10 @@ ApplicationWindow {
     property MapSettings mapSettings: mapCanvasMap.mapSettings
 
     /* Placement and size. Share right anchor with featureForm */
-    anchors.fill: parent
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
 
     /* The base map */
     MapCanvas {
@@ -258,40 +277,9 @@ ApplicationWindow {
     visible: qfieldSettings.showScaleBar
     mapSettings: mapCanvas.mapSettings
 
-    anchors.left: parent.left
-    anchors.bottom: parent.bottom
-    anchors.margins: 10*dp
-  }
-
-  Item {
-    id: positionInformationView
-    anchors.right: featureForm.left
-    anchors.top: parent.top
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
-    width: childrenRect.width
-    height: childrenRect.height
-
-    Rectangle {
-      color: "white"
-      opacity: 0.7
-      anchors.fill: parent
-      radius: 5
-    }
-
-    Rectangle {
-      color: "transparent"
-      border.color: "gray"
-      anchors.fill: parent
-      radius: 5
-    }
-
-    PositionInformationView {
-      positionSource: positionSource
-      crs: mapCanvas.mapSettings.destinationCrs
-
-      anchors.margins: 5
-    }
+    anchors.left: mapCanvas.left
+    anchors.bottom: mapCanvas.bottom
+    anchors.margins: 10 * dp
   }
 
   DropShadow {
