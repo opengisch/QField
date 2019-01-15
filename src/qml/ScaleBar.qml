@@ -1,71 +1,55 @@
 import QtQuick 2.0
 import org.qgis 1.0
 
-Row {
+Item {
   property MapSettings mapSettings
   property int referenceWidth: 300 * dp
+  property double lineWidth: 2*dp
 
   QtObject {
     id: vars
 
     property real range: referenceWidth * mapSettings.mapUnitsPerPixel
-    property int exponent: Math.floor(Math.log(range) /  Math.LN10)
+    property int exponent: Math.floor(Math.log(range) / Math.LN10)
     property int magnitude: Math.pow(10, exponent)
     property int adjustedMagnitude: magnitude / (1 + Math.round((magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth))
+    property int units: mapSettings.destinationCrs.mapUnits
   }
 
-  Repeater {
-    model: 1
-
-    delegate: Loader {
-      sourceComponent: scaleBarPart
-
-      property int factor: 2
-      property int xindex: index
-      property string labelText: vars.adjustedMagnitude * factor + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
-    }
+  Rectangle {
+    id: mainLine
+    width: vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel
+    height: lineWidth
+    color: "darkslategrey"
   }
 
-  Repeater {
-    model: 2
-
-    delegate: Loader {
-      sourceComponent: scaleBarPart
-
-      property int factor: 1
-      property int xindex: index + 1
-      property string labelText: ''
-    }
+  Rectangle {
+    width: lineWidth
+    height: 3*lineWidth
+    color: "darkslategrey"
+    anchors.left: mainLine.left
+    anchors.bottom: mainLine.top
   }
 
-  Component {
-    id: scaleBarPart
+  Rectangle {
+    width: lineWidth
+    height: 3*lineWidth
+    color: "darkslategrey"
+    anchors.right: mainLine.right
+    anchors.bottom: mainLine.top
+  }
 
-    Item {
-      width: rect.width
-      height: rect.height
+  Text {
+    id: label
+    anchors.bottom: mainLine.top
+    anchors.horizontalCenter: mainLine.horizontalCenter
+    font.pointSize: 12 * dp
+    color: "darkslategrey"
 
-      Rectangle {
-        id: rect
-        width: factor * vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel
-        height: label.height + 8 * dp
-        color: xindex % 2 ? "white" : "black"
-
-        Behavior on width {
-          SmoothedAnimation { duration: 200 }
-        }
-      }
-
-      Text {
-        id: label
-        anchors.right: rect.right
-        anchors.rightMargin: 1 * dp
-        anchors.verticalCenter: rect.verticalCenter
-
-        color: xindex % 2 ? "black" : "white"
-
-        text: labelText || vars.adjustedMagnitude * factor
-      }
-    }
+    text: if (vars.units === QgsUnitTypes.DistanceMeters && vars.adjustedMagnitude >= 1000 ) {
+            vars.adjustedMagnitude/1000 + ' ' + UnitTypes.toAbbreviatedString( QgsUnitTypes.DistanceKilometers )
+          } else {
+            vars.adjustedMagnitude + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
+          }
   }
 }
