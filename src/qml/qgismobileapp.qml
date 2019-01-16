@@ -31,8 +31,8 @@ import '.'
 ApplicationWindow {
   id: mainWindow
   visible: true
-  minimumWidth: 600
-  minimumHeight: 400
+  //minimumWidth: 300
+  //minimumHeight: 300
 
   FocusStack{
       id: focusstack
@@ -318,7 +318,7 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: mainWindow.width < 300 * dp ? mainWindow.width : 200 * dp
+    width: mainWindow.width < 300 * dp ? mainWindow.width - anchors.margins - mainMenuBar.width : 200 * dp
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.margins: 10 * dp
@@ -343,6 +343,7 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
+    width: childrenRect.width + 8 * dp
     height: childrenRect.height + 8 * dp
 
     Button {
