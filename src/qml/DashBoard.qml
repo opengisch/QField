@@ -22,7 +22,6 @@ Controls.Pane {
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   readonly property bool open: dashBoard.visible && !preventFromOpening
 
-  width: open ? 300 * dp : 0
   visible: false
   focus: visible
   clip: true
