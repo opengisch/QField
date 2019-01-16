@@ -82,7 +82,7 @@ Item {
     anchors.right: parent.right
 
     Button {
-      anchors { right: parent.right; top: parent.top; rightMargin: 4*dp; topMargin: 4*dp }
+      anchors { right: parent.right; top: parent.top; }
 
       iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
       round: true
