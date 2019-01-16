@@ -113,6 +113,7 @@ Item {
     width: parent.width
     height: Math.min( 200*dp, mainWindow.height - searchField.height )
     clip: true
+    visible: opacity > 0
 
     delegate: Rectangle {
       id: delegateRect
