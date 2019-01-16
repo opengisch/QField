@@ -1,3 +1,5 @@
+#include "math.h"
+
 #include "qgssggeometry.h"
 extern "C" {
 #include "tessellate.h"
@@ -183,12 +185,22 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
 
 QSGGeometry *QgsSGGeometry::qgsPointToQSGGeometry( const QgsPointXY &point, int width )
 {
-  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), 1 );
+  int n = 20;
 
-  QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
-  vertices[0].set( point.x(), point.y() );
-  sgGeom->setDrawingMode( QSGGeometry::DrawPoints );
-  sgGeom->setLineWidth( width );
+  auto drawCircle = [ = ]( QSGGeometry * geometry, const QgsPointXY & center, double radius )
+  {
+    for ( int i = 0; i < n; i++ )
+    {
+      double rad = i * 360 / n * M_PI / 180.0;
+      geometry->vertexDataAsPoint2D()[i].set( center.x() + std::cos( rad ) * radius,
+                                              center.y() + std::sin( rad ) * radius );
+    }
+  };
+
+
+  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), n );
+  drawCircle( sgGeom, point, 5 * width );
+  sgGeom->setDrawingMode( QSGGeometry::DrawTriangleFan );
 
   return sgGeom;
 }
