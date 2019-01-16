@@ -36,6 +36,21 @@ LocatorHighlight::LocatorHighlight( QQuickItem *parent )
   mTimer->setSingleShot( false );
   connect( mTimer, &QTimer::timeout, this, [ = ]() {mGeometry = QgsGeometry(); mDirty = true; update();} );
   mTimer->start( 3000 );
+
+  connect( this, &LocatorHighlight::mapSettingsChanged, this, [ = ]()
+  {
+    if ( mMapSettings )
+    {
+      connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [ = ]()
+      {
+        if ( mGeometry.type() == QgsWkbTypes::PointGeometry )
+        {
+          mDirty = true;
+          update();
+        }
+      } );
+    }
+  } );
 }
 
 void LocatorHighlight::highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
