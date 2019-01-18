@@ -19,12 +19,12 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsproject.h>
 
-#include "locatorhighlight.h"
+#include "linepolygonhighlight.h"
 
 #include "qgssggeometry.h"
 
 
-LocatorHighlight::LocatorHighlight( QQuickItem *parent )
+LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
   : QQuickItem( parent )
   , mDirty( false )
   , mMapSettings( nullptr )
@@ -37,7 +37,7 @@ LocatorHighlight::LocatorHighlight( QQuickItem *parent )
   connect( mTimer, &QTimer::timeout, this, [ = ]() {mGeometry = QgsGeometry(); mDirty = true; update();} );
   mTimer->start( 3000 );
 
-  connect( this, &LocatorHighlight::mapSettingsChanged, this, [ = ]()
+  connect( this, &LinePolygonHighlight::mapSettingsChanged, this, [ = ]()
   {
     if ( mMapSettings )
     {
@@ -53,7 +53,7 @@ LocatorHighlight::LocatorHighlight( QQuickItem *parent )
   } );
 }
 
-void LocatorHighlight::highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
+void LinePolygonHighlight::highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
 {
   mTimer->stop();
   mGeometry = geometry;
@@ -68,7 +68,7 @@ void LocatorHighlight::highlightGeometry( const QgsGeometry &geometry, const Qgs
   mTimer->start( 2000 );
 }
 
-QSGNode *LocatorHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
+QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
 {
   if ( mDirty && mMapSettings )
   {

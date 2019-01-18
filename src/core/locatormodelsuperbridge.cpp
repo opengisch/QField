@@ -53,12 +53,12 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-LocatorHighlight *LocatorModelSuperBridge::locatorHighlight() const
+QObject *LocatorModelSuperBridge::locatorHighlight() const
 {
   return mLocatorHighlight;
 }
 
-void LocatorModelSuperBridge::setLocatorHighlight( LocatorHighlight *locatorHighlight )
+void LocatorModelSuperBridge::setLocatorHighlight( QObject *locatorHighlight )
 {
   if ( locatorHighlight == mLocatorHighlight )
     return;

@@ -30,7 +30,7 @@ class QgsCoordinateReferenceSystem;
  * LocatorHighlight allows highlighting geometries
  * on the canvas for the specific needs of the locator.
  */
-class LocatorHighlight : public QQuickItem
+class LinePolygonHighlight : public QQuickItem
 {
     Q_OBJECT
 
@@ -39,7 +39,7 @@ class LocatorHighlight : public QQuickItem
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    explicit LocatorHighlight( QQuickItem *parent = nullptr );
+    explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
 
     void highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
 

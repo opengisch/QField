@@ -13,7 +13,9 @@ Item {
   LocatorModelSuperBridge {
     id: locator
     mapSettings: mapCanvas.mapSettings
+
     locatorHighlight: locatorHighlightItem
+
     featureListController: featureForm.extentController
 
     onMessageEmitted: {
@@ -129,6 +131,7 @@ Item {
       border.color: "#bbb"
 
       Text {
+        id: textCell
         text: model.Text
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left

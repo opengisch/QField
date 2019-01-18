@@ -38,5 +38,6 @@
         <file>VisibilityFadingRow.qml</file>
         <file>LocatorItem.qml</file>
         <file>OverlayFeatureFormDrawer.qml</file>
+        <file>GeometryRenderer.qml</file>
     </qresource>
 </RCC>

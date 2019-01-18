@@ -233,6 +233,15 @@ ApplicationWindow {
         }
       }
     }
+
+    /* Locator Highlight */
+    GeometryRenderer {
+      id: locatorHighlightItem
+      objectName: "XYZ"
+      //width: 10 * dp
+      //color: "yellow"
+      mapSettings: mapCanvas.mapSettings
+    }
   }
 
   /**************************************************
@@ -290,18 +299,6 @@ ApplicationWindow {
     samples: 17
     color: "#80000000"
     source: featureForm
-  }
-
-  LocatorHighlight {
-    id: locatorHighlightItem
-    width: 10 * dp
-    color: "yellow"
-    mapSettings: mapCanvas.mapSettings
-    anchors.fill: parent
-
-    transform: MapTransform {
-      mapSettings: mapCanvas.mapSettings
-    }
   }
 
   LocatorItem {
