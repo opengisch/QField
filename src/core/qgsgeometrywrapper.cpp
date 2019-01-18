@@ -1,10 +1,10 @@
 
 #include "qgsgeometrywrapper.h"
 
- QVariantList QgsGeometryWrapper::pointList() const
+QVariantList QgsGeometryWrapper::pointList() const
 {
   QVariantList pointList;
-  if (mQgsGeometry.type() != QgsWkbTypes::PointGeometry)
+  if ( mQgsGeometry.type() != QgsWkbTypes::PointGeometry )
     return pointList;
 
   QgsVertexIterator vertexIterator = mQgsGeometry.vertices();
@@ -12,35 +12,35 @@
   {
     const QgsPoint &pt = vertexIterator.next();
     pointList.append( QVariant::fromValue<QgsPoint>( pt ) );
-    }
+  }
 
   return pointList;
 }
 
 QgsGeometry QgsGeometryWrapper::qgsGeometry() const
 {
-return mQgsGeometry;
+  return mQgsGeometry;
 }
 
-void QgsGeometryWrapper::setQgsGeometry(const QgsGeometry &qgsGeometry)
+void QgsGeometryWrapper::setQgsGeometry( const QgsGeometry &qgsGeometry )
 {
-  if (qgsGeometry.constGet() == mQgsGeometry.constGet())
+  if ( qgsGeometry.constGet() == mQgsGeometry.constGet() )
     return;
 
-mQgsGeometry = qgsGeometry;
-emit geometryChanged();
+  mQgsGeometry = qgsGeometry;
+  emit geometryChanged();
 }
 
 QgsCoordinateReferenceSystem QgsGeometryWrapper::crs() const
 {
-return mCrs;
+  return mCrs;
 }
 
-void QgsGeometryWrapper::setCrs(const QgsCoordinateReferenceSystem &crs)
+void QgsGeometryWrapper::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
-  if (mCrs == crs)
+  if ( mCrs == crs )
     return;
 
-mCrs = crs;
-emit crsChanged();
+  mCrs = crs;
+  emit crsChanged();
 }

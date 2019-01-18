@@ -237,10 +237,10 @@ ApplicationWindow {
     /* Locator Highlight */
     GeometryRenderer {
       id: locatorHighlightItem
-      objectName: "XYZ"
       //width: 10 * dp
       //color: "yellow"
       mapSettings: mapCanvas.mapSettings
+      mapCanvas: mapCanvas
     }
   }
 

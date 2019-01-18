@@ -36,7 +36,7 @@ class LinePolygonHighlight : public QQuickItem
 
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( unsigned int width MEMBER mWidth NOTIFY widthChanged )
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
   public:
@@ -48,6 +48,9 @@ class LinePolygonHighlight : public QQuickItem
 
     //! Sets the geometry, ownership is transfered
     void setGeometry( QgsGeometryWrapper *geometry );
+
+    QgsQuickMapSettings *mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
   signals:
     void colorChanged();
@@ -63,7 +66,6 @@ class LinePolygonHighlight : public QQuickItem
     unsigned int mWidth;
     QgsQuickMapSettings *mMapSettings;
     QgsGeometryWrapper *mGeometry;
-    QgsGeometry mQgsGeometry;
     QTimer *mTimer = nullptr;
 };
 

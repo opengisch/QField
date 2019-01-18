@@ -5,6 +5,7 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
+  property MapCanvas mapCanvas
   property MapSettings mapSettings
   property QgsGeometryWrapper geometry
 
@@ -12,6 +13,7 @@ Item {
     id: linePolygonHighlight
 
     LinePolygonHighlight {
+      id: linePolygonHighlightItem
       transform: MapTransform {
         mapSettings: geometryRenderer.mapSettings
       }
@@ -19,8 +21,7 @@ Item {
       mapSettings: geometryRenderer.mapSettings
       geometry: geometryRenderer.geometry
       color: "yellow"
-      width: 5 * dp
-
+      width: 15 * dp
     }
   }
 
@@ -61,6 +62,7 @@ Item {
 
   Loader {
     sourceComponent: geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
+    //onLoaded: {mapCanvas.update(); geometryRenderer.update();}
   }
 
 

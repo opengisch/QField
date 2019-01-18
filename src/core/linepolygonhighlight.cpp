@@ -39,7 +39,7 @@ LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
 //  mTimer->start( 3000 );
 
   connect( this, &LinePolygonHighlight::qgsGeometryChanged, this, &LinePolygonHighlight::update );
-
+  connect( this, &LinePolygonHighlight::mapSettingsChanged, this, &LinePolygonHighlight::update );
 }
 
 void LinePolygonHighlight::highlightGeometry( QgsGeometryWrapper *geometry )
@@ -56,7 +56,19 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     delete n;
     n = new QSGNode;
 
-    QgsSGGeometry *gn = new QgsSGGeometry( mQgsGeometry, mColor, mWidth );
+    QgsGeometry geometry;
+    if ( mGeometry )
+    {
+      geometry = QgsGeometry( mGeometry->qgsGeometry() );
+
+      if ( mMapSettings )
+      {
+        QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+        geometry.transform( ct );
+      }
+    }
+
+    QgsSGGeometry *gn = new QgsSGGeometry( geometry, mColor, mWidth );
     gn->setFlag( QSGNode::OwnedByParent );
     n->appendChildNode( gn );
 
@@ -64,6 +76,21 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
   }
 
   return n;
+}
+
+QgsQuickMapSettings *LinePolygonHighlight::mapSettings() const
+{
+  return mMapSettings;
+}
+
+void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+  mDirty = true;
+  emit mapSettingsChanged();
 }
 
 QgsGeometryWrapper *LinePolygonHighlight::geometry() const
@@ -76,20 +103,10 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
   if ( mGeometry == geometry )
     return;
 
-  mGeometry->deleteLater();
+//  if (mGeometry)
+//    mGeometry->deleteLater(); // crashes
+
   mGeometry = geometry;
-
-  if ( geometry )
-    mQgsGeometry = geometry->qgsGeometry();
-  else
-    mQgsGeometry = QgsGeometry();
-
-  if ( mMapSettings && geometry )
-  {
-    QgsCoordinateTransform ct( geometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-    mQgsGeometry.transform( ct );
-  }
-  qDebug() << mQgsGeometry.asWkt();
 
   mDirty = true;
   emit qgsGeometryChanged();

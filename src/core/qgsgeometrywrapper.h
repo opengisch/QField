@@ -30,7 +30,7 @@ class QgsGeometryWrapper : public QObject
 
     QgsGeometryWrapper( QgsGeometry geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
       : QObject( parent )
-      , mQgsGeometry( geometry )
+      , mQgsGeometry( QgsGeometry( geometry ) )
       , mCrs( crs )
     {}
 
@@ -38,16 +38,16 @@ class QgsGeometryWrapper : public QObject
     Q_INVOKABLE QVariantList pointList() const;
 
     QgsGeometry qgsGeometry() const;
-    void setQgsGeometry(const QgsGeometry &qgsGeometry);
+    void setQgsGeometry( const QgsGeometry &qgsGeometry );
 
     QgsCoordinateReferenceSystem crs() const;
-    void setCrs(const QgsCoordinateReferenceSystem &crs);
+    void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-signals:
+  signals:
     void geometryChanged();
     void crsChanged();
 
-private:
+  private:
     QgsGeometry mQgsGeometry;
     QgsCoordinateReferenceSystem mCrs;
 };
