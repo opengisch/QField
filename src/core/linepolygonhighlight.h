@@ -22,8 +22,8 @@
 
 class QTimer;
 
+class QgsGeometryWrapper;
 class QgsGeometry;
-class QgsCoordinateReferenceSystem;
 
 
 /**
@@ -37,16 +37,23 @@ class LinePolygonHighlight : public QQuickItem
     Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
     Q_PROPERTY( unsigned int width MEMBER mWidth NOTIFY widthChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
   public:
     explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
 
-    void highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
+    void highlightGeometry( QgsGeometryWrapper *geometry );
+
+    QgsGeometryWrapper *geometry() const;
+
+    //! Sets the geometry, ownership is transfered
+    void setGeometry( QgsGeometryWrapper *geometry );
 
   signals:
     void colorChanged();
     void widthChanged();
     void mapSettingsChanged();
+    void qgsGeometryChanged();
 
   private:
     virtual QSGNode *updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;
@@ -55,7 +62,8 @@ class LinePolygonHighlight : public QQuickItem
     bool mDirty;
     unsigned int mWidth;
     QgsQuickMapSettings *mMapSettings;
-    QgsGeometry mGeometry;
+    QgsGeometryWrapper *mGeometry;
+    QgsGeometry mQgsGeometry;
     QTimer *mTimer = nullptr;
 };
 

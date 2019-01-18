@@ -9,6 +9,22 @@ Item {
   property QgsGeometryWrapper geometry
 
   Component {
+    id: linePolygonHighlight
+
+    LinePolygonHighlight {
+      transform: MapTransform {
+        mapSettings: geometryRenderer.mapSettings
+      }
+
+      mapSettings: geometryRenderer.mapSettings
+      geometry: geometryRenderer.geometry
+      color: "yellow"
+      width: 5 * dp
+
+    }
+  }
+
+  Component {
     id: pointHighlight
 
     Repeater {
@@ -44,7 +60,7 @@ Item {
   }
 
   Loader {
-    sourceComponent: geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : undefined
+    sourceComponent: geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
 
 

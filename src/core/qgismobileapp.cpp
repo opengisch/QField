@@ -82,7 +82,7 @@
 #include "projectsource.h"
 #include "locatormodelsuperbridge.h"
 #include "qgsgeometrywrapper.h"
-
+#include "linepolygonhighlight.h"
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -188,7 +188,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
-  //qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LocatorHighlight" );
+  qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );

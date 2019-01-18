@@ -21,6 +21,7 @@
 
 #include "linepolygonhighlight.h"
 
+#include "qgsgeometrywrapper.h"
 #include "qgssggeometry.h"
 
 
@@ -32,38 +33,18 @@ LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
 
-  mTimer = new QTimer( this );
-  mTimer->setSingleShot( false );
-  connect( mTimer, &QTimer::timeout, this, [ = ]() {mGeometry = QgsGeometry(); mDirty = true; update();} );
-  mTimer->start( 3000 );
+//  mTimer = new QTimer( this );
+//  mTimer->setSingleShot( false );
+//  connect( mTimer, &QTimer::timeout, this, [ = ]() {setGeometry(nullptr);} );
+//  mTimer->start( 3000 );
 
-  connect( this, &LinePolygonHighlight::mapSettingsChanged, this, [ = ]()
-  {
-    if ( mMapSettings )
-    {
-      connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, [ = ]()
-      {
-        if ( mGeometry.type() == QgsWkbTypes::PointGeometry )
-        {
-          mDirty = true;
-          update();
-        }
-      } );
-    }
-  } );
+  connect( this, &LinePolygonHighlight::qgsGeometryChanged, this, &LinePolygonHighlight::update );
+
 }
 
-void LinePolygonHighlight::highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs )
+void LinePolygonHighlight::highlightGeometry( QgsGeometryWrapper *geometry )
 {
   mTimer->stop();
-  mGeometry = geometry;
-  if ( mMapSettings )
-  {
-    QgsCoordinateTransform ct( crs, mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-    mGeometry.transform( ct );
-  }
-
-  mDirty = true;
   update();
   mTimer->start( 2000 );
 }
@@ -75,7 +56,7 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     delete n;
     n = new QSGNode;
 
-    QgsSGGeometry *gn = new QgsSGGeometry( mGeometry, mColor, mWidth );
+    QgsSGGeometry *gn = new QgsSGGeometry( mQgsGeometry, mColor, mWidth );
     gn->setFlag( QSGNode::OwnedByParent );
     n->appendChildNode( gn );
 
@@ -83,4 +64,33 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
   }
 
   return n;
+}
+
+QgsGeometryWrapper *LinePolygonHighlight::geometry() const
+{
+  return mGeometry;
+}
+
+void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
+{
+  if ( mGeometry == geometry )
+    return;
+
+  mGeometry->deleteLater();
+  mGeometry = geometry;
+
+  if ( geometry )
+    mQgsGeometry = geometry->qgsGeometry();
+  else
+    mQgsGeometry = QgsGeometry();
+
+  if ( mMapSettings && geometry )
+  {
+    QgsCoordinateTransform ct( geometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+    mQgsGeometry.transform( ct );
+  }
+  qDebug() << mQgsGeometry.asWkt();
+
+  mDirty = true;
+  emit qgsGeometryChanged();
 }
