@@ -48,7 +48,6 @@ Rectangle {
         text: crs.isGeographic ?
                   qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( _ct.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
                 : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( _ct.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
-        font.pointSize: 12*dp
       }
     }
 
