@@ -134,10 +134,10 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
   if ( mGeometry == geometry )
     return;
 
-  Q_ASSERT( geometry->qgsGeometry().type() != QgsWkbTypes::PointGeometry );
+  Q_ASSERT( !geometry || geometry->qgsGeometry().type() != QgsWkbTypes::PointGeometry );
 
   if ( mGeometry )
-    mGeometry->deleteLater(); // crashes
+    mGeometry->deleteLater();
 
   mGeometry = geometry;
 
