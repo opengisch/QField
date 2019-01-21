@@ -20,8 +20,6 @@
 
 #include "qgsquickmapsettings.h"
 
-class QTimer;
-
 class QgsGeometryWrapper;
 class QgsGeometry;
 
@@ -41,8 +39,6 @@ class LinePolygonHighlight : public QQuickItem
 
   public:
     explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
-
-    void highlightGeometry( QgsGeometryWrapper *geometry );
 
     QgsGeometryWrapper *geometry() const;
 
@@ -70,7 +66,6 @@ class LinePolygonHighlight : public QQuickItem
     unsigned int mWidth;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsGeometryWrapper *mGeometry = nullptr;
-    QTimer *mTimer = nullptr;
 };
 
 #endif // LOCATORHIGHLIGHT_H

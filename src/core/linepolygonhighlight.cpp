@@ -13,8 +13,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QTimer>
-
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsproject.h>
@@ -32,19 +30,6 @@ LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
-
-//  mTimer = new QTimer( this );
-//  mTimer->setSingleShot( false );
-//  connect( mTimer, &QTimer::timeout, this, [ = ]() {setGeometry(nullptr);} );
-//  mTimer->start( 3000 );
-
-}
-
-void LinePolygonHighlight::highlightGeometry( QgsGeometryWrapper *geometry )
-{
-  mTimer->stop();
-  update();
-  mTimer->start( 2000 );
 }
 
 QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
