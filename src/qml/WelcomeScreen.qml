@@ -56,7 +56,6 @@ Item {
 
         Image {
           id: logo
-          anchors.right: parent.right
           source: "qrc:/images/qfield-logo.svg"
           width: 96*dp
           height: 96*dp
