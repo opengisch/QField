@@ -6,6 +6,11 @@ import org.qfield 1.0
 Item {
   id: geometryRenderer
   property QgsGeometryWrapper geometry
+  property double lineWidth: 8 * dp
+  property color color: "yellow"
+  property double pointSize: 20 * dp
+  property color borderColor: "blue"
+  property double borderSize: 2 * dp
 
   Component {
     id: linePolygonHighlight
@@ -19,8 +24,8 @@ Item {
       }
 
       geometry: geometryRenderer.geometry
-      color: "yellow"
-      width: 15 * dp
+      color: geometryRenderer.color
+      width: geometryRenderer.lineWidth
     }
   }
 
@@ -48,13 +53,13 @@ Item {
         x: mapToScreen.screenPoint.x - width/2
         y: mapToScreen.screenPoint.y - width/2
 
-        color: "yellow"
-        width: 20*dp
-        height: 20*dp
-        radius: width / 2
+        color: geometryRenderer.color
+        width: geometryRenderer.pointSize
+        height: geometryRenderer.pointSize
+        radius: geometryRenderer.pointSize / 2
 
-        border.color: "red"
-        border.width: 2*dp
+        border.color: geometryRenderer.borderColor
+        border.width: geometryRenderer.borderSize
       }
     }
   }

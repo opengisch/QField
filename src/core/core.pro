@@ -22,7 +22,6 @@ HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
     multifeaturelistmodel.h \
-    featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
     qgismobileapp.h \
@@ -64,7 +63,6 @@ SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
     multifeaturelistmodel.cpp \
-    featurelistmodelhighlight.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
     qgismobileapp.cpp \

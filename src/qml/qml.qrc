@@ -40,5 +40,6 @@
         <file>OverlayFeatureFormDrawer.qml</file>
         <file>GeometryRenderer.qml</file>
         <file>GeometryHighlighter.qml</file>
+        <file>FeatureListSelectionHighlight.qml</file>
     </qresource>
 </RCC>
