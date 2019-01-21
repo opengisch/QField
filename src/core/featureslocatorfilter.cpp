@@ -162,17 +162,12 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     }
     QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
-    // The geometry renderer should be set before centering the map canvas
-    // Otherwise, the rendering will appear only after a map pan for line/polygon (but works for the point renderer)
-    // Guess 1: something is not ready yet with the map settings at the component creation time
-    // Guess 2: some signals are not connected in the case of the cpp code
-    QgsGeometryWrapper *geomwrapper = new QgsGeometryWrapper( geom, layer->crs() );
-    mLocatorBridge->locatorHighlight()->setProperty( "geometry", QVariant::fromValue<QgsGeometryWrapper *>( geomwrapper ) );
-
     if ( r.isEmpty() )
       mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) ); // TODO: port QGIS code to perform density test to optimize scale
     else
       mLocatorBridge->mapSettings()->setExtent( r.scaled( 5 ) );
 
+    QgsGeometryWrapper *geomwrapper = new QgsGeometryWrapper( geom, layer->crs() );
+    mLocatorBridge->locatorHighlight()->setProperty( "geometry", QVariant::fromValue<QgsGeometryWrapper *>( geomwrapper ) );
   }
 }

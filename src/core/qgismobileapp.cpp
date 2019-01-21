@@ -54,7 +54,6 @@
 
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
-#include "featurelistmodelhighlight.h"
 #include "featurelistextentcontroller.h"
 #include "modelhelper.h"
 #include "rubberband.h"
@@ -165,7 +164,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
-  qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );

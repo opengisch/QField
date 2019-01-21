@@ -11,16 +11,17 @@ Item {
   property double pointSize: 20 * dp
   property color borderColor: "blue"
   property double borderSize: 2 * dp
+  property MapSettings mapSettings: mapCanvas.mapSettings
 
   Component {
     id: linePolygonHighlight
 
     LinePolygonHighlight {
       id: linePolygonHighlightItem
-      mapSettings: mapCanvas.mapSettings
+      mapSettings: geometryRenderer.mapSettings
 
       transform: MapTransform {
-        mapSettings: mapCanvas.mapSettings
+        mapSettings: geometryRenderer.mapSettings
       }
 
       geometry: geometryRenderer.geometry
@@ -65,6 +66,7 @@ Item {
   }
 
   Loader {
+    id: geometryComponent
     sourceComponent: geometry && geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
 

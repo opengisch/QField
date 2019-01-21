@@ -63,6 +63,40 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
   return n;
 }
 
+float LinePolygonHighlight::width() const
+{
+  return mWidth;
+}
+
+void LinePolygonHighlight::setWidth( float width )
+{
+  if ( mWidth == width )
+    return;
+
+  mWidth = width;
+  mDirty = true;
+
+  emit widthChanged();
+  update();
+}
+
+QColor LinePolygonHighlight::color() const
+{
+  return mColor;
+}
+
+void LinePolygonHighlight::setColor( const QColor &color )
+{
+  if ( mColor == color )
+    return;
+
+  mColor = color;
+  mDirty = true;
+
+  emit colorChanged();
+  update();
+}
+
 QgsQuickMapSettings *LinePolygonHighlight::mapSettings() const
 {
   return mMapSettings;
