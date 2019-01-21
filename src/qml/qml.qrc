@@ -39,5 +39,6 @@
         <file>LocatorItem.qml</file>
         <file>OverlayFeatureFormDrawer.qml</file>
         <file>GeometryRenderer.qml</file>
+        <file>GeometryHighlighter.qml</file>
     </qresource>
 </RCC>

@@ -60,7 +60,7 @@ Item {
   }
 
   Loader {
-    sourceComponent: geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
+    sourceComponent: geometry && geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
 
 }

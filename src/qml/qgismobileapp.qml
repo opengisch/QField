@@ -235,7 +235,7 @@ ApplicationWindow {
     }
 
     /* Locator Highlight */
-    GeometryRenderer {
+    GeometryHighlighter {
       id: locatorHighlightItem
       //width: 10 * dp
       //color: "yellow"
