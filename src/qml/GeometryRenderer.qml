@@ -5,8 +5,6 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
-  property MapCanvas mapCanvas
-  property MapSettings mapSettings
   property QgsGeometryWrapper geometry
 
   Component {
@@ -14,11 +12,12 @@ Item {
 
     LinePolygonHighlight {
       id: linePolygonHighlightItem
+      mapSettings: mapCanvas.mapSettings
+
       transform: MapTransform {
-        mapSettings: geometryRenderer.mapSettings
+        mapSettings: mapCanvas.mapSettings
       }
 
-      mapSettings: geometryRenderer.mapSettings
       geometry: geometryRenderer.geometry
       color: "yellow"
       width: 15 * dp
@@ -36,13 +35,13 @@ Item {
           id: _ct
           sourceCrs: geometry.crs
           sourcePosition: modelData
-          destinationCrs: mapSettings.destinationCrs
+          destinationCrs: mapCanvas.mapSettings.destinationCrs
           transformContext: qgisProject.transformContext
         }
 
         MapToScreen {
           id: mapToScreen
-          mapSettings: geometryRenderer.mapSettings
+          mapSettings: mapCanvas.mapSettings
           mapPoint: _ct.projectedPosition
         }
 
@@ -62,8 +61,6 @@ Item {
 
   Loader {
     sourceComponent: geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
-    //onLoaded: {mapCanvas.update(); geometryRenderer.update();}
   }
-
 
 }

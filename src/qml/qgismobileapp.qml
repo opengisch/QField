@@ -239,8 +239,6 @@ ApplicationWindow {
       id: locatorHighlightItem
       //width: 10 * dp
       //color: "yellow"
-      mapSettings: mapCanvas.mapSettings
-      mapCanvas: mapCanvas
     }
   }
 

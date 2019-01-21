@@ -38,8 +38,6 @@ LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
 //  connect( mTimer, &QTimer::timeout, this, [ = ]() {setGeometry(nullptr);} );
 //  mTimer->start( 3000 );
 
-  connect( this, &LinePolygonHighlight::qgsGeometryChanged, this, &LinePolygonHighlight::update );
-  connect( this, &LinePolygonHighlight::mapSettingsChanged, this, &LinePolygonHighlight::update );
 }
 
 void LinePolygonHighlight::highlightGeometry( QgsGeometryWrapper *geometry )
@@ -73,6 +71,8 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     n->appendChildNode( gn );
 
     mDirty = false;
+
+    emit updated();
   }
 
   return n;
@@ -88,9 +88,21 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings == mapSettings )
     return;
 
+  if ( mMapSettings )
+    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
+
+
   mMapSettings = mapSettings;
-  mDirty = true;
+
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
+
   emit mapSettingsChanged();
+}
+
+void LinePolygonHighlight::mapCrsChanged()
+{
+  mDirty = true;
+  update();
 }
 
 QgsGeometryWrapper *LinePolygonHighlight::geometry() const
@@ -110,4 +122,6 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
 
   mDirty = true;
   emit qgsGeometryChanged();
+
+  update();
 }

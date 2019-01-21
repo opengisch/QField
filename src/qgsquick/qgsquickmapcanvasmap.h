@@ -161,7 +161,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
      * Refresh the map canvas.
      * Does nothing when output size of map settings is not set
      */
-    void refresh();
+    Q_INVOKABLE void refresh();
 
   private slots:
     void refreshMap();
