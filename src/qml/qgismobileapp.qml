@@ -795,7 +795,7 @@ ApplicationWindow {
 
   Controls.BusyIndicator {
     id: busyIndicator
-    anchors { right: alertIcon.left; top: parent.top }
+    anchors.centerIn: mapCanvas
     width: 36 * dp
     height: 36 * dp
     running: mapCanvasMap.isRendering
