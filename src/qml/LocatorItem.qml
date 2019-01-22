@@ -111,7 +111,7 @@ Item {
     anchors.top: searchField.bottom
     model: locator.proxyModel()
     width: parent.width
-    height: Math.min( 200*dp, mainWindow.height - searchField.height )
+    height: Math.min( childrenRect.height, 200*dp, mainWindow.height - searchField.height )
     clip: true
     visible: opacity > 0
 
