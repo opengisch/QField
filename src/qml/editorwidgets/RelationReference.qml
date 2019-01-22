@@ -9,7 +9,20 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Item {
+  id: relationReference
   signal valueChanged(var value, bool isNull)
+  property var _relation
+
+  Component.onCompleted: {
+    _relation = qgisProject.relationManager.relation(config['Relation'])
+    featureListModel.currentLayer = _relation.referencedLayer
+    featureListModel.keyField = _relation.resolveReferencedField(field.name)
+    comboBox.currentIndex = featureListModel.findKey(comboBox.value)
+
+    comboBox.visible = _relation.isValid
+    addButton.visible = _relation.isValid
+    invalidWarning.visible = !(_relation.isValid)
+  }
 
   anchors {
     left: parent.left
@@ -26,7 +39,6 @@ Item {
       id: comboBox
 
       property var currentValue: value
-      property var _relation
       property var _cachedCurrentValue
 
       textRole: 'display'
@@ -37,13 +49,6 @@ Item {
         id: featureListModel
         addNull: config['AllowNULL']
         orderByValue: config['OrderByValue']
-      }
-
-      Component.onCompleted: {
-        _relation = qgisProject.relationManager.relation(config['Relation'])
-        featureListModel.currentLayer = _relation.referencedLayer
-        featureListModel.keyField = _relation.resolveReferencedField(field.name)
-        currentIndex = featureListModel.findKey(value)
       }
 
       onCurrentIndexChanged: {
@@ -116,11 +121,19 @@ Item {
     }
 
     Button {
+      id: addButton
       iconSource: Style.getThemeIcon( "ic_add_black_48dp" )
       bgcolor: "white"
       onClicked: {
         addFeatureForm.active = true
       }
+    }
+
+    Text {
+      id: invalidWarning
+      visible: false
+      text: qsTr( "Invalid relation")
+      color: "red"
     }
   }
 
@@ -152,7 +165,7 @@ Item {
           id: attributeFormModel
 
           featureModel: FeatureModel {
-            currentLayer: comboBox._relation.referencedLayer
+            currentLayer: relationReference._relation.referencedLayer
           }
         }
 
@@ -161,7 +174,7 @@ Item {
         state: "Add"
 
         onSaved: {
-          var referencedValue = attributeFormModel.attribute(comboBox._relation.resolveReferencedField(field.name))
+          var referencedValue = attributeFormModel.attribute(relationReference._relation.resolveReferencedField(field.name))
           comboBox.currentValue = referencedValue
           popup.close()
         }
