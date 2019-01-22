@@ -13,8 +13,7 @@ Item {
   LocatorModelSuperBridge {
     id: locator
     mapSettings: mapCanvas.mapSettings
-
-    locatorHighlight: locatorHighlightItem
+    locatorHighlightGeometry: locatorHighlightItem.geometry
 
     featureListController: featureForm.extentController
 

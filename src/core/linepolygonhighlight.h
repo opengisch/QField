@@ -41,8 +41,6 @@ class LinePolygonHighlight : public QQuickItem
     explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
 
     QgsGeometryWrapper *geometry() const;
-
-    //! Sets the geometry, ownership is transfered
     void setGeometry( QgsGeometryWrapper *geometry );
 
     QgsQuickMapSettings *mapSettings() const;
@@ -63,6 +61,7 @@ class LinePolygonHighlight : public QQuickItem
 
   private slots:
     void mapCrsChanged();
+    void makeDirty();
 
   private:
     virtual QSGNode *updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;

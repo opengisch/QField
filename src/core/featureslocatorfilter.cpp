@@ -167,7 +167,8 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     else
       mLocatorBridge->mapSettings()->setExtent( r.scaled( 5 ) );
 
-    QgsGeometryWrapper *geomwrapper = new QgsGeometryWrapper( geom, layer->crs() );
-    mLocatorBridge->locatorHighlight()->setProperty( "geometry", QVariant::fromValue<QgsGeometryWrapper *>( geomwrapper ) );
+
+    mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
+    mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );
   }
 }

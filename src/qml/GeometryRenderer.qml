@@ -5,13 +5,17 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
-  property QgsGeometryWrapper geometry
+  property alias geometry: geometry
   property double lineWidth: 8 * dp
   property color color: "yellow"
   property double pointSize: 20 * dp
   property color borderColor: "blue"
   property double borderSize: 2 * dp
   property MapSettings mapSettings: mapCanvas.mapSettings
+
+  QgsGeometryWrapper {
+    id: geometry
+  }
 
   Component {
     id: linePolygonHighlight

@@ -38,6 +38,7 @@ class MultiFeatureListModel : public QAbstractItemModel
       LayerNameRole,
       LayerRole,
       GeometryRole,
+      CrsRole,
       DeleteFeatureRole,
       EditGeometryRole
     };

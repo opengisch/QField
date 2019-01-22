@@ -12,7 +12,8 @@ Repeater {
   model: selectionModel.model
 
   delegate: GeometryRenderer {
-    geometry: model.geometry
+    geometry.qgsGeometry: model.geometry
+    geometry.crs: model.crs
     color: featureListSelectionHighlight.selectionModel && model.index === featureListSelectionHighlight.selectionModel.selection ? "red" : "yellow"
   }
 

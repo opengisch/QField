@@ -53,18 +53,18 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-QObject *LocatorModelSuperBridge::locatorHighlight() const
+QObject *LocatorModelSuperBridge::locatorHighlightGeometry() const
 {
-  return mLocatorHighlight;
+  return mLocatorHighlightGeometry;
 }
 
-void LocatorModelSuperBridge::setLocatorHighlight( QObject *locatorHighlight )
+void LocatorModelSuperBridge::setLocatorHighlightGeometry( QObject *locatorHighlightGeometry )
 {
-  if ( locatorHighlight == mLocatorHighlight )
+  if ( locatorHighlightGeometry == mLocatorHighlightGeometry )
     return;
 
-  mLocatorHighlight = locatorHighlight;
-  emit locatorHighlightChanged();
+  mLocatorHighlightGeometry = locatorHighlightGeometry;
+  emit locatorHighlightGeometryChanged();
 }
 
 FeatureListExtentController *LocatorModelSuperBridge::featureListController() const

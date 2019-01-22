@@ -3,11 +3,11 @@ import org.qfield 1.0
 
 Item {
   id: geometryHighlighter
-  property QgsGeometryWrapper geometry
+  property alias geometry: geometryRenderer.geometry
   property int duration: 3000
 
   GeometryRenderer {
-    geometry: geometryHighlighter.geometry
+    id: geometryRenderer
   }
 
   Timer {

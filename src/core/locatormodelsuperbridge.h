@@ -52,7 +52,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 {
     Q_OBJECT
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QObject *locatorHighlight READ locatorHighlight WRITE setLocatorHighlight NOTIFY locatorHighlightChanged )
+    Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
 
   public:
@@ -62,8 +62,8 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    QObject *locatorHighlight() const;
-    void setLocatorHighlight( QObject *locatorHighlight );
+    QObject *locatorHighlightGeometry() const;
+    void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
 
     FeatureListExtentController *featureListController() const;
     void setFeatureListController( FeatureListExtentController *featureListController );
@@ -74,7 +74,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
   signals:
     void mapSettingsChanged();
-    void locatorHighlightChanged();
+    void locatorHighlightGeometryChanged();
     void featureListControllerChanged();
     void messageEmitted( const QString &text );
 
@@ -83,7 +83,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QObject *mLocatorHighlight = nullptr;
+    QObject *mLocatorHighlightGeometry = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
 };
 

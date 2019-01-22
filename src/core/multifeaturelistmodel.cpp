@@ -18,10 +18,10 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectordataprovider.h>
 #include <qgsproject.h>
+#include <qgsgeometry.h>
+#include <qgscoordinatereferencesystem.h>
 
 #include "multifeaturelistmodel.h"
-#include "qgsgeometrywrapper.h"
-
 
 #include <QDebug>
 
@@ -85,6 +85,7 @@ QHash<int, QByteArray> MultiFeatureListModel::roleNames() const
   roleNames[LayerNameRole] = "layerName";
   roleNames[LayerRole] = "currentLayer";
   roleNames[GeometryRole] = "geometry";
+  roleNames[CrsRole] = "crs";
   roleNames[DeleteFeatureRole] = "deleteFeatureCapability";
   roleNames[EditGeometryRole] = "editGeometryCapability";
 
@@ -152,7 +153,10 @@ QVariant MultiFeatureListModel::data( const QModelIndex &index, int role ) const
       return QVariant::fromValue<QgsVectorLayer *>( feature->first );
 
     case GeometryRole:
-      return QVariant::fromValue<QgsGeometryWrapper *>( new QgsGeometryWrapper( feature->second.geometry(), feature->first->crs() ) );
+      return QVariant::fromValue<QgsGeometry>( feature->second.geometry() );
+
+    case CrsRole:
+      return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
 
     case DeleteFeatureRole:
       return !feature->first->readOnly() && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures );

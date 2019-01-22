@@ -42,6 +42,8 @@ QSGNode *LinePolygonHighlight::updatePaintNode( QSGNode *n, QQuickItem::UpdatePa
     QgsGeometry geometry;
     if ( mGeometry )
     {
+      Q_ASSERT( mGeometry->qgsGeometry().type() != QgsWkbTypes::PointGeometry );
+
       geometry = QgsGeometry( mGeometry->qgsGeometry() );
 
       if ( mMapSettings )
@@ -110,7 +112,6 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
   if ( mMapSettings )
     disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
 
-
   mMapSettings = mapSettings;
 
   connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonHighlight::mapCrsChanged );
@@ -119,6 +120,12 @@ void LinePolygonHighlight::setMapSettings( QgsQuickMapSettings *mapSettings )
 }
 
 void LinePolygonHighlight::mapCrsChanged()
+{
+  mDirty = true;
+  update();
+}
+
+void LinePolygonHighlight::makeDirty()
 {
   mDirty = true;
   update();
@@ -134,12 +141,13 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
   if ( mGeometry == geometry )
     return;
 
-  Q_ASSERT( !geometry || geometry->qgsGeometry().type() != QgsWkbTypes::PointGeometry );
-
-  if ( mGeometry )
-    mGeometry->deleteLater();
+  disconnect( mGeometry, &QgsGeometryWrapper::geometryChanged, this, &LinePolygonHighlight::makeDirty );
+  disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
 
   mGeometry = geometry;
+
+  connect( mGeometry, &QgsGeometryWrapper::geometryChanged, this, &LinePolygonHighlight::makeDirty );
+  connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
 
   mDirty = true;
   emit qgsGeometryChanged();
