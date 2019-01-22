@@ -20,28 +20,8 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
   switch ( gg.type() )
   {
     case QgsWkbTypes::PointGeometry:
-      if ( gg.isMultipart() )
-      {
-        const QgsMultiPointXY &points = gg.asMultiPoint();
-
-        Q_FOREACH ( const QgsPointXY &point, points )
-        {
-          QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPointToQSGGeometry( point, width ) );
-          geomNode->setFlag( QSGNode::OwnsGeometry );
-          applyStyle( geomNode );
-          appendChildNode( geomNode );
-        }
-      }
-      else
-      {
-        QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPointToQSGGeometry( gg.asPoint(), width ) );
-        geomNode->setFlag( QSGNode::OwnsGeometry );
-        applyStyle( geomNode );
-        appendChildNode( geomNode );
-      }
-
+      // we should never get point here, use GeometryRenderer quick item to render geometries
+      Q_ASSERT( false );
       break;
 
     case QgsWkbTypes::LineGeometry:
@@ -179,28 +159,6 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
   free( tris_out );
 
   sgGeom->setDrawingMode( QSGGeometry::DrawTriangles );
-
-  return sgGeom;
-}
-
-QSGGeometry *QgsSGGeometry::qgsPointToQSGGeometry( const QgsPointXY &point, int width )
-{
-  int n = 20;
-
-  auto drawCircle = [ = ]( QSGGeometry * geometry, const QgsPointXY & center, double radius )
-  {
-    for ( int i = 0; i < n; i++ )
-    {
-      double rad = i * 360 / n * M_PI / 180.0;
-      geometry->vertexDataAsPoint2D()[i].set( center.x() + std::cos( rad ) * radius,
-                                              center.y() + std::sin( rad ) * radius );
-    }
-  };
-
-
-  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), n );
-  drawCircle( sgGeom, point, 5 * width );
-  sgGeom->setDrawingMode( QSGGeometry::DrawTriangleFan );
 
   return sgGeom;
 }
