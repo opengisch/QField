@@ -32,10 +32,12 @@ Rectangle {
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
-  property int formViewWidthDivisor
 
   signal showMessage(string message)
   signal editGeometry
+
+  width: props.isVisible ? qfieldSettings.fullScreenIdentifyView || parent.width<300*dp ? parent.width : Math.min(Math.max(200*dp, parent.width/3), parent.width) : 0
+
 
   states: [
     State {
@@ -107,8 +109,6 @@ Rectangle {
   state: "Hidden"
 
   clip: true
-
-  width: props.isVisible ? state == "FeatureList" ? parent.width / 3 : parent.width / formViewWidthDivisor : 0
 
   QtObject {
     id: props
