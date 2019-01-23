@@ -25,8 +25,8 @@
 
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
-#include "locatorhighlight.h"
 #include "featurelistextentcontroller.h"
+#include "qgsgeometrywrapper.h"
 
 
 FeaturesLocatorFilter::FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
@@ -167,6 +167,8 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     else
       mLocatorBridge->mapSettings()->setExtent( r.scaled( 5 ) );
 
-    mLocatorBridge->locatorHighlight()->highlightGeometry( geom, layer->crs() );
+
+    mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
+    mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );
   }
 }

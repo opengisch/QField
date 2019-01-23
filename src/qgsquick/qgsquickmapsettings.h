@@ -145,7 +145,6 @@ class QgsQuickMapSettings : public QObject
      */
     Q_INVOKABLE QPointF coordinateToScreen( const QgsPoint &point ) const;
 
-
     /**
      * Convert a screen coordinate to a map coordinate
      *

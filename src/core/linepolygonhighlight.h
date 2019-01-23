@@ -20,43 +20,57 @@
 
 #include "qgsquickmapsettings.h"
 
-class QTimer;
-
+class QgsGeometryWrapper;
 class QgsGeometry;
-class QgsCoordinateReferenceSystem;
 
 
 /**
  * LocatorHighlight allows highlighting geometries
  * on the canvas for the specific needs of the locator.
  */
-class LocatorHighlight : public QQuickItem
+class LinePolygonHighlight : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY( QColor color MEMBER mColor NOTIFY colorChanged )
-    Q_PROPERTY( unsigned int width MEMBER mWidth NOTIFY widthChanged )
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
+    Q_PROPERTY( float width READ width WRITE setWidth NOTIFY widthChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
   public:
-    explicit LocatorHighlight( QQuickItem *parent = nullptr );
+    explicit LinePolygonHighlight( QQuickItem *parent = nullptr );
 
-    void highlightGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &crs );
+    QgsGeometryWrapper *geometry() const;
+    void setGeometry( QgsGeometryWrapper *geometry );
+
+    QgsQuickMapSettings *mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
+
+    QColor color() const;
+    void setColor( const QColor &color );
+
+    float width() const;
+    void setWidth( float width );
 
   signals:
     void colorChanged();
     void widthChanged();
     void mapSettingsChanged();
+    void qgsGeometryChanged();
+    void updated();
+
+  private slots:
+    void mapCrsChanged();
+    void makeDirty();
 
   private:
     virtual QSGNode *updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;
 
     QColor mColor;
+    float mWidth;
     bool mDirty;
-    unsigned int mWidth;
-    QgsQuickMapSettings *mMapSettings;
-    QgsGeometry mGeometry;
-    QTimer *mTimer = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    QgsGeometryWrapper *mGeometry = nullptr;
 };
 
 #endif // LOCATORHIGHLIGHT_H

@@ -22,7 +22,6 @@
 
 FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
   : QObject( parent )
-  , mSelection( 0 )
 {
 }
 

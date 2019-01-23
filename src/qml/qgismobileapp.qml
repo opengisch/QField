@@ -156,16 +156,6 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
       }
 
-      /* Highlight the currently selected item on the feature list */
-      FeatureListModelHighlight {
-        model: featureForm.model
-        selection: featureForm.selection
-        mapSettings: mapCanvas.mapSettings
-        color: "yellow"
-        selectionColor: "#ff7777"
-        width: 5 * dp
-      }
-
       /** A rubberband for ditizing **/
       Rubberband {
         id: digitizingRubberband
@@ -233,6 +223,26 @@ ApplicationWindow {
         }
       }
     }
+
+    /* Locator Highlight */
+    GeometryHighlighter {
+      id: locatorHighlightItem
+      //width: 10 * dp
+      //color: "yellow"
+    }
+
+    /* Highlight the currently selected item on the feature list */
+    FeatureListSelectionHighlight {
+      selectionModel: featureForm.selection
+      mapSettings: mapCanvas.mapSettings
+
+      //model: featureForm.model
+      //selection: featureForm.selection
+
+      color: "yellow"
+      selectionColor: "#ff7777"
+      width: 5 * dp
+    }
   }
 
   /**************************************************
@@ -290,18 +300,6 @@ ApplicationWindow {
     samples: 17
     color: "#80000000"
     source: featureForm
-  }
-
-  LocatorHighlight {
-    id: locatorHighlightItem
-    width: 10 * dp
-    color: "yellow"
-    mapSettings: mapCanvas.mapSettings
-    anchors.fill: parent
-
-    transform: MapTransform {
-      mapSettings: mapCanvas.mapSettings
-    }
   }
 
   LocatorItem {
@@ -700,6 +698,7 @@ ApplicationWindow {
     model: MultiFeatureListModel {}
 
     selection: FeatureListModelSelection {
+      id: featureListModelSelection
       model: featureForm.model
     }
 

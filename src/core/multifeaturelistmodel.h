@@ -37,6 +37,8 @@ class MultiFeatureListModel : public QAbstractItemModel
       FeatureRole,
       LayerNameRole,
       LayerRole,
+      GeometryRole,
+      CrsRole,
       DeleteFeatureRole,
       EditGeometryRole
     };
@@ -47,18 +49,18 @@ class MultiFeatureListModel : public QAbstractItemModel
      * @brief setFeatures
      * @param requests
      */
-    void setFeatures( const QMap<QgsVectorLayer*, QgsFeatureRequest> requests );
+    void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
 
-    void appendFeatures( const QList<IdentifyTool::IdentifyResult>& results );
+    void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
 
     Q_INVOKABLE void clear();
 
     QHash<int, QByteArray> roleNames() const override;
-    QModelIndex index( int row, int column, const QModelIndex& parent = QModelIndex() ) const override;
-    QModelIndex parent( const QModelIndex& child ) const override;
-    int rowCount( const QModelIndex& parent ) const override;
-    int columnCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex parent( const QModelIndex &child ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    int columnCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
 
     /**
      * Removes a defined number of rows starting from a given position. The parent index is not
@@ -72,26 +74,26 @@ class MultiFeatureListModel : public QAbstractItemModel
 
     int count() const;
 
-    Q_INVOKABLE void deleteFeature( QgsVectorLayer* layer, QgsFeatureId fid );
+    Q_INVOKABLE void deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
   signals:
     void countChanged();
 
   private slots:
-    void layerDeleted( QObject* object );
+    void layerDeleted( QObject *object );
 
     void featureDeleted( QgsFeatureId fid );
 
-    void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant & value );
+    void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
 
   private:
-    inline QPair< QgsVectorLayer*, QgsFeature >* toFeature( const QModelIndex& index ) const
+    inline QPair< QgsVectorLayer *, QgsFeature > *toFeature( const QModelIndex &index ) const
     {
-      return static_cast<QPair< QgsVectorLayer*, QgsFeature >*>( index.internalPointer() );
+      return static_cast<QPair< QgsVectorLayer *, QgsFeature >*>( index.internalPointer() );
     }
 
   private:
-    QList< QPair< QgsVectorLayer*, QgsFeature > > mFeatures;
+    QList< QPair< QgsVectorLayer *, QgsFeature > > mFeatures;
 };
 
 #endif // MULTIFEATURELISTMODEL_H

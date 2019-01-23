@@ -22,7 +22,6 @@ HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
     multifeaturelistmodel.h \
-    featurelistmodelhighlight.h \
     featurelistmodelselection.h \
     featuremodel.h \
     qgismobileapp.h \
@@ -57,13 +56,13 @@ HEADERS += \
     projectsource.h \
     featureslocatorfilter.h \
     locatormodelsuperbridge.h \
-    locatorhighlight.h
+    linepolygonhighlight.h \
+    qgsgeometrywrapper.h
 
 SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
     multifeaturelistmodel.cpp \
-    featurelistmodelhighlight.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
     qgismobileapp.cpp \
@@ -98,7 +97,8 @@ SOURCES += \
     projectsource.cpp \
     featureslocatorfilter.cpp \
     locatormodelsuperbridge.cpp \
-    locatorhighlight.cpp
+    linepolygonhighlight.cpp \
+    qgsgeometrywrapper.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

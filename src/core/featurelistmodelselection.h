@@ -51,8 +51,8 @@ class FeatureListModelSelection : public QObject
     void selectionChanged();
 
   private:
-    MultiFeatureListModel *mModel;
-    QItemSelectionModel *mSelection;
+    MultiFeatureListModel *mModel = nullptr;
+    QItemSelectionModel *mSelection = nullptr;
 };
 
 #endif // FEATURELISTMODELSELECTION_H

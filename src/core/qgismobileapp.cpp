@@ -54,7 +54,6 @@
 
 #include "appinterface.h"
 #include "featurelistmodelselection.h"
-#include "featurelistmodelhighlight.h"
 #include "featurelistextentcontroller.h"
 #include "modelhelper.h"
 #include "rubberband.h"
@@ -81,7 +80,8 @@
 #include "maptoscreen.h"
 #include "projectsource.h"
 #include "locatormodelsuperbridge.h"
-
+#include "qgsgeometrywrapper.h"
+#include "linepolygonhighlight.h"
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -164,7 +164,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MultiFeatureListModel>( "org.qgis", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureListModel>( "org.qgis", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qgis", 1, 0, "FeatureListModelSelection" );
-  qmlRegisterType<FeatureListModelHighlight>( "org.qgis", 1, 0, "FeatureListModelHighlight" );
   qmlRegisterType<FeatureListExtentController>( "org.qgis", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qgis", 1, 0, "Geometry" );
   qmlRegisterType<ModelHelper>( "org.qgis", 1, 0, "ModelHelper" );
@@ -187,7 +186,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
   qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
-  qmlRegisterType<LocatorHighlight>( "org.qfield", 1, 0, "LocatorHighlight" );
+  qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
+  qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -205,7 +205,6 @@ void QgisMobileapp::initDeclarative()
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
   rootContext()->setContextProperty( "qgisProject", mProject );
-  rootContext()->setContextProperty( "locator", mLocatorBridge );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );

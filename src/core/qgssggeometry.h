@@ -10,14 +10,13 @@ class QgsSGGeometry : public QSGNode
 {
   public:
     QgsSGGeometry();
-    QgsSGGeometry( const QgsGeometry& geom , const QColor& color, int width );
+    QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int width );
 
   private:
-    void applyStyle( QSGGeometryNode* geomNode );
+    void applyStyle( QSGGeometryNode *geomNode );
 
-    static QSGGeometry* qgsPolylineToQSGGeometry(const QgsPolylineXY& line, int width );
-    static QSGGeometry* qgsPolygonToQSGGeometry(const QgsPolygonXY& polygon );
-    static QSGGeometry* qgsPointToQSGGeometry( const QgsPointXY& point, int width );
+    static QSGGeometry *qgsPolylineToQSGGeometry( const QgsPolylineXY &line, int width );
+    static QSGGeometry *qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon );
 
     QSGFlatColorMaterial mMaterial;
 };

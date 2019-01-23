@@ -1,3 +1,5 @@
+#include "math.h"
+
 #include "qgssggeometry.h"
 extern "C" {
 #include "tessellate.h"
@@ -18,28 +20,8 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
   switch ( gg.type() )
   {
     case QgsWkbTypes::PointGeometry:
-      if ( gg.isMultipart() )
-      {
-        const QgsMultiPointXY &points = gg.asMultiPoint();
-
-        Q_FOREACH ( const QgsPointXY &point, points )
-        {
-          QSGGeometryNode *geomNode = new QSGGeometryNode;
-          geomNode->setGeometry( qgsPointToQSGGeometry( point, width ) );
-          geomNode->setFlag( QSGNode::OwnsGeometry );
-          applyStyle( geomNode );
-          appendChildNode( geomNode );
-        }
-      }
-      else
-      {
-        QSGGeometryNode *geomNode = new QSGGeometryNode;
-        geomNode->setGeometry( qgsPointToQSGGeometry( gg.asPoint(), width ) );
-        geomNode->setFlag( QSGNode::OwnsGeometry );
-        applyStyle( geomNode );
-        appendChildNode( geomNode );
-      }
-
+      // we should never get point here, use GeometryRenderer quick item to render geometries
+      Q_ASSERT( false );
       break;
 
     case QgsWkbTypes::LineGeometry:
@@ -177,18 +159,6 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
   free( tris_out );
 
   sgGeom->setDrawingMode( QSGGeometry::DrawTriangles );
-
-  return sgGeom;
-}
-
-QSGGeometry *QgsSGGeometry::qgsPointToQSGGeometry( const QgsPointXY &point, int width )
-{
-  QSGGeometry *sgGeom = new QSGGeometry( QSGGeometry::defaultAttributes_Point2D(), 1 );
-
-  QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
-  vertices[0].set( point.x(), point.y() );
-  sgGeom->setDrawingMode( QSGGeometry::DrawPoints );
-  sgGeom->setLineWidth( width );
 
   return sgGeom;
 }
