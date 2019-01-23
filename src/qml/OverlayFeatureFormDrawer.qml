@@ -8,7 +8,7 @@ Drawer {
   property alias featureModel: overlayFeatureForm.featureModel
   property alias state: overlayFeatureForm.state
   height: parent.height
-  width: qfieldSettings.fullScreenIdentifyView || Screen.orientation === Qt.PortraitOrientation ? parent.width : parent.width / 3
+  width: qfieldSettings.fullScreenIdentifyView || parent.width < 400 ? parent.width : parent.width / 3
   edge: Qt.RightEdge
   interactive: overlayFeatureForm.model.constraintsValid
   dragMargin: 0
