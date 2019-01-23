@@ -693,7 +693,6 @@ ApplicationWindow {
     anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
-    formViewWidthDivisor: qfieldSettings.fullScreenIdentifyView ? 1 : 3
 
     model: MultiFeatureListModel {}
 
@@ -742,6 +741,7 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     featureModel: digitizingFeature
+    width: qfieldSettings.fullScreenIdentifyView || mainWindow.width<300*dp? mainWindow.width : Math.min(Math.max(200*dp, mainWindow.width/3), mainWindow.width)
   }
 
   Keys.onReleased: {
