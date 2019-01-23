@@ -25,7 +25,7 @@ FeatureListModel::FeatureListModel()
   connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::processReloadLayer );
 }
 
-QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& parent ) const
+QModelIndex FeatureListModel::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -33,7 +33,7 @@ QModelIndex FeatureListModel::index( int row, int column, const QModelIndex& par
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
+QModelIndex FeatureListModel::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
 
@@ -41,19 +41,19 @@ QModelIndex FeatureListModel::parent( const QModelIndex& child ) const
   return QModelIndex();
 }
 
-int FeatureListModel::rowCount( const QModelIndex& parent ) const
+int FeatureListModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return mEntries.size();
 }
 
-int FeatureListModel::columnCount( const QModelIndex& parent ) const
+int FeatureListModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant FeatureListModel::data( const QModelIndex& index, int role ) const
+QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == Qt::DisplayRole )
     return mEntries.value( index.row() ).displayString;
@@ -72,12 +72,12 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   return roles;
 }
 
-QgsVectorLayer* FeatureListModel::currentLayer() const
+QgsVectorLayer *FeatureListModel::currentLayer() const
 {
   return mCurrentLayer;
 }
 
-void FeatureListModel::setCurrentLayer( QgsVectorLayer* currentLayer )
+void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   if ( mCurrentLayer == currentLayer )
     return;
@@ -106,7 +106,7 @@ QString FeatureListModel::keyField() const
   return mKeyField;
 }
 
-void FeatureListModel::setKeyField( const QString& keyField )
+void FeatureListModel::setKeyField( const QString &keyField )
 {
   if ( mKeyField == keyField )
     return;
@@ -118,7 +118,7 @@ void FeatureListModel::setKeyField( const QString& keyField )
   emit keyFieldChanged();
 }
 
-int FeatureListModel::findKey( const QVariant& key ) const
+int FeatureListModel::findKey( const QVariant &key ) const
 {
   int idx = 0;
   for ( const Entry &entry : mEntries )
@@ -146,6 +146,9 @@ void FeatureListModel::onFeatureDeleted()
 void FeatureListModel::processReloadLayer()
 {
   mEntries.clear();
+
+  if ( !mCurrentLayer )
+    return;
 
   QgsFeatureRequest request;
   QgsExpressionContext context = mCurrentLayer->createExpressionContext();
@@ -180,7 +183,7 @@ void FeatureListModel::processReloadLayer()
 
   if ( mOrderByValue )
   {
-    qSort( entries.begin(), entries.end(), [] ( const Entry &entry1, const Entry &entry2 )
+    qSort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
     {
       if ( entry1.key.isNull() )
         return true;
