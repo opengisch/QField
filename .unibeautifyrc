@@ -1,0 +1,5 @@
+C++:
+  beautifiers:
+  - clang-format
+  clang-format:
+    prefer_beautifier_config: true
