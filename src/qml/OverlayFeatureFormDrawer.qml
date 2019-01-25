@@ -7,6 +7,7 @@ Drawer {
   id: overlayFeatureFormDrawer
   property alias featureModel: overlayFeatureForm.featureModel
   property alias state: overlayFeatureForm.state
+  property alias featureForm: overlayFeatureForm
   height: parent.height
   edge: Qt.RightEdge
   interactive: overlayFeatureForm.model.constraintsValid
