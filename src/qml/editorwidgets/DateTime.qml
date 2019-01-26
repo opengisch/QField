@@ -26,7 +26,7 @@ Item {
 
   ColumnLayout {
     id: main
-    property var isDateTimeType: field.type === Qt.DateTime || field.type === Qt.Date || field.type === Qt.Time
+    property bool isDateTimeType: field.type === Qt.DateTime || field.type === Qt.Date || field.type === Qt.Time
     property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
 
     anchors { right: parent.right; left: parent.left }
@@ -53,9 +53,7 @@ Item {
 
         inputMethodHints: Qt.ImhDigitsOnly
 
-        // this is a bit difficult to auto generate input mask out of date/time format using regex
-        // mainly because number of caracters is variable (e.g. "d": the day as number without a leading zero)
-        // not saying impossible, but let's keep it for next regex challenge
+        // TODO[DR] generate input mask using regex
         inputMask:      if (config['display_format'] === "yyyy-MM-dd" ) { "9999-99-99;_" }
                    else if (config['display_format'] === "yyyy.MM.dd" ) { "9999.99.99;_" }
                    else if (config['display_format'] === "yyyy-MM-dd HH:mm:ss" ) { "9999-99-99 99:99:99;_" }
@@ -147,18 +145,29 @@ Item {
       ColumnLayout {
         Controls.Calendar {
           id: calendar
-          selectedDate: main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format'])
           weekNumbersVisible: true
           focus: false
 
+          function resetDate() {
+            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
+          }
+
           onSelectedDateChanged: {
+            // weird, selectedDate seems to be set at time 12:00:00
+            var newDate = selectedDate
+//            newDate.setHours(0)
+//            newDate.setMinutes(0)
+//            newDate.setSeconds(0)
+//            newDate.setMilliseconds(0)
+
             if ( main.isDateTimeType )
             {
-              main.currentValue = selectedDate
+              valueChanged(newDate, newDate === undefined)
             }
             else
             {
-              main.currentValue = Qt.formatDateTime(selectedDate, config['field_format'])
+              var textDate = Qt.formatDateTime(newDate, config['field_format'])
+              valueChanged(textDate, textDate === undefined)
             }
           }
         }
@@ -174,8 +183,12 @@ Item {
       }
     }
 
+    onIsDateTimeTypeChanged: {
+      calendar.resetDate()
+    }
+
     onCurrentValueChanged: {
-      valueChanged(main.currentValue, main.currentValue === undefined)
+      calendar.resetDate()
     }
   }
 }

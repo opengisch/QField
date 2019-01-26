@@ -26,7 +26,7 @@ class AttributeFormModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( FeatureModel* featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
     Q_PROPERTY( bool constraintsValid READ constraintsValid NOTIFY constraintsValidChanged )
 
@@ -41,6 +41,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       EditorWidgetConfig,
       RememberValue,
       Field,
+      FieldType,
       FieldIndex,
       Group,
       AttributeEditorElement,
@@ -51,19 +52,19 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_ENUM( FeatureRoles )
 
-    AttributeFormModel( QObject* parent = nullptr );
+    AttributeFormModel( QObject *parent = nullptr );
 
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
-    FeatureModel* featureModel() const;
-    void setFeatureModel( FeatureModel* featureModel );
+    FeatureModel *featureModel() const;
+    void setFeatureModel( FeatureModel *featureModel );
 
     bool constraintsValid() const;
 
     Q_INVOKABLE void save();
     Q_INVOKABLE void create();
-    Q_INVOKABLE QVariant attribute( const QString& name );
+    Q_INVOKABLE QVariant attribute( const QString &name );
 
   signals:
     void featureModelChanged();
@@ -72,10 +73,10 @@ class AttributeFormModel : public QSortFilterProxyModel
     void constraintsValidChanged();
 
   protected:
-    virtual bool filterAcceptsRow( int source_row, const QModelIndex& source_parent ) const override;
+    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-    AttributeFormModelBase* mSourceModel;
+    AttributeFormModelBase *mSourceModel;
 };
 
 #endif // ATTRIBUTEFORMMODEL_H
