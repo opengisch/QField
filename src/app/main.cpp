@@ -65,6 +65,9 @@ int main( int argc, char ** argv )
 #endif
   app.initQgis();
 
+  //test
+  setenv( "OGR_SQLITE_JOURNAL", "DELETE", 1 );
+
   //set NativeFormat for settings
   QSettings::setDefaultFormat( QSettings::NativeFormat );
 
