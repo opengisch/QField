@@ -28,7 +28,7 @@ script:
 
 jobs:
   allow_failures:
-    - testing
+    - name: testing
   include:
     - stage: test
       name: testing
@@ -58,3 +58,6 @@ jobs:
       install:
         pip install -r requirements.txt
       script: ./scripts/ci/update-translations.sh
+
+matrix:
+  fast_finish: true 
