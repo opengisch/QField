@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import "../js/style.js" as Style
 
+
 /*
   Config:
   * field_format
@@ -26,7 +27,7 @@ Item {
 
   ColumnLayout {
     id: main
-    property bool isDateTimeType: field.type === Qt.DateTime || field.type === Qt.Date || field.type === Qt.Time
+    property bool isDateTimeType: field.isDateOrTime
     property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
 
     anchors { right: parent.right; left: parent.left }
@@ -142,6 +143,7 @@ Item {
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
       parent: ApplicationWindow.overlay
 
+      // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
         Controls.Calendar {
           id: calendar
@@ -151,25 +153,6 @@ Item {
           function resetDate() {
             selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
           }
-
-          onSelectedDateChanged: {
-            // weird, selectedDate seems to be set at time 12:00:00
-            var newDate = selectedDate
-//            newDate.setHours(0)
-//            newDate.setMinutes(0)
-//            newDate.setSeconds(0)
-//            newDate.setMilliseconds(0)
-
-            if ( main.isDateTimeType )
-            {
-              valueChanged(newDate, newDate === undefined)
-            }
-            else
-            {
-              var textDate = Qt.formatDateTime(newDate, config['field_format'])
-              valueChanged(textDate, textDate === undefined)
-            }
-          }
         }
 
         RowLayout {
@@ -177,7 +160,26 @@ Item {
             text: qsTr( "Ok" )
             Layout.fillWidth: true
 
-            onClicked: popup.close()
+            onClicked: {
+              // weird, selectedDate seems to be set at time 12:00:00
+              var newDate = calendar.selectedDate
+              newDate.setHours(0)
+              newDate.setMinutes(0)
+              newDate.setSeconds(0)
+              newDate.setMilliseconds(0)
+
+              if ( main.isDateTimeType )
+              {
+                valueChanged(newDate, newDate === undefined)
+              }
+              else
+              {
+                var textDate = Qt.formatDateTime(newDate, config['field_format'])
+                valueChanged(textDate, textDate === undefined)
+              }
+
+              popup.close()
+            }
           }
         }
       }

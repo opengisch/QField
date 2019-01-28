@@ -45,6 +45,7 @@
 #include <qgslocator.h>
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
+#include <qgsfieldconstraints.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
@@ -148,6 +149,9 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsUnitTypes::AreaUnit>( "QgsUnitTypes::AreaUnit" );
   qRegisterMetaType<QgsRelation>( "QgsRelation" );
   qRegisterMetaType<QgsField>( "QgsField" );
+  qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
+  qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
+  qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
