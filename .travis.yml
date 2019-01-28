@@ -27,21 +27,27 @@ script:
   - ./scripts/upload-artifacts.sh
 
 jobs:
+  allow_failures:
+    - testing
   include:
     - stage: test
+      name: testing
       script:
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
+      name: build ARMv7
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
+      name: build X86
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
+      name: "Deploy 🍺"
       if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
