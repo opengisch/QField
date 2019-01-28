@@ -41,7 +41,6 @@ class AttributeFormModel : public QSortFilterProxyModel
       EditorWidgetConfig,
       RememberValue,
       Field,
-      FieldType,
       FieldIndex,
       Group,
       AttributeEditorElement,

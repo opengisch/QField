@@ -44,7 +44,6 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
-  roles[AttributeFormModel::FieldType] = "FieldType";
   roles[AttributeFormModel::Group] = "Group";
   roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
