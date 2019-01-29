@@ -261,7 +261,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
-        item->setData( mLayer->fields().at( fieldIndex ), AttributeFormModel::Field );
+        item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );

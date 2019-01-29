@@ -22,7 +22,7 @@
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <QGeoPositionInfoSource>
-#include <QDebug>
+
 
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )

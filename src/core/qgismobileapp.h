@@ -130,5 +130,8 @@ class QgisMobileapp : public QQmlApplicationEngine
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
 Q_DECLARE_METATYPE( QgsAttributes )
+Q_DECLARE_METATYPE( QVariant::Type )
+Q_DECLARE_METATYPE( QgsFieldConstraints )
+
 
 #endif // QGISMOBILEAPP_H

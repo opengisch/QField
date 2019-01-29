@@ -1,16 +1,23 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick 2.11
+import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
 import "../js/style.js" as Style
 
+
 /*
+  Config:
   * field_format
   * display_format
   * calendar_popup
   * allow_null
- */
 
+  If the calendar_popup is enabled, no direct editing is possible in the TextField.
+  If not, it will try to match the display_format with the best possible InputMask.
+  A Date/Time object (Date in QML) is used even with text field as source (not DateTime)
+  to allow a full flexibility of field and display formats.
+
+ */
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -20,7 +27,8 @@ Item {
 
   ColumnLayout {
     id: main
-    property var currentValue: value
+    property bool isDateTimeType: field.isDateOrTime
+    property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
 
     anchors { right: parent.right; left: parent.left }
 
@@ -31,27 +39,84 @@ Item {
       Rectangle {
         anchors.fill: parent
         id: backgroundRect
-        border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
-        border.width: comboBox.visualFocus ? 2 : 1
+        border.color: label.activeFocus ? "#17a81a" : "#21be2b"
+        border.width: label.activeFocus ? 2 : 1
         color: "#dddddd"
         radius: 2
       }
 
-      Label {
+      TextField {
         id: label
 
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 16
 
-        text: value === undefined ?  qsTr('(no date)') : new Date(value).toLocaleString(Qt.locale(), config['display_format'] )
+        inputMethodHints: Qt.ImhDigitsOnly
+
+        // TODO[DR] generate input mask using regex
+        inputMask:      if (config['display_format'] === "yyyy-MM-dd" ) { "9999-99-99;_" }
+                   else if (config['display_format'] === "yyyy.MM.dd" ) { "9999.99.99;_" }
+                   else if (config['display_format'] === "yyyy-MM-dd HH:mm:ss" ) { "9999-99-99 99:99:99;_" }
+                   else if (config['display_format'] === "HH:mm:ss" ) { "99:99:99;_" }
+                   else if (config['display_format'] === "HH:mm" ) { "99:99;_" }
+                   else { "" }
+
+        text: if ( value === undefined )
+              {
+                qsTr('(no date)')
+              }
+              else
+              {
+                if ( main.isDateTimeType )
+                {
+                  Qt.formatDateTime(value, config['display_format'])
+                }
+                else
+                {
+                  var date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
+                  Qt.formatDateTime(date, config['display_format'])
+                }
+              }
+
         color: value === undefined ? 'gray' : 'black'
 
         MouseArea {
+          enabled: config['calendar_popup']
           anchors.fill: parent
           onClicked: {
             popup.open()
           }
+        }
+
+        onTextEdited: {
+          var newDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format'])
+          if ( newDate.toLocaleString() !== "" )
+          {
+            if ( !main.isDateTimeType )
+            {
+              newDate = Qt.formatDateTime(newDate, config['field_format'])
+            }
+            valueChanged(newDate, newDate === undefined)
+          }
+          else
+          {
+            valueChanged(undefined, true)
+          }
+        }
+
+        onActiveFocusChanged: {
+            if (activeFocus) {
+              var mytext = label.text
+              var cur = label.cursorPosition
+              while ( cur > 0 )
+              {
+                if (!mytext.charAt(cur-1).match("[0-9]") )
+                  break
+                cur--
+              }
+              label.cursorPosition = cur
+            }
         }
 
         Image {
@@ -63,7 +128,8 @@ Item {
           MouseArea {
             anchors.fill: parent
             onClicked: {
-              main.currentValue = undefined
+              valueChanged(undefined, true)
+              //main.currentValue = undefined
             }
           }
         }
@@ -77,15 +143,15 @@ Item {
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
       parent: ApplicationWindow.overlay
 
+      // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
         Controls.Calendar {
           id: calendar
-          selectedDate: currentValue
           weekNumbersVisible: true
           focus: false
 
-          onSelectedDateChanged: {
-            main.currentValue = selectedDate
+          function resetDate() {
+            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
           }
         }
 
@@ -94,14 +160,37 @@ Item {
             text: qsTr( "Ok" )
             Layout.fillWidth: true
 
-            onClicked: popup.close()
+            onClicked: {
+              // weird, selectedDate seems to be set at time 12:00:00
+              var newDate = calendar.selectedDate
+              newDate.setHours(0)
+              newDate.setMinutes(0)
+              newDate.setSeconds(0)
+              newDate.setMilliseconds(0)
+
+              if ( main.isDateTimeType )
+              {
+                valueChanged(newDate, newDate === undefined)
+              }
+              else
+              {
+                var textDate = Qt.formatDateTime(newDate, config['field_format'])
+                valueChanged(textDate, textDate === undefined)
+              }
+
+              popup.close()
+            }
           }
         }
       }
     }
 
+    onIsDateTimeTypeChanged: {
+      calendar.resetDate()
+    }
+
     onCurrentValueChanged: {
-      valueChanged(currentValue, main.currentValue === undefined)
+      calendar.resetDate()
     }
   }
 }
