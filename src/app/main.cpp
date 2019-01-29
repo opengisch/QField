@@ -80,6 +80,11 @@ int main( int argc, char ** argv )
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
 
+  // QGIS environment variables to set
+  // OGR_SQLITE_JOURNAL is set to DELETE to avoid working with WAL files
+  // since QField does not make a proper close of connection where the data are written from WAL to GPKG
+  setenv( "OGR_SQLITE_JOURNAL", "DELETE", 1 );
+
   QgisMobileapp mApp( &app );
   return app.exec();
 }
