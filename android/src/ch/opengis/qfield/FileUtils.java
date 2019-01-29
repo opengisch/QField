@@ -22,8 +22,12 @@ class FileUtils{
         Context context = QFieldActivity.getContext();
         Log.v(TAG, "Get path from Uri, authority: "+ uri.getAuthority());
 
+        // If URI is a file URI
+        if ("file".equalsIgnoreCase(uri.getScheme())){
+            return uri.getPath();
+
         // Document opened by QgsDocumentsProvider
-        if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
+        }else if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
 
             Cursor cursor = null;
             try {
@@ -37,14 +41,21 @@ class FileUtils{
                 cursor.close();
             }
 
-            // Document opened by other providers (e.g. Android's "SD card" provider)
+        // Document opened by other providers (e.g. Android's "SD card" provider)
         }else if (uri.getAuthority().equals("com.android.externalstorage.documents")){
             final String docId = DocumentsContract.getDocumentId(uri);
 
-            final String[] split = docId.split(":");
-            final String type = split[0];
+            String idArr[] = docId.split(":");
+            if(idArr.length == 2){
+                String type = idArr[0];
+                String realDocId = idArr[1];
 
-            return getExternalFilePath(context, split[1]);
+                if("primary".equalsIgnoreCase(type)){
+                    return Environment.getExternalStorageDirectory() + "/" + realDocId;
+                }else{
+                    return getExternalFilePath(context, idArr[1]);
+                }
+            }
         }
 
         return null;
