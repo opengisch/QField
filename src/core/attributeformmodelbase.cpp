@@ -206,7 +206,9 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 {
   if ( item->data( AttributeFormModel::ElementType ) == "field" )
   {
-    item->setData( mFeatureModel->feature().attribute( item->data( AttributeFormModel::FieldIndex ).toInt() ), AttributeFormModel::AttributeValue );
+    int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+    QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
+    item->setData( attributeValue, AttributeFormModel::AttributeValue );
   }
   else
   {
@@ -253,9 +255,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         QStandardItem *item = new QStandardItem();
 
-
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
-        item->setData( mFeatureModel->feature().attribute( fieldIndex ), AttributeFormModel::AttributeValue );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
         QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
@@ -268,6 +268,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
         item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
+
+        updateAttributeValue( item );
 
         if ( !field.constraints().constraintExpression().isEmpty() )
         {
