@@ -171,6 +171,7 @@ Controls.Pane {
       id: mapThemeContainer
       title: qsTr( "Map Theme" )
       anchors { left: parent.left; right: parent.right }
+      property bool isLoading: false
 
       Controls.ComboBox {
         id: mapThemeComboBox
@@ -180,14 +181,16 @@ Controls.Pane {
           target: iface
 
           onLoadProjectEnded: {
+            mapThemeContainer.isLoading = true
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
+            mapThemeContainer.isLoading = false
           }
         }
 
         onCurrentTextChanged: {
-          if ( qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
+          if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
             layerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
