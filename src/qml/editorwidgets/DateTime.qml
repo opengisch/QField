@@ -118,20 +118,30 @@ Item {
         }
 
         onActiveFocusChanged: {
-            if (activeFocus) {
-              var mytext = label.text
-              var cur = label.cursorPosition
-              while ( cur > 0 )
-              {
-                if (!mytext.charAt(cur-1).match("[0-9]") )
-                  break
-                cur--
-              }
-              label.cursorPosition = cur
+          if (activeFocus) {
+            // getting focus => placing cursor at proper position
+            // TODO: make it work on empty value
+            var mytext = label.text
+            var cur = label.cursorPosition
+            while ( cur > 0 )
+            {
+              if (!mytext.charAt(cur-1).match("[0-9]") )
+                break
+              cur--
             }
+            label.cursorPosition = cur
+          } else {
+            // leaving field => if invalid, clear
+            var newDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format'])
+            if ( newDate.toLocaleString() === "" )
+            {
+              label.text = qsTr('(no date)')
+            }
+          }
         }
 
         Image {
+          id: clearButton
           source: Style.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
@@ -141,7 +151,6 @@ Item {
             anchors.fill: parent
             onClicked: {
               valueChanged(undefined, true)
-              //main.currentValue = undefined
             }
           }
         }
