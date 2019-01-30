@@ -4,6 +4,8 @@ python:
 rvm:
   - 2.0.0
 
+# THIS BUILDS FOR ANDROID < 5 ONLY!
+
 # Handle git submodules manually
 git:
   submodules: false
@@ -48,6 +50,7 @@ jobs:
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
     - stage: deploy
+      # hardcoded version of this branch
       if: branch = android_19_legacy
       install:
         pip install -r requirements.txt
