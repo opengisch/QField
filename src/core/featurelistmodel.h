@@ -33,7 +33,7 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * The vector layer to list
      */
-    Q_PROPERTY( QgsVectorLayer* currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+    Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     /**
      * The primary key field
      */
@@ -53,24 +53,24 @@ class FeatureListModel : public QAbstractItemModel
 
     FeatureListModel();
 
-    virtual QModelIndex index( int row, int column, const QModelIndex& parent ) const override;
-    virtual QModelIndex parent( const QModelIndex& child ) const override;
-    virtual int rowCount( const QModelIndex& parent ) const override;
-    virtual int columnCount( const QModelIndex& parent ) const override;
-    virtual QVariant data( const QModelIndex& index, int role ) const override;
+    virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    virtual QModelIndex parent( const QModelIndex &child ) const override;
+    virtual int rowCount( const QModelIndex &parent ) const override;
+    virtual int columnCount( const QModelIndex &parent ) const override;
+    virtual QVariant data( const QModelIndex &index, int role ) const override;
 
     virtual QHash<int, QByteArray> roleNames() const override;
 
-    QgsVectorLayer* currentLayer() const;
-    void setCurrentLayer( QgsVectorLayer* currentLayer );
+    QgsVectorLayer *currentLayer() const;
+    void setCurrentLayer( QgsVectorLayer *currentLayer );
 
     QString keyField() const;
-    void setKeyField( const QString& keyField );
+    void setKeyField( const QString &keyField );
 
     /**
      * Get the row for a given key value.
      */
-    Q_INVOKABLE int findKey( const QVariant& key ) const;
+    Q_INVOKABLE int findKey( const QVariant &key ) const;
 
     /**
      * Orders all the values alphabethically by their displayString.
@@ -110,7 +110,7 @@ class FeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-      Entry( const QString& displayString, const QVariant &key )
+      Entry( const QString &displayString, const QVariant &key )
         : displayString( displayString )
         , key( key )
       {}
@@ -130,7 +130,7 @@ class FeatureListModel : public QAbstractItemModel
      */
     void reloadLayer();
 
-    QgsVectorLayer* mCurrentLayer;
+    QgsVectorLayer *mCurrentLayer;
 
     QList<Entry> mEntries;
     QString mKeyField;

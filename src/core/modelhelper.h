@@ -23,9 +23,9 @@ class ModelHelper : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QAbstractItemModel* model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
   public:
-    explicit ModelHelper( QObject* parent = nullptr );
+    explicit ModelHelper( QObject *parent = nullptr );
 
     Q_INVOKABLE QModelIndex index( int row, int column );
 
@@ -33,15 +33,15 @@ class ModelHelper : public QObject
 
     Q_INVOKABLE QVariant data( int row, int column, QString roleName );
 
-    void setModel( QAbstractItemModel* model );
+    void setModel( QAbstractItemModel *model );
 
-    QAbstractItemModel* model() const;
+    QAbstractItemModel *model() const;
 
   signals:
     void modelChanged();
 
   private:
-    QAbstractItemModel* mModel;
+    QAbstractItemModel *mModel;
 };
 
 #endif // MODELHELPER_H

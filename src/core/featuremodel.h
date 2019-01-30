@@ -32,18 +32,18 @@ class FeatureModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     //! the vertex model is used to highlight vertices on the map
-    Q_PROPERTY( VertexModel* vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
-    Q_PROPERTY( Geometry* geometry MEMBER mGeometry NOTIFY geometryChanged )
-    Q_PROPERTY( QgsVectorLayer* currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+    Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
     Q_ENUMS( FeatureRoles )
 
-  //! keeping the information what attributes are remembered and the last edited feature
-  struct RememberValues
-  {
+    //! keeping the information what attributes are remembered and the last edited feature
+    struct RememberValues
+    {
       QgsFeature rememberedFeature;
       QVector<bool> rememberedAttributes;
-  };
+    };
 
   public:
     enum FeatureRoles
@@ -55,17 +55,17 @@ class FeatureModel : public QAbstractListModel
     };
 
     explicit FeatureModel( QObject *parent = nullptr );
-    explicit FeatureModel( const QgsFeature& feat, QObject *parent = nullptr );
+    explicit FeatureModel( const QgsFeature &feat, QObject *parent = nullptr );
 
-    void setFeature( const QgsFeature& feature );
+    void setFeature( const QgsFeature &feature );
 
     /**
      * Return the feature wrapped in a QVariant for passing it around in QML
      */
     QgsFeature feature() const;
 
-    void setCurrentLayer( QgsVectorLayer* layer );
-    QgsVectorLayer* layer() const;
+    void setCurrentLayer( QgsVectorLayer *layer );
+    QgsVectorLayer *layer() const;
 
     //! \copydoc vertexModel
     VertexModel *vertexModel();
@@ -73,9 +73,9 @@ class FeatureModel : public QAbstractListModel
     void setVertexModel( VertexModel *model );
 
     QHash<int, QByteArray> roleNames() const override;
-    int rowCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
-    bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
+    int rowCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
 
     /**
      * Will commit the edit buffer of this layer.
@@ -115,7 +115,7 @@ class FeatureModel : public QAbstractListModel
 
   public slots:
     void applyGeometry();
-    void removeLayer( QObject* layer );
+    void removeLayer( QObject *layer );
 
   signals:
     void featureChanged();
@@ -124,19 +124,19 @@ class FeatureModel : public QAbstractListModel
     void currentLayerChanged();
     void positionSourceChanged();
 
-    void warning( const QString& text );
+    void warning( const QString &text );
 
   private:
     bool commit();
     bool startEditing();
 
-    QgsVectorLayer* mLayer;
+    QgsVectorLayer *mLayer;
     QgsFeature mFeature;
     VertexModel *mVertexModel = nullptr;
-    Geometry* mGeometry;
+    Geometry *mGeometry;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
     QString mTempName;
-    QMap<QgsVectorLayer*, RememberValues> mRememberings;
+    QMap<QgsVectorLayer *, RememberValues> mRememberings;
 };
 
 #endif // FEATUREMODEL_H

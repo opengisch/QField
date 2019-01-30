@@ -39,7 +39,7 @@ class Settings : public QSettings
     Q_INVOKABLE bool valueBool( const QString &key, bool defaultValue );
 
   signals:
-    void settingChanged( const QString& key );
+    void settingChanged( const QString &key );
 };
 
 #endif // SETTINGS_H

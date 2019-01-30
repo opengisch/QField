@@ -26,7 +26,7 @@ class PictureSource : public QObject
 {
     Q_OBJECT
   public:
-    explicit PictureSource( QObject* parent = nullptr );
+    explicit PictureSource( QObject *parent = nullptr );
 
     virtual ~PictureSource();
 
@@ -34,7 +34,7 @@ class PictureSource : public QObject
     /**
      * Emit this signal when a picture really has been received.
      */
-    void pictureReceived( const QString& path );
+    void pictureReceived( const QString &path );
 };
 
 #endif // PICTURESOURCE_H

@@ -37,7 +37,7 @@ class FeatureListModelTest: public QObject, QgisTestApp
 
     void testModelData()
     {
-      QMap<QgsVectorLayer*, QgsFeatureRequest> requests;
+      QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
       requests.insert( mLayer, QgsFeatureRequest().setFilterExpression( "fk_region = 18 " ) );
       mModel->setFeatures( requests );
 
@@ -58,8 +58,8 @@ class FeatureListModelTest: public QObject, QgisTestApp
     }
 
   private:
-    FeatureListModel* mModel;
-    QgsVectorLayer* mLayer;
+    FeatureListModel *mModel;
+    QgsVectorLayer *mLayer;
 };
 
 QTEST_MAIN( FeatureListModelTest )

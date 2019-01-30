@@ -22,24 +22,24 @@ class SubModel : public QAbstractItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QAbstractItemModel* model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( QAbstractItemModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
   public:
-    SubModel( QObject* parent = nullptr );
-    QModelIndex index( int row, int column, const QModelIndex& parent ) const override;
-    QModelIndex parent( const QModelIndex& child ) const override;
-    int rowCount( const QModelIndex& parent ) const override;
-    int columnCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
-    bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
+    SubModel( QObject *parent = nullptr );
+    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    QModelIndex parent( const QModelIndex &child ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    int columnCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
     QHash<int, QByteArray> roleNames() const override;
 
     QModelIndex rootIndex() const;
-    void setRootIndex( const QModelIndex& rootIndex );
+    void setRootIndex( const QModelIndex &rootIndex );
 
-    QAbstractItemModel* model() const;
-    void setModel( QAbstractItemModel* model );
+    QAbstractItemModel *model() const;
+    void setModel( QAbstractItemModel *model );
 
   signals:
     void modelChanged();
@@ -51,13 +51,13 @@ class SubModel : public QAbstractItemModel
     void onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last );
     void onRowsRemoved( const QModelIndex &parent, int first, int last );
     void onModelAboutToBeReset();
-    void onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles = QVector<int>() );
+    void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>() );
 
   private:
-    QModelIndex mapFromSource( const QModelIndex& sourceIndex ) const;
-    QModelIndex mapToSource( const QModelIndex& index ) const;
+    QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const;
+    QModelIndex mapToSource( const QModelIndex &index ) const;
 
-    QAbstractItemModel* mModel;
+    QAbstractItemModel *mModel;
     QPersistentModelIndex mRootIndex;
 
     // Map internal id to parent index

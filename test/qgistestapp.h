@@ -24,7 +24,7 @@ class QgisTestApp
     QgisTestApp()
     {
       int argc = 0;
-      char** argv = 0;
+      char **argv = 0;
       mApp = new QgsApplication( argc, argv, false );
 
       // load providers
@@ -52,7 +52,7 @@ class QgisTestApp
     }
 
   private:
-    QgsApplication* mApp;
+    QgsApplication *mApp;
 };
 
 #endif // QGISTESTAPP

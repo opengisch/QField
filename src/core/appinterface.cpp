@@ -18,12 +18,12 @@
 #include "appinterface.h"
 #include "qgismobileapp.h"
 
-AppInterface::AppInterface( QgisMobileapp* app )
+AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
 }
 
-void AppInterface::loadProject( const QString& path )
+void AppInterface::loadProject( const QString &path )
 {
   return mApp->loadProjectFile( QUrl( path ).path() );
 }

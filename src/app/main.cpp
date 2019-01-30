@@ -32,11 +32,11 @@
 #include <QApplication>
 #include <QDebug>
 
-int main( int argc, char ** argv )
+int main( int argc, char **argv )
 {
 #if 0
   // A dummy app for reading settings that need to be used before constructing the real app
-  QCoreApplication* dummyApp = new QCoreApplication( argc, argv );
+  QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
@@ -55,9 +55,9 @@ int main( int argc, char ** argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().packagePath());
+  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
-  QgsApplication app( argc, argv, true);
+  QgsApplication app( argc, argv, true );
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );

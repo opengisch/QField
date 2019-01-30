@@ -28,9 +28,9 @@ class DistanceArea : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( RubberbandModel* rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
-    Q_PROPERTY( QgsProject* project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     Q_PROPERTY( qreal length READ length NOTIFY lengthChanged )
     Q_PROPERTY( bool lengthValid READ lengthValid NOTIFY lengthValidChanged )
@@ -45,7 +45,7 @@ class DistanceArea : public QObject
     Q_PROPERTY( qreal segmentLength READ segmentLength NOTIFY segmentLengthChanged )
 
   public:
-    explicit DistanceArea( QObject* parent = nullptr );
+    explicit DistanceArea( QObject *parent = nullptr );
 
     qreal length() const;
     bool lengthValid() const;
@@ -57,13 +57,13 @@ class DistanceArea : public QObject
     QgsUnitTypes::AreaUnit areaUnits() const;
 
     QgsCoordinateReferenceSystem crs() const;
-    void setCrs( const QgsCoordinateReferenceSystem& crs );
+    void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    RubberbandModel* rubberbandModel() const;
-    void setRubberbandModel( RubberbandModel* rubberbandModel );
+    RubberbandModel *rubberbandModel() const;
+    void setRubberbandModel( RubberbandModel *rubberbandModel );
 
-    QgsProject* project() const;
-    void setProject( QgsProject* project );
+    QgsProject *project() const;
+    void setProject( QgsProject *project );
 
   signals:
     void rubberbandModelChanged();
@@ -82,9 +82,9 @@ class DistanceArea : public QObject
     void init();
 
   private:
-    RubberbandModel* mRubberbandModel;
+    RubberbandModel *mRubberbandModel;
     QgsCoordinateReferenceSystem mCrs;
-    QgsProject* mProject;
+    QgsProject *mProject;
 
     QgsDistanceArea mDistanceArea;
 };

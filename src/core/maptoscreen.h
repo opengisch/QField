@@ -32,7 +32,7 @@ class MapToScreen : public QObject
     Q_OBJECT
 
     //! Map settings is used to define the map canvas CRS and detect any extent change
-    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! the point in map coordinates
     Q_PROPERTY( QgsPoint mapPoint READ mapPoint WRITE setMapPoint NOTIFY mapPointChanged )
     //! the point in screen coordinates (read-only)

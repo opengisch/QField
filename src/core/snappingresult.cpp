@@ -24,7 +24,7 @@ SnappingResult::SnappingResult()
   , mVertexIndex( 0 )
 {}
 
-SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer* vl, QgsFeatureId fid, double dist, const QgsPoint& pt, int vertexIndex, QgsPoint* edgePoints )
+SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex, QgsPoint *edgePoints )
   : mType( t )
   , mDist( dist )
   , mPoint( pt )
@@ -39,7 +39,7 @@ SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer* vl, QgsF
   }
 }
 
-SnappingResult::SnappingResult( const QgsPointLocator::Match& match )
+SnappingResult::SnappingResult( const QgsPointLocator::Match &match )
   : mType( matchTypeToSnappingResultType( match.type() ) )
   , mDist( match.distance() )
   , mPoint( match.point() )
@@ -89,7 +89,7 @@ int SnappingResult::vertexIndex() const
   return mVertexIndex;
 }
 
-QgsVectorLayer*SnappingResult::layer() const
+QgsVectorLayer *SnappingResult::layer() const
 {
   return mLayer;
 }
@@ -99,7 +99,7 @@ QgsFeatureId SnappingResult::featureId() const
   return mFid;
 }
 
-void SnappingResult::edgePoints( QgsPoint& pt1, QgsPoint& pt2 ) const
+void SnappingResult::edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const
 {
   pt1 = mEdgePoints[0];
   pt2 = mEdgePoints[1];

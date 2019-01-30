@@ -20,7 +20,7 @@
 #include "qgsgeometry.h"
 #include <QtPositioning/QGeoPositionInfoSource>
 
-QgsExpressionContextScope* ExpressionContextUtils::positionScope( QGeoPositionInfoSource *source )
+QgsExpressionContextScope *ExpressionContextUtils::positionScope( QGeoPositionInfoSource *source )
 {
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Position" ) );
   QGeoPositionInfo positionInfo = source->lastKnownPosition();

@@ -5,7 +5,7 @@
 #include <qgspolygon.h>
 #include <qgsvectorlayer.h>
 
-Geometry::Geometry( QObject* parent )
+Geometry::Geometry( QObject *parent )
   : QObject( parent )
 {
 
@@ -13,7 +13,7 @@ Geometry::Geometry( QObject* parent )
 
 QgsGeometry Geometry::asQgsGeometry() const
 {
-  QgsAbstractGeometry* geom = nullptr;
+  QgsAbstractGeometry *geom = nullptr;
 
   if ( !mVectorLayer )
     return QgsGeometry();
@@ -22,20 +22,20 @@ QgsGeometry Geometry::asQgsGeometry() const
   {
     case QgsWkbTypes::PointGeometry:
     {
-      geom = new QgsPoint( mRubberbandModel->currentPoint(  mVectorLayer->crs(), mVectorLayer->wkbType() ) );
+      geom = new QgsPoint( mRubberbandModel->currentPoint( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       break;
     }
     case QgsWkbTypes::LineGeometry:
     {
-      QgsLineString* line = new QgsLineString();
+      QgsLineString *line = new QgsLineString();
       line->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       geom = line;
       break;
     }
     case QgsWkbTypes::PolygonGeometry:
     {
-      QgsPolygon* polygon = new QgsPolygon();
-      QgsLineString* ring = new QgsLineString();
+      QgsPolygon *polygon = new QgsPolygon();
+      QgsLineString *ring = new QgsLineString();
       ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
       polygon->setExteriorRing( ring );
       geom = polygon;
@@ -54,12 +54,12 @@ QgsGeometry Geometry::asQgsGeometry() const
   return QgsGeometry( geom );
 }
 
-RubberbandModel* Geometry::rubberbandModel() const
+RubberbandModel *Geometry::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void Geometry::setRubberbandModel( RubberbandModel* rubberbandModel )
+void Geometry::setRubberbandModel( RubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
     return;
@@ -74,12 +74,12 @@ void Geometry::applyRubberband()
   // TODO: Will need to be implemented for multipart features or polygons with holes.
 }
 
-QgsVectorLayer* Geometry::vectorLayer() const
+QgsVectorLayer *Geometry::vectorLayer() const
 {
   return mVectorLayer;
 }
 
-void Geometry::setVectorLayer( QgsVectorLayer* vectorLayer )
+void Geometry::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
   if ( mVectorLayer == vectorLayer )
     return;

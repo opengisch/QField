@@ -15,7 +15,7 @@
 #include "printlayoutlistmodel.h"
 #include <qgsproject.h>
 
-PrintLayoutListModel::PrintLayoutListModel(QObject* parent)
+PrintLayoutListModel::PrintLayoutListModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
@@ -29,14 +29,14 @@ QHash<int, QByteArray> PrintLayoutListModel::roleNames() const
   return roles;
 }
 
-QgsProject* PrintLayoutListModel::project() const
+QgsProject *PrintLayoutListModel::project() const
 {
   return mProject;
 }
 
-void PrintLayoutListModel::setProject( QgsProject* project )
+void PrintLayoutListModel::setProject( QgsProject *project )
 {
-  if( mProject == project )
+  if ( mProject == project )
     return;
 
   mProject = project;
@@ -57,7 +57,7 @@ void PrintLayoutListModel::reloadModel()
 
 }
 
-int PrintLayoutListModel::rowCount( const QModelIndex& parent ) const
+int PrintLayoutListModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
     return mPrintLayouts.size();
@@ -65,7 +65,7 @@ int PrintLayoutListModel::rowCount( const QModelIndex& parent ) const
     return 0;
 }
 
-QVariant PrintLayoutListModel::data( const QModelIndex& index, int role ) const
+QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mPrintLayouts.size() || index.row() < 0 )
     return QVariant();

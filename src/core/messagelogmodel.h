@@ -32,7 +32,7 @@ class MessageLogModel : public QAbstractListModel
       LogMessage()
       {}
 
-      LogMessage( const QString& tag, const QString& message, Qgis::MessageLevel level )
+      LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
       {
         this->tag = tag;
         this->message = message;
@@ -52,18 +52,18 @@ class MessageLogModel : public QAbstractListModel
     };
 
   public:
-    MessageLogModel( QObject* parent = nullptr );
+    MessageLogModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
 
   private slots:
-    void onMessageReceived( const QString& message, const QString& tag, Qgis::MessageLevel level );
+    void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
 
   private:
-    QgsMessageLog* mMessageLog;
+    QgsMessageLog *mMessageLog;
     QVector<LogMessage> mMessages;
 };
 

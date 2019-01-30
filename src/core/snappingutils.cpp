@@ -19,7 +19,7 @@
 
 #include "qgsvectorlayer.h"
 
-SnappingUtils::SnappingUtils( QObject* parent )
+SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent )
   , mSettings( nullptr )
 {
@@ -45,7 +45,7 @@ QPointF SnappingUtils::inputCoordinate() const
   return mInputCoordinate;
 }
 
-void SnappingUtils::setInputCoordinate( const QPointF& inputCoordinate )
+void SnappingUtils::setInputCoordinate( const QPointF &inputCoordinate )
 {
   if ( inputCoordinate == mInputCoordinate )
     return;
@@ -76,12 +76,12 @@ void SnappingUtils::prepareIndexProgress( int index )
     emit indexingProgress( index );
 }
 
-QgsVectorLayer* SnappingUtils::currentLayer() const
+QgsVectorLayer *SnappingUtils::currentLayer() const
 {
   return mCurrentLayer;
 }
 
-void SnappingUtils::setCurrentLayer( QgsVectorLayer* currentLayer )
+void SnappingUtils::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   if ( currentLayer == mCurrentLayer )
     return;
@@ -92,12 +92,12 @@ void SnappingUtils::setCurrentLayer( QgsVectorLayer* currentLayer )
   emit currentLayerChanged();
 }
 
-QgsQuickMapSettings* SnappingUtils::mapSettings() const
+QgsQuickMapSettings *SnappingUtils::mapSettings() const
 {
   return mSettings;
 }
 
-void SnappingUtils::setMapSettings( QgsQuickMapSettings* settings )
+void SnappingUtils::setMapSettings( QgsQuickMapSettings *settings )
 {
   if ( mSettings == settings )
     return;
