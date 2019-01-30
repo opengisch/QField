@@ -38,30 +38,34 @@ class LayerTreeModel : public QSortFilterProxyModel
     };
     Q_ENUMS( Roles )
 
-    explicit LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QObject* parent = nullptr );
+    explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
-    Q_INVOKABLE QVariant data( const QModelIndex& index, int role ) const override;
+    Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
 
-    Q_INVOKABLE bool setData( const QModelIndex& index, const QVariant &value, int role ) override;
+    Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     QHash<int, QByteArray> roleNames() const override;
 
-    QgsLayerTreeModel* layerTreeModel() const;
+    QgsLayerTreeModel *layerTreeModel() const;
 
-    QgsLayerTree* layerTree() const;
+    QgsLayerTree *layerTree() const;
 
     QString mapTheme() const;
-    void setMapTheme( const QString& mapTheme );
+    void setMapTheme( const QString &mapTheme );
 
-    QgsProject* project() const;
+    QgsProject *project() const;
+
+    //! Update map theme as currently used by the model
+    //! This should be triggered after a project has been loaded
+    Q_INVOKABLE void updateCurrentMapTheme();
 
   signals:
     void mapThemeChanged();
 
   private:
-    QgsLayerTreeModel* mLayerTreeModel;
+    QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
-    QgsProject* mProject;
+    QgsProject *mProject;
 };
 
 #endif // LAYERTREEMODEL_H

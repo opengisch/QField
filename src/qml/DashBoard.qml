@@ -1,6 +1,6 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import org.qgis 1.0
-import QtQuick.Controls 2.0 as Controls
+import QtQuick.Controls 2.11 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
@@ -171,6 +171,7 @@ Controls.Pane {
       id: mapThemeContainer
       title: qsTr( "Map Theme" )
       anchors { left: parent.left; right: parent.right }
+      property bool isLoading: false
 
       Controls.ComboBox {
         id: mapThemeComboBox
@@ -180,14 +181,18 @@ Controls.Pane {
           target: iface
 
           onLoadProjectEnded: {
+            mapThemeContainer.isLoading = true
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
+            layerTree.updateCurrentMapTheme()
+            mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
+            mapThemeContainer.isLoading = false
           }
         }
 
         onCurrentTextChanged: {
-          if ( qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
+          if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
             layerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
