@@ -28,7 +28,7 @@ script:
 
 jobs:
   allow_failures:
-    - name: testing
+  #  - name: testing
   include:
     - stage: test
       name: testing
