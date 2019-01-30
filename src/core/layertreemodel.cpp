@@ -20,8 +20,9 @@
 #include <qgslayertree.h>
 #include <qgsvectorlayer.h>
 #include <qgslayertreemodellegendnode.h>
+#include <qgsmapthemecollection.h>
 
-LayerTreeModel::LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QObject* parent )
+LayerTreeModel::LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QSortFilterProxyModel( parent )
   , mProject( project )
 {
@@ -29,18 +30,18 @@ LayerTreeModel::LayerTreeModel( QgsLayerTree* layerTree, QgsProject* project, QO
   setSourceModel( mLayerTreeModel );
 }
 
-QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
+QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
 {
   switch ( role )
   {
     case VectorLayer:
     {
-      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
       {
-        QgsLayerTreeLayer* nodeLayer = QgsLayerTree::toLayer( node );
-        QgsVectorLayer* layer = qobject_cast<QgsVectorLayer*>( nodeLayer->layer() );
-        return QVariant::fromValue<QgsVectorLayer*>( layer );
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+        return QVariant::fromValue<QgsVectorLayer *>( layer );
       }
       else
       {
@@ -52,7 +53,7 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
     {
       QString id;
 
-      if ( QgsLayerTreeModelLegendNode* sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
       {
         id += QStringLiteral( "legend" );
         id += '/' + sym->layerNode()->layerId();
@@ -60,11 +61,11 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
       }
       else
       {
-        QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
 
         if ( QgsLayerTree::isLayer( node ) )
         {
-          QgsLayerTreeLayer* nodeLayer = QgsLayerTree::toLayer( node );
+          QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
           id += QStringLiteral( "layer" );
           id += '/' +  nodeLayer->layerId();
         }
@@ -79,7 +80,7 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
 
     case Type:
     {
-      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
         return QStringLiteral( "layer" );
       else if ( QgsLayerTree::isGroup( node ) )
@@ -97,7 +98,7 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
       }
       else
       {
-        QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
         return node->isVisible();
       }
     }
@@ -106,7 +107,7 @@ QVariant LayerTreeModel::data( const QModelIndex& index, int role ) const
   }
 }
 
-bool LayerTreeModel::setData(const QModelIndex& index, const QVariant& value, int role)
+bool LayerTreeModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( role == Visible )
   {
@@ -118,7 +119,7 @@ bool LayerTreeModel::setData(const QModelIndex& index, const QVariant& value, in
     }
     else
     {
-      QgsLayerTreeNode* node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       node->setItemVisibilityCheckedRecursive( value.toBool() );
     }
     return true;
@@ -138,12 +139,12 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   return roleNames;
 }
 
-QgsLayerTreeModel* LayerTreeModel::layerTreeModel() const
+QgsLayerTreeModel *LayerTreeModel::layerTreeModel() const
 {
   return mLayerTreeModel;
 }
 
-QgsLayerTree* LayerTreeModel::layerTree() const
+QgsLayerTree *LayerTreeModel::layerTree() const
 {
   return mLayerTreeModel->rootGroup();
 }
@@ -153,7 +154,7 @@ QString LayerTreeModel::mapTheme() const
   return mMapTheme;
 }
 
-void LayerTreeModel::setMapTheme( const QString& mapTheme )
+void LayerTreeModel::setMapTheme( const QString &mapTheme )
 {
   if ( mMapTheme == mapTheme )
     return;
@@ -162,7 +163,21 @@ void LayerTreeModel::setMapTheme( const QString& mapTheme )
   emit mapThemeChanged();
 }
 
-QgsProject*LayerTreeModel::project() const
+QgsProject *LayerTreeModel::project() const
 {
   return mProject;
+}
+
+void LayerTreeModel::updateCurrentMapTheme()
+{
+  QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
+  const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
+  for ( const QString &grpName : mapThemes )
+  {
+    if ( rec == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ) )
+    {
+      mMapTheme = grpName;
+      return;
+    }
+  }
 }

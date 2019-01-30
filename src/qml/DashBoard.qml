@@ -1,6 +1,6 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import org.qgis 1.0
-import QtQuick.Controls 2.0 as Controls
+import QtQuick.Controls 2.11 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
@@ -185,6 +185,8 @@ Controls.Pane {
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
+            layerTree.updateCurrentMapTheme()
+            mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
             mapThemeContainer.isLoading = false
           }
         }
