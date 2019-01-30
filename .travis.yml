@@ -54,6 +54,7 @@ jobs:
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
     - stage: deploy
+      name: "translations 🌍"
       if: branch = master
       install:
         pip install -r requirements.txt
