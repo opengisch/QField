@@ -28,6 +28,7 @@ Item {
   ColumnLayout {
     id: main
     property bool isDateTimeType: field.isDateOrTime
+    property bool fieldIsDate: platformUtilities.fieldType( field ) === 'QDate'
     property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
 
     anchors { right: parent.right; left: parent.left }
@@ -70,7 +71,18 @@ Item {
               {
                 if ( main.isDateTimeType )
                 {
-                  Qt.formatDateTime(value, config['display_format'])
+                  // if the field is a QDate, the automatic conversion to JS date [1]
+                  // leads to the creation of date time object with the time zone.
+                  // For instance shapefiles has support for dates but not date/time or time.
+                  // So a date coming from a shapefile as 2001-01-01 will become 2000-12-31 19:00:00 -05 in QML/JS (in the carribeans).
+                  // And when formatting this with the display format, this is shown as 2000-12-31.
+                  // So we detect if the field is a date only and revert the time zone offset.
+                  // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
+                  if (main.fieldIsDate) {
+                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), config['display_format'])
+                  } else {
+                    Qt.formatDateTime(value, config['display_format'])
+                  }
                 }
                 else
                 {
