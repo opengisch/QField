@@ -12,6 +12,7 @@
 # fix issue with licence on a specific version of the APK
 # this was branched for Android 4.4 (SDK 19) and the QField SDK (= 20181006) had issue with licences at that time
 # if the APK is updated this line could/should be removed
+# see https://github.com/opengisch/QField/pull/450
 yes | sdkmanager --licenses && sdkmanager --verbose "platforms;android-21" "build-tools;28.0.2" tools platform-tools
 
 SOURCE_DIR=/usr/src/qfield
