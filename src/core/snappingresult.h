@@ -44,9 +44,9 @@ class SnappingResult
     //! construct invalid match
     SnappingResult();
 
-    SnappingResult( Type t, QgsVectorLayer* vl, QgsFeatureId fid, double dist, const QgsPoint& pt, int vertexIndex = 0, QgsPoint* edgePoints = nullptr );
+    SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, QgsPoint *edgePoints = nullptr );
 
-    SnappingResult( const QgsPointLocator::Match& match );
+    SnappingResult( const QgsPointLocator::Match &match );
 
     Type type() const;
 
@@ -70,7 +70,7 @@ class SnappingResult
      * The vector layer where the snap occurred.
      * Will be null if the snap happened on an intersection.
      */
-    QgsVectorLayer* layer() const;
+    QgsVectorLayer *layer() const;
 
     /**
      * The id of the feature to which the snapped geometry belongs.
@@ -78,7 +78,7 @@ class SnappingResult
     QgsFeatureId featureId() const;
 
     //! Only for a valid edge match - obtain endpoints of the edge
-    void edgePoints( QgsPoint& pt1, QgsPoint& pt2 ) const;
+    void edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const;
 
   private:
     Type matchTypeToSnappingResultType( QgsPointLocator::Type type );
@@ -86,7 +86,7 @@ class SnappingResult
     Type mType;
     double mDist;
     QgsPoint mPoint;
-    QgsVectorLayer* mLayer;
+    QgsVectorLayer *mLayer;
     QgsFeatureId mFid;
     int mVertexIndex; // e.g. vertex index
     QgsPoint mEdgePoints[2];

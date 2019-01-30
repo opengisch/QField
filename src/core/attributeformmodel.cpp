@@ -17,7 +17,7 @@
 #include "attributeformmodel.h"
 #include "attributeformmodelbase.h"
 
-AttributeFormModel::AttributeFormModel( QObject* parent )
+AttributeFormModel::AttributeFormModel( QObject *parent )
   : QSortFilterProxyModel( parent )
   , mSourceModel( new AttributeFormModelBase( this ) )
 {
@@ -38,12 +38,12 @@ void AttributeFormModel::setHasTabs( bool hasTabs )
   mSourceModel->setHasTabs( hasTabs );
 }
 
-FeatureModel* AttributeFormModel::featureModel() const
+FeatureModel *AttributeFormModel::featureModel() const
 {
   return mSourceModel->featureModel();
 }
 
-void AttributeFormModel::setFeatureModel( FeatureModel* featureModel )
+void AttributeFormModel::setFeatureModel( FeatureModel *featureModel )
 {
   mSourceModel->setFeatureModel( featureModel );
 }
@@ -63,12 +63,12 @@ void AttributeFormModel::create()
   mSourceModel->create();
 }
 
-QVariant AttributeFormModel::attribute( const QString& name )
+QVariant AttributeFormModel::attribute( const QString &name )
 {
   return mSourceModel->attribute( name );
 }
 
-bool AttributeFormModel::filterAcceptsRow( int source_row, const QModelIndex& source_parent ) const
+bool AttributeFormModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   return mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), CurrentlyVisible ).toBool();
 }

@@ -15,7 +15,7 @@
  ***************************************************************************/
 #include "modelhelper.h"
 
-ModelHelper::ModelHelper( QObject* parent )
+ModelHelper::ModelHelper( QObject *parent )
   : QObject( parent )
   , mModel( nullptr )
 {
@@ -46,7 +46,7 @@ QVariant ModelHelper::data( int row, int column, QString roleName )
   return mModel->data( mModel->index( row, column ), mModel->roleNames().key( roleName.toLatin1() ) );
 }
 
-void ModelHelper::setModel( QAbstractItemModel* model )
+void ModelHelper::setModel( QAbstractItemModel *model )
 {
   if ( mModel != model )
   {
@@ -55,7 +55,7 @@ void ModelHelper::setModel( QAbstractItemModel* model )
   }
 }
 
-QAbstractItemModel*ModelHelper::model() const
+QAbstractItemModel *ModelHelper::model() const
 {
   return mModel;
 }

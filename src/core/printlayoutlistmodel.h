@@ -29,11 +29,11 @@ class PrintLayoutListModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsProject* project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
-     /*!
-      * Roles to get the data of the model.
-     */
+    /*!
+     * Roles to get the data of the model.
+    */
     enum Roles
     {
       TitleRow, //! the name of the print layout
@@ -45,7 +45,7 @@ class PrintLayoutListModel : public QAbstractListModel
     */
     struct PrintLayout
     {
-      PrintLayout(const QString& title )
+      PrintLayout( const QString &title )
         : title( title )
       {}
 
@@ -53,16 +53,16 @@ class PrintLayoutListModel : public QAbstractListModel
     };
 
   public:
-    PrintLayoutListModel( QObject* parent = nullptr );
+    PrintLayoutListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount( const QModelIndex& parent ) const override;
-    QVariant data( const QModelIndex& index, int role ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
 
-    QgsProject* project() const;
+    QgsProject *project() const;
     //!Project needs to be set to have the printLayouts in the model
-    void setProject( QgsProject* project );
+    void setProject( QgsProject *project );
 
     //!triggered when set another project
     Q_INVOKABLE void reloadModel();
@@ -71,7 +71,7 @@ class PrintLayoutListModel : public QAbstractListModel
     void projectChanged();
 
   private:
-    QgsProject* mProject;
+    QgsProject *mProject;
     //!List of PrintLayouts of current project to display
     QList<PrintLayout> mPrintLayouts;
 };

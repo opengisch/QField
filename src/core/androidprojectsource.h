@@ -26,7 +26,7 @@ class AndroidProjectSource : public ProjectSource, public QAndroidActivityResult
   public:
     AndroidProjectSource();
 
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject& data ) override;
+    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 
 };
 

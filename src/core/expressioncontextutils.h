@@ -26,7 +26,7 @@ class QGeoPositionInfoSource;
 class ExpressionContextUtils
 {
   public:
-    static QgsExpressionContextScope* positionScope( QGeoPositionInfoSource* source );
+    static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
 
   private:
     ExpressionContextUtils() = default;

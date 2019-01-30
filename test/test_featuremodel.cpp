@@ -60,8 +60,8 @@ class FeatureModelTest: public QObject, QgisTestApp
     }
 
   private:
-    FeatureModel* mModel;
-    QgsVectorLayer* mLayer;
+    FeatureModel *mModel;
+    QgsVectorLayer *mLayer;
 };
 
 QTEST_MAIN( FeatureModelTest )

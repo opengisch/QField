@@ -47,7 +47,7 @@ QgsQuickMapSettings *MapToScreen::mapSettings()
 
 void MapToScreen::setMapPoint( const QgsPoint &point )
 {
-  if( mMapPoint == point )
+  if ( mMapPoint == point )
     return;
 
   mMapPoint = point;

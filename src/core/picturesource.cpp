@@ -15,7 +15,7 @@
  ***************************************************************************/
 #include "picturesource.h"
 
-PictureSource::PictureSource( QObject* parent )
+PictureSource::PictureSource( QObject *parent )
   : QObject( parent )
 {
 

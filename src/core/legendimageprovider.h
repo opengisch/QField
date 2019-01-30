@@ -24,13 +24,13 @@ class QgsLayerTree;
 class LegendImageProvider : public QQuickImageProvider
 {
   public:
-    LegendImageProvider( QgsLayerTreeModel* layerTreeRoot );
+    LegendImageProvider( QgsLayerTreeModel *layerTreeRoot );
 
-    QPixmap requestPixmap( const QString &id, QSize *size, const QSize& requestedSize );
+    QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize );
 
   private:
-    QgsLayerTreeModel* mLayerTreeModel;
-    QgsLayerTree* mRootNode;
+    QgsLayerTreeModel *mLayerTreeModel;
+    QgsLayerTree *mRootNode;
 };
 
 #endif // LEGENDIMAGEPROVIDER_H

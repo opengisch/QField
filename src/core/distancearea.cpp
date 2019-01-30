@@ -19,7 +19,7 @@
 #include "qgsvectorlayer.h"
 #include "qgsproject.h"
 
-DistanceArea::DistanceArea( QObject* parent )
+DistanceArea::DistanceArea( QObject *parent )
   : QObject( parent )
   , mRubberbandModel( nullptr )
   , mProject( nullptr )
@@ -38,12 +38,12 @@ void DistanceArea::init()
   emit areaUnitsChanged();
 }
 
-QgsProject* DistanceArea::project() const
+QgsProject *DistanceArea::project() const
 {
   return mProject;
 }
 
-void DistanceArea::setProject( QgsProject* project )
+void DistanceArea::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
@@ -61,12 +61,12 @@ void DistanceArea::setProject( QgsProject* project )
   emit projectChanged();
 }
 
-RubberbandModel* DistanceArea::rubberbandModel() const
+RubberbandModel *DistanceArea::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void DistanceArea::setRubberbandModel( RubberbandModel* rubberbandModel )
+void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
     return;
@@ -99,7 +99,7 @@ QgsCoordinateReferenceSystem DistanceArea::crs() const
   return mCrs;
 }
 
-void DistanceArea::setCrs( const QgsCoordinateReferenceSystem& crs )
+void DistanceArea::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
     return;
@@ -109,7 +109,7 @@ void DistanceArea::setCrs( const QgsCoordinateReferenceSystem& crs )
   emit crsChanged();
 }
 #if 0
-void DistanceArea::setGeometry( Geometry* geometry )
+void DistanceArea::setGeometry( Geometry *geometry )
 {
   if ( mGeometry == geometry )
     return;

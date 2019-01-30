@@ -38,7 +38,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
-    Q_PROPERTY( QgsVectorLayer* vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
+    Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! freeze the rubberband so it doesn't get modified while panning map
@@ -61,9 +61,9 @@ class RubberbandModel : public QObject
      *
      * By default coordinates will be returned unprojected.
      */
-    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
+    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
-    QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem() ) const;
+    QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 
     void setVertex( int index, QgsPoint coordinate );
 
@@ -74,10 +74,10 @@ class RubberbandModel : public QObject
     int currentCoordinateIndex() const;
     void setCurrentCoordinateIndex( int currentCoordinateIndex );
 
-    QgsPoint currentPoint( const QgsCoordinateReferenceSystem& crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
+    QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
     QgsPoint currentCoordinate() const;
-    void setCurrentCoordinate( const QgsPoint& currentCoordinate );
+    void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();
@@ -86,11 +86,11 @@ class RubberbandModel : public QObject
 
     QgsWkbTypes::GeometryType geometryType() const;
 
-    QgsVectorLayer* vectorLayer() const;
-    void setVectorLayer( QgsVectorLayer* vectorLayer );
+    QgsVectorLayer *vectorLayer() const;
+    void setVectorLayer( QgsVectorLayer *vectorLayer );
 
     QgsCoordinateReferenceSystem crs() const;
-    void setCrs( const QgsCoordinateReferenceSystem& crs );
+    void setCrs( const QgsCoordinateReferenceSystem &crs );
 
     //! \copydoc frozen
     bool frozen() const;
@@ -113,12 +113,12 @@ class RubberbandModel : public QObject
 
 
   private:
-    void setGeometryType( const QgsWkbTypes::GeometryType& geometryType );
+    void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
 
     QVector<QgsPoint> mPointList;
     int mCurrentCoordinateIndex;
     QgsWkbTypes::GeometryType mGeometryType;
-    QgsVectorLayer* mLayer;
+    QgsVectorLayer *mLayer;
     QgsCoordinateReferenceSystem mCrs;
     bool mFrozen = false;
 };

@@ -29,11 +29,11 @@ class ExpressionVariableModel : public QStandardItemModel
       VariableValue
     };
 
-    ExpressionVariableModel( QObject* parent = nullptr );
+    ExpressionVariableModel( QObject *parent = nullptr );
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    Q_INVOKABLE void addCustomVariable( const QString& varName, const QString& varVal );
+    Q_INVOKABLE void addCustomVariable( const QString &varName, const QString &varVal );
 
     Q_INVOKABLE void removeCustomVariable( int row );
 
@@ -43,14 +43,14 @@ class ExpressionVariableModel : public QStandardItemModel
 
     Q_INVOKABLE bool isEditable( int row );
 
-    Q_INVOKABLE void setName( int row, const QString& name );
+    Q_INVOKABLE void setName( int row, const QString &name );
 
-    Q_INVOKABLE void setValue( int row, const QString& value );
+    Q_INVOKABLE void setValue( int row, const QString &value );
 
     QHash<int, QByteArray> roleNames() const override;
 
   private slots:
-    void onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles );
+    void onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
 };
 
 #endif // EXPRESSIONVARIABLEMODEL_H

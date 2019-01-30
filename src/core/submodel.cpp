@@ -16,19 +16,19 @@
 #include "submodel.h"
 #include <QDebug>
 
-SubModel::SubModel( QObject* parent )
+SubModel::SubModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
 
 }
 
-QModelIndex SubModel::index( int row, int column, const QModelIndex& parent ) const
+QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) const
 {
   QModelIndex sourceIndex = mModel->index( row, column, parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
   return mapFromSource( sourceIndex );
 }
 
-QModelIndex SubModel::parent( const QModelIndex& child ) const
+QModelIndex SubModel::parent( const QModelIndex &child ) const
 {
   QModelIndex idx = mModel->parent( child );
   if ( idx == mRootIndex )
@@ -37,22 +37,22 @@ QModelIndex SubModel::parent( const QModelIndex& child ) const
     return mapFromSource( idx );
 }
 
-int SubModel::rowCount( const QModelIndex& parent ) const
+int SubModel::rowCount( const QModelIndex &parent ) const
 {
   return mModel->rowCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
 }
 
-int SubModel::columnCount( const QModelIndex& parent ) const
+int SubModel::columnCount( const QModelIndex &parent ) const
 {
   return mModel->columnCount( parent.isValid() ? mapToSource( parent ) : static_cast<QModelIndex>( mRootIndex ) );
 }
 
-QVariant SubModel::data( const QModelIndex& index, int role ) const
+QVariant SubModel::data( const QModelIndex &index, int role ) const
 {
   return mModel->data( mapToSource( index ), role );
 }
 
-bool SubModel::setData( const QModelIndex& index, const QVariant& value, int role )
+bool SubModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   return mModel->setData( mapToSource( index ), value, role );
 }
@@ -67,7 +67,7 @@ QModelIndex SubModel::rootIndex() const
   return mRootIndex;
 }
 
-void SubModel::setRootIndex( const QModelIndex& rootIndex )
+void SubModel::setRootIndex( const QModelIndex &rootIndex )
 {
   if ( rootIndex == mRootIndex )
     return;
@@ -78,12 +78,12 @@ void SubModel::setRootIndex( const QModelIndex& rootIndex )
   emit rootIndexChanged();
 }
 
-QAbstractItemModel* SubModel::model() const
+QAbstractItemModel *SubModel::model() const
 {
   return mModel;
 }
 
-void SubModel::setModel( QAbstractItemModel* model )
+void SubModel::setModel( QAbstractItemModel *model )
 {
   if ( model == mModel )
     return;
@@ -100,12 +100,12 @@ void SubModel::setModel( QAbstractItemModel* model )
   emit modelChanged();
 }
 
-void SubModel::onRowsAboutToBeInserted( const QModelIndex& parent, int first, int last )
+void SubModel::onRowsAboutToBeInserted( const QModelIndex &parent, int first, int last )
 {
   emit beginInsertRows( mapFromSource( parent ), first, last );
 }
 
-void SubModel::onRowsInserted( const QModelIndex& parent, int first, int last )
+void SubModel::onRowsInserted( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( parent )
   Q_UNUSED( first )
@@ -113,12 +113,12 @@ void SubModel::onRowsInserted( const QModelIndex& parent, int first, int last )
   emit endInsertRows();
 }
 
-void SubModel::onRowsAboutToBeRemoved( const QModelIndex& parent, int first, int last )
+void SubModel::onRowsAboutToBeRemoved( const QModelIndex &parent, int first, int last )
 {
   emit beginRemoveRows( mapFromSource( parent ), first, last );
 }
 
-void SubModel::onRowsRemoved( const QModelIndex& parent, int first, int last )
+void SubModel::onRowsRemoved( const QModelIndex &parent, int first, int last )
 {
   Q_UNUSED( parent )
   Q_UNUSED( first )
@@ -131,12 +131,12 @@ void SubModel::onModelAboutToBeReset()
   mMappings.clear();
 }
 
-void SubModel::onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles )
+void SubModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
   emit dataChanged( mapFromSource( topLeft ), mapFromSource( bottomRight ), roles );
 }
 
-QModelIndex SubModel::mapFromSource( const QModelIndex& sourceIndex ) const
+QModelIndex SubModel::mapFromSource( const QModelIndex &sourceIndex ) const
 {
   if ( sourceIndex == mRootIndex || !sourceIndex.isValid() )
     return QModelIndex();
@@ -149,7 +149,7 @@ QModelIndex SubModel::mapFromSource( const QModelIndex& sourceIndex ) const
   return createIndex( sourceIndex.row(), sourceIndex.column(), sourceIndex.internalId() );
 }
 
-QModelIndex SubModel::mapToSource( const QModelIndex& index ) const
+QModelIndex SubModel::mapToSource( const QModelIndex &index ) const
 {
   if ( !index.isValid() )
     return mRootIndex;

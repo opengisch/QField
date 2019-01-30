@@ -18,11 +18,11 @@
 #include <qgsapplication.h>
 #include <QDebug>
 
-MessageLogModel::MessageLogModel( QObject* parent )
+MessageLogModel::MessageLogModel( QObject *parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsApplication::messageLog() )
 {
-  connect( mMessageLog, static_cast<void ( QgsMessageLog::* ) ( const QString& message, const QString& tag, Qgis::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
+  connect( mMessageLog, static_cast<void ( QgsMessageLog::* )( const QString &message, const QString &tag, Qgis::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
 }
 
 QHash<int, QByteArray> MessageLogModel::roleNames() const
@@ -35,13 +35,13 @@ QHash<int, QByteArray> MessageLogModel::roleNames() const
   return roles;
 }
 
-int MessageLogModel::rowCount( const QModelIndex& parent ) const
+int MessageLogModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return mMessages.size();
 }
 
-QVariant MessageLogModel::data( const QModelIndex& index, int role ) const
+QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mMessages.size() )
     return QVariant();
@@ -56,7 +56,7 @@ QVariant MessageLogModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::onMessageReceived( const QString& message, const QString& tag, Qgis::MessageLevel level )
+void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );

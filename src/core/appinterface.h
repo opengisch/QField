@@ -30,14 +30,14 @@ class AppInterface : public QObject
     Q_OBJECT
 
   public:
-    AppInterface( QgisMobileapp* app );
+    AppInterface( QgisMobileapp *app );
     AppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type
       Q_ASSERT( false );
     }
 
-    Q_INVOKABLE void loadProject( const QString& path );
+    Q_INVOKABLE void loadProject( const QString &path );
     Q_INVOKABLE void print( int layoutIndex );
 
   public slots:
@@ -46,12 +46,12 @@ class AppInterface : public QObject
   signals:
     void openFeatureFormRequested();
 
-    void loadProjectStarted( const QString& path );
+    void loadProjectStarted( const QString &path );
 
     void loadProjectEnded();
 
   private:
-    QgisMobileapp* mApp;
+    QgisMobileapp *mApp;
 };
 
 #endif // APPINTERFACE_H

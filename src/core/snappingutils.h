@@ -27,22 +27,22 @@ class SnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsQuickMapSettings* mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QgsVectorLayer* currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+    Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
     Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
 
   public:
-    SnappingUtils( QObject* parent = nullptr );
+    SnappingUtils( QObject *parent = nullptr );
 
-    QgsQuickMapSettings* mapSettings() const;
-    void setMapSettings( QgsQuickMapSettings* settings );
+    QgsQuickMapSettings *mapSettings() const;
+    void setMapSettings( QgsQuickMapSettings *settings );
 
-    QgsVectorLayer* currentLayer() const;
-    void setCurrentLayer( QgsVectorLayer* currentLayer );
+    QgsVectorLayer *currentLayer() const;
+    void setCurrentLayer( QgsVectorLayer *currentLayer );
 
     QPointF inputCoordinate() const;
-    void setInputCoordinate( const QPointF& inputCoordinate );
+    void setInputCoordinate( const QPointF &inputCoordinate );
 
     SnappingResult snappingResult() const;
 
@@ -66,8 +66,8 @@ class SnappingUtils : public QgsSnappingUtils
   private:
     void snap();
 
-    QgsQuickMapSettings* mSettings;
-    QgsVectorLayer* mCurrentLayer;
+    QgsQuickMapSettings *mSettings;
+    QgsVectorLayer *mCurrentLayer;
 
     int mIndexLayerCount;
     SnappingResult mSnappingResult;

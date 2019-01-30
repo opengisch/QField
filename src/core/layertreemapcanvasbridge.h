@@ -49,16 +49,16 @@ class LayerTreeMapCanvasBridge : public QObject
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge(  LayerTreeModel* model, QgsQuickMapSettings* mapSettings, QObject* parent = nullptr );
+    LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent = nullptr );
 
     void clear();
 
-    QgsLayerTree* layerTree() const
+    QgsLayerTree *layerTree() const
     {
       return mModel->layerTree();
     }
 
-    QgsQuickMapSettings* mapSettings() const
+    QgsQuickMapSettings *mapSettings() const
     {
       return mMapSettings;
     }
@@ -98,40 +98,40 @@ class LayerTreeMapCanvasBridge : public QObject
 
   public slots:
     void setHasCustomLayerOrder( bool state );
-    void setCustomLayerOrder( const QStringList& order );
+    void setCustomLayerOrder( const QStringList &order );
 
     //! force update of canvas layers from the layer tree. Normally this should not be needed to be called.
     void setCanvasLayers();
 
-    void readProject( const QDomDocument& doc );
-    void writeProject( QDomDocument& doc );
+    void readProject( const QDomDocument &doc );
+    void writeProject( QDomDocument &doc );
 
   signals:
     void hasCustomLayerOrderChanged( bool );
-    void customLayerOrderChanged( const QStringList& order );
+    void customLayerOrderChanged( const QStringList &order );
 
   private:
 
-    void defaultLayerOrder( QgsLayerTreeNode* node, QStringList& order ) const;
+    void defaultLayerOrder( QgsLayerTreeNode *node, QStringList &order ) const;
 
-    void setCanvasLayers( QgsLayerTreeNode* node, QList<QgsMapLayer*>& layers );
+    void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &layers );
 
     void deferredSetCanvasLayers();
 
   private slots:
-    void nodeAddedChildren( QgsLayerTreeNode* node, int indexFrom, int indexTo );
+    void nodeAddedChildren( QgsLayerTreeNode *node, int indexFrom, int indexTo );
     void nodeRemovedChildren();
     void nodeVisibilityChanged();
-    void nodeCustomPropertyChanged( QgsLayerTreeNode* node, const QString& key );
+    void nodeCustomPropertyChanged( QgsLayerTreeNode *node, const QString &key );
     void mapThemeChanged();
 
   private:
-    static bool findRecordForLayer( QgsMapLayer* layer, const QgsMapThemeCollection::MapThemeRecord& rec, QgsMapThemeCollection::MapThemeLayerRecord& layerRec );
-    static void applyThemeToLayer( QgsLayerTreeLayer* nodeLayer, const QgsMapThemeCollection::MapThemeRecord& rec );
-    static void applyThemeToGroup( QgsLayerTreeGroup* parent, const QgsMapThemeCollection::MapThemeRecord& rec );
+    static bool findRecordForLayer( QgsMapLayer *layer, const QgsMapThemeCollection::MapThemeRecord &rec, QgsMapThemeCollection::MapThemeLayerRecord &layerRec );
+    static void applyThemeToLayer( QgsLayerTreeLayer *nodeLayer, const QgsMapThemeCollection::MapThemeRecord &rec );
+    static void applyThemeToGroup( QgsLayerTreeGroup *parent, const QgsMapThemeCollection::MapThemeRecord &rec );
 
-    LayerTreeModel* mModel;
-    QgsQuickMapSettings* mMapSettings;
+    LayerTreeModel *mModel;
+    QgsQuickMapSettings *mMapSettings;
 
     bool mPendingCanvasUpdate;
 

@@ -22,28 +22,28 @@ void FocusStack::addFocusTaker( QQuickItem *item )
 
 void FocusStack::itemFocusChanged( bool itemActiveFocus )
 {
-  if( itemActiveFocus )
+  if ( itemActiveFocus )
   {
-    setFocused( qobject_cast<QQuickItem*>( sender() ) );
+    setFocused( qobject_cast<QQuickItem *>( sender() ) );
   }
   else
   {
-    setUnfocused( qobject_cast<QQuickItem*>( sender() ) );
+    setUnfocused( qobject_cast<QQuickItem *>( sender() ) );
   }
 }
 
-void FocusStack::setFocused( QQuickItem* item  )
+void FocusStack::setFocused( QQuickItem *item )
 {
   mStackList.removeAll( item );
   mStackList.append( item );
 }
 
-void FocusStack::setUnfocused( QQuickItem* item  )
+void FocusStack::setUnfocused( QQuickItem *item )
 {
-  if( !item->isVisible() )
+  if ( !item->isVisible() )
   {
     mStackList.removeAll( item );
-    if( !mStackList.isEmpty() )
+    if ( !mStackList.isEmpty() )
     {
       mStackList.last()->forceActiveFocus();
     }

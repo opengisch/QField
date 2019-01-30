@@ -30,7 +30,7 @@ FeatureModel::FeatureModel( QObject *parent )
   connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
 }
 
-void FeatureModel::setFeature( const QgsFeature& feature )
+void FeatureModel::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
     return;
@@ -41,13 +41,13 @@ void FeatureModel::setFeature( const QgsFeature& feature )
   emit featureChanged();
 }
 
-void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
+void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 {
   if ( layer == mLayer )
     return;
 
   //remember the last feature of the old layer
-  if( mRememberings.contains( mLayer ) )
+  if ( mRememberings.contains( mLayer ) )
   {
     mRememberings[mLayer].rememberedFeature = mFeature;
   }
@@ -59,7 +59,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
   if ( mLayer )
   {
     //load remember values or create new entry
-    if( mRememberings.contains( mLayer ) )
+    if ( mRememberings.contains( mLayer ) )
     {
       mFeature = mRememberings[mLayer].rememberedFeature;
     }
@@ -72,7 +72,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer* layer )
   emit currentLayerChanged();
 }
 
-QgsVectorLayer* FeatureModel::layer() const
+QgsVectorLayer *FeatureModel::layer() const
 {
   return mLayer;
 }
@@ -84,7 +84,7 @@ VertexModel *FeatureModel::vertexModel()
 
 void FeatureModel::setVertexModel( VertexModel *model )
 {
-  if ( model== mVertexModel )
+  if ( model == mVertexModel )
     return;
 
   mVertexModel = model;
@@ -108,7 +108,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
 }
 
 
-int FeatureModel::rowCount( const QModelIndex& parent ) const
+int FeatureModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
     return 0;
@@ -116,7 +116,7 @@ int FeatureModel::rowCount( const QModelIndex& parent ) const
     return mFeature.attributes().count();
 }
 
-QVariant FeatureModel::data( const QModelIndex& index, int role ) const
+QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 {
   if ( mLayer )
     qWarning() << "Get data " << mLayer->name();
@@ -143,12 +143,12 @@ QVariant FeatureModel::data( const QModelIndex& index, int role ) const
   return QVariant();
 }
 
-bool FeatureModel::setData( const QModelIndex& index, const QVariant& value, int role )
+bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( data( index, role ) == value )
     return true;
 
-  switch( role )
+  switch ( role )
   {
     case AttributeValue:
     {
@@ -267,7 +267,7 @@ void FeatureModel::applyGeometry()
   mFeature.setGeometry( mGeometry->asQgsGeometry() );
 }
 
-void FeatureModel::removeLayer( QObject* layer )
+void FeatureModel::removeLayer( QObject *layer )
 {
   mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
 }
@@ -321,7 +321,7 @@ QString FeatureModel::positionSourceName() const
   return mPositionSource ? mPositionSource->sourceName() : QString();
 }
 
-void FeatureModel::setPositionSourceName( const QString& positionSourceName )
+void FeatureModel::setPositionSourceName( const QString &positionSourceName )
 {
   if ( mPositionSource && mPositionSource->sourceName() == positionSourceName )
     return;

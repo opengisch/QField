@@ -17,7 +17,7 @@
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
 
-RubberbandModel::RubberbandModel( QObject* parent )
+RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
   , mCurrentCoordinateIndex( 0 )
   , mGeometryType( QgsWkbTypes::LineGeometry )
@@ -44,23 +44,23 @@ QVector<QgsPoint> RubberbandModel::vertices() const
 QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
-  Q_FOREACH( const QgsPoint& pt, mPointList )
+  Q_FOREACH ( const QgsPoint &pt, mPointList )
   {
     points << QgsPoint( pt );
   }
-  if (skipCurrentPoint)
-      points.remove( mCurrentCoordinateIndex );
+  if ( skipCurrentPoint )
+    points.remove( mCurrentCoordinateIndex );
 
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem& crs, QgsWkbTypes::Type wkbType ) const
+QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType ) const
 {
   QgsPointSequence sequence;
 
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  Q_FOREACH( const QgsPoint& pt, mPointList )
+  Q_FOREACH ( const QgsPoint &pt, mPointList )
   {
     QgsPoint p2( ct.transform( pt.x(), pt.y() ) );
     if ( QgsWkbTypes::hasZ( wkbType ) )
@@ -71,13 +71,13 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   return sequence;
 }
 
-QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem& crs ) const
+QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem &crs ) const
 {
   QVector<QgsPointXY> sequence;
 
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  Q_FOREACH( const QgsPoint& pt, mPointList )
+  Q_FOREACH ( const QgsPoint &pt, mPointList )
   {
     sequence.append( ct.transform( pt.x(), pt.y() ) );
   }
@@ -136,7 +136,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
   emit currentCoordinateChanged();
 }
 
-QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem& crs, QgsWkbTypes::Type wkbType ) const
+QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType ) const
 {
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
@@ -159,12 +159,12 @@ QgsPoint RubberbandModel::currentCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex );
 }
 
-void RubberbandModel::setCurrentCoordinate( const QgsPoint& currentCoordinate )
+void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
 
-  if (mFrozen)
+  if ( mFrozen )
     return;
 
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
@@ -200,7 +200,7 @@ QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
   return mGeometryType;
 }
 
-void RubberbandModel::setGeometryType( const QgsWkbTypes::GeometryType& geometryType )
+void RubberbandModel::setGeometryType( const QgsWkbTypes::GeometryType &geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -214,7 +214,7 @@ QgsCoordinateReferenceSystem RubberbandModel::crs() const
   return mCrs;
 }
 
-void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem& crs )
+void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( crs == mCrs )
     return;
@@ -223,12 +223,12 @@ void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem& crs )
   emit crsChanged();
 }
 
-QgsVectorLayer* RubberbandModel::vectorLayer() const
+QgsVectorLayer *RubberbandModel::vectorLayer() const
 {
   return mLayer;
 }
 
-void RubberbandModel::setVectorLayer( QgsVectorLayer* layer )
+void RubberbandModel::setVectorLayer( QgsVectorLayer *layer )
 {
   if ( layer == mLayer )
     return;
@@ -247,7 +247,7 @@ bool RubberbandModel::frozen() const
   return mFrozen;
 }
 
-void RubberbandModel::setFrozen(const bool &frozen )
+void RubberbandModel::setFrozen( const bool &frozen )
 {
   if ( mFrozen == frozen )
     return;

@@ -514,7 +514,7 @@ void ModelTest::rowsAboutToBeInserted( const QModelIndex &parent, int start, int
 
     \sa rowsAboutToBeInserted()
  */
-void ModelTest::rowsInserted( const QModelIndex & parent, int start, int end )
+void ModelTest::rowsInserted( const QModelIndex &parent, int start, int end )
 {
   Changing c = insert.pop();
   Q_ASSERT( c.parent == parent );
@@ -578,7 +578,7 @@ void ModelTest::rowsAboutToBeRemoved( const QModelIndex &parent, int start, int 
 
     \sa rowsAboutToBeRemoved()
  */
-void ModelTest::rowsRemoved( const QModelIndex & parent, int start, int end )
+void ModelTest::rowsRemoved( const QModelIndex &parent, int start, int end )
 {
   qDebug() << "rr" << parent << start << end;
   Changing c = remove.pop();

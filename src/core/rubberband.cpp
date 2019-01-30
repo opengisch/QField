@@ -21,19 +21,19 @@
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
 
-Rubberband::Rubberband( QQuickItem* parent )
+Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
 }
 
-RubberbandModel* Rubberband::model() const
+RubberbandModel *Rubberband::model() const
 {
   return mRubberbandModel;
 }
 
-void Rubberband::setModel( RubberbandModel* model )
+void Rubberband::setModel( RubberbandModel *model )
 {
   if ( model )
     setVertexModel( nullptr );
@@ -63,12 +63,12 @@ void Rubberband::setModel( RubberbandModel* model )
   emit modelChanged();
 }
 
-VertexModel* Rubberband::vertexModel() const
+VertexModel *Rubberband::vertexModel() const
 {
   return mVertexModel;
 }
 
-void Rubberband::setVertexModel( VertexModel* model )
+void Rubberband::setVertexModel( VertexModel *model )
 {
   if ( model )
     setModel( nullptr );
@@ -85,8 +85,8 @@ void Rubberband::setVertexModel( VertexModel* model )
 
   if ( mVertexModel )
   {
-      connect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
-      connect( mVertexModel, &VertexModel::vertexCountChanged, this, &Rubberband::markDirty );
+    connect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
+    connect( mVertexModel, &VertexModel::vertexCountChanged, this, &Rubberband::markDirty );
   }
 
   markDirty();
@@ -95,12 +95,12 @@ void Rubberband::setVertexModel( VertexModel* model )
 }
 
 
-QgsQuickMapSettings* Rubberband::mapSettings() const
+QgsQuickMapSettings *Rubberband::mapSettings() const
 {
   return mMapSettings;
 }
 
-void Rubberband::setMapSettings( QgsQuickMapSettings* mapSettings )
+void Rubberband::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -117,7 +117,7 @@ void Rubberband::markDirty()
   update();
 }
 
-QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeData* )
+QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * )
 {
   if ( mDirty )
   {
@@ -133,7 +133,7 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
     if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
     {
       allVertices = mRubberbandModel->flatVertices();
-      geomType =mRubberbandModel->geometryType();
+      geomType = mRubberbandModel->geometryType();
       if ( frozen )
         allButCurrentVertices = mRubberbandModel->flatVertices( true );
     }
@@ -145,13 +145,13 @@ QSGNode* Rubberband::updatePaintNode( QSGNode* n, QQuickItem::UpdatePaintNodeDat
 
     if ( !allVertices.isEmpty() )
     {
-      SGRubberband* rb = new SGRubberband( allVertices, geomType, mColor, mWidth );
+      SGRubberband *rb = new SGRubberband( allVertices, geomType, mColor, mWidth );
       rb->setFlag( QSGNode::OwnedByParent );
       n->appendChildNode( rb );
 
       if ( frozen )
       {
-        SGRubberband* rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
+        SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
         n->appendChildNode( rbCurrentPoint );
       }
@@ -182,7 +182,7 @@ QColor Rubberband::color() const
   return mColor;
 }
 
-void Rubberband::setColor( const QColor& color )
+void Rubberband::setColor( const QColor &color )
 {
   if ( mColor == color )
     return;
@@ -212,7 +212,7 @@ QColor Rubberband::colorCurrentPoint() const
   return mColorCurrentPoint;
 }
 
-void Rubberband::setColorCurrentPoint( const QColor& color )
+void Rubberband::setColorCurrentPoint( const QColor &color )
 {
   if ( mColorCurrentPoint == color )
     return;

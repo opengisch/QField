@@ -285,7 +285,7 @@ void ModelMoveCommand::emitPostSignal()
   m_model->endMoveRows();
 }
 
-ModelResetCommand::ModelResetCommand( DynamicTreeModel* model, QObject* parent )
+ModelResetCommand::ModelResetCommand( DynamicTreeModel *model, QObject *parent )
   : ModelMoveCommand( model, parent )
 {
 
@@ -312,7 +312,7 @@ void ModelResetCommand::emitPostSignal()
   m_model->reset();
 }
 
-ModelResetCommandFixed::ModelResetCommandFixed( DynamicTreeModel* model, QObject* parent )
+ModelResetCommandFixed::ModelResetCommandFixed( DynamicTreeModel *model, QObject *parent )
   : ModelMoveCommand( model, parent )
 {
 

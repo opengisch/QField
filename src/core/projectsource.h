@@ -39,7 +39,7 @@ class ProjectSource : public QObject
     /**
      * This signal communitcates, when a project has been opened.
      */
-    void projectOpened( const QString& path );
+    void projectOpened( const QString &path );
 };
 
 #endif // PROJECTSOURCE_H

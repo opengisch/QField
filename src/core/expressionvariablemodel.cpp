@@ -19,7 +19,7 @@
 #include <QSettings>
 #include <QDebug>
 
-ExpressionVariableModel::ExpressionVariableModel( QObject* parent )
+ExpressionVariableModel::ExpressionVariableModel( QObject *parent )
   : QStandardItemModel( parent )
 {
   reloadVariables();
@@ -27,19 +27,19 @@ ExpressionVariableModel::ExpressionVariableModel( QObject* parent )
   connect( this, &QStandardItemModel::dataChanged, this, &ExpressionVariableModel::onDataChanged );
 }
 
-bool ExpressionVariableModel::setData( const QModelIndex& index, const QVariant& value, int role )
+bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   return QStandardItemModel::setData( index, value, role );
 }
 
-void ExpressionVariableModel::addCustomVariable( const QString& varName, const QString& varVal )
+void ExpressionVariableModel::addCustomVariable( const QString &varName, const QString &varVal )
 {
-  QStandardItem* nameItem = new QStandardItem( varName );
+  QStandardItem *nameItem = new QStandardItem( varName );
   nameItem->setData( varName, VariableName );
   nameItem->setData( varVal, VariableValue );
   nameItem->setEditable( true );
 
-  insertRow( rowCount(), QList<QStandardItem*>() << nameItem );
+  insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
 }
 
 void ExpressionVariableModel::removeCustomVariable( int row )
@@ -71,21 +71,21 @@ void ExpressionVariableModel::reloadVariables()
   variableNames.sort();
 
   // First add readonly variables
-  for ( const QString& varName : variableNames )
+  for ( const QString &varName : variableNames )
   {
     if ( scope->isReadOnly( varName ) )
     {
-      QStandardItem* nameItem = new QStandardItem( varName );
+      QStandardItem *nameItem = new QStandardItem( varName );
       nameItem->setData( varName, VariableName );
       nameItem->setData( scope->variable( varName ), VariableValue );
       nameItem->setEditable( false );
 
-      insertRow( rowCount(), QList<QStandardItem*>() << nameItem );
+      insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
     }
   }
 
   // Then add custom variables
-  for ( const QString& varName : variableNames )
+  for ( const QString &varName : variableNames )
   {
     if ( !scope->isReadOnly( varName ) )
     {
@@ -97,22 +97,22 @@ void ExpressionVariableModel::reloadVariables()
 
 bool ExpressionVariableModel::isEditable( int row )
 {
-  QStandardItem* rowItem = item( row );
+  QStandardItem *rowItem = item( row );
   if ( rowItem )
     return rowItem->isEditable();
   return false;
 }
 
-void ExpressionVariableModel::setName( int row, const QString& name )
+void ExpressionVariableModel::setName( int row, const QString &name )
 {
-  QStandardItem* rowItem = item( row );
+  QStandardItem *rowItem = item( row );
   if ( rowItem )
     rowItem->setData( name, VariableName );
 }
 
-void ExpressionVariableModel::setValue( int row, const QString& value )
+void ExpressionVariableModel::setValue( int row, const QString &value )
 {
-  QStandardItem* rowItem = item( row );
+  QStandardItem *rowItem = item( row );
   if ( rowItem )
     rowItem->setData( value, VariableValue );
 }
@@ -125,7 +125,7 @@ QHash<int, QByteArray> ExpressionVariableModel::roleNames() const
   return names;
 }
 
-void ExpressionVariableModel::onDataChanged( const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector<int>& roles )
+void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
