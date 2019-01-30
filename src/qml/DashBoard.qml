@@ -1,6 +1,6 @@
 import QtQuick 2.11
 import org.qgis 1.0
-import QtQuick.Controls 2.5 as Controls
+import QtQuick.Controls 2.4 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
