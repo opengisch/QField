@@ -115,9 +115,13 @@ void AttributeFormModelBase::onLayerChanged()
 {
   clear();
 
-  mLayer = mFeatureModel->layer();
   mVisibilityExpressions.clear();
   mConstraints.clear();
+
+  if ( !mFeatureModel )
+    return;
+
+  mLayer = mFeatureModel->layer();
 
   if ( mLayer )
   {
