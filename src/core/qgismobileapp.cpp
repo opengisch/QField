@@ -116,8 +116,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
   mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), this );
-  connect( mProject, &QgsProject::writeProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::writeProject );
-  connect( mProject, &QgsProject::readProject, mLayerTreeCanvasBridge, &LayerTreeMapCanvasBridge::readProject );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );

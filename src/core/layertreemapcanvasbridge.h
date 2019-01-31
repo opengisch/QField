@@ -51,39 +51,13 @@ class LayerTreeMapCanvasBridge : public QObject
     //! Constructor: does not take ownership of the layer tree nor canvas
     LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent = nullptr );
 
-    void clear();
-
-    QgsLayerTree *layerTree() const
-    {
-      return mModel->layerTree();
-    }
-
-    QgsQuickMapSettings *mapSettings() const
-    {
-      return mMapSettings;
-    }
-
-    bool hasCustomLayerOrder() const
-    {
-      return mHasCustomLayerOrder;
-    }
-    QStringList customLayerOrder() const
-    {
-      return mCustomLayerOrder;
-    }
-
-    QStringList defaultLayerOrder() const;
+    QgsLayerTree *rootGroup() const { return mRoot; }
+    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
 
     //! if enabled, will automatically set full canvas extent and destination CRS + map units
     //! when first layer(s) are added
-    void setAutoSetupOnFirstLayer( bool enabled )
-    {
-      mAutoSetupOnFirstLayer = enabled;
-    }
-    bool autoSetupOnFirstLayer() const
-    {
-      return mAutoSetupOnFirstLayer;
-    }
+    void setAutoSetupOnFirstLayer( bool enabled ) {  mAutoSetupOnFirstLayer = enabled; }
+    bool autoSetupOnFirstLayer() const    {  return mAutoSetupOnFirstLayer;  }
 
     //! if enabled, will automatically turn on on-the-fly reprojection of layers if a layer
     //! with different source CRS is added
@@ -96,42 +70,26 @@ class LayerTreeMapCanvasBridge : public QObject
       return mAutoEnableCrsTransform;
     }
 
-  public slots:
-    void setHasCustomLayerOrder( bool state );
-    void setCustomLayerOrder( const QStringList &order );
-
     //! force update of canvas layers from the layer tree. Normally this should not be needed to be called.
-    void setCanvasLayers();
-
-    void readProject( const QDomDocument &doc );
-    void writeProject( QDomDocument &doc );
-
-  signals:
-    void hasCustomLayerOrderChanged( bool );
-    void customLayerOrderChanged( const QStringList &order );
-
-  private:
-
-    void defaultLayerOrder( QgsLayerTreeNode *node, QStringList &order ) const;
-
-    void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &layers );
-
-    void deferredSetCanvasLayers();
+    Q_INVOKABLE void setCanvasLayers();
 
   private slots:
-    void nodeAddedChildren( QgsLayerTreeNode *node, int indexFrom, int indexTo );
-    void nodeRemovedChildren();
     void nodeVisibilityChanged();
-    void nodeCustomPropertyChanged( QgsLayerTreeNode *node, const QString &key );
     void mapThemeChanged();
 
   private:
+
+    void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers );
+
+    void deferredSetCanvasLayers();
+
     static bool findRecordForLayer( QgsMapLayer *layer, const QgsMapThemeCollection::MapThemeRecord &rec, QgsMapThemeCollection::MapThemeLayerRecord &layerRec );
     static void applyThemeToLayer( QgsLayerTreeLayer *nodeLayer, const QgsMapThemeCollection::MapThemeRecord &rec );
     static void applyThemeToGroup( QgsLayerTreeGroup *parent, const QgsMapThemeCollection::MapThemeRecord &rec );
 
-    LayerTreeModel *mModel;
-    QgsQuickMapSettings *mMapSettings;
+    QgsLayerTree *mRoot = nullptr;
+    LayerTreeModel *mModel = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
 
     bool mPendingCanvasUpdate;
 
@@ -142,7 +100,7 @@ class LayerTreeMapCanvasBridge : public QObject
     bool mAutoEnableCrsTransform;
 
     bool mHasFirstLayer;
-    bool mNoLayersLoaded;
+    bool mHasLayersLoaded;
 
     QgsCoordinateReferenceSystem mFirstCRS;
 };
