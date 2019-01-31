@@ -37,24 +37,24 @@ jobs:
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: build ARMv7
+      name: "📱 build ARMv7"
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: build X86
+      name: "☎ build X86"
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
-      name: "Deploy 🍺"
+      name: "🍺 Deploy"
       if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
     - stage: deploy
-      name: "translations 🌍"
+      name: "🌍 Translations"
       if: branch = master
       install:
         pip install -r requirements.txt
