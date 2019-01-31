@@ -103,7 +103,7 @@
 <li><a class="reference internal" href="#custom-svg-symbols-and-settings">Símbolos SVG personalizados y ajustes.</a></li>
 <li><a class="reference internal" href="#external-sd-card">Tarjeta SD externa</a></li>
 <li><a class="reference internal" href="#warning">Advertencia!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">How to turn external SD card into internal storage on Android 6 and 7.</a></li>
+<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">Cómo convertir la tarjeta SD externa en almacenamiento interno en Android 6 y 7.</a></li>
 </ul>
 </li>
 </ul>
@@ -152,7 +152,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Android: Notas de acceso de archivos especiales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Búsqueda en capas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos soportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos Raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestión de Proyectos de QField</a></li>
@@ -179,7 +179,7 @@
 <h2>Símbolos SVG personalizados y ajustes.<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En el cuadro de diálogo &#8220;Acerca de&#8221; puedes ver donde se localizan las carpetas compartidas en tu dispositivo.</p>
 <p>Si quieres usar símbolos personalizados necesitas ponerlos ahí usando un gestor de archivos.</p>
-<p><em>Warning</em> : some apps may block your access to svg folder. On Samsung devices, you have to deactivate Samsung &#8220;Secured Folder&#8221; app in order to access to the svg folder. Otherwise, this folder is hidden.</p>
+<p>Advertencia: Algunas aplicaciones pueden bloquear el acceso a la carpeta SVG. En los dispositivos Samsung, para acceder a esta carpeta, tiene que desactivar la aplicación &#8220;Samsung Secure Folder&#8221; o &#8220;Carpeta Segura&#8221; de Samsung. Si no lo hace, la carpeta SVG no aparece.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Tarjeta SD externa<a class="headerlink" href="#external-sd-card" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -190,21 +190,25 @@
 </div>
 <div class="section" id="warning">
 <h2>Advertencia!<a class="headerlink" href="#warning" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>By storing data in this folder, you risk losing data. You can lose data by uninstalling QField from your Android device. Android system will delete the /Android/data/ch.opengis.qfield directory. This is important if you keep the data in the External sd card.</p>
+<p>Al guardar información en esta carpeta, se corre el riesgo de perder datos. Puedes perder información al desinstalar QField de tu dispositivo Android. El sistema Android borrará la dirección /Android/data/ch.opengis.qfield. Es importante tener en cuenta esto si tu guardas la información en la tarjeta de memoria externa.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
-<h2>How to turn external SD card into internal storage on Android 6 and 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>We recommend turn external SD card into internal storage.</p>
-<p>NOTE: Please be sure you start with a blank SD card. It needs to be blank because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped) and encoded (making the cards data only readable by that device).</p>
+<h2>Cómo convertir la tarjeta SD externa en almacenamiento interno en Android 6 y 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recomendamos que conviertas la tarjeta SD externa en almacenamiento interno.</p>
+<p>NOTA: Por favor asegúrate de comenzar con una tarjeta SD en blanco. Debe estar en blanco porque cuando la tarjeta se convierta en almacenamiento &#8220;interno&#8221;, va a ser formateada (borrada) y codificada (provocando que la información de la tarjeta solo pueda ser leída por ese dispositivo).</p>
 <ol class="arabic simple">
-<li>Go to device “Settings”, then select “Storage”.</li>
-<li>Select your &#8220;SD Card&#8221;, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
-<li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
-<li>Your SD Card will now be formatted as internal storage.</li>
+<li><p class="first">Ve a la &#8220;Configuración&#8221; del dispositivo y selecciona &#8220;Almacenamiento&#8221;.</p>
+</li>
+<li><p class="first">Selecciona tu &#8220;Tarjeta SD&#8221;. Luego pulsa el &#8220;Menú de tres puntos&#8221; (en la esquina derecha) y allí dentro selecciona &#8220;Configuración&#8221;.</p>
+</li>
+<li><p class="first">Ahora selecciona &#8220;Formatear como interno&#8221; y luego &#8220;Borrar y formatear&#8221;.</p>
+</li>
+<li><p class="first">Ahora tu tarjeta SD será formateada como almacenamiento interno.</p>
+</li>
 <li><p class="first">Reinicie su teléfono.</p>
 </li>
 </ol>
-<p>NOTE: If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>NOTA: Si no reinicias el teléfono, puede que muchas cosas no funcionen correctamente, así que asegúrate de reiniciarlo.</p>
 </div>
 </div>
 
