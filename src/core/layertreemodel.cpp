@@ -170,11 +170,13 @@ QgsProject *LayerTreeModel::project() const
 
 void LayerTreeModel::updateCurrentMapTheme()
 {
-  QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
+  const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
   for ( const QString &grpName : mapThemes )
   {
-    if ( rec == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ) )
+    // only compare layer records as the legend does not offer collapse info for now
+    // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
+    if ( rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ).validLayerRecords() )
     {
       mMapTheme = grpName;
       return;
