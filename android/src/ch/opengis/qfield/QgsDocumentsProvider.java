@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.Arrays;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
@@ -165,12 +166,16 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             // and change dir to the parent 4x
 
             File[] externalFilesDirs = getContext().getExternalFilesDirs(null);
+            Log.v(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
             for (int i = 0; i < externalFilesDirs.length; i++){
-                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-                if (root.exists() && root.isDirectory()){
-                    Log.v(TAG, "Scan for qgs projects: " + root.getPath());
-                    String rootPath= root.getPath();
-                    scanFiles(new File(rootPath), result);
+                try{
+                    File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                    if (root.exists() && root.isDirectory()){
+                        //Log.v(TAG, "Scan for qgs projects: " + root.getPath());
+                        String rootPath= root.getPath();
+                        scanFiles(new File(rootPath), result);
+                    }
+                }catch (Exception e){
                 }
             }
 
@@ -192,6 +197,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
         File[] fileArray = file.listFiles();
         for (File f : fileArray){
             if (f.isDirectory()){
+                // Avoid to scan big directory where is very unlikely to find qgs projects
                 if (! (f.isHidden() ||
                        f.getPath().contains("Android/") ||
                        f.getPath().contains("DCIM") ||
@@ -202,13 +208,19 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                        f.getPath().contains("Playlists") ||
                        f.getPath().contains("Podcasts") ||
                        f.getPath().contains("Sounds") ||
-                       f.getPath().contains("Music"))) {
-                    Log.v(TAG, "Scan directory: " + f.getPath());
+                       f.getPath().contains("Music") ||
+                       f.getPath().contains("com.") ||
+                       f.getPath().contains("org.") ||
+                       f.getPath().contains("net.") ||
+                       f.getPath().contains("WhatsApp") ||
+                       f.getPath().contains("aWorkbook")
+                       )) {
+                    //Log.v(TAG, "Scan directory: " + f.getPath());
                     scanFiles(f, result);
                 }
             }else if (f.isFile()){
                 if (f.getPath().toLowerCase().endsWith(".qgs")){
-
+                    Log.v(TAG, "Found qgs file: " + f.getPath());
                     // If the file is in the root directory, add it
                     // otherwise add the parent directory
                     if (f.getParentFile() == file){
