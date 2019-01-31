@@ -27,8 +27,8 @@
 
 LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent )
   : QObject( parent )
-  , mModel( model )
   , mRoot( model->layerTree() )
+  , mModel( model )
   , mMapSettings( mapSettings )
   , mPendingCanvasUpdate( false )
   , mHasCustomLayerOrder( false )
@@ -145,68 +145,5 @@ void LayerTreeMapCanvasBridge::mapThemeChanged()
 }
 
 
-bool LayerTreeMapCanvasBridge::findRecordForLayer( QgsMapLayer *layer, const QgsMapThemeCollection::MapThemeRecord &rec, QgsMapThemeCollection::MapThemeLayerRecord &layerRec )
-{
-  Q_FOREACH ( const QgsMapThemeCollection::MapThemeLayerRecord &lr, rec.layerRecords() )
-  {
-    if ( lr.layer() == layer )
-    {
-      layerRec = lr;
-      return true;
-    }
-  }
-  return false;
-}
-
-void LayerTreeMapCanvasBridge::applyThemeToLayer( QgsLayerTreeLayer *nodeLayer, const QgsMapThemeCollection::MapThemeRecord &rec )
-{
-  QgsMapThemeCollection::MapThemeLayerRecord layerRec;
-  bool isVisible = findRecordForLayer( nodeLayer->layer(), rec, layerRec );
-
-  nodeLayer->setItemVisibilityChecked( isVisible );
-
-  if ( !isVisible )
-    return;
-
-  if ( layerRec.usingCurrentStyle )
-  {
-    // apply desired style first
-    nodeLayer->layer()->styleManager()->setCurrentStyle( layerRec.currentStyle );
-  }
-#if 0
-  if ( layerRec.usingLegendItems )
-  {
-    // some nodes are not checked
-    Q_FOREACH ( QgsLayerTreeModelLegendNode *legendNode, model->layerLegendNodes( nodeLayer, true ) )
-    {
-      QString ruleKey = legendNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString();
-      Qt::CheckState shouldHaveState = layerRec.checkedLegendItems.contains( ruleKey ) ? Qt::Checked : Qt::Unchecked;
-      if ( ( legendNode->flags() & Qt::ItemIsUserCheckable ) &&
-           legendNode->data( Qt::CheckStateRole ).toInt() != shouldHaveState )
-        legendNode->setData( shouldHaveState, Qt::CheckStateRole );
-    }
-  }
-  else
-  {
-    // all nodes should be checked
-    Q_FOREACH ( QgsLayerTreeModelLegendNode *legendNode, model->layerLegendNodes( nodeLayer, true ) )
-    {
-      if ( ( legendNode->flags() & Qt::ItemIsUserCheckable ) &&
-           legendNode->data( Qt::CheckStateRole ).toInt() != Qt::Checked )
-        legendNode->setData( Qt::Checked, Qt::CheckStateRole );
-    }
-  }
-#endif
-}
 
 
-void LayerTreeMapCanvasBridge::applyThemeToGroup( QgsLayerTreeGroup *parent, const QgsMapThemeCollection::MapThemeRecord &rec )
-{
-  Q_FOREACH ( QgsLayerTreeNode *node, parent->children() )
-  {
-    if ( QgsLayerTree::isGroup( node ) )
-      applyThemeToGroup( QgsLayerTree::toGroup( node ), rec );
-    else if ( QgsLayerTree::isLayer( node ) )
-      applyThemeToLayer( QgsLayerTree::toLayer( node ), rec );
-  }
-}

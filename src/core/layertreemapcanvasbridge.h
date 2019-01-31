@@ -83,10 +83,6 @@ class LayerTreeMapCanvasBridge : public QObject
 
     void deferredSetCanvasLayers();
 
-    static bool findRecordForLayer( QgsMapLayer *layer, const QgsMapThemeCollection::MapThemeRecord &rec, QgsMapThemeCollection::MapThemeLayerRecord &layerRec );
-    static void applyThemeToLayer( QgsLayerTreeLayer *nodeLayer, const QgsMapThemeCollection::MapThemeRecord &rec );
-    static void applyThemeToGroup( QgsLayerTreeGroup *parent, const QgsMapThemeCollection::MapThemeRecord &rec );
-
     QgsLayerTree *mRoot = nullptr;
     LayerTreeModel *mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
