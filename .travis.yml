@@ -31,7 +31,7 @@ jobs:
   #  - name: testing
   include:
     - stage: test
-      name: testing
+      name: "🍳 Testing"
       script:
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
