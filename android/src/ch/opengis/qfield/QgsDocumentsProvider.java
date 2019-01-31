@@ -199,7 +199,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             if (f.isDirectory()){
                 // Avoid to scan big directory where is very unlikely to find qgs projects
                 if (! (f.isHidden() ||
-                       f.getPath().contains("Android/") ||
+                       //f.getPath().contains("Android/") ||
                        f.getPath().contains("DCIM") ||
                        f.getPath().contains("Pictures") ||
                        f.getPath().contains("Movies") ||
@@ -209,11 +209,10 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                        f.getPath().contains("Podcasts") ||
                        f.getPath().contains("Sounds") ||
                        f.getPath().contains("Music") ||
-                       f.getPath().contains("com.") ||
-                       f.getPath().contains("org.") ||
-                       f.getPath().contains("net.") ||
+                       //f.getPath().contains("com.") ||
+                       //f.getPath().contains("org.") ||
+                       //f.getPath().contains("net.") ||
                        f.getPath().contains("WhatsApp") ||
-                       f.getPath().contains("aWorkbook")
                        )) {
                     //Log.v(TAG, "Scan directory: " + f.getPath());
                     scanFiles(f, result);
