@@ -188,10 +188,24 @@ public class QgsDocumentsProvider extends DocumentsProvider {
      * @param result the matrix cursor  
      */
     public void scanFiles(File file, MatrixCursor result) throws FileNotFoundException {
+
         File[] fileArray = file.listFiles();
         for (File f : fileArray){
             if (f.isDirectory()){
-                scanFiles(f, result);
+                if (! (f.isHidden() ||
+                       f.getPath().contains("Android/") ||
+                       f.getPath().contains("DCIM") ||
+                       f.getPath().contains("Pictures") ||
+                       f.getPath().contains("Movies") ||
+                       f.getPath().contains("Books") ||
+                       f.getPath().contains("MyImages") ||
+                       f.getPath().contains("Playlists") ||
+                       f.getPath().contains("Podcasts") ||
+                       f.getPath().contains("Sounds") ||
+                       f.getPath().contains("Music"))) {
+                    Log.v(TAG, "Scan directory: " + f.getPath());
+                    scanFiles(f, result);
+                }
             }else if (f.isFile()){
                 if (f.getPath().toLowerCase().endsWith(".qgs")){
 
