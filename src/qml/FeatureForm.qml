@@ -1,10 +1,10 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.0
+import QtQuick 2.11
+import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-import QtQml.Models 2.2
-import QtQml 2.2
+import QtQml.Models 2.11
+import QtQml 2.3
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -175,7 +175,7 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
+              rootIndex: form.model && form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
             }
 
             delegate: fieldItem
