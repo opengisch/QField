@@ -212,7 +212,7 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                        //f.getPath().contains("com.") ||
                        //f.getPath().contains("org.") ||
                        //f.getPath().contains("net.") ||
-                       f.getPath().contains("WhatsApp") ||
+                       f.getPath().contains("WhatsApp")
                        )) {
                     //Log.v(TAG, "Scan directory: " + f.getPath());
                     scanFiles(f, result);
