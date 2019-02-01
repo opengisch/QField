@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.Arrays;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
@@ -84,27 +85,16 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
     @Override
     public boolean onCreate() {
-        //Log.v(TAG, "onCreate");
-
         mBaseDir = getContext().getFilesDir();
         return true;
     }
 
     @Override
     public Cursor queryRoots(String[] projection) throws FileNotFoundException {
-        //Log.v(TAG, "queryRoots");
-
         // Create a cursor with either the requested fields, or the default projection.  This
         // cursor is returned to the Android system picker UI and used to display all roots from
         // this provider.
         final MatrixCursor result = new MatrixCursor(resolveRootProjection(projection));
-
-        // TODO
-        // If the user is not using QField, return an empty root cursor.  This removes our provider from
-        // the list entirely.
-        //if (!getContext().getPackageName().equals("ch.opengis.qfield")) {
-        //   return result;
-        //}
 
         // It's possible to have multiple roots (e.g. for multiple accounts in the same app) -
         // just add multiple cursor rows.
@@ -141,8 +131,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryDocument(String documentId, String[] projection)
         throws FileNotFoundException {
-        //Log.v(TAG, "queryDocument");
-
         // Create a cursor with the requested projection, or the default projection.
         final MatrixCursor result = new MatrixCursor(resolveDocumentProjection(projection));
         includeFile(result, documentId, null);
@@ -152,8 +140,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryChildDocuments(String parentDocumentId, String[] projection,
                                       String sortOrder) throws FileNotFoundException {
-        //Log.v(TAG, "queryDocument " + parentDocumentId);
-
         parentDirectories.clear();
         
         final MatrixCursor result = new MatrixCursor(resolveDocumentProjection(projection));
@@ -165,12 +151,15 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             // and change dir to the parent 4x
 
             File[] externalFilesDirs = getContext().getExternalFilesDirs(null);
+            Log.v(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
             for (int i = 0; i < externalFilesDirs.length; i++){
-                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-                if (root.exists() && root.isDirectory()){
-                    Log.v(TAG, "Scan for qgs projects: " + root.getPath());
-                    String rootPath= root.getPath();
-                    scanFiles(new File(rootPath), result);
+                try{
+                    File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                    if (root.exists() && root.isDirectory()){
+                        String rootPath= root.getPath();
+                        scanFiles(new File(rootPath), result);
+                    }
+                }catch (Exception e){
                 }
             }
 
@@ -188,13 +177,28 @@ public class QgsDocumentsProvider extends DocumentsProvider {
      * @param result the matrix cursor  
      */
     public void scanFiles(File file, MatrixCursor result) throws FileNotFoundException {
+
         File[] fileArray = file.listFiles();
         for (File f : fileArray){
             if (f.isDirectory()){
-                scanFiles(f, result);
+                // Avoid to scan big directory where is very unlikely to find qgs projects
+                if (! (f.isHidden() ||
+                       f.getPath().contains("DCIM") ||
+                       f.getPath().contains("Pictures") ||
+                       f.getPath().contains("Movies") ||
+                       f.getPath().contains("Books") ||
+                       f.getPath().contains("MyImages") ||
+                       f.getPath().contains("Playlists") ||
+                       f.getPath().contains("Podcasts") ||
+                       f.getPath().contains("Sounds") ||
+                       f.getPath().contains("Music") ||
+                       f.getPath().contains("WhatsApp")
+                       )) {
+                    scanFiles(f, result);
+                }
             }else if (f.isFile()){
                 if (f.getPath().toLowerCase().endsWith(".qgs")){
-
+                    Log.v(TAG, "Found qgs file: " + f.getPath());
                     // If the file is in the root directory, add it
                     // otherwise add the parent directory
                     if (f.getParentFile() == file){
@@ -228,7 +232,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     public ParcelFileDescriptor openDocument(final String documentId, final String mode,
                                              CancellationSignal signal)
             throws FileNotFoundException {
-        //Log.v(TAG, "openDocument, mode: " + mode);
         // It's OK to do network operations in this method to download the document, as long as you
         // periodically check the CancellationSignal.  If you have an extremely large file to
         // transfer from the network, a better solution may be pipes or sockets
