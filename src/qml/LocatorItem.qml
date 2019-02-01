@@ -22,17 +22,6 @@ Item {
     }
   }
 
-  states: [
-      State { when: locatorItem.searching;
-              PropertyChanges { target: searchButton; opacity: 0.0 }
-              PropertyChanges { target: searchField; opacity: 1.0 }
-              PropertyChanges { target: resultsList; opacity: 1.0 }},
-      State { when: !locatorItem.searching;
-              PropertyChanges { target: searchButton; opacity: 1.0 }
-              PropertyChanges { target: searchField; opacity: 0.0 }
-              PropertyChanges { target: resultsList; opacity: 0.0 }}
-  ]
-
   Controls.TextField {
     id: searchField
     placeholderText: qsTr("Search…")
@@ -40,7 +29,7 @@ Item {
     width: parent.width
     height: 40*dp
     anchors.right: parent.right
-    visible: opacity > 0
+    visible: locatorItem.searching
     padding: 5*dp
     inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font.pointSize: 16
@@ -48,22 +37,12 @@ Item {
     background: Rectangle {
       radius: 2*dp
       border.color: "#333"
-      border.width: 1
+      border.width: 1*dp
     }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         locatorItem.searching = false
-      }
-    }
-
-    transitions: Transition {
-      SequentialAnimation {
-        NumberAnimation {
-          target: searchField
-          property: "opacity"
-          duration: 400
-        }
       }
     }
   }
@@ -77,44 +56,39 @@ Item {
     height: searchField.height - 8 * dp
   }
 
-  Item {
-    // Button in controls 1 has no opacity
+  Button {
     id: searchButton
-    anchors.right: parent.right
+    anchors { right: parent.right; top: parent.top; }
+    visible: !locatorItem.searching
 
-    Button {
-      anchors { right: parent.right; top: parent.top; }
+    iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
+    round: true
+    bgcolor: "#80CC28"
 
-      iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
-      round: true
-      bgcolor: "#80CC28"
-
-      onClicked: {
-        locatorItem.searching = true
-        searchField.focus = true
-      }
-    }
-
-    visible: opacity > 0
-    transitions: Transition {
-      SequentialAnimation {
-        NumberAnimation {
-          target: searchButton
-          property: "opacity"
-          duration: 400
-        }
-      }
+    onClicked: {
+      locatorItem.searching = true
+      searchField.focus = true
     }
   }
 
+  Rectangle {
+    id: resultsBox
+    width: parent.width
+    height: childrenRect.height+2*border.width
+    border.color: "darkslategray"
+    border.width: resultsList.count ? 1*dp : 0
+    radius: 2*dp
+    anchors.top: searchField.bottom
+    color: "white"
+    visible: locatorItem.searching
+
   ListView {
     id: resultsList
-    anchors.top: searchField.bottom
+    anchors.centerIn: parent
     model: locator.proxyModel()
-    width: parent.width
+    width: parent.width-2*resultsBox.border.width
     height: Math.min( childrenRect.height, 200*dp, mainWindow.height - searchField.height )
     clip: true
-    visible: opacity > 0
 
     delegate: Rectangle {
       id: delegateRect
@@ -181,6 +155,7 @@ Item {
         }
       }
     }
+  }
   }
 }
 
