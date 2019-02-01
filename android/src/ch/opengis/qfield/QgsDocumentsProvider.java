@@ -85,27 +85,16 @@ public class QgsDocumentsProvider extends DocumentsProvider {
 
     @Override
     public boolean onCreate() {
-        //Log.v(TAG, "onCreate");
-
         mBaseDir = getContext().getFilesDir();
         return true;
     }
 
     @Override
     public Cursor queryRoots(String[] projection) throws FileNotFoundException {
-        //Log.v(TAG, "queryRoots");
-
         // Create a cursor with either the requested fields, or the default projection.  This
         // cursor is returned to the Android system picker UI and used to display all roots from
         // this provider.
         final MatrixCursor result = new MatrixCursor(resolveRootProjection(projection));
-
-        // TODO
-        // If the user is not using QField, return an empty root cursor.  This removes our provider from
-        // the list entirely.
-        //if (!getContext().getPackageName().equals("ch.opengis.qfield")) {
-        //   return result;
-        //}
 
         // It's possible to have multiple roots (e.g. for multiple accounts in the same app) -
         // just add multiple cursor rows.
@@ -142,8 +131,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryDocument(String documentId, String[] projection)
         throws FileNotFoundException {
-        //Log.v(TAG, "queryDocument");
-
         // Create a cursor with the requested projection, or the default projection.
         final MatrixCursor result = new MatrixCursor(resolveDocumentProjection(projection));
         includeFile(result, documentId, null);
@@ -153,8 +140,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     @Override
     public Cursor queryChildDocuments(String parentDocumentId, String[] projection,
                                       String sortOrder) throws FileNotFoundException {
-        //Log.v(TAG, "queryDocument " + parentDocumentId);
-
         parentDirectories.clear();
         
         final MatrixCursor result = new MatrixCursor(resolveDocumentProjection(projection));
@@ -171,7 +156,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                 try{
                     File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
                     if (root.exists() && root.isDirectory()){
-                        //Log.v(TAG, "Scan for qgs projects: " + root.getPath());
                         String rootPath= root.getPath();
                         scanFiles(new File(rootPath), result);
                     }
@@ -199,7 +183,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
             if (f.isDirectory()){
                 // Avoid to scan big directory where is very unlikely to find qgs projects
                 if (! (f.isHidden() ||
-                       //f.getPath().contains("Android/") ||
                        f.getPath().contains("DCIM") ||
                        f.getPath().contains("Pictures") ||
                        f.getPath().contains("Movies") ||
@@ -209,12 +192,8 @@ public class QgsDocumentsProvider extends DocumentsProvider {
                        f.getPath().contains("Podcasts") ||
                        f.getPath().contains("Sounds") ||
                        f.getPath().contains("Music") ||
-                       //f.getPath().contains("com.") ||
-                       //f.getPath().contains("org.") ||
-                       //f.getPath().contains("net.") ||
                        f.getPath().contains("WhatsApp")
                        )) {
-                    //Log.v(TAG, "Scan directory: " + f.getPath());
                     scanFiles(f, result);
                 }
             }else if (f.isFile()){
@@ -253,7 +232,6 @@ public class QgsDocumentsProvider extends DocumentsProvider {
     public ParcelFileDescriptor openDocument(final String documentId, final String mode,
                                              CancellationSignal signal)
             throws FileNotFoundException {
-        //Log.v(TAG, "openDocument, mode: " + mode);
         // It's OK to do network operations in this method to download the document, as long as you
         // periodically check the CancellationSignal.  If you have an extremely large file to
         // transfer from the network, a better solution may be pipes or sockets
