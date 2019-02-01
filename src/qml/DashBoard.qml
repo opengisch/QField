@@ -60,7 +60,7 @@ Controls.Pane {
     anchors.fill: parent
 
     Rectangle {
-      width: parent.width
+      anchors { left: parent.left; right: parent.right }
       height: childrenRect.height
 
       color: mainColor
@@ -170,7 +170,7 @@ Controls.Pane {
     Controls.GroupBox {
       id: mapThemeContainer
       title: qsTr( "Map Theme" )
-      width: parent.width
+      anchors { left: parent.left; right: parent.right }
       property bool isLoading: false
 
       Controls.ComboBox {
@@ -201,7 +201,7 @@ Controls.Pane {
 
     Legend {
       id: legend
-      width: parent.width
+      anchors { left: parent.left; right: parent.right }
       Layout.fillHeight: true
     }
   }
