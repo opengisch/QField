@@ -65,32 +65,32 @@ Page {
 
         Switch{
           id: showScaleBarCheckBox
-          anchors { left: parent.left; right: parent.right }
+          width: parent.width
           text: qsTr( "Show scalebar" )
         }
 
         Switch {
           id: fullScreenIdentifyViewCheckBox
-          anchors { left: parent.left; right: parent.right }
+          width: parent.width
           text: qsTr( "Show attribute form in full screen" )
         }
 
         Switch {
           id: incrementalRenderingCheckBox
-          anchors { left: parent.left; right: parent.right }
+          width: parent.width
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
 
         Switch {
           id: numericalDigitizingInformationCheckBox
-          anchors { left: parent.left; right: parent.right }
+          width: parent.width
           text: qsTr( "Show numerical information while digitizing" )
           checked: true
         }
 
         Switch {
           id: useNativeCameraCheckBox
-          anchors { left: parent.left; right: parent.right }
+          width: parent.width
           text: qsTr( "Use native camera function (unstable on recent Android versions)" )
         }
 
