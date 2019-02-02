@@ -19,74 +19,84 @@ class FileUtils{
     private static final String TAG = "QField Documents Provider";
 
     public static String getPathFromUri(Uri uri, ContentResolver resolver){
+        Log.v(TAG, "In getPathFromUri() ");
         Log.v(TAG, "Uri: "+ uri);
+        Log.v(TAG, "Authority: " + uri.getAuthority());
 
         String result = "";
 
-        Context context = QFieldActivity.getContext();
-        Log.v(TAG, "Get path from Uri, authority: "+ uri.getAuthority());
-
         // If URI is a file URI
         if ("file".equalsIgnoreCase(uri.getScheme())){
+            Log.v(TAG, "In if file");
             result = uri.getPath();
+            Log.v(TAG, "Result: " + result);
 
         // Document opened by QgsDocumentsProvider
         }else if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
-
+            Log.v(TAG, "In if qfield.documents");
             Cursor cursor = null;
             try {
                 cursor = resolver.query(uri, null, null, null, null);
                 if (cursor.moveToFirst()) {
                     result = cursor.getString(0);
-
+                    Log.v(TAG, "Result: " + result);
                 }
             } catch (Exception e) {
-                // Eat it
+                Log.v(TAG, "Exception: " + e);
             } finally {
                 cursor.close();
             }
 
-        // Document opened by other providers (e.g. Android's "SD card" provider)
+       // Document opened by other providers (e.g. Android's "SD card" provider)
         }else if (uri.getAuthority().equals("com.android.externalstorage.documents")){
-            final String docId = DocumentsContract.getDocumentId(uri);
-            Log.v(TAG, "---1---");
-            String idArr[] = docId.split(":");
-            if(idArr.length == 92){
-                String type = idArr[0];
-                String realDocId = idArr[1];
+            Log.v(TAG, "In if externalstorage.documents");
+            try{
+                Context context = QFieldActivity.getContext();
+                final String docId = DocumentsContract.getDocumentId(uri);
+                Log.v(TAG, "docId: " + docId);
+                String idArr[] = docId.split(":");
+                if(idArr.length == 2){
+                    String type = idArr[0];
+                    String realDocId = idArr[1];
 
-                if("primary".equalsIgnoreCase(type)){
-                    result = Environment.getExternalStorageDirectory() + "/" + realDocId;
-                }else{
-                    result = getExternalFilePath(context, idArr[1]);
+                    if("primary".equalsIgnoreCase(type)){
+                        Log.v(TAG, "In if primary");
+                        result = Environment.getExternalStorageDirectory() + "/" + realDocId;
+                        Log.v(TAG, "Result: " + result);
+                    }else{
+                        Log.v(TAG, "Not primary");
+                        result = getExternalFilePath(context, idArr[1]);
+                        Log.v(TAG, "Result " + result);
+                    }
                 }
+            }catch (Exception e){
+                Log.v(TAG, "Exception: " + e);
             }
         }
-        Log.v(TAG, "---2---");
+
         File f = new File(result);
-        Log.v(TAG, "---3---");        
         if (f.exists()){
-            Log.v(TAG, "---4---");            
             return f.getPath();
-        }else{
-            Log.v(TAG, "---5---");            
-            result = scanAllFiles(context, uri);
-            Log.v(TAG, "---6---"+result);
-            f = new File(result);
-            Log.v(TAG, "---7---");            
-            if (f.exists()){
-                Log.v(TAG, "---8---");                
-                return f.getPath();
-            }else{
-                Log.v(TAG, "---9---");                
-                return uri.toString();
-            }
         }
+
+        try{
+            Log.v(TAG, "In last try");
+            Context context = QFieldActivity.getContext();
+            result = scanAllFiles(context, uri);
+            Log.v(TAG, "Result: " + result);
+            f = new File(result);
+            if (f.exists()){
+                return f.getPath();
+            }
+        }catch (Exception e){
+            Log.v(TAG, "Exception: " + e);
+        }
+        return uri.toString();
     }
 
     // Try to guess the real file path, matching the path from the uri and the path of the
     // external dirs. It returns the first mathing result.
-    public static String getExternalFilePath(Context context, String pathFromUri){
+    public static String getExternalFilePath(Context context, String pathFromUri) throws Exception{
         File[] externalFilesDirs = context.getExternalFilesDirs(null);
         for (int i = 0; i < externalFilesDirs.length; i++){
             try{
@@ -101,10 +111,10 @@ class FileUtils{
             }catch (Exception e){
             }
         }
-        return null;
+        return "";
     }
 
-    public static String scanAllFiles(Context context, Uri uri){
+    public static String scanAllFiles(Context context, Uri uri) throws Exception{
         Log.v(TAG, "Scan all files ");
         Log.v(TAG, "Uri: " + uri.toString());
         String[] split1 = uri.toString().split("/");
@@ -121,17 +131,17 @@ class FileUtils{
                 if (root.exists() && root.isDirectory()){
                     String rootPath= root.getPath();
                     String result = scanFiles(new File(rootPath), filename);
-                    if(result != null){
+                    if(!result.equals("")){
                         return result;
                     }
                 }
             }catch (Exception e){
             }
         }
-        return null;
+        return "";
     }
 
-    public static String scanFiles(File root, String filename) throws FileNotFoundException {
+    public static String scanFiles(File root, String filename) throws Exception {
         File[] fileArray = root.listFiles();
         for (File f : fileArray){
             if (f.isDirectory()){
@@ -157,6 +167,6 @@ class FileUtils{
                 }
             }
         }
-        return null;
+        return "";
     }
 }
