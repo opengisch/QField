@@ -14,6 +14,7 @@ Page {
 
   property alias showScaleBar: showScaleBarCheckBox.checked
   property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
+  property alias locatorKeepScale: locatorKeepScaleCheckBox.checked
   property alias incrementalRendering: incrementalRenderingCheckBox.checked
   property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
   property alias useNativeCamera: useNativeCameraCheckBox.checked
@@ -21,6 +22,7 @@ Page {
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
     property alias fullScreenIdentifyView: fullScreenIdentifyViewCheckBox.checked
+    property alias locatorKeepScale: locatorKeepScaleCheckBox.checked
     property alias incrementalRendering: incrementalRenderingCheckBox.checked
     property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
     property alias useNativeCamera: useNativeCameraCheckBox.checked
@@ -76,10 +78,17 @@ Page {
         }
 
         Switch {
+          id: locatorKeepScaleCheckBox
+          width: parent.width
+          text: qsTr( "Keep current scale when triggering search results" )
+        }
+
+        Switch {
           id: incrementalRenderingCheckBox
           width: parent.width
           text: qsTr( "Redraw map every 250 ms while rendering" )
         }
+
 
         Switch {
           id: numericalDigitizingInformationCheckBox

@@ -14,6 +14,7 @@ Item {
     id: locator
     mapSettings: mapCanvas.mapSettings
     locatorHighlightGeometry: locatorHighlightItem.geometry
+    keepScale: qfieldSettings.locatorKeepScale
 
     featureListController: featureForm.extentController
 

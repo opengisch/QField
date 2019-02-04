@@ -54,6 +54,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
+    Q_PROPERTY( bool keepScale READ keepScale WRITE setKeepScale NOTIFY keepScaleChanged )
 
   public:
     explicit LocatorModelSuperBridge( QObject *parent = nullptr );
@@ -68,6 +69,9 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     FeatureListExtentController *featureListController() const;
     void setFeatureListController( FeatureListExtentController *featureListController );
 
+    bool keepScale() const;
+    void setKeepScale( bool keepScale );
+
     Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
     void emitMessage( const QString &text );
@@ -77,6 +81,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void locatorHighlightGeometryChanged();
     void featureListControllerChanged();
     void messageEmitted( const QString &text );
+    void keepScaleChanged();
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
@@ -85,6 +90,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     QgsQuickMapSettings *mMapSettings = nullptr;
     QObject *mLocatorHighlightGeometry = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
+    bool mKeepScale = false;
 };
 
 #endif // LOCATORMODELSUPERBRIDGE_H
