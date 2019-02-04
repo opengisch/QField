@@ -15,7 +15,6 @@ Contents
    vector-layers
    map-themes
    android-data-structure
-   project-selection
 
 Coordinate Reference Systems
 ============================
