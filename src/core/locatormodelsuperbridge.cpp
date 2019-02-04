@@ -81,6 +81,20 @@ void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentControl
   emit featureListControllerChanged();
 }
 
+bool LocatorModelSuperBridge::keepScale() const
+{
+  return mKeepScale;
+}
+
+void LocatorModelSuperBridge::setKeepScale( bool keepScale )
+{
+  if ( keepScale == mKeepScale )
+    return;
+
+  mKeepScale = keepScale;
+  emit keepScaleChanged();
+}
+
 LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );

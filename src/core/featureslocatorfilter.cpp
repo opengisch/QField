@@ -16,6 +16,7 @@
 
 #include "featureslocatorfilter.h"
 
+#include <math.h>
 #include <QAction>
 
 #include <qgsproject.h>
@@ -162,10 +163,48 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     }
     QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
+    // zoom in if point cannot be distinguished from others
+    // code taken from QgsMapCanvas::zoomToSelected
+    if ( !mLocatorBridge->keepScale() )
+    {
+      if ( layer->geometryType() == QgsWkbTypes::PointGeometry && r.isEmpty() )
+      {
+        int scaleFactor = 5;
+        QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
+        QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
+        QgsFeatureRequest req = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
+        QgsFeatureIterator fit = layer->getFeatures( req );
+        QgsFeature f;
+        QgsPointXY closestPoint;
+        double closestSquaredDistance = pow( extentRect.width() + extentRect.height(), 2.0 );
+        bool pointFound = false;
+        while ( fit.nextFeature( f ) )
+        {
+          QgsPointXY point = f.geometry().asPoint();
+          double sqrDist = point.sqrDist( center );
+          if ( sqrDist > closestSquaredDistance || sqrDist < 4 * std::numeric_limits<double>::epsilon() )
+            continue;
+          pointFound = true;
+          closestPoint = point;
+          closestSquaredDistance = sqrDist;
+        }
+        if ( pointFound )
+        {
+          // combine selected point with closest point and scale this rect
+          r.combineExtentWith( mLocatorBridge->mapSettings()->mapSettings().layerToMapCoordinates( layer, closestPoint ) );
+          r.scale( scaleFactor, &center );
+        }
+      }
+      else if ( !r.isEmpty() )
+      {
+        r.scale( 5 );
+      }
+    }
+
     if ( r.isEmpty() )
       mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) ); // TODO: port QGIS code to perform density test to optimize scale
     else
-      mLocatorBridge->mapSettings()->setExtent( r.scaled( 5 ) );
+      mLocatorBridge->mapSettings()->setExtent( r );
 
 
     mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
