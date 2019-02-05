@@ -2,6 +2,7 @@ package ch.opengis.qfield;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 import android.content.Context;
 import android.net.Uri;
@@ -19,129 +20,238 @@ class FileUtils{
     private static final String TAG = "QField Documents Provider";
 
     public static String getPathFromUri(Uri uri, ContentResolver resolver){
-        Log.v(TAG, "In getPathFromUri() ");
-        Log.v(TAG, "Uri: "+ uri);
-        Log.v(TAG, "Authority: " + uri.getAuthority());
+        Log.d(TAG, "*** In getPathFromUri() ");
+        Log.d(TAG, "Uri: " + uri);
+        Log.d(TAG, "Authority: " + uri.getAuthority());
+        Log.d(TAG, "Scheme: " + uri.getScheme());
 
-        String result = "";
+        String result = null;
 
-        // If URI is a file URI
-        if ("file".equalsIgnoreCase(uri.getScheme())){
-            Log.v(TAG, "In if file");
-            result = uri.getPath();
-            Log.v(TAG, "Result: " + result);
+        // All methods return a real file path or null if no file is found and they
+        // print a log of all variables and possibly the exceptions
 
-        // Document opened by QgsDocumentsProvider
-        }else if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
-            Log.v(TAG, "In if qfield.documents");
-            Cursor cursor = null;
-            try {
+        result = getPathFromFileUri(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        result = getPathFromQFieldUri(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        result = getPathFromExternalStorageDirectoryUri(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        result = getPathFromAllExternalFilesDirectoriesWithDocId(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        result = getPathFromAllExternalFilesDirectoriesWithoutDocId(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        result = getPathFromScanningAllDirectories(uri, resolver);
+        if (result != null){
+            return result;
+        }
+
+        // Will cause an error but at least QField will show the uri to the user
+        return uri.toString();
+    }
+
+    private static String getPathFromFileUri(Uri uri, ContentResolver resolver){
+        try{
+            Log.d(TAG, "** In getPathFromFileUri");
+
+            String result;
+
+            if ("file".equalsIgnoreCase(uri.getScheme())){
+                result = uri.getPath();
+                Log.d(TAG, "Uri.getPath(): " + result);
+                File f = new File(result);
+                if (f.exists()){
+                    Log.d(TAG, "Found: " + f.getPath());
+                    return f.getPath();
+                }
+            }
+        }catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
+        }
+        return null;
+    }
+
+    private static String getPathFromQFieldUri(Uri uri, ContentResolver resolver){
+        try{
+            Log.d(TAG, "** In getPathFromQFieldUri");
+
+            String result;
+            Cursor cursor;
+
+            if (uri.getAuthority().equals("ch.opengis.qfield.documents")){
                 cursor = resolver.query(uri, null, null, null, null);
                 if (cursor.moveToFirst()) {
                     result = cursor.getString(0);
-                    Log.v(TAG, "Result: " + result);
+                    Log.d(TAG, "cursor.getString(0): " + result);
+                    File f = new File(result);
+                    cursor.close();
+                    if (f.exists()){
+                        Log.d(TAG, "Found: " + f.getPath());
+                        return f.getPath();
+                    }
                 }
-            } catch (Exception e) {
-                Log.v(TAG, "Exception: " + e);
-            } finally {
-                cursor.close();
             }
+        } catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
+        }
+        return null;
+    }
 
-       // Document opened by other providers (e.g. Android's "SD card" provider)
-        }else if (uri.getAuthority().equals("com.android.externalstorage.documents")){
-            Log.v(TAG, "In if externalstorage.documents");
-            try{
-                Context context = QFieldActivity.getContext();
+    private static String getPathFromExternalStorageDirectoryUri(Uri uri, ContentResolver resolver){
+        try{
+            Log.d(TAG, "** In getPathFromExternalStorageDirectoryUri");
+
+            String result;
+            Cursor cursor;
+
+            if (uri.getAuthority().equals("com.android.externalstorage.documents")){
                 final String docId = DocumentsContract.getDocumentId(uri);
-                Log.v(TAG, "docId: " + docId);
+                Log.d(TAG, "docId: " + docId);
                 String idArr[] = docId.split(":");
                 if(idArr.length == 2){
                     String type = idArr[0];
                     String realDocId = idArr[1];
 
                     if("primary".equalsIgnoreCase(type)){
-                        Log.v(TAG, "In if primary");
-                        result = Environment.getExternalStorageDirectory() + "/" + realDocId;
-                        Log.v(TAG, "Result: " + result);
-                    }else{
-                        Log.v(TAG, "Not primary");
-                        result = getExternalFilePath(context, idArr[1]);
-                        Log.v(TAG, "Result " + result);
+                        Log.d(TAG, "Is primary");
+                        String externalStorageDirectory = Environment.getExternalStorageDirectory().getPath();
+                        Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
+                        result = externalStorageDirectory + "/" + realDocId;
+
+                        File f = new File(result);
+                        if (f.exists()){
+                            Log.d(TAG, "Found: " + f.getPath());
+                            return f.getPath();
+                        }
                     }
                 }
-            }catch (Exception e){
-                Log.v(TAG, "Exception: " + e);
             }
-        }
 
-        File f = new File(result);
-        if (f.exists()){
-            return f.getPath();
+        } catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
         }
+        return null;
+    }
 
+    private static String getPathFromAllExternalFilesDirectoriesWithDocId(Uri uri, ContentResolver resolver){
         try{
-            Log.v(TAG, "In last try");
+            Log.d(TAG, "** In getPathFromExternalFilesDirectoriesWithDocId");
             Context context = QFieldActivity.getContext();
-            result = scanAllFiles(context, uri);
-            Log.v(TAG, "Result: " + result);
-            f = new File(result);
-            if (f.exists()){
-                return f.getPath();
-            }
-        }catch (Exception e){
-            Log.v(TAG, "Exception: " + e);
-        }
-        return uri.toString();
-    }
+            final String docId = DocumentsContract.getDocumentId(uri);
+            Log.d(TAG, "docId: " + docId);
+            String idArr[] = docId.split(":");
+            if(idArr.length == 2){
+                String type = idArr[0];
+                String realDocId = idArr[1];
 
-    // Try to guess the real file path, matching the path from the uri and the path of the
-    // external dirs. It returns the first mathing result.
-    public static String getExternalFilePath(Context context, String pathFromUri) throws Exception{
-        File[] externalFilesDirs = context.getExternalFilesDirs(null);
-        for (int i = 0; i < externalFilesDirs.length; i++){
-            try{
-                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-                if(root.exists() && root.isDirectory()){
-                    File guess = new File(root, pathFromUri);
-                    Log.v(TAG, "Try "+i+", open file: "+guess.getPath());
-                    if (guess.exists()){
-                        return guess.getPath();
+                File[] externalFilesDirs = context.getExternalFilesDirs(null);
+                Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
+                for (int i = 0; i < externalFilesDirs.length; i++){
+                    Log.d(TAG, "External Files Dirs[" + i +"]: " + externalFilesDirs[i].getPath());
+                    try{
+                        File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                        if(root.exists() && root.isDirectory()){
+                            File result = new File(root, realDocId);
+                            Log.d(TAG, "result: "+result.getPath());
+                            if (result.exists()){
+                                Log.d(TAG, "Found: " + result.getPath());
+                                return result.getPath();
+                            }
+                        }
+                    }catch (Exception e){
+                        Log.d(TAG, "Exception (internal): " + e);
                     }
                 }
-            }catch (Exception e){
             }
+        } catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
         }
-        return "";
+        return null;
     }
 
-    public static String scanAllFiles(Context context, Uri uri) throws Exception{
-        Log.v(TAG, "Scan all files ");
-        Log.v(TAG, "Uri: " + uri.toString());
-        String[] split1 = uri.toString().split("/");
-        String last1 = split1[split1.length-1];
-        Log.v(TAG, "Last1 : " + last1);
-        String[] split2 = last1.split("%2F");
-        String filename = split2[split2.length-1];
-        Log.v(TAG, "filename : " + filename);
+    private static String getPathFromAllExternalFilesDirectoriesWithoutDocId(Uri uri, ContentResolver resolver){
+        try{
+            Log.d(TAG, "** In getPathFromExternalFilesDirectoriesWithoutDocId");
+            Context context = QFieldActivity.getContext();
+            String decodedUri = Uri.decode(uri.toString());
+            Log.d(TAG, "decodedUri: " + decodedUri);
+            String[] split = decodedUri.split(":");
+            String partialPath = split[split.length-1];
 
-        File[] externalFilesDirs = context.getExternalFilesDirs(null);
-        for (int i = 0; i < externalFilesDirs.length; i++){
-            try{
-                File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
-                if (root.exists() && root.isDirectory()){
-                    String rootPath= root.getPath();
-                    String result = scanFiles(new File(rootPath), filename);
-                    if(!result.equals("")){
-                        return result;
+            File[] externalFilesDirs = context.getExternalFilesDirs(null);
+            Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
+            for (int i = 0; i < externalFilesDirs.length; i++){
+                try{
+                    Log.d(TAG, "External Files Dirs[" + i +"]: " + externalFilesDirs[i].getPath());
+                    File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                    if(root.exists() && root.isDirectory()){
+                        File result = new File(root, partialPath);
+                        Log.d(TAG, "result: "+result.getPath());
+                        if (result.exists()){
+                            Log.d(TAG, "Found: " + result.getPath());
+                            return result.getPath();
+                        }
                     }
+                }catch (Exception e){
+                    Log.d(TAG, "Exception (internal): " + e);
                 }
-            }catch (Exception e){
             }
+        } catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
         }
-        return "";
+        return null;
     }
 
-    public static String scanFiles(File root, String filename) throws Exception {
+    private static String getPathFromScanningAllDirectories(Uri uri, ContentResolver resolver){
+        try{
+            Log.d(TAG, "** In getPathFromScanningAllDirectories");
+
+            Context context = QFieldActivity.getContext();
+            String[] split1 = uri.toString().split("/");
+            String last1 = split1[split1.length-1];
+
+            String[] split2 = last1.split("%2F");
+            String filename = split2[split2.length-1];
+            Log.d(TAG, "filename : " + filename);
+
+            File[] externalFilesDirs = context.getExternalFilesDirs(null);
+            Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
+            for (int i = 0; i < externalFilesDirs.length; i++){
+                try{
+                    Log.d(TAG, "External Files Dirs[" + i +"]: " + externalFilesDirs[i].getPath());
+                    File root = externalFilesDirs[i].getParentFile().getParentFile().getParentFile().getParentFile();
+                    if (root.exists() && root.isDirectory()){
+                        String rootPath= root.getPath();
+                        String result = scanFiles(new File(rootPath), filename);
+                        if(!result.equals("")){
+                            return result;
+                        }
+                    }
+                }catch (Exception e){
+                    Log.d(TAG, "Exception: " + e);
+                }
+            }
+        } catch (Exception e){
+            Log.d(TAG, "Exception: " + e);
+        }
+        return null;
+    }
+
+    private static String scanFiles(File root, String filename) throws Exception {
         File[] fileArray = root.listFiles();
         for (File f : fileArray){
             if (f.isDirectory()){
@@ -162,7 +272,7 @@ class FileUtils{
                 }
             }else if (f.isFile()){
                 if (f.getName().equals(filename)){
-                    Log.v(TAG, "Found! "+f.getPath());                    
+                    Log.d(TAG, "Found! "+f.getPath());
                     return f.getPath();
                 }
             }
