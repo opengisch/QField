@@ -67,13 +67,6 @@
       <!-- Background running -->
     </activity>
 
-    <!-- QField Documents provider -->
-    <provider android:name="ch.opengis.qfield.QgsDocumentsProvider" android:authorities="ch.opengis.qfield.documents" android:grantUriPermissions="true" android:exported="true" android:permission="android.permission.MANAGE_DOCUMENTS">
-      <intent-filter>
-        <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
-      </intent-filter>
-    </provider>
-    
   </application>
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
   <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
