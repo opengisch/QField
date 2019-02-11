@@ -24,18 +24,4 @@
          android:layout_toRightOf="@+id/item_icon"
          android:textSize="18dp" />
  
-     <!-- counter >
-     <TextView
-         android:id="@+id/item_counter"
-         android:layout_width="32dp"
-         android:layout_height="32dp"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="8dp"
-         android:background="@drawable/rectangle"
-         android:gravity="center"
-         android:textColor="#FFFFFF"
-         android:textSize="12sp"
-         android:textStyle="bold" /-->
- 
 </RelativeLayout>

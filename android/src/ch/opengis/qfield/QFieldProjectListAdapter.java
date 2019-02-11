@@ -11,12 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class QFieldProjectListAdapter extends ArrayAdapter {
+public class QFieldProjectListAdapter extends ArrayAdapter<QFieldProjectListItem> {
  
         private final Context context;
-        private final ArrayList values;
+        private final ArrayList<QFieldProjectListItem> values;
  
-        public QFieldProjectListAdapter(Context context, ArrayList values) {
+        public QFieldProjectListAdapter(Context context, ArrayList<QFieldProjectListItem> values) {
  
             super(context, android.R.layout.simple_list_item_2, android.R.id.text1, values);
  
@@ -32,20 +32,15 @@ public class QFieldProjectListAdapter extends ArrayAdapter {
  
             View rowView = null;
 
-            File file = (File) values.get(position);
+            QFieldProjectListItem item = values.get(position);
             
             rowView = inflater.inflate(R.layout.list_project_item, parent, false);
  
             ImageView imgView = (ImageView) rowView.findViewById(R.id.item_icon); 
             TextView titleView = (TextView) rowView.findViewById(R.id.item_title);
 
-            if (file.isDirectory()){
-                imgView.setImageResource(R.drawable.directory);                
-            } else {
-                imgView.setImageResource(R.drawable.icon);
-            }
-            
-            titleView.setText(file.getName());
+            imgView.setImageResource(item.getImageId());
+            titleView.setText(item.getText());
             
             return rowView;
         }

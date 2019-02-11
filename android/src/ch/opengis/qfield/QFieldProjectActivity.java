@@ -29,9 +29,30 @@ public class QFieldProjectActivity extends ListActivity{
         super.onCreate(bundle);
 
         setContentView(R.layout.list_projects);
-        ArrayList values = new ArrayList();
+        ArrayList<QFieldProjectListItem> values = new ArrayList<QFieldProjectListItem>();
+
+        // Roots
+        if (!getIntent().hasExtra("path")) {
+
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            values.add(new QFieldProjectListItem(externalStorageDirectory, "Primary storage",
+                                                 R.drawable.directory));
+
+            File[] externalFilesDirs = getExternalFilesDirs(null);
+            Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
         
-        if (getIntent().hasExtra("path")) {
+            for (File file: externalFilesDirs){
+                if (file != null){
+                    // Don't add a external storage path if already included in the primary one
+                    if(!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
+                        values.add(new QFieldProjectListItem(file, "Secondary storage", R.drawable.directory));
+                    }
+                }
+            }
+
+            setTitle("Select a Qgs file");
+
+        }else{ // Over the roots
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(dir.getPath());
             // Read all files sorted into the values-array
@@ -42,31 +63,18 @@ public class QFieldProjectActivity extends ListActivity{
             File[] list = dir.listFiles();
             if (list != null) {
                 for (File file : list) {
-                    if (!file.getName().startsWith(".")) {
-                        if((!file.isDirectory()) && (!file.getName().endsWith(".qgs"))){
-                            continue;
-                        }
-                        values.add(file);
+                    if (file.getName().startsWith(".")) {
+                        continue;
+                    }else if (file.getName().endsWith(".qgs")){
+                        values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.icon));
+                    }else if (file.isDirectory()){
+                        values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory));
                     }
                 }
             }
-        }else{
-
-            File[] externalFilesDirs = getExternalFilesDirs(null);
-            Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
-        
-            for (File file: externalFilesDirs){  
-                values.add(file);
-            }
-
-            values.add(Environment.getExternalStorageDirectory());
-            setTitle("Select a Qgs file");
         }
 
-        Collections.sort(values);
-
         // Put the data into the list
-        //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, values);
         QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(this, values);
         setListAdapter(adapter);
     }
@@ -75,7 +83,8 @@ public class QFieldProjectActivity extends ListActivity{
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Log.d(TAG, "in onListItemClick ");        
 
-        File file = (File) getListAdapter().getItem(position);
+        // File file = (File) getListAdapter().getItem(position);
+        File file = ((QFieldProjectListItem) getListAdapter().getItem(position)).getFile();
         Log.d(TAG, "file: "+file.getPath());                
         if (file.isDirectory()) {
             Intent intent = new Intent(this, QFieldProjectActivity.class);
