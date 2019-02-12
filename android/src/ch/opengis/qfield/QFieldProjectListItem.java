@@ -2,7 +2,7 @@ package ch.opengis.qfield;
 
 import java.io.File;
 
-public class QFieldProjectListItem{
+public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
 
     private File file;
     private String text;
@@ -24,5 +24,10 @@ public class QFieldProjectListItem{
 
     public int getImageId(){
         return this.imageId;
+    }
+
+    @Override
+    public int compareTo(QFieldProjectListItem item){
+        return this.file.getName().compareTo(item.getFile().getName());
     }
 }

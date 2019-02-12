@@ -79,6 +79,8 @@ public class QFieldProjectActivity extends ListActivity{
             }
         }
 
+        Collections.sort(values);
+
         // Put the data into the list
         QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(this, values);
         setListAdapter(adapter);
