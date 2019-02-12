@@ -36,7 +36,7 @@ public class QFieldProjectActivity extends ListActivity{
 
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
             if (externalStorageDirectory != null){
-                values.add(new QFieldProjectListItem(externalStorageDirectory, "Primary storage",
+                values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
                                                      R.drawable.tablet));
             }
 
@@ -47,10 +47,10 @@ public class QFieldProjectActivity extends ListActivity{
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, "Secondary storage", R.drawable.card));
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card));
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, "Secondary storage", R.drawable.card));
+                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card));
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class QFieldProjectActivity extends ListActivity{
             // Read all files sorted into the values-array
         
             if (!dir.canRead()) {
-                setTitle(getTitle() + " (inaccessible)");
+                setTitle(getTitle() + " ("+getString(R.string.inaccessible)+")");
             }
             File[] list = dir.listFiles();
             if (list != null) {
@@ -104,7 +104,7 @@ public class QFieldProjectActivity extends ListActivity{
             Uri uri = Uri.fromFile(file);
             data.setData(uri);
             
-            Toast.makeText(this, "Opening " +file.getPath(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.loading) + " " + file.getPath(), Toast.LENGTH_LONG).show();
             setResult(Activity.RESULT_OK, data);
             finish();
         }
