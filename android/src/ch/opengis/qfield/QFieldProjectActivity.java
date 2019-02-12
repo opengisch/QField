@@ -77,7 +77,7 @@ public class QFieldProjectActivity extends ListActivity{
                 for (File file : list) {
                     if (file.getName().startsWith(".")) {
                         continue;
-                    }else if (file.getName().endsWith(".qgs")){
+                    }else if (file.getName().toLowerCase().endsWith(".qgs")){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.icon));
                     }else if (file.isDirectory()){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory));
