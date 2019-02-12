@@ -35,16 +35,21 @@ public class QFieldProjectActivity extends ListActivity{
         if (!getIntent().hasExtra("path")) {
 
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            values.add(new QFieldProjectListItem(externalStorageDirectory, "Primary storage",
-                                                 R.drawable.tablet));
+            if (externalStorageDirectory != null){
+                values.add(new QFieldProjectListItem(externalStorageDirectory, "Primary storage",
+                                                     R.drawable.tablet));
+            }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
             Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
-        
             for (File file: externalFilesDirs){
                 if (file != null){
                     // Don't add a external storage path if already included in the primary one
-                    if(!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
+                    if(externalStorageDirectory != null){
+                        if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
+                            values.add(new QFieldProjectListItem(file, "Secondary storage", R.drawable.card));
+                        }
+                    }else{
                         values.add(new QFieldProjectListItem(file, "Secondary storage", R.drawable.card));
                     }
                 }
