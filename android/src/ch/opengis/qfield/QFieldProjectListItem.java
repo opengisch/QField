@@ -28,6 +28,6 @@ public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
 
     @Override
     public int compareTo(QFieldProjectListItem item){
-        return this.file.getName().compareTo(item.getFile().getName());
+        return this.file.getName().compareToIgnoreCase(item.getFile().getName());
     }
 }
