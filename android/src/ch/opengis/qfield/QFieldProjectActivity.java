@@ -25,7 +25,7 @@ public class QFieldProjectActivity extends ListActivity{
 
     @Override
     public void onCreate(Bundle bundle) {
-        Log.d(TAG, "*** In onCreate() ");
+        Log.d(TAG, "onCreate() ");
         super.onCreate(bundle);
 
         setContentView(R.layout.list_projects);
@@ -35,13 +35,14 @@ public class QFieldProjectActivity extends ListActivity{
         if (!getIntent().hasExtra("path")) {
 
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
             if (externalStorageDirectory != null){
                 values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
                                                      R.drawable.tablet));
             }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
-            Log.d(TAG, "External Files Dirs: " + Arrays.toString(externalFilesDirs));
+            Log.d(TAG, "externalFilesDirs: " + Arrays.toString(externalFilesDirs));
             for (File file: externalFilesDirs){
                 if (file != null){
                     // Don't add a external storage path if already included in the primary one
@@ -58,6 +59,7 @@ public class QFieldProjectActivity extends ListActivity{
             setTitle("Select a Qgs file");
 
         }else{ // Over the roots
+            Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
             setTitle(dir.getPath());
             // Read all files sorted into the values-array
@@ -88,9 +90,8 @@ public class QFieldProjectActivity extends ListActivity{
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Log.d(TAG, "in onListItemClick ");        
+        Log.d(TAG, "onListItemClick ");
 
-        // File file = (File) getListAdapter().getItem(position);
         File file = ((QFieldProjectListItem) getListAdapter().getItem(position)).getFile();
         Log.d(TAG, "file: "+file.getPath());                
         if (file.isDirectory()) {
@@ -98,7 +99,6 @@ public class QFieldProjectActivity extends ListActivity{
             intent.putExtra("path", file.getPath());
             startActivityForResult(intent, 123);
         } else {
-            Log.d(TAG, "filename: "+file.getPath());
             Intent data = new Intent();
 
             Uri uri = Uri.fromFile(file);
@@ -111,7 +111,8 @@ public class QFieldProjectActivity extends ListActivity{
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d(TAG, "onActivityResult: ");
+        Log.d(TAG, "onActivityResult ");
+        Log.d(TAG, "resultCode: " + resultCode);
 
         if (resultCode == Activity.RESULT_OK){
             if (getParent() == null) {
