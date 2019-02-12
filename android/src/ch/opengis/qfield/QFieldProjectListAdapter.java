@@ -40,6 +40,7 @@ public class QFieldProjectListAdapter extends ArrayAdapter<QFieldProjectListItem
             TextView titleView = (TextView) rowView.findViewById(R.id.item_title);
 
             imgView.setImageResource(item.getImageId());
+            imgView.setImageAlpha(172);
             titleView.setText(item.getText());
             
             return rowView;
