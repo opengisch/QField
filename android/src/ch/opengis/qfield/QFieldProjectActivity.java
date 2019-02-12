@@ -14,9 +14,12 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.widget.ListView;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 
 public class QFieldProjectActivity extends ListActivity{
 
@@ -29,6 +32,8 @@ public class QFieldProjectActivity extends ListActivity{
         super.onCreate(bundle);
 
         setContentView(R.layout.list_projects);
+        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28"))); 
+
         ArrayList<QFieldProjectListItem> values = new ArrayList<QFieldProjectListItem>();
 
         // Roots
@@ -61,9 +66,9 @@ public class QFieldProjectActivity extends ListActivity{
         }else{ // Over the roots
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
             File dir = new File(getIntent().getStringExtra("path"));
-            setTitle(dir.getPath());
-            // Read all files sorted into the values-array
-        
+            setTitle(getIntent().getStringExtra("label"));
+            getActionBar().setSubtitle(dir.getPath());
+
             if (!dir.canRead()) {
                 setTitle(getTitle() + " ("+getString(R.string.inaccessible)+")");
             }
@@ -92,11 +97,13 @@ public class QFieldProjectActivity extends ListActivity{
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Log.d(TAG, "onListItemClick ");
 
-        File file = ((QFieldProjectListItem) getListAdapter().getItem(position)).getFile();
+        QFieldProjectListItem item = (QFieldProjectListItem) getListAdapter().getItem(position);
+        File file = item.getFile();
         Log.d(TAG, "file: "+file.getPath());                
         if (file.isDirectory()) {
             Intent intent = new Intent(this, QFieldProjectActivity.class);
             intent.putExtra("path", file.getPath());
+            intent.putExtra("label", item.getText());
             startActivityForResult(intent, 123);
         } else {
             Intent data = new Intent();
