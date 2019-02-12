@@ -12,4 +12,5 @@
     <string name="secondary_storage">Secondary storage</string>
     <string name="inaccessible">inaccessible</string>
     <string name="loading">Loading</string>
+    <string name="select_project">Select a Qgs project</string>
 </resources>

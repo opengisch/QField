@@ -56,7 +56,7 @@ public class QFieldProjectActivity extends ListActivity{
                 }
             }
 
-            setTitle("Select a Qgs file");
+            setTitle(getString(R.string.select_project));
 
         }else{ // Over the roots
             Log.d(TAG, "extra path: " + getIntent().getStringExtra("path"));
