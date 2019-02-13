@@ -136,13 +136,14 @@ void AndroidPlatformUtilities::open( const QString &uri, const QString &mimeType
 ProjectSource *AndroidPlatformUtilities::openProject()
 {
   checkWriteExternalStoragePermissions();
-  QAndroidJniObject actionOpenDocument = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "ACTION_OPEN_DOCUMENT", "Ljava/lang/String;" );
-  QAndroidJniObject categoryOpenable = QAndroidJniObject::getStaticObjectField( "android/content/Intent", "CATEGORY_OPENABLE", "Ljava/lang/String;" );
 
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionOpenDocument.object<jstring>() );
-  intent.callObjectMethod( "addCategory", "(Ljava/lang/String;)Landroid/content/Intent;", categoryOpenable.object<jstring>() );
-  QAndroidJniObject mimeType = QAndroidJniObject::fromString( QStringLiteral( "application/*" ) );
-  intent.callObjectMethod( "setType", "(Ljava/lang/String;)Landroid/content/Intent;", mimeType.object<jstring>() );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldProjectActivity" ) );
+  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
+
+  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldProjectActivity" ) );  
+
+  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 
   AndroidProjectSource *projectSource = nullptr;
 

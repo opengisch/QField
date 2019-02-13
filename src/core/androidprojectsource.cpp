@@ -30,15 +30,10 @@ void AndroidProjectSource::handleActivityResult( int receiverRequestCode, int re
   jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
   if ( receiverRequestCode == 103 && resultCode == RESULT_OK )
   {
-    QAndroidJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;" );
+    QAndroidJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;");
 
-    QAndroidJniObject contentResolver = QtAndroid::androidActivity().callObjectMethod( "getContentResolver",
-                                        "()Landroid/content/ContentResolver;" );
-
-    QString path = QAndroidJniObject::callStaticObjectMethod( "ch/opengis/qfield/FileUtils", "getPathFromUri",
-                   "(Landroid/net/Uri;Landroid/content/ContentResolver;)Ljava/lang/String;",
-                   uri.object(), contentResolver.object() ).toString();
-
+    QString path = uri.callObjectMethod("getPath", "()Ljava/lang/String;").toString();
+    
     if ( !QFile( path ).exists() )
     {
       QgsMessageLog::logMessage( tr( "File %1 does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
