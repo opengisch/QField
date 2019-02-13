@@ -121,6 +121,7 @@ public class QFieldProjectActivity extends ListActivity{
         Log.d(TAG, "onActivityResult ");
         Log.d(TAG, "resultCode: " + resultCode);
 
+        // Close recursively the activity stack
         if (resultCode == Activity.RESULT_OK){
             if (getParent() == null) {
                 setResult(Activity.RESULT_OK, data);
