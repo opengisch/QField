@@ -20,6 +20,7 @@
 #include <qgsproject.h>
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
+#include <qgsexpressioncontextutils.h>
 
 #include "multifeaturelistmodel.h"
 
