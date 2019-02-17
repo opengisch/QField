@@ -25,7 +25,7 @@ By storing data in this folder, you risk losing data. You can lose data by unins
 
 How to turn external SD card into internal storage on Android 6 and 7.
 --------
-We recommend [turn external SD card into internal storage](https://www.androidcentral.com/adoptable-storage). 
+We recommend to `turn external SD card to internal storage <https://www.androidcentral.com/adoptable-storage>`_. 
 
 NOTE: Please be sure you start with a blank SD card. It needs to be blank because when the card is converted to "Internal" storage, it will be formatted (wiped) and encoded (making the cards data only readable by that device).
 
