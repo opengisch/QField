@@ -14,8 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "expressionvariablemodel.h"
-#include "qgsexpressioncontext.h"
+#include <expressionvariablemodel.h>
+#include <qgsexpressioncontext.h>
+#include <qgsexpressioncontextutils.h>
+
+
 #include <QSettings>
 #include <QDebug>
 
