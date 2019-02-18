@@ -20,7 +20,6 @@ if [[ -z ${ARCH+x} ]]; then
 fi
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
-export QMAKESPEC=android-clang
 
 set -e
 
