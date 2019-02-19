@@ -20,6 +20,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls 2.0
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
+import Qt.labs.settings 1.0
 import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
