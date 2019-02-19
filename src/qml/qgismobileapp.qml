@@ -983,7 +983,7 @@ ApplicationWindow {
     }
 
     function validateFileExtension(filePath) {
-      return filePath.split('.').pop() === "qgs"
+      return filePath.split('.').pop() === "qgs" || filePath.split('.').pop() === "qgz"
     }
   }
 
