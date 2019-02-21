@@ -202,8 +202,8 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
       }
     }
 
-    if ( r.isEmpty() )
-      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) ); // TODO: port QGIS code to perform density test to optimize scale
+    if ( r.isEmpty() || mLocatorBridge->keepScale() )
+      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ) );
     else
       mLocatorBridge->mapSettings()->setExtent( r );
 
