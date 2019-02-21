@@ -25,7 +25,11 @@ Item {
     currentIndex: model.keyToIndex(value)
 
     model: ValueMapModel {
-        id: listModel
+      id: listModel
+
+      onMapChanged: {
+        comboBox.currentIndex = keyToIndex(comboBox.currentValue)
+      }
     }
 
     Component.onCompleted:
@@ -42,8 +46,7 @@ Item {
 
     // Workaround to get a signal when the value has changed
     onCurrentValueChanged: {
-      console.warn(value + " " + model.keyToIndex(value))
-      currentIndex = model.keyToIndex(value)
+      currentIndex = model.keyToIndex(currentValue)
     }
 
     MouseArea {
