@@ -21,6 +21,7 @@
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
 #include <qgsrenderer.h>
+#include <qgsexpressioncontextutils.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )

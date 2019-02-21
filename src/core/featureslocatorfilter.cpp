@@ -23,6 +23,7 @@
 #include <qgsvectorlayer.h>
 #include <qgsmaplayermodel.h>
 #include <qgsfeedback.h>
+#include <qgsexpressioncontextutils.h>
 
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
