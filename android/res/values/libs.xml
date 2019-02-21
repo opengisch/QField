@@ -5,6 +5,8 @@
     </array>
 
     <array name="bundled_libs">
+      <item>crypto</item>
+      <item>ssl</item>
       <item>expat</item>
       <item>geos</item>
       <item>geos_c</item>
