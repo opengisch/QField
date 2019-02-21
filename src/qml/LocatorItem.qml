@@ -34,6 +34,7 @@ Item {
     padding: 5*dp
     inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font.pointSize: 16
+    selectByMouse: true
 
     background: Rectangle {
       radius: 2*dp
