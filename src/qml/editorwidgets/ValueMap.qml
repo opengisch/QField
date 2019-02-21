@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
+import org.qfield 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -17,57 +18,32 @@ Item {
   ComboBox {
     id: comboBox
 
-    property var reverseConfig: ({})
     property var currentValue: value
-    property var currentMap
-    property var currentKey
-
 
     anchors { left: parent.left; right: parent.right }
 
-    currentIndex: find(reverseConfig[value])
+    currentIndex: model.keyToIndex(value)
 
-    ListModel {
+    model: ValueMapModel {
         id: listModel
     }
 
-    Component.onCompleted: {
-      if( config['map'] )
-      {
-        if( config['map'].length )
-        {
-          //it's a list (>=QGIS3.0)
-          for(var i=0; i<config['map'].length; i++)
-          {
-            currentMap = config['map'][i]
-            currentKey = Object.keys(currentMap)[0]
-            listModel.append( { text: currentKey } )
-            reverseConfig[currentMap[currentKey]] = currentKey;
-          }
-          model=listModel
-          textRole = 'text'
-        }
-        else
-        {
-          //it's a map (<=QGIS2.18)
-          model = Object.keys(config['map']);
-          for(var key in config['map']) {
-            reverseConfig[config['map'][key]] = key;
-          }
-        }
-      }
-
-      currentIndex = find(reverseConfig[value])
+    Component.onCompleted:
+    {
+      model.valueMap = config['map']
     }
 
+    textRole: 'value'
+
     onCurrentTextChanged: {
-      currentMap= config['map'].length ? config['map'][currentIndex] : config['map']
-      valueChanged(currentMap[currentText], false)
+      var key = model.keyForValue(currentText)
+      valueChanged(key, false)
     }
 
     // Workaround to get a signal when the value has changed
     onCurrentValueChanged: {
-      currentIndex = find(reverseConfig[value])
+      console.warn(value + " " + model.keyToIndex(value))
+      currentIndex = model.keyToIndex(value)
     }
 
     MouseArea {
@@ -86,7 +62,7 @@ Item {
     delegate: ItemDelegate {
       width: comboBox.width
       height: 36 * dp
-      text: config['map'].length ? model.text : modelData
+      text: model.value
       font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
       font.pointSize: 12
       highlighted: comboBox.highlightedIndex == index
