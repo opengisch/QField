@@ -15,9 +15,9 @@ void ValueMapModel::setMap( const QVariant &map )
 {
   mMap.clear();
   // QGIS 3
-//  if ( map.type() == QVariant::List )
+  const QVariantList list = map.toList();
+  if ( !list.empty() )
   {
-    const QVariantList list = map.toList();
     beginInsertRows( QModelIndex(), 0, list.size() );
 
     for ( const QVariant &item : list )
@@ -31,9 +31,24 @@ void ValueMapModel::setMap( const QVariant &map )
     }
     endInsertRows();
   }
-  // QGIS 2
+  else // QGIS 2 compat
   {
+    const QVariantMap valueMap = map.toMap();
+    if ( !valueMap.empty() )
+    {
+      beginInsertRows( QModelIndex(), 0, valueMap.size() );
 
+      QMapIterator<QVariant, QString> i( valueMap );
+      while (i.hasNext())
+      {
+        i.next();
+        const QVariant key = i.key();
+        const QString value = i.value();
+
+        mMap.append( qMakePair( key, value ) );
+      }
+      endInsertRows();
+    }
   }
 
   mConfiguredMap = map;
@@ -65,14 +80,11 @@ QHash<int, QByteArray> ValueMapModel::roleNames() const
 
 int ValueMapModel::keyToIndex( const QVariant &value ) const
 {
-  qWarning() << "KEY: " << value;
   int i = 0;
   for ( const auto &item : mMap )
   {
-    qWarning() << "FIST   " << item.first;
     if ( item.first.toString() == value.toString() )
     {
-      qWarning() << "RETURNING I " << i;
       return i;
     }
     ++i;
