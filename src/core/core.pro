@@ -57,7 +57,8 @@ HEADERS += \
     featureslocatorfilter.h \
     locatormodelsuperbridge.h \
     linepolygonhighlight.h \
-    qgsgeometrywrapper.h
+    qgsgeometrywrapper.h \
+    valuemapmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -98,7 +99,8 @@ SOURCES += \
     featureslocatorfilter.cpp \
     locatormodelsuperbridge.cpp \
     linepolygonhighlight.cpp \
-    qgsgeometrywrapper.cpp
+    qgsgeometrywrapper.cpp \
+    valuemapmodel.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
