@@ -57,6 +57,7 @@ void ValueMapModel::setMap( const QVariant &map )
 
 int ValueMapModel::rowCount( const QModelIndex &parent ) const
 {
+  Q_UNUSED( parent )
   return mMap.size();
 }
 
