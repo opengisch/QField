@@ -23,7 +23,6 @@ Item {
   signal valueChanged(var value, bool isNull)
 
   height: childrenRect.height
-  anchors { right: parent.right; left: parent.left }
 
   ColumnLayout {
     id: main
@@ -34,7 +33,7 @@ Item {
     anchors { right: parent.right; left: parent.left }
 
     Item {
-      anchors { right: parent.right; left: parent.left }
+      Layout.fillWidth: true
       Layout.minimumHeight: 48 * dp
 
       Rectangle {

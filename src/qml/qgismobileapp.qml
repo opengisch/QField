@@ -879,7 +879,6 @@ ApplicationWindow {
 
     onFinished: {
       visible = false
-      variableEditor.apply()
     }
 
     Keys.onReleased: {
