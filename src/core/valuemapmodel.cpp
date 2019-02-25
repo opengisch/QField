@@ -38,14 +38,14 @@ void ValueMapModel::setMap( const QVariant &map )
     {
       beginInsertRows( QModelIndex(), 0, valueMap.size() );
 
-      QMapIterator<QVariant, QString> i( valueMap );
-      while (i.hasNext())
+      QMapIterator<QString, QVariant> i( valueMap );
+      while ( i.hasNext() )
       {
         i.next();
-        const QVariant key = i.key();
-        const QString value = i.value();
+        const QString key = i.key();
+        const QVariant value = i.value();
 
-        mMap.append( qMakePair( key, value ) );
+        mMap.append( qMakePair( value, key ) );
       }
       endInsertRows();
     }
