@@ -46,6 +46,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
+  roles[AttributeFormModel::RelationId] = "RelationId";
   roles[AttributeFormModel::Group] = "Group";
   roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
@@ -308,11 +309,12 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
+        item->setData( relation.id(), AttributeFormModel::RelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
 
-        item->setData( "trallala", AttributeFormModel::AttributeValue ); //relation.referencingLayer()->name(), AttributeFormModel::AttributeValue );
+        item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
 
         items.append( item );
 
