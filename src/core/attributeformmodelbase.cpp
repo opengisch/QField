@@ -18,6 +18,8 @@
 #include "attributeformmodel.h"
 #include <qgsvectorlayer.h>
 #include <qgseditorwidgetsetup.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -189,6 +191,7 @@ void AttributeFormModelBase::onFeatureChanged()
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
 {
   QgsAttributeEditorContainer *root = new QgsAttributeEditorContainer( QString(), nullptr );
+  //get fields
   QgsFields fields = mLayer->fields();
   for ( int i = 0; i < fields.size(); ++i )
   {
@@ -197,6 +200,13 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
       QgsAttributeEditorField *field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
       root->addChildElement( field );
     }
+  }
+  //get relations
+  QList<QgsRelation> referncingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( int i = 0; i < referncingRelations.size(); ++i )
+  {
+      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referncingRelations.at(i), root );
+      root->addChildElement( relation );
   }
   return root;
 }
@@ -288,8 +298,27 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       }
 
       case QgsAttributeEditorElement::AeTypeRelation:
-        // todo
+      {
+        QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
+        QgsRelation relation = editorRelation->relation();
+
+        QStandardItem *item = new QStandardItem();
+
+        item->setData( relation.name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( "relation", AttributeFormModel::ElementType );
+        item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
+        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( true, AttributeFormModel::ConstraintValid );
+
+        item->setData( "trallala", AttributeFormModel::AttributeValue ); //relation.referencingLayer()->name(), AttributeFormModel::AttributeValue );
+
+        items.append( item );
+
+        parent->appendRow( item );
         break;
+      }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
         // todo
