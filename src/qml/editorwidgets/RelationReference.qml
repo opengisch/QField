@@ -14,7 +14,7 @@ Item {
   property var _relation
 
   Component.onCompleted: {
-    _relation = qgisProject.relationManager.relation(config['Relation'])
+    _relation = qgisProject.relationManager.relation(config.value('Relation'))
     featureListModel.currentLayer = _relation.referencedLayer
     featureListModel.keyField = _relation.resolveReferencedField(field.name)
     comboBox.currentIndex = featureListModel.findKey(comboBox.value)
@@ -47,8 +47,8 @@ Item {
 
       model: FeatureListModel {
         id: featureListModel
-        addNull: config['AllowNULL']
-        orderByValue: config['OrderByValue']
+        addNull: config.value('AllowNULL')
+        orderByValue: config.value('OrderByValue')
       }
 
       onCurrentIndexChanged: {

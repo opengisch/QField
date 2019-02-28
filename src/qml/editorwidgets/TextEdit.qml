@@ -45,7 +45,7 @@ Item {
 
   TextArea {
     id: textArea
-    height: config['IsMultiline'] === true ? undefined : 0
+    height: config.value('IsMultiline') === true ? undefined : 0
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
@@ -53,7 +53,7 @@ Item {
     font.pointSize: 14
 
     text: value !== undefined ? value : ''
-    textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
+    textFormat: config.value('UseHtml') ? TextEdit.RichText : TextEdit.PlainText
 
     onEditingFinished: {
       valueChanged( text, text == '' )

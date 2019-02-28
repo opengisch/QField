@@ -16,6 +16,7 @@
 
 #include "attributeformmodelbase.h"
 #include "attributeformmodel.h"
+#include "editorwidgetconfig.h"
 #include <qgsvectorlayer.h>
 #include <qgseditorwidgetsetup.h>
 
@@ -259,7 +260,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
         QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
-        item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
+        item->setData( QVariant::fromValue<EditorWidgetConfig>( EditorWidgetConfig( setup.config() ) ), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
         item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );

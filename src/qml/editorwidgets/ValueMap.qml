@@ -34,7 +34,7 @@ Item {
 
     Component.onCompleted:
     {
-      model.valueMap = config['map']
+      model.valueMap = config
     }
 
     textRole: 'value'

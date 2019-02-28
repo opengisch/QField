@@ -29,7 +29,7 @@ Item {
     id: main
     property bool isDateTimeType: field.isDateOrTime
     property bool fieldIsDate: platformUtilities.fieldType( field ) === 'QDate'
-    property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config['field_format'])
+    property var currentValue: isDateTimeType ? value : Qt.formatDateTime(value, config.value('field_format'))
 
     anchors { right: parent.right; left: parent.left }
 
@@ -56,11 +56,11 @@ Item {
         inputMethodHints: Qt.ImhDigitsOnly
 
         // TODO[DR] generate input mask using regex
-        inputMask:      if (config['display_format'] === "yyyy-MM-dd" ) { "9999-99-99;_" }
-                   else if (config['display_format'] === "yyyy.MM.dd" ) { "9999.99.99;_" }
-                   else if (config['display_format'] === "yyyy-MM-dd HH:mm:ss" ) { "9999-99-99 99:99:99;_" }
-                   else if (config['display_format'] === "HH:mm:ss" ) { "99:99:99;_" }
-                   else if (config['display_format'] === "HH:mm" ) { "99:99;_" }
+        inputMask:      if (config.value('display_format') === "yyyy-MM-dd" ) { "9999-99-99;_" }
+                   else if (config.value('display_format') === "yyyy.MM.dd" ) { "9999.99.99;_" }
+                   else if (config.value('display_format') === "yyyy-MM-dd HH:mm:ss" ) { "9999-99-99 99:99:99;_" }
+                   else if (config.value('display_format') === "HH:mm:ss" ) { "99:99:99;_" }
+                   else if (config.value('display_format') === "HH:mm" ) { "99:99;_" }
                    else { "" }
 
         text: if ( value === undefined )
@@ -79,22 +79,22 @@ Item {
                   // So we detect if the field is a date only and revert the time zone offset.
                   // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
                   if (main.fieldIsDate) {
-                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), config['display_format'])
+                    Qt.formatDateTime( new Date(value.getTime() + value.getTimezoneOffset() * 60000), config.value('display_format'))
                   } else {
-                    Qt.formatDateTime(value, config['display_format'])
+                    Qt.formatDateTime(value, config.value('display_format'))
                   }
                 }
                 else
                 {
-                  var date = Date.fromLocaleString(Qt.locale(), value, config['field_format'])
-                  Qt.formatDateTime(date, config['display_format'])
+                  var date = Date.fromLocaleString(Qt.locale(), value, config.value('field_format'))
+                  Qt.formatDateTime(date, config.value('display_format'))
                 }
               }
 
         color: value === undefined ? 'gray' : 'black'
 
         MouseArea {
-          enabled: config['calendar_popup']
+          enabled: config.value('calendar_popup')
           anchors.fill: parent
           onClicked: {
             popup.open()
@@ -102,12 +102,12 @@ Item {
         }
 
         onTextEdited: {
-          var newDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format'])
+          var newDate = Date.fromLocaleString(Qt.locale(), label.text, config.value('display_format'))
           if ( newDate.toLocaleString() !== "" )
           {
             if ( !main.isDateTimeType )
             {
-              newDate = Qt.formatDateTime(newDate, config['field_format'])
+              newDate = Qt.formatDateTime(newDate, config.value('field_format'))
             }
             valueChanged(newDate, newDate === undefined)
           }
@@ -135,7 +135,7 @@ Item {
           source: Style.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
-          visible: ( value !== undefined ) && config['allow_null']
+          visible: ( value !== undefined ) && config.value('allow_null')
 
           MouseArea {
             anchors.fill: parent
@@ -163,7 +163,7 @@ Item {
           focus: false
 
           function resetDate() {
-            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
+            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config.value('field_format')) : new Date()
           }
         }
 
@@ -186,7 +186,7 @@ Item {
               }
               else
               {
-                var textDate = Qt.formatDateTime(newDate, config['field_format'])
+                var textDate = Qt.formatDateTime(newDate, config.value('field_format'))
                 valueChanged(textDate, textDate === undefined)
               }
 

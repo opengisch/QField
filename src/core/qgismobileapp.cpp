@@ -85,6 +85,7 @@
 #include "qgsgeometrywrapper.h"
 #include "linepolygonhighlight.h"
 #include "valuemapmodel.h"
+#include "editorwidgetconfig.h"
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -200,6 +201,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
 
+  qRegisterMetaType<EditorWidgetConfig>( "EditorWidgetConfig" );
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels

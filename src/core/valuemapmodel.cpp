@@ -1,5 +1,5 @@
 #include "valuemapmodel.h"
-#include <QDebug>
+#include "editorwidgetconfig.h"
 
 ValueMapModel::ValueMapModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -11,8 +11,9 @@ QVariant ValueMapModel::map() const
   return mConfiguredMap;
 }
 
-void ValueMapModel::setMap( const QVariant &map )
+void ValueMapModel::setMap( const QVariant &config )
 {
+  QVariant map = config.value<EditorWidgetConfig>().configuration().value( QStringLiteral( "map" ) );
   mMap.clear();
   // QGIS 3
   const QVariantList list = map.toList();
