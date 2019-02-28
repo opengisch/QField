@@ -247,7 +247,9 @@ Page {
           property var fieldType: FieldType
           property var relationId: RelationId
           property var constraintValid: ConstraintValid
-
+          property var relationEditorModel:  ReferencedFeatureListModel {
+              attributeFormModel: Type === 'relation' ? form.model : undefined
+          }
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
 

@@ -225,6 +225,11 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
   }
+  else if ( item->data( AttributeFormModel::ElementType ) == "relation" )
+  {
+    item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
+    emit loadRelationData( QgsProject::instance()->relationManager()->relation( item->data( AttributeFormModel::RelationId ).toString() ), mFeatureModel->feature().id() );
+  }
   else
   {
     for ( int i = 0; i < item->rowCount(); ++i )
@@ -314,7 +319,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
 
-        item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
+        updateAttributeValue( item );
 
         items.append( item );
 

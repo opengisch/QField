@@ -3,22 +3,32 @@
 
 #include <QAbstractItemModel>
 #include "qgsvectorlayer.h"
+#include "attributeformmodel.h"
 
 class QgsVectorLayer;
+class AttributeFormModel;
 
-class ReferencedFeatureListModel : public QAbstractItemModel
+class ReferencedFeatureListModel : public QStandardItemModel
 {
   Q_OBJECT
 
   /**
    * The relation
    */
+  Q_PROPERTY( AttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel )
   Q_PROPERTY( QgsFeatureId featureId WRITE setFeatureId READ featureId )
   Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation )
 
 public:
   explicit ReferencedFeatureListModel(QObject *parent = nullptr);
 
+  enum ReferencedFeatureListRoles
+  {
+    DisplayString = Qt::UserRole,
+    FeatureId
+  };
+
+  QHash<int, QByteArray> roleNames() const override;
   QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
   QModelIndex parent(const QModelIndex &index) const override;
   int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -32,7 +42,11 @@ public:
   void setRelation( const QgsRelation &relation );
   QgsRelation relation() const;
 
-  void feedTheModel();
+  AttributeFormModel *attributeFormModel() const;
+  void setAttributeFormModel( AttributeFormModel *attributeFormModel );
+
+private slots:
+  void feedTheModel( QgsRelation relation, QgsFeatureId featureId );
 
 private:
   struct Entry
@@ -49,7 +63,9 @@ private:
   };
 
   QList<Entry> mEntries;
-  QgsFeatureId mFeatureId;
+  AttributeFormModel *mAttributeFormModel;
+
+  QgsFeatureId mFeatureId=-1;
   QgsRelation mRelation;
 
 };

@@ -26,6 +26,7 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsValidChanged, this, &AttributeFormModel::constraintsValidChanged );
+  connect( mSourceModel, &AttributeFormModelBase::loadRelationData, this, &AttributeFormModel::loadRelationData );
 }
 
 bool AttributeFormModel::hasTabs() const

@@ -12,30 +12,16 @@ Frame{
     height: 100
     width: 400
 
-    property var _relation
-
-    Component.onCompleted: {
-      _relation = qgisProject.relationManager.relation( relationId )
-      referencedFeatureListModel.relation = _relation
-      referencedFeatureListModel.featureId = AttributeValue
-      referencedFeatureListModel.feedModel()
-    }
-
     ListView {
         implicitHeight: 400
         implicitWidth: 100
         clip: true
-
-        model: referencedFeatureListModel
-
+        model: ReferencedFeatureListModel { id: relationEditorModel }
         delegate: RowLayout {
             focus: true
             width: parent.width
-            TextField { text: model.displayRole }
+            TextField { text: model.displayString }
         }
-    }
-    ReferencedFeatureListModel{
-        id: referencedFeatureListModel
     }
 }
 
