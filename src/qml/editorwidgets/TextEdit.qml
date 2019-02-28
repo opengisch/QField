@@ -50,6 +50,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
+    font.pointSize: 14
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
