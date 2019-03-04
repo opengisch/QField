@@ -91,7 +91,7 @@ Page {
         }
 
         Repeater {
-          model: form.model
+          model: form.model && form.model.hasTabs ? form.model : 0
 
           TabButton {
             id: tabButton
