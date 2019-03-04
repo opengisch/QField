@@ -77,24 +77,6 @@ Item {
           onClicked: Qt.openUrlExternally("http://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
         }
       }
-      ColumnLayout{
-        Layout.alignment: Qt.AlignTop
-        Text {
-          font.bold: true
-          color: "white"
-          text: qsTr( "Buy the Karma edition" )
-        }
-        MouseArea {
-          Layout.alignment: Qt.AlignCenter
-          width: karma_image.width
-          height: karma_image.height
-          Image {
-            id: karma_image
-            source: "qrc:/images/karma-logo-playstore.svg"
-          }
-          onClicked: Qt.openUrlExternally("https://play.google.com/store/apps/details?id=ch.opengis.qfieldkarmaedition")
-        }
-      }
     }
   }
 }
