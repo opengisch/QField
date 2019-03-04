@@ -42,6 +42,14 @@ public class QFieldProjectListAdapter extends ArrayAdapter<QFieldProjectListItem
             imgView.setImageResource(item.getImageId());
             imgView.setImageAlpha(172);
             titleView.setText(item.getText());
+
+            if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
+                rowView = inflater.inflate(R.layout.list_separator, null);
+                TextView separatorView = (TextView) rowView.findViewById(R.id.separator);
+                // TODO: translations
+                // TODO: verificare il layout
+                separatorView.setText(item.getText());
+            }
             
             return rowView;
         }
