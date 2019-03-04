@@ -22,6 +22,7 @@
 #include <qgspallabeling.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
+#include <qgsexpressioncontext.h>
 #include "qgis.h"
 
 #include "qgsquickmapcanvasmap.h"
