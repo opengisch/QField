@@ -55,7 +55,7 @@ QVariant ReferencedFeatureListModel::data( const QModelIndex &index, int role ) 
 void ReferencedFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
 {
   mFeatureId = featureId;
-  feedTheModel(mRelation,mFeatureId);
+  //feedTheModel(mRelation,mFeatureId);
 }
 
 QgsFeatureId ReferencedFeatureListModel::featureId() const
@@ -66,7 +66,7 @@ QgsFeatureId ReferencedFeatureListModel::featureId() const
 void ReferencedFeatureListModel::setRelation(const QgsRelation &relation)
 {
   mRelation = relation;
-  feedTheModel(mRelation,mFeatureId);
+  //feedTheModel(mRelation,mFeatureId);
 }
 
 QgsRelation ReferencedFeatureListModel::relation() const
@@ -81,6 +81,13 @@ AttributeFormModel *ReferencedFeatureListModel::attributeFormModel() const
 
 void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
 {
+  feedTheModel( mRelation, mFeatureId );
+  /*
+  mEntries.append( Entry( "eins", 1 ) );
+  mEntries.append( Entry(  QString::number(mFeatureId)+mRelation.name(),mFeatureId ) );
+  mEntries.append( Entry( "drei", 3 ) );
+  */
+  /*
   if ( mAttributeFormModel == attributeFormModel )
     return;
 
@@ -91,6 +98,7 @@ void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attr
 
   mAttributeFormModel = attributeFormModel;
   connect( mAttributeFormModel, &AttributeFormModel::loadRelationData, this, &ReferencedFeatureListModel::feedTheModel );
+  */
 }
 
 void ReferencedFeatureListModel::feedTheModel(QgsRelation relation, QgsFeatureId featureId)

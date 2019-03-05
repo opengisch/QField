@@ -203,10 +203,10 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
     }
   }
   //get relations
-  QList<QgsRelation> referncingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
-  for ( int i = 0; i < referncingRelations.size(); ++i )
+  QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( int i = 0; i < referencingRelations.size(); ++i )
   {
-      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referncingRelations.at(i), root );
+      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelations.at(i), root );
       root->addChildElement( relation );
   }
   return root;
@@ -228,7 +228,8 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   else if ( item->data( AttributeFormModel::ElementType ) == "relation" )
   {
     item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
-    emit loadRelationData( QgsProject::instance()->relationManager()->relation( item->data( AttributeFormModel::RelationId ).toString() ), mFeatureModel->feature().id() );
+    //das geht hier nicht. denn es würde immer wieder das model überschreiben.
+    //emit loadRelationData( QgsProject::instance()->relationManager()->relation( item->data( AttributeFormModel::RelationId ).toString() ), mFeatureModel->feature().id() );
   }
   else
   {

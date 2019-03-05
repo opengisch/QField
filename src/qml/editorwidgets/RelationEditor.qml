@@ -16,7 +16,7 @@ Frame{
         implicitHeight: 400
         implicitWidth: 100
         clip: true
-        model: ReferencedFeatureListModel { id: relationEditorModel }
+        model: relationEditorModel
         delegate: RowLayout {
             focus: true
             width: parent.width

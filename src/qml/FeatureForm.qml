@@ -248,6 +248,8 @@ Page {
           property var relationId: RelationId
           property var constraintValid: ConstraintValid
           property var relationEditorModel:  ReferencedFeatureListModel {
+              relation: qgisProject.relationManager.relation(RelationId)
+              featureId: AttributeValue
               attributeFormModel: Type === 'relation' ? form.model : undefined
           }
           active: widget !== 'Hidden'
