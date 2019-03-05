@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import android.widget.ListView;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.TextUtils;
 
 public class QFieldProjectActivity extends ListActivity{
 
@@ -71,28 +73,28 @@ public class QFieldProjectActivity extends ListActivity{
             setTitle(getString(R.string.select_project));
             Collections.sort(values);
 
-            Set<String> lastUsedDirs = sharedPreferences.getStringSet("LastUsedDirectories", null);
-
+            String lastUsedDirs = sharedPreferences.getString("LastUsedDirectories", null);
+            Log.d(TAG, "lastUsedDirs: " + lastUsedDirs);
             if (lastUsedDirs != null){
                     // TODO: translation of "recents"
+                String[] lastUsedDirsArray = lastUsedDirs.split(";");
                 values.add(new QFieldProjectListItem(null, "Recent directories", 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
-                for (String s : lastUsedDirs) {
+                for (String s : lastUsedDirsArray) {
                     File f = new File(s);
-                    values.add(new QFieldProjectListItem(f, f.getName(),
-                                                     R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
+                    values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                 }
             }
 
-            Set<String> lastUsedProjects = sharedPreferences.getStringSet("LastUsedProjects", null);            
+            String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
             if (lastUsedProjects != null){
                     // TODO: translation of "recents"
+                String[] lastUsedProjectsArray = lastUsedProjects.split(";");
                 values.add(new QFieldProjectListItem(null, "Recent projects", 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
-                for (String s : lastUsedProjects) {
+                for (String s : lastUsedProjectsArray) {
                     File f = new File(s);
-                    values.add(new QFieldProjectListItem(f, f.getName(),
-                                                     R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                    values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
                 }
             }
 
@@ -119,7 +121,6 @@ public class QFieldProjectActivity extends ListActivity{
             }
             Collections.sort(values);
         }
-
 
         // Put the data into the list
         QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(this, values);
@@ -150,23 +151,38 @@ public class QFieldProjectActivity extends ListActivity{
             Toast.makeText(this, getString(R.string.loading) + " " + file.getPath(), Toast.LENGTH_LONG).show();
             setResult(Activity.RESULT_OK, data);
 
-            Set<String> lastUsedDirs = sharedPreferences.getStringSet("LastUsedDirectories", null);
-            if (lastUsedDirs == null){
-                lastUsedDirs = new TreeSet<String>();
+            String lastUsedDirs = sharedPreferences.getString("LastUsedDirectories", null);
+            ArrayList<String> lastUsedDirsArray = new ArrayList<String>();
+            if (lastUsedDirs != null){
+                lastUsedDirsArray = new ArrayList<String>(Arrays.asList(lastUsedDirs.split(";")));
             }
-            Set<String> lastUsedProjects = sharedPreferences.getStringSet("LastUsedProjects", null);
-            if (lastUsedProjects == null){
-                lastUsedProjects = new TreeSet<String>();
+            // If the element is already present, delete it. It will be added again in the last position
+            lastUsedDirsArray.remove(file.getParent());
+            if (lastUsedDirsArray.size() >= 3){
+                lastUsedDirsArray.remove(0);
             }
-            
-            // Store directory
-            SharedPreferences.Editor editor = sharedPreferences.edit();
+            // Add the directory to the array
+            lastUsedDirsArray.add(file.getParent());
 
-            lastUsedDirs.add(file.getParent());
-            lastUsedProjects.add(file.getPath());            
-            editor.putStringSet("LastUsedDirectories", lastUsedDirs);
-            editor.putStringSet("LastUsedProjects", lastUsedProjects);            
+            String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
+            ArrayList<String> lastUsedProjectsArray = new ArrayList<String>();
+            if (lastUsedProjects != null){
+                lastUsedProjectsArray = new ArrayList<String>(Arrays.asList(lastUsedProjects.split(";")));
+            }
+            // If the element is already present, delete it. It will be added again in the last position
+            lastUsedProjectsArray.remove(file.getParent());
+            if (lastUsedProjectsArray.size() >= 5){
+                lastUsedProjectsArray.remove(0);
+            }
+            // Add the project path to the array
+            lastUsedProjectsArray.add(file.getPath());
+
+            // Write the recent directories and projects into the shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("LastUsedDirectories", TextUtils.join(";", lastUsedDirsArray));
+            editor.putString("LastUsedProjects", TextUtils.join(";", lastUsedProjectsArray));
             editor.commit();
+
             finish();
         }
     }
