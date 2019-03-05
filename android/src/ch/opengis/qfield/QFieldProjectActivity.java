@@ -82,7 +82,9 @@ public class QFieldProjectActivity extends ListActivity{
 
                 for (String s : lastUsedDirsArray) {
                     File f = new File(s);
-                    values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
+                    if(f.exists()){
+                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
+                    }
                 }
             }
 
@@ -94,7 +96,9 @@ public class QFieldProjectActivity extends ListActivity{
 
                 for (String s : lastUsedProjectsArray) {
                     File f = new File(s);
-                    values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                    if (f.exists()){
+                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                    }
                 }
             }
 
