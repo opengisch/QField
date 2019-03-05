@@ -44,7 +44,7 @@ Item {
           }
 
           Button {
-            iconSource: Style.getThemeIcon( "ic_map_white_48dp" )
+            iconSource: Style.getThemeIcon( "ic_map_white" )
             width: 48*dp
             height: 48*dp
             onClicked: {

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-name="Layer 1"
+   id="Layer_1"
+   viewBox="0 0 64 64"
+   version="1.1"
+   sodipodi:docname="ic_map_white.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="/home/marco/dev/QField/images/themes/qfield/mdpi/ic_map_white.png"
+   inkscape:export-xdpi="72"
+   inkscape:export-ydpi="72">
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview19"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="22.915254"
+     inkscape:cy="29.559322"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:none;stroke:#37a849;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style>
+  </defs>
+  <polygon
+     class="cls-1"
+     points="25 11 10 15 10 53 25 49 25 11"
+     id="polygon8"
+     style="stroke:#80cc28;stroke-opacity:1" />
+  <polyline
+     class="cls-1"
+     points="34.17 13.5 25 11 25 49 40 53 40 26.44"
+     id="polyline10"
+     style="stroke:#80cc28;stroke-opacity:1" />
+  <polyline
+     class="cls-1"
+     points="40 26.44 40 53 55 49 55 26.44"
+     id="polyline12"
+     style="stroke:#80cc28;stroke-opacity:1" />
+  <path
+     class="cls-1"
+     d="M47.5,5.55h0a9.21,9.21,0,0,1,9.21,9.21v0A9.21,9.21,0,0,1,47.5,24H38.29a0,0,0,0,1,0,0V14.77A9.21,9.21,0,0,1,47.5,5.55Z"
+     transform="translate(3.47 37.92) rotate(-45.01)"
+     id="path14"
+     style="stroke:#80cc28;stroke-opacity:1" />
+  <circle
+     class="cls-1"
+     cx="47.5"
+     cy="14.68"
+     r="4.28"
+     id="circle16"
+     style="stroke:#80cc28;stroke-opacity:1" />
+</svg>
