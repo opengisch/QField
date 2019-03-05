@@ -46,8 +46,6 @@ public class QFieldProjectListAdapter extends ArrayAdapter<QFieldProjectListItem
             if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
                 rowView = inflater.inflate(R.layout.list_separator, null);
                 TextView separatorView = (TextView) rowView.findViewById(R.id.separator);
-                // TODO: translations
-                // TODO: verificare il layout
                 separatorView.setText(item.getText());
             }
             
