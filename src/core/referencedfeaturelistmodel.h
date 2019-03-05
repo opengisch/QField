@@ -45,8 +45,10 @@ public:
   AttributeFormModel *attributeFormModel() const;
   void setAttributeFormModel( AttributeFormModel *attributeFormModel );
 
-private slots:
-  void feedTheModel( QgsRelation relation, QgsFeatureId featureId );
+  void feedTheModel();
+
+public slots:
+  void elSloto( QgsFeatureId featureId );
 
 private:
   struct Entry

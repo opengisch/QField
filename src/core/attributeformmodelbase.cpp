@@ -187,6 +187,8 @@ void AttributeFormModelBase::onFeatureChanged()
   }
 
   updateVisibility();
+
+  emit setRelationFeatureId( mFeatureModel->feature().id() );
 }
 
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
@@ -228,8 +230,6 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   else if ( item->data( AttributeFormModel::ElementType ) == "relation" )
   {
     item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
-    //das geht hier nicht. denn es würde immer wieder das model überschreiben.
-    //emit loadRelationData( QgsProject::instance()->relationManager()->relation( item->data( AttributeFormModel::RelationId ).toString() ), mFeatureModel->feature().id() );
   }
   else
   {

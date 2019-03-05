@@ -55,7 +55,7 @@ QVariant ReferencedFeatureListModel::data( const QModelIndex &index, int role ) 
 void ReferencedFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
 {
   mFeatureId = featureId;
-  //feedTheModel(mRelation,mFeatureId);
+  feedTheModel();
 }
 
 QgsFeatureId ReferencedFeatureListModel::featureId() const
@@ -66,7 +66,7 @@ QgsFeatureId ReferencedFeatureListModel::featureId() const
 void ReferencedFeatureListModel::setRelation(const QgsRelation &relation)
 {
   mRelation = relation;
-  //feedTheModel(mRelation,mFeatureId);
+  feedTheModel();
 }
 
 QgsRelation ReferencedFeatureListModel::relation() const
@@ -81,38 +81,30 @@ AttributeFormModel *ReferencedFeatureListModel::attributeFormModel() const
 
 void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
 {
-  feedTheModel( mRelation, mFeatureId );
-  /*
-  mEntries.append( Entry( "eins", 1 ) );
-  mEntries.append( Entry(  QString::number(mFeatureId)+mRelation.name(),mFeatureId ) );
-  mEntries.append( Entry( "drei", 3 ) );
-  */
-  /*
-  if ( mAttributeFormModel == attributeFormModel )
-    return;
-
-  if ( mAttributeFormModel )
-  {
-    disconnect( mAttributeFormModel, &AttributeFormModel::loadRelationData, this, &ReferencedFeatureListModel::feedTheModel );
-  }
-
   mAttributeFormModel = attributeFormModel;
-  connect( mAttributeFormModel, &AttributeFormModel::loadRelationData, this, &ReferencedFeatureListModel::feedTheModel );
-  */
+  connect( mAttributeFormModel, &AttributeFormModel::setRelationFeatureId, this, &ReferencedFeatureListModel::elSloto );
 }
 
-void ReferencedFeatureListModel::feedTheModel(QgsRelation relation, QgsFeatureId featureId)
+void ReferencedFeatureListModel::feedTheModel()
 {
-  if( !relation.isValid() || featureId<0 )
+  if( !mRelation.isValid() || mFeatureId<0 )
     return;
-  QgsFeatureIterator relatedFeaturesIt = relation.getRelatedFeatures( relation.referencedLayer()->getFeature( featureId ) );
-  QgsExpressionContext context = relation.referencingLayer()->createExpressionContext();
-  QgsExpression expression( relation.referencingLayer()->displayExpression() );
+  mEntries.clear();
+  QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mRelation.referencedLayer()->getFeature( mFeatureId ) );
+  QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
+  QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
 
+  beginResetModel();
   QgsFeature childFeature;
   while ( relatedFeaturesIt.nextFeature( childFeature ) )
   {
    context.setFeature( childFeature );
    mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
   }
+  endResetModel();
+}
+
+void ReferencedFeatureListModel::elSloto(QgsFeatureId featureId)
+{
+  setFeatureId( featureId );
 }

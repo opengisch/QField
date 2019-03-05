@@ -20,7 +20,7 @@ Frame{
         delegate: RowLayout {
             focus: true
             width: parent.width
-            TextField { text: model.displayString }
+            TextField { text: model.featureId + ' - ' + model.displayString }
         }
     }
 }
