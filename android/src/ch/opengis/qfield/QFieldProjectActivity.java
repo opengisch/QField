@@ -168,7 +168,7 @@ public class QFieldProjectActivity extends ListActivity{
                 lastUsedProjectsArray = new ArrayList<String>(Arrays.asList(lastUsedProjects.split(";")));
             }
             // If the element is already present, delete it. It will be added again in the last position
-            lastUsedProjectsArray.remove(file.getParent());
+            lastUsedProjectsArray.remove(file.getPath());
             if (lastUsedProjectsArray.size() >= 5){
                 lastUsedProjectsArray.remove(0);
             }
