@@ -1,5 +1,5 @@
-#ifndef REFERENCEDFEATURELISTMODEL_H
-#define REFERENCEDFEATURELISTMODEL_H
+#ifndef REFERENCINGFEATURELISTMODEL_H
+#define REFERENCINGFEATURELISTMODEL_H
 
 #include <QAbstractItemModel>
 #include "qgsvectorlayer.h"
@@ -8,7 +8,7 @@
 class QgsVectorLayer;
 class AttributeFormModel;
 
-class ReferencedFeatureListModel : public QStandardItemModel
+class ReferencingFeatureListModel : public QStandardItemModel
 {
   Q_OBJECT
 
@@ -20,7 +20,7 @@ class ReferencedFeatureListModel : public QStandardItemModel
   Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation )
 
 public:
-  explicit ReferencedFeatureListModel(QObject *parent = nullptr);
+  explicit ReferencingFeatureListModel(QObject *parent = nullptr);
 
   enum ReferencedFeatureListRoles
   {
@@ -69,4 +69,4 @@ private:
 
 };
 
-#endif // REFERENCEDFEATURELISTMODEL_H
+#endif // REFERENCINGFEATURELISTMODEL_H

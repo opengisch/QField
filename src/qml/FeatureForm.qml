@@ -247,7 +247,7 @@ Page {
           property var fieldType: FieldType
           property var relationId: RelationId
           property var constraintValid: ConstraintValid
-          property var relationEditorModel:  ReferencedFeatureListModel {
+          property var relationEditorModel:  ReferencingFeatureListModel {
               attributeFormModel: Type === 'relation' ? form.model : undefined
               relation: qgisProject.relationManager.relation(RelationId)
               featureId: AttributeValue

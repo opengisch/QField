@@ -1,11 +1,11 @@
-#include "referencedfeaturelistmodel.h"
+#include "referencingfeaturelistmodel.h"
 
-ReferencedFeatureListModel::ReferencedFeatureListModel(QObject *parent)
+ReferencingFeatureListModel::ReferencingFeatureListModel(QObject *parent)
   : QStandardItemModel(parent)
 {
 }
 
-QHash<int, QByteArray> ReferencedFeatureListModel::roleNames() const
+QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -15,7 +15,7 @@ QHash<int, QByteArray> ReferencedFeatureListModel::roleNames() const
   return roles;
 }
 
-QModelIndex ReferencedFeatureListModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex ReferencingFeatureListModel::index(int row, int column, const QModelIndex &parent) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -23,26 +23,26 @@ QModelIndex ReferencedFeatureListModel::index(int row, int column, const QModelI
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex ReferencedFeatureListModel::parent(const QModelIndex &index) const
+QModelIndex ReferencingFeatureListModel::parent(const QModelIndex &index) const
 {
   Q_UNUSED( index )
 
   return QModelIndex();
 }
 
-int ReferencedFeatureListModel::rowCount(const QModelIndex &parent) const
+int ReferencingFeatureListModel::rowCount(const QModelIndex &parent) const
 {
   Q_UNUSED( parent )
   return mEntries.size();
 }
 
-int ReferencedFeatureListModel::columnCount(const QModelIndex &parent) const
+int ReferencingFeatureListModel::columnCount(const QModelIndex &parent) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant ReferencedFeatureListModel::data( const QModelIndex &index, int role ) const
+QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == DisplayString )
     return mEntries.value( index.row() ).displayString;
@@ -52,34 +52,34 @@ QVariant ReferencedFeatureListModel::data( const QModelIndex &index, int role ) 
   return QVariant();
 }
 
-void ReferencedFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
+void ReferencingFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
 {
   mFeatureId = featureId;
   reload();
 }
 
-QgsFeatureId ReferencedFeatureListModel::featureId() const
+QgsFeatureId ReferencingFeatureListModel::featureId() const
 {
   return mFeatureId;
 }
 
-void ReferencedFeatureListModel::setRelation(const QgsRelation &relation)
+void ReferencingFeatureListModel::setRelation(const QgsRelation &relation)
 {
   mRelation = relation;
   reload();
 }
 
-QgsRelation ReferencedFeatureListModel::relation() const
+QgsRelation ReferencingFeatureListModel::relation() const
 {
   return mRelation;
 }
 
-AttributeFormModel *ReferencedFeatureListModel::attributeFormModel() const
+AttributeFormModel *ReferencingFeatureListModel::attributeFormModel() const
 {
   return mAttributeFormModel;
 }
 
-void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
+void ReferencingFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
 {
   mAttributeFormModel = attributeFormModel;
   connect( mAttributeFormModel, &AttributeFormModel::setRelationFeatureId, this, [this]( QgsFeatureId featureId )
@@ -89,7 +89,7 @@ void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attr
   );
 }
 
-void ReferencedFeatureListModel::reload()
+void ReferencingFeatureListModel::reload()
 {
   if( !mRelation.isValid() || mFeatureId<0 )
     return;
