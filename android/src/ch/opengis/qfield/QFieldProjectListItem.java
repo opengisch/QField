@@ -7,11 +7,16 @@ public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
     private File file;
     private String text;
     private int imageId;
+    private int type;
 
-    public QFieldProjectListItem(File file, String text, int imageId){
+    public static final int TYPE_ITEM = 0;
+    public static final int TYPE_SEPARATOR = 1;    
+
+    public QFieldProjectListItem(File file, String text, int imageId, int type){
         this.file = file;
         this.text = text;
         this.imageId = imageId;
+        this.type = type;
     }
 
     public File getFile(){
@@ -24,6 +29,10 @@ public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
 
     public int getImageId(){
         return this.imageId;
+    }
+
+    public int getType(){
+        return this.type;
     }
 
     @Override
