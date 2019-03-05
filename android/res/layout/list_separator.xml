@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#2F2F2F"
-    android:gravity="center_vertical" >
+    android:background="#AAAAAA"
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/separator"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:padding="8dp"
+        android:textSize="18dp"
         android:text=""
         android:textAllCaps="false"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFF"
-        android:textStyle="bold"
         android:visibility="visible" />
 
-</LinearLayout>
+</RelativeLayout>
