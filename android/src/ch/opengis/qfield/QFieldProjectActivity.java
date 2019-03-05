@@ -72,7 +72,7 @@ public class QFieldProjectActivity extends ListActivity{
             String lastUsedDirs = sharedPreferences.getString("LastUsedDirectories", null);
             Log.d(TAG, "lastUsedDirs: " + lastUsedDirs);
             if (lastUsedDirs != null){
-                String[] lastUsedDirsArray = lastUsedDirs.split(";");
+                String[] lastUsedDirsArray = lastUsedDirs.split("--;--");
                 values.add(new QFieldProjectListItem(null, getString(R.string.recent_directories), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
                 for (int i=lastUsedDirsArray.length-1; i>=0; i--) {
@@ -85,7 +85,7 @@ public class QFieldProjectActivity extends ListActivity{
 
             String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
             if (lastUsedProjects != null){
-                String[] lastUsedProjectsArray = lastUsedProjects.split(";");
+                String[] lastUsedProjectsArray = lastUsedProjects.split("--;--");
                 values.add(new QFieldProjectListItem(null, getString(R.string.recent_projects), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
                 for (int i=lastUsedProjectsArray.length-1; i>=0; i--) {
@@ -152,7 +152,7 @@ public class QFieldProjectActivity extends ListActivity{
             String lastUsedDirs = sharedPreferences.getString("LastUsedDirectories", null);
             ArrayList<String> lastUsedDirsArray = new ArrayList<String>();
             if (lastUsedDirs != null){
-                lastUsedDirsArray = new ArrayList<String>(Arrays.asList(lastUsedDirs.split(";")));
+                lastUsedDirsArray = new ArrayList<String>(Arrays.asList(lastUsedDirs.split("--;--")));
             }
             // If the element is already present, delete it. It will be added again in the last position
             lastUsedDirsArray.remove(file.getParent());
@@ -165,7 +165,7 @@ public class QFieldProjectActivity extends ListActivity{
             String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
             ArrayList<String> lastUsedProjectsArray = new ArrayList<String>();
             if (lastUsedProjects != null){
-                lastUsedProjectsArray = new ArrayList<String>(Arrays.asList(lastUsedProjects.split(";")));
+                lastUsedProjectsArray = new ArrayList<String>(Arrays.asList(lastUsedProjects.split("--;--")));
             }
             // If the element is already present, delete it. It will be added again in the last position
             lastUsedProjectsArray.remove(file.getPath());
@@ -177,8 +177,8 @@ public class QFieldProjectActivity extends ListActivity{
 
             // Write the recent directories and projects into the shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("LastUsedDirectories", TextUtils.join(";", lastUsedDirsArray));
-            editor.putString("LastUsedProjects", TextUtils.join(";", lastUsedProjectsArray));
+            editor.putString("LastUsedDirectories", TextUtils.join("--;--", lastUsedDirsArray));
+            editor.putString("LastUsedProjects", TextUtils.join("--;--", lastUsedProjectsArray));
             editor.commit();
 
             finish();
