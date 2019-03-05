@@ -55,7 +55,7 @@ QVariant ReferencedFeatureListModel::data( const QModelIndex &index, int role ) 
 void ReferencedFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
 {
   mFeatureId = featureId;
-  feedTheModel();
+  reload();
 }
 
 QgsFeatureId ReferencedFeatureListModel::featureId() const
@@ -66,7 +66,7 @@ QgsFeatureId ReferencedFeatureListModel::featureId() const
 void ReferencedFeatureListModel::setRelation(const QgsRelation &relation)
 {
   mRelation = relation;
-  feedTheModel();
+  reload();
 }
 
 QgsRelation ReferencedFeatureListModel::relation() const
@@ -82,10 +82,14 @@ AttributeFormModel *ReferencedFeatureListModel::attributeFormModel() const
 void ReferencedFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
 {
   mAttributeFormModel = attributeFormModel;
-  connect( mAttributeFormModel, &AttributeFormModel::setRelationFeatureId, this, &ReferencedFeatureListModel::elSloto );
+  connect( mAttributeFormModel, &AttributeFormModel::setRelationFeatureId, this, [this]( QgsFeatureId featureId )
+    {
+      setFeatureId( featureId );
+    }
+  );
 }
 
-void ReferencedFeatureListModel::feedTheModel()
+void ReferencedFeatureListModel::reload()
 {
   if( !mRelation.isValid() || mFeatureId<0 )
     return;
@@ -102,9 +106,4 @@ void ReferencedFeatureListModel::feedTheModel()
    mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
   }
   endResetModel();
-}
-
-void ReferencedFeatureListModel::elSloto(QgsFeatureId featureId)
-{
-  setFeatureId( featureId );
 }

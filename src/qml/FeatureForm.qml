@@ -248,9 +248,9 @@ Page {
           property var relationId: RelationId
           property var constraintValid: ConstraintValid
           property var relationEditorModel:  ReferencedFeatureListModel {
+              attributeFormModel: Type === 'relation' ? form.model : undefined
               relation: qgisProject.relationManager.relation(RelationId)
               featureId: AttributeValue
-              attributeFormModel: Type === 'relation' ? form.model : undefined
           }
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
