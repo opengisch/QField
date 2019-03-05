@@ -76,9 +76,8 @@ public class QFieldProjectActivity extends ListActivity{
             String lastUsedDirs = sharedPreferences.getString("LastUsedDirectories", null);
             Log.d(TAG, "lastUsedDirs: " + lastUsedDirs);
             if (lastUsedDirs != null){
-                    // TODO: translation of "recents"
                 String[] lastUsedDirsArray = lastUsedDirs.split(";");
-                values.add(new QFieldProjectListItem(null, "Recent directories", 0, QFieldProjectListItem.TYPE_SEPARATOR));
+                values.add(new QFieldProjectListItem(null, getString(R.string.recent_directories), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
                 for (String s : lastUsedDirsArray) {
                     File f = new File(s);
@@ -90,9 +89,8 @@ public class QFieldProjectActivity extends ListActivity{
 
             String lastUsedProjects = sharedPreferences.getString("LastUsedProjects", null);
             if (lastUsedProjects != null){
-                    // TODO: translation of "recents"
                 String[] lastUsedProjectsArray = lastUsedProjects.split(";");
-                values.add(new QFieldProjectListItem(null, "Recent projects", 0, QFieldProjectListItem.TYPE_SEPARATOR));
+                values.add(new QFieldProjectListItem(null, getString(R.string.recent_projects), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
                 for (String s : lastUsedProjectsArray) {
                     File f = new File(s);
