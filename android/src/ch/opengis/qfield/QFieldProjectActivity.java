@@ -5,10 +5,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.HashSet;
-import java.util.TreeSet;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -47,7 +43,7 @@ public class QFieldProjectActivity extends ListActivity{
 
         // Roots
         if (!getIntent().hasExtra("path")) {
-                  
+
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
             Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
             if (externalStorageDirectory != null){
