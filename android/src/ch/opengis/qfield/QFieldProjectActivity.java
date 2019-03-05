@@ -75,8 +75,8 @@ public class QFieldProjectActivity extends ListActivity{
                 String[] lastUsedDirsArray = lastUsedDirs.split(";");
                 values.add(new QFieldProjectListItem(null, getString(R.string.recent_directories), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
-                for (String s : lastUsedDirsArray) {
-                    File f = new File(s);
+                for (int i=lastUsedDirsArray.length-1; i>=0; i--) {
+                    File f = new File(lastUsedDirsArray[i]);
                     if(f.exists()){
                         values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }
@@ -88,8 +88,8 @@ public class QFieldProjectActivity extends ListActivity{
                 String[] lastUsedProjectsArray = lastUsedProjects.split(";");
                 values.add(new QFieldProjectListItem(null, getString(R.string.recent_projects), 0, QFieldProjectListItem.TYPE_SEPARATOR));
 
-                for (String s : lastUsedProjectsArray) {
-                    File f = new File(s);
+                for (int i=lastUsedProjectsArray.length-1; i>=0; i--) {
+                    File f = new File(lastUsedProjectsArray[i]);
                     if (f.exists()){
                         values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
                     }
