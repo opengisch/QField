@@ -13,5 +13,4 @@
     <string name="loading">Loading</string>
     <string name="select_project">Select a QGIS project</string>
     <string name="recent_projects">Recent projects</string>
-    <string name="recent_directories">Recent directories</string>
 </resources>
