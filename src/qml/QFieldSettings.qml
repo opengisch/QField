@@ -43,7 +43,7 @@ Page {
 
     TabBar {
       id: bar
-      anchors { right: parent.right; left: parent.left }
+      Layout.fillWidth: true
       Layout.preferredHeight: 36*dp
 
       TabButton {

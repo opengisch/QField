@@ -218,7 +218,7 @@ Page {
           top: fieldLabel.bottom
         }
 
-        text: ConstraintDescription
+        text: ConstraintDescription || ''
         height: ConstraintValid ? 0 : undefined
         visible: !ConstraintValid
 
@@ -238,14 +238,13 @@ Page {
 
           enabled: form.state !== "ReadOnly" && !!AttributeEditable
           property var value: AttributeValue
-          property var config: EditorWidgetConfig
+          property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
           property var field: Field
-          property var fieldType: FieldType
           property var constraintValid: ConstraintValid
 
           active: widget !== 'Hidden'
-          source: 'editorwidgets/' + widget + '.qml'
+          source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
 
           onStatusChanged: {
             if ( attributeEditorLoader.status === Loader.Error )
@@ -344,8 +343,7 @@ Page {
       Button {
         id: saveButton
 
-        anchors.left: parent.left
-        anchors.top: parent.top
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
         width: 48*dp
         height: 48*dp
@@ -391,8 +389,7 @@ Page {
       Button {
         id: closeButton
 
-        anchors.right: parent.right
-        anchors.top: parent.top
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
         width: 48*dp
         height: 48*dp

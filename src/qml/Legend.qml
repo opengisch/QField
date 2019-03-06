@@ -42,15 +42,13 @@ TreeView {
         source: "image://legend/" + layerTree.data(styleData.index, LayerTreeModel.LegendImage)
         width: 24 * dp
         height: 24 * dp
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: 1
+        Layout.alignment: Qt.AlignVCenter
       }
 
       Text {
         id: label
         horizontalAlignment: styleData.textAlignment
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: 1
+        Layout.alignment: Qt.AlignVCenter
         elide: styleData.elideMode
         text: styleData.value !== undefined ? styleData.value : ""
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
