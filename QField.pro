@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 CONFIG += c++11
 CONFIG += qt
+CONFIG += sanitizer sanitize_address
 
 TRANSLATIONS = \
   i18n/qfield_af.ts \
