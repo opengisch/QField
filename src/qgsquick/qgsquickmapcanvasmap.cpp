@@ -66,7 +66,6 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   // same as zoomWithCenter (no coordinate transformations are needed)
   extent.scale( scale, &newCenter );
   mMapSettings->setExtent( extent );
-  mNeedsRefresh = true;
 }
 
 void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
@@ -86,7 +85,6 @@ void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
   extent.setYMinimum( extent.yMinimum() + dy );
 
   mMapSettings->setExtent( extent );
-  mNeedsRefresh = true;
 }
 
 void QgsQuickMapCanvasMap::refreshMap()
@@ -114,6 +112,9 @@ void QgsQuickMapCanvasMap::refreshMap()
   mapSettings.setFlag( QgsMapSettings::UseRenderingOptimization );
   // with incremental rendering - enables updates of partially rendered layers (good for WMTS, XYZ layers)
   mapSettings.setFlag( QgsMapSettings::RenderPartialOutput, mIncrementalRendering );
+
+
+  mLastExtent = mapSettings.visibleExtent();
 
   // create the renderer job
   Q_ASSERT( !mJob );
@@ -258,13 +259,10 @@ void QgsQuickMapCanvasMap::setFreeze( bool freeze )
 
   mFreeze = freeze;
 
-  if ( !mFreeze && mNeedsRefresh )
+  if ( !mFreeze && mLastExtent != mapSettings()->visibleExtent() )
   {
     refresh();
   }
-
-  // we are freezing or unfreezing - either way we can reset "needs refresh"
-  mNeedsRefresh = false;
 
   emit freezeChanged();
 }

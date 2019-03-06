@@ -193,7 +193,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QTimer mRefreshTimer;
     bool mDirty = false;
     bool mFreeze = false;
-    bool mNeedsRefresh = false;  //!< Whether refresh is needed after unfreezing
+    QgsRectangle mLastExtent;  //!< Keep track of the last extent
     QList<QMetaObject::Connection> mLayerConnections;
     QTimer mMapUpdateTimer;
     bool mIncrementalRendering = false;
