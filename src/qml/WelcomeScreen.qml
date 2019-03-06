@@ -42,6 +42,7 @@ Item {
                 + " locate it on the filesystem, open it and start working." )
             wrapMode: Text.WordWrap
             font.pointSize: 16
+            bottomPadding: 20
           }
 
           Button {
