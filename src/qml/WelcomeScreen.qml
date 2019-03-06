@@ -1,6 +1,7 @@
 import QtQuick 2.11
 import QtQuick.Controls 1.4
 import "js/style.js" as Style
+import "."
 
 Item {
   signal showOpenProjectDialog
@@ -47,6 +48,8 @@ Item {
             iconSource: Style.getThemeIcon( "ic_map_green_48dp" )
             width: 48*dp
             height: 48*dp
+            bgcolor: "white"
+            borderColor: "#80CC28"
             onClicked: {
               showOpenProjectDialog()
               settings.setValue( "/QField/FirstRunFlag", false )
