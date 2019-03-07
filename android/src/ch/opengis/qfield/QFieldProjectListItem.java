@@ -10,7 +10,8 @@ public class QFieldProjectListItem implements Comparable<QFieldProjectListItem>{
     private int type;
 
     public static final int TYPE_ITEM = 0;
-    public static final int TYPE_SEPARATOR = 1;    
+    public static final int TYPE_SEPARATOR = 1;
+    public static final int TYPE_ROOT = 2;
 
     public QFieldProjectListItem(File file, String text, int imageId, int type){
         this.file = file;
