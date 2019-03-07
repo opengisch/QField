@@ -226,14 +226,19 @@ public class QFieldProjectActivity extends Activity {
         if (! getIntent().hasExtra("path")) {
             // Remove the recent projects from shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("FavoriteDirs", TextUtils.join("--;--", favoriteDirsArray));
+            favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
+            if (favoriteDirs == ""){
+                favoriteDirs = null;
+            }
+
+            editor.putString("FavoriteDirs", favoriteDirs);
             editor.commit();
             drawView();
 
             Toast.makeText(this, file.getName() + " " + getString(R.string.removed_from_favorites), Toast.LENGTH_LONG).show();
         } else {
-            favoriteDirsArray.add(file.getPath());
             // Write the recent projects into the shared preferences
+            favoriteDirsArray.add(file.getPath());
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("FavoriteDirs", TextUtils.join("--;--", favoriteDirsArray));
             editor.commit();
