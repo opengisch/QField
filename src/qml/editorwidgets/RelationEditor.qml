@@ -11,7 +11,7 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Frame{
-    height: 100
+    height: 200
 
     //the list
     ListView {
