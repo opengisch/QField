@@ -312,6 +312,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         QStandardItem *item = new QStandardItem();
 
         item->setData( relation.name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );

@@ -46,6 +46,7 @@ public:
   void setAttributeFormModel( AttributeFormModel *attributeFormModel );
 
   void reload();
+  Q_INVOKABLE void deleteFeature( QgsFeatureId fid );
 
 private:
   struct Entry

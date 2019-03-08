@@ -107,3 +107,11 @@ void ReferencingFeatureListModel::reload()
   }
   endResetModel();
 }
+
+void ReferencingFeatureListModel::deleteFeature( QgsFeatureId fid )
+{
+  mRelation.referencingLayer()->startEditing();
+  mRelation.referencingLayer()->deleteFeature( fid );
+  mRelation.referencingLayer()->commitChanges();
+  reload();
+}
