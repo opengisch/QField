@@ -10,60 +10,81 @@ import "../js/style.js" as Style
 import org.qfield 1.0
 import org.qgis 1.0
 
-/*
 Frame{
     height: 100
-    width: 400
 
-    ListView {
-        implicitHeight: 400
-        implicitWidth: 100
-        clip: true
-        model: relationEditorModel
-        delegate: RowLayout {
-            focus: true
-            width: parent.width
-            TextField { text: model.featureId + ' - ' + model.displayString }
-        }
-    }
-}
-*/
-Frame{
-    height: 100
-    width: 300
-
-    Component {
-        id: referencingFeatureDelegate
-        Rectangle {
-            id: listitem
-            width: parent.width
-            height: 40
-            border.color: black
-            border.width: 2*dp
-            Column {
-                Text { text: model.featureId + ' - ' + model.displayString }
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    //referencingFeatureListView.currentIndex = index
-                    deleteDialog.featureId = model.featureId
-                    deleteDialog.visible = true
-                }
-            }
-        }
-    }
-
+    //the list
     ListView {
         id: referencingFeatureListView
         anchors.fill: parent
         model: relationEditorModel
         delegate: referencingFeatureDelegate
         focus: true
+        clip: true
 
         onCurrentItemChanged: model.featureId + ' selected '+currentIndex
     }
 
+    //list components
+    Component {
+        id: referencingFeatureDelegate
+
+        Item {
+          id: listitem
+          anchors { left: parent.left; right: parent.right }
+
+          focus: true
+
+          height: Math.max( 24*dp, featureText.height )
+
+          Text {
+            id: featureText
+            anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
+            font.bold: true
+            text: { text: model.featureId + ' - ' + model.displayString }
+          }
+
+          MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+              //open to edit
+            }
+          }
+
+          Row
+          {
+            id: editRow
+            anchors { top: parent.top; right: parent.right }
+
+            Button {
+              id: deleteButton
+
+              width: 24*dp
+              height: 24*dp
+
+              visible: true
+
+              iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
+
+              onClicked: {
+                  deleteDialog.featureId = model.featureId
+                  deleteDialog.visible = true
+              }
+            }
+          }
+
+          //bottom line
+          Rectangle {
+            anchors.bottom: parent.bottom
+            height: 1
+            color: "lightGray"
+            width: parent.width
+          }
+        }
+    }
+
+    //logical stuff
     MessageDialog {
       id: deleteDialog
 
@@ -85,40 +106,3 @@ Frame{
       }
     }
 }
-
-/*
-
-Item {
-    width: 200; height: 100
-    focus: true
-
-    Component {
-        id: referencingFeatureDelegate
-        Item {
-            id: listitem
-            width: 400; height: 40
-            Column {
-                Text { text: model.featureId + ' - ' + model.displayString }
-            }
-
-            MouseArea{
-
-                anchors.fill: parent
-                onPressed: {
-                    listitem.forceActiveFocus()
-                }
-            }
-        }
-    }
-
-    ListView {
-        id: referencingFeatureListView
-        anchors.fill: parent
-        model: relationEditorModel
-        delegate: referencingFeatureDelegate
-        focus: true
-    }
-
-}
-*/
-
