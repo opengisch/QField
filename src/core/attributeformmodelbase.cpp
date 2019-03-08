@@ -205,10 +205,10 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
     }
   }
   //get relations
-  QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
-  for ( int i = 0; i < referencingRelations.size(); ++i )
+  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( const QgsRelation &referencingRelation : referencingRelations )
   {
-      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelations.at(i), root );
+      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelation, root );
       root->addChildElement( relation );
   }
   return root;
@@ -221,13 +221,13 @@ QgsAttributeEditorContainer *AttributeFormModelBase::invisibleRootContainer() co
 
 void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 {
-  if ( item->data( AttributeFormModel::ElementType ) == "field" )
+  if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral("field") )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
   }
-  else if ( item->data( AttributeFormModel::ElementType ) == "relation" )
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral("relation") )
   {
     item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
   }

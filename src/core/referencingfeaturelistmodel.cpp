@@ -1,3 +1,19 @@
+/***************************************************************************
+  referencingfeaturelistmodel.cpp - ReferencingFeatureListModel
+
+ ---------------------
+ begin                : 1.3.2019
+ copyright            : (C) 2019 by David Signer Kuhn
+ email                : david@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "referencingfeaturelistmodel.h"
 
 ReferencingFeatureListModel::ReferencingFeatureListModel(QObject *parent)
@@ -54,6 +70,9 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
 
 void ReferencingFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
 {
+  if ( mFeatureId == featureId )
+    return;
+
   mFeatureId = featureId;
   reload();
 }

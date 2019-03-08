@@ -43,7 +43,4 @@
         <file>GeometryHighlighter.qml</file>
         <file>FeatureListSelectionHighlight.qml</file>
     </qresource>
-    <qresource prefix="/">
-        <file>editorwidgets/RelationEditor.qml</file>
-    </qresource>
 </RCC>

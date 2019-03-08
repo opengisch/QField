@@ -1,3 +1,18 @@
+/***************************************************************************
+  referencingfeaturelistmodel.h - ReferencingFeatureListModel
+
+ ---------------------
+ begin                : 1.3.2019
+ copyright            : (C) 2019 by David Signer Kuhn
+ email                : david@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
 #ifndef REFERENCINGFEATURELISTMODEL_H
 #define REFERENCINGFEATURELISTMODEL_H
 
@@ -15,9 +30,9 @@ class ReferencingFeatureListModel : public QStandardItemModel
   /**
    * The relation
    */
-  Q_PROPERTY( AttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel )
-  Q_PROPERTY( QgsFeatureId featureId WRITE setFeatureId READ featureId )
-  Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation )
+  Q_PROPERTY( AttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel NOTIFY attributeFormModelChanged )
+  Q_PROPERTY( QgsFeatureId featureId WRITE setFeatureId READ featureId NOTIFY featureIdChanged )
+  Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
 
 public:
   explicit ReferencingFeatureListModel(QObject *parent = nullptr);
@@ -47,6 +62,11 @@ public:
 
   void reload();
   Q_INVOKABLE void deleteFeature( QgsFeatureId fid );
+
+signals:
+  void attributeFormModelChanged();
+  void featureIdChanged();
+  void relationChanged();
 
 private:
   struct Entry
