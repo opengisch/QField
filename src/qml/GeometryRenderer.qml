@@ -17,6 +17,21 @@ Item {
     id: geometry
   }
 
+  Connections {
+    target: geometry
+
+    onGeometryChanged: {
+      geometryComponent.sourceComponent = undefined
+      if (geometry && geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry) {
+        geometryComponent.sourceComponent = pointHighlight
+      }
+      else
+      {
+        geometryComponent.sourceComponent = linePolygonHighlight
+      }
+    }
+  }
+
   Component {
     id: linePolygonHighlight
 
