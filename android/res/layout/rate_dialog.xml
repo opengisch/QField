@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+  <ImageView
+      android:id="@+id/image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="5dp" />
+
+  <TextView
+      android:id="@+id/rate_text"
+      android:width="240dp"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:textSize="18dp" />
+
+     <Button
+         android:id="@+id/b1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:layout_marginRight="5dp"
+         android:layout_below="@+id/rate_text"/>
+
+     <Button
+         android:id="@+id/b2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:layout_marginRight="5dp"
+         android:layout_below="@+id/b1"/>
+
+     <Button
+         android:id="@+id/b3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:layout_marginRight="5dp"
+         android:layout_below="@+id/b2"/>
+
+</RelativeLayout>

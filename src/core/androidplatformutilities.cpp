@@ -202,3 +202,17 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
   }
   return true;
 }
+
+void AndroidPlatformUtilities::showRateThisApp() const
+{
+
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldAppRaterActivity" ) );
+  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
+
+  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldAppRaterActivity" ) );  
+
+  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
+
+    QtAndroid::startActivity( intent.object<jobject>(), 104);
+}
