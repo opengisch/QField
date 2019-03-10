@@ -16,48 +16,48 @@ import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.util.Log;
+import android.graphics.drawable.ColorDrawable;
 
 public class QFieldAppRaterActivity extends Activity{
-    private final static String APP_TITLE = "QField";// App Name
-    private final static String APP_PNAME = "ch.opengis.qfield";// Package Name
+    private final static String APP_PNAME = "ch.opengis.qfield"; // Package Name
 
-    private final static int DAYS_UNTIL_PROMPT = 30;//Min number of days
-    private final static int LAUNCHES_UNTIL_PROMPT = 10;//Min number of launches
+    private final static int DAYS_UNTIL_PROMPT = 30; //Min number of days
+    private final static int LAUNCHES_UNTIL_PROMPT = 10; //Min number of launches
 
     private static final String TAG = "QField AppRater Activity";
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        Log.d("QField Project AppRater", "onCreate()");
+        Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
-        Log.d(TAG, "app_launched()");
+        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
 
-        //Context mContext = QFieldActivity.getContext();
-        SharedPreferences prefs = getSharedPreferences("apprater", 0);
-        if (prefs.getBoolean("dontshowagain", false)) { return; }
+        if (sharedPreferences.getBoolean("DontShowAgain", false)) {
+            finish();
+            return;
+        }
 
-        SharedPreferences.Editor editor = prefs.edit();
-
-        //FIXME:
-        showRateDialog(editor);
+        editor = sharedPreferences.edit();
 
         // Increment launch counter
-        long launch_count = prefs.getLong("launch_count", 0) + 1;
-        editor.putLong("launch_count", launch_count);
+        long launchCount = sharedPreferences.getLong("LaunchCount", 0) + 1;
+        editor.putLong("LaunchCount", launchCount);
 
         // Get date of first launch
-        Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
-        if (date_firstLaunch == 0) {
-            date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("date_firstlaunch", date_firstLaunch);
+        Long firstLaunch = sharedPreferences.getLong("FirstLaunch", 0);
+        if (firstLaunch == 0) {
+            firstLaunch = System.currentTimeMillis();
+            editor.putLong("FirstLaunch", firstLaunch);
         }
 
         // Wait at least n days before opening
-        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= date_firstLaunch +
+        if (launchCount >= LAUNCHES_UNTIL_PROMPT) {
+            if (System.currentTimeMillis() >= firstLaunch +
                     (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
-                //showRateDialog(mContext, editor);
+                showRateDialog();
             }
         }
 
@@ -65,33 +65,36 @@ public class QFieldAppRaterActivity extends Activity{
         return;
     }
 
-    public void showRateDialog(SharedPreferences.Editor editor) {
+    public void showRateDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        Log.d(TAG, "showRateDialog()");
 
-        // TODO: translations
-        builder.setTitle("Rate QField");
-        builder.setMessage("If you enjoy using " + APP_TITLE + ", please take a moment to rate it. Thanks for your support!");
+        builder.setTitle(getString(R.string.rate_title));
+        builder.setMessage(getString(R.string.rate_message));
 
-        builder.setPositiveButton("Rate", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.rate_now), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));    
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
+                    if (editor != null) {
+                        editor.putBoolean("DontShowAgain", true);
+                        editor.commit();
+                    }
                     finish();
                 }
             });
 
-        builder.setNeutralButton("Remind me later", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(getString(R.string.remind_later), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
 
                     finish();
                 }
             });
 
-
-        builder.setNegativeButton("No, thanks", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.no_thanks), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (editor != null) {
-                        editor.putBoolean("dontshowagain", true);
+                        editor.putBoolean("DontShowAgain", true);
                         editor.commit();
                     }
                     finish();
@@ -99,5 +102,6 @@ public class QFieldAppRaterActivity extends Activity{
             });
 
         AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
