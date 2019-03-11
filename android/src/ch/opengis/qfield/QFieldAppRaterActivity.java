@@ -45,7 +45,7 @@ public class QFieldAppRaterActivity extends Activity{
 
         // Increment launch counter
         long launchCount = sharedPreferences.getLong("LaunchCount", 0) + 1;
-        Log.d(TAG, "Launch count: " + launchCount -1);
+        Log.d(TAG, "Launch count: " + (launchCount - 1));
         editor.putLong("LaunchCount", launchCount);
         editor.commit();
 
