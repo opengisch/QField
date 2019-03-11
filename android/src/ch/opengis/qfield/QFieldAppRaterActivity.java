@@ -92,7 +92,7 @@ public class QFieldAppRaterActivity extends Activity{
 
         // Set 5 stars image
         ImageView imgView = (ImageView) view.findViewById(R.id.image);
-        imgView.setImageResource(R.drawable.icon);
+        imgView.setImageResource(R.drawable.five_stars);
         imgView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
