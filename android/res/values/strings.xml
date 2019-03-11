@@ -18,4 +18,7 @@
     <string name="rate_now">Rate</string>
     <string name="remind_later">Remind me later</string>
     <string name="no_thanks">No, thanks!</string>
+    <string name="favorite_directories">Favorite directories</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
 </resources>

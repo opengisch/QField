@@ -20,15 +20,19 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
 
-public class QFieldProjectActivity extends ListActivity{
+public class QFieldProjectActivity extends Activity {
 
     private static final String TAG = "QField Project Activity";
     private String path;
     private SharedPreferences sharedPreferences;
+    private ListView list;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -38,6 +42,10 @@ public class QFieldProjectActivity extends ListActivity{
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         setContentView(R.layout.list_projects);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28"))); 
+        drawView();
+    }
+
+    private void drawView() {
 
         ArrayList<QFieldProjectListItem> values = new ArrayList<QFieldProjectListItem>();
 
@@ -48,7 +56,7 @@ public class QFieldProjectActivity extends ListActivity{
             Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
             if (externalStorageDirectory != null){
                 values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
-                                                     R.drawable.tablet, QFieldProjectListItem.TYPE_ITEM));
+                                                     R.drawable.tablet, QFieldProjectListItem.TYPE_ROOT));
            }
 
             File[] externalFilesDirs = getExternalFilesDirs(null);
@@ -58,10 +66,10 @@ public class QFieldProjectActivity extends ListActivity{
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ITEM));
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ROOT));
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ROOT));
                     }
                 }
             }
@@ -78,6 +86,19 @@ public class QFieldProjectActivity extends ListActivity{
                     File f = new File(lastUsedProjectsArray[i]);
                     if (f.exists()){
                         values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                    }
+                }
+            }
+
+            String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
+            if (favoriteDirs != null){
+                String[] favoriteDirsArray = favoriteDirs.split("--;--");
+                values.add(new QFieldProjectListItem(null, getString(R.string.favorite_directories), 0, QFieldProjectListItem.TYPE_SEPARATOR));
+
+                for (int i=favoriteDirsArray.length-1; i>=0; i--) {
+                    File f = new File(favoriteDirsArray[i]);
+                    if (f.exists()){
+                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
             }
@@ -107,15 +128,39 @@ public class QFieldProjectActivity extends ListActivity{
         }
 
         // Put the data into the list
+        list = (ListView) findViewById(R.id.list);
         QFieldProjectListAdapter adapter = new QFieldProjectListAdapter(this, values);
-        setListAdapter(adapter);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Log.d(TAG, "onItemClick ");
+                QFieldProjectActivity.this.onItemClick(position);
+            }
+        });
+
+        list.setOnItemLongClickListener(new OnItemLongClickListener(){
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
+                Log.d(TAG, "onItemLongClick ");
+                return QFieldProjectActivity.this.onItemLongClick(position);
+            }
+        });
+
     }
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onRestart(){
+        Log.d(TAG, "onRestart ");
+
+        // The first opened activity
+        if (!getIntent().hasExtra("path")) {
+            drawView();
+        }
+        super.onRestart();
+    }
+    private void onItemClick(int position) {
         Log.d(TAG, "onListItemClick ");
 
-        QFieldProjectListItem item = (QFieldProjectListItem) getListAdapter().getItem(position);
+        QFieldProjectListItem item = (QFieldProjectListItem) list.getAdapter().getItem(position);
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
             return;
         }
@@ -155,6 +200,53 @@ public class QFieldProjectActivity extends ListActivity{
 
             finish();
         }
+    }
+
+    private boolean onItemLongClick(int position) {
+
+        QFieldProjectListItem item = (QFieldProjectListItem) list.getAdapter().getItem(position);
+        if (item.getType() != QFieldProjectListItem.TYPE_ITEM) {
+            return true;
+        }
+        File file = item.getFile();
+        if (! file.isDirectory()){
+            return true;
+        }
+
+        String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
+        ArrayList<String> favoriteDirsArray = new ArrayList<String>();
+        if (favoriteDirs != null){
+            favoriteDirsArray = new ArrayList<String>(Arrays.asList(favoriteDirs.split("--;--")));
+        }
+
+        // If the element is already present, delete it. It will be added again in the last position
+        favoriteDirsArray.remove(file.getPath());
+
+        // First activity
+        if (! getIntent().hasExtra("path")) {
+            // Remove the recent projects from shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
+            if (favoriteDirs == ""){
+                favoriteDirs = null;
+            }
+
+            editor.putString("FavoriteDirs", favoriteDirs);
+            editor.commit();
+            drawView();
+
+            Toast.makeText(this, file.getName() + " " + getString(R.string.removed_from_favorites), Toast.LENGTH_LONG).show();
+        } else {
+            // Write the recent projects into the shared preferences
+            favoriteDirsArray.add(file.getPath());
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("FavoriteDirs", TextUtils.join("--;--", favoriteDirsArray));
+            editor.commit();
+
+            Toast.makeText(this, file.getName() + " " + getString(R.string.added_to_favorites), Toast.LENGTH_LONG).show();
+        }
+
+        return true;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
