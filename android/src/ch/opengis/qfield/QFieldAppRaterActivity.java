@@ -65,7 +65,11 @@ public class QFieldAppRaterActivity extends Activity{
             if (System.currentTimeMillis() >= firstLaunch +
                     (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
                 showRateDialog();
+            }else{
+                finish();
             }
+        }else{
+            finish();
         }
 
         return;
