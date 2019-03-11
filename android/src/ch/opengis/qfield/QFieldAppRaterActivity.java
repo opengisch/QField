@@ -36,6 +36,7 @@ public class QFieldAppRaterActivity extends Activity{
         sharedPreferences = getSharedPreferences("AppRater", Context.MODE_PRIVATE);
 
         if (sharedPreferences.getBoolean("DontShowAgain", false)) {
+            Log.d(TAG, "Dont show again");
             finish();
             return;
         }
@@ -44,13 +45,17 @@ public class QFieldAppRaterActivity extends Activity{
 
         // Increment launch counter
         long launchCount = sharedPreferences.getLong("LaunchCount", 0) + 1;
+        Log.d(TAG, "Launch count: " + launchCount -1);
         editor.putLong("LaunchCount", launchCount);
+        editor.commit();
 
         // Get date of first launch
         Long firstLaunch = sharedPreferences.getLong("FirstLaunch", 0);
+        Log.d(TAG, "First launch: " + firstLaunch);
         if (firstLaunch == 0) {
             firstLaunch = System.currentTimeMillis();
             editor.putLong("FirstLaunch", firstLaunch);
+            editor.commit();
         }
 
         // Wait at least n days before opening
@@ -61,8 +66,6 @@ public class QFieldAppRaterActivity extends Activity{
             }
         }
 
-        editor.commit();
-        finish();
         return;
     }
 
