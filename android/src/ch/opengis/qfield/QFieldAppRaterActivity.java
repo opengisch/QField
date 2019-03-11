@@ -12,9 +12,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.LayoutInflater;
 import android.util.Log;
 import android.graphics.drawable.ColorDrawable;
 
@@ -74,8 +76,29 @@ public class QFieldAppRaterActivity extends Activity{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         Log.d(TAG, "showRateDialog()");
 
+        LayoutInflater inflater = getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        View view = inflater.inflate(R.layout.rate_dialog, null);
+        builder.setView(view);
+
         builder.setTitle(getString(R.string.rate_title));
         builder.setMessage(getString(R.string.rate_message));
+
+        // Set 5 stars image
+        ImageView imgView = (ImageView) view.findViewById(R.id.image);
+        imgView.setImageResource(R.drawable.icon);
+        imgView.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
+                    if (editor != null) {
+                        editor.putBoolean("DontShowAgain", true);
+                        editor.commit();
+                    }
+                    finish();
+                }
+            });
 
         builder.setPositiveButton(getString(R.string.rate_now), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
