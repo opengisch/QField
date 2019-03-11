@@ -33,7 +33,7 @@ public class QFieldAppRaterActivity extends Activity{
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("AppRater", Context.MODE_PRIVATE);
 
         if (sharedPreferences.getBoolean("DontShowAgain", false)) {
             finish();
