@@ -17,7 +17,7 @@ Frame{
     ReferencingFeatureListModel {
         id: relationEditorModel
         relation: qgisProject.relationManager.relation(relationId)
-        featureId: currentFeatureId
+        feature: currentFeature
     }
 
     //the list

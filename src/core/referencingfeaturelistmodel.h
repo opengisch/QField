@@ -30,7 +30,7 @@ class ReferencingFeatureListModel : public QStandardItemModel
   /**
    * The relation
    */
-  Q_PROPERTY( QgsFeatureId featureId WRITE setFeatureId READ featureId NOTIFY featureIdChanged )
+  Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
   Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
 
 public:
@@ -50,8 +50,8 @@ public:
 
   QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-  void setFeatureId( const QgsFeatureId &featureId );
-  QgsFeatureId featureId () const;
+  void setFeature( const QgsFeature &feature );
+  QgsFeature feature() const;
 
   void setRelation( const QgsRelation &relation );
   QgsRelation relation() const;
@@ -61,7 +61,7 @@ public:
 
 signals:
   void attributeFormModelChanged();
-  void featureIdChanged();
+  void featureChanged();
   void relationChanged();
 
 private:
@@ -80,7 +80,7 @@ private:
 
   QList<Entry> mEntries;
 
-  QgsFeatureId mFeatureId=-1;
+  QgsFeature mFeature;
   QgsRelation mRelation;
 
 };

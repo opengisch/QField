@@ -247,7 +247,7 @@ Page {
           property var fieldType: FieldType
           property var relationId: RelationId
           property var constraintValid: ConstraintValid
-          property var currentFeatureId: form.model.featureModel.feature.id
+          property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'

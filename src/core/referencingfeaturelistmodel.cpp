@@ -68,18 +68,18 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   return QVariant();
 }
 
-void ReferencingFeatureListModel::setFeatureId(const QgsFeatureId &featureId)
+void ReferencingFeatureListModel::setFeature(const QgsFeature &feature)
 {
-  if ( mFeatureId == featureId )
+  if ( mFeature == feature )
     return;
 
-  mFeatureId = featureId;
+  mFeature = feature;
   reload();
 }
 
-QgsFeatureId ReferencingFeatureListModel::featureId() const
+QgsFeature ReferencingFeatureListModel::feature() const
 {
-  return mFeatureId;
+  return mFeature;
 }
 
 void ReferencingFeatureListModel::setRelation(const QgsRelation &relation)
@@ -95,10 +95,10 @@ QgsRelation ReferencingFeatureListModel::relation() const
 
 void ReferencingFeatureListModel::reload()
 {
-  if( !mRelation.isValid() || mFeatureId<0 )
+  if( !mRelation.isValid() || !mFeature.isValid() )
     return;
   mEntries.clear();
-  QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mRelation.referencedLayer()->getFeature( mFeatureId ) );
+  QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
   QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
   QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
 
