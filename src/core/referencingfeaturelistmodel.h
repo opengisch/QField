@@ -39,7 +39,8 @@ public:
   enum ReferencedFeatureListRoles
   {
     DisplayString = Qt::UserRole,
-    ReferencingFeatureId
+    ReferencingFeatureId,
+    ReferencingFeature
   };
 
   QHash<int, QByteArray> roleNames() const override;
@@ -56,7 +57,7 @@ public:
   void setRelation( const QgsRelation &relation );
   QgsRelation relation() const;
 
-  void reload();
+  Q_INVOKABLE void reload();
   Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
 signals:

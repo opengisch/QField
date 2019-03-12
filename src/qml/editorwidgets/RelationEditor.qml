@@ -12,6 +12,7 @@ import org.qgis 1.0
 
 Frame{
     height: 200
+    property int itemHeight: 24*dp
 
     //the model
     ReferencingFeatureListModel {
@@ -23,13 +24,53 @@ Frame{
     //the list
     ListView {
         id: referencingFeatureListView
-        anchors.fill: parent
+        width: parent.width
+        height: parent.height - itemHeight
         model: relationEditorModel
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
 
         onCurrentItemChanged: model.referencingFeatureId + ' selected '+currentIndex
+    }
+
+    //the add entry "last row"
+    Item {
+      id: addEntry
+      anchors.top: referencingFeatureListView.bottom
+      height: Math.max( itemHeight, addEntryText.height )
+      width: parent.width
+
+      focus: true
+
+      Text {
+        id: addEntryText
+        anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
+        font.bold: true
+        color: "gray"
+        text: { text: "Add entry" }
+      }
+
+      Row
+      {
+        id: editRow
+        anchors { top: parent.top; right: parent.right }
+        height: parent.height
+
+        Button {
+          id: addButton
+          width: parent.height
+          height: parent.height
+          visible: true
+
+          iconSource: Style.getThemeIcon( "ic_add_white_24dp" )
+
+          onClicked: {
+            embeddedFeatureForm.state = "Add"
+            embeddedFeatureForm.active = true
+          }
+        }
+      }
     }
 
     //list components
@@ -42,7 +83,7 @@ Frame{
 
           focus: true
 
-          height: Math.max( 24*dp, featureText.height )
+          height: Math.max( itemHeight, featureText.height )
 
           Text {
             id: featureText
@@ -55,7 +96,9 @@ Frame{
             anchors.fill: parent
 
             onClicked: {
-              //open to edit
+                embeddedFeatureForm.state = "Edit"
+                embeddedFeatureForm.referencingFeature = model.referencingFeature
+                embeddedFeatureForm.active = true
             }
           }
 
@@ -63,12 +106,13 @@ Frame{
           {
             id: editRow
             anchors { top: parent.top; right: parent.right }
+            height: listitem.height
 
             Button {
               id: deleteButton
 
-              width: 24*dp
-              height: 24*dp
+              width: parent.height
+              height: parent.height
 
               visible: true
 
@@ -83,6 +127,7 @@ Frame{
 
           //bottom line
           Rectangle {
+            id: bottomLine
             anchors.bottom: parent.bottom
             height: 1
             color: "lightGray"
@@ -91,7 +136,7 @@ Frame{
         }
     }
 
-    //logical stuff
+    //the delete entry stuff
     MessageDialog {
       id: deleteDialog
 
@@ -110,6 +155,68 @@ Frame{
       }
       onRejected: {
         visible = false
+      }
+    }
+
+    //the add entry stuff
+    Loader {
+      id: embeddedFeatureForm
+
+      property var state
+      property var referencingFeature
+
+      sourceComponent: embeddedFeatureFormComponent
+      active: false
+      onLoaded: {
+        item.open()
+      }
+    }
+
+    Component {
+      id: embeddedFeatureFormComponent
+
+      Popup {
+        id: popup
+        parent: ApplicationWindow.overlay
+
+        x: 24 * dp
+        y: 24 * dp
+        width: parent.width - 48 * dp
+        height: parent.width - 48 * dp
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape
+
+        FeatureForm {
+          model: AttributeFormModel {
+            id: attributeFormModel
+
+            featureModel: FeatureModel {
+              currentLayer: relationEditorModel.relation.referencingLayer
+              feature: state === "Edit" ? embeddedFeatureForm.referencingFeature : undefined
+            }
+            //pass the id as FK
+          }
+
+          toolbarVisible: true
+
+          anchors.fill: parent
+
+          state: embeddedFeatureForm.state
+
+          onSaved: {
+            popup.close()
+          }
+
+          onCancelled: {
+            popup.close()
+          }
+        }
+
+        onClosed: {
+          embeddedFeatureForm.active = false
+          relationEditorModel.reload()
+        }
       }
     }
 }
