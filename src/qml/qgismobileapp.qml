@@ -138,6 +138,7 @@ ApplicationWindow {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
       }
+      Component.onCompleted: platformUtilities.showRateThisApp()
     }
 
   /**************************************************

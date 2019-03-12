@@ -70,6 +70,9 @@
     <!-- Activity to choose a .qgs file to open -->
     <activity android:name="ch.opengis.qfield.QFieldProjectActivity" />
 
+    <!-- Activity "Rate this app" -->
+    <activity android:name="ch.opengis.qfield.QFieldAppRaterActivity" />
+
   </application>
   <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="26" />
   <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>

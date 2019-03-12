@@ -89,6 +89,25 @@ public class QFieldActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     application = this.getApplication();
+
+    // Put launch count and first launch values from parameters into AppRater properties
+    // to be used for test purposes
+    SharedPreferences appRaterSharedPreferences = getSharedPreferences("AppRater", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = appRaterSharedPreferences.edit();
+    if (getIntent().hasExtra("LaunchCount")){
+        long launchCount = getIntent().getLongExtra("LaunchCount", 0);
+        editor.putLong("LaunchCount", launchCount);
+    }
+    if (getIntent().hasExtra("FirstLaunch")){
+        long firstLaunch = getIntent().getLongExtra("FirstLaunch", 0);
+        editor.putLong("FirstLaunch", firstLaunch);
+    }
+    if (getIntent().hasExtra("DontShowAgain")){
+        boolean dontShowAgain = getIntent().getBooleanExtra("DontShowAgain", false);
+        editor.putBoolean("DontShowAgain", dontShowAgain);
+    }
+    editor.commit();
+
     // get preferences, 0 = mode private. only this app can read these
     mPrefs = this.getApplicationContext().getSharedPreferences("qgisPrefs",
              0);

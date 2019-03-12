@@ -13,6 +13,11 @@
     <string name="loading">Loading</string>
     <string name="select_project">Select a QGIS project</string>
     <string name="recent_projects">Recent projects</string>
+    <string name="rate_title">Rate QField</string>
+    <string name="rate_message">If you enjoy using QField, please take a moment to rate it. Thanks for your support!</string>
+    <string name="rate_now">Rate</string>
+    <string name="remind_later">Remind me later</string>
+    <string name="no_thanks">No, thanks!</string>
     <string name="favorite_directories">Favorite directories</string>
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
