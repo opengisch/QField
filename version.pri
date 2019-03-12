@@ -22,6 +22,12 @@ equals ( ANDROID_TARGET_ARCH, 'x86' ) {
 VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${VERSION_RC}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
 VERSTR = '$${VERSION}$${VERSION_SUFFIX} - $${CODENAME}'
 
+# Let's force the VERSIONCODE 
+# this must match the VERSIONCODE from the android 6+ APK without the last digit
+# for example if the APK VERSIONCODE is 10000043, VERSIONCODE_FORCED must be 1000004
+VERSIONCODE_FORCED = 1000004
+VERSIONCODE = $$format_number($VERSIONCODE_FORCED$ANDROID_VERSION_SUFFIX)
+
 message( 'Building Version $${VERSTR} ($${VERSIONCODE})' )
 
 ESCAPED_VERSTR = $$replace( VERSTR, ' ', '\ ' )
