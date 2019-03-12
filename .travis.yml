@@ -47,12 +47,6 @@ jobs:
         - pip install pyopenssl
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
-    - stage: deploy
-      name: "🌍 Translations"
-      if: branch = android_5
-      install:
-        pip install -r requirements.txt
-      script: ./scripts/ci/update-translations.sh
 
 matrix:
   fast_finish: true 
