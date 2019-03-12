@@ -187,8 +187,6 @@ void AttributeFormModelBase::onFeatureChanged()
   }
 
   updateVisibility();
-
-  emit setRelationFeatureId( mFeatureModel->feature().id() );
 }
 
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
@@ -226,10 +224,6 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
-  }
-  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral("relation") )
-  {
-    item->setData( mFeatureModel->feature().id(), AttributeFormModel::AttributeValue );
   }
   else
   {

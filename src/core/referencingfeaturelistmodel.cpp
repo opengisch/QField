@@ -3,7 +3,7 @@
 
  ---------------------
  begin                : 1.3.2019
- copyright            : (C) 2019 by David Signer Kuhn
+ copyright            : (C) 2019 by David Signer
  email                : david@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -91,21 +91,6 @@ void ReferencingFeatureListModel::setRelation(const QgsRelation &relation)
 QgsRelation ReferencingFeatureListModel::relation() const
 {
   return mRelation;
-}
-
-AttributeFormModel *ReferencingFeatureListModel::attributeFormModel() const
-{
-  return mAttributeFormModel;
-}
-
-void ReferencingFeatureListModel::setAttributeFormModel( AttributeFormModel *attributeFormModel )
-{
-  mAttributeFormModel = attributeFormModel;
-  connect( mAttributeFormModel, &AttributeFormModel::setRelationFeatureId, this, [this]( QgsFeatureId featureId )
-    {
-      setFeatureId( featureId );
-    }
-  );
 }
 
 void ReferencingFeatureListModel::reload()

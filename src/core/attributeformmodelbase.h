@@ -59,7 +59,6 @@ class AttributeFormModelBase : public QStandardItemModel
     void hasTabsChanged();
     void featureChanged();
     void constraintsValidChanged();
-    void setRelationFeatureId( QgsFeatureId featureId );
 
   private slots:
     void onLayerChanged();

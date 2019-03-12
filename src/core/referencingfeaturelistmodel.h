@@ -3,7 +3,7 @@
 
  ---------------------
  begin                : 1.3.2019
- copyright            : (C) 2019 by David Signer Kuhn
+ copyright            : (C) 2019 by David Signer
  email                : david@opengis.ch
  ***************************************************************************
  *                                                                         *
@@ -30,7 +30,6 @@ class ReferencingFeatureListModel : public QStandardItemModel
   /**
    * The relation
    */
-  Q_PROPERTY( AttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel NOTIFY attributeFormModelChanged )
   Q_PROPERTY( QgsFeatureId featureId WRITE setFeatureId READ featureId NOTIFY featureIdChanged )
   Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
 
@@ -57,9 +56,6 @@ public:
   void setRelation( const QgsRelation &relation );
   QgsRelation relation() const;
 
-  AttributeFormModel *attributeFormModel() const;
-  void setAttributeFormModel( AttributeFormModel *attributeFormModel );
-
   void reload();
   Q_INVOKABLE void deleteFeature( QgsFeatureId fid );
 
@@ -84,7 +80,6 @@ private:
 
   QList<Entry> mEntries;
 
-  AttributeFormModel *mAttributeFormModel;
   QgsFeatureId mFeatureId=-1;
   QgsRelation mRelation;
 

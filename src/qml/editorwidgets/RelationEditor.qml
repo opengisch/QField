@@ -13,6 +13,12 @@ import org.qgis 1.0
 Frame{
     height: 200
 
+    //the model
+    ReferencingFeatureListModel {
+        id: relationEditorModel
+        relation: qgisProject.relationManager.relation(relationId)
+        featureId: currentFeatureId
+    }
     //the list
     ListView {
         id: referencingFeatureListView
@@ -97,7 +103,7 @@ Frame{
       text: "Should the feature "+featureId+" on layer "+layerName+" really be deleted?" //translation needed
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
-        relationEditorModel.deleteFeature( featureId )
+        referencingFeatureListView.model.deleteFeature( featureId )
         console.log("delete feature "+featureId)
         visible = false
       }
