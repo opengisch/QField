@@ -26,7 +26,7 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
   roles[DisplayString] = "displayString";
-  roles[FeatureId] = "featureId";
+  roles[ReferencingFeatureId] = "referencingFeatureId";
 
   return roles;
 }
@@ -62,8 +62,8 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
 {
   if ( role == DisplayString )
     return mEntries.value( index.row() ).displayString;
-  if ( role == FeatureId )
-    return mEntries.value( index.row() ).featureId;
+  if ( role == ReferencingFeatureId )
+    return mEntries.value( index.row() ).referencingFeatureId;
 
   return QVariant();
 }
@@ -112,10 +112,10 @@ void ReferencingFeatureListModel::reload()
   endResetModel();
 }
 
-void ReferencingFeatureListModel::deleteFeature( QgsFeatureId fid )
+void ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
 {
   mRelation.referencingLayer()->startEditing();
-  mRelation.referencingLayer()->deleteFeature( fid );
+  mRelation.referencingLayer()->deleteFeature( referencingFeatureId );
   mRelation.referencingLayer()->commitChanges();
   reload();
 }

@@ -39,7 +39,7 @@ public:
   enum ReferencedFeatureListRoles
   {
     DisplayString = Qt::UserRole,
-    FeatureId
+    ReferencingFeatureId
   };
 
   QHash<int, QByteArray> roleNames() const override;
@@ -57,7 +57,7 @@ public:
   QgsRelation relation() const;
 
   void reload();
-  Q_INVOKABLE void deleteFeature( QgsFeatureId fid );
+  Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
 signals:
   void attributeFormModelChanged();
@@ -67,15 +67,15 @@ signals:
 private:
   struct Entry
   {
-    Entry( const QString &displayString, const QgsFeatureId &featureId )
+    Entry( const QString &displayString, const QgsFeatureId &referencingFeatureId )
       : displayString( displayString )
-       , featureId(featureId)
+       , referencingFeatureId(referencingFeatureId)
     {}
 
     Entry() = default;
 
     QString displayString;
-    QgsFeatureId featureId;
+    QgsFeatureId referencingFeatureId;
   };
 
   QList<Entry> mEntries;

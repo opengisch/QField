@@ -19,6 +19,7 @@ Frame{
         relation: qgisProject.relationManager.relation(relationId)
         featureId: currentFeatureId
     }
+
     //the list
     ListView {
         id: referencingFeatureListView
@@ -28,7 +29,7 @@ Frame{
         focus: true
         clip: true
 
-        onCurrentItemChanged: model.featureId + ' selected '+currentIndex
+        onCurrentItemChanged: model.referencingFeatureId + ' selected '+currentIndex
     }
 
     //list components
@@ -47,7 +48,7 @@ Frame{
             id: featureText
             anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
             font.bold: true
-            text: { text: model.featureId + ' - ' + model.displayString }
+            text: { text: model.referencingFeatureId + ' - ' + model.displayString }
           }
 
           MouseArea {
@@ -74,7 +75,7 @@ Frame{
               iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
 
               onClicked: {
-                  deleteDialog.featureId = model.featureId
+                  deleteDialog.referencingFeatureId = model.referencingFeatureId
                   deleteDialog.visible = true
               }
             }
@@ -94,17 +95,17 @@ Frame{
     MessageDialog {
       id: deleteDialog
 
-      property int featureId
+      property int referencingFeatureId
       property var layerName
 
       visible: false
 
-      title: "Delete feature "+featureId+" on layer "+layerName //translation needed
-      text: "Should the feature "+featureId+" on layer "+layerName+" really be deleted?" //translation needed
+      title: "Delete feature "+referencingFeatureId+" on layer "+layerName //translation needed
+      text: "Should the feature "+referencingFeatureId+" on layer "+layerName+" really be deleted?" //translation needed
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
-        referencingFeatureListView.model.deleteFeature( featureId )
-        console.log("delete feature "+featureId)
+        referencingFeatureListView.model.deleteFeature( referencingFeatureId )
+        console.log("delete feature "+referencingFeatureId)
         visible = false
       }
       onRejected: {
