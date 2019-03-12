@@ -13,6 +13,8 @@ android {
 
   ANDROID_EXTRA_LIBS = \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrystax.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libssl.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrypto.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libexpat.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgeos.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libgeos_c.so \
@@ -44,10 +46,7 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwcsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwfsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwmsprovider.so \
-    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libssl.so \
-    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrypto.so \
     $$QT_LIBS_DIR/libQt5OpenGL.so \
-    $$QT_LIBS_DIR/libQt5PrintSupport.so \
     $$QT_LIBS_DIR/libQt5Sensors.so \
     $$QT_LIBS_DIR/libQt5Sql.so \
     $$QT_LIBS_DIR/libQt5Svg.so \
