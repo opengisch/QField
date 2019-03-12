@@ -26,7 +26,7 @@ VERSTR = '$${VERSION}$${VERSION_SUFFIX} - $${CODENAME}'
 # this must match the VERSIONCODE from the android 6+ APK without the last digit
 # for example if the APK VERSIONCODE is 10000043, VERSIONCODE_FORCED must be 1000004
 VERSIONCODE_FORCED = 1000004
-VERSIONCODE = $$format_number($VERSIONCODE_FORCED$ANDROID_VERSION_SUFFIX)
+VERSIONCODE = $$format_number($${VERSIONCODE_FORCED}$${ANDROID_VERSION_SUFFIX})
 
 message( 'Building Version $${VERSTR} ($${VERSIONCODE})' )
 
