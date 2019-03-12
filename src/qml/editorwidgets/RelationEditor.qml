@@ -43,14 +43,6 @@ Frame{
 
       focus: true
 
-      Text {
-        id: addEntryText
-        anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
-        font.bold: true
-        color: "gray"
-        text: { text: "Add entry" }
-      }
-
       Row
       {
         id: editRow
@@ -188,6 +180,7 @@ Frame{
         closePolicy: Popup.CloseOnEscape
 
         FeatureForm {
+          predefinedValue: predefinedValue+{'name':'sensor_point_id', 'value':1 } //{'name':relationEditorModel.relation.referencingField, 'value':relationEditorModel.feature.attribute(relationEditorModel.relation.referencedField) }
           model: AttributeFormModel {
             id: attributeFormModel
 
@@ -195,7 +188,6 @@ Frame{
               currentLayer: relationEditorModel.relation.referencingLayer
               feature: state === "Edit" ? embeddedFeatureForm.referencingFeature : undefined
             }
-            //pass the id as FK
           }
 
           toolbarVisible: true
