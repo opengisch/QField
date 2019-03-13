@@ -101,7 +101,8 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
   {
     disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
     disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-    disconnect( mFeatureModel, &FeatureModel::referencedFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+    disconnect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+    disconnect( mFeatureModel, &FeatureModel::linkedRelationChanged, this, &AttributeFormModelBase::onFeatureChanged );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
   }
 
@@ -109,7 +110,8 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::referencedFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::linkedRelationChanged, this, &AttributeFormModelBase::onFeatureChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
@@ -226,24 +228,6 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
-    //overwrite with fixReferencedFeature
-    const QList<QgsRelation> referencedRelations = QgsProject::instance()->relationManager()->referencingRelations( mLayer );
-    for ( const QgsRelation &referencedRelations : referencedRelations )
-    {
-      //dave make loop through fieldPairs
-      if( item->data( AttributeFormModel::Name ) == referencedRelations.fieldPairs().at(0).first )
-      {
-        //dave check if the feature on the correct layer (possibly referencedLayer needed as well)
-        if( mFeatureModel->referencedFeature().isValid() )
-          {
-            if( !mFeatureModel->referencedFeature().attribute( referencedRelations.fieldPairs().at(0).second ).isNull() )
-            {
-              item->setData( mFeatureModel->referencedFeature().attribute( referencedRelations.fieldPairs().at(0).second ), AttributeFormModel::AttributeValue );
-              item->setData( false, AttributeFormModel::CurrentlyVisible);
-              }
-          }
-      }
-    }
   }
   else
   {

@@ -96,19 +96,45 @@ QgsFeature FeatureModel::feature() const
   return mFeature;
 }
 
-void FeatureModel::setReferencedFeature(QgsFeature &referencedFeature)
+void FeatureModel::setLinkedFeatureValues()
 {
-  if( mReferencedFeature == referencedFeature )
-    return;
-
-  mReferencedFeature = referencedFeature;
-
-  emit featureChanged();
+  for( QgsRelation::FieldPair fieldPair : mLinkedRelation.fieldPairs() )
+  {
+    mFeature.setAttribute(mFeature.fieldNameIndex(fieldPair.first), linkedParentFeature().attribute( fieldPair.second ) );
+  }
 }
 
-QgsFeature FeatureModel::referencedFeature() const
+void FeatureModel::setLinkedParentFeature(QgsFeature &feature)
 {
-  return mReferencedFeature;
+  if( mLinkedParentFeature == feature )
+    return;
+
+  mLinkedParentFeature = feature;
+
+  if( mLinkedRelation.isValid() )
+    setLinkedFeatureValues();
+
+  emit linkedParentFeatureChanged();
+}
+
+QgsFeature FeatureModel::linkedParentFeature() const
+{
+  return mLinkedParentFeature;
+}
+
+void FeatureModel::setLinkedRelation(QgsRelation &relation)
+{
+  mLinkedRelation = relation;
+
+  if( mLinkedParentFeature.isValid() )
+    setLinkedFeatureValues();
+
+  emit linkedRelationChanged();
+}
+
+QgsRelation FeatureModel::linkedRelation() const
+{
+  return mLinkedRelation;
 }
 
 QHash<int, QByteArray> FeatureModel::roleNames() const

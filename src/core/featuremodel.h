@@ -20,6 +20,7 @@
 
 #include <QAbstractListModel>
 #include <QGeoPositionInfoSource>
+#include <qgsrelationmanager.h>
 #include <memory>
 #include <qgsfeature.h>
 
@@ -31,7 +32,8 @@ class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
-    Q_PROPERTY( QgsFeature referencedFeature READ referencedFeature WRITE setReferencedFeature NOTIFY referencedFeatureChanged )
+    Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
+    Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
@@ -65,8 +67,12 @@ class FeatureModel : public QAbstractListModel
      */
     QgsFeature feature() const;
 
-    void setReferencedFeature( QgsFeature &feature );
-    QgsFeature referencedFeature() const;
+    void setLinkedFeatureValues();
+
+    void setLinkedParentFeature( QgsFeature &feature );
+    QgsFeature linkedParentFeature() const;
+    void setLinkedRelation( QgsRelation &relation );
+    QgsRelation linkedRelation() const;
 
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
@@ -123,7 +129,8 @@ class FeatureModel : public QAbstractListModel
 
   signals:
     void featureChanged();
-    void referencedFeatureChanged();
+    void linkedParentFeatureChanged();
+    void linkedRelationChanged();
     void vertexModelChanged();
     void geometryChanged();
     void currentLayerChanged();
@@ -137,7 +144,8 @@ class FeatureModel : public QAbstractListModel
 
     QgsVectorLayer *mLayer;
     QgsFeature mFeature;
-    QgsFeature mReferencedFeature;
+    QgsFeature mLinkedParentFeature;
+    QgsRelation mLinkedRelation;
     VertexModel *mVertexModel = nullptr;
     Geometry *mGeometry;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
