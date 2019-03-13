@@ -89,7 +89,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.position.speedValid ? positionSource.position.speed.toFixed(3) + " m/s" : qsTr( "N/A" ) )
+        text: "name: " + positionSource.name //qsTr( "Speed" ) + ': ' + ( positionSource.position.speedValid ? positionSource.position.speed.toFixed(3) + " m/s" : qsTr( "N/A" ) )
       }
     }
 
