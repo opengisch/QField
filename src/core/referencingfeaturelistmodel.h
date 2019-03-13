@@ -17,6 +17,7 @@
 #define REFERENCINGFEATURELISTMODEL_H
 
 #include <QAbstractItemModel>
+#include <QPair>
 #include "qgsvectorlayer.h"
 #include "attributeformmodel.h"
 

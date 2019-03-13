@@ -38,7 +38,7 @@ Frame{
     Item {
       id: addEntry
       anchors.top: referencingFeatureListView.bottom
-      height: Math.max( itemHeight, addEntryText.height )
+      height: itemHeight
       width: parent.width
 
       focus: true
@@ -180,13 +180,13 @@ Frame{
         closePolicy: Popup.CloseOnEscape
 
         FeatureForm {
-          predefinedValue: predefinedValue+{'name':'sensor_point_id', 'value':1 } //{'name':relationEditorModel.relation.referencingField, 'value':relationEditorModel.feature.attribute(relationEditorModel.relation.referencedField) }
-          model: AttributeFormModel {
+            model: AttributeFormModel {
             id: attributeFormModel
 
             featureModel: FeatureModel {
               currentLayer: relationEditorModel.relation.referencingLayer
               feature: state === "Edit" ? embeddedFeatureForm.referencingFeature : undefined
+              referencedFeature: relationEditorModel.feature
             }
           }
 

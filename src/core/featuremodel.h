@@ -31,6 +31,7 @@ class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_PROPERTY( QgsFeature referencedFeature READ referencedFeature WRITE setReferencedFeature NOTIFY referencedFeatureChanged )
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
@@ -63,6 +64,9 @@ class FeatureModel : public QAbstractListModel
      * Return the feature wrapped in a QVariant for passing it around in QML
      */
     QgsFeature feature() const;
+
+    void setReferencedFeature( QgsFeature &feature );
+    QgsFeature referencedFeature() const;
 
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
@@ -119,6 +123,7 @@ class FeatureModel : public QAbstractListModel
 
   signals:
     void featureChanged();
+    void referencedFeatureChanged();
     void vertexModelChanged();
     void geometryChanged();
     void currentLayerChanged();
@@ -132,6 +137,7 @@ class FeatureModel : public QAbstractListModel
 
     QgsVectorLayer *mLayer;
     QgsFeature mFeature;
+    QgsFeature mReferencedFeature;
     VertexModel *mVertexModel = nullptr;
     Geometry *mGeometry;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;

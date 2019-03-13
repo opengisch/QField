@@ -19,7 +19,6 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
-  property variant predefinedValue
 
   function reset() {
     master.reset()
@@ -241,7 +240,7 @@ Page {
           anchors { left: parent.left; right: parent.right }
 
           enabled: form.state !== "ReadOnly" && !!AttributeEditable
-          property var value: Field.name === predefinedValue.name ? predefinedValue.value : AttributeValue
+          property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
           property var field: Field

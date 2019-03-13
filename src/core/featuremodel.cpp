@@ -96,6 +96,21 @@ QgsFeature FeatureModel::feature() const
   return mFeature;
 }
 
+void FeatureModel::setReferencedFeature(QgsFeature &referencedFeature)
+{
+  if( mReferencedFeature == referencedFeature )
+    return;
+
+  mReferencedFeature = referencedFeature;
+
+  emit featureChanged();
+}
+
+QgsFeature FeatureModel::referencedFeature() const
+{
+  return mReferencedFeature;
+}
+
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
