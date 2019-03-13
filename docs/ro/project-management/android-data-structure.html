@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Observații referitoare la accesul la fișierele speciale &mdash; QField Documentation 1.0 - M... documentation</title>
+    <title>Simboluri și setări SVG personalizate &mdash; QField Documentation 1.0 - M... documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
     <link rel="up" title="Managementul Proiectelor în QField" href="index.html" />
-    <link rel="next" title="Configurarea Temelor Hărții" href="map-themes.html" />
+    <link rel="next" title="Project selection" href="project-selection.html" />
     <link rel="prev" title="Configurarea Temelor Hărții" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,13 +98,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Observații referitoare la accesul la fișierele speciale</a><ul>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Simboluri și setări SVG personalizate</a></li>
-<li><a class="reference internal" href="#external-sd-card">Card SD extern</a></li>
-<li><a class="reference internal" href="#warning">Avertisment!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">Cum să transformați cardul SD extern într-un spațiu de stocare intern, pentru Android 6 și 7.</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Simboluri și setări SVG personalizate</a></li>
 </ul>
 </ul>
 </li>
@@ -118,7 +112,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Configurarea Temelor Hărții"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configurarea ... &raquo;</span>
+    <a href="project-selection.html" title="Next Chapter: Project selection"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Project selection &raquo;</span>
     </a>
   </li>
             
@@ -150,13 +144,14 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Observații referitoare la accesul la fișierele speciale</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Simboluri și setări SVG personalizate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurarea Temelor Hărții</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Setările Straturilor Vectoriale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Ghidul de Utilizare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Schimbă Tema de Hartă activă</a></li>
@@ -172,43 +167,11 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="android-special-file-access-notes">
-<h1>Android: Observații referitoare la accesul la fișierele speciale<a class="headerlink" href="#android-special-file-access-notes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h2>Simboluri și setări SVG personalizate<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="custom-svg-symbols-and-settings">
+<h1>Simboluri și setări SVG personalizate<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>
 <p>În dialogul &#8220;About&#8221; puteți vedea unde se află pe dispozitiv folderele partajate.</p>
 <p>În cazul în care doriți să utilizați simboluri personalizate, trebuie să le stocați acolo cu ajutorul unui manager de fișiere.</p>
 <p><em>Avertisment</em> : unele aplicații pot bloca accesul la folderul svg. Pe dispozitivele Samsung trebuie să dezactivați aplicația Samsung &#8220;Folder securizat&#8221; pentru a accesa folderul svg. În caz contrar, acest dosar rămâne ascuns.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h2>Card SD extern<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a putea avea acces de scriere la proiectele de pe un card SD extern, va trebui să-l puneți în următorul folder:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
-</div>
-</div>
-<div class="section" id="warning">
-<h2>Avertisment!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
-<p>Prin stocarea în acest dosar, riscați să pierdeți date. Puteți pierde date prin dezinstalarea QField de pe dispozitivul dvs. Sistemul Android va șterge directorul /Android/data/ch.opengis.qfield. Acest lucru este important dacă păstrați datele pe cardul SD extern.</p>
-</div>
-<div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
-<h2>Cum să transformați cardul SD extern într-un spațiu de stocare intern, pentru Android 6 și 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Permalink to this headline">¶</a></h2>
-<p>We recommend to <a class="reference external" href="https://www.androidcentral.com/adoptable-storage">turn external SD card to internal storage</a>.</p>
-<p>NOTĂ: Asigurați-vă că începeți cu un card SD gol. Acesta trebuie să fie necompletat, deoarece atunci când va fi transformat într-un spațiu de stocare &#8220;intern&#8221;, el va fi formatat (șters) și codat (permițând datelor de pe card să fie citite numai pe dispozitivul dvs.).</p>
-<ol class="arabic simple">
-<li><p class="first">Accesați &#8220;Setările&#8221; dispozitivului, apoi selectați &#8220;Stocare&#8221;.</p>
-</li>
-<li><p class="first">Selectați &#8220;Cardul SD&#8221;, accesați &#8220;meniul cu trei puncte&#8221; (dreapta-sus), după care alegeți &#8220;Setări&#8221;.</p>
-</li>
-<li><p class="first">Selectați &#8220;Formatare ca intern&#8221; iar apoi &#8220;Ștergere &amp; Formatare&#8217;.</p>
-</li>
-<li><p class="first">În acest moment, cardul dvs. SD va fi formatat pentru stocare internă.</p>
-</li>
-<li><p class="first">Restartați telefonul.</p>
-</li>
-</ol>
-<p>NOTĂ: Dacă nu reporniți telefonul, este posibil ca multe lucruri să nu funcționeze corect, așa că asigurați-vă că ați făcut acest lucru.</p>
-</div>
 </div>
 
 

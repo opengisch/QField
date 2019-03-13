@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Notas sobre Acesso Especial a Ficheiros &mdash; Documentação QField Documentation 1.0 - M...</title>
+    <title>Definições e símbolos SVG personalizados &mdash; Documentação QField Documentation 1.0 - M...</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
     <link rel="up" title="QField - Gestão do Projeto" href="index.html" />
-    <link rel="next" title="Configurar Temas do Mapa" href="map-themes.html" />
+    <link rel="next" title="Project selection" href="project-selection.html" />
     <link rel="prev" title="Configurar Temas do Mapa" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,13 +98,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Notas sobre Acesso Especial a Ficheiros</a><ul>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Definições e símbolos SVG personalizados</a></li>
-<li><a class="reference internal" href="#external-sd-card">Cartão SD externo</a></li>
-<li><a class="reference internal" href="#warning">Atenção!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">Como tornar o cartão externo SD em armazenamento interno no Android 6 e 7.</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Definições e símbolos SVG personalizados</a></li>
 </ul>
 </ul>
 </li>
@@ -118,7 +112,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Configurar Temas do Mapa"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configurar Te... &raquo;</span>
+    <a href="project-selection.html" title="Next Chapter: Project selection"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Project selection &raquo;</span>
     </a>
   </li>
             
@@ -150,13 +144,14 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Notas sobre Acesso Especial a Ficheiros</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas do Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projecto Portátil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
@@ -172,43 +167,11 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="android-special-file-access-notes">
-<h1>Android: Notas sobre Acesso Especial a Ficheiros<a class="headerlink" href="#android-special-file-access-notes" title="Link permanente para este título">¶</a></h1>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h2>Definições e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanente para este título">¶</a></h2>
+  <div class="section" id="custom-svg-symbols-and-settings">
+<h1>Definições e símbolos SVG personalizados<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanente para este título">¶</a></h1>
 <p>Na janela sobre pode ver onde as pastas partilhadas estão no seu dispositivo.</p>
 <p>Se quer usar símbolos personalizados necessita de pôr-los usando um gestor de ficheiros.</p>
 <p><em>Aviso</em>: algumas apps podem bloquear o acesso à pasta svg. Nos dispositivos Samsung, tem de desactivar a app Samsung &#8220;Pasta Segura&#8221; de forma a poder aceder à pasta svg. Caso contrários, esta pasta estará escondida.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h2>Cartão SD externo<a class="headerlink" href="#external-sd-card" title="Link permanente para este título">¶</a></h2>
-<p>Para que possa ter acesso de escrita nos projectos que estão no cartão SD externo, necessita de por na seguinte pasta:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
-</div>
-</div>
-<div class="section" id="warning">
-<h2>Atenção!<a class="headerlink" href="#warning" title="Link permanente para este título">¶</a></h2>
-<p>Ao armazenar os dados nesta pasta, pode correr o risco de a perder. Pode perde-la através da desinstalação do Qfield a partir do seu dispositivo Android. O sistema Android irá apagar o directório /Android/data/ch.opengis.qfield. Isto é importante se quiser manter os dados no cartão externo SD.</p>
-</div>
-<div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
-<h2>Como tornar o cartão externo SD em armazenamento interno no Android 6 e 7.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Link permanente para este título">¶</a></h2>
-<p>We recommend to <a class="reference external" href="https://www.androidcentral.com/adoptable-storage">turn external SD card to internal storage</a>.</p>
-<p>NOTA: Por favor, certifique-se de começar com um cartão SD vazio. Ele precisa estar vazio porque quando o cartão é convertido para armazenamento &#8220;Interno&#8221;, ele será formatado (limpo) e codificado (tornando os dados dos cartões somente legíveis por esse dispositivo).</p>
-<ol class="arabic simple">
-<li><p class="first">Vá às &#8220;Definições&#8221; do dispositivo, e de seguida &#8220;Armazenamento&#8221;.</p>
-</li>
-<li><p class="first">Seleccione o seu &#8220;Cartão SD&#8221;, e de seguida toque no &#8220;three-dot menu&#8221; (canto superior direito), seleccione em &#8220;Definições&#8221; a partir daí.</p>
-</li>
-<li><p class="first">Agora seleccione &#8220;Formatar como interno&#8221;, e depois &#8220;Apagar &amp; Formatar&#8221;.</p>
-</li>
-<li><p class="first">O seu cartão SD será formatado como armazenamento interno.</p>
-</li>
-<li><p class="first">Reinicie o seu telefone.</p>
-</li>
-</ol>
-<p>NOTA: Se não reiniciar o seu telemóvel, muitas das coidas podem não funcionar correctamente, portanto garanta que o faz.</p>
-</div>
 </div>
 
 

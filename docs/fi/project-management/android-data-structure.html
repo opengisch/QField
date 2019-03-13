@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android: Erityiset huomiot tiedostojen käsittelyyn &mdash; QField Documentation 1.0 - M... documentation</title>
+    <title>Räätälöidyt SVG symbolit ja asetukset &mdash; QField Documentation 1.0 - M... documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
     <link rel="up" title="QField Projektihallinta" href="index.html" />
-    <link rel="next" title="Konfiguroi karttateemat" href="map-themes.html" />
+    <link rel="next" title="Project selection" href="project-selection.html" />
     <link rel="prev" title="Konfiguroi karttateemat" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -99,13 +99,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Android: Erityiset huomiot tiedostojen käsittelyyn</a><ul>
-<li><a class="reference internal" href="#custom-svg-symbols-and-settings">Räätälöidyt SVG symbolit ja asetukset</a></li>
-<li><a class="reference internal" href="#external-sd-card">Ulkoinen SD kortti</a></li>
-<li><a class="reference internal" href="#warning">Varoitus!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">Kuinka muuttaa ulkoinen SD kortti sisäiseksi tietovarastoksia Android 6 ja 7 järjestelmissä.</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Räätälöidyt SVG symbolit ja asetukset</a></li>
 </ul>
 </ul>
 </li>
@@ -119,7 +113,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Konfiguroi karttateemat"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Konfiguroi ka... &raquo;</span>
+    <a href="project-selection.html" title="Next Chapter: Project selection"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Project selection &raquo;</span>
     </a>
   </li>
             
@@ -151,13 +145,14 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField asennusopas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Android: Erityiset huomiot tiedostojen käsittelyyn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Räätälöidyt SVG symbolit ja asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Haku tasoilta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Tuetut dataformaatit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Rasteridata</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Projektihallinta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Konfiguroi karttateemat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Siirrettävä projekti</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vektoritason asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField käyttäjän opas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
@@ -173,43 +168,11 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="android-special-file-access-notes">
-<h1>Android: Erityiset huomiot tiedostojen käsittelyyn<a class="headerlink" href="#android-special-file-access-notes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="custom-svg-symbols-and-settings">
-<h2>Räätälöidyt SVG symbolit ja asetukset<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="custom-svg-symbols-and-settings">
+<h1>Räätälöidyt SVG symbolit ja asetukset<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Permalink to this headline">¶</a></h1>
 <p>Ylläolevasta valintaikkunasta näet missä jaetut hakemistot ovat laitteessasi.</p>
 <p>Jos haluat käyttää räätälöityjä symboleja tulee Sinun sijoittaa ne sinne käyttäen tiedostojen hallintaan.</p>
 <p><em>Varoitus</em> : jotkut sovellutukset saattavat estää pääsyn svg hakemistoon. Samsung laitteilla Sinun on poistettava aktivointi Samsung &#8220;Secured Folder/Varmistettu hakemisto&#8221; sovellus voidaksesi  käyttää svg hekemistoa. Muussa tapauksessa hakemisto jää piilotetuksi.</p>
-</div>
-<div class="section" id="external-sd-card">
-<h2>Ulkoinen SD kortti<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>Halutessasi kirjoitusoikeuden projektiisi joka on ulkoisella SD kortilla, Sinun tulee laittaa se seuraavaan hakemistoon:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
-</div>
-</div>
-<div class="section" id="warning">
-<h2>Varoitus!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
-<p>Tallentamalla tietoja tähän hakemistoon olet vaarassa hukata ne. Voit menettää tiedot poistamalla QField asennuksen Android laitteestasi. Android järjestelmä poistaa /Android/data/ch.opengis.qfield hakemiston. Tämä on tärkeä huomioida jos säilytät tiedot sisäisellä sd kortilla.</p>
-</div>
-<div class="section" id="how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7">
-<h2>Kuinka muuttaa ulkoinen SD kortti sisäiseksi tietovarastoksia Android 6 ja 7 järjestelmissä.<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage-on-android-6-and-7" title="Permalink to this headline">¶</a></h2>
-<p>We recommend to <a class="reference external" href="https://www.androidcentral.com/adoptable-storage">turn external SD card to internal storage</a>.</p>
-<p>HUOMAA: Ole varma että aloitat tyhjällä SD kortilla. Sen tulee olla tyhjä koska kortti muunnetaan &#8220;sisäiseksi&#8221; tietovarastoksi, se alustetaan (tyhjätään) ja koodataan (tehdään kortin tiedot luettaviksi ainoastaan sillä laitteella).</p>
-<ol class="arabic simple">
-<li><p class="first">Mene laitteesi &#8220;Asetukset&#8221;, ja sitten &#8220;Tietovarasto&#8221;.</p>
-</li>
-<li><p class="first">Valitse &#8220;SD kortti&#8221; ja sitten näpäytä &#8220;kolmen pisteen valikkoa&#8221; (yläoikealla), ja valitse sieltä &#8220;Asetukset&#8221;.</p>
-</li>
-<li><p class="first">Nyt valitse “Alusta sisäiseksi”, ja sitten “Tyhjennä &amp; alusta”.</p>
-</li>
-<li><p class="first">SD korttisi alustetaan nyt sisäiseksi tietovarastoksi.</p>
-</li>
-<li><p class="first">Käynnistä puhelimesi uudelleen.</p>
-</li>
-</ol>
-<p>HUOMAA: Jos et nyt käynninstä puhelintasi uudelleen useat toiminnot eivät toimi ikein joten varmista ett uudelleen käynnistät.</p>
-</div>
 </div>
 
 
