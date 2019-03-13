@@ -186,8 +186,8 @@ Frame{
             featureModel: FeatureModel {
               currentLayer: relationEditorModel.relation.referencingLayer
               feature: state === "Edit" ? embeddedFeatureForm.referencingFeature : undefined
-              linkedParentFeature: relationEditorModel.feature
-              linkedRelation: relationEditorModel.relation
+              linkedParentFeature: state === "Add" ? relationEditorModel.feature : undefined
+              linkedRelation: state === "Add" ? relationEditorModel.relation : undefined
             }
           }
 

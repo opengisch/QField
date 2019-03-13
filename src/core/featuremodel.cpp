@@ -98,10 +98,14 @@ QgsFeature FeatureModel::feature() const
 
 void FeatureModel::setLinkedFeatureValues()
 {
+  beginResetModel();
   for( QgsRelation::FieldPair fieldPair : mLinkedRelation.fieldPairs() )
   {
     mFeature.setAttribute(mFeature.fieldNameIndex(fieldPair.first), linkedParentFeature().attribute( fieldPair.second ) );
   }
+  endResetModel();
+
+  emit featureChanged();
 }
 
 void FeatureModel::setLinkedParentFeature(QgsFeature &feature)
@@ -113,8 +117,6 @@ void FeatureModel::setLinkedParentFeature(QgsFeature &feature)
 
   if( mLinkedRelation.isValid() )
     setLinkedFeatureValues();
-
-  emit linkedParentFeatureChanged();
 }
 
 QgsFeature FeatureModel::linkedParentFeature() const
@@ -128,8 +130,6 @@ void FeatureModel::setLinkedRelation(QgsRelation &relation)
 
   if( mLinkedParentFeature.isValid() )
     setLinkedFeatureValues();
-
-  emit linkedRelationChanged();
 }
 
 QgsRelation FeatureModel::linkedRelation() const

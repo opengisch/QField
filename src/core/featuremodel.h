@@ -67,8 +67,12 @@ class FeatureModel : public QAbstractListModel
      */
     QgsFeature feature() const;
 
-    void setLinkedFeatureValues();
+    /*
+     * a linked feature is a parent feature of a relation passing it's fk to the created child feature
+     * the fk fields are evaluated over the linked relation
+     */
 
+    void setLinkedFeatureValues();
     void setLinkedParentFeature( QgsFeature &feature );
     QgsFeature linkedParentFeature() const;
     void setLinkedRelation( QgsRelation &relation );
