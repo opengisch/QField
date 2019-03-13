@@ -101,8 +101,6 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
   {
     disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
     disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-    disconnect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-    disconnect( mFeatureModel, &FeatureModel::linkedRelationChanged, this, &AttributeFormModelBase::onFeatureChanged );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
   }
 
@@ -110,8 +108,6 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::linkedRelationChanged, this, &AttributeFormModelBase::onFeatureChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
@@ -286,6 +282,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
+
         item->setData( true, AttributeFormModel::ConstraintValid );
         item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
 
@@ -318,8 +315,6 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
-
-        updateAttributeValue( item );
 
         items.append( item );
 
