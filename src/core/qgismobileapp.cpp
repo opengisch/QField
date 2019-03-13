@@ -214,6 +214,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
+  rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
