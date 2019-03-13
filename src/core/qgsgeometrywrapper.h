@@ -30,7 +30,7 @@
 class QgsGeometryWrapper : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
@@ -60,7 +60,7 @@ class QgsGeometryWrapper : public QObject
     void setCrs( const QgsCoordinateReferenceSystem &crs );
 
   signals:
-    void geometryChanged();
+    void qgsGeometryChanged();
     void crsChanged();
 
   private:

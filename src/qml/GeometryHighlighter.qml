@@ -3,8 +3,15 @@ import org.qfield 1.0
 
 Item {
   id: geometryHighlighter
-  property alias geometry: geometryRenderer.geometry
+  property alias geometryWrapper: geometryRenderer.geometryWrapper
   property int duration: 3000
+
+  Connections {
+    target: geometryRenderer
+    onQgsGeometryChanged: {
+      timer.restart()
+    }
+  }
 
   GeometryRenderer {
     id: geometryRenderer
@@ -16,9 +23,5 @@ Item {
     running: false
     repeat: false
     onTriggered: geometryHighlighter.geometry = null
-  }
-
-  onGeometryChanged: {
-    timer.restart()
   }
 }

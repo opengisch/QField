@@ -5,7 +5,8 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
-  property alias geometry: geometry
+  //signal qgsGeometryChangedv2
+  property alias geometryWrapper: geometryWrapper
   property double lineWidth: 8 * dp
   property color color: "yellow"
   property double pointSize: 20 * dp
@@ -14,21 +15,22 @@ Item {
   property MapSettings mapSettings: mapCanvas.mapSettings
 
   QgsGeometryWrapper {
-    id: geometry
+    id: geometryWrapper
   }
 
   Connections {
-    target: geometry
+    target: geometryWrapper
 
-    onGeometryChanged: {
+    onQgsGeometryChanged: {
       geometryComponent.sourceComponent = undefined
-      if (geometry && geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry) {
+      if (geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry) {
         geometryComponent.sourceComponent = pointHighlight
       }
       else
       {
         geometryComponent.sourceComponent = linePolygonHighlight
       }
+      //qgsGeometryChangedv2()
     }
   }
 
@@ -53,12 +55,12 @@ Item {
     id: pointHighlight
 
     Repeater {
-      model: geometry.pointList()
+      model: geometryWrapper.pointList()
 
       Rectangle {
         property CoordinateTransformer ct: CoordinateTransformer {
           id: _ct
-          sourceCrs: geometry.crs
+          sourceCrs: geometryWrapper.crs
           sourcePosition: modelData
           destinationCrs: mapCanvas.mapSettings.destinationCrs
           transformContext: qgisProject.transformContext
@@ -86,7 +88,7 @@ Item {
 
   Loader {
     id: geometryComponent
-    sourceComponent: geometry && geometry.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
+    sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
 
 }

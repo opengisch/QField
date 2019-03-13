@@ -43,7 +43,7 @@ void QgsGeometryWrapper::setQgsGeometry( const QgsGeometry &qgsGeometry )
     return;
 
   mQgsGeometry = qgsGeometry;
-  emit geometryChanged();
+  emit qgsGeometryChanged();
 }
 
 QgsCoordinateReferenceSystem QgsGeometryWrapper::crs() const
