@@ -53,6 +53,9 @@ class QgsGeometryWrapper : public QObject
     //! Returns a list of points if the geometry has point type (point, multipoint), an empty list otherwise
     Q_INVOKABLE QVariantList pointList() const;
 
+    //! Clear the wrapper by setting empty geometry and invalid CRS
+    Q_INVOKABLE void clear();
+
     QgsGeometry qgsGeometry() const;
     void setQgsGeometry( const QgsGeometry &qgsGeometry );
 

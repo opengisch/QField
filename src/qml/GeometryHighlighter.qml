@@ -7,7 +7,7 @@ Item {
   property int duration: 3000
 
   Connections {
-    target: geometryRenderer
+    target: geometryRenderer.geometryWrapper
     onQgsGeometryChanged: {
       timer.restart()
     }
@@ -22,6 +22,6 @@ Item {
     interval: geometryHighlighter.duration
     running: false
     repeat: false
-    onTriggered: geometryHighlighter.geometry = null
+    onTriggered: geometryHighlighter.geometryWrapper.clear()
   }
 }

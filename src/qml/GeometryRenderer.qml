@@ -45,7 +45,7 @@ Item {
         mapSettings: geometryRenderer.mapSettings
       }
 
-      geometry: geometryRenderer.geometry
+      geometry: geometryRenderer.geometryWrapper
       color: geometryRenderer.color
       width: geometryRenderer.lineWidth
     }

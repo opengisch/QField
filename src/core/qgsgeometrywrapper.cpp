@@ -32,6 +32,12 @@ QVariantList QgsGeometryWrapper::pointList() const
   return pointList;
 }
 
+void QgsGeometryWrapper::clear()
+{
+  setQgsGeometry(QgsGeometry());
+  setCrs(QgsCoordinateReferenceSystem());
+}
+
 QgsGeometry QgsGeometryWrapper::qgsGeometry() const
 {
   return mQgsGeometry;
