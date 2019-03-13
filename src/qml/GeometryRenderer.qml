@@ -5,7 +5,6 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
-  //signal qgsGeometryChangedv2
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 8 * dp
   property color color: "yellow"
@@ -30,7 +29,6 @@ Item {
       {
         geometryComponent.sourceComponent = linePolygonHighlight
       }
-      //qgsGeometryChangedv2()
     }
   }
 
@@ -88,7 +86,7 @@ Item {
 
   Loader {
     id: geometryComponent
-    sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
+    // the sourceComponent is updated with the connection on wrapper qgsGeometryChanged signal
   }
 
 }
