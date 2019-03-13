@@ -10,7 +10,7 @@ QField uses a customized file selector to open the projects. On choosing "Open p
 
 Inside these directories, only subdirectories and files with the ".qgs" extension are shown.
 
-QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like `syncthing <https://syncthing.net/>_` or `nextcloud <https://nextcloud.com/>`_ (or dropbox and probably many others) that allow you tho physically sync the file to your device.
+QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like `syncthing <https://syncthing.net/>`_ or `nextcloud <https://nextcloud.com/>`_ (or dropbox and probably many others) that allow you tho physically sync the file to your device.
 
 External SD card
 ----------------
