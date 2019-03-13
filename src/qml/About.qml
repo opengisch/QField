@@ -21,7 +21,7 @@ Item {
     Text {
       font.bold: true
       color: "white"
-      text: qsTr( "QField Version: %1").arg( version )
+      text: qsTr( "QField Version: %1 (%2)").arg( version ).arg( versionCode )
     }
     Text {
       font.bold: true
