@@ -52,12 +52,13 @@ field data collection. QField has significantly improved the ecological surveyin
 .. container:: clearer text-center
 
     .. image:: /images/eco-survey.png
-       :width: 200px
+       :width: 500px
        :alt: Figure 1 - Overview of the traditional workflow in ecological surveying at Delta-Simons compared with the workflow created using QField. Single-headed arrows indicate the direction of one-way communication, whereas double-headed arrows indicate two-way conversation. 
        
        
 .. container:: clearer text-center
 
     .. image:: /images/delta-simons.png
-       :width: 200px
+       :width: 400px
        :alt: Delta Simons
+       :target: https://www.deltasimons.com/

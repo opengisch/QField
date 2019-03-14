@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Project selection &mdash; QField Documentation 1.0 - M... documentation</title>
+    <title>Selección do proxecto &mdash; QField Documentation 1.0 - M... documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -97,10 +97,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Project selection</a><ul>
+<li><a class="reference internal" href="#">Selección do proxecto</a><ul>
 <li><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 <li><a class="reference internal" href="#warning">Advertencia!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">How to turn external SD card into internal storage</a></li>
+<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Como converter a tarxeta SD externa nun almacenamento interno</a></li>
 </ul>
 </li>
 </ul>
@@ -155,7 +155,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Xestión do Proxecto QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas de Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Selección do proxecto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
@@ -173,14 +173,16 @@
     <div class="col-md-9 content">
       
   <div class="section" id="project-selection">
-<h1>Project selection<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
-<p>QField opens QGIS projects in the &#8221;.qgs&#8221; format. Currently it is not possible to open &#8221;.qgz&#8221; files.</p>
-<p>QField uses a customized file selector to open the projects. On choosing &#8220;Open project&#8221; from the QField menu, the file selector will be opened showing the following locations:</p>
+<h1>Selección do proxecto<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
+<p>QField abre proxectos de QGIS no formato &#8221;.qgs&#8221;. Actualmente non é posible abrir ficheiros &#8221;.qgz&#8221;.</p>
+<p>QField utiliza un selector de ficheiros personalizado para abrir os proxectos. Ó escoller &#8220;Abrir proxecto&#8221; dende o menú de QField, abrirase o selector de ficheiros amosando as seguintes localizacións:</p>
 <ul class="simple">
-<li>The primary media/shared storage directory.</li>
-<li>The application-specific directories on all shared/external storage devices where the application can place persistent files it owns if they are not already included in the primary storage directory.</li>
+<li><p class="first">O directorio primario de almacenamento de medios/compartido.</p>
+</li>
+<li><p class="first">Os directorios específicos da aplicación en tódolos dispositivos de almacenamento compartido/externo onde a aplicación pode situar ficheiros persistentes se non están aínda incluídos no directorio de almacenamento primario.</p>
+</li>
 </ul>
-<p>Inside these directories, only subdirectories and files with the &#8221;.qgs&#8221; extension are shown.</p>
+<p>Destro destes directorios, só se amosan subdirectorios e ficheiros coa extensión &#8221;.qgs&#8221;.</p>
 <p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
 <div class="section" id="external-sd-card">
 <h2>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
@@ -195,7 +197,7 @@
 The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Como converter a tarxeta SD externa nun almacenamento interno<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
 <p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped).</strong></p>
 <ol class="arabic simple">
