@@ -175,6 +175,7 @@ Controls.Pane {
 
       Controls.ComboBox {
         id: mapThemeComboBox
+        currentIndex: 0
         anchors { left: parent.left; right: parent.right }
 
         Connections {
@@ -196,6 +197,40 @@ Controls.Pane {
             layerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
+
+        // [hidpi fixes]
+        delegate: Controls.ItemDelegate {
+          width: mapThemeComboBox.width
+          height: 36 * dp
+          text: modelData
+          font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
+          font.pointSize: 12
+          highlighted: mapThemeComboBox.highlightedIndex == index
+        }
+
+        contentItem: Text {
+          height: 36 * dp
+          anchors.margins: 10 * dp
+          text: mapThemeComboBox.displayText
+          horizontalAlignment: Text.AlignLeft
+          verticalAlignment: Text.AlignVCenter
+          elide: Text.ElideRight
+        }
+
+        background: Item {
+          implicitWidth: 120 * dp
+          implicitHeight: 36 * dp
+
+          Rectangle {
+            anchors.fill: parent
+            id: backgroundRect
+            border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
+            border.width: mapThemeComboBox.visualFocus ? 2 : 1
+            //color: "#dddddd"
+            radius: 2
+          }
+        }
+        // [/hidpi fixes]
       }
     }
 
