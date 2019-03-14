@@ -542,6 +542,9 @@ ApplicationWindow {
       onTriggered: {
         __projectSource = platformUtilities.openProject()
       }
+      on__ProjectSourceChanged: {
+        overlayFeatureFormDrawer.close()
+      }
     }
 
     Controls.MenuSeparator {}
