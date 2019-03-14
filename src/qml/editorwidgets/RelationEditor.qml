@@ -12,7 +12,7 @@ import org.qgis 1.0
 
 Frame{
     height: 200
-    property int itemHeight: 24*dp
+    property int itemHeight: 24 * dp
 
     //the model
     ReferencingFeatureListModel {
@@ -49,18 +49,29 @@ Frame{
         anchors { top: parent.top; right: parent.right }
         height: parent.height
 
-        Button {
-          id: addButton
-          width: parent.height
-          height: parent.height
-          visible: true
+        ToolButton {
+            id: addButton
+            width: parent.height
+            height: parent.height
+            visible: true
 
-          iconSource: Style.getThemeIcon( "ic_add_white_24dp" )
+            contentItem: Rectangle {
+                anchors.fill: parent
+                color: "black"
+                Image {
+                  anchors.fill: parent
+                  anchors.margins: 4 * dp
+                  fillMode: Image.PreserveAspectFit
+                  horizontalAlignment: Image.AlignHCenter
+                  verticalAlignment: Image.AlignVCenter
+                  source: Style.getThemeIcon( 'ic_add_white_24dp' )
+                }
+            }
 
-          onClicked: {
-            embeddedFeatureForm.state = "Add"
-            embeddedFeatureForm.active = true
-          }
+            onClicked: {
+              embeddedFeatureForm.state = "Add"
+              embeddedFeatureForm.active = true
+            }
         }
       }
     }
@@ -100,20 +111,29 @@ Frame{
             anchors { top: parent.top; right: parent.right }
             height: listitem.height
 
-            Button {
-              id: deleteButton
+            ToolButton {
+                id: deleteButton
+                width: parent.height
+                height: parent.height
+                visible: true
 
-              width: parent.height
-              height: parent.height
+                contentItem: Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                    Image {
+                      anchors.fill: parent
+                      anchors.margins: 4 * px
+                      fillMode: Image.PreserveAspectFit
+                      horizontalAlignment: Image.AlignHCenter
+                      verticalAlignment: Image.AlignVCenter
+                      source: Style.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                    }
+                }
 
-              visible: true
-
-              iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
-
-              onClicked: {
-                  deleteDialog.referencingFeatureId = model.referencingFeatureId
-                  deleteDialog.visible = true
-              }
+                onClicked: {
+                    deleteDialog.referencingFeatureId = model.referencingFeatureId
+                    deleteDialog.visible = true
+                }
             }
           }
 
