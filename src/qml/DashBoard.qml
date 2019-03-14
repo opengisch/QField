@@ -218,6 +218,7 @@ Controls.Pane {
 
             contentItem: Text {
               height: 36 * dp
+              leftPadding: 8 * dp
               text: mapThemeComboBox.displayText
               horizontalAlignment: Text.AlignLeft
               verticalAlignment: Text.AlignVCenter
