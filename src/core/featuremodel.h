@@ -54,7 +54,8 @@ class FeatureModel : public QAbstractListModel
       AttributeName = Qt::UserRole + 1,
       AttributeValue,
       Field,
-      RememberAttribute
+      RememberAttribute,
+      LinkedAttribute
     };
 
     explicit FeatureModel( QObject *parent = nullptr );
@@ -150,6 +151,7 @@ class FeatureModel : public QAbstractListModel
     QgsFeature mFeature;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
+    QList<int> mLinkedAttributeIndexes;
     VertexModel *mVertexModel = nullptr;
     Geometry *mGeometry;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;

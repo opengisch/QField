@@ -99,9 +99,11 @@ QgsFeature FeatureModel::feature() const
 void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
+  mLinkedAttributeIndexes.clear();
   for( QgsRelation::FieldPair fieldPair : mLinkedRelation.fieldPairs() )
   {
     mFeature.setAttribute(mFeature.fieldNameIndex(fieldPair.first), linkedParentFeature().attribute( fieldPair.second ) );
+    mLinkedAttributeIndexes.append( mFeature.fieldNameIndex(fieldPair.first) );
   }
   endResetModel();
 
@@ -144,6 +146,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   roles[AttributeValue] = "AttributeValue";
   roles[Field] = "Field";
   roles[RememberAttribute] = "RememberAttribute";
+  roles[LinkedAttribute] = "LinkedAttribute";
 
   return roles;
 }
@@ -166,19 +169,19 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
   {
     case AttributeName:
       return mLayer->attributeDisplayName( index.row() );
-      break;
 
     case AttributeValue:
       return mFeature.attribute( index.row() );
-      break;
 
     case Field:
       return mLayer->fields().at( index.row() );
-      break;
 
     case RememberAttribute:
       return mRememberings[mLayer].rememberedAttributes.at( index.row() );
-      break;
+
+    case LinkedAttribute:
+      return mLinkedAttributeIndexes.contains( index.row() ) ? true : false;
+
   }
 
   return QVariant();

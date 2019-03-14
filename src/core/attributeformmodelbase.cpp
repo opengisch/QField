@@ -224,6 +224,8 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
+    //set item visibility to false in case it's a linked attribute
+    item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ) , FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
   else
   {
@@ -282,7 +284,6 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-
         item->setData( true, AttributeFormModel::ConstraintValid );
         item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
 
