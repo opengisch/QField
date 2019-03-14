@@ -53,7 +53,7 @@ Frame{
             id: addButton
             width: parent.height
             height: parent.height
-            visible: true
+            visible: !readOnly
 
             contentItem: Rectangle {
                 anchors.fill: parent
@@ -92,14 +92,15 @@ Frame{
             id: featureText
             anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
             font.bold: true
-            text: { text: model.referencingFeatureId + ' - ' + model.displayString }
+            color: readOnly ? "grey" : "black"
+            text: { text: model.displayString }
           }
 
           MouseArea {
             anchors.fill: parent
 
             onClicked: {
-                embeddedFeatureForm.state = "Edit"
+                embeddedFeatureForm.state = !readOnly ? "Edit" : "ReadOnly"
                 embeddedFeatureForm.referencingFeature = model.referencingFeature
                 embeddedFeatureForm.active = true
             }
@@ -115,7 +116,7 @@ Frame{
                 id: deleteButton
                 width: parent.height
                 height: parent.height
-                visible: true
+                visible: !readOnly
 
                 contentItem: Rectangle {
                     anchors.fill: parent
@@ -205,7 +206,7 @@ Frame{
 
             featureModel: FeatureModel {
               currentLayer: relationEditorModel.relation.referencingLayer
-              feature: state === "Edit" ? embeddedFeatureForm.referencingFeature : undefined
+              feature: state != "Add" ? embeddedFeatureForm.referencingFeature : undefined
               linkedParentFeature: relationEditorModel.feature
               linkedRelation: relationEditorModel.relation
             }

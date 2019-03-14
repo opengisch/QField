@@ -239,7 +239,8 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: form.state !== "ReadOnly" && !!AttributeEditable
+          enabled: (form.state !== "ReadOnly" || EditorWidget === 'RelationEditor')&& !!AttributeEditable
+          property bool readOnly: form.state === "ReadOnly"
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
