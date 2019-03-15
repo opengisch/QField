@@ -7,8 +7,9 @@
     <string name="use_internal_storage">Use Internal Storage</string>
     <string name="external_storage_unavailable">Unpacking post install data. This might take a some time.</string>
     <string name="noexternalstorage_dialog">Looks like your external storage (/sdcard) is not available. This happens when you connect your device to a PC via USB.\nQGIS can run from the internal storage but this is not recomended as it might be too small.\nIt is suggested to chose CANCEL, disconnect any USB cable and restart QGIS.</string>
-    <string name="primary_storage">Primary storage</string>
-    <string name="secondary_storage">Secondary storage</string>
+    <string name="primary_storage">Internal storage</string>
+    <string name="secondary_storage">QField directory on external storage</string>
+    <string name="secondary_storage_read_only">External storage (read only)</string>
     <string name="inaccessible">inaccessible</string>
     <string name="loading">Loading</string>
     <string name="select_project">Select a QGIS project</string>
@@ -22,6 +23,6 @@
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
     <string name="alert_sd_card_title">Warning</string>
-    <string name="alert_sd_card_message">QField only shows the application-specific directory on an external SD card, as it is the only directory for which the app has write access. This directory will be deleted by the system if you uninstall QField from your Android device!</string>
+    <string name="alert_sd_card_message">This directory will be deleted by the system if you uninstall QField from your Android device!</string>
     <string name="alert_sd_card_ok">OK</string>
 </resources>

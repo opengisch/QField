@@ -72,6 +72,11 @@ public class QFieldProjectActivity extends Activity {
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
                             values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+
+                            // Add root as read-only
+                            if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
+                                values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
+                            }
                         }
                     }else{
                         values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
