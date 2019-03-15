@@ -169,33 +169,77 @@ Controls.Pane {
 
     Controls.GroupBox {
       id: mapThemeContainer
-      title: qsTr( "Map Theme" )
       Layout.fillWidth: true
       property bool isLoading: false
 
-      Controls.ComboBox {
-        id: mapThemeComboBox
-        anchors { left: parent.left; right: parent.right }
+      Column {
+          anchors { left: parent.left; right: parent.right }
+          spacing: 10 * dp
 
-        Connections {
-          target: iface
-
-          onLoadProjectEnded: {
-            mapThemeContainer.isLoading = true
-            var themes = qgisProject.mapThemeCollection.mapThemes
-            mapThemeComboBox.model = themes
-            mapThemeContainer.visible = themes.length > 1
-            layerTree.updateCurrentMapTheme()
-            mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
-            mapThemeContainer.isLoading = false
+          Text{
+            anchors { left: parent.left; right: parent.right }
+            text: qsTr( "Map Theme" )
+            font.bold: true
           }
-        }
 
-        onCurrentTextChanged: {
-          if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
-            layerTree.mapTheme = mapThemeComboBox.currentText
+          Controls.ComboBox {
+            id: mapThemeComboBox
+            anchors { left: parent.left; right: parent.right }
+
+            Connections {
+              target: iface
+
+              onLoadProjectEnded: {
+                mapThemeContainer.isLoading = true
+                var themes = qgisProject.mapThemeCollection.mapThemes
+                mapThemeComboBox.model = themes
+                mapThemeContainer.visible = themes.length > 1
+                layerTree.updateCurrentMapTheme()
+                mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
+                mapThemeContainer.isLoading = false
+              }
+            }
+
+            onCurrentTextChanged: {
+              if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
+                layerTree.mapTheme = mapThemeComboBox.currentText
+              }
+            }
+
+            // [hidpi fixes]
+            delegate: Controls.ItemDelegate {
+              width: mapThemeComboBox.width
+              height: 36 * dp
+              text: modelData
+              font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
+              font.pointSize: 12
+              highlighted: mapThemeComboBox.highlightedIndex == index
+            }
+
+            contentItem: Text {
+              height: 36 * dp
+              leftPadding: 8 * dp
+              text: mapThemeComboBox.displayText
+              horizontalAlignment: Text.AlignLeft
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
+            }
+
+            background: Item {
+              implicitWidth: 120 * dp
+              implicitHeight: 36 * dp
+
+              Rectangle {
+                anchors.fill: parent
+                id: backgroundRect
+                border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
+                border.width: mapThemeComboBox.visualFocus ? 2 : 1
+                //color: "#dddddd"
+                radius: 2
+              }
+            }
+            // [/hidpi fixes]
           }
-        }
       }
     }
 
