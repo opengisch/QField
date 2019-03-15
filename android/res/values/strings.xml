@@ -21,4 +21,7 @@
     <string name="favorite_directories">Favorite directories</string>
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
+    <string name="alert_sd_card_title">Warning</string>
+    <string name="alert_sd_card_message">QField only shows the application-specific directory on an external SD card, as it is the only directory for which the app has write access. This directory will be deleted by the system if you uninstall QField from your Android device!</string>
+    <string name="alert_sd_card_ok">OK</string>
 </resources>

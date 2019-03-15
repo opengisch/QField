@@ -11,12 +11,15 @@ import android.os.Environment;
 import android.net.Uri;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.widget.ListView;
@@ -32,6 +35,7 @@ public class QFieldProjectActivity extends Activity {
     private static final String TAG = "QField Project Activity";
     private String path;
     private SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     private ListView list;
 
     @Override
@@ -40,6 +44,7 @@ public class QFieldProjectActivity extends Activity {
         super.onCreate(bundle);
 
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         setContentView(R.layout.list_projects);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#80CC28"))); 
         drawView();
@@ -66,10 +71,10 @@ public class QFieldProjectActivity extends Activity {
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ROOT));
+                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_ROOT));
+                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
                     }
                 }
             }
@@ -160,10 +165,31 @@ public class QFieldProjectActivity extends Activity {
     private void onItemClick(int position) {
         Log.d(TAG, "onListItemClick ");
 
-        QFieldProjectListItem item = (QFieldProjectListItem) list.getAdapter().getItem(position);
+        final QFieldProjectListItem item = (QFieldProjectListItem) list.getAdapter().getItem(position);
         if (item.getType() == QFieldProjectListItem.TYPE_SEPARATOR){
             return;
         }
+        // Show a warning if it's the first time the sd-card is used
+        boolean showSdCardWarning = sharedPreferences.getBoolean("ShowSdCardWarning", true);
+        if (item.getType() == QFieldProjectListItem.TYPE_SECONDARY_ROOT && showSdCardWarning){
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle(getString(R.string.alert_sd_card_title));
+            alertDialog.setMessage(getString(R.string.alert_sd_card_message));
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.alert_sd_card_ok), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        startItemClickActivity(item);
+                    }
+                });
+            alertDialog.show();
+            editor.putBoolean("ShowSdCardWarning", false);
+            editor.commit();
+        }else {
+            startItemClickActivity(item);
+        }
+    }
+
+    private void startItemClickActivity(QFieldProjectListItem item){
         File file = item.getFile();
         Log.d(TAG, "file: "+file.getPath());                
         if (file.isDirectory()) {
@@ -194,7 +220,6 @@ public class QFieldProjectActivity extends Activity {
             lastUsedProjectsArray.add(file.getPath());
 
             // Write the recent projects into the shared preferences
-            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("LastUsedProjects", TextUtils.join("--;--", lastUsedProjectsArray));
             editor.commit();
 
@@ -225,7 +250,6 @@ public class QFieldProjectActivity extends Activity {
         // First activity
         if (! getIntent().hasExtra("path")) {
             // Remove the recent projects from shared preferences
-            SharedPreferences.Editor editor = sharedPreferences.edit();
             favoriteDirs = TextUtils.join("--;--", favoriteDirsArray);
             if (favoriteDirs == ""){
                 favoriteDirs = null;
@@ -239,7 +263,6 @@ public class QFieldProjectActivity extends Activity {
         } else {
             // Write the recent projects into the shared preferences
             favoriteDirsArray.add(file.getPath());
-            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("FavoriteDirs", TextUtils.join("--;--", favoriteDirsArray));
             editor.commit();
 
