@@ -244,7 +244,6 @@ Controls.Pane {
     }
 
     RowLayout {
-        id: layout
         Layout.fillWidth: true
         Layout.fillHeight: true
         spacing: 0
