@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4 as Styles
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
@@ -15,6 +16,27 @@ TreeView {
 
   headerVisible: false
   frameVisible: false
+
+  style: Styles.TreeViewStyle {
+      //frame: Rectangle {border {color: "blue"}}
+      //backgroundColor: "blue"
+      branchDelegate: Rectangle {
+        width: 10 * dp
+        height: 10 * dp
+        color: styleData.isExpanded ? "green" : "red"
+      }
+      /*
+      Image {
+            id: imagePhoto
+            anchors.fill: parent
+            width: parent.width
+            height: parent.height
+            transformOrigin: Item.Center
+            rotation: styleData.isExpanded ? 90 : 0"
+        }
+      */
+  }
+
 
   QtObject {
     id: properties
