@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
     <link rel="next" title="Guide d’utilisateur QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Project selection" href="project-selection.html" />
+    <link rel="prev" title="Sélection de projet" href="project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -101,7 +101,7 @@
 <li><a class="reference internal" href="#">Configuration des couches vecteur</a><ul>
 <li><a class="reference internal" href="#style">Style</a></li>
 <li><a class="reference internal" href="#display-expression">Expression d&#8217;affichage</a></li>
-<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Couches en lecture seule, non identifiables et interrogeables</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulaires et champs</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulaire de suppression d&#8217;objet</a></li>
 <li><a class="reference internal" href="#field-widget">Outil d&#8217;édition de champ</a></li>
@@ -138,7 +138,7 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
+    <a href="project-selection.html" title="Previous Chapter: Sélection de projet"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Sélection de projet</span>
     </a>
   </li>
   <li>
@@ -181,7 +181,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
@@ -208,7 +208,7 @@
 <div class="section" id="display-expression">
 <h2>Expression d&#8217;affichage<a class="headerlink" href="#display-expression" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans QField, les objets sont identifiés par un nom. L&#8217;expression pour générer ce nom peut être définie en ouvrant la table d&#8217;attributs dans QGIS et en switchant sur la vue formulaire. Choisir le champ approprié ou une expression dans la liste. A partie de QGIS 3, cela pourra être fait directement dans <span class="menuselection">Vector Layer Properties ‣ Display</span>.</p>
-<p>The display expression is also used to search in layers.</p>
+<p>L&#8217;expression d&#8217;affichage est aussi utilisée pour rechercher dans les couches.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -217,17 +217,15 @@
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
-<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Couches en lecture seule, non identifiables et interrogeables<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Certaines couches sont présentes dans un projet juste dans un but de visualisation. De telles couches ne doivent pas apparaître quand un utilisateur touche l&#8217;écran quelque part pour identifier un objet.</p>
 <p>Certaines couches sont seulement là à titre informatif et ne devraient pas être modifiées par l&#8217;utilisateur. Il est possible de protéger les couches de l&#8217;édition d&#8217;attributs ou de l&#8217;ajout ou la suppression d&#8217;objets.</p>
-<p>It is also possible to configure which layers are searchable.</p>
-<p>To configure identify, readonly and searchable behavior,
-go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<p>Il est aussi possible de configurer quelles couches sont recherchées.</p>
+<p>Pour configurer l&#8217;identification, la lecture seule et l&#8217;interrogation, allez à la page <span class="menuselection">Projet ‣ Propriétés du projet ‣ Identification des couches</span> et cochez les cases correspondant au comportement que vous souhaitez.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
+<p class="caption"><span class="caption-text">Configuration des couches qui ne seront pas identifiables, non modifiables et/ou non recherchées.</span></p>
 </div>
 </div>
 </div>
@@ -291,7 +289,8 @@ page and activate the checkboxes to match your desired behavior.</p>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td><p class="first last">Référence de relation</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -371,7 +370,7 @@ page and activate the checkboxes to match your desired behavior.</p>
 </div>
 <div class="section" id="id1">
 <h4>Cas d&#8217;utilisation courante<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Insert positioning information as variable:</p>
+<p>Insérer l&#8217;information de positionnement comme variable :</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>

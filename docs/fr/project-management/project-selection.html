@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Project selection &mdash; documentation QField Documentation 1.0 - M...</title>
+    <title>Sélection de projet &mdash; documentation QField Documentation 1.0 - M...</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,10 +98,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Project selection</a><ul>
+<li><a class="reference internal" href="#">Sélection de projet</a><ul>
 <li><a class="reference internal" href="#external-sd-card">Carte SD externe</a></li>
 <li><a class="reference internal" href="#warning">Attention !</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">How to turn external SD card into internal storage</a></li>
+<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Comment transformer une carte SD externe en mémoire interne</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +156,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
@@ -174,31 +174,32 @@
     <div class="col-md-9 content">
       
   <div class="section" id="project-selection">
-<h1>Project selection<a class="headerlink" href="#project-selection" title="Lien permanent vers ce titre">¶</a></h1>
-<p>QField opens QGIS projects in the &#8221;.qgs&#8221; format. Currently it is not possible to open &#8221;.qgz&#8221; files.</p>
-<p>QField uses a customized file selector to open the projects. On choosing &#8220;Open project&#8221; from the QField menu, the file selector will be opened showing the following locations:</p>
+<h1>Sélection de projet<a class="headerlink" href="#project-selection" title="Lien permanent vers ce titre">¶</a></h1>
+<p>QField ouvre les projets QGIS au format &#8221;.qgs&#8221;. Actuellement il n&#8217;est pas possible d&#8217;ouvrir les projets &#8221;.qgz&#8221;.</p>
+<p>QField utilise un sélecteur de fichier personnalisé pour ouvrir les projets. En choisissant &#8220;Ouvrir le projet&#8221; dans le menu QField, le sélecteur de fichier s&#8217;ouvre et affiche les emplacements suivants :</p>
 <ul class="simple">
-<li>The primary media/shared storage directory.</li>
-<li>The application-specific directories on all shared/external storage devices where the application can place persistent files it owns if they are not already included in the primary storage directory.</li>
+<li><p class="first">Le répertoire principal du support de données/stockage partagé.</p>
+</li>
+<li><p class="first">Les répertoires spécifiques à l&#8217;application sur tous les périphériques de stockage partagés/externes où l&#8217;application peut placer les fichiers persistants qu&#8217;elle possède s&#8217;ils ne sont pas déjà inclus dans le répertoire de stockage principal.</p>
+</li>
 </ul>
-<p>Inside these directories, only subdirectories and files with the &#8221;.qgs&#8221; extension are shown.</p>
-<p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
+<p>À l&#8217;intérieur de ces répertoires, seuls les sous-répertoires et fichiers avec l&#8217;extension &#8221;.qgs&#8221; sont affichés.</p>
+<p>QField exige que le fichier de projet soit physiquement sur le périphérique, il n&#8217;est donc pas possible d&#8217;utiliser des fournisseurs qui travaillent avec des fichiers distants (p. ex. Google Drive). D&#8217;autre part, vous pouvez utiliser des applications comme <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox et probablement beaucoup d&#8217;autres) qui vous permettent de synchroniser physiquement le fichier sur votre appareil.</p>
 <div class="section" id="external-sd-card">
 <h2>Carte SD externe<a class="headerlink" href="#external-sd-card" title="Lien permanent vers ce titre">¶</a></h2>
-<p>The file selector only shows the application-specific directory on an external SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>Le sélecteur de fichiers affiche uniquement le répertoire spécifique à l&#8217;application sur une carte SD externe, car c&#8217;est le seul répertoire auquel l&#8217;application a accès en écriture. Le répertoire est le suivant :</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 </div>
 <div class="section" id="warning">
 <h2>Attention !<a class="headerlink" href="#warning" title="Lien permanent vers ce titre">¶</a></h2>
-<p>By storing data in this folder, you risk losing data.
-The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
+<p>En stockant des données dans ce dossier, vous risquez de perdre des données. Le répertoire spécifique à l&#8217;application (<cite>/Android/data/ch.opengis.qfield/</cite>) sera supprimé par le système si vous désinstallez QField de votre appareil Android. Ceci est important si vous conservez les données dans la carte SD externe.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
-<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped).</strong></p>
+<h2>Comment transformer une carte SD externe en mémoire interne<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À partir d&#8217;Android 6.0, vous pouvez utiliser la carte SD comme mémoire interne pour votre téléphone Android. Une fonctionnalité appelée Stockage adoptable permet au système d&#8217;exploitation Android de formater un support de stockage externe comme un stockage interne permanent. Les données de la carte SD adoptée sont cryptées et ne peuvent pas être montées sur un autre appareil.</p>
+<p><strong>Merci de vérifier que vous démarrez avec une carte SD vide. Il est nécessaire qu&#8217;elle soit vide car, lorsqu&#8217;elle sera convertie en stockage &#8220;interne&#8221;, elle sera formatée (effacée).</strong></p>
 <ol class="arabic simple">
 <li><p class="first">Aller dans les paramtètres, puis sélectionnez stockage.</p>
 </li>
@@ -206,11 +207,12 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
 </li>
 <li><p class="first">Maintenant séléctionnez &#8220;Formater comme interne&#8221;, puis &#8220;Vider et Formater&#8221;</p>
 </li>
-<li>Your SD Card will now be formatted as internal storage.</li>
+<li><p class="first">Votre carte SD va maintenant être formatée comme stockage interne.</p>
+</li>
 </ol>
 <p>5. Reboot your phone.
 If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
-<p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
+<p>Il est possible que la fonction de stockage adoptable ne soit pas présente sur votre appareil même s&#8217;il utilise Android 6.0 ou une version ultérieure. Le fabricant de l&#8217;appareil peut avoir désactivé cette fonction. Cependant, il existe des méthodes en ligne de commande qui vous permettent de forcer un périphérique à adopter un stockage.</p>
 </div>
 </div>
 
