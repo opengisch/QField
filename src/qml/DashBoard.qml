@@ -246,12 +246,16 @@ Controls.Pane {
     RowLayout {
         id: layout
         Layout.fillWidth: true
+        Layout.fillHeight: true
+        spacing: 0
         Rectangle {
+            color: 'white'
             Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.minimumWidth: 5 * dp
-            Layout.preferredWidth: 5 * dp
             Layout.maximumWidth: 5 * dp
         }
+
         Legend {
           id: legend
           Layout.fillWidth: true

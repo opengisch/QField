@@ -14,6 +14,7 @@ TreeView {
   model: layerTree
 
   headerVisible: false
+  frameVisible: false
 
   QtObject {
     id: properties
