@@ -243,10 +243,20 @@ Controls.Pane {
       }
     }
 
-    Legend {
-      id: legend
-      Layout.fillWidth: true
-      Layout.fillHeight: true
+    RowLayout {
+        id: layout
+        Layout.fillWidth: true
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.minimumWidth: 5 * dp
+            Layout.preferredWidth: 5 * dp
+            Layout.maximumWidth: 5 * dp
+        }
+        Legend {
+          id: legend
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+        }
     }
   }
 }
