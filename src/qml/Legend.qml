@@ -15,7 +15,11 @@ TreeView {
   model: layerTree
 
   style: TreeViewStyle{
-      indentation: 24 * dp
+    indentation: 24 * dp
+    branchDelegate: Image {
+      width: 24 * dp; height: 24 * dp
+      source: styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
+    }
   }
 
   headerVisible: false
