@@ -23,6 +23,6 @@
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
     <string name="alert_sd_card_title">Warning</string>
-    <string name="alert_sd_card_message">This directory will be deleted by the system if you uninstall QField from your Android device!</string>
+    <string name="alert_sd_card_message">This directory, including all contained files, will be deleted by the system if you uninstall QField from your Android device!</string>
     <string name="alert_sd_card_ok">OK</string>
 </resources>
