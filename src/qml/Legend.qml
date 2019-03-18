@@ -6,12 +6,17 @@ import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import org.qfield 1.0
 import QtQml.Models 2.2
+import QtQuick.Controls.Styles 1.4
 
 import "js/style.js" as Style
 
 TreeView {
   id: listView
   model: layerTree
+
+  style: TreeViewStyle{
+      indentation: 24 * dp
+  }
 
   headerVisible: false
 
