@@ -234,62 +234,60 @@ public class QFieldActivity extends Activity {
     }
 
     private void extractFolder(String zipFile) {
-      AssetManager assets = getAssets();
-      int BUFFER = 2048;
-      try {
-        InputStream fis = assets.open(zipFile);
-        // this is where you start, with an InputStream containing the
-        // bytes from the zip file
-        ZipInputStream zis = new ZipInputStream(fis);
-        double totalSize = fis.available();
+      boolean success = false;
+      while (!success) {
+        AssetManager assets = getAssets();
+        int BUFFER = 2048;
+        String newPath = getFilesDir().toString() + "/";
+        InputStream is;
+        ZipInputStream zis;
 
-        ZipEntry entry;
-        // while there are entries I process them
-        String newPath = getFilesDir().toString();
-        new File(newPath).mkdir();
+        try {
+          String filename;
+          is = assets.open(zipFile);
+          double totalSize = is.available();
+          zis = new ZipInputStream(new BufferedInputStream(is));
+          ZipEntry ze;
+          byte[] buffer = new byte[1024];
+          int count;
 
-        while ((entry = zis.getNextEntry()) != null) {
-          String currentEntry = entry.getName();
-          File destFile = new File(newPath, currentEntry);
-          Log.i(QtTAG, "UNZIPPING: " + currentEntry);
-          Log.i(QtTAG, "TO: " + destFile.getAbsolutePath());
-          // create the parent directory structure if needed
-          File destinationParent = destFile.getParentFile();
-          destinationParent.mkdirs();
+          success = true;
+          while ((ze = zis.getNextEntry()) != null) {
+            filename = ze.getName();
 
-          if (!entry.isDirectory()) {
-            BufferedInputStream is = new BufferedInputStream(zis);
-            int currentByte;
-            // establish buffer for writing file
-            byte data[] = new byte[BUFFER];
-
-            // write the current file to disk
-            FileOutputStream fos = new FileOutputStream(destFile);
-            BufferedOutputStream dest = new BufferedOutputStream(
-              fos, BUFFER);
-
-            // read and write until last byte is encountered
-            while ((currentByte = is.read(data, 0, BUFFER)) != -1) {
-              dest.write(data, 0, currentByte);
+            // Need to create directories if not exists, or
+            // it will generate an Exception...
+            if (ze.isDirectory()) {
+               File fmd = new File(newPath + filename);
+               fmd.mkdirs();
+               continue;
             }
-            dest.flush();
-            dest.close();
-            // is is automatically closed by getNextEntry
-          }
-          // if (currentEntry.endsWith(".zip")) {
-          // // found a zip file, try to open
-          // extractFolder(destFile.getAbsolutePath());
-          // }
 
-          // update dialog
-          double currentSize = fis.available();
-          double percent = 100 - currentSize / totalSize * 100;
-          Log.i(QtTAG, "Percent:" + percent);
-          publishProgress((int) percent);
+            FileOutputStream fout = new FileOutputStream(newPath + filename);
+
+            while ((count = zis.read(buffer)) != -1) {
+                fout.write(buffer, 0, count);
+            }
+
+            fout.close();
+            File outFile = new File(newPath + filename);
+            if (!outFile.exists()) {
+              Log.i(QtTAG, "File could not be created: " + newPath + filename);
+              success = false;
+            }
+            else
+              Log.i(QtTAG, "File unzipped: " + newPath + filename);
+            zis.closeEntry();
+            double currentSize = is.available();
+            double percent = 100 - currentSize / totalSize * 100;
+            Log.i(QtTAG, "Percent:" + percent);
+            publishProgress((int) percent);
+          }
         }
-      } catch (IOException e) {
-        Log.i(QtTAG, "ERROR opening Asset");
-        e.printStackTrace();
+        catch(IOException e)
+        {
+           e.printStackTrace();
+        }
       }
     }
 
