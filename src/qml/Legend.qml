@@ -17,8 +17,10 @@ TreeView {
   style: TreeViewStyle{
     indentation: 24 * dp
     branchDelegate: Image {
-      width: 24 * dp; height: 24 * dp
-      source: styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
+        visible: styleData.hasChildren
+        width: 24 * dp
+        height: 24 * dp
+        source:  styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
     }
   }
 
@@ -39,6 +41,14 @@ TreeView {
   rowDelegate: Rectangle {
     height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
     color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
+    Image {
+      visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
+      source: "image://legend/" + layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
+      width: 16 * dp
+      height: 16 * dp
+      x: 4 * dp
+      anchors.verticalCenter: parent.verticalCenter
+    }
   }
 
   itemDelegate: Item {
@@ -48,12 +58,12 @@ TreeView {
     RowLayout {
       height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
       Image {
+        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend'
         source: "image://legend/" + layerTree.data(styleData.index, LayerTreeModel.LegendImage)
         width: 24 * dp
         height: 24 * dp
         Layout.alignment: Qt.AlignVCenter
       }
-
       Text {
         id: label
         horizontalAlignment: styleData.textAlignment
