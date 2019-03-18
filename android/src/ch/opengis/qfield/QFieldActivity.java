@@ -79,9 +79,14 @@ public class QFieldActivity extends Activity {
   private String mShareDir;
 
     private static Application application;
-    
+    private static Activity activity;
+
     public static Context getContext() {
         return application.getApplicationContext();
+    }
+
+    public static Activity getActivity() {
+        return activity;
     }
     
   /** Called when the activity is first created. */
@@ -89,6 +94,7 @@ public class QFieldActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     application = this.getApplication();
+    activity = this;
 
     // Put launch count and first launch values from parameters into AppRater properties
     // to be used for test purposes

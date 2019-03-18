@@ -1,6 +1,7 @@
 package ch.opengis.qfield;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +30,8 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
+
+import ch.opengis.qfield.QFieldActivity;
 
 public class QFieldProjectActivity extends Activity {
 
@@ -71,15 +74,16 @@ public class QFieldProjectActivity extends Activity {
                     // Don't add a external storage path if already included in the primary one
                     if(externalStorageDirectory != null){
                         if (!file.getAbsolutePath().contains(externalStorageDirectory.getAbsolutePath())){
-                            values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
-
-                            // Add root as read-only
                             if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
-                                values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(), getString(R.string.secondary_storage_read_only), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT_RO));
+                                values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(),
+                                                                     getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
                             }
                         }
                     }else{
-                        values.add(new QFieldProjectListItem(file, getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+                        if(file.getPath().contains("/Android/data/ch.opengis.qfield/files")){
+                            values.add(new QFieldProjectListItem(file.getParentFile().getParentFile().getParentFile().getParentFile(),
+                                                                 getString(R.string.secondary_storage), R.drawable.card, QFieldProjectListItem.TYPE_SECONDARY_ROOT));
+                        }
                     }
                 }
             }
@@ -183,12 +187,23 @@ public class QFieldProjectActivity extends Activity {
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.alert_sd_card_ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        startItemClickActivity(item);
+                        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                        //startActivityForResult(intent, 666);
+                        
+                        //Activity mainActivity = QFieldActivity.getActivity();
+                        //mainActivity.startActivityForResult(intent, 666);
+
+                        Context context = QFieldActivity.getContext();
+                        context.startActivity(intent);
+                        getApplication().startActivity(intent);
+                        
                     }
                 });
             alertDialog.show();
             editor.putBoolean("ShowSdCardWarning", false);
             editor.commit();
+
         }else {
             startItemClickActivity(item);
         }
@@ -280,6 +295,21 @@ public class QFieldProjectActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult ");
         Log.d(TAG, "resultCode: " + resultCode);
+
+        Log.d(TAG, "data: " + data.getDataString());
+        Log.d(TAG, "requestCode: " + requestCode);        
+
+        // This is the result of ACTION_OPEN_DOCUMENT_TREE 
+        if(requestCode == 666){
+            Context context = QFieldActivity.getContext();
+            context.getContentResolver().takePersistableUriPermission(data.getData(),
+                                                                      Intent.FLAG_GRANT_READ_URI_PERMISSION |
+                                                                      Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            
+
+            
+            return;
+        }
 
         // Close recursively the activity stack
         if (resultCode == Activity.RESULT_OK){
