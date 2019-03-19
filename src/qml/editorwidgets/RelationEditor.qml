@@ -214,6 +214,7 @@ Frame{
             }
           }
 
+          embedded: true
           toolbarVisible: true
 
           anchors.fill: parent

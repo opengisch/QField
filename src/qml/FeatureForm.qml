@@ -19,6 +19,7 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
+  property bool embedded: false
 
   function reset() {
     master.reset()
@@ -239,8 +240,8 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: (form.state !== "ReadOnly" || EditorWidget === 'RelationEditor')&& !!AttributeEditable
-          property bool readOnly: form.state === "ReadOnly"
+          enabled: (form.state !== "ReadOnly" || EditorWidget === 'RelationEditor') && !!AttributeEditable
+          property bool readOnly: form.state === "ReadOnly" || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
