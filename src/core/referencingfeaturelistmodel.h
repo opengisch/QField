@@ -42,7 +42,7 @@ public:
   {
     DisplayString = Qt::UserRole,
     ReferencingFeature,
-    AssociatedReferencingFeature
+    AssociatedReferencedFeature
   };
 
   QHash<int, QByteArray> roleNames() const override;

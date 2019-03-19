@@ -69,6 +69,7 @@ Frame{
 
             onClicked: {
               embeddedFeatureForm.state = "Add"
+              embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
               embeddedFeatureForm.active = true
             }
         }
@@ -100,7 +101,8 @@ Frame{
 
             onClicked: {
                 embeddedFeatureForm.state = !readOnly ? "Edit" : "ReadOnly"
-                embeddedFeatureForm.referencingFeature = model.referencingFeature
+                embeddedFeatureForm.relatedFeature = associatedRelationId === "" ? model.referencingFeature : model.associatedReferencedFeature
+                embeddedFeatureForm.relatedLayer = associatedRelationId === "" ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
                 embeddedFeatureForm.active = true
             }
           }
@@ -175,7 +177,8 @@ Frame{
       id: embeddedFeatureForm
 
       property var state
-      property var referencingFeature
+      property var relatedFeature
+      property var relatedLayer
 
       sourceComponent: embeddedFeatureFormComponent
       active: false
@@ -204,8 +207,8 @@ Frame{
             id: attributeFormModel
 
             featureModel: FeatureModel {
-              currentLayer: relationEditorModel.relation.referencingLayer
-              feature: state != "Add" ? embeddedFeatureForm.referencingFeature : undefined
+              currentLayer: relatedLayer
+              feature: state != "Add" ? embeddedFeatureForm.relatedFeature : undefined
               linkedParentFeature: relationEditorModel.feature
               linkedRelation: relationEditorModel.relation
             }
