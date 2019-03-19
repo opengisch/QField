@@ -30,8 +30,6 @@ Frame{
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
-
-        onCurrentItemChanged: model.referencingFeatureId + ' selected '+currentIndex
     }
 
     //the add entry "last row"
@@ -132,7 +130,7 @@ Frame{
                 }
 
                 onClicked: {
-                    deleteDialog.referencingFeatureId = model.referencingFeatureId
+                    deleteDialog.referencingFeatureId = model.referencingFeature.id
                     deleteDialog.visible = true
                 }
             }

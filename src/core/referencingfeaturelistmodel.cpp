@@ -26,7 +26,6 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
   roles[DisplayString] = "displayString";
-  roles[ReferencingFeatureId] = "referencingFeatureId";
   roles[ReferencingFeature] = "referencingFeature";
 
   return roles;
@@ -63,8 +62,6 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
 {
   if ( role == DisplayString )
     return mEntries.value( index.row() ).displayString;
-  if ( role == ReferencingFeatureId )
-    return mEntries.value( index.row() ).referencingFeatureId;
   if ( role == ReferencingFeature )
     return mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId );
   return QVariant();

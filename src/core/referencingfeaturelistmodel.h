@@ -40,7 +40,6 @@ public:
   enum ReferencedFeatureListRoles
   {
     DisplayString = Qt::UserRole,
-    ReferencingFeatureId,
     ReferencingFeature
   };
 
