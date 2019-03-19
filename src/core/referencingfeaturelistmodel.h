@@ -33,6 +33,7 @@ class ReferencingFeatureListModel : public QStandardItemModel
    */
   Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
   Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
+  Q_PROPERTY( QgsRelation associatedRelation WRITE setAssociatedRelation READ associatedRelation NOTIFY associatedRelationChanged )
 
 public:
   explicit ReferencingFeatureListModel(QObject *parent = nullptr);
@@ -40,7 +41,8 @@ public:
   enum ReferencedFeatureListRoles
   {
     DisplayString = Qt::UserRole,
-    ReferencingFeature
+    ReferencingFeature,
+    AssociatedReferencingFeature
   };
 
   QHash<int, QByteArray> roleNames() const override;
@@ -57,6 +59,9 @@ public:
   void setRelation( const QgsRelation &relation );
   QgsRelation relation() const;
 
+  void setAssociatedRelation( const QgsRelation &relation );
+  QgsRelation associatedRelation() const;
+
   Q_INVOKABLE void reload();
   Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
@@ -64,6 +69,7 @@ signals:
   void attributeFormModelChanged();
   void featureChanged();
   void relationChanged();
+  void associatedRelationChanged();
 
 private:
   struct Entry
@@ -83,6 +89,7 @@ private:
 
   QgsFeature mFeature;
   QgsRelation mRelation;
+  QgsRelation mAssociatedRelation;
 
 };
 
