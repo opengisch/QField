@@ -17,7 +17,6 @@ TreeView {
   style: TreeViewStyle{
     indentation: 24 * dp
     branchDelegate: Image {
-        visible: styleData.hasChildren
         width: 24 * dp
         height: 24 * dp
         source:  styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
@@ -41,17 +40,19 @@ TreeView {
   rowDelegate: Rectangle {
     height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
     color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
+    //small hack: since the image of a root item should be aligned to the expand triangles of branches, it needs to be printed here
     Image {
-      visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
+      visible: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
       source: "image://legend/" + layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
-      width: 16 * dp
-      height: 16 * dp
-      x: 4 * dp
+      width: delegatedItem.height
+      height: delegatedItem.height
+      x: ( 24 * dp - width )/2
       anchors.verticalCenter: parent.verticalCenter
     }
   }
 
   itemDelegate: Item {
+    id: delegatedItem
     height: Math.max(16, label.implicitHeight)
     property int implicitWidth: label.implicitWidth + 20
 
