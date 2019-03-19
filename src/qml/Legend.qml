@@ -42,7 +42,7 @@ TreeView {
     color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
     //small hack: since the image of a root item should be aligned to the expand triangles of branches, it needs to be printed here
     Image {
-      visible: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
+      visible: !styleData.hasChildren && styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
       source: "image://legend/" + layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
       width: delegatedItem.height
       height: delegatedItem.height
