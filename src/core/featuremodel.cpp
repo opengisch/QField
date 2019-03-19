@@ -100,7 +100,8 @@ void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
   mLinkedAttributeIndexes.clear();
-  for( QgsRelation::FieldPair fieldPair : mLinkedRelation.fieldPairs() )
+  const auto fieldPairs = mLinkedRelation.fieldPairs();
+  for( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
     mFeature.setAttribute(mFeature.fieldNameIndex(fieldPair.first), linkedParentFeature().attribute( fieldPair.second ) );
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex(fieldPair.first) );
