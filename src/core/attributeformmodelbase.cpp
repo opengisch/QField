@@ -47,6 +47,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::RelationId] = "RelationId";
+  roles[AttributeFormModel::AssociatedRelationId] = "AssociatedRelationId";
   roles[AttributeFormModel::Group] = "Group";
   roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
@@ -307,12 +308,14 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         QStandardItem *item = new QStandardItem();
 
+
         item->setData( relation.name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
         item->setData( relation.id(), AttributeFormModel::RelationId );
+        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::AssociatedRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintValid );
