@@ -16,10 +16,17 @@ TreeView {
 
   style: TreeViewStyle{
     indentation: 24 * dp
-    branchDelegate: Image {
+    branchDelegate: Item{
         width: 24 * dp
         height: 24 * dp
-        source:  styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
+        Rectangle{
+            anchors.fill: parent
+            color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
+            Image {
+              anchors.fill: parent
+              source:  styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
+            }
+        }
     }
   }
 
@@ -42,7 +49,7 @@ TreeView {
     color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer ? "#999" : "#fff"
     //small hack: since the image of a root item should be aligned to the expand triangles of branches, it needs to be printed here
     Image {
-      visible: !styleData.hasChildren && styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
+      visible: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
       source: "image://legend/" + layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
       width: delegatedItem.height
       height: delegatedItem.height
