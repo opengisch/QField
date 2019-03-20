@@ -1,0 +1,1062 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.4.5-Madeira" projectname="">
+  <homePath path=""/>
+  <title></title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
+  <trust active="0"/>
+  <projectCrs>
+    <spatialrefsys>
+      <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+      <srsid>1978</srsid>
+      <srid>23032</srid>
+      <authid>EPSG:23032</authid>
+      <description>ED50 / UTM zone 32N</description>
+      <projectionacronym>utm</projectionacronym>
+      <ellipsoidacronym>intl</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+    <customproperties/>
+    <layer-tree-layer checked="Qt::Checked" providerKey="ogr" name="Apiary" id="citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606" source="./citybees.gpkg|layername=apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" providerKey="ogr" name="Area" id="citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf" source="./citybees.gpkg|layername=area_60ff9e18_ea5b_4814_a227_157fe79ce94c" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" providerKey="wms" name="OpenStreetMap" id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0" expanded="0">
+      <customproperties/>
+    </layer-tree-layer>
+    <custom-order enabled="0">
+      <item>OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e</item>
+      <item>citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606</item>
+      <item>citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf</item>
+    </custom-order>
+  </layer-tree-group>
+  <snapping-settings type="1" intersection-snapping="0" enabled="0" unit="1" mode="2" tolerance="12">
+    <individual-layer-settings>
+      <layer-setting type="1" units="1" enabled="0" id="citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606" tolerance="12"/>
+      <layer-setting type="1" units="1" enabled="0" id="citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf" tolerance="12"/>
+    </individual-layer-settings>
+  </snapping-settings>
+  <relations>
+    <relation name="area_of_bees" referencingLayer="citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606" id="citybees_a_area_id_citybees_a_id" strength="Association" referencedLayer="citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf">
+      <fieldRef referencingField="area_id" referencedField="id"/>
+    </relation>
+  </relations>
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>589214.79114481876604259</xmin>
+      <ymin>6139508.31637078803032637</ymin>
+      <xmax>589724.96344286552630365</xmax>
+      <ymax>6139802.06277208123356104</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>1978</srsid>
+        <srid>23032</srid>
+        <authid>EPSG:23032</authid>
+        <description>ED50 / UTM zone 32N</description>
+        <projectionacronym>utm</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <projectModels/>
+  <legend updateDrawingOrder="true">
+    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" name="Apiary" open="true">
+      <filegroup hidden="false" open="true">
+        <legendlayerfile layerid="citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606" isInOverview="0" visible="1"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" name="Area" open="true">
+      <filegroup hidden="false" open="true">
+        <legendlayerfile layerid="citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf" isInOverview="0" visible="1"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" name="OpenStreetMap" open="false">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile layerid="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" isInOverview="0" visible="1"/>
+      </filegroup>
+    </legendlayer>
+  </legend>
+  <mapViewDocks/>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>589214.79114481876604259</xmin>
+      <ymin>6139508.31637078803032637</ymin>
+      <xmax>589724.96344286552630365</xmax>
+      <ymax>6139802.06277208123356104</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>1978</srsid>
+        <srid>23032</srid>
+        <authid>EPSG:23032</authid>
+        <description>ED50 / UTM zone 32N</description>
+        <projectionacronym>utm</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>589214.79114481876604259</xmin>
+      <ymin>6139508.31637078803032637</ymin>
+      <xmax>589724.96344286552630365</xmax>
+      <ymax>6139802.06277208123356104</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>1978</srsid>
+        <srid>23032</srid>
+        <authid>EPSG:23032</authid>
+        <description>ED50 / UTM zone 32N</description>
+        <projectionacronym>utm</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>589214.79114481876604259</xmin>
+      <ymin>6139508.31637078803032637</ymin>
+      <xmax>589724.96344286552630365</xmax>
+      <ymax>6139802.06277208123356104</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>1978</srsid>
+        <srid>23032</srid>
+        <authid>EPSG:23032</authid>
+        <description>ED50 / UTM zone 32N</description>
+        <projectionacronym>utm</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <projectlayers>
+    <maplayer hasScaleBasedVisibilityFlag="0" type="raster" autoRefreshTime="0" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" minScale="1e+8" autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>-20037508.34278924390673637</xmin>
+        <ymin>-20037508.34278925508260727</ymin>
+        <xmax>20037508.34278924390673637</xmax>
+        <ymax>20037508.34278924390673637</ymax>
+      </extent>
+      <id>OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e</id>
+      <datasource>crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>OpenStreetMap</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo-Mercator</description>
+          <projectionacronym>merc</projectionacronym>
+          <ellipsoidacronym>WGS84</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>0</Searchable>
+      </flags>
+      <customproperties>
+        <property value="no_action" key="QFieldSync/action"/>
+        <property value="Undefined" key="identify/format"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer type="singlebandcolordata" alphaBand="-1" opacity="1" band="1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation colorizeBlue="128" saturation="0" colorizeStrength="100" colorizeRed="255" grayscaleMode="0" colorizeGreen="128" colorizeOn="0"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer hasScaleBasedVisibilityFlag="0" type="vector" labelsEnabled="0" simplifyDrawingHints="0" autoRefreshTime="0" refreshOnNotifyEnabled="0" geometry="Point" styleCategories="AllStyleCategories" minScale="1e+8" readOnly="0" simplifyDrawingTol="1" simplifyAlgorithm="0" simplifyMaxScale="1" autoRefreshEnabled="0" simplifyLocal="1" refreshOnNotifyMessage="" maxScale="0">
+      <id>citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606</id>
+      <datasource>./citybees.gpkg|layername=apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Apiary</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1978</srsid>
+          <srid>23032</srid>
+          <authid>EPSG:23032</authid>
+          <description>ED50 / UTM zone 32N</description>
+          <projectionacronym>utm</projectionacronym>
+          <ellipsoidacronym>intl</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="0" miny="0" maxz="0" crs="" minx="0" dimensions="2" minz="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="UTF-8">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" symbollevels="0">
+        <symbols>
+          <symbol type="marker" name="0" force_rhr="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" enabled="1" locked="0" class="SimpleMarker">
+              <prop k="angle" v="0"/>
+              <prop k="color" v="219,30,42,255"/>
+              <prop k="horizontal_anchor_point" v="1"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="name" v="circle"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="128,17,25,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.4"/>
+              <prop k="outline_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="scale_method" v="diameter"/>
+              <prop k="size" v="4"/>
+              <prop k="size_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="size_unit" v="MM"/>
+              <prop k="vertical_anchor_point" v="1"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property value="offline" key="QFieldSync/action"/>
+        <property key="dualview/previewExpressions">
+          <value>fid</value>
+        </property>
+        <property value="0" key="embeddedWidgets/count"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory scaleBasedVisibility="0" scaleDependency="Area" backgroundColor="#ffffff" enabled="0" height="15" lineSizeType="MM" minScaleDenominator="0" sizeScale="3x:0,0,0,0,0,0" minimumSize="0" penColor="#000000" backgroundAlpha="255" width="15" opacity="1" labelPlacementMethod="XHeight" sizeType="MM" barWidth="5" penWidth="0" lineSizeScale="3x:0,0,0,0,0,0" penAlpha="255" maxScaleDenominator="1e+8" rotationOffset="270" diagramOrientation="Up">
+          <fontProperties description="Ubuntu,11,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" obstacle="0" priority="0" showAll="1" placement="0" dist="0" linePlacementFlags="18">
+        <properties>
+          <Option type="Map">
+            <Option type="QString" name="name" value=""/>
+            <Option name="properties"/>
+            <Option type="QString" name="type" value="collection"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="fid">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="id">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="nbr_of_boxes">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="bee_species">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="bee_amount">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="beekeeper">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="picture">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="disease">
+          <editWidget type="CheckBox">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="kind_of_disease">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="review_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="reviewer">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="average_harvest">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="area_id">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="fid" index="0"/>
+        <alias name="" field="id" index="1"/>
+        <alias name="" field="nbr_of_boxes" index="2"/>
+        <alias name="" field="bee_species" index="3"/>
+        <alias name="" field="bee_amount" index="4"/>
+        <alias name="" field="beekeeper" index="5"/>
+        <alias name="" field="picture" index="6"/>
+        <alias name="" field="disease" index="7"/>
+        <alias name="" field="kind_of_disease" index="8"/>
+        <alias name="" field="review_date" index="9"/>
+        <alias name="" field="reviewer" index="10"/>
+        <alias name="" field="average_harvest" index="11"/>
+        <alias name="" field="area_id" index="12"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default expression="" field="fid" applyOnUpdate="0"/>
+        <default expression="" field="id" applyOnUpdate="0"/>
+        <default expression="" field="nbr_of_boxes" applyOnUpdate="0"/>
+        <default expression="" field="bee_species" applyOnUpdate="0"/>
+        <default expression="" field="bee_amount" applyOnUpdate="0"/>
+        <default expression="" field="beekeeper" applyOnUpdate="0"/>
+        <default expression="" field="picture" applyOnUpdate="0"/>
+        <default expression="" field="disease" applyOnUpdate="0"/>
+        <default expression="" field="kind_of_disease" applyOnUpdate="0"/>
+        <default expression="" field="review_date" applyOnUpdate="0"/>
+        <default expression="" field="reviewer" applyOnUpdate="0"/>
+        <default expression="" field="average_harvest" applyOnUpdate="0"/>
+        <default expression="" field="area_id" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint notnull_strength="1" field="fid" exp_strength="0" unique_strength="1" constraints="3"/>
+        <constraint notnull_strength="0" field="id" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="nbr_of_boxes" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="bee_species" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="bee_amount" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="beekeeper" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="picture" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="disease" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="kind_of_disease" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="review_date" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="reviewer" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="average_harvest" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="area_id" exp_strength="0" unique_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="fid" exp="" desc=""/>
+        <constraint field="id" exp="" desc=""/>
+        <constraint field="nbr_of_boxes" exp="" desc=""/>
+        <constraint field="bee_species" exp="" desc=""/>
+        <constraint field="bee_amount" exp="" desc=""/>
+        <constraint field="beekeeper" exp="" desc=""/>
+        <constraint field="picture" exp="" desc=""/>
+        <constraint field="disease" exp="" desc=""/>
+        <constraint field="kind_of_disease" exp="" desc=""/>
+        <constraint field="review_date" exp="" desc=""/>
+        <constraint field="reviewer" exp="" desc=""/>
+        <constraint field="average_harvest" exp="" desc=""/>
+        <constraint field="area_id" exp="" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="&quot;fid&quot;" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column type="field" name="fid" width="-1" hidden="0"/>
+          <column type="field" name="id" width="-1" hidden="0"/>
+          <column type="field" name="nbr_of_boxes" width="-1" hidden="0"/>
+          <column type="field" name="bee_species" width="-1" hidden="0"/>
+          <column type="field" name="bee_amount" width="-1" hidden="0"/>
+          <column type="field" name="beekeeper" width="-1" hidden="0"/>
+          <column type="field" name="picture" width="-1" hidden="0"/>
+          <column type="field" name="disease" width="-1" hidden="0"/>
+          <column type="field" name="kind_of_disease" width="-1" hidden="0"/>
+          <column type="field" name="review_date" width="-1" hidden="0"/>
+          <column type="field" name="reviewer" width="-1" hidden="0"/>
+          <column type="field" name="average_harvest" width="-1" hidden="0"/>
+          <column type="field" name="area_id" width="-1" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="area_id" editable="1"/>
+        <field name="average_harvest" editable="1"/>
+        <field name="bee_amount" editable="1"/>
+        <field name="bee_species" editable="1"/>
+        <field name="beekeeper" editable="1"/>
+        <field name="disease" editable="1"/>
+        <field name="fid" editable="1"/>
+        <field name="id" editable="1"/>
+        <field name="kind_of_disease" editable="1"/>
+        <field name="nbr_of_boxes" editable="1"/>
+        <field name="picture" editable="1"/>
+        <field name="review_date" editable="1"/>
+        <field name="reviewer" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field name="area_id" labelOnTop="0"/>
+        <field name="average_harvest" labelOnTop="0"/>
+        <field name="bee_amount" labelOnTop="0"/>
+        <field name="bee_species" labelOnTop="0"/>
+        <field name="beekeeper" labelOnTop="0"/>
+        <field name="disease" labelOnTop="0"/>
+        <field name="fid" labelOnTop="0"/>
+        <field name="id" labelOnTop="0"/>
+        <field name="kind_of_disease" labelOnTop="0"/>
+        <field name="nbr_of_boxes" labelOnTop="0"/>
+        <field name="picture" labelOnTop="0"/>
+        <field name="review_date" labelOnTop="0"/>
+        <field name="reviewer" labelOnTop="0"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>fid</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+    <maplayer hasScaleBasedVisibilityFlag="0" type="vector" labelsEnabled="0" simplifyDrawingHints="1" autoRefreshTime="0" refreshOnNotifyEnabled="0" geometry="Polygon" styleCategories="AllStyleCategories" minScale="1e+8" readOnly="0" simplifyDrawingTol="1" simplifyAlgorithm="0" simplifyMaxScale="1" autoRefreshEnabled="0" simplifyLocal="1" refreshOnNotifyMessage="" maxScale="0">
+      <id>citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf</id>
+      <datasource>./citybees.gpkg|layername=area_60ff9e18_ea5b_4814_a227_157fe79ce94c</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Area</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=utm +zone=32 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1978</srsid>
+          <srid>23032</srid>
+          <authid>EPSG:23032</authid>
+          <description>ED50 / UTM zone 32N</description>
+          <projectionacronym>utm</projectionacronym>
+          <ellipsoidacronym>intl</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="0" miny="0" maxz="0" crs="" minx="0" dimensions="2" minz="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="UTF-8">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" symbollevels="0">
+        <symbols>
+          <symbol type="fill" name="0" force_rhr="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" enabled="1" locked="0" class="SimpleFill">
+              <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="color" v="77,175,74,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="56,128,54,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property value="offline" key="QFieldSync/action"/>
+        <property key="dualview/previewExpressions">
+          <value>fid</value>
+        </property>
+        <property value="0" key="embeddedWidgets/count"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory scaleBasedVisibility="0" scaleDependency="Area" backgroundColor="#ffffff" enabled="0" height="15" lineSizeType="MM" minScaleDenominator="0" sizeScale="3x:0,0,0,0,0,0" minimumSize="0" penColor="#000000" backgroundAlpha="255" width="15" opacity="1" labelPlacementMethod="XHeight" sizeType="MM" barWidth="5" penWidth="0" lineSizeScale="3x:0,0,0,0,0,0" penAlpha="255" maxScaleDenominator="1e+8" rotationOffset="270" diagramOrientation="Up">
+          <fontProperties description="Ubuntu,11,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" obstacle="0" priority="0" showAll="1" placement="1" dist="0" linePlacementFlags="18">
+        <properties>
+          <Option type="Map">
+            <Option type="QString" name="name" value=""/>
+            <Option name="properties"/>
+            <Option type="QString" name="type" value="collection"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="fid">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="id">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="proprietor">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="plant_species">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="picture">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="review_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="reviewer">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="fid" index="0"/>
+        <alias name="" field="id" index="1"/>
+        <alias name="" field="proprietor" index="2"/>
+        <alias name="" field="plant_species" index="3"/>
+        <alias name="" field="picture" index="4"/>
+        <alias name="" field="review_date" index="5"/>
+        <alias name="" field="reviewer" index="6"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default expression="" field="fid" applyOnUpdate="0"/>
+        <default expression="" field="id" applyOnUpdate="0"/>
+        <default expression="" field="proprietor" applyOnUpdate="0"/>
+        <default expression="" field="plant_species" applyOnUpdate="0"/>
+        <default expression="" field="picture" applyOnUpdate="0"/>
+        <default expression="" field="review_date" applyOnUpdate="0"/>
+        <default expression="" field="reviewer" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint notnull_strength="1" field="fid" exp_strength="0" unique_strength="1" constraints="3"/>
+        <constraint notnull_strength="0" field="id" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="proprietor" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="plant_species" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="picture" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="review_date" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint notnull_strength="0" field="reviewer" exp_strength="0" unique_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="fid" exp="" desc=""/>
+        <constraint field="id" exp="" desc=""/>
+        <constraint field="proprietor" exp="" desc=""/>
+        <constraint field="plant_species" exp="" desc=""/>
+        <constraint field="picture" exp="" desc=""/>
+        <constraint field="review_date" exp="" desc=""/>
+        <constraint field="reviewer" exp="" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
+        <columns>
+          <column type="field" name="fid" width="-1" hidden="0"/>
+          <column type="field" name="id" width="-1" hidden="0"/>
+          <column type="field" name="proprietor" width="-1" hidden="0"/>
+          <column type="field" name="plant_species" width="-1" hidden="0"/>
+          <column type="field" name="picture" width="-1" hidden="0"/>
+          <column type="field" name="review_date" width="-1" hidden="0"/>
+          <column type="field" name="reviewer" width="-1" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="fid" editable="1"/>
+        <field name="id" editable="1"/>
+        <field name="picture" editable="1"/>
+        <field name="plant_species" editable="1"/>
+        <field name="proprietor" editable="1"/>
+        <field name="review_date" editable="1"/>
+        <field name="reviewer" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field name="fid" labelOnTop="0"/>
+        <field name="id" labelOnTop="0"/>
+        <field name="picture" labelOnTop="0"/>
+        <field name="plant_species" labelOnTop="0"/>
+        <field name="proprietor" labelOnTop="0"/>
+        <field name="review_date" labelOnTop="0"/>
+        <field name="reviewer" labelOnTop="0"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>fid</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </projectlayers>
+  <layerorder>
+    <layer id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e"/>
+    <layer id="citybees_apiary_036bee2c_a341_4b84_b25c_1bea7c01e9c2_678871df_b3f3_4f64_82cd_6875d87e5606"/>
+    <layer id="citybees_area_60ff9e18_ea5b_4814_a227_157fe79ce94c_3d9d0b77_1b27_4cd6_a4d7_d0abd186b9bf"/>
+  </layerorder>
+  <properties>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <WMTSLayers>
+      <Group type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Layer type="QStringList"/>
+    </WMTSLayers>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WMSUrl type="QString"></WMSUrl>
+    <WMTSPngLayers>
+      <Group type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Layer type="QStringList"/>
+    </WMTSPngLayers>
+    <WMSFees type="QString">conditions unknown</WMSFees>
+    <PAL>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <SearchMethod type="int">0</SearchMethod>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <TextFormat type="int">0</TextFormat>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+    </PAL>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WMSKeywordList type="QStringList">
+      <value></value>
+    </WMSKeywordList>
+    <WCSLayers type="QStringList"/>
+    <PositionPrecision>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <Automatic type="bool">true</Automatic>
+      <DegreeFormat type="QString">MU</DegreeFormat>
+    </PositionPrecision>
+    <Measurement>
+      <AreaUnits type="QString">m2</AreaUnits>
+      <DistanceUnits type="QString">meters</DistanceUnits>
+    </Measurement>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WCSUrl type="QString"></WCSUrl>
+    <WMTSJpegLayers>
+      <Group type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Layer type="QStringList"/>
+    </WMTSJpegLayers>
+    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <qfieldsync>
+      <importedFilesChecksums type="QStringList">
+        <value>1230ded733be9a709daf407bd59e2f05</value>
+        <value>d1144f15f99bd1d57ffab0d1f70620e4</value>
+        <value>e2a34a7ab758315678e7c348afee5ab9</value>
+        <value>f61c6d169261b66a1cbaca4701b1efb4</value>
+        <value>f8585dc706d79a852be17f9c9a4f9696</value>
+      </importedFilesChecksums>
+      <createBaseMap type="int">0</createBaseMap>
+      <baseMapTileSize type="int">1024</baseMapTileSize>
+      <baseMapMupp type="double">10</baseMapMupp>
+      <baseMapType type="QString">singleLayer</baseMapType>
+      <baseMapTheme type="QString"></baseMapTheme>
+      <offlineCopyOnlyAoi type="int">0</offlineCopyOnlyAoi>
+    </qfieldsync>
+    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
+    <WMTSGrids>
+      <CRS type="QStringList"/>
+      <Config type="QStringList"/>
+    </WMTSGrids>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WFSTLayers>
+      <Delete type="QStringList"/>
+      <Insert type="QStringList"/>
+      <Update type="QStringList"/>
+    </WFSTLayers>
+    <WFSLayers type="QStringList"/>
+    <WMSPrecision type="QString">8</WMSPrecision>
+    <WMSRootName type="QString"></WMSRootName>
+    <WMTSUrl type="QString"></WMTSUrl>
+    <DefaultStyles>
+      <Opacity type="double">1</Opacity>
+      <ColorRamp type="QString"></ColorRamp>
+      <Marker type="QString"></Marker>
+      <RandomColors type="bool">true</RandomColors>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+    </DefaultStyles>
+    <WFSUrl type="QString"></WFSUrl>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMSMaxAtlasFeatures type="int">1</WMSMaxAtlasFeatures>
+    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
+    <SpatialRefSys>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <WMTSMinScale type="int">5000</WMTSMinScale>
+    <WMSContactPosition type="QString"></WMSContactPosition>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <Gui>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+    </Gui>
+    <Measure>
+      <Ellipsoid type="QString">intl</Ellipsoid>
+    </Measure>
+  </properties>
+  <visibility-presets/>
+  <transformContext/>
+  <projectMetadata>
+    <identifier></identifier>
+    <parentidentifier></parentidentifier>
+    <language></language>
+    <type></type>
+    <title></title>
+    <abstract></abstract>
+    <contact>
+      <name></name>
+      <organization></organization>
+      <position></position>
+      <voice></voice>
+      <fax></fax>
+      <email></email>
+      <role></role>
+    </contact>
+    <links/>
+    <author>David</author>
+    <creation>2019-03-04T11:39:10</creation>
+  </projectMetadata>
+  <Annotations/>
+  <Layouts/>
+</qgis>
