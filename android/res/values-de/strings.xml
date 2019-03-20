@@ -1,6 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="done_unpacking_msg">Entpacken abgeschlossen. QGIS wird gestartet.</string>
     <string name="unpacking_msg">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
+    <string name="use_internal_storage">Internen Speicher verwenden</string>
     <string name="external_storage_unavailable">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
-    <string name="root_summary">Deine QField Projekte</string>
+    <string name="noexternalstorage_dialog">Es sieht so aus, als sei der externe Speicher (/sdcard) nicht verfügbar. Dies kann geschehen wenn das Gerät via USB mit einem PC verbunden ist.\nQGIS kann vom internen Speicher gestartet werden, aber es ist nicht empfohlen, da er zu klein sein kann.\nEs wird empfohlen, abzubrechen, das Kabel zu entfernen und QGIS neu zu starten.</string>
+    <string name="primary_storage">Interner Speicher</string>
+    <string name="secondary_storage">QField Verzeichnis auf externem Speicher</string>
+    <string name="secondary_storage_read_only">Externer Speicher (nur lesen)</string>
+    <string name="inaccessible">nicht verfügbar</string>
+    <string name="loading">Laden</string>
+    <string name="select_project">QGIS Projekt auswählen</string>
+    <string name="recent_projects">Zuletzt verwendete Projekte</string>
+    <string name="rate_title">QField bewerten</string>
+    <string name="rate_message">Falls dir QField gefällt, nimm dir bitte einen Moment um es zu bewerten. Vielen Dank für die Unterstützung!</string>
+    <string name="rate_now">Bewerten</string>
+    <string name="remind_later">Später erinnern</string>
+    <string name="no_thanks">Nein, danke!</string>
+    <string name="favorite_directories">Favoriten</string>
+    <string name="added_to_favorites">Zu Favoriten hinzugefügt</string>
+    <string name="removed_from_favorites">Von Favoriten entfernt</string>
+    <string name="alert_sd_card_title">Warnung</string>
+    <string name="alert_sd_card_message">Dieses Verzeichnis, inklusive aller darin enthaltenen Dateien, wird beim deinstallieren von QField von diesem Gerät gelöscht!</string>
+    <string name="alert_sd_card_ok">Ok</string>
 </resources>

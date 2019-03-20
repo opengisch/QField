@@ -1,3 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="done_unpacking_msg">Desempacotamento concluído, iniciar QGIS.</string>
+    <string name="unpacking_msg">Desempacotando dados de pós-instalação. Isso pode levar algum tempo.</string>
+    <string name="use_internal_storage">Usar armazenamento interno</string>
+    <string name="external_storage_unavailable">Desempacotando dados de pós-instalação. Pode demorar algum tempo.</string>
+    <string name="noexternalstorage_dialog">Parece que o seu armazenamento externo (/ sdcard) não está disponível. Isso acontece quando liga o seu dispositivo a um PC via USB.\nQGIS pode ser executado a partir do armazenamento interno, mas isso não é recomendado, pois pode ser muito pequeno.\nIt sugerimos que escolha CANCELAR, desligue qualquer cabo USB e reinicie o QGIS.</string>
+    <string name="inaccessible">inacessível</string>
+    <string name="loading">A carregar</string>
+    <string name="select_project">Selecione um projeto QGIS</string>
     </resources>

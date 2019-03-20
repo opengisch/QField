@@ -216,15 +216,15 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Răsfoire</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Digitizare</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +248,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Opțiuni GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>Activare GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Modificări salvate</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Modificări nesalvate</translation>
     </message>
     <message>
         <source>Loading Project</source>

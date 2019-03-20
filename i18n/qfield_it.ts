@@ -86,15 +86,15 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     <name>FeatureListForm</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Modifiche salvate</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Modifiche rimosse</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"/>
+        <translation>Nessun elemento in questa posizione</translation>
     </message>
     <message>
         <source>Delete feature</source>
@@ -109,14 +109,14 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"/>
+        <translation>%1 : Proprietà</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Mostra sulla mappa</translation>
     </message>
 </context>
 <context>
@@ -170,7 +170,7 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation type="unfinished"/>
+        <translation>Usa la funzione nativa della fotocamera (instabile sulle versioni recenti di Android)</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -216,15 +216,15 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Esplorazione</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizzazione</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -244,15 +244,15 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Stampa PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Opzioni GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>Attiva GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Modifiche salvate</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Modifiche rimosse</translation>
     </message>
     <message>
         <source>Loading Project</source>
@@ -292,7 +292,7 @@ Puoi consultare la sezione &lt;i&gt;Portable Project&lt;/i&gt; della documentazi
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Premi indietro di nuovo per chiudere il progetto e l&apos;app</translation>
     </message>
 </context>
 </TS>

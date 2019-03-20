@@ -216,15 +216,15 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mód</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Tallózás</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizálás</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +248,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>GPS beállítások</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>GPS engedélyezés</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Módosításokat mentettem</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Módosításokat eldobtam</translation>
     </message>
     <message>
         <source>Loading Project</source>

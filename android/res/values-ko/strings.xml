@@ -5,5 +5,8 @@
     <string name="use_internal_storage">내부 저장소 사용</string>
     <string name="external_storage_unavailable">설치 후 데이터 압축을 풀고 있습니다. 이 작업에는 다소 시간이 걸릴 수 있습니다.</string>
     <string name="noexternalstorage_dialog">외부 저장소 (/sdcard)를 사용할 수 없는 것 같습니다. 이것은 USB를 통해 장치를 PC에 연결할 때 발생합니다. \nQGIS는 내부 저장소에서 실행할 수 있지만 용량이 부족할 수 있으므로 권장하지 않습니다. \n취소를 선택하고 USB 케이블을 분리 후 QGIS를 다시 시작하는 것이 좋습니다.</string>
-    <string name="root_summary">여러분의 멋진 QField 프로젝트</string>
-</resources>
+    <string name="inaccessible">접근 불능</string>
+    <string name="loading">불러오는 중</string>
+    <string name="select_project">QGIS 프로젝트 선택</string>
+    <string name="recent_projects">최근 프로젝트</string>
+    </resources>

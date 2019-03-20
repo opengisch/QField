@@ -5,5 +5,22 @@
     <string name="use_internal_storage">Utilizar Almacenamento Interno</string>
     <string name="external_storage_unavailable">Desempaquetando datos postinstalación. Isto pode levar algún tempo.</string>
     <string name="noexternalstorage_dialog">Semella que o almacenamento externo (/sdcard) non está dispoñible. Isto acontece cando conectas o dispositivo a un ordenador vía USB.\nQGIS pode funcionar dende o almacenamento interno pero non se recomenda xa que pode ser demasiado pequeno.\nSuxerimos que escollas CANCELAR, desconectes calquera cable USB e reinicies QGIS.</string>
-    <string name="root_summary">Os teus asombrosos proxectos de QField</string>
+    <string name="primary_storage">Almacenamento interno</string>
+    <string name="secondary_storage">Directorio de QField no almacenamento externo</string>
+    <string name="secondary_storage_read_only">Almacenamento externo (só lectura)</string>
+    <string name="inaccessible">inaccesible</string>
+    <string name="loading">Cargando</string>
+    <string name="select_project">Selecciona un proxecto QGIS</string>
+    <string name="recent_projects">Proxectos recentes</string>
+    <string name="rate_title">Valora QField</string>
+    <string name="rate_message">Se desfrutas utilizando QField, por favor, toma un momento para valoralo. Grazas pola túa colaboración!</string>
+    <string name="rate_now">Valorar</string>
+    <string name="remind_later">Lémbramo despois</string>
+    <string name="no_thanks">Non, grazas!</string>
+    <string name="favorite_directories">Directorios favoritos</string>
+    <string name="added_to_favorites">Engadido a favoritos</string>
+    <string name="removed_from_favorites">Eliminado de favoritos</string>
+    <string name="alert_sd_card_title">Advertencia</string>
+    <string name="alert_sd_card_message">Eliminarase este directorio do sistema, incluídos tódolos ficheiros que conteña, se desinstalas QField do teu dispositivo Android!</string>
+    <string name="alert_sd_card_ok">OK</string>
 </resources>

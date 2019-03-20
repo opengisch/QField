@@ -216,15 +216,15 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Rėžimas</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Naršyti</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Skaitmeninti</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +248,11 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>GPS parinktys</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>Įjungti GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Galite patikrinti &lt;i&gt;Portable Project&lt;/i&gt; skyrių QField dokumentaci
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Pakeitimai išsaugoti</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Pakeitimai atšaukti</translation>
     </message>
     <message>
         <source>Loading Project</source>

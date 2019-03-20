@@ -5,5 +5,17 @@
     <string name="use_internal_storage">Utilisez le stockage interne</string>
     <string name="external_storage_unavailable">Décompilation des données post-installation. Cela peut prendre un peu de temps.</string>
     <string name="noexternalstorage_dialog">Il semble que votre stockage externe (/sdcard) soit indisponible. Cela survient quand vous connectez votre appareil à un PC en USB.\nQGIS peut être lancé depuis le stockage interne mais ce n\'est pas recommandé car la place peut être insuffisante.\nIl est suggéré de choisir ANNULER, déconnecter tout cable USB et redémarrer QGIS.</string>
-    <string name="root_summary">Vos superbes projets QField</string>
-</resources>
+    <string name="inaccessible">inaccessible</string>
+    <string name="loading">Chargement</string>
+    <string name="select_project">Sélectionnez un projet QGIS</string>
+    <string name="recent_projects">Projets récents</string>
+    <string name="rate_title">Noter QField</string>
+    <string name="rate_message">Si vous appréciez QField, merci de prendre quelques instants pour le noter.
+Merci pour votre soutien !</string>
+    <string name="rate_now">Noter</string>
+    <string name="remind_later">Rappelez-moi plus tard</string>
+    <string name="no_thanks">Non, merci !</string>
+    <string name="favorite_directories">Dossiers favoris</string>
+    <string name="added_to_favorites">Ajouté aux favoris</string>
+    <string name="removed_from_favorites">Supprimé des favoris</string>
+    </resources>

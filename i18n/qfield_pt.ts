@@ -216,15 +216,15 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Explorar</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizar</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +248,11 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>Ativar GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Alterações guardadas</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Alterações descartadas</translation>
     </message>
     <message>
         <source>Loading Project</source>

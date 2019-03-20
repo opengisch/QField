@@ -1,3 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="done_unpacking_msg">Išpakavimas baigtas, paleisti QGIS.</string>
+    <string name="unpacking_msg">Išpakuojami poįdiegiminiai duomenys. Tai gali užtrukti.</string>
+    <string name="use_internal_storage">Naudoti vidinę atmintį</string>
+    <string name="external_storage_unavailable">Išpakuojami poįdiegiminiai duomenys. Tai gali užtrukti.</string>
+    <string name="noexternalstorage_dialog">Panašu, jog išorinė atmintis (/sdcard) nepasiekiama. Tai nutinka kai įrenginį prijungiate prie kompiuterio per USB.\nQGIS gali veikti ir vidinėje atmintyje, tačiau tai nerekomenduotina, kadangi ji gali būti per maža.\nRekomenduojama pasirinkti ATŠAUKTI, atjungti USB laidą ir išnaujo paleisti QGIS.</string>
+    <string name="inaccessible">nepasiekiama</string>
+    <string name="loading">Įkeliama</string>
+    <string name="select_project">Pasirinkite QGIS projektą</string>
+    <string name="recent_projects">Paskutiniai projektai</string>
+    <string name="rate_title">Vertinti QField</string>
+    <string name="rate_message">Jeigu Jums patiko naudoti QField, skirkite minutę jos įvertinimui.
+Ačiū už Jūsų palaikymą!</string>
+    <string name="rate_now">Vertinti</string>
+    <string name="remind_later">Priminti man vėliau</string>
+    <string name="no_thanks">Ne, Ačiū!</string>
+    <string name="favorite_directories">Populiarūs katalogai</string>
+    <string name="added_to_favorites">Pridėta į populiarius</string>
+    <string name="removed_from_favorites">Pašalinta iš populiarių</string>
     </resources>

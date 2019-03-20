@@ -1,3 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">S-a încheiat despachetarea, start QGIS.</string>
+    <string name="unpacking_msg">Sr despachetează datele post instalare. Acest lucru poate dura ceva timp.</string>
+    <string name="use_internal_storage">Folosește Stocarea Internă</string>
+    <string name="external_storage_unavailable">Sr despachetează datele post instalare. Acest lucru poate dura ceva timp.</string>
+    <string name="noexternalstorage_dialog">Se pare că mediul de stocare extern (/sdcard) nu este disponibil. Acest lucru se întâmplă atunci când vă conectați dispozitivul la un PC prin USB.n\QGIS poate rula de pe mediul de stocare intern, deși nu este recomandabil deoarece acesta ar putea fi prea mic. n\Mai bine apăsați pe CANCEL, deconectați cablul USB și reporniți QGIS.</string>
+    <string name="primary_storage">Stocare internă</string>
+    <string name="secondary_storage">Directorul QField pe spațiul de stocare extern</string>
+    <string name="secondary_storage_read_only">Stocare externă (numai citire)</string>
+    <string name="inaccessible">inaccesibil</string>
+    <string name="loading">Încărcare</string>
+    <string name="select_project">Selectează un proiect QGIS</string>
+    <string name="recent_projects">Proiecte recente</string>
+    <string name="rate_title">Evaluare QField</string>
+    <string name="rate_message">Dacă vă place să utilizați QField, acordați o clipă evaluării sale. Mulțumiri pentru sprijin!</string>
+    <string name="rate_now">Evaluare</string>
+    <string name="remind_later">Amintește-mi mai târziu</string>
+    <string name="no_thanks">Nu, mulțumesc!</string>
+    <string name="favorite_directories">Directoare favorite</string>
+    <string name="added_to_favorites">Adăugat la favorite</string>
+    <string name="removed_from_favorites">Eliminat de la favorite</string>
+    <string name="alert_sd_card_title">Avertisment</string>
+    <string name="alert_sd_card_message">Acest director, inclusiv toate fișierele conținute, va fi șters de către sistem în cazul dezinstalării QField de pe dispozitivul Android!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

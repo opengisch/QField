@@ -216,15 +216,15 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Digitalitzar</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +248,11 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions del GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation type="unfinished"/>
+        <translation>Activar el GPS</translation>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +264,11 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Canvis desats</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Canvis descartats</translation>
     </message>
     <message>
         <source>Loading Project</source>

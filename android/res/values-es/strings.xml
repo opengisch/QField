@@ -5,5 +5,4 @@
     <string name="use_internal_storage">Usar almacenamiento interno</string>
     <string name="external_storage_unavailable">Desempaquetado de los datos posteriores a la instalación. Esto podría llevar algún tiempo.</string>
     <string name="noexternalstorage_dialog">Parece que su almacenamiento externo (/sdcard) no está disponible. Esto sucede cuando conecta su dispositivo a una PC a través de USB.\NQGIS puede ejecutarse desde el almacenamiento interno, pero no se recomienda ya que podría ser demasiado pequeño.\NSe recomienda elegir CANCELAR, desconectar cualquier cable USB y reiniciar QGIS.</string>
-    <string name="root_summary">Tus asombrosos proyectos QField</string>
-</resources>
+    </resources>

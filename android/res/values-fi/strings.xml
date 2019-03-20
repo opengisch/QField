@@ -5,5 +5,16 @@
     <string name="use_internal_storage">Käytä sisäistä tallennustilaa</string>
     <string name="external_storage_unavailable">Pura asennuksen loppudata. Tämä voi kestää jonkin aikaa.</string>
     <string name="noexternalstorage_dialog">Vaikuttaa ettei ulkoinen tietovarastosi (/sdcard) ole käytettävissä. Tämä tapahtuu kun liitit yhteyden laitteeseesi PC:hen USB:n kautta.\nQGIS voidaan suorittaa sisäisestä tietovarastosta mutta se eii ole suositeltavaa koska se on liian pieni.\nSuositus on että valitse CANCEL/Peruuta, poistat kaikki USB kaapeliyhteydet ja käynnistät QGIS uudelleen.</string>
-    <string name="root_summary">Sinun mainiot QField projektisi</string>
-</resources>
+    <string name="inaccessible">ei käytettävissä</string>
+    <string name="loading">Ladataan</string>
+    <string name="select_project">Valitse QGIS projekti</string>
+    <string name="recent_projects">Viimeiset projektit</string>
+    <string name="rate_title">Arvostele QField</string>
+    <string name="rate_message">Jos Sinusta on mukava käyttää QFieldiä, ole ystävällinen ja käytä hetki arvoidaksesi sen. Kiitos tuestasi!</string>
+    <string name="rate_now">Arvio</string>
+    <string name="remind_later">Muistuta minua myöhemmin</string>
+    <string name="no_thanks">Ei kiitos!</string>
+    <string name="favorite_directories">Suosituimmat hakemistot</string>
+    <string name="added_to_favorites">Lisää suosikkeihin</string>
+    <string name="removed_from_favorites">Poistettu suosikeista</string>
+    </resources>

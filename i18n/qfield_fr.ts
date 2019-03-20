@@ -216,15 +216,15 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Navigation</translation>
     </message>
     <message>
         <source>Digitize</source>
-        <translation type="unfinished"/>
+        <translation>Numériser</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,7 +248,7 @@ Vous pouvez vérifier la section &lt;i&gt;Portabilité du projet&lt;/i&gt; dans 
     </message>
     <message>
         <source>GPS Options</source>
-        <translation type="unfinished"/>
+        <translation>Options GPS</translation>
     </message>
     <message>
         <source>Enable GPS</source>
