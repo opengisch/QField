@@ -183,23 +183,22 @@
 </li>
 </ul>
 <p>Destro destes directorios, só se amosan subdirectorios e ficheiros coa extensión &#8221;.qgs&#8221;.</p>
-<p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
+<p>QField precisa que o ficheiro do proxecto estea fisicamente no dispositivo, polo que non é posible utilizar provedores que traballen con ficheiro remotos (ex: Google Drive). Por outra banda podes utilizar aplicacións coma <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox e probablemente moitas outras) que che permiten sincronizar fisicamente o ficheiro co dispositivo.</p>
 <div class="section" id="external-sd-card">
 <h2>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>The file selector only shows the application-specific directory on an external SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>O selector de ficheiros só amosa o directorio específico da aplicación nunha tarxeta SD externa, xa que é o único directorio para o cal a aplicación ten acceso de escritura. O directorio é o seguinte:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 </div>
 <div class="section" id="warning">
 <h2>Advertencia!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
-<p>By storing data in this folder, you risk losing data.
-The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
+<p>Almacenando datos neste directorio, arríscase a perder datos. O directorio específico da aplicación (<cite>/Android/data/ch.opengis.qfield/</cite>) eliminarase do sistema se desinstalas QField do dispositivo Android. Isto é importante se mantén os datos na tarxeta sd Externa.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>Como converter a tarxeta SD externa nun almacenamento interno<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
-<p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
-<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped).</strong></p>
+<p>Dende Android 6.0, podes utilizar a tarxeta SD coma almacenamento interno para o teléfono Android. Unha funcionalidade chamada Almacenamento Adoptable permítelle ó SO Android darlle formato a un medio de almacenamento externo coma un almacenamento interno permanente. Os datos na tarxeta SD adoptada encríptanse e non poden montarse noutro dispositivo.</p>
+<p><strong>Asegúrate que comezas cunha tarxta SD baleira. Precisa estar baleira porque cando a tarxeta se converte a almacenamento &#8220;Interno&#8221;, daráselle formato (borrada).</strong></p>
 <ol class="arabic simple">
 <li><p class="first">Ir á &#8220;Configuración&#8221; do dispositivo, logo seleccionar &#8220;Almacenamento&#8221;.</p>
 </li>
@@ -212,7 +211,7 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
 </ol>
 <p>5. Reboot your phone.
 If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
-<p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
+<p>Pode ser que o Almacenamento Adoptable non estea presente no teu dispositivo aínda que funcione con Android 6.0 ou superiores. O fabricando do dispositivo poida que desactivase esta funcionalidade. Porén, existen métodos na liña de comandos que che permiten forzar ó dispositivo a adoptar un almacenamento.</p>
 </div>
 </div>
 
