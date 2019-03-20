@@ -56,6 +56,10 @@ jobs:
     - stage: deploy
       name: "🌍 Translations"
       if: branch = master
+      addons:
+        apt:
+          packages:
+          - qttools5-dev-tools
       install:
         pip install -r requirements.txt
       script: ./scripts/ci/update-translations.sh
