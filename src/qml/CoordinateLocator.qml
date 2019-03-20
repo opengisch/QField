@@ -21,12 +21,7 @@ Item {
    */
   property variant overrideLocation: undefined // QgsPoint
 
-  readonly property variant currentCoordinate: {
-    if ( !!overrideLocation )
-      return overrideLocation
-    else
-      return snappingUtils.snappedCoordinate
-  }
+  readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
