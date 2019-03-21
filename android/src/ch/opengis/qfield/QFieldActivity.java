@@ -60,7 +60,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
-import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -196,7 +195,6 @@ public class QFieldActivity extends Activity {
     } else {
       // this is a first run after install or update
       mUnzipTask.execute("assets.zip");
-
     }
   }
 
@@ -246,7 +244,6 @@ public class QFieldActivity extends Activity {
           Log.d(QtTAG, "Exctract zip file asset: "+zipFile);
           InputStream is = getAssets().open(zipFile);
           ZipInputStream zis = new ZipInputStream(new BufferedInputStream(is));
-          //int totalSize = (int) new File(zipFile).length();
           long totalSize = is.available();
           float currentSize = 0;
           float percent = 0;
