@@ -16,8 +16,8 @@
 
 #include "referencingfeaturelistmodel.h"
 
-ReferencingFeatureListModel::ReferencingFeatureListModel(QObject *parent)
-  : QStandardItemModel(parent)
+ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
+  : QAbstractItemModel( parent )
 {
 }
 
@@ -32,7 +32,7 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
   return roles;
 }
 
-QModelIndex ReferencingFeatureListModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex ReferencingFeatureListModel::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -40,20 +40,20 @@ QModelIndex ReferencingFeatureListModel::index(int row, int column, const QModel
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex ReferencingFeatureListModel::parent(const QModelIndex &index) const
+QModelIndex ReferencingFeatureListModel::parent( const QModelIndex &index ) const
 {
   Q_UNUSED( index )
 
   return QModelIndex();
 }
 
-int ReferencingFeatureListModel::rowCount(const QModelIndex &parent) const
+int ReferencingFeatureListModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return mEntries.size();
 }
 
-int ReferencingFeatureListModel::columnCount(const QModelIndex &parent) const
+int ReferencingFeatureListModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
@@ -70,7 +70,7 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   return QVariant();
 }
 
-void ReferencingFeatureListModel::setFeature(const QgsFeature &feature)
+void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
     return;
@@ -84,7 +84,7 @@ QgsFeature ReferencingFeatureListModel::feature() const
   return mFeature;
 }
 
-void ReferencingFeatureListModel::setRelation(const QgsRelation &relation)
+void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
   reload();
@@ -95,7 +95,7 @@ QgsRelation ReferencingFeatureListModel::relation() const
   return mRelation;
 }
 
-void ReferencingFeatureListModel::setAssociatedRelation(const QgsRelation &relation)
+void ReferencingFeatureListModel::setAssociatedRelation( const QgsRelation &relation )
 {
   mAssociatedRelation = relation;
 }
@@ -107,7 +107,7 @@ QgsRelation ReferencingFeatureListModel::associatedRelation() const
 
 void ReferencingFeatureListModel::reload()
 {
-  if( !mRelation.isValid() || !mFeature.isValid() )
+  if ( !mRelation.isValid() || !mFeature.isValid() )
     return;
   mEntries.clear();
   QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
@@ -118,8 +118,8 @@ void ReferencingFeatureListModel::reload()
   QgsFeature childFeature;
   while ( relatedFeaturesIt.nextFeature( childFeature ) )
   {
-   context.setFeature( childFeature );
-   mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
+    context.setFeature( childFeature );
+    mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
   }
   endResetModel();
 }

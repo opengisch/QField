@@ -159,8 +159,8 @@ Frame{
 
       visible: false
 
-      title: "Delete feature "+referencingFeatureId+" on layer "+layerName //translation needed
-      text: "Should the feature "+referencingFeatureId+" on layer "+layerName+" really be deleted?" //translation needed
+      title: qsTr( "Delete feature %1 on layer %2" ).arg(referencingFeatureId).arg(layerName)
+      text: qsTr( "Should the feature %1 on layer %2").arg(referencingFeatureId).arg( layerName)
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )

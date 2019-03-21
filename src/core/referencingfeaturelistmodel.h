@@ -24,72 +24,69 @@
 class QgsVectorLayer;
 class AttributeFormModel;
 
-class ReferencingFeatureListModel : public QStandardItemModel
+class ReferencingFeatureListModel : public QAbstractItemModel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  /**
-   * The relation
-   */
-  Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
-  Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
-  Q_PROPERTY( QgsRelation associatedRelation WRITE setAssociatedRelation READ associatedRelation NOTIFY associatedRelationChanged )
+    Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
+    Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
+    Q_PROPERTY( QgsRelation associatedRelation WRITE setAssociatedRelation READ associatedRelation NOTIFY associatedRelationChanged )
 
-public:
-  explicit ReferencingFeatureListModel(QObject *parent = nullptr);
+  public:
+    explicit ReferencingFeatureListModel( QObject *parent = nullptr );
 
-  enum ReferencedFeatureListRoles
-  {
-    DisplayString = Qt::UserRole,
-    ReferencingFeature,
-    AssociatedReferencedFeature
-  };
+    enum ReferencedFeatureListRoles
+    {
+      DisplayString = Qt::UserRole,
+      ReferencingFeature,
+      AssociatedReferencedFeature
+    };
 
-  QHash<int, QByteArray> roleNames() const override;
-  QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-  QModelIndex parent(const QModelIndex &index) const override;
-  int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-  int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex parent( const QModelIndex &index ) const override;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
 
-  QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
-  void setFeature( const QgsFeature &feature );
-  QgsFeature feature() const;
+    void setFeature( const QgsFeature &feature );
+    QgsFeature feature() const;
 
-  void setRelation( const QgsRelation &relation );
-  QgsRelation relation() const;
+    void setRelation( const QgsRelation &relation );
+    QgsRelation relation() const;
 
-  void setAssociatedRelation( const QgsRelation &relation );
-  QgsRelation associatedRelation() const;
+    void setAssociatedRelation( const QgsRelation &relation );
+    QgsRelation associatedRelation() const;
 
-  Q_INVOKABLE void reload();
-  Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
+    Q_INVOKABLE void reload();
+    Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
-signals:
-  void attributeFormModelChanged();
-  void featureChanged();
-  void relationChanged();
-  void associatedRelationChanged();
+  signals:
+    void attributeFormModelChanged();
+    void featureChanged();
+    void relationChanged();
+    void associatedRelationChanged();
 
-private:
-  struct Entry
-  {
-    Entry( const QString &displayString, const QgsFeatureId &referencingFeatureId )
-      : displayString( displayString )
-       , referencingFeatureId(referencingFeatureId)
-    {}
+  private:
+    struct Entry
+    {
+      Entry( const QString &displayString, const QgsFeatureId &referencingFeatureId )
+        : displayString( displayString )
+        , referencingFeatureId( referencingFeatureId )
+      {}
 
-    Entry() = default;
+      Entry() = default;
 
-    QString displayString;
-    QgsFeatureId referencingFeatureId;
-  };
+      QString displayString;
+      QgsFeatureId referencingFeatureId;
+    };
 
-  QList<Entry> mEntries;
+    QList<Entry> mEntries;
 
-  QgsFeature mFeature;
-  QgsRelation mRelation;
-  QgsRelation mAssociatedRelation;
+    QgsFeature mFeature;
+    QgsRelation mRelation;
+    QgsRelation mAssociatedRelation;
 
 };
 

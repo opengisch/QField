@@ -103,22 +103,22 @@ void FeatureModel::setLinkedFeatureValues()
   const auto fieldPairs = mLinkedRelation.fieldPairs();
   for( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
-    mFeature.setAttribute(mFeature.fieldNameIndex(fieldPair.first), linkedParentFeature().attribute( fieldPair.second ) );
-    mLinkedAttributeIndexes.append( mFeature.fieldNameIndex(fieldPair.first) );
+    mFeature.setAttribute( mFeature.fieldNameIndex( fieldPair.first ), linkedParentFeature().attribute( fieldPair.second ) );
+    mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
   }
   endResetModel();
 
   emit featureChanged();
 }
 
-void FeatureModel::setLinkedParentFeature(QgsFeature &feature)
+void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
 {
-  if( mLinkedParentFeature == feature )
+  if ( mLinkedParentFeature == feature )
     return;
 
   mLinkedParentFeature = feature;
 
-  if( mLinkedRelation.isValid() )
+  if ( mLinkedRelation.isValid() )
     setLinkedFeatureValues();
 }
 
@@ -127,11 +127,11 @@ QgsFeature FeatureModel::linkedParentFeature() const
   return mLinkedParentFeature;
 }
 
-void FeatureModel::setLinkedRelation(QgsRelation &relation)
+void FeatureModel::setLinkedRelation( const QgsRelation &relation )
 {
   mLinkedRelation = relation;
 
-  if( mLinkedParentFeature.isValid() )
+  if ( mLinkedParentFeature.isValid() )
     setLinkedFeatureValues();
 }
 

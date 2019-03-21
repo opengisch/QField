@@ -73,10 +73,9 @@ class FeatureModel : public QAbstractListModel
      * the fk fields are evaluated over the linked relation
      */
 
-    void setLinkedFeatureValues();
-    void setLinkedParentFeature( QgsFeature &feature );
+    void setLinkedParentFeature( const QgsFeature &feature );
     QgsFeature linkedParentFeature() const;
-    void setLinkedRelation( QgsRelation &relation );
+    void setLinkedRelation( const QgsRelation &relation );
     QgsRelation linkedRelation() const;
 
     void setCurrentLayer( QgsVectorLayer *layer );
@@ -146,6 +145,7 @@ class FeatureModel : public QAbstractListModel
   private:
     bool commit();
     bool startEditing();
+    void setLinkedFeatureValues();
 
     QgsVectorLayer *mLayer;
     QgsFeature mFeature;
