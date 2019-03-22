@@ -36,9 +36,12 @@ package ch.opengis.qfield;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.Thread;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -228,68 +231,56 @@ public class QFieldActivity extends Activity {
   }
 
   private class UnzipTask extends AsyncTask<String, Integer, String> {
-    protected String doInBackground(String... urlString) {
-      extractFolder(urlString[0]);
-      return null;
-    }
-
-    private void extractFolder(String zipFile) {
-      boolean success = false;
-      while (!success) {
-        AssetManager assets = getAssets();
-        int BUFFER = 2048;
-        String newPath = getFilesDir().toString() + "/";
-        InputStream is;
-        ZipInputStream zis;
-
-        try {
-          String filename;
-          is = assets.open(zipFile);
-          double totalSize = is.available();
-          zis = new ZipInputStream(new BufferedInputStream(is));
-          ZipEntry ze;
-          byte[] buffer = new byte[1024];
-          int count;
-
-          success = true;
-          while ((ze = zis.getNextEntry()) != null) {
-            filename = ze.getName();
-
-            // Need to create directories if not exists, or
-            // it will generate an Exception...
-            if (ze.isDirectory()) {
-               File fmd = new File(newPath + filename);
-               fmd.mkdirs();
-               continue;
-            }
-
-            FileOutputStream fout = new FileOutputStream(newPath + filename);
-
-            while ((count = zis.read(buffer)) != -1) {
-                fout.write(buffer, 0, count);
-            }
-
-            fout.close();
-            File outFile = new File(newPath + filename);
-            if (!outFile.exists()) {
-              Log.i(QtTAG, "File could not be created: " + newPath + filename);
-              success = false;
-            }
-            else
-              Log.i(QtTAG, "File unzipped: " + newPath + filename);
-            zis.closeEntry();
-            double currentSize = is.available();
-            double percent = 100 - currentSize / totalSize * 100;
-            Log.i(QtTAG, "Percent:" + percent);
-            publishProgress((int) percent);
+      protected String doInBackground(String... urlString) {
+          try{
+              extractZipFile(urlString[0]);
+          }catch (Exception e){
+              e.printStackTrace();
           }
-        }
-        catch(IOException e)
-        {
-           e.printStackTrace();
-        }
+          return null;
       }
-    }
+
+      private void extractZipFile(String zipFile) throws IOException, InterruptedException{
+          Log.d(QtTAG, "Exctract zip file asset: "+zipFile);
+          InputStream is = getAssets().open(zipFile);
+          ZipInputStream zis = new ZipInputStream(new BufferedInputStream(is));
+          long totalSize = is.available();
+          float currentSize = 0;
+          float percent = 0;
+          try {
+              Thread.sleep(2500);
+              ZipEntry ze;
+              int count;
+              byte[] buffer = new byte[8192];
+              while ((ze = zis.getNextEntry()) != null) {
+                  File file = new File(getFilesDir(), ze.getName());
+                  File dir = ze.isDirectory() ? file : file.getParentFile();
+                  if (!dir.isDirectory() && !dir.mkdirs())
+                      throw new FileNotFoundException("Failed to ensure directory: " + dir.getAbsolutePath());
+                  if (ze.isDirectory())
+                      continue;
+                  FileOutputStream fout = new FileOutputStream(file);
+                  try {
+                      while ((count = zis.read(buffer)) != -1)
+                          fout.write(buffer, 0, count);
+                  } finally {
+                      fout.close();
+                  }
+                  currentSize = is.available();
+
+                  // 108 instead of 100 beacuse the is.available() is not accurate on large files and with
+                  // 108 we have a 100% when the unzip is finished
+                  percent = 108 - currentSize / totalSize * 100;
+                  publishProgress((int) percent);
+
+                  Log.d(QtTAG, "File unzipped: " + file.getPath());
+                  Log.d(QtTAG, "Exists: " + file.exists());
+                  Log.d(QtTAG, "Percent: " + percent);
+              }
+          } finally {
+              zis.close();
+          }
+      }
 
     protected void onPreExecute() {
       showDialog(PROGRESS_DIALOG);
