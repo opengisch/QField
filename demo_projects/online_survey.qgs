@@ -1,0 +1,773 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis projectname="Live QField Users Map" version="3.4.4-Madeira">
+  <homePath path=""/>
+  <title>Live QField Users Map</title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
+  <trust active="0"/>
+  <projectCrs>
+    <spatialrefsys>
+      <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+      <srsid>3857</srsid>
+      <srid>3857</srid>
+      <authid>EPSG:3857</authid>
+      <description>WGS 84 / Pseudo-Mercator</description>
+      <projectionacronym>merc</projectionacronym>
+      <ellipsoidacronym>WGS84</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+    <customproperties/>
+    <layer-tree-layer providerKey="postgres" id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6" source="dbname='gis' host=lizmapdemo.opengis.ch port=54321 user='docker' sslmode=disable key='id' srid=4326 type=Point table=&quot;demo&quot;.&quot;attendees&quot; (geom) sql=" checked="Qt::Checked" expanded="1" name="QField users">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer providerKey="wms" id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0" checked="Qt::Checked" expanded="0" name="OpenStreetMap">
+      <customproperties/>
+    </layer-tree-layer>
+    <custom-order enabled="0">
+      <item>OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e</item>
+      <item>attendees_7b40f245_908b_4259_abd7_af06f651b8e6</item>
+    </custom-order>
+  </layer-tree-group>
+  <snapping-settings intersection-snapping="0" mode="2" tolerance="12" type="1" enabled="0" unit="1">
+    <individual-layer-settings>
+      <layer-setting id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6" units="1" tolerance="12" type="1" enabled="0"/>
+    </individual-layer-settings>
+  </snapping-settings>
+  <relations/>
+  <mapcanvas annotationsVisible="1" name="theMapCanvas">
+    <units>meters</units>
+    <extent>
+      <xmin>-14554571.56301935762166977</xmin>
+      <ymin>-8248819.64024537708610296</ymin>
+      <xmax>17221886.80272596329450607</xmax>
+      <ymax>14082013.71586540341377258</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+        <srsid>3857</srsid>
+        <srid>3857</srid>
+        <authid>EPSG:3857</authid>
+        <description>WGS 84 / Pseudo-Mercator</description>
+        <projectionacronym>merc</projectionacronym>
+        <ellipsoidacronym>WGS84</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <projectModels/>
+  <legend updateDrawingOrder="true">
+    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" open="true" name="QField users">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="attendees_7b40f245_908b_4259_abd7_af06f651b8e6"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" open="false" name="OpenStreetMap">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e"/>
+      </filegroup>
+    </legendlayer>
+  </legend>
+  <mapViewDocks/>
+  <mapViewDocks3D/>
+  <projectlayers>
+    <maplayer refreshOnNotifyEnabled="0" autoRefreshTime="0" autoRefreshEnabled="0" minScale="1e+8" type="raster" hasScaleBasedVisibilityFlag="0" maxScale="0" styleCategories="AllStyleCategories" refreshOnNotifyMessage="">
+      <extent>
+        <xmin>-20037508.34278924390673637</xmin>
+        <ymin>-20037508.34278925508260727</ymin>
+        <xmax>20037508.34278924390673637</xmax>
+        <ymax>20037508.34278924390673637</ymax>
+      </extent>
+      <id>OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e</id>
+      <datasource>crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>OpenStreetMap</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo-Mercator</description>
+          <projectionacronym>merc</projectionacronym>
+          <ellipsoidacronym>WGS84</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>0</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>0</Searchable>
+      </flags>
+      <customproperties>
+        <property key="QFieldSync/action" value="no_action"/>
+        <property key="identify/format" value="Undefined"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer band="1" alphaBand="-1" type="singlebandcolordata" opacity="1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" colorizeOn="0" colorizeGreen="128" saturation="0" grayscaleMode="0" colorizeRed="255" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer refreshOnNotifyEnabled="0" simplifyAlgorithm="0" simplifyDrawingHints="0" simplifyMaxScale="1" autoRefreshTime="0" autoRefreshEnabled="0" minScale="1e+8" readOnly="0" type="vector" hasScaleBasedVisibilityFlag="0" maxScale="0" styleCategories="AllStyleCategories" geometry="Point" labelsEnabled="0" simplifyDrawingTol="1" simplifyLocal="1" refreshOnNotifyMessage="">
+      <extent>
+        <xmin>-8.04247856140137074</xmin>
+        <ymin>-34.41452407836909799</ymin>
+        <xmax>18.97383880615230112</xmax>
+        <ymax>56.30941390991210227</ymax>
+      </extent>
+      <id>attendees_7b40f245_908b_4259_abd7_af06f651b8e6</id>
+      <datasource>dbname='gis' host=lizmapdemo.opengis.ch port=54321 user='docker' password='docker' sslmode=disable key='id' srid=4326 type=Point table="demo"."attendees" (geom) sql=</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>QField users</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
+          <ellipsoidacronym>WGS84</ellipsoidacronym>
+          <geographicflag>true</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+            <srsid>3452</srsid>
+            <srid>4326</srid>
+            <authid>EPSG:4326</authid>
+            <description>WGS 84</description>
+            <projectionacronym>longlat</projectionacronym>
+            <ellipsoidacronym>WGS84</ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxx="0" minx="0" maxz="0" crs="EPSG:4326" dimensions="2" minz="0" miny="0" maxy="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="UTF-8">postgres</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" tolerance="15" toleranceUnit="MM" type="pointCluster" forceraster="0" toleranceUnitScale="3x:0,0,0,0,0,0">
+        <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" symbollevels="0">
+          <symbols>
+            <symbol force_rhr="0" alpha="1" clip_to_extent="1" type="marker" name="0">
+              <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+                <prop k="angle" v="0"/>
+                <prop k="color" v="255,255,255,255"/>
+                <prop k="horizontal_anchor_point" v="1"/>
+                <prop k="joinstyle" v="miter"/>
+                <prop k="name" v="hexagon"/>
+                <prop k="offset" v="0,0"/>
+                <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="offset_unit" v="MM"/>
+                <prop k="outline_color" v="128,204,40,255"/>
+                <prop k="outline_style" v="solid"/>
+                <prop k="outline_width" v="1"/>
+                <prop k="outline_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="outline_width_unit" v="MM"/>
+                <prop k="scale_method" v="diameter"/>
+                <prop k="size" v="6.8"/>
+                <prop k="size_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="size_unit" v="MM"/>
+                <prop k="vertical_anchor_point" v="1"/>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option value="" type="QString" name="name"/>
+                    <Option name="properties"/>
+                    <Option value="collection" type="QString" name="type"/>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+              <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+                <prop k="angle" v="0"/>
+                <prop k="color" v="128,204,40,255"/>
+                <prop k="horizontal_anchor_point" v="1"/>
+                <prop k="joinstyle" v="bevel"/>
+                <prop k="name" v="hexagon"/>
+                <prop k="offset" v="0,0"/>
+                <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="offset_unit" v="MM"/>
+                <prop k="outline_color" v="128,204,40,255"/>
+                <prop k="outline_style" v="solid"/>
+                <prop k="outline_width" v="0.2"/>
+                <prop k="outline_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="outline_width_unit" v="MM"/>
+                <prop k="scale_method" v="diameter"/>
+                <prop k="size" v="2.6"/>
+                <prop k="size_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+                <prop k="size_unit" v="MM"/>
+                <prop k="vertical_anchor_point" v="1"/>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option value="" type="QString" name="name"/>
+                    <Option name="properties"/>
+                    <Option value="collection" type="QString" name="type"/>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+            </symbol>
+          </symbols>
+          <rotation/>
+          <sizescale/>
+        </renderer-v2>
+        <symbol force_rhr="0" alpha="1" clip_to_extent="1" type="marker" name="centerSymbol">
+          <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+            <prop k="angle" v="0"/>
+            <prop k="color" v="255,255,255,255"/>
+            <prop k="horizontal_anchor_point" v="1"/>
+            <prop k="joinstyle" v="miter"/>
+            <prop k="name" v="hexagon"/>
+            <prop k="offset" v="0,0"/>
+            <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="offset_unit" v="MM"/>
+            <prop k="outline_color" v="128,204,40,255"/>
+            <prop k="outline_style" v="solid"/>
+            <prop k="outline_width" v="1"/>
+            <prop k="outline_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="outline_width_unit" v="MM"/>
+            <prop k="scale_method" v="diameter"/>
+            <prop k="size" v="10"/>
+            <prop k="size_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="size_unit" v="MM"/>
+            <prop k="vertical_anchor_point" v="1"/>
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" type="QString" name="name"/>
+                <Option name="properties"/>
+                <Option value="collection" type="QString" name="type"/>
+              </Option>
+            </data_defined_properties>
+          </layer>
+          <layer class="FontMarker" locked="0" pass="0" enabled="1">
+            <prop k="angle" v="0"/>
+            <prop k="chr" v="A"/>
+            <prop k="color" v="250,176,124,255"/>
+            <prop k="font" v="Cantarell"/>
+            <prop k="horizontal_anchor_point" v="1"/>
+            <prop k="joinstyle" v="bevel"/>
+            <prop k="offset" v="0,-1.09374999999999867"/>
+            <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="offset_unit" v="MM"/>
+            <prop k="outline_color" v="250,176,124,255"/>
+            <prop k="outline_width" v="0.2"/>
+            <prop k="outline_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="outline_width_unit" v="MM"/>
+            <prop k="size" v="6.25"/>
+            <prop k="size_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+            <prop k="size_unit" v="MM"/>
+            <prop k="vertical_anchor_point" v="1"/>
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" type="QString" name="name"/>
+                <Option type="Map" name="properties">
+                  <Option type="Map" name="char">
+                    <Option value="true" type="bool" name="active"/>
+                    <Option value="@cluster_size" type="QString" name="expression"/>
+                    <Option value="3" type="int" name="type"/>
+                  </Option>
+                </Option>
+                <Option value="collection" type="QString" name="type"/>
+              </Option>
+            </data_defined_properties>
+          </layer>
+        </symbol>
+      </renderer-v2>
+      <customproperties>
+        <property key="dualview/previewExpressions" value="name ||' - '|| org"/>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory maxScaleDenominator="1e+8" sizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" barWidth="5" rotationOffset="270" penColor="#000000" penWidth="0" scaleDependency="Area" backgroundColor="#ffffff" minimumSize="0" labelPlacementMethod="XHeight" width="15" diagramOrientation="Up" penAlpha="255" height="15" scaleBasedVisibility="0" sizeType="MM" minScaleDenominator="0" enabled="0" backgroundAlpha="255" opacity="1" lineSizeScale="3x:0,0,0,0,0,0">
+          <fontProperties description="Ubuntu,11,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" label="" color="#000000"/>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings obstacle="0" placement="0" dist="0" linePlacementFlags="18" priority="0" showAll="1" zIndex="0">
+        <properties>
+          <Option type="Map">
+            <Option value="" type="QString" name="name"/>
+            <Option name="properties"/>
+            <Option value="collection" type="QString" name="type"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="id">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option value="false" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="name">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option value="false" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="org">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option value="false" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="since">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option value="true" type="bool" name="allow_null"/>
+                <Option value="true" type="bool" name="calendar_popup"/>
+                <Option value="yyyy-MM-dd" type="QString" name="display_format"/>
+                <Option value="yyyy-MM-dd" type="QString" name="field_format"/>
+                <Option value="false" type="bool" name="field_iso_format"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="usage_category">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option value="false" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="usage_frequency">
+          <editWidget type="ValueMap">
+            <config>
+              <Option type="Map">
+                <Option type="List" name="map">
+                  <Option type="Map">
+                    <Option value="hourly" type="QString" name="Many times a day"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option value="daily" type="QString" name="Once a day"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option value="weekly" type="QString" name="Once a week"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option value="monthly" type="QString" name="Once a month"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option value="yearly" type="QString" name="Once a year"/>
+                  </Option>
+                </Option>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="usage_comment">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option value="true" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field name="usage_check">
+          <editWidget type="CheckBox">
+            <config>
+              <Option type="Map">
+                <Option value="" type="QString" name="CheckedState"/>
+                <Option value="" type="QString" name="UncheckedState"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="id" index="0" name=""/>
+        <alias field="name" index="1" name="Name"/>
+        <alias field="org" index="2" name="Organisation"/>
+        <alias field="since" index="3" name="Since"/>
+        <alias field="usage_category" index="4" name="In which field do you use QField?"/>
+        <alias field="usage_frequency" index="5" name="How often do you use QField?"/>
+        <alias field="usage_comment" index="6" name="How do you use QField?"/>
+        <alias field="usage_check" index="7" name="Do you want to tell the world more about your QField usage?"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="name" expression="" applyOnUpdate="0"/>
+        <default field="org" expression="" applyOnUpdate="0"/>
+        <default field="since" expression="now()" applyOnUpdate="0"/>
+        <default field="usage_category" expression="" applyOnUpdate="0"/>
+        <default field="usage_frequency" expression="" applyOnUpdate="0"/>
+        <default field="usage_comment" expression="" applyOnUpdate="0"/>
+        <default field="usage_check" expression="" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="1" field="id" exp_strength="0" constraints="3" notnull_strength="1"/>
+        <constraint unique_strength="0" field="name" exp_strength="0" constraints="1" notnull_strength="1"/>
+        <constraint unique_strength="0" field="org" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint unique_strength="0" field="since" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint unique_strength="0" field="usage_category" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint unique_strength="0" field="usage_frequency" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint unique_strength="0" field="usage_comment" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint unique_strength="0" field="usage_check" exp_strength="0" constraints="0" notnull_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint desc="" exp="" field="id"/>
+        <constraint desc="" exp="" field="name"/>
+        <constraint desc="" exp="" field="org"/>
+        <constraint desc="" exp="" field="since"/>
+        <constraint desc="" exp="" field="usage_category"/>
+        <constraint desc="" exp="" field="usage_frequency"/>
+        <constraint desc="" exp="" field="usage_comment"/>
+        <constraint desc="" exp="" field="usage_check"/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;test&quot;" sortOrder="0">
+        <columns>
+          <column width="-1" type="field" name="id" hidden="0"/>
+          <column width="161" type="field" name="name" hidden="0"/>
+          <column width="154" type="field" name="org" hidden="0"/>
+          <column width="-1" type="actions" hidden="1"/>
+          <column width="-1" type="field" name="since" hidden="0"/>
+          <column width="-1" type="field" name="usage_category" hidden="0"/>
+          <column width="-1" type="field" name="usage_frequency" hidden="0"/>
+          <column width="-1" type="field" name="usage_comment" hidden="0"/>
+          <column width="-1" type="field" name="usage_check" hidden="0"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>tablayout</editorlayout>
+      <attributeEditorForm>
+        <attributeEditorContainer columnCount="1" groupBox="0" visibilityExpressionEnabled="0" visibilityExpression="" name="User" showLabel="1">
+          <attributeEditorField index="1" name="name" showLabel="1"/>
+          <attributeEditorField index="2" name="org" showLabel="1"/>
+          <attributeEditorField index="3" name="since" showLabel="1"/>
+        </attributeEditorContainer>
+        <attributeEditorContainer columnCount="1" groupBox="0" visibilityExpressionEnabled="0" visibilityExpression="" name="Usage" showLabel="1">
+          <attributeEditorField index="7" name="usage_check" showLabel="1"/>
+          <attributeEditorContainer columnCount="1" groupBox="1" visibilityExpressionEnabled="1" visibilityExpression="&quot;usage_check&quot;" name="usage_details" showLabel="0">
+            <attributeEditorField index="4" name="usage_category" showLabel="1"/>
+            <attributeEditorField index="5" name="usage_frequency" showLabel="1"/>
+            <attributeEditorField index="6" name="usage_comment" showLabel="1"/>
+          </attributeEditorContainer>
+        </attributeEditorContainer>
+      </attributeEditorForm>
+      <editable>
+        <field editable="1" name="id"/>
+        <field editable="1" name="name"/>
+        <field editable="1" name="org"/>
+        <field editable="1" name="since"/>
+        <field editable="1" name="test"/>
+        <field editable="1" name="usage_category"/>
+        <field editable="1" name="usage_check"/>
+        <field editable="1" name="usage_comment"/>
+        <field editable="1" name="usage_frequency"/>
+      </editable>
+      <labelOnTop>
+        <field labelOnTop="0" name="id"/>
+        <field labelOnTop="0" name="name"/>
+        <field labelOnTop="0" name="org"/>
+        <field labelOnTop="0" name="since"/>
+        <field labelOnTop="0" name="test"/>
+        <field labelOnTop="1" name="usage_category"/>
+        <field labelOnTop="0" name="usage_check"/>
+        <field labelOnTop="1" name="usage_comment"/>
+        <field labelOnTop="1" name="usage_frequency"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>name ||' - '|| org</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </projectlayers>
+  <layerorder>
+    <layer id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e"/>
+    <layer id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6"/>
+  </layerorder>
+  <properties>
+    <WMSContactPosition type="QString"></WMSContactPosition>
+    <SpatialRefSys>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+    <Gui>
+      <SelectionColorGreenPart type="int">113</SelectionColorGreenPart>
+      <CanvasColorGreenPart type="int">211</CanvasColorGreenPart>
+      <CanvasColorBluePart type="int">223</CanvasColorBluePart>
+      <CanvasColorRedPart type="int">170</CanvasColorRedPart>
+      <SelectionColorBluePart type="int">232</SelectionColorBluePart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+    </Gui>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <DefaultStyles>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+      <ColorRamp type="QString"></ColorRamp>
+      <Opacity type="double">1</Opacity>
+      <Marker type="QString"></Marker>
+      <RandomColors type="bool">true</RandomColors>
+    </DefaultStyles>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WFSUrl type="QString"></WFSUrl>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WMSUrl type="QString"></WMSUrl>
+    <WMSPrecision type="QString">8</WMSPrecision>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WMSMaxAtlasFeatures type="int">1</WMSMaxAtlasFeatures>
+    <Measure>
+      <Ellipsoid type="QString">WGS84</Ellipsoid>
+    </Measure>
+    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <WMTSUrl type="QString"></WMTSUrl>
+    <WMTSJpegLayers>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+    </WMTSJpegLayers>
+    <WMSFees type="QString">conditions unknown</WMSFees>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WFSTLayers>
+      <Update type="QStringList"/>
+      <Insert type="QStringList"/>
+      <Delete type="QStringList"/>
+    </WFSTLayers>
+    <WCSLayers type="QStringList"/>
+    <WMSRootName type="QString"></WMSRootName>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <WFSLayers type="QStringList"/>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WCSUrl type="QString"></WCSUrl>
+    <WMTSGrids>
+      <Config type="QStringList"/>
+      <CRS type="QStringList"/>
+    </WMTSGrids>
+    <WMSKeywordList type="QStringList">
+      <value></value>
+    </WMSKeywordList>
+    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
+    <PositionPrecision>
+      <DegreeFormat type="QString">MU</DegreeFormat>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <Automatic type="bool">true</Automatic>
+    </PositionPrecision>
+    <WMTSLayers>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+    </WMTSLayers>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <qfieldsync>
+      <baseMapType type="QString">singleLayer</baseMapType>
+      <importedFilesChecksums type="QStringList">
+        <value>1230ded733be9a709daf407bd59e2f05</value>
+        <value>d1144f15f99bd1d57ffab0d1f70620e4</value>
+        <value>e2a34a7ab758315678e7c348afee5ab9</value>
+        <value>f61c6d169261b66a1cbaca4701b1efb4</value>
+        <value>f8585dc706d79a852be17f9c9a4f9696</value>
+      </importedFilesChecksums>
+      <createBaseMap type="int">0</createBaseMap>
+      <baseMapTheme type="QString"></baseMapTheme>
+      <baseMapTileSize type="int">1024</baseMapTileSize>
+      <offlineCopyOnlyAoi type="int">0</offlineCopyOnlyAoi>
+      <baseMapMupp type="double">10</baseMapMupp>
+    </qfieldsync>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WMTSPngLayers>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+    </WMTSPngLayers>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
+    <WMTSMinScale type="int">5000</WMTSMinScale>
+    <Measurement>
+      <DistanceUnits type="QString">meters</DistanceUnits>
+      <AreaUnits type="QString">m2</AreaUnits>
+    </Measurement>
+    <PAL>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <TextFormat type="int">0</TextFormat>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <SearchMethod type="int">0</SearchMethod>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+    </PAL>
+  </properties>
+  <visibility-presets/>
+  <transformContext/>
+  <projectMetadata>
+    <identifier></identifier>
+    <parentidentifier></parentidentifier>
+    <language></language>
+    <type></type>
+    <title>Live QField Users Map</title>
+    <abstract></abstract>
+    <contact>
+      <name></name>
+      <organization></organization>
+      <position></position>
+      <voice></voice>
+      <fax></fax>
+      <email></email>
+      <role></role>
+    </contact>
+    <links/>
+    <author>David</author>
+    <creation>2019-03-04T11:39:10</creation>
+  </projectMetadata>
+  <Annotations/>
+  <Layouts/>
+</qgis>
