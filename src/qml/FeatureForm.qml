@@ -161,8 +161,10 @@ Page {
 
                 Text {
                   anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                  width: parent.width
                   font.bold: true
                   text: section
+                  wrapMode: Text.WordWrap
                 }
               }
             }
@@ -204,8 +206,9 @@ Page {
 
       Controls.Label {
         id: fieldLabel
-
+        width: parent.width
         text: Name || ''
+        wrapMode: Text.WordWrap
         font.bold: true
         color: ConstraintValid ? "black" : "#c0392b"
       }
