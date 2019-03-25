@@ -277,10 +277,9 @@ Page {
         }
       }
 
-      Controls.CheckBox {
+      CheckBox {
         id: rememberCheckbox
-        checked: RememberValue ? true : false
-
+        checked: RememberValue ? true : false 
         visible: form.state === "Add" && EditorWidget !== "Hidden"
         width: visible ? undefined : 0
 
@@ -289,6 +288,11 @@ Page {
         onCheckedChanged: {
           RememberValue = checked
         }
+
+        indicator.height: 16 * dp
+        indicator.width: 16 * dp
+        icon.height: 16 * dp
+        icon.width: 16 * dp
       }
     }
   }

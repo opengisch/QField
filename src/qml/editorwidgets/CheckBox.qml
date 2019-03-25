@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.4
 
 Item {
   signal valueChanged( var value, bool isNull )
@@ -24,5 +24,10 @@ Item {
     onCurrentValueChanged: {
       checked = currentValue == config['CheckedState']
     }
+
+    indicator.height: 16 * dp
+    indicator.width: 16 * dp
+    icon.height: 16 * dp
+    icon.width: 16 * dp
   }
 }
