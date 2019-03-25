@@ -83,7 +83,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   if ( !mFirstCRS.isValid() )
   {
     // find out what is the first used CRS in case we may need to turn on OTF projections later
-    Q_FOREACH ( QgsLayerTreeLayer *layerNode, layerNodes )
+    for ( QgsLayerTreeLayer *layerNode : layerNodes )
     {
       if ( layerNode->layer() && layerNode->layer()->crs().isValid() )
       {

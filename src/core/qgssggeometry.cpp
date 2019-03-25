@@ -27,9 +27,9 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
     case QgsWkbTypes::LineGeometry:
       if ( gg.isMultipart() )
       {
-        const QgsMultiPolylineXY &lines = gg.asMultiPolyline();
+        const QgsMultiPolylineXY lines = gg.asMultiPolyline();
 
-        Q_FOREACH ( const QgsPolylineXY &line, lines )
+        for ( const QgsPolylineXY &line : lines )
         {
           QSGGeometryNode *geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolylineToQSGGeometry( line, width ) );
@@ -51,12 +51,12 @@ QgsSGGeometry::QgsSGGeometry( const QgsGeometry &geom, const QColor &color, int 
     case QgsWkbTypes::PolygonGeometry:
       if ( gg.isMultipart() )
       {
-        const QgsMultiPolygonXY &polygons = gg.asMultiPolygon();
+        const QgsMultiPolygonXY polygons = gg.asMultiPolygon();
 
         QSGOpacityNode *on = new QSGOpacityNode;
         on->setOpacity( 0.5 );
 
-        Q_FOREACH ( const QgsPolygonXY &polygon, polygons )
+        for ( const QgsPolygonXY &polygon : polygons )
         {
           QSGGeometryNode *geomNode = new QSGGeometryNode;
           geomNode->setGeometry( qgsPolygonToQSGGeometry( polygon ) );
@@ -108,9 +108,9 @@ QSGGeometry *QgsSGGeometry::qgsPolylineToQSGGeometry( const QgsPolylineXY &line,
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
 
   int i = 0;
-  Q_FOREACH ( const QgsPointXY &pt, line )
+  for ( const QgsPointXY &pt : line )
   {
-    vertices[i].set( pt.x(), pt.y() );
+    vertices[i].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
     i++;
   }
 
@@ -134,7 +134,7 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
   const double *contours_array[] = { vertices_in, vertices_in + ring.size() * 2 };
   int i = 0;
 
-  Q_FOREACH ( const QgsPointXY &point, ring )
+  for ( const QgsPointXY &point : ring )
   {
     vertices_in[i++] = point.x();
     vertices_in[i++] = point.y();

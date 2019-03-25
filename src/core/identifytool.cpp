@@ -57,8 +57,8 @@ void IdentifyTool::identify( const QPointF &point ) const
 
   QgsPointXY mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
 
-
-  Q_FOREACH ( QgsMapLayer *layer, mMapSettings->mapSettings().layers() )
+  const QList<QgsMapLayer *> layers { mMapSettings->mapSettings().layers() };
+  for ( QgsMapLayer *layer : layers )
   {
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
       continue;
@@ -128,7 +128,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     filter = renderer->capabilities() & QgsFeatureRenderer::Filter;
   }
 
-  Q_FOREACH ( const QgsFeature &feature, featureList )
+  for ( const QgsFeature &feature : qgis::as_const( featureList ) )
   {
     context.expressionContext().setFeature( feature );
 

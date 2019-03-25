@@ -187,7 +187,9 @@ void MapSettings::setMapTheme( QgsProject *project, const QString &mapThemeName 
 
   QgsMapThemeCollection::MapThemeRecord mapTheme = project->mapThemeCollection()->mapThemeState( mapThemeName );
 
-  Q_FOREACH ( const QgsMapThemeCollection::MapThemeLayerRecord &record, mapTheme.layerRecords() )
+  const QList<QgsMapThemeCollection::MapThemeLayerRecord> layerRecords { mapTheme.layerRecords() };
+
+  for ( const QgsMapThemeCollection::MapThemeLayerRecord &record : layerRecords )
   {
     record.layer()->styleManager()->setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
 

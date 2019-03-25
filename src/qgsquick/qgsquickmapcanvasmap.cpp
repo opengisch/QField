@@ -23,7 +23,7 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 #include <qgsexpressioncontextutils.h>
-#include "qgis.h"
+#include <qgis.h>
 
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
@@ -31,7 +31,7 @@
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   : QQuickItem( parent )
-  , mMapSettings( new QgsQuickMapSettings() )
+  , mMapSettings( qgis::make_unique<QgsQuickMapSettings>() )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::refreshMap );
