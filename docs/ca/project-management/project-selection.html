@@ -99,6 +99,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Project selection</a><ul>
+<li><a class="reference internal" href="#favorite-directories">Favorite directories</a></li>
 <li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
 <li><a class="reference internal" href="#warning">Warning!</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">How to turn external SD card into internal storage</a></li>
@@ -183,11 +184,16 @@
 </ul>
 <p>Inside these directories, only subdirectories and files with the &#8221;.qgs&#8221; extension are shown.</p>
 <p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
+<div class="section" id="favorite-directories">
+<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Link permanent a aquest títol">¶</a></h2>
+<p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
+</div>
 <div class="section" id="external-sd-card">
 <h2>External SD card<a class="headerlink" href="#external-sd-card" title="Link permanent a aquest títol">¶</a></h2>
-<p>The file selector only shows the application-specific directory on an external SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
+<p>The file selector shows the root of the SD card labeled as &#8220;read-only&#8221; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
@@ -204,9 +210,9 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
 <li>Select your &#8220;SD Card&#8221;, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
 <li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
 <li>Your SD Card will now be formatted as internal storage.</li>
+<li>Reboot your phone.</li>
 </ol>
-<p>5. Reboot your phone.
-If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
 <p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
 </div>
 </div>

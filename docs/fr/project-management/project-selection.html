@@ -99,6 +99,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Sélection de projet</a><ul>
+<li><a class="reference internal" href="#favorite-directories">Favorite directories</a></li>
 <li><a class="reference internal" href="#external-sd-card">Carte SD externe</a></li>
 <li><a class="reference internal" href="#warning">Attention !</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Comment transformer une carte SD externe en mémoire interne</a></li>
@@ -185,11 +186,16 @@
 </ul>
 <p>À l&#8217;intérieur de ces répertoires, seuls les sous-répertoires et fichiers avec l&#8217;extension &#8221;.qgs&#8221; sont affichés.</p>
 <p>QField exige que le fichier de projet soit physiquement sur le périphérique, il n&#8217;est donc pas possible d&#8217;utiliser des fournisseurs qui travaillent avec des fichiers distants (p. ex. Google Drive). D&#8217;autre part, vous pouvez utiliser des applications comme <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox et probablement beaucoup d&#8217;autres) qui vous permettent de synchroniser physiquement le fichier sur votre appareil.</p>
+<div class="section" id="favorite-directories">
+<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Lien permanent vers ce titre">¶</a></h2>
+<p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
+</div>
 <div class="section" id="external-sd-card">
 <h2>Carte SD externe<a class="headerlink" href="#external-sd-card" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le sélecteur de fichiers affiche uniquement le répertoire spécifique à l&#8217;application sur une carte SD externe, car c&#8217;est le seul répertoire auquel l&#8217;application a accès en écriture. Le répertoire est le suivant :</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
+<p>The file selector shows the root of the SD card labeled as &#8220;read-only&#8221; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
@@ -209,9 +215,9 @@
 </li>
 <li><p class="first">Votre carte SD va maintenant être formatée comme stockage interne.</p>
 </li>
+<li>Reboot your phone.</li>
 </ol>
-<p>5. Reboot your phone.
-If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
 <p>Il est possible que la fonction de stockage adoptable ne soit pas présente sur votre appareil même s&#8217;il utilise Android 6.0 ou une version ultérieure. Le fabricant de l&#8217;appareil peut avoir désactivé cette fonction. Cependant, il existe des méthodes en ligne de commande qui vous permettent de forcer un périphérique à adopter un stockage.</p>
 </div>
 </div>

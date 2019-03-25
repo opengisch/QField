@@ -98,6 +98,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Selección do proxecto</a><ul>
+<li><a class="reference internal" href="#favorite-directories">Directorios preferidos</a></li>
 <li><a class="reference internal" href="#external-sd-card">Tarxeta SD externa</a></li>
 <li><a class="reference internal" href="#warning">Advertencia!</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Como converter a tarxeta SD externa nun almacenamento interno</a></li>
@@ -184,11 +185,16 @@
 </ul>
 <p>Destro destes directorios, só se amosan subdirectorios e ficheiros coa extensión &#8221;.qgs&#8221;.</p>
 <p>QField precisa que o ficheiro do proxecto estea fisicamente no dispositivo, polo que non é posible utilizar provedores que traballen con ficheiro remotos (ex: Google Drive). Por outra banda podes utilizar aplicacións coma <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox e probablemente moitas outras) que che permiten sincronizar fisicamente o ficheiro co dispositivo.</p>
+<div class="section" id="favorite-directories">
+<h2>Directorios preferidos<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
+<p>Na primeira xanela do selector de ficheiros, hai unha sección amosando os directorios preferidos. Para engadir un directorio ós favoritos, premer moito tempo no selector de ficheiros no nome do directorio. Para eliminar unha entrada dos favoritos, premer moito tempo na entrada da lista de favoritos.</p>
+</div>
 <div class="section" id="external-sd-card">
 <h2>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>O selector de ficheiros só amosa o directorio específico da aplicación nunha tarxeta SD externa, xa que é o único directorio para o cal a aplicación ten acceso de escritura. O directorio é o seguinte:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
-</pre></div>
+<p>O selector de ficheiros amosa a raíz da tarxeta SD etiquetada coma de &#8220;só lectura&#8221; e o directorio específico da aplicación separado do resto da tarxeta SD, xa que é o único directorio par o cal a aplicación ten permiso de escritura. O directorio é o seguinte:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tecnicamente, isto é debido ó feito de que Android tenta ACTION_OPEN_DOCUMENT e ACTION_OPEN_DOCUMENT_TREE, funciona e dá permisos de lectura-escritura ó contido do URI devolto, non no ficheiro real ligado. Esta limitación ten sentido para como se estrutura Android pero actualmente non é utilizable con QGIS xa que QField precisa acceder ó ficheiro real cunha ruta real.</p>
 </div>
 </div>
 <div class="section" id="warning">
@@ -208,9 +214,9 @@
 </li>
 <li><p class="first">Á súa Tarxeta SD daráselle agora formato como almacenamento interno.</p>
 </li>
+<li>Reboot your phone.</li>
 </ol>
-<p>5. Reboot your phone.
-If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
 <p>Pode ser que o Almacenamento Adoptable non estea presente no teu dispositivo aínda que funcione con Android 6.0 ou superiores. O fabricando do dispositivo poida que desactivase esta funcionalidade. Porén, existen métodos na liña de comandos que che permiten forzar ó dispositivo a adoptar un almacenamento.</p>
 </div>
 </div>
