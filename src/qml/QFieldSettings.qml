@@ -50,11 +50,13 @@ Page {
         height: 36*dp
         text: qsTr("Layout")
         font.pointSize: 14
+        anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
         height: 36*dp
         text: qsTr("Global Variables")
         font.pointSize: 14
+        anchors.verticalCenter : parent.verticalCenter
       }
     }
 
@@ -142,6 +144,8 @@ Page {
       Label {
         id: titleLabel
         text: qsTr( 'QField Settings' )
+        bottomPadding: 5 * dp
+        topPadding: 5 * dp
         font.bold: true
         font.pointSize: 16
         elide: Label.ElideRight
