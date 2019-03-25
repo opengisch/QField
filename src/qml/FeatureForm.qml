@@ -274,7 +274,7 @@ Page {
         }
       }
 
-      Controls.CheckBox {
+      CheckBox {
         id: rememberCheckbox
         checked: RememberValue ? true : false
 
