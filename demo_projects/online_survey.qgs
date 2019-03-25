@@ -19,30 +19,30 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer providerKey="postgres" id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6" source="dbname='gis' host=lizmapdemo.opengis.ch port=54321 user='docker' sslmode=disable key='id' srid=4326 type=Point table=&quot;demo&quot;.&quot;attendees&quot; (geom) sql=" checked="Qt::Checked" expanded="1" name="QField users">
+    <layer-tree-layer source="dbname='qfielddemo' host=demo.qfield.org port=8080 user='qfielduser' sslmode=disable key='id' srid=3857 type=Point table=&quot;public&quot;.&quot;user&quot; (geom) sql=" id="user_3b2a144b_274a_4438_95e4_6640c2211c53" name="QField users" checked="Qt::Checked" providerKey="postgres" expanded="1">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer providerKey="wms" id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0" checked="Qt::Checked" expanded="0" name="OpenStreetMap">
+    <layer-tree-layer source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://a.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=19&amp;zmin=0" id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" name="OpenStreetMap" checked="Qt::Checked" providerKey="wms" expanded="0">
       <customproperties/>
     </layer-tree-layer>
     <custom-order enabled="0">
       <item>OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e</item>
-      <item>attendees_7b40f245_908b_4259_abd7_af06f651b8e6</item>
+      <item>user_3b2a144b_274a_4438_95e4_6640c2211c53</item>
     </custom-order>
   </layer-tree-group>
-  <snapping-settings intersection-snapping="0" mode="2" tolerance="12" type="1" enabled="0" unit="1">
+  <snapping-settings enabled="0" type="1" mode="2" tolerance="12" intersection-snapping="0" unit="1">
     <individual-layer-settings>
-      <layer-setting id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6" units="1" tolerance="12" type="1" enabled="0"/>
+      <layer-setting enabled="0" type="1" id="user_3b2a144b_274a_4438_95e4_6640c2211c53" units="1" tolerance="12"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>-14554571.56301935762166977</xmin>
-      <ymin>-8248819.64024537708610296</ymin>
-      <xmax>17221886.80272596329450607</xmax>
-      <ymax>14082013.71586540341377258</ymax>
+      <xmin>-21039383.75992870703339577</xmin>
+      <ymin>-21039383.75992871820926666</ymin>
+      <xmax>21039383.75992870703339577</xmax>
+      <ymax>21039383.75992870330810547</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -61,21 +61,21 @@
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" open="true" name="QField users">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="attendees_7b40f245_908b_4259_abd7_af06f651b8e6"/>
+    <legendlayer name="QField users" showFeatureCount="0" checked="Qt::Checked" drawingOrder="-1" open="true">
+      <filegroup hidden="false" open="true">
+        <legendlayerfile layerid="user_3b2a144b_274a_4438_95e4_6640c2211c53" isInOverview="0" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0" open="false" name="OpenStreetMap">
-      <filegroup open="false" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e"/>
+    <legendlayer name="OpenStreetMap" showFeatureCount="0" checked="Qt::Checked" drawingOrder="-1" open="false">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile layerid="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e" isInOverview="0" visible="1"/>
       </filegroup>
     </legendlayer>
   </legend>
   <mapViewDocks/>
   <mapViewDocks3D/>
   <projectlayers>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshTime="0" autoRefreshEnabled="0" minScale="1e+8" type="raster" hasScaleBasedVisibilityFlag="0" maxScale="0" styleCategories="AllStyleCategories" refreshOnNotifyMessage="">
+    <maplayer type="raster" hasScaleBasedVisibilityFlag="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" minScale="1e+8" refreshOnNotifyEnabled="0" autoRefreshTime="0">
       <extent>
         <xmin>-20037508.34278924390673637</xmin>
         <ymin>-20037508.34278925508260727</ymin>
@@ -126,7 +126,7 @@
       </resourceMetadata>
       <provider>wms</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -137,11 +137,11 @@
         <Searchable>0</Searchable>
       </flags>
       <customproperties>
-        <property key="QFieldSync/action" value="no_action"/>
-        <property key="identify/format" value="Undefined"/>
+        <property value="no_action" key="QFieldSync/action"/>
+        <property value="Undefined" key="identify/format"/>
       </customproperties>
       <pipe>
-        <rasterrenderer band="1" alphaBand="-1" type="singlebandcolordata" opacity="1">
+        <rasterrenderer alphaBand="-1" type="singlebandcolordata" opacity="1" band="1">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -152,35 +152,36 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast contrast="0" brightness="0"/>
-        <huesaturation colorizeStrength="100" colorizeOn="0" colorizeGreen="128" saturation="0" grayscaleMode="0" colorizeRed="255" colorizeBlue="128"/>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation saturation="0" colorizeGreen="128" colorizeOn="0" grayscaleMode="0" colorizeRed="255" colorizeStrength="100" colorizeBlue="128"/>
         <rasterresampler maxOversampling="2"/>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" simplifyAlgorithm="0" simplifyDrawingHints="0" simplifyMaxScale="1" autoRefreshTime="0" autoRefreshEnabled="0" minScale="1e+8" readOnly="0" type="vector" hasScaleBasedVisibilityFlag="0" maxScale="0" styleCategories="AllStyleCategories" geometry="Point" labelsEnabled="0" simplifyDrawingTol="1" simplifyLocal="1" refreshOnNotifyMessage="">
+    <maplayer type="vector" hasScaleBasedVisibilityFlag="0" geometry="Point" styleCategories="AllStyleCategories" simplifyLocal="1" autoRefreshEnabled="0" simplifyDrawingTol="1" refreshOnNotifyMessage="" simplifyMaxScale="1" maxScale="0" minScale="1e+8" labelsEnabled="0" simplifyDrawingHints="0" refreshOnNotifyEnabled="0" readOnly="0" simplifyAlgorithm="0" autoRefreshTime="0">
       <extent>
-        <xmin>-8.04247856140137074</xmin>
-        <ymin>-34.41452407836909799</ymin>
-        <xmax>18.97383880615230112</xmax>
-        <ymax>56.30941390991210227</ymax>
+        <xmin>738271.0432434759568423</xmin>
+        <ymin>5817673.19275145046412945</ymin>
+        <xmax>1031443.6594993700273335</xmax>
+        <ymax>6023858.53696987964212894</ymax>
       </extent>
-      <id>attendees_7b40f245_908b_4259_abd7_af06f651b8e6</id>
-      <datasource>dbname='gis' host=lizmapdemo.opengis.ch port=54321 user='docker' password='docker' sslmode=disable key='id' srid=4326 type=Point table="demo"."attendees" (geom) sql=</datasource>
+      <id>user_3b2a144b_274a_4438_95e4_6640c2211c53</id>
+      <datasource>dbname='qfielddemo' host=demo.qfield.org port=8080 user='qfielduser' password='qfielduser' sslmode=disable key='id' srid=3857 type=Point table="public"."user" (geom) sql=</datasource>
+      <shortname>user</shortname>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>QField users</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
-          <srsid>3452</srsid>
-          <srid>4326</srid>
-          <authid>EPSG:4326</authid>
-          <description>WGS 84</description>
-          <projectionacronym>longlat</projectionacronym>
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo-Mercator</description>
+          <projectionacronym>merc</projectionacronym>
           <ellipsoidacronym>WGS84</ellipsoidacronym>
-          <geographicflag>true</geographicflag>
+          <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
@@ -204,18 +205,18 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
-            <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
-            <srsid>3452</srsid>
-            <srid>4326</srid>
-            <authid>EPSG:4326</authid>
-            <description>WGS 84</description>
-            <projectionacronym>longlat</projectionacronym>
+            <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+            <srsid>3857</srsid>
+            <srid>3857</srid>
+            <authid>EPSG:3857</authid>
+            <description>WGS 84 / Pseudo-Mercator</description>
+            <projectionacronym>merc</projectionacronym>
             <ellipsoidacronym>WGS84</ellipsoidacronym>
-            <geographicflag>true</geographicflag>
+            <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial maxx="0" minx="0" maxz="0" crs="EPSG:4326" dimensions="2" minz="0" miny="0" maxy="0"/>
+          <spatial miny="0" dimensions="2" maxx="0" minz="0" maxy="0" crs="EPSG:3857" maxz="0" minx="0"/>
           <temporal>
             <period>
               <start></start>
@@ -239,11 +240,11 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
-      <renderer-v2 enableorderby="0" tolerance="15" toleranceUnit="MM" type="pointCluster" forceraster="0" toleranceUnitScale="3x:0,0,0,0,0,0">
-        <renderer-v2 enableorderby="0" type="singleSymbol" forceraster="0" symbollevels="0">
+      <renderer-v2 type="pointCluster" enableorderby="0" tolerance="15" forceraster="0" toleranceUnitScale="3x:0,0,0,0,0,0" toleranceUnit="MM">
+        <renderer-v2 type="singleSymbol" symbollevels="0" enableorderby="0" forceraster="0">
           <symbols>
-            <symbol force_rhr="0" alpha="1" clip_to_extent="1" type="marker" name="0">
-              <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+            <symbol type="marker" name="0" clip_to_extent="1" force_rhr="0" alpha="1">
+              <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
                 <prop k="angle" v="0"/>
                 <prop k="color" v="255,255,255,255"/>
                 <prop k="horizontal_anchor_point" v="1"/>
@@ -270,7 +271,7 @@
                   </Option>
                 </data_defined_properties>
               </layer>
-              <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+              <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
                 <prop k="angle" v="0"/>
                 <prop k="color" v="128,204,40,255"/>
                 <prop k="horizontal_anchor_point" v="1"/>
@@ -302,8 +303,8 @@
           <rotation/>
           <sizescale/>
         </renderer-v2>
-        <symbol force_rhr="0" alpha="1" clip_to_extent="1" type="marker" name="centerSymbol">
-          <layer class="SimpleMarker" locked="0" pass="0" enabled="1">
+        <symbol type="marker" name="centerSymbol" clip_to_extent="1" force_rhr="0" alpha="1">
+          <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
             <prop k="angle" v="0"/>
             <prop k="color" v="255,255,255,255"/>
             <prop k="horizontal_anchor_point" v="1"/>
@@ -330,7 +331,7 @@
               </Option>
             </data_defined_properties>
           </layer>
-          <layer class="FontMarker" locked="0" pass="0" enabled="1">
+          <layer enabled="1" locked="0" pass="0" class="FontMarker">
             <prop k="angle" v="0"/>
             <prop k="chr" v="A"/>
             <prop k="color" v="250,176,124,255"/>
@@ -365,21 +366,21 @@
         </symbol>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions" value="name ||' - '|| org"/>
-        <property key="embeddedWidgets/count" value="0"/>
+        <property value="name ||' - '|| org" key="dualview/previewExpressions"/>
+        <property value="0" key="embeddedWidgets/count"/>
         <property key="variableNames"/>
         <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-        <DiagramCategory maxScaleDenominator="1e+8" sizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" barWidth="5" rotationOffset="270" penColor="#000000" penWidth="0" scaleDependency="Area" backgroundColor="#ffffff" minimumSize="0" labelPlacementMethod="XHeight" width="15" diagramOrientation="Up" penAlpha="255" height="15" scaleBasedVisibility="0" sizeType="MM" minScaleDenominator="0" enabled="0" backgroundAlpha="255" opacity="1" lineSizeScale="3x:0,0,0,0,0,0">
-          <fontProperties description="Ubuntu,11,-1,5,50,0,0,0,0,0" style=""/>
-          <attribute field="" label="" color="#000000"/>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory diagramOrientation="Up" scaleDependency="Area" height="15" scaleBasedVisibility="0" lineSizeType="MM" barWidth="5" width="15" opacity="1" minScaleDenominator="0" sizeType="MM" penColor="#000000" minimumSize="0" maxScaleDenominator="1e+8" enabled="0" penAlpha="255" backgroundColor="#ffffff" labelPlacementMethod="XHeight" sizeScale="3x:0,0,0,0,0,0" penWidth="0" lineSizeScale="3x:0,0,0,0,0,0" rotationOffset="270" backgroundAlpha="255">
+          <fontProperties style="" description="Ubuntu,11,-1,5,50,0,0,0,0,0"/>
+          <attribute color="#000000" label="" field=""/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings obstacle="0" placement="0" dist="0" linePlacementFlags="18" priority="0" showAll="1" zIndex="0">
+      <DiagramLayerSettings linePlacementFlags="18" obstacle="0" showAll="1" zIndex="0" priority="0" placement="0" dist="0">
         <properties>
           <Option type="Map">
             <Option value="" type="QString" name="name"/>
@@ -388,7 +389,7 @@
           </Option>
         </properties>
       </DiagramLayerSettings>
-      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
         <activeChecks/>
         <checkConfiguration/>
       </geometryOptions>
@@ -493,62 +494,62 @@
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias field="id" index="0" name=""/>
-        <alias field="name" index="1" name="Name"/>
-        <alias field="org" index="2" name="Organisation"/>
-        <alias field="since" index="3" name="Since"/>
-        <alias field="usage_category" index="4" name="In which field do you use QField?"/>
-        <alias field="usage_frequency" index="5" name="How often do you use QField?"/>
-        <alias field="usage_comment" index="6" name="How do you use QField?"/>
-        <alias field="usage_check" index="7" name="Do you want to tell the world more about your QField usage?"/>
+        <alias index="0" name="" field="id"/>
+        <alias index="1" name="Name" field="name"/>
+        <alias index="2" name="Organisation" field="org"/>
+        <alias index="3" name="Since" field="since"/>
+        <alias index="4" name="In which field do you use QField?" field="usage_category"/>
+        <alias index="5" name="How often do you use QField?" field="usage_frequency"/>
+        <alias index="6" name="How do you use QField?" field="usage_comment"/>
+        <alias index="7" name="Do you want to tell the world more about your QField usage?" field="usage_check"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" expression="" applyOnUpdate="0"/>
-        <default field="name" expression="" applyOnUpdate="0"/>
-        <default field="org" expression="" applyOnUpdate="0"/>
-        <default field="since" expression="now()" applyOnUpdate="0"/>
-        <default field="usage_category" expression="" applyOnUpdate="0"/>
-        <default field="usage_frequency" expression="" applyOnUpdate="0"/>
-        <default field="usage_comment" expression="" applyOnUpdate="0"/>
-        <default field="usage_check" expression="" applyOnUpdate="0"/>
+        <default applyOnUpdate="0" expression="" field="id"/>
+        <default applyOnUpdate="0" expression="" field="name"/>
+        <default applyOnUpdate="0" expression="" field="org"/>
+        <default applyOnUpdate="0" expression="now()" field="since"/>
+        <default applyOnUpdate="0" expression="" field="usage_category"/>
+        <default applyOnUpdate="0" expression="" field="usage_frequency"/>
+        <default applyOnUpdate="0" expression="" field="usage_comment"/>
+        <default applyOnUpdate="0" expression="" field="usage_check"/>
       </defaults>
       <constraints>
-        <constraint unique_strength="1" field="id" exp_strength="0" constraints="3" notnull_strength="1"/>
-        <constraint unique_strength="0" field="name" exp_strength="0" constraints="1" notnull_strength="1"/>
-        <constraint unique_strength="0" field="org" exp_strength="0" constraints="0" notnull_strength="0"/>
-        <constraint unique_strength="0" field="since" exp_strength="0" constraints="0" notnull_strength="0"/>
-        <constraint unique_strength="0" field="usage_category" exp_strength="0" constraints="0" notnull_strength="0"/>
-        <constraint unique_strength="0" field="usage_frequency" exp_strength="0" constraints="0" notnull_strength="0"/>
-        <constraint unique_strength="0" field="usage_comment" exp_strength="0" constraints="0" notnull_strength="0"/>
-        <constraint unique_strength="0" field="usage_check" exp_strength="0" constraints="0" notnull_strength="0"/>
+        <constraint constraints="3" notnull_strength="1" unique_strength="1" exp_strength="0" field="id"/>
+        <constraint constraints="1" notnull_strength="1" unique_strength="0" exp_strength="0" field="name"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="org"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="since"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="usage_category"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="usage_frequency"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="usage_comment"/>
+        <constraint constraints="0" notnull_strength="0" unique_strength="0" exp_strength="0" field="usage_check"/>
       </constraints>
       <constraintExpressions>
-        <constraint desc="" exp="" field="id"/>
-        <constraint desc="" exp="" field="name"/>
-        <constraint desc="" exp="" field="org"/>
-        <constraint desc="" exp="" field="since"/>
-        <constraint desc="" exp="" field="usage_category"/>
-        <constraint desc="" exp="" field="usage_frequency"/>
-        <constraint desc="" exp="" field="usage_comment"/>
-        <constraint desc="" exp="" field="usage_check"/>
+        <constraint exp="" desc="" field="id"/>
+        <constraint exp="" desc="" field="name"/>
+        <constraint exp="" desc="" field="org"/>
+        <constraint exp="" desc="" field="since"/>
+        <constraint exp="" desc="" field="usage_category"/>
+        <constraint exp="" desc="" field="usage_frequency"/>
+        <constraint exp="" desc="" field="usage_comment"/>
+        <constraint exp="" desc="" field="usage_check"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
-        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
       </attributeactions>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;test&quot;" sortOrder="0">
+      <attributetableconfig sortExpression="&quot;test&quot;" actionWidgetStyle="dropDown" sortOrder="0">
         <columns>
-          <column width="-1" type="field" name="id" hidden="0"/>
-          <column width="161" type="field" name="name" hidden="0"/>
-          <column width="154" type="field" name="org" hidden="0"/>
-          <column width="-1" type="actions" hidden="1"/>
-          <column width="-1" type="field" name="since" hidden="0"/>
-          <column width="-1" type="field" name="usage_category" hidden="0"/>
-          <column width="-1" type="field" name="usage_frequency" hidden="0"/>
-          <column width="-1" type="field" name="usage_comment" hidden="0"/>
-          <column width="-1" type="field" name="usage_check" hidden="0"/>
+          <column type="field" hidden="0" name="id" width="-1"/>
+          <column type="field" hidden="0" name="name" width="161"/>
+          <column type="field" hidden="0" name="org" width="154"/>
+          <column type="actions" hidden="1" width="-1"/>
+          <column type="field" hidden="0" name="since" width="-1"/>
+          <column type="field" hidden="0" name="usage_category" width="-1"/>
+          <column type="field" hidden="0" name="usage_frequency" width="-1"/>
+          <column type="field" hidden="0" name="usage_comment" width="-1"/>
+          <column type="field" hidden="0" name="usage_check" width="-1"/>
         </columns>
       </attributetableconfig>
       <conditionalstyles>
@@ -579,14 +580,14 @@ def my_form_open(dialog, layer, feature):
       <featformsuppress>0</featformsuppress>
       <editorlayout>tablayout</editorlayout>
       <attributeEditorForm>
-        <attributeEditorContainer columnCount="1" groupBox="0" visibilityExpressionEnabled="0" visibilityExpression="" name="User" showLabel="1">
+        <attributeEditorContainer visibilityExpressionEnabled="0" name="User" showLabel="1" visibilityExpression="" groupBox="0" columnCount="1">
           <attributeEditorField index="1" name="name" showLabel="1"/>
           <attributeEditorField index="2" name="org" showLabel="1"/>
           <attributeEditorField index="3" name="since" showLabel="1"/>
         </attributeEditorContainer>
-        <attributeEditorContainer columnCount="1" groupBox="0" visibilityExpressionEnabled="0" visibilityExpression="" name="Usage" showLabel="1">
+        <attributeEditorContainer visibilityExpressionEnabled="0" name="Usage" showLabel="1" visibilityExpression="" groupBox="0" columnCount="1">
           <attributeEditorField index="7" name="usage_check" showLabel="1"/>
-          <attributeEditorContainer columnCount="1" groupBox="1" visibilityExpressionEnabled="1" visibilityExpression="&quot;usage_check&quot;" name="usage_details" showLabel="0">
+          <attributeEditorContainer visibilityExpressionEnabled="1" name="usage_details" showLabel="0" visibilityExpression="&quot;usage_check&quot;" groupBox="1" columnCount="1">
             <attributeEditorField index="4" name="usage_category" showLabel="1"/>
             <attributeEditorField index="5" name="usage_frequency" showLabel="1"/>
             <attributeEditorField index="6" name="usage_comment" showLabel="1"/>
@@ -605,15 +606,15 @@ def my_form_open(dialog, layer, feature):
         <field editable="1" name="usage_frequency"/>
       </editable>
       <labelOnTop>
-        <field labelOnTop="0" name="id"/>
-        <field labelOnTop="0" name="name"/>
-        <field labelOnTop="0" name="org"/>
-        <field labelOnTop="0" name="since"/>
-        <field labelOnTop="0" name="test"/>
-        <field labelOnTop="1" name="usage_category"/>
-        <field labelOnTop="0" name="usage_check"/>
-        <field labelOnTop="1" name="usage_comment"/>
-        <field labelOnTop="1" name="usage_frequency"/>
+        <field name="id" labelOnTop="0"/>
+        <field name="name" labelOnTop="0"/>
+        <field name="org" labelOnTop="0"/>
+        <field name="since" labelOnTop="0"/>
+        <field name="test" labelOnTop="0"/>
+        <field name="usage_category" labelOnTop="1"/>
+        <field name="usage_check" labelOnTop="0"/>
+        <field name="usage_comment" labelOnTop="1"/>
+        <field name="usage_frequency" labelOnTop="1"/>
       </labelOnTop>
       <widgets/>
       <previewExpression>name ||' - '|| org</previewExpression>
@@ -622,90 +623,13 @@ def my_form_open(dialog, layer, feature):
   </projectlayers>
   <layerorder>
     <layer id="OpenStreetMap_6acb267c_fb1c_4aa5_9be1_d8ceb2ed360e"/>
-    <layer id="attendees_7b40f245_908b_4259_abd7_af06f651b8e6"/>
+    <layer id="user_3b2a144b_274a_4438_95e4_6640c2211c53"/>
   </layerorder>
   <properties>
-    <WMSContactPosition type="QString"></WMSContactPosition>
-    <SpatialRefSys>
-      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
-    </SpatialRefSys>
-    <Gui>
-      <SelectionColorGreenPart type="int">113</SelectionColorGreenPart>
-      <CanvasColorGreenPart type="int">211</CanvasColorGreenPart>
-      <CanvasColorBluePart type="int">223</CanvasColorBluePart>
-      <CanvasColorRedPart type="int">170</CanvasColorRedPart>
-      <SelectionColorBluePart type="int">232</SelectionColorBluePart>
-      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
-      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
-    </Gui>
-    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
-    <DefaultStyles>
-      <Fill type="QString"></Fill>
-      <Line type="QString"></Line>
-      <ColorRamp type="QString"></ColorRamp>
-      <Opacity type="double">1</Opacity>
-      <Marker type="QString"></Marker>
-      <RandomColors type="bool">true</RandomColors>
-    </DefaultStyles>
-    <WMSServiceTitle type="QString"></WMSServiceTitle>
-    <WMSOnlineResource type="QString"></WMSOnlineResource>
-    <WFSUrl type="QString"></WFSUrl>
-    <WMSContactPerson type="QString"></WMSContactPerson>
-    <WMSUrl type="QString"></WMSUrl>
-    <WMSPrecision type="QString">8</WMSPrecision>
-    <WMSContactMail type="QString"></WMSContactMail>
-    <WMSMaxAtlasFeatures type="int">1</WMSMaxAtlasFeatures>
-    <Measure>
-      <Ellipsoid type="QString">WGS84</Ellipsoid>
-    </Measure>
-    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
-    <WMSContactOrganization type="QString"></WMSContactOrganization>
-    <WMTSUrl type="QString"></WMTSUrl>
-    <WMTSJpegLayers>
-      <Layer type="QStringList"/>
-      <Project type="bool">false</Project>
-      <Group type="QStringList"/>
-    </WMTSJpegLayers>
-    <WMSFees type="QString">conditions unknown</WMSFees>
-    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
-    <WFSTLayers>
-      <Update type="QStringList"/>
-      <Insert type="QStringList"/>
-      <Delete type="QStringList"/>
-    </WFSTLayers>
-    <WCSLayers type="QStringList"/>
-    <WMSRootName type="QString"></WMSRootName>
-    <Paths>
-      <Absolute type="bool">false</Absolute>
-    </Paths>
-    <WFSLayers type="QStringList"/>
-    <Macros>
-      <pythonCode type="QString"></pythonCode>
-    </Macros>
-    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
-    <WMSImageQuality type="int">90</WMSImageQuality>
-    <WCSUrl type="QString"></WCSUrl>
-    <WMTSGrids>
-      <Config type="QStringList"/>
-      <CRS type="QStringList"/>
-    </WMTSGrids>
-    <WMSKeywordList type="QStringList">
-      <value></value>
-    </WMSKeywordList>
-    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
-    <PositionPrecision>
-      <DegreeFormat type="QString">MU</DegreeFormat>
-      <DecimalPlaces type="int">2</DecimalPlaces>
-      <Automatic type="bool">true</Automatic>
-    </PositionPrecision>
-    <WMTSLayers>
-      <Layer type="QStringList"/>
-      <Project type="bool">false</Project>
-      <Group type="QStringList"/>
-    </WMTSLayers>
-    <WMSContactPhone type="QString"></WMSContactPhone>
     <qfieldsync>
-      <baseMapType type="QString">singleLayer</baseMapType>
+      <baseMapTheme type="QString"></baseMapTheme>
+      <offlineCopyOnlyAoi type="int">0</offlineCopyOnlyAoi>
+      <baseMapTileSize type="int">1024</baseMapTileSize>
       <importedFilesChecksums type="QStringList">
         <value>1230ded733be9a709daf407bd59e2f05</value>
         <value>d1144f15f99bd1d57ffab0d1f70620e4</value>
@@ -713,38 +637,118 @@ def my_form_open(dialog, layer, feature):
         <value>f61c6d169261b66a1cbaca4701b1efb4</value>
         <value>f8585dc706d79a852be17f9c9a4f9696</value>
       </importedFilesChecksums>
-      <createBaseMap type="int">0</createBaseMap>
-      <baseMapTheme type="QString"></baseMapTheme>
-      <baseMapTileSize type="int">1024</baseMapTileSize>
-      <offlineCopyOnlyAoi type="int">0</offlineCopyOnlyAoi>
+      <baseMapType type="QString">singleLayer</baseMapType>
       <baseMapMupp type="double">10</baseMapMupp>
+      <createBaseMap type="int">0</createBaseMap>
     </qfieldsync>
-    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
-    <WMTSPngLayers>
-      <Layer type="QStringList"/>
-      <Project type="bool">false</Project>
-      <Group type="QStringList"/>
-    </WMTSPngLayers>
-    <Legend>
-      <filterByMap type="bool">false</filterByMap>
-    </Legend>
-    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
-    <WMTSMinScale type="int">5000</WMTSMinScale>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <DefaultStyles>
+      <RandomColors type="bool">true</RandomColors>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+      <ColorRamp type="QString"></ColorRamp>
+      <Marker type="QString"></Marker>
+      <Opacity type="double">1</Opacity>
+    </DefaultStyles>
+    <WMTSUrl type="QString"></WMTSUrl>
+    <WMSRootName type="QString"></WMSRootName>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WMSContactPosition type="QString"></WMSContactPosition>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
+    <WFSTLayers>
+      <Insert type="QStringList"/>
+      <Update type="QStringList"/>
+      <Delete type="QStringList"/>
+    </WFSTLayers>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <SpatialRefSys>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
     <Measurement>
       <DistanceUnits type="QString">meters</DistanceUnits>
       <AreaUnits type="QString">m2</AreaUnits>
     </Measurement>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMTSMinScale type="int">5000</WMTSMinScale>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WMSKeywordList type="QStringList">
+      <value></value>
+    </WMSKeywordList>
+    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
+    <WMSUrl type="QString"></WMSUrl>
+    <WMSPrecision type="QString">3</WMSPrecision>
+    <WFSLayers type="QStringList"/>
+    <Gui>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+      <SelectionColorGreenPart type="int">113</SelectionColorGreenPart>
+      <CanvasColorGreenPart type="int">211</CanvasColorGreenPart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <CanvasColorRedPart type="int">170</CanvasColorRedPart>
+      <SelectionColorBluePart type="int">232</SelectionColorBluePart>
+      <CanvasColorBluePart type="int">223</CanvasColorBluePart>
+    </Gui>
+    <WMSMaxAtlasFeatures type="int">1</WMSMaxAtlasFeatures>
+    <WMTSJpegLayers>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+    </WMTSJpegLayers>
+    <WMSCrsList type="QStringList">
+      <value>EPSG:3857</value>
+    </WMSCrsList>
+    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WMSFees type="QString">conditions unknown</WMSFees>
+    <PositionPrecision>
+      <Automatic type="bool">true</Automatic>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <DegreeFormat type="QString">MU</DegreeFormat>
+    </PositionPrecision>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WCSUrl type="QString"></WCSUrl>
+    <WFSUrl type="QString"></WFSUrl>
+    <Measure>
+      <Ellipsoid type="QString">WGS84</Ellipsoid>
+    </Measure>
+    <WCSLayers type="QStringList"/>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMTSPngLayers>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+    </WMTSPngLayers>
     <PAL>
-      <CandidatesPoint type="int">16</CandidatesPoint>
-      <TextFormat type="int">0</TextFormat>
-      <CandidatesPolygon type="int">30</CandidatesPolygon>
-      <DrawRectOnly type="bool">false</DrawRectOnly>
-      <ShowingAllLabels type="bool">false</ShowingAllLabels>
-      <CandidatesLine type="int">50</CandidatesLine>
-      <SearchMethod type="int">0</SearchMethod>
-      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
       <ShowingCandidates type="bool">false</ShowingCandidates>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <SearchMethod type="int">0</SearchMethod>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <TextFormat type="int">0</TextFormat>
     </PAL>
+    <WMTSLayers>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+      <Project type="bool">false</Project>
+    </WMTSLayers>
+    <WMTSGrids>
+      <CRS type="QStringList"/>
+      <Config type="QStringList"/>
+    </WMTSGrids>
   </properties>
   <visibility-presets/>
   <transformContext/>
