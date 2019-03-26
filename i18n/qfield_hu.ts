@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.0">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>QField Verzió: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
@@ -23,7 +23,29 @@
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Vásárold meg a Karma kiadást</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField Version: %1 (%2)</source>
+        <translation>QField verzió: %1 (%2)</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidPictureSource</name>
+    <message>
+        <source>Could not create folder %1</source>
+        <translation>Nem tudom a %1 mappát létrehozni</translation>
+    </message>
+    <message>
+        <source>Image %1 could not be copied to project folder %2.</source>
+        <translation>A %1 képet nem tudom a %2 projekt mappába másolni.</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>%1 fájl nem található</translation>
     </message>
 </context>
 <context>
@@ -53,7 +75,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Térkép téma</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>A %1 réteg nem szerkeszthető</translation>
     </message>
 </context>
 <context>
@@ -106,6 +132,56 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
 </context>
 <context>
+    <name>FeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>A &quot;%1&quot; %4 érték nem konvertálható kompatibilis értékké a %2(%3) mezőbe.</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Nem lehet az elemet aktualizálni</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>A %1:%2 alapértelmezett érték kifejezés hibás: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>A %1:%2 alapértelmezett érték kifejezés kiértékelése során hiba: %3</translation>
+    </message>
+    <message>
+        <source>Feature could not be added</source>
+        <translation>Az elem nem adható hozzá</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Nem tudom a módosításokat menteni. Visszaállítás.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Szerkesztés elindítása nem sikerült</translation>
+    </message>
+</context>
+<context>
+    <name>FeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Úrlap nyitás</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Az elemhez nem tartozik geometria</translation>
+    </message>
+    <message>
+        <source>Features In All Layers</source>
+        <translation>Elemek az összes rétegen</translation>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -116,7 +192,29 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation>Mutasd a térképvásznon</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LocatorItem</name>
+    <message>
+        <source>Search…</source>
+        <translation>Keresés...</translation>
+    </message>
+</context>
+<context>
+    <name>OverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Módosításokat mentettem</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Módosításokat eldobtam</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Hibás korlátozások</translation>
     </message>
 </context>
 <context>
@@ -131,15 +229,39 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Pontosság</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Koordináták</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
         <translation>Sebesség</translation>
+    </message>
+    <message>
+        <source>Lat.</source>
+        <translation>Lat.</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lon.</source>
+        <translation>Lon.</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>Hz. pontosság</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>V. pontosság</translation>
     </message>
 </context>
 <context>
@@ -176,6 +298,63 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
         <source>QField Settings</source>
         <translation>QField beállítások</translation>
     </message>
+    <message>
+        <source>Keep current scale when triggering search results</source>
+        <translation>Tartsa meg az aktuális méretarányt a keresési eredményeknél</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Position</source>
+        <translation>Pozíció</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapCanvasMap</name>
+    <message>
+        <source>Rendering</source>
+        <translation>Megjelenítés</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapSettings</name>
+    <message>
+        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
+        <translation>A térképvászon forgatás nem támogatott. %1-ről visszaállítottam 0-ra.</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickUtils</name>
+    <message>
+        <source>screen resolution: %1x%2 px
+</source>
+        <translation>képernyő felbontás: %1x%2 px
+</translation>
+    </message>
+    <message>
+        <source>screen DPI: %1x%2
+</source>
+        <translation>képernyő DPI: %1x%2
+</translation>
+    </message>
+    <message>
+        <source>screen size: %1x%2 mm
+</source>
+        <translation>képernyő méret: %1x%2 mm
+</translation>
+    </message>
+    <message>
+        <source>screen density: %1</source>
+        <translation>Képernyő denzitás: %1</translation>
+    </message>
+</context>
+<context>
+    <name>RelationReference</name>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Hibás reláció</translation>
+    </message>
 </context>
 <context>
     <name>VariableEditor</name>
@@ -189,10 +368,25 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
 </context>
 <context>
+    <name>WelcomeScreen</name>
+    <message>
+        <source>QField for QGIS</source>
+        <translation>QField QGIS-hez</translation>
+    </message>
+    <message>
+        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
+        <translation>Az induláshoz először egy QGIS projektre van szüksége. Nagyon könnyen készíthet egyet az asztali PC-jén és utána átmásolhatja erre az eszközre.</translation>
+    </message>
+    <message>
+        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
+        <translation>Ha már van egy projekt ezen az eszközön, használja az alábbi gombot a fájlrendszerben kereséshez, nyissa meg és kezdje el a munkát.</translation>
+    </message>
+</context>
+<context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>A(z) %1 réteg csak olvasható.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activating positioning service...</source>
@@ -216,15 +410,15 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mód</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Tallózás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitalizálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +442,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>GPS beállítások</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>GPS engedélyezés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +458,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Módosításokat mentettem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Módosításokat eldobtam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -293,6 +487,22 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Press back again to close project and app</source>
         <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Pozicionálási beállítások</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Pozicionálás engedélyezése</translation>
+    </message>
+    <message>
+        <source>QField has no permissions to use positioning.</source>
+        <translation>A QFieldnek nincs joga a pozicionálás használatára.</translation>
+    </message>
+    <message>
+        <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>Multi geometria szerkesztése még nem támogatott.</translation>
     </message>
 </context>
 </TS>

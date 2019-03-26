@@ -5,6 +5,9 @@
     <string name="use_internal_storage">Usa memoria interna</string>
     <string name="external_storage_unavailable">Scompattamento dati post installazione. Può richiedere un po\' di tempo.</string>
     <string name="noexternalstorage_dialog">Sembra che la tua memoria esterna (/sdcard) non sia disponibile. Questo succede quando connetti il dispositivo al PC via USB.\nQGIS può venir eseguito dalla memoria interna, ma non è raccomandato in quanto potrebbe essere troppo piccola.\nSuggeriamo di scegliere CANCELLA, disconnettere ogni cavo USB e riavviare QGIS.</string>
+    <string name="primary_storage">Memoria interna</string>
+    <string name="secondary_storage">Directory QField sulla memoria esterna</string>
+    <string name="secondary_storage_read_only">Memoria esterna (in sola lettura)</string>
     <string name="inaccessible">inaccessibile</string>
     <string name="loading">Caricamento</string>
     <string name="select_project">Scegli un progetto QGIS</string>
@@ -17,4 +20,7 @@
     <string name="favorite_directories">Directory preferite</string>
     <string name="added_to_favorites">Aggiunto ai preferiti</string>
     <string name="removed_from_favorites">Rimosso dai preferiti</string>
-    </resources>
+    <string name="alert_sd_card_title">Attenzione</string>
+    <string name="alert_sd_card_message">Questa directory, e tutti i dati ivi compresi, verranno cancellati se disinstallate QField</string>
+    <string name="alert_sd_card_ok">Ok</string>
+</resources>

@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.0">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>Versión QField: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
@@ -23,7 +23,29 @@
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Merca a edición Karma</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField Version: %1 (%2)</source>
+        <translation>Versión de QField: %1 (%2)</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidPictureSource</name>
+    <message>
+        <source>Could not create folder %1</source>
+        <translation>Non se puido crear o directorio %1</translation>
+    </message>
+    <message>
+        <source>Image %1 could not be copied to project folder %2.</source>
+        <translation>Non se puideron copiar as imaxes %1 ó directorio do proxecto %2.</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>O Ficheiro %1 non existe</translation>
     </message>
 </context>
 <context>
@@ -53,7 +75,11 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Tema do Mapa</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>A capa %1 é de só lectura.</translation>
     </message>
 </context>
 <context>
@@ -106,6 +132,56 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
 </context>
 <context>
+    <name>FeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>O valor &quot;%1&quot; %4 non se puido converter  a un valor compatible para o campo %2(%3).</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Non se pode actualizar a entidade</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>A entidade %1 non se puido actualizar logo da integración</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>A expresión de valor predeterminado para %1:%2 ten un erro de procesamento: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>A expresión de valor predeterminado para %1:%2 ten un erro de avaliación: %3</translation>
+    </message>
+    <message>
+        <source>Feature could not be added</source>
+        <translation>Non se puido engadir a entidade</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Non se puideron gardar os cambios. Retrocedendo.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Non se pode iniciar a edición</translation>
+    </message>
+</context>
+<context>
+    <name>FeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Abrir formulario</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>A entidade non ten xeometría</translation>
+    </message>
+    <message>
+        <source>Features In All Layers</source>
+        <translation>Entidades en Tódalas Capas</translation>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -116,7 +192,29 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation>Amosar na vista do mapa</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LocatorItem</name>
+    <message>
+        <source>Search…</source>
+        <translation>Buscar...</translation>
+    </message>
+</context>
+<context>
+    <name>OverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Cambios gardados</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Cambios descartados</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Restrición non válida</translation>
     </message>
 </context>
 <context>
@@ -131,15 +229,39 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Precisión</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Coordenadas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
         <translation>Velocidade</translation>
+    </message>
+    <message>
+        <source>Lat.</source>
+        <translation>Lat.</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lon.</source>
+        <translation>Lon.</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>Precisión H.</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>Precisión V.</translation>
     </message>
 </context>
 <context>
@@ -176,6 +298,63 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
         <source>QField Settings</source>
         <translation>Configuración de QField</translation>
     </message>
+    <message>
+        <source>Keep current scale when triggering search results</source>
+        <translation>Manter a actual escala cando se despreguen os resultados da busca</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapCanvasMap</name>
+    <message>
+        <source>Rendering</source>
+        <translation>Representar</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapSettings</name>
+    <message>
+        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
+        <translation>Non se admite a rotación da Vista do Mapa. Restablecendo de %1 a 0.</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickUtils</name>
+    <message>
+        <source>screen resolution: %1x%2 px
+</source>
+        <translation>resolución da pantalla: %1x%2 px
+</translation>
+    </message>
+    <message>
+        <source>screen DPI: %1x%2
+</source>
+        <translation>PPP da pantalla: %1x%2
+</translation>
+    </message>
+    <message>
+        <source>screen size: %1x%2 mm
+</source>
+        <translation>tamaño da pantalla: %1x%2 mm
+</translation>
+    </message>
+    <message>
+        <source>screen density: %1</source>
+        <translation>densidade da pantalla: %1</translation>
+    </message>
+</context>
+<context>
+    <name>RelationReference</name>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Relación non válida</translation>
+    </message>
 </context>
 <context>
     <name>VariableEditor</name>
@@ -189,10 +368,25 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
 </context>
 <context>
+    <name>WelcomeScreen</name>
+    <message>
+        <source>QField for QGIS</source>
+        <translation>QField para QGIS</translation>
+    </message>
+    <message>
+        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
+        <translation>Para comezar primeiro precisas un proxecto de QGIS. É moi doado crear un no ordenador de escritorio e logo transferilo a este dispositivo.</translation>
+    </message>
+    <message>
+        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
+        <translation>Unha vez que teñas un proxecto neste dispositivo, utiliza o botón de abaixo para localizalo no sistema de ficheiros, ábreo e comeza a traballar.</translation>
+    </message>
+</context>
+<context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>A capa %1 é de só lectura.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activating positioning service...</source>
@@ -216,15 +410,15 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Mode</source>
-        <translation>Modo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Buscar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Dixitalizar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +442,11 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opcións do GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Activar GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +458,11 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Cambios gardados</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Cambios descartados</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -293,6 +487,22 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Press back again to close project and app</source>
         <translation>Premer atrás de novo para pechar o proxecto e a aplicación</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Opcións de Posicionamento</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Activar Posicionamento</translation>
+    </message>
+    <message>
+        <source>QField has no permissions to use positioning.</source>
+        <translation>QField non ten permisos para utilizar o posicionamento.</translation>
+    </message>
+    <message>
+        <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>Non se admite a edición de capas multixeometría aínda.</translation>
     </message>
 </context>
 </TS>

@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.0">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>Versiunea QField: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
@@ -23,7 +23,29 @@
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Cumpărați ediția Karma</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField Version: %1 (%2)</source>
+        <translation>Versiunea QField: %1 (%2)</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidPictureSource</name>
+    <message>
+        <source>Could not create folder %1</source>
+        <translation>Imposibil de creat folderul %1</translation>
+    </message>
+    <message>
+        <source>Image %1 could not be copied to project folder %2.</source>
+        <translation>Imaginea% 1 nu a putut fi copiată în folderul proiectului %2.</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>Fișierul %1 nu există</translation>
     </message>
 </context>
 <context>
@@ -53,7 +75,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Tema Hărții</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>Stratul %1 poate fi doar citit.</translation>
     </message>
 </context>
 <context>
@@ -106,6 +132,56 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
 </context>
 <context>
+    <name>FeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Valoarea &quot;%1&quot; %4 nu a putut fi convertită la o valoare permisă de câmpul %2(%3).</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Nu se poate actualiza entitatea</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Entitatea %1 nu a putut fi preluată după commit</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de parcurgere: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de evaluare: %3</translation>
+    </message>
+    <message>
+        <source>Feature could not be added</source>
+        <translation>Entitatea nu a putut fi adăugată</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Nu s-au putut salva modificările. Revenire.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Nu se poate începe editarea</translation>
+    </message>
+</context>
+<context>
+    <name>FeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Deschidere formular</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Entitatea nu are nicio geometrie</translation>
+    </message>
+    <message>
+        <source>Features In All Layers</source>
+        <translation>Entitățile din Toate Straturile</translation>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -116,7 +192,29 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation>Arată pe canevasul hărții</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LocatorItem</name>
+    <message>
+        <source>Search…</source>
+        <translation>Căutare</translation>
+    </message>
+</context>
+<context>
+    <name>OverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Modificări salvate</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modificări nesalvate</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Constrângerile nu sunt valabile</translation>
     </message>
 </context>
 <context>
@@ -131,15 +229,39 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Acurateţe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Coordonate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
         <translation>Viteză</translation>
+    </message>
+    <message>
+        <source>Lat.</source>
+        <translation>Lat.</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lon.</source>
+        <translation>Lon.</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>Acurateţea H.</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>Acurateţea V.</translation>
     </message>
 </context>
 <context>
@@ -176,6 +298,63 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
         <source>QField Settings</source>
         <translation>Setări QField</translation>
     </message>
+    <message>
+        <source>Keep current scale when triggering search results</source>
+        <translation>Se păstrează scala actuală la declanșarea rezultatelor căutării</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Position</source>
+        <translation>Poziţie</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapCanvasMap</name>
+    <message>
+        <source>Rendering</source>
+        <translation>Randare</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapSettings</name>
+    <message>
+        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
+        <translation>Rotația canevasului nu este permisă. Resetarea de la %1 la 0.</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickUtils</name>
+    <message>
+        <source>screen resolution: %1x%2 px
+</source>
+        <translation>rezoluția ecranului: %1x%2 px
+</translation>
+    </message>
+    <message>
+        <source>screen DPI: %1x%2
+</source>
+        <translation>DPI ecran: %1x%2
+</translation>
+    </message>
+    <message>
+        <source>screen size: %1x%2 mm
+</source>
+        <translation>dimensiunea ecranului: %1x%2 mm
+</translation>
+    </message>
+    <message>
+        <source>screen density: %1</source>
+        <translation>densitatea ecranului: %1</translation>
+    </message>
+</context>
+<context>
+    <name>RelationReference</name>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Relație nevalidă</translation>
+    </message>
 </context>
 <context>
     <name>VariableEditor</name>
@@ -189,10 +368,25 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
 </context>
 <context>
+    <name>WelcomeScreen</name>
+    <message>
+        <source>QField for QGIS</source>
+        <translation>QField pentru QGIS</translation>
+    </message>
+    <message>
+        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
+        <translation>Pentru a începe, aveți nevoie mai întâi de un proiect QGIS. Este foarte ușor să creați unul pe PC, iar apoi să-l transferați pe acest dispozitiv.</translation>
+    </message>
+    <message>
+        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
+        <translation>O dată ce aveți un proiect pe acest dispozitiv, folosiți butonul de mai jos pentru a-l localiza în sistemul de fișiere, deschideți-l și începeți să lucrați.</translation>
+    </message>
+</context>
+<context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Stratul %1 poate fi doar citit.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activating positioning service...</source>
@@ -216,15 +410,15 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mod</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Răsfoire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Digitize</source>
-        <translation>Digitizare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Project</source>
@@ -248,11 +442,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>GPS Options</source>
-        <translation>Opțiuni GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable GPS</source>
-        <translation>Activare GPS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center current location</source>
@@ -264,11 +458,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Modificări salvate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Modificări nesalvate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project</source>
@@ -293,6 +487,22 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     <message>
         <source>Press back again to close project and app</source>
         <translation>Apăsați pe Back pentru a închide proiectul și aplicația</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Opțiuni de Poziționare</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Activare Poziționare</translation>
+    </message>
+    <message>
+        <source>QField has no permissions to use positioning.</source>
+        <translation>QField nu oferă permisiuni de utilizare a poziționării.</translation>
+    </message>
+    <message>
+        <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>Editarea stratului cu geometrie multiplă nu este permisă încă.</translation>
     </message>
 </context>
 </TS>
