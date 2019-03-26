@@ -29,7 +29,7 @@ Item {
 
           Text {
             width: parent.width
-            text: qsTr( "To get started you first need a QGIS project."
+            text: qsTr( "To get started you can use a demo project or your own QGIS project."
                 + " It is very easy to create one on your desktop PC and then transfer it"
                 + " to this device." )
             wrapMode: Text.WordWrap
@@ -38,8 +38,8 @@ Item {
 
           Text {
             width: parent.width
-            text: qsTr( "Once you have a project on this device, use the button below to"
-                + " locate it on the filesystem, open it and start working." )
+            text: qsTr( "Once you have a project on this device, or to use a demo project,"
+                + " use the button below to locate it, open it and start working." )
             wrapMode: Text.WordWrap
             font.pointSize: 16
             bottomPadding: 20
