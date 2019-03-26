@@ -389,14 +389,15 @@ Rectangle {
     }
   }
 
-  //if project changed we should hide drawer
+  //if project changed we should hide drawer - it makes a pedal back not to effect any issues (except resetting the featuremodel because it possibly changed meanwhile)
   Connections {
     target: iface
 
     onLoadProjectEnded: {
         if( state != "FeatureList" ) {
           if( featureListToolBar.state === "Edit"){
-            featureListToolBar.cancel()
+              featureForm.state = "FeatureForm"
+              displayToast( qsTr( "Changes discarded" ) )
           }
           state = "FeatureList"
         }
