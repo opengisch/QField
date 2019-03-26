@@ -12,7 +12,8 @@ Item {
 
   CheckBox {
     property var currentValue: value
-    property bool isBool: value === true || value === false
+    //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
+    property bool isBool: field.type == 1
 
     checked: isBool ? value : value === config['CheckedState']
 
