@@ -105,6 +105,15 @@ public class QFieldProjectActivity extends Activity {
             }
 
             String favoriteDirs = sharedPreferences.getString("FavoriteDirs", null);
+
+            // The first time, add the demo projects directory to the favorites
+            boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean("AddDemoProjectsFavoriteDir", true);
+            if (addDemoProjectsFavoriteDir){
+                favoriteDirs = getFilesDir().toString() + "/demo_projects";
+                editor.putString("FavoriteDirs", favoriteDirs);
+                editor.putBoolean("AddDemoProjectsFavoriteDir", false);
+                editor.commit();
+            }
             if (favoriteDirs != null){
                 String[] favoriteDirsArray = favoriteDirs.split("--;--");
                 values.add(new QFieldProjectListItem(null, getString(R.string.favorite_directories), 0, QFieldProjectListItem.TYPE_SEPARATOR));
