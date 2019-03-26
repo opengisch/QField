@@ -392,9 +392,9 @@ Rectangle {
   //if project changed we should hide drawer in case it's still open with old values
   //it pedals back, "simulates" a cancel without touching anything, but does not reset the model
   Connections {
-    target: iface
+    target: qgisProject
 
-    onLoadProjectEnded: {
+    onLayersWillBeRemoved: {
         if( state != "FeatureList" ) {
           if( featureListToolBar.state === "Edit"){
               featureForm.state = "FeatureForm"
