@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=20190306
+  - export QFIELD_SDK_VERSION=20190128
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -31,38 +31,22 @@ jobs:
   #  - name: testing
   include:
     - stage: test
-      name: "🍳 Testing"
-      script:
-        - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
-        - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
-      if: type = pull_request OR tag IS present OR branch = master
-    - stage: test
       name: "📱 build ARMv7"
       env:
         - ARCH=armv7
-      if: type = pull_request OR tag IS present OR branch = master
+      if: type = pull_request OR tag IS present OR branch = android_5
     - stage: test
       name: "☎ build X86"
       env:
         - ARCH=x86
-      if: type = pull_request OR tag IS present OR branch = master
+      if: type = pull_request OR tag IS present OR branch = android_5
     - stage: deploy
       name: "🍺 Deploy"
-      if: type = pull_request OR tag IS present OR branch = master
+      if: type = pull_request OR tag IS present OR branch = android_5
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
-    - stage: deploy
-      name: "🌍 Translations"
-      if: branch = master
-      addons:
-        apt:
-          packages:
-          - qttools5-dev-tools
-      install:
-        pip install -r requirements.txt
-      script: ./scripts/ci/update-translations.sh
 
 matrix:
   fast_finish: true 

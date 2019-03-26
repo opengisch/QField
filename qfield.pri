@@ -12,6 +12,7 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
 
   ANDROID_EXTRA_LIBS = \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrystax.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libssl.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libcrypto.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libexpat.so \
@@ -49,6 +50,7 @@ android {
     $$QT_LIBS_DIR/libQt5Sensors.so \
     $$QT_LIBS_DIR/libQt5Sql.so \
     $$QT_LIBS_DIR/libQt5Svg.so \
+    $$QT_LIBS_DIR/libQt5SerialPort.so \
     $$QT_LIBS_DIR/libQt5PrintSupport.so
 }
 
