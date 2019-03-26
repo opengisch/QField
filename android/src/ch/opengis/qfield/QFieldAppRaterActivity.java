@@ -23,8 +23,8 @@ import android.graphics.drawable.ColorDrawable;
 public class QFieldAppRaterActivity extends Activity{
     private final static String APP_PNAME = "ch.opengis.qfield"; // Package Name
 
-    private final static int DAYS_UNTIL_PROMPT = 3; // Min number of days
-    private final static int LAUNCHES_UNTIL_PROMPT = 3; // Min number of launches
+    private final static int DAYS_UNTIL_PROMPT = 30; // Min number of days
+    private final static int LAUNCHES_UNTIL_PROMPT = 10; // Min number of launches
 
     private static final String TAG = "QField AppRater Activity";
     private SharedPreferences sharedPreferences;
