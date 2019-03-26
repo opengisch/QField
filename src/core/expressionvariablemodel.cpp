@@ -16,7 +16,6 @@
 
 #include <expressionvariablemodel.h>
 #include <qgsexpressioncontext.h>
-#include <qgsexpressioncontextutils.h>
 
 
 #include <QSettings>
