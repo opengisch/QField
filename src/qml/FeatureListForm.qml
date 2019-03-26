@@ -394,6 +394,12 @@ Rectangle {
     target: iface
 
     onLoadProjectEnded: {
+        if( state != "FeatureList" ) {
+          if( featureListToolBar.state === "Edit"){
+            featureListToolBar.cancel()
+          }
+          state = "FeatureList"
+        }
         state = "Hidden"
     }
   }
