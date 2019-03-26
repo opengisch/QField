@@ -109,7 +109,7 @@ public class QFieldProjectActivity extends Activity {
             // The first time, add the demo projects directory to the favorites
             boolean addDemoProjectsFavoriteDir = sharedPreferences.getBoolean("AddDemoProjectsFavoriteDir", true);
             if (addDemoProjectsFavoriteDir){
-                favoriteDirs = getFilesDir().toString() + "/demo_projects";
+                favoriteDirs = getFilesDir().toString() + "/resources/demo_projects";
                 editor.putString("FavoriteDirs", favoriteDirs);
                 editor.putBoolean("AddDemoProjectsFavoriteDir", false);
                 editor.commit();
