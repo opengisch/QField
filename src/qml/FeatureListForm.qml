@@ -389,7 +389,8 @@ Rectangle {
     }
   }
 
-  //if project changed we should hide drawer - it makes a pedal back not to effect any issues (except resetting the featuremodel because it possibly changed meanwhile)
+  //if project changed we should hide drawer in case it's still open with old values
+  //it pedals back, "simulates" a cancel without touching anything, but does not reset the model
   Connections {
     target: iface
 
