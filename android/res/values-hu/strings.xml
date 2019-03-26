@@ -5,4 +5,22 @@
     <string name="use_internal_storage">Belső tároló használata</string>
     <string name="external_storage_unavailable">A telepítés utáni adatok kicsomagolása. Ez több időt vehet igénybe.</string>
     <string name="noexternalstorage_dialog">Úgy tűnik, hogy nincs külső tárolója (sd kártya). Ez történik amikor az eszközét USB-n keresztül csatlakoztatja a PC-hez.\nA QGIS futtatható a belső tárolóból, de ezt nem tanácsoljuk mivel az túl kicsi lehet.\nAzt tanácsoljuk válassza a Mégsem-et, távolítsa el az összes USB kábelt és indítsa úja a QGIS-t.</string>
-    </resources>
+    <string name="primary_storage">Belső tároló</string>
+    <string name="secondary_storage">QField könyvtár vagy külső tároló</string>
+    <string name="secondary_storage_read_only">Külső tároló (csak olvasható)</string>
+    <string name="inaccessible">Elérhetetlen</string>
+    <string name="loading">Betöltés</string>
+    <string name="select_project">Válasszon QGIS projektet</string>
+    <string name="recent_projects">Korábbi projektek</string>
+    <string name="rate_title">Értékelje a QFieldet</string>
+    <string name="rate_message">Ha élvezi a QField használatát, kérem szánjon egy percet az értékelésére. Köszönjük a támogatást!</string>
+    <string name="rate_now">Értékelés</string>
+    <string name="remind_later">Emlékeztessen később</string>
+    <string name="no_thanks">Köszönöm, nem!</string>
+    <string name="favorite_directories">Kedvenc könyvtárak</string>
+    <string name="added_to_favorites">Hozzáadtam a kedvencekhez</string>
+    <string name="removed_from_favorites">Töröltem a kedvencek közül</string>
+    <string name="alert_sd_card_title">Figyelmeztetés</string>
+    <string name="alert_sd_card_message">Ez a könyvtár és az összes benne lévő fájlt törli a rendszer, ha a QFieldet eltávolítja az Android eszközésől!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

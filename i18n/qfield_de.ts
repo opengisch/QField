@@ -1,9 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
 <context>
     <name>About</name>
     <message>
         <source>QField Version: %1</source>
-        <translation>QField Version: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings folder: %1</source>
@@ -23,7 +23,29 @@
     </message>
     <message>
         <source>Buy the Karma edition</source>
-        <translation>Die Karmaversion kaufen</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField Version: %1 (%2)</source>
+        <translation>QField Version: %1 (%2)</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidPictureSource</name>
+    <message>
+        <source>Could not create folder %1</source>
+        <translation>Ordner %1 konnte nicht erstellt werden</translation>
+    </message>
+    <message>
+        <source>Image %1 could not be copied to project folder %2.</source>
+        <translation>Bild %1 konnte nicht in den Projektordner %2 kopiert werden.</translation>
+    </message>
+</context>
+<context>
+    <name>AndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>Datei %1 existiert nicht</translation>
     </message>
 </context>
 <context>
@@ -53,7 +75,11 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <name>DashBoard</name>
     <message>
         <source>Map Theme</source>
-        <translation>Kartenthema</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>Der Layer %1 ist nur lesbar.</translation>
     </message>
 </context>
 <context>
@@ -106,6 +132,56 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
+    <name>FeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Wert &quot;%1&quot; %4 konnte nicht in einen mit dem Feld %2(%3) kompatiblen Wert umgewandelt werden.</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Kann Feature nicht updaten</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Feature %1 konnte nach dem Commit nicht mehr geladen werden</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Standardwertausdruck für %1:%2 hat einen Parser-Fehler: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>Standardwertausdruck für %1:%2 hat einen Evaluations-Fehler: %3</translation>
+    </message>
+    <message>
+        <source>Feature could not be added</source>
+        <translation>Feature konnte nicht hinzugefügt werden</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Änderungen konnten nicht gespeichert werden, Rollback.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Editieren kann nicht gestartet werden</translation>
+    </message>
+</context>
+<context>
+    <name>FeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Formular öffnen</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Feature kat keine Geometrie</translation>
+    </message>
+    <message>
+        <source>Features In All Layers</source>
+        <translation>Features in allen Layern</translation>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -116,7 +192,29 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <name>LayerTreeItemProperties.ui</name>
     <message>
         <source>Show on map canvas</source>
-        <translation>Auf der Karte anzeigen</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LocatorItem</name>
+    <message>
+        <source>Search…</source>
+        <translation>Suchen…</translation>
+    </message>
+</context>
+<context>
+    <name>OverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Änderungen gespeichert</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Änderungen verworfen</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Bedingung nicht gültig</translation>
     </message>
 </context>
 <context>
@@ -131,15 +229,39 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Genauigkeit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Coordinates</source>
-        <translation>Koordinaten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
         <translation>Geschwindigkeit</translation>
+    </message>
+    <message>
+        <source>Lat.</source>
+        <translation>Breite</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lon.</source>
+        <translation>Länge</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>Horizontale Genauigkeit</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>Vertikale Genauigkeit</translation>
     </message>
 </context>
 <context>
@@ -176,6 +298,63 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
         <source>QField Settings</source>
         <translation>QField Einstellungen</translation>
     </message>
+    <message>
+        <source>Keep current scale when triggering search results</source>
+        <translation>Aktuellen Massstab beibehalten wenn Suchresultate ausgeführt werden</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Position</source>
+        <translation>Position</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapCanvasMap</name>
+    <message>
+        <source>Rendering</source>
+        <translation>Rendern</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickMapSettings</name>
+    <message>
+        <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
+        <translation>Rotieren der Karte wird nicht unterstützt. Reset von %1 zu 0.</translation>
+    </message>
+</context>
+<context>
+    <name>QgsQuickUtils</name>
+    <message>
+        <source>screen resolution: %1x%2 px
+</source>
+        <translation>Bildschirmauflösung: %1x%2 px
+</translation>
+    </message>
+    <message>
+        <source>screen DPI: %1x%2
+</source>
+        <translation>Bildschirm DPI: %1x%2
+</translation>
+    </message>
+    <message>
+        <source>screen size: %1x%2 mm
+</source>
+        <translation>Bildschirmgrösse: %1x%2 mm
+</translation>
+    </message>
+    <message>
+        <source>screen density: %1</source>
+        <translation>Bildschirmdichte: %1</translation>
+    </message>
+</context>
+<context>
+    <name>RelationReference</name>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Ungültige Beziehung</translation>
+    </message>
 </context>
 <context>
     <name>VariableEditor</name>
@@ -189,10 +368,25 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
+    <name>WelcomeScreen</name>
+    <message>
+        <source>QField for QGIS</source>
+        <translation>QField für QGIS</translation>
+    </message>
+    <message>
+        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
+        <translation>Um zu starten, kann ein eigenes QGIS Projekt oder ein vorinstalliertes Demo-Projekt verwendet werden. Es ist sehr einfach, ein eigenes QField Projekt mit QGIS auf dem PC zu erstellen und auf dieses Gerät zu laden.</translation>
+    </message>
+    <message>
+        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
+        <translation>Wenn dein eigenes Projekt auf dem Gerät ist, oder um ein Demo-Projekt zu verwenden, drücke einfach den Knopf unten um das Projekt zu öffnen und mit der Arbeit zu beginnen.</translation>
+    </message>
+</context>
+<context>
     <name>qgismobileapp</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Der Layer %1 ist schreibgeschützt.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activating positioning service...</source>
@@ -293,6 +487,22 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Press back again to close project and app</source>
         <translation>Zurück erneut drücken, um QField zu beenden</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Positionierungsoptionen</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Positionierung einschalten</translation>
+    </message>
+    <message>
+        <source>QField has no permissions to use positioning.</source>
+        <translation>QField hat keine Berechtigung die Positionierung zu verwenden</translation>
+    </message>
+    <message>
+        <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>Editieren von mehrteiligen Geometrien wird nicht unterstützt.</translation>
     </message>
 </context>
 </TS>

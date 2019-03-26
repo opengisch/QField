@@ -17,4 +17,7 @@
     <string name="favorite_directories">Ulubione katalogi</string>
     <string name="added_to_favorites">Dodano do ulubionych</string>
     <string name="removed_from_favorites">Usunięto z ulubionych</string>
-    </resources>
+    <string name="alert_sd_card_title">Ostrzeżenie</string>
+    <string name="alert_sd_card_message">Ten katalog, razem z wszystkimi znajdującymi się w nim plikami, zostanie usunięty jeśli odinstalujesz QField ze swojego urządzenia z Androidem!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

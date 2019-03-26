@@ -5,6 +5,9 @@
     <string name="use_internal_storage">Käytä sisäistä tallennustilaa</string>
     <string name="external_storage_unavailable">Pura asennuksen loppudata. Tämä voi kestää jonkin aikaa.</string>
     <string name="noexternalstorage_dialog">Vaikuttaa ettei ulkoinen tietovarastosi (/sdcard) ole käytettävissä. Tämä tapahtuu kun liitit yhteyden laitteeseesi PC:hen USB:n kautta.\nQGIS voidaan suorittaa sisäisestä tietovarastosta mutta se eii ole suositeltavaa koska se on liian pieni.\nSuositus on että valitse CANCEL/Peruuta, poistat kaikki USB kaapeliyhteydet ja käynnistät QGIS uudelleen.</string>
+    <string name="primary_storage">Sisäinen tallennus</string>
+    <string name="secondary_storage">QField hakemisto ulkoisella tallentimella</string>
+    <string name="secondary_storage_read_only">Ulkoinen tallennnin (ainoastaan luettavissa)</string>
     <string name="inaccessible">ei käytettävissä</string>
     <string name="loading">Ladataan</string>
     <string name="select_project">Valitse QGIS projekti</string>
@@ -17,4 +20,7 @@
     <string name="favorite_directories">Suosituimmat hakemistot</string>
     <string name="added_to_favorites">Lisää suosikkeihin</string>
     <string name="removed_from_favorites">Poistettu suosikeista</string>
-    </resources>
+    <string name="alert_sd_card_title">Varoitus</string>
+    <string name="alert_sd_card_message">Tämä hakemisto, mukaan lukien kaikki sen siältämät tiedostot, poistetaan järjestelmästä jos poistat QFieldin asennuksen Android laitteestasi!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>
