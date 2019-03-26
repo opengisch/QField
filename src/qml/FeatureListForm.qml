@@ -38,7 +38,6 @@ Rectangle {
 
   width: props.isVisible ? qfieldSettings.fullScreenIdentifyView || parent.width<300*dp ? parent.width : Math.min(Math.max(200*dp, parent.width/3), parent.width) : 0
 
-
   states: [
     State {
       name: "Hidden"
@@ -387,6 +386,23 @@ Rectangle {
     }
     onRejected: {
       visible = false
+    }
+  }
+
+  //if project changed we should hide drawer in case it's still open with old values
+  //it pedals back, "simulates" a cancel without touching anything, but does not reset the model
+  Connections {
+    target: iface
+
+    onLoadProjectEnded: {
+        if( state != "FeatureList" ) {
+          if( featureListToolBar.state === "Edit"){
+              featureForm.state = "FeatureForm"
+              displayToast( qsTr( "Changes discarded" ) )
+          }
+          state = "FeatureList"
+        }
+        state = "Hidden"
     }
   }
 }
