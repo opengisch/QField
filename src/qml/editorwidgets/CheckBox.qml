@@ -12,17 +12,18 @@ Item {
 
   CheckBox {
     property var currentValue: value
+    property bool isBool: value === true || value === false
 
-    checked: value == config['CheckedState']
+    checked: isBool ? value : value === config['CheckedState']
 
     onCheckedChanged: {
-      valueChanged( checked ? config['CheckedState'] : config['UncheckedState'], false )
+      valueChanged( isBool ? checked : checked ? config['CheckedState'] : config['UncheckedState'], false )
       forceActiveFocus()
     }
 
     // Workaround to get a signal when the value has changed
     onCurrentValueChanged: {
-      checked = currentValue == config['CheckedState']
+      checked = isBool ? currentValue : currentValue === config['CheckedState']
     }
 
     indicator.height: 16 * dp
