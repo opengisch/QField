@@ -38,7 +38,6 @@ Rectangle {
 
   width: props.isVisible ? qfieldSettings.fullScreenIdentifyView || parent.width<300*dp ? parent.width : Math.min(Math.max(200*dp, parent.width/3), parent.width) : 0
 
-
   states: [
     State {
       name: "Hidden"
@@ -387,6 +386,15 @@ Rectangle {
     }
     onRejected: {
       visible = false
+    }
+  }
+
+  //if project changed we should hide drawer
+  Connections {
+    target: iface
+
+    onLoadProjectEnded: {
+        state = "Hidden"
     }
   }
 }
