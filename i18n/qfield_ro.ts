@@ -375,11 +375,11 @@ Puteți verifica secțiunea &lt;i&gt;Proiectului portabil&lt;/i&gt; din document
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Pentru a începe, aveți nevoie mai întâi de un proiect QGIS. Este foarte ușor să creați unul pe PC, iar apoi să-l transferați pe acest dispozitiv.</translation>
+        <translation>Pentru a începe, puteți utiliza un demo al propriului dvs. proiect QGIS. Este foarte ușor să creați unul pe PC, iar apoi să-l transferați pe acest dispozitiv.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>O dată ce aveți un proiect pe acest dispozitiv, folosiți butonul de mai jos pentru a-l localiza în sistemul de fișiere, deschideți-l și începeți să lucrați.</translation>
+        <translation>O dată ce aveți un demo sau un alt proiect pe acest dispozitiv, folosiți butonul de mai jos pentru a-l localiza, deschideți-l și începeți să lucrați.</translation>
     </message>
 </context>
 <context>

@@ -375,11 +375,11 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Para comezar primeiro precisas un proxecto de QGIS. É moi doado crear un no ordenador de escritorio e logo transferilo a este dispositivo.</translation>
+        <translation>Para comezar podes utilizar un proxecto demostración ou o teu propio proxecto de QGIS. É moi doado crear un no ordenador de escritorio e logo transferilo a este dispositivo.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>Unha vez que teñas un proxecto neste dispositivo, utiliza o botón de abaixo para localizalo no sistema de ficheiros, ábreo e comeza a traballar.</translation>
+        <translation>Unha vez que teñas un proxecto neste dispositivo ou para utilizar un proxecto demostración, utiliza o botón de abaixo para localizalo, ábreo e comeza a traballar.</translation>
     </message>
 </context>
 <context>

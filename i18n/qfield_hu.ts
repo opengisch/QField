@@ -79,7 +79,7 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>A %1 réteg nem szerkeszthető</translation>
+        <translation>A %1 réteg csak olvasható</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"/>
+        <translation> A %1 tulajdonság nem hívható be a véglegesítés után</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
@@ -375,11 +375,11 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Az induláshoz először egy QGIS projektre van szüksége. Nagyon könnyen készíthet egyet az asztali PC-jén és utána átmásolhatja erre az eszközre.</translation>
+        <translation>Kezdésként használhatja a demó projektet, vagy a saját QGIS projektjét. Egyszerűen létrehozhat egyet az aszatli gépén, majd áthozjatja erre az eszközre.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>Ha már van egy projekt ezen az eszközön, használja az alábbi gombot a fájlrendszerben kereséshez, nyissa meg és kezdje el a munkát.</translation>
+        <translation>Saját projektjét vagy a demó projektet megkeresheti a lenti gomb használatával. Nyissa meg, és kezdhezti a munkát.</translation>
     </message>
 </context>
 <context>
