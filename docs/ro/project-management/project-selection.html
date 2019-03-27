@@ -98,7 +98,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Selectarea proiectului</a><ul>
-<li><a class="reference internal" href="#favorite-directories">Favorite directories</a></li>
+<li><a class="reference internal" href="#favorite-directories">Directoare favorite</a></li>
 <li><a class="reference internal" href="#external-sd-card">Card SD extern</a></li>
 <li><a class="reference internal" href="#warning">Avertisment!</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Cum să transformați cardul SD extern într-un spațiu de stocare intern</a></li>
@@ -186,15 +186,15 @@
 <p>În interiorul acestor directoare sunt afișate numai subdirectoarele și fișierele cu extensia &#8221;.qgs&#8221;.</p>
 <p>QField solicită ca fișierul proiectului să se afle fizic pe dispozitiv, prin urmare nu este posibilă utilizarea furnizorilor care lucrează cu fișiere aflate la distanță (de exemplu, Google Drive). Pe de altă parte, puteți utiliza aplicații precum <a class="reference external" href="https://syncthing.net/">syncthing</a> sau <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (sau dropbox și probabil multe altele) care permit sincronizartea fizică a fișierului pe dispozitiv.</p>
 <div class="section" id="favorite-directories">
-<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
-<p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
+<h2>Directoare favorite<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
+<p>În primul ecran al selectorului de fișiere există o secțiune care prezintă directoarele preferate. Pentru a adăuga un director la favorite, efectuați un clic lung în selectorul de fișiere din numele directorului. Pentru a elimina o intrare din preferințe, efectuați un clic lung pe numele ei, în lista de favorite.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Card SD extern<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>The file selector shows the root of the SD card labeled as &#8220;read-only&#8221; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>Selectorul de fișiere prezintă rădăcina cardului SD marcată &#8220;numai pentru citire&#8221; și directorul specific aplicației separat de restul cardului SD, deoarece este singurul director în care aplicația are acces la scriere. Directorul este următorul:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
+<p class="last">Din punct de vedere tehnic, aceasta se datorează faptului că Android oferă drepturi de citire, scriere, ACTION_OPEN_DOCUMENT și ACTION_OPEN_DOCUMENT_TREE numai pentru conținutul adresei returnate, nu și pentru fișierul legat real. Această limitare, care are sens pentru modul în care este structurat Android, în prezent este inutilizabilă pentru QField, întrucât acesta trebuie să acceseze fișierul real folosind o cale reală.</p>
 </div>
 </div>
 <div class="section" id="warning">
@@ -214,9 +214,10 @@
 </li>
 <li><p class="first">În acest moment, cardul dvs. SD va fi formatat pentru stocare internă.</p>
 </li>
-<li>Reboot your phone.</li>
+<li><p class="first">Restartați telefonul.</p>
+</li>
 </ol>
-<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>Dacă nu reporniți telefonul, este posibil ca multe lucruri să funcționeze incorect, de aceea, asigurați-vă că ați făcut acest lucru.</p>
 <p>Este posibil ca facilitatea Adoptable Storage să nu fie prezentă pe dispozitivul dvs., chiar dacă rulează Android 6.0 sau versiuni ulterioare. Este posibil ca producătorul dispozitivului să fi dezactivat opțiunea. Cu toate acestea, există instrucțiuni pentru linia de comandă care pot forța un dispozitiv să adopte un spațiu de stocare.</p>
 </div>
 </div>
