@@ -187,6 +187,8 @@ Item {
               newDate.setMinutes(0)
               newDate.setSeconds(0)
               newDate.setMilliseconds(0)
+              // because this sets us back one day we add one day
+              newDate.setDate(newDate.getDate()+1)
 
               if ( main.isDateTimeType )
               {
