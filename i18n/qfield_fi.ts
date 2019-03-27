@@ -147,11 +147,11 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>%1:%2 :n oletus arvolausekkeessa on jäsentäjän virhe: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>%1:%2 :n oletus arvolausekkeessa on evaluointivirhe: %3</translation>
     </message>
     <message>
         <source>Feature could not be added</source>
@@ -375,11 +375,11 @@ Voit tarkistaa  asian &lt;i&gt;Portable Project&lt;/i&gt; kappaleesta QField dok
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation type="unfinished"/>
+        <translation>Aloittaaksesi voit käyttää joko demoprojektia tai tehdä oman QGIS projektin. On helppoa luoda oma projekti PC työasemassa ja sitten siirtää se tälle laitteelle.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation type="unfinished"/>
+        <translation>Kun Sinulla on projekti tällä laitteella, tai käytät demoprojektia, käytä näppäintä alla löytääksesi sen, avaa se ja aloita työskentely.</translation>
     </message>
 </context>
 <context>

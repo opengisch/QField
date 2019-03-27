@@ -27,25 +27,25 @@
     </message>
     <message>
         <source>QField Version: %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QField Versija: %1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>AndroidPictureSource</name>
     <message>
         <source>Could not create folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Nevar izveidot direktoriju %1</translation>
     </message>
     <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"/>
+        <translation>Attēlu %1 nevar pārkopēt uz projekta direktoriju %2</translation>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Fails %1 neeksistē</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>Slānis %1 ir tikai lasāms.</translation>
     </message>
 </context>
 <context>
@@ -135,11 +135,11 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>Vērtību &quot;%1&quot; %4  nevar konvertēt uz derīgu vērtību laukam %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation type="unfinished"/>
+        <translation>Nevar mainīt objekta datus</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
@@ -155,30 +155,30 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation type="unfinished"/>
+        <translation>Objektu nevar pievienot</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation type="unfinished"/>
+        <translation>Nevar saglabāt izmaiņas. Atgriežamies atpakaļ.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation type="unfinished"/>
+        <translation>Nevar uzsākt rediģēšanu</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation type="unfinished"/>
+        <translation>Atvērt formu</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
+        <translation>Objektam nav ģeometrija</translation>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation type="unfinished"/>
+        <translation>Objektus visos slāņos</translation>
     </message>
 </context>
 <context>
@@ -199,22 +199,22 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished"/>
+        <translation>Meklēt...</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Izmaiņas saglabātas</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Izmaiņas atceltas</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="unfinished"/>
+        <translation>Nosacījums ir nederīgs</translation>
     </message>
 </context>
 <context>
@@ -241,27 +241,27 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation>Plat.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"/>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation>Gar.</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"/>
+        <translation>Y</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>H, precizitāte</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>V. precizitāte</translation>
     </message>
 </context>
 <context>
@@ -300,28 +300,28 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Keep current scale when triggering search results</source>
-        <translation type="unfinished"/>
+        <translation>Saglabāt esošo mērogu neatkarīgi no meklēšanas rezultātiem</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>Pozīcija</translation>
     </message>
 </context>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation type="unfinished"/>
+        <translation>Zīmē</translation>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
+        <translation>Kartes skata rotācija nav atbalstīta. Atiestatīt no %1 uz 0.</translation>
     </message>
 </context>
 <context>
@@ -329,28 +329,31 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <message>
         <source>screen resolution: %1x%2 px
 </source>
-        <translation type="unfinished"/>
+        <translation>ekrāna izšķirtspēja: %1x%2
+</translation>
     </message>
     <message>
         <source>screen DPI: %1x%2
 </source>
-        <translation type="unfinished"/>
+        <translation>ekrāna DPI: %1x%2
+</translation>
     </message>
     <message>
         <source>screen size: %1x%2 mm
 </source>
-        <translation type="unfinished"/>
+        <translation>ekrāna izmērs: %1x%2 mm
+</translation>
     </message>
     <message>
         <source>screen density: %1</source>
-        <translation type="unfinished"/>
+        <translation>ekrāna blīvums: %1</translation>
     </message>
 </context>
 <context>
     <name>RelationReference</name>
     <message>
         <source>Invalid relation</source>
-        <translation type="unfinished"/>
+        <translation>Nederīga relācija</translation>
     </message>
 </context>
 <context>
@@ -368,7 +371,7 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     <name>WelcomeScreen</name>
     <message>
         <source>QField for QGIS</source>
-        <translation type="unfinished"/>
+        <translation>QField priekš QGIS</translation>
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
@@ -487,19 +490,19 @@ Pārbaudi  &lt;i&gt;Portable Project&lt;/i&gt; sadaļu QField dokumentācijā.</
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="unfinished"/>
+        <translation>Pozicionēšanas iestatījumi</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="unfinished"/>
+        <translation>Ieslēgt pozicionēšanu</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
+        <translation>QField nav tiesību lietot pozicionēšanu.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Multi ģeometriju slāņa rediģēšana pašlaik nav atbalstīta. </translation>
     </message>
 </context>
 </TS>
