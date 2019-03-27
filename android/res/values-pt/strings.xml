@@ -5,7 +5,22 @@
     <string name="use_internal_storage">Usar armazenamento interno</string>
     <string name="external_storage_unavailable">Desempacotando dados de pós-instalação. Pode demorar algum tempo.</string>
     <string name="noexternalstorage_dialog">Parece que o seu armazenamento externo (/ sdcard) não está disponível. Isso acontece quando liga o seu dispositivo a um PC via USB.\nQGIS pode ser executado a partir do armazenamento interno, mas isso não é recomendado, pois pode ser muito pequeno.\nIt sugerimos que escolha CANCELAR, desligue qualquer cabo USB e reinicie o QGIS.</string>
+    <string name="primary_storage">Armazenamento Interno</string>
+    <string name="secondary_storage">Diretório QField no armazenamento externo</string>
+    <string name="secondary_storage_read_only">Armazenamento externo (só de leitura)</string>
     <string name="inaccessible">inacessível</string>
     <string name="loading">A carregar</string>
     <string name="select_project">Selecione um projeto QGIS</string>
-    </resources>
+    <string name="recent_projects">Projectos recentes</string>
+    <string name="rate_title">Avalie o QField</string>
+    <string name="rate_message">Se está a usar o QField, por favor tire um momento para avalia-lo. Obrigado pelo seu suporte!</string>
+    <string name="rate_now">Avalie</string>
+    <string name="remind_later">Lembre-me mais tarde</string>
+    <string name="no_thanks">Não, obrigado!</string>
+    <string name="favorite_directories">Directório dos favoritos</string>
+    <string name="added_to_favorites">Adicionar aos favoritos</string>
+    <string name="removed_from_favorites">Remover dos favoritos</string>
+    <string name="alert_sd_card_title">Aviso</string>
+    <string name="alert_sd_card_message">Este directório, incluindo todos os seus ficheiros, serão eliminados pelo sistema se desinstalar o QField do seu dispositivo Android!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

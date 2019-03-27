@@ -1,3 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">解包完成，启动 QGIS</string>
+    <string name="unpacking_msg">正在解压安装数据。这可能需要一些时间。</string>
+    <string name="use_internal_storage">使用内部储存</string>
+    <string name="external_storage_unavailable">正在解压安装数据。这可能需要一些时间。</string>
+    <string name="noexternalstorage_dialog">看起来您的外部存储(/sdcard)不可用。当你通过USB将你的设备连接到PC上时，就会发生这种情况。\nQGIS可以从内部存储运行，但不建议这样做，因为它的容量可能太小。建议选择取消，断开USB电缆并重启QGIS。</string>
+    <string name="primary_storage">内部储存</string>
+    <string name="secondary_storage">外部存储器上的QField目录</string>
+    <string name="secondary_storage_read_only">外部储存器（只读）</string>
+    <string name="inaccessible">无法访问</string>
+    <string name="loading">正在加载</string>
+    <string name="select_project">选择一个QGIS项目</string>
+    <string name="recent_projects">最近的项目</string>
+    <string name="rate_title">评价QField</string>
+    <string name="rate_message">如果你喜欢使用QField，请花点时间来评价它。感谢您的支持!</string>
+    <string name="rate_now">评价</string>
+    <string name="remind_later">稍后提醒我</string>
+    <string name="no_thanks">不用了，谢谢！</string>
+    <string name="favorite_directories">收藏的目录</string>
+    <string name="added_to_favorites">加入收藏</string>
+    <string name="removed_from_favorites">移出收藏</string>
+    <string name="alert_sd_card_title">警告</string>
+    <string name="alert_sd_card_message">如果从您的Android设备卸载QField，本目录下的所有文件，将被删除!</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>
