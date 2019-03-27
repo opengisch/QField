@@ -183,10 +183,6 @@ Item {
             onClicked: {
               // weird, selectedDate seems to be set at time 12:00:00
               var newDate = calendar.selectedDate
-              newDate.setHours(0)
-              newDate.setMinutes(0)
-              newDate.setSeconds(0)
-              newDate.setMilliseconds(0)
 
               if ( main.isDateTimeType )
               {
