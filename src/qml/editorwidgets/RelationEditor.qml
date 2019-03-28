@@ -10,9 +10,12 @@ import "../js/style.js" as Style
 import org.qfield 1.0
 import org.qgis 1.0
 
-Frame{
-    height: 200
+Rectangle{
+    height: referencingFeatureListView.height + itemHeight
     property int itemHeight: 24 * dp
+
+    border.color: "lightgray"
+    border.width: 1 * dp
 
     //the model
     ReferencingFeatureListModel {
@@ -25,9 +28,9 @@ Frame{
     //the list
     ListView {
         id: referencingFeatureListView
-        width: parent.width
-        height: parent.height - itemHeight
         model: relationEditorModel
+        width: parent.width
+        height: Math.min( 5 * itemHeight, referencingFeatureListView.count * itemHeight )
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
@@ -49,7 +52,7 @@ Frame{
           Text {
               visible: !readOnly
               color: "grey"
-              text: !readOnly && !relationEditorModel.parentPrimariesAvailable ? "Save parent feature first..." : "Add child feature..."
+              text: !readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
