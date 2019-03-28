@@ -55,7 +55,7 @@ jobs:
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
     - stage: deploy
       name: "🌍 Translations"
-      if: branch = master
+      if: branch = master AND type != pull_request
       addons:
         apt:
           packages:
