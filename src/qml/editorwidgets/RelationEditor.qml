@@ -197,7 +197,7 @@ Frame{
         x: 24 * dp
         y: 24 * dp
         width: parent.width - 48 * dp
-        height: parent.width - 48 * dp
+        height: parent.height - 48 * dp
         modal: true
         closePolicy: Popup.CloseOnEscape
 
