@@ -53,7 +53,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
 
 bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( data( index, role ) != value )
+  if ( !qgsVariantEqual( data( index, role ), value ) )
   {
     switch ( role )
     {
