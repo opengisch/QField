@@ -120,7 +120,7 @@ bool ReferencingFeatureListModel::parentPrimariesAvailable() const
 
 void ReferencingFeatureListModel::reload()
 {
-  if ( !mRelation.isValid() || !mFeature.isValid() )
+  if ( !mRelation.isValid() || !mFeature.isValid() || !checkParentPrimaries() )
     return;
   mEntries.clear();
   QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
@@ -153,7 +153,7 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
   const auto fieldPairs = mRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
-    if( mFeature.attribute( fieldPair.second ).isNull() )
+    if ( mFeature.attribute( fieldPair.second ).isNull() )
       return false;
   }
   return true;
