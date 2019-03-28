@@ -43,12 +43,12 @@ QSGGeometryNode *SGRubberband::createLineGeometry( const QVector<QgsPoint> &poin
   QSGGeometry::Point2D *vertices = sgGeom->vertexDataAsPoint2D();
 
   int i = 0;
-  Q_FOREACH ( const QgsPoint &pt, points )
+  for ( const QgsPoint &pt : points )
   {
-    vertices[i++].set( pt.x(), pt.y() );
+    vertices[i++].set( static_cast<float>( pt.x() ), static_cast<float>( pt.y() ) );
   }
 
-  sgGeom->setLineWidth( width );
+  sgGeom->setLineWidth( static_cast<float>( width ) );
   sgGeom->setDrawingMode( GL_LINE_STRIP );
   node->setGeometry( sgGeom );
   node->setMaterial( &mMaterial );
@@ -67,7 +67,7 @@ QSGGeometryNode *SGRubberband::createPolygonGeometry( const QVector<QgsPoint> &p
   const double *contours_array[] = { vertices_in, vertices_in + points.size() * 2 };
   int i = 0;
 
-  Q_FOREACH ( const QgsPoint &pt, points )
+  for ( const QgsPoint &pt : points )
   {
     vertices_in[i++] = pt.x();
     vertices_in[i++] = pt.y();

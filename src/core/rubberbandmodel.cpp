@@ -44,7 +44,7 @@ QVector<QgsPoint> RubberbandModel::vertices() const
 QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
-  Q_FOREACH ( const QgsPoint &pt, mPointList )
+  for ( const QgsPoint &pt : mPointList )
   {
     points << QgsPoint( pt );
   }
@@ -60,7 +60,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  Q_FOREACH ( const QgsPoint &pt, mPointList )
+  for ( const QgsPoint &pt : mPointList )
   {
     QgsPoint p2( ct.transform( pt.x(), pt.y() ) );
     if ( QgsWkbTypes::hasZ( wkbType ) )
@@ -77,7 +77,7 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
 
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
-  Q_FOREACH ( const QgsPoint &pt, mPointList )
+  for ( const QgsPoint &pt : mPointList )
   {
     sequence.append( ct.transform( pt.x(), pt.y() ) );
   }

@@ -246,7 +246,8 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
   Q_UNUSED( doc );
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
   QSettings().setValue( "/qgis/project/lastProjectFile", mProject->fileName() );
-  Q_FOREACH ( QgsMapLayer *layer, mProject->mapLayers() )
+  const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
+  for ( QgsMapLayer *layer : mapLayers )
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
     if ( vl )

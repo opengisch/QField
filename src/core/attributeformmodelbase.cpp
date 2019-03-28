@@ -78,7 +78,6 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
         }
         updateVisibility( fieldIndex );
         return changed;
-        break;
       }
     }
   }
@@ -144,7 +143,8 @@ void AttributeFormModelBase::onLayerChanged()
     invisibleRootItem()->setColumnCount( 1 );
     if ( mHasTabs )
     {
-      Q_FOREACH ( QgsAttributeEditorElement *element, root->children() )
+      const QList<QgsAttributeEditorElement *> children { root->children() };
+      for ( QgsAttributeEditorElement *element : children )
       {
         if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
         {
@@ -225,7 +225,8 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 
 void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items )
 {
-  Q_FOREACH ( QgsAttributeEditorElement *element, container->children() )
+  const QList<QgsAttributeEditorElement *> children { container->children() };
+  for ( QgsAttributeEditorElement *element : children )
   {
     switch ( element->type() )
     {
@@ -307,7 +308,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
 
-  Q_FOREACH ( const VisibilityExpression &it, mVisibilityExpressions )
+  for ( const VisibilityExpression &it : qgis::as_const( mVisibilityExpressions ) )
   {
     if ( fieldIndex == -1 || it.first.referencedAttributeIndexes( fields ).contains( fieldIndex ) )
     {
@@ -315,7 +316,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
       exp.prepare( &mExpressionContext );
 
       bool visible = exp.evaluate( &mExpressionContext ).toInt();
-      Q_FOREACH ( QStandardItem *item, it.second )
+      for ( QStandardItem *item : qgis::as_const( it.second ) )
       {
         if ( item->data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
         {
