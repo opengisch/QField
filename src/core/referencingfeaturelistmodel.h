@@ -31,6 +31,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
     Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
     Q_PROPERTY( QgsRelation associatedRelation WRITE setAssociatedRelation READ associatedRelation NOTIFY associatedRelationChanged )
+    Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -59,6 +60,9 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void setAssociatedRelation( const QgsRelation &relation );
     QgsRelation associatedRelation() const;
 
+    void setParentPrimariesAvailable( const bool parentPrimariesAvailable );
+    bool parentPrimariesAvailable() const;
+
     Q_INVOKABLE void reload();
     Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
@@ -67,6 +71,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void featureChanged();
     void relationChanged();
     void associatedRelationChanged();
+    void parentPrimariesAvailableChanged();
 
   private:
     struct Entry
@@ -87,7 +92,9 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     QgsFeature mFeature;
     QgsRelation mRelation;
     QgsRelation mAssociatedRelation;
+    bool mParentPrimariesAvailable = false;
 
+    bool checkParentPrimaries();
 };
 
 #endif // REFERENCINGFEATURELISTMODEL_H

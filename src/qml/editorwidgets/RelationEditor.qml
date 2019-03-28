@@ -42,37 +42,52 @@ Frame{
 
       focus: true
 
-      Row
-      {
-        id: editRow
-        anchors { top: parent.top; right: parent.right }
-        height: parent.height
+      Rectangle{
+          anchors.fill: parent
+          color: "lightgrey"
 
-        ToolButton {
-            id: addButton
-            width: parent.height
+          Text {
+              visible: !readOnly
+              color: "grey"
+              text: !readOnly && !relationEditorModel.parentPrimariesAvailable ? "Save parent feature first..." : "Add child feature..."
+              anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
+              font.bold: true
+              font.italic: true
+          }
+
+          Row
+          {
+            id: editRow
+            anchors { top: parent.top; right: parent.right }
             height: parent.height
-            visible: !readOnly
 
-            contentItem: Rectangle {
-                anchors.fill: parent
-                color: "black"
-                Image {
-                  anchors.fill: parent
-                  anchors.margins: 4 * dp
-                  fillMode: Image.PreserveAspectFit
-                  horizontalAlignment: Image.AlignHCenter
-                  verticalAlignment: Image.AlignVCenter
-                  source: Style.getThemeIcon( 'ic_add_white_24dp' )
+            ToolButton {
+                id: addButton
+                width: parent.height
+                height: parent.height
+                visible: !readOnly
+                enabled: !readOnly && relationEditorModel.parentPrimariesAvailable
+
+                contentItem: Rectangle {
+                    anchors.fill: parent
+                    color: parent.enabled ? "black" : "grey"
+                    Image {
+                      anchors.fill: parent
+                      anchors.margins: 4 * dp
+                      fillMode: Image.PreserveAspectFit
+                      horizontalAlignment: Image.AlignHCenter
+                      verticalAlignment: Image.AlignVCenter
+                      source: Style.getThemeIcon( 'ic_add_white_24dp' )
+                    }
+                }
+
+                onClicked: {
+                  embeddedFeatureForm.state = "Add"
+                  embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
+                  embeddedFeatureForm.active = true
                 }
             }
-
-            onClicked: {
-              embeddedFeatureForm.state = "Add"
-              embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
-              embeddedFeatureForm.active = true
-            }
-        }
+          }
       }
     }
 

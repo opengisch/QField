@@ -76,6 +76,8 @@ void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
     return;
 
   mFeature = feature;
+
+  setParentPrimariesAvailable( checkParentPrimaries() );
   reload();
 }
 
@@ -87,6 +89,7 @@ QgsFeature ReferencingFeatureListModel::feature() const
 void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
+  setParentPrimariesAvailable( checkParentPrimaries() );
   reload();
 }
 
@@ -103,6 +106,16 @@ void ReferencingFeatureListModel::setAssociatedRelation( const QgsRelation &rela
 QgsRelation ReferencingFeatureListModel::associatedRelation() const
 {
   return mAssociatedRelation;
+}
+
+void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
+{
+  mParentPrimariesAvailable = parentPrimariesAvailable;
+}
+
+bool ReferencingFeatureListModel::parentPrimariesAvailable() const
+{
+  return mParentPrimariesAvailable;
 }
 
 void ReferencingFeatureListModel::reload()
@@ -130,4 +143,18 @@ void ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeature
   mRelation.referencingLayer()->deleteFeature( referencingFeatureId );
   mRelation.referencingLayer()->commitChanges();
   reload();
+}
+
+bool ReferencingFeatureListModel::checkParentPrimaries()
+{
+  if ( !mRelation.isValid() || !mFeature.isValid() )
+    return false;
+
+  const auto fieldPairs = mRelation.fieldPairs();
+  for ( QgsRelation::FieldPair fieldPair : fieldPairs )
+  {
+    if( mFeature.attribute( fieldPair.second ).isNull() )
+      return false;
+  }
+  return true;
 }
