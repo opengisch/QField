@@ -76,8 +76,6 @@ void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
     return;
 
   mFeature = feature;
-
-  setParentPrimariesAvailable( checkParentPrimaries() );
   reload();
 }
 
@@ -89,7 +87,6 @@ QgsFeature ReferencingFeatureListModel::feature() const
 void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
-  setParentPrimariesAvailable( checkParentPrimaries() );
   reload();
 }
 
@@ -122,6 +119,7 @@ void ReferencingFeatureListModel::reload()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() || !checkParentPrimaries() )
     return;
+
   mEntries.clear();
   QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
   QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
@@ -135,6 +133,9 @@ void ReferencingFeatureListModel::reload()
     mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
   }
   endResetModel();
+
+  //set the property for parent primaries available status
+  setParentPrimariesAvailable( checkParentPrimaries() );
 }
 
 void ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
@@ -153,7 +154,7 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
   const auto fieldPairs = mRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
-    if ( mFeature.attribute( fieldPair.second ).isNull() )
+    if ( mFeature.attribute( fieldPair.second ).isNull() || mFeature.attribute( fieldPair.second ).toInt() == 0 )
       return false;
   }
   return true;
