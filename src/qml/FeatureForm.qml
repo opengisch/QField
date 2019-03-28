@@ -346,7 +346,7 @@ Page {
     }
 
     background: Rectangle {
-      color: model.constraintsValid ? "blue" : "orange"
+      color: model.constraintsValid ?  form.state === 'Add' ? "blue" : "#80CC28" : "orange"
     }
 
     RowLayout {
@@ -358,6 +358,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
+        visible: form.state === 'Add' || form.state === 'Edit'
         width: 48*dp
         height: 48*dp
         clip: true

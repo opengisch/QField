@@ -199,35 +199,35 @@ Frame{
         width: parent.width - 48 * dp
         height: parent.width - 48 * dp
         modal: true
-        focus: true
         closePolicy: Popup.CloseOnEscape
 
         FeatureForm {
             model: AttributeFormModel {
-            id: attributeFormModel
+              id: attributeFormModel
 
-            featureModel: FeatureModel {
-              currentLayer: relatedLayer
-              feature: state != "Add" ? embeddedFeatureForm.relatedFeature : undefined
-              linkedParentFeature: relationEditorModel.feature
-              linkedRelation: relationEditorModel.relation
+              featureModel: FeatureModel {
+                currentLayer: relatedLayer
+                feature: state != "Add" ? embeddedFeatureForm.relatedFeature : undefined
+                linkedParentFeature: relationEditorModel.feature
+                linkedRelation: relationEditorModel.relation
+              }
             }
-          }
+            focus: true
 
-          embedded: true
-          toolbarVisible: true
+            embedded: true
+            toolbarVisible: true
 
-          anchors.fill: parent
+            anchors.fill: parent
 
-          state: embeddedFeatureForm.state
+            state: embeddedFeatureForm.state
 
-          onSaved: {
-            popup.close()
-          }
+            onSaved: {
+                popup.close()
+            }
 
-          onCancelled: {
-            popup.close()
-          }
+            onCancelled: {
+                popup.close()
+            }
         }
 
         onClosed: {
