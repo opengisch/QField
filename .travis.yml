@@ -23,7 +23,9 @@ script:
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
+  - echo "travis_fold:start:tx-pull"
   - ./scripts/ci/pull_translations.sh
+  - echo "travis_fold:end:tx-pull"
   - docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e "ARCH=${ARCH}" -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" -e "VERSION=${TRAVIS_TAG}" opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
   - ./scripts/upload-artifacts.sh
 
