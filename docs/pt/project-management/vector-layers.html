@@ -25,18 +25,18 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
     <link rel="next" title="Guia do Utilizador do QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Project selection" href="project-selection.html" />
+    <link rel="prev" title="Seleção de projeto" href="project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
   <body role="document">
@@ -100,7 +100,7 @@
 <li><a class="reference internal" href="#">Definições da Camada de Vetor</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
 <li><a class="reference internal" href="#display-expression">Exibir Expressão</a></li>
-<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Camadas apenas de leitura, não editáveis e pesquisáveis</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir Formulário de Elemento</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de Campo</a></li>
@@ -137,7 +137,7 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
+    <a href="project-selection.html" title="Previous Chapter: Seleção de projeto"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Seleção de projeto</span>
     </a>
   </li>
   <li>
@@ -174,13 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Pesquisa nas camadas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas do Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projecto Portátil</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Seleção de projeto</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
@@ -207,7 +207,7 @@
 <div class="section" id="display-expression">
 <h2>Exibir Expressão<a class="headerlink" href="#display-expression" title="Link permanente para este título">¶</a></h2>
 <p>No QField, os objectos são identificados com um nome. A expressão para gerar esse nome pode ser definida abrindo a tabela de atributos no QGIS e alterando para a visualização de formulário. Escolha o campo apropriado ou uma expressão da lista. A partir do QGIS 3, isso pode ser feito directamente da página: menuselection: <a href="#id1"><span class="problematic" id="id2">`</span></a>Propriedades da Camada do Vector -&gt; Mostrar».</p>
-<p>The display expression is also used to search in layers.</p>
+<p>A expressão de visualização também é usada para pesquisa nas camadas.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
@@ -216,17 +216,15 @@
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
-<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Link permanente para este título">¶</a></h2>
+<h2>Camadas apenas de leitura, não editáveis e pesquisáveis<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Link permanente para este título">¶</a></h2>
 <p>Algumas camadas no projecto são apenas para um propósito visual. Essas camadas não aparecerão quando se procurar identificar objectos.</p>
 <p>Outras camadas podem servir como fontes de informação e não devem ser modificadas pelo utilizador. É possível proteger as camadas do projecto da edição de atributos ou adicionar e apagar elementos.</p>
-<p>It is also possible to configure which layers are searchable.</p>
-<p>To configure identify, readonly and searchable behavior,
-go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<p>Também é possível configurar que camadas são pesquisáveis.</p>
+<p>Para configurar o comportamento de identificar, ler e pesquisar, vá para a página <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> e active as caixas de opções para corresponder ao comportamento desejado.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
+<p class="caption"><span class="caption-text">Configuração das camadas que não serão identificáveis, não modificáveis e / ou não pesquisáveis.</span></p>
 </div>
 </div>
 </div>

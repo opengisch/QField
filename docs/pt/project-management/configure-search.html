@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Search in layers &mdash; Documentação QField Documentation 1.0 - M...</title>
+    <title>Pesquisa nas camadas &mdash; Documentação QField Documentation 1.0 - M...</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,10 +25,6 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
     <link rel="up" title="QField - Gestão do Projeto" href="index.html" />
@@ -38,6 +34,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
   <body role="document">
@@ -98,8 +98,8 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Search in layers</a><ul>
-<li><a class="reference internal" href="#configure-search-in-qgis">Configure search in QGIS</a></li>
+<li><a class="reference internal" href="#">Pesquisa nas camadas</a><ul>
+<li><a class="reference internal" href="#configure-search-in-qgis">Configurar a pesquisa no QGIS</a></li>
 </ul>
 </li>
 </ul>
@@ -148,13 +148,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Search in layers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Pesquisa nas camadas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas do Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projecto Portátil</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Seleção de projeto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
@@ -172,15 +172,15 @@
     <div class="col-md-9 content">
       
   <div class="section" id="search-in-layers">
-<span id="configure-search"></span><h1>Search in layers<a class="headerlink" href="#search-in-layers" title="Link permanente para este título">¶</a></h1>
-<p>You can search for features in vector layers.
-The search is currently performing the same as the <em>all layers locator filter</em> in QGIS
-(accessible in QGIS locator bar using <em>af</em> prefix).</p>
+<span id="configure-search"></span><h1>Pesquisa nas camadas<a class="headerlink" href="#search-in-layers" title="Link permanente para este título">¶</a></h1>
+<p>Você pode pesquisar por elementos em camadas vectoriais. A pesquisa está actualmente a efectuar o mesmo que <em>all layers locator filter</em> no QGIS (acessível na barra locator do QGIS usando o prefixo <em>af</em>).</p>
 <div class="section" id="configure-search-in-qgis">
-<h2>Configure search in QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Link permanente para este título">¶</a></h2>
+<h2>Configurar a pesquisa no QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Link permanente para este título">¶</a></h2>
 <ol class="arabic simple">
-<li>Choose the layers which are searchable in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></li>
-<li>Define the <em>display expression</em> for the concerned layers, this will be used for searching for features. This is configured under <span class="menuselection">Vector Layer Properties ‣ Display</span> page</li>
+<li><p class="first">Escolher as camadas que são pesquisáveis em <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></p>
+</li>
+<li><p class="first">Definir a <em>display expression</em> para as camadas envolvidas, isto será usado para pesquisar elementos. Isto está configurado em <span class="menuselection">Vector Layer Properties ‣ Display</span> page</p>
+</li>
 </ol>
 </div>
 </div>
