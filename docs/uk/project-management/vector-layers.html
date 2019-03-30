@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
     <link rel="next" title="Посібник користувача QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Project selection" href="project-selection.html" />
+    <link rel="prev" title="Вибір проекції" href="project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -100,7 +100,7 @@
 <li><a class="reference internal" href="#">Налаштування векторних шарів</a><ul>
 <li><a class="reference internal" href="#style">Стилі</a></li>
 <li><a class="reference internal" href="#display-expression">Вираз для відображення</a></li>
-<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Шари лише для читання, не для визначення та пошуку</a></li>
 <li><a class="reference internal" href="#forms-and-fields">Форми та поля</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Не показувати форму</a></li>
 <li><a class="reference internal" href="#field-widget">Віджет поля</a></li>
@@ -111,7 +111,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Типові значення</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
+<li><a class="reference internal" href="#additional-variables">Додаткові змінні</a></li>
 <li><a class="reference internal" href="#id1">Приклади використання</a></li>
 </ul>
 </li>
@@ -125,7 +125,7 @@
 <li><a class="reference internal" href="#snapping-tolerance">Поріг приклеювання</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">3D Координати</a></li>
 </ul>
 </li>
 </ul>
@@ -137,7 +137,7 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
+    <a href="project-selection.html" title="Previous Chapter: Вибір проекції"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Вибір проекції</span>
     </a>
   </li>
   <li>
@@ -180,7 +180,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Управління проектами QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Настройка тем мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Вибір проекції</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
@@ -216,17 +216,15 @@
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
-<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Шари лише для читання, не для визначення та пошуку<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Деякі шари в проекті мають лише візуальну функцію. Такі шари не повинні потрапляти у список коли користувач виконує ідентифікацію об&#8217;єктів.</p>
 <p>Інші шари слугують джерелом інформації та не повинні змінюватися користувачем. Ми передбачили можливість захисту шарів від редагування атрибутів або створення чи видалення нових об&#8217;єктів.</p>
-<p>It is also possible to configure which layers are searchable.</p>
-<p>To configure identify, readonly and searchable behavior,
-go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<p>Також можна визначити які шари будуть доступні для пошуку.</p>
+<p>Для налаштування властивостей визначення, читання та пошуку перейдіть до сторінки <span class="menuselection">Проект ‣ Властивості проекту ‣ Визначення шарів</span> та активуйте відповідні прапорці.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
+<p class="caption"><span class="caption-text">Налаштування шарів, які не будуть ідентифікуватись, не змінюватимуться та/чи не шукатимуться.</span></p>
 </div>
 </div>
 </div>
@@ -350,30 +348,30 @@ page and activate the checkboxes to match your desired behavior.</p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h4>Additional variables<a class="headerlink" href="#additional-variables" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h4>Додаткові змінні<a class="headerlink" href="#additional-variables" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>У QField доступні додаткові змінні, які стосуються інформації про поточне місцерозташування.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><p class="first"><cite>position_coordinate</cite> (Geometry in WGS84!) : Довгота, широта, висота отримані від сенсора. Доступні також коли перехрестя на карті не прив&#8217;язане до сенсора.</p>
+</li>
+<li><p class="first"><cite>position_timestamp</cite> (DateTime) : Час отримання інформації про місцезнаходження</p>
+</li>
+<li><p class="first"><cite>position_direction</cite> (float) : Напрям у градусах від істинної півночі.</p>
+</li>
+<li><p class="first"><cite>position_ground_speed</cite> (float) : Швидкість у метрах за секунду.</p>
+</li>
+<li><p class="first"><cite>position_magnetic_variation</cite> (float) : Кут між горизонтальною компонентою магнітного поля та істинною північчю у градусах. Також відомий як магнітне відхилення. Додатнє значення вказує на напрямок за годинниковою стрілкою від справжньої півночі, а від&#8217;ємне значення вказує напрямок проти годинникової стрілки.</p>
+</li>
+<li><p class="first"><cite>position_horizontal_accuracy</cite> (float) : Горизонтальна точність для координат (у метрах).</p>
+</li>
+<li><p class="first"><cite>position_vertical_accuracy</cite> (float) : Вертикальна точність для координат (у метрах).</p>
+</li>
+<li><p class="first"><cite>position_vertical_speed</cite> (float) : Значення вертикальної швидкості у метрах на секунду.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id1">
 <h4>Приклади використання<a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Insert positioning information as variable:</p>
+<p>Введіть інформацію позиціонування як змінну:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
@@ -431,9 +429,8 @@ per second.</li>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<h2>3D Координати<a class="headerlink" href="#d-coordinates" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Пристрої GPS можуть вимірювати висоту над рівнем моря поруч із 2D місцезнаходженням на земній поверхні. Цю інформацію можна зберігати</p>
 </div>
 </div>
 

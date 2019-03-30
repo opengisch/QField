@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Project selection &mdash; QField Documentation 1.0 - M... documentation</title>
+    <title>Вибір проекції &mdash; QField Documentation 1.0 - M... documentation</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -97,11 +97,11 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Project selection</a><ul>
-<li><a class="reference internal" href="#favorite-directories">Favorite directories</a></li>
+<li><a class="reference internal" href="#">Вибір проекції</a><ul>
+<li><a class="reference internal" href="#favorite-directories">Обрані теки</a></li>
 <li><a class="reference internal" href="#external-sd-card">Зовнішня SD карта</a></li>
-<li><a class="reference internal" href="#warning">Warning!</a></li>
-<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">How to turn external SD card into internal storage</a></li>
+<li><a class="reference internal" href="#warning">Увага!</a></li>
+<li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">Як перетворити зовнішню картку SD у внутрішнє сховище</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +156,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Управління проектами QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Настройка тем мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Вибір проекції</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
@@ -174,45 +174,51 @@
     <div class="col-md-9 content">
       
   <div class="section" id="project-selection">
-<h1>Project selection<a class="headerlink" href="#project-selection" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>QField opens QGIS projects in the &#8221;.qgs&#8221; format. Currently it is not possible to open &#8221;.qgz&#8221; files.</p>
-<p>QField uses a customized file selector to open the projects. On choosing &#8220;Open project&#8221; from the QField menu, the file selector will be opened showing the following locations:</p>
+<h1>Вибір проекції<a class="headerlink" href="#project-selection" title="Постійне посилання на цей заголовок">¶</a></h1>
+<p>QField відкриває проекти QGIS у форматі &#8221;.qgs&#8221;. На жаль, файли формату &#8221;.qgz&#8221; поки що відкривати неможливо.</p>
+<p>QField використовує налаштований файловий провідник для відкриття проектів. Вибравши &#8220;Відкрити проект&#8221; із меню QField, файловий провідник відображатиме наступне:</p>
 <ul class="simple">
-<li>The primary media/shared storage directory.</li>
-<li>The application-specific directories on all shared/external storage devices where the application can place persistent files it owns if they are not already included in the primary storage directory.</li>
+<li><p class="first">Основну теку для збереження файлів.</p>
+</li>
+<li><p class="first">Теки, які залежать від інших додатків, на усіх пристроях збереження даних за умов, якщо додаток може розміщувати у них файли та якщо вони не відображені у основній теці збереження файлів.</p>
+</li>
 </ul>
-<p>Inside these directories, only subdirectories and files with the &#8221;.qgs&#8221; extension are shown.</p>
-<p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
+<p>Всередині цих тек відображатимуться лише підтеки та файли із розширенням &#8221;.qgs&#8221;.</p>
+<p>Для QField потрібно, аби файл проекту знаходився на пристрої. Тому, з додатками, які забезпечують доступ до віддалених файлів (наприклад, Google Drive, працювати неможливо. Проте, Ви можете використовувати такі додатки, як  <a class="reference external" href="https://syncthing.net/">syncthing</a> чи <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (чи dropbox та інші), котрі дозволяють синхронізувати віддалений файл на Ваш пристрій.</p>
 <div class="section" id="favorite-directories">
-<h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
+<h2>Обрані теки<a class="headerlink" href="#favorite-directories" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>На першому екрані файлового провідника є частина, що відображає обрані теки. Для того, щоб додати теку до обраних, довгим натиском виберіть бажану теку із списку файлового провідника. Щоб видалити із обраних, довгим натиском виберіть теку із списку обраних.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Зовнішня SD карта<a class="headerlink" href="#external-sd-card" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>The file selector shows the root of the SD card labeled as &#8220;read-only&#8221; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>Файловий провідник відображає певний вміст картки SD як &#8220;лише для читання&#8221;. Тека додатку відокремлена від решти вмісту картки SD, тому що це єдина тека, до якої додаток може записувати дані. Ця тека:</p>
 <div class="admonition note">
 <p class="first admonition-title">Примітка</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h2>Warning!<a class="headerlink" href="#warning" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>By storing data in this folder, you risk losing data.
-The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
+<h2>Увага!<a class="headerlink" href="#warning" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Зберігаючи дані у цій теці Ви ризикуєте їх втратити. Тека додатку (<cite>/Android/data/ch.opengis.qfield/</cite>) буде видалена системою, коли Ви деінсталюєте QField з пристрою. Пам&#8217;ятайте про це, якщо зберігаєте Ваші дані на зовнішній картці SD.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
-<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped).</strong></p>
+<h2>Як перетворити зовнішню картку SD у внутрішнє сховище<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Починаючи з версії Android 6.0 Ви можете використовувати Вашу картку SD як внутрішнє сховище даних пристрою. Це називається Гнучке Зберігання і дозволяє ОС Android форматувати зовнішній накопичувач як постійне внутрішнє сховище. Інформацію на такому зовнішньому носію даних буде зашифровано і його неможливо буде використовувати на іншому пристрої.</p>
+<p><strong>Будь ласка, запевніться, що Ви починаєте із порожньою карткою SD. Це необхідно, щоб уникнути будь-якої втрати даних, оскільки в процесі Ваша картка буде відформатована (очищена).</strong></p>
 <ol class="arabic simple">
-<li>Go to device “Settings”, then select “Storage”.</li>
-<li>Select your &#8220;SD Card&#8221;, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
-<li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
-<li>Your SD Card will now be formatted as internal storage.</li>
-<li>Reboot your phone.</li>
+<li><p class="first">Перейдіть налаштування Вашого телефону й виберіть &#8220;Зберігання даних&#8221;.</p>
+</li>
+<li><p class="first">Виберіть Вашу картку SD, натисніть на три крапки (у верхньому правому кутку) і виберіть &#8220;Налаштування&#8221;.</p>
+</li>
+<li><p class="first">Виберіть &#8220;Форматувати як внутр.сховище&#8221;, потім &#8220;Очистити та Форматувати&#8221;.</p>
+</li>
+<li><p class="first">Ваша картка SD буде зараз відформатована як внутрішнє сховище.</p>
+</li>
+<li><p class="first">Перезавантажте телефон.</p>
+</li>
 </ol>
-<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
-<p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
+<p>Якщо Ви не перезавантажите телефон, чимало функцій можуть працювати неналежним чином.</p>
+<p>Можливо, Гнучке Зберігання недоступне на Вашому пристрої навіть якщо на ньому версія Android 6.0 чи вище. Виробник пристрою міг обмежити функціонал Гнучкого Зберігання. Проте, все ще існують методи обійти обмеження із використанням командного рядку.</p>
 </div>
 </div>
 
