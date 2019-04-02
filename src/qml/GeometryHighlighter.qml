@@ -15,6 +15,7 @@ Item {
 
   GeometryRenderer {
     id: geometryRenderer
+    mapSettings: mapCanvas.mapSettings
   }
 
   Timer {
