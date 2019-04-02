@@ -21,6 +21,7 @@
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsexpressioncontextutils.h>
+#include <qgsrelationmanager.h>
 
 #include "multifeaturelistmodel.h"
 
@@ -203,6 +204,26 @@ int MultiFeatureListModel::count() const
 
 void MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
 {
+  //SHOULD THIS BE DONE IN QGIS INSTEAD?
+  //delete child features in case of compositions
+  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
+  for ( const QgsRelation &referencingRelation : referencingRelations )
+  {
+    if ( referencingRelation.strength() == QgsRelation::Composition )
+    {
+      QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
+      childLayer->startEditing();
+      QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( layer->getFeature( fid ) );
+      QgsFeature childFeature;
+      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      {
+        childLayer->deleteFeature( childFeature.id() );
+      }
+      childLayer->commitChanges();
+    }
+  }
+
+  //delete parent
   layer->startEditing();
   layer->deleteFeature( fid );
   layer->commitChanges();
