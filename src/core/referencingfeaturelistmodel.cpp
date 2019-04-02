@@ -154,7 +154,7 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
   const auto fieldPairs = mRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
-    if ( mFeature.attribute( fieldPair.second ).isNull() || mFeature.attribute( fieldPair.second ).toInt() == 0 )
+    if ( mFeature.attribute( fieldPair.second ).isNull() )
       return false;
   }
   return true;
