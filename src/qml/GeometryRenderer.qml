@@ -5,13 +5,13 @@ import org.qfield 1.0
 
 Item {
   id: geometryRenderer
+  property MapSettings mapSettings
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 8 * dp
   property color color: "yellow"
   property double pointSize: 20 * dp
   property color borderColor: "blue"
   property double borderSize: 2 * dp
-  property MapSettings mapSettings: mapCanvas.mapSettings
 
   QgsGeometryWrapper {
     id: geometryWrapper
@@ -87,6 +87,8 @@ Item {
   Loader {
     id: geometryComponent
     // the sourceComponent is updated with the connection on wrapper qgsGeometryChanged signal
+    // but it needs to be ready on first used
+    sourceComponent: geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry ? pointHighlight : linePolygonHighlight
   }
 
 }
