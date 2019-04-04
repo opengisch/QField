@@ -349,13 +349,19 @@ Page {
   function buffer(){
       aboutToSave() //used the same way like on save
 
-      if ( form.state === 'Add' && !buffered ) {
-        model.create()
-        buffered = true
+      if ( form.state === 'Add' ) {
+        if( !buffered )
+        {
+          model.create()
+          buffered = true
+        }
+        else
+        {
+          model.save()
+        }
       }
-      else
-      {
-        model.save()
+      else{
+        //not implemented in edit mode
       }
 
       //evtl. buffered()

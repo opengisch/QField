@@ -323,11 +323,19 @@ void FeatureModel::create()
     return;
 
   startEditing();
-  if ( !mLayer->addFeature( mFeature ) )
+  if ( !mLayer->dataProvider()->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
-  commit();
+
+  if ( commit() )
+  {
+    QgsFeature feat;
+    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      setFeature( feat );
+    else
+      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  }
 }
 
 bool FeatureModel::commit()

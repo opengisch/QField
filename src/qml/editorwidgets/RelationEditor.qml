@@ -89,7 +89,7 @@ Rectangle{
                   embeddedFeatureForm.state = "Add"
                   embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
                   embeddedFeatureForm.active = true
-                }
+              }
             }
           }
       }

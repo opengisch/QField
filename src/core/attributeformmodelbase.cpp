@@ -207,8 +207,8 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
   for ( const QgsRelation &referencingRelation : referencingRelations )
   {
-      QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelation, root );
-      root->addChildElement( relation );
+    QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelation, root );
+    root->addChildElement( relation );
   }
   return root;
 }
@@ -220,13 +220,13 @@ QgsAttributeEditorContainer *AttributeFormModelBase::invisibleRootContainer() co
 
 void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 {
-  if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral("field") )
+  if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "field" ) )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
     //set item visibility to false in case it's a linked attribute
-    item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ) , FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
+    //item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
   else
   {
