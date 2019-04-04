@@ -52,7 +52,7 @@ Rectangle{
           Text {
               visible: !readOnly
               color: "grey"
-              text: !readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
+              text: !readOnly ? qsTr( "Add child feature:" ) : "" //!readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -69,7 +69,7 @@ Rectangle{
                 width: parent.height
                 height: parent.height
                 visible: !readOnly
-                enabled: !readOnly && relationEditorModel.parentPrimariesAvailable
+                enabled: !readOnly // !readOnly && relationEditorModel.parentPrimariesAvailable
 
                 contentItem: Rectangle {
                     anchors.fill: parent
@@ -85,6 +85,7 @@ Rectangle{
                 }
 
                 onClicked: {
+                  bufferFeature()
                   embeddedFeatureForm.state = "Add"
                   embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
                   embeddedFeatureForm.active = true

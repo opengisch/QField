@@ -29,15 +29,22 @@ Page {
 
   states: [
     State {
-      name: "ReadOnly"
+      name: 'ReadOnly'
     },
     State {
-      name: "Edit"
+      name: 'Edit'
     },
     State {
-      name: "Add"
+      name: 'Add'
     }
   ]
+
+  /**
+   * a substate used under 'Add' (not yet under 'Edit' but possibly in future)
+   * in case that the feature needs to be stored "meanwhile"
+   * e.g. on relation editor widget when adding childs to a not yet stored parent
+   */
+  property bool buffered: false
 
   /**
    * This is a relay to forward private signals to internal components.
@@ -237,11 +244,13 @@ Page {
         Loader {
           id: attributeEditorLoader
 
+          signal bufferFeature
+
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: (form.state !== "ReadOnly" || EditorWidget === 'RelationEditor') && !!AttributeEditable
-          property bool readOnly: form.state === "ReadOnly" || embedded && EditorWidget === 'RelationEditor'
+          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor') && !!AttributeEditable
+          property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
@@ -261,6 +270,10 @@ Page {
               console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
               source = 'editorwidgets/TextEdit.qml'
             }
+          }
+
+          onBufferFeature: {
+            buffer()
           }
         }
 
@@ -314,9 +327,9 @@ Page {
     parent.focus = true
     aboutToSave()
 
-    if ( form.state === "Add" ) {
+    if ( form.state === 'Add' && !buffered ) {
       model.create()
-      state = "Edit"
+      state = 'Edit'
     }
     else
     {
@@ -324,6 +337,21 @@ Page {
     }
 
     saved()
+  }
+
+  function buffer(){
+      aboutToSave() //used the same way like on save
+
+      if ( form.state === 'Add' && !buffered ) {
+        //model.create()
+        buffered = true
+      }
+      else
+      {
+      //  model.save()
+      }
+
+      //evtl. buffered()
   }
 
   Connections {
@@ -346,7 +374,8 @@ Page {
     }
 
     background: Rectangle {
-      color: model.constraintsValid ?  form.state === 'Add' ? "blue" : "#80CC28" : "orange"
+      //testwise have special color for buffered
+      color: model.constraintsValid ?  form.state === 'Add' ? form.buffered ? "hotpink" : "blue" : "#80CC28" : "orange"
     }
 
     RowLayout {
