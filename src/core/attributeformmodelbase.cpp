@@ -226,7 +226,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
     //set item visibility to false in case it's a linked attribute
-    //item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
+    item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
   else
   {
