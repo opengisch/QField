@@ -19,9 +19,11 @@
 #include "expressioncontextutils.h"
 #include "vertexmodel.h"
 
+#include <qgsproject.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <QGeoPositionInfoSource>
+#include <qgsrelationmanager.h>
 
 
 FeatureModel::FeatureModel( QObject *parent )
@@ -336,6 +338,33 @@ void FeatureModel::create()
     else
       QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   }
+}
+
+void FeatureModel::deleteFeature()
+{
+  startEditing();
+
+  //delete child features in case of compositions
+  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( const QgsRelation &referencingRelation : referencingRelations )
+  {
+    if ( referencingRelation.strength() == QgsRelation::Composition )
+    {
+      QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
+      childLayer->startEditing();
+      QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
+      QgsFeature childFeature;
+      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      {
+        childLayer->deleteFeature( childFeature.id() );
+      }
+      childLayer->commitChanges();
+    }
+  }
+
+  //delete parent
+  mLayer->deleteFeature( mFeature.id() );
+  commit();
 }
 
 bool FeatureModel::commit()

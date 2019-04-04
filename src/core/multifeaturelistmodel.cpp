@@ -204,7 +204,6 @@ int MultiFeatureListModel::count() const
 
 void MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
 {
-  //SHOULD THIS BE DONE IN QGIS INSTEAD?
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
   for ( const QgsRelation &referencingRelation : referencingRelations )

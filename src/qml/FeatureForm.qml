@@ -320,7 +320,7 @@ Page {
     //if this is for some reason not handled before (like when tiping on a map while editing)
     if( !model.constraintsValid ) {
         displayToast( "Constraints not valid - cancel editing" )
-        cancelled()
+        cancel()
         return
     }
 
@@ -346,7 +346,7 @@ Page {
     saved()
   }
 
-  function buffer(){
+  function buffer() {
       aboutToSave() //used the same way like on save
 
       if ( form.state === 'Add' ) {
@@ -361,10 +361,17 @@ Page {
         }
       }
       else{
-        //not implemented in edit mode
+        model.save()
       }
 
       //evtl. buffered()
+  }
+
+  function cancel() {
+    if( buffered )
+      model.deleteFeature()
+    buffered = false
+    cancelled()
   }
 
   Connections {
@@ -456,7 +463,7 @@ Page {
 
         onClicked: {
           Qt.inputMethod.hide()
-          cancelled()
+          cancel()
         }
       }
     }

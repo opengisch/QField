@@ -58,7 +58,6 @@ Drawer {
       displayToast( qsTr( "Changes discarded" ) )
       overlayFeatureForm.isSaved=true //because never changed
       overlayFeatureFormDrawer.close()
-      buffered = false
     }
 
     Keys.onReleased: {

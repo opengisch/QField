@@ -50,6 +50,8 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void create();
 
+    void deleteFeature();
+
     bool constraintsValid() const;
 
     QVariant attribute( const QString &name );

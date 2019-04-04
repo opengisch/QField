@@ -65,6 +65,7 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void save();
     Q_INVOKABLE void create();
+    Q_INVOKABLE void deleteFeature();
     Q_INVOKABLE QVariant attribute( const QString &name );
 
   signals:
