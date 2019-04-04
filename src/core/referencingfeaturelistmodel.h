@@ -57,9 +57,15 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void setRelation( const QgsRelation &relation );
     QgsRelation relation() const;
 
+    /*
+     * used for nm relations
+     */
     void setAssociatedRelation( const QgsRelation &relation );
     QgsRelation associatedRelation() const;
 
+    /*
+     * obsolete but I keep it for the moment just in case
+     */
     void setParentPrimariesAvailable( const bool parentPrimariesAvailable );
     bool parentPrimariesAvailable() const;
 
