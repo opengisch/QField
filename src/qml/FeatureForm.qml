@@ -329,16 +329,20 @@ Page {
 
     if ( form.state === 'Add' ) {
       if( !buffered )
+      {
         model.create()
+      }
       else
+      {
         model.save()
+        buffered = false
+      }
       state = 'Edit'
     }
     else
     {
       model.save()
     }
-
     saved()
   }
 
