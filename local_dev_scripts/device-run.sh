@@ -2,5 +2,8 @@
 
 echo "logcat"
 adb logcat -c
+adb shell am force-stop ch.opengis.qfield 
 adb shell am start -n ch.opengis.qfield/ch.opengis.qfield.QFieldActivity
-adb logcat | grep "QField Project"
+sleep 3
+adb logcat --pid=$(adb shell pidof -s ch.opengis.qfield)
+
