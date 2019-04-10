@@ -97,21 +97,27 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
   if ( !checkCameraPermissions() )
     return nullptr;
 
-  QAndroidJniObject actionImageCapture = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore", "ACTION_IMAGE_CAPTURE", "Ljava/lang/String;" );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldCameraActivity" ) );
+  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
-  QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", actionImageCapture.object<jstring>() );
+  QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldCameraActivity" ) );  
 
+  intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
+
+  QAndroidJniObject extra = QAndroidJniObject::fromString( "prefix" );
+  QAndroidJniObject my_prefix = QAndroidJniObject::fromString( prefix );
+
+  intent.callObjectMethod("putExtra",
+                          "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                          extra.object<jstring>(),
+                          my_prefix.object<jstring>());
+
+  // FIXME: remove this old part
   AndroidPictureSource *pictureSource = nullptr;
+  pictureSource = new AndroidPictureSource( prefix );
 
-  if ( actionImageCapture.isValid() && intent.isValid() )
-  {
-    pictureSource = new AndroidPictureSource( prefix );
-    QtAndroid::startActivity( intent.object<jobject>(), 101, pictureSource );
-  }
-  else
-  {
-    qDebug() << "Something went wrong creating the picture request";
-  }
+  QtAndroid::startActivity( intent.object<jobject>(), 171);
 
   return pictureSource;
 }
