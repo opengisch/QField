@@ -180,7 +180,10 @@ Item {
             text: qsTr( "Today" )
             Layout.fillWidth: true
 
-            onClicked: main.currentValue = new Date()
+            onClicked: {
+              anchors.fill: parent
+              main.currentValue = new Date()
+            }
           }
 
 
