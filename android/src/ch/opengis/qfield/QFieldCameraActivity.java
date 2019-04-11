@@ -12,31 +12,15 @@ import java.util.Date;
 import android.os.Bundle;
 import android.os.Environment;
 import android.net.Uri;
-import android.app.Dialog;
-import android.app.AlertDialog;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.content.Context;
 import android.content.Intent;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.ImageView;
-import android.widget.Button;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.LayoutInflater;
 import android.util.Log;
-import android.graphics.drawable.ColorDrawable;
 import android.provider.MediaStore;
 import android.graphics.Bitmap;
 import android.support.v4.content.FileProvider;
 
 public class QFieldCameraActivity extends Activity{
     private static final String TAG = "QField Camera Activity";
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
     private String prefix;
     private File cameraFile;
 
@@ -89,8 +73,6 @@ public class QFieldCameraActivity extends Activity{
         Log.d(TAG, "onActivityResult()");
         Log.d(TAG, "resultCode: "+resultCode);
 
-        //TODO: manage result code different from ok? or not needed?
-        
         if (requestCode == 172) {
             if (resultCode == RESULT_OK) {
 
