@@ -46,7 +46,7 @@ public class QFieldCameraActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         prefix = getIntent().getExtras().getString("prefix");
-        Log.d(TAG, "prefix: "+prefix);
+        Log.d(TAG, "Received prefix: "+prefix);
         
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -77,33 +77,41 @@ public class QFieldCameraActivity extends Activity{
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         
-        cameraFile = File.createTempFile(imageFileName,  /* prefix */
-                                         ".jpg",         /* suffix */
-                                         getCacheDir()      /* directory */
-                                         );
+        cameraFile = File.createTempFile(imageFileName,
+                                         ".jpg",
+                                         getCacheDir());
 
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = cameraFile.getAbsolutePath();
-        Log.d(TAG, "currentPhotoPath: "+currentPhotoPath);
         return cameraFile;
     }
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult()");
-        Log.d(TAG, "request: "+requestCode);
         Log.d(TAG, "resultCode: "+resultCode);
-        if (requestCode == 172) {  // && resultCode == RESULT_OK) {
 
-            Log.d(TAG, "tmp exists: "+cameraFile.exists());
-            Log.d(TAG, "tmp path: "+cameraFile.getAbsolutePath());
-            try{
-                copyFile(cameraFile, new File(prefix, cameraFile.getName()));
-            }catch(IOException e){
+        //TODO: manage result code different from ok? or not needed?
+        
+        if (requestCode == 172) {
+            if (resultCode == RESULT_OK) {
+
+                Log.d(TAG, "Taken picture: "+cameraFile.getAbsolutePath());
+
+                File result = new File(prefix, cameraFile.getName());
+                try{
+                    copyFile(cameraFile, result);
+                }catch(IOException e){
+                }
+            
+                Intent intent = this.getIntent();
+                intent.putExtra("CAMERA_IMAGE_FILENAME", result.getName());
+                setResult(Activity.RESULT_OK, intent);
+
+            } else {
+                Intent intent = this.getIntent();
+                intent.putExtra("CAMERA_IMAGE_FILENAME", "");
+                setResult(Activity.RESULT_CANCELED, intent);
             }
-            
-            // TODO: after copy, verify if is correctly copied and then remove the old one
-            
+            finish();
         }
     }
 

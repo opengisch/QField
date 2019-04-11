@@ -106,18 +106,17 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 
   QAndroidJniObject extra = QAndroidJniObject::fromString( "prefix" );
-  QAndroidJniObject my_prefix = QAndroidJniObject::fromString( prefix );
+  QAndroidJniObject jni_prefix = QAndroidJniObject::fromString( prefix );
 
   intent.callObjectMethod("putExtra",
                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
                           extra.object<jstring>(),
-                          my_prefix.object<jstring>());
+                          jni_prefix.object<jstring>());
 
-  // FIXME: remove this old part
   AndroidPictureSource *pictureSource = nullptr;
   pictureSource = new AndroidPictureSource( prefix );
 
-  QtAndroid::startActivity( intent.object<jobject>(), 171);
+  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource);
 
   return pictureSource;
 }
