@@ -22,7 +22,6 @@ import android.support.v4.content.FileProvider;
 public class QFieldPictureActivity extends Activity{
     private static final String TAG = "QField Camera Activity";
     private String prefix;
-    //private File pictureFile;
     private String pictureFileName;
 
     @Override
@@ -68,7 +67,7 @@ public class QFieldPictureActivity extends Activity{
     private void callGalleryIntent() {
         Log.d(TAG, "callGalleryIntent()");
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType("image/jpeg");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 173);
     }
@@ -88,14 +87,14 @@ public class QFieldPictureActivity extends Activity{
                 try{
                     copyFile(pictureFile, result);
                 }catch(IOException e){
-                    // TODO: exception
+                    Log.d(TAG, e.getMessage());
                 }
             }else if (requestCode == 173) {
                 Log.d(TAG, "Selected picture: " + data.getData().toString());
                 try{
                     copyUriContentToFile(data.getData(), result);
                 }catch(IOException e){
-                    // TODO: exception
+                    Log.d(TAG, e.getMessage());
                 }
             }
             Intent intent = this.getIntent();
@@ -120,6 +119,7 @@ public class QFieldPictureActivity extends Activity{
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
+                out.close();
             }
         }
     }
@@ -135,6 +135,7 @@ public class QFieldPictureActivity extends Activity{
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
+                out.close();
             }
         }
 
