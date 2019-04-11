@@ -38,13 +38,13 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
     if ( resultCode == RESULT_OK ) {
       QAndroidJniObject extras = data.callObjectMethod("getExtras", "()Landroid/os/Bundle;");
 
-      QAndroidJniObject camera_image_filename = QAndroidJniObject::fromString("CAMERA_IMAGE_FILENAME");
-      camera_image_filename = extras.callObjectMethod("getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                                                      camera_image_filename.object<jstring>());
+      QAndroidJniObject picture_image_filename = QAndroidJniObject::fromString("PICTURE_IMAGE_FILENAME");
+      picture_image_filename = extras.callObjectMethod("getString", "(Ljava/lang/String;)Ljava/lang/String;",
+                                                       picture_image_filename.object<jstring>());
 
-      qDebug() << "camera_image_filename: " << camera_image_filename.toString();
+      qDebug() << "picture_image_filename: " << picture_image_filename.toString();
 
-      emit pictureReceived( camera_image_filename.toString() );
+      emit pictureReceived( picture_image_filename.toString() );
     }
     else {
       emit pictureReceived( QString::null );

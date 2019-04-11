@@ -97,21 +97,29 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
   if ( !checkCameraPermissions() )
     return nullptr;
 
-  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldCameraActivity" ) );
+  QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldPictureActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldCameraActivity" ) );  
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldPictureActivity" ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 
-  QAndroidJniObject extra = QAndroidJniObject::fromString( "prefix" );
-  QAndroidJniObject jni_prefix = QAndroidJniObject::fromString( prefix );
+  QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
+  QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
 
   intent.callObjectMethod("putExtra",
                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                          extra.object<jstring>(),
-                          jni_prefix.object<jstring>());
+                          prefix_label.object<jstring>(),
+                          prefix_value.object<jstring>());
+
+  QAndroidJniObject source_label = QAndroidJniObject::fromString( "source" );
+  QAndroidJniObject source_value = QAndroidJniObject::fromString( "CAMERA" ); // or GALLERY
+
+  intent.callObjectMethod("putExtra",
+                          "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                          source_label.object<jstring>(),
+                          source_value.object<jstring>());
 
   AndroidPictureSource *pictureSource = nullptr;
   pictureSource = new AndroidPictureSource( prefix );

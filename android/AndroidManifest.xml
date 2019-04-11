@@ -81,8 +81,8 @@
     <!-- Activity "Rate this app" -->
     <activity android:name="ch.opengis.qfield.QFieldAppRaterActivity" />
 
-    <!-- Activity Android native camera -->
-    <activity android:name="ch.opengis.qfield.QFieldCameraActivity" />
+    <!-- Activity to get picture from gallery or with the native camera -->
+    <activity android:name="ch.opengis.qfield.QFieldPictureActivity" />
 
     <provider
         android:name="android.support.v4.content.FileProvider"
