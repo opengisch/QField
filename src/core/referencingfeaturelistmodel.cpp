@@ -117,20 +117,25 @@ bool ReferencingFeatureListModel::parentPrimariesAvailable() const
 
 void ReferencingFeatureListModel::reload()
 {
-  if ( !mRelation.isValid() || !mFeature.isValid() || !checkParentPrimaries() )
+  if ( !mRelation.isValid() || !mFeature.isValid() )
     return;
 
-  mEntries.clear();
-  QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
-  QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
-  QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
-
   beginResetModel();
-  QgsFeature childFeature;
-  while ( relatedFeaturesIt.nextFeature( childFeature ) )
+
+  mEntries.clear();
+
+  if ( checkParentPrimaries() )
   {
-    context.setFeature( childFeature );
-    mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
+    QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
+    QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
+    QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
+
+    QgsFeature childFeature;
+    while ( relatedFeaturesIt.nextFeature( childFeature ) )
+    {
+      context.setFeature( childFeature );
+      mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
+    }
   }
   endResetModel();
 
