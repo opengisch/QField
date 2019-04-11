@@ -59,8 +59,9 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   return file.rename( newname );
 }
 
-PictureSource *PlatformUtilities::getPicture( const QString &prefix )
+PictureSource *PlatformUtilities::getPicture( const QString &prefix, const QString &source )
 {
+  Q_UNUSED( source )
   Q_UNUSED( prefix )
   return nullptr;
 }

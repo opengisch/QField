@@ -47,7 +47,7 @@ class PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix, const QString &source );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.

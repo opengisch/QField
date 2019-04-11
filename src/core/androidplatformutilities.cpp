@@ -92,7 +92,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
+PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix, const QString &source )
 {
   if ( !checkCameraPermissions() )
     return nullptr;
@@ -114,7 +114,7 @@ PictureSource *AndroidPlatformUtilities::getPicture( const QString &prefix )
                           prefix_value.object<jstring>());
 
   QAndroidJniObject source_label = QAndroidJniObject::fromString( "source" );
-  QAndroidJniObject source_value = QAndroidJniObject::fromString( "CAMERA" ); // or GALLERY
+  QAndroidJniObject source_value = QAndroidJniObject::fromString( source ); // CAMERA or GALLERY
 
   intent.callObjectMethod("putExtra",
                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
