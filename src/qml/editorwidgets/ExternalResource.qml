@@ -22,6 +22,7 @@ Item {
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
+    horizontalAlignment: Image.AlignLeft
 
     //source is managed over onCurrentValueChanged since the binding would break somewhere
     source: Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
