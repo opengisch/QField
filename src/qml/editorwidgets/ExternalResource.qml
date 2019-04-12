@@ -82,7 +82,7 @@ Item {
         __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM', 'GALLERY')
     }
 
-    iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
+    iconSource: Style.getThemeIcon("baseline_photo_library_black_24")
   }
 
 
