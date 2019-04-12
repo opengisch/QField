@@ -58,7 +58,7 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-      if ( settings.valueBool("useNativeCamera", false) ) {
+      if ( settings.valueBool("useNativeCamera", true) ) {
         __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM', 'CAMERA')
       } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
