@@ -20,6 +20,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
+import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
@@ -31,8 +32,13 @@ import '.'
 ApplicationWindow {
   id: mainWindow
   visible: true
-  //minimumWidth: 300
-  //minimumHeight: 300
+
+  LabSettings.Settings {
+      property alias x: mainWindow.x
+      property alias y: mainWindow.y
+      property alias width: mainWindow.width
+      property alias height: mainWindow.height
+  }
 
   FocusStack{
       id: focusstack
