@@ -115,9 +115,9 @@ Page {
               // than the parent item and the Flickable is useful
               width: paintedWidth
               text: tabButton.text
-              // color: tabButton.down ? "#17a81a" : "#21be2b"
-              color: !tabButton.enabled ? "#999999" : tabButton.down ||
-                                        tabButton.checked ? "#1B5E20" : "#4CAF50"
+              // color: tabButton.down ? '#17a81a' : '#21be2b'
+              color: !tabButton.enabled ? '999999' : tabButton.down ||
+                                        tabButton.checked ? '#1B5E20' : '#4CAF50'
               font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
@@ -158,14 +158,14 @@ Page {
             id: content
             anchors.fill: parent
             clip: true
-            section.property: "Group"
+            section.property: 'Group'
             section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
             section.delegate: Component {
               // section header: group box name
               Rectangle {
                 width: parent.width
                 height: section === "" ? 0 : 30 * dp
-                color: "lightGray"
+                color: 'lightGray'
 
                 Text {
                   anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
@@ -314,7 +314,7 @@ Page {
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
     if( !model.constraintsValid ) {
-        displayToast( qsTr( "Constraints not valid - cancel editing") )
+        displayToast( qsTr( 'Constraints not valid - cancel editing') )
         cancel()
         return
     }
@@ -343,7 +343,7 @@ Page {
 
   function buffer() {
       if( !model.constraintsValid ) {
-          displayToast( qsTr("Constraints not valid - cannot buffer") )
+          displayToast( qsTr('Constraints not valid - cannot buffer') )
           return false
       }
 
@@ -395,7 +395,7 @@ Page {
 
     background: Rectangle {
       //testwise have special color for buffered
-      color: model.constraintsValid ?  form.state === 'Add' ? "blue" : "#80CC28" : "orange"
+      color: model.constraintsValid ?  form.state === 'Add' ? 'blue' : '#80CC28' : 'orange'
     }
 
     RowLayout {
@@ -413,13 +413,13 @@ Page {
         clip: true
         bgcolor: "#212121"
 
-        iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
+        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
           if( model.constraintsValid ) {
             save()
           } else {
-            displayToast( qsTr("Constraints not valid") )
+            displayToast( qsTr('Constraints not valid') )
           }
         }
       }
@@ -459,7 +459,7 @@ Page {
         clip: true
         bgcolor: "#212121"
 
-        iconSource: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
+        iconSource: form.state === 'Add' ? Style.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Style.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           Qt.inputMethod.hide()

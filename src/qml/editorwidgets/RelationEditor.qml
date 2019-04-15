@@ -14,7 +14,7 @@ Rectangle{
     height: !readOnly ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly
     property int itemHeight: 32 * dp
 
-    border.color: "lightgray"
+    border.color: 'lightgray'
     border.width: 1 * dp
 
     //the model
@@ -47,13 +47,13 @@ Rectangle{
 
       Rectangle{
           anchors.fill: parent
-          color: "lightgrey"
+          color: 'lightgrey'
           visible: !readOnly
 
           Text {
               visible: !readOnly
-              color: "grey"
-              text: !readOnly && !constraintsValid ? qsTr( "Ensure contraints") : ""
+              color: 'grey'
+              text: !readOnly && !constraintsValid ? qsTr( 'Ensure contraints') : ''
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -73,7 +73,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: parent.enabled ? "black" : "grey"
+                    color: parent.enabled ? 'black' : 'grey'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -88,13 +88,13 @@ Rectangle{
                   if( buffer() ) {
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
-                          embeddedFeatureForm.state = "Add"
+                          embeddedFeatureForm.state = 'Add'
                           embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
                           embeddedFeatureForm.active = true
                       }
                       else
                       {
-                          displayToast(qsTr( "Cannot add child. Parent primary keys are not available." ) )
+                          displayToast(qsTr( 'Cannot add child. Parent primary keys are not available.' ) )
                       }
                   }
               }
@@ -119,7 +119,7 @@ Rectangle{
             id: featureText
             anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
             font.bold: true
-            color: readOnly ? "grey" : "black"
+            color: readOnly ? 'grey' : 'black'
             text: { text: model.displayString }
           }
 
@@ -127,9 +127,9 @@ Rectangle{
             anchors.fill: parent
 
             onClicked: {
-                embeddedFeatureForm.state = !readOnly ? "Edit" : "ReadOnly"
-                embeddedFeatureForm.relatedFeature = model.referencingFeature //nm not yet activated: associatedRelationId === "" ? model.referencingFeature : model.associatedReferencedFeature
-                embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer //nm not yet activated: associatedRelationId === "" ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
+                embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
+                embeddedFeatureForm.relatedFeature = model.referencingFeature //nm not yet activated: associatedRelationId === '' ? model.referencingFeature : model.associatedReferencedFeature
+                embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer //nm not yet activated: associatedRelationId === '' ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
                 embeddedFeatureForm.active = true
             }
           }
@@ -148,7 +148,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: "black"
+                    color: 'black'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -171,7 +171,7 @@ Rectangle{
             id: bottomLine
             anchors.bottom: parent.bottom
             height: 1
-            color: "lightGray"
+            color: 'lightGray'
             width: parent.width
           }
         }
@@ -186,12 +186,12 @@ Rectangle{
 
       visible: false
 
-      title: qsTr( "Delete feature %1 on layer %2" ).arg(referencingFeatureId).arg(layerName)
-      text: qsTr( "Should the feature %1 on layer %2").arg(referencingFeatureId).arg( layerName)
+      title: qsTr( 'Delete feature %1 on layer %2' ).arg(referencingFeatureId).arg(layerName)
+      text: qsTr( 'Should the feature %1 on layer %2').arg(referencingFeatureId).arg( layerName)
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )
-        console.log("delete feature "+referencingFeatureId)
+        console.log('delete feature '+referencingFeatureId)
         visible = false
       }
       onRejected: {
@@ -234,7 +234,7 @@ Rectangle{
 
               featureModel: FeatureModel {
                 currentLayer: relatedLayer
-                feature: state != "Add" ? embeddedFeatureForm.relatedFeature : undefined
+                feature: state != 'Add' ? embeddedFeatureForm.relatedFeature : undefined
                 linkedParentFeature: relationEditorModel.feature
                 linkedRelation: relationEditorModel.relation
               }
