@@ -11,8 +11,8 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Rectangle{
-    height: !readOnly ? referencingFeatureListView.height + itemHeight : referencingFeatureListView.height //because no additional addEntry item on readOnly
-    property int itemHeight: 24 * dp
+    height: !readOnly ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly
+    property int itemHeight: 32 * dp
 
     border.color: "lightgray"
     border.width: 1 * dp
@@ -117,7 +117,7 @@ Rectangle{
 
           Text {
             id: featureText
-            anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
+            anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? "grey" : "black"
             text: { text: model.displayString }
@@ -151,7 +151,7 @@ Rectangle{
                     color: "black"
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4 * px
+                      anchors.margins: 4 * dp
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter

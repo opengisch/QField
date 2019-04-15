@@ -239,7 +239,7 @@ Page {
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp  }
 
         Loader {
           id: attributeEditorLoader
