@@ -395,7 +395,7 @@ Page {
 
     background: Rectangle {
       //testwise have special color for buffered
-      color: model.constraintsValid ?  form.state === 'Add' ? form.buffered ? "hotpink" : "blue" : "#80CC28" : "orange"
+      color: model.constraintsValid ?  form.state === 'Add' ? "blue" : "#80CC28" : "orange"
     }
 
     RowLayout {
