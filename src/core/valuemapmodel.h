@@ -1,8 +1,27 @@
+/***************************************************************************
+                            valuemapmodel.h
+
+                              -------------------
+              begin                : March 2019
+              copyright            : (C) 2019 by Matthias Kuhn
+              email                : matthias@opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+
 #ifndef VALUEMAPMODEL_H
 #define VALUEMAPMODEL_H
 
-#include <QVariant>
 #include <QAbstractListModel>
+#include <QVariant>
 
 /**
  * A model that manages the key/value pairs for a ValueMap widget.
@@ -28,13 +47,13 @@ class ValueMapModel : public QAbstractListModel
     enum ValueMapRoles
     {
       KeyRole = Qt::UserRole + 1, //!< obtain the key
-      ValueRole //!< obtain the value
+      ValueRole                   //!< obtain the value
     };
 
     /**
      * Create a new value map model
      */
-    ValueMapModel( QObject *parent  = nullptr );
+    ValueMapModel( QObject *parent = nullptr );
 
     /**
      * The map, see the property description
