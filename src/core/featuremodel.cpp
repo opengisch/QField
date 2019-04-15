@@ -209,7 +209,10 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
       }
       bool success = mFeature.setAttribute( index.row(), val );
       if ( success )
+      {
         emit dataChanged( index, index, QVector<int>() << role );
+        emit featureChanged();
+      }
       return success;
       break;
     }
