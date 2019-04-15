@@ -184,13 +184,14 @@ ApplicationWindow {
       Rubberband {
         id: measuringRubberband
         width: 2 * dp
-        color: 'black'
+        color: '#800000ff'
 
         mapSettings: mapCanvas.mapSettings
 
         model: RubberbandModel {
           frozen: false
           currentCoordinate: coordinateLocator.currentCoordinate
+          geometryType: QgsWkbTypes.PolygonGeometry
           crs: mapCanvas.mapSettings.destinationCrs
         }
 
@@ -492,7 +493,7 @@ ApplicationWindow {
 
       geometry: Geometry {
         id: digitizingGeometry
-        rubberbandModel: stateMachine.state === 'measure' ? measuringRubberband.model : digitizingRubberband.model
+        rubberbandModel: digitizingRubberband.model
         vectorLayer: dashBoard.currentLayer
       }
     }
