@@ -47,12 +47,12 @@ Rectangle{
 
       Rectangle{
           anchors.fill: parent
-          color: "lightgrey"
+          color: constraintsValid ? "lightgrey" : "orange"
 
           Text {
               visible: !readOnly
               color: "grey"
-              text: !readOnly ? qsTr( "Add child feature:" ) : "" //!readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
+              text: !readOnly ? constraintsValid ? qsTr( "Add child feature:" ) : qsTr( "Ensure contraints") : "" //!readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -85,10 +85,11 @@ Rectangle{
                 }
 
                 onClicked: {
-                  bufferFeature()
-                  embeddedFeatureForm.state = "Add"
-                  embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
-                  embeddedFeatureForm.active = true
+                  if( buffer() ) {
+                      embeddedFeatureForm.state = "Add"
+                      embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
+                      embeddedFeatureForm.active = true
+                  }
               }
             }
           }

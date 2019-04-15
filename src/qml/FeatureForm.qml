@@ -244,8 +244,6 @@ Page {
         Loader {
           id: attributeEditorLoader
 
-          signal bufferFeature
-
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
@@ -259,6 +257,7 @@ Page {
           property var relationId: RelationId
           property var associatedRelationId: AssociatedRelationId
           property var constraintValid: ConstraintValid
+          property bool constraintsValid: form.model.constraintsValid
           property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
@@ -270,10 +269,6 @@ Page {
               console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
               source = 'editorwidgets/TextEdit.qml'
             }
-          }
-
-          onBufferFeature: {
-            buffer()
           }
         }
 
@@ -347,6 +342,11 @@ Page {
   }
 
   function buffer() {
+      if( !model.constraintsValid ) {
+          displayToast( "Constraints not valid - cannot buffer" )
+          return false
+      }
+
       aboutToSave() //used the same way like on save
 
       if ( form.state === 'Add' ) {
@@ -364,7 +364,7 @@ Page {
         model.save()
       }
 
-      //evtl. buffered()
+      return true
   }
 
   function cancel() {
