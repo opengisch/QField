@@ -45,7 +45,7 @@ VisibilityFadingRow {
       Style.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
-      if ( Number( rubberbandModel.geometryType ) === 0 )
+      if ( Number( rubberbandModel.geometryType ) === 0 || stateMachine.state === 'measure' )
       {
         false
       }

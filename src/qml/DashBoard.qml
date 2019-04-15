@@ -70,7 +70,6 @@ Controls.Pane {
         spacing: 4 * dp
 
         Controls.ToolButton {
-          // dummy button, is hidden behind main button
           height: 48 * dp
           width: 48 * dp
 
@@ -107,12 +106,6 @@ Controls.Pane {
           onClicked: showMenu()
         }
 
-        Rectangle {
-          //empty space
-          height: 56 * dp
-          width: 56 * dp
-          color: mainColor
-        }
          Controls.Switch {
           id: modeswitch
           height: 56 * dp
@@ -164,6 +157,26 @@ Controls.Pane {
             }
           }
         }
+
+         Controls.ToolButton {
+           height: 56 * dp
+           width: 56 * dp
+
+           contentItem: Rectangle {
+             anchors.fill: parent
+             color: "hotpink"
+             Image {
+               anchors.fill: parent
+               fillMode: Image.Pad
+               horizontalAlignment: Image.AlignHCenter
+               verticalAlignment: Image.AlignVCenter
+               source: Style.getThemeIcon( 'ic_settings_white_24dp' )
+             }
+           }
+
+           onClicked: changeMode( "measure" )
+         }
+
       }
     }
 

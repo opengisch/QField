@@ -69,6 +69,10 @@ ApplicationWindow {
 
       State {
         name: "digitize"
+      },
+
+      State {
+        name: 'measure'
       }
     ]
     state: "browse"
@@ -176,6 +180,26 @@ ApplicationWindow {
         visible: stateMachine.state === "digitize"
       }
 
+      /** A rubberband for ditizing **/
+      Rubberband {
+        id: measuringRubberband
+        width: 2 * dp
+        color: 'black'
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          frozen: false
+          currentCoordinate: coordinateLocator.currentCoordinate
+          crs: mapCanvas.mapSettings.destinationCrs
+        }
+
+        anchors.fill: parent
+
+        visible: stateMachine.state === 'measure'
+      }
+
+
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
@@ -189,8 +213,8 @@ ApplicationWindow {
     CoordinateLocator {
       id: coordinateLocator
       anchors.fill: parent
-      visible: stateMachine.state === "digitize"
-      highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
+      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      highlightColor: digitizingToolbar.isDigitizing ? stateMachine.state === "digitize" ? digitizingRubberband.color : measuringRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
@@ -258,7 +282,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: digitizingRubberband.model
+      rubberbandModel: stateMachine.state === 'measure' ? measuringRubberband.model : digitizingRubberband.model
       project: qgisProject
       crs: qgisProject.crs
     }
@@ -266,7 +290,7 @@ ApplicationWindow {
     x: mainWindow.width / 2 + 24 * dp
     y: mainWindow.height / 2 + 24 * dp
 
-    text: qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ?
+    text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
             '<p>%1 / %2</p>%3%4'
               .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
               .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
@@ -437,7 +461,7 @@ ApplicationWindow {
 
     Button {
       id: gpsLinkButton
-      visible: gpsButton.state == "On" && stateMachine.state === "digitize"
+      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
 
@@ -455,11 +479,11 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    stateVisible: ( stateMachine.state === "digitize"
+    stateVisible: (stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible )
-    rubberbandModel: digitizingRubberband.model
+                   && !geometryEditingToolbar.stateVisible ) || stateMachine.state === 'measure'
+    rubberbandModel: stateMachine.state === 'measure' ? measuringRubberband.model : digitizingRubberband.model
 
     FeatureModel {
       id: digitizingFeature
@@ -468,24 +492,33 @@ ApplicationWindow {
 
       geometry: Geometry {
         id: digitizingGeometry
-        rubberbandModel: digitizingRubberband.model
+        rubberbandModel: stateMachine.state === 'measure' ? measuringRubberband.model : digitizingRubberband.model
         vectorLayer: dashBoard.currentLayer
       }
     }
 
     onVertexAdded: {
       coordinateLocator.flash()
-      digitizingRubberband.model.addVertex()
+      if( stateMachine.state === 'measure' )
+        measuringRubberband.model.addVertex()
+      else
+        digitizingRubberband.model.addVertex()
     }
 
     onVertexRemoved:
     {
-      digitizingRubberband.model.removeVertex()
+      if( stateMachine.state === 'measure' )
+        measuringRubberband.model.removeVertex()
+      else
+        digitizingRubberband.model.removeVertex()
     }
 
     onCancel:
     {
-      digitizingRubberband.model.reset()
+      if( stateMachine.state === 'measure' )
+        measuringRubberband.model.reset()
+      else
+        digitizingRubberband.model.reset()
     }
 
     onConfirm: {
