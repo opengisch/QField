@@ -11,7 +11,7 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Rectangle{
-    height: referencingFeatureListView.height + itemHeight
+    height: !readOnly ? referencingFeatureListView.height + itemHeight : referencingFeatureListView.height //because no additional addEntry item on readOnly
     property int itemHeight: 24 * dp
 
     border.color: "lightgray"
@@ -47,12 +47,13 @@ Rectangle{
 
       Rectangle{
           anchors.fill: parent
-          color: constraintsValid ? "lightgrey" : "orange"
+          color: "lightgrey"
+          visible: !readOnly
 
           Text {
               visible: !readOnly
               color: "grey"
-              text: !readOnly ? constraintsValid ? qsTr( "Add child feature:" ) : qsTr( "Ensure contraints") : "" //!readOnly && !relationEditorModel.parentPrimariesAvailable ? qsTr( "Save parent feature first..." ) : qsTr( "Add child feature:" )
+              text: !readOnly && !constraintsValid ? qsTr( "Ensure contraints") : ""
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -60,7 +61,7 @@ Rectangle{
 
           Row
           {
-            id: editRow
+            id: addButtonRow
             anchors { top: parent.top; right: parent.right }
             height: parent.height
 
@@ -68,8 +69,7 @@ Rectangle{
                 id: addButton
                 width: parent.height
                 height: parent.height
-                visible: !readOnly
-                enabled: !readOnly // !readOnly && relationEditorModel.parentPrimariesAvailable
+                enabled: constraintsValid
 
                 contentItem: Rectangle {
                     anchors.fill: parent
@@ -86,9 +86,16 @@ Rectangle{
 
                 onClicked: {
                   if( buffer() ) {
-                      embeddedFeatureForm.state = "Add"
-                      embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
-                      embeddedFeatureForm.active = true
+                      //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+                      if( relationEditorModel.parentPrimariesAvailable ) {
+                          embeddedFeatureForm.state = "Add"
+                          embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
+                          embeddedFeatureForm.active = true
+                      }
+                      else
+                      {
+                          displayToast(qsTr( "Cannot add child. Parent primary keys are not available." ) )
+                      }
                   }
               }
             }
@@ -129,12 +136,12 @@ Rectangle{
 
           Row
           {
-            id: editRow
+            id: deleteRow
             anchors { top: parent.top; right: parent.right }
             height: listitem.height
 
             ToolButton {
-                id: deleteButton
+                id: deleteButtonRow
                 width: parent.height
                 height: parent.height
                 visible: !readOnly

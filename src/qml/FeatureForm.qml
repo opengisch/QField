@@ -314,7 +314,7 @@ Page {
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
     if( !model.constraintsValid ) {
-        displayToast( "Constraints not valid - cancel editing" )
+        displayToast( qsTr( "Constraints not valid - cancel editing") )
         cancel()
         return
     }
@@ -343,7 +343,7 @@ Page {
 
   function buffer() {
       if( !model.constraintsValid ) {
-          displayToast( "Constraints not valid - cannot buffer" )
+          displayToast( qsTr("Constraints not valid - cannot buffer") )
           return false
       }
 
@@ -419,7 +419,7 @@ Page {
           if( model.constraintsValid ) {
             save()
           } else {
-            displayToast( "Constraints not valid" )
+            displayToast( qsTr("Constraints not valid") )
           }
         }
       }
