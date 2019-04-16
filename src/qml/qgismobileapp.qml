@@ -188,7 +188,7 @@ ApplicationWindow {
       Rubberband {
         id: measuringRubberband
         width: 2 * dp
-        color: '#800000ff'
+        color: '#80000000'
 
         mapSettings: mapCanvas.mapSettings
 
@@ -296,16 +296,21 @@ ApplicationWindow {
     y: mainWindow.height / 2 + 24 * dp
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-            '<p>%1 / %2</p>%3%4'
-              .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-              .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+              '%1%3%4'
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1 / %2</p>'
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                  : '' )
 
-              .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
-                .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' ) : '' )
+                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
+                  .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                  .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
+                  : '' )
 
-              .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'.arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) ) : '' )
-            : ''
+                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'
+                  .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                  : '' )
+              : ''
 
     font.pointSize: 12
     style: Text.Outline
