@@ -73,12 +73,12 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: parent.enabled ? 'black' : 'grey'
+                    color: parent.enabled ? associatedRelationId === '' ? 'black' : 'blue' : 'grey'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
                       fillMode: Image.PreserveAspectFit
-                      horizontalAlignment: Image.AlignHCenter
+                      horizontalAlignment: Image.AlignHCente
                       verticalAlignment: Image.AlignVCenter
                       source: Style.getThemeIcon( 'ic_add_white_24dp' )
                     }
@@ -151,7 +151,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: 'black'
+                    color: associatedRelationId === '' ? 'black' : 'blue'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
