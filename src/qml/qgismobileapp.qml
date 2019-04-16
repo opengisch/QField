@@ -515,6 +515,7 @@ ApplicationWindow {
     onVertexRemoved:
     {
       currentRubberband.model.removeVertex()
+      mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
     }
 
     onCancel:
