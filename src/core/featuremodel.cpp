@@ -103,7 +103,7 @@ void FeatureModel::setLinkedFeatureValues()
   beginResetModel();
   mLinkedAttributeIndexes.clear();
   const auto fieldPairs = mLinkedRelation.fieldPairs();
-  for( QgsRelation::FieldPair fieldPair : fieldPairs )
+  for ( QgsRelation::FieldPair fieldPair : fieldPairs )
   {
     mFeature.setAttribute( mFeature.fieldNameIndex( fieldPair.first ), linkedParentFeature().attribute( fieldPair.second ) );
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
@@ -211,7 +211,6 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
       if ( success )
       {
         emit dataChanged( index, index, QVector<int>() << role );
-        emit featureChanged();
       }
       return success;
       break;
@@ -332,6 +331,9 @@ void FeatureModel::create()
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
+
+  //we have to call this here anyway because the mFeature is probably changed by getting and id
+  emit featureChanged();
 
   if ( commit() )
   {
