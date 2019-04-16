@@ -132,7 +132,7 @@ Rectangle{
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
                 embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                 embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.feature = model.referencingFeature
+                embeddedAttributeFormModel.featureModel.feature = associatedRelationId === '' ? model.referencingFeature : model.associatedReferencedFeature
                 embeddedFeatureForm.active = true
             }
           }
@@ -207,7 +207,7 @@ Rectangle{
       id: embeddedAttributeFormModel
 
       featureModel: FeatureModel {
-        currentLayer: relationEditorModel.relation.referencingLayer
+        currentLayer: associatedRelationId === '' ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
       }
     }
 
