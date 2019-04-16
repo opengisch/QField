@@ -180,7 +180,7 @@ ApplicationWindow {
         visible: stateMachine.state === "digitize"
       }
 
-      /** A rubberband for ditizing **/
+      /** A rubberband for measuring **/
       Rubberband {
         id: measuringRubberband
         width: 2 * dp
