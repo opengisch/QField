@@ -47,6 +47,9 @@ void IdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
 
 void IdentifyTool::identify( const QPointF &point ) const
 {
+  if ( mDeactivated )
+    return;
+
   if ( !mModel || !mMapSettings )
   {
     qWarning() << "Unable to use IdentifyTool without mapSettings or model property set.";
@@ -158,6 +161,12 @@ void IdentifyTool::setModel( MultiFeatureListModel *model )
 
   mModel = model;
   emit modelChanged();
+}
+
+void IdentifyTool::setDeactivated( bool deactivated )
+{
+  mModel->clear();
+  mDeactivated = deactivated;
 }
 
 double IdentifyTool::searchRadiusMU( const QgsRenderContext &context ) const

@@ -62,6 +62,7 @@ ApplicationWindow {
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
 
+  signal closeTool()
   signal changeMode( string mode )
 
   Item {
@@ -72,25 +73,33 @@ ApplicationWindow {
     states: [
       State {
         name: "browse"
+        PropertyChanges { target: identifyTool; deactivated: false }
       },
 
       State {
         name: "digitize"
+        PropertyChanges { target: identifyTool; deactivated: false }
         PropertyChanges { target: mainWindow; currentRubberband: digitizingRubberband }
       },
 
       State {
         name: 'measure'
+        PropertyChanges { target: identifyTool; deactivated: true }
         PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
+        PropertyChanges { target: dashBoard; visible: false }
       }
     ]
     state: "browse"
   }
 
   onChangeMode: {
-      stateMachine.lastState = stateMachine.state
-      stateMachine.state = mode
-      displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
+    stateMachine.lastState = stateMachine.state
+    stateMachine.state = mode
+    displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
+  }
+
+  onCloseTool: {
+    changeMode( stateMachine.lastState)
   }
 
   /**
@@ -355,6 +364,8 @@ ApplicationWindow {
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.margins: 10 * dp
+
+    visible: stateMachine.state !== 'measure'
   }
 
   DashBoard {
@@ -393,13 +404,14 @@ ApplicationWindow {
     }
 
     Button {
-      id: closeTool
+      id: closeMeasureTool
       round: true
       iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
       bgcolor: "#212121"
       visible: stateMachine.state === 'measure'
       onClicked: {
-        changeMode( stateMachine.lastState )
+        overlayFeatureFormDrawer.close()
+        closeTool()
       }
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
@@ -636,7 +648,6 @@ ApplicationWindow {
       text: qsTr( 'Measure Tool' )
 
       onTriggered: {
-        dashBoard.visible = false
         changeMode( 'measure' )
       }
     }

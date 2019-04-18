@@ -35,6 +35,7 @@ class IdentifyTool : public QObject
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
     Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( bool deactivated READ deactivated WRITE setDeactivated NOTIFY deactivatedChanged )
 
   public:
     struct IdentifyResult
@@ -60,10 +61,14 @@ class IdentifyTool : public QObject
     MultiFeatureListModel *model() const;
     void setModel( MultiFeatureListModel *model );
 
+    bool deactivated() const { return mDeactivated; }
+    void setDeactivated( bool deactivated );
+
   signals:
     void mapSettingsChanged();
     void searchRadiusMmChanged();
     void modelChanged();
+    void deactivatedChanged();
 
   public slots:
     void identify( const QPointF &point ) const;
@@ -80,6 +85,8 @@ class IdentifyTool : public QObject
     QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
 
     double mSearchRadiusMm;
+
+    bool mDeactivated = false;
 };
 
 #endif // IDENTIFYTOOL_H
