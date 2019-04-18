@@ -8,7 +8,6 @@ Controls.Pane {
   objectName: "dashBoard"
 
   signal showMenu
-  signal changeMode( string mode )
 
   property alias allowLayerChange: legend.enabled
   property alias currentLayer: legend.currentLayer
@@ -48,10 +47,6 @@ Controls.Pane {
   onCurrentLayerChanged: {
     if ( currentLayer.readOnly && stateMachine.state == "digitize" )
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
-  }
-
-  onChangeMode: {
-      stateMachine.state = mode
   }
 
   Component.onCompleted: focusstack.addFocusTaker( this )

@@ -59,10 +59,15 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
+  //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
+
+  signal changeMode( string mode )
 
   Item {
     id: stateMachine
+
+    property string lastState: "browse"
 
     states: [
       State {
@@ -80,6 +85,12 @@ ApplicationWindow {
       }
     ]
     state: "browse"
+  }
+
+  onChangeMode: {
+      stateMachine.lastState = stateMachine.state
+      stateMachine.state = mode
+      displayToast( qsTr( "You are now in %1 mode " ).arg( stateMachine.state  ) )
   }
 
   /**
@@ -605,6 +616,15 @@ ApplicationWindow {
       }
     }
 
+
+    Controls.MenuItem {
+      text: qsTr( "Measure Tool" )
+
+      onTriggered: {
+        changeMode( "digitize" )
+      }
+    }
+
     Controls.Menu {
       id: printMenu
       title: qsTr( "Print to PDF" )
@@ -637,6 +657,7 @@ ApplicationWindow {
         }
       }
     }
+
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
