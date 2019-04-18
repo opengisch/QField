@@ -153,25 +153,6 @@ Controls.Pane {
           }
         }
 
-         Controls.ToolButton {
-           height: 56 * dp
-           width: 56 * dp
-
-           contentItem: Rectangle {
-             anchors.fill: parent
-             color: "hotpink"
-             Image {
-               anchors.fill: parent
-               fillMode: Image.Pad
-               horizontalAlignment: Image.AlignHCenter
-               verticalAlignment: Image.AlignVCenter
-               source: Style.getThemeIcon( 'ic_settings_white_24dp' )
-             }
-           }
-
-           onClicked: changeMode( "measure" )
-         }
-
       }
     }
 

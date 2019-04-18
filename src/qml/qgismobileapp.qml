@@ -51,7 +51,11 @@ ApplicationWindow {
       console.warn( "KEY PRESS " + event.key )
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-        mainWindow.close();
+        if ( stateMachine.state === 'measure' ) {
+          closeTool()
+        } else {
+          mainWindow.close();
+        }
         event.accepted = true
       }
     }
@@ -87,6 +91,7 @@ ApplicationWindow {
         PropertyChanges { target: identifyTool; deactivated: true }
         PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
         PropertyChanges { target: dashBoard; visible: false }
+        PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
     state: "browse"
