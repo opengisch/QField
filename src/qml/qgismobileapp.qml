@@ -67,7 +67,7 @@ ApplicationWindow {
   Item {
     id: stateMachine
 
-    property string lastState: "browse"
+    property string lastState
 
     states: [
       State {
@@ -90,7 +90,7 @@ ApplicationWindow {
   onChangeMode: {
       stateMachine.lastState = stateMachine.state
       stateMachine.state = mode
-      displayToast( qsTr( "You are now in %1 mode " ).arg( stateMachine.state  ) )
+      displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
   }
 
   /**
@@ -618,10 +618,10 @@ ApplicationWindow {
 
 
     Controls.MenuItem {
-      text: qsTr( "Measure Tool" )
+      text: qsTr( 'Measure Tool' )
 
       onTriggered: {
-        changeMode( "digitize" )
+        changeMode( 'measure' )
       }
     }
 
