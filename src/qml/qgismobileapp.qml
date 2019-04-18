@@ -321,7 +321,7 @@ ApplicationWindow {
     y: mainWindow.height / 2 + 24 * dp
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%3%4'
+              '%1%2%3%4'
                 .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1 / %2</p>'
                   .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
                   .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
@@ -334,6 +334,11 @@ ApplicationWindow {
 
                 .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'
                   .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                  : '' )
+
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1 / %2</p>'
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
                   : '' )
               : ''
 
