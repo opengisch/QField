@@ -391,6 +391,21 @@ ApplicationWindow {
       anchors.top: mainMenuBar.top
       anchors.topMargin: 4 * dp
     }
+
+    Button {
+      id: closeTool
+      round: true
+      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      bgcolor: "#212121"
+      visible: stateMachine.state === 'measure'
+      onClicked: {
+        changeMode( stateMachine.lastState )
+      }
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: 4 * dp
+      anchors.top: mainMenuBar.top
+      anchors.topMargin: 4 * dp
+    }
   }
 
   Column {
@@ -621,6 +636,7 @@ ApplicationWindow {
       text: qsTr( 'Measure Tool' )
 
       onTriggered: {
+        dashBoard.visible = false
         changeMode( 'measure' )
       }
     }
