@@ -51,25 +51,66 @@ class ReferencingFeatureListModel : public QAbstractItemModel
 
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
+    /**
+     * The parent feature for which this model contains the children
+     * \param feature
+     * \see feature
+     */
     void setFeature( const QgsFeature &feature );
+
+    /**
+     * The parent feature for which this model contains the children
+     * \return the parent feature
+     * \see setFeature
+     */
     QgsFeature feature() const;
 
+    /**
+     * The relation connectiong the parent feature with the children in this model
+     * \param relation
+     * \see relation
+     */
     void setRelation( const QgsRelation &relation );
+
+    /**
+     * The relation connectiong the parent feature with the children in this model
+     * \return relation
+     * \see setRelation
+     */
     QgsRelation relation() const;
 
-    /*
-     * used for nm relations
+    /**
+     * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+     * \param relation The associated relation
+     * \see associatedRelation
      */
     void setAssociatedRelation( const QgsRelation &relation );
+
+    /**
+     * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+     * \return associated relation
+     * \see setAssociatedRelation
+     */
     QgsRelation associatedRelation() const;
 
-    /*
-     * obsolete but I keep it for the moment just in case
+    /**
+     * The status if the pk of the parent feature (this feature) are valid (not null)
+     * \param parentPrimariesAvailable The status if the parent pks are available
+     * \see parentPrimariesAvailable
      */
     void setParentPrimariesAvailable( const bool parentPrimariesAvailable );
+
+    /**
+     * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+     * It's needed to check on opening a form to add a new child
+     * \return parentPrimariesAvailable The status if the parent pks are available
+     * \see setParentPrimariesAvailable
+     */
     bool parentPrimariesAvailable() const;
 
+    //! Reloads the model
     Q_INVOKABLE void reload();
+    //! Deletes a feature regarding the referencing layer and the feature id \param referencingFeatureId of the selected child
     Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
   signals:
@@ -100,6 +141,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     QgsRelation mAssociatedRelation;
     bool mParentPrimariesAvailable = false;
 
+    //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
 };
 
