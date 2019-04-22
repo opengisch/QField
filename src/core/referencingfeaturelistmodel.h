@@ -45,7 +45,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
       DisplayString = Qt::UserRole,
       ReferencingFeature,
       NmReferencedFeature,
-      AssociatedDisplayString
+      NmDisplayString
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -250,7 +250,7 @@ class FeatureGatherer: public QThread
     QgsFeatureRequest mRequest;
     bool mWasCanceled = false;
 
-    QString associatedDisplayString( QgsFeatureId referencingFeatureId ) const;
+    QString nmDisplayString( QgsFeatureId referencingFeatureId ) const;
 };
 
 #endif // REFERENCINGFEATURELISTMODEL_H

@@ -73,7 +73,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: parent.enabled ? associatedRelationId === '' ? 'black' : 'blue' : 'grey'
+                    color: parent.enabled ? nmRelationId === '' ? 'black' : 'blue' : 'grey'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -122,7 +122,7 @@ Rectangle{
             anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
-            text: { text: model.displayString + ' ' + model.associatedDisplayString }
+            text: { text: model.displayString + ' ' + model.nmDisplayString }
           }
 
           MouseArea {
@@ -132,7 +132,7 @@ Rectangle{
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
                 embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                 embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.feature = associatedRelationId === '' ? model.referencingFeature : model.associatedReferencedFeature
+                embeddedAttributeFormModel.featureModel.feature = nmRelationId === '' ? model.referencingFeature : model.nmReferencedFeature
                 embeddedFeatureForm.active = true
             }
           }
@@ -151,7 +151,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: associatedRelationId === '' ? 'black' : 'blue'
+                    color: nmRelationId === '' ? 'black' : 'blue'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -207,7 +207,7 @@ Rectangle{
       id: embeddedAttributeFormModel
 
       featureModel: FeatureModel {
-        currentLayer: associatedRelationId === '' ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
+        currentLayer: nmRelationId ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
       }
     }
 
