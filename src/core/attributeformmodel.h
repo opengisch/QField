@@ -42,7 +42,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       RememberValue,
       Field,
       RelationId,
-      AssociatedRelationId,
+      NmRelationId,
       FieldIndex,
       Group,
       AttributeEditorElement,

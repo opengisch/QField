@@ -30,7 +30,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
 
     Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
     Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
-    Q_PROPERTY( QgsRelation associatedRelation WRITE setAssociatedRelation READ associatedRelation NOTIFY associatedRelationChanged )
+    Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
 
   public:
@@ -40,7 +40,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     {
       DisplayString = Qt::UserRole,
       ReferencingFeature,
-      AssociatedReferencedFeature
+      NmReferencedFeature
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -82,16 +82,16 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     /**
      * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
      * \param relation The associated relation
-     * \see associatedRelation
+     * \see nmRelation
      */
-    void setAssociatedRelation( const QgsRelation &relation );
+    void setNmRelation( const QgsRelation &relation );
 
     /**
      * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
      * \return associated relation
-     * \see setAssociatedRelation
+     * \see setNmRelation
      */
-    QgsRelation associatedRelation() const;
+    QgsRelation nmRelation() const;
 
     /**
      * The status if the pk of the parent feature (this feature) are valid (not null)
@@ -101,7 +101,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void setParentPrimariesAvailable( const bool parentPrimariesAvailable );
 
     /**
-     * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+     * The status if the pk of the parent feature (this feature) are valid (not null)
      * It's needed to check on opening a form to add a new child
      * \return parentPrimariesAvailable The status if the parent pks are available
      * \see setParentPrimariesAvailable
@@ -117,7 +117,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void attributeFormModelChanged();
     void featureChanged();
     void relationChanged();
-    void associatedRelationChanged();
+    void nmRelationChanged();
     void parentPrimariesAvailableChanged();
 
   private:
@@ -138,7 +138,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
 
     QgsFeature mFeature;
     QgsRelation mRelation;
-    QgsRelation mAssociatedRelation;
+    QgsRelation mNmRelation;
     bool mParentPrimariesAvailable = false;
 
     //! Checks if the parent pk(s) is not null

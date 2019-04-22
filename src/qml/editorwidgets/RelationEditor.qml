@@ -21,7 +21,7 @@ Rectangle{
     ReferencingFeatureListModel {
         id: relationEditorModel
         relation: qgisProject.relationManager.relation(relationId)
-        associatedRelation: qgisProject.relationManager.relation(associatedRelationId)
+        nmRelation: qgisProject.relationManager.relation(nmRelationId)
         feature: currentFeature
     }
 

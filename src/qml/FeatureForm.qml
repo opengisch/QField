@@ -255,7 +255,7 @@ Page {
           property var field: Field
           property var fieldType: FieldType
           property var relationId: RelationId
-          property var associatedRelationId: AssociatedRelationId
+          property var nmRelationId: NmRelationId
           property var constraintValid: ConstraintValid
           property bool constraintsValid: form.model.constraintsValid
           property var currentFeature: form.model.featureModel.feature

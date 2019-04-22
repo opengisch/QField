@@ -27,7 +27,7 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
 
   roles[DisplayString] = "displayString";
   roles[ReferencingFeature] = "referencingFeature";
-  roles[AssociatedReferencedFeature] = "associatedReferencedFeature";
+  roles[NmReferencedFeature] = "nmReferencedFeature";
 
   return roles;
 }
@@ -65,8 +65,8 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
     return mEntries.value( index.row() ).displayString;
   if ( role == ReferencingFeature )
     return mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId );
-  if ( role == AssociatedReferencedFeature )
-    return mAssociatedRelation.getReferencedFeature( mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId ) );
+  if ( role == NmReferencedFeature )
+    return mNmRelation.getReferencedFeature( mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId ) );
   return QVariant();
 }
 
@@ -95,14 +95,14 @@ QgsRelation ReferencingFeatureListModel::relation() const
   return mRelation;
 }
 
-void ReferencingFeatureListModel::setAssociatedRelation( const QgsRelation &relation )
+void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
 {
-  mAssociatedRelation = relation;
+  mNmRelation = relation;
 }
 
-QgsRelation ReferencingFeatureListModel::associatedRelation() const
+QgsRelation ReferencingFeatureListModel::nmRelation() const
 {
-  return mAssociatedRelation;
+  return mNmRelation;
 }
 
 void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
