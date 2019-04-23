@@ -167,7 +167,8 @@ Rectangle{
                 onClicked: {
                     deleteDialog.referencingFeatureId = model.referencingFeature.id
                     deleteDialog.referencingFeatureDisplayMessage = model.displayString
-                    deleteDialog.layerName = relationEditorModel.relation.referencingLayer.name
+                    deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+                    deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
                     deleteDialog.visible = true
                 }
             }
@@ -190,12 +191,17 @@ Rectangle{
 
       property int referencingFeatureId
       property string referencingFeatureDisplayMessage
-      property string layerName
+      property int nmReferencedFeatureId
+      property string nmReferencedFeatureDisplayMessage
 
       visible: false
 
-      title: qsTr( '%1 feature %2 (%3) on layer %4' ).arg( nmRelationId ?  'Unlink connection to ' : 'Delete ').arg( referencingFeatureDisplayMessage ).arg(referencingFeatureId).arg(layerName)
-      text: qsTr( 'Should the feature %1 (%2) on layer %3 be %4').arg( referencingFeatureDisplayMessage ).arg(referencingFeatureId).arg( layerName ).arg( nmRelationId ? 'unlinked?' : 'deleted?' )
+      title: nmRelationId ?
+               qsTr( 'Unlink feature %1 (%2) of %3' ).arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ) :
+               qsTr( 'Delete feature %1 (%2) on %3' ).arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
+      text:  nmRelationId ?
+               qsTr( 'Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ).arg( relationEditorModel.relation.referencingLayer.name ) :
+               qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )
