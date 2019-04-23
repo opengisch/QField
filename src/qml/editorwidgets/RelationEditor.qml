@@ -36,6 +36,7 @@ Rectangle{
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
+        highlightRangeMode: ListView.StrictlyEnforceRange
     }
 
     //the add entry "last row"

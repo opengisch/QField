@@ -130,7 +130,6 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     bool isLoading() const;
 
   signals:
-    void attributeFormModelChanged();
     void featureChanged();
     void relationChanged();
     void nmRelationChanged();
