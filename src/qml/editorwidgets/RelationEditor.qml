@@ -17,8 +17,10 @@ Rectangle{
     border.color: 'lightgray'
     border.width: 1 * dp
 
-    //the model
     ReferencingFeatureListModel {
+        //containing the current (parent) feature, the relation to the children
+        //and the relation from the children to the other parent (if it's nm and cardinality is set)
+        //if cardinality is not set, the nmRelationId is empty
         id: relationEditorModel
         relation: qgisProject.relationManager.relation(relationId)
         nmRelation: qgisProject.relationManager.relation(nmRelationId)
@@ -122,7 +124,7 @@ Rectangle{
             anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
-            text: { text: model.displayString + ' ' + model.nmDisplayString }
+            text: { text: nmRelationId === '' ? model.displayString : model.nmDisplayString }
           }
 
           MouseArea {
