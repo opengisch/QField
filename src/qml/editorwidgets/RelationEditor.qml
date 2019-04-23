@@ -75,7 +75,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: parent.enabled ? nmRelationId === '' ? 'black' : 'blue' : 'grey'
+                    color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -124,7 +124,7 @@ Rectangle{
             anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
-            text: { text: nmRelationId === '' ? model.displayString : model.nmDisplayString }
+            text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
           }
 
           MouseArea {
@@ -134,7 +134,7 @@ Rectangle{
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
                 embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                 embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.feature = nmRelationId === '' ? model.referencingFeature : model.nmReferencedFeature
+                embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedFeatureForm.active = true
             }
           }
@@ -153,7 +153,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: nmRelationId === '' ? 'black' : 'blue'
+                    color: nmRelationId ? 'blue' : 'black'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -218,7 +218,7 @@ Rectangle{
       id: embeddedAttributeFormModel
 
       featureModel: FeatureModel {
-        currentLayer: nmRelationId ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
+        currentLayer: nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
       }
     }
 
