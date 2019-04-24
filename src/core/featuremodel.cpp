@@ -57,6 +57,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
   mLayer = layer;
 
   connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
+  connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 
   if ( mLayer )
   {
@@ -209,9 +210,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
       }
       bool success = mFeature.setAttribute( index.row(), val );
       if ( success )
-      {
         emit dataChanged( index, index, QVector<int>() << role );
-      }
       return success;
       break;
     }
@@ -321,19 +320,21 @@ void FeatureModel::removeLayer( QObject *layer )
   mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
 }
 
+void FeatureModel::featureAdded( QgsFeatureId fid )
+{
+  setFeature( mLayer->getFeature( fid ) );
+}
+
 void FeatureModel::create()
 {
   if ( !mLayer )
     return;
 
   startEditing();
-  if ( !mLayer->dataProvider()->addFeature( mFeature ) )
+  if ( !mLayer->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
-
-  //we have to call this here anyway because the mFeature is probably changed by getting and id
-  emit featureChanged();
 
   if ( commit() )
   {
