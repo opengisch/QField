@@ -57,7 +57,6 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
   mLayer = layer;
 
   connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
-  connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 
   if ( mLayer )
   {
@@ -331,6 +330,7 @@ void FeatureModel::create()
     return;
 
   startEditing();
+  connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
   if ( !mLayer->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
@@ -344,6 +344,7 @@ void FeatureModel::create()
     else
       QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   }
+  disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 }
 
 void FeatureModel::deleteFeature()
