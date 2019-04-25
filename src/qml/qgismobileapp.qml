@@ -413,11 +413,44 @@ ApplicationWindow {
       anchors.topMargin: 4 * dp
     }
 
-    Button {
+    ToolButton {
       id: closeMeasureTool
-      round: true
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
-      bgcolor: "#212121"
+      height: 48 * dp
+      width: height + buttonText.width + 16 * dp
+
+      contentItem: Rectangle {
+        anchors.fill: parent
+        color: "#212121"
+        radius: height / 2
+
+        Row {
+            Image {
+              height: 48 * dp
+              width: 48 * dp
+              fillMode: Image.Pad
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Style.getThemeIcon( "ic_close_white_24dp" )
+
+            }
+            Text {
+              id: buttonText
+              anchors.verticalCenter: parent.verticalCenter
+              verticalAlignment: Text.AlignVCenter
+              text: qsTr( 'Close measure tool' )
+              color: 'white'
+              font.bold: true
+              font.pixelSize: 16 * dp
+            }
+        }
+
+        Behavior on color {
+          ColorAnimation {
+            duration: 200
+          }
+        }
+      }
+
       visible: stateMachine.state === 'measure'
       onClicked: {
         overlayFeatureFormDrawer.close()
