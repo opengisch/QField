@@ -21,8 +21,11 @@
 #include "qgsvectorlayer.h"
 #include "attributeformmodel.h"
 
+//used for gatherer
+#include <QThread>
+
 class QgsVectorLayer;
-class AttributeFormModel;
+class FeatureGatherer;
 
 class ReferencingFeatureListModel : public QAbstractItemModel
 {
@@ -120,18 +123,29 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
 
+    //for loading bar or similar - not used at the moment but i keep it to remember
+    void isLoadingChanged();
+
+  private slots:
+    void updateModel();
+    void gathererThreadFinished();
+
   private:
     struct Entry
     {
-      Entry( const QString &displayString, const QgsFeatureId &referencingFeatureId )
+      Entry( const QString &displayString, const QgsFeature &referencingFeature, const QString &nmDisplayString = QString(), const QgsFeature &nmReferencedFeature = QgsFeature() )
         : displayString( displayString )
-        , referencingFeatureId( referencingFeatureId )
+        , referencingFeature( referencingFeature )
+        , nmDisplayString( nmDisplayString )
+        , nmReferencedFeature( nmReferencedFeature )
       {}
 
       Entry() = default;
 
       QString displayString;
-      QgsFeatureId referencingFeatureId;
+      QgsFeature referencingFeature;
+      QString nmDisplayString;
+      QgsFeature nmReferencedFeature;
     };
 
     QList<Entry> mEntries;
@@ -141,8 +155,79 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     QgsRelation mNmRelation;
     bool mParentPrimariesAvailable = false;
 
+    FeatureGatherer *mGatherer = nullptr;
+
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
+
+    friend class FeatureGatherer;
+};
+
+class FeatureGatherer: public QThread
+{
+    Q_OBJECT
+
+  public:
+    FeatureGatherer( QgsFeature feature, QgsRelation relation, QgsRelation nmRelation = QgsRelation() )
+      : mFeature( feature )
+      , mRelation( relation )
+      , mNmRelation( nmRelation )
+    {
+    }
+
+    void run() override
+    {
+      mWasCanceled = false;
+
+      QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
+      QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
+      QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
+
+      QgsFeature childFeature;
+      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      {
+        context.setFeature( childFeature );
+        mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature ) );
+
+        if ( mWasCanceled )
+          return;
+      }
+
+      emit collectedValues();
+    }
+
+    //! Informs the gatherer to immediately stop collecting values
+    void stop()
+    {
+      mWasCanceled = true;
+    }
+
+    //! Returns TRUE if collection was canceled before completion
+    bool wasCanceled() const { return mWasCanceled; }
+
+    QList<ReferencingFeatureListModel::Entry> entries() const
+    {
+      return mEntries;
+    }
+
+  signals:
+
+    /**
+     * Emitted when values have been collected
+     * \param values list of unique matching string values
+     */
+    void collectedValues();
+
+  private:
+
+    QList<ReferencingFeatureListModel::Entry> mEntries;
+
+    QgsFeature mFeature;
+    QgsRelation mRelation;
+    QgsRelation mNmRelation;
+
+    QgsFeatureRequest mRequest;
+    bool mWasCanceled = false;
 };
 
 #endif // REFERENCINGFEATURELISTMODEL_H

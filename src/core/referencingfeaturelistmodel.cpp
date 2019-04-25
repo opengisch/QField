@@ -64,9 +64,9 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   if ( role == DisplayString )
     return mEntries.value( index.row() ).displayString;
   if ( role == ReferencingFeature )
-    return mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId );
+    return mEntries.value( index.row() ).referencingFeature;
   if ( role == NmReferencedFeature )
-    return mNmRelation.getReferencedFeature( mRelation.referencingLayer()->getFeature( mEntries.value( index.row() ).referencingFeatureId ) );
+    return mNmRelation.getReferencedFeature( mEntries.value( index.row() ).referencingFeature );
   return QVariant();
 }
 
@@ -115,29 +115,51 @@ bool ReferencingFeatureListModel::parentPrimariesAvailable() const
   return mParentPrimariesAvailable;
 }
 
+void ReferencingFeatureListModel::updateModel()
+{
+  beginResetModel();
+
+  mEntries = mGatherer->entries();
+
+  endResetModel();
+}
+
+void ReferencingFeatureListModel::gathererThreadFinished()
+{
+  delete mGatherer;
+  mGatherer = nullptr;
+  emit isLoadingChanged();
+}
+
 void ReferencingFeatureListModel::reload()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
     return;
 
-  beginResetModel();
-
-  mEntries.clear();
-
   if ( checkParentPrimaries() )
   {
-    QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
-    QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
-    QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
+    bool wasLoading = false;
 
-    QgsFeature childFeature;
-    while ( relatedFeaturesIt.nextFeature( childFeature ) )
+    if ( mGatherer )
     {
-      context.setFeature( childFeature );
-      mEntries.append( Entry( expression.evaluate( &context ).toString(), childFeature.id() ) );
+      // Send the gatherer thread to the graveyard:
+      //   forget about it, tell it to stop and delete when finished
+      disconnect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
+      disconnect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );
+      connect( mGatherer, &FeatureGatherer::finished, mGatherer, &FeatureGatherer::deleteLater );
+      mGatherer->stop();
+      wasLoading = true;
     }
+
+    mGatherer = new FeatureGatherer( mFeature, mRelation ); //to do mNmRelation
+
+    connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
+    connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );
+
+    mGatherer->start();
+    if ( !wasLoading )
+      emit isLoadingChanged();
   }
-  endResetModel();
 
   //set the property for parent primaries available status
   setParentPrimariesAvailable( checkParentPrimaries() );
