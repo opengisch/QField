@@ -416,32 +416,38 @@ ApplicationWindow {
     ToolButton {
       id: closeMeasureTool
       height: 48 * dp
-      width: height + buttonText.width + 16 * dp
+      width: height + buttonText.width + 32 * dp
 
       contentItem: Rectangle {
         anchors.fill: parent
-        color: "#212121"
+        color: '#80000000'
         radius: height / 2
 
         Row {
+          spacing: 8 * dp
+          Rectangle {
+            height: 48 * dp
+            width: 48 * dp
+            radius: height / 2
+            color: '#212121'
             Image {
-              height: 48 * dp
-              width: 48 * dp
+              anchors.fill: parent
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
               source: Style.getThemeIcon( "ic_close_white_24dp" )
+            }
+          }
 
-            }
-            Text {
-              id: buttonText
-              anchors.verticalCenter: parent.verticalCenter
-              verticalAlignment: Text.AlignVCenter
-              text: qsTr( 'Close measure tool' )
-              color: 'white'
-              font.bold: true
-              font.pixelSize: 16 * dp
-            }
+          Text {
+            id: buttonText
+            anchors.verticalCenter: parent.verticalCenter
+            verticalAlignment: Text.AlignVCenter
+            text: qsTr( 'Close measure tool' )
+            color: 'white'
+            font.bold: true
+            font.pixelSize: 16 * dp
+          }
         }
 
         Behavior on color {
@@ -450,7 +456,6 @@ ApplicationWindow {
           }
         }
       }
-
       visible: stateMachine.state === 'measure'
       onClicked: {
         overlayFeatureFormDrawer.close()
