@@ -57,7 +57,11 @@ ApplicationWindow {
       console.warn( "KEY PRESS " + event.key )
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
-        mainWindow.close();
+        if ( stateMachine.state === 'measure' ) {
+          closeTool()
+        } else {
+          mainWindow.close();
+        }
         event.accepted = true
       }
     }
@@ -65,19 +69,48 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
+  //currentRubberband provides the rubberband depending on the current state (digitize or measure)
+  property Rubberband currentRubberband
+
+  signal closeTool()
+  signal changeMode( string mode )
+
   Item {
     id: stateMachine
+
+    property string lastState
 
     states: [
       State {
         name: "browse"
+        PropertyChanges { target: identifyTool; deactivated: false }
       },
 
       State {
         name: "digitize"
+        PropertyChanges { target: identifyTool; deactivated: false }
+        PropertyChanges { target: mainWindow; currentRubberband: digitizingRubberband }
+      },
+
+      State {
+        name: 'measure'
+        PropertyChanges { target: identifyTool; deactivated: true }
+        PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
+        PropertyChanges { target: dashBoard; visible: false }
+        PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
     state: "browse"
+  }
+
+  onChangeMode: {
+    stateMachine.lastState = stateMachine.state
+    stateMachine.state = mode
+    displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
+  }
+
+  onCloseTool: {
+    changeMode( stateMachine.lastState)
   }
 
   /**
@@ -182,6 +215,27 @@ ApplicationWindow {
         visible: stateMachine.state === "digitize"
       }
 
+      /** A rubberband for measuring **/
+      Rubberband {
+        id: measuringRubberband
+        width: 2 * dp
+        color: '#80000000'
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          frozen: false
+          currentCoordinate: coordinateLocator.currentCoordinate
+          geometryType: QgsWkbTypes.PolygonGeometry
+          crs: mapCanvas.mapSettings.destinationCrs
+        }
+
+        anchors.fill: parent
+
+        visible: stateMachine.state === 'measure'
+      }
+
+
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
@@ -195,8 +249,8 @@ ApplicationWindow {
     CoordinateLocator {
       id: coordinateLocator
       anchors.fill: parent
-      visible: stateMachine.state === "digitize"
-      highlightColor: digitizingToolbar.isDigitizing ? digitizingRubberband.color : "#CFD8DC"
+      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
@@ -264,7 +318,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: digitizingRubberband.model
+      rubberbandModel: currentRubberband.model
       project: qgisProject
       crs: qgisProject.crs
     }
@@ -272,17 +326,27 @@ ApplicationWindow {
     x: mainWindow.width / 2 + 24 * dp
     y: mainWindow.height / 2 + 24 * dp
 
-    text: qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ?
-            '<p>%1 / %2</p>%3%4'
-              .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-              .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+    text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
+              '%1%2%3%4'
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1 / %2</p>'
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                  : '' )
 
-              .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
-                .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' ) : '' )
+                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
+                  .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
+                  .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
+                  : '' )
 
-              .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'.arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) ) : '' )
-            : ''
+                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'
+                  .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
+                  : '' )
+
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1 / %2</p>'
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                  : '' )
+              : ''
 
     font.pointSize: 12
     style: Text.Outline
@@ -316,6 +380,8 @@ ApplicationWindow {
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.margins: 10 * dp
+
+    visible: stateMachine.state !== 'measure'
   }
 
   DashBoard {
@@ -347,6 +413,60 @@ ApplicationWindow {
       iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.visible = !dashBoard.visible
       bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: 4 * dp
+      anchors.top: mainMenuBar.top
+      anchors.topMargin: 4 * dp
+    }
+
+    ToolButton {
+      id: closeMeasureTool
+      height: 48 * dp
+      width: height + buttonText.width + 32 * dp
+
+      contentItem: Rectangle {
+        anchors.fill: parent
+        color: '#80000000'
+        radius: height / 2
+
+        Row {
+          spacing: 8 * dp
+          Rectangle {
+            height: 48 * dp
+            width: 48 * dp
+            radius: height / 2
+            color: '#212121'
+            Image {
+              anchors.fill: parent
+              fillMode: Image.Pad
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Style.getThemeIcon( "ic_close_white_24dp" )
+            }
+          }
+
+          Text {
+            id: buttonText
+            anchors.verticalCenter: parent.verticalCenter
+            verticalAlignment: Text.AlignVCenter
+            text: qsTr( 'Close measure tool' )
+            color: 'white'
+            font.bold: true
+            font.pixelSize: 16 * dp
+          }
+        }
+
+        Behavior on color {
+          ColorAnimation {
+            duration: 200
+          }
+        }
+      }
+      visible: stateMachine.state === 'measure'
+      onClicked: {
+        overlayFeatureFormDrawer.close()
+        closeTool()
+      }
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
       anchors.top: mainMenuBar.top
@@ -443,7 +563,7 @@ ApplicationWindow {
 
     Button {
       id: gpsLinkButton
-      visible: gpsButton.state == "On" && stateMachine.state === "digitize"
+      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
 
@@ -461,11 +581,11 @@ ApplicationWindow {
     anchors.bottom: mapCanvas.bottom
     anchors.right: mapCanvas.right
 
-    stateVisible: ( stateMachine.state === "digitize"
+    stateVisible: (stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible )
-    rubberbandModel: digitizingRubberband.model
+                   && !geometryEditingToolbar.stateVisible ) || stateMachine.state === 'measure'
+    rubberbandModel: currentRubberband.model
 
     FeatureModel {
       id: digitizingFeature
@@ -481,17 +601,18 @@ ApplicationWindow {
 
     onVertexAdded: {
       coordinateLocator.flash()
-      digitizingRubberband.model.addVertex()
+      currentRubberband.model.addVertex()
     }
 
     onVertexRemoved:
     {
-      digitizingRubberband.model.removeVertex()
+      currentRubberband.model.removeVertex()
+      mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
     }
 
     onCancel:
     {
-      digitizingRubberband.model.reset()
+      currentRubberband.model.reset()
     }
 
     onConfirm: {
@@ -576,6 +697,15 @@ ApplicationWindow {
       }
     }
 
+
+    Controls.MenuItem {
+      text: qsTr( 'Measure Tool' )
+
+      onTriggered: {
+        changeMode( 'measure' )
+      }
+    }
+
     Controls.Menu {
       id: printMenu
       title: qsTr( "Print to PDF" )
@@ -608,6 +738,7 @@ ApplicationWindow {
         }
       }
     }
+
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.

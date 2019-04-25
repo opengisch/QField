@@ -8,7 +8,6 @@ Controls.Pane {
   objectName: "dashBoard"
 
   signal showMenu
-  signal changeMode( string mode )
 
   property alias allowLayerChange: legend.enabled
   property alias currentLayer: legend.currentLayer
@@ -50,10 +49,6 @@ Controls.Pane {
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
 
-  onChangeMode: {
-      stateMachine.state = mode
-  }
-
   Component.onCompleted: focusstack.addFocusTaker( this )
 
   ColumnLayout {
@@ -70,7 +65,6 @@ Controls.Pane {
         spacing: 4 * dp
 
         Controls.ToolButton {
-          // dummy button, is hidden behind main button
           height: 48 * dp
           width: 48 * dp
 
@@ -106,62 +100,58 @@ Controls.Pane {
 
           onClicked: showMenu()
         }
+      }
 
-        Rectangle {
-          //empty space
-          height: 56 * dp
-          width: 56 * dp
-          color: mainColor
-        }
-         Controls.Switch {
-          id: modeswitch
-          height: 56 * dp
-          width: 56 *2 * dp
-           indicator: Rectangle {
-            implicitHeight: 36 * dp
-            implicitWidth: 36 * 2 * dp
-            x: modeswitch.leftPadding
-            radius: 4 * dp
-            color:  "#80CC28"
-            border.color: "white"
+
+      Controls.Switch {
+        id: modeswitch
+        height: 56 * dp
+        width: ( 56 + 36 )  * dp
+        anchors.right: parent.right
+        indicator: Rectangle {
+          implicitHeight: 36 * dp
+          implicitWidth: 36 * 2 * dp
+          x: modeswitch.leftPadding
+          radius: 4 * dp
+          color:  "#80CC28"
+          border.color: "white"
+          anchors.verticalCenter: parent.verticalCenter
+          Image {
+            height: parent.height
+            width: parent.width / 2
+            anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-             Image {
+            source: Style.getThemeIcon( 'ic_map_white_48dp' )
+          }
+          Image {
+            height: parent.height
+            width: parent.width / 2
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            source: Style.getThemeIcon( 'ic_create_white_24dp' )
+          }
+          Rectangle {
+            x: modeswitch.checked ? parent.width - width : 0
+            width: 36 * dp
+            height: 36 * dp
+            radius: 4 * dp
+            color:  "#64B5F6"
+            border.color: "white"
+            Image {
               height: parent.height
-              width: parent.width / 2
-              anchors.left: parent.left
+              width: parent.height
+              anchors.right:  modeswitch.checked ? parent.right : undefined
+              anchors.left:  modeswitch.checked ? undefined : parent.left
               anchors.verticalCenter: parent.verticalCenter
-              source: Style.getThemeIcon( 'ic_map_white_48dp' )
-            }
-             Image {
-              height: parent.height
-              width: parent.width / 2
-              anchors.right: parent.right
-              anchors.verticalCenter: parent.verticalCenter
-              source: Style.getThemeIcon( 'ic_create_white_24dp' )
-            }
-             Rectangle {
-              x: modeswitch.checked ? parent.width - width : 0
-              width: 36 * dp
-              height: 36 * dp
-              radius: 4 * dp
-              color:  "#64B5F6"
-              border.color: "white"
-              Image {
-                height: parent.height
-                width: parent.height
-                anchors.right:  modeswitch.checked ? parent.right : undefined
-                anchors.left:  modeswitch.checked ? undefined : parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
-              }
+              source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
             }
           }
-          onPositionChanged: {
-            if ( checked ) {
-              changeMode( "digitize" )
-            } else {
-              changeMode( "browse" )
-            }
+        }
+        onPositionChanged: {
+          if ( checked ) {
+            changeMode( "digitize" )
+          } else {
+            changeMode( "browse" )
           }
         }
       }

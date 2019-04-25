@@ -45,7 +45,7 @@ VisibilityFadingRow {
       Style.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
-      if ( Number( rubberbandModel.geometryType ) === 0 )
+      if ( Number( rubberbandModel.geometryType ) === 0 || stateMachine.state === 'measure' )
       {
         false
       }
@@ -76,7 +76,7 @@ VisibilityFadingRow {
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ? "#FFD600" : "#2E7D32"
+    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ? "#FFD600" : "#2E7D32"
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||

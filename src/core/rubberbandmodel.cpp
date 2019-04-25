@@ -241,7 +241,6 @@ void RubberbandModel::setVectorLayer( QgsVectorLayer *layer )
   emit vectorLayerChanged();
 }
 
-
 bool RubberbandModel::frozen() const
 {
   return mFrozen;
