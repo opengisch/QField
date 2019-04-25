@@ -187,6 +187,19 @@ class FeatureGatherer: public QThread
       while ( relatedFeaturesIt.nextFeature( childFeature ) )
       {
         context.setFeature( childFeature );
+
+        /*
+        if( mNmRelation.isValid() )
+        {
+          QgsExpressionContext nmContext = mNmRelation.referencingLayer()->createExpressionContext();
+          QgsExpression nmExpression ( mNmRelation.referencingLayer()->displayExpression() );
+          nmFeature = mNmRelation.getReferencedFeature(childFeature );
+          nmContext.setFeature( nmFeature );
+          nmDisplayString = nmExpression.evaluate( &nmContext ).toString();
+        }
+        mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature, nmDisplayString, nmFeature ) );
+        */
+
         mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature ) );
 
         if ( mWasCanceled )
