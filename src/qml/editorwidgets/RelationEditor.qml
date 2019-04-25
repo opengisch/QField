@@ -263,4 +263,12 @@ Rectangle{
         }
       }
     }
+
+    BusyIndicator {
+      id: busyIndicator
+      anchors.centerIn: parent
+      width: 36 * dp
+      height: 36 * dp
+      running: relationEditorModel.isLoading
+    }
 }

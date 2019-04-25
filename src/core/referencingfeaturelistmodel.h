@@ -35,6 +35,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
+    Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -116,6 +117,11 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     //! Deletes a feature regarding the referencing layer and the feature id \param referencingFeatureId of the selected child
     Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
+    /**
+     * Indicator if the model is currently performing any feature iteration in the background.
+     */
+    bool isLoading() const;
+
   signals:
     void attributeFormModelChanged();
     void featureChanged();
@@ -123,7 +129,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
 
-    //for loading bar or similar - not used at the moment but i keep it to remember
+    //Indicator if the model is currently performing any feature iteration in the background.
     void isLoadingChanged();
 
   private slots:
@@ -199,7 +205,7 @@ class FeatureGatherer: public QThread
         }
         mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature, nmDisplayString, nmFeature ) );
         */
-
+        //test: sleep(1);
         mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature ) );
 
         if ( mWasCanceled )

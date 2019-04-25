@@ -174,6 +174,11 @@ void ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeature
   reload();
 }
 
+bool ReferencingFeatureListModel::isLoading() const
+{
+  return mGatherer;
+}
+
 bool ReferencingFeatureListModel::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
