@@ -136,12 +136,12 @@ Rectangle{
 
           Row
           {
-            id: deleteRow
+            id: deleteButtonRow
             anchors { top: parent.top; right: parent.right }
             height: listitem.height
 
             ToolButton {
-                id: deleteButtonRow
+                id: deleteButton
                 width: parent.height
                 height: parent.height
                 visible: !readOnly
