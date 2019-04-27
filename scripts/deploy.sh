@@ -14,12 +14,12 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-armv7.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-armv7.apk
     curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-x86.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-x86.apk
 
-#    echo -e "\e[93m * Deploying app to google play...\e[0m"
-#    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7.apk
-#    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk
-
     echo -e "\e[93m * Deploying app to github release...\e[0m"
     ./scripts/release-upload.py --release=${TRAVIS_TAG} --oauth-token=${GITHUB_API_TOKEN} /tmp/qfield-${TRAVIS_TAG}-armv7.apk /tmp/qfield-${TRAVIS_TAG}-x86.apk
+
+    echo -e "\e[93m * Deploying app to google play (beta)...\e[0m"
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7.apk ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk
+
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
     # we are on a standard commit on master branch
     curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data '{"body": "Uploaded test apks for [armv7](https://download.opengis.ch/qfield/ci-builds/qfield-dev-'${UPLOAD_ARTIFACT_ID}'-'${TRAVIS_COMMIT}'-armv7.apk) and [x86](https://download.opengis.ch/qfield/ci-builds/qfield-dev-'${UPLOAD_ARTIFACT_ID}'-'${TRAVIS_COMMIT}'-x86.apk)"}' https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
