@@ -31,10 +31,9 @@ SERVICE_ACCOUNT_EMAIL = (
 argparser = argparse.ArgumentParser(add_help=False)
 argparser.add_argument('package_name',
                        help='The package name. Example: com.android.sample')
-argparser.add_argument('apk_file',
-                       nargs='?',
-                       default='test.apk',
-                       help='The path to the APK file to upload.')
+argparser.add_argument('apk_files',
+                       nargs='*',
+                       help='Paths to the APK files to upload.')
 
 
 def main():
@@ -54,32 +53,35 @@ def main():
     http = httplib2.Http()
     http = credentials.authorize(http)
 
-    service = build('androidpublisher', 'v2', http=http)
+    service = build('androidpublisher', 'v3', http=http)
 
     # Process flags and read their values.
     flags = argparser.parse_args()
 
     package_name = flags.package_name
-    apk_file = flags.apk_file
+    apk_files = flags.apk_files
 
     try:
         edit_request = service.edits().insert(body={}, packageName=package_name)
         result = edit_request.execute()
         edit_id = result['id']
 
-        apk_response = service.edits().apks().upload(
-            editId=edit_id,
-            packageName=package_name,
-            media_body=apk_file).execute()
+        version_codes = list()
+        for filepath in apk_files:
+            apk_response = service.edits().apks().upload(
+                editId=edit_id,
+                packageName=package_name,
+                media_body=filepath).execute()
 
-        print('Version code {version_code} has been uploaded'.format(
-            version_code=apk_response['versionCode']))
+            print('Version code {version_code} has been uploaded'.format(
+                version_code=apk_response['versionCode']))
+            version_codes.append(apk_response['versionCode'])
 
         track_response = service.edits().tracks().update(
             editId=edit_id,
             track=TRACK,
             packageName=package_name,
-            body={u'versionCodes': [apk_response['versionCode']]}).execute()
+            body={u'versionCodes': version_codes}).execute()
 
         print('Track {track} is set for version code(s) {version_code}'.format(
             track=track_response['track'],
