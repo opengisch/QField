@@ -89,7 +89,9 @@ Rectangle{
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
                           embeddedFeatureForm.state = 'Add'
-                          embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer
+                          embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
+                          embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
+                          embeddedAttributeFormModel.featureModel.resetAttributes()
                           embeddedFeatureForm.active = true
                       }
                       else
@@ -117,7 +119,7 @@ Rectangle{
 
           Text {
             id: featureText
-            anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
+            anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
             text: { text: model.displayString }
@@ -128,8 +130,9 @@ Rectangle{
 
             onClicked: {
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
-                embeddedFeatureForm.relatedFeature = model.referencingFeature //nm not yet activated: associatedRelationId === '' ? model.referencingFeature : model.associatedReferencedFeature
-                embeddedFeatureForm.relatedLayer = relationEditorModel.relation.referencingLayer //nm not yet activated: associatedRelationId === '' ? relationEditorModel.relation.referencingLayer : relationEditorModel.associatedRelation.referencedLayer
+                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
+                embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
+                embeddedAttributeFormModel.featureModel.feature = model.referencingFeature
                 embeddedFeatureForm.active = true
             }
           }
@@ -200,12 +203,18 @@ Rectangle{
     }
 
     //the add entry stuff
+    AttributeFormModel {
+      id: embeddedAttributeFormModel
+
+      featureModel: FeatureModel {
+        currentLayer: relationEditorModel.relation.referencingLayer
+      }
+    }
+
     Loader {
       id: embeddedFeatureForm
 
       property var state
-      property var relatedFeature
-      property var relatedLayer
 
       sourceComponent: embeddedFeatureFormComponent
       active: false
@@ -229,16 +238,8 @@ Rectangle{
         closePolicy: Popup.CloseOnEscape
 
         FeatureForm {
-            model: AttributeFormModel {
-              id: attributeFormModel
+            model: embeddedAttributeFormModel
 
-              featureModel: FeatureModel {
-                currentLayer: relatedLayer
-                feature: state != 'Add' ? embeddedFeatureForm.relatedFeature : undefined
-                linkedParentFeature: relationEditorModel.feature
-                linkedRelation: relationEditorModel.relation
-              }
-            }
             focus: true
 
             embedded: true

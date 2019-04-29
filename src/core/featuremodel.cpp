@@ -275,7 +275,8 @@ void FeatureModel::resetAttributes()
     return;
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
+  if ( mPositionSource )
+    expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -283,7 +284,9 @@ void FeatureModel::resetAttributes()
   beginResetModel();
   for ( int i = 0; i < fields.count(); ++i )
   {
-    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) )
+    //if the value does not need to be remembered and it's not prefilled by the linked parent feature
+    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) &&
+         !mLinkedAttributeIndexes.contains( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
