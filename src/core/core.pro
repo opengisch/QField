@@ -58,7 +58,7 @@ HEADERS += \
     locatormodelsuperbridge.h \
     linepolygonhighlight.h \
     qgsgeometrywrapper.h \
-    valuemapmodel.h\
+    valuemapmodel.h \
     referencingfeaturelistmodel.h
 
 SOURCES += \

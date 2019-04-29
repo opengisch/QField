@@ -183,7 +183,7 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
       return mRememberings[mLayer].rememberedAttributes.at( index.row() );
 
     case LinkedAttribute:
-      return mLinkedAttributeIndexes.contains( index.row() ) ? true : false;
+      return mLinkedAttributeIndexes.contains( index.row() );
 
   }
 

@@ -19,6 +19,7 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
+  //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
 
   function reset() {
@@ -247,6 +248,7 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
+          //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
           enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor') && !!AttributeEditable
           property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue

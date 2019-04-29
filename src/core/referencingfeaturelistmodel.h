@@ -52,7 +52,6 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     QModelIndex parent( const QModelIndex &index ) const override;
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
-
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
     /**
@@ -112,9 +111,16 @@ class ReferencingFeatureListModel : public QAbstractItemModel
      */
     bool parentPrimariesAvailable() const;
 
-    //! Reloads the model
+    /**
+     * Reloads the model by starting the reload functionality in the gatherer (seperate thread)
+     * Sets the property parentPrimariesAvailable
+     */
     Q_INVOKABLE void reload();
-    //! Deletes a feature regarding the referencing layer and the feature id \param referencingFeatureId of the selected child
+
+    /**
+     * Deletes a feature regarding the referencing layer and the feature id of the selected child
+     * \param referencingFeatureId id of the selected child
+     */
     Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
 
     /**
@@ -128,8 +134,6 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void relationChanged();
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
-
-    //Indicator if the model is currently performing any feature iteration in the background.
     void isLoadingChanged();
 
   private slots:
@@ -155,7 +159,6 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     };
 
     QList<Entry> mEntries;
-
     QgsFeature mFeature;
     QgsRelation mRelation;
     QgsRelation mNmRelation;
@@ -205,7 +208,7 @@ class FeatureGatherer: public QThread
         }
         mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature, nmDisplayString, nmFeature ) );
         */
-        //test: sleep(1);
+        //test sleep(1);
         mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature ) );
 
         if ( mWasCanceled )
@@ -221,13 +224,11 @@ class FeatureGatherer: public QThread
       mWasCanceled = true;
     }
 
-    //! Returns TRUE if collection was canceled before completion
+    //! \return mWasCanceled true if collection was canceled before completion
     bool wasCanceled() const { return mWasCanceled; }
 
-    QList<ReferencingFeatureListModel::Entry> entries() const
-    {
-      return mEntries;
-    }
+    //! \return mEntries the list of entries
+    QList<ReferencingFeatureListModel::Entry> entries() const { return mEntries; }
 
   signals:
 
