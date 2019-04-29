@@ -224,10 +224,10 @@ class FeatureGatherer: public QThread
       mWasCanceled = true;
     }
 
-    //! \return mWasCanceled true if collection was canceled before completion
+    //! \returns true if collection was canceled before completion
     bool wasCanceled() const { return mWasCanceled; }
 
-    //! \return mEntries the list of entries
+    //! \returns the list of entries
     QList<ReferencingFeatureListModel::Entry> entries() const { return mEntries; }
 
   signals:
