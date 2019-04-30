@@ -81,7 +81,7 @@ Rectangle{
                       anchors.fill: parent
                       anchors.margins: 4 * dp
                       fillMode: Image.PreserveAspectFit
-                      horizontalAlignment: Image.AlignHCente
+                      horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
                       source: Style.getThemeIcon( 'ic_add_white_24dp' )
                     }
@@ -94,6 +94,7 @@ Rectangle{
                           embeddedFeatureForm.state = 'Add'
                           embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                           embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
+                          embeddedAttributeFormModel.featureModel.currentLayer =  relationEditorModel.relation.referencingLayer
                           embeddedAttributeFormModel.featureModel.resetAttributes()
                           embeddedFeatureForm.active = true
                       }
@@ -136,6 +137,8 @@ Rectangle{
                 embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                 embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
                 embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
+                embeddedAttributeFormModel.featureModel.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
+
                 embeddedFeatureForm.active = true
             }
           }
@@ -217,9 +220,8 @@ Rectangle{
     //the add entry stuff
     AttributeFormModel {
       id: embeddedAttributeFormModel
-
       featureModel: FeatureModel {
-        currentLayer: nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
+        id: embeddedFeatureModel
       }
     }
 

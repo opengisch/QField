@@ -170,8 +170,6 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
 
-    QString nmDisplayString( QgsFeatureId referencingFeatureId ) const;
-
     friend class FeatureGatherer;
 };
 
@@ -196,23 +194,26 @@ class FeatureGatherer: public QThread
       QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
 
       QgsFeature childFeature;
+      QString displayString;
       while ( relatedFeaturesIt.nextFeature( childFeature ) )
       {
         context.setFeature( childFeature );
+        displayString = expression.evaluate( &context ).toString();
 
-        /*
-        if( mNmRelation.isValid() )
+        QgsFeature nmFeature;
+        QString nmDisplayString;
+        if ( mNmRelation.isValid() )
         {
-          QgsExpressionContext nmContext = mNmRelation.referencingLayer()->createExpressionContext();
-          QgsExpression nmExpression ( mNmRelation.referencingLayer()->displayExpression() );
-          nmFeature = mNmRelation.getReferencedFeature(childFeature );
+          QgsExpressionContext nmContext = mNmRelation.referencedLayer()->createExpressionContext();
+          QgsExpression nmExpression( mNmRelation.referencedLayer()->displayExpression() );
+
+          nmFeature = mNmRelation.getReferencedFeature( childFeature );
           nmContext.setFeature( nmFeature );
           nmDisplayString = nmExpression.evaluate( &nmContext ).toString();
         }
-        mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature, nmDisplayString, nmFeature ) );
-        */
+
         //test sleep(1);
-        mEntries.append( ReferencingFeatureListModel::Entry( expression.evaluate( &context ).toString(), childFeature ) );
+        mEntries.append( ReferencingFeatureListModel::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
         if ( mWasCanceled )
           return;

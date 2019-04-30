@@ -67,9 +67,9 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   if ( role == ReferencingFeature )
     return mEntries.value( index.row() ).referencingFeature;
   if ( role == NmReferencedFeature )
-    return mNmRelation.getReferencedFeature( mEntries.value( index.row() ).referencingFeature );
+    return mEntries.value( index.row() ).nmReferencedFeature;
   if ( role == NmDisplayString )
-    return nmDisplayString( mEntries.value( index.row() ).referencingFeature.id() );
+    return mEntries.value( index.row() ).nmDisplayString;
   return QVariant();
 }
 
@@ -155,7 +155,7 @@ void ReferencingFeatureListModel::reload()
       wasLoading = true;
     }
 
-    mGatherer = new FeatureGatherer( mFeature, mRelation ); //to do mNmRelation
+    mGatherer = new FeatureGatherer( mFeature, mRelation, mNmRelation );
 
     connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
     connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );
@@ -201,13 +201,4 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
       return false;
   }
   return true;
-}
-
-QString ReferencingFeatureListModel::nmDisplayString( QgsFeatureId referencingFeatureId ) const
-{
-  QgsExpressionContext context = mNmRelation.referencedLayer()->createExpressionContext();
-  QgsExpression expression( mNmRelation.referencedLayer()->displayExpression() );
-
-  context.setFeature( mNmRelation.getReferencedFeature( mRelation.referencingLayer()->getFeature( referencingFeatureId ) ) );
-  return expression.evaluate( &context ).toString();
 }
