@@ -130,6 +130,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     bool isLoading() const;
 
   signals:
+    void attributeFormModelChanged();
     void featureChanged();
     void relationChanged();
     void nmRelationChanged();
@@ -168,6 +169,8 @@ class ReferencingFeatureListModel : public QAbstractItemModel
 
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
+
+    QString nmDisplayString( QgsFeatureId referencingFeatureId ) const;
 
     friend class FeatureGatherer;
 };

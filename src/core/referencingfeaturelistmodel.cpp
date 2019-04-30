@@ -68,7 +68,7 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
     return mEntries.value( index.row() ).referencingFeature;
   if ( role == NmReferencedFeature )
     return mNmRelation.getReferencedFeature( mEntries.value( index.row() ).referencingFeature );
-  if ( role == AssociatedDisplayString )
+  if ( role == NmDisplayString )
     return nmDisplayString( mEntries.value( index.row() ).referencingFeature.id() );
   return QVariant();
 }
