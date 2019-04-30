@@ -92,9 +92,9 @@ Rectangle{
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
                           embeddedFeatureForm.state = 'Add'
+                          embeddedAttributeFormModel.featureModel.currentLayer = relationEditorModel.relation.referencingLayer
                           embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                           embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                          embeddedAttributeFormModel.featureModel.currentLayer =  relationEditorModel.relation.referencingLayer
                           embeddedAttributeFormModel.featureModel.resetAttributes()
                           embeddedFeatureForm.active = true
                       }
@@ -134,11 +134,10 @@ Rectangle{
 
             onClicked: {
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
-                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
-                embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedAttributeFormModel.featureModel.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
-
+                embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
+                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
+                embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedFeatureForm.active = true
             }
           }

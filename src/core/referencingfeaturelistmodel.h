@@ -252,8 +252,6 @@ class FeatureGatherer: public QThread
 
     QgsFeatureRequest mRequest;
     bool mWasCanceled = false;
-
-    QString nmDisplayString( QgsFeatureId referencingFeatureId ) const;
 };
 
 #endif // REFERENCINGFEATURELISTMODEL_H
