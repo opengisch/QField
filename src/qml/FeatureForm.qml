@@ -296,7 +296,7 @@ Page {
       CheckBox {
         id: rememberCheckbox
         checked: RememberValue ? true : false 
-        visible: form.state === "Add" && EditorWidget !== "Hidden"
+        visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
         width: visible ? undefined : 0
 
         anchors { right: parent.right; top: fieldLabel.bottom }
