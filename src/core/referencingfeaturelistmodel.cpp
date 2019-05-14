@@ -120,7 +120,8 @@ void ReferencingFeatureListModel::updateModel()
 {
   beginResetModel();
 
-  mEntries = mGatherer->entries();
+  if ( mGatherer )
+    mEntries = mGatherer->entries();
 
   endResetModel();
 }
