@@ -161,6 +161,13 @@ void ReferencingFeatureListModel::reload()
     if ( !wasLoading )
       emit isLoadingChanged();
   }
+  else
+  {
+    //clear model entries
+    beginResetModel();
+    mEntries.clear();
+    endResetModel();
+  }
 
   //set the property for parent primaries available status
   setParentPrimariesAvailable( checkParentPrimaries() );
