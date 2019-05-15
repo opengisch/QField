@@ -135,7 +135,7 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
 
   roleNames[VectorLayer] = "VectorLayer";
   roleNames[Visible] = "Visible";
-
+  roleNames[Type] = "Type";
   return roleNames;
 }
 
