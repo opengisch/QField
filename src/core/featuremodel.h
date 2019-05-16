@@ -55,7 +55,7 @@ class FeatureModel : public QAbstractListModel
       AttributeValue,
       Field,
       RememberAttribute,
-      LinkedAttribute
+      LinkedAttribute  //! value of this attribute is given by the parent feature and does not to be available for editing in the form
     };
 
     explicit FeatureModel( QObject *parent = nullptr );
