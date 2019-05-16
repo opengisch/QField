@@ -86,7 +86,6 @@ class AttributeFormModel : public QSortFilterProxyModel
     void hasTabsChanged();
     void featureChanged();
     void constraintsValidChanged();
-    void setRelationFeatureId( QgsFeatureId featureId );
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
