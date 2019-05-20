@@ -31,7 +31,7 @@ script:
 
 jobs:
   allow_failures:
-    - name: "🍳 Testing"
+#    - name: "🍳 Testing"
   include:
     - stage: test
       name: "🍳 Testing"
