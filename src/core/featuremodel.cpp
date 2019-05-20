@@ -19,9 +19,11 @@
 #include "expressioncontextutils.h"
 #include "vertexmodel.h"
 
+#include <qgsproject.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <QGeoPositionInfoSource>
+#include <qgsrelationmanager.h>
 
 
 FeatureModel::FeatureModel( QObject *parent )
@@ -96,6 +98,50 @@ QgsFeature FeatureModel::feature() const
   return mFeature;
 }
 
+void FeatureModel::setLinkedFeatureValues()
+{
+  beginResetModel();
+  mLinkedAttributeIndexes.clear();
+  const auto fieldPairs = mLinkedRelation.fieldPairs();
+  for ( QgsRelation::FieldPair fieldPair : fieldPairs )
+  {
+    mFeature.setAttribute( mFeature.fieldNameIndex( fieldPair.first ), linkedParentFeature().attribute( fieldPair.second ) );
+    mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
+  }
+  endResetModel();
+
+  emit featureChanged();
+}
+
+void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
+{
+  if ( mLinkedParentFeature == feature )
+    return;
+
+  mLinkedParentFeature = feature;
+
+  if ( mLinkedRelation.isValid() )
+    setLinkedFeatureValues();
+}
+
+QgsFeature FeatureModel::linkedParentFeature() const
+{
+  return mLinkedParentFeature;
+}
+
+void FeatureModel::setLinkedRelation( const QgsRelation &relation )
+{
+  mLinkedRelation = relation;
+
+  if ( mLinkedParentFeature.isValid() )
+    setLinkedFeatureValues();
+}
+
+QgsRelation FeatureModel::linkedRelation() const
+{
+  return mLinkedRelation;
+}
+
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
@@ -103,6 +149,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   roles[AttributeValue] = "AttributeValue";
   roles[Field] = "Field";
   roles[RememberAttribute] = "RememberAttribute";
+  roles[LinkedAttribute] = "LinkedAttribute";
 
   return roles;
 }
@@ -125,19 +172,19 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
   {
     case AttributeName:
       return mLayer->attributeDisplayName( index.row() );
-      break;
 
     case AttributeValue:
       return mFeature.attribute( index.row() );
-      break;
 
     case Field:
       return mLayer->fields().at( index.row() );
-      break;
 
     case RememberAttribute:
       return mRememberings[mLayer].rememberedAttributes.at( index.row() );
-      break;
+
+    case LinkedAttribute:
+      return mLinkedAttributeIndexes.contains( index.row() );
+
   }
 
   return QVariant();
@@ -228,7 +275,8 @@ void FeatureModel::resetAttributes()
     return;
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
+  if ( mPositionSource )
+    expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -236,7 +284,9 @@ void FeatureModel::resetAttributes()
   beginResetModel();
   for ( int i = 0; i < fields.count(); ++i )
   {
-    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) )
+    //if the value does not need to be remembered and it's not prefilled by the linked parent feature
+    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) &&
+         !mLinkedAttributeIndexes.contains( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
@@ -272,16 +322,58 @@ void FeatureModel::removeLayer( QObject *layer )
   mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
 }
 
+void FeatureModel::featureAdded( QgsFeatureId fid )
+{
+  setFeature( mLayer->getFeature( fid ) );
+}
+
 void FeatureModel::create()
 {
   if ( !mLayer )
     return;
 
   startEditing();
+  connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
   if ( !mLayer->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
+
+  if ( commit() )
+  {
+    QgsFeature feat;
+    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      setFeature( feat );
+    else
+      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  }
+  disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+}
+
+void FeatureModel::deleteFeature()
+{
+  startEditing();
+
+  //delete child features in case of compositions
+  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( const QgsRelation &referencingRelation : referencingRelations )
+  {
+    if ( referencingRelation.strength() == QgsRelation::Composition )
+    {
+      QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
+      childLayer->startEditing();
+      QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
+      QgsFeature childFeature;
+      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      {
+        childLayer->deleteFeature( childFeature.id() );
+      }
+      childLayer->commitChanges();
+    }
+  }
+
+  //delete parent
+  mLayer->deleteFeature( mFeature.id() );
   commit();
 }
 

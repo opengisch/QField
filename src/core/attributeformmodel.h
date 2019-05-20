@@ -41,6 +41,8 @@ class AttributeFormModel : public QSortFilterProxyModel
       EditorWidgetConfig,
       RememberValue,
       Field,
+      RelationId,
+      NmRelationId,
       FieldIndex,
       Group,
       AttributeEditorElement,
@@ -60,9 +62,23 @@ class AttributeFormModel : public QSortFilterProxyModel
     void setFeatureModel( FeatureModel *featureModel );
 
     bool constraintsValid() const;
-
+    /**
+     * Save the current (already existing) feature
+     */
     Q_INVOKABLE void save();
+    /**
+     * Create the current (not existing yet) feature
+     */
     Q_INVOKABLE void create();
+    /**
+     * Delete the current feature
+     */
+    Q_INVOKABLE void deleteFeature();
+    /**
+     * Get the attribute of the current feature by name
+     * \param name the name of the attribute
+     * \return value of the attribute
+     */
     Q_INVOKABLE QVariant attribute( const QString &name );
 
   signals:

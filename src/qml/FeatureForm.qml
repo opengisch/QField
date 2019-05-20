@@ -19,6 +19,8 @@ Page {
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
+  //! if embedded form called by RelationEditor or RelationReferenceWidget
+  property bool embedded: false
 
   function reset() {
     master.reset()
@@ -28,15 +30,22 @@ Page {
 
   states: [
     State {
-      name: "ReadOnly"
+      name: 'ReadOnly'
     },
     State {
-      name: "Edit"
+      name: 'Edit'
     },
     State {
-      name: "Add"
+      name: 'Add'
     }
   ]
+
+  /**
+   * a substate used under 'Add' (not yet under 'Edit' but possibly in future)
+   * in case that the feature needs to be stored "meanwhile"
+   * e.g. on relation editor widget when adding childs to a not yet stored parent
+   */
+  property bool buffered: false
 
   /**
    * This is a relay to forward private signals to internal components.
@@ -107,9 +116,9 @@ Page {
               // than the parent item and the Flickable is useful
               width: paintedWidth
               text: tabButton.text
-              // color: tabButton.down ? "#17a81a" : "#21be2b"
-              color: !tabButton.enabled ? "#999999" : tabButton.down ||
-                                        tabButton.checked ? "#1B5E20" : "#4CAF50"
+              // color: tabButton.down ? '#17a81a' : '#21be2b'
+              color: !tabButton.enabled ? '999999' : tabButton.down ||
+                                        tabButton.checked ? '#1B5E20' : '#4CAF50'
               font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
@@ -150,14 +159,14 @@ Page {
             id: content
             anchors.fill: parent
             clip: true
-            section.property: "Group"
+            section.property: 'Group'
             section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
             section.delegate: Component {
               // section header: group box name
               Rectangle {
                 width: parent.width
                 height: section === "" ? 0 : 30 * dp
-                color: "lightGray"
+                color: 'lightGray'
 
                 Text {
                   anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
@@ -195,7 +204,7 @@ Page {
 
     Item {
       id: fieldContainer
-      visible: Type === 'field'
+      visible: Type === 'field' || Type === 'relation'
       height: childrenRect.height
 
       anchors {
@@ -231,7 +240,7 @@ Page {
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp  }
 
         Loader {
           id: attributeEditorLoader
@@ -239,12 +248,19 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          enabled: form.state !== "ReadOnly" && !!AttributeEditable
+          //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
+          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor') && !!AttributeEditable
+          property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
           property var field: Field
+          property var fieldType: FieldType
+          property var relationId: RelationId
+          property var nmRelationId: NmRelationId
           property var constraintValid: ConstraintValid
+          property bool constraintsValid: form.model.constraintsValid
+          property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
@@ -280,7 +296,7 @@ Page {
       CheckBox {
         id: rememberCheckbox
         checked: RememberValue ? true : false 
-        visible: form.state === "Add" && EditorWidget !== "Hidden"
+        visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
         width: visible ? undefined : 0
 
         anchors { right: parent.right; top: fieldLabel.bottom }
@@ -300,24 +316,64 @@ Page {
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
     if( !model.constraintsValid ) {
-        displayToast( "Constraints not valid - cancel editing" )
-        cancelled()
+        displayToast( qsTr( 'Constraints not valid - cancel editing') )
+        cancel()
         return
     }
 
     parent.focus = true
     aboutToSave()
 
-    if ( form.state === "Add" ) {
-      model.create()
-      state = "Edit"
+    if ( form.state === 'Add' ) {
+      if( !buffered )
+      {
+        model.create()
+      }
+      else
+      {
+        model.save()
+        buffered = false
+      }
+      state = 'Edit'
     }
     else
     {
       model.save()
     }
-
     saved()
+  }
+
+  function buffer() {
+      if( !model.constraintsValid ) {
+          displayToast( qsTr('Constraints not valid - cannot buffer') )
+          return false
+      }
+
+      aboutToSave() //used the same way like on save
+
+      if ( form.state === 'Add' ) {
+        if( !buffered )
+        {
+          model.create()
+          buffered = true
+        }
+        else
+        {
+          model.save()
+        }
+      }
+      else{
+        model.save()
+      }
+
+      return true
+  }
+
+  function cancel() {
+    if( buffered )
+      model.deleteFeature()
+    buffered = false
+    cancelled()
   }
 
   Connections {
@@ -340,7 +396,8 @@ Page {
     }
 
     background: Rectangle {
-      color: model.constraintsValid ? "blue" : "orange"
+      //testwise have special color for buffered
+      color: model.constraintsValid ?  form.state === 'Add' ? 'blue' : '#80CC28' : 'orange'
     }
 
     RowLayout {
@@ -352,18 +409,19 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
+        visible: form.state === 'Add' || form.state === 'Edit'
         width: 48*dp
         height: 48*dp
         clip: true
         bgcolor: "#212121"
 
-        iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
+        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
           if( model.constraintsValid ) {
             save()
           } else {
-            displayToast( "Constraints not valid" )
+            displayToast( qsTr('Constraints not valid') )
           }
         }
       }
@@ -403,11 +461,11 @@ Page {
         clip: true
         bgcolor: "#212121"
 
-        iconSource: form.state === 'Add' ? Style.getThemeIcon( "ic_delete_forever_white_24dp" ) : Style.getThemeIcon( "ic_close_white_24dp" )
+        iconSource: form.state === 'Add' ? Style.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Style.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           Qt.inputMethod.hide()
-          cancelled()
+          cancel()
         }
       }
     }

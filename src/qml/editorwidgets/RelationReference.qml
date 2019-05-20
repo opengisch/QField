@@ -125,6 +125,7 @@ Item {
       iconSource: Style.getThemeIcon( "ic_add_black_48dp" )
       bgcolor: "white"
       onClicked: {
+        attributeFormModel.featureModel.resetAttributes()
         addFeatureForm.active = true
       }
     }
@@ -135,6 +136,13 @@ Item {
       text: qsTr( "Invalid relation")
       color: "red"
     }
+  }
+
+  AttributeFormModel {
+   id: attributeFormModel
+   featureModel: FeatureModel {
+       currentLayer: relationReference._relation.referencedLayer
+     }
   }
 
   Loader {
@@ -155,19 +163,13 @@ Item {
       x: 24 * dp
       y: 24 * dp
       width: parent.width - 48 * dp
-      height: parent.width - 48 * dp
+      height: parent.height - 48 * dp
       modal: true
       focus: true
       closePolicy: Popup.CloseOnEscape
 
       FeatureForm {
-        model: AttributeFormModel {
-          id: attributeFormModel
-
-          featureModel: FeatureModel {
-            currentLayer: relationReference._relation.referencedLayer
-          }
-        }
+        model: attributeFormModel
 
         anchors.fill: parent
 

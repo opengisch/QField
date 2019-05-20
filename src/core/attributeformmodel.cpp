@@ -63,6 +63,11 @@ void AttributeFormModel::create()
   mSourceModel->create();
 }
 
+void AttributeFormModel::deleteFeature()
+{
+  mSourceModel->deleteFeature();
+}
+
 QVariant AttributeFormModel::attribute( const QString &name )
 {
   return mSourceModel->attribute( name );

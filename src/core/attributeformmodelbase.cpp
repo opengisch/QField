@@ -18,6 +18,8 @@
 #include "attributeformmodel.h"
 #include <qgsvectorlayer.h>
 #include <qgseditorwidgetsetup.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -44,6 +46,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
+  roles[AttributeFormModel::RelationId] = "RelationId";
+  roles[AttributeFormModel::NmRelationId] = "NmRelationId";
   roles[AttributeFormModel::Group] = "Group";
   roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
@@ -189,6 +193,7 @@ void AttributeFormModelBase::onFeatureChanged()
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
 {
   QgsAttributeEditorContainer *root = new QgsAttributeEditorContainer( QString(), nullptr );
+  //get fields
   QgsFields fields = mLayer->fields();
   for ( int i = 0; i < fields.size(); ++i )
   {
@@ -197,6 +202,13 @@ QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() con
       QgsAttributeEditorField *field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
       root->addChildElement( field );
     }
+  }
+  //get relations
+  const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  for ( const QgsRelation &referencingRelation : referencingRelations )
+  {
+    QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelation, root );
+    root->addChildElement( relation );
   }
   return root;
 }
@@ -208,11 +220,13 @@ QgsAttributeEditorContainer *AttributeFormModelBase::invisibleRootContainer() co
 
 void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 {
-  if ( item->data( AttributeFormModel::ElementType ) == "field" )
+  if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "field" ) )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
+    //set item visibility to false in case it's a linked attribute
+    item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
   else
   {
@@ -288,8 +302,29 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       }
 
       case QgsAttributeEditorElement::AeTypeRelation:
-        // todo
+      {
+        QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
+        QgsRelation relation = editorRelation->relation();
+
+        QStandardItem *item = new QStandardItem();
+
+
+        item->setData( relation.name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::AttributeEditable );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( "relation", AttributeFormModel::ElementType );
+        item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
+        item->setData( relation.id(), AttributeFormModel::RelationId );
+        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::NmRelationId );
+        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( true, AttributeFormModel::ConstraintValid );
+
+        items.append( item );
+
+        parent->appendRow( item );
         break;
+      }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
         // todo
@@ -394,4 +429,9 @@ void AttributeFormModelBase::save()
 void AttributeFormModelBase::create()
 {
   mFeatureModel->create();
+}
+
+void AttributeFormModelBase::deleteFeature()
+{
+  mFeatureModel->deleteFeature();
 }

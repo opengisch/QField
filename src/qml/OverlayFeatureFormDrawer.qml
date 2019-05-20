@@ -41,6 +41,7 @@ Drawer {
     model: AttributeFormModel {id: attributeFormModel}
 
     state: "Add"
+    buffered: false
 
     focus: parent.opened
 
