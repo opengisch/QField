@@ -75,8 +75,8 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
 
 void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
 {
-  if ( mFeature == feature )
-    return;
+  //if ( mFeature == feature )
+    //return;
 
   mFeature = feature;
   reload();
