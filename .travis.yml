@@ -12,7 +12,7 @@ services:
   - docker
 
 before_install:
-  - sed -i s/ch.opengis.qfield/ch.opengis.qfield-test/ android/AndroidManifest.xml 
+  - sed -i s/ch.opengis.qfield/ch.opengis.qfield_test/ android/AndroidManifest.xml 
   - sed -i s/qfield-logo.svg/qfield-testlogo.svg/ src/qml/WelcomeScreen.qml
   - sed -i s/qfield-logo.svg/qfield-testlogo.svg/ images/images.qrc
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
