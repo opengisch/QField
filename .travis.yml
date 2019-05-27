@@ -50,7 +50,7 @@ jobs:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "☎  Build ARMv7 Android 5"
+      name: "☎  Build ARMv7 (Android 5)"
       env:
         - QFIELD_SDK_VERSION=20190128
         - ARCH=armv7
@@ -59,7 +59,7 @@ jobs:
         - patch -p1 < scripts/ci/android-5.patch
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "☎  Build X86"
+      name: "☎  Build X86 (Android 5)"
       env:
         - QFIELD_SDK_VERSION=20190128
         - ANDROID_VERSION=5
