@@ -66,11 +66,11 @@ Item {
         target: featureListModel
 
         onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = value
+          comboBox._cachedCurrentValue = comboBox.currentValue
         }
 
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(value)
+          comboBox.currentIndex = featureListModel.findKey(comboBox.currentValue)
         }
       }
 
