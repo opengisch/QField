@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=20190306
+  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190306}
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -40,14 +40,32 @@ jobs:
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 build ARMv7"
+      name: "📱 Build ARMv7"
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "☎ build X86"
+      name: "📱 Build X86"
       env:
         - ARCH=x86
+      if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "☎  Build ARMv7 Android 5"
+      env:
+        - QFIELD_SDK_VERSION=20190128
+        - ARCH=armv7
+        - ANDROID_VERSION=5
+      before_script:
+        - patch -p1 < scripts/ci/android-5.patch
+      if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "☎  Build X86"
+      env:
+        - QFIELD_SDK_VERSION=20190128
+        - ANDROID_VERSION=5
+        - ARCH=x86
+      before_script:
+        - patch -p1 < scripts/ci/android-5.patch
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       name: "🍺 Deploy"
