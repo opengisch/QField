@@ -39,8 +39,16 @@ def main(parameters, arguments):
         url = '{}?name={}'.format(release['upload_url'][:-13], basename)
         print('Upload to {}'.format(url))
 
+        retry_count = 0
         with open(filename, 'rb') as f:
-            conn.request('POST', url, f, headers)
+            while retry_count < 3:
+                try:
+                    conn.request('POST', url, f, headers)
+                except BrokenPipeError as e:
+                    retry_count += 1
+                    if retry_count == 3:
+                        raise e
+
 
         print(conn.getresponse().read())
 
