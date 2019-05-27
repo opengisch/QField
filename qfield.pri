@@ -42,6 +42,7 @@ android {
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libowsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libpostgresprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libspatialiteprovider.so \
+    $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libvirtuallayerprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwcsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwfsprovider.so \
     $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libwmsprovider.so \
