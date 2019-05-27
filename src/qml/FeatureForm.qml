@@ -219,7 +219,7 @@ Page {
         text: Name || ''
         wrapMode: Text.WordWrap
         font.bold: true
-        color: ConstraintValid ? "black" : "#c0392b"
+        color: ConstraintValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : '#c0392b'
       }
 
       Controls.Label {
