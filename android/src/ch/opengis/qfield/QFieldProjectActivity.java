@@ -140,7 +140,7 @@ public class QFieldProjectActivity extends Activity {
                 for (File file : list) {
                     if (file.getName().startsWith(".")) {
                         continue;
-                    }else if (file.getName().toLowerCase().endsWith(".qgs")){
+                    }else if (file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz")){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
                     }else if (file.isDirectory()){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
