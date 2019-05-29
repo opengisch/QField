@@ -26,6 +26,14 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.qgs" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.qgs" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.qgs" />
+        <data android:pathPattern=".*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.qgz" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.qgz" />
       </intent-filter>
       <meta-data android:name="id" android:value="1"/>
     </activity-alias>
