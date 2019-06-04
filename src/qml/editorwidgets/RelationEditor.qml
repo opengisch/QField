@@ -190,7 +190,7 @@ Rectangle{
       visible: false
 
       title: qsTr( 'Delete feature %1 on layer %2' ).arg(referencingFeatureId).arg(layerName)
-      text: qsTr( 'Should the feature %1 on layer %2').arg(referencingFeatureId).arg( layerName)
+      text: qsTr( 'Should the feature %1 on layer %2 be deleted?').arg(referencingFeatureId).arg( layerName)
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )
