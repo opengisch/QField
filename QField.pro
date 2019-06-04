@@ -5,6 +5,7 @@ CONFIG += qt
 TRANSLATIONS = \
   i18n/qfield_af.ts \
   i18n/qfield_ca.ts \
+  i18n/qfield_cs.ts \
   i18n/qfield_de.ts \
   i18n/qfield_el.ts \
   i18n/qfield_en.ts \
@@ -19,6 +20,7 @@ TRANSLATIONS = \
   i18n/qfield_hu.ts \
   i18n/qfield_it.ts \
   i18n/qfield_lt.ts \
+  i18n/qfield_ko.ts \
   i18n/qfield_lv.ts \
   i18n/qfield_mn.ts \
   i18n/qfield_nl.ts \
@@ -26,6 +28,7 @@ TRANSLATIONS = \
   i18n/qfield_pt.ts \
   i18n/qfield_rm.ts \
   i18n/qfield_ro.ts \
+  i18n/qfield_sv.ts \
   i18n/qfield_uk.ts \
   i18n/qfield_zh.ts
 
