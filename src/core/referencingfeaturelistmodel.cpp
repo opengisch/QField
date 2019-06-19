@@ -127,7 +127,11 @@ void ReferencingFeatureListModel::updateModel()
 
 void ReferencingFeatureListModel::gathererThreadFinished()
 {
-  delete mGatherer;
+  //ignore spooky signals from ancestor threads
+  if ( sender() != mGatherer )
+    return;
+
+  mGatherer->deleteLater();
   mGatherer = nullptr;
   emit isLoadingChanged();
 }
