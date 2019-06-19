@@ -17,22 +17,14 @@ Item {
 
   Image {
     property var currentValue: value
-    property var noimage: image.status === Image.Error ? Style.getThemeIcon("ic_broken_image_black_24dp") : Style.getThemeIcon("ic_photo_notavailable_white_48dp")
 
     id: image
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
 
-    source: {
-      if (image.status === Image.Error) {
-          Style.getThemeIcon("ic_broken_image_black_24dp")
-      } else if (image.currentValue) {
-        'file://' + qgisProject.homePath + '/' + image.currentValue
-      } else {
-        Style.getThemeIcon("ic_photo_notavailable_white_48dp")
-      }
-    }
+    //source is managed over onCurrentValueChanged since the binding would break somewhere
+    source: Style.getThemeIcon("ic_photo_notavailable_white_48dp")
 
     MouseArea {
       anchors.fill: parent
@@ -44,15 +36,14 @@ Item {
     }
 
     onCurrentValueChanged: {
-        console.log("source is "+image.source+" and value is "+value+" or "+image.currentValue+" but error is "+image.status+" ("+Image.Error+")")
+      if (image.status === Image.Error) {
+        image.source=Style.getThemeIcon("ic_broken_image_black_24dp")
+      } else if (image.currentValue) {
+        image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
+      } else {
+        image.source=Style.getThemeIcon("ic_photo_notavailable_white_48dp")
+      }
     }
-    onSourceChanged: {
-        console.log("source is now "+image.source+" and noimage is "+image.noimage)
-    }
-    onStatusChanged: {
-        console.log("status is now "+image.status+" and noimage is "+image.noimage)
-    }
-
   }
 
   QField.Button {
