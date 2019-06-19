@@ -17,6 +17,7 @@ Item {
 
   Image {
     property var currentValue: value
+    property var noimage: image.status === Image.Error ? Style.getThemeIcon("ic_broken_image_black_24dp") : Style.getThemeIcon("ic_photo_notavailable_white_48dp")
 
     id: image
     width: 200 * dp
@@ -25,9 +26,9 @@ Item {
 
     source: {
       if (image.status === Image.Error) {
-        Style.getThemeIcon("ic_broken_image_black_24dp")
-      } else if (currentValue) {
-        'file://' + qgisProject.homePath + '/' + currentValue
+          Style.getThemeIcon("ic_broken_image_black_24dp")
+      } else if (image.currentValue) {
+        'file://' + qgisProject.homePath + '/' + image.currentValue
       } else {
         Style.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
@@ -37,10 +38,21 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (currentValue && settings.value("useNativeCamera", false))
-          platformUtilities.open(image.source, "image/*");
+        if (image.currentValue && settings.value("useNativeCamera", false))
+          platformUtilities.open(image.currentValue, "image/*");
       }
     }
+
+    onCurrentValueChanged: {
+        console.log("source is "+image.source+" and value is "+value+" or "+image.currentValue+" but error is "+image.status+" ("+Image.Error+")")
+    }
+    onSourceChanged: {
+        console.log("source is now "+image.source+" and noimage is "+image.noimage)
+    }
+    onStatusChanged: {
+        console.log("status is now "+image.status+" and noimage is "+image.noimage)
+    }
+
   }
 
   QField.Button {
