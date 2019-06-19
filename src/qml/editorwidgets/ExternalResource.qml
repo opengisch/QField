@@ -23,22 +23,25 @@ Item {
     autoTransform: true
     fillMode: Image.PreserveAspectFit
 
-    source: {
-      if (image.status === Image.Error) {
-        Style.getThemeIcon("ic_broken_image_black_24dp")
-      } else if (currentValue) {
-        'file://' + qgisProject.homePath + '/' + currentValue
-      } else {
-        Style.getThemeIcon("ic_photo_notavailable_white_48dp")
-      }
-    }
+    //source is managed over onCurrentValueChanged since the binding would break somewhere
+    source: Style.getThemeIcon("ic_photo_notavailable_white_48dp")
 
     MouseArea {
       anchors.fill: parent
 
       onClicked: {
-        if (currentValue && settings.value("useNativeCamera", false))
-          platformUtilities.open(image.source, "image/*");
+        if (image.currentValue && settings.value("useNativeCamera", false))
+          platformUtilities.open(image.currentValue, "image/*");
+      }
+    }
+
+    onCurrentValueChanged: {
+      if (image.status === Image.Error) {
+        image.source=Style.getThemeIcon("ic_broken_image_black_24dp")
+      } else if (image.currentValue) {
+        image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
+      } else {
+        image.source=Style.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
     }
   }
