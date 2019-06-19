@@ -214,6 +214,7 @@ Rectangle{
       onRejected: {
         visible = false
       }
+
     }
 
     //the add entry stuff
