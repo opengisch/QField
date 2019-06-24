@@ -321,7 +321,9 @@ void FeatureModel::removeLayer( QObject *layer )
 
 void FeatureModel::featureAdded( QgsFeatureId fid )
 {
+  QgsMessageLog::logMessage( tr( "Let's set Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   setFeature( mLayer->getFeature( fid ) );
+  QgsMessageLog::logMessage( tr( "Feature %1 set" ).arg( mFeature.id() ), "QField", Qgis::Warning );
 }
 
 void FeatureModel::create()
@@ -331,13 +333,20 @@ void FeatureModel::create()
 
   startEditing();
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+
+  QgsMessageLog::logMessage( tr( "Let's add Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   if ( !mLayer->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
+  QgsMessageLog::logMessage( tr( "Feature %1 added" ).arg( mFeature.id() ), "QField", Qgis::Warning );
 
+  QgsMessageLog::logMessage( tr( "Let's commit Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   if ( commit() )
   {
+
+    QgsMessageLog::logMessage( tr( "Feature %1 commited" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+    QgsMessageLog::logMessage( tr( "Let's fetch Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
     QgsFeature feat;
     if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
       setFeature( feat );
