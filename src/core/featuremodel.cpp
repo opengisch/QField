@@ -321,7 +321,7 @@ void FeatureModel::removeLayer( QObject *layer )
 
 void FeatureModel::featureAdded( QgsFeatureId fid )
 {
-  QgsMessageLog::logMessage( tr( "Let's set Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  QgsMessageLog::logMessage( tr( "Let's set Feature %1 with %2" ).arg( mFeature.id() ).arg( fid ), "QField", Qgis::Warning );
   setFeature( mLayer->getFeature( fid ) );
   QgsMessageLog::logMessage( tr( "Feature %1 set" ).arg( mFeature.id() ), "QField", Qgis::Warning );
 }
