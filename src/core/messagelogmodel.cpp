@@ -31,6 +31,7 @@ QHash<int, QByteArray> MessageLogModel::roleNames() const
   roles[MessageRole]  = "Message";
   roles[MessageTagRole] = "MessageTag";
   roles[MessageLevelRole] = "MessageLevel";
+  roles[MessageDateTimeRole] = "MessageDateTime";
 
   return roles;
 }
@@ -52,6 +53,8 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
     return mMessages.at( index.row() ).tag;
   else if ( role == MessageLevelRole )
     return mMessages.at( index.row() ).level;
+  else if ( role == MessageDateTimeRole )
+    return mMessages.at( index.row() ).datetime;
 
   return QVariant();
 }

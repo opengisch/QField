@@ -18,6 +18,7 @@
 
 #include <QAbstractListModel>
 #include <qgsmessagelog.h>
+#include <qdatetime.h>
 
 /**
  * This model will connect to the message log and publish any
@@ -34,11 +35,13 @@ class MessageLogModel : public QAbstractListModel
 
       LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
       {
+        this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss" ) );
         this->tag = tag;
         this->message = message;
         this->level = level;
       }
 
+      QString datetime;
       QString tag;
       QString message;
       Qgis::MessageLevel level;
@@ -48,7 +51,8 @@ class MessageLogModel : public QAbstractListModel
     {
       MessageRole = Qt::UserRole,
       MessageTagRole,
-      MessageLevelRole
+      MessageLevelRole,
+      MessageDateTimeRole
     };
 
   public:

@@ -20,7 +20,7 @@ Item {
 
     delegate: Column {
       Text {
-        text: MessageTag
+        text: MessageDateTime + ' : ' + MessageTag
         font.bold: true
       }
 
@@ -29,9 +29,8 @@ Item {
         wrapMode: Text.WordWrap
       }
 
-      Rectangle {
-        color: "gray"
-        height: 1*dp
+      Text {
+        text: '--------------------------------'
       }
     }
   }
