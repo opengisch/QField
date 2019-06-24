@@ -35,7 +35,7 @@ class MessageLogModel : public QAbstractListModel
 
       LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
       {
-        this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss" ) );
+        this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) );
         this->tag = tag;
         this->message = message;
         this->level = level;
