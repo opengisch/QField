@@ -174,6 +174,7 @@ Item {
         anchors.fill: parent
 
         state: "Add"
+        embedded: true
 
         onSaved: {
           var referencedValue = attributeFormModel.attribute(relationReference._relation.resolveReferencedField(field.name))

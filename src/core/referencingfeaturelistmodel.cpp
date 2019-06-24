@@ -28,6 +28,7 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
   roles[DisplayString] = "displayString";
   roles[ReferencingFeature] = "referencingFeature";
   roles[NmReferencedFeature] = "nmReferencedFeature";
+  roles[NmDisplayString] = "nmDisplayString";
 
   return roles;
 }
@@ -66,16 +67,14 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   if ( role == ReferencingFeature )
     return mEntries.value( index.row() ).referencingFeature;
   if ( role == NmReferencedFeature )
-    return mNmRelation.getReferencedFeature( mEntries.value( index.row() ).referencingFeature );
-  //return mEntries.value( index.row() ).nmReferencedFeature;
+    return mEntries.value( index.row() ).nmReferencedFeature;
+  if ( role == NmDisplayString )
+    return mEntries.value( index.row() ).nmDisplayString;
   return QVariant();
 }
 
 void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
 {
-  if ( mFeature == feature )
-    return;
-
   mFeature = feature;
   reload();
 }
@@ -128,7 +127,11 @@ void ReferencingFeatureListModel::updateModel()
 
 void ReferencingFeatureListModel::gathererThreadFinished()
 {
-  delete mGatherer;
+  //ignore spooky signals from ancestor threads
+  if ( sender() != mGatherer )
+    return;
+
+  mGatherer->deleteLater();
   mGatherer = nullptr;
   emit isLoadingChanged();
 }
@@ -153,7 +156,7 @@ void ReferencingFeatureListModel::reload()
       wasLoading = true;
     }
 
-    mGatherer = new FeatureGatherer( mFeature, mRelation ); //to do mNmRelation
+    mGatherer = new FeatureGatherer( mFeature, mRelation, mNmRelation );
 
     connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
     connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );

@@ -34,9 +34,6 @@ FeatureModel::FeatureModel( QObject *parent )
 
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
-  if ( mFeature == feature )
-    return;
-
   beginResetModel();
   mFeature = feature;
   endResetModel();

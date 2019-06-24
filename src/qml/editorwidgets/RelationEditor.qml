@@ -17,8 +17,10 @@ Rectangle{
     border.color: 'lightgray'
     border.width: 1 * dp
 
-    //the model
     ReferencingFeatureListModel {
+        //containing the current (parent) feature, the relation to the children
+        //and the relation from the children to the other parent (if it's nm and cardinality is set)
+        //if cardinality is not set, the nmRelationId is empty
         id: relationEditorModel
         relation: qgisProject.relationManager.relation(relationId)
         nmRelation: qgisProject.relationManager.relation(nmRelationId)
@@ -34,6 +36,7 @@ Rectangle{
         delegate: referencingFeatureDelegate
         focus: true
         clip: true
+        highlightRangeMode: ListView.StrictlyEnforceRange
     }
 
     //the add entry "last row"
@@ -73,7 +76,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: parent.enabled ? 'black' : 'grey'
+                    color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -89,6 +92,7 @@ Rectangle{
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
                           embeddedFeatureForm.state = 'Add'
+                          embeddedAttributeFormModel.featureModel.currentLayer = relationEditorModel.relation.referencingLayer
                           embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
                           embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
                           embeddedAttributeFormModel.featureModel.resetAttributes()
@@ -122,7 +126,7 @@ Rectangle{
             anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
-            text: { text: model.displayString }
+            text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
           }
 
           MouseArea {
@@ -130,9 +134,10 @@ Rectangle{
 
             onClicked: {
                 embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
-                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
+                embeddedAttributeFormModel.featureModel.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
                 embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.feature = model.referencingFeature
+                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
+                embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedFeatureForm.active = true
             }
           }
@@ -151,7 +156,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: 'black'
+                    color: nmRelationId ? 'blue' : 'black'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -164,6 +169,9 @@ Rectangle{
 
                 onClicked: {
                     deleteDialog.referencingFeatureId = model.referencingFeature.id
+                    deleteDialog.referencingFeatureDisplayMessage = model.displayString
+                    deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : ''
+                    deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : ''
                     deleteDialog.visible = true
                 }
             }
@@ -185,12 +193,18 @@ Rectangle{
       id: deleteDialog
 
       property int referencingFeatureId
-      property var layerName
+      property string referencingFeatureDisplayMessage
+      property int nmReferencedFeatureId
+      property string nmReferencedFeatureDisplayMessage
 
       visible: false
 
-      title: qsTr( 'Delete feature %1 on layer %2' ).arg(referencingFeatureId).arg(layerName)
-      text: qsTr( 'Should the feature %1 on layer %2 be deleted?').arg(referencingFeatureId).arg( layerName)
+      title: nmRelationId ?
+               qsTr( 'Unlink feature %1 (%2) of %3' ).arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ) :
+               qsTr( 'Delete feature %1 (%2) on %3' ).arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
+      text:  nmRelationId ?
+               qsTr( 'Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ).arg( relationEditorModel.relation.referencingLayer.name ) :
+               qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )
@@ -200,14 +214,14 @@ Rectangle{
       onRejected: {
         visible = false
       }
+
     }
 
     //the add entry stuff
     AttributeFormModel {
       id: embeddedAttributeFormModel
-
       featureModel: FeatureModel {
-        currentLayer: relationEditorModel.relation.referencingLayer
+        id: embeddedFeatureModel
       }
     }
 
