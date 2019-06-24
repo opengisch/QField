@@ -324,8 +324,9 @@ void FeatureModel::removeLayer( QObject *layer )
 void FeatureModel::featureAdded( QgsFeatureId fid )
 {
   QgsMessageLog::logMessage( tr( "Let's set Feature %1 with %2" ).arg( mFeature.id() ).arg( fid ), "QField", Qgis::Warning );
-  setFeature( mLayer->getFeature( fid ) );
-  QgsMessageLog::logMessage( tr( "Feature %1 set" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  bastelId = fid;
+  //setFeature( mLayer->getFeature( fid ) );
+  QgsMessageLog::logMessage( tr( "Feature %1 not yet set" ).arg( mFeature.id() ), "QField", Qgis::Warning );
 }
 
 void FeatureModel::create()
@@ -346,7 +347,8 @@ void FeatureModel::create()
   QgsMessageLog::logMessage( tr( "Let's commit Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   if ( commit() )
   {
-
+    QgsMessageLog::logMessage( tr( "get and set with bastelId %1 " ).arg( bastelId ), "QField", Qgis::Warning );
+    setFeature( mLayer->getFeature( bastelId ) );
     QgsMessageLog::logMessage( tr( "Feature %1 commited" ).arg( mFeature.id() ), "QField", Qgis::Warning );
     QgsMessageLog::logMessage( tr( "Let's fetch Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
     QgsFeature feat;
