@@ -34,6 +34,8 @@ FeatureModel::FeatureModel( QObject *parent )
 
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
+  QgsMessageLog::logMessage( tr( "Try setFeature with id %1 " ).arg( feature.id() ), "QField", Qgis::Warning );
+  QgsMessageLog::logMessage( tr( "change the feature %1  to %2" ).arg( feature.id() ).arg( mFeature.id() ), "QField", Qgis::Warning );
   beginResetModel();
   mFeature = feature;
   endResetModel();
