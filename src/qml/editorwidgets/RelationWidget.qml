@@ -11,19 +11,12 @@ import org.qgis 1.0
 Item {
   id: relationWidget
   signal valueChanged(var value, bool isNull)
-  property var _relation
-  property var _currentLayer
-  property var _currentLayerId
-  property var _keyField
 
   Component.onCompleted: {
-    featureListModel.currentLayerId =  _currentLayerId
-    featureListModel.keyField = _keyField
     comboBox.currentIndex = featureListModel.findKey(comboBox.value)
-
-    comboBox.visible = true
-    addButton.visible = false
-    invalidWarning.visible = false
+    comboBox.visible = _relation !== undefined ? _relation.isValid : true
+    addButton.visible = _relation !== undefined ? _relation.isValid : false
+    invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
   }
 
   anchors {
@@ -47,11 +40,7 @@ Item {
 
       Layout.fillWidth: true
 
-      model: FeatureListModel {
-        id: featureListModel
-        addNull: config['AllowNULL']
-        orderByValue: config['OrderByValue']
-      }
+      model: featureListModel
 
       onCurrentIndexChanged: {
         var idx = featureListModel.index(currentIndex, 0, undefined)

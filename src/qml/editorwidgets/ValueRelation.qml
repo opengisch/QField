@@ -10,6 +10,14 @@ import org.qgis 1.0
 
 RelationWidget {
   id: valueRelation
-  _currentLayerId: config['Layer']
-  _keyField: config['Key']
+  property var _relation: undefined
+
+  FeatureListModel {
+      id: featureListModel
+
+      currentLayerId: config['Layer']
+      keyField: config['Key']
+      addNull: config['AllowNULL']
+      orderByValue: config['OrderByValue']
+  }
 }
