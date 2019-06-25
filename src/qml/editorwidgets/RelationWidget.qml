@@ -9,19 +9,9 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Item {
-  id: valueRelation
+  id: relationWidget
   signal valueChanged(var value, bool isNull)
   property var _relation
-
-  Component.onCompleted: {
-    featureListModel.currentLayerId = config['Layer']
-    featureListModel.keyField = config['Key']
-    comboBox.currentIndex = featureListModel.findKey(comboBox.value)
-
-    comboBox.visible = _relation.isValid
-    addButton.visible = _relation.isValid
-    invalidWarning.visible = !(_relation.isValid)
-  }
 
   anchors {
     left: parent.left
@@ -140,7 +130,7 @@ Item {
   AttributeFormModel {
    id: attributeFormModel
    featureModel: FeatureModel {
-       currentLayer: valueRelation._relation.referencedLayer
+       currentLayer: relationWidget._relation.referencedLayer
      }
   }
 
@@ -176,7 +166,7 @@ Item {
         embedded: true
 
         onSaved: {
-          var referencedValue = attributeFormModel.attribute(valueRelation._relation.resolveReferencedField(field.name))
+          var referencedValue = attributeFormModel.attribute(relationWidget._relation.resolveReferencedField(field.name))
           comboBox.currentValue = referencedValue
           popup.close()
         }

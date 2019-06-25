@@ -42,8 +42,7 @@
         <file>GeometryRenderer.qml</file>
         <file>GeometryHighlighter.qml</file>
         <file>FeatureListSelectionHighlight.qml</file>
-    </qresource>
-    <qresource prefix="/">
         <file>editorwidgets/ValueRelation.qml</file>
+        <file>editorwidgets/RelationWidget.qml</file>
     </qresource>
 </RCC>

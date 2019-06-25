@@ -16,6 +16,7 @@
 #include "featurelistmodel.h"
 
 #include "qgsvectorlayer.h"
+#include <qgsproject.h>
 
 FeatureListModel::FeatureListModel()
   : mCurrentLayer( nullptr )
@@ -99,6 +100,17 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
   reloadLayer();
 
   emit currentLayerChanged();
+}
+
+QString FeatureListModel::currentLayerId() const
+{
+  return mCurrentLayer->id();
+}
+
+void FeatureListModel::setCurrentLayerId( const QString &layerId )
+{
+  QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
+  setCurrentLayer( layer );
 }
 
 QString FeatureListModel::keyField() const
