@@ -12,6 +12,19 @@ Item {
   id: relationWidget
   signal valueChanged(var value, bool isNull)
   property var _relation
+  property var _currentLayer
+  property var _currentLayerId
+  property var _keyField
+
+  Component.onCompleted: {
+    featureListModel.currentLayerId =  _currentLayerId
+    featureListModel.keyField = _keyField
+    comboBox.currentIndex = featureListModel.findKey(comboBox.value)
+
+    comboBox.visible = true
+    addButton.visible = false
+    invalidWarning.visible = false
+  }
 
   anchors {
     left: parent.left
