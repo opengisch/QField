@@ -12,11 +12,11 @@ RelationWidget {
   id: relationReference
   property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
-    FeatureListModel {
-        id: featureListModel
-        currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
-        keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
-        addNull: config['AllowNULL']
-        orderByValue: config['OrderByValue']
-    }
+  FeatureListModel {
+    id: featureListModel
+    currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
+    keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+    addNull: config['AllowNULL']
+    orderByValue: config['OrderByValue']
+  }
 }

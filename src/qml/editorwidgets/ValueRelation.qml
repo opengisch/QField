@@ -13,11 +13,12 @@ RelationWidget {
   property var _relation: undefined
 
   FeatureListModel {
-      id: featureListModel
+    id: featureListModel
 
-      currentLayerId: config['Layer']
-      keyField: config['Key']
-      addNull: config['AllowNULL']
-      orderByValue: config['OrderByValue']
+    currentLayerId: config['Layer']
+    keyField: config['Key']
+    displayValueField: config['Value']
+    addNull: config['AllowNULL']
+    orderByValue: config['OrderByValue']
   }
 }
