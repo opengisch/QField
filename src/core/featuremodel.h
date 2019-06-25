@@ -169,6 +169,7 @@ class FeatureModel : public QAbstractListModel
 
   private slots:
     void featureAdded( QgsFeatureId fid );
+    void committedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures );
 
   private:
     bool commit();
