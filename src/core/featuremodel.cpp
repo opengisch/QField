@@ -34,8 +34,7 @@ FeatureModel::FeatureModel( QObject *parent )
 
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
-  QgsMessageLog::logMessage( tr( "Try setFeature with id %1 " ).arg( feature.id() ), "QField", Qgis::Warning );
-  QgsMessageLog::logMessage( tr( "change the feature %1  to %2" ).arg( feature.id() ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  QgsMessageLog::logMessage( tr( "Try setFeature with id %1  to %2" ).arg( mFeature.id() ).arg( feature.id() ), "QField", Qgis::Warning );
   beginResetModel();
   mFeature = feature;
   endResetModel();
@@ -324,9 +323,11 @@ void FeatureModel::removeLayer( QObject *layer )
 void FeatureModel::featureAdded( QgsFeatureId fid )
 {
   QgsMessageLog::logMessage( tr( "Let's set Feature %1 with %2" ).arg( mFeature.id() ).arg( fid ), "QField", Qgis::Warning );
-  bastelId = fid;
-  //setFeature( mLayer->getFeature( fid ) );
-  QgsMessageLog::logMessage( tr( "Feature %1 not yet set" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  if ( mLayer->getFeature( fid ).id() == 0 )
+  {
+    QgsMessageLog::logMessage( tr( "Get Feature with id %1 returned id 0" ).arg( fid ), "QField", Qgis::Critical );
+  }
+  setFeature( mLayer->getFeature( fid ) );
 }
 
 void FeatureModel::create()
@@ -347,8 +348,6 @@ void FeatureModel::create()
   QgsMessageLog::logMessage( tr( "Let's commit Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   if ( commit() )
   {
-    QgsMessageLog::logMessage( tr( "get and set with bastelId %1 " ).arg( bastelId ), "QField", Qgis::Warning );
-    setFeature( mLayer->getFeature( bastelId ) );
     QgsMessageLog::logMessage( tr( "Feature %1 commited" ).arg( mFeature.id() ), "QField", Qgis::Warning );
     QgsMessageLog::logMessage( tr( "Let's fetch Feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
     QgsFeature feat;

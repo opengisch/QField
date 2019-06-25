@@ -176,7 +176,6 @@ class FeatureModel : public QAbstractListModel
     void setLinkedFeatureValues();
 
     QgsVectorLayer *mLayer;
-    QgsFeatureId bastelId;
     QgsFeature mFeature;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
