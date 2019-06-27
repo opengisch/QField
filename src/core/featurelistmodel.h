@@ -51,7 +51,8 @@ class FeatureListModel : public QAbstractItemModel
   public:
     enum FeatureListRoles
     {
-      KeyFieldRole = Qt::UserRole + 1
+      KeyFieldRole = Qt::UserRole + 1,
+      DisplayStringRole
     };
 
     Q_ENUM( FeatureListRoles )

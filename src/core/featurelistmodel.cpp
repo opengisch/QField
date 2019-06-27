@@ -56,7 +56,7 @@ int FeatureListModel::columnCount( const QModelIndex &parent ) const
 
 QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
-  if ( role == Qt::DisplayRole )
+  if ( role == Qt::DisplayRole || role == DisplayStringRole )
     return mEntries.value( index.row() ).displayString;
   else if ( role == KeyFieldRole )
     return mEntries.value( index.row() ).key;
@@ -69,6 +69,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
   roles[KeyFieldRole] = "keyField";
+  roles[DisplayStringRole] = "displayString";
 
   return roles;
 }
