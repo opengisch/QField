@@ -18,7 +18,7 @@ RelationCombobox {
     currentLayer: qgisProject.mapLayer(config['Layer'])
     keyField: config['Key']
     displayValueField: config['Value']
-    addNull: config['AllowNULL']
+    addNull: config['AllowNull']
     orderByValue: config['OrderByValue']
   }
 }
