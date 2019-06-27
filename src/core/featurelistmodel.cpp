@@ -102,17 +102,6 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
   emit currentLayerChanged();
 }
 
-QString FeatureListModel::currentLayerId() const
-{
-  return mCurrentLayer->id();
-}
-
-void FeatureListModel::setCurrentLayerId( const QString &layerId )
-{
-  QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
-  setCurrentLayer( layer );
-}
-
 QString FeatureListModel::keyField() const
 {
   return mKeyField;

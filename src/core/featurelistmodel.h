@@ -36,10 +36,6 @@ class FeatureListModel : public QAbstractItemModel
      */
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     /**
-     * The vector layer to list by id
-     */
-    Q_PROPERTY( QString currentLayerId READ currentLayerId WRITE setCurrentLayerId NOTIFY currentLayerIdChanged )
-    /**
      * The primary key field
      */
     Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
@@ -72,9 +68,6 @@ class FeatureListModel : public QAbstractItemModel
 
     QgsVectorLayer *currentLayer() const;
     void setCurrentLayer( QgsVectorLayer *currentLayer );
-
-    QString currentLayerId() const;
-    void setCurrentLayerId( const QString &layerId );
 
     QString keyField() const;
     void setKeyField( const QString &keyField );
@@ -109,7 +102,6 @@ class FeatureListModel : public QAbstractItemModel
 
   signals:
     void currentLayerChanged();
-    void currentLayerIdChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
     void addNullChanged();

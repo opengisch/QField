@@ -15,7 +15,7 @@ RelationCombobox {
   FeatureListModel {
     id: featureListModel
 
-    currentLayerId: config['Layer']
+    currentLayer: qgisProject.mapLayer(config['Layer']).VectorLayer
     keyField: config['Key']
     displayValueField: config['Value']
     addNull: config['AllowNULL']
