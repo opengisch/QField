@@ -43,6 +43,6 @@
         <file>GeometryHighlighter.qml</file>
         <file>FeatureListSelectionHighlight.qml</file>
         <file>editorwidgets/ValueRelation.qml</file>
-        <file>editorwidgets/RelationWidget.qml</file>
+        <file>RelationCombobox.qml</file>
     </qresource>
 </RCC>

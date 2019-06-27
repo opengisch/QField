@@ -8,7 +8,7 @@ import "../js/style.js" as Style
 import org.qfield 1.0
 import org.qgis 1.0
 
-RelationWidget {
+RelationCombobox {
   id: valueRelation
   property var _relation: undefined
 

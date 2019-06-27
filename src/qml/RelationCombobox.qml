@@ -2,14 +2,14 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
-import ".."
-import "../js/style.js" as Style
+import "." as QField
+import "js/style.js" as Style
 
 import org.qfield 1.0
 import org.qgis 1.0
 
 Item {
-  id: relationWidget
+  id: relationCombobox
   signal valueChanged(var value, bool isNull)
 
   Component.onCompleted: {
@@ -111,7 +111,7 @@ Item {
       // [/hidpi fixes]
     }
 
-    Button {
+    QField.Button {
       id: addButton
       iconSource: Style.getThemeIcon( "ic_add_black_48dp" )
       bgcolor: "white"
@@ -132,7 +132,7 @@ Item {
   AttributeFormModel {
    id: attributeFormModel
    featureModel: FeatureModel {
-       currentLayer: relationWidget._relation.referencedLayer
+       currentLayer: relationCombobox._relation.referencedLayer
      }
   }
 
@@ -168,7 +168,7 @@ Item {
         embedded: true
 
         onSaved: {
-          var referencedValue = attributeFormModel.attribute(relationWidget._relation.resolveReferencedField(field.name))
+          var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
           comboBox.currentValue = referencedValue
           popup.close()
         }
