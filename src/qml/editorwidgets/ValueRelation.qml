@@ -14,19 +14,19 @@ Item {
   id: valueRelation
 
   RelationCombobox {
-      id: valueRelationCombobox
-      visible: !config['AllowMulti']
-      property var _relation: undefined
+    id: valueRelationCombobox
+    visible: !config['AllowMulti']
+    property var _relation: undefined
 
-      FeatureListModel {
-        id: featureListModel
+    FeatureListModel {
+      id: featureListModel
 
-        currentLayer: qgisProject.mapLayer(config['Layer'])
-        keyField: config['Key']
-        displayValueField: config['Value']
-        addNull: config['AllowNull']
-        orderByValue: config['OrderByValue']
-      }
+      currentLayer: qgisProject.mapLayer(config['Layer'])
+      keyField: config['Key']
+      displayValueField: config['Value']
+      addNull: config['AllowNull']
+      orderByValue: config['OrderByValue']
+    }
   }
 
   Rectangle{
@@ -43,69 +43,68 @@ Item {
     border.width: 1 * dp
 
     FeatureListModel {
-        id: listModel
-                currentLayer: qgisProject.mapLayer(config['Layer'])
-                keyField: config['Key']
-                displayValueField: config['Value']
-                addNull: config['AllowNull']
-                orderByValue: config['OrderByValue']
-            }
+      id: listModel
+        currentLayer: qgisProject.mapLayer(config['Layer'])
+        keyField: config['Key']
+        displayValueField: config['Value']
+        addNull: config['AllowNull']
+        orderByValue: config['OrderByValue']
+    }
 
     //the list
     ListView {
-        id: valueListView
-        model: listModel
-        width: parent.width
-        height: Math.min( 5 * valueRelationList.itemHeight, valueListView.count * valueRelationList.itemHeight )
-        delegate: listComponent
-        focus: true
-        clip: true
-        highlightRangeMode: ListView.StrictlyEnforceRange
+      id: valueListView
+      model: listModel
+      width: parent.width
+      height: Math.min( 5 * valueRelationList.itemHeight, valueListView.count * valueRelationList.itemHeight )
+      delegate: listComponent
+      focus: true
+      clip: true
+      highlightRangeMode: ListView.StrictlyEnforceRange
     }
 
     //list components
     Component {
-        id: listComponent
+      id: listComponent
 
-        Item {
-          id: listItem
-          anchors { left: parent.left; right: parent.right }
+      Item {
+        id: listItem
+        anchors { left: parent.left; right: parent.right }
 
-          focus: true
+        focus: true
 
-          height: Math.max( valueRelationList.itemHeight, valueText.height )
+        height: Math.max( valueRelationList.itemHeight, valueText.height )
 
-          Row{
-             id: checkBoxRow
-             anchors { top: parent.top; left: parent.left }
-             height: listItem.height
+        Row{
+          id: checkBoxRow
+          anchors { top: parent.top; left: parent.left }
+          height: listItem.height
 
-             CheckBox {
-                 id: checkBox
-                 width: parent.height
-                 height: parent.height
-                 onCheckStateChanged: {
-
-                 }
-             }
-           }
-
-          Text {
-            id: valueText
-            anchors { leftMargin: 10 * dp ; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
-            font.bold: true
-            color: readOnly ? 'grey' : 'black'
-            text: { text: model.displayString }
-          }
-
-          Rectangle {
-            id: bottomLine
-            anchors.bottom: parent.bottom
-            height: 1
-            color: 'lightGray'
-            width: parent.width
+          CheckBox {
+            id: checkBox
+            width: parent.height
+            height: parent.height
+            onCheckStateChanged: {
+            }
           }
         }
+
+        Text {
+          id: valueText
+          anchors { leftMargin: 10 * dp ; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
+          font.bold: true
+          color: readOnly ? 'grey' : 'black'
+          text: { text: model.displayString }
+        }
+
+        Rectangle {
+          id: bottomLine
+          anchors.bottom: parent.bottom
+          height: 1
+          color: 'lightGray'
+          width: parent.width
+        }
+      }
     }
   }
 }
