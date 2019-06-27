@@ -14,6 +14,7 @@ RelationCombobox {
 
   FeatureListModel {
     id: featureListModel
+
     currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
     keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
     addNull: config['AllowNULL']
