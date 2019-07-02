@@ -32,6 +32,8 @@ Item {
   Rectangle{
     id: valueRelationList
 
+    signal valueChanged(var value, bool isNull)
+
     visible: config['AllowMulti']
 
     height: Math.max( valueListView.height, itemHeight)
@@ -42,8 +44,9 @@ Item {
     border.color: 'lightgray'
     border.width: 1 * dp
 
-    FeatureListModel {
+    FeatureCheckListModel {
       id: listModel
+        attributeValue: value
         currentLayer: qgisProject.mapLayer(config['Layer'])
         keyField: config['Key']
         displayValueField: config['Value']
@@ -84,7 +87,11 @@ Item {
             id: checkBox
             width: parent.height
             height: parent.height
-            onCheckStateChanged: {
+
+            checked: model.checked
+
+            onCheckedChanged: {
+                model.checked = checked
             }
           }
         }

@@ -68,7 +68,7 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[KeyFieldRole] = "keyField";
+  roles[KeyFieldRole] = "keyFieldValue";
   roles[DisplayStringRole] = "displayString";
 
   return roles;
@@ -160,7 +160,6 @@ void FeatureListModel::onFeatureDeleted()
 {
   reloadLayer();
 }
-
 
 void FeatureListModel::processReloadLayer()
 {

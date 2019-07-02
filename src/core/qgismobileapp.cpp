@@ -86,6 +86,7 @@
 #include "linepolygonhighlight.h"
 #include "valuemapmodel.h"
 #include "referencingfeaturelistmodel.h"
+#include "featurechecklistmodel.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -196,6 +197,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
+  qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
