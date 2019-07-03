@@ -61,7 +61,7 @@ QString FeatureCheckListModel::attributeValue() const
   //needs JSON
 
   qDebug() << "Get data from list: " <<  mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
-  return mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
+  return mCheckedEntries.join( QStringLiteral( "," ) ).prepend( '{' ).append( '}' );
 }
 
 void FeatureCheckListModel::setAttributeValue( const QString &attributeValue )

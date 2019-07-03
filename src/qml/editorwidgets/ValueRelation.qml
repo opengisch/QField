@@ -15,6 +15,8 @@ Item {
 
   signal valueChanged(var value, bool isNull)
 
+  height: !config['AllowMulti'] ? valueRelationCombobox.height : valueRelationList.height
+
   RelationCombobox {
     id: valueRelationCombobox
     visible: !config['AllowMulti']
@@ -31,12 +33,14 @@ Item {
     }
   }
 
+
   Rectangle{
     id: valueRelationList
 
     visible: config['AllowMulti']
 
     height: Math.max( valueListView.height, itemHeight)
+
     width: parent.width
 
     property int itemHeight: 32 * dp
@@ -67,6 +71,13 @@ Item {
       focus: true
       clip: true
       highlightRangeMode: ListView.StrictlyEnforceRange
+
+      property int storedIndex
+
+      onModelChanged:
+        currentIndex = storedIndex
+      onCurrentIndexChanged:
+        storedIndex = currentIndex
     }
 
     //list components
@@ -90,6 +101,7 @@ Item {
             id: checkBox
             width: parent.height
             height: parent.height
+            enabled: !readOnly
 
             checked: model.checked
 
@@ -105,6 +117,16 @@ Item {
           font.bold: true
           color: readOnly ? 'grey' : 'black'
           text: { text: model.displayString }
+        }
+
+        MouseArea {
+          anchors.fill: parent
+
+          onClicked: {
+            if( !readOnly ){
+              checkBox.checked = !checkBox.checked
+            }
+          }
         }
 
         Rectangle {
