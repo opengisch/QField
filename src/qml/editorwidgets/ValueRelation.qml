@@ -38,7 +38,7 @@ Item {
     id: valueRelationList
 
     visible: config['AllowMulti']
-<
+
     height: Math.max( valueListView.height, itemHeight)
 
     width: parent.width
