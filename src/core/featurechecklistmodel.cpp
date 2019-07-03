@@ -1,4 +1,5 @@
 #include "featurechecklistmodel.h"
+#include "qgsvaluerelationfieldformatter.h"
 
 FeatureCheckListModel::FeatureCheckListModel()
 {
@@ -43,26 +44,30 @@ QHash<int, QByteArray> FeatureCheckListModel::roleNames() const
 
 QString FeatureCheckListModel::attributeValue() const
 {
-  return mAttributeValue;
+  //needs JSON
+  return mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
 }
 
 void FeatureCheckListModel::setAttributeValue( const QString &attributeValue )
 {
-  if ( mAttributeValue == attributeValue )
+  //needs JSON
+  if ( mCheckedEntries == QgsValueRelationFieldFormatter::valueToStringList( attributeValue ) )
     return;
 
-  mAttributeValue = attributeValue;
+  mCheckedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
 
-  //set mCheckedEntries
+  //nobody listening on that at the moment
   emit attributeValueChanged();
 }
 
 void FeatureCheckListModel::setChecked( const QModelIndex &index )
 {
   mCheckedEntries.append( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
+  emit listUpdated();
 }
 
 void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
 {
   mCheckedEntries.removeAll( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
+  emit listUpdated();
 }

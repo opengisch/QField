@@ -10,6 +10,9 @@ import org.qgis 1.0
 
 RelationCombobox {
   id: relationReference
+
+  signal valueChanged(var value, bool isNull)
+
   property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
   FeatureListModel {

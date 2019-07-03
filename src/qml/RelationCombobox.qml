@@ -10,7 +10,6 @@ import org.qgis 1.0
 
 Item {
   id: relationCombobox
-  signal valueChanged(var value, bool isNull)
 
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(comboBox.value)

@@ -43,12 +43,12 @@ class FeatureCheckListModel : public FeatureListModel
 
   signals:
     void attributeValueChanged();
+    void listUpdated();
 
   private:
     void setChecked( const QModelIndex &index );
     void setUnchecked( const QModelIndex &index );
 
-    QString mAttributeValue;
     QStringList mCheckedEntries;
 };
 

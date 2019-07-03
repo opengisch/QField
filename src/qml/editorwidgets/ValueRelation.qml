@@ -13,6 +13,8 @@ import org.qgis 1.0
 Item {
   id: valueRelation
 
+  signal valueChanged(var value, bool isNull)
+
   RelationCombobox {
     id: valueRelationCombobox
     visible: !config['AllowMulti']
@@ -32,8 +34,6 @@ Item {
   Rectangle{
     id: valueRelationList
 
-    signal valueChanged(var value, bool isNull)
-
     visible: config['AllowMulti']
 
     height: Math.max( valueListView.height, itemHeight)
@@ -52,6 +52,9 @@ Item {
         displayValueField: config['Value']
         addNull: config['AllowNull']
         orderByValue: config['OrderByValue']
+        onListUpdated: {
+          valueChanged( attributeValue, false )
+        }
     }
 
     //the list
