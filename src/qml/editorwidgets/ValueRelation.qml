@@ -91,7 +91,7 @@ Item {
             checked: model.checked
 
             onCheckedChanged: {
-                model.checked = checked
+              model.checked = checked
             }
           }
         }

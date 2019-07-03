@@ -48,9 +48,6 @@ QString FeatureCheckListModel::attributeValue() const
 
 void FeatureCheckListModel::setAttributeValue( const QString &attributeValue )
 {
-  //just for test
-  return;
-
   if ( mAttributeValue == attributeValue )
     return;
 
