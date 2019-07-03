@@ -38,7 +38,7 @@ Item {
     id: valueRelationList
 
     visible: config['AllowMulti']
-
+<
     height: Math.max( valueListView.height, itemHeight)
 
     width: parent.width
@@ -50,7 +50,8 @@ Item {
 
     FeatureCheckListModel {
       id: listModel
-        attributeValue: value
+        //passing "" instead of undefined, so the model is cleared on adding new features
+        attributeValue: value !== undefined ? value : ""
         currentLayer: qgisProject.mapLayer(config['Layer'])
         keyField: config['Key']
         displayValueField: config['Value']
