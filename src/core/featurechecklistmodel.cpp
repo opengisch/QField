@@ -56,29 +56,85 @@ QHash<int, QByteArray> FeatureCheckListModel::roleNames() const
   return roles;
 }
 
-QString FeatureCheckListModel::attributeValue() const
+QVariant FeatureCheckListModel::attributeValue() const
 {
-  //needs JSON
+  QVariant value;
 
   qDebug() << "Get data from list: " <<  mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
-  return mCheckedEntries.join( QStringLiteral( "," ) ).prepend( '{' ).append( '}' );
+
+  if ( mAttributeField.type() == QVariant::Map )
+  {
+    //because of json it should be stored as QVariantList
+    QVariantList vl;
+    //store as QVariantList because it's json
+    for ( const QString &s : qgis::as_const( mCheckedEntries ) )
+    {
+      // Convert to proper type
+      const QVariant::Type type { fkType() };
+      switch ( type )
+      {
+        case QVariant::Type::Int:
+          vl.push_back( s.toInt() );
+          break;
+        case QVariant::Type::LongLong:
+          vl.push_back( s.toLongLong() );
+          break;
+        default:
+          vl.push_back( s );
+          break;
+      }
+    }
+    value = vl;
+  }
+  else
+  {
+    //because of hstore it should be stored as QString
+    value = mCheckedEntries.join( QStringLiteral( "," ) ).prepend( '{' ).append( '}' );
+  }
+
+  return value;
 }
 
-void FeatureCheckListModel::setAttributeValue( const QString &attributeValue )
+void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 {
-  //needs JSON
-  if ( mCheckedEntries == QgsValueRelationFieldFormatter::valueToStringList( attributeValue ) )
+  QStringList checkedEntries;
+
+  if ( mAttributeField.type() == QVariant::Map )
+  {
+    //because of json it's stored as QVariantList
+    checkedEntries = attributeValue.toStringList();
+  }
+  else
+  {
+    //because of hstore it's stored as QString
+    checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+  }
+
+  if ( mCheckedEntries == checkedEntries )
     return;
 
-  qDebug() << "Set data to list: " << attributeValue;
+  qDebug() << "Set data to list: " << attributeValue.toString();
 
   beginResetModel();
-  mCheckedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+  mCheckedEntries = checkedEntries;
   endResetModel();
   qDebug() << "Model resetted 1";
 
   //nobody listening on that at the moment
   emit attributeValueChanged();
+}
+
+QgsField FeatureCheckListModel::attributeField() const
+{
+  return mAttributeField;
+}
+
+void FeatureCheckListModel::setAttributeField( QgsField field )
+{
+  if ( mAttributeField == field )
+    return;
+
+  mAttributeField = field;
 }
 
 void FeatureCheckListModel::setChecked( const QModelIndex &index )
@@ -99,4 +155,19 @@ void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
   qDebug() << "Model resetted 1";
 
   emit listUpdated();
+}
+
+
+QVariant::Type FeatureCheckListModel::fkType() const
+{
+  if ( currentLayer() )
+  {
+    QgsFields fields = currentLayer()->fields();
+    int idx { fields.indexOf( keyField() ) };
+    if ( idx >= 0 )
+    {
+      return fields.at( idx ).type();
+    }
+  }
+  return QVariant::Type::Invalid;
 }

@@ -50,6 +50,7 @@ Item {
 
     FeatureCheckListModel {
       id: listModel
+        attributeField: field
         //passing "" instead of undefined, so the model is cleared on adding new features
         attributeValue: value !== undefined ? value : ""
         currentLayer: qgisProject.mapLayer(config['Layer'])

@@ -2,15 +2,21 @@
 #define FEATURECHECKLISTMODEL_H
 
 #include <featurelistmodel.h>
+#include <qgsvectorlayer.h>
 
 class FeatureCheckListModel : public FeatureListModel
 {
     Q_OBJECT
 
     /**
-     * The attribute value
+     * The attribute value to generate checklist
      */
-    Q_PROPERTY( QString attributeValue READ attributeValue WRITE setAttributeValue NOTIFY attributeValueChanged )
+    Q_PROPERTY( QVariant attributeValue READ attributeValue WRITE setAttributeValue NOTIFY attributeValueChanged )
+
+    /**
+     * The attribute field to have information about type (JSON/HSTORE) etc.
+     */
+    Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
 
   public:
     FeatureCheckListModel();
@@ -20,12 +26,6 @@ class FeatureCheckListModel : public FeatureListModel
       CheckedRole
     };
 
-    /*
-    virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
-    virtual QModelIndex parent( const QModelIndex &child ) const override;
-    virtual int rowCount( const QModelIndex &parent ) const override;
-    virtual int columnCount( const QModelIndex &parent ) const override;
-    */
     virtual QVariant data( const QModelIndex &index, int role ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
@@ -34,21 +34,34 @@ class FeatureCheckListModel : public FeatureListModel
     /**
      * the attribute value (hstore or json list)
      */
-    QString attributeValue() const;
+    QVariant attributeValue() const;
 
     /**
      * the attribute value (hstore or json list)
      */
-    void setAttributeValue( const QString &attributeValue );
+    void setAttributeValue( const QVariant &attributeValue );
+
+    /**
+     * the current attribute field
+     */
+    QgsField attributeField() const;
+
+    /**
+     * the current attribute field
+     */
+    void setAttributeField( QgsField field );
 
   signals:
     void attributeValueChanged();
+    void attributeFieldChanged();
     void listUpdated();
 
   private:
     void setChecked( const QModelIndex &index );
     void setUnchecked( const QModelIndex &index );
+    QVariant::Type fkType() const;
 
+    QgsField mAttributeField;
     QStringList mCheckedEntries;
 };
 
