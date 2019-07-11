@@ -64,6 +64,7 @@ class SnappingUtils : public QgsSnappingUtils
     void onMapSettingsUpdated();
 
   private:
+    QgsPoint newPoint( const QgsPointLocator::Match &match );
     void snap();
 
     QgsQuickMapSettings *mSettings;

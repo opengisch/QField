@@ -32,17 +32,54 @@ void SnappingUtils::onMapSettingsUpdated()
   snap();
 }
 
+QgsPoint SnappingUtils::newPoint( const QgsPointLocator::Match &match )
+{
+  QgsPoint newPoint( QgsWkbTypes::Point, match.point().x(), match.point().y() );
+
+  // get current layer
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
+  if ( !vlayer )
+  {
+    return newPoint;
+  }
+
+  // convert to the corresponding type for a full ZM support
+  const QgsWkbTypes::Type type = vlayer->wkbType();
+  if ( QgsWkbTypes::hasZ( type ) && !QgsWkbTypes::hasM( type ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointZ );
+  }
+  else if ( !QgsWkbTypes::hasZ( type ) && QgsWkbTypes::hasM( type ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointM );
+  }
+  else if ( QgsWkbTypes::hasZ( type ) && QgsWkbTypes::hasM( type ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointZM );
+  }
+
+  // set z value
+  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && match.layer() && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
+  {
+    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
+    newPoint.setZ( ft.geometry().vertexAt( match.vertexIndex() ).z() );
+  }
+
+  // set m value
+  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && match.layer() && QgsWkbTypes::hasM( match.layer()->wkbType() ) )
+  {
+    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
+    newPoint.setM( ft.geometry().vertexAt( match.vertexIndex() ).m() );
+  }
+
+  return newPoint;
+}
+
 void SnappingUtils::snap()
 {
   QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
   mSnappingResult = SnappingResult( match );
-
-  if ( match.layer() && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
-  {
-    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
-    const QgsPoint newPoint( QgsWkbTypes::PointZ, match.point().x(), match.point().y(), ft.geometry().vertexAt( match.vertexIndex() ).z() );
-    mSnappingResult.setPoint( newPoint );
-  }
+  mSnappingResult.setPoint( newPoint( match ) );
 
   emit snappingResultChanged();
 }
