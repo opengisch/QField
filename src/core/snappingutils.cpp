@@ -16,7 +16,7 @@
 
 #include "snappingutils.h"
 #include "qgsquickmapsettings.h"
-
+#include "qgsmaptoolcapture.h"
 #include "qgsvectorlayer.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
@@ -34,8 +34,15 @@ void SnappingUtils::onMapSettingsUpdated()
 
 void SnappingUtils::snap()
 {
-  QgsPointLocator::Match match = snapToMap( QPoint( mInputCoordinate.x(), mInputCoordinate.y() ) );
+  QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
   mSnappingResult = SnappingResult( match );
+
+  if ( match.layer() && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
+  {
+    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
+    const QgsPoint newPoint( QgsWkbTypes::PointZ, match.point().x(), match.point().y(), ft.geometry().vertexAt( match.vertexIndex() ).z() );
+    mSnappingResult.setPoint( newPoint );
+  }
 
   emit snappingResultChanged();
 }
