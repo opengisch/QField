@@ -20,6 +20,7 @@
 #define EXPRESSIONCONTEXTUTILS_H
 
 #include <qgsexpressioncontext.h>
+#include <snappingresult.h>
 
 class QGeoPositionInfoSource;
 
@@ -27,6 +28,7 @@ class ExpressionContextUtils
 {
   public:
     static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
+    static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
 
   private:
     ExpressionContextUtils() = default;

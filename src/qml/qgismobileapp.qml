@@ -591,6 +591,7 @@ ApplicationWindow {
       id: digitizingFeature
       currentLayer: dashBoard.currentLayer
       positionSourceName: positionSource.name
+      topSnappingResult: coordinateLocator.topSnappingResult
 
       geometry: Geometry {
         id: digitizingGeometry

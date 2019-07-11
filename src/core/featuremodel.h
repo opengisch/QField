@@ -23,6 +23,7 @@
 #include <qgsrelationmanager.h>
 #include <memory>
 #include <qgsfeature.h>
+#include "snappingresult.h"
 
 #include "geometry.h"
 
@@ -39,6 +40,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
+    Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_ENUMS( FeatureRoles )
 
     //! keeping the information what attributes are remembered and the last edited feature
@@ -148,6 +150,16 @@ class FeatureModel : public QAbstractListModel
      */
     void setPositionSourceName( const QString &positionSourceName );
 
+    /**
+     * The snapping result of the coordinate locator
+     */
+    SnappingResult topSnappingResult() const;
+
+    /**
+     * The snapping result of the coordinate locator
+     */
+    void setTopSnappingResult( const SnappingResult &topSnappingResult );
+
     //! Apply the vertex model to the feature geometry.
     //! \note This shall be used if the feature model is used with the vertex model rather than the geometry and rubberband model
     Q_INVOKABLE void applyVertexModelToGeometry();
@@ -164,6 +176,7 @@ class FeatureModel : public QAbstractListModel
     void geometryChanged();
     void currentLayerChanged();
     void positionSourceChanged();
+    void topSnappingResultChanged();
 
     void warning( const QString &text );
 
@@ -183,6 +196,7 @@ class FeatureModel : public QAbstractListModel
     VertexModel *mVertexModel = nullptr;
     Geometry *mGeometry;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
+    SnappingResult mTopSnappingResult;
     QString mTempName;
     QMap<QgsVectorLayer *, RememberValues> mRememberings;
 };

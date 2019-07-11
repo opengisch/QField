@@ -47,3 +47,24 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( QGeoPositionIn
 
   return scope;
 }
+
+QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const SnappingResult &topSnappingResult )
+{
+  QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Map Tool Capture" ) );
+
+  QVariantList matchList;
+
+  QVariantMap matchMap;
+
+  matchMap.insert( QStringLiteral( "valid" ), topSnappingResult.isValid() );
+  matchMap.insert( QStringLiteral( "layer" ), QVariant::fromValue<QgsWeakMapLayerPointer>( QgsWeakMapLayerPointer( topSnappingResult.layer() ) ) );
+  matchMap.insert( QStringLiteral( "feature_id" ), topSnappingResult.featureId() );
+  matchMap.insert( QStringLiteral( "vertex_index" ), topSnappingResult.vertexIndex() );
+  matchMap.insert( QStringLiteral( "distance" ), topSnappingResult.distance() );
+
+  matchList.append( matchMap );
+
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "snapping_results" ), matchList ) );
+
+  return scope;
+}
