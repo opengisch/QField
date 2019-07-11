@@ -38,7 +38,7 @@ QgsPoint SnappingUtils::newPoint( const QgsPointLocator::Match &match )
 
   // get current layer
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
-  if ( !vlayer )
+  if ( !vlayer || !match.layer() )
   {
     return newPoint;
   }
@@ -59,14 +59,14 @@ QgsPoint SnappingUtils::newPoint( const QgsPointLocator::Match &match )
   }
 
   // set z value
-  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && match.layer() && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
+  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
     newPoint.setZ( ft.geometry().vertexAt( match.vertexIndex() ).z() );
   }
 
   // set m value
-  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && match.layer() && QgsWkbTypes::hasM( match.layer()->wkbType() ) )
+  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && QgsWkbTypes::hasM( match.layer()->wkbType() ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
     newPoint.setM( ft.geometry().vertexAt( match.vertexIndex() ).m() );

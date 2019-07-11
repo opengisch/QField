@@ -64,7 +64,10 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   {
     QgsPoint p2( ct.transform( pt.x(), pt.y() ) );
     if ( QgsWkbTypes::hasZ( wkbType ) )
+    {
+      p2.convertTo( QgsWkbTypes::PointZ );
       p2.setZ( pt.z() );
+    }
     sequence.append( p2 );
   }
 
