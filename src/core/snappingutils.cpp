@@ -32,44 +32,34 @@ void SnappingUtils::onMapSettingsUpdated()
   snap();
 }
 
-QgsPoint SnappingUtils::newPoint( const QgsPointLocator::Match &match )
+QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType )
 {
-  QgsPoint newPoint( QgsWkbTypes::Point, match.point().x(), match.point().y() );
-
-  // get current layer
-  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
-  if ( !vlayer || !match.layer() )
-  {
-    return newPoint;
-  }
+  QgsPoint newPoint( QgsWkbTypes::Point, snappedPoint.x(), snappedPoint.y() );
 
   // convert to the corresponding type for a full ZM support
-  const QgsWkbTypes::Type type = vlayer->wkbType();
-  if ( QgsWkbTypes::hasZ( type ) && !QgsWkbTypes::hasM( type ) )
+  if ( QgsWkbTypes::hasZ( wkbType ) && !QgsWkbTypes::hasM( wkbType ) )
   {
     newPoint.convertTo( QgsWkbTypes::PointZ );
   }
-  else if ( !QgsWkbTypes::hasZ( type ) && QgsWkbTypes::hasM( type ) )
+  else if ( !QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
   {
     newPoint.convertTo( QgsWkbTypes::PointM );
   }
-  else if ( QgsWkbTypes::hasZ( type ) && QgsWkbTypes::hasM( type ) )
+  else if ( QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
   {
     newPoint.convertTo( QgsWkbTypes::PointZM );
   }
 
   // set z value
-  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && QgsWkbTypes::hasZ( match.layer()->wkbType() ) )
+  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && QgsWkbTypes::hasZ( snappedPoint.wkbType() ) )
   {
-    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
-    newPoint.setZ( ft.geometry().vertexAt( match.vertexIndex() ).z() );
+    newPoint.setZ( snappedPoint.z() );
   }
 
   // set m value
-  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && QgsWkbTypes::hasM( match.layer()->wkbType() ) )
+  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && QgsWkbTypes::hasM( snappedPoint.wkbType() ) )
   {
-    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
-    newPoint.setM( ft.geometry().vertexAt( match.vertexIndex() ).m() );
+    newPoint.setM( snappedPoint.m() );
   }
 
   return newPoint;
@@ -79,7 +69,14 @@ void SnappingUtils::snap()
 {
   QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
   mSnappingResult = SnappingResult( match );
-  mSnappingResult.setPoint( newPoint( match ) );
+
+  //set point containing ZM if existing
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
+  if ( vlayer && match.layer() )
+  {
+    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
+    mSnappingResult.setPoint( newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() ) );
+  }
 
   emit snappingResultChanged();
 }

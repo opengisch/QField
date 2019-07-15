@@ -46,6 +46,8 @@ class SnappingUtils : public QgsSnappingUtils
 
     SnappingResult snappingResult() const;
 
+    static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
+
   signals:
     void mapSettingsChanged();
     void currentLayerChanged();
@@ -64,7 +66,6 @@ class SnappingUtils : public QgsSnappingUtils
     void onMapSettingsUpdated();
 
   private:
-    QgsPoint newPoint( const QgsPointLocator::Match &match );
     void snap();
 
     QgsQuickMapSettings *mSettings;
