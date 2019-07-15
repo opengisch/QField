@@ -16,7 +16,6 @@
 
 #include "snappingutils.h"
 #include "qgsquickmapsettings.h"
-#include "qgsmaptoolcapture.h"
 #include "qgsvectorlayer.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
