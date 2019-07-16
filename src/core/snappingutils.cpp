@@ -71,7 +71,8 @@ void SnappingUtils::snap()
 
   //set point containing ZM if existing
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
-  if ( vlayer && match.layer() )
+  if ( vlayer && match.layer()
+       && ( QgsWkbTypes::hasZ( vlayer->wkbType() ) || QgsWkbTypes::hasM( vlayer->wkbType() ) ) )
   {
     const QgsFeature ft = match.layer()->getFeature( match.featureId() );
     mSnappingResult.setPoint( newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() ) );

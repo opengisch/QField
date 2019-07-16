@@ -63,11 +63,13 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 
   for ( const QgsPoint &pt : mPointList )
   {
+    //crs transformation of XY
+    QgsPointXY p1 = ct.transform( pt.x(), pt.y() );
+
     //get point containing ZM if existing
     QgsPoint p2 = SnappingUtils::newPoint( pt, wkbType );
-    //crs transformation of XY
-    p2.setX( ct.transform( pt.x(), pt.y() ).x() );
-    p2.setY( ct.transform( pt.x(), pt.y() ).y() );
+    p2.setX( p1.x() );
+    p2.setY( p1.y() );
     sequence.append( p2 );
   }
 
