@@ -84,7 +84,7 @@ QgsPoint SnappingResult::point() const
   return mPoint;
 }
 
-void SnappingResult::setPoint( const QgsPoint &point )
+void SnappingResult::setPoint( const QgsPoint point )
 {
   mPoint = point;
 }

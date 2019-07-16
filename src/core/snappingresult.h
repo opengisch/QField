@@ -64,7 +64,7 @@ class SnappingResult
     QgsPoint point() const;
 
     //! to set the point individually (e.g. after emmiting Z)
-    void setPoint( const QgsPoint &point );
+    void setPoint( const QgsPoint point );
 
     //! for vertex / edge match (first vertex of the edge)
     int vertexIndex() const;
