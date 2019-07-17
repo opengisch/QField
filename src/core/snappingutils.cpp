@@ -28,6 +28,7 @@ void SnappingUtils::onMapSettingsUpdated()
 {
   QgsSnappingUtils::setMapSettings( mSettings->mapSettings() );
 
+  clearAllLocators();
   snap();
 }
 
@@ -68,6 +69,8 @@ void SnappingUtils::snap()
 {
   QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
   mSnappingResult = SnappingResult( match );
+
+  qWarning() << match.layer() << ( match.layer() ? match.layer()->name() : "--" );
 
   //set point containing ZM if existing
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
