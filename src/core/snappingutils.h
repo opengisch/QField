@@ -64,6 +64,7 @@ class SnappingUtils : public QgsSnappingUtils
 
   private slots:
     void onMapSettingsUpdated();
+    void removeOutdatedLocators();
 
   private:
     void snap();

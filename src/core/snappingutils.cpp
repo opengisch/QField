@@ -17,19 +17,26 @@
 #include "snappingutils.h"
 #include "qgsquickmapsettings.h"
 #include "qgsvectorlayer.h"
+#include "qgsproject.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent )
   , mSettings( nullptr )
 {
+  connect( QgsProject::instance(), static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &SnappingUtils::removeOutdatedLocators );
 }
 
 void SnappingUtils::onMapSettingsUpdated()
 {
   QgsSnappingUtils::setMapSettings( mSettings->mapSettings() );
 
-  clearAllLocators();
   snap();
+}
+
+void SnappingUtils::removeOutdatedLocators()
+{
+
+  clearAllLocators();
 }
 
 QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType )
