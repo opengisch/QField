@@ -24,4 +24,6 @@ LIBS += ../3rdparty/tessellate/libtessellate.a \
        -L$$OUT_PWD/../src/qgsquick -lqgsquick
 
 
-SOURCES += test_vertexmodel.cpp
+SOURCES += \
+    test_vertexmodel.cpp \
+    test_referencingfeaturelistmodel.cpp
