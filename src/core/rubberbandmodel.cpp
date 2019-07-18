@@ -16,6 +16,7 @@
 #include "rubberbandmodel.h"
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
+#include <snappingutils.h>
 
 RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
@@ -62,9 +63,13 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
 
   for ( const QgsPoint &pt : mPointList )
   {
-    QgsPoint p2( ct.transform( pt.x(), pt.y() ) );
-    if ( QgsWkbTypes::hasZ( wkbType ) )
-      p2.setZ( pt.z() );
+    //crs transformation of XY
+    QgsPointXY p1 = ct.transform( pt.x(), pt.y() );
+
+    //get point containing ZM if existing
+    QgsPoint p2 = SnappingUtils::newPoint( pt, wkbType );
+    p2.setX( p1.x() );
+    p2.setY( p1.y() );
     sequence.append( p2 );
   }
 

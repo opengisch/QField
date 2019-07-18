@@ -23,7 +23,7 @@
 class SnappingResult
 {
     Q_GADGET
-    Q_PROPERTY( QgsPoint point READ point )
+    Q_PROPERTY( QgsPoint point READ point WRITE setPoint )
     Q_PROPERTY( bool isValid READ isValid )
 
   public:
@@ -62,6 +62,9 @@ class SnappingResult
     //! for vertex / edge match
     //! coords depending on what class returns it (geom.cache: layer coords, map canvas snapper: dest coords)
     QgsPoint point() const;
+
+    //! to set the point individually (e.g. after emmiting Z)
+    void setPoint( const QgsPoint point );
 
     //! for vertex / edge match (first vertex of the edge)
     int vertexIndex() const;

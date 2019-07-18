@@ -16,13 +16,14 @@
 
 #include "snappingutils.h"
 #include "qgsquickmapsettings.h"
-
 #include "qgsvectorlayer.h"
+#include "qgsproject.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent )
   , mSettings( nullptr )
 {
+  connect( QgsProject::instance(), static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &SnappingUtils::removeOutdatedLocators );
 }
 
 void SnappingUtils::onMapSettingsUpdated()
@@ -32,10 +33,58 @@ void SnappingUtils::onMapSettingsUpdated()
   snap();
 }
 
+void SnappingUtils::removeOutdatedLocators()
+{
+
+  clearAllLocators();
+}
+
+QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType )
+{
+  QgsPoint newPoint( QgsWkbTypes::Point, snappedPoint.x(), snappedPoint.y() );
+
+  // convert to the corresponding type for a full ZM support
+  if ( QgsWkbTypes::hasZ( wkbType ) && !QgsWkbTypes::hasM( wkbType ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointZ );
+  }
+  else if ( !QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointM );
+  }
+  else if ( QgsWkbTypes::hasZ( wkbType ) && QgsWkbTypes::hasM( wkbType ) )
+  {
+    newPoint.convertTo( QgsWkbTypes::PointZM );
+  }
+
+  // set z value
+  if ( QgsWkbTypes::hasZ( newPoint.wkbType() ) && QgsWkbTypes::hasZ( snappedPoint.wkbType() ) )
+  {
+    newPoint.setZ( snappedPoint.z() );
+  }
+
+  // set m value
+  if ( QgsWkbTypes::hasM( newPoint.wkbType() ) && QgsWkbTypes::hasM( snappedPoint.wkbType() ) )
+  {
+    newPoint.setM( snappedPoint.m() );
+  }
+
+  return newPoint;
+}
+
 void SnappingUtils::snap()
 {
-  QgsPointLocator::Match match = snapToMap( QPoint( mInputCoordinate.x(), mInputCoordinate.y() ) );
+  QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
   mSnappingResult = SnappingResult( match );
+
+  //set point containing ZM if existing
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
+  if ( vlayer && match.layer()
+       && ( QgsWkbTypes::hasZ( vlayer->wkbType() ) || QgsWkbTypes::hasM( vlayer->wkbType() ) ) )
+  {
+    const QgsFeature ft = match.layer()->getFeature( match.featureId() );
+    mSnappingResult.setPoint( newPoint( ft.geometry().vertexAt( match.vertexIndex() ), vlayer->wkbType() ) );
+  }
 
   emit snappingResultChanged();
 }

@@ -208,6 +208,10 @@ ApplicationWindow {
           currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
+
+          onCurrentCoordinateChanged: {
+              console.info( currentCoordinate.x+', '+currentCoordinate.y+', '+currentCoordinate.z )
+          }
         }
 
         anchors.fill: parent
@@ -591,6 +595,7 @@ ApplicationWindow {
       id: digitizingFeature
       currentLayer: dashBoard.currentLayer
       positionSourceName: positionSource.name
+      topSnappingResult: coordinateLocator.topSnappingResult
 
       geometry: Geometry {
         id: digitizingGeometry

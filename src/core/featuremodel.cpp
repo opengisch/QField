@@ -274,6 +274,11 @@ void FeatureModel::resetAttributes()
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
   if ( mPositionSource )
     expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
+
+  //set snapping_results to ExpressionScope...
+  if ( mTopSnappingResult.isValid() )
+    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
+
   expressionContext.setFeature( mFeature );
 
   QgsFields fields = mLayer->fields();
@@ -417,6 +422,16 @@ void FeatureModel::setPositionSourceName( const QString &positionSourceName )
 
   mPositionSource.reset( QGeoPositionInfoSource::createSource( positionSourceName, this ) );
   emit positionSourceChanged();
+}
+
+SnappingResult FeatureModel::topSnappingResult() const
+{
+  return mTopSnappingResult;
+}
+
+void FeatureModel::setTopSnappingResult( const SnappingResult &topSnappingResult )
+{
+  mTopSnappingResult = topSnappingResult;
 }
 
 void FeatureModel::applyVertexModelToGeometry()
