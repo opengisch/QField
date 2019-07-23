@@ -149,5 +149,5 @@ class TestVertexModel: public QObject
     QgsGeometry mPoint2056Geometry;
 };
 
-QTEST_MAIN( TestVertexModel )
+//QTEST_MAIN( TestVertexModel )
 #include "test_vertexmodel.moc"

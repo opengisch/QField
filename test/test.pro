@@ -26,4 +26,7 @@ LIBS += ../3rdparty/tessellate/libtessellate.a \
 
 SOURCES += \
     test_vertexmodel.cpp \
-    test_referencingfeaturelistmodel.cpp
+    test_referencingfeaturelistmodel.cpp \
+    main.cpp
+
+HEADERS +=
