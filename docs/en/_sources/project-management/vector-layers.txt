@@ -98,6 +98,28 @@ The field widgets from QGIS are supported on a best effort basis.
 | Others            | :nay:`✘`        | :ref:`make_it_grow`                             |
 +-------------------+-----------------+-------------------------------------------------+
 
+External Resource (photo settings)
+.................................
+
+The widget type "Attachement" is used to store the path to collected photos.
+
+.. container:: clearer text-center
+
+  .. figure:: /images/attachement-setting.png
+     :width: 600px
+     :alt: Attachement field settings
+
+The path should be set to relative. Means the pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.
+
+In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.
+
+.. container:: clearer text-center
+
+  .. figure:: /images/qfield_picture.png
+     :width: 600px
+     :alt: Picture in QField
+
+On synchronization the sub-directory with the pictures has to be copied as well.
 
 Drag and drop designer forms
 ----------------------------
