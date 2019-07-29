@@ -28,6 +28,10 @@ Item {
       title: qsTr( "Data Source" )
       width: table.width - 200 * dp
     }
+
+    onClicked: {
+      console.log( model.get(row), " at ", model.data(model.index(row,0), "LayerName" ) )
+    }
   }
 
   Controls.Label {

@@ -64,9 +64,10 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
     appendRow( item );
   }
 
-  //emit badLayersFound();
+  emit badLayersFound();
 
-  //QgsCredentials::instance()->put( QStringLiteral("allow-groups at wms.swisstopo.admin.ch"), QStringLiteral("user_bsv0a"), QStringLiteral("2581qmtmq0t2schz") );
+  /* this works, but is that what we want???
+  //emit badLayersFound();
 
   for ( const QDomNode &node : layers )
   {
@@ -85,6 +86,7 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
       qDebug() << "trallala";
     }
   }
+  */
 }
 
 QString BadLayerHandler::layerName( const QDomNode &layerNode ) const
