@@ -1,5 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.4
+import "." as QField
 
 import org.qfield 1.0
 import "js/style.js" as Style
@@ -30,7 +32,12 @@ Item {
     }
 
     onClicked: {
-      console.log( model.get(row), " at ", model.data(model.index(row,0), "LayerName" ) )
+      //console.log( model.get(row), " at ", model.data(model.index(row,0), "LayerName" ) )
+      layerLoginDialogPopup.open()
+    }
+    onRowCountChanged: {
+      //this is maybe the wrong signal, here the layer has to be passed to login
+      layerLoginDialogPopup.open()
     }
   }
 
@@ -63,7 +70,7 @@ You may check the <i>Portable Project</i> section in the QField documentation.")
       horizontalAlignment: Text.AlignHCenter
     }
 
-    Button {
+    QField.Button {
       id: closeButton
       anchors.left: parent.left
 
@@ -77,4 +84,37 @@ You may check the <i>Portable Project</i> section in the QField documentation.")
       }
     }
   }
+
+    Popup {
+      id: layerLoginDialogPopup
+      parent: ApplicationWindow.overlay
+
+      property var realm
+
+      x: 24 * dp
+      y: 24 * dp
+      width: parent.width - 48 * dp
+      height: parent.height - 48 * dp
+      modal: true
+      closePolicy: Popup.CloseOnEscape
+
+      LayerLoginDialog {
+        id: layerLoginDialog
+
+        anchors.fill: parent
+
+        visible: true
+
+        realm: layerLoginDialogPopup.realm
+
+        onEnter: {
+          console.log( "here the magic has to happen with "+usr+" and "+pw )
+          layerLoginDialogPopup.close()
+        }
+      }
+
+      onClosed: {
+        console.log( "bad layers have to be reloaded" )
+      }
+    }
 }
