@@ -60,7 +60,9 @@ HEADERS += \
     qgsgeometrywrapper.h \
     valuemapmodel.h \
     referencingfeaturelistmodel.h \
-    featurechecklistmodel.h
+    featurechecklistmodel.h \
+    qfieldappauthrequesthandler.h \
+    layerloginhandler.h
 
 SOURCES += \
     appinterface.cpp \
@@ -104,7 +106,12 @@ SOURCES += \
     qgsgeometrywrapper.cpp \
     valuemapmodel.cpp \
     referencingfeaturelistmodel.cpp \
+<<<<<<< HEAD
     featurechecklistmodel.cpp
+=======
+    qfieldappauthrequesthandler.cpp \
+    layerloginhandler.cpp
+>>>>>>> layer login handler
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
