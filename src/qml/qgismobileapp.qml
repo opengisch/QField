@@ -928,7 +928,7 @@ ApplicationWindow {
         busyMessage.visible = true
       }
 
-      qgisProject.onRemoveAll: {
+      onLoadProjectEnded: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
       }
