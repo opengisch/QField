@@ -928,7 +928,7 @@ ApplicationWindow {
         busyMessage.visible = true
       }
 
-      onLoadProjectEnded: {
+      qgisProject.onRemoveAll: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
       }
@@ -979,6 +979,55 @@ ApplicationWindow {
     onFinished: {
       visible = false
     }
+  }
+
+  Item {
+    id: layerLogin
+    LayerLoginHandler{
+      id: theHandler
+      project: qgisProject
+      onRealmAdded: {
+        layerLoginDialog.realm = realm
+        layerLoginDialogPopup.open()
+      }
+    }
+
+    Popup {
+      id: layerLoginDialogPopup
+      parent: ApplicationWindow.overlay
+
+      property var realm
+
+      x: 24 * dp
+      y: 24 * dp
+      width: parent.width - 48 * dp
+      height: parent.height - 48 * dp
+      modal: true
+      closePolicy: Popup.CloseOnEscape
+
+      LayerLoginDialog {
+        id: layerLoginDialog
+
+        anchors.fill: parent
+
+        visible: true
+
+        realm: layerLoginDialogPopup.realm
+
+        onEnter: {
+          console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
+          theHandler.enterCredentials( realm, usr, pw)
+          qgisProject.reloadAllLayers()
+
+          layerLoginDialogPopup.close()
+        }
+      }
+
+      onClosed: {
+        console.log( "bad layers have to be reloaded" )
+      }
+    }
+
   }
 
   About {
