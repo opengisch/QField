@@ -77,8 +77,8 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   auth->setPassword( password );
 }
 
-void QFieldAppAuthRequestHandler::setInstance(QFieldAppAuthRequestHandler *appAuthRequestHandler)
+void QFieldAppAuthRequestHandler::setInstance( QFieldAppAuthRequestHandler *appAuthRequestHandler )
 {
-  if( appAuthRequestHandler )
+  if ( appAuthRequestHandler )
     sAppAuthRequestHandler = appAuthRequestHandler;
 }
