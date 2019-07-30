@@ -32,7 +32,6 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
     {
       DataSourceRole = Qt::UserRole,
       LayerNameRole,
-      LayerNodeRole
     };
 
     BadLayerHandler( QObject *parent = nullptr );
@@ -50,7 +49,6 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
 
   private:
     QString layerName( const QDomNode &layerNode ) const;
-    //void setDataSource(QDomNode &layerNode, const QString &dataSource);
 
     QgsProject *mProject;
 };

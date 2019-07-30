@@ -30,7 +30,6 @@ QHash<int, QByteArray> BadLayerHandler::roleNames() const
 
   roleNames[DataSourceRole] = "DataSource";
   roleNames[LayerNameRole] = "LayerName";
-  roleNames[LayerNodeRole] = "LayerNode";
 
   return roleNames;
 }
@@ -65,36 +64,27 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
   }
 
   emit badLayersFound();
-
-  /* this works, but is that what we want???
-  //emit badLayersFound();
-
-  for ( const QDomNode &node : layers )
-  {
-    QDomNode layerNode = node;
-    //setDataSource( layerNode, dataSource(node) );
-    const QString layerId { layerNode.namedItem( QStringLiteral( "id" ) ).toElement().text() };
-    const QString provider { layerNode.namedItem( QStringLiteral( "provider" ) ).toElement().text() };
-    QgsMapLayer *mapLayer = QgsProject::instance()->mapLayer( layerId );
-    QgsDataProvider::ProviderOptions options;
-    const auto absolutePath { QgsProject::instance()->pathResolver().readPath( "contextualWMSLegend=0&crs=EPSG:31287&dpiMode=7&featureCount=10&format=image/jpeg&layers=ch.swisstopo.swissbathy3d-reliefschattierung&password=2581qmtmq0t2schz&styles=default&url=https://wms.swisstopo.admin.ch/?&username=user_bsv0a" ) };
-    mapLayer->setDataSource( absolutePath, layerName( layerNode ), provider, options );
-
-    mapLayer->reload();
-    if ( mapLayer->isValid() )
-    {
-      qDebug() << "trallala";
-    }
-  }
-  */
 }
+
+/* to be removed
+void BadLayerHandler::reloadLayers()
+{
+  for(int r = 0; r < rowCount(); ++r) {
+   QgsMapLayer *mapLayer = mProject->mapLayer( data(index(r,0), LayerIdRole).toString() );
+   //test hack
+   //mapLayer->setDataSource( { QgsProject::instance()->pathResolver().readPath( "contextualWMSLegend=0&crs=EPSG:31287&dpiMode=7&featureCount=10&format=image/jpeg&layers=ch.swisstopo.swissbathy3d-reliefschattierung&password=2581qmtmq0t2schz&styles=default&url=https://wms.swisstopo.admin.ch/?&username=user_bsv0a" ) }, data(index(r,0), LayerNameRole).toString(), "wms", QgsDataProvider::ProviderOptions());
+
+   mapLayer->reload();
+   if ( mapLayer->isValid() )
+   {
+     qDebug() << "trallala";
+     removeRow(r);
+  }
+}
+*/
 
 QString BadLayerHandler::layerName( const QDomNode &layerNode ) const
 {
   return layerNode.namedItem( "layername" ).toElement().text();
 }
 
-//void BadLayerHandler::setDataSource(QDomNode &layerNode, const QString &dataSource)
-//{
-//  QgsProjectBadLayerHandler::setDataSource(layerNode, "contextualWMSLegend=0&crs=EPSG:31287&dpiMode=7&featureCount=10&format=image/jpeg&layers=ch.swisstopo.swissbathy3d-reliefschattierung&password=2581qmtmq0t2schz&styles=default&url=https://wms.swisstopo.admin.ch/?&username=user_bsv0a");
-//}
