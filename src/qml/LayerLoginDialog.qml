@@ -8,10 +8,9 @@ import "js/style.js" as Style
 import "." as QField
 
 Item {
-  signal cancel
   signal enter( string usr, string pw )
 
-  property var realm
+    property var realm
 
   Rectangle {
     anchors.fill: parent
@@ -87,8 +86,3 @@ Item {
       }
     }
 }
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:6;anchors_height:46;anchors_width:640}
-}
- ##^##*/
