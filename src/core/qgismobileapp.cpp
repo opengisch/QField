@@ -88,6 +88,9 @@
 #include "valuemapmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
+#include "qgsnetworkaccessmanager.h"
+#include "qfieldappauthrequesthandler.h"
+#include "layerloginhandler.h"
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -100,6 +103,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   setFormat( format );
   create();
 #endif
+
+  //set the authHandler to qfield-handler
+  QgsNetworkAccessManager::instance()->setAuthHandler( qgis::make_unique<QFieldAppAuthRequestHandler>());
 
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
@@ -198,7 +204,11 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
+<<<<<<< HEAD
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
+=======
+  qmlRegisterType<LayerLoginHandler>( "org.qfield", 1, 0, "LayerLoginHandler" );
+>>>>>>> use of qfieldappauthrequesthandler
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
