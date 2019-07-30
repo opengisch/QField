@@ -105,7 +105,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #endif
 
   //set the authHandler to qfield-handler
-  QgsNetworkAccessManager::instance()->setAuthHandler( qgis::make_unique<QFieldAppAuthRequestHandler>());
+  QgsNetworkAccessManager::instance()->setAuthHandler( qgis::make_unique<QFieldAppAuthRequestHandler>() );
 
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
