@@ -98,26 +98,26 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Посібник користувача QField</a><ul>
-<li><a class="reference internal" href="#basic-workflow">Основні операції</a><ul>
-<li><a class="reference internal" href="#switch-modes">Зміна режимів</a></li>
 <li><a class="reference internal" href="#opening-a-project">Відкриття проекта</a></li>
+<li><a class="reference internal" href="#map-legend">Map legend</a></li>
 <li><a class="reference internal" href="#identify-features">Ідентифікація об&#8217;єктів</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Виключення під час ідентифікації шарів</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Використання зовнішнього GNSS-приймача</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitize">Оцифровка</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Точки</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Лінії та полігони</a></li>
 <li><a class="reference internal" href="#attribute-form">Заповнення атрибутів</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Видалення об&#8217;єктів</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -191,64 +191,107 @@
       
   <div class="section" id="qfield-user-guide">
 <h1>Посібник користувача QField<a class="headerlink" href="#qfield-user-guide" title="Постійне посилання на цей заголовок">¶</a></h1>
-<div class="section" id="basic-workflow">
-<h2>Основні операції<a class="headerlink" href="#basic-workflow" title="Постійне посилання на цей заголовок">¶</a></h2>
-<div class="section" id="switch-modes">
-<h3>Зміна режимів<a class="headerlink" href="#switch-modes" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Режими перемикаються за допомогою <span class="menuselection">Menu button ‣ mode</span></p>
-</div>
 <div class="section" id="opening-a-project">
-<h3>Відкриття проекта<a class="headerlink" href="#opening-a-project" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h2>Відкриття проекта<a class="headerlink" href="#opening-a-project" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>To open a project, tap on <strong>Menu button &#8211;&gt; Option button &#8211;&gt; Open Project</strong>.</p>
+<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<blockquote>
+<div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
+<img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
+</div></blockquote>
+</div>
+<div class="section" id="map-legend">
+<h2>Map legend<a class="headerlink" href="#map-legend" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h3>Ідентифікація об&#8217;єктів<a class="headerlink" href="#identify-features" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Натискання (тап) на об&#8217;єкт виконає ідентифікацію. Настискання кнопки &#8220;Назад&#8221; закриє вікно ідентифікації.</p>
+<h2>Ідентифікація об&#8217;єктів<a class="headerlink" href="#identify-features" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
+<p>Tap on one of the listed feature to access its attributes.</p>
+<ol class="arabic simple">
+<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
+<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
+<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
+<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+</ol>
+<img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h4>Виключення під час ідентифікації шарів<a class="headerlink" href="#exceptions-to-identified-layers" title="Постійне посилання на цей заголовок">¶</a></h4>
+<h3>Виключення під час ідентифікації шарів<a class="headerlink" href="#exceptions-to-identified-layers" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Часто ідентифікація всіх шарів небажана. Деякі шари виконують роль базових та їх атрибути нас не цікавлять.</p>
 <p>Ви можете налаштувати цей список шарів у QGIS в <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> та відключити ідентифікацію для базових шарів.</p>
 </div>
 </div>
+<div class="section" id="searching">
+<h2>Searching<a class="headerlink" href="#searching" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<ol class="arabic simple">
+<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
+<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+</ol>
+<img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
+</div>
+<div class="section" id="switching-map-theme">
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
+</div>
 <div class="section" id="gps">
-<h3>GPS<a class="headerlink" href="#gps" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h2>GPS<a class="headerlink" href="#gps" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Коротке натискання на кнопку GPS вмикає GPS та центрує на поточному місцезнаходженні, як тільки з&#8217;явиться інформація про положення.</p>
 <p>Довге натискання кнопки GPS відображає меню позиціонування.</p>
 <p>У меню позиціонування ви можете активувати відображення положення, тобто відображення поточних координат, перепроектованих у систему координат проекта, та інформації про їх точність.</p>
+<img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">Примітка</p>
 <p class="last">Якщо замість інформації у системі координат проекта ви бачите інформацію у WGS 84 (широта/довгота) , можливо ви ще впіймали сигнал.</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h4>Використання зовнішнього GNSS-приймача<a class="headerlink" href="#using-external-gnss-reciever" title="Постійне посилання на цей заголовок">¶</a></h4>
+<h3>Використання зовнішнього GNSS-приймача<a class="headerlink" href="#using-external-gnss-reciever" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Існує можливість передавати інформацію про місцезнаходження з іншого додатку до QField. Наприклад, з додатку <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
 <p>Для цього Вам потрібно <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">увімкнути отримання інформації про місцезнаходження на Вашому пристрої Android</a>.</p>
 </div>
 </div>
-<div class="section" id="digitize">
-<h3>Оцифровка<a class="headerlink" href="#digitize" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Щоб почати оцифровку нових об&#8217;єктів перейдіть у режим оцифровки, як описано в розділі <a class="reference internal" href="#switch-modes">Зміна режимів</a>.</p>
-<p>Поряд з кнопкою меню з&#8217;явиться новий випадаючий список з переліком шарів, доступних для оцифровки.</p>
+<div class="section" id="digitizing">
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h4>Точки<a class="headerlink" href="#points" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Помістіть курсор у центрі екрана в бажане місце та натисніть на олівець у правому нижньому кутку екрана, щоб підтвердити створення нового точкового об&#8217;єкта.</p>
+<h3>Точки<a class="headerlink" href="#points" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
+new point feature.</p>
+<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Лінії та полігони<a class="headerlink" href="#lines-and-polygons" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Помістіть курсор у центрі екрана в бажане місце початку лінії та натисніть на олівець у правому нижньому кутку екрана. Продовжуйте додавати чи видаляти точки поки лінія чи полігон не набудуть бажаного вигляду, а потім натисніть зберегти.</p>
+<h3>Лінії та полігони<a class="headerlink" href="#lines-and-polygons" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
+<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
+<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
+<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
+<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h4>Заповнення атрибутів<a class="headerlink" href="#attribute-form" title="Постійне посилання на цей заголовок">¶</a></h4>
+<h3>Заповнення атрибутів<a class="headerlink" href="#attribute-form" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
 and the user will be asked to enter the attributes for the new feature.
 The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.</p>
+at the right of every attribute allow for remembering each attribute individually.
+The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h3>Видалення об&#8217;єктів<a class="headerlink" href="#delete-features" title="Постійне посилання на цей заголовок">¶</a></h3>
+<h2>Видалення об&#8217;єктів<a class="headerlink" href="#delete-features" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Видалення об&#8217;єктів можливе лише в режимі оцифровки.</p>
 <p>Щоб видалити об&#8217;єкт, виконайте ідентифікацію та клацніть по іконці сміттєвої корзини.</p>
 </div>
+<div class="section" id="edit-the-geometry-of-an-existing-feature">
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

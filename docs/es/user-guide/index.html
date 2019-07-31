@@ -99,26 +99,26 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Guía de Usuario de QField</a><ul>
-<li><a class="reference internal" href="#basic-workflow">Flujo de trabajo básico</a><ul>
-<li><a class="reference internal" href="#switch-modes">Cambio de modos</a></li>
 <li><a class="reference internal" href="#opening-a-project">Abriendo un proyecto</a></li>
+<li><a class="reference internal" href="#map-legend">Map legend</a></li>
 <li><a class="reference internal" href="#identify-features">Identifica las características</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Excepciones a la identificación de capas</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Empleando un receptor GNSS externo</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitize">Digitalizar</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Puntos</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Líneas y polígonos</a></li>
 <li><a class="reference internal" href="#attribute-form">Formulario de atributos</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Borrado de elementos</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -192,64 +192,107 @@
       
   <div class="section" id="qfield-user-guide">
 <h1>Guía de Usuario de QField<a class="headerlink" href="#qfield-user-guide" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="basic-workflow">
-<h2>Flujo de trabajo básico<a class="headerlink" href="#basic-workflow" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="switch-modes">
-<h3>Cambio de modos<a class="headerlink" href="#switch-modes" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los modos pueden cambiarse a través de <span class="menuselection">botón de Menú ‣ modo</span></p>
-</div>
 <div class="section" id="opening-a-project">
-<h3>Abriendo un proyecto<a class="headerlink" href="#opening-a-project" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>Abriendo un proyecto<a class="headerlink" href="#opening-a-project" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>To open a project, tap on <strong>Menu button &#8211;&gt; Option button &#8211;&gt; Open Project</strong>.</p>
+<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<blockquote>
+<div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
+<img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
+</div></blockquote>
+</div>
+<div class="section" id="map-legend">
+<h2>Map legend<a class="headerlink" href="#map-legend" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h3>Identifica las características<a class="headerlink" href="#identify-features" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Un toque en un elemento lo identificará. Al presionar el botón de regreso se cerrará la ventana de identificación.</p>
+<h2>Identifica las características<a class="headerlink" href="#identify-features" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
+<p>Tap on one of the listed feature to access its attributes.</p>
+<ol class="arabic simple">
+<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
+<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
+<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
+<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+</ol>
+<img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h4>Excepciones a la identificación de capas<a class="headerlink" href="#exceptions-to-identified-layers" title="Enlazar permanentemente con este título">¶</a></h4>
+<h3>Excepciones a la identificación de capas<a class="headerlink" href="#exceptions-to-identified-layers" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A veces no es necesario que todas las capas puedan consultarse. Algunas capas solo se presentan como base y sus atributos no nos son de interés.</p>
 <p>Puedes gestionar estas capas in QGIS desktop en in <span class="menuselection">Proyecto ‣ Propiedades del Proyecto ‣ Identificación de capas</span> y desmarca las capas base en la columna Identificable.</p>
 </div>
 </div>
+<div class="section" id="searching">
+<h2>Searching<a class="headerlink" href="#searching" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<ol class="arabic simple">
+<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
+<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+</ol>
+<img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
+</div>
+<div class="section" id="switching-map-theme">
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
+</div>
 <div class="section" id="gps">
-<h3>GPS<a class="headerlink" href="#gps" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>GPS<a class="headerlink" href="#gps" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una presión corta sobre el botón GPS encenderá el GPS y centrará la posición actual una vez que esté disponible la información de posicionamiento.</p>
 <p>Una presión larga sobre el botón GPS mostrará el menú de posicionamiento.</p>
 <p>Dentro del menú de posicionamiento puedes activar la pantalla de posicionamiento que mostrará las coordenadas actuales que se proyectan en el SRC de proyecto junto con información de la precisión.</p>
+<img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">Si ves información de WGS 84 lat/lon en lugar de información en tu SRC, probablemente aún no tengas señal.</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h4>Empleando un receptor GNSS externo<a class="headerlink" href="#using-external-gnss-reciever" title="Enlazar permanentemente con este título">¶</a></h4>
+<h3>Empleando un receptor GNSS externo<a class="headerlink" href="#using-external-gnss-reciever" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Es posible proporcionar una ubicación simulada a una aplicación android independiente de qfield. Hay varias opciones para esta situación, una de ellas es <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
 <p>Para usar esto, debe activar las localizaciones falsas en su dispositivo Android &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;`_.</p>
 </div>
 </div>
-<div class="section" id="digitize">
-<h3>Digitalizar<a class="headerlink" href="#digitize" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Para empezar a digitalizar nuevos elementos <a href="#id1"><span class="problematic" id="id2">`Switch modes`_</span></a> para digitalizar.</p>
-<p>Un nuevo cuadro aparecerá junto al botón de menú, el cual lista las capas disponibles para digitalizar.</p>
+<div class="section" id="digitizing">
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h4>Puntos<a class="headerlink" href="#points" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>Ajusta la localización deseada con el punto de mira del centro de la pantalla y haz click en el lápiz de la esquina inferior derecha para confirmar la creación de un nuevo punto.</p>
+<h3>Puntos<a class="headerlink" href="#points" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
+new point feature.</p>
+<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Líneas y polígonos<a class="headerlink" href="#lines-and-polygons" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>Mueve el puntero en el centro de la pantalla a la posición de inicio deseada de la línea y da click al lápiz en la esquina inferior derecha de la pantalla. Procede añadiendo o removiendo puntos hasta que la línea o polígono esté finalizada y entonces da click en guardar.</p>
+<h3>Líneas y polígonos<a class="headerlink" href="#lines-and-polygons" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
+<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
+<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
+<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
+<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h4>Formulario de atributos<a class="headerlink" href="#attribute-form" title="Enlazar permanentemente con este título">¶</a></h4>
+<h3>Formulario de atributos<a class="headerlink" href="#attribute-form" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
 and the user will be asked to enter the attributes for the new feature.
 The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.</p>
+at the right of every attribute allow for remembering each attribute individually.
+The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h3>Borrado de elementos<a class="headerlink" href="#delete-features" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>Borrado de elementos<a class="headerlink" href="#delete-features" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La eliminación de elementos sólo es posible en el modo de digitalización.</p>
 <p>Para borrar un elemento, identifícalo primero y pulsa sobre el icono de la papelera.</p>
 </div>
+<div class="section" id="edit-the-geometry-of-an-existing-feature">
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

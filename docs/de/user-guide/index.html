@@ -99,26 +99,26 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField Benutzerhandbuch</a><ul>
-<li><a class="reference internal" href="#basic-workflow">Grundätzlicher Arbeitsablauf</a><ul>
-<li><a class="reference internal" href="#switch-modes">Modi wechseln</a></li>
 <li><a class="reference internal" href="#opening-a-project">Ein Projekt öffnen</a></li>
+<li><a class="reference internal" href="#map-legend">Map legend</a></li>
 <li><a class="reference internal" href="#identify-features">Objekte identifizieren</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Nichtidentifizierbare Ebenen</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Benutzung eines externen GNSS-Empfängers</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitize">Digitalisieren</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Punkte</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Linien und Polygone</a></li>
 <li><a class="reference internal" href="#attribute-form">Attributformular</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Objekte löschen</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -192,64 +192,107 @@
       
   <div class="section" id="qfield-user-guide">
 <h1>QField Benutzerhandbuch<a class="headerlink" href="#qfield-user-guide" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="section" id="basic-workflow">
-<h2>Grundätzlicher Arbeitsablauf<a class="headerlink" href="#basic-workflow" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="section" id="switch-modes">
-<h3>Modi wechseln<a class="headerlink" href="#switch-modes" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Modi werden gewechselt via <span class="menuselection">Menü Knopf ‣ Modus</span></p>
-</div>
 <div class="section" id="opening-a-project">
-<h3>Ein Projekt öffnen<a class="headerlink" href="#opening-a-project" title="Link zu dieser Überschrift">¶</a></h3>
+<h2>Ein Projekt öffnen<a class="headerlink" href="#opening-a-project" title="Link zu dieser Überschrift">¶</a></h2>
+<p>To open a project, tap on <strong>Menu button &#8211;&gt; Option button &#8211;&gt; Open Project</strong>.</p>
+<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<blockquote>
+<div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
+<img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
+</div></blockquote>
+</div>
+<div class="section" id="map-legend">
+<h2>Map legend<a class="headerlink" href="#map-legend" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h3>Objekte identifizieren<a class="headerlink" href="#identify-features" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Objekte können identifiziert werden, indem sie angetippt werden. Der Zurück Knopf schliesst das Identifikationspanel wieder.</p>
+<h2>Objekte identifizieren<a class="headerlink" href="#identify-features" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
+<p>Tap on one of the listed feature to access its attributes.</p>
+<ol class="arabic simple">
+<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
+<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
+<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
+<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+</ol>
+<img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h4>Nichtidentifizierbare Ebenen<a class="headerlink" href="#exceptions-to-identified-layers" title="Link zu dieser Überschrift">¶</a></h4>
+<h3>Nichtidentifizierbare Ebenen<a class="headerlink" href="#exceptions-to-identified-layers" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Oft ist es nicht nötig, alle Layer abfragen zu können. Manche Ebenen sind lediglich als Basiskarte da und ihre Attribute nicht von Interesse.</p>
 <p>Dies kann in QGIS konfiguriert werden im Menü <span class="menuselection">Projekt ‣ Projekteigenschaften ‣ Identifizierbare Layer</span>.</p>
 </div>
 </div>
+<div class="section" id="searching">
+<h2>Searching<a class="headerlink" href="#searching" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<ol class="arabic simple">
+<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
+<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+</ol>
+<img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
+</div>
+<div class="section" id="switching-map-theme">
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Link zu dieser Überschrift">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
+</div>
 <div class="section" id="gps">
-<h3>GPS<a class="headerlink" href="#gps" title="Link zu dieser Überschrift">¶</a></h3>
+<h2>GPS<a class="headerlink" href="#gps" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Ein kurzer Druck auf den GPS Knopf aktiviert das GPS und Zentriert den Bildschirm an der aktuellen Position sobald ein Signal verfügbar ist.</p>
 <p>Ein langer Druck auf den GPS Knopf zeigt das Positionierungsmenü</p>
 <p>Im Positionierungsmenü kann die Positionierungsanzeige eingeschaltet werden, welche die aktuellen Koordinaten im Projekt-KBS und Präzisionsinformationen anzeigt.</p>
+<img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">Bemerkung</p>
 <p class="last">Falls WGS 84 Länge/Breite Informationen angezeigt werden anstatt Koordinaten im Projekt-KBS ist vermutlich noch kein Signal verfügbar.</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h4>Benutzung eines externen GNSS-Empfängers<a class="headerlink" href="#using-external-gnss-reciever" title="Link zu dieser Überschrift">¶</a></h4>
+<h3>Benutzung eines externen GNSS-Empfängers<a class="headerlink" href="#using-external-gnss-reciever" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Es ist möglich eine mock location (Scheinlage) durch andere Android App an QField weiter zu geben. Es gibt hierfür mehrere Möglichkeiten, eine davon ist  <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
 <p>Dafür musst du auf deinem <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">Android Gerät mock locations aktivieren</a>.</p>
 </div>
 </div>
-<div class="section" id="digitize">
-<h3>Digitalisieren<a class="headerlink" href="#digitize" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Um neue Objekte zu digitalisieren starte dies via <a class="reference internal" href="#switch-modes">Modi wechseln</a>.</p>
-<p>Eine neue Auswahlliste erscheint neben dem Menüknopf. Diese zeigt die für die Digitalisierung verfügbaren Layer.</p>
+<div class="section" id="digitizing">
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Link zu dieser Überschrift">¶</a></h2>
+<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h4>Punkte<a class="headerlink" href="#points" title="Link zu dieser Überschrift">¶</a></h4>
-<p>Navigiere das Fadenkreuz in der Bildschirmmitte an die gewünschte Stelle und bestätige die Position mit dem Stift in der unteren rechten Bildschirmecke.</p>
+<h3>Punkte<a class="headerlink" href="#points" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
+new point feature.</p>
+<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Linien und Polygone<a class="headerlink" href="#lines-and-polygons" title="Link zu dieser Überschrift">¶</a></h4>
-<p>Platziere das Fadenkreuz in der Bildschirmmitte an der gewünschten Stelle für den Start der neuen Linie und klicke den Stift in der rechten unteren Ecke des Bildschirmes. Weitere Punkte können nun hinzugefügt und wieder gelöscht werden bis die Linie oder das Polygon komplett ist. Beim letzten Punkt  muss der Speichern Knopf gedrückt werden.</p>
+<h3>Linien und Polygone<a class="headerlink" href="#lines-and-polygons" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
+<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
+<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
+<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
+<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h4>Attributformular<a class="headerlink" href="#attribute-form" title="Link zu dieser Überschrift">¶</a></h4>
+<h3>Attributformular<a class="headerlink" href="#attribute-form" title="Link zu dieser Überschrift">¶</a></h3>
 <p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
 and the user will be asked to enter the attributes for the new feature.
 The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.</p>
+at the right of every attribute allow for remembering each attribute individually.
+The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h3>Objekte löschen<a class="headerlink" href="#delete-features" title="Link zu dieser Überschrift">¶</a></h3>
+<h2>Objekte löschen<a class="headerlink" href="#delete-features" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Das Löschen von Objekten ist nur im Digitalisiermodus möglich.</p>
 <p>Um ein Objekt zu löschen muss es zuerst identifiziert werden und dann mit einem Klick auf den Papierkorb gelöscht werden.</p>
 </div>
+<div class="section" id="edit-the-geometry-of-an-existing-feature">
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Link zu dieser Überschrift">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

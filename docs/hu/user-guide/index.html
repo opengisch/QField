@@ -99,26 +99,26 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField Felhasználói Útmutató</a><ul>
-<li><a class="reference internal" href="#basic-workflow">Alapvető munkafolyamat</a><ul>
-<li><a class="reference internal" href="#switch-modes">Üzemmódváltás</a></li>
 <li><a class="reference internal" href="#opening-a-project">Projekt megnyitása</a></li>
+<li><a class="reference internal" href="#map-legend">Map legend</a></li>
 <li><a class="reference internal" href="#identify-features">Funkciók azonosítása</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Kivételek az azonosított rétegekre</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Külső GNSS vevő használata</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitize">Digitalizál</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Pontok</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Vonalak és felületek</a></li>
 <li><a class="reference internal" href="#attribute-form">Attribútum űrlap</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Elemek törlése</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -192,64 +192,107 @@
       
   <div class="section" id="qfield-user-guide">
 <h1>QField Felhasználói Útmutató<a class="headerlink" href="#qfield-user-guide" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<div class="section" id="basic-workflow">
-<h2>Alapvető munkafolyamat<a class="headerlink" href="#basic-workflow" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<div class="section" id="switch-modes">
-<h3>Üzemmódváltás<a class="headerlink" href="#switch-modes" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Az üzemmódok közül a következő elérési útvonalon választhat <a href="#id1"><span class="problematic" id="id2">:menüpont-választás:`Menü gomb &#8211;&gt; üzemmód`</span></a></p>
-</div>
 <div class="section" id="opening-a-project">
-<h3>Projekt megnyitása<a class="headerlink" href="#opening-a-project" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h2>Projekt megnyitása<a class="headerlink" href="#opening-a-project" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>To open a project, tap on <strong>Menu button &#8211;&gt; Option button &#8211;&gt; Open Project</strong>.</p>
+<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<blockquote>
+<div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
+<img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
+</div></blockquote>
+</div>
+<div class="section" id="map-legend">
+<h2>Map legend<a class="headerlink" href="#map-legend" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h3>Funkciók azonosítása<a class="headerlink" href="#identify-features" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Egy elemre kattints azonosítja azt. A vissza gomb megnyomása lezárja az azonosítás ablakot.</p>
+<h2>Funkciók azonosítása<a class="headerlink" href="#identify-features" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
+<p>Tap on one of the listed feature to access its attributes.</p>
+<ol class="arabic simple">
+<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
+<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
+<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
+<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+</ol>
+<img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h4>Kivételek az azonosított rétegekre<a class="headerlink" href="#exceptions-to-identified-layers" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
+<h3>Kivételek az azonosított rétegekre<a class="headerlink" href="#exceptions-to-identified-layers" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>Gyakran nem szükséges, hogy minden réteget lekérdezhessünk. Néhány réteg  háttértérképként jelenik meg és az attribútumaik nem érdekesek.</p>
 <p>Ezt a réteg listát a QGIS-ben kezelheti a <span class="menuselection">Projekt ‣ Projekt tulajdonságok ‣ Réteg azonosítás</span> ablakban, kapcsolja ki az alap rétegeket.</p>
 </div>
 </div>
+<div class="section" id="searching">
+<h2>Searching<a class="headerlink" href="#searching" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<ol class="arabic simple">
+<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
+<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+</ol>
+<img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
+</div>
+<div class="section" id="switching-map-theme">
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
+</div>
 <div class="section" id="gps">
-<h3>GPS<a class="headerlink" href="#gps" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h2>GPS<a class="headerlink" href="#gps" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>A GPS gomb rövid megnyomása bekapcsolja a GPS-t és amint a pozíció rendelkezésre áll, a térkép közepét az aktuális pozícióra mozgatja.</p>
 <p>A GPS gomb hosszabb megnyomása megjeleníti a pozíció menüt.</p>
 <p>A pozíció menüben bekapcsolhatja a a pozíció megjelenítést, mely az aktuális koordinátákat a projekt koordinátarendszerébe áttranszformálva jeleníti meg a pontossági információval együtt.</p>
+<img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">Megjegyzés</p>
 <p class="last">Amennyiben WGS 84 hosszúság/szélesség adatokat lát a projekt koordináták helyett, akkor valószínűleg nincs még jel.</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h4>Külső GNSS vevő használata<a class="headerlink" href="#using-external-gnss-reciever" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
+<h3>Külső GNSS vevő használata<a class="headerlink" href="#using-external-gnss-reciever" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>Lehetőség van egy külső alkalmazásban helyet biztosítani a qfield-nek. Számos lehetőség van erre, egy ezek közül <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
 <p>A használatához <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">engedélyezni kell a mock locations-t az Android eszközén</a>.</p>
 </div>
 </div>
-<div class="section" id="digitize">
-<h3>Digitalizál<a class="headerlink" href="#digitize" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Új elemek digitalizálásának elkezdéséhez váltson digitalizáló módra.</p>
-<p>Egy új  legördülő lista jelenik meg a menü gomb mellett, melyben a digitalizálásra alkalmas rétegek jelennek meg.</p>
+<div class="section" id="digitizing">
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h4>Pontok<a class="headerlink" href="#points" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
-<p>Mozgassa a képernyő közepén megjelenő szálkeresztet a digitalizálandó pozícióba és kattintson a ceruzára a képernyő jobb alsó sarkában az új pont elem létrehozásának megerősítéséhez.</p>
+<h3>Pontok<a class="headerlink" href="#points" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired location and
+click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
+new point feature.</p>
+<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h4>Vonalak és felületek<a class="headerlink" href="#lines-and-polygons" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
-<p>Mozgassa a képernyő közepén megjelenő szálkeresztet a kívánt kezdőpontba és kattintson a ceruzára a képernyő jobb alsó sarkában. Folytassa a pontok hozzáadását és törlését amíg a vonalat vagy a felületet be nem fejezte majd kattintson a mentésre.</p>
+<h3>Vonalak és felületek<a class="headerlink" href="#lines-and-polygons" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
+<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
+<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
+<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
+<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h4>Attribútum űrlap<a class="headerlink" href="#attribute-form" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
+<h3>Attribútum űrlap<a class="headerlink" href="#attribute-form" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
 and the user will be asked to enter the attributes for the new feature.
 The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.</p>
+at the right of every attribute allow for remembering each attribute individually.
+The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h3>Elemek törlése<a class="headerlink" href="#delete-features" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h2>Elemek törlése<a class="headerlink" href="#delete-features" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Az elem törlése csak digitalizáló módban lehetséges.</p>
 <p>Az elem törléshez először azonosítsa azt és nyomja meg a szemétláda ikont.</p>
 </div>
+<div class="section" id="edit-the-geometry-of-an-existing-feature">
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 
