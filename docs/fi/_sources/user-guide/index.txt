@@ -76,7 +76,7 @@ and then click save.
 Attribute form
 --------------
 
-After digitizing a geometry, the attribute form will be displaied if it is not suppressed
+After digitizing a geometry, the attribute form will be displayed if it is not suppressed
 and the user will be asked to enter the attributes for the new feature.
 The form which appears allows entering attribute values for the new feature. The checkboxes
 at the right of every attribute allow for remembering each attribute individually.
