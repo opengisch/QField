@@ -1032,6 +1032,12 @@ ApplicationWindow {
           loginHandler.enterCredentials( realm, usr, pw)
           loginDialogPopup.close()
         }
+        onCancel: {
+          console.log( "here the canceling has to happen with "+realm )
+          //ugly workaround by adding just wrong credentials
+          loginHandler.enterCredentials( realm, 'canceled', 'canceled')
+          loginDialogPopup.close()
+        }
       }
 
       onClosed: {

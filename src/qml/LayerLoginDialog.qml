@@ -9,81 +9,104 @@ import "." as QField
 
 Item {
   signal enter( string usr, string pw )
+  signal cancel()
 
-    property var realm
+  property var realm
 
-  Rectangle {
+    Rectangle {
+        id: rectangle
     anchors.fill: parent
     color: "lightgray"
-  }
 
-  ColumnLayout{
-      anchors.fill: parent
-      spacing: 2
-      anchors { margins: 4 * dp }
+    ColumnLayout{
+        anchors.fill: parent
+          Layout.fillWidth: true
+          Layout.fillHeight: true
 
-      Text {
-        width: parent.width
-        text: qsTr( realm )
-        Layout.alignment: Qt.AlignHCenter
-        font.pointSize: 25
-        font.bold: true
-      }
+          spacing: 2
+          anchors { margins: 4 * dp }
 
-      Text {
-        width: parent.width
-        font.pointSize: 12
-        text: qsTr( "Username" )
-      }
-
-      Rectangle {
-          height: username.height
-          width: parent.width
-          color: "white"
-          TextField {
-              id: username
-              width: parent.width
-              height: font.height + 20 * dp
-              //text: "user_bsv0a"
-              font.pointSize: 12
+          Text {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.preferredHeight: font.height + 20 * dp
+            text: qsTr( realm )
+            font.pointSize: 25
+            font.bold: true
           }
-      }
 
-      Text {
-        width: parent.width
-        text: qsTr( "Password" )
-        font.pointSize: 12
-      }
-
-     // Rectangle {
-     //     height: password.height
-     //     width: parent.width
-     //     color: "white"
+          Text {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: font.height + 20 * dp
+            text: qsTr( "Username" )
+            font.pointSize: 12
+          }
 
           TextField {
+            id: username
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: parent.width
+            Layout.preferredHeight: font.height + 20 * dp
+            //text: "user_bsv0a"
+            font.pointSize: 12
+          }
 
+          Text {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: parent.width
+            Layout.preferredHeight: font.height + 20 * dp
+            text: qsTr( "Password" )
+            Layout.fillWidth: false
+            font.pointSize: 12
+          }
+
+          TextField {
             id: password
-            width: parent.width
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: parent.width
+            Layout.preferredHeight: font.height + 20 * dp
             height: font.height + 20 * dp
+            Layout.fillWidth: true
             //text:"2581qmtmq0t2schz"
             font.pointSize: 12
           }
-      //}
-  }
 
-    QField.Button {
-      id: enterButton
-      anchors.left: parent.left
-      anchors.bottom: parent.bottom
+          RowLayout{
+              spacing: 2
+              anchors { margins: 4 * dp }
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
 
-      width: parent.width
-      height: 48 * dp
+              QField.Button {
+                id: cancelButton
 
-      text: "Aight"
-      bgcolor: "steelblue"
+                Layout.fillWidth: true
+                height: 48 * dp
 
-      onClicked: {
-        enter(username.text, password.text)
+                text: "Cancel"
+                bgcolor: "steelblue"
+                borderColor: "white"
+
+                onClicked: {
+                  cancel()
+                }
+              }
+
+              QField.Button {
+                id: enterButton
+
+                Layout.fillWidth: true
+                height: 48 * dp
+
+                text: "Ok"
+                bgcolor: "steelblue"
+                borderColor: "white"
+
+                onClicked: {
+                  enter(username.text, password.text)
+                }
+              }
+          }
       }
-    }
+  }
 }
