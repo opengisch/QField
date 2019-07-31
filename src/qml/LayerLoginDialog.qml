@@ -24,9 +24,10 @@ Item {
 
       Text {
         width: parent.width
-        text: qsTr( "Login to "+realm )
+        text: qsTr( realm )
         Layout.alignment: Qt.AlignHCenter
         font.pointSize: 25
+        font.bold: true
       }
 
       Text {
@@ -35,10 +36,10 @@ Item {
         text: qsTr( "Username" )
       }
 
-      //Rectangle {
-      //    height: username.height
-      //    width: parent.width
-      //    color: "white"
+      Rectangle {
+          height: username.height
+          width: parent.width
+          color: "white"
           TextField {
               id: username
               width: parent.width
@@ -46,7 +47,7 @@ Item {
               //text: "user_bsv0a"
               font.pointSize: 12
           }
-      //}
+      }
 
       Text {
         width: parent.width

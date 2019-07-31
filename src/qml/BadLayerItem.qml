@@ -30,15 +30,6 @@ Item {
       title: qsTr( "Data Source" )
       width: table.width - 200 * dp
     }
-
-    onClicked: {
-      //console.log( model.get(row), " at ", model.data(model.index(row,0), "LayerName" ) )
-      layerLoginDialogPopup.open()
-    }
-    onRowCountChanged: {
-      //this is maybe the wrong signal, here the layer has to be passed to login
-      layerLoginDialogPopup.open()
-    }
   }
 
   Controls.Label {
@@ -84,37 +75,4 @@ You may check the <i>Portable Project</i> section in the QField documentation.")
       }
     }
   }
-
-    Popup {
-      id: layerLoginDialogPopup
-      parent: ApplicationWindow.overlay
-
-      property var realm
-
-      x: 24 * dp
-      y: 24 * dp
-      width: parent.width - 48 * dp
-      height: parent.height - 48 * dp
-      modal: true
-      closePolicy: Popup.CloseOnEscape
-
-      LayerLoginDialog {
-        id: layerLoginDialog
-
-        anchors.fill: parent
-
-        visible: true
-
-        realm: layerLoginDialogPopup.realm
-
-        onEnter: {
-          console.log( "here the magic has to happen with "+usr+" and "+pw )
-          layerLoginDialogPopup.close()
-        }
-      }
-
-      onClosed: {
-        console.log( "bad layers have to be reloaded" )
-      }
-    }
 }

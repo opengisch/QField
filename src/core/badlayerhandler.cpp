@@ -61,27 +61,24 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
     item->setData( layerName( node ), LayerNameRole );
     //item->setData( node, LayerNodeRole );
     appendRow( item );
+
+
+    QDomElement element = node.toElement();
+    qDebug() << "Text is: \n" << element.text();
+
+
+    QDomNodeList childNodes = node.childNodes();
+
+    for ( int i = 0; i < childNodes.count(); i++ )
+    {
+
+      const QDomNode &child = childNodes.at( i );
+      qDebug() << "Kiddo " << i << " " << child.nodeName() << " " << child.toElement().text();
+    }
   }
 
   emit badLayersFound();
 }
-
-/* to be removed
-void BadLayerHandler::reloadLayers()
-{
-  for(int r = 0; r < rowCount(); ++r) {
-   QgsMapLayer *mapLayer = mProject->mapLayer( data(index(r,0), LayerIdRole).toString() );
-   //test hack
-   //mapLayer->setDataSource( { QgsProject::instance()->pathResolver().readPath( "contextualWMSLegend=0&crs=EPSG:31287&dpiMode=7&featureCount=10&format=image/jpeg&layers=ch.swisstopo.swissbathy3d-reliefschattierung&password=2581qmtmq0t2schz&styles=default&url=https://wms.swisstopo.admin.ch/?&username=user_bsv0a" ) }, data(index(r,0), LayerNameRole).toString(), "wms", QgsDataProvider::ProviderOptions());
-
-   mapLayer->reload();
-   if ( mapLayer->isValid() )
-   {
-     qDebug() << "trallala";
-     removeRow(r);
-  }
-}
-*/
 
 QString BadLayerHandler::layerName( const QDomNode &layerNode ) const
 {

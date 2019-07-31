@@ -985,13 +985,12 @@ ApplicationWindow {
     id: layerLogin
 
     LayerLoginHandler{
-      id: theHandler
-      project: qgisProject
+      id: loginHandler
 
       onShowLoginDialog: {
-        layerLoginDialog.realm = realm
-        layerLoginDialogPopup.open()
+        loginDialog.realm = realm
         badLayersView.visible = false
+        loginDialogPopup.open()
       }
 
       onReloadEverything: {
@@ -1001,14 +1000,13 @@ ApplicationWindow {
 
     Connections {
       target: iface
-
       onLoadProjectEnded: {
-        theHandler.handleLayerLogins()
+        loginHandler.handleLayerLogins()
       }
     }
 
     Popup {
-      id: layerLoginDialogPopup
+      id: loginDialogPopup
       parent: ApplicationWindow.overlay
 
       property var realm
@@ -1021,23 +1019,23 @@ ApplicationWindow {
       closePolicy: Popup.CloseOnEscape
 
       LayerLoginDialog {
-        id: layerLoginDialog
+        id: loginDialog
 
         anchors.fill: parent
 
         visible: true
 
-        realm: layerLoginDialogPopup.realm
+        realm: loginDialogPopup.realm
 
         onEnter: {
           console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
-          theHandler.enterCredentials( realm, usr, pw)
-          layerLoginDialogPopup.close()
+          loginHandler.enterCredentials( realm, usr, pw)
+          loginDialogPopup.close()
         }
       }
 
       onClosed: {
-        theHandler.loginDialogClosed(layerLoginDialog.realm)
+        loginHandler.loginDialogClosed(loginDialog.realm)
       }
     }
 
