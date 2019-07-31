@@ -1,7 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as Controls
-import QtQuick.Controls 2.4
-import "." as QField
 
 import org.qfield 1.0
 import "js/style.js" as Style
@@ -61,7 +59,7 @@ You may check the <i>Portable Project</i> section in the QField documentation.")
       horizontalAlignment: Text.AlignHCenter
     }
 
-    QField.Button {
+    Button {
       id: closeButton
       anchors.left: parent.left
 
