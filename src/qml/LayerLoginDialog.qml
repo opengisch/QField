@@ -43,7 +43,7 @@ Item {
               id: username
               width: parent.width
               height: font.height + 20 * dp
-              text: "user_bsv0a"
+              //text: "user_bsv0a"
               font.pointSize: 12
           }
       //}
@@ -64,7 +64,7 @@ Item {
             id: password
             width: parent.width
             height: font.height + 20 * dp
-            text:"2581qmtmq0t2schz"
+            //text:"2581qmtmq0t2schz"
             font.pointSize: 12
           }
       //}

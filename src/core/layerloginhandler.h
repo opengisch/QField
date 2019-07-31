@@ -28,10 +28,13 @@ class LayerLoginHandler : public QStandardItemModel
 
     Q_INVOKABLE void enterCredentials( const QString realm, const QString username, const QString password );
     Q_INVOKABLE void reloadLayers();
+    Q_INVOKABLE void handleLayerLogins();
 
   signals:
     void projectChanged();
-    void realmAdded( const QString realm );
+    void showLoginDialog( const QString realm );
+    void loginDialogClosed( const QString realm );
+    void reloadEverything();
 
   private:
     QgsProject *mProject;

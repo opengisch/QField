@@ -983,12 +983,27 @@ ApplicationWindow {
 
   Item {
     id: layerLogin
+
     LayerLoginHandler{
       id: theHandler
       project: qgisProject
-      onRealmAdded: {
+
+      onShowLoginDialog: {
         layerLoginDialog.realm = realm
         layerLoginDialogPopup.open()
+        badLayersView.visible = false
+      }
+
+      onReloadEverything: {
+        iface.loadProject( qgisProject.fileName )
+      }
+    }
+
+    Connections {
+      target: iface
+
+      onLoadProjectEnded: {
+        theHandler.handleLayerLogins()
       }
     }
 
@@ -1017,14 +1032,12 @@ ApplicationWindow {
         onEnter: {
           console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
           theHandler.enterCredentials( realm, usr, pw)
-          qgisProject.reloadAllLayers()
-
           layerLoginDialogPopup.close()
         }
       }
 
       onClosed: {
-        console.log( "bad layers have to be reloaded" )
+        theHandler.loginDialogClosed(layerLoginDialog.realm)
       }
     }
 
