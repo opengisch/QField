@@ -100,9 +100,9 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">plugin QFieldSync</a><ul>
 <li><a class="reference internal" href="#workflow">Procedimento</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#configuration">Configurazione</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configurazione del layer</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Confingurazione delle mappe di base</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Configurazione dell&#8217;editing offline</a></li>
 </ul>
 </li>
@@ -186,33 +186,35 @@
 </li>
 <li><p class="first">Creazione di una mappa di base a partire da un singolo raster o da uno stile definito una mappa tematizzata.</p>
 </li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">Configura la funzionalità di editing offline e sincronizza i cambiamenti.</p>
+</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Procedimento<a class="headerlink" href="#workflow" title="Link a questa intestazione">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<p>Per avere una visione veloce del processo, qua c&#8217;è una lista dei passaggi principali:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
+<li><p class="first">Crea un pacchetto per QField. Questo è una copia in una cartella separata.</p>
+</li>
 <li><p class="first">Copia il pacchetto QField nel dispositivo finale.</p>
 </li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">Vai in campo e raccogli i dati.</p>
+</li>
+<li><p class="first">Copia i dati modificati nella tua cartella sul computer.</p>
+</li>
+<li><p class="first">Sincronizza i dati modificati con il tuo database o i tuoi files.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Link a questa intestazione">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Configurazione<a class="headerlink" href="#configuration" title="Link a questa intestazione">¶</a></h2>
+<p>La configurazione di progetto è salvata nel file master .qgs. In questo modo è possibile preconfigurare un progetto una volta ed utilizzarlo ripetutamente.</p>
 <div class="section" id="layer-configuration">
 <h3>Configurazione del layer<a class="headerlink" href="#layer-configuration" title="Link a questa intestazione">¶</a></h3>
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<p>Nella finestra di configurazione del progetto, una <em>azione</em> può essere definita per ogni layer singolarmente. Dipendentemente dal tipo di layer, diversi tipi di azioni sono possibili.</p>
 <dl class="docutils">
 <dt>Copia</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
+<dd><p class="first last">Il layer sarà copiato nella cartella package. Questo è solo possibile per i layer salvati su files.</p>
+</dd>
 <dt>Nessuna azione</dt>
 <dd>The layer source will be left untouched. This is only available for
 non-file-based layers like WMS, WFS, Postgis...</dd>
@@ -228,7 +230,7 @@ used in the basemap and will not be available in the packaged project.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Link a questa intestazione">¶</a></h3>
+<h3>Confingurazione delle mappe di base<a class="headerlink" href="#base-map-configuration" title="Link a questa intestazione">¶</a></h3>
 <p>A base map is a raster layer which is added as the bottommost layer to the
 packaged project file.</p>
 <p>If the base map option is enabled, a base map will be rendered, whenever the
