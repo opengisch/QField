@@ -1004,6 +1004,12 @@ ApplicationWindow {
         loginHandler.handleLayerLogins()
       }
     }
+    Connections {
+      target: qfieldAuthRequestHandler
+      onAuthNeeded: {
+        loginHandler.authNeeded( realm )
+      }
+    }
 
     Popup {
       id: loginDialogPopup

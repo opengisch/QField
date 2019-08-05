@@ -12,6 +12,7 @@ class LayerLoginHandler : public QObject
 
     Q_INVOKABLE void enterCredentials( const QString realm, const QString username, const QString password );
     Q_INVOKABLE void handleLayerLogins();
+    Q_INVOKABLE void authNeeded( const QString realm );
 
   signals:
     void showLoginDialog( const QString realm );
@@ -20,6 +21,15 @@ class LayerLoginHandler : public QObject
 
   private:
     QStringList mRealmList;
+
+    struct LoginEntry
+    {
+      QString realm;
+      bool canceled = false;
+    };
+
+    QList<LoginEntry> mLoginEntries;
+
 };
 
 

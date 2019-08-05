@@ -5,17 +5,6 @@
 
 #include "qgscredentials.h"
 
-QFieldAppAuthRequestHandler *QFieldAppAuthRequestHandler::sAppAuthRequestHandler = nullptr;
-
-QFieldAppAuthRequestHandler *QFieldAppAuthRequestHandler::instance()
-{
-  if ( !sAppAuthRequestHandler )
-  {
-    sAppAuthRequestHandler = new QFieldAppAuthRequestHandler();
-  }
-  return sAppAuthRequestHandler;
-}
-
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
 
@@ -53,7 +42,10 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     qDebug() << "We have U: " << username << " and P: " << password << " on " << auth->realm() << " @ " << reply->url().host() << " here QFieldAppAuthRequestHandler::handleAuthRequest";
 
     if ( !ok )
+    {
+      emit authNeeded( QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ) );
       return;
+    }
 
     if ( auth->user() != username || ( password != auth->password() && !password.isNull() ) )
     {
@@ -75,10 +67,4 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
 
   auth->setUser( username );
   auth->setPassword( password );
-}
-
-void QFieldAppAuthRequestHandler::setInstance( QFieldAppAuthRequestHandler *appAuthRequestHandler )
-{
-  if ( appAuthRequestHandler )
-    sAppAuthRequestHandler = appAuthRequestHandler;
 }

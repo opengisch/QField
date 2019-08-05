@@ -11,20 +11,13 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     Q_OBJECT
 
   public:
-    //not used I guess
-    static QFieldAppAuthRequestHandler *instance();
 
     QFieldAppAuthRequestHandler();
     void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth );
 
   signals:
     void loadProjectStarted( const QString &filename );
-
-  private:
-    static QFieldAppAuthRequestHandler *sAppAuthRequestHandler;
-
-    //not used I guess
-    static void setInstance( QFieldAppAuthRequestHandler *appAuthRequestHandler );
+    void authNeeded( const QString &realm );
 };
 
 #endif // QFIELDAPPAUTHREQUESTHANDLER_H

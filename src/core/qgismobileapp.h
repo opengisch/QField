@@ -30,6 +30,7 @@
 #include "settings.h"
 #include "focusstack.h"
 #include "qgsquickutils.h"
+#include "qfieldappauthrequesthandler.h"
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
@@ -115,6 +116,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider;
 
     QgsProject *mProject;
+
+    QFieldAppAuthRequestHandler *mAuthRequestHandler;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;

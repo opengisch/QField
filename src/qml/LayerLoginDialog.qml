@@ -47,7 +47,7 @@ Item {
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: parent.width
             Layout.preferredHeight: font.height + 20 * dp
-            //text: "user_bsv0a"
+            text: "user_bsv0a"
             font.pointSize: 12
           }
 
@@ -67,7 +67,7 @@ Item {
             Layout.preferredHeight: font.height + 20 * dp
             height: font.height + 20 * dp
             Layout.fillWidth: true
-            //text:"2581qmtmq0t2schz"
+            text:"2581qmtmq0t2schz"
             font.pointSize: 12
           }
 

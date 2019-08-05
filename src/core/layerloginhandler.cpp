@@ -13,18 +13,6 @@
 
 LayerLoginHandler::LayerLoginHandler()
 {
-  connect( QgsNetworkAccessManager::instance(), &QgsNetworkAccessManager::authRequestOccurred, [ = ]( QNetworkReply * reply, QAuthenticator * auth )
-  {
-    qDebug() << "We received the host: " << reply->url().host() << " and realm: " << auth->realm() << " and user: " << auth->user() << " and password:" << auth->password();
-
-    QString realm = QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() );
-
-    //in case that we have wrong credentials, it's handled like a success because the auth values are not null
-    if ( !mRealmList.contains( realm ) && ( auth->user().isNull() || auth->password().isNull() ) )
-    {
-      mRealmList << realm;
-    }
-  } );
 }
 
 void LayerLoginHandler::enterCredentials( const QString realm, const QString username, const QString password )
@@ -57,4 +45,13 @@ void LayerLoginHandler::handleLayerLogins()
       }
     } );
   }
+}
+
+void LayerLoginHandler::authNeeded( const QString realm )
+{
+  if ( !mRealmList.contains( realm ) )
+  {
+    mRealmList << realm;
+  }
+
 }
