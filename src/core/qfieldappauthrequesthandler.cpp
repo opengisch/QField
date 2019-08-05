@@ -10,6 +10,87 @@ QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 
 }
 
+
+void QFieldAppAuthRequestHandler::enterCredentials( const QString realm, const QString username, const QString password )
+{
+  QgsCredentials::instance()->put( realm, username, password );
+}
+
+QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm()
+{
+  for ( const RealmEntry &entry : mRealms )
+  {
+    if ( !entry.canceled )
+    {
+      return entry.realm;
+    }
+  }
+  return QString();
+}
+
+
+void QFieldAppAuthRequestHandler::handleLayerLogins()
+{
+
+  if ( !getFirstUnhandledRealm().isEmpty() )
+  {
+    emit showLoginDialog( getFirstUnhandledRealm() );
+
+    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( QString realm, bool canceled )
+    {
+      qDebug() << "close login for: " << realm;
+
+      if ( canceled )
+      {
+        //realm not successful handled - but canceled
+        for ( int i = 0; i < mRealms.count(); i++ )
+        {
+          if ( mRealms.at( i ).realm == realm )
+          {
+            mRealms.replace( i, RealmEntry( realm, true ) );
+          }
+        }
+      }
+      else
+      {
+        //realm successful handled - remove realm
+        for ( int i = 0; i < mRealms.count(); i++ )
+        {
+          if ( mRealms.at( i ).realm == realm )
+          {
+            mRealms.removeAt( i );
+          }
+        }
+      }
+
+      if ( !getFirstUnhandledRealm().isEmpty() )
+      {
+        emit showLoginDialog( getFirstUnhandledRealm() );
+      }
+      else
+      {
+        qDebug() << "Reload everything";
+        emit reloadEverything();
+      }
+    } );
+  }
+}
+
+void QFieldAppAuthRequestHandler::authNeeded( const QString realm )
+{
+  for ( const RealmEntry &entry : mRealms )
+  {
+    if ( entry.realm == realm )
+    {
+      //realm already in list
+      return;
+    }
+  }
+
+  RealmEntry unhandledRealm( realm );
+  mRealms << unhandledRealm;
+}
+
 void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth )
 {
   Q_ASSERT( qApp->thread() == QThread::currentThread() );
@@ -43,7 +124,7 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
 
     if ( !ok )
     {
-      emit authNeeded( QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ) );
+      authNeeded( QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ) );
       return;
     }
 

@@ -984,8 +984,14 @@ ApplicationWindow {
   Item {
     id: layerLogin
 
-    LayerLoginHandler{
-      id: loginHandler
+    Connections {
+      target: iface
+      onLoadProjectEnded: {
+        qfieldAuthRequestHandler.handleLayerLogins()
+      }
+    }
+    Connections {
+      target: qfieldAuthRequestHandler
 
       onShowLoginDialog: {
         loginDialog.realm = realm
@@ -995,19 +1001,6 @@ ApplicationWindow {
 
       onReloadEverything: {
         iface.loadProject( qgisProject.fileName )
-      }
-    }
-
-    Connections {
-      target: iface
-      onLoadProjectEnded: {
-        loginHandler.handleLayerLogins()
-      }
-    }
-    Connections {
-      target: qfieldAuthRequestHandler
-      onAuthNeeded: {
-        loginHandler.authNeeded( realm )
       }
     }
 
@@ -1035,19 +1028,15 @@ ApplicationWindow {
 
         onEnter: {
           console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
-          loginHandler.enterCredentials( realm, usr, pw)
+          qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
+          qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, false )
           loginDialogPopup.close()
         }
         onCancel: {
           console.log( "here the canceling has to happen with "+realm )
-          //ugly workaround by adding just wrong credentials
-          loginHandler.enterCredentials( realm, 'canceled', 'canceled')
+          qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, true )
           loginDialogPopup.close()
         }
-      }
-
-      onClosed: {
-        loginHandler.loginDialogClosed(loginDialog.realm)
       }
     }
 
