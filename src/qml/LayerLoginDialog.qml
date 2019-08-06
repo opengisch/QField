@@ -12,6 +12,7 @@ Item {
   signal cancel()
 
   property var realm
+  property var inCancelation
 
     Rectangle {
         id: rectangle

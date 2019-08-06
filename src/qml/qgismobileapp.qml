@@ -1025,18 +1025,24 @@ ApplicationWindow {
         visible: true
 
         realm: loginDialogPopup.realm
+        inCancelation: false
 
         onEnter: {
           console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
           qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
-          qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, false )
+          inCancelation = false;
           loginDialogPopup.close()
         }
         onCancel: {
           console.log( "here the canceling has to happen with "+realm )
-          qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, true )
-          loginDialogPopup.close()
+          inCancelation = true;
+          loginDialogPopup.close(true)
         }
+      }
+
+      onClosed: {
+        //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
+        qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
       }
     }
 
