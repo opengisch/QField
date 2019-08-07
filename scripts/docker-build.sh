@@ -34,7 +34,7 @@ grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/package=
 grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/package=\"ch.opengis.qfield\"/package=\"ch.opengis.${PKG_NAME}\"/"
 mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${PKG_NAME}
 sed -i 's|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>|' ${SOURCE_DIR}/android/res/values/strings.xml
-sed -i 's|<string name=\"lib_name\" translatable=\"false\">qfield</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>|' ${SOURCE_DIR}/android/res/values/strings.xml
+sed -i 's|<string name=\"lib_name\" translatable=\"false\">qfield</string>|<string name=\"lib_name\" translatable=\"false\">${APP_NAME_PKG}</string>|' ${SOURCE_DIR}/android/res/values/strings.xml
 
 # Replace the version number in version.pri with the one from the VERSION which is being built
 if [[ -n ${VERSION} ]];
