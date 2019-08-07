@@ -20,22 +20,21 @@ fi
 if [[ -z ${ARCH+x} ]]; then
     ARCH=armv7
 fi
-if [[ -z ${TRAVIS_PULL_REQUEST} ]]; then
-  TRAVIS_PULL_REQUEST=false
+if [[ -z ${APP_NAME} ]]; then
+  APP_NAME="QField"
 fi
+if [[ -z ${PKG_NAME} ]]; then
+  PKG_NAME="qfield"
+fi
+
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
-
-# Replace app name if we are on a pull request
-if [[ ${TRAVIS_PULL_REQUEST} != false ]]; then
-  APP_NAME_PKG=qfield_beta_${TRAVIS_PULL_REQUEST}
-  APP_NAME_STR="QField Beta ${TRAVIS_PULL_REQUEST}"
-  sed -i 's@package=\"ch.opengis.qfield\"@package=\"ch.opengis.${APP_NAME_PKG}@\"' ${SOURCE_DIR}/android/AndroidManifest.xml
-  sed -i 's@<string name=\"app_name\" translatable=\"false\">QField</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>@' android/res/values/strings.xml
-  sed -i 's@<string name=\"lib_name\" translatable=\"false\">qfield</string>@<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>@' android/res/values/strings.xml
-fi
-
+grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/package=\"ch.opengis.qfield\"/package=\"ch.opengis.${PKG_NAME}\"/"
+grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/package=\"ch.opengis.qfield\"/package=\"ch.opengis.${PKG_NAME}\"/"
+mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${PKG_NAME}
+sed -i 's|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME_STR}</string>|' ${SOURCE_DIR}/android/res/values/strings.xml
+sed -i 's|<string name=\"lib_name\" translatable=\"false\">qfield</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME_PKG}</string>|' ${SOURCE_DIR}/android/res/values/strings.xml
 
 # Replace the version number in version.pri with the one from the VERSION which is being built
 if [[ -n ${VERSION} ]];
