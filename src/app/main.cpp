@@ -30,7 +30,6 @@
 #include "qgslogger.h"
 #include <qmainwindow.h>
 #include <QApplication>
-#include <QDebug>
 
 int main( int argc, char **argv )
 {
@@ -71,7 +70,6 @@ int main( int argc, char **argv )
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  qDebug() << APP_NAME;
   QCoreApplication::setApplicationName( APP_NAME );
 
   QTranslator qfieldTranslator;
