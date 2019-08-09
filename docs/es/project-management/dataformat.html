@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Formatos soportados &mdash; documentación de QField Documentation - 1.0 - M...</title>
+    <title>Formatos de datos soportados &mdash; documentación de QField Documentation - 1.0 - M...</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,12 +98,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Formatos soportados</a><ul>
+<li><a class="reference internal" href="#">Formatos de datos soportados</a><ul>
 <li><a class="reference internal" href="#table">Tabla</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#raster-data">Datos Raster</a><ul>
-<li><a class="reference internal" href="#use-geopackage">Usa GeoPackages</a></li>
+<li><a class="reference internal" href="#raster-data">Datos ráster</a><ul>
+<li><a class="reference internal" href="#use-geopackage">Use GeoPackage</a></li>
 </ul>
 </li>
 </ul>
@@ -153,12 +153,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Símbolos SVG personalizados y ajustes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Búsqueda en capas</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Formatos soportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#raster-data">Datos Raster</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Formatos de datos soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#raster-data">Datos ráster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Gestión de Proyectos de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configuración de temas de mapas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto Portable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección de proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto portátil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección de proyectos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Ajustes de capas vectoriales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar el Tema de Mapa activo</a></li>
@@ -177,7 +177,7 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Formatos soportados<a class="headerlink" href="#supported-data-formats" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1>Formatos de datos soportados<a class="headerlink" href="#supported-data-formats" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>QField soporta una amplia variedad de formatos a través de los proveedores de datos de QGIS y GDAL. Esta página ofrece una lista no exhaustiva de formatos de datos soportados.</p>
 <div class="section" id="table">
 <h2>Tabla<a class="headerlink" href="#table" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -232,30 +232,30 @@
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">JPEG compresión no soportada aún</p>
+<td><p class="first last">Compresión JPEG no soportada aún.</p>
 </td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Licencia restringe su uso.</p>
+<td><p class="first last">La licencia restringe su uso.</p>
 </td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Licencia restringe su uso.</p>
+<td><p class="first last">La licencia restringe su uso.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Si no encuentras tu formato de datos favorito en esta tabla, por favor comprueba si funciona y <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapta la lista de encima</a> para compartir tus hallazgos. Si no funciona por favor, <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">abre un tema en</a>. Estaremos encantados de ayudarte con la implementación</p>
+<p>Si no encuentra su formato de datos favorito en esta tabla, por favor compruebe si funciona y <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapte la lista de encima</a> para compartir tus hallazgos. Si no funciona por favor, <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">abra un tema en</a>. Estaremos encantados de ayudarle con la implementación.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
-<h1>Datos Raster<a class="headerlink" href="#raster-data" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Los datos Raster pueden crecer bastante rápido, cuando se trabaja con ficheros tiff no comprimidos pueden ser varios Gb de información. Es muy ineficiente en dispositivos móviles.</p>
+<h1>Datos ráster<a class="headerlink" href="#raster-data" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Los datos ráster pueden crecer bastante rápido, cuando se trabaja con ficheros tiff no comprimidos pueden ser varios Gb de información. Esto es ineficiente, especialmente en dispositivos móviles.</p>
 <div class="section" id="use-geopackage">
-<h2>Usa GeoPackages<a class="headerlink" href="#use-geopackage" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Nosotros recomentados el uso del formato geopackage para trabajar con datos raster. El siguiente comando puede convertir un fichero <code class="code docutils literal"><span class="pre">raster.tif</span></code> a <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> con pirámides. Asegúrate de ajustar EPSG:21781 (CH1903 LV03) a tu Sistema de Referencia de Coordenadas (SRC).</p>
+<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recomendamos el uso del formato geopackage para trabajar con datos ráster. La siguiente orden puede convertir un fichero <code class="code docutils literal"><span class="pre">raster.tif</span></code> a <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> con pirámides. Asegúrese de ajustar EPSG:21781 (CH1903 LV03) a su Sistema de Referencia de Coordenadas (SRC).</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
 </pre></div>

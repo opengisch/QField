@@ -29,7 +29,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="top" title="documentación de QField Documentation - 1.0 - M..." href="../index.html" />
     <link rel="next" title="Guía de Usuario de QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Selección de proyecto" href="project-selection.html" />
+    <link rel="prev" title="Selección de proyectos" href="project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -100,23 +100,23 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Ajustes de capas vectoriales</a><ul>
 <li><a class="reference internal" href="#style">Estilo</a></li>
-<li><a class="reference internal" href="#display-expression">Visualizar expresión</a></li>
+<li><a class="reference internal" href="#display-expression">Expresión de visualización</a></li>
 <li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Capas de solo lectura, no-identificables y consultables</a></li>
-<li><a class="reference internal" href="#forms-and-fields">Formas y campos</a><ul>
-<li><a class="reference internal" href="#suppress-feature-form">Suprimir formulario emergente de atributos despuès de crear objetos espaciales</a></li>
-<li><a class="reference internal" href="#field-widget">Widget de campo</a><ul>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#forms-and-fields">Formularios y campos</a><ul>
+<li><a class="reference internal" href="#suppress-feature-form">Suprimir formulario emergente de atributos</a></li>
+<li><a class="reference internal" href="#field-widget">Control de campo</a><ul>
+<li><a class="reference internal" href="#external-resource-photo-settings">Recurso externo (configuración de fotografía)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Formas del diseñador de arrastrar y soltar</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Formularios del diseñador de arrastrar y soltar</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilidad condicional</a></li>
 <li><a class="reference internal" href="#constraints">Restricciones</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Casos de uso comunes</a></li>
+<li><a class="reference internal" href="#common-use-cases">Casos de uso común</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#default-values">Valores predeterminados</a><ul>
 <li><a class="reference internal" href="#additional-variables">Variables adicionales</a></li>
-<li><a class="reference internal" href="#id1">Casos de uso comunes</a></li>
+<li><a class="reference internal" href="#id1">Casos de uso común</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#editable">Editable</a></li>
@@ -141,7 +141,7 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Selección de proyecto"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selección de proyecto</span>
+    <a href="project-selection.html" title="Previous Chapter: Selección de proyectos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selección de ...</span>
     </a>
   </li>
   <li>
@@ -179,12 +179,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Símbolos SVG personalizados y ajustes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Búsqueda en capas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos soportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos Raster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos ráster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestión de Proyectos de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configuración de temas de mapas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto Portable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección de proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto portátil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección de proyectos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Ajustes de capas vectoriales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar el Tema de Mapa activo</a></li>
@@ -204,45 +204,45 @@
       
   <div class="section" id="vector-layer-settings">
 <h1>Ajustes de capas vectoriales<a class="headerlink" href="#vector-layer-settings" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>La mayoria de los ajustes que ofrece QGIS son soportados directamente por QField sin ningún esfuerzo extra.</p>
+<p>La mayoría de los ajustes que ofrece QGIS son soportados directamente por QField sin ningún esfuerzo extra.</p>
 <div class="section" id="style">
 <h2>Estilo<a class="headerlink" href="#style" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Todos los ajustes de estilo de QGIS son soportados directamente por QField. Esto incluye todos los tipos de renderizado como graduado, categorizado, basado en reglas, 2.5D así como simbología definida de datos.</p>
+<p>Todos los ajustes de estilo de QGIS son soportados directamente por QField. Esto incluye todos los tipos de renderizado como graduado, categorizado, basado en reglas, 2.5D así como simbología definida por datos.</p>
 </div>
 <div class="section" id="display-expression">
-<h2>Visualizar expresión<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>En QField, los objetos son identificados con un nombre. La expresión para generar este nombre puede ser definido abriendo la tabla de atributos en QGIS y cambiando a la vista de forma. Elije el campo apropiado o una expresión en la lista. Comenzando con QGIS 3, esto puede ser hecho directamente desde la página <span class="menuselection">Propiedades de Capa Vectorial ‣ Visualización</span> .</p>
+<h2>Expresión de visualización<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En QField, los objetos son identificados con un nombre. La expresión para generar este nombre se puede definir abriendo la tabla de atributos en QGIS y cambiando a la vista de formulario. Elija el campo apropiado o una expresión de la lista. A partir de QGIS 3, esto se puede hacer directamente desde la página <span class="menuselection">Propiedades de capa vectorial ‣ Visualización</span> .</p>
 <p>La expresión de visualización se utiliza también para buscar en las capas.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">La expresión de visualización será usada para representar elementos con una cadena de identificación a través de QField.</span></p>
+<p class="caption"><span class="caption-text">La expresión de visualización se usará para representar los objetos con una cadena de identificación a través de QField.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
 <h2>Capas de solo lectura, no-identificables y consultables<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Algunas capas en un proyecto sólo están ahí motivos puramente visuales. Estas capas no deben aparecer cuando un usuario pulsa en algún lugar para identificar objetos.</p>
-<p>Algunas otras capas sirven como fuente de información y no deben ser modificadas por el usuario. Es posible proteger las capas de edición de atributos o añadir y eliminar entidades.</p>
+<p>Algunas capas de un proyecto sólo están ahí motivos puramente visuales. Estas capas no deben aparecer cuando un usuario pulsa en algún lugar para identificar objetos.</p>
+<p>Otras capas sirven como fuente de información y no deben ser modificadas por el usuario. Es posible proteger las capas para que no se puedan editar atributos o añadir y eliminar objetos.</p>
 <p>También es posible configurar cuáles capas son consultables.</p>
-<p>Para configurar la identificación, el comportamiento de sólo lectura y la capacidad de ser consultable, vaya a la opción de menú: &#8220;Proyecto -&gt; Propiedades del proyecto -&gt; Identificar capas&#8221; y active las casillas para que coincidan con el comportamiento deseado.</p>
+<p>Para configurar la identificación, el comportamiento de sólo lectura y la capacidad de ser consultable, vaya a la opción de menú <span class="menuselection">Proyecto -&gt; Propiedades del proyecto -&gt; Identificar capas (Fuentes de datos)</span> y active las casillas para que coincidan con el comportamiento deseado.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuración de capas que no serán identificables, no serán modificables y/o no serán consultables</span></p>
+<p class="caption"><span class="caption-text">Configuración de capas que no serán identificables, no serán modificables y/o no serán consultables.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="forms-and-fields">
-<h2>Formas y campos<a class="headerlink" href="#forms-and-fields" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>QField crea formas similares a, pero no iguales a QGIS</p>
+<h2>Formularios y campos<a class="headerlink" href="#forms-and-fields" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>QField crea formularios similares pero no iguales a los de QGIS.</p>
 <div class="section" id="suppress-feature-form">
-<h3>Suprimir formulario emergente de atributos despuès de crear objetos espaciales<a class="headerlink" href="#suppress-feature-form" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>La configuración de suprimir formulario&nbsp;de entidades se aplica directamente al formulario QField.</p>
+<h3>Suprimir formulario emergente de atributos<a class="headerlink" href="#suppress-feature-form" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La configuración de suprimir formulario de objetos se aplica directamente al formulario QField.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h3>Widget de campo<a class="headerlink" href="#field-widget" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los widgets de campo de QGIS son compatibles con el mejor esfuerzo.</p>
+<span id="edit-field-widgets"></span><h3>Control de campo<a class="headerlink" href="#field-widget" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los controles de campo de QGIS son compatibles con el mejor esfuerzo.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -259,18 +259,18 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">Edición de Texto</p>
+<tr class="row-even"><td><p class="first last">Edición de texto</p>
 </td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li><p class="first">HTML no es soportado</p>
+<li><p class="first">HTML no está soportado</p>
 </li>
 <li><p class="first">La entrada numérica es forzada basada en el tipo.</p>
 </li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Caja de Chequeo</p>
+<tr class="row-odd"><td><p class="first last">Caja de verificación</p>
 </td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
@@ -285,10 +285,10 @@
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">Recurso Externo</p>
+<tr class="row-even"><td><p class="first last">Recurso externo</p>
 </td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">Este campo es combinado con integracion de la cámara. Sólo imágenes pueden ser vistas por ahora.:ref:<cite>make_it_grow</cite></p>
+<td><p class="first last">Este campo se combina con integración de la cámara. Por ahora sólo se pueden ver imágenes. <a class="reference internal" href="../development/index.html#make-it-grow"><span>Hazlo crecer, hazlo tuyo</span></a></p>
 </td>
 </tr>
 <tr class="row-odd"><td><p class="first last">Fecha Hora</p>
@@ -309,40 +309,40 @@
 </tbody>
 </table>
 <div class="section" id="external-resource-photo-settings">
-<h4>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>The widget type &#8220;Attachement&#8221; is used to store the path to collected photos.</p>
+<h4>Recurso externo (configuración de fotografía)<a class="headerlink" href="#external-resource-photo-settings" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>El tipo de control &#8220;Adjunto&#8221; se usa para guardar la ruta a fotografías tomadas.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. Means the pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
-<p>In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.</p>
+<p>Se debe establecer la ruta como relativa. De esta forma las fotos se guardan en un subdirectorio del proyecto, al que apunta el enlace guardado en el campo de texto.</p>
+<p>En QField se muestra la foto. Haciendo clic en el símbolo de la cámara se inicia la cámara para actualizar la imagen con una nueva foto.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures has to be copied as well.</p>
+<p>Al sincronizar se tiene que copiar también el subdirectorio con las imágenes.</p>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h3>Formas del diseñador de arrastrar y soltar<a class="headerlink" href="#drag-and-drop-designer-forms" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los grupos y pestañas de las formas del diseñador de arrastrar y soltar son soportadas.</p>
+<h3>Formularios del diseñador de arrastrar y soltar<a class="headerlink" href="#drag-and-drop-designer-forms" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los grupos y pestañas de los formularios del diseñador de arrastrar y soltar son compatibles.</p>
 </div>
 <div class="section" id="conditional-visibility">
 <h3>Visibilidad condicional<a class="headerlink" href="#conditional-visibility" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los grupos pueden ser ocultados basados en una expresión. Esto es útil cuando ciertos atributos son sólo requeridos bajo ciertas condiciones. Como ejemplo imagina el mapeo de árboles. Algunos de ellos podrían tener una enfermedad y tú tienes una lista de posibles enfermedades. Para no sobrecargar la forma con muchos campos, haz un grupo y configura una expresión de visibilidad para el grupo &#8220;enfermedades&#8221;. Agrega un campo &#8220;enfermedad&#8221; con una caja de chequeo. Sólo cuando la caja de chequeo esté seleccionada, la lista de enfermedades estará disponible para el usuario.</p>
+<p>Los grupos se pueden ocultar en base a una expresión. Esto es útil cuando ciertos atributos son sólo requeridos bajo ciertas condiciones. Como ejemplo imagina el mapeo de árboles. Algunos de ellos podrían tener una enfermedad y tiene una lista de posibles enfermedades. Para no sobrecargar el formulario con muchos campos, haga un grupo y configure una expresión de visibilidad para el grupo &#8220;enfermedades&#8221;. Agrege un campo &#8220;enfermedad&#8221; con una casilla de verificación. Sólo cuando la casilla de verificación esté marcada, la lista de enfermedades estará disponible para el usuario.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuración de un cuadro de grupo que sólo se mostrará si la casilla de verificación &#8220;tomar_medidas&#8221; está marcada.</span></p>
+<p class="caption"><span class="caption-text">Configuración de un cuadro de grupo que sólo se mostrará si la casilla de verificación &#8220;medidas_tomadas&#8221; está marcada.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
 <h3>Restricciones<a class="headerlink" href="#constraints" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los campos de atributos pueden tener restricciones adjuntas. Las restricciones son expresiones que deben evaluarse en: code: <cite>Verdadero</cite> (o: code:` 1`) para poder guardar el formulario. Las restricciones pueden configurarse en base por campo y se puede agregar una descripción que se mostrará al usuario si la restricción no se cumple.</p>
+<p>Los campos de atributos pueden tener restricciones adjuntas. Las restricciones son expresiones que deben evaluarse como <code class="code docutils literal"><span class="pre">Verdadero</span></code> (o <code class="code docutils literal"><span class="pre">1</span></code>) para poder guardar el formulario. Las restricciones se configuran a nivel de campo y se puede agregar una descripción que se mostrará al usuario si la restricción no se cumple.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id5">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
@@ -350,7 +350,7 @@
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h4>Casos de uso comunes<a class="headerlink" href="#common-use-cases" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4>Casos de uso común<a class="headerlink" href="#common-use-cases" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>No puedes entrar un valor de elevación más alto que la montaña más alta en este país.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
@@ -363,11 +363,11 @@
 </div>
 <div class="section" id="default-values">
 <h3>Valores predeterminados<a class="headerlink" href="#default-values" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los campos pueden tener valores predeterminados configurados. Los valores predeterminados son insertados en la forma de atributos cuando se digitaliza un nuevo elemento. Son visibles al usuario y pueden ser modificados siempre y cuando el campo sea editable. Pueden estar basados en la geometría o en expresiones de variables.</p>
+<p>Los campos pueden tener configurados unos valores predeterminados. Los valores predeterminados se insertan en el formulario de atributos cuando se digitaliza un objeto nuevo. Son visibles al usuario y se pueden modificar siempre y cuando el campo sea editable. Pueden estar basados en la geometría o en expresiones.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id6">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuración de una fecha con formato como valor predeterminado.</span></p>
+<p class="caption"><span class="caption-text">Configuración de una fecha con formato como valor predeterminado</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
@@ -392,7 +392,7 @@ per second.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h4>Casos de uso comunes<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4>Casos de uso común<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Insertar información de posicionamiento como variable:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
