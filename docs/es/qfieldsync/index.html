@@ -102,8 +102,8 @@
 <li><a class="reference internal" href="#workflow">Flujo de trabajo</a></li>
 <li><a class="reference internal" href="#configuration">Configuración</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuración de capas</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Configuración mapa base</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Configuración edición offline</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuración de mapas base</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configuración de edición offline</a></li>
 </ul>
 </li>
 </ul>
@@ -162,8 +162,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Proyecto portátil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Selección de proyectos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Ajustes de capas vectoriales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar el Tema de Mapa activo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de usuario de QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar el Tema de mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desarrollo y soporte</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Complemento QFieldSync</a></li>
@@ -181,28 +181,28 @@
   <div class="section" id="qfieldsync-plugin">
 <h1>Complemento QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>El complemento QFieldSync ayuda a preparar y empaquetar proyectos de QGIS para QField.</p>
-<p>QFieldSync admite la preparación de su proyecto con la automatización de lo siguiente:</p>
+<p>QFieldSync proporciona la preparación de su proyecto automatizando lo siguiente:</p>
 <ul class="simple">
 <li><p class="first">Pasos requeridos para la configuración del proyecto (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proyecto portátil</span></a>)</p>
 </li>
-<li><p class="first">Creación de mapas base a partir de una única capa raster o de un estilo definido en un tema de mapa.</p>
+<li><p class="first">Creación de mapas base a partir de una única capa ráster o de un estilo definido en un tema de mapa.</p>
 </li>
-<li><p class="first">Configuración de la funcionalidad de edición offline y sincronización de los cambios.</p>
+<li><p class="first">Configuración de la funcionalidad de edición offline y sincronización posterior de los cambios.</p>
 </li>
 </ul>
 <div class="section" id="workflow">
 <h2>Flujo de trabajo<a class="headerlink" href="#workflow" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para obtener una visión general rápida del proceso, aquí tiene una lista de pasos comunes:</p>
+<p>Para obtener una visión general rápida del proceso, aquí tiene una lista de pasos habituales:</p>
 <ol class="arabic simple">
-<li><p class="first">Cree un paquete QField. Esta es una copia de trabajo en una carpeta separada.</p>
+<li><p class="first">Crear un paquete QField. Esto es una copia de trabajo en una carpeta separada.</p>
 </li>
-<li><p class="first">Copie el paquete QField en el dispositivo de destino.</p>
+<li><p class="first">Copar el paquete QField en el dispositivo de destino.</p>
 </li>
-<li><p class="first">Salga y recopile los datos.</p>
+<li><p class="first">Salir y recopilar los datos.</p>
 </li>
 <li><p class="first">Copiar los datos modificados en su ordenador de escritorio.</p>
 </li>
-<li><p class="first">Sincronizar la información modificada con su base de datos o ficheros</p>
+<li><p class="first">Sincronizar la información modificada con su base de datos o ficheros.</p>
 </li>
 </ol>
 </div>
@@ -211,40 +211,40 @@
 <p>La configuración del proyecto se guarda en el archivo de proyecto maestro .qgs. De esta manera es posible preconfigurar un proyecto una vez y usarlo repetidamente.</p>
 <div class="section" id="layer-configuration">
 <h3>Configuración de capas<a class="headerlink" href="#layer-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>En el cuadro de diálogo de configuración del proyecto, un &#8220;acción&#8221; puede definirse para cada capa de forma individual. Dependiendo del tipo de capa, diferentes tipos de acciones están disponibles.</p>
+<p>En el cuadro de diálogo de configuración del proyecto, se puede definir una &#8220;acción&#8221; para cada capa de forma individual. Dependiendo del tipo de capa, hay disponibles diferentes tipos de acciones.</p>
 <dl class="docutils">
 <dt>Copiar</dt>
 <dd><p class="first last">La capa se copiará en la carpeta del paquete. Esto sólo está disponible para capas basadas en archivos.</p>
 </dd>
 <dt>Ninguna acción</dt>
-<dd><p class="first last">La capa original quedará intacta. Esto sólo está disponible para capas no basadas en archivos como WMS, WFS, Postgis ...</p>
+<dd><p class="first last">La capa original quedará intacta. Esto sólo está disponible para capas no basadas en archivos como WMS, WFS, Postgis...</p>
 </dd>
 <dt>Edición offline</dt>
-<dd><p class="first last">Una copia de trabajo se copia dentro de la carpeta del paquete. Cada cambio que se hace en el proyecto empaquetado durante el trabajo se anota en un registro de cambios. Cuando más tarde se sincronizan los cambios, este registro se reproduce y todos los cambios se aplican a la base de datos principal. No se realiza ningún manejo de conflictos.</p>
+<dd><p class="first last">Se hace una copia de trabajo de la capa dentro de la carpeta del paquete. Cada cambio que se hace en el proyecto empaquetado durante el trabajo se anota en un registro de cambios. Cuando más tarde se sincronizan los cambios, este registro se reproduce y todos los cambios se aplican a la base de datos principal. No se realiza ningún manejo de conflictos.</p>
 </dd>
 <dt>Borrar</dt>
-<dd><p class="first last">La capa se eliminara de la copia de trabajo. Esto es útil si una capa se usa en el mapa base y no estará disponible en el proyecto empaquetado.</p>
+<dd><p class="first last">La capa se eliminará de la copia de trabajo. Esto es útil si una capa se usa en el mapa base y no estará disponible en el proyecto empaquetado.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Configuración mapa base<a class="headerlink" href="#base-map-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3>Configuración de mapas base<a class="headerlink" href="#base-map-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Un mapa base es una capa ráster que se añade como la capa inferior al archivo de proyecto empaquetado.</p>
 <p>Si la opción de mapa base se activa, se renderizará un mapa base cada vez que el proyecto se empaquete. El área de interés - la extensión que se renderizará - se seleccionará en el momento del empaquetado.</p>
-<p>Existen dos posibles recursos para un mapa de base:</p>
+<p>Existen dos posibles orígenes para un mapa base:</p>
 <dl class="docutils">
 <dt>Capa</dt>
-<dd><p class="first last">Una capa ráster. Esto es útil para tomar una copia offline de una capa online, como un WMS, o para tomar una copia de trabajo de un formato no soportado, como una capa ECW o MrSID.</p>
+<dd><p class="first last">Una capa ráster. Esto es útil para hacer una copia offline de una capa online, como un WMS, o para hacer una copia de trabajo de un formato no soportado, como una capa ECW o MrSID.</p>
 </dd>
-<dt>Tema de Mapa</dt>
+<dt>Tema de mapa</dt>
 <dd><p class="first last">Un tema de mapa. Esto es útil para crear un mapa base basado en una combinación de varias capas con estilo. Estas capas se pueden entonces eliminar del paquete de trabajo y no necesitan renderizarse en el dispositivo. Esto puede ahorrar algo de espacio en disco y batería en el dispositivo.</p>
 </dd>
 </dl>
 <p>El tamaño de tesela define la resolución espacial. Esto determina el número de unidades de mapa por píxel. Si el SRC del lienzo del mapa tiene metros como unidades y el tamaño de tesela se establece a 1, cada píxel ráster tendrá una extensión espacial de 1x1 m. Si se establece a 1000, cada píxel ráster tendrá una extensión espacial de 1 km cuadrado.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Configuración edición offline<a class="headerlink" href="#offline-editing-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Si se marca &#8220;solo sincronizar objetos en el área de interés&#8221;, entonces solo se copiarán los objetos que estén dentro de la extensión del lienzo del mapa en el momento del empaquetado en la copia de trabajo offline para edición.</p>
+<h3>Configuración de edición offline<a class="headerlink" href="#offline-editing-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si se marca &#8220;solo sincronizar objetos en el área de interés&#8221;, entonces solo se incluirán en la copia de trabajo offline los objetos que estén dentro de la extensión del lienzo del mapa en el momento del empaquetado.</p>
 </div>
 </div>
 </div>
