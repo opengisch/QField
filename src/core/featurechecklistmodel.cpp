@@ -1,5 +1,6 @@
 #include "featurechecklistmodel.h"
 #include "qgsvaluerelationfieldformatter.h"
+#include "qgspostgresstringutils.h"
 #include <QDebug>
 
 FeatureCheckListModel::FeatureCheckListModel()
@@ -62,34 +63,35 @@ QVariant FeatureCheckListModel::attributeValue() const
 
   qDebug() << "Get data from list: " <<  mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
 
-  if ( mAttributeField.type() == QVariant::Map )
+  QVariantList vl;
+  //store as QVariantList because the field type supports data structure
+  for ( const QString &s : qgis::as_const( mCheckedEntries ) )
   {
-    //because of json it should be stored as QVariantList
-    QVariantList vl;
-    //store as QVariantList because it's json
-    for ( const QString &s : qgis::as_const( mCheckedEntries ) )
+    // Convert to proper type
+    const QVariant::Type type { fkType() };
+    switch ( type )
     {
-      // Convert to proper type
-      const QVariant::Type type { fkType() };
-      switch ( type )
-      {
-        case QVariant::Type::Int:
-          vl.push_back( s.toInt() );
-          break;
-        case QVariant::Type::LongLong:
-          vl.push_back( s.toLongLong() );
-          break;
-        default:
-          vl.push_back( s );
-          break;
-      }
+      case QVariant::Type::Int:
+        vl.push_back( s.toInt() );
+        break;
+      case QVariant::Type::LongLong:
+        vl.push_back( s.toLongLong() );
+        break;
+      default:
+        vl.push_back( s );
+        break;
     }
+  }
+
+  if ( mAttributeField.type() == QVariant::Map ||
+       mAttributeField.type() == QVariant::List )
+  {
     value = vl;
   }
   else
   {
-    //because of hstore it should be stored as QString
-    value = mCheckedEntries.join( QStringLiteral( "," ) ).prepend( '{' ).append( '}' );
+    //make string
+    value = QgsPostgresStringUtils::buildArray( vl );
   }
 
   return value;
