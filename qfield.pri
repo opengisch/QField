@@ -4,6 +4,13 @@
 
 include( paths.pri )
 
+defined(APP_NAME, var) {
+  message("Using $$APP_NAME as application name")
+  DEFINES += "APP_NAME=\"\\\"$${APP_NAME}\\\"\""
+} else {
+  DEFINES += "APP_NAME=\"\\\"QField\\\"\""
+}
+
 QMAKE_CXXFLAGS += -std=c++11
 
 android {

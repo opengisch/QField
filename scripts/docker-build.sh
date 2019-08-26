@@ -9,6 +9,8 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 
+set -e
+
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -18,10 +20,23 @@ fi
 if [[ -z ${ARCH+x} ]]; then
     ARCH=armv7
 fi
+if [[ -z ${APP_NAME} ]]; then
+  APP_NAME="QField"
+fi
+if [[ -z ${PKG_NAME} ]]; then
+  PKG_NAME="qfield"
+fi
+
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
-set -e
+if [[ -z ${APP_ICON+x} ]]; then
+  sed -i "s|<file alias=\"qfield-logo.svg\">icons/qfield-logo.svg</file>|<file alias=\"qfield-logo.svg\">icons/${APP_ICON}</file>|" ${SOURCE_DIR}/images/images.qrc
+fi
+grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
+grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
+mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${PKG_NAME}
+sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
 
 # Replace the version number in version.pri with the one from the VERSION which is being built
 if [[ -n ${VERSION} ]];
@@ -42,7 +57,7 @@ ln -s ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
 cp ${SOURCE_DIR}/scripts/ci/config.pri ${SOURCE_DIR}/config.pri
-${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro
+${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro "APP_NAME=${APP_NAME_PKG}"
 make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then
