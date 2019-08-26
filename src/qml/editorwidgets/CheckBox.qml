@@ -17,7 +17,15 @@ Item {
     //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
     readonly property bool isBool: field.type == 1 //needs type coercion
 
-    checked: if( isBool ){ if( currentValue !== undefined ){ currentValue }else{ false } }else{ String(currentValue) === config['CheckedState'] }
+    checked: if( isBool ) {
+                 if( currentValue !== undefined ) {
+                     currentValue
+                 } else {
+                     false
+                 }
+             } else {
+                 String(currentValue) === config['CheckedState']
+             }
 
     onCheckedChanged: {
       valueChanged( isBool ? checked : checked ? config['CheckedState'] : config['UncheckedState'], false )
