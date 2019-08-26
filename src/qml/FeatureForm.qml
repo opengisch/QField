@@ -255,7 +255,6 @@ Page {
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
           property var field: Field
-          property var fieldType: FieldType
           property var relationId: RelationId
           property var nmRelationId: NmRelationId
           property var constraintValid: ConstraintValid
