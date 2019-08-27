@@ -318,7 +318,7 @@ void QgisMobileapp::print( int layoutIndex )
     return;
 
   QPrinter printer;
-  printer.setOutputFileName( QStandardPaths::writableLocation( QStandardPaths::TempLocation )  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
+  printer.setOutputFileName( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation )  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
 
   QgsLayoutExporter::PrintExportSettings printSettings;
   printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
