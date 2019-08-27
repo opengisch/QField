@@ -1000,7 +1000,7 @@ ApplicationWindow {
       }
 
       onReloadEverything: {
-        iface.loadProject( qgisProject.fileName )
+        iface.reloadProject( qgisProject.fileName )
       }
     }
 

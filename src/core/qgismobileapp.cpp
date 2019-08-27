@@ -312,6 +312,12 @@ void QgisMobileapp::loadLastProject()
 
 void QgisMobileapp::loadProjectFile( const QString &path )
 {
+  mAuthRequestHandler->resetCanceledRealms();
+  reloadProjectFile( path );
+}
+
+void QgisMobileapp::reloadProjectFile( const QString &path )
+{
   mProject->removeAllMapLayers();
   emit loadProjectStarted( path );
   mProject->read( path );

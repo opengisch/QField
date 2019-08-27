@@ -76,6 +76,14 @@ void QFieldAppAuthRequestHandler::handleLayerLogins()
   }
 }
 
+void QFieldAppAuthRequestHandler::resetCanceledRealms()
+{
+  for ( int i = 0; i < mRealms.count(); i++ )
+  {
+    mRealms.replace( i, RealmEntry( mRealms.at( i ).realm, false ) );
+  }
+}
+
 void QFieldAppAuthRequestHandler::authNeeded( const QString realm )
 {
   for ( const RealmEntry &entry : mRealms )
