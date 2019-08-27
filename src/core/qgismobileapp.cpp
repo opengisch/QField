@@ -318,7 +318,12 @@ void QgisMobileapp::print( int layoutIndex )
     return;
 
   QPrinter printer;
-  printer.setOutputFileName( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation )  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
+  QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
+  QDir documentsDir( documentsLocation );
+  if ( !documentsDir.exists() )
+    documentsDir.mkpath( "." );
+
+  printer.setOutputFileName( documentsLocation  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
 
   QgsLayoutExporter::PrintExportSettings printSettings;
   printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
