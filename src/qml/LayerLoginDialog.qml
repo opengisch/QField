@@ -63,6 +63,7 @@ Item {
 
       TextField {
         id: password
+        echoMode: TextInput.Password
         Layout.alignment: Qt.AlignVCenter
         Layout.preferredWidth: parent.width
         Layout.preferredHeight: font.height + 20 * dp
