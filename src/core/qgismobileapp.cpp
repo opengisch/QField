@@ -19,6 +19,7 @@
 
 #include <unistd.h>
 
+#include <QStandardPaths>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlApplicationEngine>
@@ -317,7 +318,7 @@ void QgisMobileapp::print( int layoutIndex )
     return;
 
   QPrinter printer;
-  printer.setOutputFileName( mProject->homePath() + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
+  printer.setOutputFileName( QStandardPaths::writableLocation( QStandardPaths::TempLocation )  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
 
   QgsLayoutExporter::PrintExportSettings printSettings;
   printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
