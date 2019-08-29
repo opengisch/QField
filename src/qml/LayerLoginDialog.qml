@@ -36,7 +36,8 @@ Item {
       }
 
       Text {
-        Layout.alignment: Qt.AlignVCenter
+        id: usernamelabel
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.preferredHeight: font.height + 20 * dp
         text: qsTr( "Username" )
         font.pointSize: 12
@@ -44,32 +45,35 @@ Item {
 
       TextField {
         id: username
-        Layout.fillWidth: true
-        Layout.alignment: Qt.AlignVCenter
-        Layout.preferredWidth: parent.width
+        background: Rectangle {
+            color: 'whitesmoke'
+            border.color: 'grey'
+        }
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
         Layout.preferredHeight: font.height + 20 * dp
-        //text: "user_bsv0a"
         font.pointSize: 12
       }
 
       Text {
-        Layout.alignment: Qt.AlignVCenter
-        Layout.preferredWidth: parent.width
+        id: passwordlabel
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.preferredHeight: font.height + 20 * dp
         text: qsTr( "Password" )
-        Layout.fillWidth: false
         font.pointSize: 12
       }
 
       TextField {
         id: password
+        background: Rectangle {
+            color: 'whitesmoke'
+            border.color: 'grey'
+        }
         echoMode: TextInput.Password
-        Layout.alignment: Qt.AlignVCenter
-        Layout.preferredWidth: parent.width
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
         Layout.preferredHeight: font.height + 20 * dp
         height: font.height + 20 * dp
-        Layout.fillWidth: true
-        //text:"2581qmtmq0t2schz"
         font.pointSize: 12
       }
 
