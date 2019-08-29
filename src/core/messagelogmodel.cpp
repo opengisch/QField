@@ -59,8 +59,29 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
+void MessageLogModel::suppressTags( const QList <QString> &tags )
+{
+  for ( QString tag : tags )
+  {
+    if ( !mSuppressedTags.contains( tag ) )
+      mSuppressedTags.append( tag );
+  }
+}
+
+void MessageLogModel::unsuppressTags( const QList <QString> &tags )
+{
+  for ( QString tag : tags )
+  {
+    if ( mSuppressedTags.contains( tag ) )
+      mSuppressedTags.removeAll( tag );
+  }
+}
+
 void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
 {
+  if ( mSuppressedTags.contains( tag ) )
+    return;
+
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );
   qDebug() << "Nes message " << tag << " : " << message;

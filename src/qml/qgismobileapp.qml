@@ -948,7 +948,9 @@ ApplicationWindow {
     anchors.fill: parent
     focus: visible
 
-    model: MessageLogModel {}
+    model: MessageLogModel {
+      id: messageLogModel
+    }
 
     visible: false
 
@@ -987,9 +989,18 @@ ApplicationWindow {
     Connections {
       target: iface
       onLoadProjectEnded: {
+        messageLogModel.unsuppressTags(["WMS","WFS"])
         qfieldAuthRequestHandler.handleLayerLogins()
       }
     }
+    Connections {
+        target: iface
+
+        onLoadProjectStarted: {
+          messageLogModel.suppressTags(["WMS","WFS"])
+        }
+    }
+
     Connections {
       target: qfieldAuthRequestHandler
 
