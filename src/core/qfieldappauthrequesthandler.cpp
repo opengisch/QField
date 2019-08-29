@@ -48,23 +48,26 @@ void QFieldAppAuthRequestHandler::handleLayerLogins()
           if ( mRealms.at( i ).realm == realm )
           {
             mRealms.replace( i, RealmEntry( realm, true ) );
+            break;
           }
         }
       }
       else
       {
-        //realm successful handled - remove realm
+        //realm successful handled (credentials saved) - remove realm
         for ( int i = 0; i < mRealms.count(); i++ )
         {
           if ( mRealms.at( i ).realm == realm )
           {
             mRealms.removeAt( i );
+            break;
           }
         }
       }
 
       if ( !getFirstUnhandledRealm().isEmpty() )
       {
+        //show dialog as long as there are unhandled realms
         emit showLoginDialog( getFirstUnhandledRealm() );
       }
       else
