@@ -18,34 +18,37 @@ Item {
     id: table
     anchors.fill: parent
 
-    delegate:
+    delegate: Rectangle {
+      color: index % 2 == 0 ? 'lightgrey' : 'white'
+      width: parent.width
+      height: line.height
+      Row {
+        id: line
+        spacing: 10 * dp
+        Text {
+          id: datetext
+          text: MessageDateTime
+        }
         Rectangle {
-         color: index % 2 == 0 ? 'lightgrey' : 'white'
-         width: parent.width
-         height: line.height
-         Row {
-             id: line
-             spacing: 40 * dp
-             Text {
-               id: datetext
-               width: content.width
-               text: MessageDateTime
-             }
-             Text {
-               id: tagtext
-               width: Math.max( content.width, parent.width / 6 )
-               text: MessageTag
-               font.bold: true
-             }
-             Text {
-                id: messagetext
-                width: parent.width - datetext.width - tagtext.width
-                text: Message
-                wrapMode: Text.WordWrap
-             }
-       }
-     }
+          id: separator
+          color: index % 2 == 0 ? 'white' : 'lightgrey'
+          height: parent.height
+          width: 5 * dp
+        }
+        Text {
+          id: tagtext
+          text: MessageTag
+          font.bold: true
+        }
+        Text {
+          id: messagetext
+          width: table.width - datetext.width - tagtext.width - separator.width
+          text: Message
+          wrapMode: Text.WordWrap
+        }
+      }
     }
+  }
 
   MouseArea {
     anchors.fill: parent
