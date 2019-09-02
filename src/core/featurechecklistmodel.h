@@ -1,3 +1,19 @@
+/***************************************************************************
+  featurechecklistmodel.h - FeatureCheckListModel
+
+ ---------------------
+ begin                : August 2019
+ copyright            : (C) 2019 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #ifndef FEATURECHECKLISTMODEL_H
 #define FEATURECHECKLISTMODEL_H
 
@@ -32,12 +48,12 @@ class FeatureCheckListModel : public FeatureListModel
     QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * the attribute value (hstore or json list)
+     * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
      */
     QVariant attributeValue() const;
 
     /**
-     * the attribute value (hstore or json list)
+     * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
      */
     void setAttributeValue( const QVariant &attributeValue );
 
@@ -49,7 +65,7 @@ class FeatureCheckListModel : public FeatureListModel
     /**
      * the current attribute field
      */
-    void setAttributeField( QgsField field );
+    void setAttributeField( const QgsField &field );
 
   signals:
     void attributeValueChanged();

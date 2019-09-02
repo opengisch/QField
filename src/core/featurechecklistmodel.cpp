@@ -1,10 +1,25 @@
+/***************************************************************************
+  featurechecklistmodel.cpp - FeatureCheckListModel
+
+ ---------------------
+ begin                : August 2019
+ copyright            : (C) 2019 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "featurechecklistmodel.h"
 #include "qgsvaluerelationfieldformatter.h"
 #include "qgsmessagelog.h"
 #if VERSION_INT >= 30600
 #include "qgspostgresstringutils.h"
 #endif
-#include <QDebug>
 
 FeatureCheckListModel::FeatureCheckListModel()
 {
@@ -15,17 +30,6 @@ QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == CheckedRole )
   {
-    if ( mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() ) )
-    {
-
-      qDebug() << "List contains : " <<  FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString();
-    }
-    else
-    {
-
-      qDebug() << "List NOT contains : " <<  FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString();
-    }
-
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   }
   else
@@ -63,8 +67,6 @@ QHash<int, QByteArray> FeatureCheckListModel::roleNames() const
 QVariant FeatureCheckListModel::attributeValue() const
 {
   QVariant value;
-
-  qDebug() << "Get data from list: " <<  mCheckedEntries.join( QStringLiteral( ", " ) ).prepend( '{' ).append( '}' );
 
   QVariantList vl;
   //store as QVariantList because the field type supports data structure
@@ -110,26 +112,22 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 
   if ( mAttributeField.type() == QVariant::Map )
   {
-    //because of json it's stored as QVariantList
+    //store as QVariantList because the field type supports data structure
     checkedEntries = attributeValue.toStringList();
   }
   else
   {
-    //because of hstore it's stored as QString
+    //store as a formatted string because the fields supports only string
     checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
   }
 
   if ( mCheckedEntries == checkedEntries )
     return;
 
-  qDebug() << "Set data to list: " << attributeValue.toString();
-
   beginResetModel();
   mCheckedEntries = checkedEntries;
   endResetModel();
-  qDebug() << "Model resetted 1";
 
-  //nobody listening on that at the moment
   emit attributeValueChanged();
 }
 
@@ -138,7 +136,7 @@ QgsField FeatureCheckListModel::attributeField() const
   return mAttributeField;
 }
 
-void FeatureCheckListModel::setAttributeField( QgsField field )
+void FeatureCheckListModel::setAttributeField( const QgsField &field )
 {
   if ( mAttributeField == field )
     return;
@@ -151,7 +149,6 @@ void FeatureCheckListModel::setChecked( const QModelIndex &index )
   beginResetModel();
   mCheckedEntries.append( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   endResetModel();
-  qDebug() << "Model resetted 1";
 
   emit listUpdated();
 }
@@ -161,7 +158,6 @@ void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
   beginResetModel();
   mCheckedEntries.removeAll( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   endResetModel();
-  qDebug() << "Model resetted 1";
 
   emit listUpdated();
 }
