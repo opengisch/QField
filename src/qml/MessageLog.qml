@@ -9,32 +9,32 @@ Item {
   id: item
   anchors.fill: parent
 
-  Rectangle {
-    color: "white"
-    anchors.fill: parent
-  }
-
   ListView {
     id: table
     anchors.fill: parent
 
-    delegate: Column {
-      Text {
-        text: MessageTag
-        font.bold: true
-      }
-
-      Text {
-        text: Message
-        wrapMode: Text.WordWrap
-      }
-
-      Rectangle {
-        color: "gray"
-        height: 1*dp
-      }
+    delegate:
+        Rectangle {
+         color: index % 2 == 0 ? 'lightgrey' : 'white'
+         width: parent.width
+         height: line.height
+         Row {
+             id: line
+             spacing: 40 * dp
+             Text {
+               text: MessageDateTime
+             }
+             Text {
+               text: MessageTag || '-'
+               font.bold: true
+             }
+             Text {
+                text: Message
+                wrapMode: Text.WordWrap
+             }
+       }
+     }
     }
-  }
 
   MouseArea {
     anchors.fill: parent
