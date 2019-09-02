@@ -1008,7 +1008,7 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       onShowLoginDialog: {
-        loginDialog.realm = realm
+        loginDialogPopup.realm = realm
         badLayersView.visible = false
         loginDialogPopup.open()
       }

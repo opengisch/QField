@@ -30,7 +30,7 @@ Item {
       Text {
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.preferredHeight: font.height + 20 * dp
-        text: qsTr( realm )
+        text: realm
         font.pointSize: 25
         font.bold: true
       }
