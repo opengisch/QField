@@ -9,6 +9,11 @@ Item {
   id: item
   anchors.fill: parent
 
+  Rectangle {
+    color: 'lightgrey'
+    anchors.fill: parent
+  }
+
   ListView {
     id: table
     anchors.fill: parent
@@ -22,13 +27,19 @@ Item {
              id: line
              spacing: 40 * dp
              Text {
+               id: datetext
+               width: content.width
                text: MessageDateTime
              }
              Text {
-               text: MessageTag || '-'
+               id: tagtext
+               width: Math.max( content.width, parent.width / 6 )
+               text: MessageTag
                font.bold: true
              }
              Text {
+                id: messagetext
+                width: parent.width - datetext.width - tagtext.width
                 text: Message
                 wrapMode: Text.WordWrap
              }
