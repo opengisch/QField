@@ -48,6 +48,9 @@ Item {
         background: Rectangle {
             color: 'whitesmoke'
             border.color: 'grey'
+            width: parent.width + 20 * dp
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
         }
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
@@ -68,6 +71,9 @@ Item {
         background: Rectangle {
             color: 'whitesmoke'
             border.color: 'grey'
+            width: parent.width + 20 * dp
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
         }
         echoMode: TextInput.Password
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
