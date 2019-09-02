@@ -318,7 +318,9 @@ void QgisMobileapp::loadLastProject()
 
 void QgisMobileapp::loadProjectFile( const QString &path )
 {
+#if VERSION_INT >= 30600
   mAuthRequestHandler->resetCanceledRealms();
+#endif
   reloadProjectFile( path );
 }
 
