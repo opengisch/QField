@@ -17,6 +17,7 @@
 
 #include "qfieldappauthrequesthandler.h"
 
+#if VERSION_INT >= 30600
 #include <QAuthenticator>
 #include <QThread>
 
@@ -174,3 +175,4 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   auth->setUser( username );
   auth->setPassword( password );
 }
+#endif // VERSION_INT >= 30600
