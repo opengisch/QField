@@ -20,6 +20,7 @@
 #if VERSION_INT >= 30600
 #include <QAuthenticator>
 #include <QThread>
+#include <qgsmessagelog.h>
 
 #include "qgscredentials.h"
 
@@ -68,6 +69,8 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
       else
       {
         //realm successful handled (credentials saved) - remove realm
+        QgsMessageLog::logMessage( tr( "realm %1 successful handled (credentials saved) " ).arg( realm ), QStringLiteral( "Auth" ) );
+
         for ( int i = 0; i < mRealms.count(); i++ )
         {
           if ( mRealms.at( i ).realm == realm )
@@ -91,6 +94,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   }
   else
   {
+    QgsMessageLog::logMessage( tr( "No more authentication to handle..." ), QStringLiteral( "Auth" ) );
     return false;
   }
   return true;
