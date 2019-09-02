@@ -88,8 +88,10 @@
 #include "valuemapmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
+
+#if ANDROID_VERSION > 5
 #include "qgsnetworkaccessmanager.h"
-#include "layerloginhandler.h"
+#endif
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -103,11 +105,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
+
+#if ANDROID_VERSION > 5
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
   mAuthRequestHandler = new QFieldAppAuthRequestHandler();
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
+#endif
 
   mProject = QgsProject::instance();
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
@@ -233,7 +238,10 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
+
+#if ANDROID_VERSION > 5
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
+#endif
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }

@@ -110,6 +110,8 @@ Item {
 
           onClicked: {
             enter(username.text, password.text)
+            username.text=''
+            password.text=''
           }
         }
       }

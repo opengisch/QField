@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #include "qfieldappauthrequesthandler.h"
 
 #include <QAuthenticator>
@@ -27,7 +26,6 @@ QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
 
 }
-
 
 void QFieldAppAuthRequestHandler::enterCredentials( const QString realm, const QString username, const QString password )
 {
@@ -46,18 +44,14 @@ QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm()
   return QString();
 }
 
-
 bool QFieldAppAuthRequestHandler::handleLayerLogins()
 {
-
   if ( !getFirstUnhandledRealm().isEmpty() )
   {
     emit showLoginDialog( getFirstUnhandledRealm() );
 
     connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( QString realm, bool canceled )
     {
-      qDebug() << "close login for: " << realm;
-
       if ( canceled )
       {
         //realm not successful handled - but canceled
@@ -90,7 +84,6 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
       }
       else
       {
-        qDebug() << "Reload everything";
         emit reloadEverything();
       }
     } );
@@ -153,8 +146,6 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
                 QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
                 username, password,
                 QObject::tr( "Authentication required" ) );
-
-    qDebug() << "We have U: " << username << " and P: " << password << " on " << auth->realm() << " @ " << reply->url().host() << " here QFieldAppAuthRequestHandler::handleAuthRequest";
 
     if ( !ok )
     {
