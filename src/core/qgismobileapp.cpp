@@ -47,7 +47,6 @@
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
-
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -89,7 +88,7 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 
-#if ANDROID_VERSION > 5
+#if VERSION_INT >= 30600
 #include "qgsnetworkaccessmanager.h"
 #endif
 
@@ -106,7 +105,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #endif
 
 
-#if ANDROID_VERSION > 5
+#if VERSION_INT >= 30600
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
   mAuthRequestHandler = new QFieldAppAuthRequestHandler();
@@ -238,8 +237,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
-
-#if ANDROID_VERSION > 5
+#if VERSION_INT >= 30600
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 #endif
 

@@ -24,13 +24,17 @@
 // QGIS includes
 #include <qgsapplication.h>
 #include <qgsmaplayerproxymodel.h>
+#include <qgsconfig.h>
 
 // QGIS mobile includes
 #include "multifeaturelistmodel.h"
 #include "settings.h"
 #include "focusstack.h"
 #include "qgsquickutils.h"
+
+#if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
+#endif
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
@@ -123,9 +127,9 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider;
 
     QgsProject *mProject;
-
+#if VERSION_INT >= 30600
     QFieldAppAuthRequestHandler *mAuthRequestHandler;
-
+#endif
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
