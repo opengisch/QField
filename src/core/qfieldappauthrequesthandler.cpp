@@ -29,7 +29,7 @@ QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm()
 }
 
 
-void QFieldAppAuthRequestHandler::handleLayerLogins()
+bool QFieldAppAuthRequestHandler::handleLayerLogins()
 {
 
   if ( !getFirstUnhandledRealm().isEmpty() )
@@ -77,6 +77,11 @@ void QFieldAppAuthRequestHandler::handleLayerLogins()
       }
     } );
   }
+  else
+  {
+    return false;
+  }
+  return true;
 }
 
 void QFieldAppAuthRequestHandler::resetCanceledRealms()

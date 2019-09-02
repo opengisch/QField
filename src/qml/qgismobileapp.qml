@@ -989,15 +989,18 @@ ApplicationWindow {
     Connections {
       target: iface
       onLoadProjectEnded: {
-        messageLogModel.unsuppressTags(["WMS","WFS"])
-        qfieldAuthRequestHandler.handleLayerLogins()
+        if( !qfieldAuthRequestHandler.handleLayerLogins() )
+        {
+          //project loaded without more layer handling needed
+          messageLogModel.unsuppressTags(["WFS","WMS"])
+        }
       }
     }
     Connections {
         target: iface
 
         onLoadProjectStarted: {
-          messageLogModel.suppressTags(["WMS","WFS"])
+          messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
 

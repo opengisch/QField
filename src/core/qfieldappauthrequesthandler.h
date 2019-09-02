@@ -32,7 +32,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     Q_INVOKABLE void enterCredentials( const QString realm, const QString username, const QString password );
 
     //! handles each realm after the project has been loaded
-    Q_INVOKABLE void handleLayerLogins();
+    Q_INVOKABLE bool handleLayerLogins();
 
     //! resets the cancel state after reopening the project (before loading)
     Q_INVOKABLE void resetCanceledRealms();
