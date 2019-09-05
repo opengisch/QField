@@ -100,12 +100,9 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   return true;
 }
 
-void QFieldAppAuthRequestHandler::resetCanceledRealms()
+void QFieldAppAuthRequestHandler::clearStoredRealms()
 {
-  for ( int i = 0; i < mRealms.count(); i++ )
-  {
-    mRealms.replace( i, RealmEntry( mRealms.at( i ).realm, false ) );
-  }
+  mRealms.clear();
 }
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString realm )
