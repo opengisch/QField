@@ -992,7 +992,7 @@ ApplicationWindow {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
-          //test messageLogModel.unsuppressTags(["WFS","WMS"])
+          messageLogModel.unsuppressTags(["WFS","WMS"])
         }
       }
     }
@@ -1000,7 +1000,7 @@ ApplicationWindow {
         target: iface
 
         onLoadProjectStarted: {
-          //test messageLogModel.suppressTags(["WFS","WMS"])
+          messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
 
