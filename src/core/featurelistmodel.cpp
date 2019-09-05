@@ -16,6 +16,7 @@
 #include "featurelistmodel.h"
 
 #include "qgsvectorlayer.h"
+#include <qgsproject.h>
 
 FeatureListModel::FeatureListModel()
   : mCurrentLayer( nullptr )
@@ -55,7 +56,7 @@ int FeatureListModel::columnCount( const QModelIndex &parent ) const
 
 QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
-  if ( role == Qt::DisplayRole )
+  if ( role == Qt::DisplayRole || role == DisplayStringRole )
     return mEntries.value( index.row() ).displayString;
   else if ( role == KeyFieldRole )
     return mEntries.value( index.row() ).key;
@@ -67,7 +68,8 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[KeyFieldRole] = "keyField";
+  roles[KeyFieldRole] = "keyFieldValue";
+  roles[DisplayStringRole] = "displayString";
 
   return roles;
 }
@@ -118,6 +120,23 @@ void FeatureListModel::setKeyField( const QString &keyField )
   emit keyFieldChanged();
 }
 
+QString FeatureListModel::displayValueField() const
+{
+  return mDisplayValueField;
+}
+
+void FeatureListModel::setDisplayValueField( const QString &displayValueField )
+{
+  if ( mDisplayValueField == displayValueField )
+    return;
+
+  mDisplayValueField = displayValueField;
+
+  reloadLayer();
+
+  emit displayValueFieldChanged();
+}
+
 int FeatureListModel::findKey( const QVariant &key ) const
 {
   int idx = 0;
@@ -142,7 +161,6 @@ void FeatureListModel::onFeatureDeleted()
   reloadLayer();
 }
 
-
 void FeatureListModel::processReloadLayer()
 {
   mEntries.clear();
@@ -165,6 +183,7 @@ void FeatureListModel::processReloadLayer()
   request.setSubsetOfAttributes( referencedColumns, fields );
 
   int keyIndex = fields.indexOf( mKeyField );
+  int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   QgsFeatureIterator iterator = mCurrentLayer->getFeatures( request );
 
@@ -178,7 +197,10 @@ void FeatureListModel::processReloadLayer()
   while ( iterator.nextFeature( feature ) )
   {
     context.setFeature( feature );
-    entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ) ) );
+    if ( mDisplayValueField.isEmpty() )
+      entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ) ) );
+    else
+      entries.append( Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ) ) );
   }
 
   if ( mOrderByValue )

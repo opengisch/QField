@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190528}
+  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190726}
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"

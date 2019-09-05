@@ -25,6 +25,7 @@ class QgsVectorLayer;
  * Provides access to a list of features from a layer.
  * For each feature, the display expression is exposed as DisplayRole
  * and a keyField as KeyFieldRole for a unique identifier.
+ * If a displayValueField is set it replaces the display expression of the layer.
  */
 class FeatureListModel : public QAbstractItemModel
 {
@@ -38,6 +39,10 @@ class FeatureListModel : public QAbstractItemModel
      * The primary key field
      */
     Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
+    /**
+     * The display value field
+     */
+    Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
@@ -46,7 +51,8 @@ class FeatureListModel : public QAbstractItemModel
   public:
     enum FeatureListRoles
     {
-      KeyFieldRole = Qt::UserRole + 1
+      KeyFieldRole = Qt::UserRole + 1,
+      DisplayStringRole
     };
 
     Q_ENUM( FeatureListRoles )
@@ -66,6 +72,9 @@ class FeatureListModel : public QAbstractItemModel
 
     QString keyField() const;
     void setKeyField( const QString &keyField );
+
+    QString displayValueField() const;
+    void setDisplayValueField( const QString &displayValueField );
 
     /**
      * Get the row for a given key value.
@@ -95,6 +104,7 @@ class FeatureListModel : public QAbstractItemModel
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
+    void displayValueFieldChanged();
     void addNullChanged();
     void orderByValueChanged();
 
@@ -134,6 +144,7 @@ class FeatureListModel : public QAbstractItemModel
 
     QList<Entry> mEntries;
     QString mKeyField;
+    QString mDisplayValueField;
     bool mOrderByValue = false;
     bool mAddNull = false;
 

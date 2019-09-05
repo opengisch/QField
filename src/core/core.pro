@@ -59,7 +59,8 @@ HEADERS += \
     linepolygonhighlight.h \
     qgsgeometrywrapper.h \
     valuemapmodel.h \
-    referencingfeaturelistmodel.h
+    referencingfeaturelistmodel.h \
+    featurechecklistmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -102,7 +103,8 @@ SOURCES += \
     linepolygonhighlight.cpp \
     qgsgeometrywrapper.cpp \
     valuemapmodel.cpp \
-    referencingfeaturelistmodel.cpp
+    referencingfeaturelistmodel.cpp \
+    featurechecklistmodel.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
