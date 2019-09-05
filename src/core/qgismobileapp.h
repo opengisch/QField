@@ -65,7 +65,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     void loadProjectFile( const QString &path );
     /**
      * When called loads the project file found at path.
-     * But does not reset the Auth Request Handler
+     * It does not reset the Auth Request Handler.
      *
      * @param path The project file to load
      */
