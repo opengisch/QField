@@ -61,7 +61,6 @@ HEADERS += \
     valuemapmodel.h \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
-    qfieldappauthrequesthandler.h \
     qfieldappauthrequesthandler.h
 
 SOURCES += \
@@ -106,16 +105,8 @@ SOURCES += \
     qgsgeometrywrapper.cpp \
     valuemapmodel.cpp \
     referencingfeaturelistmodel.cpp \
-<<<<<<< HEAD
-<<<<<<< HEAD
-    featurechecklistmodel.cpp
-=======
-    qfieldappauthrequesthandler.cpp \
-    layerloginhandler.cpp
->>>>>>> layer login handler
-=======
+    featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp
->>>>>>> no unused layerloginhandler anymore (handled in qfieldappauthrequesthandler
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
