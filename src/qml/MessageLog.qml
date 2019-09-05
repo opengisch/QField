@@ -10,7 +10,7 @@ Item {
   anchors.fill: parent
 
   Rectangle {
-    color: "white"
+    color: 'lightgrey'
     anchors.fill: parent
   }
 
@@ -18,20 +18,34 @@ Item {
     id: table
     anchors.fill: parent
 
-    delegate: Column {
-      Text {
-        text: MessageTag
-        font.bold: true
-      }
-
-      Text {
-        text: Message
-        wrapMode: Text.WordWrap
-      }
-
-      Rectangle {
-        color: "gray"
-        height: 1*dp
+    delegate: Rectangle {
+      color: index % 2 == 0 ? 'lightgrey' : 'white'
+      width: parent.width
+      height: line.height
+      Row {
+        id: line
+        spacing: 10 * dp
+        Text {
+          id: datetext
+          text: MessageDateTime
+        }
+        Rectangle {
+          id: separator
+          color: index % 2 == 0 ? 'white' : 'lightgrey'
+          height: parent.height
+          width: 5 * dp
+        }
+        Text {
+          id: tagtext
+          text: MessageTag
+          font.bold: true
+        }
+        Text {
+          id: messagetext
+          width: table.width - datetext.width - tagtext.width - separator.width
+          text: Message
+          wrapMode: Text.WordWrap
+        }
       }
     }
   }
