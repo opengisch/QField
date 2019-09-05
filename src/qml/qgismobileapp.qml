@@ -1042,13 +1042,11 @@ ApplicationWindow {
         inCancelation: false
 
         onEnter: {
-          console.log( "here the magic has to happen with "+realm+"and"+usr+" and "+pw  )
           qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
           inCancelation = false;
           loginDialogPopup.close()
         }
         onCancel: {
-          console.log( "here the canceling has to happen with "+realm )
           inCancelation = true;
           loginDialogPopup.close(true)
         }
