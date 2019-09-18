@@ -114,3 +114,27 @@ footer.footer {
   color: #fff;
 }
 .media-object { width: 64px; height: 64px; padding-bottom: 30px }
+
+
+/* CORNER RIBBON STYLING */
+
+.corner-ribbon{
+  width: 400px;
+  color: #fff;
+  position: fixed;
+  text-align: center;
+  top: 40px;
+  line-height: 40px;
+  z-index: 100000;
+  background-color: #4c6dac;
+}
+.corner-ribbon a{
+  color: #fff;
+}
+.corner-ribbon.right{
+  right: -100px;
+  left: auto;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
