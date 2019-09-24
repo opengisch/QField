@@ -22,7 +22,7 @@
 #include <QThread>
 #include <qgsmessagelog.h>
 
-#include "qgscredentials.h"
+#include <qgscredentials.h>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
