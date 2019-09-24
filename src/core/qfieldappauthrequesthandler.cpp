@@ -105,7 +105,7 @@ void QFieldAppAuthRequestHandler::clearStoredRealms()
 
 void QFieldAppAuthRequestHandler::authNeeded( const QString realm )
 {
-  for ( const RealmEntry &entry : mRealms )
+  for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
   {
     if ( entry.realm == realm )
     {
