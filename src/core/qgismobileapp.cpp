@@ -106,6 +106,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #endif
 
 
+// Check QGIS Version
 #if VERSION_INT >= 30600
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
