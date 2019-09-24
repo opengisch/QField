@@ -22,6 +22,7 @@
 #include <qgsapplication.h>
 #include <qgsconfig.h>
 
+// Check QGIS version
 #if VERSION_INT >= 30600
 #include "qgsnetworkaccessmanager.h"
 
