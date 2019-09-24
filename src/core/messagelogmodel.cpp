@@ -61,7 +61,7 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
 
 void MessageLogModel::suppressTags( const QList <QString> &tags )
 {
-  for ( QString tag : tags )
+  for ( const QString &tag : tags )
   {
     if ( !mSuppressedTags.contains( tag ) )
       mSuppressedTags.append( tag );
