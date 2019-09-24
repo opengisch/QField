@@ -17,6 +17,7 @@
 
 #include "qfieldappauthrequesthandler.h"
 
+// Check QGIS Version
 #if VERSION_INT >= 30600
 #include <QAuthenticator>
 #include <QThread>
