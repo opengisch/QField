@@ -44,5 +44,7 @@
         <file>FeatureListSelectionHighlight.qml</file>
         <file>editorwidgets/ValueRelation.qml</file>
         <file>RelationCombobox.qml</file>
+        <file>Changelog.qml</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
