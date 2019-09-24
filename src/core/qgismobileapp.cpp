@@ -321,6 +321,7 @@ void QgisMobileapp::loadLastProject()
 
 void QgisMobileapp::loadProjectFile( const QString &path )
 {
+// Check QGIS Version
 #if VERSION_INT >= 30600
   mAuthRequestHandler->clearStoredRealms();
 #endif
