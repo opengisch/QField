@@ -88,6 +88,7 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 
+// Check QGIS Version
 #if VERSION_INT >= 30600
 #include "qgsnetworkaccessmanager.h"
 #endif
