@@ -70,7 +70,7 @@ void MessageLogModel::suppressTags( const QList <QString> &tags )
 
 void MessageLogModel::unsuppressTags( const QList <QString> &tags )
 {
-  for ( QString tag : tags )
+  for ( const QString &tag : tags )
   {
     if ( mSuppressedTags.contains( tag ) )
       mSuppressedTags.removeAll( tag );
