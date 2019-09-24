@@ -36,7 +36,7 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString realm, const Q
 
 QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm()
 {
-  for ( const RealmEntry &entry : mRealms )
+  for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
   {
     if ( !entry.canceled )
     {
