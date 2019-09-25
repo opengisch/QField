@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190726}
+  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190922}
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -46,6 +46,11 @@ jobs:
       name: "📱 Build ARMv7"
       env:
         - ARCH=armv7
+      if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "📱 Build ARM64-v8a"
+      env:
+        - ARCH=arm64_v8a
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build X86"
