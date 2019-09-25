@@ -1050,7 +1050,7 @@ ApplicationWindow {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode+"test"
 
     x: 24 * dp
     y: 24 * dp
@@ -1059,12 +1059,25 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape
 
-    Changelog {
-      id: changelog
+    Flickable {
       anchors.fill: parent
+      flickableDirection: Flickable.VerticalFlick
 
-      onClose: {
-        changelogPopup.close()
+      Rectangle {
+          color: 'white'
+          height: 450 * dp
+          x: - 24 * dp
+          y: - 24 * dp
+          width: parent.width + 48*dp
+      }
+
+      Changelog {
+        id: changelog
+        anchors.fill: parent
+
+        onClose: {
+          changelogPopup.close()
+        }
       }
     }
   }
