@@ -203,22 +203,23 @@ class TestReferencingFeatureListModel: public QObject
     void testGetReferencingFeatures()
     {
       mModel->setRelation( mR_Landhasoneking );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
       mModel->setNmRelation( QgsRelation() );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
       //check out Frodo
       mModel->setFeature( mL_King->getFeature( 1 ) );
-      QTest::qSleep( 10000 );
-
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Frodo rules 3 lands (Gondor, Rohan, Eriador)
-      //QCOMPARE( mModel->rowCount(), 3 );
+      QCOMPARE( mModel->rowCount(), 3 );
 
       //check out Gollum
       mModel->setFeature( mL_King->getFeature( 2 ) );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Gollum rules 1 land (Mordor)
-      //QCOMPARE( mModel->rowCount(), 1 );
+      QCOMPARE( mModel->rowCount(), 1 );
     }
 
-#ifdef ANDROID
     /*
       testGetManyToManyReferencedFeatures
       - load project
@@ -230,15 +231,19 @@ class TestReferencingFeatureListModel: public QObject
     void testGetManyToManyReferencedFeatures()
     {
       mModel->setRelation( mR_Sharehasoneking );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
       mModel->setNmRelation( mR_Shareofoneland );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
       //check out Frodo
       mModel->setFeature( mL_King->getFeature( 1 ) );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Frodo has shares of 4 lands (Mordor, Gondor, Rohan, Eriador)
       QCOMPARE( mModel->rowCount(), 4 );
 
       //check out Gollum
       mModel->setFeature( mL_King->getFeature( 2 ) );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Gollum has shares of 3 lands (Mordor, Gondor, Rohan)
       QCOMPARE( mModel->rowCount(), 3 );
     }
@@ -253,11 +258,14 @@ class TestReferencingFeatureListModel: public QObject
     */
     void testDeleteReferencingFeature()
     {
-      mModel->setRelation( mR_Landhasoneking );
       mModel->setNmRelation( QgsRelation() );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+      mModel->setRelation( mR_Landhasoneking );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
       //check out Frodo
       mModel->setFeature( mL_King->getFeature( 1 ) );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Frodo rules 3 lands (Gondor, Rohan, Eriador)
       QCOMPARE( mModel->rowCount(), 3 );
 
@@ -265,13 +273,12 @@ class TestReferencingFeatureListModel: public QObject
       QString displayString = mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
       QCOMPARE( displayString, QStringLiteral( "Rohan" ) );
 
-      /* TO DO
       //delete Rohan
-      mModel->deleteFeature( mModel->data(mModel->index(1,0), ReferencingFeatureListModel::ReferencingFeature ).id() );
-
+      mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
       //Frodo rules 2 lands (Gondor, Eriador) no Rohan anymore
       QCOMPARE( mModel->rowCount(), 2 );
-      */
+
     }
 
     /*
@@ -285,36 +292,39 @@ class TestReferencingFeatureListModel: public QObject
     void testDeleteReferenceToManyToManyReferencedFeature()
     {
       mModel->setRelation( mR_Sharehasoneking );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
       mModel->setNmRelation( mR_Shareofoneland );
+      QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
       //check out Frodo
       mModel->setFeature( mL_King->getFeature( 1 ) );
-      //Frodo has shares of 3 lands (Mordor, Gondor, Eriador) Rohan is still gone
-      QCOMPARE( mModel->rowCount(), 3 );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+      //Frodo has shares of 4 lands (Mordor, Gondor, Eriador, Rohan)
+      QCOMPARE( mModel->rowCount(), 4 );
 
       //check out Gollum
       mModel->setFeature( mL_King->getFeature( 2 ) );
-      //Gollum has shares of 2 lands (Mordor, Gondor)
-      QCOMPARE( mModel->rowCount(), 2 );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+      //Gollum has shares of 3 lands (Mordor, Gondor, Rohan)
+      QCOMPARE( mModel->rowCount(), 3 );
 
       //check display string of Gollums Mordor share (80)
       QString displayString = mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
       QCOMPARE( displayString, QStringLiteral( "80" ) );
 
-      /* TO DO
       //delete Gollums share on Mordor
-      mModel->deleteFeature( mModel->data(mModel->index(0,0), ReferencingFeatureListModel::ReferencingFeature ).id() );
-
-      //Gollum has shares of 1 land (Gondor)
-      QCOMPARE( mModel->rowCount(), 1 );
+      mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+      //Gollum has shares of 2 landd (Gondor, Rohan)
+      QCOMPARE( mModel->rowCount(), 2 );
 
       //check out Frodo again
-      mModel->setFeature( mL_King->getFeature(1) );
-      //Frodo has still shares of 3 lands (Mordor, Gondor, Eriador) because his shares are untouched
-      QCOMPARE( mModel->rowCount(), 3 );
-      */
+      mModel->setFeature( mL_King->getFeature( 1 ) );
+      QVERIFY( QSignalSpy( mModel, &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+      //Frodo has still shares of 4 lands (Mordor, Gondor, Eriador, Rohan) because his shares are untouched
+      QCOMPARE( mModel->rowCount(), 4 );
     }
-#endif
+
     void cleanupTestCase()
     {
       delete mModel;
