@@ -12,8 +12,6 @@ Item {
     anchors.margins: 20 * dp
 
     columns: 1
-    rowSpacing : 20 * dp
-    columnSpacing : 20 * dp
 
     Text {
       color: '#95000000'
@@ -46,7 +44,7 @@ Item {
       Layout.fillWidth: true
       Layout.preferredHeight: 3 * itemHeight
 
-      property int itemHeight: 36 * dp
+      property int itemHeight: 24 * dp
 
       border.color: 'lightgray'
       border.width: 1 * dp
@@ -77,6 +75,7 @@ Item {
         delegate: Text {
           text: " - " + description
           wrapMode: Text.WordWrap
+          height: changelogBox.itemHeight
           Layout.minimumHeight: changelogBox.itemHeight
           color: '#90000000'
         }

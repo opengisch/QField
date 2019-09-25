@@ -1056,19 +1056,19 @@ ApplicationWindow {
     y: 24 * dp
     width: parent.width - 48 * dp
     height: parent.height - 48 * dp
+    padding: 0
     modal: true
     closePolicy: Popup.CloseOnEscape
 
     Flickable {
       anchors.fill: parent
       flickableDirection: Flickable.VerticalFlick
+      clip: true
 
       Rectangle {
           color: 'white'
           height: 450 * dp
-          x: - 24 * dp
-          y: - 24 * dp
-          width: parent.width + 48*dp
+          width: parent.width
       }
 
       Changelog {
