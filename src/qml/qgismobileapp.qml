@@ -833,7 +833,7 @@ ApplicationWindow {
     visible: state != "Hidden"
     focus: visible
 
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    anchors { right: parent.right; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
 
