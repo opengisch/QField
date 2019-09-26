@@ -1050,7 +1050,8 @@ ApplicationWindow {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode+"test"
+    property date expireDate: new Date(2019,8,9)
+    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode+"test" && expireDate>new Date()
 
     x: 24 * dp
     y: 24 * dp
