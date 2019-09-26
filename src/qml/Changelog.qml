@@ -192,6 +192,7 @@ Item {
             id: laterButton
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredWidth: parent.width / 2
 
             text: qsTr( "Maybe later" )
 
