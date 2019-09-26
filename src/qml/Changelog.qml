@@ -16,7 +16,7 @@ Item {
 
     Text {
       id: title
-      text: qsTr( "What's new on QField %1").arg( version )
+      text: qsTr( "What's new in QField %1").arg( version )
       color: '#80CC28'
       font.pointSize: 20
       minimumPixelSize: 12
@@ -28,18 +28,6 @@ Item {
       Layout.minimumHeight: contentHeight
       Layout.maximumHeight: contentHeight
     }
-
-    /*
-    DropShadow {
-        anchors.fill: title
-        horizontalOffset: 3
-        verticalOffset: 3
-        radius: 8.0
-        samples: 17
-        color: "#80000000"
-        source: title
-    }
-    */
 
     Rectangle {
       Layout.fillWidth: true
@@ -83,7 +71,7 @@ Item {
           }
           ListElement {
             type: "New Feature"
-            description: "Login for WMS / WFS layers"
+            description: "Login dialog for WMS and WFS layers"
           }
           ListElement {
             type: "Fix"
@@ -164,6 +152,7 @@ Item {
       id: image
       Layout.fillWidth: true
       Layout.fillHeight: true
+      Layout.maximumHeight: parent.width < parent.height ? width / 3 : parent.height
       fillMode: Image.PreserveAspectFit
       source: 'qrc:/pictures/qfield-love.png'
     }
@@ -186,7 +175,6 @@ Item {
         text: qsTr( "Let's give love" )
 
         bgcolor: '#80CC28'
-        borderColor: 'white'
 
         onClicked: {
           Qt.openUrlExternally("https://www.opengis.ch/projects/qfield-love/")
@@ -203,7 +191,6 @@ Item {
 
         text:  qsTr( "Maybe later" )
         bgcolor: '#80CC28'
-        borderColor: 'white'
 
         onClicked: {
           settings.setValue( "/QField/CurrentVersion", versionCode )
