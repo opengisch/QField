@@ -63,12 +63,18 @@ class MessageLogModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
+    //! activates suppression of messages wit specific tags
+    Q_INVOKABLE void suppressTags( const QList <QString> &tags );
+    //! deactivates suppression of messages wit specific tags
+    Q_INVOKABLE void unsuppressTags( const QList <QString> &tags );
+
   private slots:
     void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
 
   private:
     QgsMessageLog *mMessageLog;
     QVector<LogMessage> mMessages;
+    QList< QString > mSuppressedTags;
 };
 
 #endif // MESSAGELOGMODEL_H

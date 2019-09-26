@@ -47,7 +47,6 @@
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
-
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -89,6 +88,11 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 
+// Check QGIS Version
+#if VERSION_INT >= 30600
+#include "qgsnetworkaccessmanager.h"
+#endif
+
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
   , mIface( new AppInterface( this ) )
@@ -99,6 +103,16 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   format.setSamples( 8 );
   setFormat( format );
   create();
+#endif
+
+
+// Check QGIS Version
+#if VERSION_INT >= 30600
+  //set the authHandler to qfield-handler
+  std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
+  mAuthRequestHandler = new QFieldAppAuthRequestHandler();
+  handler.reset( mAuthRequestHandler );
+  QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 #endif
 
   mProject = QgsProject::instance();
@@ -225,6 +239,10 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
+// Check QGIS Version
+#if VERSION_INT >= 30600
+  rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
+#endif
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
@@ -302,6 +320,15 @@ void QgisMobileapp::loadLastProject()
 }
 
 void QgisMobileapp::loadProjectFile( const QString &path )
+{
+// Check QGIS Version
+#if VERSION_INT >= 30600
+  mAuthRequestHandler->clearStoredRealms();
+#endif
+  reloadProjectFile( path );
+}
+
+void QgisMobileapp::reloadProjectFile( const QString &path )
 {
   mProject->removeAllMapLayers();
   emit loadProjectStarted( path );

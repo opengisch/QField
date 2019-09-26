@@ -24,12 +24,17 @@
 // QGIS includes
 #include <qgsapplication.h>
 #include <qgsmaplayerproxymodel.h>
+#include <qgsconfig.h>
 
 // QGIS mobile includes
 #include "multifeaturelistmodel.h"
 #include "settings.h"
 #include "focusstack.h"
 #include "qgsquickutils.h"
+
+#if VERSION_INT >= 30600
+#include "qfieldappauthrequesthandler.h"
+#endif
 
 #include "platformutilities.h"
 #if defined(Q_OS_ANDROID)
@@ -58,6 +63,13 @@ class QgisMobileapp : public QQmlApplicationEngine
      * @param path The project file to load
      */
     void loadProjectFile( const QString &path );
+    /**
+     * Loads the project file found at path.
+     * It does not reset the Auth Request Handler.
+     *
+     * @param path The project file to load
+     */
+    void reloadProjectFile( const QString &path );
     void print( int layoutIndex );
 
     bool event( QEvent *event ) override;
@@ -115,7 +127,9 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider;
 
     QgsProject *mProject;
-
+#if VERSION_INT >= 30600
+    QFieldAppAuthRequestHandler *mAuthRequestHandler;
+#endif
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
