@@ -18,7 +18,7 @@ Item {
 
     Text {
       id: title
-      text: qsTr( "What's new in QField %1").arg( version )
+      text: qsTr( "What's new in the latest QField" )
       color: '#80CC28'
       font.pointSize: 20
       minimumPixelSize: 12
@@ -51,7 +51,7 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true //preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20 * dp
       Layout.minimumHeight: changesListView.count * 24 * dp
-      border.color: '#95000000'
+      border.color: '#30000000'
       border.width: 1 * dp
 
       //the model
