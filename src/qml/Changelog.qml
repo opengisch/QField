@@ -20,12 +20,18 @@ Item {
 
     columns: 1
 
+    Item {
+        // top margin
+        height: 20 * dp
+    }
+
     Text {
       id: title
       text: qsTr( "What's new in the latest QField" )
       color: '#80CC28'
       font.pointSize: 20
       minimumPixelSize: 12
+
 
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
@@ -151,6 +157,21 @@ Item {
       source: 'qrc:/pictures/qfield-love.png'
     }
 
+
+    Text {
+      color: '#90000000'
+      text: qsTr( "www.opengis.ch/projects/qfield-love/" )
+      font.pointSize: 12
+      font.bold: true
+
+      fontSizeMode: Text.VerticalFit
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
+    }
+
     GridLayout{
       id: buttons
       columns: 1
@@ -194,7 +215,6 @@ Item {
             id: laterButton
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredWidth: parent.width / 2
 
             text: qsTr( "Maybe later" )
 
@@ -254,18 +274,9 @@ Item {
       }
     }
 
-    Text {
-      color: '#90000000'
-      text: qsTr( "www.opengis.ch/projects/qfield-love/" )
-      font.pointSize: 12
-      font.bold: true
-
-      fontSizeMode: Text.VerticalFit
-      wrapMode: Text.WordWrap
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.minimumHeight: contentHeight
-      Layout.maximumHeight: contentHeight
+    Item {
+        // bottom
+        height: 20 * dp
     }
   }
 }
