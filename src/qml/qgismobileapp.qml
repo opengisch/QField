@@ -1130,7 +1130,7 @@ ApplicationWindow {
     parent: ApplicationWindow.overlay
 
     property var expireDate: new Date(2019,9,9)
-    visible: ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode+"test"
+    visible: ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode
               || new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) )
              && expireDate > new Date()
 
