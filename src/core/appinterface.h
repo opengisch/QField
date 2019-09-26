@@ -38,6 +38,8 @@ class AppInterface : public QObject
     }
 
     Q_INVOKABLE void loadProject( const QString &path );
+    Q_INVOKABLE void reloadProject( const QString &path );
+
     Q_INVOKABLE void print( int layoutIndex );
 
   public slots:

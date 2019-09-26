@@ -208,7 +208,6 @@ Rectangle{
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
         referencingFeatureListView.model.deleteFeature( referencingFeatureId )
-        console.log('delete feature '+referencingFeatureId)
         visible = false
       }
       onRejected: {

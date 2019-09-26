@@ -28,6 +28,11 @@ void AppInterface::loadProject( const QString &path )
   return mApp->loadProjectFile( QUrl( path ).path() );
 }
 
+void AppInterface::reloadProject( const QString &path )
+{
+  return mApp->reloadProjectFile( QUrl( path ).path() );
+}
+
 void AppInterface::print( int layoutIndex )
 {
   return mApp->print( layoutIndex );

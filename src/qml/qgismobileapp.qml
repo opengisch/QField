@@ -948,7 +948,9 @@ ApplicationWindow {
     anchors.fill: parent
     focus: visible
 
-    model: MessageLogModel {}
+    model: MessageLogModel {
+      id: messageLogModel
+    }
 
     visible: false
 
@@ -979,6 +981,83 @@ ApplicationWindow {
     onFinished: {
       visible = false
     }
+  }
+
+  Item {
+    id: layerLogin
+
+    Connections {
+      target: iface
+      onLoadProjectEnded: {
+        if( !qfieldAuthRequestHandler.handleLayerLogins() )
+        {
+          //project loaded without more layer handling needed
+          messageLogModel.unsuppressTags(["WFS","WMS"])
+        }
+      }
+    }
+    Connections {
+        target: iface
+
+        onLoadProjectStarted: {
+          messageLogModel.suppressTags(["WFS","WMS"])
+        }
+    }
+
+    Connections {
+      target: qfieldAuthRequestHandler
+
+      onShowLoginDialog: {
+        loginDialogPopup.realm = realm
+        badLayersView.visible = false
+        loginDialogPopup.open()
+      }
+
+      onReloadEverything: {
+        iface.reloadProject( qgisProject.fileName )
+      }
+    }
+
+    Popup {
+      id: loginDialogPopup
+      parent: ApplicationWindow.overlay
+
+      property var realm
+
+      x: 24 * dp
+      y: 24 * dp
+      width: parent.width - 48 * dp
+      height: parent.height - 48 * dp
+      modal: true
+      closePolicy: Popup.CloseOnEscape
+
+      LayerLoginDialog {
+        id: loginDialog
+
+        anchors.fill: parent
+
+        visible: true
+
+        realm: loginDialogPopup.realm
+        inCancelation: false
+
+        onEnter: {
+          qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
+          inCancelation = false;
+          loginDialogPopup.close()
+        }
+        onCancel: {
+          inCancelation = true;
+          loginDialogPopup.close(true)
+        }
+      }
+
+      onClosed: {
+        //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
+        qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
+      }
+    }
+
   }
 
   About {

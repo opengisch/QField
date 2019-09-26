@@ -45,6 +45,7 @@
         <file>editorwidgets/ValueRelation.qml</file>
         <file>RelationCombobox.qml</file>
         <file>Changelog.qml</file>
+        <file>LayerLoginDialog.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
