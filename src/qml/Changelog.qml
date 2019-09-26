@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.0
 import "." as QField
@@ -166,31 +168,60 @@ Item {
       Layout.fillWidth: true
       Layout.minimumHeight: 36 * dp
 
-      QField.Button {
+      Button {
         id: closeButton
-
         Layout.fillWidth: true
         Layout.fillHeight: true
 
         text: qsTr( "Let's give love" )
 
-        bgcolor: '#80CC28'
+        font.pointSize: 12
+
+        contentItem: Text {
+          text: closeButton.text
+          font: closeButton.font
+          color: 'white'
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
+          elide: Text.ElideRight
+        }
+
+        background: Rectangle {
+          implicitWidth: parent.width
+          implicitHeight: parent.height
+          color: laterButton.down ? '#8080CC28' : '#80CC28'
+        }
 
         onClicked: {
-          Qt.openUrlExternally("https://www.opengis.ch/projects/qfield-love/")
-          settings.setValue( "/QField/CurrentVersion", versionCode )
-          close()
+            Qt.openUrlExternally("https://www.opengis.ch/projects/qfield-love/")
+            settings.setValue( "/QField/CurrentVersion", versionCode )
+            close()
         }
       }
 
-      QField.Button {
+      Button {
         id: laterButton
-
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        text:  qsTr( "Maybe later" )
-        bgcolor: '#80CC28'
+        text: qsTr( "Maybe later" )
+
+        font.pointSize: 12
+
+        contentItem: Text {
+            text: laterButton.text
+            font: laterButton.font
+            color: 'white'
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+
+        background: Rectangle {
+            implicitWidth: parent.width
+            implicitHeight: parent.height
+            color: laterButton.down ? '#8080CC28' : '#80CC28'
+        }
 
         onClicked: {
           settings.setValue( "/QField/CurrentVersion", versionCode )
