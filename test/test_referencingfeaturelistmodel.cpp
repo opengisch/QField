@@ -18,19 +18,6 @@ class TestReferencingFeatureListModel: public QObject
   private slots:
     void initTestCase()
     {
-      int argc = 0;
-      auto closer_lambda = []( QgsApplication * app ) { app->exitQgis(); };
-      std::unique_ptr<QgsApplication, decltype( closer_lambda )> app( new QgsApplication( argc, nullptr, false ), closer_lambda );
-
-#ifdef ANDROID
-      app->setPrefixPath( "" QGIS_INSTALL_DIR, true );
-      app->setPluginPath( QApplication::applicationDirPath() );
-      app->setPkgDataPath( AndroidPlatformUtilities().packagePath() );
-#else
-      app->setPrefixPath( CMAKE_INSTALL_PREFIX, true );
-#endif
-      app->initQgis();
-
       /* TEST PROJECT
       *
       * LAYERS
