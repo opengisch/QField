@@ -1082,7 +1082,7 @@ ApplicationWindow {
     id: openProjectDialog
     title: qsTr( "Open project" )
     visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
+    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
     width: parent.width
     height: parent.height
