@@ -1063,6 +1063,8 @@ ApplicationWindow {
     Flickable {
       anchors.fill: parent
       flickableDirection: Flickable.VerticalFlick
+      interactive: true
+      contentWidth: parent.width; contentHeight: parent.height
       clip: true
 
       Rectangle {

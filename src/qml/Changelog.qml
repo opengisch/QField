@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.2
+import QtGraphicalEffects 1.0
 import "." as QField
 
 Item {
@@ -14,39 +15,59 @@ Item {
     columns: 1
 
     Text {
-      color: '#95000000'
+      id: title
       text: qsTr( "What's new on QField %1").arg( version )
-      font.pointSize: 25
-      minimumPixelSize: 16
+      color: '#80CC28'
+      font.pointSize: 20
+      minimumPixelSize: 12
+
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
-
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.minimumHeight: 36 * dp
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
+    }
+
+    /*
+    DropShadow {
+        anchors.fill: title
+        horizontalOffset: 3
+        verticalOffset: 3
+        radius: 8.0
+        samples: 17
+        color: "#80000000"
+        source: title
+    }
+    */
+
+    Rectangle {
+      Layout.fillWidth: true
+      Layout.fillHeight: true
     }
 
     Text {
       color: '#95000000'
       text: qsTr( "Changelog")
-      font.pointSize: 16
+      font.bold: true
+      font.pointSize: 12
+
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
-
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.minimumHeight: 36 * dp
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
     }
 
     Rectangle{
       id: changelogBox
 
       Layout.fillWidth: true
-      Layout.preferredHeight: 3 * itemHeight
+      Layout.preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20 * dp
 
       property int itemHeight: 24 * dp
-
-      border.color: 'lightgray'
+      border.color: '#95000000'
       border.width: 1 * dp
 
       //the model
@@ -54,15 +75,27 @@ Item {
           id: changesListModel
           ListElement {
             type: "New Feature"
-            description: "Relation Editor Widget for many-to-many relations"
+            description: "Value relation widget with multiple selection support"
           }
           ListElement {
             type: "New Feature"
-            description: "Measurement Tool for lines and polygons"
+            description: "Full snapping support providing snapping results and Z values of snapped feature"
           }
           ListElement {
             type: "New Feature"
-            description: "Value Relation Widget with multi selection"
+            description: "Login for WMS / WFS layers"
+          }
+          ListElement {
+            type: "Fix"
+            description: "Fix of unreliable checkbox widget"
+          }
+          ListElement {
+            type: "Fix"
+            description: "Other fixes (printing, locator)"
+          }
+          ListElement {
+            type: "Fix"
+            description: "Improved log"
           }
       }
 
@@ -71,13 +104,35 @@ Item {
         id: changesListView
         model: changesListModel
         width: parent.width
+        anchors.verticalCenter: parent.verticalCenter
         height: Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
-        delegate: Text {
-          text: " - " + description
-          wrapMode: Text.WordWrap
-          height: changelogBox.itemHeight
-          Layout.minimumHeight: changelogBox.itemHeight
-          color: '#90000000'
+        delegate: Rectangle{
+            id: item
+            x: 1 * dp
+            width: parent.width - 2 * dp
+            height: text.height + 10 * dp
+
+            Text {
+                id: dash
+                text: " -"
+                font.pointSize: 12
+                Layout.minimumWidth: contentWidth
+                fontSizeMode: Text.VerticalFit
+                wrapMode: Text.WordWrap
+                color: '#95000000'
+            }
+            Text {
+                id: text
+                text: description
+                font.pointSize: 12
+                Layout.minimumHeight: contentHeight
+                Layout.maximumHeight: contentHeight
+                width: parent.width - 20 * dp
+                x: dash.width + 10 * dp
+                fontSizeMode: Text.VerticalFit
+                wrapMode: Text.WordWrap
+                color: '#95000000'
+            }
         }
         focus: true
         clip: true
@@ -85,22 +140,30 @@ Item {
       }
     }
 
+    Rectangle {
+      id: secondSpace
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+    }
+
     Text {
       color: '#90000000'
       text: qsTr( "Support our crowdfunding project, if you love QField" )
-      font.pointSize: 16
+      font.pointSize: 12
+      font.bold: true
+
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
-
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.minimumHeight: 36 * dp
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
     }
 
     Image {
+      id: image
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.preferredHeight: sourceSize.height
       fillMode: Image.PreserveAspectFit
       source: 'qrc:/pictures/qfield-love.png'
     }
@@ -109,6 +172,7 @@ Item {
       id: buttons
       columns: 2
 
+      Layout.maximumHeight: 48 * dp
       Layout.preferredHeight: 48 * dp
       Layout.fillWidth: true
       Layout.minimumHeight: 36 * dp
@@ -137,7 +201,7 @@ Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        text: qsTr( "Maybe later" )
+        text:  qsTr( "Maybe later" )
         bgcolor: '#80CC28'
         borderColor: 'white'
 
