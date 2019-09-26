@@ -37,20 +37,23 @@ Item {
       Layout.minimumHeight: 48 * dp
 
       Rectangle {
-        anchors.fill: parent
         id: backgroundRect
+        anchors.fill: parent
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
-        color: "#dddddd"
+        color: "transparent"
         radius: 2
+        visible: enabled
       }
 
       TextField {
         id: label
 
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 16
+        font.pointSize: 18 * dp
+        height: label.font.height + 20 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -90,7 +93,14 @@ Item {
                 }
               }
 
-        color: value === undefined ? 'gray' : 'black'
+        color: value === undefined || !enabled ? 'gray' : 'black'
+
+        background: Rectangle {
+          y: label.height - height - label.bottomPadding / 2
+          implicitWidth: 120 * dp
+          height: label.activeFocus ? 2 * dp : 1 * dp
+          color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
+        }
 
         MouseArea {
           enabled: config['calendar_popup']
@@ -144,7 +154,8 @@ Item {
           source: Style.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
-          visible: ( value !== undefined ) && config['allow_null']
+          anchors.verticalCenterOffset: -5 * dp
+          visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
             anchors.fill: parent
@@ -162,6 +173,8 @@ Item {
       focus: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
       parent: ApplicationWindow.overlay
+      x: (parent.width - width) / 2
+      y: (parent.height - height) / 2
 
       // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
@@ -177,7 +190,8 @@ Item {
 
         RowLayout {
           Button {
-            text: qsTr( "Ok" )
+            text: qsTr( "OK" )
+            font.pointSize: 18 * dp
             Layout.fillWidth: true
 
             onClicked: {
