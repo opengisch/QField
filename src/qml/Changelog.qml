@@ -31,11 +31,6 @@ Item {
       Layout.maximumHeight: contentHeight
     }
 
-    Rectangle {
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-    }
-
     Text {
       color: '#95000000'
       text: qsTr( "Changelog")
@@ -54,9 +49,8 @@ Item {
       id: changelogBox
 
       Layout.fillWidth: true
-      Layout.preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20 * dp
-
-      property int itemHeight: 24 * dp
+      Layout.fillHeight: true //preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20 * dp
+      Layout.minimumHeight: changesListView.count * 24 * dp
       border.color: '#95000000'
       border.width: 1 * dp
 
@@ -93,9 +87,9 @@ Item {
       ListView {
         id: changesListView
         model: changesListModel
-        width: parent.width
+        width: parent.width - 20 * dp
         anchors.verticalCenter: parent.verticalCenter
-        height: Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
+        height: parent.height - 20 * dp //Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
         delegate: Rectangle{
             id: item
             x: 1 * dp
@@ -130,15 +124,9 @@ Item {
       }
     }
 
-    Rectangle {
-      id: secondSpace
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-    }
-
     Text {
       color: '#90000000'
-      text: qsTr( "Support our crowdfunding project, if you love QField" )
+      text: qsTr( "Do you love QField? Support the crowdfunding project before October 9." )
       font.pointSize: 12
       font.bold: true
 
@@ -154,7 +142,7 @@ Item {
       id: image
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.maximumHeight: parent.width < parent.height ? width / 3 : parent.height
+      Layout.maximumHeight:  width / 3
       fillMode: Image.PreserveAspectFit
       source: 'qrc:/pictures/qfield-love.png'
     }
