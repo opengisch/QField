@@ -1143,21 +1143,16 @@ ApplicationWindow {
     closePolicy: Popup.CloseOnEscape
 
     Flickable {
+      id: changelogFlickable
       anchors.fill: parent
       flickableDirection: Flickable.VerticalFlick
       interactive: true
-      contentWidth: parent.width; contentHeight: parent.height
+      contentWidth: changelog.width; contentHeight: changelog.height
       clip: true
-
-      Rectangle {
-          color: 'white'
-          height: 450 * dp
-          width: parent.width
-      }
 
       Changelog {
         id: changelog
-        anchors.fill: parent
+        width: changelogFlickable.width
 
         onClose: {
           changelogPopup.close()

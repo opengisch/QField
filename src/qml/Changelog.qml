@@ -8,10 +8,14 @@ import "." as QField
 Item {
   signal close()
 
+  height: childrenRect.height
+  width: parent.width
+
   GridLayout {
     id: mainGrid
 
-    anchors.fill: parent
+    anchors.left: parent.left
+    anchors.right: parent.right
     anchors.margins: 20 * dp
 
     columns: 1
@@ -126,7 +130,7 @@ Item {
 
     Text {
       color: '#90000000'
-      text: qsTr( "Do you love QField? Support the crowdfunding project before October 9." )
+      text: qsTr( "Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 9." )
       font.pointSize: 12
       font.bold: true
 
@@ -175,8 +179,6 @@ Item {
         }
 
         background: Rectangle {
-          implicitWidth: parent.width
-          implicitHeight: parent.height
           color: laterButton.down ? '#8080CC28' : '#80CC28'
         }
 
@@ -190,8 +192,8 @@ Item {
       GridLayout{
           Button {
             id: laterButton
-            Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.preferredWidth: parent.width / 2
 
             text: qsTr( "Maybe later" )
@@ -208,8 +210,7 @@ Item {
             }
 
             background: Rectangle {
-                implicitWidth: parent.width
-                implicitHeight: parent.height
+                height: parent.height
                 color: laterButton.down ? '#40000000' : '#60000000'
             }
 
@@ -225,8 +226,8 @@ Item {
 
           Button {
             id: noButton
-            Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.fillHeight: true
 
             text: qsTr( "No" )
 
@@ -242,8 +243,6 @@ Item {
             }
 
             background: Rectangle {
-                implicitWidth: parent.width
-                implicitHeight: parent.height
                 color: laterButton.down ? '#40000000' : '#60000000'
             }
 
