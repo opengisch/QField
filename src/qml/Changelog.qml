@@ -149,12 +149,12 @@ Item {
 
     GridLayout{
       id: buttons
-      columns: 2
+      columns: 1
 
-      Layout.maximumHeight: 48 * dp
-      Layout.preferredHeight: 48 * dp
+      Layout.maximumHeight: 96 * dp
+      Layout.preferredHeight: 96 * dp
+      Layout.minimumHeight: 72 * dp
       Layout.fillWidth: true
-      Layout.minimumHeight: 36 * dp
 
       Button {
         id: closeButton
@@ -187,39 +187,85 @@ Item {
         }
       }
 
-      Button {
-        id: laterButton
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+      GridLayout{
+          Button {
+            id: laterButton
+            Layout.fillHeight: true
+            Layout.fillWidth: true
 
-        text: qsTr( "Maybe later" )
+            text: qsTr( "Maybe later" )
 
-        font.pointSize: 12
+            font.pointSize: 12
 
-        contentItem: Text {
-            text: laterButton.text
-            font: laterButton.font
-            color: 'white'
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-        }
+            contentItem: Text {
+                text: laterButton.text
+                font: laterButton.font
+                color: 'white'
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
 
-        background: Rectangle {
-            implicitWidth: parent.width
-            implicitHeight: parent.height
-            color: laterButton.down ? '#8080CC28' : '#80CC28'
-        }
+            background: Rectangle {
+                implicitWidth: parent.width
+                implicitHeight: parent.height
+                color: laterButton.down ? '#40000000' : '#60000000'
+            }
 
-        property var remindDate: new Date()
+            property var remindDate: new Date()
 
-        onClicked: {
-          settings.setValue( "/QField/CurrentVersion", versionCode )
-          remindDate.setDate( remindDate.getDate()+3 )
-          settings.setValue( "/QField/RemindDateForCrowdfunding", remindDate )
-          close()
-        }
+            onClicked: {
+              settings.setValue( "/QField/CurrentVersion", versionCode )
+              remindDate.setDate( remindDate.getDate()+1 )
+              settings.setValue( "/QField/RemindDateForCrowdfunding", remindDate )
+              close()
+            }
+          }
+
+          Button {
+            id: noButton
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            text: qsTr( "No" )
+
+            font.pointSize: 12
+
+            contentItem: Text {
+                text: noButton.text
+                font: noButton.font
+                color: 'white'
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+
+            background: Rectangle {
+                implicitWidth: parent.width
+                implicitHeight: parent.height
+                color: laterButton.down ? '#40000000' : '#60000000'
+            }
+
+            onClicked: {
+              settings.setValue( "/QField/CurrentVersion", versionCode )
+              close()
+            }
+          }
       }
+    }
+
+    Text {
+      color: '#90000000'
+      text: qsTr( "www.opengis.ch/projects/qfield-love/" )
+      font.pointSize: 12
+      font.bold: true
+
+      fontSizeMode: Text.VerticalFit
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
     }
   }
 }
