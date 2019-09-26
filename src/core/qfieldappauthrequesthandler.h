@@ -69,7 +69,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     void authNeeded( const QString realm );
 
     //! returns an unhandled realm
-    QString getFirstUnhandledRealm();
+    QString getFirstUnhandledRealm() const;
 
     //! the realms that are not (yet) successfully logged in into
     struct RealmEntry

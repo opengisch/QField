@@ -35,7 +35,7 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString realm, const Q
   QgsCredentials::instance()->put( realm, username, password );
 }
 
-QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm()
+QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
   for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
   {
