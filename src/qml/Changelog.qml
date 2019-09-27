@@ -43,7 +43,7 @@ Item {
 
     Text {
       color: '#95000000'
-      text: qsTr( "Changelog")
+      text: qsTr( "Changelog %1" ).arg( version )
       font.bold: true
       font.pointSize: 12
 
