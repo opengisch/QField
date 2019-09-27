@@ -14,13 +14,18 @@ Popup {
         header: Label {
             text: title
             font.bold: true
-            font.pointSize: 18 * dp
+            font.pointSize: 16
         }
 
         CheckBox {
             id: itemVisibleCheckBox
             text: qsTr("Show on map canvas")
-            font.pointSize: 18 * dp
+            font.pointSize: 16
+
+            indicator.height: 16 * dp
+            indicator.width: 16 * dp
+            indicator.implicitHeight: 24 * dp
+            indicator.implicitWidth: 24 * dp
         }
     }
 }

@@ -52,7 +52,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 18 * dp
+        font.pointSize: 14
         height: label.font.height + 20 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
@@ -191,7 +191,7 @@ Item {
         RowLayout {
           Button {
             text: qsTr( "OK" )
-            font.pointSize: 18 * dp
+            font.pointSize: 14
             Layout.fillWidth: true
 
             onClicked: {
