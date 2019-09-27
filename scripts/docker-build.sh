@@ -33,7 +33,7 @@ QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 if [[ -z ${APP_ICON+x} ]]; then
   sed -i "s|<file alias=\"qfield-logo.svg\">icons/qfield-logo.svg</file>|<file alias=\"qfield-logo.svg\">icons/${APP_ICON}</file>|" ${SOURCE_DIR}/images/images.qrc
 fi
-if [[ "X${PKG_NAME}" != "qfield" ]]; then
+if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
   grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
   grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
   mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${PKG_NAME}
