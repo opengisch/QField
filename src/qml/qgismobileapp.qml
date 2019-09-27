@@ -389,7 +389,7 @@ ApplicationWindow {
     width: mainWindow.width < 300 * dp ? mainWindow.width - anchors.margins - mainMenuBar.width : 200 * dp
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: 10 * dp
+    anchors.margins: 4 * dp
 
     visible: stateMachine.state !== 'measure'
   }
