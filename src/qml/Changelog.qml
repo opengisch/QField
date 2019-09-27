@@ -69,27 +69,27 @@ Item {
           id: changesListModel
           ListElement {
             type: "New Feature"
-            description: "Value relation widget with multiple selection support"
+            description: qsTr("Value relation widget with multiple selection support")
           }
           ListElement {
             type: "New Feature"
-            description: "Full snapping support providing snapping results and Z values of snapped feature"
+            description: qsTr("Full snapping support providing snapping results and Z values of snapped feature")
           }
           ListElement {
             type: "New Feature"
-            description: "Login dialog for WMS and WFS layers"
+            description: qsTr("Authentication dialog for layers")
           }
           ListElement {
             type: "Fix"
-            description: "Fix of unreliable checkbox widget"
+            description: qsTr("Fix checkbox widget")
           }
           ListElement {
             type: "Fix"
-            description: "Other fixes (printing, locator)"
+            description: qsTr("Other fixes (printing, locator)")
           }
           ListElement {
             type: "Fix"
-            description: "Improved log"
+            description: qsTr("Improved log")
           }
       }
 
