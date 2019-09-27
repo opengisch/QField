@@ -41,10 +41,21 @@ Item {
 
   Text {
     id: label
+    anchors.bottomMargin: 4 * dp
     anchors.bottom: mainLine.top
     anchors.horizontalCenter: mainLine.horizontalCenter
-    font.pointSize: 12 * dp
+    anchors.left: undefined // The value will be set to mainLine.left is the label is wider than the mainLine
+    font.pointSize: 12
     color: "darkslategrey"
+
+    states: State {
+        name: "narrow"; when: label.width > mainLine.width
+        AnchorChanges {
+            target: label
+            anchors.horizontalCenter: undefined
+            anchors.left: mainLine.left
+        }
+    }
 
     text: if (vars.units === QgsUnitTypes.DistanceMeters && vars.adjustedMagnitude >= 1000 ) {
             vars.adjustedMagnitude/1000 + ' ' + UnitTypes.toAbbreviatedString( QgsUnitTypes.DistanceKilometers )
