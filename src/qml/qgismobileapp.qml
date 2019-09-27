@@ -162,23 +162,23 @@ ApplicationWindow {
 
     /* The base map */
     MapCanvas {
+
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
 
       anchors.fill: parent
 
       onClicked: {
-        if (locatorItem.searching)
-        {
-          locatorItem.searching = false
-        }
-        else if( !overlayFeatureFormDrawer.visible )
-        {
-          identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
-        }
+          if (locatorItem.searching) {
+              locatorItem.searching = false
+          } else if( !overlayFeatureFormDrawer.visible ) {
+              identifyTool.identify( Qt.point( parent.mouseX, parent.mouseY ) )
+          }
       }
+
       Component.onCompleted: platformUtilities.showRateThisApp()
     }
+
 
   /**************************************************
    * Position markers
