@@ -43,7 +43,35 @@ Item {
 
     Text {
       color: '#95000000'
-      text: qsTr( "Changelog %1" ).arg( version )
+      text: settings.value( "/QField/CurrentVersion", "" )
+      font.bold: true
+      font.pointSize: 12
+
+      fontSizeMode: Text.VerticalFit
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
+    }
+
+    Text {
+      color: '#95000000'
+      text: settings.setValue( "/QField/RemindDateForCrowdfunding", remindDate )
+      font.bold: true
+      font.pointSize: 12
+
+      fontSizeMode: Text.VerticalFit
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
+    }
+
+    Text {
+      color: '#95000000'
+      text: versionCode
       font.bold: true
       font.pointSize: 12
 
