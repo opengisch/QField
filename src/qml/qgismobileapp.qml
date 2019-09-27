@@ -813,8 +813,9 @@ ApplicationWindow {
     visible: messageLog.unreadMessages
 
     anchors.right: mapCanvas.right
-    anchors.top: parent.top
-    anchors.margins: 4 * dp
+    anchors.top: locatorItem.bottom
+    anchors.topMargin: 10 * dp
+    anchors.rightMargin: 15 * dp
     width: 36 * dp
     height: 36 * dp
 
