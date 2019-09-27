@@ -1129,10 +1129,10 @@ ApplicationWindow {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    property var expireDate: new Date(2019,9,9)
-    visible: ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode
-              || new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) )
-             && expireDate > new Date()
+    property var expireDate: new Date(2019,9,16)
+    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+               && ( settings.value( "/QField/RemindDateForCrowdfunding", "unset" ) == "unset" || new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) ) 
+               && expireDate > new Date()
 
     x: 24 * dp
     y: 24 * dp
