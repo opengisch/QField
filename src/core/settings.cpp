@@ -26,6 +26,7 @@ Settings::Settings( QObject *parent ) :
 void Settings::setValue( const QString &key, const QVariant &value )
 {
   QSettings::setValue( key, value );
+  sync();
   emit settingChanged( key );
 }
 
