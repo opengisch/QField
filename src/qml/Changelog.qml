@@ -136,7 +136,7 @@ Item {
 
     Text {
       color: '#90000000'
-      text: qsTr( "Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 9." )
+      text: qsTr( "Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16." )
       font.pointSize: 12
       font.bold: true
 
