@@ -54,7 +54,6 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: {
-      console.warn( "KEY PRESS " + event.key )
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
         if ( stateMachine.state === 'measure' ) {
@@ -516,10 +515,8 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        console.warn("Centering")
         if ( positionSource.projectedPosition.x )
         {
-          console.warn("Centering to " + positionSource.projectedPosition.x + " " + positionSource.projectedPosition.y )
           mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
 
           if ( !positionSource.active )

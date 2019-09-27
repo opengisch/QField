@@ -61,7 +61,6 @@ BasicTableView {
 
     function isExpanded(index) {
         if (index.valid && index.model !== model) {
-            console.warn("TreeView.isExpanded: model and index mismatch")
             return false
         }
         return modelAdaptor.isExpanded(index)

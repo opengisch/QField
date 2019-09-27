@@ -26,7 +26,6 @@ Controls.Pane {
   clip: true
 
   Keys.onReleased: {
-    console.warn( "KEY PRESS " + event.key )
     if ( event.key === Qt.Key_Back ||
       event.key === Qt.Key_Escape ) {
       visible=false
@@ -45,7 +44,7 @@ Controls.Pane {
   onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
 
   onCurrentLayerChanged: {
-    if ( currentLayer.readOnly && stateMachine.state == "digitize" )
+    if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
 
