@@ -1166,7 +1166,7 @@ ApplicationWindow {
       width: parent.width
       y: parent.height - 112 * dp
       margins: 0
-      background: none
+      background: undefined
       closePolicy: Popup.NoAutoClose
 
       function show(text) {
