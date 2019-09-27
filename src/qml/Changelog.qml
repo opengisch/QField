@@ -43,7 +43,12 @@ Item {
 
     Text {
       color: '#95000000'
-      text: settings.value( "/QField/CurrentVersion", "" )
+      text: { settings.value( "/QField/CurrentVersion", "" ) +
+            '<br>' + ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode ) +
+            '<br>' + ( settings.value( "/QField/CurrentVersion", "" ) != versionCode ) +
+            '<br>' + ( new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) )
+            }
+
       font.bold: true
       font.pointSize: 12
 
