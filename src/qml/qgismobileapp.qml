@@ -1124,6 +1124,43 @@ ApplicationWindow {
       __projectSource = platformUtilities.openProject()
     }
   }
+
+  Popup {
+    id: changelogPopup
+    parent: ApplicationWindow.overlay
+
+    property var expireDate: new Date(2019,9,9)
+    visible: ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+              || new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) )
+             && expireDate > new Date()
+
+    x: 24 * dp
+    y: 24 * dp
+    width: parent.width - 48 * dp
+    height: parent.height - 48 * dp
+    padding: 0
+    modal: true
+    closePolicy: Popup.CloseOnEscape
+
+    Flickable {
+      id: changelogFlickable
+      anchors.fill: parent
+      flickableDirection: Flickable.VerticalFlick
+      interactive: true
+      contentWidth: changelog.width; contentHeight: changelog.height
+      clip: true
+
+      Changelog {
+        id: changelog
+        width: changelogFlickable.width
+
+        onClose: {
+          changelogPopup.close()
+        }
+      }
+    }
+  }
+
   // Toast
   Popup {
       id: toast

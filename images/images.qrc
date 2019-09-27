@@ -4,6 +4,9 @@
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
         <file alias="karma-logo.svg">icons/karma-logo.svg</file>
     </qresource>
+    <qresource prefix="/pictures">
+        <file alias="qfield-love.png">pictures/qfield-love.png</file>
+    </qresource>
     <qresource prefix="/">
         <file>themes/qfield/hdpi/ic_add_circle_outline_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_add_circle_white_24dp.png</file>
