@@ -55,7 +55,7 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
   for ( auto it = layers.constBegin(); it != layers.constEnd(); ++it )
   {
     QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( it.value() );
-    if ( !layer || !layer->flags().testFlag( QgsMapLayer::Searchable ) )
+    if ( !layer || !layer->dataProvider() || !layer->flags().testFlag( QgsMapLayer::Searchable ) )
       continue;
 
     QgsExpression expression( layer->displayExpression() );
