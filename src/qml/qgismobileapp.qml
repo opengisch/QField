@@ -490,6 +490,7 @@ ApplicationWindow {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
+      bgcolor: "#212121"
       checkable: true
 
       iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
@@ -514,7 +515,7 @@ ApplicationWindow {
           PropertyChanges {
             target: gpsButton
             iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-            bgcolor: "#AA999999"
+            bgcolor: "#88212121"
           }
         },
 
