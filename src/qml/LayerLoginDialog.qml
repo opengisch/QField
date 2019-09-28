@@ -163,6 +163,12 @@ Item {
           Layout.fillHeight: true
       }
     }
+
+    onVisibleChanged: {
+        if (visible) {
+            username.forceActiveFocus();
+        }
+    }
 }
 
 /*##^## Designer {
