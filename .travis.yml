@@ -85,7 +85,8 @@ jobs:
           packages:
           - qttools5-dev-tools
       install:
-        pip install -r requirements.txt
+        - pip install -r requirements.txt
+        - pip install pygithub
       script: ./scripts/ci/update-translations.sh
 
 matrix:
