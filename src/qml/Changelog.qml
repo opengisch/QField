@@ -234,11 +234,8 @@ Item {
                 color: laterButton.down ? '#40000000' : '#60000000'
             }
 
-            property var remindDate: new Date()
 
             onClicked: {
-              remindDate.setDate( remindDate.getDate()+1 )
-              settings.setValue( "/QField/RemindDateForCrowdfunding", remindDate )
               close()
             }
           }
