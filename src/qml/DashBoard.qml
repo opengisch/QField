@@ -113,8 +113,8 @@ Controls.Pane {
           implicitWidth: 36 * 2 * dp
           x: modeswitch.leftPadding
           radius: 4 * dp
-          color:  "#80CC28"
-          border.color: "white"
+          color:  "#66212121"
+          border.color: "#44FFFFFF"
           anchors.verticalCenter: parent.verticalCenter
           Image {
             height: parent.height
@@ -122,6 +122,7 @@ Controls.Pane {
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             source: Style.getThemeIcon( 'ic_map_white_48dp' )
+            opacity: 0.4
           }
           Image {
             height: parent.height
@@ -129,13 +130,14 @@ Controls.Pane {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             source: Style.getThemeIcon( 'ic_create_white_24dp' )
+            opacity: 0.4
           }
           Rectangle {
             x: modeswitch.checked ? parent.width - width : 0
             width: 36 * dp
             height: 36 * dp
             radius: 4 * dp
-            color:  "#64B5F6"
+            color:  "#80CC28"
             border.color: "white"
             Image {
               height: parent.height
@@ -144,6 +146,12 @@ Controls.Pane {
               anchors.left:  modeswitch.checked ? undefined : parent.left
               anchors.verticalCenter: parent.verticalCenter
               source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
+            }
+            Behavior on x {
+              PropertyAnimation {
+                duration: 100
+                easing.type: Easing.InQuart
+              }
             }
           }
         }
