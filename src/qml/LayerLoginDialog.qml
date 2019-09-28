@@ -59,7 +59,7 @@ Item {
         text: "Login information"
         font.pointSize: 14
         font.bold: true
-        color: "#000000"
+        color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
