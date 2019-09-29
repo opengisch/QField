@@ -177,6 +177,7 @@ ApplicationWindow {
           identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
         }
       }
+
       Component.onCompleted: platformUtilities.showRateThisApp()
     }
 
@@ -392,7 +393,6 @@ ApplicationWindow {
     id: dashBoard
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-    width: open ? Math.min( 300 * dp, mainWindow.width) : 0
   }
 
   DropShadow {
