@@ -14,15 +14,11 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-armv7.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-armv7-X.apk
     curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-arm64_v8a.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-armv64-v8a-X.apk
     curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-x86.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-x86-X.apk
-    curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-armv7-Android-5.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-armv7-5.apk
-    curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-x86-Android-5.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-x86-5.apk
 
     echo -e "\e[93m * Deploying app to github release...\e[0m"
     ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-armv7.apk ${TRAVIS_TAG}
     ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-x86.apk ${TRAVIS_TAG}
     ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-arm64_v8a.apk ${TRAVIS_TAG}
-    ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-armv7-Android-5.apk ${TRAVIS_TAG}
-    ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-x86-Android-5.apk ${TRAVIS_TAG}
 
     echo -e "\e[93m * Deploying app to google play (beta)...\e[0m"
     ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-armv7-Android-5.apk ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86-Android-5.apk /tmp/qfield-${TRAVIS_TAG}-armv7.apk ch.opengis.qfield /tmp/qfield-${TRAVIS_TAG}-x86.apk /tmp/qfield-${TRAVIS_TAG}-arm64_v8a.apk 

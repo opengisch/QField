@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-20190922}
+  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-testssl1_1}
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -56,24 +56,6 @@ jobs:
       name: "📱 Build X86"
       env:
         - ARCH=x86
-      if: type = pull_request OR tag IS present OR branch = master
-    - stage: test
-      name: "☎  Build ARMv7 (Android 5)"
-      env:
-        - QFIELD_SDK_VERSION=20190128
-        - ARCH=armv7
-        - ANDROID_VERSION=5
-      before_script:
-        - patch -p1 < scripts/ci/android-5.patch
-      if: type = pull_request OR tag IS present OR branch = master
-    - stage: test
-      name: "☎  Build X86 (Android 5)"
-      env:
-        - QFIELD_SDK_VERSION=20190128
-        - ANDROID_VERSION=5
-        - ARCH=x86
-      before_script:
-        - patch -p1 < scripts/ci/android-5.patch
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       name: "🍺 Deploy"
