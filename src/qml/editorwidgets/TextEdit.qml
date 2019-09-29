@@ -19,6 +19,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font.pointSize: 14
+    color: value === undefined || !enabled ? 'gray' : 'black'
 
     text: value !== undefined ? value : ''
 
