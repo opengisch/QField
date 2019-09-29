@@ -398,7 +398,6 @@ ApplicationWindow {
     id: dashBoard
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-    width: open ? Math.min( 300 * dp, mainWindow.width) : 0
   }
 
   DropShadow {

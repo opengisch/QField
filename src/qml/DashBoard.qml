@@ -4,7 +4,7 @@ import QtQuick.Controls 2.4 as Controls
 import QtQuick.Layouts 1.1
 import "js/style.js" as Style
 
-Controls.Pane {
+Controls.Drawer {
   objectName: "dashBoard"
 
   signal showMenu
@@ -14,29 +14,25 @@ Controls.Pane {
   property MapSettings mapSettings
 
   property color mainColor: "#80CC28"
-  padding: 0
 
-  anchors { left: parent.left; bottom: parent.bottom; top: parent.top; }
+  width: Math.min( 300 * dp, mainWindow.width)
+  height: parent.height
+  edge: Qt.LeftEdge
+  dragMargin: 10 * dp
+  padding: 0
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   readonly property bool open: dashBoard.visible && !preventFromOpening
 
-  visible: false
+  position: 0
   focus: visible
   clip: true
 
   Keys.onReleased: {
     if ( event.key === Qt.Key_Back ||
       event.key === Qt.Key_Escape ) {
-      visible=false
+      close()
       event.accepted = true
-    }
-  }
-
-  Behavior on width {
-    NumberAnimation {
-      duration: 200
-      easing.type: Easing.InOutQuad
     }
   }
 
@@ -61,11 +57,11 @@ Controls.Pane {
 
       Row {
         height: childrenRect.height
-        spacing: 4 * dp
+        spacing: 1 * dp
 
         Controls.ToolButton {
-          height: 48 * dp
-          width: 48 * dp
+          height: 56 * dp
+          width: 56 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent
@@ -75,10 +71,11 @@ Controls.Pane {
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( 'ic_menu_white_24dp' )
-
+              source: Style.getThemeIcon( 'ic_chevron_left_white_24dp' )
             }
           }
+
+          onClicked: close()
         }
 
         Controls.ToolButton {
