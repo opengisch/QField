@@ -52,6 +52,12 @@ class QgsQuickCoordinateTransformer : public QObject
     //! Transformation context, can be set from QgsQuickMapSettings::transformContext()
     Q_PROPERTY( QgsCoordinateTransformContext transformContext READ transformContext WRITE setTransformContext NOTIFY transformContextChanged )
 
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    Q_PROPERTY( qreal deltaZ READ deltaZ WRITE setDeltaZ NOTIFY deltaZChanged )
+
   public:
     //! Creates new coordinate transformer
     explicit QgsQuickCoordinateTransformer( QObject *parent = nullptr );
@@ -83,6 +89,18 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     QgsCoordinateTransformContext transformContext() const;
 
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    qreal deltaZ() const;
+
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    void setDeltaZ(const qreal& deltaZ);
+
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
     void projectedPositionChanged();
@@ -99,12 +117,24 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     void transformContextChanged();
 
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    void deltaZChanged();
+
   private:
     void updatePosition();
 
     QgsPoint mProjectedPosition;
     QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
+
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    qreal mDeltaZ;
 };
 
 #endif // QGSQUICKCOORDINATETRANSFORMER_H
