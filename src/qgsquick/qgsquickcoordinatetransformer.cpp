@@ -126,10 +126,11 @@ void QgsQuickCoordinateTransformer::updatePosition()
 
 qreal QgsQuickCoordinateTransformer::deltaZ() const
 {
-    return mDeltaZ;
+  return mDeltaZ;
 }
 
 void QgsQuickCoordinateTransformer::setDeltaZ(const qreal& deltaZ)
 {
-    mDeltaZ = deltaZ;
+  emit deltaZChanged();
+  mDeltaZ = deltaZ;
 }
