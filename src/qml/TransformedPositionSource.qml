@@ -14,6 +14,7 @@ PositionSource {
                                              } else {
                                                0.0
                                              }
+  property alias deltaZ: _ct.deltaZ
 
   property CoordinateTransformer ct: CoordinateTransformer {
     id: _ct
