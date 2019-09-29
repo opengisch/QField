@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import Qt.labs.settings 1.0
 
 Popup {
+  id: popup
+
   property alias antennaHeight:  antennaHeightInput.text
   property alias antennaHeightActivated: antennaHeightActivated.checked
 
@@ -17,6 +19,10 @@ Popup {
 
     header: PageHeader {
       title: qsTr("Positionig Settings")
+
+      showCancelButton: false
+
+      onFinished: popup.visible = false
     }
 
     GroupBox {

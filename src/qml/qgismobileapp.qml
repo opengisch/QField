@@ -128,6 +128,7 @@ ApplicationWindow {
     id: positionSource
     active: settings.valueBool( "/QField/Positioning/Active", false )
     destinationCrs: mapCanvas.mapSettings.destinationCrs
+    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
   }
 
   Item {
@@ -919,6 +920,13 @@ ApplicationWindow {
         positionInformationView.visible = checked
       }
     }
+
+    Controls.MenuItem {
+      text: qsTr( "Configure antenna height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
+      onTriggered: {
+        positioningSettings.visible = true
+      }
+    }
   }
 
   Button {
@@ -1204,6 +1212,16 @@ ApplicationWindow {
         iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
       mainWindow.keyHandler.focus=true
     }
+  }
+
+  PositioningSettings {
+    id: positioningSettings
+    visible: false
+
+    x: 24 * dp
+    y: 24 * dp
+    width: parent.width - 48 * dp
+    height: parent.height - 48 * dp
   }
 
   QFieldSettings {
