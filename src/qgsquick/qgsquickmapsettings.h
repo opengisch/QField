@@ -163,6 +163,12 @@ class QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::rotation
     void setRotation( double rotation );
 
+    //! \copydoc QgsQuickMapSettings::backgroundColor
+    QColor backgroundColor() const;
+
+    //! \copydoc QgsQuickMapSettings::setBackgroundColor
+    void setBackgroundColor( QColor &color );
+
     //! \copydoc QgsMapSettings::outputSize()
     QSize outputSize() const;
 
