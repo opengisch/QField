@@ -6,10 +6,13 @@ import "js/style.js" as Style
 
 ToolBar {
   property alias title: titleLabel.text
+  property alias showCancelButton: cancelButton.visible
+
   height: 48 * dp
 
   signal cancel
   signal apply
+  signal finished
 
   anchors {
     top: parent.top
@@ -37,7 +40,11 @@ ToolBar {
 
       iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
 
-      onClicked: apply()
+      onClicked:
+      {
+        apply()
+        finished()
+      }
     }
 
     Label {
@@ -66,6 +73,7 @@ ToolBar {
 
       onClicked: {
         cancel()
+        finished()
       }
     }
   }
