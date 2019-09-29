@@ -47,5 +47,7 @@
         <file>LayerLoginDialog.qml</file>
         <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/qmldir</file>
+        <file>PositioningSettings.qml</file>
+        <file>PageHeader.qml</file>
     </qresource>
 </RCC>
