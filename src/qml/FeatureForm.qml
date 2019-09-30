@@ -267,7 +267,6 @@ Page {
           onStatusChanged: {
             if ( attributeEditorLoader.status === Loader.Error )
             {
-              console.warn( "Editor widget type '" + EditorWidget + "' not avaliable." )
               source = 'editorwidgets/TextEdit.qml'
             }
           }

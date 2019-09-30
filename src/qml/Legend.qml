@@ -50,7 +50,13 @@ TreeView {
     //small hack: since the image of a root item should be aligned to the expand triangles of branches, it needs to be printed here
     Image {
       visible: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
-      source: "image://legend/" + layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
+      source: {
+          var legendNode = layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
+          if ( legendNode )
+            return "image://legend/" + legendNode
+          else
+            return unknown
+      }
       width: delegatedItem.height
       height: delegatedItem.height
       x: ( 24 * dp - width )/2

@@ -5,7 +5,7 @@ import "js/style.js" as Style
 VisibilityFadingRow {
   id: digitizingToolbar
   property RubberbandModel rubberbandModel
-  property bool isDigitizing: rubberbandModel.vertexCount > 1 //!< Readonly
+  property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   spacing: 4 * dp
   padding: 4 * dp
@@ -33,7 +33,7 @@ VisibilityFadingRow {
       Style.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
-      if ( Number( rubberbandModel.geometryType ) === 0 || stateMachine.state === 'measure' )
+      if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 || stateMachine.state === 'measure' )
       {
         false
       }
@@ -76,7 +76,7 @@ VisibilityFadingRow {
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
+    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
