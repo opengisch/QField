@@ -38,10 +38,13 @@ Item {
 
       Rectangle {
         id: backgroundRect
-        anchors.fill: parent
+        anchors.top: label.top
+        anchors.left: label.left
+        width: label.width
+        height: label.height - label.bottomPadding / 2
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
-        color: "transparent"
+        color: enabled ? "#dddddd" : "transparent"
         radius: 2
         visible: enabled
       }
@@ -53,7 +56,7 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 14
-        height: label.font.height + 20 * dp
+        height: fontMetrics.height + 20 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -96,6 +99,7 @@ Item {
         color: value === undefined || !enabled ? 'gray' : 'black'
 
         background: Rectangle {
+          visible: !enabled
           y: label.height - height - label.bottomPadding / 2
           implicitWidth: 120 * dp
           height: label.activeFocus ? 2 * dp : 1 * dp
