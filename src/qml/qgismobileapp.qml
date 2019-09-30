@@ -369,8 +369,8 @@ ApplicationWindow {
 
   DropShadow {
     anchors.fill: featureForm
-    horizontalOffset: -2 * dp
-    verticalOffset: 0
+    horizontalOffset: mainWindow.width >= mainWindow.height ? -2 * dp : 0
+    verticalOffset: mainWindow.width < mainWindow.height ? -2 * dp : 0
     radius: 6.0 * dp
     samples: 17
     color: "#80000000"
@@ -836,7 +836,7 @@ ApplicationWindow {
     visible: state != "Hidden"
     focus: visible
 
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    anchors { right: parent.right; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
 
@@ -887,7 +887,6 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     featureModel: digitizingFeature
-    width: qfieldSettings.fullScreenIdentifyView || mainWindow.width<300*dp? mainWindow.width : Math.min(Math.max(200*dp, mainWindow.width/3), mainWindow.width)
   }
 
   Keys.onReleased: {
