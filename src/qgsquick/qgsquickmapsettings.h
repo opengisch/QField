@@ -173,7 +173,7 @@ class QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::backgroundColor
     QColor backgroundColor() const;
 
-    //! \copydoc QgsQuickMapSettings::setBackgroundColor
+    //! \copydoc QgsQuickMapSettings::backgroundColor
     void setBackgroundColor( const QColor &color );
 
     //! \copydoc QgsMapSettings::outputSize()
