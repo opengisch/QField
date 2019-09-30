@@ -36,8 +36,6 @@
       <item>Qt5Positioning</item>
       <item>Qt5OpenGL</item>  
       <item>Qt5AndroidExtras</item>
-      <item>Qt5QuickParticles</item>
-      <item>Qt5MultimediaQuick</item>
      </array>
 
     <array name="bundled_in_lib">
