@@ -1,5 +1,5 @@
 /***************************************************************************
-                            FeatureForm.qml
+                            FeatureListForm.qml
                               -------------------
               begin                : 10.12.2014
               copyright            : (C) 2014 by Matthias Kuhn
@@ -36,7 +36,24 @@ Rectangle {
   signal showMessage(string message)
   signal editGeometry
 
-  width: props.isVisible ? qfieldSettings.fullScreenIdentifyView || parent.width<300*dp ? parent.width : Math.min(Math.max(200*dp, parent.width/3), parent.width) : 0
+  width: {
+      if (props.isVisible) {
+          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
+              parent.width
+          } else {
+              Math.min(Math.max( 200 * dp, parent.width / 3), parent.width)
+          }
+      } else { 0 }
+  }
+  height: {
+     if (props.isVisible) {
+         if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
+             parent.height
+         } else {
+             Math.min(Math.max( 200 * dp, parent.height / 2 ), parent.height)
+         }
+     } else { 0 }
+  }
 
   states: [
     State {
@@ -121,7 +138,7 @@ Rectangle {
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: parent.height - featureListToolBar.height
+    anchors.bottom: parent.bottom
 
     property bool shown: false
 
@@ -326,6 +343,21 @@ Rectangle {
 
   Behavior on width {
     PropertyAnimation {
+      duration: parent.width > parent.height ? 250 : 0
+      easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze('formresize')
+        else
+          mapCanvasMap.unfreeze('formresize')
+      }
+    }
+  }
+
+  Behavior on height {
+    PropertyAnimation {
+      duration: parent.width < parent.height ? 250 : 0
       easing.type: Easing.InQuart
 
       onRunningChanged: {

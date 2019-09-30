@@ -161,23 +161,23 @@ ApplicationWindow {
 
     /* The base map */
     MapCanvas {
+
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
 
       anchors.fill: parent
 
       onClicked: {
-        if (locatorItem.searching)
-        {
-          locatorItem.searching = false
-        }
-        else if( !overlayFeatureFormDrawer.visible )
-        {
-          identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
-        }
+          if (locatorItem.searching) {
+              locatorItem.searching = false
+          } else if( !overlayFeatureFormDrawer.visible ) {
+              identifyTool.identify( Qt.point( parent.mouseX, parent.mouseY ) )
+          }
       }
+
       Component.onCompleted: platformUtilities.showRateThisApp()
     }
+
 
   /**************************************************
    * Position markers
@@ -368,8 +368,8 @@ ApplicationWindow {
 
   DropShadow {
     anchors.fill: featureForm
-    horizontalOffset: -2 * dp
-    verticalOffset: 0
+    horizontalOffset: mainWindow.width >= mainWindow.height ? -2 * dp : 0
+    verticalOffset: mainWindow.width < mainWindow.height ? -2 * dp : 0
     radius: 6.0 * dp
     samples: 17
     color: "#80000000"
@@ -479,11 +479,25 @@ ApplicationWindow {
 
   Column {
     id: mainToolBar
-    anchors.left: dashBoard.right
-    anchors.leftMargin: 4 * dp
-    anchors.top: mainMenuBar.bottom
-    anchors.topMargin: 4 * dp
+    anchors.right: mapCanvas.right
+    anchors.rightMargin: 4 * dp
+    anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: digitizingToolbar.height + 4 * dp
     spacing: 4 * dp
+
+    Button {
+      id: gpsLinkButton
+      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
+      round: true
+      bgcolor: "#212121"
+      checkable: true
+
+      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+
+      readonly property bool linkActive: gpsButton.state == "On" && checked
+
+      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
+    }
 
     Button {
       id: gpsButton
@@ -500,7 +514,7 @@ ApplicationWindow {
           PropertyChanges {
             target: gpsButton
             iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-            bgcolor: "lightgrey"
+            bgcolor: "#88212121"
           }
         },
 
@@ -508,8 +522,9 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            bgcolor: "#64B5F6"
             iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: "#64B5F6"
+            opacity:1
           }
         }
       ]
@@ -560,19 +575,6 @@ ApplicationWindow {
             break;
         }
       }
-    }
-
-    Button {
-      id: gpsLinkButton
-      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
-      round: true
-      checkable: true
-
-      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
-
-      readonly property bool linkActive: gpsButton.state == "On" && checked
-
-      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
   }
 
@@ -810,8 +812,9 @@ ApplicationWindow {
     visible: messageLog.unreadMessages
 
     anchors.right: mapCanvas.right
-    anchors.top: parent.top
-    anchors.margins: 4 * dp
+    anchors.top: locatorItem.bottom
+    anchors.topMargin: 10 * dp
+    anchors.rightMargin: 15 * dp
     width: 36 * dp
     height: 36 * dp
 
@@ -830,7 +833,7 @@ ApplicationWindow {
     visible: state != "Hidden"
     focus: visible
 
-    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+    anchors { right: parent.right; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
 
@@ -881,7 +884,6 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     featureModel: digitizingFeature
-    width: qfieldSettings.fullScreenIdentifyView || mainWindow.width<300*dp? mainWindow.width : Math.min(Math.max(200*dp, mainWindow.width/3), mainWindow.width)
   }
 
   Keys.onReleased: {
@@ -1078,7 +1080,7 @@ ApplicationWindow {
     id: openProjectDialog
     title: qsTr( "Open project" )
     visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs)" ), qsTr( "All files (*)" ) ]
+    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
     width: parent.width
     height: parent.height
@@ -1126,10 +1128,9 @@ ApplicationWindow {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    property var expireDate: new Date(2019,9,9)
-    visible: ( settings.value( "/QField/CurrentVersion", "" ) !== versionCode
-              || new Date() > settings.value( "/QField/RemindDateForCrowdfunding", "" ) )
-             && expireDate > new Date()
+    property var expireDate: new Date(2019,9,16)
+    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+               && expireDate > new Date()
 
     x: 24 * dp
     y: 24 * dp

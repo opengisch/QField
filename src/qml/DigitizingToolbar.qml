@@ -16,23 +16,11 @@ VisibilityFadingRow {
   signal confirm
 
   Button {
-    id: removeVertexButton
-    iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
-    visible: isDigitizing
-    round: true
-    bgcolor: "#616161"
-
-    onClicked: {
-      vertexRemoved()
-    }
-  }
-
-  Button {
     id: cancelButton
     iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: "#616161"
+    bgcolor: "#900000"
 
     onClicked: {
       cancel()
@@ -61,7 +49,7 @@ VisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: "#FFD600"
+    bgcolor: "#80cc28"
 
     onClicked: {
       // remove editing vertex for lines and polygons
@@ -71,12 +59,24 @@ VisibilityFadingRow {
   }
 
   Button {
+    id: removeVertexButton
+    iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
+    visible: rubberbandModel.vertexCount > 1
+    round: true
+    bgcolor: "#212121"
+
+    onClicked: {
+      vertexRemoved()
+    }
+  }
+
+  Button {
     id: addVertexButton
     iconSource: {
         Style.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#FFD600" : "#2E7D32"
+    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
