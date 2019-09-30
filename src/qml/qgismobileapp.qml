@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 import QtQuick 2.11
-import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.4 as Controls
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
@@ -670,21 +670,28 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
+    width: Math.max(200*dp, mainWindow.width/4)
+
     Controls.MenuItem {
       id: openProjectMenuItem
       property ProjectSource __projectSource
 
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
+      font.pointSize: 14
+
       text: qsTr( "Open Project" )
-      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         __projectSource = platformUtilities.openProject()
       }
     }
 
-    Controls.MenuSeparator {}
-
     Controls.MenuItem {
       text: qsTr( "Settings" )
+
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
+      font.pointSize: 14
 
       onTriggered: {
         qfieldSettings.visible = true
@@ -694,6 +701,10 @@ ApplicationWindow {
     Controls.MenuItem {
       text: qsTr( "About" )
 
+      font.pointSize: 14
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
+
       onTriggered: {
         aboutDialog.visible = true
       }
@@ -701,6 +712,10 @@ ApplicationWindow {
 
     Controls.MenuItem {
       text: qsTr( "Log" )
+      font.pointSize: 14
+
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
 
       onTriggered: {
         messageLog.visible = true
@@ -711,44 +726,46 @@ ApplicationWindow {
     Controls.MenuItem {
       text: qsTr( 'Measure Tool' )
 
+      font.pointSize: 14
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
+
       onTriggered: {
         changeMode( 'measure' )
       }
     }
 
-    Controls.Menu {
-      id: printMenu
-      title: qsTr( "Print to PDF" )
+    Controls.MenuItem {
+      id: printItem
+      text: qsTr( "Print to PDF" )
+
+      font.pointSize: 14
+      width: Math.max(200*dp, mainWindow.width/4)
+      height: 48 * dp
 
       Instantiator {
 
-        id: layoutListInstantiator
+        id: printLayoutListInstantiator
 
         model: PrintLayoutListModel {
         }
+      }
 
-        Controls.MenuItem {
-          text: Title
-
-          onTriggered: {
-            iface.print( Index )
-          }
-        }
-        onObjectAdded: printMenu.insertItem(index, object)
-        onObjectRemoved: printMenu.removeItem(object)
+      onTriggered: {
+        printMenu.popup( printItem.x+printItem.width, printItem.y)
       }
 
       Connections {
         target: iface
 
         onLoadProjectEnded: {
-          layoutListInstantiator.model.project = qgisProject
-          layoutListInstantiator.model.reloadModel()
-          printMenu.visible = layoutListInstantiator.model.rowCount()
+          printLayoutListInstantiator.model.project = qgisProject
+          printLayoutListInstantiator.model.reloadModel()
+          //printItem.visible = printLayoutListInstantiator.model.rowCount()>0
+          //printItem.height = printLayoutListInstantiator.model.rowCount() ? 48 * dp : 0
         }
       }
     }
-
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
@@ -766,6 +783,44 @@ ApplicationWindow {
       }
     }
     */
+  }
+
+  Controls.Menu {
+    id: printMenu
+
+    width: Math.max(200*dp, mainWindow.width/4)
+    font.pointSize: 14
+
+    Instantiator {
+
+      id: layoutListInstantiator
+
+      model: PrintLayoutListModel {
+      }
+
+      Controls.MenuItem {
+        text: Title
+
+        width: Math.max(200*dp, mainWindow.width/4)
+        height: 48 * dp
+        font.pointSize: 14
+
+        onTriggered: {
+          iface.print( Index )
+        }
+      }
+      onObjectAdded: printMenu.insertItem(index, object)
+      onObjectRemoved: printMenu.removeItem(object)
+    }
+
+    Connections {
+      target: iface
+
+      onLoadProjectEnded: {
+        layoutListInstantiator.model.project = qgisProject
+        layoutListInstantiator.model.reloadModel()
+      }
+    }
   }
 
   Controls.Menu {
