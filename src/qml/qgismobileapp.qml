@@ -480,11 +480,25 @@ ApplicationWindow {
 
   Column {
     id: mainToolBar
-    anchors.left: dashBoard.right
-    anchors.leftMargin: 4 * dp
-    anchors.top: mainMenuBar.bottom
-    anchors.topMargin: 4 * dp
+    anchors.right: mapCanvas.right
+    anchors.rightMargin: 4 * dp
+    anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: digitizingToolbar.height + 4 * dp
     spacing: 4 * dp
+
+    Button {
+      id: gpsLinkButton
+      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
+      round: true
+      bgcolor: "#212121"
+      checkable: true
+
+      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+
+      readonly property bool linkActive: gpsButton.state == "On" && checked
+
+      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
+    }
 
     Button {
       id: gpsButton
@@ -501,7 +515,7 @@ ApplicationWindow {
           PropertyChanges {
             target: gpsButton
             iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
-            bgcolor: "lightgrey"
+            bgcolor: "#88212121"
           }
         },
 
@@ -509,8 +523,9 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            bgcolor: "#64B5F6"
             iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: "#64B5F6"
+            opacity:1
           }
         }
       ]
@@ -563,19 +578,6 @@ ApplicationWindow {
             break;
         }
       }
-    }
-
-    Button {
-      id: gpsLinkButton
-      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
-      round: true
-      checkable: true
-
-      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
-
-      readonly property bool linkActive: gpsButton.state == "On" && checked
-
-      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
   }
 
