@@ -3122,7 +3122,7 @@ def my_form_open(dialog, layer, feature):
       </map-layer-style-manager>
       <auxiliaryLayer/>
       <flags>
-        <Identifiable>1</Identifiable>
+        <Identifiable>0</Identifiable>
         <Removable>1</Removable>
         <Searchable>0</Searchable>
       </flags>

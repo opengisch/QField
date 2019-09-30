@@ -662,7 +662,7 @@ def my_form_open(dialog, layer, feature):
         <field labelOnTop="1" name="usage_frequency"/>
       </labelOnTop>
       <widgets/>
-      <previewExpression>concat(name, ' - '|| org)</previewExpression>
+      <previewExpression>if( name is not null or org is not null, concat(name, ' - '|| org), 'Unknown name')</previewExpression>
       <mapTip></mapTip>
     </maplayer>
   </projectlayers>
