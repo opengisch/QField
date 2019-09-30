@@ -160,6 +160,12 @@ ApplicationWindow {
     anchors.right: parent.right
     anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
 
+    Rectangle {
+      id: mapCanvasBackground
+      anchors.fill: parent
+      color: mapSettings.backgroundColor
+    }
+
     /* The base map */
     MapCanvas {
       id: mapCanvasMap
@@ -932,6 +938,7 @@ ApplicationWindow {
       onLoadProjectEnded: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
+        mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
     }
   }

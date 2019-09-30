@@ -248,7 +248,11 @@ QColor QgsQuickMapSettings::backgroundColor() const
   return mMapSettings.backgroundColor();
 }
 
-void QgsQuickMapSettings::setBackgroundColor( QColor &color )
+void QgsQuickMapSettings::setBackgroundColor( const QColor &color )
 {
+  if ( mMapSettings.backgroundColor() == color )
+    return;
+
   mMapSettings.setBackgroundColor( color );
+  emit backgroundColorChanged();
 }

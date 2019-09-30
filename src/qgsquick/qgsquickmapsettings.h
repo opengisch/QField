@@ -74,6 +74,13 @@ class QgsQuickMapSettings : public QObject
     Q_PROPERTY( double rotation READ rotation WRITE setRotation NOTIFY rotationChanged )
 
     /**
+     * The background color used to render the map
+     * 
+     * The value is set to the project's bacckground color setting on QgsProject::readProject
+     */
+    Q_PROPERTY( QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged )
+
+    /**
      * The size of the resulting map image
      *
      * Automatically loaded from project on QgsProject::readProject
@@ -167,7 +174,7 @@ class QgsQuickMapSettings : public QObject
     QColor backgroundColor() const;
 
     //! \copydoc QgsQuickMapSettings::setBackgroundColor
-    void setBackgroundColor( QColor &color );
+    void setBackgroundColor( const QColor &color );
 
     //! \copydoc QgsMapSettings::outputSize()
     QSize outputSize() const;
@@ -208,6 +215,9 @@ class QgsQuickMapSettings : public QObject
 
     //! \copydoc QgsQuickMapSettings::rotation
     void rotationChanged();
+
+    //! \copydoc QgsQuickMapSettings::backgroundColor
+    void backgroundColorChanged();
 
     //! \copydoc QgsQuickMapSettings::visibleExtent
     void visibleExtentChanged();
