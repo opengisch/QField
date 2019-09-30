@@ -18,6 +18,9 @@ equals ( ANDROID_TARGET_ARCH, 'armeabi-v7a' ) {
 equals ( ANDROID_TARGET_ARCH, 'x86' ) {
   ANDROID_VERSION_SUFFIX = 4
 }
+equals ( ANDROID_TARGET_ARCH, 'arm64-v8a' ) {
+  ANDROID_VERSION_SUFFIX = 5
+}
 
 VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${VERSION_RC}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
 VERSTR = '$${VERSION}$${VERSION_SUFFIX} - $${CODENAME}'
