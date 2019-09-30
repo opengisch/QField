@@ -144,6 +144,7 @@ ApplicationWindow {
      * On top of it are the base map and other items like GPS icon...
      */
     id: mapCanvas
+    clip: true
 
     /* Initialize a MapSettings object. This will contain information about
      * the current canvas extent. It is shared between the base map and all
