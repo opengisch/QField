@@ -143,6 +143,7 @@ ApplicationWindow {
      * On top of it are the base map and other items like GPS icon...
      */
     id: mapCanvas
+    clip: true
 
     /* Initialize a MapSettings object. This will contain information about
      * the current canvas extent. It is shared between the base map and all
@@ -158,6 +159,12 @@ ApplicationWindow {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
+
+    Rectangle {
+      id: mapCanvasBackground
+      anchors.fill: parent
+      color: mapSettings.backgroundColor
+    }
 
     /* The base map */
     MapCanvas {
@@ -930,6 +937,7 @@ ApplicationWindow {
       onLoadProjectEnded: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
+        mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
     }
   }
