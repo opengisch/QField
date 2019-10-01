@@ -53,14 +53,14 @@ jobs:
         - ARCH=arm64_v8a
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build X86"
+      name: "📱 Build x86"
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build X86_64"
+      name: "📱 Build x86_64"
       env:
-        - ARCH=X86_64
+        - ARCH=x86_64
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       name: "🍺 Deploy"
