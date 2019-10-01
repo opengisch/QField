@@ -57,6 +57,11 @@ jobs:
       env:
         - ARCH=x86
       if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "📱 Build X86_64"
+      env:
+        - ARCH=X86_64
+      if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       name: "🍺 Deploy"
       if: type = pull_request OR tag IS present OR branch = master
