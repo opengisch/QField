@@ -910,7 +910,7 @@ ApplicationWindow {
     opacity: 0.5
     visible: false
 
-    Controls.BusyIndicator {
+    BusyIndicator {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
@@ -941,11 +941,11 @@ ApplicationWindow {
     }
   }
 
-  Controls.BusyIndicator {
+  BusyIndicator {
     id: busyIndicator
     anchors.centerIn: mapCanvas
-    width: 36 * dp
-    height: 36 * dp
+    width: 100 * dp
+    height: 100 * dp
     running: mapCanvasMap.isRendering
   }
 
