@@ -698,6 +698,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
+        dashBoard.visible = false
         qfieldSettings.visible = true
         highlighted = false
       }
@@ -712,6 +713,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
+        dashBoard.visible = false
         aboutDialog.visible = true
         highlighted = false
       }
@@ -726,6 +728,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
+        dashBoard.visible = false
         messageLog.visible = true
         highlighted = false
       }
