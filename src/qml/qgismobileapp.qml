@@ -678,6 +678,7 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       text: qsTr( "Open Project" )
       onTriggered: {
@@ -694,6 +695,7 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
         qfieldSettings.visible = true
@@ -707,6 +709,7 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
         aboutDialog.visible = true
@@ -720,6 +723,7 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
         messageLog.visible = true
@@ -735,6 +739,7 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
         changeMode( 'measure' )
@@ -749,9 +754,10 @@ ApplicationWindow {
       font.pointSize: 14
       width: parent.width
       height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
-        printMenu.popup( printItem.x+printItem.width, 2 * dp )
+        printMenu.popup( mainMenu.x, 2 * dp )
         highlighted = false
       }
     }
@@ -805,6 +811,7 @@ ApplicationWindow {
         width: parent.width
         height: 48 * dp
         font.pointSize: 14
+        leftPadding: 10 * dp
 
         onTriggered: {
           iface.print( Index )
