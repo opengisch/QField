@@ -105,6 +105,7 @@
 <li><a class="reference internal" href="#forms-and-fields">Formularios y campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir formulario emergente de atributos</a></li>
 <li><a class="reference internal" href="#field-widget">Control de campo</a><ul>
+<li><a class="reference internal" href="#relation-widget">Relation Widget</a></li>
 <li><a class="reference internal" href="#external-resource-photo-settings">Recurso externo (configuración de fotografía)</a></li>
 </ul>
 </li>
@@ -302,13 +303,40 @@
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Otros</p>
+<tr class="row-odd"><td>Relation Widget</td>
+<td><span class="yay">✔</span></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><p class="first last">Otros</p>
 </td>
 <td><span class="nay">✘</span></td>
 <td><a class="reference internal" href="../development/index.html#make-it-grow"><span>Hazlo crecer, hazlo tuyo</span></a></td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="relation-widget">
+<h4>Relation Widget<a class="headerlink" href="#relation-widget" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
+</div>
+</div>
+<p>The relation widget shows all the referencing child features in a list. It&#8217;s possible to add, delete and open them.</p>
+<p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
+<p><strong>Key handling</strong></p>
+<p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
+<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it&#8217;s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
+<p><strong>Many-To-Many relations</strong></p>
+<p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
+<p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
+</div>
+</div>
+<p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
+</div>
 <div class="section" id="external-resource-photo-settings">
 <h4>Recurso externo (configuración de fotografía)<a class="headerlink" href="#external-resource-photo-settings" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>El tipo de control &#8220;Adjunto&#8221; se usa para guardar la ruta a fotografías tomadas.</p>

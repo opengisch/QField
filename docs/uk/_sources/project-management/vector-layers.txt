@@ -95,8 +95,43 @@ The field widgets from QGIS are supported on a best effort basis.
 +-------------------+-----------------+-------------------------------------------------+
 | Relation Reference| :yay:`✔`        |                                                 |
 +-------------------+-----------------+-------------------------------------------------+
+| Relation Widget   | :yay:`✔`        |                                                 |
++-------------------+-----------------+-------------------------------------------------+
 | Others            | :nay:`✘`        | :ref:`make_it_grow`                             |
 +-------------------+-----------------+-------------------------------------------------+
+
+Relation Widget
+................
+
+For more information refer to the relations chapter of the official `QGIS Documentation <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations>`_.
+
+.. container:: clearer text-center
+
+  .. figure:: /images/relation_editor_widget_list.png
+     :width: 500px
+
+The relation widget shows all the referencing child features in a list. It's possible to add, delete and open them.
+
+The visual identification of the list entries are done a Display Expression on the child layer.
+
+**Key handling**
+
+Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys. 
+
+Child features can be added before the parent is finaly saved - means while adding a parent. But it's blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.
+
+**Many-To-Many relations**
+
+On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality). 
+
+The second case is usually used when there are additional relation information (e.g. percentage) in the linking table. 
+
+.. container:: clearer text-center
+
+ .. figure:: /images/relation_widget_cardinality.png
+     :width: 500px
+
+In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.
 
 External Resource (photo settings)
 .................................
