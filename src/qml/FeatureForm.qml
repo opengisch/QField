@@ -395,7 +395,7 @@ Page {
 
     background: Rectangle {
       //testwise have special color for buffered
-      color: model.constraintsValid ?  form.state === 'Add' ? 'blue' : '#80CC28' : 'orange'
+      color: model.constraintsValid ?  '#80CC28' : 'orange'
     }
 
     RowLayout {
@@ -435,14 +435,15 @@ Page {
             layerName = currentLayer.name
 
           if ( form.state === 'Add' )
-            qsTr( 'Add feature on <i>%1</i>' ).arg(layerName )
+            qsTr( 'Add feature on %1' ).arg(layerName )
           else if ( form.state === 'Edit' )
-            qsTr( 'Edit feature on <i>%1</i>' ).arg(layerName)
+            qsTr( 'Edit feature on %1' ).arg(layerName)
           else
-            qsTr( 'View feature on <i>%1</i>' ).arg(layerName)
+            qsTr( 'View feature on %1' ).arg(layerName)
         }
+        font.pointSize: 14
         font.bold: true
-        font.pointSize: 16
+        color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
@@ -454,10 +455,10 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 48*dp
+        width: 49*dp
         height: 48*dp
         clip: true
-        bgcolor: "#212121"
+        bgcolor: form.state === 'Add' ? "#900000" : "#212121"
 
         iconSource: form.state === 'Add' ? Style.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Style.getThemeIcon( 'ic_close_white_24dp' )
 

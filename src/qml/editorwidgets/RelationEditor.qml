@@ -156,7 +156,7 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: nmRelationId ? 'blue' : 'black'
+                    color: nmRelationId ? 'blue' : '#900000'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
@@ -245,6 +245,7 @@ Rectangle{
 
         x: 24 * dp
         y: 24 * dp
+        padding: 0
         width: parent.width - 48 * dp
         height: parent.height - 48 * dp
         modal: true

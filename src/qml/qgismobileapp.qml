@@ -1034,6 +1034,7 @@ ApplicationWindow {
       y: 24 * dp
       width: parent.width - 48 * dp
       height: parent.height - 48 * dp
+      padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
 
@@ -1093,7 +1094,7 @@ ApplicationWindow {
     height: parent.height
 
     onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
+        iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
       mainWindow.keyHandler.focus=true
     }
   }

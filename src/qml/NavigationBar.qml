@@ -68,14 +68,17 @@ Rectangle {
     focus: true
 
     Text {
+      font.pointSize: 14
+      font.bold: true
+      color: "#FFFFFF"
       anchors.centerIn: parent
 
       text: {
-        if ( model ) {
+        if ( model && selection.selection > -1 ) {
           ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
         }
         else {
-          ''
+          'Features'
         }
       }
     }
