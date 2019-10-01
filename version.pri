@@ -21,7 +21,7 @@ equals ( ANDROID_TARGET_ARCH, 'x86' ) {
 equals ( ANDROID_TARGET_ARCH, 'arm64-v8a' ) {
   ANDROID_VERSION_SUFFIX = 5
 }
-equals( ( ANDROID_TARGET_ARCH, 'x86_64' ) {
+equals( ANDROID_TARGET_ARCH, 'x86_64' ) {
   ANDROID_VERSION_SUFFIX = 6
 }
 
