@@ -1,4 +1,4 @@
 #!/bin/bash
 
-tx pull
+tx pull -a -f
 lrelease QField.pro
