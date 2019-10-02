@@ -25,7 +25,7 @@ import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
 import QtPositioning 5.11
-import "js/style.js" as Style
+import Theme 1.0
 
 import '.'
 
@@ -361,7 +361,7 @@ ApplicationWindow {
     font.pointSize: 12
     style: Text.Outline
     font.weight: Font.Bold
-    styleColor: "white"
+    styleColor: Theme.light
   }
 
   ScaleBar {
@@ -419,9 +419,9 @@ ApplicationWindow {
     Button {
       id: menuButton
       round: true
-      iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
+      iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.visible = !dashBoard.visible
-      bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
+      bgcolor: dashBoard.visible ? Theme.mainColor : Theme.darkGray
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
       anchors.top: mainMenuBar.top
@@ -444,13 +444,13 @@ ApplicationWindow {
             height: 48 * dp
             width: 48 * dp
             radius: height / 2
-            color: '#212121'
+            color: Theme.darkGray
             Image {
               anchors.fill: parent
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( "ic_close_white_24dp" )
+              source: Theme.getThemeIcon( "ic_close_white_24dp" )
             }
           }
 
@@ -459,7 +459,7 @@ ApplicationWindow {
             anchors.verticalCenter: parent.verticalCenter
             verticalAlignment: Text.AlignVCenter
             text: qsTr( 'Close measure tool' )
-            color: 'white'
+            color: Theme.light
             font.bold: true
             font.pixelSize: 16 * dp
           }
@@ -495,10 +495,10 @@ ApplicationWindow {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
-      bgcolor: "#212121"
+      bgcolor: Theme.darkGray
       checkable: true
 
-      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+      iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
 
@@ -519,7 +519,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: gpsButton
-            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
+            iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
             bgcolor: "#88212121"
           }
         },
@@ -528,7 +528,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_white_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: "#64B5F6"
             opacity:1
           }
@@ -760,7 +760,7 @@ ApplicationWindow {
 
     Controls.MenuItem {
       text: qsTr( "Quit" )
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
       onTriggered: {
         Qt.quit()
       }
@@ -813,7 +813,7 @@ ApplicationWindow {
 
   Image {
     id: alertIcon
-    source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
+    source: Theme.getThemeIcon( "ic_add_alert_black_18dp" )
 
     visible: messageLog.unreadMessages
 
@@ -906,7 +906,7 @@ ApplicationWindow {
   Rectangle {
     id: busyMessage
     anchors.fill: parent
-    color: "#272727"
+    color: Theme.darkGray
     opacity: 0.5
     visible: false
 
@@ -1192,7 +1192,7 @@ ApplicationWindow {
 
       Rectangle {
           id: toastContent
-        color: "#272727"
+        color: Theme.darkGray
 
         height: 40 * dp
         width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
@@ -1207,7 +1207,7 @@ ApplicationWindow {
           id: toastMessage
           anchors.centerIn: parent
           font.pixelSize: 16 * dp
-          color: "#ffffff"
+          color: Theme.light
         }
       }
 
