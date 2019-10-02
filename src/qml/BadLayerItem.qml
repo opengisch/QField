@@ -5,7 +5,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import "."
 
 Page {
@@ -52,7 +52,7 @@ Page {
         height: 48 * dp
         bgcolor: "#212121"
 
-        iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+        iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
 
         onClicked: {
           finished()

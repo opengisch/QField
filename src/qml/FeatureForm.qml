@@ -8,7 +8,7 @@ import QtQml 2.3
 
 import org.qgis 1.0
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import QtQuick.Controls.Styles 1.4
 import "."
 
@@ -413,7 +413,7 @@ Page {
         clip: true
         bgcolor: "#212121"
 
-        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
           if( model.constraintsValid ) {
@@ -460,7 +460,7 @@ Page {
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : "#212121"
 
-        iconSource: form.state === 'Add' ? Style.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Style.getThemeIcon( 'ic_close_white_24dp' )
+        iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           Qt.inputMethod.hide()

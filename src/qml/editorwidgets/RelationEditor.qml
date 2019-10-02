@@ -83,7 +83,7 @@ Rectangle{
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_add_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_add_white_24dp' )
                     }
                 }
 
@@ -163,7 +163,7 @@ Rectangle{
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
                     }
                 }
 

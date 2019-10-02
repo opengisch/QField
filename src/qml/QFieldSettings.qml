@@ -5,7 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
-import "js/style.js" as Style
+import Theme 1.0
 
 import "."
 

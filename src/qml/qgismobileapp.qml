@@ -675,7 +675,7 @@ ApplicationWindow {
       property ProjectSource __projectSource
 
       text: qsTr( "Open Project" )
-      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
+      iconSource: Theme.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         __projectSource = platformUtilities.openProject()
       }

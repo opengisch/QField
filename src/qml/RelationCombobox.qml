@@ -3,7 +3,7 @@ import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import "." as QField
-import "js/style.js" as Style
+import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -112,7 +112,7 @@ Item {
 
     QField.Button {
       id: addButton
-      iconSource: Style.getThemeIcon( "ic_add_black_48dp" )
+      iconSource: Theme.getThemeIcon( "ic_add_black_48dp" )
       bgcolor: "white"
       onClicked: {
         attributeFormModel.featureModel.resetAttributes()

@@ -1,6 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4 as Controls
-import "js/style.js" as Style
+import Theme 1.0
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -63,7 +63,7 @@ Item {
     anchors { right: parent.right; top: parent.top; }
     visible: !locatorItem.searching
 
-    iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
+    iconSource: Theme.getThemeIcon( "ic_baseline_search_white" )
     round: true
     bgcolor: "#80CC28"
 
@@ -133,7 +133,7 @@ Item {
             bgcolor: "#80cc28"
             Image {
               anchors.fill: parent
-              source: Style.getThemeIcon( model.iconPath )
+              source: Theme.getThemeIcon( model.iconPath )
               fillMode: Image.Pad
             }
             MouseArea {

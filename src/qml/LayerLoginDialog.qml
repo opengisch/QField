@@ -4,7 +4,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import "."
 
 Page {
@@ -44,7 +44,7 @@ Page {
         clip: true
         bgcolor: "#212121"
 
-        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
           enter(username.text, password.text)
@@ -76,7 +76,7 @@ Page {
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : "#212121"
 
-        iconSource: Style.getThemeIcon( 'ic_close_white_24dp' )
+        iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           cancel()

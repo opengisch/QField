@@ -24,7 +24,7 @@ Item {
     fillMode: Image.PreserveAspectFit
 
     //source is managed over onCurrentValueChanged since the binding would break somewhere
-    source: Style.getThemeIcon("ic_photo_notavailable_white_48dp")
+    source: Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
 
     MouseArea {
       anchors.fill: parent
@@ -37,11 +37,11 @@ Item {
 
     onCurrentValueChanged: {
       if (image.status === Image.Error) {
-        image.source=Style.getThemeIcon("ic_broken_image_black_24dp")
+        image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
       } else if (image.currentValue) {
         image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
       } else {
-        image.source=Style.getThemeIcon("ic_photo_notavailable_white_48dp")
+        image.source=Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
     }
   }
@@ -65,7 +65,7 @@ Item {
       }
     }
 
-    iconSource: Style.getThemeIcon("ic_camera_alt_border_24dp")
+    iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
   }
 
   Loader {

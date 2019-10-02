@@ -155,7 +155,7 @@ Item {
 
         Image {
           id: clearButton
-          source: Style.getThemeIcon("ic_clear_black_18dp")
+          source: Theme.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -5 * dp

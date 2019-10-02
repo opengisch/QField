@@ -25,7 +25,6 @@
         <file>editorwidgets/ValueMap.qml</file>
         <file>editorwidgets/RelationReference.qml</file>
         <file>editorwidgets/RelationEditor.qml</file>
-        <file>js/style.js</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TreeView.qml</file>
