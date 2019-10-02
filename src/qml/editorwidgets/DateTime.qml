@@ -44,7 +44,7 @@ Item {
         height: label.height - label.bottomPadding / 2
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
-        color: enabled ? "#dddddd" : "transparent"
+        color: enabled ? Theme.lightGray : "transparent"
         radius: 2
         visible: enabled
       }

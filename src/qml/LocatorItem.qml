@@ -130,7 +130,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height
             width:  36*dp
-            bgcolor: "#80cc28"
+            bgcolor: Theme.mainColor
             Image {
               anchors.fill: parent
               source: Theme.getThemeIcon( model.iconPath )

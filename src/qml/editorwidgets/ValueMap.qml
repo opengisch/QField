@@ -99,7 +99,7 @@ Item {
         id: backgroundRect
         border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
         border.width: comboBox.visualFocus ? 2 : 1
-        color: "#dddddd"
+        color: Theme.lightGray
         radius: 2
       }
     }

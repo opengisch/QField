@@ -49,7 +49,7 @@ VisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: "#80cc28"
+    bgcolor: Theme.mainColor
 
     onClicked: {
       // remove editing vertex for lines and polygons
@@ -63,7 +63,7 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: "#212121"
+    bgcolor: Theme.darkGray
 
     onClicked: {
       vertexRemoved()
@@ -76,7 +76,7 @@ VisibilityFadingRow {
         Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
+    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||

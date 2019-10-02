@@ -50,7 +50,7 @@ Page {
 
         width: 48 * dp
         height: 48 * dp
-        bgcolor: "#212121"
+        bgcolor: Theme.darkGray
 
         iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
 

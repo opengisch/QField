@@ -1,6 +1,7 @@
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls.Styles 1.4
 import QtQuick 2.5
+import Theme
 
 Item {
   id: item
@@ -12,7 +13,7 @@ Item {
   property bool roundborder: false
   property alias text: button.text
 
-  property color bgcolor: "#212121"
+  property color bgcolor: Theme.darkGray
   property color borderColor: bgcolor
 
   signal pressAndHold

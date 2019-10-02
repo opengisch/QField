@@ -42,7 +42,7 @@ Page {
         width: 48*dp
         height: 48*dp
         clip: true
-        bgcolor: "#212121"
+        bgcolor: Theme.darkGray
 
         iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
@@ -74,7 +74,7 @@ Page {
         width: 49*dp
         height: 48*dp
         clip: true
-        bgcolor: form.state === 'Add' ? "#900000" : "#212121"
+        bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
 
         iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 

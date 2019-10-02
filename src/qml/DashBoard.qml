@@ -218,7 +218,7 @@ Controls.Drawer {
             id: backgroundRect
             border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
             border.width: mapThemeComboBox.visualFocus ? 2 : 1
-            //color: "#dddddd"
+            //color: Theme.lightGray
             radius: 2
           }
         }
