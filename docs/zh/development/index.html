@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>开发与支持 &mdash; QField Documentation 1.0 - M... 文档</title>
+    
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0 - M...',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="top" title="QField Documentation 1.0 - M... 文档" href="../index.html" />
+    <link rel="next" title="QField同步插件" href="../qfieldsync/index.html" />
+    <link rel="prev" title="Global variables" href="../user-guide/variables.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+              <span>
+              
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="100%"
+                   height="100%"
+                   viewBox="0 0 128 128"
+                   id="qfield-logo"
+                   version="1.1">
+                  <g
+                     id="layer1"
+                     transform="translate(0,-924.36216)">
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z "
+                       transform="translate(0,924.36216)" />
+                    <path
+                       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                       d="m 87.99112,976.2721 22,58 -56.000001,-22 z" />
+                  </g>
+                </svg>
+            
+              </span>
+        </a>
+        <span class="navbar-text navbar-title"><b>QField Documentation</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">开发与支持</a><ul>
+<li><a class="reference internal" href="#license">许可</a></li>
+<li><a class="reference internal" href="#support">支持</a><ul>
+<li><a class="reference internal" href="#make-it-grow-make-it-yours">让它成长，让它成为你自己所有</a><ul>
+<li><a class="reference internal" href="#edit-widgets">编辑部件</a></li>
+<li><a class="reference internal" href="#legend">说明</a></li>
+<li><a class="reference internal" href="#connection-based-on-offline-synchronization">基于/脱机同步的连接</a></li>
+<li><a class="reference internal" href="#improved-coordinate-precision">提高坐标精度</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">GPS进入省电状态信息的属性</a></li>
+<li><a class="reference internal" href="#editing-geometries">编辑几何图形</a></li>
+<li><a class="reference internal" href="#search-functionality">搜索功能</a></li>
+<li><a class="reference internal" href="#external-measurement-devices">外部测量装置</a></li>
+<li><a class="reference internal" href="#record-audio">录音</a></li>
+<li><a class="reference internal" href="#open-qgs-files-on-click">点击打开QGIS文件</a></li>
+<li><a class="reference internal" href="#your-favorite-feature">[您最喜欢的功能]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funding">基金</a></li>
+<li><a class="reference internal" href="#credits">信用</a></li>
+<li><a class="reference internal" href="#api-stability">API稳定性</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="../user-guide/variables.html" title="Previous Chapter: Global variables"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Global variables</span>
+    </a>
+  </li>
+  <li>
+    <a href="../qfieldsync/index.html" title="Next Chapter: QField同步插件"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField同步插件 &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container"><span class="shadow-background"><img src="../_static/qfield-logo.svg"></span>
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField 安装手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">自定义SVG符号和设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">在图层中搜索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">支持的数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">栅格数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField 项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">配置地图主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">可移植项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">项目选择</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">矢量图层设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">开发与支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QField同步插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/river-state-survey.html">River State Survey Using QField</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="development-and-support">
+<h1>开发与支持<a class="headerlink" href="#development-and-support" title="永久链接至标题">¶</a></h1>
+<div class="section" id="license">
+<h2>许可<a class="headerlink" href="#license" title="永久链接至标题">¶</a></h2>
+<p>QField是根据GNU公共许可证（GPL）Version2或更高版本发布的。在此许可证下开发QField意味着您可以检查和修改源代码，并保证您始终可以访问基于QGIS的现场数据收集应用程序，该应用程序免费且可以自由修改。</p>
+<p>您可以在此找到源码 <a class="reference external" href="https://github.com/opengisch/QField">on github</a></p>
+</div>
+<div class="section" id="support">
+<h2>支持<a class="headerlink" href="#support" title="永久链接至标题">¶</a></h2>
+<p>你可以再此提问 <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a></p>
+<p>你可以使用 <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">user mailing list</a></p>
+<p>我们还提供商业支持, <a class="reference external" href="http://www.opengis.ch/contact/">联系我们</a></p>
+<div class="section" id="make-it-grow-make-it-yours">
+<span id="make-it-grow"></span><h3>让它成长，让它成为你自己所有<a class="headerlink" href="#make-it-grow-make-it-yours" title="永久链接至标题">¶</a></h3>
+<p>这是一个功能列表，我们认为这些功能对于良好的用户体验和有效的工作流非常有用。</p>
+<div class="section" id="edit-widgets">
+<h4>编辑部件<a class="headerlink" href="#edit-widgets" title="永久链接至标题">¶</a></h4>
+<p>编辑小部件是高效现场工作的核心部分。在触摸设备上输入属性是花费时间最多的工作之一，保持这项任务尽可能简单是使工作愉快的关键。</p>
+<p>一些重要信息：ref:<cite>编辑字段小部件已可用</cite> but more is possible`例如在QGIS&lt;<a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">http://gis.stackexchange.com/a/30051/9839</a>&gt;中。</p>
+</div>
+<div class="section" id="legend">
+<h4>说明<a class="headerlink" href="#legend" title="永久链接至标题">¶</a></h4>
+<p>对于一个漂亮的地图，a legend是一个非常有用的工具。它给用户的上下文的语义意义不明白的笔画形状，颜色，和其他视觉编码。</p>
+<p>它还可以用于访问单个层的附加元数据或选择要处理的层。</p>
+</div>
+<div class="section" id="connection-based-on-offline-synchronization">
+<h4>基于/脱机同步的连接<a class="headerlink" href="#connection-based-on-offline-synchronization" title="永久链接至标题">¶</a></h4>
+<p>数据收集是QField提供重要用途之一。但数据往往不会只存储于设备，而通常会储存于数据库。目前，直接在数据库上工作是可以的，但由于在现场时网络访问通常不可靠，您可以在台式计算机上进行手动同步。</p>
+<p>如果在设备上运行同步进程，那么当网络可用时，数据将自动与服务器同步，而当没有可用的网络连接时，将在本地缓存数据，这将非常好。</p>
+<p>可以与 <a class="reference external" href="http://geogig.org/">GeoGIG</a> 联动或其他服务器组件，如数据库。</p>
+</div>
+<div class="section" id="improved-coordinate-precision">
+<h4>提高坐标精度<a class="headerlink" href="#improved-coordinate-precision" title="永久链接至标题">¶</a></h4>
+<p>计算机主要使用两种不同的数据类型在内部存储小数（浮点数）。` 单精度&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/single-precision_floating-point_format">https://en.wikipedia.org/wiki/single-precision_floating-point_format</a>&gt;`_ and` 双精度&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/double-precision_floating-point_format">https://en.wikipedia.org/wiki/double-precision_floating-point_format</a>&gt;`` precision.对于单精度，只有数字的前6位是有效的，可以信任；对于双精度，前15位是可信任的。这将考虑所有数字（小数点之前和之后）。</p>
+<p>当使用坐标时，当需要高精度时，这一点非常重要。只有6个有效数字通常意味着一米左右的最大精确度，但取决于CRS和地球表面的位置。</p>
+<p>目前，QField的某些部分使用单点精度处理坐标。通过修正这一缺点，可以充分利用精确定位装置的全部精度，这将是一个很好的改进。</p>
+</div>
+<div class="section" id="saving-gps-status-information-into-attributes">
+<h4>GPS进入省电状态信息的属性<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="永久链接至标题">¶</a></h4>
+<p>定位设备提供的信息不仅仅是纬度和经度。他们还能够估计目前能够提供的精度。该信息可以是根据卫星数量等变量计算的半径，也可以是RTK状态等参数的附加标志。</p>
+</div>
+<div class="section" id="editing-geometries">
+<h4>编辑几何图形<a class="headerlink" href="#editing-geometries" title="永久链接至标题">¶</a></h4>
+<p>QField提供数字化新几何图形、编辑现有属性或删除特征。它缺少的是编辑现有几何图形的功能。</p>
+<p>这可以分割成不同的部分，如移动点、移动其他特征、编辑顶点、移动边…</p>
+</div>
+<div class="section" id="search-functionality">
+<h4>搜索功能<a class="headerlink" href="#search-functionality" title="永久链接至标题">¶</a></h4>
+<p>在搜索字段的帮助下定位功能确实有助于提高工作效率。一般来说，这可以分为两类：</p>
+<dl class="docutils">
+<dt>基于属性的搜索</dt>
+<dd><p class="first last">搜索结果是基于项目中图层上的要素属性提供的。可以使用本地数据库进行搜索。内部数据基于您使用的自定义数据，或者直接查询层以查找具有相关属性的功能。</p>
+</dd>
+<dt>地理编码</dt>
+<dd><p class="first last">根据实际地址提供搜索结果。像这样的服务`Nominatim &lt;<a class="reference external" href="http://nominatim.openstreetmap.org/">http://nominatim.openstreetmap.org/</a>&gt;`_ 可以通过Web界面访问，并将实际地址转换为地图上的位置。尝试链接。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="external-measurement-devices">
+<h4>外部测量装置<a class="headerlink" href="#external-measurement-devices" title="永久链接至标题">¶</a></h4>
+<p>您是否使用带有传感器的外部设备？气压，温度，坡度，一氧化碳浓度，或者其他的…不必从外部设备读取信息并手动再次输入，这不是很好吗？我们希望通过将外部测量设备直接连接到QField的支持，使您的生活更轻松。</p>
+</div>
+<div class="section" id="record-audio">
+<h4>录音<a class="headerlink" href="#record-audio" title="永久链接至标题">¶</a></h4>
+<p>有没有想过，当你在野外使用触摸屏时，如何录入大量的文字？</p>
+<p>不要这样！</p>
+<p>有可能像图像集成一样进行音频集成，这将是令人惊讶的。回到办公室后，你可以用普通键盘输入信息。</p>
+</div>
+<div class="section" id="open-qgs-files-on-click">
+<h4>点击打开QGIS文件<a class="headerlink" href="#open-qgs-files-on-click" title="永久链接至标题">¶</a></h4>
+<p>只需在QField中通过在文件管理器中单击打开一个QGIS项目。</p>
+</div>
+<div class="section" id="your-favorite-feature">
+<h4>[您最喜欢的功能]<a class="headerlink" href="#your-favorite-feature" title="永久链接至标题">¶</a></h4>
+<p>你有更多有趣的功能想法。请联系我们，我们可以讨论将此想法集成到QField或派生应用程序中。</p>
+</div>
+</div>
+</div>
+<div class="section" id="funding">
+<h2>基金<a class="headerlink" href="#funding" title="永久链接至标题">¶</a></h2>
+<p>下面的团体帮助使QField变为了现实。我们热情地说：非常感谢！</p>
+<div class="clearer text-center docutils container">
+<a class="reference external image-reference" href="http://www.sige.ch"><img alt="SIGE" src="../_images/logo_sige.jpg" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="http://www.vogelwarte.ch"><img alt="Schweizerische Vogelwarte" src="../_images/logo_vogelwarte.gif" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="http://www.geoconseils.ch"><img alt="Géoconseils SA" src="../_images/logo_geoconseils.png" style="width: 200px;" /></a>
+</div>
+<div class="clearer text-center docutils container">
+<a class="reference external image-reference" href="http://www.hydro-safety.com/"><img alt="hydro safety srls" src="../_images/logo_hydrosafety.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="http://www.vevey.ch"><img alt="Ville de Vevey" src="../_images/logo_vevey.png" style="width: 100px;" /></a>
+<a class="reference external image-reference" href="http://www.morges.ch"><img alt="Ville de Morges" src="../_images/logo_morges.png" style="width: 100px;" /></a>
+</div>
+<div class="clearer text-center docutils container">
+<a class="reference external image-reference" href="http://www.ibw.ch"><img alt="ibW Höhere Fachschule Südostschweiz" src="../_images/logo_ibw.png" style="width: 200px;" /></a>
+</div>
+</div>
+<div class="section" id="credits">
+<h2>信用<a class="headerlink" href="#credits" title="永久链接至标题">¶</a></h2>
+<p>QField由opengis.ch开发，OPENGIS.ch负责开源软件的咨询、开发和培训，包括QField和QGIS。</p>
+<a class="reference external image-reference" href="http://www.opengis.ch"><img alt="OPENGIS.ch" src="../_images/openGis-websiteLogo.png" /></a>
+</div>
+<div class="section" id="api-stability">
+<h2>API稳定性<a class="headerlink" href="#api-stability" title="永久链接至标题">¶</a></h2>
+<p>QField目前尚不被认为是API稳定的。</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/development/index.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; 版权所有 2019, The QField Project/OPENGIS.ch.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 创建。<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
