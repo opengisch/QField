@@ -43,12 +43,12 @@ jobs:
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build ARMv7"
+      name: "📱 Build armv7"
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build ARM64-v8a"
+      name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
       if: type = pull_request OR tag IS present OR branch = master
