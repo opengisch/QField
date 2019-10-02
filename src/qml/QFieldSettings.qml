@@ -146,7 +146,6 @@ Page {
         text: qsTr( 'QField Settings' )
         bottomPadding: 5 * dp
         topPadding: 5 * dp
-        font.bold: true
         font: Theme.secondaryTitleFont
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter

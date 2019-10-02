@@ -358,9 +358,8 @@ ApplicationWindow {
                   : '' )
               : ''
 
-    font.pointSize: 12
+    font: Theme.strongFont
     style: Text.Outline
-    font.weight: Font.Bold
     styleColor: Theme.light
   }
 
@@ -460,8 +459,7 @@ ApplicationWindow {
             verticalAlignment: Text.AlignVCenter
             text: qsTr( 'Close measure tool' )
             color: Theme.light
-            font.bold: true
-            font.pixelSize: 16 * dp
+            font: Theme.strongFont
           }
         }
 
@@ -1206,7 +1204,7 @@ ApplicationWindow {
         Text {
           id: toastMessage
           anchors.centerIn: parent
-          font.pixelSize: 16 * dp
+          font: Theme.secondaryTitleFont
           color: Theme.light
         }
       }
