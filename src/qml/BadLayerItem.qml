@@ -25,7 +25,7 @@ Page {
     }
 
     background: Rectangle {
-      color: '#80CC28'
+      color: Theme.mainColor
     }
 
     RowLayout {

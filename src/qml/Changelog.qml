@@ -28,7 +28,7 @@ Item {
     Text {
       id: title
       text: qsTr( "What's new in the latest QField" )
-      color: '#80CC28'
+      color: Theme.mainColor
       font.pointSize: 20
       minimumPixelSize: 12
 
@@ -200,7 +200,7 @@ Item {
         }
 
         background: Rectangle {
-          color: laterButton.down ? '#8080CC28' : '#80CC28'
+          color: laterButton.down ? '#8080CC28' : Theme.mainColor
         }
 
         onClicked: {

@@ -50,7 +50,7 @@ Item {
             width: 48*dp
             height: 48*dp
             bgcolor: "white"
-            borderColor: "#80CC28"
+            borderColor: Theme.mainColor
             onClicked: {
               showOpenProjectDialog()
               settings.setValue( "/QField/FirstRunFlag", false )

@@ -395,7 +395,7 @@ Page {
 
     background: Rectangle {
       //testwise have special color for buffered
-      color: model.constraintsValid ?  '#80CC28' : 'orange'
+      color: model.constraintsValid ?  Theme.mainColor : 'orange'
     }
 
     RowLayout {

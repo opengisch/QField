@@ -76,7 +76,7 @@ Item{
       round: true
       roundborder: true
       bgcolor: "grey"
-      borderColor: "#80CC28"
+      borderColor: Theme.mainColor
 
       onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
     }
@@ -99,7 +99,7 @@ Item{
 
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
-      bgcolor: "#80CC28"
+      bgcolor: Theme.mainColor
       round: true
 
       iconSource: Theme.getThemeIcon("ic_save_white_24dp")
@@ -113,7 +113,7 @@ Item{
 
       anchors.right: parent.right
       anchors.top: parent.top
-      bgcolor: "#80CC28"
+      bgcolor: Theme.mainColor
       round: true
 
       iconSource: Theme.getThemeIcon("ic_clear_white_24dp")

@@ -13,7 +13,7 @@ Controls.Drawer {
   property alias currentLayer: legend.currentLayer
   property MapSettings mapSettings
 
-  property color mainColor: "#80CC28"
+  property color mainColor: Theme.mainColor
 
   width: Math.min( 300 * dp, mainWindow.width)
   height: parent.height
@@ -133,7 +133,7 @@ Controls.Drawer {
             width: 36 * dp
             height: 36 * dp
             radius: 4 * dp
-            color:  "#80CC28"
+            color:  Theme.mainColor
             border.color: "white"
             Image {
               height: parent.height

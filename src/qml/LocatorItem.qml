@@ -65,7 +65,7 @@ Item {
 
     iconSource: Theme.getThemeIcon( "ic_baseline_search_white" )
     round: true
-    bgcolor: "#80CC28"
+    bgcolor: Theme.mainColor
 
     onClicked: {
       locatorItem.searching = true

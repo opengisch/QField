@@ -28,7 +28,7 @@ Item {
                 width: 18 * dp
                 height: 18 * dp
                 radius: 9 * dp
-                color:  qfieldswitch.checked ? qfieldswitch.down ? "#cccccc" : "#80CC28" : qfieldswitch.down ? "#80CC28" : "#ffffff"
+                color:  qfieldswitch.checked ? qfieldswitch.down ? "#cccccc" : Theme.mainColor : qfieldswitch.down ? Theme.mainColor : "#ffffff"
                 border.color: "#cccccc"
             }
         }
