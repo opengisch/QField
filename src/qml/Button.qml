@@ -1,7 +1,7 @@
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls.Styles 1.4
 import QtQuick 2.5
-import Theme
+import Theme 1.0
 
 Item {
   id: item

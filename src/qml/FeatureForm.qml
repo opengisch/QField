@@ -441,8 +441,7 @@ Page {
           else
             qsTr( 'View feature on %1' ).arg(layerName)
         }
-        font.pointSize: 14
-        font.bold: true
+        font: Theme.strongFont
         color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter

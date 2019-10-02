@@ -37,7 +37,7 @@ Controls.TableView {
         anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font.pointSize: 14
+        font: Theme.defaultFont
 
         onTextChanged: {
           variableEditor.model.setName( styleData.row, text )
@@ -50,7 +50,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
-        font.pointSize: 14
+        font.pointSize: Theme.defaultFont.pointSize
       }
 
       Text {
@@ -81,7 +81,7 @@ Controls.TableView {
         anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font.pointSize: 14
+        font: Theme.defaultFont
 
         onTextChanged: {
           variableEditor.model.setValue( styleData.row, text )
@@ -94,7 +94,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
-        font.pointSize: 14
+        font.pointSize: Theme.defaultFont.pointSize
       }
 
       Text {

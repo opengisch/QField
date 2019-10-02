@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.0
+import Theme 1.0
 import "." as QField
 
 Item {
@@ -29,7 +30,7 @@ Item {
       id: title
       text: qsTr( "What's new in the latest QField" )
       color: Theme.mainColor
-      font.pointSize: 20
+      font: Theme.titleFont
       minimumPixelSize: 12
 
 
@@ -44,8 +45,7 @@ Item {
     Text {
       color: '#95000000'
       text: qsTr( "Changelog %1" ).arg( version )
-      font.bold: true
-      font.pointSize: 12
+      font: Theme.strongFont
 
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
@@ -109,7 +109,7 @@ Item {
             Text {
                 id: dash
                 text: " -"
-                font.pointSize: 12
+                font: Theme.defaultFont
                 Layout.minimumWidth: contentWidth
                 fontSizeMode: Text.VerticalFit
                 wrapMode: Text.WordWrap
@@ -118,7 +118,7 @@ Item {
             Text {
                 id: text
                 text: description
-                font.pointSize: 12
+                font: Theme.defaultFont
                 Layout.minimumHeight: contentHeight
                 Layout.maximumHeight: contentHeight
                 width: parent.width - 20 * dp
@@ -137,8 +137,7 @@ Item {
     Text {
       color: '#90000000'
       text: qsTr( "Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16." )
-      font.pointSize: 12
-      font.bold: true
+      font: Theme.strongFont
 
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
@@ -161,8 +160,7 @@ Item {
     Text {
       color: '#90000000'
       text: qsTr( "www.opengis.ch/projects/qfield-love/" )
-      font.pointSize: 12
-      font.bold: true
+      font: Theme.strongFont
 
       fontSizeMode: Text.VerticalFit
       wrapMode: Text.WordWrap
@@ -188,7 +186,7 @@ Item {
 
         text: qsTr( "Let's give love" )
 
-        font.pointSize: 12
+        font: Theme.defaultFont
 
         contentItem: Text {
           text: closeButton.text
@@ -218,7 +216,7 @@ Item {
 
             text: qsTr( "Maybe later" )
 
-            font.pointSize: 12
+            font: Theme.defaultFont
 
             contentItem: Text {
                 text: laterButton.text
@@ -247,7 +245,7 @@ Item {
 
             text: qsTr( "No" )
 
-            font.pointSize: 12
+            font: Theme.defaultFont
 
             contentItem: Text {
                 text: noButton.text

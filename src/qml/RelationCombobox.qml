@@ -82,7 +82,7 @@ Item {
         height: 36 * dp
         text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
         font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-        font.pointSize: 12
+        font.pointSize: Theme.defaultFont.pointSize
         highlighted: comboBox.highlightedIndex == index
       }
 

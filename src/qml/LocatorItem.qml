@@ -33,7 +33,7 @@ Item {
     visible: locatorItem.searching
     padding: 5*dp
     inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
-    font.pointSize: 16
+    font: Theme.secondaryTitleFont
     selectByMouse: true
 
     background: Rectangle {
@@ -113,7 +113,7 @@ Item {
         anchors.right: actionsRow.left
         leftPadding: 5*dp
         font.italic: delegateRect.isGroup ? true : false
-        font.pointSize: 16
+        font.pointSize: Theme.secondaryTitleFont.pointSize
         wrapMode: Text.Wrap
       }
 

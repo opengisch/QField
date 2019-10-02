@@ -57,8 +57,7 @@ Page {
         id: titleLabel
 
         text: "Login information"
-        font.pointSize: 14
-        font.bold: true
+        font: Theme.strongFont
         color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
@@ -100,8 +99,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height + 20 * dp
       text: realm
-      font.pointSize: 14
-      font.bold: true
+      font: Theme.strongFont
     }
 
     Text {
@@ -109,7 +107,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height
       text: qsTr( "Username" )
-      font.pointSize: 14
+      font: Theme.defaultFont
     }
 
     TextField {
@@ -117,7 +115,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       Layout.preferredHeight: font.height + 20 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       background: Rectangle {
         y: username.height - height - username.bottomPadding / 2
@@ -137,7 +135,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height
       text: qsTr( "Password" )
-      font.pointSize: 14
+      font: Theme.defaultFont
     }
 
     TextField {
@@ -147,7 +145,7 @@ Page {
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       Layout.preferredHeight: font.height + 20 * dp
       height: font.height + 20 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       background: Rectangle {
         y: password.height - height - password.bottomPadding / 2

@@ -35,8 +35,8 @@ Page {
       Controls.Label {
         id: titleLabel
         text: qsTr( 'Unable to load some layers' )
-        font.pointSize: 14
-        font.bold: true
+        font: Theme.strongFont
+
         color: "#FFFFFF"
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
@@ -69,7 +69,7 @@ Page {
 
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
@@ -98,8 +98,7 @@ Page {
       style: TableViewStyle {
           headerDelegate: Text {
               height: 40 * dp
-              font.pointSize: 12
-              font.bold: true
+              font: Theme.strongFont
               verticalAlignment: Text.AlignVCenter
               horizontalAlignment: styleData.textAlignment
               text: styleData.value
@@ -110,7 +109,7 @@ Page {
               }
           itemDelegate: Text {
               anchors.fill: parent
-              font.pointSize: 12
+              font: Theme.defaultFont
               verticalAlignment: Text.AlignVCenter
               horizontalAlignment: styleData.textAlignment
               text: styleData.value

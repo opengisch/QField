@@ -68,8 +68,7 @@ Rectangle {
     focus: true
 
     Text {
-      font.pointSize: 14
-      font.bold: true
+      font: Theme.strongFont
       color: "#FFFFFF"
       anchors.centerIn: parent
 

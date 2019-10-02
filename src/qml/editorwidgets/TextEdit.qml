@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import Theme 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -18,7 +19,7 @@ Item {
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
-    font.pointSize: 14
+    font: Theme.defaultFont
     color: value === undefined || !enabled ? 'gray' : 'black'
 
     text: value !== undefined ? value : ''
@@ -56,7 +57,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
-    font.pointSize: 14
+    font: Theme.defaultFont
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText

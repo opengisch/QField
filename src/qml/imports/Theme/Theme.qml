@@ -9,7 +9,18 @@ QtObject {
 
     property color mainColor: "#80cc28"
 
-    property int defaultFontSizePt: 14
+    property font defaultFont
+    defaultFont.pointSize: 14
+
+    property font strongFont
+    strongFont.pointSize: defaultFont.pointSize
+    strongFont.bold: true
+
+    property font secondaryTitleFont
+    secondaryTitleFont.pointSize: 16
+
+    property font titleFont
+    titleFont.pointSize: 20
 
     function getThemeIcon(name) {
       var ppi = dp / 0.00768443;

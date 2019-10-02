@@ -2,7 +2,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
-import "../js/style.js" as Style
+import Theme 1.0
 
 
 /*
@@ -55,7 +55,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 14
+        font: Theme.defaultFont
         height: fontMetrics.height + 20 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
@@ -195,7 +195,7 @@ Item {
         RowLayout {
           Button {
             text: qsTr( "OK" )
-            font.pointSize: 14
+            font: Theme.defaultFont
             Layout.fillWidth: true
 
             onClicked: {

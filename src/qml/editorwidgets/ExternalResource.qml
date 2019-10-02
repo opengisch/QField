@@ -1,7 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.0
 import org.qgis 1.0
-import "../js/style.js" as Style
+import Theme 1.0
 import ".." as QField
 import QtQuick.Window 2.2
 

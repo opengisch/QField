@@ -196,7 +196,7 @@ Controls.Drawer {
           height: 36 * dp
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-          font.pointSize: 12
+          font.pointSize: Theme.defaultFont.pointSize
           highlighted: mapThemeComboBox.highlightedIndex == index
         }
 
