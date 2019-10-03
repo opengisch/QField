@@ -813,7 +813,7 @@ ApplicationWindow {
 
         width: parent.width
         height: 48 * dp
-        font.pointSize: 14
+        font: Theme.defaultFont
         leftPadding: 10 * dp
 
         onTriggered: {
