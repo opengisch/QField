@@ -846,7 +846,7 @@ ApplicationWindow {
       text: qsTr( "Enable Positioning" )
 
       height: 48 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
       width: parent.width
       checkable: true
       checked: positionSource.active
