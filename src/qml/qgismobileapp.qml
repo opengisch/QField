@@ -888,7 +888,7 @@ ApplicationWindow {
       text: qsTr( "Show position information" )
 
       height: 48 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
       width: Math.max(200*dp, mainWindow.width/4)
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
