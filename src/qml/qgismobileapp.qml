@@ -675,7 +675,7 @@ ApplicationWindow {
       id: openProjectMenuItem
       property ProjectSource __projectSource
 
-      font.pointSize: 14
+      font: Theme.defaultFont
       width: parent.width
       height: 48 * dp
       leftPadding: 10 * dp
