@@ -1,6 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4 as Controls
-import "js/style.js" as Style
+import Theme 1.0
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -33,7 +33,7 @@ Item {
     visible: locatorItem.searching
     padding: 5*dp
     inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
-    font.pointSize: 16
+    font: Theme.secondaryTitleFont
     selectByMouse: true
 
     background: Rectangle {
@@ -63,9 +63,9 @@ Item {
     anchors { right: parent.right; top: parent.top; }
     visible: !locatorItem.searching
 
-    iconSource: Style.getThemeIcon( "ic_baseline_search_white" )
+    iconSource: Theme.getThemeIcon( "ic_baseline_search_white" )
     round: true
-    bgcolor: "#80CC28"
+    bgcolor: Theme.mainColor
 
     onClicked: {
       locatorItem.searching = true
@@ -113,7 +113,7 @@ Item {
         anchors.right: actionsRow.left
         leftPadding: 5*dp
         font.italic: delegateRect.isGroup ? true : false
-        font.pointSize: 16
+        font.pointSize: Theme.secondaryTitleFont.pointSize
         wrapMode: Text.Wrap
       }
 
@@ -130,10 +130,10 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height
             width:  36*dp
-            bgcolor: "#80cc28"
+            bgcolor: Theme.mainColor
             Image {
               anchors.fill: parent
-              source: Style.getThemeIcon( model.iconPath )
+              source: Theme.getThemeIcon( model.iconPath )
               fillMode: Image.Pad
             }
             MouseArea {

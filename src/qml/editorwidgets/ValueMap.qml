@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import org.qfield 1.0
+import Theme 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -64,19 +65,22 @@ Item {
     // [hidpi fixes]
     delegate: ItemDelegate {
       width: comboBox.width
-      height: 36 * dp
+      height: fontMetrics.height + 20 * dp
       text: model.value
       font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-      font.pointSize: 12
+      font.pointSize: Theme.defaultFont.pointSize
       highlighted: comboBox.highlightedIndex == index
     }
 
     contentItem: Text {
-      height: 36 * dp
+      id: textLabel
+      height: fontMetrics.height + 20 * dp
       text: comboBox.displayText
+      font: Theme.defaultFont
       horizontalAlignment: Text.AlignLeft
       verticalAlignment: Text.AlignVCenter
       elide: Text.ElideRight
+      color: value === undefined || !enabled ? 'gray' : 'black'
     }
 
     background: Item {
@@ -84,11 +88,19 @@ Item {
       implicitHeight: 36 * dp
 
       Rectangle {
+        y: textLabel.height - 8 * dp
+        width: comboBox.width
+        height: comboBox.activeFocus ? 2 * dp : 1 * dp
+        color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
+      }
+
+      Rectangle {
+        visible: enabled
         anchors.fill: parent
         id: backgroundRect
-        border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
+        border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
         border.width: comboBox.visualFocus ? 2 : 1
-        color: "#dddddd"
+        color: Theme.lightGray
         radius: 2
       }
     }

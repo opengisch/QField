@@ -3,7 +3,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4 as Controls
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 Controls.TableView {
   id: variableEditor
@@ -37,7 +37,7 @@ Controls.TableView {
         anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font.pointSize: 14
+        font: Theme.defaultFont
 
         onTextChanged: {
           variableEditor.model.setName( styleData.row, text )
@@ -50,7 +50,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
-        font.pointSize: 14
+        font.pointSize: Theme.defaultFont.pointSize
       }
 
       Text {
@@ -81,7 +81,7 @@ Controls.TableView {
         anchors.margins: 4*dp
         text: styleData.value
         visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font.pointSize: 14
+        font: Theme.defaultFont
 
         onTextChanged: {
           variableEditor.model.setValue( styleData.row, text )
@@ -94,7 +94,7 @@ Controls.TableView {
         visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
         color: "#7f8c8d"
         font.italic: true
-        font.pointSize: 14
+        font.pointSize: Theme.defaultFont.pointSize
       }
 
       Text {
@@ -111,7 +111,7 @@ Controls.TableView {
           fillMode: Image.Pad
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
-          source: Style.getThemeIcon( 'ic_delete_forever_white_24dp' )
+          source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
         }
         anchors.right: parent.right
         visible: styleData.value !== '' && variableEditor.model.isEditable( styleData.row )

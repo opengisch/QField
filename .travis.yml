@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-testssl1_1}
+  - export QFIELD_SDK_VERSION=20191001
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -43,19 +43,24 @@ jobs:
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build ARMv7"
+      name: "📱 Build armv7"
       env:
         - ARCH=armv7
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build ARM64-v8a"
+      name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build X86"
+      name: "📱 Build x86"
       env:
         - ARCH=x86
+      if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "📱 Build x86_64"
+      env:
+        - ARCH=x86_64
       if: type = pull_request OR tag IS present OR branch = master
     - stage: deploy
       name: "🍺 Deploy"

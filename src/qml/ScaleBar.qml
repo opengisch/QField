@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import org.qgis 1.0
+import Theme 1.0
 
 Item {
   property MapSettings mapSettings
@@ -45,7 +46,7 @@ Item {
     anchors.bottom: mainLine.top
     anchors.horizontalCenter: mainLine.horizontalCenter
     anchors.left: undefined // The value will be set to mainLine.left is the label is wider than the mainLine
-    font.pointSize: 12
+    font: Theme.defaultFont
     color: "darkslategrey"
 
     states: State {

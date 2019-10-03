@@ -1,76 +1,134 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
+import "."
 
-Item {
+Page {
   property alias model: table.model
   signal finished
 
-  Rectangle {
-    anchors.fill: parent
-    color: "white"
-  }
 
-  Controls.TableView {
-    id: table
-    anchors { left: parent.left; right: parent.right; bottom: parent.bottom; top: infoLabel.bottom }
-
-    Controls.TableViewColumn {
-      role: "LayerName"
-      title: qsTr( "Layer Name" )
-      width: 200 * dp
-    }
-
-    Controls.TableViewColumn {
-      role: "DataSource"
-      title: qsTr( "Data Source" )
-      width: table.width - 200 * dp
-    }
-  }
-
-  Controls.Label {
-    id: infoLabel
-    anchors { left: parent.left; right: parent.right; top: toolbar.bottom; margins: 4 * dp }
-    text: qsTr( "The following layers could not be loaded.
-Please review them and reconfigure the QGIS project.
-You may check the <i>Portable Project</i> section in the QField documentation.")
-    textFormat: Text.RichText
-    wrapMode: Text.WordWrap
-  }
-
-  /** The title toolbar **/
-  Rectangle {
+  header: ToolBar {
     id: toolbar
+    height: 48 * dp
+    visible: true
 
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-
-    height: visible ? 48 * dp : 0
-
-    Controls.Label {
-      id: titleLabel
-      anchors { right: parent.right; left: closeButton.right }
-      height: closeButton.height
-      text: qsTr( 'Unable to load some layers' )
-      font.bold: true
-      horizontalAlignment: Text.AlignHCenter
+    anchors {
+      top: parent.top
+      left: parent.left
+      right: parent.right
     }
 
-    Button {
-      id: closeButton
-      anchors.left: parent.left
+    background: Rectangle {
+      color: Theme.mainColor
+    }
 
-      width: 48 * dp
-      height: 48 * dp
+    RowLayout {
+      anchors.fill: parent
+      Layout.margins: 0
 
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      Controls.Label {
+        id: titleLabel
+        text: qsTr( 'Unable to load some layers' )
+        font: Theme.strongFont
 
-      onClicked: {
-        finished()
+        color: "#FFFFFF"
+        horizontalAlignment: Qt.AlignHCenter
+        verticalAlignment: Qt.AlignVCenter
+        Layout.fillWidth: true
       }
+
+      Button {
+        id: closeButton
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+        width: 48 * dp
+        height: 48 * dp
+        bgcolor: Theme.darkGray
+
+        iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
+
+        onClicked: {
+          finished()
+        }
+      }
+    }
+  }
+
+  ColumnLayout {
+    anchors.margins: 8 * dp
+    anchors.fill: parent
+    Layout.margins: 0
+    spacing: 10 * dp
+
+    Label {
+      text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
+      font: Theme.defaultFont
+
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
+    }
+
+    Controls.TableView {
+      id: table
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+
+      Controls.TableViewColumn {
+        role: "LayerName"
+        title: qsTr( "Layer Name" )
+        width: 200 * dp
+      }
+
+      Controls.TableViewColumn {
+        role: "DataSource"
+        title: qsTr( "Data Source" )
+        width: table.width - 200 * dp
+      }
+
+      style: TableViewStyle {
+          headerDelegate: Text {
+              height: 40 * dp
+              font: Theme.strongFont
+              verticalAlignment: Text.AlignVCenter
+              horizontalAlignment: styleData.textAlignment
+              text: styleData.value
+              elide: Text.ElideRight
+          }
+          rowDelegate: Item {
+              height: 40 * dp
+              }
+          itemDelegate: Text {
+              anchors.fill: parent
+              font: Theme.defaultFont
+              verticalAlignment: Text.AlignVCenter
+              horizontalAlignment: styleData.textAlignment
+              text: styleData.value
+              elide: Text.ElideRight
+              renderType: Text.NativeRendering
+              }
+       }
+    }
+
+    Label {
+      text: qsTr( "You may check the Portable Project section in the QField documentation for more help." )
+      font.pointSize: 14
+      font.italic: true
+
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.minimumHeight: contentHeight
+      Layout.maximumHeight: contentHeight
     }
   }
 }
