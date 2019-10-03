@@ -707,7 +707,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "About" )
 
-      font.pointSize: 14
+      font: Theme.defaultFont
       width: parent.width
       height: 48 * dp
       leftPadding: 10 * dp
