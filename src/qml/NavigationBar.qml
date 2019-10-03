@@ -18,7 +18,7 @@
 
 import QtQuick 2.0
 import org.qgis 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 Rectangle {
   id: toolBar
@@ -61,15 +61,14 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? "#80CC28" : "orange"
+    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? Theme.mainColor : "orange"
 
     clip: true
 
     focus: true
 
     Text {
-      font.pointSize: 14
-      font.bold: true
+      font: Theme.strongFont
       color: "#FFFFFF"
       anchors.centerIn: parent
 
@@ -101,7 +100,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_chevron_right_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
 
     enabled: ( toolBar.model && ( selection.selection + 1 ) < toolBar.model.count )
 
@@ -123,7 +122,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_check_white_48dp" )
+    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     onClicked: {
      if( featureFormList.model.constraintsValid ) {
        toolBar.save()
@@ -147,7 +146,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
       selection.selectionChanged()
@@ -170,7 +169,7 @@ Rectangle {
 
     anchors.right: editButton.left
 
-    iconSource: Style.getThemeIcon( "ic_edit_geometry_white" )
+    iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
     width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
     height: 48*dp
@@ -208,7 +207,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_edit_attributes_white" )
+    iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
 
     onClicked: {
       toolBar.editAttributesButtonClicked()
@@ -241,7 +240,7 @@ Rectangle {
     checkable: true
     checked: extentController.autoZoom
 
-    iconSource: Style.getThemeIcon( "ic_fullscreen_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_fullscreen_white_24dp" )
 
     Behavior on width {
       PropertyAnimation {
@@ -271,7 +270,7 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Style.getThemeIcon( "ic_chevron_left_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
     enabled: ( selection.selection > 0 )
 

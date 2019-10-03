@@ -21,7 +21,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import org.qgis 1.0
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 Rectangle {
   id: featureForm
@@ -215,7 +215,7 @@ Rectangle {
 
           visible: deleteFeatureCapability && allowEdit
 
-          iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
+          iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
 
           onClicked: {
             deleteDialog.currentLayer = currentLayer

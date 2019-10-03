@@ -5,7 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
-import "js/style.js" as Style
+import Theme 1.0
 
 import "."
 
@@ -49,13 +49,13 @@ Page {
       TabButton {
         height: 36*dp
         text: qsTr("Layout")
-        font.pointSize: 14
+        font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
         height: 36*dp
         text: qsTr("Global Variables")
-        font.pointSize: 14
+        font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
     }
@@ -110,7 +110,7 @@ Page {
   // To be used in combination with code in main.cpp
         Switch {
           text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
-          font.pointSize: 14
+          font: Theme.defaultFont
 
           checked: settings.value( "/HighDpiScaling", false )
 
@@ -146,8 +146,7 @@ Page {
         text: qsTr( 'QField Settings' )
         bottomPadding: 5 * dp
         topPadding: 5 * dp
-        font.bold: true
-        font.pointSize: 16
+        font: Theme.secondaryTitleFont
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter

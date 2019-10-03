@@ -3,7 +3,7 @@ import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import "." as QField
-import "js/style.js" as Style
+import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -82,7 +82,7 @@ Item {
         height: 36 * dp
         text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
         font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-        font.pointSize: 12
+        font.pointSize: Theme.defaultFont.pointSize
         highlighted: comboBox.highlightedIndex == index
       }
 
@@ -103,7 +103,7 @@ Item {
           id: backgroundRect
           border.color: comboBox.pressed ? "#17a81a" : "#21be2b"
           border.width: comboBox.visualFocus ? 2 : 1
-          color: "#dddddd"
+          color: Theme.lightGray
           radius: 2
         }
       }
@@ -112,7 +112,7 @@ Item {
 
     QField.Button {
       id: addButton
-      iconSource: Style.getThemeIcon( "ic_add_black_48dp" )
+      iconSource: Theme.getThemeIcon( "ic_add_black_48dp" )
       bgcolor: "white"
       onClicked: {
         attributeFormModel.featureModel.resetAttributes()

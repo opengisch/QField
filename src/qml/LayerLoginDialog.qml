@@ -4,7 +4,7 @@ import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import "."
 
 Page {
@@ -26,7 +26,7 @@ Page {
     }
 
     background: Rectangle {
-      color: '#80CC28'
+      color: Theme.mainColor
     }
 
     RowLayout {
@@ -42,9 +42,9 @@ Page {
         width: 48*dp
         height: 48*dp
         clip: true
-        bgcolor: "#212121"
+        bgcolor: Theme.darkGray
 
-        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
           enter(username.text, password.text)
@@ -57,8 +57,7 @@ Page {
         id: titleLabel
 
         text: "Login information"
-        font.pointSize: 14
-        font.bold: true
+        font: Theme.strongFont
         color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
@@ -74,9 +73,9 @@ Page {
         width: 49*dp
         height: 48*dp
         clip: true
-        bgcolor: form.state === 'Add' ? "#900000" : "#212121"
+        bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
 
-        iconSource: Style.getThemeIcon( 'ic_close_white_24dp' )
+        iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           cancel()
@@ -100,8 +99,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height + 20 * dp
       text: realm
-      font.pointSize: 14
-      font.bold: true
+      font: Theme.strongFont
     }
 
     Text {
@@ -109,7 +107,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height
       text: qsTr( "Username" )
-      font.pointSize: 14
+      font: Theme.defaultFont
     }
 
     TextField {
@@ -117,7 +115,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       Layout.preferredHeight: font.height + 20 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       background: Rectangle {
         y: username.height - height - username.bottomPadding / 2
@@ -137,7 +135,7 @@ Page {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredHeight: font.height
       text: qsTr( "Password" )
-      font.pointSize: 14
+      font: Theme.defaultFont
     }
 
     TextField {
@@ -147,7 +145,7 @@ Page {
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       Layout.preferredHeight: font.height + 20 * dp
       height: font.height + 20 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       background: Rectangle {
         y: password.height - height - password.bottomPadding / 2

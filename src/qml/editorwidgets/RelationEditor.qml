@@ -5,7 +5,7 @@ import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import ".."
-import "../js/style.js" as Style
+import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -83,7 +83,7 @@ Rectangle{
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_add_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_add_white_24dp' )
                     }
                 }
 
@@ -163,7 +163,7 @@ Rectangle{
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
                     }
                 }
 

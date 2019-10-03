@@ -5,7 +5,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import "."
 
 Page {
@@ -25,7 +25,7 @@ Page {
     }
 
     background: Rectangle {
-      color: '#80CC28'
+      color: Theme.mainColor
     }
 
     RowLayout {
@@ -35,8 +35,8 @@ Page {
       Controls.Label {
         id: titleLabel
         text: qsTr( 'Unable to load some layers' )
-        font.pointSize: 14
-        font.bold: true
+        font: Theme.strongFont
+
         color: "#FFFFFF"
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
@@ -50,9 +50,9 @@ Page {
 
         width: 48 * dp
         height: 48 * dp
-        bgcolor: "#212121"
+        bgcolor: Theme.darkGray
 
-        iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+        iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
 
         onClicked: {
           finished()
@@ -69,7 +69,7 @@ Page {
 
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
-      font.pointSize: 14
+      font: Theme.defaultFont
 
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
@@ -98,8 +98,7 @@ Page {
       style: TableViewStyle {
           headerDelegate: Text {
               height: 40 * dp
-              font.pointSize: 12
-              font.bold: true
+              font: Theme.strongFont
               verticalAlignment: Text.AlignVCenter
               horizontalAlignment: styleData.textAlignment
               text: styleData.value
@@ -110,7 +109,7 @@ Page {
               }
           itemDelegate: Text {
               anchors.fill: parent
-              font.pointSize: 12
+              font: Theme.defaultFont
               verticalAlignment: Text.AlignVCenter
               horizontalAlignment: styleData.textAlignment
               text: styleData.value

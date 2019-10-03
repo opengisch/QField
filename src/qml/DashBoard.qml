@@ -2,7 +2,7 @@ import QtQuick 2.11
 import org.qgis 1.0
 import QtQuick.Controls 2.4 as Controls
 import QtQuick.Layouts 1.1
-import "js/style.js" as Style
+import Theme 1.0
 
 Controls.Drawer {
   objectName: "dashBoard"
@@ -13,7 +13,7 @@ Controls.Drawer {
   property alias currentLayer: legend.currentLayer
   property MapSettings mapSettings
 
-  property color mainColor: "#80CC28"
+  property color mainColor: Theme.mainColor
 
   width: Math.min( 300 * dp, mainWindow.width)
   height: parent.height
@@ -71,7 +71,7 @@ Controls.Drawer {
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( 'ic_chevron_left_white_24dp' )
+              source: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
             }
           }
 
@@ -90,7 +90,7 @@ Controls.Drawer {
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( 'ic_settings_white_24dp' )
+              source: Theme.getThemeIcon( 'ic_settings_white_24dp' )
             }
           }
 
@@ -117,7 +117,7 @@ Controls.Drawer {
             width: parent.width / 2
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            source: Style.getThemeIcon( 'ic_map_white_48dp' )
+            source: Theme.getThemeIcon( 'ic_map_white_48dp' )
             opacity: 0.4
           }
           Image {
@@ -125,7 +125,7 @@ Controls.Drawer {
             width: parent.width / 2
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            source: Style.getThemeIcon( 'ic_create_white_24dp' )
+            source: Theme.getThemeIcon( 'ic_create_white_24dp' )
             opacity: 0.4
           }
           Rectangle {
@@ -133,7 +133,7 @@ Controls.Drawer {
             width: 36 * dp
             height: 36 * dp
             radius: 4 * dp
-            color:  "#80CC28"
+            color:  Theme.mainColor
             border.color: "white"
             Image {
               height: parent.height
@@ -141,7 +141,7 @@ Controls.Drawer {
               anchors.right:  modeswitch.checked ? parent.right : undefined
               anchors.left:  modeswitch.checked ? undefined : parent.left
               anchors.verticalCenter: parent.verticalCenter
-              source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
+              source:  modeswitch.checked ? Theme.getThemeIcon( 'ic_create_white_24dp' ) : Theme.getThemeIcon( 'ic_map_white_24dp' )
             }
             Behavior on x {
               PropertyAnimation {
@@ -196,7 +196,7 @@ Controls.Drawer {
           height: 36 * dp
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-          font.pointSize: 12
+          font.pointSize: Theme.defaultFont.pointSize
           highlighted: mapThemeComboBox.highlightedIndex == index
         }
 
@@ -218,7 +218,7 @@ Controls.Drawer {
             id: backgroundRect
             border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
             border.width: mapThemeComboBox.visualFocus ? 2 : 1
-            //color: "#dddddd"
+            //color: Theme.lightGray
             radius: 2
           }
         }

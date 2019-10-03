@@ -2,7 +2,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
 import QtQuick.Layouts 1.1
-import "../js/style.js" as Style
+import Theme 1.0
 
 
 /*
@@ -44,7 +44,7 @@ Item {
         height: label.height - label.bottomPadding / 2
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
-        color: enabled ? "#dddddd" : "transparent"
+        color: enabled ? Theme.lightGray : "transparent"
         radius: 2
         visible: enabled
       }
@@ -55,7 +55,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 14
+        font: Theme.defaultFont
         height: fontMetrics.height + 20 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
@@ -155,7 +155,7 @@ Item {
 
         Image {
           id: clearButton
-          source: Style.getThemeIcon("ic_clear_black_18dp")
+          source: Theme.getThemeIcon("ic_clear_black_18dp")
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -5 * dp
@@ -195,7 +195,7 @@ Item {
         RowLayout {
           Button {
             text: qsTr( "OK" )
-            font.pointSize: 14
+            font: Theme.defaultFont
             Layout.fillWidth: true
 
             onClicked: {

@@ -1,6 +1,6 @@
 import QtQuick 2.6
 import org.qgis 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 VisibilityFadingRow {
   id: digitizingToolbar
@@ -17,7 +17,7 @@ VisibilityFadingRow {
 
   Button {
     id: cancelButton
-    iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
     round: true
     bgcolor: "#900000"
@@ -30,7 +30,7 @@ VisibilityFadingRow {
   Button {
     id: confirmButton
     iconSource: {
-      Style.getThemeIcon( "ic_save_white_24dp" )
+      Theme.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
       if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 || stateMachine.state === 'measure' )
@@ -49,7 +49,7 @@ VisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: "#80cc28"
+    bgcolor: Theme.mainColor
 
     onClicked: {
       // remove editing vertex for lines and polygons
@@ -60,10 +60,10 @@ VisibilityFadingRow {
 
   Button {
     id: removeVertexButton
-    iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: "#212121"
+    bgcolor: Theme.darkGray
 
     onClicked: {
       vertexRemoved()
@@ -73,10 +73,10 @@ VisibilityFadingRow {
   Button {
     id: addVertexButton
     iconSource: {
-        Style.getThemeIcon( "ic_add_white_24dp" )
+        Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
+    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||

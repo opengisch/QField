@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import org.qfield 1.0
+import Theme 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -67,7 +68,7 @@ Item {
       height: fontMetrics.height + 20 * dp
       text: model.value
       font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-      font.pointSize: 14
+      font.pointSize: Theme.defaultFont.pointSize
       highlighted: comboBox.highlightedIndex == index
     }
 
@@ -75,7 +76,7 @@ Item {
       id: textLabel
       height: fontMetrics.height + 20 * dp
       text: comboBox.displayText
-      font.pointSize: 14
+      font: Theme.defaultFont
       horizontalAlignment: Text.AlignLeft
       verticalAlignment: Text.AlignVCenter
       elide: Text.ElideRight
@@ -99,7 +100,7 @@ Item {
         id: backgroundRect
         border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
         border.width: comboBox.visualFocus ? 2 : 1
-        color: "#dddddd"
+        color: Theme.lightGray
         radius: 2
       }
     }
