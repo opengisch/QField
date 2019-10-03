@@ -839,7 +839,7 @@ ApplicationWindow {
   Menu {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
-    font.pointSize: 14
+    font: Theme.defaultFont
     width: Math.max(200*dp, mainWindow.width/4)
 
     MenuItem {
