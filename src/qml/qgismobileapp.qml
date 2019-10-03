@@ -799,7 +799,7 @@ ApplicationWindow {
     signal enablePrintItem( int rows )
 
     width: Math.max(200*dp, mainWindow.width/4)
-    font.pointSize: 14
+    font: Theme.defaultFont
 
     Instantiator {
 
