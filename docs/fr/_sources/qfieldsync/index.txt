@@ -21,14 +21,24 @@ To get a quick overview of the process, here is a list of typical steps:
 4. Copy the modified data back to your desktop computer.
 5. Synchronize the modified data with your database or files.
 
+Installation
+========
+In QGIS, open the plugin library and search for **qfield sync**. Select the plugin in the list and click on **Install**.
+
+.. image:: ../images/qfield-sync_install.png
+
 Configuration
 =============
 
 The project configuration is saved in the master .qgs project file.
 This way it is possible to pre-configure a project once and use it repeatedly.
 
+.. image:: ../images/qfield-sync_configmenu.png
+
 Layer configuration
 -------------------
+
+.. image:: ../images/qfield-sync_config.png
 
 In the project configuration dialog, an *action* can be defined for each layer
 individually. Depending on the layer type, different types of actions are
@@ -87,3 +97,27 @@ Offline editing configuration
 If *only synchronize features in area of interest* is checked, only features
 which are within the extent of the map canvas as packaging time will be copied 
 to the offline editing working copy.
+
+Package for Qfield
+=============
+
+Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it. 
+
+.. image:: ../images/qfield-sync_package.png
+
+Copy the folder on your device. Open Qfield, open the project and start collecting data.
+
+Make also sure to save the QGIS project using the regular Save As of QGIS as you'll have to re-open it later when you want to synchronize the changes.
+
+
+Synchronize from Qfield
+=============
+
+When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).
+
+Copy the project folder from your device to your computer and use the **Synchronize from Qfield** menu to synchronize your changes from the protable project to the main project.
+
+.. image:: ../images/qfield-sync_sync.png
+
+
+

@@ -99,12 +99,15 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Plugin-ul QFieldSync</a><ul>
 <li><a class="reference internal" href="#workflow">Fluxul de lucru</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Configurare</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configurarea stratului</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Configurarea hărții de bază</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Configurarea editării offline</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +209,18 @@
 </li>
 </ol>
 </div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
+</div>
 <div class="section" id="configuration">
 <h2>Configurare<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Configurația proiectul este salvată în fișier master, .qgs, al proiect. În acest fel este posibilă pre-configurarea o dată a unui proiect, apoi să-l utilizați în mod repetat.</p>
+<img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
 <h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
 <p>În dialogul de configurare a proiectului, o <em>acțiune</em> poate fi definită, în mod individual, pentru fiecare strat. În funcție de tipul stratului, sunt disponibile diferite tipuri de acțiuni.</p>
 <dl class="docutils">
 <dt>Copiere</dt>
@@ -246,6 +256,19 @@
 <h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
 <p>În cazul în care este bifată <em>sincronizarea doar a entităților din zona de interes</em>, numai entitățile care sunt incluse în extinderea canevasului hărții la momentul împachetării, vor fi copiate în copia de lucru editabilă offline.</p>
 </div>
+</div>
+<div class="section" id="package-for-qfield">
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
+<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
+<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+</div>
+<div class="section" id="synchronize-from-qfield">
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
+<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
+<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
 

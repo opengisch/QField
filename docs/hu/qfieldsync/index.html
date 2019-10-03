@@ -100,12 +100,15 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QFieldSync modul</a><ul>
 <li><a class="reference internal" href="#workflow">Munkafolyamat</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Konfiguráció</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Réteg konfiguráció</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Alaptérkép konfiguráció</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Offline szerkesztés konfigurácó</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
 </ul>
 </li>
 </ul>
@@ -207,11 +210,18 @@
 </li>
 </ol>
 </div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
+</div>
 <div class="section" id="configuration">
 <h2>Konfiguráció<a class="headerlink" href="#configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>A projekt konfigurációt a mester .qgs projekt fájlba mentjük. Ily módon egyszer konfiguráljuk a projektet és ismételten használhatjuk.</p>
+<img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
 <h3>Réteg konfiguráció<a class="headerlink" href="#layer-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
 <p>A projekt konfiguráció párbeszédablakban egy &#8220;műveletet&#8221; definiálhatunk önállóan minden egyes réteghez. A réteg típus függvényében különböző műveletek használhatók.</p>
 <dl class="docutils">
 <dt>Másolás</dt>
@@ -249,6 +259,19 @@
 which are within the extent of the map canvas as packaging time will be copied
 to the offline editing working copy.</p>
 </div>
+</div>
+<div class="section" id="package-for-qfield">
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
+<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+</div>
+<div class="section" id="synchronize-from-qfield">
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
+<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
 

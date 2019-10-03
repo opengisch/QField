@@ -100,12 +100,15 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Complemento QFieldSync</a><ul>
 <li><a class="reference internal" href="#workflow">Flujo de trabajo</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Configuración</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuración de capas</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Configuración de mapas base</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Configuración de edición offline</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
 </ul>
 </li>
 </ul>
@@ -207,11 +210,18 @@
 </li>
 </ol>
 </div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
+</div>
 <div class="section" id="configuration">
 <h2>Configuración<a class="headerlink" href="#configuration" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La configuración del proyecto se guarda en el archivo de proyecto maestro .qgs. De esta manera es posible preconfigurar un proyecto una vez y usarlo repetidamente.</p>
+<img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
 <h3>Configuración de capas<a class="headerlink" href="#layer-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
+<img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
 <p>En el cuadro de diálogo de configuración del proyecto, se puede definir una &#8220;acción&#8221; para cada capa de forma individual. Dependiendo del tipo de capa, hay disponibles diferentes tipos de acciones.</p>
 <dl class="docutils">
 <dt>Copiar</dt>
@@ -247,6 +257,19 @@
 <h3>Configuración de edición offline<a class="headerlink" href="#offline-editing-configuration" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si se marca &#8220;solo sincronizar objetos en el área de interés&#8221;, entonces solo se incluirán en la copia de trabajo offline los objetos que estén dentro de la extensión del lienzo del mapa en el momento del empaquetado.</p>
 </div>
+</div>
+<div class="section" id="package-for-qfield">
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
+<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+</div>
+<div class="section" id="synchronize-from-qfield">
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
+<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
 
