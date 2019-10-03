@@ -1036,8 +1036,8 @@ ApplicationWindow {
   BusyIndicator {
     id: busyIndicator
     anchors.centerIn: mapCanvas
-    width: 36 * dp
-    height: 36 * dp
+    width: 100 * dp
+    height: 100 * dp
     running: mapCanvasMap.isRendering
   }
 
