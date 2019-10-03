@@ -37,7 +37,7 @@ Controls.Drawer {
   }
 
   /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
-  onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
+  onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
@@ -79,6 +79,7 @@ Controls.Drawer {
         }
 
         Controls.ToolButton {
+          id: settingsButton
           height: 56 * dp
           width: 56 * dp
 

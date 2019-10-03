@@ -16,7 +16,6 @@
  ***************************************************************************/
 
 import QtQuick 2.11
-import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
@@ -664,89 +663,113 @@ ApplicationWindow {
   }
 
 
-  Controls.Menu {
+  Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    Controls.MenuItem {
+    width: Math.max(200*dp, mainWindow.width/4)
+
+    MenuItem {
       id: openProjectMenuItem
       property ProjectSource __projectSource
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       text: qsTr( "Open Project" )
-      iconSource: Theme.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
         __projectSource = platformUtilities.openProject()
+        highlighted = false
       }
     }
 
-    Controls.MenuSeparator {}
+    MenuSeparator { width: parent.width }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Settings" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.visible = false
         qfieldSettings.visible = true
+        highlighted = false
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "About" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.visible = false
         aboutDialog.visible = true
+        highlighted = false
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Log" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.visible = false
         messageLog.visible = true
+        highlighted = false
       }
     }
 
+    MenuSeparator { width: parent.width }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( 'Measure Tool' )
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
 
       onTriggered: {
         changeMode( 'measure' )
+        highlighted = false
       }
     }
 
-    Controls.Menu {
-      id: printMenu
-      title: qsTr( "Print to PDF" )
+    MenuItem {
+      id: printItem
+      text: qsTr( "Print to PDF" )
 
-      Instantiator {
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
 
-        id: layoutListInstantiator
-
-        model: PrintLayoutListModel {
-        }
-
-        Controls.MenuItem {
-          text: Title
-
-          onTriggered: {
-            iface.print( Index )
-          }
-        }
-        onObjectAdded: printMenu.insertItem(index, object)
-        onObjectRemoved: printMenu.removeItem(object)
-      }
-
-      Connections {
-        target: iface
-
-        onLoadProjectEnded: {
-          layoutListInstantiator.model.project = qgisProject
-          layoutListInstantiator.model.reloadModel()
-          printMenu.visible = layoutListInstantiator.model.rowCount()
-        }
+      onTriggered: {
+        printMenu.popup( mainMenu.x, 2 * dp )
+        highlighted = false
       }
     }
 
+    Connections {
+        target: printMenu
+
+        onEnablePrintItem: {
+          printItem.enabled = rows
+        }
+    }
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
@@ -766,14 +789,70 @@ ApplicationWindow {
     */
   }
 
-  Controls.Menu {
+  Menu {
+    id: printMenu
+
+    title: qsTr( "Print to PDF" )
+
+    signal enablePrintItem( int rows )
+
+    width: Math.max(200*dp, mainWindow.width/4)
+    font: Theme.defaultFont
+
+    Instantiator {
+
+      id: layoutListInstantiator
+
+      model: PrintLayoutListModel {
+      }
+
+      MenuItem {
+        text: Title
+
+        width: parent.width
+        height: 48 * dp
+        font: Theme.defaultFont
+        leftPadding: 10 * dp
+
+        onTriggered: {
+          iface.print( Index )
+          highlighted = false
+        }
+      }
+      onObjectAdded: printMenu.insertItem(index, object)
+      onObjectRemoved: printMenu.removeItem(object)
+    }
+
+    Connections {
+      target: iface
+
+      onLoadProjectEnded: {
+        layoutListInstantiator.model.project = qgisProject
+        layoutListInstantiator.model.reloadModel()
+        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+      }
+    }
+  }
+
+  Menu {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
+    font: Theme.defaultFont
+    width: Math.max(200*dp, mainWindow.width/4)
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Enable Positioning" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: parent.width
       checkable: true
       checked: positionSource.active
+      indicator.height: 20 * dp
+      indicator.width: 20 * dp
+      indicator.implicitHeight: 24 * dp
+      indicator.implicitWidth: 24 * dp
+
       onCheckedChanged: {
         if ( checked && platformUtilities.checkPositioningPermissions() ) {
           positionSource.active = checked
@@ -786,8 +865,14 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
+    MenuSeparator { width: Math.max(200*dp, mainWindow.width/4) }
+
+    MenuItem {
       text: qsTr( "Center current location" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: Math.max(200*dp, mainWindow.width/4)
       onTriggered: {
         var coord = positionSource.position.coordinate;
         var loc = Qt.point( coord.longitude, coord.latitude );
@@ -795,12 +880,21 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuSeparator {}
+    MenuSeparator { width: Math.max(200*dp, mainWindow.width/4) }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Show position information" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: Math.max(200*dp, mainWindow.width/4)
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+      indicator.height: 20 * dp
+      indicator.width: 20 * dp
+      indicator.implicitHeight: 24 * dp
+      indicator.implicitWidth: 24 * dp
       onCheckedChanged:
       {
         settings.setValue( "/QField/Positioning/ShowInformationView", checked )
@@ -908,7 +1002,7 @@ ApplicationWindow {
     opacity: 0.5
     visible: false
 
-    Controls.BusyIndicator {
+    BusyIndicator {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
@@ -939,7 +1033,7 @@ ApplicationWindow {
     }
   }
 
-  Controls.BusyIndicator {
+  BusyIndicator {
     id: busyIndicator
     anchors.centerIn: mapCanvas
     width: 36 * dp
