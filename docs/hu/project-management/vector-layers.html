@@ -329,7 +329,7 @@ page and activate the checkboxes to match your desired behavior.</p>
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>Child features can be added before the parent is finaly saved - means while adding a parent. But it&#8217;s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
-<p><strong>Many-To-Many relations</strong></p>
+<p><strong>Több a többhöz kapcsolatok</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
 <p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
 <div class="clearer text-center docutils container">
