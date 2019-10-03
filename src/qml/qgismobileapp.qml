@@ -873,7 +873,7 @@ ApplicationWindow {
       text: qsTr( "Center current location" )
 
       height: 48 * dp
-      font.pointSize: 14
+      font: Theme.defaultFont
       width: Math.max(200*dp, mainWindow.width/4)
       onTriggered: {
         var coord = positionSource.position.coordinate;
