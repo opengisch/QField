@@ -20,7 +20,7 @@
 
 [Please also attach additional files if a specific project/dataset is useful to investigate the problem.]
 
-**QField version:** [Enter QField version here]
+**QField version:** [Enter QField version here including build number found in the about screen after the release name example 1.2.0 (10200993)]
 
 ## Additional information:
 
