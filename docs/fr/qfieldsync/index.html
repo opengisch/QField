@@ -107,8 +107,8 @@
 <li><a class="reference internal" href="#offline-editing-configuration">Configuration de l&#8217;édition hors-ligne</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
-<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
+<li><a class="reference internal" href="#package-for-qfield">Préparer le projet pour QField</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">Synchroniser depuis QField</a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Gestion du projet QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Projet portable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
@@ -212,7 +212,7 @@
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<p>Dans QGIS, ouvrez l&#8217;installeur d&#8217;extensions et cherchez <strong>qfield sync</strong>. Selectionnez l&#8217;extension dans la liste et cliquez sur <strong>Installer</strong>.</p>
 <img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
@@ -259,16 +259,16 @@
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<h2>Préparer le projet pour QField<a class="headerlink" href="#package-for-qfield" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois le projet configuré, exportez le dans un dossier. Ce dossier contiendra le fichier .qgs ainsi que les données utilisées dedans.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
-<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Copiez le dossier sur votre appareil. Ouvrez QField, ouvrez le projet et commencez à collecter de la donnée.</p>
+<p>Pensez également à sauvegarder le projet QGIS en utilisant Enregistrer Sous ... car vous aurez à re-ouvrir ce projet plus tard lorsque vous voudrez synchroniser vos changements.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Lien permanent vers ce titre">¶</a></h2>
-<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
-<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<h2>Synchroniser depuis QField<a class="headerlink" href="#synchronize-from-qfield" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque vous voulez synchroniser ce que vous avez collecté, commencez par re-ouvrir le projet dans QGIS (celui que vous avez sauvegardé précédement avec Enregister Sous ... ).</p>
+<p>Copiez le dossier du projet depuis votre appareil sur votre ordinateur et utilisez <strong>Synchroniser depuis QField</strong> pour synchroniser vos changements depuis le projet portable vers le projet principal.</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>

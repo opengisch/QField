@@ -105,7 +105,7 @@
 <li><a class="reference internal" href="#forms-and-fields">Formulaires et champs</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Formulaire de suppression d&#8217;objet</a></li>
 <li><a class="reference internal" href="#field-widget">Outil d&#8217;édition de champ</a><ul>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a></li>
+<li><a class="reference internal" href="#relation-widget">Outil Relation</a></li>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
@@ -185,7 +185,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Configuration des couches vecteur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
@@ -300,7 +300,8 @@
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td><p class="first last">Outil Relation</p>
+</td>
 <td><span class="yay">✔</span></td>
 <td>&nbsp;</td>
 </tr>
@@ -312,14 +313,14 @@
 </tbody>
 </table>
 <div class="section" id="relation-widget">
-<h4>Relation Widget<a class="headerlink" href="#relation-widget" title="Lien permanent vers ce titre">¶</a></h4>
-<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<h4>Outil Relation<a class="headerlink" href="#relation-widget" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour plus d&#8217;informations, referez-vous à la documentation officielle : <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It&#8217;s possible to add, delete and open them.</p>
+<p>L&#8217;outil Relation montre toutes les entitées enfant dans une liste. Il est possible d&#8217;en ajouter, d&#8217;en supprimer ou de les ouvrir.</p>
 <p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
