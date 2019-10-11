@@ -100,8 +100,8 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Concepts</a><ul>
 <li><a class="reference internal" href="#keep-it-simple">Rester simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Etre compatible avec QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Basé sur le &#8220;mode&#8221;</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">Être compatible avec QGIS</a></li>
+<li><a class="reference internal" href="#mode-based">Basé sur les &#8220;modes&#8221; de fonctionnement</a></li>
 </ul>
 </li>
 </ul>
@@ -177,21 +177,21 @@
       
   <div class="section" id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Lien permanent vers ce titre">¶</a></h1>
-<p>QField a été conçu selon quelques principes.</p>
+<p>QField est conçu selon quelques principes clés :</p>
 <div class="section" id="keep-it-simple">
 <h2>Rester simple<a class="headerlink" href="#keep-it-simple" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les besoins de saisie sur le terrain ne sont pas les mêmes qu&#8217;au bureau. L&#8217;écran est plus petit, les appareils sont différents et les tâches sont différentes.</p>
-<p>Le but de QField est d&#8217;aider l&#8217;utilisateur à effectuer ses tâches sans une encombrante interface. Seules les fonctionnalités utiles sur le terrain sont disponibles dans l&#8217;interface. Tout le reste ne l&#8217;est pas.</p>
-<p>Cela signifie que tout ce qui concerne la symbologie des couches, la définition des formulaires ou la configuration du projet devra être effectué au préalable sur un poste avec QGIS.</p>
+<p>Les besoins de saisie sur le terrain ne sont pas les mêmes qu&#8217;au bureau. L&#8217;écran est plus petit, les appareils et les tâches sont différents.</p>
+<p>Le but de QField est d&#8217;aider l&#8217;utilisateur à réaliser ces tâches sans encombrer l&#8217;interface utilisateur. Seules les fonctionnalités utiles à la réalisation des tâches devant être effectuées sur le terrain sont disponibles. Tout le reste ne l&#8217;est pas.</p>
+<p>Cela signifie que tout ce qui concerne la symbologie des couches, la définition des formulaires ou la configuration du projet devra être effectué au préalable sur un poste informatique avec QGIS.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h2>Etre compatible avec QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Être compatible avec QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Lien permanent vers ce titre">¶</a></h2>
 <p>QField est basé sur QGIS. Ce n&#8217;est pas une réécriture de QGIS, mais cela utilise les librairies de QGIS. Le moteur de rendu est le même que QGIS et le contenu de la carte sera par conséquent identique entre un appareil mobile et un ordinateur de bureau.</p>
 <p>Si une option de configuration est disponible dans le projet QGIS, il ne sera pas nécessaire de la réécrire. QField utilise les mêmes widgets d&#8217;édition que QGIS. Si un projet est configuré avec QGIS desktop, il fonctionnera sur un appareil mobile.</p>
 <p>Ces concepts guident le développement de QField, mais n&#8217;ont pas encore tous été implémentés.</p>
 </div>
 <div class="section" id="mode-based">
-<h2>Basé sur le &#8220;mode&#8221;<a class="headerlink" href="#mode-based" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Basé sur les &#8220;modes&#8221; de fonctionnement<a class="headerlink" href="#mode-based" title="Lien permanent vers ce titre">¶</a></h2>
 <p>QField est construit sur des &#8220;modes&#8221;. Ces modes sont similaires aux outils de carte dans QGIS desktop. Un mode définit une tâche qu&#8217;un utilisateur est en train de réaliser. Soit l&#8217;utilisateur navigue au travers des données, soit il numérise de nouvelles données.</p>
 </div>
 </div>
