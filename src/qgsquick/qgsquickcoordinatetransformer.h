@@ -99,7 +99,7 @@ class QgsQuickCoordinateTransformer : public QObject
      * The altitude value of captured coordinates is corrected by the amount of deltaZ.
      * This can be used to correct the altitude with the antenna height for example.
      */
-    void setDeltaZ(const qreal& deltaZ);
+    void setDeltaZ( const qreal& deltaZ );
 
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
@@ -134,7 +134,7 @@ class QgsQuickCoordinateTransformer : public QObject
      * The altitude value of captured coordinates is corrected by the amount of deltaZ.
      * This can be used to correct the altitude with the antenna height for example.
      */
-    qreal mDeltaZ;
+    qreal mDeltaZ = std::numeric_limits<qreal>::quiet_NaN();
 };
 
 #endif // QGSQUICKCOORDINATETRANSFORMER_H
