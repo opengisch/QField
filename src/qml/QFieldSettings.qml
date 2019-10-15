@@ -1,9 +1,9 @@
 import QtQuick 2.6
 
 import Qt.labs.settings 1.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.4
 
 import Theme 1.0
 
@@ -44,16 +44,16 @@ Page {
     TabBar {
       id: bar
       Layout.fillWidth: true
-      Layout.preferredHeight: 36*dp
+      Layout.preferredHeight: 48*dp
 
       TabButton {
-        height: 36*dp
+        height: 48*dp
         text: qsTr("Layout")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 36*dp
+        height: 48*dp
         text: qsTr("Global Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
@@ -66,43 +66,170 @@ Page {
 
       ColumnLayout {
         spacing: 2 * dp
+        anchors.fill: parent
 
-        Switch{
+        SwitchDelegate {
           id: showScaleBarCheckBox
           width: parent.width
-          text: qsTr( "Show scalebar" )
+          text: qsTr( "Show scale bar" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
         }
 
-        Switch {
+        SwitchDelegate {
           id: fullScreenIdentifyViewCheckBox
           width: parent.width
-          text: qsTr( "Show attribute form in full screen" )
+          text: qsTr( "Maximized attribute form" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
         }
 
-        Switch {
+        SwitchDelegate {
           id: locatorKeepScaleCheckBox
           width: parent.width
-          text: qsTr( "Keep current scale when triggering search results" )
+          text: qsTr( "Fixed scale navigation" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
         }
 
-        Switch {
+        SwitchDelegate {
           id: incrementalRenderingCheckBox
           width: parent.width
-          text: qsTr( "Redraw map every 250 ms while rendering" )
+          text: qsTr( "Progressive rendering" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
+        }
+        Label {
+          leftPadding: 30 * dp
+          rightPadding: 30 * dp
+          bottomPadding: 30 * dp
+          text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering" )
+          font.pointSize: 12
+          font.italic: true
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          Layout.minimumHeight: contentHeight
+          Layout.maximumHeight: contentHeight
         }
 
 
-        Switch {
+        SwitchDelegate {
           id: numericalDigitizingInformationCheckBox
           width: parent.width
-          text: qsTr( "Show numerical information while digitizing" )
+          text: qsTr( "Show digitizing information" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
           checked: true
         }
+        Label {
+          leftPadding: 30 * dp
+          rightPadding: 30 * dp
+          bottomPadding: 30 * dp
+          text: qsTr( "When switched on, digitizing information, such as latitude and longitude, is overlayed onto the canvas while adding new features." )
+          font.pointSize: 12
+          font.italic: true
 
-        Switch {
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          Layout.minimumHeight: contentHeight
+          Layout.maximumHeight: contentHeight
+        }
+
+        SwitchDelegate {
           id: useNativeCameraCheckBox
           width: parent.width
-          text: qsTr( "Use native camera function (unstable on recent Android versions)" )
+          text: qsTr( "Use native camera" )
+          contentItem: Text {
+                    text: parent.text
+                    font: Theme.defaultFont
+                    verticalAlignment: Text.AlignVCenter
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    rightPadding: parent.indicator.width + parent.spacing
+                }
+          background: Rectangle {
+              implicitWidth: parent.width
+              color: transparent
+          }
+        }
+        Label {
+          leftPadding: 30 * dp
+          rightPadding: 30 * dp
+          bottomPadding: 30 * dp
+          text: qsTr( "Note: native camera function is unstable on recent Android versions" )
+          font.pointSize: 12
+          font.italic: true
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          Layout.minimumHeight: contentHeight
+          Layout.maximumHeight: contentHeight
         }
 
 
@@ -132,21 +259,45 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
+    height: 48 * dp
+    visible: true
+
     anchors {
+      top: parent.top
       left: parent.left
       right: parent.right
     }
 
+    background: Rectangle {
+      color: Theme.mainColor
+    }
+
     RowLayout {
-      spacing: 20
       anchors.fill: parent
+      Layout.margins: 0
+
+      Button {
+        id: enterButton
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+
+        visible: form.state === 'Add' || form.state === 'Edit'
+        width: 48*dp
+        height: 48*dp
+        clip: true
+        bgcolor: Theme.darkGray
+
+        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+
+        onClicked: finished()
+      }
 
       Label {
         id: titleLabel
-        text: qsTr( 'QField Settings' )
-        bottomPadding: 5 * dp
-        topPadding: 5 * dp
-        font: Theme.secondaryTitleFont
+
+        text:  qsTr( 'QField Settings' )
+        font: Theme.strongFont
+        color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
