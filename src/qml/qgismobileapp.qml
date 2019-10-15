@@ -1035,9 +1035,10 @@ ApplicationWindow {
 
   BusyIndicator {
     id: busyIndicator
-    anchors.centerIn: mapCanvas
-    width: 100 * dp
-    height: 100 * dp
+    anchors.left: mainMenuBar.left
+    anchors.top: mainMenuBar.bottom
+    width: 60 * dp
+    height: 60 * dp
     running: mapCanvasMap.isRendering
   }
 
