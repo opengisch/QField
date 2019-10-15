@@ -129,8 +129,11 @@ qreal QgsQuickCoordinateTransformer::deltaZ() const
   return mDeltaZ;
 }
 
-void QgsQuickCoordinateTransformer::setDeltaZ(const qreal& deltaZ)
+void QgsQuickCoordinateTransformer::setDeltaZ( const qreal& deltaZ )
 {
+  if ( qgsDoubleNear( mDeltaZ, deltaZ ) )
+    return;
+
   emit deltaZChanged();
   mDeltaZ = deltaZ;
 }
