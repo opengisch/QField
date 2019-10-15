@@ -92,8 +92,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -137,8 +137,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -182,8 +182,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -227,8 +227,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -249,7 +249,7 @@ Page {
         }
         Label {
           leftPadding: 30 * dp
-          rightPadding: 30 * dp
+          rightPadding: ( 30 + 54 ) * dp
           bottomPadding: 55 * dp
           text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering" )
           font.pointSize: 12
@@ -288,8 +288,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -310,7 +310,7 @@ Page {
         }
         Label {
           leftPadding: 30 * dp
-          rightPadding: 30 * dp
+          rightPadding: ( 30 + 54 ) * dp
           bottomPadding: 55 * dp
           text: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
           font.pointSize: 12
@@ -347,8 +347,8 @@ Page {
               implicitHeight: 30 * dp
               x: parent.width - width - parent.rightPadding
               y: parent.height / 2 - height / 2
-              radius: 13
-              color: parent.checked ? Theme.mainColor : "transparent"
+              radius: 15 * dp
+              color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
@@ -369,9 +369,9 @@ Page {
         }
         Label {
           leftPadding: 30 * dp
-          rightPadding: 30 * dp
+          rightPadding: ( 30 + 54 ) * dp
           bottomPadding: 55 * dp
-          text: qsTr( "Note: native camera function is unstable on recent Android versions" )
+          text: qsTr( "Warning: native camera function is unstable on recent Android versions" )
           font.pointSize: 12
           font.italic: true
 
