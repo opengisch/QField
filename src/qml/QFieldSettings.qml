@@ -71,6 +71,7 @@ Page {
         SwitchDelegate {
           id: showScaleBarCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Show scale bar" )
           contentItem: Text {
                     text: parent.text
@@ -86,11 +87,36 @@ Page {
               implicitWidth: parent.width
               color: transparent
           }
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
 
         SwitchDelegate {
           id: fullScreenIdentifyViewCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Maximized attribute form" )
           contentItem: Text {
                     text: parent.text
@@ -106,11 +132,36 @@ Page {
               implicitWidth: parent.width
               color: transparent
           }
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
 
         SwitchDelegate {
           id: locatorKeepScaleCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Fixed scale navigation" )
           contentItem: Text {
                     text: parent.text
@@ -126,11 +177,36 @@ Page {
               implicitWidth: parent.width
               color: transparent
           }
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
 
         SwitchDelegate {
           id: incrementalRenderingCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Progressive rendering" )
           contentItem: Text {
                     text: parent.text
@@ -146,11 +222,35 @@ Page {
               implicitWidth: parent.width
               color: transparent
           }
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
         Label {
           leftPadding: 30 * dp
           rightPadding: 30 * dp
-          bottomPadding: 30 * dp
+          bottomPadding: 55 * dp
           text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering" )
           font.pointSize: 12
           font.italic: true
@@ -166,6 +266,7 @@ Page {
         SwitchDelegate {
           id: numericalDigitizingInformationCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Show digitizing information" )
           contentItem: Text {
                     text: parent.text
@@ -182,12 +283,36 @@ Page {
               color: transparent
           }
           checked: true
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
         Label {
           leftPadding: 30 * dp
           rightPadding: 30 * dp
-          bottomPadding: 30 * dp
-          text: qsTr( "When switched on, digitizing information, such as latitude and longitude, is overlayed onto the canvas while adding new features." )
+          bottomPadding: 55 * dp
+          text: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
           font.pointSize: 12
           font.italic: true
 
@@ -201,6 +326,7 @@ Page {
         SwitchDelegate {
           id: useNativeCameraCheckBox
           width: parent.width
+          padding: 25 * dp
           text: qsTr( "Use native camera" )
           contentItem: Text {
                     text: parent.text
@@ -216,11 +342,35 @@ Page {
               implicitWidth: parent.width
               color: transparent
           }
+          indicator: Rectangle {
+              implicitWidth: 54 * dp
+              implicitHeight: 30 * dp
+              x: parent.width - width - parent.rightPadding
+              y: parent.height / 2 - height / 2
+              radius: 13
+              color: parent.checked ? Theme.mainColor : "transparent"
+              border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+              Rectangle {
+                  x: parent.parent.checked ? parent.width - width : 0
+                  width: 30 * dp
+                  height: 30 * dp
+                  radius: 15 * dp
+                  color: parent.parent.down ? Theme.lightGray : Theme.light
+                  border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                  Behavior on x {
+                    PropertyAnimation {
+                      duration: 150
+                      easing.type: Easing.Linear
+                    }
+                  }
+              }
+          }
         }
         Label {
           leftPadding: 30 * dp
           rightPadding: 30 * dp
-          bottomPadding: 30 * dp
+          bottomPadding: 55 * dp
           text: qsTr( "Note: native camera function is unstable on recent Android versions" )
           font.pointSize: 12
           font.italic: true
