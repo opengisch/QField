@@ -1,26 +1,28 @@
 import QtQuick 2.4
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
+import Theme 1.0
 
 Popup {
     property alias itemVisible: itemVisibleCheckBox.checked
-
-    leftPadding: 20 * dp
-    rightPadding: 20 * dp
-    topPadding: 20 * dp
-    bottomPadding: 10 * dp
+    padding: 0
 
     Page {
+        padding: 10 * dp
         header: Label {
+            padding: 10 * dp
+            topPadding: 20 * dp
+            bottomPadding: 5 * dp
+            anchors.left:parent.left
+            anchors.right:parent.right
             text: title
-            font.bold: true
-            font.pointSize: 16
+            font: Theme.strongFont
         }
 
         CheckBox {
             id: itemVisibleCheckBox
             text: qsTr("Show on map canvas")
-            font.pointSize: 16
+            font: Theme.defaultFont
 
             indicator.height: 16 * dp
             indicator.width: 16 * dp
