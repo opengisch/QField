@@ -921,8 +921,12 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Configure antenna height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: Math.max(200*dp, mainWindow.width/4)
+
       onTriggered: {
         positioningSettings.visible = true
       }

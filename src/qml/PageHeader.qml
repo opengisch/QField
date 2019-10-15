@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "."
-import "js/style.js" as Style
+import Theme 1.0
 
 ToolBar {
   property alias title: titleLabel.text
@@ -21,7 +21,7 @@ ToolBar {
   }
 
   background: Rectangle {
-    color: '#80CC28'
+    color: Theme.mainColor
   }
 
   RowLayout {
@@ -36,9 +36,9 @@ ToolBar {
       width: 48*dp
       height: 48*dp
       clip: true
-      bgcolor: "#212121"
+      bgcolor: Theme.darkGray
 
-      iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
+      iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
       onClicked:
       {
@@ -50,9 +50,8 @@ ToolBar {
     Label {
       id: titleLabel
 
-      font.pointSize: 14
-      font.bold: true
-      color: "#FFFFFF"
+      font: Theme.strongFont
+      color: Theme.light
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
@@ -67,9 +66,9 @@ ToolBar {
       width: 48*dp
       height: 48*dp
       clip: true
-      bgcolor: "#212121"
+      bgcolor: Theme.darkGray
 
-      iconSource: Style.getThemeIcon( 'ic_close_white_24dp' )
+      iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
 
       onClicked: {
         cancel()
