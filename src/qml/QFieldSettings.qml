@@ -72,6 +72,7 @@ Page {
           id: showScaleBarCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Show scale bar" )
           contentItem: Text {
                     text: parent.text
@@ -88,19 +89,19 @@ Page {
               color: transparent
           }
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
@@ -117,6 +118,7 @@ Page {
           id: fullScreenIdentifyViewCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Maximized attribute form" )
           contentItem: Text {
                     text: parent.text
@@ -133,19 +135,19 @@ Page {
               color: transparent
           }
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
@@ -162,6 +164,7 @@ Page {
           id: locatorKeepScaleCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Fixed scale navigation" )
           contentItem: Text {
                     text: parent.text
@@ -178,19 +181,19 @@ Page {
               color: transparent
           }
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
@@ -207,6 +210,7 @@ Page {
           id: incrementalRenderingCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Progressive rendering" )
           contentItem: Text {
                     text: parent.text
@@ -223,19 +227,19 @@ Page {
               color: transparent
           }
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
@@ -267,6 +271,7 @@ Page {
           id: numericalDigitizingInformationCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Show digitizing information" )
           contentItem: Text {
                     text: parent.text
@@ -284,19 +289,19 @@ Page {
           }
           checked: true
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
@@ -327,6 +332,7 @@ Page {
           id: useNativeCameraCheckBox
           width: parent.width
           padding: 25 * dp
+          topPadding: 35 * dp
           text: qsTr( "Use native camera" )
           contentItem: Text {
                     text: parent.text
@@ -343,19 +349,19 @@ Page {
               color: transparent
           }
           indicator: Rectangle {
-              implicitWidth: 54 * dp
-              implicitHeight: 30 * dp
+              implicitWidth: 50 * dp
+              implicitHeight: 28 * dp
               x: parent.width - width - parent.rightPadding
-              y: parent.height / 2 - height / 2
-              radius: 15 * dp
+              y: parent.height / 2 - height / 2 + parent.topPadding / 2
+              radius: 14 * dp
               color: parent.checked ? Theme.mainColor : Theme.lightGray
               border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
               Rectangle {
                   x: parent.parent.checked ? parent.width - width : 0
-                  width: 30 * dp
-                  height: 30 * dp
-                  radius: 15 * dp
+                  width: 28 * dp
+                  height: 28 * dp
+                  radius: 14 * dp
                   color: parent.parent.down ? Theme.lightGray : Theme.light
                   border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
                   Behavior on x {
