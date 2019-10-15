@@ -16,4 +16,4 @@ else
   APP_ICON="qfield-testlogo.svg"
   APP_VERSION="Pull Request ${TRAVIS_PULL_REQUEST}"
 fi
-docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e "ARCH=${ARCH}" -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" -e "VERSION=${APP_VERSION}" -e "PKG_NAME=${PKG_NAME}" -e "APP_NAME=${APP_NAME}" -e "APP_ICON=${APP_ICON}" opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
+docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e ARCH -e STOREPASS -e KEYNAME -e KEYPASS -e "VERSION=${APP_VERSION}" -e PKG_NAME -e APP_NAME -e APP_ICON opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
