@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "${TRAVIS_TAG}" ]; then
+if [ -n "${TRAVIS_TAG}" ]; then
   APP_NAME="QField"
   PKG_NAME="qfield"
   APP_ICON="qfield-logo.svg"
