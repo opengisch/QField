@@ -76,7 +76,7 @@ VisibilityFadingRow {
         Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? Theme.mainColor : Theme.darkGray
+    bgcolor: stateMachine.state === 'measure' ? Theme.darkGray : Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
