@@ -128,7 +128,7 @@ ApplicationWindow {
     id: positionSource
     active: settings.valueBool( "/QField/Positioning/Active", false )
     destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
+    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
   }
 
   Item {
@@ -144,6 +144,7 @@ ApplicationWindow {
     PositionInformationView {
       positionSource: positionSource
       crs: mapCanvas.mapSettings.destinationCrs
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
   }
 

@@ -5,12 +5,14 @@ import QtQuick.Layouts 1.3
 import org.qgis 1.0
 import org.qfield 1.0
 import Utils 1.0
+import Theme 1.0
 
 Rectangle {
   id: positionInformationView
   property PositionSource positionSource
   property alias crs: _ct.destinationCrs
   property double rowHeight: 30*dp
+  property alias antennaHeight: antennaHeightText.value
   border.color: "darkslategrey"
   border.width: 1*dp
   color: "yellow"
@@ -32,7 +34,8 @@ Rectangle {
     rows: parent.width > 800*dp ? 1: 2
     width: parent.width - 2 * parent.border.width
     padding: parent.border.width
-    property double cellWidth: grid.width / ( 3* ( grid.rows === 1 ? 2 : 1 ) )
+    property int extraCells: isNaN( parseFloat( positionInformationView.antennaHeight ) ) ? 0 : 1
+    property double cellWidth: grid.width / ( (3 + extraCells ) * ( grid.rows === 1 ? 2 : 1 ) )
 
     Rectangle {
       id: x
@@ -116,6 +119,35 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.position.verticalAccuracyValid ? positionSource.position.verticalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: Theme.lightGray
+
+      Text {
+        id: antennaHeightText
+        property double value
+
+        anchors.margins:  10*dp
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        text: qsTr( "Antenna" ) + ': ' + ( !isNaN( parseFloat( value ) ) ? value + " m" : qsTr( "N/A" ) )
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "white"
+
+      Text {
+        anchors.margins:  10*dp
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        text: '' // placeholder for whatever comes up
       }
     }
   }
