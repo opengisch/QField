@@ -6,7 +6,7 @@ import Qt.labs.settings 1.0
 Popup {
   id: popup
 
-  property alias antennaHeight:  antennaHeightInput.text
+  property double antennaHeight: parseFloat(antennaHeightInput.text)
   property alias antennaHeightActivated: antennaHeightActivated.checked
 
   Settings {
