@@ -337,23 +337,29 @@ ApplicationWindow {
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
-                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1 / %2</p>'
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
 
-                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
+                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1: %2%3</p>'
+                  .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length') )
                   .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                  .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
+                  .arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '<br>%1: %2'.arg( qsTr( 'Length') ).arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
                   : '' )
 
-                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'
+                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
+                  .arg( qsTr( 'Area') )
                   .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
                   : '' )
 
-                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1 / %2</p>'
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1: %2<br>%3: %4</p>'
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
               : ''
 
