@@ -20,7 +20,7 @@
 #include "qgsproject.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
-  : QgsSnappingUtils( parent )
+  : QgsSnappingUtils( parent, false )
   , mSettings( nullptr )
 {
   connect( QgsProject::instance(), static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &SnappingUtils::removeOutdatedLocators );
