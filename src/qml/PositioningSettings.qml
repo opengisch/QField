@@ -31,7 +31,12 @@ Popup {
 
         label: CheckBox {
           id: antennaHeightActivated
-          text: qsTr("Activate Antenna Height")
+          text: qsTr("Activate Antenna Height Compensation")
+
+          indicator.height: 16 * dp
+          indicator.width: 16 * dp
+          icon.height: 16 * dp
+          icon.width: 16 * dp
         }
 
         GridLayout {
@@ -41,15 +46,18 @@ Popup {
           enabled: antennaHeightActivated.checked
 
           Text {
-            text: qsTr("Antenna Height Compensation")
+            text: qsTr("Antenna Height")
             enabled: antennaHeightActivated.checked
           }
 
           TextField {
             id: antennaHeightInput
             enabled: antennaHeightActivated.checked
+            text: "0"
 
             Layout.fillWidth: true
+            Layout.preferredHeight: font.height + 20 * dp
+            font: Theme.defaultFont
 
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {}
