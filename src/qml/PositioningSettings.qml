@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import Qt.labs.settings 1.0
+import Theme 1.0
 
 Popup {
   id: popup
@@ -18,6 +19,7 @@ Popup {
 
   Page {
     anchors.fill: parent
+    padding: 20 * dp
 
     header: PageHeader {
       title: qsTr("Positioning Settings")
@@ -34,6 +36,7 @@ Popup {
         label: CheckBox {
           id: antennaHeightActivated
           text: qsTr("Activate Antenna Height Compensation")
+          font: Theme.defaultFont
 
           indicator.height: 16 * dp
           indicator.width: 16 * dp
@@ -50,6 +53,7 @@ Popup {
           Text {
             text: qsTr("Antenna Height")
             enabled: antennaHeightActivated.checked
+            font: Theme.defaultFont
           }
 
           TextField {
