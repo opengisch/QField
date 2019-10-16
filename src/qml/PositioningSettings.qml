@@ -32,6 +32,7 @@ Popup {
     GroupBox {
         anchors.left: parent.left
         anchors.right: parent.right
+        padding: 20 * dp
 
         label: CheckBox {
           id: antennaHeightActivated
@@ -62,6 +63,7 @@ Popup {
             text: "0"
 
             Layout.fillWidth: true
+            Layout.minimumWidth: 60 * dp
             Layout.preferredHeight: font.height + 20 * dp
             font: Theme.defaultFont
 
