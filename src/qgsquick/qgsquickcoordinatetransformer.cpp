@@ -119,7 +119,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
   }
 
   mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( mSourcePosition.z() + mDeltaZ );
+  mProjectedPosition.addZValue( z + mDeltaZ );
 
   emit projectedPositionChanged();
 }
