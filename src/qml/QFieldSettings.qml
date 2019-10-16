@@ -1,9 +1,9 @@
 import QtQuick 2.6
 
 import Qt.labs.settings 1.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.4
 
 import Theme 1.0
 
@@ -44,16 +44,16 @@ Page {
     TabBar {
       id: bar
       Layout.fillWidth: true
-      Layout.preferredHeight: 36*dp
+      Layout.preferredHeight: 48*dp
 
       TabButton {
-        height: 36*dp
+        height: 48*dp
         text: qsTr("Layout")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 36*dp
+        height: 48*dp
         text: qsTr("Global Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
@@ -64,49 +64,339 @@ Page {
       width: parent.width
       currentIndex: bar.currentIndex
 
-      ColumnLayout {
-        spacing: 2 * dp
+      ScrollView {
+        anchors.fill: parent
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+        contentWidth: settingsColumn.width
+        contentHeight: settingsColumn.height
+        clip: true
 
-        Switch{
-          id: showScaleBarCheckBox
-          width: parent.width
-          text: qsTr( "Show scalebar" )
-        }
+        ColumnLayout {
+          id: settingsColumn
+          spacing: 2 * dp
+          width: mainWindow.width
+          anchors.fill: parent.parent
 
-        Switch {
-          id: fullScreenIdentifyViewCheckBox
-          width: parent.width
-          text: qsTr( "Show attribute form in full screen" )
-        }
+          SwitchDelegate {
+            id: showScaleBarCheckBox
+            width: parent.width
+            padding: 25 * dp
+            topPadding: 28 * dp
+            text: qsTr( "Show scale bar" )
+            contentItem: Text {
+                text: parent.text
+                font: Theme.defaultFont
+                verticalAlignment: Text.AlignVCenter
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.minimumHeight: contentHeight
+                rightPadding: parent.indicator.width + parent.spacing
+            }
+            background: Rectangle {
+                implicitWidth: parent.width
+                color: transparent
+            }
+            indicator: Rectangle {
+                implicitWidth: 48 * dp
+                implicitHeight: 26 * dp
+                x: parent.width - width - parent.rightPadding
+                y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                radius: 13 * dp
+                color: parent.checked ? Theme.mainColor : Theme.lightGray
+                border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
-        Switch {
-          id: locatorKeepScaleCheckBox
-          width: parent.width
-          text: qsTr( "Keep current scale when triggering search results" )
-        }
+                Rectangle {
+                    x: parent.parent.checked ? parent.width - width : 0
+                    width: 26 * dp
+                    height: 26 * dp
+                    radius: 13 * dp
+                    color: parent.parent.down ? Theme.lightGray : Theme.light
+                    border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                    Behavior on x {
+                        PropertyAnimation {
+                            duration: 150
+                            easing.type: Easing.Linear
+                        }
+                    }
+                }
+            }
+          }
 
-        Switch {
-          id: incrementalRenderingCheckBox
-          width: parent.width
-          text: qsTr( "Redraw map every 250 ms while rendering" )
-        }
+          SwitchDelegate {
+              id: fullScreenIdentifyViewCheckBox
+              width: parent.width
+              padding: 25 * dp
+              topPadding: 28 * dp
+              text: qsTr( "Maximized attribute form" )
+              contentItem: Text {
+                  text: parent.text
+                  font: Theme.defaultFont
+                  verticalAlignment: Text.AlignVCenter
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+                  Layout.minimumHeight: contentHeight
+                  rightPadding: parent.indicator.width + parent.spacing
+              }
+              background: Rectangle {
+                  implicitWidth: parent.width
+                  color: transparent
+              }
+              indicator: Rectangle {
+                  implicitWidth: 48 * dp
+                  implicitHeight: 26 * dp
+                  x: parent.width - width - parent.rightPadding
+                  y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                  radius: 13 * dp
+                  color: parent.checked ? Theme.mainColor : Theme.lightGray
+                  border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+                  Rectangle {
+                      x: parent.parent.checked ? parent.width - width : 0
+                      width: 26 * dp
+                      height: 26 * dp
+                      radius: 13 * dp
+                      color: parent.parent.down ? Theme.lightGray : Theme.light
+                      border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                      Behavior on x {
+                          PropertyAnimation {
+                              duration: 150
+                              easing.type: Easing.Linear
+                          }
+                      }
+                  }
+              }
+          }
+
+          SwitchDelegate {
+              id: locatorKeepScaleCheckBox
+              width: parent.width
+              padding: 25 * dp
+              topPadding: 28 * dp
+              text: qsTr( "Fixed scale navigation" )
+              contentItem: Text {
+                  text: parent.text
+                  font: Theme.defaultFont
+                  verticalAlignment: Text.AlignVCenter
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+                  Layout.minimumHeight: contentHeight
+                  rightPadding: parent.indicator.width + parent.spacing
+              }
+              background: Rectangle {
+                  implicitWidth: parent.width
+                  color: transparent
+              }
+              indicator: Rectangle {
+                  implicitWidth: 48 * dp
+                  implicitHeight: 26 * dp
+                  x: parent.width - width - parent.rightPadding
+                  y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                  radius: 13 * dp
+                  color: parent.checked ? Theme.mainColor : Theme.lightGray
+                  border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+                  Rectangle {
+                      x: parent.parent.checked ? parent.width - width : 0
+                      width: 26 * dp
+                      height: 26 * dp
+                      radius: 13 * dp
+                      color: parent.parent.down ? Theme.lightGray : Theme.light
+                      border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                      Behavior on x {
+                          PropertyAnimation {
+                              duration: 150
+                              easing.type: Easing.Linear
+                          }
+                      }
+                  }
+              }
+          }
+
+          SwitchDelegate {
+              id: incrementalRenderingCheckBox
+              width: parent.width
+              padding: 25 * dp
+              topPadding: 28 * dp
+              text: qsTr( "Progressive rendering" )
+              contentItem: Text {
+                  text: parent.text
+                  font: Theme.defaultFont
+                  verticalAlignment: Text.AlignVCenter
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+                  Layout.minimumHeight: contentHeight
+                  rightPadding: parent.indicator.width + parent.spacing
+              }
+              background: Rectangle {
+                  implicitWidth: parent.width
+                  color: transparent
+              }
+              indicator: Rectangle {
+                  implicitWidth: 48 * dp
+                  implicitHeight: 26 * dp
+                  x: parent.width - width - parent.rightPadding
+                  y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                  radius: 13 * dp
+                  color: parent.checked ? Theme.mainColor : Theme.lightGray
+                  border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+                  Rectangle {
+                      x: parent.parent.checked ? parent.width - width : 0
+                      width: 26 * dp
+                      height: 26 * dp
+                      radius: 13 * dp
+                      color: parent.parent.down ? Theme.lightGray : Theme.light
+                      border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                      Behavior on x {
+                          PropertyAnimation {
+                              duration: 150
+                              easing.type: Easing.Linear
+                          }
+                      }
+                  }
+              }
+          }
+          Label {
+              leftPadding: 30 * dp
+              rightPadding: ( 30 + 54 ) * dp
+              bottomPadding: 55 * dp
+              text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering" )
+              font: Theme.tipFont
+
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: contentHeight
+              Layout.maximumHeight: contentHeight
+          }
 
 
-        Switch {
-          id: numericalDigitizingInformationCheckBox
-          width: parent.width
-          text: qsTr( "Show numerical information while digitizing" )
-          checked: true
-        }
+          SwitchDelegate {
+              id: numericalDigitizingInformationCheckBox
+              width: parent.width
+              padding: 25 * dp
+              topPadding: 28 * dp
+              text: qsTr( "Show digitizing information" )
+              contentItem: Text {
+                  text: parent.text
+                  font: Theme.defaultFont
+                  verticalAlignment: Text.AlignVCenter
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+                  Layout.minimumHeight: contentHeight
+                  rightPadding: parent.indicator.width + parent.spacing
+              }
+              background: Rectangle {
+                  implicitWidth: parent.width
+                  color: transparent
+              }
+              checked: true
+              indicator: Rectangle {
+                  implicitWidth: 48 * dp
+                  implicitHeight: 26 * dp
+                  x: parent.width - width - parent.rightPadding
+                  y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                  radius: 13 * dp
+                  color: parent.checked ? Theme.mainColor : Theme.lightGray
+                  border.color: parent.checked ? Theme.mainColor : Theme.lightGray
 
-        Switch {
-          id: useNativeCameraCheckBox
-          width: parent.width
-          text: qsTr( "Use native camera function (unstable on recent Android versions)" )
-        }
+                  Rectangle {
+                      x: parent.parent.checked ? parent.width - width : 0
+                      width: 26 * dp
+                      height: 26 * dp
+                      radius: 13 * dp
+                      color: parent.parent.down ? Theme.lightGray : Theme.light
+                      border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                      Behavior on x {
+                          PropertyAnimation {
+                              duration: 150
+                              easing.type: Easing.Linear
+                          }
+                      }
+                  }
+              }
+          }
+          Label {
+              leftPadding: 30 * dp
+              rightPadding: ( 30 + 54 ) * dp
+              bottomPadding: 55 * dp
+              text: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
+              font: Theme.tipFont
+
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: contentHeight
+              Layout.maximumHeight: contentHeight
+          }
+
+          SwitchDelegate {
+              id: useNativeCameraCheckBox
+              width: parent.width
+              padding: 25 * dp
+              topPadding: 28 * dp
+              text: qsTr( "Use native camera" )
+              contentItem: Text {
+                  text: parent.text
+                  font: Theme.defaultFont
+                  verticalAlignment: Text.AlignVCenter
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+                  Layout.minimumHeight: contentHeight
+                  rightPadding: parent.indicator.width + parent.spacing
+              }
+              background: Rectangle {
+                  implicitWidth: parent.width
+                  color: transparent
+              }
+              indicator: Rectangle {
+                  implicitWidth: 48 * dp
+                  implicitHeight: 26 * dp
+                  x: parent.width - width - parent.rightPadding
+                  y: ( parent.height + parent.topPadding - 4 * dp ) / 2 - height / 2
+                  radius: 13 * dp
+                  color: parent.checked ? Theme.mainColor : Theme.lightGray
+                  border.color: parent.checked ? Theme.mainColor : Theme.lightGray
+
+                  Rectangle {
+                      x: parent.parent.checked ? parent.width - width : 0
+                      width: 26 * dp
+                      height: 26 * dp
+                      radius: 13 * dp
+                      color: parent.parent.down ? Theme.lightGray : Theme.light
+                      border.color: parent.parent.checked ? Theme.mainColor : Theme.lightGray
+                      Behavior on x {
+                          PropertyAnimation {
+                              duration: 150
+                              easing.type: Easing.Linear
+                          }
+                      }
+                  }
+              }
+          }
+          Label {
+              leftPadding: 30 * dp
+              rightPadding: ( 30 + 54 ) * dp
+              bottomPadding: 55 * dp
+              text: qsTr( "Warning: native camera function is unstable on recent Android versions" )
+              font: Theme.tipFont
+
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: contentHeight
+              Layout.maximumHeight: contentHeight
+          }
 
 
-/*
+          /*
   // To be used in combination with code in main.cpp
         Switch {
           text: qsTr( "High Dpi support. !EXPERIMENTAL! (requires restart)" )
@@ -119,6 +409,7 @@ Page {
           }
         }
 */
+        }
       }
 
       Item {
@@ -132,21 +423,45 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
+    height: 48 * dp
+    visible: true
+
     anchors {
+      top: parent.top
       left: parent.left
       right: parent.right
     }
 
+    background: Rectangle {
+      color: Theme.mainColor
+    }
+
     RowLayout {
-      spacing: 20
       anchors.fill: parent
+      Layout.margins: 0
+
+      Button {
+        id: enterButton
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+
+        visible: form.state === 'Add' || form.state === 'Edit'
+        width: 48*dp
+        height: 48*dp
+        clip: true
+        bgcolor: Theme.darkGray
+
+        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+
+        onClicked: finished()
+      }
 
       Label {
         id: titleLabel
-        text: qsTr( 'QField Settings' )
-        bottomPadding: 5 * dp
-        topPadding: 5 * dp
-        font: Theme.secondaryTitleFont
+
+        text:  qsTr( 'QField Settings' )
+        font: Theme.strongFont
+        color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
