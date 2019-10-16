@@ -134,6 +134,10 @@ void QgsQuickCoordinateTransformer::setDeltaZ( const qreal& deltaZ )
   if ( qgsDoubleNear( mDeltaZ, deltaZ ) )
     return;
 
+  if ( std::isnan( deltaZ ) )
+    mDeltaZ = 0;
+  else
+    mDeltaZ = deltaZ;
+
   emit deltaZChanged();
-  mDeltaZ = deltaZ;
 }
