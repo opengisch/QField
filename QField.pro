@@ -25,3 +25,4 @@ CONFIG(debug, debug|release): {
   test.depends = core
 }
 
+QML_IMPORT_PATH += src/qml/imports
