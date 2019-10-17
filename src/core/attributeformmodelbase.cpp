@@ -20,6 +20,7 @@
 #include <qgseditorwidgetsetup.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
+#include <qgsdatetimefieldformatter.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -436,7 +437,14 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
       setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
     //on a date or time type take "DateTime"
     if ( fields.at( index ).isDateOrTime() )
-      setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), QVariantMap() );
+    {
+      QVariantMap config;
+      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( fields.at( index ).type() ) );
+      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( fields.at( index ).type() ) );
+      config.insert( QStringLiteral( "calendar_popup" ), true );
+      config.insert( QStringLiteral( "allow_null" ), true );
+      setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
+    }
     //on numeric types take "Range"
     if ( fields.at( index ).type() == QVariant::Int || fields.at( index ).type() == QVariant::Double || fields.at( index ).isNumeric() )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
