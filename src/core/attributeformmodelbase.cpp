@@ -276,7 +276,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
-        QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( fieldIndex );
+        const QgsEditorWidgetSetup setup = findBest( mLayer, field.name() );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
@@ -406,6 +406,37 @@ void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
   mConstraintsValid = constraintsValid;
   emit constraintsValidChanged();
 }
+
+QgsEditorWidgetSetup AttributeFormModelBase::findBest( const QgsVectorLayer *layer, const QString &fieldName )
+{
+  QgsFields fields = layer->fields();
+  int index = fields.indexOf( fieldName );
+
+  //get the existing one
+  QgsEditorWidgetSetup setup = layer->editorWidgetSetup( index );
+  if ( !setup.isNull() )
+    return setup;
+
+  //make a default one
+  setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+
+  if ( index >= 0 )
+  {
+    if ( fields.fieldOrigin( index ) == QgsFields::OriginProvider )
+    {
+      // if the field uses a default value clause we cannot use auto configured widgets
+      // cause obliterate the default clause
+      int providerOrigin = fields.fieldOriginIndex( index );
+      if ( !layer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
+        return setup;
+    }
+
+    //get the best one
+    //to do
+  }
+  return setup;
+}
+
 
 bool AttributeFormModelBase::hasTabs() const
 {

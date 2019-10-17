@@ -83,6 +83,8 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void setConstraintsValid( bool constraintsValid );
 
+    QgsEditorWidgetSetup findBest( const QgsVectorLayer *layer, const QString &fieldName );
+
     FeatureModel *mFeatureModel;
     QgsVectorLayer *mLayer;
     QgsAttributeEditorContainer *mTemporaryContainer;
