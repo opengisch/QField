@@ -276,7 +276,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
-        const QgsEditorWidgetSetup setup = findBest( mLayer, field.name() );
+        const QgsEditorWidgetSetup setup = findBest( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
@@ -407,36 +407,46 @@ void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
   emit constraintsValidChanged();
 }
 
-QgsEditorWidgetSetup AttributeFormModelBase::findBest( const QgsVectorLayer *layer, const QString &fieldName )
+QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
 {
-  QgsFields fields = layer->fields();
-  int index = fields.indexOf( fieldName );
+  QgsFields fields = mLayer->fields();
 
-  //get the existing one
-  QgsEditorWidgetSetup setup = layer->editorWidgetSetup( index );
+  //when field has a configured setup
+  QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( index );
   if ( !setup.isNull() )
     return setup;
 
-  //make a default one
+  //make the default one
   setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 
   if ( index >= 0 )
   {
     if ( fields.fieldOrigin( index ) == QgsFields::OriginProvider )
     {
-      // if the field uses a default value clause we cannot use auto configured widgets
-      // cause obliterate the default clause
+      // if the provider field uses a default value clause we cannot use auto configured widgets
+      // cause obliterate the default clause so take the "TextEdit"
       int providerOrigin = fields.fieldOriginIndex( index );
-      if ( !layer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
+      if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
         return setup;
     }
 
     //get the best one
-    //to do
+    //on a boolean type take "CheckBox"
+    if ( fields.at( index ).type() == QVariant::Bool )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
+    //on a date or time type take "DateTime"
+    if ( fields.at( index ).isDateOrTime() )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), QVariantMap() );
+    //on numeric types take "Range"
+    if ( fields.at( index ).type() == QVariant::Int || fields.at( index ).type() == QVariant::Double || fields.at( index ).isNumeric() )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
+    //if it's a foreign key configured in a relation take "RelationReference"
+    if ( !mLayer->referencingRelations( index ).isEmpty() )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), QVariantMap() );
   }
+
   return setup;
 }
-
 
 bool AttributeFormModelBase::hasTabs() const
 {
