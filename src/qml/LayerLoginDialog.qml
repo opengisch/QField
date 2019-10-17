@@ -11,7 +11,7 @@ Page {
   signal enter( string usr, string pw )
   signal cancel()
 
-  property var realm
+  property string realm
   property var inCancelation
 
   header: ToolBar {
