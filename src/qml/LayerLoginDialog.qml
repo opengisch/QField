@@ -38,7 +38,6 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: form.state === 'Add' || form.state === 'Edit'
         width: 48*dp
         height: 48*dp
         clip: true
