@@ -17,7 +17,7 @@
 #ifndef FEATURECHECKLISTMODEL_H
 #define FEATURECHECKLISTMODEL_H
 
-#include <featurelistmodel.h>
+#include "featurelistmodel.h"
 #include <qgsvectorlayer.h>
 
 class FeatureCheckListModel : public FeatureListModel
