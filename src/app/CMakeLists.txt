@@ -1,0 +1,15 @@
+ADD_EXECUTABLE(qfield main.cpp)
+
+INCLUDE_DIRECTORIES(SYSTEM
+  ${QGIS_INCLUDE_DIR}
+)
+
+INCLUDE_DIRECTORIES(
+  ${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/qgsquick
+)
+
+TARGET_LINK_LIBRARIES(qfield
+  qfield_core
+  ${QGIS_CORE_LIBRARY}
+)
