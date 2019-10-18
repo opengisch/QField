@@ -1,4 +1,11 @@
-ADD_EXECUTABLE(qfield main.cpp)
+FIND_PACKAGE(Qt5 COMPONENTS Core REQUIRED)
+
+ADD_EXECUTABLE(qfield
+  main.cpp
+  ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
+  ${CMAKE_SOURCE_DIR}/images/images.qrc
+  ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
+)
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
