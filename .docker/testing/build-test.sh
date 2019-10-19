@@ -8,4 +8,5 @@ cmake /usr/src
 make -j2
 echo "travis_fold:end:build"
 cd test
-xvfb-run ./test
+xvfb-run ctest --output-on-failure
+
