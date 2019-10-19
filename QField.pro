@@ -4,7 +4,7 @@ CONFIG += qt
 
 TRANSLATIONS = $$files(i18n/*.ts)
 
-SUBDIRS += 3rdparty qgsquick core app test
+SUBDIRS += 3rdparty qgsquick core app
 
 qgsquick.subdir = src/qgsquick
 core.subdir = src/core
@@ -15,9 +15,6 @@ core.depends = qgsquick
 app.depends = 3rdparty
 app.depends = qgsquick
 app.depends = core
-
-test.depends = qgsquick
-test.depends = core
 
 CONFIG += ordered
 
