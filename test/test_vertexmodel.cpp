@@ -10,7 +10,7 @@
 #include "vertexmodel.h"
 #include "qfield_testbase.h"
 
-class TestVertexModel: public QObject, QFieldTestBase
+class TestVertexModel: public QObject
 {
     Q_OBJECT
   private slots:
@@ -133,5 +133,5 @@ class TestVertexModel: public QObject, QFieldTestBase
     QgsGeometry mPoint2056Geometry;
 };
 
-QTEST_MAIN( TestVertexModel )
+QFIELDTEST_MAIN( TestVertexModel )
 #include "test_vertexmodel.moc"

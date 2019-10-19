@@ -8,7 +8,7 @@
 #include "referencingfeaturelistmodel.h"
 #include "qfield_testbase.h"
 
-class TestReferencingFeatureListModel: public QObject, QFieldTestBase
+class TestReferencingFeatureListModel: public QObject
 {
     Q_OBJECT
   private slots:
@@ -328,5 +328,5 @@ class TestReferencingFeatureListModel: public QObject, QFieldTestBase
 
 };
 
-QTEST_MAIN( TestReferencingFeatureListModel )
+QFIELDTEST_MAIN( TestReferencingFeatureListModel )
 #include "test_referencingfeaturelistmodel.moc"
