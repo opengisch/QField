@@ -7,6 +7,14 @@ SET(QFIELD_QGSQUICK_SRCS
   qgsquickutils.cpp
 )
 
+SET(QFIELD_QGSQUICK_HDRS
+  qgsquickcoordinatetransformer.h
+  qgsquickfeaturelayerpair.h
+  qgsquickmapcanvasmap.h
+  qgsquickmapsettings.h
+  qgsquickmaptransform.h
+  qgsquickutils.h
+)
 FIND_PACKAGE(Qt5 COMPONENTS Core Gui Xml Widgets Quick REQUIRED)
 
 INCLUDE_DIRECTORIES(SYSTEM
@@ -22,3 +30,5 @@ TARGET_LINK_LIBRARIES(qfield_qgsquick
   Qt5::Quick
   ${QGIS_CORE_LIBRARY}
 )
+
+INSTALL(FILES ${QFIELD_QGSQUICK_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})

@@ -45,6 +45,49 @@ SET(QFIELD_CORE_SRCS
 )
 
 SET(QFIELD_CORE_HDRS
+  appinterface.h
+  attributeformmodelbase.h
+  attributeformmodel.h
+  badlayerhandler.h
+  distancearea.h
+  expressioncontextutils.h
+  expressionvariablemodel.h
+  featurechecklistmodel.h
+  featurelistextentcontroller.h
+  featurelistmodel.h
+  featurelistmodelselection.h
+  featuremodel.h
+  featureslocatorfilter.h
+  focusstack.h
+  geometry.h
+  identifytool.h
+  layertreemapcanvasbridge.h
+  layertreemodel.h
+  legendimageprovider.h
+  linepolygonhighlight.h
+  locatormodelsuperbridge.h
+  maptoscreen.h
+  messagelogmodel.h
+  modelhelper.h
+  multifeaturelistmodel.h
+  picturesource.h
+  platformutilities.h
+  printlayoutlistmodel.h
+  projectsource.h
+  qfieldappauthrequesthandler.h
+  qgismobileapp.h
+  qgsgeometrywrapper.h
+  qgssggeometry.h
+  referencingfeaturelistmodel.h
+  rubberband.h
+  rubberbandmodel.h
+  settings.h
+  sgrubberband.h
+  snappingresult.h
+  snappingutils.h
+  submodel.h
+  valuemapmodel.h
+  vertexmodel.h
 )
 
 FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)
@@ -56,9 +99,6 @@ INCLUDE_DIRECTORIES(SYSTEM
 INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/src/qgsquick
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
-)
-
-SET(QFIELD_CORE_HDRS
 )
 
 ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFILED_CORE_HDRS})
@@ -75,3 +115,6 @@ TARGET_LINK_LIBRARIES(qfield_core
   Qt5::Quick
   ${QGIS_CORE_LIBRARY}
 )
+
+MESSAGE(${QFIELD_INCLUDE_DIR})
+INSTALL(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
