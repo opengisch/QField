@@ -7,6 +7,7 @@ astyle.*.diff
 *.autosave
 .DS_Store
 .idea
+keystore.p12
 QField.pro.user
 QField.pro.user.*
 /config.pri
