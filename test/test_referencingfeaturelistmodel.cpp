@@ -109,7 +109,7 @@ class TestReferencingFeatureListModel: public QObject
       mL_Land->addFeature( land_ft2 );
       mL_Land->addFeature( land_ft3 );
       mL_Land->commitChanges();
-      QCOMPARE( mL_Land->featureCount(), 4 );
+      QCOMPARE( mL_Land->featureCount(), 4L );
 
       // add features on king
       QgsFeature king_ft0( mL_King->fields() );
@@ -122,7 +122,7 @@ class TestReferencingFeatureListModel: public QObject
       mL_King->addFeature( king_ft0 );
       mL_King->addFeature( king_ft1 );
       mL_King->commitChanges();
-      QCOMPARE( mL_King->featureCount(), 2 );
+      QCOMPARE( mL_King->featureCount(), 2L );
 
       // add features on share
       QgsFeature share_ft0( mL_Share->fields() );
@@ -170,7 +170,7 @@ class TestReferencingFeatureListModel: public QObject
       mL_Share->addFeature( share_ft5 );
       mL_Share->addFeature( share_ft6 );
       mL_Share->commitChanges();
-      QCOMPARE( mL_Share->featureCount(), 7 );
+      QCOMPARE( mL_Share->featureCount(), 7L );
 
       mModel = new ReferencingFeatureListModel();
     }
