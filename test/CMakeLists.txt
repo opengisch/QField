@@ -1,6 +1,4 @@
-FIND_PACKAGE(Qt5Test REQUIRED)
-
-FIND_PACKAGE(Qt5 COMPONENTS Core Gui Widgets Xml REQUIRED)
+FIND_PACKAGE(Qt5 COMPONENTS Test Core Gui Widgets Xml REQUIRED)
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
@@ -26,3 +24,4 @@ MACRO (ADD_QFIELD_TEST TESTNAME TESTSRC)
 ENDMACRO (ADD_QFIELD_TEST)
 
 ADD_QFIELD_TEST(vertexmodeltest test_vertexmodel.cpp)
+ADD_QFIELD_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel.cpp)

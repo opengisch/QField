@@ -8,12 +8,9 @@
 
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
+#include "qfield_testbase.h"
 
-#ifdef ANDROID
-#include "androidplatformutilities.h"
-#endif
-
-class TestVertexModel: public QObject
+class TestVertexModel: public QObject, QFieldTestBase
 {
     Q_OBJECT
   private slots:
@@ -136,5 +133,5 @@ class TestVertexModel: public QObject
     QgsGeometry mPoint2056Geometry;
 };
 
-//QTEST_MAIN( TestVertexModel )
+QTEST_MAIN( TestVertexModel )
 #include "test_vertexmodel.moc"

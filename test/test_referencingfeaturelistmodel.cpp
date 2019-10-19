@@ -1,4 +1,3 @@
-
 #include <QtTest>
 #include <qgsapplication.h>
 #include <qgsvectorlayer.h>
@@ -7,12 +6,9 @@
 
 #include "qgsquickmapsettings.h"
 #include "referencingfeaturelistmodel.h"
+#include "qfield_testbase.h"
 
-#ifdef ANDROID
-#include "androidplatformutilities.h"
-#endif
-
-class TestReferencingFeatureListModel: public QObject
+class TestReferencingFeatureListModel: public QObject, QFieldTestBase
 {
     Q_OBJECT
   private slots:
@@ -332,5 +328,5 @@ class TestReferencingFeatureListModel: public QObject
 
 };
 
-//QTEST_MAIN( TestReferencingFeatureListModel )
+QTEST_MAIN( TestReferencingFeatureListModel )
 #include "test_referencingfeaturelistmodel.moc"
