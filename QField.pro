@@ -19,4 +19,6 @@ app.depends = core
 test.depends = qgsquick
 test.depends = core
 
+CONFIG += ordered
+
 QML_IMPORT_PATH += src/qml/imports
