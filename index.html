@@ -1,14 +1,15 @@
-<!doctype html> <html class="no-js" lang="en"> <head>
+<!doctype html>
+<html class="no-js" lang="en"> <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
   <title>QField - Efficient field work built for QGIS</title>
   <meta name="description" content="QField - Efficient field work built for QGIS">
   <meta name="author" content="OPENGIS.ch">
 
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/qfield.css" rel="stylesheet" media="screen">
+  <link href="css/qfield_v2.css" rel="stylesheet" media="screen">
   <script src="js/jquery-1.11.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/qfield.js"></script>
 
 </head>
 
@@ -23,72 +24,117 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <span>
-          <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 128 128" id="qfield-logo" version="1.1">
-            <g id="layer1" transform="translate(0,-924.36216)">
-            <path style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" d="M 64 4 A 60 60 0 0 0 4 64 A 60 60 0 0 0 64 124 A 60 60 0 0 0 97.957031 113.44141 L 73.472656 106.91211 A 44 44 0 0 1 71.478516 107.35938 A 44 44 0 0 1 67.113281 107.89062 A 44 44 0 0 1 64 108 A 44 44 0 0 1 59.607422 107.7793 A 44 44 0 0 1 55.257812 107.12305 A 44 44 0 0 1 50.998047 106.03516 A 44 44 0 0 1 46.865234 104.52734 A 44 44 0 0 1 42.90625 102.61328 A 44 44 0 0 1 39.15625 100.31445 A 44 44 0 0 1 35.654297 97.652344 A 44 44 0 0 1 32.435547 94.654297 A 44 44 0 0 1 29.533203 91.351562 A 44 44 0 0 1 26.974609 87.773438 A 44 44 0 0 1 24.787109 83.958984 A 44 44 0 0 1 22.990234 79.943359 A 44 44 0 0 1 21.603516 75.769531 A 44 44 0 0 1 20.640625 71.478516 A 44 44 0 0 1 20.109375 67.113281 A 44 44 0 0 1 20 64 A 44 44 0 0 1 20.220703 59.607422 A 44 44 0 0 1 20.876953 55.257812 A 44 44 0 0 1 21.964844 50.998047 A 44 44 0 0 1 23.472656 46.865234 A 44 44 0 0 1 25.386719 42.90625 A 44 44 0 0 1 27.685547 39.15625 A 44 44 0 0 1 30.347656 35.654297 A 44 44 0 0 1 33.345703 32.435547 A 44 44 0 0 1 36.648438 29.533203 A 44 44 0 0 1 40.226562 26.974609 A 44 44 0 0 1 44.041016 24.787109 A 44 44 0 0 1 48.056641 22.990234 A 44 44 0 0 1 52.230469 21.603516 A 44 44 0 0 1 56.521484 20.640625 A 44 44 0 0 1 60.886719 20.109375 A 44 44 0 0 1 64 20 A 44 44 0 0 1 68.392578 20.220703 A 44 44 0 0 1 72.742188 20.876953 A 44 44 0 0 1 77.001953 21.964844 A 44 44 0 0 1 81.134766 23.472656 A 44 44 0 0 1 85.09375 25.386719 A 44 44 0 0 1 88.84375 27.685547 A 44 44 0 0 1 92.345703 30.347656 A 44 44 0 0 1 95.564453 33.345703 A 44 44 0 0 1 98.466797 36.648438 A 44 44 0 0 1 101.02539 40.226562 A 44 44 0 0 1 103.21289 44.041016 A 44 44 0 0 1 105.00977 48.056641 A 44 44 0 0 1 106.39648 52.230469 A 44 44 0 0 1 107.35938 56.521484 A 44 44 0 0 1 107.89062 60.886719 A 44 44 0 0 1 108 64 A 44 44 0 0 1 107.7793 68.392578 A 44 44 0 0 1 107.12305 72.742188 A 44 44 0 0 1 106.97461 73.320312 L 113.50195 97.792969 A 60 60 0 0 0 124 64 A 60 60 0 0 0 64 4 z " transform="translate(0,924.36216)"></path>
-            <path style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80cc28;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" d="m 87.99112,976.2721 22,58 -56.000001,-22 z"></path>
-            </g>
-          </svg>
-        </span>
-      </a>
+      <a class="navbar-brand" href="./"><img src="images/qfield-logo.svg"> QFIELD </a>
     </div>
 
     <div class="collapse navbar-collapse nav-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="docs/index.html" title="Documentation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Documentation</span></a></li>
+        <li><a href="docs/index.html" title="Documentation">Documentation</a></li>
       </ul>
       <ul class="nav navbar-nav">
-        <li><a href="https://github.com/opengisch/QFieldSync/issues" title="Synchronisation Plugin"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Synchronisation Plugin</span></a></li>
+        <li><a href="https://github.com/opengisch/QFieldSync/issues" title="Synchronisation Plugin">QGIS Synchronisation Plugin</a></li>
       </ul>
       <ul class="nav navbar-nav">
-        <li><a href="http://opengis.ch/contact" title="Contact Us"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contact Us</span></a></li>
+        <li><a href="http://opengis.ch/contact" title="Contact Us">Contact Us</a></li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="corner-ribbon right"><h3>crowdfunding live</h3>
+<!-- <div class="corner-ribbon right"><h3>crowdfunding live</h3>
   <h1> <a class="accent blue_bg" href="https://www.opengis.ch/qfield-love/">pledge NOW</a></h1>
-</div>
-<!-- Section #1 -->
-<section id="intro" data-speed="6" data-type="background">
-  <div class="container">
-    <div class="span8 text-center">
-      <p><a class="reference external" href="https://play.google.com/store/apps/details?id=ch.opengis.qfield"><img alt="GooglePlayLink" src="images/Get_it_on_Google_play.png"></a></p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="span8 text-center">
-      <h2>Prepare once deploy everywhere.</h2>
-      <h3>Use QGIS to setup maps and forms</h3>
-      <h3>Supports a wide variety of data formats</h3>
-      <h3>Synchronize with WiFi, Cable or Network</h3>
-      <h3>Extends your Geo Data Infrastructure seamlessly</h3>
-    </div>
-  </div>
-</section>
+</div> -->
 
-<!-- Section #2 -->
-<section id="home" data-speed="4" data-type="background">
-  <div class="container">
-    <div class="row-fluid">
-          <div class="span4 well">
-            <div class="span8 text-center">
-            <iframe src="https://player.vimeo.com/video/173774749" style="border: 0; height: 345px; width: 560px">
-</iframe></div>
-            <!--<p><a class="btn btn-success" href="#">View details &raquo;</a></p>-->
-          </div><!-- /.span4 -->
+<!-- Section #1: carousel -->
+
+<div id="maincarousel" class="carousel slide" data-ride="xxx" data-interval="5000">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#maincarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#maincarousel" data-slide-to="1"></li>
+    <li data-target="#maincarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active" style="background-image:url('images/bg.jpg');">
+      <div class="carousel-caption">
+       <div>
+        <h3>Hold the power of QGIS in your hand, for free.</h3>
+        <p style="text-align:right;"><a class="reference external" href="https://play.google.com/store/apps/details?id=ch.opengis.qfield"><img alt="GooglePlayLink" src="images/Get_it_on_Google_play.png"></a></p>
+       </div>
       </div>
     </div>
+
+    <div class="item" style="background-image:url('images/bg.jpg');">
+      <div class="carousel-caption">
+       <div>
+        <h3>Leverage the power of open source in the field.</h3>
+        <p style="text-align:right;"><a class="reference external" href="https://play.google.com/store/apps/details?id=ch.opengis.qfield"><img alt="GooglePlayLink" src="images/Get_it_on_Google_play.png"></a></p>
+       </div>
+      </div>
+    </div>
+
+    <div class="item" style="background-image:url('images/bg.jpg');">
+      <div class="carousel-caption">
+       <div>
+        <h3>Extend your geo-data infrastructure seamlessly.</h3>
+        <p style="text-align:right;"><a class="reference external" href="https://play.google.com/store/apps/details?id=ch.opengis.qfield"><img alt="GooglePlayLink" src="images/Get_it_on_Google_play.png"></a></p>
+       </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#maincarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#maincarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- Section #1: main points -->
+
+<section class="point" data-speed="6" data-type="background">
+  <div class="container-fluid" style="max-width:1140px;">
+    <div class="col-sm-4" style="text-align:center;"><img src="images/point1.svg"></div>
+    <div class="col-sm-8">
+      <h2>Prepare once deploy everywhere</h2>
+      <p>QField is built on top of the professional QGIS open source project, allowing users to setup maps and forms in QGIS on their worksation, and deploy those in the field through QField.</p>
+     </div>
+  </div>
 </section>
 
-<!-- Section #3 -->
+<section class="point" data-speed="6" data-type="background">
+  <div class="container-fluid" style="max-width:1140px;">
+    <div class="col-sm-4" style="text-align:center;"><img src="images/point2.svg"></div>
+    <div class="col-sm-8">
+      <h2>Supports a wide variety of data formats</h2>
+      <p>Leveraging QGIS' data providers - OGR, GDAL, PostGIS, and more - QField supports a wide variety of vector and raster formats.</p>
+      <p>Datasets can be locally stored or accessed remotely.</p>
+     </div>
+  </div>
+</section>
+
+<section class="point" data-speed="6" data-type="background">
+  <div class="container-fluid" style="max-width:1140px;">
+    <div class="col-sm-4" style="text-align:center;"><img src="images/point3.svg"></div>
+    <div class="col-sm-8">
+      <h2>Synchronize with WiFi, USB cable or mobile network</h2>
+      <p>QField gives the users full control by allowing projects to be synchronized via USB cable as through the Internet via WiFi, a mobile network connection, etc.</p>
+     </div>
+  </div>
+</section>
+
+<!-- Section #3: fine lines -->
+
 <section id="about" data-speed="2" data-type="background">
   <div class="container">
     <div class="page-header">
-      <h1>Make it grow<small> Make it yours</small></h1>
+      <h1>About QField</small></h1>
     </div>
       <div class="row-fluid">
         <div class="span4">
@@ -98,23 +144,23 @@
           the source code and guarantees that you will always have access to a QGIS
           based field data collection app that is free of cost and can be freely
           modified.</p>
-          <p>You can find the sourcecode <a class="reference external" href="https://github.com/opengisch/QField">on github</a></p>
+          <p>You can find the source code <a class="reference external" href="https://github.com/opengisch/QField">on github</a>.</p>
           <h2 id="contribute">Contribute</h2>
           <p>
             QField is an open source project. It is free to share, use and modify and it will stay like that.
 
             We are very happy if this app helps you in whatever creative way you may use it.
 
-            If you found it useful, we will be even happier if you could give something back. A couple of things you can do are
+            If you found it useful, we will be even happier if you could give something back. A couple of things you can do are:
 
             <ul>
-            <li>Rate the app <a href="https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews">★★★★★</a></li>
-            <li><a href="https://twitter.com/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!">Tweet about it</a></li>
-            <li>Write about your experience (<a href="mailto:info@opengis.ch">please let us know!</a>)</li>
-            <li><a href="https://github.com/opengisch/QField-docs#documentation-process">Help with the documentation</a></li>
-            <li><a href="https://github.com/opengisch/QField-docs#translation-process">Translate the documentation</a> or <a href="https://www.transifex.com/opengisch/qfield-for-qgis/">the app</a></li>
-            <li><a href="http://qfield.org/docs/development/index.html#make-it-grow-make-it-yours">Sponsor a feature</a></li>
-            <li>And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference</li>
+            <li>Rate the app <a href="https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews">★★★★★</a>;</li>
+            <li><a href="https://twitter.com/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!">Tweet about it</a>;</li>
+            <li>Write about your experience (<a href="mailto:info@opengis.ch">please let us know!</a>);</li>
+            <li><a href="https://github.com/opengisch/QField-docs#documentation-process">Help with the documentation</a>;</li>
+            <li><a href="https://github.com/opengisch/QField-docs#translation-process">Translate the documentation</a> or <a href="https://www.transifex.com/opengisch/qfield-for-qgis/">the app</a>;</li>
+            <li><a href="http://qfield.org/docs/development/index.html#make-it-grow-make-it-yours">Sponsor a feature</a>; or</li>
+            <li>Just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference.</li>
             </ul>
           </p>
         </div><!-- /.span4 -->
