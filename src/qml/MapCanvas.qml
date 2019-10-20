@@ -42,7 +42,6 @@ Item {
   function freeze(id) {
     mapCanvasWrapper.__freezecount[id] = true
     mapCanvasWrapper.freeze = true
-    console.log(mapSettings.backgroundColor)
   }
 
   function unfreeze(id) {
