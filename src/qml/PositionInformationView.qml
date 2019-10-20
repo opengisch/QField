@@ -9,20 +9,12 @@ import Theme 1.0
 
 Rectangle {
   id: positionInformationView
-  property PositionSource positionSource
-  property alias crs: _ct.destinationCrs
+  property TransformedPositionSource positionSource
   property double rowHeight: 30*dp
   property alias antennaHeight: antennaHeightText.value
   border.color: "darkslategrey"
   border.width: 1*dp
   color: "yellow"
-
-  CoordinateTransformer {
-    id: _ct
-    sourceCrs: CrsFactory.fromEpsgId(4326)
-    sourcePosition: Utils.coordinateToPoint(positionSource.position.coordinate)
-    transformContext: qgisProject.transformContext
-  }
 
   height: grid.rows * positionInformationView.rowHeight + 2 * border.width
   width: parent.width
@@ -48,9 +40,9 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
 
-        text: crs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( _ct.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( _ct.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: positionSource.destinationCrs.isGeographic ?
+                  qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+                : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
       }
     }
 
@@ -63,9 +55,9 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        text: crs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.position.longitudeValid ? Number( _ct.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.position.latitudeValid  ? Number( _ct.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+        text: positionSource.destinationCrs.isGeographic ?
+                  qsTr( "Lon." ) + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+                : qsTr( "Y" )    + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
 
       }
     }
