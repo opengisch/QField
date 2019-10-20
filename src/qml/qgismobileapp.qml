@@ -132,22 +132,6 @@ ApplicationWindow {
   }
 
   Item {
-    id: positionInformationView
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
-    height: childrenRect.height
-    width: parent.width
-
-    PositionInformationView {
-      positionSource: positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-    }
-  }
-
-  Item {
     /*
      * This is the map canvas
      * On top of it are the base map and other items like GPS icon...
@@ -321,6 +305,33 @@ ApplicationWindow {
       selectionColor: "#ff7777"
       width: 5 * dp
     }
+  }
+
+  Item {
+    id: positionInformationView
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+    height: childrenRect.height
+    width: parent.width
+
+    PositionInformationView {
+      id: p
+      positionSource: positionSource
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+    }
+  }
+
+  DropShadow {
+    anchors.fill: positionInformationView
+    visible: positionInformationView.visible
+    verticalOffset: -2 * dp
+    radius: 6.0 * dp
+    samples: 17
+    color: "#30000000"
+    source: positionInformationView
   }
 
   /**************************************************
