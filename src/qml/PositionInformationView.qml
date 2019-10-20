@@ -11,7 +11,7 @@ Rectangle {
   id: positionInformationView
   property TransformedPositionSource positionSource
   property double rowHeight: 30*dp
-  property alias antennaHeight: antennaHeightText.value
+  property double antennaHeight: NaN
   border.color: "darkslategrey"
   border.width: 1*dp
   color: "yellow"
@@ -26,8 +26,7 @@ Rectangle {
     rows: parent.width > 800*dp ? 1: 2
     width: parent.width - 2 * parent.border.width
     padding: parent.border.width
-    property int extraCells: isNaN( parseFloat( positionInformationView.antennaHeight ) ) ? 0 : 1
-    property double cellWidth: grid.width / ( (3 + extraCells ) * ( grid.rows === 1 ? 2 : 1 ) )
+    property double cellWidth: grid.width / ( 3 * ( grid.rows === 1 ? 2 : 1 ) )
 
     Rectangle {
       id: x
@@ -71,7 +70,19 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        text: qsTr( "Altitude" ) + ': ' + ( positionSource.position.altitudeValid ? positionSource.position.coordinate.altitude.toFixed(3) : qsTr( "N/A" ) )
+        text: {
+          var altitude
+          if ( positionSource.position.altitudeValid ) {
+            altitude = positionSource.position.coordinate.altitude.toFixed(3)
+            if ( !isNaN( parseFloat( antennaHeight ) ) ) {
+              altitude += (antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toFixed(2)
+            }
+          }
+          else
+            altitude = qsTr( "N/A" )
+          altitude = qsTr( "Altitude" ) + ': ' + altitude
+          return altitude
+        }
       }
     }
 
@@ -111,35 +122,6 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.position.verticalAccuracyValid ? positionSource.position.verticalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
-      }
-    }
-
-    Rectangle {
-      height: rowHeight
-      width: grid.cellWidth
-      color: Theme.lightGray
-
-      Text {
-        id: antennaHeightText
-        property double value
-
-        anchors.margins:  10*dp
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        text: qsTr( "Antenna" ) + ': ' + ( !isNaN( parseFloat( value ) ) ? value + " m" : qsTr( "N/A" ) )
-      }
-    }
-
-    Rectangle {
-      height: rowHeight
-      width: grid.cellWidth
-      color: "white"
-
-      Text {
-        anchors.margins:  10*dp
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        text: '' // placeholder for whatever comes up
       }
     }
   }
