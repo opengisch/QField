@@ -14,7 +14,7 @@ Rectangle {
   property double antennaHeight: NaN
   color: "yellow"
 
-  height: grid.rows * positionInformationView.rowHeight + 2 * border.width
+  height: grid.rows * positionInformationView.rowHeight
   width: parent.width
   anchors.margins: 20
 
