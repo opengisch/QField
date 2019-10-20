@@ -57,7 +57,7 @@ fi
 
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.
-ln -s ${BUILD_DIR}/.gradle /root/.gradle
+ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
 cp ${SOURCE_DIR}/scripts/ci/config.pri ${SOURCE_DIR}/config.pri
