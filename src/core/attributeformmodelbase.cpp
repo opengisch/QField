@@ -412,26 +412,25 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
 {
   QgsFields fields = mLayer->fields();
 
-  //when field has a configured setup
-  QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( index );
-  if ( !setup.isNull() )
-    return setup;
-
   //make the default one
-  setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+  QgsEditorWidgetSetup setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 
   if ( index >= 0 )
   {
+    //when field has a configured setup, take it
+    setup = mLayer->editorWidgetSetup( index );
+    if ( !setup.isNull() )
+      return setup;
+
+    //when it's a provider field with default value clause, take Textedit
     if ( fields.fieldOrigin( index ) == QgsFields::OriginProvider )
     {
-      // if the provider field uses a default value clause we cannot use auto configured widgets
-      // cause obliterate the default clause so take the "TextEdit"
       int providerOrigin = fields.fieldOriginIndex( index );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
         return setup;
     }
 
-    //get the best one
+    //find the best one
     //on a boolean type take "CheckBox"
     if ( fields.at( index ).type() == QVariant::Bool )
       setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
