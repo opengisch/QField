@@ -4,7 +4,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 VisibilityFadingRow {
-  id: geometryEditingToolbar
+  id: vertexEditorToolbar
 
   property FeatureModel featureModel
   property MapSettings mapSettings

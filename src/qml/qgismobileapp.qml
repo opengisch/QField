@@ -595,7 +595,7 @@ ApplicationWindow {
     stateVisible: (stateMachine.state === "digitize"
                    && dashBoard.currentLayer
                    && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible ) || stateMachine.state === 'measure'
+                   && !vertexEditorToolbar.stateVisible ) || stateMachine.state === 'measure'
     rubberbandModel: currentRubberband.model
 
     FeatureModel {
@@ -655,8 +655,8 @@ ApplicationWindow {
     }
   }
 
-  GeometryEditingToolbar {
-    id: geometryEditingToolbar
+  VertexEditorToolbar {
+    id: vertexEditorToolbar
 
     featureModel: geometryEditingFeature
     mapSettings: mapCanvas.mapSettings
