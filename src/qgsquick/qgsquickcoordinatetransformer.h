@@ -17,6 +17,7 @@
 #define QGSQUICKCOORDINATETRANSFORMER_H
 
 #include <QObject>
+#include <QGeoCoordinate>
 
 #include <qgspoint.h>
 
@@ -42,6 +43,9 @@ class QgsQuickCoordinateTransformer : public QObject
 
     //! Source position  (in source CRS)
     Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition WRITE setSourcePosition NOTIFY sourcePositionChanged )
+
+    //! Source coordinate for integrating with QtPositioning, alternative to source position
+    Q_PROPERTY( QGeoCoordinate sourceCoordinate READ sourceCoordinate WRITE setSourceCoordinate NOTIFY sourceCoordinateChanged )
 
     //! Destination CRS
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
@@ -99,7 +103,10 @@ class QgsQuickCoordinateTransformer : public QObject
      * The altitude value of captured coordinates is corrected by the amount of deltaZ.
      * This can be used to correct the altitude with the antenna height for example.
      */
-    void setDeltaZ( const qreal& deltaZ );
+    void setDeltaZ( const qreal &deltaZ );
+
+    QGeoCoordinate sourceCoordinate() const;
+    void setSourceCoordinate( const QGeoCoordinate &sourceCoordinate );
 
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
@@ -107,6 +114,8 @@ class QgsQuickCoordinateTransformer : public QObject
 
     //!\copydoc QgsQuickCoordinateTransformer::sourcePosition
     void sourcePositionChanged();
+
+    void sourceCoordinateChanged();
 
     //!\copydoc QgsQuickCoordinateTransformer::destinationCrs
     void destinationCrsChanged();

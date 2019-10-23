@@ -50,6 +50,7 @@ void QgsQuickCoordinateTransformer::setSourcePosition( const QgsPoint &sourcePos
   mSourcePosition = sourcePosition;
 
   emit sourcePositionChanged();
+  emit sourceCoordinateChanged();
   updatePosition();
 }
 
@@ -124,12 +125,31 @@ void QgsQuickCoordinateTransformer::updatePosition()
   emit projectedPositionChanged();
 }
 
+QGeoCoordinate QgsQuickCoordinateTransformer::sourceCoordinate() const
+{
+  return QGeoCoordinate( mSourcePosition.y(), mSourcePosition.x(), mSourcePosition.z() );
+}
+
+void QgsQuickCoordinateTransformer::setSourceCoordinate( const QGeoCoordinate &sourceCoordinate )
+{
+  if ( qgsDoubleNear( sourceCoordinate.latitude(), mSourcePosition.y() )
+       && qgsDoubleNear( sourceCoordinate.longitude(), mSourcePosition.x() )
+       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() )
+     )
+    return;
+
+  mSourcePosition = QgsPoint( sourceCoordinate.longitude(), sourceCoordinate.latitude(), sourceCoordinate.altitude() );
+  emit sourcePositionChanged();
+  emit sourceCoordinateChanged();
+  updatePosition();
+}
+
 qreal QgsQuickCoordinateTransformer::deltaZ() const
 {
   return mDeltaZ;
 }
 
-void QgsQuickCoordinateTransformer::setDeltaZ( const qreal& deltaZ )
+void QgsQuickCoordinateTransformer::setDeltaZ( const qreal &deltaZ )
 {
   if ( qgsDoubleNear( mDeltaZ, deltaZ ) )
     return;
