@@ -98,6 +98,7 @@ QgsRelation ReferencingFeatureListModel::relation() const
 void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
 {
   mNmRelation = relation;
+  reload();
 }
 
 QgsRelation ReferencingFeatureListModel::nmRelation() const
@@ -123,6 +124,7 @@ void ReferencingFeatureListModel::updateModel()
     mEntries = mGatherer->entries();
 
   endResetModel();
+  modelUpdated();
 }
 
 void ReferencingFeatureListModel::gathererThreadFinished()

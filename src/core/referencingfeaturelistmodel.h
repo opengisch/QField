@@ -136,6 +136,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
     void isLoadingChanged();
+    void modelUpdated();
 
   private slots:
     void updateModel();
@@ -171,6 +172,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     bool checkParentPrimaries();
 
     friend class FeatureGatherer;
+    friend class TestReferencingFeatureListModel;
 };
 
 class FeatureGatherer: public QThread

@@ -20,7 +20,7 @@
 #define EXPRESSIONCONTEXTUTILS_H
 
 #include <qgsexpressioncontext.h>
-#include <snappingresult.h>
+#include "snappingresult.h"
 
 class QGeoPositionInfoSource;
 

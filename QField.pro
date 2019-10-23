@@ -18,11 +18,4 @@ app.depends = core
 
 CONFIG += ordered
 
-# Include the tests and plugins subprojects only on debug mode
-CONFIG(debug, debug|release): {
-  SUBDIRS += test
-  test.depends = qgsquick
-  test.depends = core
-}
-
 QML_IMPORT_PATH += src/qml/imports

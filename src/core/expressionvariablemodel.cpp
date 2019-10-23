@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <expressionvariablemodel.h>
+#include "expressionvariablemodel.h"
 #include <qgsexpressioncontext.h>
 #include <qgsexpressioncontextutils.h>
 

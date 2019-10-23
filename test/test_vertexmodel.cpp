@@ -8,10 +8,7 @@
 
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
-
-#ifdef ANDROID
-#include "androidplatformutilities.h"
-#endif
+#include "qfield_testbase.h"
 
 class TestVertexModel: public QObject
 {
@@ -19,19 +16,6 @@ class TestVertexModel: public QObject
   private slots:
     void initTestCase()
     {
-      int argc = 0;
-      auto closer_lambda = []( QgsApplication * app ) { app->exitQgis(); };
-      std::unique_ptr<QgsApplication, decltype( closer_lambda )> app( new QgsApplication( argc, nullptr, false ), closer_lambda );
-
-#ifdef ANDROID
-      app->setPrefixPath( "" QGIS_INSTALL_DIR, true );
-      app->setPluginPath( QApplication::applicationDirPath() );
-      app->setPkgDataPath( AndroidPlatformUtilities().packagePath() );
-#else
-      app->setPrefixPath( CMAKE_INSTALL_PREFIX, true );
-#endif
-      app->initQgis();
-
       mModel = new VertexModel();
 
       QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 1 ) << QgsPoint( 2, 3 ) << QgsPoint( 4, 3 ) );
@@ -149,5 +133,5 @@ class TestVertexModel: public QObject
     QgsGeometry mPoint2056Geometry;
 };
 
-QTEST_MAIN( TestVertexModel )
+QFIELDTEST_MAIN( TestVertexModel )
 #include "test_vertexmodel.moc"

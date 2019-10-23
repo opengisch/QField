@@ -19,7 +19,7 @@
 #define FEATUREMODEL_H
 
 #include <QAbstractListModel>
-#include <QGeoPositionInfoSource>
+#include <QtPositioning/QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 #include <memory>
 #include <qgsfeature.h>
