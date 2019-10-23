@@ -21,3 +21,4 @@ android/.build
 android/.gradle
 .idea
 *~
+keystore.p12
