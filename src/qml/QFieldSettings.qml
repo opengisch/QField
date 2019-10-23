@@ -81,7 +81,7 @@ Page {
 
             Label {
                 padding: 8 * dp
-                leftPadding: 24 * dp
+                leftPadding: 22 * dp
                 text: qsTr( "Show scale bar" )
                 font: Theme.defaultFont
 
@@ -132,7 +132,7 @@ Page {
 
             Label {
                 padding: 8 * dp
-                leftPadding: 24 * dp
+                leftPadding: 22 * dp
                 text: qsTr( "Maximized attribute form" )
                 font: Theme.defaultFont
 
@@ -181,20 +181,37 @@ Page {
                 }
             }
 
-            Label {
-                padding: 8 * dp
-                leftPadding: 24 * dp
-                text: qsTr( "Fixed scale navigation" )
-                font: Theme.defaultFont
+            ColumnLayout {
 
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.minimumHeight: contentHeight
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: locatorKeepScaleCheckBox.toggle()
+                Label {
+                    padding: 8 * dp
+                    leftPadding: 22 * dp
+                    text: qsTr( "Fixed scale navigation" )
+                    font: Theme.defaultFont
+
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: locatorKeepScaleCheckBox.toggle()
+                    }
                 }
+
+                Label {
+                    padding: 8 * dp
+                    topPadding: 0
+                    leftPadding: 22 * dp
+                    text: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
+                    font: Theme.tipFont
+
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.minimumHeight: contentHeight
+                }
+
             }
 
             SwitchDelegate {
@@ -236,7 +253,7 @@ Page {
 
                 Label {
                     padding: 8 * dp
-                    leftPadding: 24 * dp
+                    leftPadding: 22 * dp
                     text: qsTr( "Progressive rendering" )
                     font: Theme.defaultFont
 
@@ -253,8 +270,8 @@ Page {
                 Label {
                     padding: 8 * dp
                     topPadding: 0
-                    leftPadding: 24 * dp
-                    text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering" )
+                    leftPadding: 22 * dp
+                    text: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering." )
                     font: Theme.tipFont
 
                     wrapMode: Text.WordWrap
@@ -304,7 +321,7 @@ Page {
 
                 Label {
                     padding: 8 * dp
-                    leftPadding: 24 * dp
+                    leftPadding: 22 * dp
                     text: qsTr( "Show digitizing information" )
                     font: Theme.defaultFont
 
@@ -321,7 +338,7 @@ Page {
                 Label {
                     padding: 8 * dp
                     topPadding: 0
-                    leftPadding: 24 * dp
+                    leftPadding: 22 * dp
                     text: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
                     font: Theme.tipFont
 
@@ -372,7 +389,7 @@ Page {
 
                 Label {
                     padding: 8 * dp
-                    leftPadding: 24 * dp
+                    leftPadding: 22 * dp
                     text: qsTr( "Use native camera" )
                     font: Theme.defaultFont
 
@@ -389,7 +406,7 @@ Page {
                 Label {
                     padding: 8 * dp
                     topPadding: 0
-                    leftPadding: 24 * dp
+                    leftPadding: 22 * dp
                     text: qsTr( "Warning: native camera function is unstable on recent Android versions." )
                     font: Theme.tipFont
 
