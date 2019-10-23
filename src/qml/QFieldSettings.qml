@@ -67,8 +67,8 @@ Page {
       ScrollView {
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        contentWidth: settingsColumn.width
-        contentHeight: settingsColumn.height
+        contentWidth: settingsGrid.width
+        contentHeight: settingsGrid.height
         clip: true
 
         GridLayout {
@@ -499,7 +499,7 @@ Page {
 
       Label {
         id: titleLabel
-
+        rightPadding: 48*dp
         text:  qsTr( 'QField Settings' )
         font: Theme.strongFont
         color: "#FFFFFF"
