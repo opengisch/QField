@@ -248,5 +248,15 @@
         <file>themes/qfield/xhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxxhdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/hdpi/content-cut.png</file>
+        <file>themes/qfield/mdpi/content-cut.png</file>
+        <file>themes/qfield/xhdpi/content-cut.png</file>
+        <file>themes/qfield/xxhdpi/content-cut.png</file>
+        <file>themes/qfield/xxxhdpi/content-cut.png</file>
+        <file>themes/qfield/hdpi/ray-vertex.png</file>
+        <file>themes/qfield/mdpi/ray-vertex.png</file>
+        <file>themes/qfield/xhdpi/ray-vertex.png</file>
+        <file>themes/qfield/xxhdpi/ray-vertex.png</file>
+        <file>themes/qfield/xxxhdpi/ray-vertex.png</file>
     </qresource>
 </RCC>
