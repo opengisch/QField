@@ -33,6 +33,7 @@
         <file>ui/LayerTreeItemProperties.ui.qml</file>
         <file>QFieldCamera.qml</file>
         <file>VertexEditorToolbar.qml</file>
+        <file>GeometryEditorsToolbar.qml</file>
         <file>VertexRubberband.qml</file>
         <file>Switch.qml</file>
         <file>VisibilityFadingRow.qml</file>

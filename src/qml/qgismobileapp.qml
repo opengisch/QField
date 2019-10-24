@@ -490,7 +490,7 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: digitizingToolbar.height + 4 * dp
+    anchors.bottomMargin: geometryToolbars.height + 4 * dp
     spacing: 4 * dp
 
     Button {
@@ -586,85 +586,87 @@ ApplicationWindow {
     }
   }
 
-  DigitizingToolbar {
-    id: digitizingToolbar
-
+  Row {
+    id: geometryToolbars
     anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: 4 * dp
     anchors.right: mapCanvas.right
+    anchors.rightMargin: 4 * dp
 
-    stateVisible: (stateMachine.state === "digitize"
-                   && dashBoard.currentLayer
-                   && !dashBoard.currentLayer.readOnly
-                   && !vertexEditorToolbar.stateVisible ) || stateMachine.state === 'measure'
-    rubberbandModel: currentRubberband.model
+    DigitizingToolbar {
+      id: digitizingToolbar
 
-    FeatureModel {
-      id: digitizingFeature
-      currentLayer: dashBoard.currentLayer
-      positionSourceName: positionSource.name
-      topSnappingResult: coordinateLocator.topSnappingResult
+      stateVisible: (stateMachine.state === "digitize"
+                     && dashBoard.currentLayer
+                     && !dashBoard.currentLayer.readOnly
+                     && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
+      rubberbandModel: currentRubberband.model
 
-      geometry: Geometry {
-        id: digitizingGeometry
-        rubberbandModel: digitizingRubberband.model
-        vectorLayer: dashBoard.currentLayer
+      FeatureModel {
+        id: digitizingFeature
+        currentLayer: dashBoard.currentLayer
+        positionSourceName: positionSource.name
+        topSnappingResult: coordinateLocator.topSnappingResult
+
+        geometry: Geometry {
+          id: digitizingGeometry
+          rubberbandModel: digitizingRubberband.model
+          vectorLayer: dashBoard.currentLayer
+        }
       }
-    }
 
-    onVertexAdded: {
-      coordinateLocator.flash()
-      currentRubberband.model.addVertex()
-    }
-
-    onVertexRemoved:
-    {
-      currentRubberband.model.removeVertex()
-      mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
-    }
-
-    onCancel:
-    {
-      currentRubberband.model.reset()
-    }
-
-    onConfirm: {
-      if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-      {
-        digitizingRubberband.model.reset()
-      }
-      else
-      {
+      onVertexAdded: {
         coordinateLocator.flash()
-        digitizingFeature.geometry.applyRubberband()
-        digitizingFeature.applyGeometry()
-        digitizingRubberband.model.frozen = true
+        currentRubberband.model.addVertex()
       }
 
-      if ( !digitizingFeature.suppressFeatureForm() )
+      onVertexRemoved:
       {
-        digitizingFeature.resetAttributes();
-        overlayFeatureFormDrawer.open()
-        overlayFeatureFormDrawer.state = "Add"
-        overlayFeatureFormDrawer.featureForm.reset()
+        currentRubberband.model.removeVertex()
+        mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
       }
-      else
+
+      onCancel:
       {
-        digitizingFeature.create()
-        digitizingRubberband.model.reset()
+        currentRubberband.model.reset()
+      }
+
+      onConfirm: {
+        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+        {
+          digitizingRubberband.model.reset()
+        }
+        else
+        {
+          coordinateLocator.flash()
+          digitizingFeature.geometry.applyRubberband()
+          digitizingFeature.applyGeometry()
+          digitizingRubberband.model.frozen = true
+        }
+
+        if ( !digitizingFeature.suppressFeatureForm() )
+        {
+          digitizingFeature.resetAttributes();
+          overlayFeatureFormDrawer.open()
+          overlayFeatureFormDrawer.state = "Add"
+          overlayFeatureFormDrawer.featureForm.reset()
+        }
+        else
+        {
+          digitizingFeature.create()
+          digitizingRubberband.model.reset()
+        }
       }
     }
-  }
 
-  VertexEditorToolbar {
-    id: vertexEditorToolbar
+    GeometryEditorsToolbar {
+      id: geometryEditorsToolbar
 
-    featureModel: geometryEditingFeature
-    mapSettings: mapCanvas.mapSettings
+      featureModel: geometryEditingFeature
+      mapSettings: mapCanvas.mapSettings
 
-    anchors.bottom: mapCanvas.bottom
-    anchors.right: mapCanvas.right
-
-    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+    }
   }
 
 
