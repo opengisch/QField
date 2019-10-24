@@ -94,7 +94,6 @@ ApplicationWindow {
         name: 'measure'
         PropertyChanges { target: identifyTool; deactivated: true }
         PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
-        PropertyChanges { target: dashBoard; visible: false }
         PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
@@ -424,8 +423,8 @@ ApplicationWindow {
       id: menuButton
       round: true
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
-      onClicked: dashBoard.visible = !dashBoard.visible
-      bgcolor: dashBoard.visible ? Theme.mainColor : Theme.darkGray
+      onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
+      bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
       anchors.top: mainMenuBar.top
@@ -702,7 +701,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
-        dashBoard.visible = false
+        dashBoard.close()
         qfieldSettings.visible = true
         highlighted = false
       }
@@ -717,7 +716,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
-        dashBoard.visible = false
+        dashBoard.close()
         aboutDialog.visible = true
         highlighted = false
       }
@@ -732,7 +731,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
-        dashBoard.visible = false
+        dashBoard.close()
         messageLog.visible = true
         highlighted = false
       }
@@ -749,6 +748,7 @@ ApplicationWindow {
       leftPadding: 10 * dp
 
       onTriggered: {
+        dashBoard.close()
         changeMode( 'measure' )
         highlighted = false
       }
