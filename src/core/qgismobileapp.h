@@ -32,6 +32,7 @@
 #include "focusstack.h"
 #include "qgsquickutils.h"
 #include "qgsgpkgflusher.h"
+#include "geometryeditorsmodel.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -124,6 +125,14 @@ class QgisMobileapp : public QQmlApplicationEngine
       Q_UNUSED( engine )
       Q_UNUSED( scriptEngine )
       QgsQuickUtils *singletonClass = new QgsQuickUtils();
+      return singletonClass;
+    }
+
+    static QObject *geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
+    {
+      Q_UNUSED( engine )
+      Q_UNUSED( scriptEngine )
+      GeometryEditorsModel *singletonClass = new GeometryEditorsModel();
       return singletonClass;
     }
 

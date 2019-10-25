@@ -14,20 +14,12 @@ VisibilityFadingRow {
   spacing: 4 * dp
   padding: 4 * dp
 
-  ListModel {
-    id: geometryEditorsModel
-
-    ListElement{
-      name: QT_TR_NOOP("Vertex tool")
-      icon: "ray-vertex"
-      mapToolbar: "VertexEditorToolbar"
-    }
-    ListElement{
-      name: QT_TR_NOOP("Split tool")
-      icon: "content-cut"
-      mapToolbar: "VertexEditorToolbar"
-      supportsPoint: false
-    }
+  GeometryEditorsModel {
+    id: editors
+  }
+  Component.onCompleted: {
+    editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar")
+    editors.addEditor("Split tool", "content-cut", "VertexEditorToolbar", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
   }
 
   VisibilityFadingRow {
@@ -35,15 +27,15 @@ VisibilityFadingRow {
     stateVisible: false
 
     Repeater {
-      model: geometryEditorsModel
+      model: editors
       delegate: Button {
         round: true
         bgcolor: "#FFD600"
-        iconSource: Theme.getThemeIcon(icon)
-        visible: vertexModel.geometry.type() in unsupportedGeometries
+        iconSource: Theme.getThemeIcon(iconPath)
+        visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
           selectorRow.stateVisible = false
-          toolbarRow.source = mapToolbar +'.qml'
+          toolbarRow.source = toolbar +'.qml'
         }
       }
     }
