@@ -22,10 +22,9 @@ Controls.Drawer {
   padding: 0
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
-  readonly property bool open: dashBoard.visible && !preventFromOpening
 
   position: 0
-  focus: visible
+  focus: opened
   clip: true
 
   Keys.onReleased: {
