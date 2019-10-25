@@ -46,6 +46,7 @@
         <file>RelationCombobox.qml</file>
         <file>Changelog.qml</file>
         <file>LayerLoginDialog.qml</file>
+        <file>SplitFeatureToolbar.qml</file>
         <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/qmldir</file>
     </qresource>
