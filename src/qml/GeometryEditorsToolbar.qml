@@ -18,8 +18,8 @@ VisibilityFadingRow {
     id: editors
   }
   Component.onCompleted: {
-    editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar")
-    editors.addEditor("Split tool", "content-cut", "VertexEditorToolbar", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar.qml")
+    editors.addEditor("Split tool", "content-cut", "VertexEditorToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
   }
 
   VisibilityFadingRow {
@@ -35,7 +35,7 @@ VisibilityFadingRow {
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
           selectorRow.stateVisible = false
-          toolbarRow.source = toolbar +'.qml'
+          toolbarRow.load(toolbar)
         }
       }
     }
@@ -43,12 +43,11 @@ VisibilityFadingRow {
 
   Loader {
     id: toolbarRow
-    onStatusChanged: {
-      if (toolbarRow.status === Loader.Ready){
-        item.featureModel = geometryEditorsToolbar.featureModel
-        item.mapSettings = geometryEditorsToolbar.mapSettings
-        item.stateVisible = true
-      }
+    function load(qml){
+      source = qml
+      item.featureModel = geometryEditorsToolbar.featureModel
+      item.mapSettings = geometryEditorsToolbar.mapSettings
+      toolbarRow.item.stateVisible = true
     }
 
     function hide() {if(item) item.stateVisible = false}
