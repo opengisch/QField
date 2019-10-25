@@ -21,6 +21,7 @@ include( ../../version.pri )
 HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
+    geometryeditorsmodel.h \
     multifeaturelistmodel.h \
     featurelistmodelselection.h \
     featuremodel.h \
@@ -67,6 +68,7 @@ HEADERS += \
 SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
+    geometryeditorsmodel.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
