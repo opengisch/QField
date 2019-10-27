@@ -31,6 +31,7 @@
 #include "settings.h"
 #include "focusstack.h"
 #include "qgsquickutils.h"
+#include "qgsgpkgflusher.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -127,6 +128,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider;
 
     QgsProject *mProject;
+    std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
 #if VERSION_INT >= 30600
     QFieldAppAuthRequestHandler *mAuthRequestHandler;
 #endif

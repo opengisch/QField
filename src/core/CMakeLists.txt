@@ -31,6 +31,7 @@ SET(QFIELD_CORE_SRCS
   qfieldappauthrequesthandler.cpp
   qgismobileapp.cpp
   qgsgeometrywrapper.cpp
+  qgsgpkgflusher.cpp
   qgssggeometry.cpp
   referencingfeaturelistmodel.cpp
   rubberband.cpp
@@ -77,6 +78,7 @@ SET(QFIELD_CORE_HDRS
   qfieldappauthrequesthandler.h
   qgismobileapp.h
   qgsgeometrywrapper.h
+  qgsgpkgflusher.h
   qgssggeometry.h
   referencingfeaturelistmodel.h
   rubberband.h

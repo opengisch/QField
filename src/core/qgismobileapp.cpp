@@ -116,6 +116,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #endif
 
   mProject = QgsProject::instance();
+  mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
 
