@@ -40,7 +40,7 @@ Use the dockerized QField SDK.
 
 ```
 # get the latest tag from https://hub.docker.com/r/opengisch/qfield-sdk/tags/
-TAG=20180821
+TAG=20191001
 cd QField
 
 git submodule init
