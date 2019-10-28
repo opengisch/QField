@@ -1,3 +1,21 @@
+/***************************************************************************
+                          qgsgpkgflusher.cpp
+                             -------------------
+  begin                : Oct 2019
+  copyright            : (C) 2019 by Matthias Kuhn
+  email                : matthias@opengis.ch
+***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+
 #include "qgsgpkgflusher.h"
 #include "qgsmessagelog.h"
 #include "qgsvectorlayer.h"
@@ -6,6 +24,18 @@
 #include <sqlite3.h>
 #include <QObject>
 
+class Flusher : public QObject
+{
+    Q_OBJECT
+
+  public slots:
+    void scheduleFlush( const QString &filename );
+
+    void flush( const QString &filename );
+
+  private:
+    QMap<QString, QTimer *> mScheduledFlushes;
+};
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )
   : QObject()
@@ -35,8 +65,12 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
       QFileInfo fi( filePath );
       if ( fi.isFile() )
       {
-        connect( vl, &QgsVectorLayer::committedFeaturesAdded,
-        [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedFeaturesAdded, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedAttributesAdded, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedAttributesDeleted, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedGeometriesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::committedFeaturesRemoved, [this, filePath]() { emit requestFlush( filePath ); } );
       }
     }
   }
@@ -81,3 +115,5 @@ void Flusher::flush( const QString &filename )
     mScheduledFlushes[filename]->start( 500 );
   }
 }
+
+#include "qgsgpkgflusher.moc"
