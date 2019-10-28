@@ -326,17 +326,17 @@
 <p>El control de relaciones muestra todos los objetos hijos referenciados en una lista. Se pueden añadir, borrar y abrir.</p>
 <p>La identificación visual de las entradas de lalista se hace una Expresión de visualización de la capa hija.</p>
 <p><strong>Manejo de claves</strong></p>
-<p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
-<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it&#8217;s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
+<p>Dado que las claves primarias padre se usan como clave externa en los objetos hijos referidos, estas claves deben guardarse para usarlas incluso después de volver a sincronizar a los datos originales. Por lo tanto, recomendamos usar valores estables tales como UUID para las claves primarias.</p>
+<p>Los objetos hijo se pueden añadir antes de que el objeto padre esté guardado. o sea mientras se añade un padre. Pero esto se bloquea si no hay ninguna clave primaria válida en el padre o se viola una restricción. En caso de que se cancele la adición del padre después de que ya se hayan añadido algunos hijos, los hijos se borran en cascada.</p>
 <p><strong>Relaciones muchos a muchos</strong></p>
-<p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
-<p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
+<p>En relaciones muchos a muchos, según la configuración de cardinalidad en las propiedades de la capa vectorial de QGIS, añadir, borrar o abrir una entrada afecta directamente a la capa hija (en cardinalidad directa) o a la tabla relacionada (en cardinalidad muchos a uno).</p>
+<p>El segundo caso se usa habitualmente cuando hay una información adicional sobre la relación (ej. porcentaje) en la tabla enlazada.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
+<p>En caso de cardinalidad muchos a uno en relaciones muchos a muchos, la Expresión de visualización se tiene que establecer en la tabla enlazada.</p>
 </div>
 <div class="section" id="external-resource-photo-settings">
 <h4>Recurso externo (configuración de fotografía)<a class="headerlink" href="#external-resource-photo-settings" title="Enlazar permanentemente con este título">¶</a></h4>
