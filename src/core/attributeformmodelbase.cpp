@@ -415,7 +415,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
   //make the default one
   QgsEditorWidgetSetup setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 
-  if ( index >= 0 )
+  if ( index >= 0 && index < fields.count() )
   {
     //when field has a configured setup, take it
     setup = mLayer->editorWidgetSetup( index );
