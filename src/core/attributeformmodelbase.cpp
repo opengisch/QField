@@ -431,21 +431,22 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
     }
 
     //find the best one
+    const QgsField field = fields.at( index );
     //on a boolean type take "CheckBox"
-    if ( fields.at( index ).type() == QVariant::Bool )
+    if ( field.type() == QVariant::Bool )
       setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
     //on a date or time type take "DateTime"
-    if ( fields.at( index ).isDateOrTime() )
+    if ( field.isDateOrTime() )
     {
       QVariantMap config;
-      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( fields.at( index ).type() ) );
-      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( fields.at( index ).type() ) );
+      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
       config.insert( QStringLiteral( "calendar_popup" ), true );
       config.insert( QStringLiteral( "allow_null" ), true );
       setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
     }
     //on numeric types take "Range"
-    if ( fields.at( index ).type() == QVariant::Int || fields.at( index ).type() == QVariant::Double || fields.at( index ).isNumeric() )
+    if ( field.type() == QVariant::Int || field.type() == QVariant::Double || field.isNumeric() )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     //if it's a foreign key configured in a relation take "RelationReference"
     if ( !mLayer->referencingRelations( index ).isEmpty() )
