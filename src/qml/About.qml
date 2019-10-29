@@ -54,48 +54,37 @@ Item {
       Layout.minimumHeight: 20 * dp
     }
 
-    RowLayout{
-      id: buttons
-      spacing: 20 * dp
-      Layout.alignment: Qt.AlignHCenter
-
-      ColumnLayout{
-        Layout.alignment: Qt.AlignTop
-        Label {
-          font: Theme.strongFont
-          color: Theme.light
-          text: qsTr( "Developed by" )
-        }
-        MouseArea {
-          Layout.alignment: Qt.AlignCenter
-          width: opengis_logo.width
-          height: opengis_logo.height
-          Image {
-            id: opengis_logo
-            source: "qrc:/images/opengis-logo.svg"
-          }
-          onClicked: Qt.openUrlExternally("https://opengis.ch")
-        }
+    Label {
+      Layout.alignment: Qt.AlignCenter
+      font: Theme.strongFont
+      color: Theme.light
+      text: qsTr( "Developed by" )
+    }
+    MouseArea {
+      Layout.alignment: Qt.AlignCenter
+      width: opengis_logo.width
+      height: opengis_logo.height
+      Image {
+        id: opengis_logo
+        source: "qrc:/images/opengis-logo.svg"
       }
-      ColumnLayout{
-        Layout.alignment: Qt.AlignTop
-        Label {
-          font: Theme.strongFont
-          color: Theme.light
-          text: qsTr( "Support the development" )
-        }
-        MouseArea {
-          Layout.alignment: Qt.AlignCenter
-          width: donate_image.width
-          height: donate_image.height
-          Image {
-            id: donate_image
-            source: "qrc:/images/karma-logo.svg"
-          }
-          onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
-        }
+      onClicked: Qt.openUrlExternally("https://opengis.ch")
+    }
+    Label {
+      Layout.alignment: Qt.AlignCenter
+      font: Theme.strongFont
+      color: Theme.light
+      text: qsTr( "Support the development" )
+    }
+    MouseArea {
+      Layout.alignment: Qt.AlignCenter
+      width: donate_image.width
+      height: donate_image.height
+      Image {
+        id: donate_image
+        source: "qrc:/images/karma-logo.svg"
       }
+      onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
     }
   }
 }
-
