@@ -83,6 +83,13 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void setConstraintsValid( bool constraintsValid );
 
+    /**
+     * finds the best widget type regarding to the field type or the configured widget setup
+     * \param fieldIndex to get the field
+     * \returns widget setup containing the best widget type
+     */
+    QgsEditorWidgetSetup findBest( int fieldIndex );
+
     FeatureModel *mFeatureModel;
     QgsVectorLayer *mLayer;
     QgsAttributeEditorContainer *mTemporaryContainer;
