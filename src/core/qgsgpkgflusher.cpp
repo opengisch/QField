@@ -17,8 +17,8 @@
 
 
 #include "qgsgpkgflusher.h"
-#include "qgsmessagelog.h"
-#include "qgsvectorlayer.h"
+#include <qgsmessagelog.h>
+#include <qgsvectorlayer.h>
 
 #include <qgsproject.h>
 #include <sqlite3.h>

@@ -28,6 +28,8 @@ class Flusher;
  * The QgsGpkgFlusher class is attached to a QgsProject.
  * It will make sure that all changes are regularly flushed from the wal file
  * to the gpkg itself on all added layers.
+ * It will start a background thread and post an event to it whenever the gpkg has been changed.
+ * After a delay of 500ms without any changes the wal file will be flushed.
  */
 class QgsGpkgFlusher : public QObject
 {
