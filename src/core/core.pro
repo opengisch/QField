@@ -25,6 +25,7 @@ HEADERS += \
     featurelistmodelselection.h \
     featuremodel.h \
     qgismobileapp.h \
+    qgsgpkgflusher.h \
     qgssggeometry.h \
     sgrubberband.h \
     settings.h \
@@ -70,6 +71,7 @@ SOURCES += \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
     qgismobileapp.cpp \
+    qgsgpkgflusher.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
     settings.cpp \
