@@ -7,9 +7,23 @@ VisibilityFadingRow {
   id: splitFeatureToolbar
 
   property FeatureModel featureModel
-  property MapSettings mapSettings
 
   spacing: 4 * dp
   padding: 4 * dp
+
+  DigitizingToolbar {
+    id: drawLineToolbar
+    mode: "measure"
+  }
+
+  function init(featureModel, mapSettings, editorRubberbandModel)
+  {
+    splitFeatureToolbar.featureModel = featureModel
+    drawLineToolbar.rubberbandModel = editorRubberbandModel
+    drawLineToolbar.mapSettings = mapSettings
+    drawLineToolbar.stateVisible = true
+  }
+
+
 
 }

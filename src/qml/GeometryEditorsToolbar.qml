@@ -10,6 +10,7 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+  property RubberbandModel editorRubberbandModel
 
   spacing: 4 * dp
   padding: 4 * dp
@@ -19,7 +20,7 @@ VisibilityFadingRow {
   }
   Component.onCompleted: {
     editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar.qml")
-    editors.addEditor("Split tool", "content-cut", "VertexEditorToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor("Split tool", "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
   }
 
   VisibilityFadingRow {
@@ -45,8 +46,7 @@ VisibilityFadingRow {
     id: toolbarRow
     function load(qml){
       source = qml
-      item.featureModel = geometryEditorsToolbar.featureModel
-      item.mapSettings = geometryEditorsToolbar.mapSettings
+      item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
       toolbarRow.item.stateVisible = true
     }
 

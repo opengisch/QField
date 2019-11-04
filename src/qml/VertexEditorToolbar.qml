@@ -12,6 +12,12 @@ VisibilityFadingRow {
   spacing: 4 * dp
   padding: 4 * dp
 
+  function init(featureModel, mapSettings, editorRubberbandModel)
+  {
+    vertexEditorToolbar.featureModel = featureModel
+    vertexEditorToolbar.mapSettings = mapSettings
+  }
+
   Button {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )

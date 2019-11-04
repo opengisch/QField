@@ -225,13 +225,31 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
-
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
 
         mapSettings: mapCanvas.mapSettings
         model: featureForm.model
+      }
+
+      /** A rubberband for the different geometry editors **/
+      Rubberband {
+        id: geometryEditorsRubberband
+        width: 2 * dp
+        color: '#80000000'
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          frozen: false
+          currentCoordinate: coordinateLocator.currentCoordinate
+          crs: mapCanvas.mapSettings.destinationCrs
+          geometryType: QgsWkbTypes.LineGeometry
+        }
+
+        anchors.fill: parent
+        visible: false
       }
     }
 
@@ -607,11 +625,15 @@ ApplicationWindow {
     DigitizingToolbar {
       id: digitizingToolbar
 
+      mode: stateMachine.state // works for now, but it would make sense to have 2 distinct toolbars for each action (digitize and measure)
+
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
                      && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
       rubberbandModel: currentRubberband.model
+      coordinateLocator: coordinateLocator
+      mapSettings: mapCanvas.mapSettings
 
       FeatureModel {
         id: digitizingFeature
@@ -624,22 +646,6 @@ ApplicationWindow {
           rubberbandModel: digitizingRubberband.model
           vectorLayer: dashBoard.currentLayer
         }
-      }
-
-      onVertexAdded: {
-        coordinateLocator.flash()
-        currentRubberband.model.addVertex()
-      }
-
-      onVertexRemoved:
-      {
-        currentRubberband.model.removeVertex()
-        mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
-      }
-
-      onCancel:
-      {
-        currentRubberband.model.reset()
       }
 
       onConfirm: {
@@ -675,6 +681,7 @@ ApplicationWindow {
 
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
+      editorRubberbandModel: geometryEditorsRubberband.model
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
     }
