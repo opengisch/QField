@@ -613,8 +613,6 @@ ApplicationWindow {
     DigitizingToolbar {
       id: digitizingToolbar
 
-      mode: stateMachine.state // works for now, but it would make sense to have 2 distinct toolbars for each action (digitize and measure)
-
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
@@ -622,6 +620,7 @@ ApplicationWindow {
       rubberbandModel: currentRubberband.model
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
+      showConfirmButton: stateMachine.state === "digitize"
 
       FeatureModel {
         id: digitizingFeature

@@ -13,7 +13,7 @@ VisibilityFadingRow {
 
   DigitizingToolbar {
     id: drawLineToolbar
-    mode: "measure"
+    showConfirmButton: true
   }
 
   function init(featureModel, mapSettings, editorRubberbandModel)

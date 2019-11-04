@@ -5,12 +5,11 @@ import Theme 1.0
 VisibilityFadingRow {
   id: digitizingToolbar
   property RubberbandModel rubberbandModel
-  property string mode: "digitize"  // digitize or measure
   property CoordinateLocator coordinateLocator // optional coordinateLocator to flash
   property MapSettings mapSettings
+  property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
 
   property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
-
 
   spacing: 4 * dp
   padding: 4 * dp
@@ -35,7 +34,11 @@ VisibilityFadingRow {
       Theme.getThemeIcon( "ic_save_white_24dp" )
     }
     visible: {
-      if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 || mode === 'measure' )
+      if ( !showConfirmButton)
+      {
+        false
+      }
+      else if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
       {
         false
       }
@@ -78,7 +81,14 @@ VisibilityFadingRow {
         Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: mode === 'measure' ? Theme.darkGray : Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? Theme.mainColor : Theme.darkGray
+    bgcolor: {
+        if (!showConfirmButton)
+          Theme.darkGray
+        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
+          Theme.mainColor
+        else
+          Theme.darkGray
+    }
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
