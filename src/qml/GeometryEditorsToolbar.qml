@@ -27,6 +27,9 @@ VisibilityFadingRow {
     id: selectorRow
     stateVisible: false
 
+    spacing: 4 * dp
+    padding: 4 * dp
+
     Repeater {
       model: editors
       delegate: Button {

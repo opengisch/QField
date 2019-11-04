@@ -249,7 +249,6 @@ ApplicationWindow {
         }
 
         anchors.fill: parent
-        visible: false
       }
     }
 
