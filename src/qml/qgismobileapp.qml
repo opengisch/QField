@@ -56,7 +56,7 @@ ApplicationWindow {
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
         if ( stateMachine.state === 'measure' ) {
-          closeTool()
+          mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
         }
@@ -70,7 +70,7 @@ ApplicationWindow {
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
 
-  signal closeTool()
+  signal closeMeasureTool()
   signal changeMode( string mode )
 
   Item {
@@ -106,7 +106,8 @@ ApplicationWindow {
     displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
   }
 
-  onCloseTool: {
+  onCloseMeasureTool: {
+    overlayFeatureFormDrawer.close()
     changeMode( stateMachine.lastState)
   }
 
@@ -448,57 +449,14 @@ ApplicationWindow {
       anchors.topMargin: 4 * dp
     }
 
-    ToolButton {
+    CloseTool {
       id: closeMeasureTool
-      height: 48 * dp
-      width: height + buttonText.width + 32 * dp
-
-      contentItem: Rectangle {
-        anchors.fill: parent
-        color: '#80000000'
-        radius: height / 2
-
-        Row {
-          spacing: 8 * dp
-          Rectangle {
-            height: 48 * dp
-            width: 48 * dp
-            radius: height / 2
-            color: Theme.darkGray
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( "ic_close_white_24dp" )
-            }
-          }
-
-          Text {
-            id: buttonText
-            anchors.verticalCenter: parent.verticalCenter
-            verticalAlignment: Text.AlignVCenter
-            text: qsTr( 'Close measure tool' )
-            color: Theme.light
-            font: Theme.strongFont
-          }
-        }
-
-        Behavior on color {
-          ColorAnimation {
-            duration: 200
-          }
-        }
-      }
       visible: stateMachine.state === 'measure'
-      onClicked: {
-        overlayFeatureFormDrawer.close()
-        closeTool()
-      }
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
       anchors.top: mainMenuBar.top
       anchors.topMargin: 4 * dp
+      onClosedTool: mainWindow.closeMeasureTool()
     }
   }
 
