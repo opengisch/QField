@@ -945,6 +945,8 @@ ApplicationWindow {
       {
         featureForm.state = "Hidden"
       }
+
+      geometryEditorsToolbar.init()
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
