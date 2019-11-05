@@ -83,7 +83,7 @@ VisibilityFadingRow {
 
   function cancelEditors() {
     if (toolbarRow.item)
-      toolbarRow.item.close()
+      toolbarRow.item.cancel()
     featureModel.vertexModel.clear()
   }
 
