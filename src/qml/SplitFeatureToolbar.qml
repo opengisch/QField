@@ -14,6 +14,14 @@ VisibilityFadingRow {
   DigitizingToolbar {
     id: drawLineToolbar
     showConfirmButton: true
+
+    onConfirm: {
+      //TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
+      var line = drawLineToolbar.rubberbandModel.pointSequence(featureModel.currentLayer.crs)
+      if (!featureModel.currentLayer.editBuffer())
+        featureModel.currentLayer.startEditing()
+      featureModel.currentLayer.splitFeatures(line) // TODO: add option for topological mode
+    }
   }
 
   function init(featureModel, mapSettings, editorRubberbandModel)

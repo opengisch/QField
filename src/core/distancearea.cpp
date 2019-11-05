@@ -148,7 +148,7 @@ bool DistanceArea::lengthValid() const
       return false;
 
     case QgsWkbTypes::LineGeometry:
-      FALLTHROUGH;
+      FALLTHROUGH
     case QgsWkbTypes::PolygonGeometry:
       return mRubberbandModel->vertexCount() >= 2;
 
