@@ -6,6 +6,8 @@ import Theme 1.0
 VisibilityFadingRow {
   id: splitFeatureToolbar
 
+  signal finished()
+
   property FeatureModel featureModel
 
   spacing: 4 * dp
@@ -21,6 +23,8 @@ VisibilityFadingRow {
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
       featureModel.currentLayer.splitFeatures(line) // TODO: add option for topological mode
+      cancel()
+      finished()
     }
   }
 
@@ -32,7 +36,7 @@ VisibilityFadingRow {
     drawLineToolbar.stateVisible = true
   }
 
-  function close()
+  function cancel()
   {
     drawLineToolbar.cancel()
   }

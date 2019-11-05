@@ -6,6 +6,8 @@ import Theme 1.0
 VisibilityFadingRow {
   id: vertexEditorToolbar
 
+  signal finished()
+
   property FeatureModel featureModel
   property MapSettings mapSettings
 
@@ -18,7 +20,7 @@ VisibilityFadingRow {
     vertexEditorToolbar.mapSettings = mapSettings
   }
 
-  function close()
+  function cancel()
   {
     // do nothing
   }
@@ -41,8 +43,8 @@ VisibilityFadingRow {
       if (featureModel.vertexModel.dirty){
         featureModel.applyVertexModelToGeometry()
         featureModel.save()
-        featureModel.vertexModel.clear()
       }
+      finished()
     }
   }
 
