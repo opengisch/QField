@@ -24,6 +24,9 @@ VisibilityFadingRow {
     drawLineToolbar.stateVisible = true
   }
 
-
+  function close()
+  {
+    drawLineToolbar.cancel()
+  }
 
 }

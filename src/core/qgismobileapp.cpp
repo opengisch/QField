@@ -237,7 +237,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterSingletonType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModelSingleton", geometryEditorsSingletonProvider );
 
-
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );

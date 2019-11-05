@@ -5,6 +5,14 @@ import org.qfield 1.0
 import Theme 1.0
 
 
+/**
+This contains several geometry editing tools
+A tool must subclass VisibilityFadingRow
+And contains following functions:
+  * function init(featureModel, mapSettings, editorRubberbandModel)
+  * function close()
+*/
+
 VisibilityFadingRow {
   id: geometryEditorsToolbar
 
@@ -21,6 +29,9 @@ VisibilityFadingRow {
   Component.onCompleted: {
     editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar.qml")
     editors.addEditor("Split tool", "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    var toolbarQml = editors.data(editors.index(0,0), GeometryEditorsModelSingleton.ToolbarRole)
+    var iconPath = editors.data(editors.index(0,0), GeometryEditorsModelSingleton.IconPathRole)
+    toolbarRow.load(toolbarQml, iconPath)
   }
 
   VisibilityFadingRow {
@@ -38,8 +49,11 @@ VisibilityFadingRow {
         iconSource: Theme.getThemeIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
+          // close current tool if any
+          if (toolbarRow.item)
+            toolbarRow.item.close()
           selectorRow.stateVisible = false
-          toolbarRow.load(toolbar)
+          toolbarRow.load(toolbar, iconPath)
         }
       }
     }
@@ -47,17 +61,24 @@ VisibilityFadingRow {
 
   Loader {
     id: toolbarRow
-    function load(qml){
-      source = qml
+
+    function load(qmlSource, iconPath){
+      source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
       toolbarRow.item.stateVisible = true
+      activeToolButton.iconSource = Theme.getThemeIcon(iconPath)
     }
 
-    function hide() {if(item) item.stateVisible = false}
+    function hide() {
+      if(item)
+        item.stateVisible = false
+    }
   }
 
   function cancelEditors() {
-      featureModel.vertexModel.clear()
+    if (toolbarRow.item)
+      toolbarRow.item.close()
+    featureModel.vertexModel.clear()
   }
 
   Button {
