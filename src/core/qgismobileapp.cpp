@@ -47,6 +47,7 @@
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsvectorlayereditbuffer.h>
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -154,11 +155,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+  qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
@@ -171,6 +174,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+  qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
@@ -178,6 +182,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
