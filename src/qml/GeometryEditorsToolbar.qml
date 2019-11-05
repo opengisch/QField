@@ -29,8 +29,9 @@ VisibilityFadingRow {
   Component.onCompleted: {
     editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar.qml")
     editors.addEditor("Split tool", "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
-    var toolbarQml = editors.data(editors.index(0,0), GeometryEditorsModelSingleton.ToolbarRole)
-    var iconPath = editors.data(editors.index(0,0), GeometryEditorsModelSingleton.IconPathRole)
+    var lastUsed = settings.setValue( "/QField/GeometryEditorLastUsed", 0 )
+    var toolbarQml = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.ToolbarRole)
+    var iconPath = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.IconPathRole)
     toolbarRow.load(toolbarQml, iconPath)
   }
 
@@ -54,6 +55,7 @@ VisibilityFadingRow {
             toolbarRow.item.close()
           selectorRow.stateVisible = false
           toolbarRow.load(toolbar, iconPath)
+          settings.setValue( "/QField/GeometryEditorLastUsed", index )
         }
       }
     }
