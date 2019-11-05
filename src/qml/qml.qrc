@@ -47,6 +47,7 @@
         <file>Changelog.qml</file>
         <file>LayerLoginDialog.qml</file>
         <file>SplitFeatureToolbar.qml</file>
+        <file>CloseTool.qml</file>
         <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/qmldir</file>
