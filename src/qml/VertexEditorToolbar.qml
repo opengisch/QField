@@ -18,16 +18,13 @@ VisibilityFadingRow {
     vertexEditorToolbar.mapSettings = mapSettings
   }
 
-  Button {
-    id: cancelButton
-    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
-    round: true
-    bgcolor: "#FFD600"
-
-    onClicked: {
-      featureModel.vertexModel.clear()
-    }
-  }
+// Cancel button could be used to reset geometry but keep tools open?
+//  Button {
+//    id: cancelButton
+//    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+//    round: true
+//    bgcolor: "#FFD600"
+//  }
 
   Button {
     id: applyButton

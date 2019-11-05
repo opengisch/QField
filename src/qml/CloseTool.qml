@@ -4,6 +4,9 @@ import Theme 1.0
 
 
 ToolButton {
+  id: closeTool
+
+  property string toolText: qStr("close")
 
   signal closedTool()
 
@@ -35,7 +38,7 @@ ToolButton {
         id: buttonText
         anchors.verticalCenter: parent.verticalCenter
         verticalAlignment: Text.AlignVCenter
-        text: qsTr( 'Close measure tool' )
+        text: closeTool.toolText
         color: Theme.light
         font: Theme.strongFont
       }

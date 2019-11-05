@@ -56,6 +56,10 @@ VisibilityFadingRow {
     function hide() {if(item) item.stateVisible = false}
   }
 
+  function cancelEditors() {
+      featureModel.vertexModel.clear()
+  }
+
   Button {
     id: activeToolButton
     round: true
