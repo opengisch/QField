@@ -463,12 +463,25 @@ ApplicationWindow {
     CloseTool {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
+      toolText: qsTr( 'Close measure tool' )
       anchors.left: mainMenuBar.left
       anchors.leftMargin: 4 * dp
       anchors.top: mainMenuBar.top
       anchors.topMargin: 4 * dp
       onClosedTool: mainWindow.closeMeasureTool()
     }
+
+    CloseTool {
+      id: closeGeometryEditorsTool
+      visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      toolText: qsTr( 'Stop editing' )
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: 4 * dp
+      anchors.top: mainMenuBar.top
+      anchors.topMargin: 4 * dp
+      onClosedTool: geometryEditorsToolbar.cancelEditors()
+    }
+
   }
 
   Column {
