@@ -18,6 +18,11 @@ VisibilityFadingRow {
     vertexEditorToolbar.mapSettings = mapSettings
   }
 
+  function close()
+  {
+    // do nothing
+  }
+
 // Cancel button could be used to reset geometry but keep tools open?
 //  Button {
 //    id: cancelButton

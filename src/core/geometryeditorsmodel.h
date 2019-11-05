@@ -39,6 +39,7 @@ class GeometryEditorsModel : public QStandardItemModel
       ToolbarRole,
       SupportedGeometriesRole
     };
+    Q_ENUMS(ActionRoles)
 
     enum GeometryType
     {
