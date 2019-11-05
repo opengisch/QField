@@ -10,7 +10,9 @@ This contains several geometry editing tools
 A tool must subclass VisibilityFadingRow
 And contains following functions:
   * function init(featureModel, mapSettings, editorRubberbandModel)
-  * function close()
+  * function cancel()
+The following signal:
+  * signal finished()
 */
 
 VisibilityFadingRow {
@@ -52,7 +54,7 @@ VisibilityFadingRow {
         onClicked: {
           // close current tool if any
           if (toolbarRow.item)
-            toolbarRow.item.close()
+            toolbarRow.item.cancel()
           selectorRow.stateVisible = false
           toolbarRow.load(toolbar, iconPath)
           settings.setValue( "/QField/GeometryEditorLastUsed", index )
@@ -64,17 +66,19 @@ VisibilityFadingRow {
   Loader {
     id: toolbarRow
 
+    width: item && item.stateVisible ? item.implicitWidth : 0
+
     function load(qmlSource, iconPath){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
       toolbarRow.item.stateVisible = true
       activeToolButton.iconSource = Theme.getThemeIcon(iconPath)
     }
+  }
 
-    function hide() {
-      if(item)
-        item.stateVisible = false
-    }
+  Connections {
+      target: toolbarRow.item
+      onFinished: featureModel.vertexModel.clear()
   }
 
   function cancelEditors() {
@@ -88,7 +92,7 @@ VisibilityFadingRow {
     round: true
     bgcolor: "#FFD600"
     onClicked: {
-      toolbarRow.hide()
+      toolbarRow.source = ''
       selectorRow.stateVisible = true
     }
   }
