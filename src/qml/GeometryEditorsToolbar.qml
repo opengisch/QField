@@ -95,7 +95,7 @@ VisibilityFadingRow {
   Button {
     id: activeToolButton
     round: true
-    bgcolor: Theme.mainColor
+    bgcolor: selectorRow.stateVisible ? Theme.lightGray : Theme.mainColor
     onClicked: {
       toolbarRow.source = ''
       selectorRow.stateVisible = true
