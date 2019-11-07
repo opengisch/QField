@@ -65,6 +65,7 @@ jobs:
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
+        - pip install pygithub
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
     - stage: deploy
       name: "🌍 Translations"
