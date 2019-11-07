@@ -100,25 +100,25 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QFieldユーザーガイド</a><ul>
 <li><a class="reference internal" href="#opening-a-project">プロジェクトを開く</a></li>
-<li><a class="reference internal" href="#map-legend">Map legend</a></li>
-<li><a class="reference internal" href="#identify-features">Identify features</a><ul>
-<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions to identified layers</a></li>
+<li><a class="reference internal" href="#map-legend">地図の凡例</a></li>
+<li><a class="reference internal" href="#identify-features">属性情報の表示</a><ul>
+<li><a class="reference internal" href="#exceptions-to-identified-layers">特定レイヤーを属性情報表示から除外する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">Searching</a></li>
-<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
+<li><a class="reference internal" href="#searching">検索</a></li>
+<li><a class="reference internal" href="#switching-map-theme">マップテーマの切替え</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
-<li><a class="reference internal" href="#using-external-gnss-reciever">Using external GNSS-Reciever</a></li>
+<li><a class="reference internal" href="#using-external-gnss-reciever">外付けのGNSS受信機を使用する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
-<li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
-<li><a class="reference internal" href="#attribute-form">Attribute form</a></li>
+<li><a class="reference internal" href="#digitizing">デジタイジング</a><ul>
+<li><a class="reference internal" href="#points">ポイント</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">ラインとポリゴン</a></li>
+<li><a class="reference internal" href="#attribute-form">属性情報フォーム</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
+<li><a class="reference internal" href="#delete-features">フィーチャの削除</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">既存のフィーチャの図形を編集する。</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +170,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QFieldプロジェクトの管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
@@ -196,105 +196,103 @@
 <h1>QFieldユーザーガイド<a class="headerlink" href="#qfield-user-guide" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="opening-a-project">
 <h2>プロジェクトを開く<a class="headerlink" href="#opening-a-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To open a project, tap on <strong>Menu button &#8211;&gt; Option button &#8211;&gt; Open Project</strong>.</p>
-<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<p>プロジェクトを開くには、<a href="#id1"><span class="problematic" id="id2">**</span></a>メニューボタン &#8211;&gt; オプションボタン &#8211;&gt; プロジェクトを開く**のようにタップしてください。</p>
+<p>開きたいプロジェクトを選択するか、  <strong>最近のプロジェクト</strong> や <strong>お気に入りのフォルダ</strong> ショートカットを使用してください。</p>
 <blockquote>
 <div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 </div>
 <div class="section" id="map-legend">
-<h2>Map legend<a class="headerlink" href="#map-legend" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<h2>地図の凡例<a class="headerlink" href="#map-legend" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>メインメニュー**を開いて、レイヤーリストを展開すると、凡例を表示できます。</p>
 <img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h2>Identify features<a class="headerlink" href="#identify-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<h2>属性情報の表示<a class="headerlink" href="#identify-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>地図上のフィーチャをタップすると属性情報を表示できます。もし複数のフィーチャをタップした場合（複数のフィーチャがたがいに近接している場合や複数のレイヤーがオーバーラップしている場合）は、それらすべてのフィーチャが画面の右側のメニューにリストアップされます。</p>
 <img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
-<p>Tap on one of the listed feature to access its attributes.</p>
+<p>リストアップされたフィーチャの一つをタップして属性情報を表示できます。</p>
 <ol class="arabic simple">
 <li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
-<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
-<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
-<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+<li><p class="first"><strong>中央表示ボタン</strong> をタップして選択しているフィーチャを中央に表示できます。</p>
+</li>
+<li><p class="first"><strong>編集ボタン</strong> をタップして選択しているフィーチャの属性情報を変更できます。</p>
+</li>
+<li><p class="first"><strong>サブメニュー</strong> をスクロールして全ての属性情報を切替表示できます。</p>
+</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h3>Exceptions to identified layers<a class="headerlink" href="#exceptions-to-identified-layers" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Often it is not required to be able to query every layer. Some layers are only present as basemap and their attributes are not of interest.</p>
-<p>You can manage this layerlist in QGIS desktop in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> and uncheck the base layers.</p>
+<h3>特定レイヤーを属性情報表示から除外する<a class="headerlink" href="#exceptions-to-identified-layers" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>全てのレイヤーが属性情報を表示する必要があるとは限りません。例えばベースマップとして表示されているレイヤーなどは属性情報の表示は不要です。</p>
+<p>QGISデスクトップの:menuselection:<cite>プロジェクト&#8211;&gt; プロパティ&#8211;&gt; データソース &#8211;&gt; 情報表示可能</cite> からベースマップのレイヤーのチェックを外すことで、情報表示対象レイヤーリストを管理できます。</p>
 </div>
 </div>
 <div class="section" id="searching">
-<h2>Searching<a class="headerlink" href="#searching" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<h2>検索<a class="headerlink" href="#searching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>右上の <strong>検索ボタン</strong> をタップするとレイヤを検索できます。</p>
 <ol class="arabic simple">
-<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
-<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+<li><p class="first">検索結果の <strong>名前</strong> をタップするとそのフィーチャを表示できます（検索結果のフィーチャは黄色でハイライトされます）。</p>
+</li>
+<li><p class="first"><strong>属性ボタン</strong> をタップして属性情報を表示することもできます。</p>
+</li>
 </ol>
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<h2>マップテーマの切替え<a class="headerlink" href="#switching-map-theme" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もしQGISでこのプロジェクトに対してマップテーマを設定していた場合、<strong>メインメニュー</strong> 上の一番上のドロップダウンリストからマップテーマを切り替えることができます。</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
 <h2>GPS<a class="headerlink" href="#gps" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
-<p>A long press on the GPS button will show the positioning menu.</p>
-<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
+<p>GPSボタンを短くタップするとGPS機能を有効できます。現在地情報を取得次第、現在地の位置を表示します。</p>
+<p>GPSボタンをロングタップするとGPSメニューを表示できます。</p>
+<p>GPSメニューの中でプロジェクトの座標系に変換した現在地の座標情報の表示切替などの設定ができます。</p>
 <img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
+<p class="last">プロジェクトの座標系ではなくWGS84の経度/緯度が表示される場合は、まだGNSS信号を受信できていない可能性があります。</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h3>Using external GNSS-Reciever<a class="headerlink" href="#using-external-gnss-reciever" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>It is possible to provide a mock location a separate android app to qfield.
-There are several options for this, one of them is <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
-<p>To use this you have to <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">enable mock locations on your Android device</a>.</p>
+<h3>外付けのGNSS受信機を使用する<a class="headerlink" href="#using-external-gnss-reciever" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>別のAndroidアプリを用いて疑似ロケーションをQFieldに供給することも可能です。いくつかの方法がありますが、その一つとして`Android NTRIP Client &lt;<a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">https://play.google.com/store/apps/details?id=com.lefebure.ntripclient</a>&gt;`_を活用することもできます。</p>
+<p>これを行うには <a href="#id1"><span class="problematic" id="id2">`</span></a>アンドロイド端末で疑似ロケーションを有効 &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;`_にする必要があります。</p>
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>Digitizing<a class="headerlink" href="#digitizing" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<h2>デジタイジング<a class="headerlink" href="#digitizing" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しいフィーチャのデジタイジングをするには、メインメニュー（<em>鉛筆ボタン</em>）から <strong>編集モード</strong> を有効にし、新しくフィーチャを追加したいレイヤを選択してください（選択したレイヤーはグレイでハイライトされます）。</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h3>Points<a class="headerlink" href="#points" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
-new point feature.</p>
-<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<h3>ポイント<a class="headerlink" href="#points" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>画面の中央にある十字線を目的の場所に移動し、画面の右下にある**+ボタン**をクリックして、新しいポイントフィーチャの作成を確認します。</p>
+<p>GPSを有効にしている場合は、<a href="#id1"><span class="problematic" id="id2">**</span></a>中央に維持**ボタンを使用して、十字線を現在地の中央に自動的に移動できます。</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h3>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
-<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
-<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
-<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
-<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<h3>ラインとポリゴン<a class="headerlink" href="#lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>画面の中央にある十字線を目的のラインまたはポリゴンの開始点に移動し、画面の右下にある**プラス（+）ボタン**をクリックして最初のノードを追加します。</p>
+<p>新しいノードごとに**プラス（+）ボタン**をクリックして、ポイントを追加してラインまたはポリゴンを形成します。</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>マイナス（-）ボタン**をクリックして、最後に追加したノードを削除します。</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>閉じる（X）ボタン**をクリックして、フィーチャの作成を完全にキャンセルします。</p>
+<p>少なくとも2つのノードをラインに追加するか、3つのノードをポリゴンに追加すると、<a href="#id1"><span class="problematic" id="id2">**</span></a>保存ボタン**が表示されます。 クリックしてスケッチを完成させます。</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h3>Attribute form<a class="headerlink" href="#attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.
-The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<h3>属性情報フォーム<a class="headerlink" href="#attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>図形を作成した後、属性フォームが表示され、ユーザーは新しいフィーチャの属性を入力するよう求められます。 表示されるフォームでは、新しいフィーチャの属性値を入力できます。 すべての属性の右側にあるチェックボックスを使用すると、各属性をデフォルト値として記憶できます。 次回同じレイヤーにフィーチャを追加するとき、これらの属性は最初から入力されています。</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>Delete Features<a class="headerlink" href="#delete-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Deleting features is only possible in digitize mode.</p>
-<p>To delete a feature, identify it first and tap the trash icon.</p>
+<h2>フィーチャの削除<a class="headerlink" href="#delete-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>フィーチャの削除は編集モード時のみ利用可能です。</p>
+<p>フィーチャを削除するには、まず属性情報を表示し、ゴミ箱アイコンをタップします。</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>既存のフィーチャの図形を編集する。<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>To complete.</p>
 </div>
 </div>
