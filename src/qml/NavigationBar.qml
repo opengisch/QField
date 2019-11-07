@@ -231,6 +231,8 @@ Rectangle {
 
   Button {
     id: followCurrentButton
+    
+    visible: !selection.selectedGeometry.isNull
 
     anchors.left: previousButton.right
 
