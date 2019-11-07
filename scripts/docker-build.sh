@@ -11,8 +11,6 @@
 
 set -e
 
-apt update && apt install zip
-
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker

@@ -19,7 +19,7 @@ before_install:
   - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=20191001
+  - export QFIELD_SDK_VERSION=20191106
   - echo "travis_fold:start:docker-pull"
   - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
   - echo "travis_fold:end:docker-pull"
@@ -31,7 +31,7 @@ script:
 
 jobs:
   allow_failures:
-    - name: "🍳 Testing"
+#    - name: "🍳 Testing"
   include:
     - stage: test
       name: "🍳 Testing"
