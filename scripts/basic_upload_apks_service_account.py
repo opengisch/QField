@@ -81,7 +81,8 @@ def main():
             editId=edit_id,
             track=TRACK,
             packageName=package_name,
-            body={u'versionCodes': version_codes}).execute()
+            body={'track': TRACK,
+                'releases': {'versionCodes': version_codes, 'status' : 'completed' } }).execute()
 
         print('Track {track} is set for version code(s) {version_code}'.format(
             track=track_response['track'],
