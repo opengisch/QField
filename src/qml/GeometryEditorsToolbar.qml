@@ -58,7 +58,7 @@ VisibilityFadingRow {
       model: editors
       delegate: Button {
         round: true
-        bgcolor: "#FFD600"
+        bgcolor: Theme.mainColor
         iconSource: Theme.getThemeIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
@@ -95,7 +95,7 @@ VisibilityFadingRow {
   Button {
     id: activeToolButton
     round: true
-    bgcolor: "#FFD600"
+    bgcolor: Theme.mainColor
     onClicked: {
       toolbarRow.source = ''
       selectorRow.stateVisible = true
