@@ -23,7 +23,7 @@ import httplib2
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import client
 
-TRACK = 'beta'  # Can be 'alpha', beta', 'production' or 'rollout'
+TRACK = 'alpha'  # Can be 'alpha', beta', 'production' or 'rollout'
 SERVICE_ACCOUNT_EMAIL = (
     'qfielddeployer@api-5606400287044015100-167791.iam.gserviceaccount.com')
 
