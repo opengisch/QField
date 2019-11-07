@@ -29,7 +29,7 @@ QHash<int, QByteArray> GeometryEditorsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IconPathRole] = "iconPath";
-  roles[NameRole] = "id";
+  roles[NameRole] = "name";
   roles[ToolbarRole] = "toolbar";
   roles[SupportedGeometriesRole] = "supportedGeometries";
   return roles;

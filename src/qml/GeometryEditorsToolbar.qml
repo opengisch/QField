@@ -68,6 +68,7 @@ VisibilityFadingRow {
           selectorRow.stateVisible = false
           toolbarRow.load(toolbar, iconPath)
           settings.setValue( "/QField/GeometryEditorLastUsed", index )
+          displayToast(name)
         }
       }
     }
