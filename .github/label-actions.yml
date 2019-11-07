@@ -3,14 +3,14 @@
 # Specify configuration settings just for issues
 issues:
   actions:
-    enhancement:
+    ENHANCEMENT:
       comment: >
         This has been accepted as an enhancement request. Good job :+1:
         Enhancement requests are very valuable to make QField better. They sometimes attract others and just happen magically. More often however they need someone to jump in and [make them come true](https://www.opengis.ch/custom-development).
-    bug:
+    BUG:
       comment: >
         Thanks for reporting this bug. Bugs are often fixed on a voluntary basis (see [sustainability initiative](https://www.opengis.ch/qgis-sustainability-initiative/)). This still often takes time and we need to prioritize bugs, so some may slip through the cracks. If you need this bug to be fixed in a more timely manner, [get in touch](https://www.opengis.ch/custom-development).
-    support:
+    SUPPORT:
       comment: >
         :wave: @{issue-author}, we use this issue tracker exclusively for bug reports and feature requests. However, this issue appears to be a suppport request. Please use our [support channels](https://qfield.org/docs/development/index.html#support) to get help with the project.
       close: true
