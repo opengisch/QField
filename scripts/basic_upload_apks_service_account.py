@@ -84,9 +84,9 @@ def main():
             body={'track': TRACK,
                 'releases': [ {'versionCodes': version_codes, 'status' : 'completed' } ] }).execute()
 
-        print('Track {track} is set for version code(s) {version_code}'.format(
+        print('Track {track} is set for releases {releases}'.format(
             track=track_response['track'],
-            version_code=track_response['versionCodes']
+            releases=track_response['releases']
         ))
 
         commit_request = service.edits().commit(
