@@ -328,3 +328,11 @@ qreal QgsQuickUtils::calculateScreenDensity()
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymmetrical DPI. Improbable
   return dpi / 160.;  // 160 DPI is baseline for density-independent pixels in Android
 }
+
+void QgsQuickUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )
+{
+  QgsFeatureIds qgsFids;
+  for ( const int &fid : fids )
+    qgsFids << fid;
+  layer->selectByIds( qgsFids, behavior );
+}
