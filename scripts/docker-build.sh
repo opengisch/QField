@@ -30,6 +30,8 @@ fi
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
+echo "Package name ${PKG_NAME}"
+
 if [[ -z ${APP_ICON+x} ]]; then
   sed -i "s|<file alias=\"qfield-logo.svg\">icons/qfield-logo.svg</file>|<file alias=\"qfield-logo.svg\">icons/${APP_ICON}</file>|" ${SOURCE_DIR}/images/images.qrc
 fi
