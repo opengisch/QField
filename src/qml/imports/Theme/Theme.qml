@@ -10,17 +10,17 @@ QtObject {
     property color mainColor: "#80cc28"
 
     property font defaultFont
-    defaultFont.pointSize: 14
+    defaultFont.pointSize: 16
 
     property font tipFont
-    tipFont.pointSize: 12
+    tipFont.pointSize: 14
 
     property font strongFont
     strongFont.pointSize: defaultFont.pointSize
     strongFont.bold: true
 
     property font secondaryTitleFont
-    secondaryTitleFont.pointSize: 16
+    secondaryTitleFont.pointSize: 18
 
     property font titleFont
     titleFont.pointSize: 20
