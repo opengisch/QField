@@ -20,10 +20,10 @@ fi
 if [[ -z ${ARCH+x} ]]; then
     ARCH=armv7
 fi
-if [[ -z ${APP_NAME} ]]; then
+if [[ -z ${APP_NAME+x} ]]; then
   APP_NAME="QField"
 fi
-if [[ -z ${PKG_NAME} ]]; then
+if [[ -z ${PKG_NAME+x} ]]; then
   PKG_NAME="qfield"
 fi
 
