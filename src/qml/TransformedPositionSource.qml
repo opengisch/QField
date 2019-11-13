@@ -14,6 +14,7 @@ PositionSource {
                                                0.0
                                              }
   property alias deltaZ: _ct.deltaZ
+  property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
   property CoordinateTransformer ct: CoordinateTransformer {
     id: _ct

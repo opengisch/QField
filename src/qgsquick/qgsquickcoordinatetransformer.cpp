@@ -119,10 +119,27 @@ void QgsQuickCoordinateTransformer::updatePosition()
     QgsDebugMsg( exp.what() );
   }
 
+  if ( mSkipAltitudeTransformation )
+    z = mSourcePosition.z();
+
   mProjectedPosition = QgsPoint( x, y );
   mProjectedPosition.addZValue( z + mDeltaZ );
 
   emit projectedPositionChanged();
+}
+
+bool QgsQuickCoordinateTransformer::skipAltitudeTransformation() const
+{
+  return mSkipAltitudeTransformation;
+}
+
+void QgsQuickCoordinateTransformer::setSkipAltitudeTransformation( bool skipAltitudeTransformation )
+{
+  if ( mSkipAltitudeTransformation == skipAltitudeTransformation )
+    return;
+
+  mSkipAltitudeTransformation = skipAltitudeTransformation;
+  emit skipAltitudeTransformationChanged();
 }
 
 QGeoCoordinate QgsQuickCoordinateTransformer::sourceCoordinate() const
