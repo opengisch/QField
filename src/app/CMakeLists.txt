@@ -1,6 +1,10 @@
+FIND_PACKAGE(Qt5QuickCompiler)
+QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+
 IF (ANDROID)
   ADD_LIBRARY(qfield SHARED
     main.cpp
+    ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
@@ -12,7 +16,7 @@ IF (ANDROID)
 ELSE ()
   ADD_EXECUTABLE(qfield
     main.cpp
-    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
+    ${RESOURCES}
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
