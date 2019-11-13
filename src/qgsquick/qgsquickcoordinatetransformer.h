@@ -62,6 +62,11 @@ class QgsQuickCoordinateTransformer : public QObject
      */
     Q_PROPERTY( qreal deltaZ READ deltaZ WRITE setDeltaZ NOTIFY deltaZChanged )
 
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    Q_PROPERTY( bool skipAltitudeTransformation READ skipAltitudeTransformation WRITE setSkipAltitudeTransformation NOTIFY skipAltitudeTransformationChanged )
+
   public:
     //! Creates new coordinate transformer
     explicit QgsQuickCoordinateTransformer( QObject *parent = nullptr );
@@ -108,6 +113,16 @@ class QgsQuickCoordinateTransformer : public QObject
     QGeoCoordinate sourceCoordinate() const;
     void setSourceCoordinate( const QGeoCoordinate &sourceCoordinate );
 
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    bool skipAltitudeTransformation() const;
+
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    void setSkipAltitudeTransformation( bool skipAltitudeTransformation );
+
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
     void projectedPositionChanged();
@@ -132,6 +147,11 @@ class QgsQuickCoordinateTransformer : public QObject
      */
     void deltaZChanged();
 
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    void skipAltitudeTransformationChanged();
+
   private:
     void updatePosition();
 
@@ -144,6 +164,8 @@ class QgsQuickCoordinateTransformer : public QObject
      * This can be used to correct the altitude with the antenna height for example.
      */
     qreal mDeltaZ = 0;
+
+    bool mSkipAltitudeTransformation = true;
 };
 
 #endif // QGSQUICKCOORDINATETRANSFORMER_H
