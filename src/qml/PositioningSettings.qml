@@ -74,7 +74,7 @@ Popup {
           Label {
             leftPadding: 30 * dp
             rightPadding: 30 * dp
-            text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value." )
+            text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value. The value shown in the position information view will be corrected by this value." )
             font: Theme.tipFont
 
             wrapMode: Text.WordWrap
