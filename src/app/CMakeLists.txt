@@ -1,8 +1,12 @@
 FIND_PACKAGE(Qt5 COMPONENTS Core REQUIRED)
 
+FIND_PACKAGE(Qt5QuickCompiler)
+QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+
+
 ADD_EXECUTABLE(qfield
   main.cpp
-  ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
+  ${RESOURCES}
   ${CMAKE_SOURCE_DIR}/images/images.qrc
   ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
 )
