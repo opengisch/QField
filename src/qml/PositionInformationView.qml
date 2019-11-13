@@ -72,9 +72,9 @@ Rectangle {
         text: {
           var altitude
           if ( positionSource.position.altitudeValid ) {
-            altitude = positionSource.position.coordinate.altitude.toFixed(3)
+            altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 )
             if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-              altitude += '<font color="#2f2f2f"><i>%1</i></font>'.arg((antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toFixed(2))
+              altitude += '<font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toFixed(2))
             }
           }
           else
