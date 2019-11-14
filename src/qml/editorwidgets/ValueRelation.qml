@@ -110,6 +110,11 @@ Item {
             onCheckedChanged: {
               model.checked = checked
             }
+
+            indicator.height: 16 * dp
+            indicator.width: 16 * dp
+            indicator.implicitHeight: 24 * dp
+            indicator.implicitWidth: 24 * dp
           }
         }
 
