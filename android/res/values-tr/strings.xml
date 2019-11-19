@@ -1,3 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">İşlem tamamlandı, QGIS\'i başlatın.</string>
+    <string name="unpacking_msg">İndirme sonrası veri işleniyor. Bu biraz vakit alabilir.</string>
+    <string name="use_internal_storage">Dahili Hafızayı Kullanın</string>
+    <string name="external_storage_unavailable">İndirme sonrası veri işleniyor. Bu biraz vakit alabilir.</string>
+    <string name="noexternalstorage_dialog">Harici diskiniz (/sdcard) görünmüyor. Bu sorun genellikle mobil cihazınızı PC\'nize USB ile bağladığınızda oluşur. 
+QGIS dahili diskiniz üzerinden de çalışılabilir; ancak kısıtlı yerden dolayı bu tavsiye edilmemektedir. 
+\"İptal\" seçeneği tavsiye edilmektedir, bağlı USB kablonuzu çıkarın ve QGIS\'i yeniden başlatın.</string>
+    <string name="primary_storage">Dahili hafıza</string>
+    <string name="secondary_storage">Harici hafızada QField dizini </string>
+    <string name="secondary_storage_read_only">Harici depolama (okuma)</string>
+    <string name="inaccessible">erişilemez</string>
+    <string name="loading">Yüklüyor</string>
+    <string name="select_project">Bir QGIS projesi seçin</string>
+    <string name="recent_projects">Güncel projeler</string>
+    <string name="rate_title">QField\'ı değerlendirin</string>
+    <string name="rate_message">QField\'ı kullanmaktan memnunsanız, lütfen değerlendirmek için vaktinizi ayırın. Desteğiniz için teşekkürler!</string>
+    <string name="rate_now">Değerlendir</string>
+    <string name="remind_later">Daha sonra hatırlat</string>
+    <string name="no_thanks">Hayır, teşekkürler!</string>
+    <string name="favorite_directories">Favori dizinler</string>
+    <string name="added_to_favorites">Favorilere eklendi</string>
+    <string name="removed_from_favorites">Favorilerden çıkarıldı</string>
+    <string name="alert_sd_card_title">Uyarı</string>
+    <string name="alert_sd_card_message">QField\'ı Android cihazınızdan kaldırırsanız, bütün dosyalarla birlikte bu dizin de silinecektir.</string>
+    <string name="alert_sd_card_ok">Tamam</string>
+</resources>

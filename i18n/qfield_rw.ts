@@ -406,7 +406,43 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
+        <source>Show scale bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -422,6 +458,14 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Authentication required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -629,6 +673,26 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>You are now in %1 mode </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Area</source>
         <translation type="unfinished"/>
     </message>
     <message>

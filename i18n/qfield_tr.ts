@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Developed by</source>
-        <translation type="unfinished"/>
+        <translation>Geliştiren</translation>
     </message>
     <message>
         <source>Support the development</source>
-        <translation type="unfinished"/>
+        <translation>Destekleyin</translation>
     </message>
     <message>
         <source>Buy the Karma edition</source>
@@ -27,32 +27,32 @@
     </message>
     <message>
         <source>QField Version: %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QField Versiyon: %1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>AndroidPictureSource</name>
     <message>
         <source>Could not create folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Dizin yaratılamadı %1</translation>
     </message>
     <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"/>
+        <translation>%1 adlı şekil %2 dizinine kopyalanamamıştır.  </translation>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation type="unfinished"/>
+        <translation>%1 adlı dosya yoktur.</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
-        <translation>Katman ismi</translation>
+        <translation>Katman İsmi</translation>
     </message>
     <message>
         <source>Data Source</source>
@@ -66,30 +66,30 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Unable to load some layers</source>
-        <translation type="unfinished"/>
+        <translation>Bazı katmanlar yüklenememiştir.</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki katmanlar yüklenememiştir. Lütfen QGIS projenizi yeniden yapılandırın.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="unfinished"/>
+        <translation>QField&apos;daki &apos;Portable Project&apos; bölümünü inceleyerek daha fazla bilgiye erişebilirsiniz.</translation>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in the latest QField</source>
-        <translation type="unfinished"/>
+        <translation>Güncel QField&apos;daki yenilikler nelerdir</translation>
     </message>
     <message>
         <source>Changelog %1</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklik listesi %1</translation>
     </message>
     <message>
         <source>Value relation widget with multiple selection support</source>
-        <translation type="unfinished"/>
+        <translation>Çok seçim destekli değer seçim bileşeni</translation>
     </message>
     <message>
         <source>Full snapping support providing snapping results and Z values of snapped feature</source>
@@ -97,39 +97,39 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Authentication dialog for layers</source>
-        <translation type="unfinished"/>
+        <translation>Katmanlar için kimlik denetleme bileşeni</translation>
     </message>
     <message>
         <source>Fix checkbox widget</source>
-        <translation type="unfinished"/>
+        <translation>İşaret kutusu bileşenini onarın</translation>
     </message>
     <message>
         <source>Other fixes (printing, locator)</source>
-        <translation type="unfinished"/>
+        <translation>Diğer onarımlar (basım, konumlama)</translation>
     </message>
     <message>
         <source>Improved log</source>
-        <translation type="unfinished"/>
+        <translation>Geliştirilmiş log</translation>
     </message>
     <message>
         <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
-        <translation type="unfinished"/>
+        <translation>QField&apos;ı severek kullanıyor musunuz? Sevdiğinizi gösterin ve kampanyamızı destekleyin - 16 Ekim&apos;e kadar.</translation>
     </message>
     <message>
         <source>www.opengis.ch/projects/qfield-love/</source>
-        <translation type="unfinished"/>
+        <translation>www.opengis.ch/projects/qfield-love/</translation>
     </message>
     <message>
         <source>Let&apos;s give love</source>
-        <translation type="unfinished"/>
+        <translation>Desteğinizi gösterin</translation>
     </message>
     <message>
         <source>Maybe later</source>
-        <translation type="unfinished"/>
+        <translation>Belki sonra</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Hayır</translation>
     </message>
 </context>
 <context>
@@ -140,7 +140,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>%1 adlı katman sadece okunabilir.</translation>
     </message>
 </context>
 <context>
@@ -151,11 +151,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>(no date)</source>
-        <translation type="unfinished"/>
+        <translation>(tarih yok)</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -181,50 +181,50 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Constraints not valid - cancel editing</source>
-        <translation type="unfinished"/>
+        <translation>Kısıtlar geçersiz - güncellemeyi iptal edin</translation>
     </message>
     <message>
         <source>Constraints not valid - cannot buffer</source>
-        <translation type="unfinished"/>
+        <translation>Kısıtlar geçersiz - tampon bölge oluşturulamıyor</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="unfinished"/>
+        <translation>Kısıtlar geçersiz</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt ekle %1</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt güncelle %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt gör %1</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikler kaydedildi</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikler ihmal edildi</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"/>
+        <translation>Bu konumda bir kayıt yoktur.</translation>
     </message>
     <message>
         <source>Delete feature</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt sil</translation>
     </message>
     <message>
         <source>Should this feature really be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>Bu kayıt hakikaten silinsin mi?</translation>
     </message>
 </context>
 <context>
@@ -235,64 +235,64 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt güncellenemiştir</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt %1 getirilememiştir</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>%1 için varsayılan değer: %2 - derleyici hatası: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>%1 için varsayılan değer: %2 - değerlendirme hatası: %3</translation>
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt eklenememiştir.</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikler kaydedilememiştir. Geriye alınıyor.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation type="unfinished"/>
+        <translation>Güncellemeye başlanamadı.</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation type="unfinished"/>
+        <translation>Form aç</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
+        <translation>Kayıdın geometrisi yoktur.</translation>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation type="unfinished"/>
+        <translation>Tüm katmanlardaki kayıtlar</translation>
     </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Parola</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"/>
+        <translation>%1: Özellikler</translation>
     </message>
 </context>
 <context>
@@ -306,33 +306,33 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished"/>
+        <translation>Arama...</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikler kaydedilmiştir</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikler ihmal edilmiştir.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="unfinished"/>
+        <translation>Kısıtlar geçerli değil</translation>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"/>
+        <translation>Yükseklik</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished"/>
+        <translation>Geçerli değil</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -344,42 +344,42 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Hız</translation>
     </message>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation>Enlem</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"/>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation>Boylam</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"/>
+        <translation>Y</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Yatay doğruluk</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Dikey doğruluk</translation>
     </message>
 </context>
 <context>
     <name>QFieldSettings</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Tasarım</translation>
     </message>
     <message>
         <source>Global Variables</source>
-        <translation type="unfinished"/>
+        <translation>Global değişkenler</translation>
     </message>
     <message>
         <source>Show scalebar</source>
@@ -403,10 +403,46 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>QField Settings</source>
+        <translation>QField Ayarları</translation>
+    </message>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Ölçek çubuğunu göster</translation>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation>Maksimum öznitelik formu</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Düzeltilmiş ölçek navigasyonu</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -422,6 +458,14 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Authentication required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -629,6 +673,26 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>You are now in %1 mode </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Area</source>
         <translation type="unfinished"/>
     </message>
     <message>

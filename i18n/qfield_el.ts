@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Developed by</source>
-        <translation type="unfinished"/>
+        <translation>Ανάπτυξη εφαρμογής από</translation>
     </message>
     <message>
         <source>Support the development</source>
-        <translation type="unfinished"/>
+        <translation>Υποστήριξη της ομάδας ανάπτυξης</translation>
     </message>
     <message>
         <source>Buy the Karma edition</source>
@@ -27,36 +27,36 @@
     </message>
     <message>
         <source>QField Version: %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Έκδοση QField: %1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>AndroidPictureSource</name>
     <message>
         <source>Could not create folder %1</source>
-        <translation type="unfinished"/>
+        <translation>Δεν μπορεί να δημιουργηθεί ο φάκελος %1</translation>
     </message>
     <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"/>
+        <translation>Η εικόνα %1 δεν μπορεί να αντιγραφεί στον φάκελο εργασίας %2.</translation>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Το αρχείο %1 δεν υπάρχει</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
-        <translation type="unfinished"/>
+        <translation>Όνομα επιπέδου</translation>
     </message>
     <message>
         <source>Data Source</source>
-        <translation type="unfinished"/>
+        <translation>Πηγή Δεδομένων</translation>
     </message>
     <message>
         <source>The following layers could not be loaded.
@@ -66,6 +66,69 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Unable to load some layers</source>
+        <translation>Αδυναμία φόρτωσης κάποιων επιπέδων</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -77,7 +140,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>Το επίπεδο %1 είναι μόνο για ανάγνωση</translation>
     </message>
 </context>
 <context>
@@ -88,6 +151,17 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>(no date)</source>
+        <translation>(χωρίς ημερομηνία)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -105,24 +179,48 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Οι αλλαγές αποθηκεύτηκαν</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Οι αλλαγές δεν αποθηκεύτηκαν</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation type="unfinished"/>
+        <translation>Δεν υπάρχει οντότητα σε αυτή την θέση</translation>
     </message>
     <message>
         <source>Delete feature</source>
-        <translation type="unfinished"/>
+        <translation>Διαγραφή οντότητας</translation>
     </message>
     <message>
         <source>Should this feature really be deleted?</source>
@@ -137,7 +235,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation type="unfinished"/>
+        <translation>Δεν μπορεί να ενημερωθεί η οντότητα</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
@@ -168,11 +266,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα φόρμας</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
+        <translation>Η οντότητα δεν έχει γεωμετρία</translation>
     </message>
     <message>
         <source>Features In All Layers</source>
@@ -180,10 +278,21 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
 </context>
 <context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation type="unfinished"/>
+        <translation>%1 : Ιδιότητες</translation>
     </message>
 </context>
 <context>
@@ -197,18 +306,18 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished"/>
+        <translation>Αναζήτηση...</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Οι αλλαγές αποθηκεύτηκαν</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Οι αλλαγές δεν αποθηκεύτηκαν</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -219,11 +328,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation type="unfinished"/>
+        <translation>Υψόμετρο</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished"/>
+        <translation>Ν/Α</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -235,23 +344,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Ταχύτητα</translation>
     </message>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation>λ</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"/>
+        <translation>Χ</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation>φ</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"/>
+        <translation>Υ</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
@@ -266,7 +375,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>QFieldSettings</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Χαρτοσύνθεση</translation>
     </message>
     <message>
         <source>Global Variables</source>
@@ -294,10 +403,46 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>QField Settings</source>
+        <translation>Ρυθμίσεις εφαρμογής</translation>
+    </message>
+    <message>
+        <source>Show scale bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
+        <source>Maximized attribute form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -305,6 +450,22 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>QObject</name>
     <message>
         <source>Position</source>
+        <translation>Θέση</translation>
+    </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -312,7 +473,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation type="unfinished"/>
+        <translation>Απόδοση</translation>
     </message>
 </context>
 <context>
@@ -345,9 +506,36 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RelationEditor</name>
+    <message>
+        <source>Ensure contraints</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -355,18 +543,18 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
-        <translation type="unfinished"/>
+        <translation>[Νέο όνομα μεταβλητής]</translation>
     </message>
     <message>
         <source>[New variable value]</source>
-        <translation type="unfinished"/>
+        <translation>[Νέα τιμή μεταβλητής]</translation>
     </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
     <message>
         <source>QField for QGIS</source>
-        <translation type="unfinished"/>
+        <translation>QField για το QGIS</translation>
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
@@ -385,15 +573,15 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση υπηρεσίας θέσης</translation>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation type="unfinished"/>
+        <translation>Αναμονή θέσης...</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="unfinished"/>
+        <translation>Θέση ενεργοποιημένη</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
@@ -401,7 +589,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Main Menu</source>
-        <translation type="unfinished"/>
+        <translation>Βασικό μενού</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -417,23 +605,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα εργασίας</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Περί</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished"/>
+        <translation>Ιστορικό</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Εκτύπωση σε PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
@@ -449,7 +637,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Show position information</source>
-        <translation type="unfinished"/>
+        <translation>Εμφάνιση πληροφοριών θέσης</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -461,15 +649,15 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Loading Project</source>
-        <translation type="unfinished"/>
+        <translation>Φόρτωση εργασίας</translation>
     </message>
     <message>
         <source>Loading Project: %1</source>
-        <translation type="unfinished"/>
+        <translation>Φόρτωση εργασίας: %1</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα εργασίας</translation>
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
@@ -477,26 +665,62 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Όλα τα αρχεία (*)</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
+        <translation>Πιέστε Επιστροφή ξανά για να κλείσετε την εργασία και την εφαρμογή</translation>
+    </message>
+    <message>
+        <source>You are now in %1 mode </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure Tool</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation type="unfinished"/>
+        <translation>Επιλογές Θέσης</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση Θέσης</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
+        <translation>Η εφαρμογή δεν έχει δικαιώματα χρήσης θέσης</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>Η επεξεργασία πολυγεωμετρίας δεν υποστηρίζεται ακόμα.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
         <translation type="unfinished"/>
     </message>
 </context>

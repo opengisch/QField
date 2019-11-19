@@ -62,13 +62,74 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>A következő rétegeket nem tudom betölteni.
-Ellenőrizze és konfigurálja újra a QGIS projektet.
-Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokumentációban.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to load some layers</source>
         <translation>Néhány réteget nem tudok betölteni</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>A következő rétegeket nem tudom betölteni, kérem ellenőrizze azokat és konfigurálja újra a QGIS projektet.</translation>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation>További segítséghez megnézheti a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation>Újdonságok a legutóbbi QField-ben</translation>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation>Változásnapló %1</translation>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation>Hitelesítés ablak a rétegekhez</translation>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation>Jelölő négyzet vezérlő javítása</translation>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation>További javítások (nyomtatás, lokátor)</translation>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation>Javított naplózás</translation>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation>www.opengis.ch/projects/qfield-love/</translation>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation>Talán később</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nem</translation>
     </message>
 </context>
 <context>
@@ -86,26 +147,61 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>(no date)</source>
         <translation>(nincs dátum)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Elem hozzáadása &lt;i&gt;%1&lt;/i&gt;-en</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Elem szerkesztése &lt;i&gt;%1&lt;/i&gt;-en</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Elem megtekintése &lt;i&gt;%1&lt;/i&gt;-en</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Hibás korlátozás</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -179,6 +275,17 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Features In All Layers</source>
         <translation>Elemek az összes rétegen</translation>
+    </message>
+</context>
+<context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation>Felhasználó név</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
     </message>
 </context>
 <context>
@@ -276,31 +383,67 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Léptékvonalzó</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Teljes képernyős attribútum űrlap</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>250 ms-enként újrarajzolás a megjelenítés közben</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Numerikus adatok megjelenítése digitalizálás közben</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation>Natív kamara funkció használata (instabil a utóbbi Android verziókon)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>QField beállítások</translation>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
-        <translation>Tartsa meg az aktuális méretarányt a keresési eredményeknél</translation>
+        <source>Show scale bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -308,6 +451,22 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Position</source>
         <translation>Pozíció</translation>
+    </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation>Hitelesítés szükséges</translation>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -350,10 +509,37 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
-        <translation>Hibás reláció</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>RelationEditor</name>
+    <message>
+        <source>Ensure contraints</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation>Elem törlése %1 (%2) ebből %3</translation>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation>Elem törlése %1 (%2) %3</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
     </message>
 </context>
 <context>
@@ -375,7 +561,7 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Kezdésként használhatja a demó projektet, vagy a saját QGIS projektjét. Egyszerűen létrehozhat egyet az aszatli gépén, majd áthozjatja erre az eszközre.</translation>
+        <translation>Kezdésként használhatja a demó projektet, vagy a saját QGIS projektjét. Egyszerűen létrehozhat egyet az asztali gépén, majd áthozhatja erre az eszközre.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
@@ -478,7 +664,7 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>QGIS projekt fájlok (*.qgs)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All files (*)</source>
@@ -487,6 +673,38 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Press back again to close project and app</source>
         <translation>Nyomj visszát a projekt és az alkalmazás lezárásához</translation>
+    </message>
+    <message>
+        <source>You are now in %1 mode </source>
+        <translation>Most %1 módban van</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Mérőeszköz bezárása</translation>
+    </message>
+    <message>
+        <source>Measure Tool</source>
+        <translation>Mérőeszköz</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -503,6 +721,10 @@ Megnézheti a &lt;i&gt;Hordozható projekt&lt;/i&gt; fejezetet a QField dokument
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Multi geometria szerkesztése még nem támogatott.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
+        <translation>QGIS projektek (*.qgs *.qgz)</translation>
     </message>
 </context>
 </TS>

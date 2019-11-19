@@ -27,25 +27,25 @@
     </message>
     <message>
         <source>QField Version: %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Versió de QField: %1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>AndroidPictureSource</name>
     <message>
         <source>Could not create folder %1</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut crear la carpeta %1</translation>
     </message>
     <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <translation type="unfinished"/>
+        <translation>La imatge %1 no s&apos;ha pogut copiar a la carpeta de projecte %2</translation>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;arxiu %1 no existeix</translation>
     </message>
 </context>
 <context>
@@ -62,13 +62,74 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>No s&apos;han pogut carregar les següents capes.
-Si us plau revisa-les i reconfigura el projecte de QGIS.
-Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la documentació de QGIS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to load some layers</source>
         <translation>Impossible carregar algunes capes</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -79,33 +140,68 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="unfinished"/>
+        <translation>La capa %1 és només de lectura.</translation>
     </message>
 </context>
 <context>
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>(no date)</source>
         <translation>(sense data)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Afegir objecte espacial a &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Editar objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Veure objecte espacial &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -135,11 +231,11 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation type="unfinished"/>
+        <translation>El valor &quot;%1&quot; %4  no s&apos;ha pogut convertir a un valor compatible per al camp %2(%3)</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut actualitzar l&apos;entitat</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
@@ -155,11 +251,11 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut afegir l&apos;entitat</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation type="unfinished"/>
+        <translation> No s&apos;han pogut desar els canvis. Tornar enrere</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -170,14 +266,25 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation type="unfinished"/>
+        <translation>Obrir formulari</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;entitat no té geometria</translation>
     </message>
     <message>
         <source>Features In All Layers</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -199,18 +306,18 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished"/>
+        <translation>Cercar...</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation type="unfinished"/>
+        <translation>Canvis desats</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Canvis descartats</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -241,15 +348,15 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Lat.</source>
-        <translation type="unfinished"/>
+        <translation>Lat.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"/>
+        <translation>X</translation>
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="unfinished"/>
+        <translation>Long.</translation>
     </message>
     <message>
         <source>Y</source>
@@ -276,30 +383,66 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Mostrar barra d&apos;escala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Mostrar formulari d&apos;atributs a pantalla completa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Redibuixa mapa cada 250 ms mentre reprodueix</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Mostrar informació numèrica mentre digitalitza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation>Fer servir les funcions natives de la càmera (inestable per a versions recents d&apos;Android)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>Ajusts de Qfield</translation>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
+        <source>Show scale bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -307,6 +450,22 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>QObject</name>
     <message>
         <source>Position</source>
+        <translation>Posició</translation>
+    </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -314,7 +473,7 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation type="unfinished"/>
+        <translation>Renderitzant</translation>
     </message>
 </context>
 <context>
@@ -343,13 +502,40 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>screen density: %1</source>
+        <translation>densitat de pantalla: 1%</translation>
+    </message>
+</context>
+<context>
+    <name>RelationCombobox</name>
+    <message>
+        <source>Invalid relation</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationEditor</name>
     <message>
-        <source>Invalid relation</source>
+        <source>Ensure contraints</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -368,15 +554,15 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     <name>WelcomeScreen</name>
     <message>
         <source>QField for QGIS</source>
-        <translation type="unfinished"/>
+        <translation>QField per a QGIS</translation>
     </message>
     <message>
         <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation type="unfinished"/>
+        <translation>Per començar es pot usar un projecte de demo o un projecte propi de QGIS. És molt fàcil de crear-ne un des de el PC per després transferir-lo a aquest dispositiu.</translation>
     </message>
     <message>
         <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation type="unfinished"/>
+        <translation>Un cop es disposi del projecte al dispositiu, alternativament es pot usar un projecte de demo, clica sobre el botó de baix sobre botó de baix per localitzar-lo, obrir-lo i ja es pot començar a treballar.</translation>
     </message>
 </context>
 <context>
@@ -475,7 +661,7 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>Projecte QGIS (*.qgs)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All files (*)</source>
@@ -486,19 +672,55 @@ Hauries de revisar la secció &lt;i&gt;Projecte Portable&lt;/i&gt; a la document
         <translation>Preneu enrere un altre cop per tancar el projecte i l&apos;aplicació</translation>
     </message>
     <message>
-        <source>Positioning Options</source>
+        <source>You are now in %1 mode </source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure Tool</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Opcions del posicionament</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar el posicionament</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
+        <translation>QField no té permisos per usar el posicionament</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
+        <translation>L&apos;edició de capes multi geometria no està suportada encara.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
         <translation type="unfinished"/>
     </message>
 </context>

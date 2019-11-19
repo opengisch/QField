@@ -1,21 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Décompilation effectuée, lancez QGIS.</string>
+    <string name="done_unpacking_msg">Décompilation effectuée, lancement de QGIS.</string>
     <string name="unpacking_msg">Décompilation des données post-installation. Cela peut prendre un peu de temps.</string>
     <string name="use_internal_storage">Utilisez le stockage interne</string>
     <string name="external_storage_unavailable">Décompilation des données post-installation. Cela peut prendre un peu de temps.</string>
-    <string name="noexternalstorage_dialog">Il semble que votre stockage externe (/sdcard) soit indisponible. Cela survient quand vous connectez votre appareil à un PC en USB.\nQGIS peut être lancé depuis le stockage interne mais ce n\'est pas recommandé car la place peut être insuffisante.\nIl est suggéré de choisir ANNULER, déconnecter tout cable USB et redémarrer QGIS.</string>
+    <string name="noexternalstorage_dialog">Il semble que votre stockage externe (/sdcard) soit indisponible. Cela survient quand vous connectez votre appareil à un PC en USB.\nQGIS peut être lancé depuis le stockage interne mais ce n\'est pas recommandé car la place peut être insuffisante.\nIl est suggéré de choisir ANNULER, déconnecter tout câble USB et redémarrer QGIS.</string>
+    <string name="primary_storage">Stockage interne</string>
+    <string name="secondary_storage">Répertoire QField sur le stockage externe</string>
+    <string name="secondary_storage_read_only">Stockage externe (lecture seule)</string>
     <string name="inaccessible">inaccessible</string>
     <string name="loading">Chargement</string>
-    <string name="select_project">Sélectionnez un projet QGIS</string>
+    <string name="select_project">Sélectionner un projet QGIS</string>
     <string name="recent_projects">Projets récents</string>
     <string name="rate_title">Noter QField</string>
-    <string name="rate_message">Si vous appréciez QField, merci de prendre quelques instants pour le noter.
+    <string name="rate_message">Si vous appréciez QField, prenez un moment pour le noter.
 Merci pour votre soutien !</string>
     <string name="rate_now">Noter</string>
-    <string name="remind_later">Rappelez-moi plus tard</string>
+    <string name="remind_later">Plus tard</string>
     <string name="no_thanks">Non, merci !</string>
     <string name="favorite_directories">Dossiers favoris</string>
     <string name="added_to_favorites">Ajouté aux favoris</string>
     <string name="removed_from_favorites">Supprimé des favoris</string>
-    </resources>
+    <string name="alert_sd_card_title">Attention</string>
+    <string name="alert_sd_card_message">Ce répertoire, et tout ce qu\'il contient, sera effacé par le système si vous désinstallez QField de votre terminal Android.</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

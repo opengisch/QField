@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>QField Settings folder: %1</source>
-        <translation>QField Einstellung Ordner: %1</translation>
+        <translation>QField Einstellungen Ordner: %1</translation>
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
@@ -62,13 +62,74 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>Die folgenden Ebenen konnten nicht geladen werden.
-Das QGIS Projekt muss überprüft und neu konfiguriert werden.
-Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation können weitere Informationen gefunden werden.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to load some layers</source>
         <translation>Einige Ebenen konnten nicht geladen werden</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Die folgenden Layer konnten nicht geladen werden. Bitte überprüfe diese in der QGIS Konfiguration.</translation>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation>Der Abschnitt über portable Projekte in der QField Dokumentation enthält weitere Hinweise.</translation>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation>Neu in der letzten QField Version</translation>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation>Änderungen %1</translation>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation>Wertbeziehung Widget. Mit Unterstützung für Mehrfachauswahl</translation>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation>Einrastresultate und Z Werte sind nun bei den Standardwerten vollumfänglich verfügbar</translation>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation>Anmeldedialog für passwortgeschützte Layer</translation>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation>Fix am Kontrollkästchen Widget</translation>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation>Andere Fixes (Drucken, Suche)</translation>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation>Verbessertes Log</translation>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation>Gefällt dir QField? Zeig deine Sympathie und unterstütze das Crowdfunding. Bis am 16. Oktober.</translation>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation>www.opengis.ch/projects/qfield-love/</translation>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation>Jetzt Unterstützen!</translation>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation>Vielleicht Später</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nein</translation>
     </message>
 </context>
 <context>
@@ -86,26 +147,61 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>(no date)</source>
         <translation>(Kein Datum)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Ok</translation>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
+        <translation>Abspeichern von Mehrfachauswahl in Wertbeziehungen nicht verfügbar für Android 5</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Objekt zu &lt;i&gt;%1&lt;/i&gt; hinzufügen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Objekt in &lt;i&gt;%1&lt;/i&gt; bearbeiten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Objekt in &lt;i&gt;%1&lt;/i&gt; ansehen</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation>Bedingung ungültig - Bearbeiten abgebrochen</translation>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation>Bedingung ungültig - Kann nicht gepuffert werden</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Bedingung ungültig</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Objekt zu &lt;i&gt;%1&lt;/i&gt; hinzufügen</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Objekt in &lt;i&gt;%1&lt;/i&gt; bearbeiten </translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Objekt in &lt;i&gt;%1&lt;/i&gt;ansehen </translation>
     </message>
 </context>
 <context>
@@ -182,6 +278,17 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation>Nutzername</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+</context>
+<context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
@@ -237,7 +344,7 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>Speed</source>
-        <translation>Geschwindigkeit</translation>
+        <translation>Geschw.</translation>
     </message>
     <message>
         <source>Lat.</source>
@@ -257,11 +364,11 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>Horizontale Genauigkeit</translation>
+        <translation>H. Gen.</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>Vertikale Genauigkeit</translation>
+        <translation>V. Gen.</translation>
     </message>
 </context>
 <context>
@@ -276,31 +383,67 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Massstab anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Attributformular im Vollbild anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Karte alle 250 ms zeichnen während dem Rendering</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Koordinaten und Masse der aktuellen Geometrie während dem Digitalisieren anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation>Systemkamera verwenden (instabil auf neueren Android Versionen)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>QField Einstellungen</translation>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
-        <translation>Aktuellen Massstab beibehalten wenn Suchresultate ausgeführt werden</translation>
+        <source>Show scale bar</source>
+        <translation>Massstab anzeigen</translation>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation>Attributformular im Vollbild</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navigation mit feststehendem Massstab</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Wenn Navigation mit feststehendem Massstab aktiviert ist, wird beim Fokussieren zu einem Suchresultat der Massstab nicht verändert. Wenn Navigation mit feststehendem Massstab deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation>Progressives Zeichnen</translation>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation>Wenn progressives Zeichnen aktiviert ist, wird die Karte während dem Zeichnen alle 250 ms aktualisiert.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Digitalisierungsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation>Wenn diese Option aktiviert ist, werden Koordinateninformationen wie Länge und Breite während dem Zeichnen von neuen Features und im Messinstrument angezeigt.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Native Kamera benutzen</translation>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
+        <translation>Warnung: Die native Kamerafunktion ist auf den meisten neuen Android Versionen instabil und führt zu Abstürzen!</translation>
     </message>
 </context>
 <context>
@@ -308,6 +451,22 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Position</source>
         <translation>Position</translation>
+    </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation>Erfassungswerkzeug</translation>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation>Anmeldung erforderlich</translation>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation>Ein Error trat beim Öffnen der Datenbank auf &lt;b&gt;%1&lt;/b&gt;: %2</translation>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
+        <translation>Datenbank konnte nicht abgespeichert werden %1 (%3)</translation>
     </message>
 </context>
 <context>
@@ -350,10 +509,37 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
         <translation>Ungültige Beziehung</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditor</name>
+    <message>
+        <source>Ensure contraints</source>
+        <translation>Bedingung sicherstellen</translation>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation>Kind kann nicht hinzugefügt werden. Primärschlüssel auf Elternobjekt ist nicht verfügbar.</translation>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation>Verknüpfung lösen %1 (%2) von %3</translation>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation>Feature Löschen %1 (%2) von %3</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Soll das Feature &lt;b&gt;%1 (%2)&lt;/b&gt; von Layer &lt;b&gt;%3&lt;/b&gt; gelöst werden?&lt;br&gt;&lt;i&gt;(Die Verknüpfung wird gelöscht auf dem Layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Soll das Feature &lt;b&gt;%1 (%2)&lt;/b&gt; auf dem Layer &lt;b&gt;%3&lt;/b&gt; gelöscht werden?</translation>
     </message>
 </context>
 <context>
@@ -478,7 +664,7 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>QGIS Projekte (*.qgs)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All files (*)</source>
@@ -487,6 +673,38 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Press back again to close project and app</source>
         <translation>Zurück erneut drücken, um QField zu beenden</translation>
+    </message>
+    <message>
+        <source>You are now in %1 mode </source>
+        <translation>Du bist nun in Modus %1</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Segment</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Länge</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Fläche</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Messwerkzeug schliessen</translation>
+    </message>
+    <message>
+        <source>Measure Tool</source>
+        <translation>Messwerkzeug</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -503,6 +721,10 @@ Im Abschnitt &lt;i&gt;Portable Projekte&lt;/i&gt; der QField Dokumentation könn
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Editieren von mehrteiligen Geometrien wird nicht unterstützt.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
+        <translation>QGIS Projekte (*.qgs *.qgz)</translation>
     </message>
 </context>
 </TS>
