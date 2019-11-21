@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QFieldSync plugin &mdash; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>QFieldSyncプラグイン &mdash; QField Documentation 1.0 - M... ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -98,17 +98,17 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">QFieldSyncプラグイン</a><ul>
+<li><a class="reference internal" href="#workflow">ワークフロー</a></li>
+<li><a class="reference internal" href="#installation">インストール</a></li>
+<li><a class="reference internal" href="#configuration">構成</a><ul>
+<li><a class="reference internal" href="#layer-configuration">レイヤーの構成</a></li>
+<li><a class="reference internal" href="#base-map-configuration">ベースマップの構成</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">オフライン編集の構成</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
-<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
+<li><a class="reference internal" href="#package-for-qfield">QField用にパッケージする</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">QFieldからの同期</a></li>
 </ul>
 </li>
 </ul>
@@ -156,21 +156,21 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">レイヤーの検索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">サポート対象のデータフォーマット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">ラスターデータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QFieldプロジェクトの管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configure Map Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">マップテーマの設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">ポータブルなプロジェクト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">PDFに印刷する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">プロジェクトの選択</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">ベクターレイヤの設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QFieldユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">アクティブなマップテーマを変更する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">グローバル変数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">開発とサポート</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSyncプラグイン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -183,101 +183,92 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<h1>QFieldSyncプラグイン<a class="headerlink" href="#qfieldsync-plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>QFieldSyncプラグインはQFieldで使えるようにQGISプロジェクトを準備しパッケージ作成するのに役に立ちます。</p>
+<p>QFieldSyncは、次の自動化によりプロジェクトを準備するのをサポートします。</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable Project</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li><p class="first">プロジェクトのセットアップに必要な手順 (例、 <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>ポータブルなプロジェクト</span></a>)</p>
+</li>
+<li><p class="first">一枚のラスタレイヤーもしくはマップテーマによって定義されたスタイルからのベースマップの生成</p>
+</li>
+<li><p class="first">オフライン編集機能の構成と変更内容の同期</p>
+</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>ワークフロー<a class="headerlink" href="#workflow" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロセスの概要を簡単に説明するために、一般的な手順のリストを以下に示します。</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li><p class="first">QFieldパッケージを生成します。これは別のフォルダーにある作業用のコピーです。</p>
+</li>
+<li><p class="first">QFieldパッケージを対象のデバイスにコピーします。</p>
+</li>
+<li><p class="first">フィールドにデータ収集に行きましょう。</p>
+</li>
+<li><p class="first">更新したデータをデスクトップマシンにコピーして戻します。</p>
+</li>
+<li><p class="first">更新したデータをデータベースもしくはファイルと同期します。</p>
+</li>
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>QGISでプラグインライブラリを開いて、 <strong>qfield sync</strong> と検索します。リストの中のプラグインを選択し、 <strong>インストール</strong> をクリックします。</p>
 <img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>構成<a class="headerlink" href="#configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトの構成は、.qgsプロジェクトのマスターファイルに保存されます。 これにより、プロジェクトを一度事前設定すれば、繰り返し使用することができます。</p>
 <img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>レイヤーの構成<a class="headerlink" href="#layer-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<p>プロジェクトの構成ダイアログでは、 <em>アクション</em> は個別のレイヤーごとに定義できます。レイヤーの種類によって異なるアクションを使用できます。</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>コピー</dt>
+<dd><p class="first last">レイヤーがパッケージのフォルダー内にコピーされます。これはファイルベースのレイヤーに対してのみ使用できます。</p>
+</dd>
+<dt>何もしない</dt>
+<dd><p class="first last">そのレイヤーのデータソースに対しては何も変更しません。これはWMS、WFSやPostGISなどの非ファイルベースのレイヤーに対してのみ使用できます。</p>
+</dd>
+<dt>オフライン編集</dt>
+<dd><p class="first last">レイヤーの作業用コピーがパッケージフォルダーにコピーされます。 作業中にパッケージ化されたプロジェクトで行われたすべての変更は、ログとして記録されます。 変更内容をのちに同期する際は、このログが再生され、すべての変更がメインデータベースにも適用されます。 競合することはありません。</p>
+</dd>
+<dt>削除</dt>
+<dd><p class="first last">そのレイヤーは作業用のコピーからは削除されます。レイヤーがベースマップとして使われていたりする際にとても便利な機能で、パッケージ後のプロジェクト上でそのレイヤが表示されることはありません。</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>ベースマップの構成<a class="headerlink" href="#base-map-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ベースマップは、パッケージ化されたプロジェクトファイルの一番下のレイヤーとして追加されるラスターレイヤーです。</p>
+<p>ベースマップオプションが有効になっている場合、プロジェクトがパッケージ化されるたびにベースマップがレンダリングされます。 関心のあるエリアーレンダリングされる範囲ーは、パッケージング時に選択されます。</p>
+<p>ベースマップには2つのソースがあります。</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>レイヤー</dt>
+<dd><p class="first last">ラスターレイヤーです。これはWMSのようなオンラインのレイヤーをオフライン用にコピーする際や、ECWとMrSIDのようなサポートされていないレイヤーを作業用コピーとして扱いたい場合などに役に立ちます。</p>
+</dd>
+<dt>マップテーマ</dt>
+<dd><p class="first last">マップテーマです。これはスタイル設定されたいくつかのレイヤを組み合わせてベースマップを生成する際に役に立ちます。これらのレイヤーは、作業パッケージから削除でき、デバイスでレンダリングする必要はありません。 これにより、デバイスのディスク容量とバッテリーを節約できます。</p>
+</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>タイルサイズは空間解像度を定義し、 ピクセルごとの地図単位の数を決定します。 マップキャンバスのCRSの単位がメートルで、タイルサイズが1に設定されている場合、各ラスターのピクセルの空間範囲は1 x 1 mになり、1000に設定されている場合、各ラスターピクセルの空間範囲は1 km2になります。</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>オフライン編集の構成<a class="headerlink" href="#offline-editing-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>もし <em>対象領域のフィーチャのみを同期</em> がチェックされている場合、地図キャンパスの対象の領域内に含まれるフィーチャのみがオフライン編集用の作業コピーにコピーされます。</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<h2>QField用にパッケージする<a class="headerlink" href="#package-for-qfield" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトの構成が終わったら、1つのフォルダ内にパッケージします。このフォルダーには .qgsファイルや使用されるデータが含まれます。</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
-<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>フォルダーをデバイスにコピーします。QFieldを起動し、プロジェクトを開いて、データ収集を開始してください。</p>
+<p>また、QGISの通常の名前を付けて保存を使用してQGISプロジェクトを保存することも忘れないでください。変更内容を同期するときに後でそのプロジェクトを開く必要があります。</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
-<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<h2>QFieldからの同期<a class="headerlink" href="#synchronize-from-qfield" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>収集した内容を同期する場合は、QGISでプロジェクト（通常の名前を付けて保存から保存したプロジェクトファイル）を再度開きます。</p>
+<p>プロジェクトフォルダをデバイスからコンピュータにコピーをし、 <strong>QFieldから同期する</strong> メニューを使って、更新内容をポータブルプロジェクトからメインプロジェクトに同期します。</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
