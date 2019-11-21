@@ -43,6 +43,7 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgslayoutitemmap.h>
 #include <qgslocator.h>
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
@@ -349,6 +350,8 @@ void QgisMobileapp::print( int layoutIndex )
 
   if ( layoutToPrint->pageCollection()->pageCount() == 0 )
     return;
+
+  layoutToPrint->referenceMap()->setExtent(mMapCanvas->mapSettings()->visibleExtent());
 
   QPrinter printer;
   QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
