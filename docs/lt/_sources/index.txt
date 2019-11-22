@@ -97,6 +97,8 @@ The documentation is available in several languages
 
 `Українська </docs/uk>`_
 
+`日本語 </docs/ja>`_
+
 If there is an error with a translation, please `help to improve it <https://www.transifex.com/opengisch/qfield-documentation/>`_.
 
 
