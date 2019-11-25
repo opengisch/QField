@@ -61,7 +61,25 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
     if ( vl && vl->dataProvider() )
     {
       QString dataSourceUri = vl->dataProvider()->dataSourceUri();
-      QString filePath = dataSourceUri.left( dataSourceUri.indexOf( '|' ) );
+
+      QString filePath;
+      if ( dataSourceUri.contains( QStringLiteral( ".sqlite" ), Qt::CaseInsensitive ) )
+      {
+        //sqlite source
+        QRegExp rx( ".*dbname='([^']*).*" );
+        rx.indexIn( dataSourceUri );
+        filePath = rx.capturedTexts()[1];
+      }
+      else if ( dataSourceUri.contains( QStringLiteral( ".gpkg" ), Qt::CaseInsensitive ) )
+      {
+        //gpkg source
+        filePath = dataSourceUri.left( dataSourceUri.indexOf( '|' ) );
+      }
+      else
+      {
+        //other source (e.g. postgres or shape)
+        continue;
+      }
       QFileInfo fi( filePath );
       if ( fi.isFile() )
       {
