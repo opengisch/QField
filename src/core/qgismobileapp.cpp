@@ -351,7 +351,7 @@ void QgisMobileapp::print( int layoutIndex )
   if ( layoutToPrint->pageCollection()->pageCount() == 0 )
     return;
 
-  layoutToPrint->referenceMap()->setExtent( mMapCanvas->mapSettings()->visibleExtent() );
+  layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
 
   QPrinter printer;
   QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
