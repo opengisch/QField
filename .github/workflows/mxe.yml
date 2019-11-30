@@ -1,0 +1,21 @@
+name: Windows cross build with MXE
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cross build with MXE
+      run: cd $GITHUB_WORKSPACE && .docker/mxe/build.sh
+    - name: Rename artifact
+      run: cd $GITHUB_WORKSPACE && mv qfield-mxe-release-*.zip qfield-mxe-release.zip
+    - name: Upload build
+      uses: actions/upload-artifact@v1
+      with:
+        name: QFIELD for Windows 64bit
+        path: qfield-mxe-release.zip
+
