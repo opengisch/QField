@@ -11,5 +11,5 @@ docker  run  \
     -v ${PWD}:${PWD} \
     -w $(pwd) --rm  \
     --user $(id -u):$(id -g) \
-    -it elpaso/mxe-qfield-builder:latest \
+    elpaso/mxe-qfield-builder:latest \
     ${DIR}/build-mxe.sh
