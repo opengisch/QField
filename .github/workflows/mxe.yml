@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Git init submodules
+      run: cd $GITHUB_WORKSPACE && git submodule init && git submodule update
     - name: Cross build with MXE
       run: cd $GITHUB_WORKSPACE && .docker/mxe/build.sh
     - name: Rename artifact
