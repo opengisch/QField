@@ -108,7 +108,11 @@ for dll in $(ls ${RELEASE_DIR}/*.dll); do \
     $PYDEPLOY --build=${RELEASE_DIR} --objdump=${MXE}/usr/bin/${TARGET}-objdump $dll; \
 done
 
+# Add QT plugins
 cp -r ${MXE}/usr/${TARGET}/qt5/plugins ${RELEASE_DIR}/qt5plugins
+
+# Add QGIS resources
+cp -r ${MXE}/usr/${TARGET}/resources ${RELEASE_DIR}
 
 cat <<__TXT__ > ${RELEASE_DIR}/qt.conf
 [Paths]
@@ -117,7 +121,7 @@ __TXT__
 
 # Make the zip
 cd ${RELEASE_DIR}/..
-ZIP_NAME=qfield-mxe-release-$(date +%Y-%m-%d-%H-%I-%S).zip
+ZIP_NAME=qfield-mxe-release-$(date +%Y-%m-%d-%H-%M-%S).zip
 zip -r ${ZIP_NAME} $(basename ${RELEASE_DIR})
 
 # Cleanup
