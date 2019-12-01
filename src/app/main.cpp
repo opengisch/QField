@@ -30,6 +30,7 @@
 #include "qgslogger.h"
 #include <qmainwindow.h>
 #include <QApplication>
+#include <QtGlobal>
 
 int main( int argc, char **argv )
 {
@@ -46,7 +47,6 @@ int main( int argc, char **argv )
   delete dummyApp;
 #endif
 
-
 #ifdef ANDROID
   QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
   QSettings settings;
@@ -62,6 +62,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 #ifdef MXE
   app.setPrefixPath( app.applicationDirPath(), true );
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
 #else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
