@@ -114,6 +114,9 @@ cp -r ${MXE}/usr/${TARGET}/qt5/plugins ${RELEASE_DIR}/qt5plugins
 # Add QGIS resources
 cp -r ${MXE}/usr/${TARGET}/resources ${RELEASE_DIR}
 
+# Add GDAL resources
+cp -r ${MXE}/usr/${TARGET}/share/gdal ${RELEASE_DIR}/gdal
+
 cat <<__TXT__ > ${RELEASE_DIR}/qt.conf
 [Paths]
 Plugins = qt5plugins
