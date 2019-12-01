@@ -60,7 +60,11 @@ int main( int argc, char **argv )
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
+#ifdef MXE
+  app.setPrefixPath( app.applicationDirPath(), true );
+#else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
+#endif
 #endif
   app.initQgis();
 
