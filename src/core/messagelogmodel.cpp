@@ -84,6 +84,6 @@ void MessageLogModel::onMessageReceived( const QString &message, const QString &
 
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );
-  qDebug() << "Nes message " << tag << " : " << message;
+  qDebug() << "New log message " << tag << " : " << message;
   endInsertRows();
 }
