@@ -30,12 +30,12 @@ void AppInterface::loadLastProject()
 
 void AppInterface::loadProject( const QString &path )
 {
-  return mApp->loadProjectFile( QUrl( path ).path() );
+  return mApp->loadProjectFile( QUrl( path ).toLocalFile() );
 }
 
 void AppInterface::reloadProject( const QString &path )
 {
-  return mApp->reloadProjectFile( QUrl( path ).path() );
+  return mApp->reloadProjectFile( QUrl( path ).toLocalFile() );
 }
 
 void AppInterface::print( int layoutIndex )
