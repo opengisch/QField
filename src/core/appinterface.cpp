@@ -24,13 +24,15 @@ AppInterface::AppInterface( QgisMobileapp *app )
 }
 
 void AppInterface::loadProject( const QString &path )
-{
-  return mApp->loadProjectFile( QUrl( path ).toLocalFile() );
+{  
+  const QUrl url( path );
+  return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path() );
 }
 
 void AppInterface::reloadProject( const QString &path )
 {
-  return mApp->reloadProjectFile( QUrl( path ).toLocalFile() );
+  const QUrl url( path );
+  return mApp->reloadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path() );
 }
 
 void AppInterface::print( int layoutIndex )
