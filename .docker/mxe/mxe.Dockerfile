@@ -37,17 +37,17 @@ FROM elpaso/mxe-qt5-builder:latest
 # Number of cores for the build
 ENV NCORES 16
 
-# Copy QGIS MXE recipe into the image
-COPY qgis.mk src/qgis.mk
-
-# Build 64bit QGIS
-RUN make MXE_TARGETS=x86_64-w64-mingw32.shared.posix -j ${NCORES} qgis
-
 # Additional dependencies for QField
 RUN make MXE_TARGETS=x86_64-w64-mingw32.shared.posix -j ${NCORES} \
     qtquickcontrols2 \
     qtlocation \
     qtgraphicaleffects
+
+# Copy QGIS MXE recipe into the image
+COPY qgis.mk src/qgis.mk
+
+# Build 64bit QGIS
+RUN make MXE_TARGETS=x86_64-w64-mingw32.shared.posix -j ${NCORES} qgis
 
 # Clean
 RUN rm -rf ./log && rm -rf ./pkg

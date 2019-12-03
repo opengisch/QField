@@ -22,7 +22,7 @@ define $(PKG)_BUILD
 
     cd '$(BUILD_DIR)' && \
 	$(TARGET)-cmake \
-	 	-D CMAKE_BUILD_TYPE=Release \
+		-D CMAKE_BUILD_TYPE=Release \
         -D ENABLE_TESTS=OFF \
         -D WITH_QSPATIALITE=ON \
         -D WITH_APIDOC=OFF \
@@ -30,7 +30,6 @@ define $(PKG)_BUILD
         -D WITH_ASTYLE=OFF \
         -D WITH_SERVER=OFF \
         -D WITH_3D=FALSE \
-        -D WITH_GUI=FALSE \
         -D WITH_DESKTOP=FALSE \
         -D WITH_BINDINGS=FALSE \
         -D QT_LRELEASE_EXECUTABLE=$(PREFIX)/$(TARGET)/qt5/bin/lrelease \

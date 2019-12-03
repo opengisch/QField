@@ -92,20 +92,27 @@ fi
 # Move all targets to main folder
 mv ${RELEASE_DIR}/bin/*.exe ${RELEASE_DIR}
 mv ${RELEASE_DIR}/bin/*.dll ${RELEASE_DIR}
-# No need to package these:
-rm -rf ${RELEASE_DIR}/bin # now empty!
-rm -rf ${RELEASE_DIR}/lib
+# Copy QMLs
 cp -r ${MXE}/usr/${TARGET}/qt5/qml ${RELEASE_DIR}
 
-for _DEP in ${EXTRA_QT5_DEPS}; do \
-    cp ${MXE}/usr/${TARGET}/qt5/bin/${_DEP}.dll ${RELEASE_DIR}; \
+# Copy QGIS auth plugins
+if [ ! -e ${RELEASE_DIR}/lib/qgis ]; then
+    mkdir -p ${RELEASE_DIR}/lib/qgis
+fi
+cp -r ${MXE}/usr/${TARGET}/plugins ${RELEASE_DIR}/lib/qgis
+
+# No need to package these:
+rm -rf ${RELEASE_DIR}/bin # now empty!
+
+for _DEP in ${EXTRA_QT5_DEPS}; do
+    cp ${MXE}/usr/${TARGET}/qt5/bin/${_DEP}.dll ${RELEASE_DIR};
 done
 
 # Collect deps
 $PYDEPLOY --build=${RELEASE_DIR} --objdump=${MXE}/usr/bin/${TARGET}-objdump ${RELEASE_DIR}/qfield.exe
-for dll in $(ls ${RELEASE_DIR}/*.dll); do \
+for dll in $(ls ${RELEASE_DIR}/*.dll); do
     echo "Checking DLL: ${dll} ..."
-    $PYDEPLOY --build=${RELEASE_DIR} --objdump=${MXE}/usr/bin/${TARGET}-objdump $dll; \
+    $PYDEPLOY --build=${RELEASE_DIR} --objdump=${MXE}/usr/bin/${TARGET}-objdump $dll
 done
 
 # Add QT plugins
