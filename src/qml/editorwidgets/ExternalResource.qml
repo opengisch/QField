@@ -59,7 +59,7 @@ Item {
 
     onClicked: {
       if ( settings.valueBool("useNativeCamera", true) ) {
-        __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM', 'CAMERA')
+        __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/DCIM')
       } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
         camloader.active = true
@@ -80,7 +80,7 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-        __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM', 'GALLERY')
+        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/DCIM')
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")

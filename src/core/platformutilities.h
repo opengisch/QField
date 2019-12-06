@@ -43,11 +43,18 @@ class PlatformUtilities : public QObject
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
 
     /**
-     * Get a picture and copy it to the requested prefix
+     * Get a picture from camera and copy it to the requested prefix
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix, const QString &source );
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix);
+
+    /**
+     * Get a picture from gallery and copy it to the requested prefix
+     * @param prefix The folder where the picture should be put
+     * @return The name of the picture or null
+     */
+    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix);
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
