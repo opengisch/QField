@@ -183,3 +183,28 @@ void LayerTreeModel::updateCurrentMapTheme()
     }
   }
 }
+
+bool LayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
+{
+  QgsLayerTreeNode *node = mLayerTreeModel->index2node( source_parent );
+  QgsLayerTreeGroup *parentgroup = qobject_cast < QgsLayerTreeGroup *>( node );
+
+  if ( parentgroup )
+  {
+    QList<QgsLayerTreeNode *> children = parentgroup->children();
+    QgsLayerTreeNode *child = children.at( source_row );
+    if ( child )
+    {
+      QVariant nodeHidden = child-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) );
+      if ( nodeHidden.toString() == QStringLiteral( "true" ) )
+      {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+  }
+  return true;
+}

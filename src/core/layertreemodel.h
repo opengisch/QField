@@ -62,6 +62,10 @@ class LayerTreeModel : public QSortFilterProxyModel
   signals:
     void mapThemeChanged();
 
+  protected:
+    bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+
+
   private:
     QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
