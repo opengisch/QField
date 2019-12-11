@@ -7,13 +7,7 @@ QField's optimized user interface for Android devices hides the full power of `Q
 
 .. container::
 
-  .. vimeo:: 173774749
-
-
-.. note::
-
-    :download:`Slides from FOSS4G 2016 <files/slides_foss4g16.pdf>` are available.
-
+  .. vimeo:: 376372805
 
 Prepare once - Deploy everywhere
 --------------------------------
