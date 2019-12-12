@@ -22,8 +22,9 @@ class QgsQuickMapSettings;
 #include <qgssnappingutils.h>
 
 #include "snappingresult.h"
+#include "qfieldcore_global.h"
 
-class SnappingUtils : public QgsSnappingUtils
+class QFIELDCORE_EXPORT SnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT
 

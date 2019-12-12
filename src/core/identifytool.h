@@ -22,13 +22,14 @@
 #include <qgspoint.h>
 #include <qgsmapsettings.h>
 #include <qgsrendercontext.h>
+#include "qfieldcore_global.h"
 
 class QgsMapLayer;
 class QgsQuickMapSettings;
 class QgsVectorLayer;
 class MultiFeatureListModel;
 
-class IdentifyTool : public QObject
+class QFIELDCORE_EXPORT IdentifyTool : public QObject
 {
     Q_OBJECT
 

@@ -22,7 +22,9 @@
 #include "featurelistmodelselection.h"
 #include "qgsquickmapsettings.h"
 
-class FeatureListExtentController : public QObject
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT FeatureListExtentController : public QObject
 {
     Q_OBJECT
 

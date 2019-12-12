@@ -19,9 +19,9 @@
 #include <QAndroidActivityResultReceiver>
 
 #include "picturesource.h"
+#include "qfieldcore_global.h"
 
-
-class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
+class QFIELDCORE_EXPORT AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
 {
     Q_OBJECT
 

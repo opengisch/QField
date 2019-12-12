@@ -6,7 +6,9 @@
 
 #include <QtPositioning/QGeoCoordinate>
 
-class Geometry : public QObject
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT Geometry : public QObject
 {
     Q_OBJECT
 

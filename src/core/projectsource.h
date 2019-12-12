@@ -18,6 +18,7 @@
 #define PROJECTSOURCE_H
 
 #include <QObject>
+#include "qfieldcore_global.h"
 
 /**
  * This class represents an ongoing open project intent.
@@ -27,7 +28,7 @@
  * The default implementation does nothing. You probably
  * want to have a look at the AndroidProjectSource subclass.
  */
-class ProjectSource : public QObject
+class QFIELDCORE_EXPORT ProjectSource : public QObject
 {
     Q_OBJECT
   public:

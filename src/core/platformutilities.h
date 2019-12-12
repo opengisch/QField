@@ -22,10 +22,11 @@
 #include <QObject>
 #include <qgsfield.h>
 #include "picturesource.h"
+#include "qfieldcore_global.h"
 
 class ProjectSource;
 
-class PlatformUtilities : public QObject
+class QFIELDCORE_EXPORT PlatformUtilities : public QObject
 {
     Q_OBJECT
 

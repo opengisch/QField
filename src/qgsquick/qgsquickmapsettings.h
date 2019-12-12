@@ -23,6 +23,7 @@
 #include <qgsmapthemecollection.h>
 #include <qgspoint.h>
 #include <qgsrectangle.h>
+#include "qgsquick_global.h"
 
 
 class QgsProject;
@@ -40,7 +41,7 @@ class QgsProject;
  * \sa QgsMapCanvas
  *
  */
-class QgsQuickMapSettings : public QObject
+class QGSQUICK_EXPORT QgsQuickMapSettings : public QObject
 {
     Q_OBJECT
 

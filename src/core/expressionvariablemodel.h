@@ -18,7 +18,9 @@
 
 #include <QStandardItemModel>
 
-class ExpressionVariableModel : public QStandardItemModel
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT ExpressionVariableModel : public QStandardItemModel
 {
     Q_OBJECT
 

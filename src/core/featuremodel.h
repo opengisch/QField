@@ -24,12 +24,12 @@
 #include <memory>
 #include <qgsfeature.h>
 #include "snappingresult.h"
-
 #include "geometry.h"
+#include "qfieldcore_global.h"
 
 class VertexModel;
 
-class FeatureModel : public QAbstractListModel
+class QFIELDCORE_EXPORT FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )

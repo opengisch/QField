@@ -22,7 +22,9 @@
 #include "platformutilities.h"
 #include <QAndroidJniObject>
 
-class AndroidPlatformUtilities : public PlatformUtilities
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT AndroidPlatformUtilities : public PlatformUtilities
 {
   public:
     AndroidPlatformUtilities();

@@ -94,18 +94,24 @@ SET(QFIELD_CORE_HDRS
   submodel.h
   valuemapmodel.h
   vertexmodel.h
+  qfieldcore_global.h
 )
+
+FIND_PACKAGE(SQLite3)
 
 FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
+  ${SQLITE3_INCLUDE_DIRS}
 )
 
 INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/src/qgsquick
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
+
+ADD_DEFINITIONS(-DQFIELDCORE_SHARED_LIBRARY)
 
 ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFILED_CORE_HDRS})
 TARGET_LINK_LIBRARIES(qfield_core

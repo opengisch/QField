@@ -34,6 +34,7 @@
 #include "qgsquickutils.h"
 #include "qgsgpkgflusher.h"
 #include "geometryeditorsmodel.h"
+#include "qfieldcore_global.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -56,7 +57,7 @@ class QgsProject;
 #define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 
-class QgisMobileapp : public QQmlApplicationEngine
+class QFIELDCORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:

@@ -23,7 +23,7 @@
 #include "qgslocatorfilter.h"
 #include "qgsexpressioncontext.h"
 #include "qgsvectorlayerfeatureiterator.h"
-
+#include "qfieldcore_global.h"
 
 class LocatorModelSuperBridge;
 
@@ -32,7 +32,7 @@ class LocatorModelSuperBridge;
  * for features across layers in the project.
  * Reimplemented from QGIS code (app).
  */
-class FeaturesLocatorFilter : public QgsLocatorFilter
+class QFIELDCORE_EXPORT FeaturesLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 

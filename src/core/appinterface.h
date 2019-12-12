@@ -22,10 +22,11 @@
 #include <QPointF>
 
 #include <QStandardItemModel>
+#include "qfieldcore_global.h"
 
 class QgisMobileapp;
 
-class AppInterface : public QObject
+class QFIELDCORE_EXPORT AppInterface : public QObject
 {
     Q_OBJECT
 

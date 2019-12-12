@@ -6,7 +6,7 @@
 
 #include <qgspoint.h>
 #include <qgswkbtypes.h>
-
+#include "qfieldcore_global.h"
 
 class RubberbandModel;
 
@@ -15,8 +15,7 @@ class RubberbandModel;
  *
  * This cannot be considered stable API.
  */
-
-class SGRubberband : public QSGNode
+class QFIELDCORE_EXPORT SGRubberband : public QSGNode
 {
   public:
     SGRubberband( const QVector<QgsPoint> &points, QgsWkbTypes::GeometryType type, const QColor &color, qreal width );

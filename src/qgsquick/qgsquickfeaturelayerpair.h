@@ -20,6 +20,7 @@
 
 #include <qgsfeature.h>
 
+#include "qgsquick_global.h"
 
 class QgsVectorLayer;
 
@@ -34,7 +35,7 @@ class QgsVectorLayer;
  * \note QML Type: QgsQuickFeatureLayerPair
  *
  */
-class QgsQuickFeatureLayerPair
+class QGSQUICK_EXPORT QgsQuickFeatureLayerPair
 {
     Q_GADGET
 

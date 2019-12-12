@@ -17,8 +17,9 @@
 #define SUBMODEL_H
 
 #include <QAbstractItemModel>
+#include "qfieldcore_global.h"
 
-class SubModel : public QAbstractItemModel
+class QFIELDCORE_EXPORT SubModel : public QAbstractItemModel
 {
     Q_OBJECT
 

@@ -23,7 +23,8 @@
 
 #include <qgscoordinatetransformcontext.h>
 #include <qgscoordinatereferencesystem.h>
-#include <qgspoint.h>
+
+#include "qgsquick_global.h"
 
 /**
  * Helper class for transform of coordinates (QgsPoint) to a different coordinate reference system.
@@ -34,7 +35,7 @@
  * \note QML Type: CoordinateTransformer
  *
  */
-class QgsQuickCoordinateTransformer : public QObject
+class QGSQUICK_EXPORT QgsQuickCoordinateTransformer : public QObject
 {
     Q_OBJECT
 

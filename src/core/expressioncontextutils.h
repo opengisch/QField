@@ -21,10 +21,11 @@
 
 #include <qgsexpressioncontext.h>
 #include "snappingresult.h"
+#include "qfieldcore_global.h"
 
 class QGeoPositionInfoSource;
 
-class ExpressionContextUtils
+class QFIELDCORE_EXPORT ExpressionContextUtils
 {
   public:
     static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
