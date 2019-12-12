@@ -22,7 +22,9 @@
 
 class FeatureModel;
 
-class AttributeFormModel : public QSortFilterProxyModel
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT AttributeFormModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 

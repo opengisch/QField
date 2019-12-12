@@ -31,6 +31,7 @@
 #include "qgsquickmapsettings.h"
 #include "qgsquickfeaturelayerpair.h"
 #include <qgscoordinateformatter.h>
+#include "qgsquick_global.h"
 
 
 class QgsFeature;
@@ -44,7 +45,7 @@ class QgsCoordinateReferenceSystem;
  * \note QML Type: Utils (Singleton)
  *
  */
-class QgsQuickUtils: public QObject
+class QGSQUICK_EXPORT QgsQuickUtils: public QObject
 {
     Q_OBJECT
 

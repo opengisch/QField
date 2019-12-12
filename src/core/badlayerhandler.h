@@ -18,10 +18,11 @@
 
 #include <QStandardItemModel>
 #include <qgsprojectbadlayerhandler.h>
+#include "qfieldcore_global.h"
 
 class QgsProject;
 
-class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
+class QFIELDCORE_EXPORT BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {
     Q_OBJECT
 

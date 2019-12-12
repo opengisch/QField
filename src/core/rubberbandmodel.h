@@ -22,6 +22,7 @@
 #include <qgis.h>
 #include <qgspoint.h>
 #include <qgsabstractgeometry.h>
+#include "qfieldcore_global.h"
 
 class QgsVectorLayer;
 
@@ -30,8 +31,7 @@ class QgsVectorLayer;
  *
  * It can be used as a linestring or as a ring in a polygon.
  */
-
-class RubberbandModel : public QObject
+class QFIELDCORE_EXPORT RubberbandModel : public QObject
 {
     Q_OBJECT
 

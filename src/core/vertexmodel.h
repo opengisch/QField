@@ -23,13 +23,14 @@ class QgsQuickMapSettings;
 #include "qgspoint.h"
 #include "qgsgeometry.h"
 #include "qgscoordinatetransform.h"
+#include "qfieldcore_global.h"
 
 /**
  * @brief The VertexModel class is a model to highlight and edit vertices.
  * The model is used in map coordinates.
  * There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)
  */
-class VertexModel : public QStandardItemModel
+class QFIELDCORE_EXPORT VertexModel : public QStandardItemModel
 {
     Q_OBJECT
     //! The current mode

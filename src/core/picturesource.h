@@ -17,12 +17,13 @@
 #define PICTURESOURCE_H
 
 #include <QObject>
+#include "qfieldcore_global.h"
 
 /**
  * A picture source object will be created when a new picture is requested from the system.
  * It should be subclassed and filled with platform specific code.
  */
-class PictureSource : public QObject
+class QFIELDCORE_EXPORT PictureSource : public QObject
 {
     Q_OBJECT
   public:

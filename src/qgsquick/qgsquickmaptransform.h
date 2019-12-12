@@ -19,6 +19,8 @@
 #include <QQuickItem>
 #include <QMatrix4x4>
 
+#include "qgsquick_global.h"
+
 
 class QgsQuickMapSettings;
 
@@ -26,12 +28,12 @@ class QgsQuickMapSettings;
  * The QgsQuickMapTransform is transformation that can be attached to any QQuickItem.
  *
  * If the item is based on the map coordinates, QgsQuickMapTransform will
- * transform it to the device coordintes based on the attached map settings.
+ * transform it to the device coordinates based on the attached map settings.
  *
  * \note QML Type: MapTransform
  *
  */
-class QgsQuickMapTransform : public QQuickTransform
+class QGSQUICK_EXPORT QgsQuickMapTransform : public QQuickTransform
 {
     Q_OBJECT
 

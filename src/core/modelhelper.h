@@ -18,8 +18,9 @@
 
 #include <QObject>
 #include <QAbstractItemModel>
+#include "qfieldcore_global.h"
 
-class ModelHelper : public QObject
+class QFIELDCORE_EXPORT ModelHelper : public QObject
 {
     Q_OBJECT
 

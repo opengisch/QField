@@ -16,13 +16,14 @@
 #ifndef LAYERTREEMODEL_H
 #define LAYERTREEMODEL_H
 
+#include "qfieldcore_global.h"
 #include <QSortFilterProxyModel>
 
 class QgsLayerTree;
 class QgsLayerTreeModel;
 class QgsProject;
 
-class LayerTreeModel : public QSortFilterProxyModel
+class QFIELDCORE_EXPORT LayerTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 

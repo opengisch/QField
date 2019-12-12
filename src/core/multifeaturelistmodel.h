@@ -21,10 +21,10 @@
 #include <QAbstractItemModel>
 
 #include <qgsfeaturerequest.h>
-
 #include "identifytool.h"
+#include "qfieldcore_global.h"
 
-class MultiFeatureListModel : public QAbstractItemModel
+class QFIELDCORE_EXPORT MultiFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 

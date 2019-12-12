@@ -18,6 +18,7 @@
 
 #include <QAbstractItemModel>
 #include <QTimer>
+#include "qfieldcore_global.h"
 
 class QgsVectorLayer;
 
@@ -27,7 +28,7 @@ class QgsVectorLayer;
  * and a keyField as KeyFieldRole for a unique identifier.
  * If a displayValueField is set it replaces the display expression of the layer.
  */
-class FeatureListModel : public QAbstractItemModel
+class QFIELDCORE_EXPORT FeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 

@@ -22,11 +22,13 @@
 
 #include <QAbstractListModel>
 #include <QVariant>
+#include "qfieldcore_global.h"
+
 
 /**
  * A model that manages the key/value pairs for a ValueMap widget.
  */
-class ValueMapModel : public QAbstractListModel
+class QFIELDCORE_EXPORT ValueMapModel : public QAbstractListModel
 {
     Q_OBJECT
 

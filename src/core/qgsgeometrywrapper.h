@@ -22,12 +22,14 @@
 
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
+#include "qfieldcore_global.h"
+
 
 /**
  * @brief The QgsGeometryWrapper class wraps QGIS geometry and CRS classes
  * to have their contents available from QML
  */
-class QgsGeometryWrapper : public QObject
+class QFIELDCORE_EXPORT QgsGeometryWrapper : public QObject
 {
     Q_OBJECT
     Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )

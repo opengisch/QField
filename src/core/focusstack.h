@@ -19,7 +19,9 @@
 #include <QList>
 #include <QtQuick/QQuickItem>
 
-class FocusStack : public QObject
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT FocusStack : public QObject
 {
     Q_OBJECT
 

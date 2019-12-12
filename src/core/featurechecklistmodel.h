@@ -20,7 +20,9 @@
 #include "featurelistmodel.h"
 #include <qgsvectorlayer.h>
 
-class FeatureCheckListModel : public FeatureListModel
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT FeatureCheckListModel : public FeatureListModel
 {
     Q_OBJECT
 

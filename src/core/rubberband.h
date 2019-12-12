@@ -17,6 +17,8 @@
 #define RUBBERBAND_H
 
 #include <QQuickItem>
+#include "qfieldcore_global.h"
+
 
 class RubberbandModel;
 class VertexModel;
@@ -27,7 +29,7 @@ class QgsQuickMapSettings;
  * It is aimed to be used with either a VertexModel or a RubberbandModel.
  * Setting one will remove  the former definition of the other.
  */
-class Rubberband : public QQuickItem
+class QFIELDCORE_EXPORT Rubberband : public QQuickItem
 {
     Q_OBJECT
 

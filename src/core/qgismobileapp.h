@@ -32,6 +32,7 @@
 #include "focusstack.h"
 #include "qgsquickutils.h"
 #include "qgsgpkgflusher.h"
+#include "qfieldcore_global.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -50,8 +51,7 @@ class LayerTreeModel;
 class LegendImageProvider;
 class QgsProject;
 
-
-class QgisMobileapp : public QQmlApplicationEngine
+class QFIELDCORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:

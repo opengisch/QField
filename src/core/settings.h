@@ -19,8 +19,9 @@
 #define SETTINGS_H
 
 #include <QSettings>
+#include "qfieldcore_global.h"
 
-class Settings : public QSettings
+class QFIELDCORE_EXPORT Settings : public QSettings
 {
     Q_OBJECT
 

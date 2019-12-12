@@ -19,16 +19,16 @@
 #include <QtQuick/QQuickItem>
 
 #include "qgsquickmapsettings.h"
+#include "qfieldcore_global.h"
 
 class QgsGeometryWrapper;
 class QgsGeometry;
-
 
 /**
  * LocatorHighlight allows highlighting geometries
  * on the canvas for the specific needs of the locator.
  */
-class LinePolygonHighlight : public QQuickItem
+class QFIELDCORE_EXPORT LinePolygonHighlight : public QQuickItem
 {
     Q_OBJECT
 

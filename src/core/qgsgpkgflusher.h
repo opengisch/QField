@@ -20,6 +20,7 @@
 
 #include <QObject>
 #include <qgsmaplayer.h>
+#include "qfieldcore_global.h"
 
 class QgsProject;
 class Flusher;
@@ -31,7 +32,7 @@ class Flusher;
  * It will start a background thread and post an event to it whenever the gpkg has been changed.
  * After a delay of 500ms without any changes the wal file will be flushed.
  */
-class QgsGpkgFlusher : public QObject
+class QFIELDCORE_EXPORT QgsGpkgFlusher : public QObject
 {
     Q_OBJECT
 

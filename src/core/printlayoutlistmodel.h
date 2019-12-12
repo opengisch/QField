@@ -21,11 +21,12 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include "qfieldcore_global.h"
 
 class QStringList;
 class QgsProject;
 
-class PrintLayoutListModel : public QAbstractListModel
+class QFIELDCORE_EXPORT PrintLayoutListModel : public QAbstractListModel
 {
     Q_OBJECT
 

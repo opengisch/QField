@@ -19,12 +19,13 @@
 #include <QAbstractListModel>
 #include <QDateTime>
 #include <qgsmessagelog.h>
+#include "qfieldcore_global.h"
 
 /**
  * This model will connect to the message log and publish any
  * messages received from there.
  */
-class MessageLogModel : public QAbstractListModel
+class QFIELDCORE_EXPORT MessageLogModel : public QAbstractListModel
 {
     Q_OBJECT
 

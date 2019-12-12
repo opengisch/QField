@@ -26,6 +26,7 @@
 #include <qgspoint.h>
 
 #include "qgsquickmapsettings.h"
+#include "qgsquick_global.h"
 
 class QgsMapRendererParallelJob;
 class QgsMapRendererCache;
@@ -46,7 +47,7 @@ class QgsLabelingResults;
  * \sa QgsQuickMapCanvas
  *
  */
-class QgsQuickMapCanvasMap : public QQuickItem
+class QGSQUICK_EXPORT QgsQuickMapCanvasMap : public QQuickItem
 {
     Q_OBJECT
 

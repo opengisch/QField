@@ -23,6 +23,7 @@
 #include <qgsmapthemecollection.h>
 
 #include "layertreemodel.h"
+#include "qfieldcore_global.h"
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
@@ -44,7 +45,7 @@ class QgsMapLayer;
  * order in the canvas.
  *
  */
-class LayerTreeMapCanvasBridge : public QObject
+class QFIELDCORE_EXPORT LayerTreeMapCanvasBridge : public QObject
 {
     Q_OBJECT
   public:

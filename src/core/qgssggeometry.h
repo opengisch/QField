@@ -5,8 +5,9 @@
 #include <QtQuick/QSGFlatColorMaterial>
 
 #include "qgsgeometry.h"
+#include "qfieldcore_global.h"
 
-class QgsSGGeometry : public QSGNode
+class QFIELDCORE_EXPORT QgsSGGeometry : public QSGNode
 {
   public:
     QgsSGGeometry();

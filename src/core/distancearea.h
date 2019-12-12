@@ -19,12 +19,13 @@
 #include <QObject>
 
 #include <qgsdistancearea.h>
+#include "qfieldcore_global.h"
 
 class Geometry;
 class RubberbandModel;
 class QgsProject;
 
-class DistanceArea : public QObject
+class QFIELDCORE_EXPORT DistanceArea : public QObject
 {
     Q_OBJECT
 

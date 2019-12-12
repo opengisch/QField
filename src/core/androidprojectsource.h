@@ -21,7 +21,9 @@
 #include <QAndroidActivityResultReceiver>
 #include "projectsource.h"
 
-class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
+#include "qfieldcore_global.h"
+
+class QFIELDCORE_EXPORT AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
 {
   public:
     AndroidProjectSource();

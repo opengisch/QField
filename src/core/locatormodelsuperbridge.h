@@ -19,6 +19,7 @@
 
 #include <QStandardItemModel>
 #include <qgslocatormodelbridge.h>
+#include "qfieldcore_global.h"
 
 class QgsQuickMapSettings;
 class FeatureListExtentController;
@@ -29,7 +30,7 @@ class FeatureListExtentController;
  * These are displayed as contextual menu in QGIS
  * while they are shown in a row of buttons in QField.
  */
-class LocatorActionsModel : public QStandardItemModel
+class QFIELDCORE_EXPORT LocatorActionsModel : public QStandardItemModel
 {
     Q_OBJECT
   public:

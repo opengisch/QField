@@ -20,6 +20,7 @@
 #include <QPair>
 #include "qgsvectorlayer.h"
 #include "attributeformmodel.h"
+#include "qfieldcore_global.h"
 
 //used for gatherer
 #include <QThread>
@@ -27,7 +28,7 @@
 class QgsVectorLayer;
 class FeatureGatherer;
 
-class ReferencingFeatureListModel : public QAbstractItemModel
+class QFIELDCORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 

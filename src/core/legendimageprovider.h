@@ -17,11 +17,12 @@
 #define LEGENDIMAGEPROVIDER_H
 
 #include <QQuickImageProvider>
+#include "qfieldcore_global.h"
 
 class QgsLayerTreeModel;
 class QgsLayerTree;
 
-class LegendImageProvider : public QQuickImageProvider
+class QFIELDCORE_EXPORT LegendImageProvider : public QQuickImageProvider
 {
   public:
     LegendImageProvider( QgsLayerTreeModel *layerTreeRoot );

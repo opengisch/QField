@@ -17,7 +17,7 @@
 
 #include <QApplication>
 
-#include <unistd.h>
+//#include <unistd.h>
 
 #include <QStandardPaths>
 #include <QtQml/QQmlEngine>

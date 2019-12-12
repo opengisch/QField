@@ -19,8 +19,9 @@
 #include <qgspoint.h>
 #include <qgsvectorlayer.h>
 #include <qgspointlocator.h>
+#include "qfieldcore_global.h"
 
-class SnappingResult
+class QFIELDCORE_EXPORT SnappingResult
 {
     Q_GADGET
     Q_PROPERTY( QgsPoint point READ point WRITE setPoint )

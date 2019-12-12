@@ -21,6 +21,8 @@
 // QGIS includes
 #include <qgsapplication.h>
 #include <qgsconfig.h>
+#include "qfieldcore_global.h"
+
 
 // Check QGIS version
 #if VERSION_INT >= 30600
@@ -37,7 +39,7 @@
  * in QgsCredentials and no dialog needs to pop up.
  *
  */
-class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticationHandler
+class QFIELDCORE_EXPORT QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticationHandler
 {
     Q_OBJECT
 
