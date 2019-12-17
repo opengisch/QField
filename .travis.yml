@@ -15,8 +15,6 @@ before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
-  - gem update --system
-  - gem --version
 
 script:
   - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
@@ -31,7 +29,7 @@ script:
 
 jobs:
   allow_failures:
-#    - name: "🍳 Testing"
+    - name: "🍳 Testing"
   include:
     - stage: test
       name: "🍳 Testing"
