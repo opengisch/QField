@@ -89,6 +89,7 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
         connect( vl, &QgsVectorLayer::committedGeometriesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
         connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
         connect( vl, &QgsVectorLayer::committedFeaturesRemoved, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::editingStopped, [this, filePath]() { emit requestFlush( filePath ); } );
       }
     }
   }
