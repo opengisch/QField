@@ -83,12 +83,7 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
       QFileInfo fi( filePath );
       if ( fi.isFile() )
       {
-        connect( vl, &QgsVectorLayer::committedFeaturesAdded, [this, filePath]() { emit requestFlush( filePath ); } );
-        connect( vl, &QgsVectorLayer::committedAttributesAdded, [this, filePath]() { emit requestFlush( filePath ); } );
-        connect( vl, &QgsVectorLayer::committedAttributesDeleted, [this, filePath]() { emit requestFlush( filePath ); } );
-        connect( vl, &QgsVectorLayer::committedGeometriesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
-        connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, [this, filePath]() { emit requestFlush( filePath ); } );
-        connect( vl, &QgsVectorLayer::committedFeaturesRemoved, [this, filePath]() { emit requestFlush( filePath ); } );
+        connect( vl, &QgsVectorLayer::editingStopped, [this, filePath]() { emit requestFlush( filePath ); } );
       }
     }
   }
