@@ -21,9 +21,9 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: parent.width > 800*dp ? 1: 2
+    rows: parent.width > 1000*dp ? 1 : parent.width > 620*dp ? 2 : 3
     width: parent.width
-    property double cellWidth: grid.width / ( 3 * ( grid.rows === 1 ? 2 : 1 ) )
+    property double cellWidth: grid.width / ( 6 / grid.rows )
 
     Rectangle {
       id: x
@@ -35,7 +35,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: positionSource.destinationCrs.isGeographic ?
                   qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
                 : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
@@ -51,7 +51,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: positionSource.destinationCrs.isGeographic ?
                   qsTr( "Lon." ) + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
                 : qsTr( "Y" )    + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
@@ -68,7 +68,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: {
           var altitude
           if ( positionSource.position.altitudeValid ) {
@@ -94,7 +94,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: qsTr( "Speed" ) + ': ' + ( positionSource.position.speedValid ? positionSource.position.speed.toFixed(3) + " m/s" : qsTr( "N/A" ) )
       }
     }
@@ -108,7 +108,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.position.horizontalAccuracyValid ? positionSource.position.horizontalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
       }
     }
@@ -122,7 +122,7 @@ Rectangle {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        font: Theme.defaultFont
+        font: Theme.tipFont
         text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.position.verticalAccuracyValid ? positionSource.position.verticalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
       }
     }
