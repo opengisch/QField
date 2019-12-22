@@ -909,23 +909,19 @@ ApplicationWindow {
     }
   }
 
-  Image {
+  Button {
     id: alertIcon
-    source: Theme.getThemeIcon( "ic_add_alert_black_18dp" )
+    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
+    round: true
+    bgcolor: "transparent"
 
     visible: messageLog.unreadMessages
 
-    anchors.right: mapCanvas.right
+    anchors.right: locatorItem.right
     anchors.top: locatorItem.bottom
-    anchors.topMargin: 10 * dp
-    anchors.rightMargin: 15 * dp
-    width: 36 * dp
-    height: 36 * dp
+    anchors.topMargin: 5 * dp
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: messageLog.visible = true
-    }
+    onClicked: messageLog.visible = true
   }
 
   /* The feature form */
