@@ -97,6 +97,7 @@ Page {
 
             QfSwitch {
                 id: showScaleBarCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
             Label {
@@ -117,6 +118,7 @@ Page {
 
             QfSwitch {
                 id: fullScreenIdentifyViewCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
             ColumnLayout {
@@ -154,6 +156,7 @@ Page {
 
             QfSwitch {
                 id: locatorKeepScaleCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
             ColumnLayout {
@@ -191,6 +194,7 @@ Page {
 
             QfSwitch {
                 id: incrementalRenderingCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
             ColumnLayout {
@@ -228,6 +232,7 @@ Page {
 
             QfSwitch {
                 id: numericalDigitizingInformationCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
             ColumnLayout {
@@ -265,6 +270,7 @@ Page {
 
             QfSwitch {
                 id: useNativeCameraCheckBox
+                Layout.alignment: Qt.AlignTop
             }
 
 
