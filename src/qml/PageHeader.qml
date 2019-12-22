@@ -6,6 +6,7 @@ import Theme 1.0
 
 ToolBar {
   property alias title: titleLabel.text
+  property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
 
   height: 48 * dp
@@ -26,10 +27,11 @@ ToolBar {
 
   RowLayout {
     anchors.fill: parent
+
     Layout.margins: 0
 
     Button {
-      id: applayButton
+      id: applyButton
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
@@ -49,7 +51,8 @@ ToolBar {
 
     Label {
       id: titleLabel
-
+      leftPadding: !showApplyButton && showCancelButton ? 48 * dp : 0
+      rightPadding: showApplyButton && !showCancelButton ? 48 * dp : 0
       font: Theme.strongFont
       color: Theme.light
       elide: Label.ElideRight

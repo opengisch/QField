@@ -25,6 +25,7 @@ Popup {
     header: PageHeader {
         title: qsTr("Positioning Settings")
 
+        showApplyButton: true
         showCancelButton: false
 
         onFinished: popup.visible = false
