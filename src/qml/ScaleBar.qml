@@ -11,9 +11,14 @@ Item {
     id: vars
 
     property real range: referenceWidth * mapSettings.mapUnitsPerPixel
-    property int exponent: Math.floor(Math.log(range) / Math.LN10)
-    property int magnitude: Math.pow(10, exponent)
-    property int adjustedMagnitude: magnitude / (1 + Math.round((magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth))
+    property real exponent: Math.floor(Math.log(range) / Math.LN10)
+    property real magnitude: Math.pow(10, exponent)
+    property real adjustedMagnitude: magnitude / (1 + (magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth)
+    property real decimalsAdjustment: if (units === QgsUnitTypes.DistanceDegrees) {
+                                adjustedMagnitude < 0.01 ? 5 : 3
+                            } else {
+                                0
+                            }
     property int units: mapSettings.destinationCrs.mapUnits
   }
 
@@ -61,7 +66,7 @@ Item {
     text: if (vars.units === QgsUnitTypes.DistanceMeters && vars.adjustedMagnitude >= 1000 ) {
             vars.adjustedMagnitude/1000 + ' ' + UnitTypes.toAbbreviatedString( QgsUnitTypes.DistanceKilometers )
           } else {
-            vars.adjustedMagnitude + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
+              Math.round(vars.adjustedMagnitude * Math.pow(10, vars.decimalsAdjustment )) / Math.pow(10, vars.decimalsAdjustment) + ' ' + UnitTypes.toAbbreviatedString( mapSettings.destinationCrs.mapUnits )
           }
   }
 }
