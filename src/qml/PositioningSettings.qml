@@ -51,7 +51,7 @@ Popup {
         rowSpacing: 10 * dp
 
         Label {
-          text: qsTr("Activate Antenna Height Compensation")
+          text: qsTr("Activate antenna height compensation")
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -88,8 +88,7 @@ Popup {
         }
 
         Label {
-          leftPadding: 30 * dp
-          rightPadding: 30 * dp
+          leftPadding: 22 * dp
           enabled: antennaHeightActivated.checked
           text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value. The value shown in the position information view will be corrected by this value." )
           font: Theme.tipFont
@@ -104,7 +103,6 @@ Popup {
         }
 
         Label {
-          padding: 8 * dp
           text: qsTr( "Skip altitude correction" )
           font: Theme.defaultFont
           wrapMode: Text.WordWrap
