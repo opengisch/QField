@@ -865,7 +865,7 @@ ApplicationWindow {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
-    width: Math.max(200*dp, mainWindow.width/4)
+    width: Math.max(200*dp, mainWindow.width/1.5)
 
     MenuItem {
       text: qsTr( "Enable Positioning" )
@@ -892,14 +892,14 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: Math.max(200*dp, mainWindow.width/4) }
+    MenuSeparator { width: parent.width }
 
     MenuItem {
-      text: qsTr( "Center current location" )
+      text: qsTr( "Center to Current Location" )
 
       height: 48 * dp
       font: Theme.defaultFont
-      width: Math.max(200*dp, mainWindow.width/4)
+      width: parent.width
       onTriggered: {
         var coord = positionSource.position.coordinate;
         var loc = Qt.point( coord.longitude, coord.latitude );
@@ -907,14 +907,14 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: Math.max(200*dp, mainWindow.width/4) }
+    MenuSeparator { width: parent.width }
 
     MenuItem {
-      text: qsTr( "Show position information" )
+      text: qsTr( "Show Position Information" )
 
       height: 48 * dp
       font: Theme.defaultFont
-      width: Math.max(200*dp, mainWindow.width/4)
+      width: parent.width
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
 
@@ -930,10 +930,10 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Configure antenna height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
+      text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
       height: 48 * dp
       font: Theme.defaultFont
-      width: Math.max(200*dp, mainWindow.width/4)
+      width: parent.width
 
       onTriggered: {
         positioningSettings.visible = true
