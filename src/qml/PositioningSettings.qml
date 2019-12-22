@@ -21,96 +21,116 @@ Popup {
 
   Page {
     anchors.fill: parent
-    padding: 20 * dp
 
     header: PageHeader {
-      title: qsTr("Positioning Settings")
+        title: qsTr("Positioning Settings")
 
-      showCancelButton: false
+        showCancelButton: false
 
-      onFinished: popup.visible = false
-    }
+        onFinished: popup.visible = false
+      }
 
-    GridLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
+
+    ScrollView {
+      padding: 20 * dp
+      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.vertical.policy: ScrollBar.AsNeeded
+      contentWidth: positioningGrid.width
+      contentHeight: positioningGrid.height
+      anchors.fill: parent
+      clip: true
+
+      GridLayout {
+        id: positioningGrid
+        width: parent.parent.width
+        anchors.fill: parent.parent
 
         columns: 2
         columnSpacing: 2 * dp
         rowSpacing: 10 * dp
 
         Label {
-            text: qsTr("Activate Antenna Height Compensation")
-            font: Theme.defaultFont
-        }
+          text: qsTr("Activate Antenna Height Compensation")
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
 
-        QfSwitch {
-            id: antennaHeightActivated
-        }
-
-        Label {
-            text: qsTr("Antenna Height")
-            leftPadding: 22 * dp
-            enabled: antennaHeightActivated.checked
-            font: Theme.defaultFont
-        }
-
-        TextField {
-            id: antennaHeightInput
-            enabled: antennaHeightActivated.checked
-            text: "0"
-
-            Layout.fillWidth: true
-            Layout.minimumWidth: 60 * dp
-            Layout.preferredHeight: font.height + 20 * dp
-            font: Theme.defaultFont
-
-            inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator {}
-        }
-
-        Label {
-            leftPadding: 30 * dp
-            rightPadding: 30 * dp
-            enabled: antennaHeightActivated.checked
-            text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value. The value shown in the position information view will be corrected by this value." )
-            font: Theme.tipFont
-
-            wrapMode: Text.WordWrap
-            Layout.fillWidth: true
-        }
-
-        Item {
-            // empty cell in grid layout
-            width: 1
-        }
-
-        Label {
-            padding: 8 * dp
-            wrapMode: Text.WordWrap
-
-            text: qsTr( "Skip altitude correction" )
-            font: Theme.defaultFont
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: skipAltitudeCorrectionSwitch.toggle()
+          MouseArea {
+            anchors.fill: parent
+            onClicked: antennaHeightActivated.toggle()
             }
         }
 
         QfSwitch {
-            id: skipAltitudeCorrectionSwitch
+          id: antennaHeightActivated
+          Layout.alignment: Qt.AlignTop
         }
 
         Label {
-            padding: 8 * dp
-            topPadding: 0
-            leftPadding: 22 * dp
-            text: qsTr( "Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation." )
-            font: Theme.tipFont
-
-            wrapMode: Text.WordWrap
+          text: qsTr("Antenna Height")
+          leftPadding: 22 * dp
+          enabled: antennaHeightActivated.checked
+          font: Theme.defaultFont
         }
+
+        TextField {
+          id: antennaHeightInput
+          enabled: antennaHeightActivated.checked
+          text: "0"
+          width: 60 * dp
+          font: Theme.defaultFont
+          Layout.preferredWidth: 60 * dp
+          Layout.preferredHeight: font.height + 20 * dp
+
+          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          validator: DoubleValidator {}
+        }
+
+        Label {
+          leftPadding: 30 * dp
+          rightPadding: 30 * dp
+          enabled: antennaHeightActivated.checked
+          text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value. The value shown in the position information view will be corrected by this value." )
+          font: Theme.tipFont
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          // empty cell in grid layout
+          width: 1
+        }
+
+        Label {
+          padding: 8 * dp
+          text: qsTr( "Skip altitude correction" )
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: skipAltitudeCorrectionSwitch.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: skipAltitudeCorrectionSwitch
+          Layout.alignment: Qt.AlignTop
+        }
+
+        Label {
+          padding: 8 * dp
+          topPadding: 0
+          leftPadding: 22 * dp
+          text: qsTr( "Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation." )
+          font: Theme.tipFont
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+      }
     }
   }
 }
