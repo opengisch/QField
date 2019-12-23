@@ -5,7 +5,26 @@ Item {
   id: item
 
   property variant location // QgsPointV2
+  property real accuracy
   property MapSettings mapSettings
+
+  Rectangle {
+    id: accuracyMarker
+    property point location
+    property real accuracy
+    visible: accuracy > 0.0
+    width: accuracy
+    height: accuracy
+
+    x: location.x - width/2
+    y: location.y - height/2
+
+    radius: width/2
+
+    color: "#44AD1457"
+    border.color: "#60880E4F"
+    border.width: 0.7 * dp
+  }
 
   Rectangle {
     id: marker
@@ -17,6 +36,9 @@ Item {
     y: location.y - height/2
 
     radius: width/2
+
+    border.color: "#880E4F"
+    border.width: 0.7 * dp
 
     gradient: Gradient  {
       GradientStop  {
@@ -37,18 +59,20 @@ Item {
         }
       }
     }
-    border.color: "#880E4F"
-    border.width: 0.7 * dp
+  }
 
-    Connections {
-      target: mapSettings
-      onExtentChanged: {
-        marker.location = mapSettings.coordinateToScreen( location )
-      }
+  Connections {
+    target: mapSettings
+    onExtentChanged: {
+      marker.location = mapSettings.coordinateToScreen( location )
+      accuracyMarker.location = mapSettings.coordinateToScreen( location )
+      accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPixel
     }
   }
 
   onLocationChanged: {
-    marker.location = mapSettings.coordinateToScreen( location )
+    marker.location = mapSettings.coordinateToScreen( location );
+    accuracyMarker.location = mapSettings.coordinateToScreen( location )
+    accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPixel
   }
 }

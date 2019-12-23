@@ -271,6 +271,7 @@ ApplicationWindow {
       anchors.fill: parent
       visible: positionSource.active
       location: positionSource.projectedPosition
+      accuracy: positionSource.projectedHorizontalAccuracy
     }
 
     /* Rubberband for vertices  */

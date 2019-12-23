@@ -104,6 +104,11 @@ class QgsQuickUtils: public QObject
         const QgsPointXY &srcPoint );
 
     /**
+      * Calculates the conversion factor between the specified distance units.
+      */
+    Q_INVOKABLE static double distanceFromUnitToUnitFactor( const QgsUnitTypes::DistanceUnit fromUnit, const QgsUnitTypes::DistanceUnit toUnit );
+
+    /**
       * Calculates the distance in meter representing baseLengthPixels pixels on the screen based on the current map settings.
       */
     Q_INVOKABLE static double screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels );

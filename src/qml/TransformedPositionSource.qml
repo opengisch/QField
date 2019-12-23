@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtPositioning 5.3
 import org.qfield 1.0
+import org.qgis 1.0
 import Utils 1.0
 
 PositionSource {
@@ -8,6 +9,11 @@ PositionSource {
 
   property alias destinationCrs: _ct.destinationCrs
   property alias projectedPosition: _ct.projectedPosition
+  property real projectedHorizontalAccuracy: if (positionSource.position.horizontalAccuracyValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit) {
+                                               positionSource.position.horizontalAccuracy * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits )
+                                             } else {
+                                               0.0
+                                             }
 
   property CoordinateTransformer ct: CoordinateTransformer {
     id: _ct
