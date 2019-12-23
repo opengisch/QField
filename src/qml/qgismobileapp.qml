@@ -103,7 +103,18 @@ ApplicationWindow {
   onChangeMode: {
     stateMachine.lastState = stateMachine.state
     stateMachine.state = mode
-    displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
+    switch ( stateMachine.state )
+    {
+      case 'browse':
+        displayToast( qsTr( 'You are now in browse mode' ) );
+        break;
+      case 'digitize':
+        displayToast( qsTr( 'You are now in digitize mode' ) );
+        break;
+      case 'measure':
+        displayToast( qsTr( 'You are now in measure mode' ) );
+        break;
+    }
   }
 
   onCloseTool: {

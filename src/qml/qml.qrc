@@ -30,7 +30,7 @@
         <file>TreeView.qml</file>
         <file>TransformedPositionSource.qml</file>
         <file>LayerTreeItemProperties.qml</file>
-        <file>ui/LayerTreeItemProperties.ui.qml</file>
+        <file>ui/LayerTreeItemProperties.qml</file>
         <file>QFieldCamera.qml</file>
         <file>GeometryEditingToolbar.qml</file>
         <file>VertexRubberband.qml</file>
