@@ -69,6 +69,11 @@ QgsPointXY QgsQuickUtils::transformPoint( const QgsCoordinateReferenceSystem &sr
   return pt;
 }
 
+double QgsQuickUtils::distanceFromUnitToUnitFactor( const QgsUnitTypes::DistanceUnit fromUnit, const QgsUnitTypes::DistanceUnit toUnit )
+{
+  return QgsUnitTypes::fromUnitToUnitFactor( fromUnit, toUnit );
+}
+
 double QgsQuickUtils::screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels )
 {
   if ( mapSettings == nullptr ) return 0.0;
