@@ -11,7 +11,7 @@ Item {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: Math.max(image.height, button.height)
+  height: Math.max(image.height, button_camera.height, button_gallery.height)
 
   property PictureSource __pictureSource
 
@@ -22,6 +22,7 @@ Item {
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
+    horizontalAlignment: Image.AlignLeft
 
     //source is managed over onCurrentValueChanged since the binding would break somewhere
     source: Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
@@ -47,7 +48,29 @@ Item {
   }
 
   QField.Button {
-    id: button
+    id: button_camera
+    width: 36 * dp
+    height: 36 * dp
+
+    anchors.right: button_gallery.left
+    anchors.bottom: parent.bottom
+
+    bgcolor: "transparent"
+
+    onClicked: {
+      if ( settings.valueBool("useNativeCamera", true) ) {
+        __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/DCIM')
+      } else {
+        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
+        camloader.active = true
+      }
+    }
+
+    iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
+  }
+
+  QField.Button {
+    id: button_gallery
     width: 36 * dp
     height: 36 * dp
 
@@ -57,16 +80,12 @@ Item {
     bgcolor: "transparent"
 
     onClicked: {
-      if ( settings.valueBool("useNativeCamera", false) ) {
-        __pictureSource = platformUtilities.getPicture(qgisProject.homePath + '/DCIM')
-      } else {
-        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
-        camloader.active = true
-      }
+        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/DCIM')
     }
 
-    iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
+    iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
   }
+
 
   Loader {
     id: camloader

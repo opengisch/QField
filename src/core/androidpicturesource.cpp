@@ -32,45 +32,23 @@ AndroidPictureSource::AndroidPictureSource( const QString &prefix )
 
 void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
-  jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-  if ( receiverRequestCode == 101 && resultCode == RESULT_OK )
-  {
-    QAndroidJniObject uri = data.callObjectMethod( "getData", "()Landroid/net/Uri;" );
-    QAndroidJniObject data = QAndroidJniObject::getStaticObjectField( "android/provider/MediaStore$MediaColumns", "DATA", "Ljava/lang/String;" );
-    QAndroidJniEnvironment env;
-    jobjectArray projection = ( jobjectArray )env->NewObjectArray( 1, env->FindClass( "java/lang/String" ), NULL );
-    jobject dataProjection = env->NewStringUTF( data.toString().toStdString().c_str() );
-    env->SetObjectArrayElement( projection, 0, dataProjection );
-    QAndroidJniObject contentResolver = QtAndroid::androidActivity().callObjectMethod( "getContentResolver", "()Landroid/content/ContentResolver;" );
-    QAndroidJniObject cursor = contentResolver.callObjectMethod( "query", "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;", uri.object<jobject>(), projection, NULL, NULL, NULL );
-    jint columnIndex = cursor.callMethod<jint>( "getColumnIndex", "(Ljava/lang/String;)I", data.object<jstring>() );
-    cursor.callMethod<jboolean>( "moveToFirst", "()Z" );
-    QAndroidJniObject filePath = cursor.callObjectMethod( "getString", "(I)Ljava/lang/String;", columnIndex );
+  if ( receiverRequestCode == 171) {
 
-    if ( !QDir::root().mkpath( mPrefix ) )
-    {
-      QgsApplication::messageLog()->logMessage( tr( "Could not create folder %1" ).arg( mPrefix ), "QField", Qgis::Critical );
-      return;
+    jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
+    if ( resultCode == RESULT_OK ) {
+      QAndroidJniObject extras = data.callObjectMethod("getExtras", "()Landroid/os/Bundle;");
+
+      QAndroidJniObject picture_image_filename = QAndroidJniObject::fromString("PICTURE_IMAGE_FILENAME");
+      picture_image_filename = extras.callObjectMethod("getString", "(Ljava/lang/String;)Ljava/lang/String;",
+                                                       picture_image_filename.object<jstring>());
+
+      qDebug() << "picture_image_filename: " << picture_image_filename.toString();
+
+      emit pictureReceived( picture_image_filename.toString() );
     }
-
-    QDir dir( mPrefix );
-
-    QFileInfo fileInfo( filePath.toString() );
-    QString filename( fileInfo.fileName() );
-
-    if ( !QFile( filePath.toString() ).rename( dir.absoluteFilePath( filename ) ) )
-    {
-      qDebug() << "Couldn't rename file! Trying to copy instead";
-      if ( !QFile( filePath.toString() ).copy( dir.absoluteFilePath( filename ) ) )
-      {
-        QgsApplication::messageLog()->logMessage( tr( "Image %1 could not be copied to project folder %2." ).arg( filePath.toString(), mPrefix ), "QField", Qgis::Critical );
-      }
+    else {
+      emit pictureReceived( QString::null );
     }
-
-    emit pictureReceived( filename );
   }
-  else
-  {
-    emit pictureReceived( QString::null );
-  }
+  
 }

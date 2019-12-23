@@ -212,5 +212,25 @@
         <file>themes/qfield/xxhdpi/ic_arrow_right_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_arrow_drop_down_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_arrow_right_black_24dp.png</file>
+        <file>themes/qfield/hdpi/baseline_photo_library_black_18.png</file>
+        <file>themes/qfield/mdpi/baseline_photo_library_black_18.png</file>
+        <file>themes/qfield/xhdpi/baseline_photo_library_black_18.png</file>
+        <file>themes/qfield/xxhdpi/baseline_photo_library_black_18.png</file>
+        <file>themes/qfield/xxxhdpi/baseline_photo_library_black_18.png</file>
+        <file>themes/qfield/hdpi/baseline_photo_library_black_24.png</file>
+        <file>themes/qfield/mdpi/baseline_photo_library_black_24.png</file>
+        <file>themes/qfield/xhdpi/baseline_photo_library_black_24.png</file>
+        <file>themes/qfield/xxhdpi/baseline_photo_library_black_24.png</file>
+        <file>themes/qfield/xxxhdpi/baseline_photo_library_black_24.png</file>
+        <file>themes/qfield/hdpi/baseline_photo_library_black_36.png</file>
+        <file>themes/qfield/mdpi/baseline_photo_library_black_36.png</file>
+        <file>themes/qfield/xhdpi/baseline_photo_library_black_36.png</file>
+        <file>themes/qfield/xxhdpi/baseline_photo_library_black_36.png</file>
+        <file>themes/qfield/xxxhdpi/baseline_photo_library_black_36.png</file>
+        <file>themes/qfield/hdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/mdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/xhdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/xxhdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/xxxhdpi/baseline_photo_library_black_48.png</file>
     </qresource>
 </RCC>
