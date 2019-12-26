@@ -16,8 +16,8 @@ Item {
     property point location
     property real accuracy
     visible: accuracy > 0.0
-    width: accuracy
-    height: accuracy
+    width: accuracy * 2
+    height: accuracy * 2
 
     x: location.x - width/2
     y: location.y - height/2
