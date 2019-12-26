@@ -29,7 +29,7 @@ Rectangle {
       id: x
       height: rowHeight
       width: grid.cellWidth
-      color: Theme.lightGray
+      color: "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
@@ -62,7 +62,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? "white" : Theme.lightGray
+      color: grid.rows === 2 ? "white" : "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
@@ -88,7 +88,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? Theme.lightGray : "white"
+      color: grid.rows === 2 ? "#e6f2fd" : "white"
 
       Text {
         anchors.margins:  10*dp
@@ -102,7 +102,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: Theme.lightGray
+      color: "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
