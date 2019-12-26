@@ -10,16 +10,12 @@ Item {
   QtObject {
     id: vars
 
+    property int units: mapSettings.destinationCrs.mapUnits
     property real range: referenceWidth * mapSettings.mapUnitsPerPixel
     property real exponent: Math.floor(Math.log(range) / Math.LN10)
     property real magnitude: Math.pow(10, exponent)
     property real adjustedMagnitude: magnitude / (1 + (magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth)
-    property real decimalsAdjustment: if (units === QgsUnitTypes.DistanceDegrees) {
-                                adjustedMagnitude < 0.01 ? 5 : 3
-                            } else {
-                                0
-                            }
-    property int units: mapSettings.destinationCrs.mapUnits
+    property real decimalsAdjustment: units === QgsUnitTypes.DistanceDegrees ? adjustedMagnitude < 0.01 ? 5 : 3 : 0
   }
 
   Rectangle {
