@@ -265,6 +265,7 @@ ApplicationWindow {
       visible: positionSource.active
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
+      direction: positionSource.projection.directionValid ? positionSource.projection.direction : -1
     }
 
     /* Rubberband for vertices  */
