@@ -14,8 +14,8 @@ Item {
     property real range: referenceWidth * mapSettings.mapUnitsPerPixel
     property real exponent: Math.floor(Math.log(range) / Math.LN10)
     property real magnitude: Math.pow(10, exponent)
-    property real adjustedMagnitude: magnitude / (1 + (magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth)
-    property real decimalsAdjustment: units === QgsUnitTypes.DistanceDegrees ? adjustedMagnitude < 0.01 ? 5 : 3 : 0
+    property real adjustedMagnitude: units == QgsUnitTypes.DistanceDegrees ? magnitude / (1 + (magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth) : magnitude / (1 + Math.round((magnitude / mapSettings.mapUnitsPerPixel) / referenceWidth))
+    property real decimalsAdjustment: units == QgsUnitTypes.DistanceDegrees ? adjustedMagnitude < 0.01 ? 4 : 3 : 0
   }
 
   Rectangle {
