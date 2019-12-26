@@ -8,11 +8,7 @@ PositionSource {
   id: positionSource
   property alias destinationCrs: _ct.destinationCrs
   property alias projectedPosition: _ct.projectedPosition
-  property real projectedHorizontalAccuracy: if (positionSource.position.horizontalAccuracyValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit) {
-                                               positionSource.position.horizontalAccuracy * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits )
-                                             } else {
-                                               0.0
-                                             }
+  property real projectedHorizontalAccuracy: position.horizontalAccuracyValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? position.horizontalAccuracy * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
   property alias deltaZ: _ct.deltaZ
   property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
