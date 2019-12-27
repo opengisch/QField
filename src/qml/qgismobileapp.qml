@@ -510,8 +510,8 @@ ApplicationWindow {
     id: mainToolBar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: digitizingToolbar.height + 4 * dp
+    anchors.bottom: digitizingToolbar.stateVisible ? digitizingToolbar.top : mapCanvas.bottom
+    anchors.bottomMargin: 4 * dp
     spacing: 4 * dp
 
     Button {
