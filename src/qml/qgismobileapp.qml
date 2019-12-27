@@ -858,6 +858,7 @@ ApplicationWindow {
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+        welcomeScreen.visible = false
       }
     }
   }
@@ -1257,7 +1258,6 @@ ApplicationWindow {
       __projectSource = platformUtilities.openProject()
     }
     onLoadLastProject: {
-      welcomeScreen.visible = false
       iface.loadLastProject()
     }
   }
@@ -1396,7 +1396,6 @@ ApplicationWindow {
       }
     }
     onDropped: {
-      welcomeScreen.visible = false
       iface.loadProject( drop.urls[0] )
     }
 
@@ -1441,7 +1440,6 @@ ApplicationWindow {
     target: welcomeScreen.__projectSource
 
     onProjectOpened: {
-      welcomeScreen.visible = false
       iface.loadProject( path )
     }
   }

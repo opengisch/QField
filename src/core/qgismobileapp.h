@@ -59,6 +59,11 @@ class QgisMobileapp : public QQmlApplicationEngine
     ~QgisMobileapp() override;
 
     /**
+     * Returns a list of recent projects.
+     */
+    QList<QPair<QString, QString>> recentProjects();
+
+    /**
      * When called loads the last project
      */
     void loadLastProject();

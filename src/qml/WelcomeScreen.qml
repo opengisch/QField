@@ -131,6 +131,107 @@ Page {
             }
           }
         }
+
+        Text {
+          id: recentText
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: qsTr( "Recent Projects" )
+          font: Theme.strongFont
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Text {
+          property string path: ""
+          id: recent0
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: ""
+          font.pointSize: Theme.tipFont.pointSize
+          font.underline: true
+          color: Theme.mainColor
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+          }
+        }
+
+        Text {
+          property string path: ""
+          id: recent1
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: ""
+          font.pointSize: Theme.tipFont.pointSize
+          font.underline: true
+          color: Theme.mainColor
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+          }
+        }
+
+        Text {
+          property string path: ""
+          id: recent2
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: ""
+          font.pointSize: Theme.tipFont.pointSize
+          font.underline: true
+          color: Theme.mainColor
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+          }
+        }
+
+        Text {
+          property string path: ""
+          id: recent3
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: ""
+          font.pointSize: Theme.tipFont.pointSize
+          font.underline: true
+          color: Theme.mainColor
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+          }
+        }
+
+        Text {
+          property string path: ""
+          id: recent4
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+          text: ""
+          font.pointSize: Theme.tipFont.pointSize
+          font.underline: true
+          color: Theme.mainColor
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+          }
+        }
+
         Item {
             Layout.fillHeight: true
         }
@@ -152,9 +253,19 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField" )
         }
         lastProjectButton.text = qsTr( "Re-open last project" )
-        lastProjectButton.visible = settings.value("/qgis/project/lastProjectFile", '') != ''
+        lastProjectButton.visible = settings.value("/qgis/recentProjects/0/path", '') != ''
       }
     }
+    recent0.path = settings.value('/qgis/recentProjects/0/path','')
+    recent0.text = settings.value('/qgis/recentProjects/0/title','')
+    recent1.path = settings.value('/qgis/recentProjects/1/path','')
+    recent1.text = settings.value('/qgis/recentProjects/1/title','')
+    recent2.path = settings.value('/qgis/recentProjects/2/path','')
+    recent2.text = settings.value('/qgis/recentProjects/2/title','')
+    recent3.path = settings.value('/qgis/recentProjects/3/path','')
+    recent3.text = settings.value('/qgis/recentProjects/3/title','')
+    recent4.path = settings.value('/qgis/recentProjects/4/path','')
+    recent4.text = settings.value('/qgis/recentProjects/4/title','')
   }
 
   Component.onCompleted: {

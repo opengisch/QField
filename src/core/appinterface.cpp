@@ -25,7 +25,7 @@ AppInterface::AppInterface( QgisMobileapp *app )
 
 void AppInterface::loadLastProject()
 {
-    return mApp->loadLastProject();
+  return mApp->loadLastProject();
 }
 
 void AppInterface::loadProject( const QString &path )
