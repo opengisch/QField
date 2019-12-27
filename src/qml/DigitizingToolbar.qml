@@ -30,7 +30,7 @@ VisibilityFadingRow {
   Button {
     id: confirmButton
     iconSource: {
-      Theme.getThemeIcon( "ic_save_white_24dp" )
+      Theme.getThemeIcon( "ic_check_white_48dp" )
     }
     visible: {
       if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 || stateMachine.state === 'measure' )
