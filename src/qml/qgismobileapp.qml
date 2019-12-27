@@ -698,7 +698,6 @@ ApplicationWindow {
 
     MenuItem {
       id: openProjectMenuItem
-      property ProjectSource __projectSource
 
       font: Theme.defaultFont
       width: parent.width
@@ -707,7 +706,8 @@ ApplicationWindow {
 
       text: qsTr( "Open Project" )
       onTriggered: {
-        __projectSource = platformUtilities.openProject()
+        dashBoard.close()
+        welcomeScreen.visible = true
         highlighted = false
       }
     }
@@ -1216,21 +1216,6 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
-    visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
-
-    width: parent.width
-    height: parent.height
-
-    onAccepted: {
-        iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      mainWindow.keyHandler.focus=true
-    }
-  }
-
   PositioningSettings {
     id: positioningSettings
     visible: false
@@ -1265,12 +1250,30 @@ ApplicationWindow {
   WelcomeScreen {
     id: welcomeScreen
     anchors.fill: parent
-    visible: !settings.value( "/QField/FirstRunFlag", false )
+    visible: true
     property ProjectSource __projectSource
 
     onShowOpenProjectDialog: {
-      welcomeScreen.visible = false
       __projectSource = platformUtilities.openProject()
+    }
+    onLoadLastProject: {
+      welcomeScreen.visible = false
+      iface.loadLastProject()
+    }
+  }
+
+  FileDialog {
+    id: openProjectDialog
+    title: qsTr( "Open project" )
+    visible: false
+    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
+
+    width: parent.width
+    height: parent.height
+
+    onAccepted: {
+      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
+      mainWindow.keyHandler.focus=true
     }
   }
 
@@ -1393,6 +1396,7 @@ ApplicationWindow {
       }
     }
     onDropped: {
+      welcomeScreen.visible = false
       iface.loadProject( drop.urls[0] )
     }
 
@@ -1437,6 +1441,7 @@ ApplicationWindow {
     target: welcomeScreen.__projectSource
 
     onProjectOpened: {
+      welcomeScreen.visible = false
       iface.loadProject( path )
     }
   }

@@ -1,71 +1,167 @@
-import QtQuick 2.11
-import QtQuick.Controls 1.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Controls.Styles 1.2
+import QtQuick.Layouts 1.12
 import Theme 1.0
-import "."
 
-Item {
+Page {
   signal showOpenProjectDialog
+  signal loadLastProject
 
-  Rectangle {
+  padding: 6 * dp
+
+  GridLayout {
+    id: welcomeGrid
+    columns: 1
+    rowSpacing: 10 * dp
+    width: mainWindow.width
     anchors.fill: parent
-    color: "white"
 
-    Item {
-      anchors.fill: parent
-      anchors.margins: 10*dp
+    Image {
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      source: "qrc:/images/qfield-logo.svg"
+      fillMode: Image.PreserveAspectFit
+    }
 
-      Row {
-        width: parent.width
+    Text {
+      id: welcomeText
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      text: qsTr( "Welcome back to QField." )
+      font: Theme.defaultFont
+      horizontalAlignment: Text.AlignHCenter
+      wrapMode: Text.WordWrap
+      Layout.fillWidth: true
+    }
 
-        Column {
-          id: column
-          width: parent.width - logo.width
+    Rectangle {
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.maximumWidth: 380 * dp
+      Layout.maximumHeight: 380 * dp
+      color: "transparent"
 
-          Text {
-            width: parent.width
-            text: qsTr( "QField for QGIS" )
-            font.pointSize: 25
+      ScrollView {
+        padding: 5 * dp
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+        contentWidth: welcomeActions.width
+        contentHeight: welcomeActions.height
+        anchors.fill: parent
+        clip: true
+
+      ColumnLayout {
+        id: welcomeActions
+        width: parent.parent.width
+        anchors.fill: parent.parent
+        spacing: 12 * dp
+
+        Button {
+          id: localProjectButton
+          padding: 8 * dp
+          topInset: 2 * dp
+          bottomInset: 2 * dp
+          Layout.fillWidth: true
+          text: qsTr( "Open local project" )
+          background: Rectangle {
+              anchors.fill: parent
+              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              radius: 12 * dp
           }
-
-          Text {
-            width: parent.width
-            text: qsTr( "To get started you can use a demo project or your own QGIS project."
-                + " It is very easy to create one on your desktop PC and then transfer it"
-                + " to this device." )
-            wrapMode: Text.WordWrap
-            font.pointSize: 16
+          contentItem: Text {
+              text: parent.text
+              font: Theme.tipFont
+              color: "white"
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
           }
-
-          Text {
-            width: parent.width
-            text: qsTr( "Once you have a project on this device, or to use a demo project,"
-                + " use the button below to locate it, open it and start working." )
-            wrapMode: Text.WordWrap
-            font.pointSize: 16
-            bottomPadding: 20
+          onClicked: {
+            settings.setValue( "/QField/FirstRunFlag", false )
+            showOpenProjectDialog()
           }
-
-          Button {
-            iconSource: Theme.getThemeIcon( "ic_map_green_48dp" )
-            width: 48*dp
-            height: 48*dp
-            bgcolor: "white"
-            borderColor: Theme.mainColor
-            onClicked: {
-              showOpenProjectDialog()
-              settings.setValue( "/QField/FirstRunFlag", false )
+        }
+        Button {
+          id: cloudProjectButton
+          padding: 8 * dp
+          topInset: 2 * dp
+          bottomInset: 2 * dp
+          Layout.fillWidth: true
+          text: qsTr( "Open cloud-stored project" )
+          enabled: false
+          background: Rectangle {
+              anchors.fill: parent
+              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              radius: 12 * dp
+          }
+          contentItem: Text {
+              text: parent.text
+              font: Theme.tipFont
+              color: "white"
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
+          }
+        }
+        Button {
+          id: lastProjectButton
+          padding: 8 * dp
+          topInset: 2 * dp
+          bottomInset: 2 * dp
+          Layout.fillWidth: true
+          text: qsTr( "Re-open last project" )
+          background: Rectangle {
+              anchors.fill: parent
+              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              radius: 12 * dp
+          }
+          contentItem: Text {
+              text: parent.text
+              font: Theme.tipFont
+              color: "white"
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
+          }
+          onClicked: {
+            if (qgisProject.fileName != '') {
+              welcomeScreen.visible = false;
+            } else {
+              loadLastProject()
             }
           }
         }
-
-        Image {
-          id: logo
-          source: "qrc:/images/qfield-logo.svg"
-          width: 96*dp
-          height: 96*dp
-          fillMode: Image.PreserveAspectFit
+        Item {
+            Layout.fillHeight: true
         }
       }
+      }
     }
+  }
+
+  function adjustWelcomeScreen() {
+    if (visible) {
+      if (qgisProject.fileName != '') {
+        welcomeText.text = " ";
+        lastProjectButton.text = qsTr( "Return to current project" )
+        lastProjectButton.visible = true
+      } else {
+        if ( !settings.value( "/QField/FirstRunFlag", false ) ) {
+          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try a demo project by clicking on the <i>Open local project</i> button." )
+        } else {
+          welcomeText.text = qsTr( "Welcome back to QField" )
+        }
+        lastProjectButton.text = qsTr( "Re-open last project" )
+        lastProjectButton.visible = settings.value("/qgis/project/lastProjectFile", '') != ''
+      }
+    }
+  }
+
+  Component.onCompleted: {
+    adjustWelcomeScreen()
+  }
+
+  onVisibleChanged: {
+    adjustWelcomeScreen()
   }
 }

@@ -308,10 +308,6 @@ void QgisMobileapp::onAfterFirstRendering()
     {
       loadProjectFile( mPlatformUtils.qgsProject() );
     }
-    else
-    {
-      QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
-    }
     mFirstRenderingFlag = false;
   }
 }

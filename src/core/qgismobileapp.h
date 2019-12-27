@@ -59,6 +59,11 @@ class QgisMobileapp : public QQmlApplicationEngine
     ~QgisMobileapp() override;
 
     /**
+     * When called loads the last project
+     */
+    void loadLastProject();
+
+    /**
      * When called loads the project file found at path.
      *
      * @param path The project file to load
@@ -89,11 +94,6 @@ class QgisMobileapp : public QQmlApplicationEngine
     void loadProjectEnded();
 
   private slots:
-
-    /**
-     * When called loads the last project
-     */
-    void loadLastProject();
 
     /**
      * Is called when a project is read.
