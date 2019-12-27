@@ -31,6 +31,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QTemporaryFile>
+#include <QFileInfo>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -268,11 +269,51 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
+QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
+{
+  QSettings settings;
+  QList<QPair<QString, QString>> projects;
+
+  settings.beginGroup( "/qgis/recentProjects" );
+  const QStringList projectKeysList = settings.childGroups();
+  QList<int> projectKeys;
+  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
+  for ( auto key : projectKeysList )
+  {
+    projectKeys.append( key.toInt() );
+  }
+  for ( int i = 0; i < projectKeys.count(); i++ )
+  {
+    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
+    projects << qMakePair( settings.value( QStringLiteral( "title" ) ).toString(), settings.value( QStringLiteral( "path" ) ).toString() );
+    settings.endGroup();
+  }
+  settings.endGroup();
+  return projects;
+}
+
 void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
   Q_UNUSED( doc );
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
-  QSettings().setValue( "/qgis/project/lastProjectFile", mProject->fileName() );
+
+  QList<QPair<QString, QString>> projects = recentProjects();
+  QFileInfo fi( mProject->fileName() );
+  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.baseName() : mProject->title(), mProject->fileName() );
+  if ( projects.contains( project ) )
+    projects.removeAt( projects.indexOf( project ) );
+  projects.insert( 0, project );
+
+  QSettings settings;
+  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
+  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  {
+    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
+    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
+    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
+    settings.endGroup();
+  }
+
   const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
   for ( QgsMapLayer *layer : mapLayers )
   {
@@ -314,7 +355,7 @@ void QgisMobileapp::onAfterFirstRendering()
 
 void QgisMobileapp::loadLastProject()
 {
-  QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
+  QVariant lastProjectFile = QSettings().value( "/qgis/recentProjects/0/path" );
   if ( lastProjectFile.isValid() )
     loadProjectFile( lastProjectFile.toString() );
 }
