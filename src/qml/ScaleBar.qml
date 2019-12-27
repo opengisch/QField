@@ -19,36 +19,66 @@ Item {
   }
 
   Rectangle {
+    id: mainLineBackground
+    width: ( vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel ) + 2 * dp
+    height: lineWidth + 2 * dp
+    color: "#AAFFFFFF"
+  }
+
+  Rectangle {
+    width: lineWidth + 2 * dp
+    height: ( 3 * lineWidth ) + 1 * dp
+    color: "#AAFFFFFF"
+    anchors.left: mainLineBackground.left
+    anchors.bottom: mainLineBackground.top
+  }
+
+  Rectangle {
+    width: lineWidth + 2 * dp
+    height: ( 3*lineWidth ) + 1 * dp
+    color: "#AAFFFFFF"
+    anchors.right: mainLineBackground.right
+    anchors.bottom: mainLineBackground.top
+  }
+
+  Rectangle {
     id: mainLine
     width: vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel
     height: lineWidth
-    color: "darkslategrey"
+    color: Theme.darkGray
+    anchors {
+        horizontalCenter: mainLineBackground.horizontalCenter
+        verticalCenter: mainLineBackground.verticalCenter
+    }
   }
 
   Rectangle {
     width: lineWidth
-    height: 3*lineWidth
-    color: "darkslategrey"
+    height: 3 * lineWidth
+    color: Theme.darkGray
     anchors.left: mainLine.left
     anchors.bottom: mainLine.top
   }
 
   Rectangle {
     width: lineWidth
-    height: 3*lineWidth
-    color: "darkslategrey"
+    height: 3 * lineWidth
+    color: Theme.darkGray
     anchors.right: mainLine.right
     anchors.bottom: mainLine.top
   }
 
   Text {
     id: label
-    anchors.bottomMargin: 4 * dp
+    anchors.bottomMargin: 7 * dp
     anchors.bottom: mainLine.top
     anchors.horizontalCenter: mainLine.horizontalCenter
     anchors.left: undefined // The value will be set to mainLine.left is the label is wider than the mainLine
     font: Theme.defaultFont
-    color: "darkslategrey"
+    color: Theme.darkGray
+
+    style: Text.Outline
+    styleColor: "#AAFFFFFF"
 
     states: State {
         name: "narrow"; when: label.width > mainLine.width
