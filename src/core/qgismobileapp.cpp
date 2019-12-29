@@ -292,6 +292,19 @@ QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
   return projects;
 }
 
+void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects )
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
+  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  {
+    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
+    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
+    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
+    settings.endGroup();
+  }
+}
+
 void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
   Q_UNUSED( doc );
@@ -303,16 +316,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
   if ( projects.contains( project ) )
     projects.removeAt( projects.indexOf( project ) );
   projects.insert( 0, project );
-
-  QSettings settings;
-  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
-  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
-  {
-    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
-    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
-    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
-    settings.endGroup();
-  }
+  saveRecentProjects( projects );
 
   const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
   for ( QgsMapLayer *layer : mapLayers )

@@ -64,6 +64,11 @@ class QgisMobileapp : public QQmlApplicationEngine
     QList<QPair<QString, QString>> recentProjects();
 
     /**
+     * Saves a list of recent \a projects.
+     */
+    void saveRecentProjects( QList<QPair<QString, QString>> &projects );
+
+    /**
      * When called loads the last project
      */
     void loadLastProject();
