@@ -130,9 +130,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   if (firstRunFlag)
   {
     QList<QPair<QString,QString>> projects;
-    projects << qMakePair( QStringLiteral( "Offline bees demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/demo_projects/offline_bees.qgs" ) )
-             << qMakePair( QStringLiteral( "Online survey demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/demo_projects/online_survey.qgs" ) )
-             << qMakePair( QStringLiteral( "Online bees demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/demo_projects/simple_bumblebees.qgs" ) );
+    QString path = AndroidPlatformUtilities().packagePath();
+    path.chop( 6 ); // remove /share/ from the path
+    projects << qMakePair( QStringLiteral( "Offline bees demo" ), path  + QStringLiteral( "/resources/demo_projects/offline_bees.qgs" ) )
+             << qMakePair( QStringLiteral( "Online survey demo" ), path  + QStringLiteral( "/resources/demo_projects/online_survey.qgs" ) )
+             << qMakePair( QStringLiteral( "Online bees demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bumblebees.qgs" ) );
     saveRecentProjects( projects );
   }
 #endif
