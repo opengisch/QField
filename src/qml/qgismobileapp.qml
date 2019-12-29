@@ -1260,6 +1260,15 @@ ApplicationWindow {
     onLoadLastProject: {
       iface.loadLastProject()
     }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
+      }
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
   FileDialog {
@@ -1407,7 +1416,12 @@ ApplicationWindow {
   property bool alreadyCloseRequested: false
 
   onClosing: {
-      if( !alreadyCloseRequested )
+      if ( welcomeScreen.visible && qgisProject.fileName != '')
+      {
+        close.accepted = false
+        welcomeScreen.visible = false
+      }
+      else if( !alreadyCloseRequested )
       {
         close.accepted = false
         alreadyCloseRequested = true
