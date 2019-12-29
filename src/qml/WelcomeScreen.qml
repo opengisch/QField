@@ -47,8 +47,11 @@ Page {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       Layout.preferredWidth: 138 * dp
       Layout.preferredHeight: 138 * dp
-      source: "qrc:/images/qfield-logo.svg"
       fillMode: Image.PreserveAspectFit
+      smooth: true
+      source: "qrc:/images/qfield-logo.svg"
+      sourceSize.width: 200 * dp
+      sourceSize.height: 200 * dp
     }
 
     Text {
