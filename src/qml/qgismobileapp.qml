@@ -158,7 +158,7 @@ ApplicationWindow {
     Rectangle {
       id: mapCanvasBackground
       anchors.fill: parent
-      color: mapSettings.backgroundColor
+      color: parent.mapSettings.backgroundColor
     }
 
     /* The base map */
@@ -708,6 +708,7 @@ ApplicationWindow {
       onTriggered: {
         dashBoard.close()
         welcomeScreen.visible = true
+        welcomeScreen.focus = true
         highlighted = false
       }
     }
@@ -859,6 +860,7 @@ ApplicationWindow {
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
         welcomeScreen.visible = false
+        welcomeScreen.focus = false
       }
     }
   }
@@ -1250,9 +1252,12 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
-    anchors.fill: parent
-    visible: true
     property ProjectSource __projectSource
+
+    anchors.fill: parent
+    focus: true
+
+    visible: true
 
     onShowOpenProjectDialog: {
       __projectSource = platformUtilities.openProject()
@@ -1263,12 +1268,21 @@ ApplicationWindow {
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
+        console.log(focus)
+        if ( qgisProject.fileName != '') {
+          event.accepted = true
+          visible = false
+          focus = false
+        } else {
+          event.accepted = false
+          mainWindow.close()
+        }
       }
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    Component.onCompleted: {
+        focusstack.addFocusTaker( this )
+    }
   }
 
   FileDialog {
@@ -1416,12 +1430,7 @@ ApplicationWindow {
   property bool alreadyCloseRequested: false
 
   onClosing: {
-      if ( welcomeScreen.visible && qgisProject.fileName != '')
-      {
-        close.accepted = false
-        welcomeScreen.visible = false
-      }
-      else if( !alreadyCloseRequested )
+      if( !alreadyCloseRequested )
       {
         close.accepted = false
         alreadyCloseRequested = true
