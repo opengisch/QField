@@ -45,9 +45,9 @@ Page {
 
     Image {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.preferredWidth: 138 * dp
+      Layout.preferredHeight: 138 * dp
       source: "qrc:/images/qfield-logo.svg"
-      width: 52 * dp
-      height: 52 * dp
       fillMode: Image.PreserveAspectFit
     }
 
@@ -66,7 +66,7 @@ Page {
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       Layout.maximumWidth: 380 * dp
-      Layout.maximumHeight: 380 * dp
+      Layout.maximumHeight: 460 * dp
       color: "transparent"
 
       ScrollView {
@@ -81,7 +81,6 @@ Page {
       ColumnLayout {
         id: welcomeActions
         width: parent.parent.width
-        anchors.fill: parent.parent
         spacing: 12 * dp
 
         Button {
