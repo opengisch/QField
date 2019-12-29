@@ -95,18 +95,23 @@
         <file>themes/qfield/xxxhdpi/ic_gps_not_fixed_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_location_disabled_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_chevron_left_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_chevron_left_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_chevron_right_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_fullscreen_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_chevron_left_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_chevron_left_black_24dp.png</file>
         <file>themes/qfield/mdpi/ic_chevron_right_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_fullscreen_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_chevron_left_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_chevron_left_black_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_chevron_right_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_fullscreen_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_chevron_left_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_chevron_left_black_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_chevron_right_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_fullscreen_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_chevron_left_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_chevron_left_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_chevron_right_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_fullscreen_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_delete_forever_white_24dp.png</file>

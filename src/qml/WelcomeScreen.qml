@@ -10,6 +10,32 @@ Page {
 
   padding: 6 * dp
 
+  ToolButton {
+    id: currentProjectButton
+    height: 56 * dp
+    width: 56 * dp
+    anchors {
+      top: parent.top
+      left: parent.left
+    }
+    contentItem: Rectangle {
+      anchors.fill: parent
+      color: "transparent"
+      Image {
+        anchors.fill: parent
+        fillMode: Image.Pad
+        horizontalAlignment: Image.AlignHCenter
+        verticalAlignment: Image.AlignVCenter
+        source: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+      }
+    }
+
+    onClicked: {
+      welcomeScreen.visible = false;
+      welcomeScreen.focus = false;
+    }
+  }
+
   GridLayout {
     id: welcomeGrid
     columns: 1
@@ -79,11 +105,7 @@ Page {
               elide: Text.ElideRight
           }
           onClicked: {
-            if (qgisProject.fileName != '') {
-              welcomeScreen.visible = false;
-            } else {
-              loadLastProject()
-            }
+            loadLastProject()
           }
         }
         Button {
@@ -247,18 +269,19 @@ Page {
     if (visible) {
       if (qgisProject.fileName != '') {
         welcomeText.text = " ";
-        lastProjectButton.text = qsTr( "Return to current project" )
-        lastProjectButton.visible = true
+        currentProjectButton.visible = true
+        lastProjectButton.visible = false
       } else {
         if ( !settings.value( "/QField/FirstRunFlag", false ) ) {
           welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try a demo project by clicking on the <i>Open local project</i> button." )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
-        lastProjectButton.text = qsTr( "Re-open last project" )
-        lastProjectButton.visible = recentProjects.length > 0
+        currentProjectButton.visible = false
+        lastProjectButton.visible = true
       }
     }
+
     if (recentProjects.length > 0) {
       recent0.text = recentProjects[0].split('}|{')[0]
       recent0.path = recentProjects[0].split('}|{')[1]
