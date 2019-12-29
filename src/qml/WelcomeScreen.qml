@@ -59,6 +59,34 @@ Page {
         spacing: 12 * dp
 
         Button {
+          id: lastProjectButton
+          padding: 8 * dp
+          topInset: 2 * dp
+          bottomInset: 2 * dp
+          Layout.fillWidth: true
+          text: qsTr( "Re-open last project" )
+          background: Rectangle {
+              anchors.fill: parent
+              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              radius: 12 * dp
+          }
+          contentItem: Text {
+              text: parent.text
+              font: Theme.tipFont
+              color: "white"
+              horizontalAlignment: Text.AlignHCenter
+              verticalAlignment: Text.AlignVCenter
+              elide: Text.ElideRight
+          }
+          onClicked: {
+            if (qgisProject.fileName != '') {
+              welcomeScreen.visible = false;
+            } else {
+              loadLastProject()
+            }
+          }
+        }
+        Button {
           id: localProjectButton
           padding: 8 * dp
           topInset: 2 * dp
@@ -103,34 +131,6 @@ Page {
               horizontalAlignment: Text.AlignHCenter
               verticalAlignment: Text.AlignVCenter
               elide: Text.ElideRight
-          }
-        }
-        Button {
-          id: lastProjectButton
-          padding: 8 * dp
-          topInset: 2 * dp
-          bottomInset: 2 * dp
-          Layout.fillWidth: true
-          text: qsTr( "Re-open last project" )
-          background: Rectangle {
-              anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
-              radius: 12 * dp
-          }
-          contentItem: Text {
-              text: parent.text
-              font: Theme.tipFont
-              color: "white"
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-              elide: Text.ElideRight
-          }
-          onClicked: {
-            if (qgisProject.fileName != '') {
-              welcomeScreen.visible = false;
-            } else {
-              loadLastProject()
-            }
           }
         }
 
