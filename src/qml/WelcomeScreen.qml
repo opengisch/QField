@@ -288,13 +288,14 @@ Page {
         currentProjectButton.visible = true
         lastProjectButton.visible = false
       } else {
-        if ( !settings.value( "/QField/FirstRunFlag", false ) ) {
+        var firstRun = !settings.value( "/QField/FirstRunFlag", false )
+        if ( firstRun ) {
           welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below." )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
-        lastProjectButton.visible = recentProjects.length > 0
+        lastProjectButton.visible = !firstRun && recentProjects.length > 0
       }
     }
 
