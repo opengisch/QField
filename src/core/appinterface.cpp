@@ -23,6 +23,18 @@ AppInterface::AppInterface( QgisMobileapp *app )
 {
 }
 
+QStringList AppInterface::recentProjects()
+{
+  QList<QPair<QString,QString>> projectPairs = mApp->recentProjects();
+  QStringList projects;
+
+  for ( auto project : projectPairs )
+  {
+    projects << QStringLiteral( "%1}|{%2" ).arg( project.first, project.second );
+  }
+  return projects;
+}
+
 void AppInterface::loadLastProject()
 {
   return mApp->loadLastProject();
