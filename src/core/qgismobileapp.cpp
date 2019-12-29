@@ -124,6 +124,19 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   initDeclarative();
 
+  QSettings settings;
+#if defined(Q_OS_ANDROID)
+  const bool firstRunFlag = settings.value( QStringLiteral( "/qgis/FirstRunFlag" ), QString() ).toString().isEmpty();
+  if (firstRunFlag)
+  {
+    QList<QPair<QString,QString>> projects;
+    projects << qMakePair( QStringLiteral( "Offline bees demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/offline_bees.qgs" ) )
+             << qMakePair( QStringLiteral( "Online survey demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/online_survey.qgs" ) )
+             << qMakePair( QStringLiteral( "Online bees demo" ), AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources/simple_bumblebees.qgs" ) );
+    saveRecentProjects( projects );
+  }
+#endif
+
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
   connect( this, &QQmlApplicationEngine::quit, app, &QgsApplication::quit );

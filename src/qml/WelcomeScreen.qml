@@ -289,7 +289,7 @@ Page {
         lastProjectButton.visible = false
       } else {
         if ( !settings.value( "/QField/FirstRunFlag", false ) ) {
-          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try a demo project by clicking on the <i>Open local project</i> button." )
+          welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below." )
         } else {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
