@@ -141,7 +141,6 @@ Page {
               elide: Text.ElideRight
           }
           onClicked: {
-            settings.setValue( "/QField/FirstRunFlag", false )
             showOpenProjectDialog()
           }
         }
@@ -296,7 +295,7 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
-        lastProjectButton.visible = true
+        lastProjectButton.visible = recentProjects.length > 0
       }
     }
 
