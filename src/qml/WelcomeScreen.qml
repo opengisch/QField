@@ -93,8 +93,14 @@ Page {
           text: qsTr( "Re-open last project" )
           background: Rectangle {
               anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
               radius: 12 * dp
+              Behavior on color {
+                PropertyAnimation {
+                  duration: 25
+                  easing.type: Easing.InQuart
+                }
+              }
           }
           contentItem: Text {
               text: parent.text
@@ -117,8 +123,14 @@ Page {
           text: qsTr( "Open local project" )
           background: Rectangle {
               anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
               radius: 12 * dp
+              Behavior on color {
+                PropertyAnimation {
+                  duration: 25
+                  easing.type: Easing.InQuart
+                }
+              }
           }
           contentItem: Text {
               text: parent.text
@@ -143,8 +155,14 @@ Page {
           enabled: false
           background: Rectangle {
               anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : Theme.mainColor
+              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
               radius: 12 * dp
+              Behavior on color {
+                PropertyAnimation {
+                  duration: 25
+                  easing.type: Easing.InQuart
+                }
+              }
           }
           contentItem: Text {
               text: parent.text
