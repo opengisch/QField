@@ -20,6 +20,8 @@ Page {
     Image {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       source: "qrc:/images/qfield-logo.svg"
+      width: 52 * dp
+      height: 52 * dp
       fillMode: Image.PreserveAspectFit
     }
 
@@ -251,7 +253,7 @@ Page {
         if ( !settings.value( "/QField/FirstRunFlag", false ) ) {
           welcomeText.text = qsTr( "Welcome to QField. First time using this application? Try a demo project by clicking on the <i>Open local project</i> button." )
         } else {
-          welcomeText.text = qsTr( "Welcome back to QField" )
+          welcomeText.text = qsTr( "Welcome back to QField." )
         }
         lastProjectButton.text = qsTr( "Re-open last project" )
         lastProjectButton.visible = recentProjects.length > 0
