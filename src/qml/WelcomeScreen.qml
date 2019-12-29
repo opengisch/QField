@@ -241,6 +241,7 @@ Page {
   }
 
   function adjustWelcomeScreen() {
+    var recentProjects = iface.recentProjects()
     if (visible) {
       if (qgisProject.fileName != '') {
         welcomeText.text = " ";
@@ -253,19 +254,44 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField" )
         }
         lastProjectButton.text = qsTr( "Re-open last project" )
-        lastProjectButton.visible = settings.value("/qgis/recentProjects/0/path", '') != ''
+        lastProjectButton.visible = recentProjects.length > 0
       }
     }
-    recent0.path = settings.value('/qgis/recentProjects/0/path','')
-    recent0.text = settings.value('/qgis/recentProjects/0/title','')
-    recent1.path = settings.value('/qgis/recentProjects/1/path','')
-    recent1.text = settings.value('/qgis/recentProjects/1/title','')
-    recent2.path = settings.value('/qgis/recentProjects/2/path','')
-    recent2.text = settings.value('/qgis/recentProjects/2/title','')
-    recent3.path = settings.value('/qgis/recentProjects/3/path','')
-    recent3.text = settings.value('/qgis/recentProjects/3/title','')
-    recent4.path = settings.value('/qgis/recentProjects/4/path','')
-    recent4.text = settings.value('/qgis/recentProjects/4/title','')
+    if (recentProjects.length > 0) {
+      recent0.text = recentProjects[0].split('}|{')[0]
+      recent0.path = recentProjects[0].split('}|{')[1]
+      recent0.visible = true
+    } else {
+      recent0.visible = false
+    }
+    if (recentProjects.length > 1) {
+      recent1.text = recentProjects[1].split('}|{')[0]
+      recent1.path = recentProjects[1].split('}|{')[1]
+      recent1.visible = true
+    } else {
+      recent1.visible = false
+    }
+    if (recentProjects.length > 2) {
+      recent2.text = recentProjects[2].split('}|{')[0]
+      recent2.path = recentProjects[2].split('}|{')[1]
+      recent2.visible = true
+    } else {
+      recent2.visible = false
+    }
+    if (recentProjects.length > 3) {
+      recent3.text = recentProjects[3].split('}|{')[0]
+      recent3.path = recentProjects[3].split('}|{')[1]
+      recent3.visible = true
+    } else {
+      recent3.visible = false
+    }
+    if (recentProjects.length > 4) {
+      recent4.text = recentProjects[4].split('}|{')[0]
+      recent4.path = recentProjects[4].split('}|{')[1]
+      recent4.visible = true
+    } else {
+      recent4.visible = false
+    }
   }
 
   Component.onCompleted: {
