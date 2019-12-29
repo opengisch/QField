@@ -861,6 +861,7 @@ ApplicationWindow {
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
         welcomeScreen.visible = false
         welcomeScreen.focus = false
+        settings.setValue( "/QField/FirstRunFlag", false )
       }
     }
   }
