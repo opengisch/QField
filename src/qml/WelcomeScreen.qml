@@ -187,6 +187,8 @@ Page {
           MouseArea {
             anchors.fill: parent
             onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+            onPressed: { parent.color = "#5a8725" }
+            onReleased: { parent.color = Theme.mainColor }
           }
         }
 
@@ -205,6 +207,8 @@ Page {
           MouseArea {
             anchors.fill: parent
             onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+            onPressed: { parent.color = "#5a8725" }
+            onReleased: { parent.color = Theme.mainColor }
           }
         }
 
@@ -223,6 +227,8 @@ Page {
           MouseArea {
             anchors.fill: parent
             onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+            onPressed: { parent.color = "#5a8725" }
+            onReleased: { parent.color = Theme.mainColor }
           }
         }
 
@@ -241,6 +247,8 @@ Page {
           MouseArea {
             anchors.fill: parent
             onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+            onPressed: { parent.color = "#5a8725" }
+            onReleased: { parent.color = Theme.mainColor }
           }
         }
 
@@ -259,6 +267,8 @@ Page {
           MouseArea {
             anchors.fill: parent
             onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
+            onPressed: { parent.color = "#5a8725" }
+            onReleased: { parent.color = Theme.mainColor }
           }
         }
 
