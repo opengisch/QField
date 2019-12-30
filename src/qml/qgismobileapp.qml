@@ -1328,7 +1328,7 @@ ApplicationWindow {
       }
 
       Rectangle {
-          id: toastContent
+        id: toastContent
         color: Theme.darkGray
 
         height: 40 * dp
@@ -1345,6 +1345,14 @@ ApplicationWindow {
           anchors.centerIn: parent
           font: Theme.secondaryTitleFont
           color: Theme.light
+        }
+
+        MouseArea {
+          anchors.fill: parent
+          propagateComposedEvents: true
+          onClicked: {
+              mouse.accepted = false
+          }
         }
       }
 
