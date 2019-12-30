@@ -162,6 +162,7 @@ Item {
           anchors.right: parent.right
           anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -2 * dp
           visible: enabled
 
           MouseArea {
@@ -189,6 +190,7 @@ Item {
           anchors.right: todayButton.left
           anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -2 * dp
           visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
@@ -219,6 +221,18 @@ Item {
 
           style: CalendarStyle {
               gridVisible: false
+              weekNumberDelegate: Rectangle {
+                  implicitWidth: 24 * dp
+                  color: "white"
+
+                  Label {
+                      text: styleData.weekNumber
+                      anchors.centerIn: parent
+                      font.pixelSize: 14 * dp
+                      color: "lightgrey"
+                  }
+              }
+
               dayDelegate: Rectangle {
                   color: styleData.selected ? Theme.mainColor : "white"
 
