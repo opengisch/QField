@@ -1,6 +1,7 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 import Theme 1.0
 
@@ -216,6 +217,89 @@ Item {
           weekNumbersVisible: true
           focus: false
 
+          style: CalendarStyle {
+              gridVisible: false
+              dayDelegate: Rectangle {
+                  color: styleData.selected ? Theme.mainColor : "white"
+
+                  Label {
+                      text: styleData.date.getDate()
+                      anchors.centerIn: parent
+                      color: styleData.visibleMonth ? "black" : "lightgrey"
+                  }
+              }
+
+              navigationBar: Rectangle {
+                  height: 41
+                  color: "#f9f9f9"
+
+                  Rectangle {
+                      color: Qt.rgba(1,1,1,0.6)
+                      height: 1
+                      width: parent.width
+                  }
+
+                  Rectangle {
+                      anchors.bottom: parent.bottom
+                      height: 1
+                      width: parent.width
+                      color: "#ddd"
+                  }
+                  ToolButton {
+                      id: previousMonth
+                      width: parent.height
+                      height: width
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.left: parent.left
+                      contentItem: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 10*dp
+                        color: "transparent"
+                        Image {
+                          anchors.fill: parent
+                          fillMode: Image.Pad
+                          horizontalAlignment: Image.AlignHCenter
+                          verticalAlignment: Image.AlignVCenter
+                          source: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                        }
+                      }
+                      onClicked: calendar.showPreviousMonth()
+                  }
+                  Label {
+                      id: dateText
+                      text: styleData.title
+                      elide: Text.ElideRight
+                      horizontalAlignment: Text.AlignHCenter
+                      font.pointSize: 14
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.left: previousMonth.right
+                      anchors.leftMargin: 2
+                      anchors.right: nextMonth.left
+                      anchors.rightMargin: 2
+                  }
+                  ToolButton {
+                      id: nextMonth
+                      width: parent.height
+                      height: width
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.right: parent.right
+                      contentItem: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 10*dp
+                        color: "transparent"
+                        Image {
+                          anchors.fill: parent
+                          fillMode: Image.Pad
+                          horizontalAlignment: Image.AlignHCenter
+                          verticalAlignment: Image.AlignVCenter
+                          source: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                        }
+                      }
+                      onClicked: calendar.showNextMonth()
+                  }
+              }
+          }
+
           function resetDate() {
             selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
           }
@@ -224,7 +308,7 @@ Item {
         RowLayout {
           Button {
             text: qsTr( "OK" )
-            font: Theme.defaultFont
+            font: Theme.tipFont
             Layout.fillWidth: true
 
             onClicked: {
