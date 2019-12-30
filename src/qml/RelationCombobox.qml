@@ -110,13 +110,15 @@ Item {
       // [/hidpi fixes]
     }
 
-    QField.Button {
+    Image {
       id: addButton
-      iconSource: Theme.getThemeIcon( "ic_add_black_48dp" )
-      bgcolor: "white"
-      onClicked: {
-        attributeFormModel.featureModel.resetAttributes()
-        addFeatureForm.active = true
+      source: Theme.getThemeIcon("ic_add_black_48dp")
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            attributeFormModel.featureModel.resetAttributes()
+            addFeatureForm.active = true
+        }
       }
     }
 
@@ -154,6 +156,7 @@ Item {
       y: 24 * dp
       width: parent.width - 48 * dp
       height: parent.height - 48 * dp
+      padding: 0
       modal: true
       focus: true
       closePolicy: Popup.CloseOnEscape
