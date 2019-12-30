@@ -410,7 +410,7 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: mainWindow.width < 300 * dp ? mainWindow.width - anchors.margins - mainMenuBar.width : 200 * dp
+    width: Math.max( 200 * dp, mainWindow.width / 3 )
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.margins: 4 * dp
