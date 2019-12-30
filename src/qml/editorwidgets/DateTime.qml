@@ -42,7 +42,7 @@ Item {
         anchors.top: label.top
         anchors.left: label.left
         width: label.width
-        height: Math.max( 36 * dp, label.height - label.bottomPadding / 2 )
+        height: label.height - label.bottomPadding / 2
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
         color: enabled ? Theme.lightGray : "transparent"
@@ -57,7 +57,9 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
-        height: Math.max( 36 * dp, fontMetrics.height + 20 * dp )
+        height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
+        topPadding: 10 * dp
+        bottomPadding: 10 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -160,7 +162,6 @@ Item {
           anchors.right: parent.right
           anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -5 * dp
           visible: enabled
 
           MouseArea {
@@ -188,7 +189,6 @@ Item {
           anchors.right: todayButton.left
           anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -5 * dp
           visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
