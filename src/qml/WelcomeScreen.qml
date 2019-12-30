@@ -7,7 +7,20 @@ import Theme 1.0
 Page {
   signal showOpenProjectDialog
 
-  padding: 6 * dp
+  Rectangle {
+    id: welcomeBackground
+    anchors.fill: parent
+    gradient: Gradient  {
+      GradientStop  {
+        position: 0.0
+        color: "#ffdedede"
+      }
+      GradientStop  {
+        position: 0.33
+        color: "#00dedede"
+      }
+    }
+  }
 
   ToolButton {
     id: currentProjectButton
@@ -40,10 +53,12 @@ Page {
     id: welcomeGrid
     columns: 1
     rowSpacing: 10 * dp
+
     width: mainWindow.width
     anchors.fill: parent
 
     Image {
+      Layout.margins: 6 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       Layout.preferredWidth: 138 * dp
       Layout.preferredHeight: 138 * dp
@@ -55,6 +70,7 @@ Page {
     }
 
     Text {
+      Layout.margins: 6 * dp
       id: welcomeText
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
@@ -65,6 +81,7 @@ Page {
     }
 
     Rectangle {
+      Layout.margins: 6 * dp
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
