@@ -57,7 +57,7 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
-        height: fontMetrics.height + 20 * dp
+        height: Math.max( 36 * dp, fontMetrics.height + 20 * dp )
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -225,7 +225,7 @@ Item {
                   Label {
                       text: styleData.date.getDate()
                       anchors.centerIn: parent
-                      font.pointSize: 12 * dp
+                      font.pixelSize: 14 * dp
                       color: styleData.visibleMonth ? "black" : "lightgrey"
                   }
               }
@@ -259,7 +259,7 @@ Item {
                       text: styleData.title
                       elide: Text.ElideRight
                       horizontalAlignment: Text.AlignHCenter
-                      font.pointSize: 14 * dp
+                      font.pixelSize: 18 * dp
                       anchors.verticalCenter: parent.verticalCenter
                       anchors.left: previousMonth.right
                       anchors.leftMargin: 2
