@@ -41,7 +41,7 @@ Rectangle {
           if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
               parent.width
           } else {
-              Math.min(Math.max( 200 * dp, parent.width / 3), parent.width)
+              Math.min(Math.max( 200 * dp, parent.width / 2.6), parent.width)
           }
       } else { 0 }
   }
