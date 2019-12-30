@@ -111,8 +111,14 @@ Item {
     }
 
     Image {
+      Layout.margins: 4 * dp
+      Layout.preferredWidth: 18 * dp
+      Layout.preferredHeight: 18 * dp
       id: addButton
       source: Theme.getThemeIcon("ic_add_black_48dp")
+      width: 18 * dp
+      height: 18 * dp
+
       MouseArea {
         anchors.fill: parent
         onClicked: {
