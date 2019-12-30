@@ -1263,9 +1263,6 @@ ApplicationWindow {
     onShowOpenProjectDialog: {
       __projectSource = platformUtilities.openProject()
     }
-    onLoadLastProject: {
-      iface.loadLastProject()
-    }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
