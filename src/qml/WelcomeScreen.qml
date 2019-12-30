@@ -6,7 +6,6 @@ import Theme 1.0
 
 Page {
   signal showOpenProjectDialog
-  signal loadLastProject
 
   padding: 6 * dp
 
@@ -14,6 +13,7 @@ Page {
     id: currentProjectButton
     height: 56 * dp
     width: 56 * dp
+    visible: false
     anchors {
       top: parent.top
       left: parent.left
@@ -57,7 +57,7 @@ Page {
     Text {
       id: welcomeText
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      text: qsTr( "Welcome back to QField." )
+      text: ""
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
@@ -86,36 +86,6 @@ Page {
         width: parent.parent.width
         spacing: 12 * dp
 
-        Button {
-          id: lastProjectButton
-          padding: 8 * dp
-          topInset: 2 * dp
-          bottomInset: 2 * dp
-          Layout.fillWidth: true
-          text: qsTr( "Re-open last project" )
-          background: Rectangle {
-              anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-              radius: 12 * dp
-              Behavior on color {
-                PropertyAnimation {
-                  duration: 25
-                  easing.type: Easing.InQuart
-                }
-              }
-          }
-          contentItem: Text {
-              text: parent.text
-              font: Theme.tipFont
-              color: "white"
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-              elide: Text.ElideRight
-          }
-          onClicked: {
-            loadLastProject()
-          }
-        }
         Button {
           id: localProjectButton
           padding: 8 * dp
@@ -289,7 +259,6 @@ Page {
       if (qgisProject.fileName != '') {
         welcomeText.text = " ";
         currentProjectButton.visible = true
-        lastProjectButton.visible = false
       } else {
         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
         if ( firstRun ) {
@@ -298,7 +267,6 @@ Page {
           welcomeText.text = qsTr( "Welcome back to QField." )
         }
         currentProjectButton.visible = false
-        lastProjectButton.visible = !firstRun && recentProjects.length > 0
       }
     }
 
