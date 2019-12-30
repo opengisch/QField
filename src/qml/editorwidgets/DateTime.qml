@@ -154,9 +154,38 @@ Item {
         }
 
         Image {
+          id: todayButton
+          source: Theme.getThemeIcon("ic_calendar_today_black_24dp")
+          anchors.right: parent.right
+          anchors.rightMargin: 4 * dp
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -5 * dp
+          visible: enabled
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if ( main.isDateTimeType )
+              {
+                var currentDateTime = new Date()
+                valueChanged(currentDateTime, false)
+              }
+              else
+              {
+                var currentDate = new Date()
+                var textDate = Qt.formatDateTime(currentDate, config['field_format'])
+                valueChanged(textDate, false)
+              }
+              displayToast(qsTr( 'Date value set to today.'))
+            }
+          }
+        }
+
+        Image {
           id: clearButton
           source: Theme.getThemeIcon("ic_clear_black_18dp")
-          anchors.right: parent.right
+          anchors.right: todayButton.left
+          anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -5 * dp
           visible: ( value !== undefined ) && config['allow_null'] && enabled
