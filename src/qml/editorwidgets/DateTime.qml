@@ -42,7 +42,7 @@ Item {
         anchors.top: label.top
         anchors.left: label.left
         width: label.width
-        height: label.height - label.bottomPadding / 2
+        height: Math.max( 36 * dp, label.height - label.bottomPadding / 2 )
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
         color: enabled ? Theme.lightGray : "transparent"
@@ -156,7 +156,7 @@ Item {
 
         Image {
           id: todayButton
-          source: Theme.getThemeIcon("ic_calendar_today_black_24dp")
+          source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
           anchors.right: parent.right
           anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
@@ -225,26 +225,15 @@ Item {
                   Label {
                       text: styleData.date.getDate()
                       anchors.centerIn: parent
+                      font.pointSize: 12 * dp
                       color: styleData.visibleMonth ? "black" : "lightgrey"
                   }
               }
 
               navigationBar: Rectangle {
-                  height: 41
-                  color: "#f9f9f9"
+                  height: 42 * dp
+                  color: "transparent"
 
-                  Rectangle {
-                      color: Qt.rgba(1,1,1,0.6)
-                      height: 1
-                      width: parent.width
-                  }
-
-                  Rectangle {
-                      anchors.bottom: parent.bottom
-                      height: 1
-                      width: parent.width
-                      color: "#ddd"
-                  }
                   ToolButton {
                       id: previousMonth
                       width: parent.height
@@ -270,7 +259,7 @@ Item {
                       text: styleData.title
                       elide: Text.ElideRight
                       horizontalAlignment: Text.AlignHCenter
-                      font.pointSize: 14
+                      font.pointSize: 14 * dp
                       anchors.verticalCenter: parent.verticalCenter
                       anchors.left: previousMonth.right
                       anchors.leftMargin: 2
