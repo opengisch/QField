@@ -139,7 +139,7 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
-          text: qsTr( "Open cloud-stored project" )
+          text: qsTr( "Open QField cloud project" )
           enabled: false
           background: Rectangle {
               anchors.fill: parent
