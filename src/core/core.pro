@@ -60,6 +60,7 @@ HEADERS += \
     linepolygonhighlight.h \
     qgsgeometrywrapper.h \
     valuemapmodel.h \
+    recentprojectlistmodel.h \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
     qfieldappauthrequesthandler.h
@@ -106,6 +107,7 @@ SOURCES += \
     linepolygonhighlight.cpp \
     qgsgeometrywrapper.cpp \
     valuemapmodel.cpp \
+    recentprojectlistmodel.cpp \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp

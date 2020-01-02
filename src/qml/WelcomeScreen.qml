@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.12
 import Theme 1.0
 
 Page {
+  property alias model: table.model
   signal showOpenProjectDialog
 
   Rectangle {
@@ -86,7 +87,7 @@ Page {
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       Layout.maximumWidth: 380 * dp
-      Layout.maximumHeight: 460 * dp
+      Layout.maximumHeight: 560 * dp
       color: "transparent"
 
       ScrollView {
@@ -172,104 +173,104 @@ Page {
           Layout.fillWidth: true
         }
 
-        Text {
-          property string path: ""
-          id: recent0
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-          text: ""
-          font.pointSize: Theme.tipFont.pointSize
-          font.underline: true
-          color: Theme.mainColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
+        Rectangle {
+            Layout.fillWidth: true
+            height: 300 * dp
+            color: "white"
+            border.color: "lightgray"
+            border.width: 1
 
+        ListView {
+          id: table
+          flickableDirection: Flickable.VerticalFlick
+          boundsBehavior: Flickable.StopAtBounds
+          clip: true
+          anchors.fill: parent
+
+          delegate: Rectangle {
+            id: rectangle
+            property string path: ProjectPath
+            width: parent.width
+            height: line.height
+            color: "transparent"
+
+            Row {
+              id: line
+              Layout.fillWidth: true
+              leftPadding: 6 * dp
+              rightPadding: 10 * dp
+              topPadding: 9 * dp
+              bottomPadding: 3 * dp
+              spacing: 0
+              Image {
+                id: type
+                anchors.verticalCenter: inner.verticalCenter
+                source: ProjectType == 0 ? Theme.getThemeIcon('ic_map_green_48dp') : ''
+                sourceSize.width: 80 * dp
+                sourceSize.height: 80 * dp
+                width: 40 * dp
+                height: 40 * dp
+              }
+              ColumnLayout {
+                id: inner
+                Text {
+                  id: projectTitle
+                  width: rectangle.width - type.width - 10 * dp
+                  topPadding: 5 * dp
+                  leftPadding: 3 * dp
+                  text: ProjectTitle
+                  font.pointSize: Theme.tipFont.pointSize
+                  font.underline: true
+                  color: Theme.mainColor
+                  wrapMode: Text.WordWrap
+                }
+                Text {
+                  id: projectNote
+                  width: rectangle.width - type.width - 10 * dp
+                  leftPadding: 3 * dp
+                  text: {
+                    if (index == 0) {
+                        var firstRun = !settings.value( "/QField/FirstRunFlag", false )
+                        return !firstRun && qgisProject.fileName == '' ? qsTr( "Last session" ) : ""
+                    }
+                  }
+                  visible: text != ""
+                  font.pointSize: Theme.tipFont.pointSize - 2
+                  font.italic: true
+                  wrapMode: Text.WordWrap
+                }
+              }
+            }
+          }
           MouseArea {
+            property Item pressedItem
             anchors.fill: parent
-            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
-            onPressed: { parent.color = "#5a8725" }
-            onReleased: { parent.color = Theme.mainColor }
+            onClicked: {
+              var item = table.itemAt(mouse.x, mouse.y)
+              if (item)
+                iface.loadProject(item.path)
+            }
+            onPressed: {
+              var item = table.itemAt(mouse.x, mouse.y)
+              if (item) {
+                pressedItem = item.children[0].children[1].children[0];
+                pressedItem.color = "#5a8725"
+              }
+            }
+            onCanceled: {
+              if (pressedItem) {
+                pressedItem.color = Theme.mainColor
+                pressedItem = null
+              }
+            }
+            onReleased: {
+              if (pressedItem) {
+                pressedItem.color = Theme.mainColor
+                pressedItem = null
+              }
+            }
           }
         }
-
-        Text {
-          property string path: ""
-          id: recent1
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-          text: ""
-          font.pointSize: Theme.tipFont.pointSize
-          font.underline: true
-          color: Theme.mainColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
-            onPressed: { parent.color = "#5a8725" }
-            onReleased: { parent.color = Theme.mainColor }
-          }
-        }
-
-        Text {
-          property string path: ""
-          id: recent2
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-          text: ""
-          font.pointSize: Theme.tipFont.pointSize
-          font.underline: true
-          color: Theme.mainColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
-            onPressed: { parent.color = "#5a8725" }
-            onReleased: { parent.color = Theme.mainColor }
-          }
-        }
-
-        Text {
-          property string path: ""
-          id: recent3
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-          text: ""
-          font.pointSize: Theme.tipFont.pointSize
-          font.underline: true
-          color: Theme.mainColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
-            onPressed: { parent.color = "#5a8725" }
-            onReleased: { parent.color = Theme.mainColor }
-          }
-        }
-
-        Text {
-          property string path: ""
-          id: recent4
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-          text: ""
-          font.pointSize: Theme.tipFont.pointSize
-          font.underline: true
-          color: Theme.mainColor
-          horizontalAlignment: Text.AlignHCenter
-          wrapMode: Text.WordWrap
-          Layout.fillWidth: true
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { if (parent.path != '') iface.loadProject(parent.path) }
-            onPressed: { parent.color = "#5a8725" }
-            onReleased: { parent.color = Theme.mainColor }
-          }
         }
 
         Item {
@@ -281,7 +282,7 @@ Page {
   }
 
   function adjustWelcomeScreen() {
-    var recentProjects = iface.recentProjects()
+    console.log(dp)
     if (visible) {
       if (qgisProject.fileName != '') {
         welcomeText.text = " ";
@@ -295,42 +296,6 @@ Page {
         }
         currentProjectButton.visible = false
       }
-    }
-
-    if (recentProjects.length > 0) {
-      recent0.text = recentProjects[0].split('}|{')[0]
-      recent0.path = recentProjects[0].split('}|{')[1]
-      recent0.visible = true
-    } else {
-      recent0.visible = false
-    }
-    if (recentProjects.length > 1) {
-      recent1.text = recentProjects[1].split('}|{')[0]
-      recent1.path = recentProjects[1].split('}|{')[1]
-      recent1.visible = true
-    } else {
-      recent1.visible = false
-    }
-    if (recentProjects.length > 2) {
-      recent2.text = recentProjects[2].split('}|{')[0]
-      recent2.path = recentProjects[2].split('}|{')[1]
-      recent2.visible = true
-    } else {
-      recent2.visible = false
-    }
-    if (recentProjects.length > 3) {
-      recent3.text = recentProjects[3].split('}|{')[0]
-      recent3.path = recentProjects[3].split('}|{')[1]
-      recent3.visible = true
-    } else {
-      recent3.visible = false
-    }
-    if (recentProjects.length > 4) {
-      recent4.text = recentProjects[4].split('}|{')[0]
-      recent4.path = recentProjects[4].split('}|{')[1]
-      recent4.visible = true
-    } else {
-      recent4.visible = false
     }
   }
 
