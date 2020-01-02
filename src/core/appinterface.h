@@ -37,12 +37,6 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
-    /**
-     * Returns a string list of recent project paths and titles.
-     * \note }|{ is used as a separator for paths and titles.
-     */
-    Q_INVOKABLE QStringList recentProjects();
-
     Q_INVOKABLE void loadLastProject();
     Q_INVOKABLE void loadProject( const QString &path );
     Q_INVOKABLE void reloadProject( const QString &path );

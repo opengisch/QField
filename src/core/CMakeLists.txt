@@ -34,6 +34,7 @@ SET(QFIELD_CORE_SRCS
   qgsgpkgflusher.cpp
   qgssggeometry.cpp
   referencingfeaturelistmodel.cpp
+  recentprojectlistmodel.cpp
   rubberband.cpp
   rubberbandmodel.cpp
   settings.cpp
@@ -81,6 +82,7 @@ SET(QFIELD_CORE_HDRS
   qgsgpkgflusher.h
   qgssggeometry.h
   referencingfeaturelistmodel.h
+  recentprojectlistmodel.h
   rubberband.h
   rubberbandmodel.h
   settings.h

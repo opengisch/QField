@@ -87,6 +87,7 @@
 #include "qgsgeometrywrapper.h"
 #include "linepolygonhighlight.h"
 #include "valuemapmodel.h"
+#include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 
@@ -231,6 +232,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
+  qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
 

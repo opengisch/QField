@@ -861,6 +861,7 @@ ApplicationWindow {
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
         welcomeScreen.visible = false
         welcomeScreen.focus = false
+        recentProjectListModel.reloadModel()
         settings.setValue( "/QField/FirstRunFlag", false )
       }
     }
@@ -1253,6 +1254,9 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
+    model: RecentProjectListModel {
+      id: recentProjectListModel
+    }
     property ProjectSource __projectSource
 
     anchors.fill: parent
