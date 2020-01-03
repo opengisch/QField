@@ -3,7 +3,8 @@
     <string name="app_name" translatable="false">QField</string>
     <string name="lib_name" translatable="false">qfield</string>
     <string name="done_unpacking_msg">Done unpacking, start QGIS.</string>
-    <string name="unpacking_msg">Unpacking post install data. This might take some time.</string>
+    <string name="unpacking_title">Unpacking post install data</string>
+    <string name="unpacking_msg">This might take some time.</string>
     <string name="unpacking_msg_following">60% already.</string>
     <string name="use_internal_storage">Use Internal Storage</string>
     <string name="external_storage_unavailable">Unpacking post install data. This might take a some time.</string>

@@ -50,8 +50,8 @@ import ch.opengis.qfield.R;
 import android.app.Activity;
 import android.app.Application;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -66,12 +66,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 
+import android.widget.ImageView;
+import android.widget.Button;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.LayoutInflater;
+import android.widget.ProgressBar;
+
 import org.qtproject.qt5.android.bindings.QtActivity;
 public class QFieldActivity extends Activity {
   private static final String QtTAG = "QField";
   private static final int PROGRESS_DIALOG = 0;
   private static final int NOEXTERNALSTORAGE_DIALOG = 1;
-  private ProgressDialog mProgressDialog = null;
   private UnzipTask mUnzipTask = new UnzipTask();
   private ActivityInfo mActivityInfo = null; // activity info object, used to
   private SharedPreferences mPrefs = null; // access the metadata
@@ -80,6 +86,9 @@ public class QFieldActivity extends Activity {
   private boolean mExternalStorageWriteable = false;
   private String mDotQgis2Dir;
   private String mShareDir;
+
+    private ProgressBar progressBar;
+    private AlertDialog unpackingDialog;
 
     private static Application application;
     
@@ -148,12 +157,15 @@ public class QFieldActivity extends Activity {
   protected Dialog onCreateDialog(int id) {
     switch (id) {
     case PROGRESS_DIALOG:
-      mProgressDialog = new ProgressDialog(QFieldActivity.this);
-      mProgressDialog.setMessage(getString(R.string.unpacking_msg));
-      mProgressDialog.setIndeterminate(false);
-      mProgressDialog.setMax(100);
-      mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-      return mProgressDialog;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.unpacking_dialog, null);
+        builder.setView(view);
+        builder.setTitle(getString(R.string.unpacking_title));
+        builder.setMessage(getString(R.string.unpacking_msg));
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        unpackingDialog = builder.create();
+        return unpackingDialog;
 
     case NOEXTERNALSTORAGE_DIALOG:
       return new AlertDialog.Builder(QFieldActivity.this)
@@ -316,10 +328,10 @@ public class QFieldActivity extends Activity {
 
     protected void onProgressUpdate(Integer... progress) {
       super.onProgressUpdate(progress);
-      mProgressDialog.setProgress(progress[0]);
+      progressBar.setProgress(progress[0]);
 
       if (progress[0] >= 60) {
-          mProgressDialog.setMessage(getString(R.string.unpacking_msg_following));
+          unpackingDialog.setMessage(getString(R.string.unpacking_msg_following));
       }
     }
 
