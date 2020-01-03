@@ -317,6 +317,10 @@ public class QFieldActivity extends Activity {
     protected void onProgressUpdate(Integer... progress) {
       super.onProgressUpdate(progress);
       mProgressDialog.setProgress(progress[0]);
+
+      if (progress[0] >= 60) {
+          mProgressDialog.setMessage(getString(R.string.unpacking_msg_following));
+      }
     }
 
     protected void onPostExecute(String result) {
