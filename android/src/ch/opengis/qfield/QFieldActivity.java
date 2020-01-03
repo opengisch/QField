@@ -83,10 +83,11 @@ public class QFieldActivity extends Activity {
     private String mDotQgis2Dir;
     private String mShareDir;
     private ProgressBar progressBar;
-    private AlertDialog unpackingDialog;
     private TextView unpackingTitle;
     private TextView unpackingMessage;
     private static Application application;
+    private Dialog unpackingDialog;
+    private Dialog noExternalStorageDialog;
     
     public static Context getContext() {
         return application.getApplicationContext();
@@ -127,6 +128,9 @@ public class QFieldActivity extends Activity {
             return;
         }
 
+        unpackingDialog = createUnpackingDialog();
+        noExternalStorageDialog = createNoExternalStorageDialog();
+
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             mExternalStorageAvailable = mExternalStorageWriteable = true;
@@ -140,57 +144,55 @@ public class QFieldActivity extends Activity {
         if (mExternalStorageWriteable) {
             startFirstRun();
         } else {
-            showDialog(NOEXTERNALSTORAGE_DIALOG);
+            noExternalStorageDialog.show();
         }
     }
 
     public void onDestroy() {
         super.onDestroy();
         mUnzipTask.cancel(true);
+
+        unpackingDialog.dismiss();
+        noExternalStorageDialog.dismiss();
     }
 
-    protected Dialog onCreateDialog(int id) {
+    private Dialog createUnpackingDialog(){
         AlertDialog.Builder builder;
 
-        switch (id) {
-        case PROGRESS_DIALOG:
-            builder = new AlertDialog.Builder(this);
-            LayoutInflater inflater = getLayoutInflater();
-            View view = inflater.inflate(R.layout.unpacking_dialog, null);
-            builder.setView(view);
+        builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.unpacking_dialog, null);
+        builder.setView(view);
 
-            unpackingTitle = (TextView) view.findViewById(R.id.title);
-            unpackingTitle.setText(getString(R.string.unpacking_title));
+        unpackingTitle = (TextView) view.findViewById(R.id.title);
+        unpackingTitle.setText(getString(R.string.unpacking_title));
 
-            unpackingMessage = (TextView) view.findViewById(R.id.message);
-            unpackingMessage.setText(getString(R.string.unpacking_msg));
+        unpackingMessage = (TextView) view.findViewById(R.id.message);
+        unpackingMessage.setText(getString(R.string.unpacking_msg));
 
-            progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-            unpackingDialog = builder.create();
-            return unpackingDialog;
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        return builder.create();
+    }
 
-        case NOEXTERNALSTORAGE_DIALOG:
-            builder = new AlertDialog.Builder(QFieldActivity.this);
-            builder.setTitle(getString(R.string.external_storage_unavailable));
-            builder.setMessage(getString(R.string.noexternalstorage_dialog));
-            builder.setPositiveButton(getString(R.string.use_internal_storage),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        dialog.cancel();
-                        startFirstRun();
-                    }
-                });
-            builder.setNegativeButton(getString(android.R.string.no),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        finish();
-                    }
-                });
-            return builder.create();
-
-        default:
-            return null;
-        }
+    private Dialog createNoExternalStorageDialog(){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(QFieldActivity.this);
+        builder.setTitle(getString(R.string.external_storage_unavailable));
+        builder.setMessage(getString(R.string.noexternalstorage_dialog));
+        builder.setPositiveButton(getString(R.string.use_internal_storage),
+           new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int whichButton) {
+                   dialog.cancel();
+                   startFirstRun();
+               }
+           });
+        builder.setNegativeButton(getString(android.R.string.no),
+            new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    finish();
+                }
+            });
+        return builder.create();
     }
 
     private void startFirstRun() {
@@ -294,7 +296,8 @@ public class QFieldActivity extends Activity {
         }
 
         protected void onPreExecute() {
-            showDialog(PROGRESS_DIALOG);
+            unpackingDialog.show();
+
             // create symlink
             // alias paths for storage dir (/sdcard or similar)
             String storagePathAlias = getFilesDir() + "/storage";
