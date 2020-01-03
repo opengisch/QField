@@ -63,6 +63,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
@@ -83,6 +84,8 @@ public class QFieldActivity extends Activity {
     private String mShareDir;
     private ProgressBar progressBar;
     private AlertDialog unpackingDialog;
+    private TextView unpackingTitle;
+    private TextView unpackingMessage;
     private static Application application;
     
     public static Context getContext() {
@@ -155,8 +158,13 @@ public class QFieldActivity extends Activity {
             LayoutInflater inflater = getLayoutInflater();
             View view = inflater.inflate(R.layout.unpacking_dialog, null);
             builder.setView(view);
-            builder.setTitle(getString(R.string.unpacking_title));
-            builder.setMessage(getString(R.string.unpacking_msg));
+
+            unpackingTitle = (TextView) view.findViewById(R.id.title);
+            unpackingTitle.setText(getString(R.string.unpacking_title));
+
+            unpackingMessage = (TextView) view.findViewById(R.id.message);
+            unpackingMessage.setText(getString(R.string.unpacking_msg));
+
             progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
             unpackingDialog = builder.create();
             return unpackingDialog;
@@ -322,7 +330,7 @@ public class QFieldActivity extends Activity {
             progressBar.setProgress(progress[0]);
 
             if (progress[0] >= 60) {
-                unpackingDialog.setMessage(getString(R.string.unpacking_msg_following));
+                unpackingMessage.setText(getString(R.string.unpacking_msg_following));
             }
         }
 

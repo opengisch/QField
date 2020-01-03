@@ -2,25 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="1">
+    android:orientation="vertical">
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.6"
-        android:progress="0"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/icon" />
 
-    <Space
-        android:layout_width="0dp"
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2" />
+        android:orientation="vertical"
+        android:padding="16dp">
+
+      <TextView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAlignment="center"
+          style="@android:style/TextAppearance.DeviceDefault.Large" />
+
+      <TextView
+          android:id="@+id/message"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:textAlignment="center"
+          style="@android:style/TextAppearance.DeviceDefault.Small" />
+
+      <ProgressBar
+          android:id="@+id/progressBar"
+          style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:progress="0"/>
+
+    </LinearLayout>
+
 </LinearLayout>
