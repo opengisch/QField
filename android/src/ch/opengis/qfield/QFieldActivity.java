@@ -147,9 +147,11 @@ public class QFieldActivity extends Activity {
     }
 
     protected Dialog onCreateDialog(int id) {
+        AlertDialog.Builder builder;
+
         switch (id) {
         case PROGRESS_DIALOG:
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder = new AlertDialog.Builder(this);
             LayoutInflater inflater = getLayoutInflater();
             View view = inflater.inflate(R.layout.unpacking_dialog, null);
             builder.setView(view);
@@ -160,25 +162,23 @@ public class QFieldActivity extends Activity {
             return unpackingDialog;
 
         case NOEXTERNALSTORAGE_DIALOG:
-            return new AlertDialog.Builder(QFieldActivity.this)
-                .setTitle(getString(R.string.external_storage_unavailable))
-                .setMessage(getString(R.string.noexternalstorage_dialog))
-                .setPositiveButton(getString(R.string.use_internal_storage),
-                                   new DialogInterface.OnClickListener() {
-                                       public void onClick(DialogInterface dialog,
-                                                           int whichButton) {
-                                           dialog.cancel();
-                                           startFirstRun();
-                                       }
-                                   })
-                .setNegativeButton(getString(android.R.string.no),
-                                   new DialogInterface.OnClickListener() {
-                                       public void onClick(DialogInterface dialog,
-                                                           int whichButton) {
-                                           finish();
-
-                                       }
-                                   }).create();
+            builder = new AlertDialog.Builder(QFieldActivity.this);
+            builder.setTitle(getString(R.string.external_storage_unavailable));
+            builder.setMessage(getString(R.string.noexternalstorage_dialog));
+            builder.setPositiveButton(getString(R.string.use_internal_storage),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                        startFirstRun();
+                    }
+                });
+            builder.setNegativeButton(getString(android.R.string.no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        finish();
+                    }
+                });
+            return builder.create();
 
         default:
             return null;
