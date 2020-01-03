@@ -170,6 +170,8 @@ QgsProject *LayerTreeModel::project() const
 
 void LayerTreeModel::updateCurrentMapTheme()
 {
+  mMapTheme.clear();
+
   const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
   for ( const QString &grpName : mapThemes )

@@ -179,7 +179,7 @@ Controls.Drawer {
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
             layerTree.updateCurrentMapTheme()
-            mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
+            mapThemeComboBox.currentIndex = layerTree.mapTheme != '' ? mapThemeComboBox.find( layerTree.mapTheme ) : -1
             mapThemeContainer.isLoading = false
           }
         }
