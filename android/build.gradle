@@ -14,6 +14,12 @@ allprojects {
         jcenter()
         google()
     }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+        }
+    }
 }
 
 apply plugin: 'com.android.application'
