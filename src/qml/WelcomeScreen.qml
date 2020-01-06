@@ -49,6 +49,13 @@ Page {
       welcomeScreen.focus = false;
     }
   }
+  ScrollView {
+    padding: 0 * dp
+    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+    ScrollBar.vertical.policy: ScrollBar.AsNeeded
+    contentItem: welcomeGrid
+    anchors.fill: parent
+    clip: true
 
   GridLayout {
     id: welcomeGrid
@@ -56,10 +63,10 @@ Page {
     rowSpacing: 4 * dp
 
     width: mainWindow.width
-    anchors.fill: parent
 
     Image {
       Layout.margins: 6 * dp
+      Layout.topMargin: 14 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       Layout.preferredWidth: Math.min( 138 * dp, mainWindow.height / 4 )
       Layout.preferredHeight: Math.min( 138 * dp, mainWindow.height / 4 )
@@ -90,23 +97,14 @@ Page {
       Layout.topMargin: 2 * dp
       Layout.bottomMargin: 2 * dp
       Layout.fillWidth: true
-      Layout.fillHeight: true
+      Layout.maximumWidth: 390 * dp
+      Layout.preferredHeight: 490 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.maximumHeight: 560 * dp
       color: "transparent"
-
-      ScrollView {
-        padding: 5 * dp
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        contentWidth: welcomeActions.width
-        contentHeight: welcomeActions.height
-        anchors.fill: parent
-        clip: true
 
       ColumnLayout {
         id: welcomeActions
-        width: parent.parent.width
+        width: parent.width
         spacing: 12 * dp
 
         Button {
@@ -115,8 +113,6 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
-          Layout.maximumWidth: 390 * dp
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Open local project" )
           background: Rectangle {
               anchors.fill: parent
@@ -147,8 +143,6 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
-          Layout.maximumWidth: 390 * dp
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Open QField cloud project" )
           enabled: false
           background: Rectangle {
@@ -180,14 +174,10 @@ Page {
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
-          Layout.maximumWidth: 390 * dp
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
 
         Rectangle {
             Layout.fillWidth: true
-            Layout.maximumWidth: 390 * dp
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             height: 300 * dp
             color: "white"
             border.color: "lightgray"
@@ -290,8 +280,8 @@ Page {
             Layout.fillHeight: true
         }
       }
-      }
     }
+  }
   }
 
   function adjustWelcomeScreen() {
