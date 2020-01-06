@@ -97,8 +97,9 @@ Page {
       Layout.topMargin: 2 * dp
       Layout.bottomMargin: 2 * dp
       Layout.fillWidth: true
+      Layout.fillHeight: true
       Layout.maximumWidth: 390 * dp
-      Layout.preferredHeight: 490 * dp
+      Layout.minimumHeight: 490 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
 
@@ -179,12 +180,13 @@ Page {
         Rectangle {
             Layout.fillWidth: true
             height: 300 * dp
-            color: "white"
-            border.color: "lightgray"
+            color: "transparent"
+            border.color: "transparent"
             border.width: 1
 
         ListView {
           id: table
+          ScrollBar.vertical: ScrollBar {}
           flickableDirection: Flickable.VerticalFlick
           boundsBehavior: Flickable.StopAtBounds
           clip: true
@@ -216,9 +218,9 @@ Page {
               }
               ColumnLayout {
                 id: inner
+                width: rectangle.width - type.width - 10 * dp
                 Text {
                   id: projectTitle
-                  width: rectangle.width - type.width - 10 * dp
                   topPadding: 5 * dp
                   leftPadding: 3 * dp
                   text: ProjectTitle
@@ -226,10 +228,10 @@ Page {
                   font.underline: true
                   color: Theme.mainColor
                   wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
                 }
                 Text {
                   id: projectNote
-                  width: rectangle.width - type.width - 10 * dp
                   leftPadding: 3 * dp
                   text: {
                     if (index == 0) {
@@ -241,6 +243,7 @@ Page {
                   font.pointSize: Theme.tipFont.pointSize - 2
                   font.italic: true
                   wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
                 }
               }
             }
