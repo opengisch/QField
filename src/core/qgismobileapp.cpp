@@ -293,7 +293,7 @@ QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
   const QStringList projectKeysList = settings.childGroups();
   QList<int> projectKeys;
   // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
-  for ( auto key : projectKeysList )
+  for ( const QString &key : projectKeysList )
   {
     projectKeys.append( key.toInt() );
   }
