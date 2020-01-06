@@ -92,7 +92,6 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.maximumWidth: 380 * dp
       Layout.maximumHeight: 560 * dp
       color: "transparent"
 
@@ -116,6 +115,8 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
+          Layout.maximumWidth: 390 * dp
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Open local project" )
           background: Rectangle {
               anchors.fill: parent
@@ -146,6 +147,8 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
+          Layout.maximumWidth: 390 * dp
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Open QField cloud project" )
           enabled: false
           background: Rectangle {
@@ -171,17 +174,20 @@ Page {
 
         Text {
           id: recentText
-          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Recent Projects" )
           font.pointSize: Theme.tipFont.pointSize
           font.bold: true
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
+          Layout.maximumWidth: 390 * dp
+          Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
 
         Rectangle {
             Layout.fillWidth: true
+            Layout.maximumWidth: 390 * dp
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             height: 300 * dp
             color: "white"
             border.color: "lightgray"
