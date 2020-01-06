@@ -23,32 +23,6 @@ Page {
     }
   }
 
-  ToolButton {
-    id: currentProjectButton
-    height: 56 * dp
-    width: 56 * dp
-    visible: false
-    anchors {
-      top: parent.top
-      left: parent.left
-    }
-    contentItem: Rectangle {
-      anchors.fill: parent
-      color: "transparent"
-      Image {
-        anchors.fill: parent
-        fillMode: Image.Pad
-        horizontalAlignment: Image.AlignHCenter
-        verticalAlignment: Image.AlignVCenter
-        source: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
-      }
-    }
-
-    onClicked: {
-      welcomeScreen.visible = false;
-      welcomeScreen.focus = false;
-    }
-  }
   ScrollView {
     padding: 0 * dp
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
@@ -99,16 +73,14 @@ Page {
       Layout.topMargin: 2 * dp
       Layout.bottomMargin: 2 * dp
       Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.maximumWidth: 390 * dp
-      Layout.minimumHeight: 500 * dp
+      Layout.maximumWidth: 410 * dp
+      Layout.minimumHeight: welcomeActions.height
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
 
       ColumnLayout {
         id: welcomeActions
         width: parent.width
-        height: parent.height
         spacing: 12 * dp
 
         Button {
@@ -147,7 +119,7 @@ Page {
           topInset: 2 * dp
           bottomInset: 2 * dp
           Layout.fillWidth: true
-          text: qsTr( "Open QField cloud project" )
+          text: qsTr( "QField Cloud projects, coming soon" )
           enabled: false
           background: Rectangle {
               anchors.fill: parent
@@ -182,7 +154,7 @@ Page {
 
         Rectangle {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            height: table.height
             color: "transparent"
             border.color: "transparent"
             border.width: 1
@@ -193,7 +165,8 @@ Page {
           flickableDirection: Flickable.VerticalFlick
           boundsBehavior: Flickable.StopAtBounds
           clip: true
-          anchors.fill: parent
+          width: parent.width
+          height: table.model.rowCount() * ( 80 * dp )
 
           delegate: Rectangle {
             id: rectangle
@@ -284,6 +257,33 @@ Page {
       }
     }
   }
+  }
+
+  ToolButton {
+    id: currentProjectButton
+    height: 56 * dp
+    width: 56 * dp
+    visible: false
+    anchors {
+      top: parent.top
+      left: parent.left
+    }
+    contentItem: Rectangle {
+      anchors.fill: parent
+      color: "transparent"
+      Image {
+        anchors.fill: parent
+        fillMode: Image.Pad
+        horizontalAlignment: Image.AlignHCenter
+        verticalAlignment: Image.AlignVCenter
+        source: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+      }
+    }
+
+    onClicked: {
+      welcomeScreen.visible = false;
+      welcomeScreen.focus = false;
+    }
   }
 
   function adjustWelcomeScreen() {
