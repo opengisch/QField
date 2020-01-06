@@ -29,7 +29,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
-    QString packagePath() const;
+    virtual QString packagePath() const override;
     virtual QString qgsProject() const override;
     virtual PictureSource *getCameraPicture( const QString &prefix) override;
     virtual PictureSource *getGalleryPicture( const QString &prefix) override;

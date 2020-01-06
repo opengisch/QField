@@ -126,19 +126,17 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   initDeclarative();
 
   QSettings settings;
-#if defined(Q_OS_ANDROID)
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
-  if (firstRunFlag)
+  if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
   {
     QList<QPair<QString,QString>> projects;
-    QString path = AndroidPlatformUtilities().packagePath();
+    QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
     projects << qMakePair( QStringLiteral( "Offline bees demo" ), path  + QStringLiteral( "/resources/demo_projects/offline_bees.qgs" ) )
              << qMakePair( QStringLiteral( "Online survey demo" ), path  + QStringLiteral( "/resources/demo_projects/online_survey.qgs" ) )
              << qMakePair( QStringLiteral( "Online bees demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bumblebees.qgs" ) );
     saveRecentProjects( projects );
   }
-#endif
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
