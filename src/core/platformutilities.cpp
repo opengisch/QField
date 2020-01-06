@@ -36,6 +36,11 @@ QString PlatformUtilities::shareDir() const
   return QString();
 }
 
+QString PlatformUtilities::packagePath() const
+{
+  return QString();
+}
+
 QString PlatformUtilities::qgsProject() const
 {
   return QString();
