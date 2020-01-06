@@ -35,7 +35,7 @@ Page {
 
   ColumnLayout {
     anchors {
-      top: toolbar.bottom
+      top: parent.top
       left: parent.left
       right: parent.right
       bottom: parent.bottom
@@ -297,56 +297,14 @@ Page {
       }
     }
   }
+  header: PageHeader {
+      title: qsTr("QField Settings")
 
-  /** The title toolbar **/
-  ToolBar {
-    id: toolbar
-    height: 48 * dp
-    visible: true
+      showApplyButton: true
+      showCancelButton: false
 
-    anchors {
-      top: parent.top
-      left: parent.left
-      right: parent.right
+      onFinished: parent.finished()
     }
-
-    background: Rectangle {
-      color: Theme.mainColor
-    }
-
-    RowLayout {
-      anchors.fill: parent
-      Layout.margins: 0
-
-      Button {
-        id: enterButton
-
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
-        visible: form.state === 'Add' || form.state === 'Edit'
-        width: 48*dp
-        height: 48*dp
-        clip: true
-        bgcolor: Theme.darkGray
-
-        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
-
-        onClicked: finished()
-      }
-
-      Label {
-        id: titleLabel
-        rightPadding: 48*dp
-        text:  qsTr( 'QField Settings' )
-        font: Theme.strongFont
-        color: "#FFFFFF"
-        elide: Label.ElideRight
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
-        Layout.fillWidth: true
-      }
-    }
-  }
 
   Keys.onReleased: {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {

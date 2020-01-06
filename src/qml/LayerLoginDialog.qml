@@ -13,74 +13,21 @@ Page {
   property string realm
   property var inCancelation
 
-  header: ToolBar {
-    id: toolbar
-    height: 48 * dp
-    visible: true
+    header: PageHeader {
+        title: qsTr("Login information")
 
-    anchors {
-      top: parent.top
-      left: parent.left
-      right: parent.right
-    }
+        showApplyButton: true
+        showCancelButton: true
 
-    background: Rectangle {
-      color: Theme.mainColor
-    }
-
-    RowLayout {
-      anchors.fill: parent
-      Layout.margins: 0
-
-      Button {
-        id: enterButton
-
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
-        width: 48*dp
-        height: 48*dp
-        clip: true
-        bgcolor: Theme.darkGray
-
-        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
-
-        onClicked: {
-          enter(username.text, password.text)
+        onApply: {
+          parent.enter(username.text, password.text)
           username.text=''
           password.text=''
         }
-      }
-
-      Label {
-        id: titleLabel
-
-        text: "Login information"
-        font: Theme.strongFont
-        color: "#FFFFFF"
-        elide: Label.ElideRight
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
-        Layout.fillWidth: true
-      }
-
-      Button {
-        id: cancelButton
-
-        Layout.alignment: Qt.AlignTop | Qt.AlignRight
-
-        width: 49*dp
-        height: 48*dp
-        clip: true
-        bgcolor: Theme.darkGray
-
-        iconSource: Theme.getThemeIcon( 'ic_close_white_24dp' )
-
-        onClicked: {
-          cancel()
+        onCancel: {
+          parent.cancel()
         }
       }
-    }
-  }
 
   ColumnLayout{
     anchors.fill: parent

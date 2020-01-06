@@ -13,53 +13,14 @@ Page {
   signal finished
 
 
-  header: ToolBar {
-    id: toolbar
-    height: 48 * dp
-    visible: true
+  header: PageHeader {
+      title: qsTr( 'Unable to load some layers' )
 
-    anchors {
-      top: parent.top
-      left: parent.left
-      right: parent.right
+      showApplyButton: false
+      showCancelButton: true
+
+      onFinished: parent.finished()
     }
-
-    background: Rectangle {
-      color: Theme.mainColor
-    }
-
-    RowLayout {
-      anchors.fill: parent
-      Layout.margins: 0
-
-      Controls.Label {
-        id: titleLabel
-        text: qsTr( 'Unable to load some layers' )
-        font: Theme.strongFont
-
-        color: "#FFFFFF"
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
-        Layout.fillWidth: true
-      }
-
-      Button {
-        id: closeButton
-
-        Layout.alignment: Qt.AlignTop | Qt.AlignRight
-
-        width: 48 * dp
-        height: 48 * dp
-        bgcolor: Theme.darkGray
-
-        iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
-
-        onClicked: {
-          finished()
-        }
-      }
-    }
-  }
 
   ColumnLayout {
     anchors.margins: 8 * dp
