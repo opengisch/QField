@@ -54,6 +54,8 @@ Page {
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AsNeeded
     contentItem: welcomeGrid
+    contentWidth: welcomeGrid.width
+    contentHeight: welcomeGrid.height
     anchors.fill: parent
     clip: true
 
