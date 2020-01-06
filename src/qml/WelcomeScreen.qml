@@ -53,7 +53,7 @@ Page {
   GridLayout {
     id: welcomeGrid
     columns: 1
-    rowSpacing: 10 * dp
+    rowSpacing: 4 * dp
 
     width: mainWindow.width
     anchors.fill: parent
@@ -61,8 +61,8 @@ Page {
     Image {
       Layout.margins: 6 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: 138 * dp
-      Layout.preferredHeight: 138 * dp
+      Layout.preferredWidth: Math.min( 138 * dp, mainWindow.height / 4 )
+      Layout.preferredHeight: Math.min( 138 * dp, mainWindow.height / 4 )
       fillMode: Image.PreserveAspectFit
       smooth: true
       source: "qrc:/images/qfield-logo.svg"
@@ -71,7 +71,10 @@ Page {
     }
 
     Text {
-      Layout.margins: 6 * dp
+      Layout.leftMargin: 6 * dp
+      Layout.rightMargin: 6 * dp
+      Layout.topMargin: 2 * dp
+      Layout.bottomMargin: 2 * dp
       id: welcomeText
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
@@ -82,7 +85,10 @@ Page {
     }
 
     Rectangle {
-      Layout.margins: 6 * dp
+      Layout.leftMargin: 6 * dp
+      Layout.rightMargin: 6 * dp
+      Layout.topMargin: 2 * dp
+      Layout.bottomMargin: 2 * dp
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
@@ -167,7 +173,8 @@ Page {
           id: recentText
           Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
           text: qsTr( "Recent Projects" )
-          font: Theme.strongFont
+          font.pointSize: Theme.tipFont.pointSize
+          font.bold: true
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -282,7 +289,6 @@ Page {
   }
 
   function adjustWelcomeScreen() {
-    console.log(dp)
     if (visible) {
       if (qgisProject.fileName != '') {
         welcomeText.text = " ";
