@@ -45,5 +45,12 @@ QtObject {
       var path = '/themes/' + theme + '/' + ppi + '/' + name + '.png';
       return path;
     }
+
+    function getThemeVectorIcon(name) {
+      var theme = 'qfield';
+
+      var path = '/themes/' + theme + '/nodpi/' + name + '.svg';
+      return path;
+    }
 }
 

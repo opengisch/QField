@@ -29,7 +29,7 @@ Rectangle {
       id: x
       height: rowHeight
       width: grid.cellWidth
-      color: Theme.lightGray
+      color: "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
@@ -37,8 +37,8 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+                  qsTr( "Lat." ) + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "X" )    + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
       }
     }
 
@@ -53,8 +53,8 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 3 ) : qsTr( "N/A" ) )
+                  qsTr( "Lon." ) + ': ' + ( positionSource.position.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "Y" )    + ': ' + ( positionSource.position.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
 
       }
     }
@@ -62,7 +62,7 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? "white" : Theme.lightGray
+      color: grid.rows === 2 ? "white" : "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
@@ -72,14 +72,16 @@ Rectangle {
         text: {
           var altitude
           if ( positionSource.position.altitudeValid ) {
-            altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 3 )
+            altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 )
             if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-              altitude += '<font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toFixed(2))
+              altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
             }
           }
           else
+          {
             altitude = qsTr( "N/A" )
-          altitude = qsTr( "Altitude" ) + ': ' + altitude
+          }
+          altitude = qsTr( "Altitude: %1 m" ).arg( altitude )
           return altitude
         }
       }
@@ -88,28 +90,28 @@ Rectangle {
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: grid.rows === 2 ? Theme.lightGray : "white"
+      color: grid.rows === 2 ? "#e6f2fd" : "white"
 
       Text {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.position.speedValid ? positionSource.position.speed.toFixed(3) + " m/s" : qsTr( "N/A" ) )
+        text: qsTr( "Speed" ) + ': ' + ( positionSource.position.speedValid ? positionSource.position.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
       }
     }
 
     Rectangle {
       height: rowHeight
       width: grid.cellWidth
-      color: Theme.lightGray
+      color: "#e6f2fd"
 
       Text {
         anchors.margins:  10*dp
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
-        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.position.horizontalAccuracyValid ? positionSource.position.horizontalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.position.horizontalAccuracyValid ? positionSource.position.horizontalAccuracy.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -123,7 +125,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
-        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.position.verticalAccuracyValid ? positionSource.position.verticalAccuracy.toFixed(3) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.position.verticalAccuracyValid ? positionSource.position.verticalAccuracy.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
   }
