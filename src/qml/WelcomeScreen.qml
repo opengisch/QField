@@ -99,13 +99,14 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.maximumWidth: 390 * dp
-      Layout.minimumHeight: 490 * dp
+      Layout.minimumHeight: 500 * dp
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
 
       ColumnLayout {
         id: welcomeActions
         width: parent.width
+        height: parent.height
         spacing: 12 * dp
 
         Button {
@@ -179,7 +180,7 @@ Page {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 300 * dp
+            Layout.fillHeight: true
             color: "transparent"
             border.color: "transparent"
             border.width: 1
@@ -277,10 +278,6 @@ Page {
             }
           }
         }
-        }
-
-        Item {
-            Layout.fillHeight: true
         }
       }
     }
