@@ -1,7 +1,7 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="simple bumblebees simple" version="3.11.0-Master">
+<qgis projectname="Simple Bee Farming Demo" version="3.11.0-Master">
   <homePath path=""/>
-  <title>simple bumblebees simple</title>
+  <title>Simple Bee Farming Demo</title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
   <trust active="0"/>
@@ -3100,7 +3100,7 @@ def my_form_open(dialog, layer, feature):
     <parentidentifier></parentidentifier>
     <language></language>
     <type></type>
-    <title>simple bumblebees simple</title>
+    <title>Simple Bee Farming Demo</title>
     <abstract></abstract>
     <contact>
       <name></name>
