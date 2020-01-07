@@ -1,7 +1,7 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="Live QField Users Map" version="3.4.4-Madeira">
+<qgis projectname="Live QField Users Survey Demo" version="3.4.4-Madeira">
   <homePath path=""/>
-  <title>Live QField Users Map</title>
+  <title>Live QField Users Survey Demo</title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
   <trust active="0"/>
@@ -810,7 +810,7 @@ def my_form_open(dialog, layer, feature):
     <parentidentifier></parentidentifier>
     <language></language>
     <type></type>
-    <title>Live QField Users Map</title>
+    <title>Live QField Users Survey Demo</title>
     <abstract></abstract>
     <contact>
       <name></name>
