@@ -1330,7 +1330,7 @@ def my_form_open(dialog, layer, feature):
               <property key="variableNames"/>
               <property key="variableValues"/>
             </customproperties>
-            <blendMode>0</blendMode>
+            <blendMode>6</blendMode>
             <featureBlendMode>0</featureBlendMode>
             <layerOpacity>0.8</layerOpacity>
             <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
