@@ -122,7 +122,7 @@ jobs:
       touch skippackage
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
       @echo "##[section] %OSGEO4W_ARCH% results available at %DASHURL%"
-      package-nightly.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
+      package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
     displayName: 'Building QGIS'
 
 # vim: set nowrap :
