@@ -48,7 +48,7 @@ set CLCACHE_CL=%CMAKE_COMPILER_PATH:\=/%/cl.exe
 if "%OSGEO4W_ROOT%"=="" if "%ARCH%"=="x86" (
 	set OSGEO4W_ROOT=C:\OSGeo4W
 ) else (
-	set OSGEO4W_ROOT=C:\qgis_server
+	set OSGEO4W_ROOT=C:\OSGeo4W64
 )
 
 if not exist "%OSGEO4W_ROOT%\bin\o4w_env.bat" (echo o4w_env.bat not found & goto error)
