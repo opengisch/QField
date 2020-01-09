@@ -35,6 +35,10 @@ jobs:
 #         CXX: C:\OSGeo4W64\bin\clcache.bat
 
   steps:
+  - checkout: self
+    submodules: true
+    persistCredentials: true
+
   - bash: |
       if [ "$BUILD_REASON" = "PullRequest" ]; then
         branch=$SYSTEM_PULLREQUEST_TARGETBRANCH
