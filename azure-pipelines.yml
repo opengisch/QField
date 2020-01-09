@@ -47,7 +47,6 @@ jobs:
       echo "PR: ${pr}"
 
       OSGEO4W_PKG=qfield-dev
-      OSGEO4W_DEPS=qgis-dev
       
       sha="${BUILD_SOURCEVERSION:0:10}"
 
@@ -68,7 +67,6 @@ jobs:
 
       echo "##vso[task.setvariable variable=TARGET]$target"
       echo "##vso[task.setvariable variable=OSGEO4W_PKG]$OSGEO4W_PKG"
-      echo "##vso[task.setvariable variable=OSGEO4W_DEPS]$OSGEO4W_DEPS"
       echo "##vso[task.setvariable variable=MAJOR]$major"
       echo "##vso[task.setvariable variable=MINOR]$minor"
       echo "##vso[task.setvariable variable=PATCH]$patch"
@@ -94,7 +92,7 @@ jobs:
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\setup-x86.exe -qnNdO -R C:/cygwin -s http://cygwin.mirror.constant.com -l C:/temp/cygwin -P "bison,flex,git,poppler,doxygen,unzip"
     displayName: 'Install cygwin'
 
-  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P $env:OSGEO4W_DEPS -P python3-clcache
+  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P qgis-dev -P qgis-dev-deps -P python3-clcache
     displayName: 'Install OSGeo4W'
 
   - script: |
