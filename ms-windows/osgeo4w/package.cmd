@@ -155,7 +155,7 @@ if errorlevel 1 (echo clean failed & goto error)
 :skipclean
 if exist ..\skipbuild (echo skip build & goto skipbuild)
 echo ALL_BUILD: %DATE% %TIME%
-cmake --build %BUILDDIR% --target %TARGET%Build --config %BUILDCONF%
+cmake --build %BUILDDIR% --target qfield --config %BUILDCONF%
 set /P tag=<%BUILDDIR%\Testing\TAG
 findstr "<Error>" %BUILDDIR%\Testing\%tag%\Build.xml >nul
 if not errorlevel 1 (
