@@ -59,7 +59,7 @@ if exist "c:\cygwin64\bin\tar.exe" set TAR=c:\cygwin64\bin\tar.exe
 
 set BUILDCONF=RelWithDebInfo
 
-cd ..
+cd ..\..
 set SRCDIR=%CD%
 
 if "%BUILDDIR:~1,1%"==":" %BUILDDIR:~0,2%
@@ -85,6 +85,8 @@ if not exist build.tmp goto locked
 ren build.tmp build.log
 if exist build.tmp goto locked
 if not exist build.log goto locked
+
+goto build
 
 :locked
 echo Logfile locked
