@@ -63,6 +63,9 @@ jobs:
       url=${url// /+}
       url="https://cdash.orfeo-toolbox.org/index.php?project=QGIS&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercombine=and&filtercount=2&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=$url&field2=site&compare2=61&value2=azure-pipelines"
 
+      version="1.3.0" # TODO: make dynamic
+      binary=1 # TODO: make dynamic
+
       echo "##vso[task.setvariable variable=TARGET]$target"
       echo "##vso[task.setvariable variable=OSGEO4W_PKG]$OSGEO4W_PKG"
       echo "##vso[task.setvariable variable=OSGEO4W_DEPS]$OSGEO4W_DEPS"
