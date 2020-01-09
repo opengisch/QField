@@ -55,7 +55,7 @@ jobs:
       sha="${BUILD_SOURCEVERSION:0:10}"
 
       if [ "$BUILD_REASON" = "PullRequest" ]; then
-        buildname="PR $pr / $branch ($BUILD_BUILDID) ($sha) ($OSGEO4W_KG $target $OSGEO4W_ARCH)"   # no colons allowed here
+        buildname="PR $pr / $branch ($BUILD_BUILDID) ($sha) ($OSGEO4W_PKG $target $OSGEO4W_ARCH)"   # no colons allowed here
       else
         buildname="$OSGEO4W_PKG-$version-$sha-$target-VC14-$OSGEO4W_ARCH"
       fi
@@ -131,6 +131,12 @@ jobs:
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
       package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
     displayName: 'Build QField'
+
+  - task: Cache@2
+    inputs:
+      key: 'osgeo42 | "$(Agent.OS)"'
+      path: $(OSGEO4W_ROOT)
+    displayName: Cache OSGeo4W
 
 # vim: set nowrap :
 
