@@ -96,6 +96,12 @@ jobs:
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\setup-x86.exe -qnNdO -R C:/cygwin -s http://cygwin.mirror.constant.com -l C:/temp/cygwin -P "bison,flex,git,poppler,doxygen,unzip"
     displayName: 'Install cygwin'
 
+  - task: Cache@2
+    inputs:
+      key: 'osgeo42 | "$(Agent.OS)"'
+      path: $(OSGEO4W_ROOT)
+    displayName: Cache OSGeo4W
+
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P qgis-dev-deps -P python3-clcache
     displayName: 'Install OSGeo4W qgis-dev builddeps'
 
@@ -131,12 +137,6 @@ jobs:
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
       package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
     displayName: 'Build QField'
-
-  - task: Cache@2
-    inputs:
-      key: 'osgeo42 | "$(Agent.OS)"'
-      path: $(OSGEO4W_ROOT)
-    displayName: Cache OSGeo4W
 
 # vim: set nowrap :
 
