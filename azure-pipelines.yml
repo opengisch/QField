@@ -92,10 +92,10 @@ jobs:
     displayName: 'Download Ninja'
 
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\setup-x86.exe -qnNdO -R C:/cygwin -s http://cygwin.mirror.constant.com -l C:/temp/cygwin -P "bison,flex,git,poppler,doxygen,unzip"
-    displayName: 'Installing cygwin'
+    displayName: 'Install cygwin'
 
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P $env:OSGEO4W_DEPS -P python3-clcache
-    displayName: 'Installing OSGeo4W'
+    displayName: 'Install OSGeo4W'
 
   - script: |
       rmdir /s /q c:\temp\cygwin
@@ -103,10 +103,10 @@ jobs:
     displayName: 'Clear package caches'
 
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 msiexec.exe /X C:\Windows\Installer\146218.msi /qn /norestart /l*v c:\cmake-uninstall.log
-    displayName: 'Uninstalling old CMake'
+    displayName: 'Uninstall old CMake'
 
   - powershell: ms-windows/osgeo4w/runasadmin.ps1 msiexec.exe /I c:\cmake.msi /qn /norestart /l*v c:\cmake-install.log
-    displayName: 'Installing CMake'
+    displayName: 'Install CMake'
 
   - script: c:\cygwin\bin\unzip -o c:\ninja.zip -d %OSGEO4W_ROOT%\bin
     displayName: 'Extracting Ninja'
@@ -122,11 +122,11 @@ jobs:
       echo on
       PATH c:\cygwin\bin;%OSGEO4W_ROOT%\bin;%ProgramFiles%\CMake\bin;%PATH%
       cd ms-windows\osgeo4w
-      touch skippackage
+      # touch skippackage
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
-      @echo "##[section] %OSGEO4W_ARCH% results available at %DASHURL%"
+      # @echo "##[section] %OSGEO4W_ARCH% results available at %DASHURL%"
       package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
-    displayName: 'Building QField'
+    displayName: 'Build QField'
 
 # vim: set nowrap :
 
