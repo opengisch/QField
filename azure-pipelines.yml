@@ -122,9 +122,9 @@ jobs:
       echo on
       PATH c:\cygwin\bin;%OSGEO4W_ROOT%\bin;%ProgramFiles%\CMake\bin;%PATH%
       cd ms-windows\osgeo4w
-      # touch skippackage
+      touch skippackage
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
-      # @echo "##[section] %OSGEO4W_ARCH% results available at %DASHURL%"
+      @echo "##[section] %OSGEO4W_ARCH% results available at %DASHURL%"
       package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
     displayName: 'Build QField'
 
