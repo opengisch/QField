@@ -35,8 +35,12 @@ set BUILDDIR=%CD%\build-%PACKAGENAME%-%ARCH%
 if not exist "%BUILDDIR%" mkdir %BUILDDIR%
 if not exist "%BUILDDIR%" (echo could not create build directory %BUILDDIR% & goto error)
 
+PATH
+
 call msvc-env.bat %ARCH%
 rem call gdal-dev-env.bat TODO changed mku cleanup
+
+PATH
 
 set O4W_ROOT=%OSGEO4W_ROOT:\=/%
 set LIB_DIR=%O4W_ROOT%
