@@ -34,6 +34,7 @@ IF(MXE)
 ENDIF(MXE)
 
 IF(MSVC)
+    MESSAGE("We are running msvc -- Use math defines disabled")
     ADD_DEFINITIONS(-D_USE_MATH_DEFINES)
 ENDIF(MSVC)
 
