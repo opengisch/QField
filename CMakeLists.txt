@@ -34,6 +34,12 @@ SET (QFIELD_BIN_DIR ${QFIELD_BIN_SUBDIR})
 SET (QFIELD_LIB_DIR ${QFIELD_LIB_SUBDIR})
 SET (QFIELD_INCLUDE_DIR ${QFIELD_INCLUDE_SUBDIR})
 
+# set the default locations where the targets (executables, libraries) will land when compiled
+# this is to allow running QField directly from the build directory.
+SET (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
+SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
+
 ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/qgsquick)
 ADD_SUBDIRECTORY(src/core)
