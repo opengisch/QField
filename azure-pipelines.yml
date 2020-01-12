@@ -61,7 +61,7 @@ jobs:
       fi
 
       version="1.3.0" # TODO: make dynamic
-      binary=1 # TODO: make dynamic
+      binary=$(Build.BuildNumber)
 
       echo "##vso[task.setvariable variable=TARGET]$target"
       echo "##vso[task.setvariable variable=OSGEO4W_PKG]$OSGEO4W_PKG"
@@ -134,16 +134,21 @@ jobs:
       echo on
       PATH c:\cygwin\bin;%OSGEO4W_ROOT%\bin;%PATH%
       cd ms-windows\osgeo4w
-      touch skippackage
       set OSGEO4W_CXXFLAGS=/MD /MP /Od /D NDEBUG
       package.cmd %VERSION% %BINARY% %OSGEO4W_PKG% %OSGEO4W_ARCH% %BUILD_SOURCEVERSION:~0,10% azure-pipelines
     displayName: 'Build QField'
 
-  - task: CopyFiles@2
-    inputs:
-      sourceFolder: '$(Build.SourcesDirectory)'
-      contents: '**/$(BuildConfiguration)/**/?(*.exe|*.dll|*.pdb)'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - script: |
+      echo on
+      cd ms-windows\osgeo4w
+      ls
+      windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
+    displayName: 'Build QField'
+
+  - script: |
+      ls "$(Build.ArtifactStagingDirectory)/*"
+      ls "$(Build.SourcesDirectory)/ms-windows/osgeo4w/*"
+    displayName: 'List build files'
 
   - task: PublishBuildArtifacts@1
     inputs:
