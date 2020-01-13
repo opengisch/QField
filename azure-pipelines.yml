@@ -147,7 +147,11 @@ jobs:
   - script: |
       echo on
       cd $(Build.ArtifactStagingDirectory)
-      qfield.bat
+      SET GDAL_DATA="$(Build.ArtifactStagingDirectory)/gdal"
+      SET PROJ_LIB="$(Build.ArtifactStagingDirectory)/proj"
+      SET QGIS_PREFIX_PATH="$(Build.ArtifactStagingDirectory)/qgis"
+
+      qfield.exe
     displayName: 'Test run'
 
   - task: PublishBuildArtifacts@1
