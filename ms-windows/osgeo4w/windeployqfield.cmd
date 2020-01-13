@@ -60,6 +60,7 @@ copy "%O4W_ROOT%\bin\libcurl.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\zlib1.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\openjp2.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\geos_c.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\bin\geos.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\spatialite.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\spatialindex-64.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\expat.dll" "%QFIELD_RELEASE_PATH%"
@@ -80,7 +81,8 @@ copy "%O4W_ROOT%\bin\libssl-1_1-x64.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\libcrypto-1_1-x64.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\hdf5_hl.dll" "%QFIELD_RELEASE_PATH%"
 
-copy "%O4W_ROOT%\apps\proj-dev\bin\proj_6_3.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\apps\proj-dev\bin\proj_7_0.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\apps\proj-dev\bin\proj_6_2.dll" "%QFIELD_RELEASE_PATH%"
 
 copy "%O4W_ROOT%\apps\gdal-dev\bin\gdal301.dll" "%QFIELD_RELEASE_PATH%"
 
