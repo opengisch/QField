@@ -144,6 +144,12 @@ jobs:
       windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
     displayName: 'Package QField'
 
+  - script: |
+      echo on
+      cd $(Build.ArtifactStagingDirectory)
+      qfield.bat
+    displayName: 'Test run'
+
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)'
