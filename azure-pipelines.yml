@@ -141,14 +141,8 @@ jobs:
   - script: |
       echo on
       cd ms-windows\osgeo4w
-      ls
       windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
-    displayName: 'Build QField'
-
-  - script: |
-      ls "$(Build.ArtifactStagingDirectory)/*"
-      ls "$(Build.SourcesDirectory)/ms-windows/osgeo4w/*"
-    displayName: 'List build files'
+    displayName: 'Package QField'
 
   - task: PublishBuildArtifacts@1
     inputs:

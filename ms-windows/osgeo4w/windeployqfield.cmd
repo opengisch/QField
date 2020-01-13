@@ -104,5 +104,6 @@ exit /b 1
 
 :end
 echo Deploy finished: %DATE% %TIME%
+exit /b 0
 
 endlocal
