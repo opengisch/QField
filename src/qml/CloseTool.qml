@@ -3,6 +3,10 @@ import QtQuick.Controls 2.12
 import Theme 1.0
 
 
+/**
+  A swapable like close button tool
+  */
+
 ToolButton {
   id: closeTool
 
