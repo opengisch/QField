@@ -76,7 +76,6 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   qDebug() << "Set geometry " << geometry.asWkt();
   clear();
   mOriginalGeometry = geometry;
-  mCurrentIndex = -1;
   mGeometryType = geometry.type();
 
   refreshGeometry();
@@ -85,6 +84,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
 
 void VertexModel::refreshGeometry()
 {
+  mCurrentIndex = -1;
   QgsGeometry geom = mOriginalGeometry;
 
   if ( mMapSettings )
@@ -131,6 +131,8 @@ void VertexModel::refreshGeometry()
     setCurrentVertex( 0 );
 
   updateCanAddVertex();
+  updateCanRemoveVertex();
+  updateCanPreviousNextVertex();
 }
 
 QgsGeometry VertexModel::geometry() const
@@ -183,6 +185,11 @@ void VertexModel::clear()
   updateCanAddVertex();
   emit vertexCountChanged();
   setDirty( false );
+}
+
+void VertexModel::reset()
+{
+  refreshGeometry();
 }
 
 void VertexModel::previous()

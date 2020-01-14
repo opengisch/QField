@@ -11,6 +11,7 @@ VisibilityFadingRow {
   signal finished()
 
   property FeatureModel featureModel
+  readonly property bool blocking: drawLineToolbar.isDigitizing
 
   spacing: 4 * dp
 

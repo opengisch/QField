@@ -10,6 +10,7 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+  readonly property bool blocking: featureModel.vertexModel.dirty
 
   spacing: 4 * dp
 
@@ -21,22 +22,25 @@ VisibilityFadingRow {
 
   function cancel()
   {
-    // do nothing
+    featureModel.vertexModel.reset()
   }
 
-// Cancel button could be used to reset geometry but keep tools open?
-//  Button {
-//    id: cancelButton
-//    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
-//    round: true
-//    bgcolor: "#FFD600"
-//  }
+  Button {
+    id: cancelButton
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+    round: true
+    visible: featureModel.vertexModel.dirty
+    bgcolor: "#900000"
+    onClicked: {
+      cancel()
+    }
+  }
 
   Button {
     id: applyButton
-    iconSource: Theme.getThemeIcon( "ic_save_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    bgcolor: featureModel.vertexModel.dirty ? "#FFD600" : "#616161"
+    bgcolor: featureModel.vertexModel.dirty ? Theme.mainColor : "#616161"
 
     onClicked: {
       if (featureModel.vertexModel.dirty){
