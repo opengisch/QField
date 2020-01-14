@@ -69,11 +69,3 @@ void GeometryEditorsModel::setVertexModel( VertexModel *vertexModel )
   emit vertexModelChanged();
 }
 
-
-
-QVariant GeometryEditorsModel::data( const QModelIndex &index, int role ) const
-{
-  const QVariant data = QStandardItemModel::data( index, role );
-  return data;
-
-}

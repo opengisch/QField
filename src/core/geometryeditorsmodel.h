@@ -39,7 +39,7 @@ class GeometryEditorsModel : public QStandardItemModel
       ToolbarRole,
       SupportedGeometriesRole
     };
-    Q_ENUM(ActionRoles)
+    Q_ENUM( ActionRoles )
 
     enum GeometryType
     {
@@ -66,10 +66,6 @@ class GeometryEditorsModel : public QStandardItemModel
     void vertexModelChanged();
   private:
     VertexModel *mVertexModel = nullptr;
-
-    // QAbstractItemModel interface
-  public:
-    QVariant data( const QModelIndex &index, int role ) const override;
 };
 
 
