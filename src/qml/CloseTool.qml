@@ -10,7 +10,7 @@ import Theme 1.0
 ToolButton {
   id: closeTool
 
-  property string toolText: qStr("close")
+  property string toolText: qsTr("close")
 
   signal closedTool()
 
