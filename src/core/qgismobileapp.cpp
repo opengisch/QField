@@ -131,7 +131,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
   if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
   {
-    QList<QPair<QString,QString>> projects;
+    QList<QPair<QString, QString>> projects;
     QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
     projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
@@ -450,4 +450,20 @@ QgisMobileapp::~QgisMobileapp()
   mProject->removeAllMapLayers();
   // Reintroduce when created on the heap
   delete mProject;
+}
+
+QObject *QgisMobileapp::utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
+{
+  Q_UNUSED( engine )
+  Q_UNUSED( scriptEngine )
+  QgsQuickUtils *singletonClass = new QgsQuickUtils();
+  return singletonClass;
+}
+
+QObject *QgisMobileapp::geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
+{
+  Q_UNUSED( engine )
+  Q_UNUSED( scriptEngine )
+  GeometryEditorsModel *singletonClass = new GeometryEditorsModel();
+  return singletonClass;
 }

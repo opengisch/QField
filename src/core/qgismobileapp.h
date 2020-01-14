@@ -120,21 +120,9 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     void loadProjectQuirks();
 
-    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-    {
-      Q_UNUSED( engine )
-      Q_UNUSED( scriptEngine )
-      QgsQuickUtils *singletonClass = new QgsQuickUtils();
-      return singletonClass;
-    }
+    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
 
-    static QObject *geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-    {
-      Q_UNUSED( engine )
-      Q_UNUSED( scriptEngine )
-      GeometryEditorsModel *singletonClass = new GeometryEditorsModel();
-      return singletonClass;
-    }
+    static QObject *geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
 
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
