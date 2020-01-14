@@ -32,6 +32,7 @@
 #include "focusstack.h"
 #include "qgsquickutils.h"
 #include "qgsgpkgflusher.h"
+#include "geometryeditorsmodel.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -119,13 +120,9 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     void loadProjectQuirks();
 
-    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-    {
-      Q_UNUSED( engine )
-      Q_UNUSED( scriptEngine )
-      QgsQuickUtils *singletonClass = new QgsQuickUtils();
-      return singletonClass;
-    }
+    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
+
+    static QObject *geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
 
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
@@ -155,6 +152,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
+Q_DECLARE_METATYPE( QgsFeatureIds )
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QVariant::Type )
 Q_DECLARE_METATYPE( QgsFieldConstraints )

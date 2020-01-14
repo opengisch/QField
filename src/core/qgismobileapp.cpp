@@ -49,6 +49,7 @@
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsvectorlayereditbuffer.h>
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -90,6 +91,7 @@
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
+#include "geometryeditorsmodel.h"
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -129,7 +131,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
   if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
   {
-    QList<QPair<QString,QString>> projects;
+    QList<QPair<QString, QString>> projects;
     QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
     projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
@@ -169,11 +171,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+  qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
@@ -186,6 +190,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+  qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
@@ -193,6 +198,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
@@ -233,6 +239,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
+  qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
+  qmlRegisterSingletonType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModelSingleton", geometryEditorsSingletonProvider );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -322,7 +330,7 @@ void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects
 
 void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
-  Q_UNUSED( doc );
+  Q_UNUSED( doc )
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
 
   QList<QPair<QString, QString>> projects = recentProjects();
@@ -442,4 +450,20 @@ QgisMobileapp::~QgisMobileapp()
   mProject->removeAllMapLayers();
   // Reintroduce when created on the heap
   delete mProject;
+}
+
+QObject *QgisMobileapp::utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
+{
+  Q_UNUSED( engine )
+  Q_UNUSED( scriptEngine )
+  QgsQuickUtils *singletonClass = new QgsQuickUtils();
+  return singletonClass;
+}
+
+QObject *QgisMobileapp::geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
+{
+  Q_UNUSED( engine )
+  Q_UNUSED( scriptEngine )
+  GeometryEditorsModel *singletonClass = new GeometryEditorsModel();
+  return singletonClass;
 }

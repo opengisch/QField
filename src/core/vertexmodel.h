@@ -110,7 +110,11 @@ class VertexModel : public QStandardItemModel
      */
     QgsGeometry geometry() const;
 
+    //! This will clear the data
     Q_INVOKABLE void clear();
+
+    //! Reset the model to its original geometry
+    Q_INVOKABLE void reset();
 
     //! previous vertex or segment
     Q_INVOKABLE void previous();
