@@ -481,14 +481,13 @@ ApplicationWindow {
       anchors.topMargin: 4 * dp
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
-
   }
 
   Column {
     id: mainToolBar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
-    anchors.bottom: digitizingToolbar.stateVisible ? digitizingToolbar.top : mapCanvas.bottom
+    anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: 4 * dp
     spacing: 4 * dp
 
@@ -511,6 +510,7 @@ ApplicationWindow {
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
       round: true
+      anchors.right: parent.right
 
       bgcolor: "#64B5F6"
 
@@ -583,14 +583,6 @@ ApplicationWindow {
         }
       }
     }
-  }
-
-  Row {
-    id: geometryToolbars
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: 4 * dp
-    anchors.right: mapCanvas.right
-    anchors.rightMargin: 4 * dp
 
     DigitizingToolbar {
       id: digitizingToolbar

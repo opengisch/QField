@@ -12,7 +12,6 @@ VisibilityFadingRow {
   property MapSettings mapSettings
 
   spacing: 4 * dp
-  padding: 4 * dp
 
   function init(featureModel, mapSettings, editorRubberbandModel)
   {

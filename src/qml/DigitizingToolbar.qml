@@ -12,7 +12,6 @@ VisibilityFadingRow {
   property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   spacing: 4 * dp
-  padding: 4 * dp
 
   signal confirm
 

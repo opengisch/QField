@@ -13,7 +13,6 @@ VisibilityFadingRow {
   property FeatureModel featureModel
 
   spacing: 4 * dp
-  padding: 4 * dp
 
   DigitizingToolbar {
     id: drawLineToolbar

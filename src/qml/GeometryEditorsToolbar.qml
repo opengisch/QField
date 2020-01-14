@@ -23,7 +23,6 @@ VisibilityFadingRow {
   property RubberbandModel editorRubberbandModel
 
   spacing: 4 * dp
-  padding: 4 * dp
 
   GeometryEditorsModel {
     id: editors
@@ -52,7 +51,6 @@ VisibilityFadingRow {
     stateVisible: false
 
     spacing: 4 * dp
-    padding: 4 * dp
 
     Repeater {
       model: editors
