@@ -120,6 +120,10 @@ cmake -G "%CMAKEGEN%" ^
 	-D CMAKE_INSTALL_PREFIX=%O4W_ROOT%/apps/%PACKAGENAME% ^
 	-D QGIS_CORE_LIBRARY=%OSGEO4W_ROOT%\apps\qgis-dev\lib\qgis_core.lib ^
 	-D QGIS_INCLUDE_DIR=%OSGEO4W_ROOT%\apps\qgis-dev\include ^
+        -D PROJ_LIBRARY=%O4W_ROOT%/apps/proj-dev/lib/proj.lib ^
+        -D PROJ_INCLUDE_DIR=%O4W_ROOT%/apps/proj-dev/include ^
+        -D GDAL_INCLUDE_DIR=%O4W_ROOT%/apps/gdal-dev/include ^
+        -D GEOS_LIBRARY=%O4W_ROOT%/lib/geos_c.lib ^
 	%CMAKE_OPT% ^
 	%SRCDIR:\=/%
 
