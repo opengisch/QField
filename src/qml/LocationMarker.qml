@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtGraphicalEffects 1.11
+import QtGraphicalEffects 1.0
 import org.qgis 1.0
 import Theme 1.0
 
