@@ -1,22 +1,14 @@
 package ch.opengis.qfield;
 
-import java.text.SimpleDateFormat;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.OutputStream;
-import java.io.FileOutputStream;
-import java.util.Date;
 
 import android.os.Bundle;
+import android.os.Build;
 import android.os.Environment;
 import android.net.Uri;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.provider.MediaStore;
-import android.graphics.Bitmap;
 import android.support.v4.content.FileProvider;
 
 public class QFieldOpenExternallyActivity extends Activity{
@@ -35,13 +27,12 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "Received mimeType: " + mimeType);
 
         File file = new File(filePath);
-        Uri contentUri = FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", file );
+        Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", file );
 
         Log.d(TAG, "call ACTION_VIEW intent");
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
         startActivityForResult(intent, 102);
 
