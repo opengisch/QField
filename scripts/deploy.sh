@@ -8,14 +8,14 @@ ARCHS=( armv7 x86 arm64_v8a x86_64 )
 COMMENT="Uploaded test apks for\n"
 for ARCH in "${ARCHS[@]}"
 do
-  COMMENT="${COMMENT} - [**${ARCH}**](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk)\n"
+  COMMENT=${COMMENT}" - [**${ARCH}**](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk)\n"
 done
-
+BODY="{\"body\": \"${COMMENT}\"}"
 
 if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   if [ ${TRAVIS_PULL_REQUEST} != false ]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
-    curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data '{"body": "'${COMMENT}'"}' https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
+    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data @- https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
   elif [[ -n ${TRAVIS_TAG} ]]; then
     echo -e "\e[93;1mStarting to deploy a new release\e[0m"
@@ -38,7 +38,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
 
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
     # we are on a standard commit on master branch
-    curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data '{"body": "'${COMMENT}'"}' https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
+    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
 
     ASSETS=""
     for ARCH in "${ARCHS[@]}"
