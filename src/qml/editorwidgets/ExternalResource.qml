@@ -32,7 +32,7 @@ Item {
 
       onClicked: {
         if (image.currentValue && settings.value("useNativeCamera", false))
-          platformUtilities.open(image.currentValue, "image/*");
+          platformUtilities.open( qgisProject.homePath + '/' + image.currentValue, "image/*");
       }
     }
 

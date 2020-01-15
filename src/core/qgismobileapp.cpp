@@ -129,7 +129,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
   if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
   {
-    QList<QPair<QString,QString>> projects;
+    QList<QPair<QString, QString>> projects;
     QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
     projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
@@ -425,7 +425,7 @@ void QgisMobileapp::print( int layoutIndex )
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.print( printer, printSettings );
 
-  mPlatformUtils.open( QStringLiteral( "file:///" ) + printer.outputFileName(), QStringLiteral( "application/pdf" ) );
+  mPlatformUtils.open( printer.outputFileName(), QStringLiteral( "application/pdf" ) );
 }
 
 bool QgisMobileapp::event( QEvent *event )
