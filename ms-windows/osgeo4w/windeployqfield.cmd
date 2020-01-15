@@ -83,7 +83,7 @@ copy "%O4W_ROOT%\bin\libcrypto-1_1-x64.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\hdf5_hl.dll" "%QFIELD_RELEASE_PATH%"
 
 copy "%O4W_ROOT%\apps\proj-dev\bin\proj_7_0.dll" "%QFIELD_RELEASE_PATH%"
-copy "%O4W_ROOT%\apps\proj-dev\bin\proj_6_2.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\bin\proj_6_2.dll" "%QFIELD_RELEASE_PATH%"
 
 copy "%O4W_ROOT%\apps\gdal-dev\bin\gdal301.dll" "%QFIELD_RELEASE_PATH%"
 
