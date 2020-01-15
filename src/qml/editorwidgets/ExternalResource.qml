@@ -56,6 +56,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
+    visible: !readOnly
 
     onClicked: {
       if ( settings.valueBool("useNativeCamera", true) ) {
@@ -78,6 +79,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
+    visible: !readOnly
 
     onClicked: {
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/DCIM')
