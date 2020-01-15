@@ -31,7 +31,7 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (image.currentValue && settings.value("useNativeCamera", false))
+        if (image.currentValue)
           platformUtilities.open( qgisProject.homePath + '/' + image.currentValue, "image/*");
       }
     }
