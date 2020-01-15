@@ -44,17 +44,20 @@ if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
   sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
 fi
 
-# Replace the version number in version.pri with the one from the VERSION which is being built
-if [[ -n ${VERSION} ]];
+# Replace the version number in version.pri with the one from the APP_VERSION which is being built
+if [[ -n ${APP_VERSION} ]];
 then
-  echo "Building release version ${VERSION}"
-  sed -i "s/^VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${VERSION}" | cut -f 2 -d 'v' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/^VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/^VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
+  echo "Building release version ${APP_VERSION}"
+  sed -i "s/^VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${APP_VERSION}" | cut -f 2 -d 'v' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${APP_VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
+  sed -i "s/^VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${APP_VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
 
-  export RC_SUFFIX=$(echo "${VERSION}" | cut -f 2 -d 'c' -s)
-  sed -i "s/^VERSION_RC\s*= .*/VERSION_RC = ${RC_SUFFIX:-99}/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/^VERSION_SUFFIX\s*= .*/VERSION_SUFFIX = '${RC_SUFFIX:+-rc}$RC_SUFFIX'/g" ${SOURCE_DIR}/version.pri
+  # for RC or dev releases, append the version number (up to 3 digits)
+  export VERSION_NUMBER=$(echo "${APP_VERSION}" | sed -r -e 's/.*?-(\w+)(\d+)/\2/;t;d') # v.1.2.3-dev456 => 456, v.1.2.3 => EMPTY
+  sed -i "s/^VERSION_NUMBER\s*= .*/VERSION_NUMBER = ${VERSION_NUMBER:999}/" ${SOURCE_DIR}/version.pri
+
+  # coming fron env var, might be empty
+  sed -i "s/^VERSION_SUFFIX_STR\s*= .*/VERSION_SUFFIX_STR = ${VERSION_SUFFIX_STR}/" ${SOURCE_DIR}/version.pri
 fi
 
 mkdir -p ${BUILD_DIR}/.gradle
@@ -71,14 +74,14 @@ if [ -n "${KEYNAME}" ]; then
 	    --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
 	    --storepass "${STOREPASS}" \
 	    --keypass "${KEYPASS}" \
-        --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
+      --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
 	    --output ${INSTALL_DIR} \
 	    --deployment bundled \
 	    --android-platform ${ANDROID_NDK_PLATFORM} \
 	    --gradle
 else
     ${QT_ANDROID}/bin/androiddeployqt \
-        --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
+      --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
 	    --output ${INSTALL_DIR} \
 	    --deployment bundled \
 	    --android-platform ${ANDROID_NDK_PLATFORM} \

@@ -17,13 +17,9 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
 
 script:
-  - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
-  - echo "travis_fold:start:docker-pull"
-  - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
-  - echo "travis_fold:end:docker-pull"
-  - echo "travis_fold:start:tx-pull"
+  - export QFIELD_SDK_VERSION=$(cat sdk.conf | cut -d= -f2)
+  - ./scripts/ci/docker_pull.sh
   - ./scripts/ci/pull_translations.sh
-  - echo "travis_fold:end:tx-pull"
   - ./scripts/ci/travis_build.sh
   - ./scripts/upload-artifacts.sh
 

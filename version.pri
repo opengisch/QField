@@ -1,8 +1,9 @@
 VERSION_MAJOR = 1
 VERSION_MINOR = 4
 VERSION_FIX = 0
-VERSION_RC = 99
-VERSION_SUFFIX = ''
+# for RC (v1.2.3-rc4) or dev (v1.2.3-dev456)
+VERSION_NUMBER = 999
+VERSION_SUFFIX_STR = ''
 
 CODENAME = 'Olavtoppen'
 
@@ -25,8 +26,8 @@ equals( ANDROID_TARGET_ARCH, 'x86_64' ) {
   ANDROID_VERSION_SUFFIX = 6
 }
 
-VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${VERSION_RC}, width=2 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
-VERSTR = '$${VERSION}$${VERSION_SUFFIX} - $${CODENAME}'
+VERSIONCODE = $$format_number($$format_number($${VERSION_MAJOR}, width=2 zeropad)$$format_number($${VERSION_MINOR}, width=2 zeropad)$$format_number($${VERSION_FIX}, width=2 zeropad)$$format_number($${VERSION_NUMBER}, width=3 zeropad)$$format_number($${ANDROID_VERSION_SUFFIX}))
+VERSTR = '$${VERSION}$${VERSION_SUFFIX_STR} - $${CODENAME}'
 
 message( 'Building Version $${VERSTR} ($${VERSIONCODE})' )
 
