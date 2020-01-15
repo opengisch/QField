@@ -257,7 +257,7 @@ Page {
                     padding: 8 * dp
                     topPadding: 0
                     leftPadding: 22 * dp
-                    text: qsTr( "Warning: native camera function is unstable on recent Android versions." )
+                    text: qsTr( "If enabled, the user can choose the system camera app to use." )
                     font: Theme.tipFont
 
                     wrapMode: Text.WordWrap
@@ -270,6 +270,7 @@ Page {
 
             QfSwitch {
                 id: useNativeCameraCheckBox
+                checked: true
                 Layout.alignment: Qt.AlignTop
             }
 
