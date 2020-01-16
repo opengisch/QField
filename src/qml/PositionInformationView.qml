@@ -1,5 +1,5 @@
 import QtQuick 2.11
-import QtQuick.Controls 2.11
+import QtQuick.Controls 2.4
 import QtPositioning 5.8
 import QtQuick.Layouts 1.3
 import org.qgis 1.0
