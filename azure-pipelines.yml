@@ -4,7 +4,7 @@ variables:
 trigger:
   branches:
     include:
-    - azure-pipeline
+    - azure-pipelines
 
 pr:
 - master
