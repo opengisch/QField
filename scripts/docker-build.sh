@@ -8,6 +8,10 @@
 #
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
+#
+# You can either provide the version code directly with APP_VERSION_CODE (MMmmFFNNA: major,minor,fix,number,architecture_index)
+# or you can provide the APP_VERSION (v1.2.3 or v1.2.3-rc4) and the APP_VERSION_CODE will be calculated
+# The APP_VERSION_STR shall be provided in both case
 
 set -e
 
@@ -19,22 +23,17 @@ if [[ -z ${BUILD_FOLDER+x} ]]; then
 else
     BUILD_DIR=${SOURCE_DIR}/${BUILD_FOLDER}
 fi
-if [[ -z ${ARCH+x} ]]; then
-    ARCH=armv7
-fi
-if [[ -z ${APP_NAME+x} ]]; then
-  APP_NAME="QField"
-fi
-if [[ -z ${PKG_NAME+x} ]]; then
-  PKG_NAME="qfield"
-fi
+
+[[ -z ${ARCH} ]] && ARCH=armv7
+[[ -z ${APP_NAME} ]] && APP_NAME="QField"
+[[ -z ${PKG_NAME} ]] && PKG_NAME="qfield"
 
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
 echo "Package name ${PKG_NAME}"
 
-if [[ -z ${APP_ICON+x} ]]; then
+if [[ -z ${APP_ICON} ]]; then
   sed -i "s|<file alias=\"qfield-logo.svg\">icons/qfield-logo.svg</file>|<file alias=\"qfield-logo.svg\">icons/${APP_ICON}</file>|" ${SOURCE_DIR}/images/images.qrc
 fi
 if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
@@ -44,21 +43,22 @@ if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
   sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
 fi
 
-# Replace the version number in version.pri with the one from the APP_VERSION which is being built
+# Replace the version number in version.pri with the one from the APP_VERSION which is being built (e.g. v1.2.3-rc4, v1.2.3)
 if [[ -n ${APP_VERSION} ]];
 then
   echo "Building release version ${APP_VERSION}"
-  sed -i "s/^VERSION_MAJOR\s*= .*/VERSION_MAJOR = $(echo "${APP_VERSION}" | cut -f 2 -d 'v' | cut -f 1 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/^VERSION_MINOR\s*= .*/VERSION_MINOR = $(echo "${APP_VERSION}" | cut -f 2 -d '.')/g" ${SOURCE_DIR}/version.pri
-  sed -i "s/^VERSION_FIX\s*= .*/VERSION_FIX = $(echo "${APP_VERSION}" | cut -f 3 -d '.' | cut -f 1 -d '-')/g" ${SOURCE_DIR}/version.pri
-
-  # for RC or dev releases, append the version number (up to 3 digits)
-  export VERSION_NUMBER=$(echo "${APP_VERSION}" | sed -r -e 's/.*?-(\w+)(\d+)/\2/;t;d') # v.1.2.3-dev456 => 456, v.1.2.3 => EMPTY
-  sed -i "s/^VERSION_NUMBER\s*= .*/VERSION_NUMBER = ${VERSION_NUMBER:999}/" ${SOURCE_DIR}/version.pri
-
-  # coming fron env var, might be empty
-  sed -i "s/^VERSION_SUFFIX_STR\s*= .*/VERSION_SUFFIX_STR = ${VERSION_SUFFIX_STR}/" ${SOURCE_DIR}/version.pri
+  VERSION_MAJOR=$(echo "${APP_VERSION}" | cut -f 2 -dv | cut -f1 -d.)
+  VERSION_MINOR=$(echo "${APP_VERSION}" | cut -f 2 -d.)
+  VERSION_FIX=$(echo "${APP_VERSION}" | cut -f 3 -d. | cut -f1 -d-)
+  VERSION_NUMBER=$(echo "${APP_VERSION}" | gsed -r -e 's/.*?-(\w+)(\d+)/\2/;t;d') # v.1.2.3-rc4 => 4, v1.2.3 => NULL
+  APP_VERSION_CODE=$(printf "%02d%02d%02d%02d%01d" ${VERSION_MAJOR} ${VERSION_MINOR} ${VERSION_FIX} ${VERSION_NUMBER:-99} ${ARCH_BUILD_NUMBER})
+  echo "APP_VERSION_CODE: ${APP_VERSION_CODE}"
 fi
+
+# coming fron env var
+sed -i "s/^VERSIONCODE\s*= .*/VERSIONCODE = ${APP_VERSION_CODE}/" ${SOURCE_DIR}/version.pri
+sed -i "s/^VERSTR\s*= .*/VERSTR = ${APP_VERSION_STR}/" ${SOURCE_DIR}/version.pri
+
 
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.

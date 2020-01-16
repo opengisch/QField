@@ -34,26 +34,34 @@ jobs:
         - ./scripts/ci/pull_translations.sh
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
       if: type = pull_request OR tag IS present OR branch = master
+
+
     - stage: test
       name: "📱 Build armv7"
       env:
         - ARCH=armv7
+        - ARCH_BUILD_NUMBER=1
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
+        - ARCH_BUILD_NUMBER=2
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86"
       env:
         - ARCH=x86
+        - ARCH_BUILD_NUMBER=3
       if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86_64"
       env:
         - ARCH=x86_64
+        - ARCH_BUILD_NUMBER=4
       if: type = pull_request OR tag IS present OR branch = master
+
+
     - stage: deploy
       name: "🍺 Deploy"
       if: type = pull_request OR tag IS present OR branch = master
