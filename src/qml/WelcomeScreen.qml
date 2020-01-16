@@ -86,8 +86,10 @@ Page {
         Button {
           id: localProjectButton
           padding: 8 * dp
+/* Not available on Qt 5.11 (OSGeo4W)
           topInset: 2 * dp
           bottomInset: 2 * dp
+*/
           Layout.fillWidth: true
           text: qsTr( "Open local project" )
           background: Rectangle {
@@ -116,8 +118,10 @@ Page {
         Button {
           id: cloudProjectButton
           padding: 8 * dp
+/* Not available on Qt 5.11 (OSGeo4W)
           topInset: 2 * dp
           bottomInset: 2 * dp
+*/
           Layout.fillWidth: true
           text: qsTr( "QField Cloud projects, coming soon" )
           enabled: false
