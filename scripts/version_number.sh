@@ -33,3 +33,11 @@ app_version_code() {
   APP_VERSION_CODE=$(printf "%02d%02d%02d%02d%01d" ${VERSION_MAJOR} ${VERSION_MINOR} ${VERSION_FIX} ${VERSION_NUMBER:-99} ${ARCH_BUILD_NUMBER})
   echo ${APP_VERSION_CODE}
 }
+
+# version to version str
+# arg1: APP_VERSION (e.g. v1.2.3 or v1.2.3-rc4)
+# returns: 1.2.3 or 1.2.3 RC4
+app_version_str() {
+  APP_VERSION=$1
+  echo ${APP_VERSION} | sed -r 's/^v//; s/-(rc[0-9]+)/ \U\1/'
+}
