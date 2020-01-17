@@ -4,6 +4,8 @@ python:
 rvm:
   - 2.0.0
 
+if: type = pull_request OR tag IS present OR branch = master
+
 # Handle git submodules manually
 git:
   submodules: false
@@ -18,12 +20,8 @@ before_install:
 
 script:
   - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
-  - echo "travis_fold:start:docker-pull"
-  - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
-  - echo "travis_fold:end:docker-pull"
-  - echo "travis_fold:start:tx-pull"
+  - ./scripts/ci/docker_pull.sh
   - ./scripts/ci/pull_translations.sh
-  - echo "travis_fold:end:tx-pull"
   - ./scripts/ci/travis_build.sh
   - ./scripts/upload-artifacts.sh
 
@@ -34,39 +32,39 @@ jobs:
     - stage: test
       name: "🍳 Testing"
       script:
+        - ./test/test_version_number.sh
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - ./scripts/ci/pull_translations.sh
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
-      if: type = pull_request OR tag IS present OR branch = master
+
     - stage: test
       name: "📱 Build armv7"
       env:
         - ARCH=armv7
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86"
       env:
         - ARCH=x86
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86_64"
       env:
         - ARCH=x86_64
-      if: type = pull_request OR tag IS present OR branch = master
+
+
     - stage: deploy
       name: "🍺 Deploy"
-      if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
         - pip install oauth2client
         - pip install pygithub
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
+
+    # TRANSLATIONS
     - stage: deploy
       name: "🌍 Translations"
       if: branch = master AND type != pull_request
