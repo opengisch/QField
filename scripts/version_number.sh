@@ -19,7 +19,7 @@ arch_to_build_number() {
 
 # version to version code
 # arg1: APP_VERSION (e.g. v1.2.3 or v1.2.3-rc4)
-# arg1: ARCH
+# arg2: ARCH
 app_version_code() {
   APP_VERSION=$1
   ARCH=$2

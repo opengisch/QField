@@ -27,6 +27,7 @@ else
     BUILD_DIR=${SOURCE_DIR}/${BUILD_FOLDER}
 fi
 
+# Set default values if missing
 [[ -z ${ARCH} ]] && ARCH=armv7
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
 [[ -z ${PKG_NAME} ]] && PKG_NAME="qfield"
@@ -54,7 +55,7 @@ then
   echo "Generated version code: ${APP_VERSION_CODE}"
 fi
 
-# coming fron env var
+# coming from env var
 sed -i "s/^VERSIONCODE\s*= .*/VERSIONCODE = ${APP_VERSION_CODE}/" ${SOURCE_DIR}/version.pri
 sed -i "s/^VERSTR\s*= .*/VERSTR = ${APP_VERSION_STR:-${APP_VERSION_CODE}}/" ${SOURCE_DIR}/version.pri
 
