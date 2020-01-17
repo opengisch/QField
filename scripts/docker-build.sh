@@ -59,6 +59,12 @@ sed -i "s/^VERSIONCODE\s*= .*/VERSIONCODE = ${APP_VERSION_CODE}/" ${SOURCE_DIR}/
 sed -i "s/^VERSTR\s*= .*/VERSTR = ${APP_VERSION_STR}/" ${SOURCE_DIR}/version.pri
 
 
+if ( [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]] ); then
+  echo "*** TOO BIG VERSION CODE"
+  echo "Remove this check if QField is now 2.x"
+  exit 1
+fi
+
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.
 ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
