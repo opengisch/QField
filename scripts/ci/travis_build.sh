@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 
-CURRENT_CODENAME=$(cat /usr/src/qfield/RELEASE_NAME)
-
 CURRENT_COMMIT=$(git rev-parse --short HEAD)
 LAST_TAG=$(git describe --abbrev=0 --tags)
 COMMIT_COUNT_SINCE_LAST_TAG=$(git log --oneline ${LAST_TAG}...HEAD | wc -l | bc)
@@ -19,6 +17,10 @@ if [ -n "${TRAVIS_TAG}" ]; then
   export PKG_NAME="qfield"
   export APP_ICON="qfield-logo.svg"
   export APP_VERSION="${TRAVIS_TAG}" #  (v1.2.3 or v1.2.3-rc4)
+
+  # adding the code name to the version string
+  CURRENT_CODENAME=$(cat ${DIR}/../../RELEASE_NAME)
+  APP_VERSION_STR="${TRAVIS_TAG} - ${CURRENT_CODENAME}"
 
 elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
