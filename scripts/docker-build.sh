@@ -71,7 +71,7 @@ ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
 cp ${SOURCE_DIR}/scripts/ci/config.pri ${SOURCE_DIR}/config.pri
-${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro "APP_NAME=${APP_NAME_PKG}"
+${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro "APP_NAME=${APP_NAME}"
 make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then
