@@ -59,6 +59,6 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     done
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield-dev ${ASSETS}
   fi
 fi
