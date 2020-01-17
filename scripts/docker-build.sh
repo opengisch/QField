@@ -57,7 +57,7 @@ fi
 
 # coming from env var
 sed -i "s/^VERSIONCODE\s*= .*/VERSIONCODE = ${APP_VERSION_CODE}/" ${SOURCE_DIR}/version.pri
-sed -i "s/^VERSTR\s*= .*/VERSTR = ${APP_VERSION_STR:-${APP_VERSION_CODE}}/" ${SOURCE_DIR}/version.pri
+sed -i "s/^VERSTR\s*= .*/VERSTR = '${APP_VERSION_STR:-${APP_VERSION_CODE}}'/" ${SOURCE_DIR}/version.pri
 
 if ( [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]] ); then
   echo "*** TOO BIG VERSION CODE"
