@@ -44,7 +44,6 @@ SET QML_IMPORT_TRACE=
 
 copy "%BUILDDIR%\output\bin\*.dll" "%QFIELD_RELEASE_PATH%"
 copy "%BUILDDIR%\output\bin\qfield.exe" "%QFIELD_RELEASE_PATH%"
-copy "%CD%\qfield.bat" "%QFIELD_RELEASE_PATH%"
 
 copy "%O4W_ROOT%\bin\zlib1.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\netcdf.dll" "%QFIELD_RELEASE_PATH%"
