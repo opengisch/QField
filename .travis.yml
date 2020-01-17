@@ -32,13 +32,10 @@ jobs:
     - stage: test
       name: "🍳 Testing"
       script:
+        - ./test/test_version_number.sh
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - ./scripts/ci/pull_translations.sh
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
-
-    - stage: test
-      name: "🪐 Script testing"
-      script: ./test/test_version_number.sh
 
     - stage: test
       name: "📱 Build armv7"
