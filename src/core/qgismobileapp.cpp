@@ -98,6 +98,10 @@
 #include "qgsnetworkaccessmanager.h"
 #endif
 
+#define QUOTE(string) _QUOTE(string)
+#define _QUOTE(string) #string
+
+
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
   , mIface( new AppInterface( this ) )
@@ -260,7 +264,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
+  rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
