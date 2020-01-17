@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
+  <Identity Name="Opengisch.QField" Version="1.4.0.0" Publisher="CN=opengis.ch, O=OPENGIS.ch, L=Einsiedeln, S=Schwyz, C=Switzerland" ProcessorArchitecture="x64" />
+    <Properties>
+       <DisplayName>QField</DisplayName>
+       <PublisherDisplayName>OPENGIS.ch</PublisherDisplayName>
+       <Description>Field data collection for QGIS made easy.</Description>
+      <Logo>images\icon.png</Logo>
+    </Properties>
+    <Resources>
+      <Resource Language="en-us" />
+    </Resources>
+	  <Dependencies>
+	  <TargetDeviceFamily Name="Windows.Desktop" MinVersion="" MaxVersionTested="" />
+	  </Dependencies>
+	  <Capabilities>
+	    <rescap:Capability Name="runFullTrust"/>
+	  </Capabilities>
+    <Applications>
+      <Application Id="QField" Executable="qfield.exe" EntryPoint="Windows.FullTrustApplication">
+        <uap:VisualElements DisplayName="QField" Description="Field data collection for QGIS"	Square150x150Logo="images\qfield_icon_150.png"
+				   Square44x44Logo="images\qfield_icon_40.png"	BackgroundColor="#464646" />
+      </Application>
+     </Applications>
+  </Package>
