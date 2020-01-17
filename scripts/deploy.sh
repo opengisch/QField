@@ -12,6 +12,13 @@ do
 done
 BODY="{\"body\": \"${COMMENT}\"}"
 
+
+fetch_asset() {
+  ARCH=$1
+  ASSET_PATH=$2
+  curl -L -s -S -o ${ASSET_PATH} https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
+}
+
 if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   if [ ${TRAVIS_PULL_REQUEST} != false ]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
@@ -24,13 +31,15 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     ASSETS=""
     for ARCH in "${ARCHS[@]}"
     do
+      ASSET_PATH=/tmp/qfield-${TRAVIS_TAG}-${ARCH}.apk
+
       echo -e "\e[93m * Collecting apks to upload...\e[0m"
-      curl -L -s -S -o /tmp/qfield-${TRAVIS_TAG}-${ARCH}.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
+      fetch_asset ${ARCH} ${ASSET_PATH}
 
       echo -e "\e[93m * Deploying app to github release...\e[0m"
-      ./scripts/upload_release_asset.py /tmp/qfield-${TRAVIS_TAG}-${ARCH}.apk ${TRAVIS_TAG}
+      ./scripts/upload_release_asset.py ${ASSET_PATH} ${TRAVIS_TAG}
 
-      ASSETS="${ASSETS} /tmp/qfield-${TRAVIS_TAG}-${ARCH}.apk"
+      ASSETS="${ASSETS} ${ASSET_PATH}"
     done
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
@@ -44,8 +53,9 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     for ARCH in "${ARCHS[@]}"
     do
       echo -e "\e[93m * Collecting apks to upload...\e[0m"
-      curl -L -s -S -o /tmp/qfield-dev-${ARCH}.apk https://download.opengis.ch/qfield/ci-builds/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
-      ASSETS="${ASSETS} /tmp/qfield-dev-${ARCH}.apk"
+      ASSET_PATH=/tmp/qfield-dev-${ARCH}.apk
+      fetch_asset ${ARCH} ${ASSET_PATH}
+      ASSETS="${ASSETS} ${ASSET_PATH}"
     done
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"

@@ -13,6 +13,9 @@
 # or you can provide the APP_VERSION (v1.2.3 or v1.2.3-rc4) and the APP_VERSION_CODE will be calculated
 # The APP_VERSION_STR shall be provided in both case
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+source ${DIR}/version_number.sh
+
 set -e
 
 apt update && apt install zip
@@ -47,12 +50,8 @@ fi
 if [[ -n ${APP_VERSION} ]];
 then
   echo "Building release version ${APP_VERSION}"
-  VERSION_MAJOR=$(echo "${APP_VERSION}" | cut -f 2 -dv | cut -f1 -d.)
-  VERSION_MINOR=$(echo "${APP_VERSION}" | cut -f 2 -d.)
-  VERSION_FIX=$(echo "${APP_VERSION}" | cut -f 3 -d. | cut -f1 -d-)
-  VERSION_NUMBER=$(echo "${APP_VERSION}" | gsed -r -e 's/.*?-(\w+)(\d+)/\2/;t;d') # v.1.2.3-rc4 => 4, v1.2.3 => NULL
-  APP_VERSION_CODE=$(printf "%02d%02d%02d%02d%01d" ${VERSION_MAJOR} ${VERSION_MINOR} ${VERSION_FIX} ${VERSION_NUMBER:-99} ${ARCH_BUILD_NUMBER})
-  echo "APP_VERSION_CODE: ${APP_VERSION_CODE}"
+  APP_VERSION_CODE=$(app_version_code "${APP_VERSION}")
+  echo "Generated version code: ${APP_VERSION_CODE}"
 fi
 
 # coming fron env var
@@ -71,21 +70,21 @@ make
 make install INSTALL_ROOT=${INSTALL_DIR}
 if [ -n "${KEYNAME}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
-	    --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
-	    --storepass "${STOREPASS}" \
-	    --keypass "${KEYPASS}" \
+      --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
+      --storepass "${STOREPASS}" \
+      --keypass "${KEYPASS}" \
       --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
-	    --output ${INSTALL_DIR} \
-	    --deployment bundled \
-	    --android-platform ${ANDROID_NDK_PLATFORM} \
-	    --gradle
+      --output ${INSTALL_DIR} \
+      --deployment bundled \
+      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --gradle
 else
     ${QT_ANDROID}/bin/androiddeployqt \
       --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
-	    --output ${INSTALL_DIR} \
-	    --deployment bundled \
-	    --android-platform ${ANDROID_NDK_PLATFORM} \
-	    --gradle
+      --output ${INSTALL_DIR} \
+      --deployment bundled \
+      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --gradle
 fi
 chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
 popd

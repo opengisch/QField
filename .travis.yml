@@ -4,6 +4,8 @@ python:
 rvm:
   - 2.0.0
 
+if: type = pull_request OR tag IS present OR branch = master
+
 # Handle git submodules manually
 git:
   submodules: false
@@ -17,7 +19,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
 
 script:
-  - export QFIELD_SDK_VERSION=$(cat sdk.conf | cut -d= -f2)
+  - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
   - ./scripts/ci/docker_pull.sh
   - ./scripts/ci/pull_translations.sh
   - ./scripts/ci/travis_build.sh
@@ -33,44 +35,39 @@ jobs:
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
         - ./scripts/ci/pull_translations.sh
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
-      if: type = pull_request OR tag IS present OR branch = master
 
+    - stage: test
+      name: "🪐 Script testing"
+      script: ./test/test_version_number.sh
 
     - stage: test
       name: "📱 Build armv7"
       env:
         - ARCH=armv7
-        - ARCH_BUILD_NUMBER=1
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
-        - ARCH_BUILD_NUMBER=2
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86"
       env:
         - ARCH=x86
-        - ARCH_BUILD_NUMBER=3
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
       name: "📱 Build x86_64"
       env:
         - ARCH=x86_64
-        - ARCH_BUILD_NUMBER=4
-      if: type = pull_request OR tag IS present OR branch = master
 
 
     - stage: deploy
       name: "🍺 Deploy"
-      if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
         - pip install oauth2client
         - pip install pygithub
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
+
+    # TRANSLATIONS
     - stage: deploy
       name: "🌍 Translations"
       if: branch = master AND type != pull_request
