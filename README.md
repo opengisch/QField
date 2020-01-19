@@ -31,7 +31,9 @@ If you found it useful, we will be even happier if you could give something back
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
 
 ## Get master (unstable) version
-We automatically publish the latest master build to a dedicated channel on the playstore at https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev. You'll need to join the beta program (https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version. Remember, this is the latest development build and is **not** tested much.
+We automatically publish the latest master build to a dedicated channel on the playstore at https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev. You'll need to join the beta program (https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version. 
+
+Remember, this is the latest development build and is **not** tested much.
 
 
 ## Build
