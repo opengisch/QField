@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Uploads an apk to the alpha track."""
+"""Uploads an apk to the chosen track."""
 
 import argparse
 
@@ -23,7 +23,6 @@ import httplib2
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import client
 
-TRACK = 'alpha'  # Can be 'alpha', beta', 'production' or 'rollout'
 SERVICE_ACCOUNT_EMAIL = (
     'qfielddeployer@api-5606400287044015100-167791.iam.gserviceaccount.com')
 
@@ -31,10 +30,12 @@ SERVICE_ACCOUNT_EMAIL = (
 argparser = argparse.ArgumentParser(add_help=False)
 argparser.add_argument('package_name',
                        help='The package name. Example: com.android.sample')
+argparser.add_argument('package_track',
+                       help='The track to deploy to.'
+                            ' Can be "alpha", "beta", "production" or "rollout"')
 argparser.add_argument('apk_files',
                        nargs='*',
                        help='Paths to the APK files to upload.')
-
 
 def main():
     # Load the key in PKCS 12 format that you downloaded from the Google APIs
@@ -59,6 +60,7 @@ def main():
     flags = argparser.parse_args()
 
     package_name = flags.package_name
+    package_track = flags.package_track
     apk_files = flags.apk_files
 
     try:
@@ -79,10 +81,10 @@ def main():
 
         track_response = service.edits().tracks().update(
             editId=edit_id,
-            track=TRACK,
+            track=package_track,
             packageName=package_name,
-            body={'track': TRACK,
-                'releases': [ {'versionCodes': version_codes, 'status' : 'completed' } ] }).execute()
+            body={'track': package_track,
+                'releases': [{'versionCodes': version_codes, 'status' : 'completed' }]}).execute()
 
         print('Track {track} is set for releases {releases}'.format(
             track=track_response['track'],
