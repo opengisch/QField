@@ -43,7 +43,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     done
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield beta ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield alpha ${ASSETS}
 
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
     # we are on a standard commit on master branch
