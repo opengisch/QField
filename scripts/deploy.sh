@@ -42,12 +42,14 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
       ASSETS="${ASSETS} ${ASSET_PATH}"
     done
 
+    RELEASE_URL="https://github.com/opengisch/QField/releases/tag/${TRAVIS_TAG}"
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield alpha ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield alpha ${RELEASE_URL} ${ASSETS}
 
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
     # we are on a standard commit on master branch
-    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
+    RELEASE_URL="https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}"
+    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- ${RELEASE_URL}/comments
     openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
     ASSETS=""
@@ -60,6 +62,6 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     done
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev beta ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev beta ${RELEASE_URL} ${ASSETS}
   fi
 fi

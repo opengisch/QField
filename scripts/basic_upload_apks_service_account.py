@@ -33,6 +33,8 @@ argparser.add_argument('package_name',
 argparser.add_argument('package_track',
                        help='The track to deploy to.'
                             ' Can be "alpha", "beta", "production" or "rollout"')
+argparser.add_argument('release_note',
+                       help='text to add as en-US release notes')
 argparser.add_argument('apk_files',
                        nargs='*',
                        help='Paths to the APK files to upload.')
@@ -61,6 +63,7 @@ def main():
 
     package_name = flags.package_name
     package_track = flags.package_track
+    release_note = flags.release_note
     apk_files = flags.apk_files
 
     try:
@@ -84,7 +87,12 @@ def main():
             track=package_track,
             packageName=package_name,
             body={'track': package_track,
-                'releases': [{'versionCodes': version_codes, 'status' : 'completed' }]}).execute()
+                'releases': [{'versionCodes': version_codes,
+                              'releaseNotes': [
+                                  {'language': 'en-US', 'text': release_note}],
+                              'status': 'completed'}]
+                }
+            ).execute()
 
         print('Track {track} is set for releases {releases}'.format(
             track=track_response['track'],
