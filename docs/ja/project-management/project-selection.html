@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>プロジェクトの選択 &mdash; QField Documentation 1.0 - M... ドキュメント</title>
-    
+    <title>プロジェクトの選択 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,8 +24,9 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... ドキュメント" href="../index.html" />
-    <link rel="next" title="ベクターレイヤの設定" href="vector-layers.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="QFieldユーザーガイド" href="../user-guide/index.html" />
     <link rel="prev" title="PDFに印刷する" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -118,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: ベクターレイヤの設定"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ベクターレイヤの設定 &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: QFieldユーザーガイド"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QFieldユーザーガイド &raquo;</span>
     </a>
   </li>
             
@@ -158,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">マップテーマの設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">ポータブルなプロジェクト</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">PDFに印刷する</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">プロジェクトの選択</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">プロジェクトの選択</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">ベクターレイヤの設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QFieldユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">アクティブなマップテーマを変更する</a></li>
@@ -178,15 +176,13 @@
       
   <div class="section" id="project-selection">
 <h1>プロジェクトの選択<a class="headerlink" href="#project-selection" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>QFieldは &#8221;.qgs&#8221; フォーマットのQGISプロジェクトを開けます。現在は &#8221;.qgz&#8221; ファイルを開くことができません。</p>
-<p>QFieldは、カスタマイズされたファイル選択画面を使用してプロジェクトを開きます。 QFieldメニューから &#8220;プロジェクトを開く&#8221; を選択すると、ファイル選択画面が開き、次の場所が表示されます。</p>
+<p>QFieldは &quot;.qgs&quot; フォーマットのQGISプロジェクトを開けます。現在は &quot;.qgz&quot; ファイルを開くことができません。</p>
+<p>QFieldは、カスタマイズされたファイル選択画面を使用してプロジェクトを開きます。 QFieldメニューから &quot;プロジェクトを開く&quot; を選択すると、ファイル選択画面が開き、次の場所が表示されます。</p>
 <ul class="simple">
-<li><p class="first">プライマリーメディア/共有ストレージディレクトリ</p>
-</li>
-<li><p class="first">もし既にプライマリストレージディレクトリに含まれていなければ、アプリが所有するファイルがある全ての共有/外部ストレージデバイス上のアプリケーション固有のディレクトリ</p>
-</li>
+<li>プライマリーメディア/共有ストレージディレクトリ</li>
+<li>もし既にプライマリストレージディレクトリに含まれていなければ、アプリが所有するファイルがある全ての共有/外部ストレージデバイス上のアプリケーション固有のディレクトリ</li>
 </ul>
-<p>これらのディレクトリの中では、サブディレクトリと &#8221;.qgs&#8221; 拡張子のファイルのみが表示されます。</p>
+<p>これらのディレクトリの中では、サブディレクトリと &quot;.qgs&quot; 拡張子のファイルのみが表示されます。</p>
 <p>QFieldでは、プロジェクトファイルがデバイス上に物理的に存在する必要があるため、リモートファイル（Googleドライブなど）を扱うプロバイダーを使用することはできません。一方、 <a class="reference external" href="https://syncthing.net/">syncthing</a> や <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (もしくは dropboxなどほかの何か)のようなデバイス上にファイルを物理的に同期できるアプリを使うことはできます。</p>
 <div class="section" id="favorite-directories">
 <h2>お気に入りのディレクトリ<a class="headerlink" href="#favorite-directories" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -209,16 +205,11 @@
 <p>Android 6.0以降では、SDカードをAndroidスマートフォンの内部ストレージとして使用できます。 Adoptable Storageと呼ばれる機能により、Android OSは外部ストレージメディアを永続的な内部ストレージとしてフォーマットできます。 フォーマットされたSDカードのデータは暗号化されており、別のデバイスにマウントすることはできません。</p>
 <p><strong>空のSDカードで設定してください。 カードが「内部」ストレージに変換されると、フォーマット（消去）されるため、空にする必要があります。</strong></p>
 <ol class="arabic simple">
-<li><p class="first">デバイスの「設定」に移動し、「ストレージ」を選択します。</p>
-</li>
-<li><p class="first">「SDカード」を選択し、「3ドットメニュー」（右上）をタップして、そこから「設定」を選択します。</p>
-</li>
-<li><p class="first">次に、「内部フォーマット」を選択してから、「消去とフォーマット」を選択します。</p>
-</li>
-<li><p class="first">SDカードが内部ストレージとしてフォーマットされます。</p>
-</li>
-<li><p class="first">デバイスを再起動します。</p>
-</li>
+<li>デバイスの「設定」に移動し、「ストレージ」を選択します。</li>
+<li>「SDカード」を選択し、「3ドットメニュー」（右上）をタップして、そこから「設定」を選択します。</li>
+<li>次に、「内部フォーマット」を選択してから、「消去とフォーマット」を選択します。</li>
+<li>SDカードが内部ストレージとしてフォーマットされます。</li>
+<li>デバイスを再起動します。</li>
 </ol>
 <p>再起動しないと、正しく動作しない可能性が多々あるため、必ず実行してください。</p>
 <p>Android 6.0以降を実行している場合でも、Adoptable Storage機能がデバイスに存在しない可能性があります。 デバイスの製造元がこの機能を無効にしているかもしれません。 ただし、デバイスにストレージを強制的に適用させるコマンドラインの方法があります。</p>
@@ -238,7 +229,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -250,7 +241,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。<br/>
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。<br/>
     </p>
   </div>
 </footer>

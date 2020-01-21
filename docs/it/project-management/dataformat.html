@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>formati dati supportati &mdash; QField Documentation 1.0 - M... documentazione</title>
-    
+    <title>formati dati supportati &#8212; QField Documentation 1.0 - M... documentazione</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentazione" href="../index.html" />
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Gestione del progetto di QField" href="index.html" />
     <link rel="prev" title="Search in layers" href="configure-search.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -149,11 +147,11 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Manuale d&#8217;installazione QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Manuale d’installazione QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concetti</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Impostazioni e simboli SVG personalizzati</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">formati dati supportati</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">formati dati supportati</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#raster-data">Raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Gestione del progetto di QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configura i temi della mappa</a></li>
@@ -183,6 +181,8 @@
 This page offers a non-exhaustive list of supported data formats.</p>
 <div class="section" id="table">
 <h2>Tabella<a class="headerlink" href="#table" title="Link a questa intestazione">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -190,66 +190,59 @@ This page offers a non-exhaustive list of supported data formats.</p>
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Formati dati</p>
-</th>
-<th class="head"><p class="first last">Supporto</p>
-</th>
-<th class="head"><p class="first last">Note</p>
-</th>
+<tr class="row-odd"><th class="head">Formati dati</th>
+<th class="head">Supporto</th>
+<th class="head">Note</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Spatialite</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Geopackage</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WMS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>WFS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WFS-T</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Postgis</td>
 <td><span class="yay">✔</span></td>
-<td><p class="first last">il supporto per Ssl non è ancora implementato.</p>
-</td>
+<td>il supporto per Ssl non è ancora implementato.</td>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Shapefile</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">La compressione JPEG non è ancora supportata.</p>
-</td>
+<td>La compressione JPEG non è ancora supportata.</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">La licenza limita l&#8217;utilizzo.</p>
-</td>
+<td>La licenza limita l’utilizzo.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">La licenza limita l&#8217;utilizzo.</p>
-</td>
+<td>La licenza limita l’utilizzo.</td>
 </tr>
 </tbody>
 </table>
-<p>Se non trovi il tuo formato dati preferito in questa tabella, per favore controlla se funziona e   <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adatta la lista sotto</a> per condividere quello che hai trovato. Se non funziona, per favore  <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">apri una issue</a>. Saremo lieti di aiutarti con l&#8217;implementazione.</p>
+<p>Se non trovi il tuo formato dati preferito in questa tabella, per favore controlla se funziona e   <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adatta la lista sotto</a> per condividere quello che hai trovato. Se non funziona, per favore  <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">apri una issue</a>. Saremo lieti di aiutarti con l’implementazione.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
@@ -257,9 +250,9 @@ This page offers a non-exhaustive list of supported data formats.</p>
 <p>I raster possono diventare relativamente grandi, quando si lavora con tiff non compressi spesso si raggiungono diversi Gb. Specialmente su dispositivi mobili, questo può essere molto inefficiente.</p>
 <div class="section" id="use-geopackage">
 <h2>Usa il GeoPackage<a class="headerlink" href="#use-geopackage" title="Link a questa intestazione">¶</a></h2>
-<p>Si raccomanda l&#8217;utilizzo del formato geopackage per trattare i dati raster. I seguenti comandi convertiranno un file chiamato <code class="code docutils literal"><span class="pre">raster.tif</span></code> in un file  <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> con le piramidi. Assicurati di impostare EPSG:21781 (CH1903 LV03) al tuo desiderato SR.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
-gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+<p>Si raccomanda l’utilizzo del formato geopackage per trattare i dati raster. I seguenti comandi convertiranno un file chiamato <code class="code docutils literal"><span class="pre">raster.tif</span></code> in un file  <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> con le piramidi. Assicurati di impostare EPSG:21781 (CH1903 LV03) al tuo desiderato SR.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
+<span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
@@ -278,7 +271,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -290,7 +283,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

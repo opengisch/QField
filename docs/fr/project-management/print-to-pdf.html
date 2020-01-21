@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Exporter en PDF &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Exporter en PDF &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Sélection de projet" href="project-selection.html" />
-    <link rel="prev" title="Projet portable" href="portable-project.html" />
+    <link rel="prev" title="Configurer les thèmes de carte" href="map-themes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -108,7 +106,7 @@
             
               
   <li>
-    <a href="portable-project.html" title="Previous Chapter: Projet portable"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Projet portable</span>
+    <a href="map-themes.html" title="Previous Chapter: Configurer les thèmes de carte"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configurer le...</span>
     </a>
   </li>
   <li>
@@ -142,7 +140,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Rechercher dans les couches</a></li>
@@ -151,12 +149,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Exporter en PDF</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -172,14 +170,14 @@
       
   <div class="section" id="print-to-pdf">
 <h1>Exporter en PDF<a class="headerlink" href="#print-to-pdf" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Il est possible d&#8217;exporter les cartes et d&#8217;autres objets au format PDF.</p>
+<p>Il est possible d’exporter les cartes et d’autres objets au format PDF.</p>
 <p>Si le projet a au moins une mise en page définie, elles seront disponibles dans le menu.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/print_menu.jpg"><img alt="Print to PDF menu option" src="../_images/print_menu.jpg" style="width: 500px;" /></a>
 </div>
 </div>
-<p>Après avoir selectionné la mise en page, le fichier PDF est créé et sauvegardé dans le repertoire Documents de l&#8217;appareil.</p>
+<p>Après avoir selectionné la mise en page, le fichier PDF est créé et sauvegardé dans le repertoire Documents de l’appareil.</p>
 <p>En choisissant une application de lecture de PDF, le fichier peut être lu directement.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -211,7 +209,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -223,7 +221,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

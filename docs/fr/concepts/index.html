@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Concepts &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Concepts &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Symboles SVG personnalisés et configuration" href="../project-management/android-data-structure.html" />
     <link rel="prev" title="Guide d’installation QField" href="../installation-guide/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -101,7 +99,7 @@
 <li><a class="reference internal" href="#">Concepts</a><ul>
 <li><a class="reference internal" href="#keep-it-simple">Rester simple</a></li>
 <li><a class="reference internal" href="#be-compatible-with-qgis">Être compatible avec QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Basé sur les &#8220;modes&#8221; de fonctionnement</a></li>
+<li><a class="reference internal" href="#mode-based">Basé sur les «&nbsp;modes&nbsp;» de fonctionnement</a></li>
 </ul>
 </li>
 </ul>
@@ -147,8 +145,8 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Rechercher dans les couches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formats de données supportés</a></li>
@@ -159,9 +157,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -180,19 +178,19 @@
 <p>QField est conçu selon quelques principes clés :</p>
 <div class="section" id="keep-it-simple">
 <h2>Rester simple<a class="headerlink" href="#keep-it-simple" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les besoins de saisie sur le terrain ne sont pas les mêmes qu&#8217;au bureau. L&#8217;écran est plus petit, les appareils et les tâches sont différents.</p>
-<p>Le but de QField est d&#8217;aider l&#8217;utilisateur à réaliser ces tâches sans encombrer l&#8217;interface utilisateur. Seules les fonctionnalités utiles à la réalisation des tâches devant être effectuées sur le terrain sont disponibles. Tout le reste ne l&#8217;est pas.</p>
+<p>Les besoins de saisie sur le terrain ne sont pas les mêmes qu’au bureau. L’écran est plus petit, les appareils et les tâches sont différents.</p>
+<p>Le but de QField est d’aider l’utilisateur à réaliser ces tâches sans encombrer l’interface utilisateur. Seules les fonctionnalités utiles à la réalisation des tâches devant être effectuées sur le terrain sont disponibles. Tout le reste ne l’est pas.</p>
 <p>Cela signifie que tout ce qui concerne la symbologie des couches, la définition des formulaires ou la configuration du projet devra être effectué au préalable sur un poste informatique avec QGIS.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
 <h2>Être compatible avec QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Lien permanent vers ce titre">¶</a></h2>
-<p>QField est basé sur QGIS. Ce n&#8217;est pas une réécriture de QGIS, mais cela utilise les librairies de QGIS. Le moteur de rendu est le même que QGIS et le contenu de la carte sera par conséquent identique entre un appareil mobile et un ordinateur de bureau.</p>
-<p>Si une option de configuration est disponible dans le projet QGIS, il ne sera pas nécessaire de la réécrire. QField utilise les mêmes widgets d&#8217;édition que QGIS. Si un projet est configuré avec QGIS desktop, il fonctionnera sur un appareil mobile.</p>
-<p>Ces concepts guident le développement de QField, mais n&#8217;ont pas encore tous été implémentés.</p>
+<p>QField est basé sur QGIS. Ce n’est pas une réécriture de QGIS, mais cela utilise les librairies de QGIS. Le moteur de rendu est le même que QGIS et le contenu de la carte sera par conséquent identique entre un appareil mobile et un ordinateur de bureau.</p>
+<p>Si une option de configuration est disponible dans le projet QGIS, il ne sera pas nécessaire de la réécrire. QField utilise les mêmes widgets d’édition que QGIS. Si un projet est configuré avec QGIS desktop, il fonctionnera sur un appareil mobile.</p>
+<p>Ces concepts guident le développement de QField, mais n’ont pas encore tous été implémentés.</p>
 </div>
 <div class="section" id="mode-based">
-<h2>Basé sur les &#8220;modes&#8221; de fonctionnement<a class="headerlink" href="#mode-based" title="Lien permanent vers ce titre">¶</a></h2>
-<p>QField est construit sur des &#8220;modes&#8221;. Ces modes sont similaires aux outils de carte dans QGIS desktop. Un mode définit une tâche qu&#8217;un utilisateur est en train de réaliser. Soit l&#8217;utilisateur navigue au travers des données, soit il numérise de nouvelles données.</p>
+<h2>Basé sur les «&nbsp;modes&nbsp;» de fonctionnement<a class="headerlink" href="#mode-based" title="Lien permanent vers ce titre">¶</a></h2>
+<p>QField est construit sur des «&nbsp;modes&nbsp;». Ces modes sont similaires aux outils de carte dans QGIS desktop. Un mode définit une tâche qu’un utilisateur est en train de réaliser. Soit l’utilisateur navigue au travers des données, soit il numérise de nouvelles données.</p>
 </div>
 </div>
 
@@ -209,7 +207,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -221,7 +219,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

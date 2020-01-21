@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Selección do proxecto &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Selección do proxecto &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,8 +23,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Configuración de Capa Vectorial" href="vector-layers.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guía de Usuario de QField" href="../user-guide/index.html" />
     <link rel="prev" title="Imprimir a PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -117,7 +115,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Configuración de Capa Vectorial"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configuración... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: Guía de Usuario de QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Guía de Usuar... &raquo;</span>
     </a>
   </li>
             
@@ -157,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurar Temas de Mapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Imprimir a PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Selección do proxecto</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Selección do proxecto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
@@ -177,15 +175,13 @@
       
   <div class="section" id="project-selection">
 <h1>Selección do proxecto<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
-<p>QField abre proxectos de QGIS no formato &#8221;.qgs&#8221;. Actualmente non é posible abrir ficheiros &#8221;.qgz&#8221;.</p>
-<p>QField utiliza un selector de ficheiros personalizado para abrir os proxectos. Ó escoller &#8220;Abrir proxecto&#8221; dende o menú de QField, abrirase o selector de ficheiros amosando as seguintes localizacións:</p>
+<p>QField abre proxectos de QGIS no formato «.qgs». Actualmente non é posible abrir ficheiros «.qgz».</p>
+<p>QField utiliza un selector de ficheiros personalizado para abrir os proxectos. Ó escoller «Abrir proxecto» dende o menú de QField, abrirase o selector de ficheiros amosando as seguintes localizacións:</p>
 <ul class="simple">
-<li><p class="first">O directorio primario de almacenamento de medios/compartido.</p>
-</li>
-<li><p class="first">Os directorios específicos da aplicación en tódolos dispositivos de almacenamento compartido/externo onde a aplicación pode situar ficheiros persistentes se non están aínda incluídos no directorio de almacenamento primario.</p>
-</li>
+<li>O directorio primario de almacenamento de medios/compartido.</li>
+<li>Os directorios específicos da aplicación en tódolos dispositivos de almacenamento compartido/externo onde a aplicación pode situar ficheiros persistentes se non están aínda incluídos no directorio de almacenamento primario.</li>
 </ul>
-<p>Destro destes directorios, só se amosan subdirectorios e ficheiros coa extensión &#8221;.qgs&#8221;.</p>
+<p>Destro destes directorios, só se amosan subdirectorios e ficheiros coa extensión «.qgs».</p>
 <p>QField precisa que o ficheiro do proxecto estea fisicamente no dispositivo, polo que non é posible utilizar provedores que traballen con ficheiro remotos (ex: Google Drive). Por outra banda podes utilizar aplicacións coma <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox e probablemente moitas outras) que che permiten sincronizar fisicamente o ficheiro co dispositivo.</p>
 <div class="section" id="favorite-directories">
 <h2>Directorios preferidos<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
@@ -193,7 +189,7 @@
 </div>
 <div class="section" id="external-sd-card">
 <h2>Tarxeta SD externa<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>O selector de ficheiros amosa a raíz da tarxeta SD etiquetada coma de &#8220;só lectura&#8221; e o directorio específico da aplicación separado do resto da tarxeta SD, xa que é o único directorio par o cal a aplicación ten permiso de escritura. O directorio é o seguinte:</p>
+<p>O selector de ficheiros amosa a raíz da tarxeta SD etiquetada coma de «só lectura» e o directorio específico da aplicación separado do resto da tarxeta SD, xa que é o único directorio par o cal a aplicación ten permiso de escritura. O directorio é o seguinte:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Tecnicamente, isto é debido ó feito de que Android tenta ACTION_OPEN_DOCUMENT e ACTION_OPEN_DOCUMENT_TREE, funciona e dá permisos de lectura-escritura ó contido do URI devolto, non no ficheiro real ligado. Esta limitación ten sentido para como se estrutura Android pero actualmente non é utilizable con QGIS xa que QField precisa acceder ó ficheiro real cunha ruta real.</p>
@@ -206,18 +202,13 @@
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>Como converter a tarxeta SD externa nun almacenamento interno<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
 <p>Dende Android 6.0, podes utilizar a tarxeta SD coma almacenamento interno para o teléfono Android. Unha funcionalidade chamada Almacenamento Adoptable permítelle ó SO Android darlle formato a un medio de almacenamento externo coma un almacenamento interno permanente. Os datos na tarxeta SD adoptada encríptanse e non poden montarse noutro dispositivo.</p>
-<p><strong>Asegúrate que comezas cunha tarxta SD baleira. Precisa estar baleira porque cando a tarxeta se converte a almacenamento &#8220;Interno&#8221;, daráselle formato (borrada).</strong></p>
+<p><strong>Asegúrate que comezas cunha tarxta SD baleira. Precisa estar baleira porque cando a tarxeta se converte a almacenamento «Interno», daráselle formato (borrada).</strong></p>
 <ol class="arabic simple">
-<li><p class="first">Ir á &#8220;Configuración&#8221; do dispositivo, logo seleccionar &#8220;Almacenamento&#8221;.</p>
-</li>
-<li><p class="first">Seleccione a súa &#8220;Tarxeta SD&#8221;, logo pulse no &#8220;menú dos tres puntos&#8221; (arriba á dereita), agora seleccione &#8220;Configuración&#8221; dende alí.</p>
-</li>
-<li><p class="first">Agora seleccione &#8220;Dar Formato como interna&#8221; e logo &#8220;Eliminar &amp; Dar Formato&#8221;.</p>
-</li>
-<li><p class="first">Á súa Tarxeta SD daráselle agora formato como almacenamento interno.</p>
-</li>
-<li><p class="first">Reinicia o teléfono.</p>
-</li>
+<li>Ir á «Configuración» do dispositivo, logo seleccionar «Almacenamento».</li>
+<li>Seleccione a súa «Tarxeta SD», logo pulse no «menú dos tres puntos» (arriba á dereita), agora seleccione «Configuración» dende alí.</li>
+<li>Agora seleccione «Dar Formato como interna» e logo «Eliminar &amp; Dar Formato».</li>
+<li>Á súa Tarxeta SD daráselle agora formato como almacenamento interno.</li>
+<li>Reinicia o teléfono.</li>
 </ol>
 <p>Se non reinicias o teléfono, moitas cousas poden non funcionar correctamente, así que asegúrate de facelo.</p>
 <p>Pode ser que o Almacenamento Adoptable non estea presente no teu dispositivo aínda que funcione con Android 6.0 ou superiores. O fabricando do dispositivo poida que desactivase esta funcionalidade. Porén, existen métodos na liña de comandos que che permiten forzar ó dispositivo a adoptar un almacenamento.</p>
@@ -237,7 +228,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -249,7 +240,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

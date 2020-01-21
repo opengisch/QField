@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>レイヤーの検索 &mdash; QField Documentation 1.0 - M... ドキュメント</title>
-    
+    <title>レイヤーの検索 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,10 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... ドキュメント" href="../index.html" />
-    <link rel="up" title="QFieldプロジェクトの管理" href="index.html" />
-    <link rel="next" title="ベクターレイヤの設定" href="vector-layers.html" />
-    <link rel="prev" title="ポータブルなプロジェクト" href="portable-project.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="サポート対象のデータフォーマット" href="dataformat.html" />
+    <link rel="prev" title="SVGシンボルのカスタマイズと設定" href="android-data-structure.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -41,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -112,11 +109,11 @@
             
               
   <li>
-    <a href="portable-project.html" title="Previous Chapter: ポータブルなプロジェクト"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ポータブルなプロジェクト</span>
+    <a href="android-data-structure.html" title="Previous Chapter: SVGシンボルのカスタマイズと設定"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; SVGシンボルのカスタマイズと設定</span>
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: ベクターレイヤの設定"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ベクターレイヤの設定 &raquo;</span>
+    <a href="dataformat.html" title="Next Chapter: サポート対象のデータフォーマット"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">サポート対象のデータフォーマット &raquo;</span>
     </a>
   </li>
             
@@ -149,7 +146,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">レイヤーの検索</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">レイヤーの検索</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">サポート対象のデータフォーマット</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">ラスターデータ</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QFieldプロジェクトの管理</a></li>
@@ -180,10 +177,8 @@
 <div class="section" id="configure-search-in-qgis">
 <h2>QGISでの検索の設定<a class="headerlink" href="#configure-search-in-qgis" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
-<li><p class="first"><span class="menuselection">プロジェクト ‣ プロジェクトのプロパティ ‣ データソース</span> から検索できるようにしたいレイヤーを選択します 。</p>
-</li>
-<li><p class="first">関係するレイヤの <em>表示用の式</em> の定義をします。これはフィーチャの検索氏に要されます。<span class="menuselection">ベクターレイヤープロパティ ‣ 表示</span> ページから設定を行います。</p>
-</li>
+<li><span class="menuselection">プロジェクト ‣ プロジェクトのプロパティ ‣ データソース</span> から検索できるようにしたいレイヤーを選択します 。</li>
+<li>関係するレイヤの <em>表示用の式</em> の定義をします。これはフィーチャの検索氏に要されます。<span class="menuselection">ベクターレイヤープロパティ ‣ 表示</span> ページから設定を行います。</li>
 </ol>
 </div>
 </div>
@@ -201,7 +196,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -213,7 +208,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。<br/>
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。<br/>
     </p>
   </div>
 </footer>

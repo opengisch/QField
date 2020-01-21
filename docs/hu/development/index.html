@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Fejlesztés és támogatás &mdash; QField Documentation 1.0 - M... dokumentáció</title>
-    
+    <title>Fejlesztés és támogatás &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... dokumentáció" href="../index.html" />
+    <link rel="index" title="Tárgymutató" href="../genindex.html" />
+    <link rel="search" title="Keresés" href="../search.html" />
     <link rel="next" title="QFieldSync modul" href="../qfieldsync/index.html" />
     <link rel="prev" title="Globális változók" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -180,7 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Felhasználói Útmutató</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Aktív térkép téma módosítása</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globális változók</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Fejlesztés és támogatás</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fejlesztés és támogatás</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync modul</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
@@ -211,7 +209,7 @@
 <div class="section" id="edit-widgets">
 <h4>Vezérlők szerkesztése<a class="headerlink" href="#edit-widgets" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
 <p>A vezérlők szerkesztése alapvető része a hatékony terepmunkának. Az attribútumok bevitele az érintő képernyőn egy olyan munka, mely a legtöbb időt viszi el, ennek a feladatnak a lehető legegyszerűbb szinten tartása kulcsfontosságú a kellemes munkához.</p>
-<p>Néhány fontos <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>mező szerkesztő vezérlő már elérhető</span></a>, de sokkal több lehetséges <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">például a QGIS-ben</a>.</p>
+<p>Néhány fontos <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span class="std std-ref">mező szerkesztő vezérlő már elérhető</span></a>, de sokkal több lehetséges <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">például a QGIS-ben</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Jelmagyarázat<a class="headerlink" href="#legend" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
@@ -237,23 +235,21 @@
 <div class="section" id="editing-geometries">
 <h4>Geometria szerkesztése<a class="headerlink" href="#editing-geometries" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
 <p>A QField biztosítja új geometria digitalizálását, meglévő attribútumok szerkesztését vagy elemek törlését. Ami hiányzik az a meglévő geometria szerkesztése.</p>
-<p>Ez több részre pontható mint a pontok mozgatása, egyéb elemek mozgatása, töréspontok szerkesztése, szakaszok mozgatása...</p>
+<p>Ez több részre pontható mint a pontok mozgatása, egyéb elemek mozgatása, töréspontok szerkesztése, szakaszok mozgatása…</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Keresési funkciók<a class="headerlink" href="#search-functionality" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
 <p>Elemek megtalálása egy kereső mező segítségével az ami valóban segíthet, hogy hatékonyabban dolgozzunk. Általánosságban ez két kategóriára bontható:</p>
 <dl class="docutils">
 <dt>Keresés attribútum érték alapján</dt>
-<dd><p class="first last">A keresési eredményeket a projektben szereplő rétegeken lévő elemek attribútumai alapján szolgáltatjuk. Bármelyik lokális adatbázisban kereshetünk. Belül a testreszabott munka adataival dolgozunk vagy közvetlenül kérdezzük le a rétegeket a kérdéses attribútumot tartalmazó elemekért.</p>
-</dd>
+<dd>A keresési eredményeket a projektben szereplő rétegeken lévő elemek attribútumai alapján szolgáltatjuk. Bármelyik lokális adatbázisban kereshetünk. Belül a testreszabott munka adataival dolgozunk vagy közvetlenül kérdezzük le a rétegeket a kérdéses attribútumot tartalmazó elemekért.</dd>
 <dt>Geokódolás</dt>
-<dd><p class="first last">A keresés eredményeit a postai címek alapján szolgáltatja. Szolgáltatások mint a <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> érhető el egy webes felületen keresztül és a postai címeket térképi pozíciókká konvertálja. Próbálja csak ki a linkek.</p>
-</dd>
+<dd>A keresés eredményeit a postai címek alapján szolgáltatja. Szolgáltatások mint a <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> érhető el egy webes felületen keresztül és a postai címeket térképi pozíciókká konvertálja. Próbálja csak ki a linkek.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
 <h4>Külső mérőeszközök<a class="headerlink" href="#external-measurement-devices" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
-<p>Külső eszközökkel, szenzorokkal dolgozik? Lényomás, hőmérséklet, szénmonoxid koncentráció, vagy amije van... Nem lenne nagyszerű, ha nem kellene leolvasni az adatot a külső eszközről és begépelni azt? Könnyebbé szeretnénk tenni az életét azzal, hogy közvetlenül a QField-hez kapcsolhatja a külső mérőeszközeit.</p>
+<p>Külső eszközökkel, szenzorokkal dolgozik? Lényomás, hőmérséklet, szénmonoxid koncentráció, vagy amije van… Nem lenne nagyszerű, ha nem kellene leolvasni az adatot a külső eszközről és begépelni azt? Könnyebbé szeretnénk tenni az életét azzal, hogy közvetlenül a QField-hez kapcsolhatja a külső mérőeszközeit.</p>
 </div>
 <div class="section" id="record-audio">
 <h4>Hangfelvétel<a class="headerlink" href="#record-audio" title="Hivatkozás erre a fejezetcímre">¶</a></h4>
@@ -312,7 +308,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -323,8 +319,8 @@
       
     </p>
     <p>
-        &copy; Minden jog fenntartva 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 használatával készült.<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 használatával készült.<br/>
     </p>
   </div>
 </footer>

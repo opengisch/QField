@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Guide d’utilisateur QField &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Guide d’utilisateur QField &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Changer le thème de carte actif" href="map-themes.html" />
-    <link rel="prev" title="Configuration des couches vecteur" href="../project-management/vector-layers.html" />
+    <link rel="prev" title="Sélection de projet" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -98,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Guide d&#8217;utilisateur QField</a><ul>
+<li><a class="reference internal" href="#">Guide d’utilisateur QField</a><ul>
 <li><a class="reference internal" href="#opening-a-project">Ouvrir un projet</a></li>
 <li><a class="reference internal" href="#map-legend">Légende de carte</a></li>
 <li><a class="reference internal" href="#identify-features">Sélectionner des entités</a><ul>
@@ -108,17 +106,17 @@
 <li><a class="reference internal" href="#searching">Rechercher</a></li>
 <li><a class="reference internal" href="#switching-map-theme">Changer le thème de la carte</a></li>
 <li><a class="reference internal" href="#gps">Géolocalisation</a><ul>
-<li><a class="reference internal" href="#using-external-gnss-reciever">Utilisation d&#8217;un récepteur GNSS externe</a></li>
+<li><a class="reference internal" href="#using-external-gnss-reciever">Utilisation d’un récepteur GNSS externe</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#digitizing">Vectoriser</a><ul>
 <li><a class="reference internal" href="#points">Points</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Lignes et polygones</a></li>
-<li><a class="reference internal" href="#attribute-form">Formulaire d&#8217;attributs</a></li>
+<li><a class="reference internal" href="#attribute-form">Formulaire d’attributs</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Supprimer des entités</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Éditer la géométrie d&#8217;une entité existante</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Éditer la géométrie d’une entité existante</a></li>
 </ul>
 </li>
 </ul>
@@ -130,7 +128,7 @@
             
               
   <li>
-    <a href="../project-management/vector-layers.html" title="Previous Chapter: Configuration des couches vecteur"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configuration...</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Sélection de projet"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Sélection de projet</span>
     </a>
   </li>
   <li>
@@ -164,7 +162,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Rechercher dans les couches</a></li>
@@ -176,9 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -193,11 +191,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>Guide d&#8217;utilisateur QField<a class="headerlink" href="#qfield-user-guide" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>Guide d’utilisateur QField<a class="headerlink" href="#qfield-user-guide" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="opening-a-project">
 <h2>Ouvrir un projet<a class="headerlink" href="#opening-a-project" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour ouvrir un projet, cliquer sur le bouton <strong>Menu</strong> puis <strong>Option &gt; Ouvrir un projet</strong>.</p>
-<p>Naviguer dans l&#8217;arborescence de l&#8217;appareil puis sélectionner le projet souhaité ou utiliser les raccourcis <strong>Projets récents</strong> et <strong>Dossiers favoris</strong>.</p>
+<p>Naviguer dans l’arborescence de l’appareil puis sélectionner le projet souhaité ou utiliser les raccourcis <strong>Projets récents</strong> et <strong>Dossiers favoris</strong>.</p>
 <blockquote>
 <div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
@@ -210,23 +208,19 @@
 </div>
 <div class="section" id="identify-features">
 <h2>Sélectionner des entités<a class="headerlink" href="#identify-features" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cliquer sur une entité de la carte pour la sélectionner. Si d&#8217;autres entités sont proches de cette dernière (soit parce qu&#8217;il y a plusieurs entités très proches les unes des autres ou parce que plusieurs couches se chevauchent), elles seront toutes sélectionnées et listées dans le volet à droite de l&#8217;écran.</p>
+<p>Cliquer sur une entité de la carte pour la sélectionner. Si d’autres entités sont proches de cette dernière (soit parce qu’il y a plusieurs entités très proches les unes des autres ou parce que plusieurs couches se chevauchent), elles seront toutes sélectionnées et listées dans le volet à droite de l’écran.</p>
 <img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
-<p>Cliquer sur l&#8217;une d&#8217;entre elles dans la liste pour accéder à ses attributs.</p>
+<p>Cliquer sur l’une d’entre elles dans la liste pour accéder à ses attributs.</p>
 <ol class="arabic simple">
-<li><p class="first">Utiliser les <strong>flèches</strong> pour faire défiler les entités sélectionnées.</p>
-</li>
-<li><p class="first">Cliquer sur le bouton <strong>centrer</strong> pour centrer la carte sur l&#8217;entité sélectionnée.</p>
-</li>
-<li><p class="first">Cliquer sur le bouton <strong>éditer</strong> pour modifier les attributs de l&#8217;entité sélectionnée.</p>
-</li>
-<li><p class="first">Faire défiler les <strong>onglets</strong> pour accéder à l&#8217;ensemble des attributs.</p>
-</li>
+<li>Utiliser les <strong>flèches</strong> pour faire défiler les entités sélectionnées.</li>
+<li>Cliquer sur le bouton <strong>centrer</strong> pour centrer la carte sur l’entité sélectionnée.</li>
+<li>Cliquer sur le bouton <strong>éditer</strong> pour modifier les attributs de l’entité sélectionnée.</li>
+<li>Faire défiler les <strong>onglets</strong> pour accéder à l’ensemble des attributs.</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
 <h3>Exceptions couches interrogeables<a class="headerlink" href="#exceptions-to-identified-layers" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il n&#8217;est souvent pas nécessaire de pouvoir interroger chacune des couches du projet. Certaines couches sont uniquement utiles comme fond de plan et leurs attributs n&#8217;ont pas d’intérêt.</p>
+<p>Il n’est souvent pas nécessaire de pouvoir interroger chacune des couches du projet. Certaines couches sont uniquement utiles comme fond de plan et leurs attributs n’ont pas d’intérêt.</p>
 <p>Il est possible de gérer la liste des couches interrogeables dans QGIS desktop <span class="menuselection">Projet ‣ Propriétés du projet ‣ Identifier les couches</span> . Décocher à cet endroit les couches qui ne doivent pas être interrogeables.</p>
 </div>
 </div>
@@ -234,32 +228,30 @@
 <h2>Rechercher<a class="headerlink" href="#searching" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cliquer sur le bouton <strong>Rechercher</strong> dans le coin supérieur droit pour rechercher dans les couches.</p>
 <ol class="arabic simple">
-<li><p class="first">Cliquer sur le <strong>nom</strong> affiché dans les résultats pour centrer la carte sur l&#8217;entité (cette dernière sera par ailleurs colorée en jaune).</p>
-</li>
-<li><p class="first">Cliquer sur le bouton <strong>Attributs</strong> pour ouvrir directement les attributs de l&#8217;entité.</p>
-</li>
+<li>Cliquer sur le <strong>nom</strong> affiché dans les résultats pour centrer la carte sur l’entité (cette dernière sera par ailleurs colorée en jaune).</li>
+<li>Cliquer sur le bouton <strong>Attributs</strong> pour ouvrir directement les attributs de l’entité.</li>
 </ol>
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
 <h2>Changer le thème de la carte<a class="headerlink" href="#switching-map-theme" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Si vous avez défini des thèmes de carte dans votre projet QGIS, vous pouvez passer de l&#8217;un à l&#8217;autre en les sélectionnant grâce au menu déroulant dans le volet de gauche.</p>
+<p>Si vous avez défini des thèmes de carte dans votre projet QGIS, vous pouvez passer de l’un à l’autre en les sélectionnant grâce au menu déroulant dans le volet de gauche.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
 <h2>Géolocalisation<a class="headerlink" href="#gps" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un appui court sur le bouton du GPS l&#8217;active et centre la carte sur la position actuelle, dès que les données de géolocalisation sont disponibles.</p>
+<p>Un appui court sur le bouton du GPS l’active et centre la carte sur la position actuelle, dès que les données de géolocalisation sont disponibles.</p>
 <p>Un appui long sur le bouton du GPS affiche le menu de géolocalisation.</p>
-<p>Dans le menu de géolocalisation, l&#8217;affichage des données de position peut être activé. Les coordonnées affichées sont reprojetées dans le SCR du projet.</p>
+<p>Dans le menu de géolocalisation, l’affichage des données de position peut être activé. Les coordonnées affichées sont reprojetées dans le SCR du projet.</p>
 <img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Si les informations sont affichées en WGS84 au lieu de votre propre SCR, c&#8217;est probablement parce qu&#8217;aucun signal n&#8217;est disponible.</p>
+<p class="last">Si les informations sont affichées en WGS84 au lieu de votre propre SCR, c’est probablement parce qu’aucun signal n’est disponible.</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h3>Utilisation d&#8217;un récepteur GNSS externe<a class="headerlink" href="#using-external-gnss-reciever" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible de générer un emplacement fictif grâce à une application Android tierce pour l&#8217;utiliser dans QField. Plusieurs solutions sont possibles ; l&#8217;une d&#8217;elles est l&#8217;application <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
-<p>Pour l&#8217;utiliser vous devez autoriser votre smartphones à utiliser les positions fictives &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;`_.</p>
+<h3>Utilisation d’un récepteur GNSS externe<a class="headerlink" href="#using-external-gnss-reciever" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de générer un emplacement fictif grâce à une application Android tierce pour l’utiliser dans QField. Plusieurs solutions sont possibles ; l’une d’elles est l’application <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
+<p>Pour l’utiliser vous devez autoriser votre smartphones à utiliser les positions fictives &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;`_.</p>
 </div>
 </div>
 <div class="section" id="digitizing">
@@ -268,34 +260,34 @@
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
 <h3>Points<a class="headerlink" href="#points" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Déplacer la carte de sorte que la position désirée se trouve sous le réticule situé au centre de l&#8217;écran et cliquer sur sur le bouton <strong>+</strong> dans le coin inférieur droit pour confirmer la création de cette nouvelle entité.</p>
+<p>Déplacer la carte de sorte que la position désirée se trouve sous le réticule situé au centre de l’écran et cliquer sur sur le bouton <strong>+</strong> dans le coin inférieur droit pour confirmer la création de cette nouvelle entité.</p>
 <p>Si vous avez activé la localisation, vous pouvez utiliser le bouton <strong>Centrer</strong> pour forcer le centrage de votre position sous le réticule.</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
 <h3>Lignes et polygones<a class="headerlink" href="#lines-and-polygons" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Déplacer la carte de sorte que le point de départ désiré de la ligne ou du polygone se trouve sous le réticule situé au centre de l&#8217;écran. Cliquer ensuite sur le bouton <strong>(+)</strong> dans le coin inférieur droit pour ajouter le premier nœud.</p>
-<p>Procéder de la même manière et répéter l&#8217;opération pour former votre ligne ou votre polygone en cliquant sur le bouton <strong>(+)</strong> chaque fois que vous souhaitez ajouter un nouveau nœud.</p>
+<p>Déplacer la carte de sorte que le point de départ désiré de la ligne ou du polygone se trouve sous le réticule situé au centre de l’écran. Cliquer ensuite sur le bouton <strong>(+)</strong> dans le coin inférieur droit pour ajouter le premier nœud.</p>
+<p>Procéder de la même manière et répéter l’opération pour former votre ligne ou votre polygone en cliquant sur le bouton <strong>(+)</strong> chaque fois que vous souhaitez ajouter un nouveau nœud.</p>
 <p>Cliquer sur le bouton <strong>(-)</strong> pour supprimer le dernier nœud ajouté.</p>
-<p>Cliquer sur le bouton <strong>(X)</strong> pour annuler complètement la création de l&#8217;entité.</p>
-<p>Quand vous avez ajouté au moins 2 nœuds pour une ligne ou 3 nœuds pour un polygone, un bouton <strong>Sauvegarder</strong> apparaît. Cliquer dessus pour terminer votre dessin et enregistrer l&#8217;entité.</p>
+<p>Cliquer sur le bouton <strong>(X)</strong> pour annuler complètement la création de l’entité.</p>
+<p>Quand vous avez ajouté au moins 2 nœuds pour une ligne ou 3 nœuds pour un polygone, un bouton <strong>Sauvegarder</strong> apparaît. Cliquer dessus pour terminer votre dessin et enregistrer l’entité.</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h3>Formulaire d&#8217;attributs<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Après l&#8217;ajout d&#8217;une géométrie et s&#8217;il existe, le formulaire d&#8217;attributs s&#8217;affiche et l&#8217;utilisateur est invité à saisir les attributs de la nouvelle entité.
-Le formulaire qui apparaît permet d&#8217;entrer les valeurs des attributs de la nouvelle entité. Les cases à cocher à droite de chaque attribut permettent de mémoriser chaque attribut individuellement. La prochaine fois que vous ajouterez une entité sur la même couche, ces attributs seront déjà pré-remplis.</p>
+<h3>Formulaire d’attributs<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Après l’ajout d’une géométrie et s’il existe, le formulaire d’attributs s’affiche et l’utilisateur est invité à saisir les attributs de la nouvelle entité.
+Le formulaire qui apparaît permet d’entrer les valeurs des attributs de la nouvelle entité. Les cases à cocher à droite de chaque attribut permettent de mémoriser chaque attribut individuellement. La prochaine fois que vous ajouterez une entité sur la même couche, ces attributs seront déjà pré-remplis.</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
 <h2>Supprimer des entités<a class="headerlink" href="#delete-features" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La suppression d&#8217;entités est uniquement possible en mode <strong>Édition</strong>.</p>
-<p>Pour supprimer une entité, la sélectionner d&#8217;abord, puis appuyer sur le bouton <strong>Corbeille</strong>.</p>
+<p>La suppression d’entités est uniquement possible en mode <strong>Édition</strong>.</p>
+<p>Pour supprimer une entité, la sélectionner d’abord, puis appuyer sur le bouton <strong>Corbeille</strong>.</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>Éditer la géométrie d&#8217;une entité existante<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À compléter...</p>
+<h2>Éditer la géométrie d’une entité existante<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À compléter…</p>
 </div>
 </div>
 
@@ -312,7 +304,7 @@ Le formulaire qui apparaît permet d&#8217;entrer les valeurs des attributs de l
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -324,7 +316,7 @@ Le formulaire qui apparaît permet d&#8217;entrer les valeurs des attributs de l
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Plugin QFieldSync &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Plugin QFieldSync &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Desenvolvemento e asistencia" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -169,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Plugin QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -186,27 +184,19 @@
 <p>O plugin QFieldSync axuda a preparar e empaquetar os proxectos de QGIS para QField.</p>
 <p>QFieldSync colabora coa preparación do teu proxecto automatizando o seguinte:</p>
 <ul class="simple">
-<li><p class="first">Pasos necesarios para a configuración do proxecto (por exemplo <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proxecto Portable</span></a>)</p>
-</li>
-<li><p class="first">Crear un mapa base dende unha capa ráster única ou dende un estilo definido nun tema de mapa.</p>
-</li>
-<li><p class="first">Configurar a funcionalidade de edición sen conexión e sincronizar os cambios.</p>
-</li>
+<li>Pasos necesarios para a configuración do proxecto (por exemplo <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Proxecto Portable</span></a>)</li>
+<li>Crear un mapa base dende unha capa ráster única ou dende un estilo definido nun tema de mapa.</li>
+<li>Configurar a funcionalidade de edición sen conexión e sincronizar os cambios.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Procedemento<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>Para obter unha vista xeral rápida do proceso, aquí hai unha lista de pasos habituais:</p>
 <ol class="arabic simple">
-<li><p class="first">Crear un paquete QField. Esta é unha copia funcional nun directorio separado.</p>
-</li>
-<li><p class="first">Copiar o paquete QField ó dispositivo de destino.</p>
-</li>
-<li><p class="first">Saír e recoller datos.</p>
-</li>
-<li><p class="first">Copiar os datos modificados de regreso ó teu ordenador de escritorio.</p>
-</li>
-<li><p class="first">Sincronizar os datos modificados coa túa base de datos ou ficheiros.</p>
-</li>
+<li>Crear un paquete QField. Esta é unha copia funcional nun directorio separado.</li>
+<li>Copiar o paquete QField ó dispositivo de destino.</li>
+<li>Saír e recoller datos.</li>
+<li>Copiar os datos modificados de regreso ó teu ordenador de escritorio.</li>
+<li>Sincronizar os datos modificados coa túa base de datos ou ficheiros.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -224,17 +214,13 @@
 <p>No diálogo de configuración do proxecto, pode definirse unha <em>acción</em> para cada capa individualmente. Dependendo do tipo de capa, hai dispoñibles diferentes tipos de accións.</p>
 <dl class="docutils">
 <dt>Copiar</dt>
-<dd><p class="first last">Copiarase a capa ó directorio de empaquetado. Só dispoñible para capas baseadas en ficheiros.</p>
-</dd>
+<dd>Copiarase a capa ó directorio de empaquetado. Só dispoñible para capas baseadas en ficheiros.</dd>
 <dt>Sen acción</dt>
-<dd><p class="first last">A fonte da capa quedará intacta. Só está dispoñible para capas non baseadas en ficheiros como WMS, WFS, Postgis...</p>
-</dd>
+<dd>A fonte da capa quedará intacta. Só está dispoñible para capas non baseadas en ficheiros como WMS, WFS, Postgis…</dd>
 <dt>Edición Sen Conexión</dt>
-<dd><p class="first last">Copiouse unha copia funcional da capa no directorio de empaquetado. Rexístrase cada cambio que se fai no proxecto empaquetado durante o traballo nun rexistro de cambios. Cando máis tarde se sincronizan os cambios, reproducirase este rexistro e aplicaranse tódolos cambios á base de datos principal. Non hai conflito ó manipular no lugar.</p>
-</dd>
+<dd>Copiouse unha copia funcional da capa no directorio de empaquetado. Rexístrase cada cambio que se fai no proxecto empaquetado durante o traballo nun rexistro de cambios. Cando máis tarde se sincronizan os cambios, reproducirase este rexistro e aplicaranse tódolos cambios á base de datos principal. Non hai conflito ó manipular no lugar.</dd>
 <dt>Eliminar</dt>
-<dd><p class="first last">Eliminarase a capa da copia funcional. Isto é útil se unha capa se usa na capa base e non estará dispoñible no proxecto empaquetado.</p>
-</dd>
+<dd>Eliminarase a capa da copia funcional. Isto é útil se unha capa se usa na capa base e non estará dispoñible no proxecto empaquetado.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -244,11 +230,9 @@
 <p>Hai dúas posibles orixes para un mapa base:</p>
 <dl class="docutils">
 <dt>Capa</dt>
-<dd><p class="first last">Unha capa ráster. Isto é útil para tomar unha copia sen conexión dunha capa en liña como un WMS ou para tomar unha copia funcional dun formato non admitido como unha capa ECW ou MrSID.</p>
-</dd>
+<dd>Unha capa ráster. Isto é útil para tomar unha copia sen conexión dunha capa en liña como un WMS ou para tomar unha copia funcional dun formato non admitido como unha capa ECW ou MrSID.</dd>
 <dt>Tema de Mapa</dt>
-<dd><p class="first last">Un tema de mapa. Isto é útil para crear un mapa base baseado nunha combinación de varias capas con estilo. Estas capas poden eliminarse do paquete funcional e non precisan representarse no dispositivo. Isto pode aforrar algún espazo no disco e batería no dispositivo.</p>
-</dd>
+<dd>Un tema de mapa. Isto é útil para crear un mapa base baseado nunha combinación de varias capas con estilo. Estas capas poden eliminarse do paquete funcional e non precisan representarse no dispositivo. Isto pode aforrar algún espazo no disco e batería no dispositivo.</dd>
 </dl>
 <p>O tamaño da tesela define a resolución espacial. Determina o número de unidades de mapa por píxel. Se o SRC da vista do mapa ten metros como unidades e o tamaño da tesela se establece a 1, cada píxel do ráster terá unha extensión espacial de 1x1 m., establecéndose a 1000, cada píxel do ráster terá unha extensión espacial de 1 quilómetro cadrado.</p>
 </div>
@@ -285,7 +269,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -297,7 +281,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

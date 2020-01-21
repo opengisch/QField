@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Project selection &mdash; QField Documentation 1.0 - M... Dokumentation</title>
-    
+    <title>Project selection &#8212; QField Documentation 1.0 - M... Dokumentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,8 +24,9 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... Dokumentation" href="../index.html" />
-    <link rel="next" title="Vektorlayereinstellungen" href="vector-layers.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="QField Benutzerhandbuch" href="../user-guide/index.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -118,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Vektorlayereinstellungen"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Vektorlayerei... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: QField Benutzerhandbuch"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField Benutz... &raquo;</span>
     </a>
   </li>
             
@@ -158,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Das Kartenthema Konfigurieren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Projekte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vektorlayereinstellungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField Benutzerhandbuch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Das aktive Kartenthema wechseln</a></li>
@@ -178,13 +176,13 @@
       
   <div class="section" id="project-selection">
 <h1>Project selection<a class="headerlink" href="#project-selection" title="Link zu dieser Überschrift">¶</a></h1>
-<p>QField opens QGIS projects in the &#8221;.qgs&#8221; format. Currently it is not possible to open &#8221;.qgz&#8221; files.</p>
-<p>QField uses a customized file selector to open the projects. On choosing &#8220;Open project&#8221; from the QField menu, the file selector will be opened showing the following locations:</p>
+<p>QField opens QGIS projects in the „.qgs“ format. Currently it is not possible to open „.qgz“ files.</p>
+<p>QField uses a customized file selector to open the projects. On choosing „Open project“ from the QField menu, the file selector will be opened showing the following locations:</p>
 <ul class="simple">
 <li>The primary media/shared storage directory.</li>
 <li>The application-specific directories on all shared/external storage devices where the application can place persistent files it owns if they are not already included in the primary storage directory.</li>
 </ul>
-<p>Inside these directories, only subdirectories and files with the &#8221;.qgs&#8221; extension are shown.</p>
+<p>Inside these directories, only subdirectories and files with the „.qgs“ extension are shown.</p>
 <p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
 <div class="section" id="favorite-directories">
 <h2>Favorite directories<a class="headerlink" href="#favorite-directories" title="Link zu dieser Überschrift">¶</a></h2>
@@ -192,7 +190,7 @@
 </div>
 <div class="section" id="external-sd-card">
 <h2>Externe SD Karte<a class="headerlink" href="#external-sd-card" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The file selector shows the root of the SD card labeled as &#8220;read-only&#8221; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>The file selector shows the root of the SD card labeled as „read-only“ and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
 <div class="admonition note">
 <p class="first admonition-title">Bemerkung</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
@@ -206,19 +204,15 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>How to turn external SD card into internal storage<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
-<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &#8220;Internal&#8221; storage, it will be formatted (wiped).</strong></p>
+<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to „Internal“ storage, it will be formatted (wiped).</strong></p>
 <ol class="arabic simple">
-<li><p class="first">Gehen Sie auf &#8220;Einstellungen&#8221; ihres Gerätes, dann wählen Sie &#8220;Speicher&#8221;.</p>
-</li>
-<li><p class="first">Wählen Sie Ihre &#8220;SD-Karte&#8221;, tippen Sie dann auf das &#8220;Drei-Punkte-Menü&#8221; (oben rechts) und wählen Sie dort &#8220;Einstellungen&#8221; aus.</p>
-</li>
-<li><p class="first">Wählen Sie zunächst &#8220;Formatieren&#8221; aus und dann &#8220;Löschen und Formatieren&#8221;.</p>
-</li>
-<li><p class="first">Ihre SD-Karte wird nun als interner Speicher formatiert.</p>
-</li>
+<li>Gehen Sie auf „Einstellungen“ ihres Gerätes, dann wählen Sie „Speicher“.</li>
+<li>Wählen Sie Ihre „SD-Karte“, tippen Sie dann auf das „Drei-Punkte-Menü“ (oben rechts) und wählen Sie dort „Einstellungen“ aus.</li>
+<li>Wählen Sie zunächst „Formatieren“ aus und dann „Löschen und Formatieren“.</li>
+<li>Ihre SD-Karte wird nun als interner Speicher formatiert.</li>
 <li>Reboot your phone.</li>
 </ol>
-<p>If you don&#8217;t reboot the phone, many things may not work correctly, so make sure you do.</p>
+<p>If you don’t reboot the phone, many things may not work correctly, so make sure you do.</p>
 <p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
 </div>
 </div>
@@ -236,7 +230,7 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -248,7 +242,7 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.<br/>
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 erstellt.<br/>
     </p>
   </div>
 </footer>

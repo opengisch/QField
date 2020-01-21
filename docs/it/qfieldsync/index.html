@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>plugin QFieldSync &mdash; QField Documentation 1.0 - M... documentazione</title>
-    
+    <title>plugin QFieldSync &#8212; QField Documentation 1.0 - M... documentazione</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentazione" href="../index.html" />
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Sviluppo e supporto" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -104,7 +102,7 @@
 <li><a class="reference internal" href="#configuration">Configurazione</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configurazione del layer</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Confingurazione delle mappe di base</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Configurazione dell&#8217;editing offline</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configurazione dell’editing offline</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
@@ -154,7 +152,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Manuale d&#8217;installazione QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Manuale d’installazione QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concetti</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Impostazioni e simboli SVG personalizzati</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
@@ -170,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variabili globali</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Sviluppo e supporto</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">plugin QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -185,29 +183,21 @@
   <div class="section" id="qfieldsync-plugin">
 <h1>plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Link a questa intestazione">¶</a></h1>
 <p>Il plugin QFieldSync aiuta nella preparazione e pacchettizzazione del progetto QGIS per QField</p>
-<p>QFieldSync supporta la preparazione del tuo progetto attraverso l&#8217;automatizzazione dei seguenti:</p>
+<p>QFieldSync supporta la preparazione del tuo progetto attraverso l’automatizzazione dei seguenti:</p>
 <ul class="simple">
-<li><p class="first">Richiede i seguenti passi per il setup del progetto  (es. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Progetto portabile</span></a>)</p>
-</li>
-<li><p class="first">Creazione di una mappa di base a partire da un singolo raster o da uno stile definito una mappa tematizzata.</p>
-</li>
-<li><p class="first">Configura la funzionalità di editing offline e sincronizza i cambiamenti.</p>
-</li>
+<li>Richiede i seguenti passi per il setup del progetto  (es. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Progetto portabile</span></a>)</li>
+<li>Creazione di una mappa di base a partire da un singolo raster o da uno stile definito una mappa tematizzata.</li>
+<li>Configura la funzionalità di editing offline e sincronizza i cambiamenti.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Procedimento<a class="headerlink" href="#workflow" title="Link a questa intestazione">¶</a></h2>
-<p>Per avere una visione veloce del processo, qua c&#8217;è una lista dei passaggi principali:</p>
+<p>Per avere una visione veloce del processo, qua c’è una lista dei passaggi principali:</p>
 <ol class="arabic simple">
-<li><p class="first">Crea un pacchetto per QField. Questo è una copia in una cartella separata.</p>
-</li>
-<li><p class="first">Copia il pacchetto QField nel dispositivo finale.</p>
-</li>
-<li><p class="first">Vai in campo e raccogli i dati.</p>
-</li>
-<li><p class="first">Copia i dati modificati nella tua cartella sul computer.</p>
-</li>
-<li><p class="first">Sincronizza i dati modificati con il tuo database o i tuoi files.</p>
-</li>
+<li>Crea un pacchetto per QField. Questo è una copia in una cartella separata.</li>
+<li>Copia il pacchetto QField nel dispositivo finale.</li>
+<li>Vai in campo e raccogli i dati.</li>
+<li>Copia i dati modificati nella tua cartella sul computer.</li>
+<li>Sincronizza i dati modificati con il tuo database o i tuoi files.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -225,11 +215,10 @@
 <p>Nella finestra di configurazione del progetto, una <em>azione</em> può essere definita per ogni layer singolarmente. Dipendentemente dal tipo di layer, diversi tipi di azioni sono possibili.</p>
 <dl class="docutils">
 <dt>Copia</dt>
-<dd><p class="first last">Il layer sarà copiato nella cartella package. Questo è solo possibile per i layer salvati su files.</p>
-</dd>
+<dd>Il layer sarà copiato nella cartella package. Questo è solo possibile per i layer salvati su files.</dd>
 <dt>Nessuna azione</dt>
 <dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
+non-file-based layers like WMS, WFS, Postgis…</dd>
 <dt>Editing offline</dt>
 <dd>A working copy of the layer is copied into the package folder. Every change
 which is done in the packaged project during work is recorded in a changelog.
@@ -266,7 +255,7 @@ to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
 1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Configurazione dell&#8217;editing offline<a class="headerlink" href="#offline-editing-configuration" title="Link a questa intestazione">¶</a></h3>
+<h3>Configurazione dell’editing offline<a class="headerlink" href="#offline-editing-configuration" title="Link a questa intestazione">¶</a></h3>
 <p>If <em>only synchronize features in area of interest</em> is checked, only features
 which are within the extent of the map canvas as packaging time will be copied
 to the offline editing working copy.</p>
@@ -277,7 +266,7 @@ to the offline editing working copy.</p>
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link a questa intestazione">¶</a></h2>
@@ -300,7 +289,7 @@ to the offline editing working copy.</p>
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -312,7 +301,7 @@ to the offline editing working copy.</p>
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Creato con <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

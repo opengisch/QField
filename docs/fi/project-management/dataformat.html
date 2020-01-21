@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Tuetut dataformaatit &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Tuetut dataformaatit &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
+    <link rel="search" title="Etsi" href="../search.html" />
     <link rel="next" title="QField Projektihallinta" href="index.html" />
     <link rel="prev" title="Haku tasoilta" href="configure-search.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -153,7 +151,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Räätälöidyt SVG symbolit ja asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Haku tasoilta</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Tuetut dataformaatit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tuetut dataformaatit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#raster-data">Rasteridata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">QField Projektihallinta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Konfiguroi karttateemat</a></li>
@@ -182,6 +180,8 @@
 <p>QField tukee monenlaisia tiedostomuotoja QGIS tietopalveluiden ja GDAL avulla. Tällä sivulla on ei-tyhjentävä luettelo tuetuista tiedostomuodoista.</p>
 <div class="section" id="table">
 <h2>Taulu<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -189,62 +189,55 @@
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Dataformaatti</p>
-</th>
-<th class="head"><p class="first last">Tuki</p>
-</th>
-<th class="head"><p class="first last">Huomautukset</p>
-</th>
+<tr class="row-odd"><th class="head">Dataformaatti</th>
+<th class="head">Tuki</th>
+<th class="head">Huomautukset</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Spatialite</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Geopackage</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WMS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>WFS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WFS-T</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Postgis</td>
 <td><span class="yay">✔</span></td>
-<td><p class="first last">SSL tukea ei ole vielä toteutettu.</p>
-</td>
+<td>SSL tukea ei ole vielä toteutettu.</td>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Shapefile</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">JPEG pakkaus ei ole vielä tuettu.</p>
-</td>
+<td>JPEG pakkaus ei ole vielä tuettu.</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Lisenssi rajoittaa käyttöä.</p>
-</td>
+<td>Lisenssi rajoittaa käyttöä.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Lisenssi rajoittaa käyttöä.</p>
-</td>
+<td>Lisenssi rajoittaa käyttöä.</td>
 </tr>
 </tbody>
 </table>
@@ -257,8 +250,8 @@
 <div class="section" id="use-geopackage">
 <h2>GeoPackage käyttö<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
 <p>Suosittelemme käyttämään geopackage formaattia käytettäessä rasteridataa. Seuraavat komennot muuntavat tiedoston jota kutsutaan <code class="code docutils literal"><span class="pre">raster.tif</span></code> nimellä tiedostoksi <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> jossa pyramidit. Varmista että muutat EPSG:21781 (CH1903 LV03) haluamaasi koordinaattijärjestelmään.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
-gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
+<span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
@@ -277,7 +270,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -289,7 +282,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

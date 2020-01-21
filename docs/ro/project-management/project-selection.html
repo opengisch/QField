@@ -1,33 +1,32 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Selectarea proiectului &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Selectarea proiectului &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Setările Straturilor Vectoriale" href="vector-layers.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
+    <link rel="next" title="Ghidul de Utilizare a QField" href="../user-guide/index.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -117,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Setările Straturilor Vectoriale"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setările Stra... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: Ghidul de Utilizare a QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Ghidul de Uti... &raquo;</span>
     </a>
   </li>
             
@@ -157,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurarea Temelor Hărții</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Selectarea proiectului</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Selectarea proiectului</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Setările Straturilor Vectoriale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Ghidul de Utilizare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Schimbă Tema de Hartă activă</a></li>
@@ -176,48 +175,41 @@
     <div class="col-md-9 content">
       
   <div class="section" id="project-selection">
-<h1>Selectarea proiectului<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
-<p>QField deschide proiectele QGIS în format &#8221;.qgs&#8221;. În prezent nu este posibilă deschiderea fișierelor &#8221;.qgz&#8221;.</p>
-<p>QField utilizează un selector personalizat de fișiere pentru deschiderea proiectelor. La alegerea opțiunii &#8220;Deschidere proiect&#8221; din meniul QField, selectorul de fișiere va fi deschis, afișând următoarele locații:</p>
+<h1>Selectarea proiectului<a class="headerlink" href="#project-selection" title="Link permanent la acest titlu">¶</a></h1>
+<p>QField deschide proiectele QGIS în format „.qgs”. În prezent nu este posibilă deschiderea fișierelor „.qgz”.</p>
+<p>QField utilizează un selector personalizat de fișiere pentru deschiderea proiectelor. La alegerea opțiunii „Deschidere proiect” din meniul QField, selectorul de fișiere va fi deschis, afișând următoarele locații:</p>
 <ul class="simple">
-<li><p class="first">Director de pe mediul principal/spațiul de stocare partajat.</p>
-</li>
-<li><p class="first">Directoarele specifice aplicației, de pe toate dispozitivele de stocare partajate/externe, unde aplicația poate plasa fișiere persistente pe care le deține, dacă nu sunt deja incluse în directorul de stocare primar.</p>
-</li>
+<li>Director de pe mediul principal/spațiul de stocare partajat.</li>
+<li>Directoarele specifice aplicației, de pe toate dispozitivele de stocare partajate/externe, unde aplicația poate plasa fișiere persistente pe care le deține, dacă nu sunt deja incluse în directorul de stocare primar.</li>
 </ul>
-<p>În interiorul acestor directoare sunt afișate numai subdirectoarele și fișierele cu extensia &#8221;.qgs&#8221;.</p>
+<p>În interiorul acestor directoare sunt afișate numai subdirectoarele și fișierele cu extensia „.qgs”.</p>
 <p>QField solicită ca fișierul proiectului să se afle fizic pe dispozitiv, prin urmare nu este posibilă utilizarea furnizorilor care lucrează cu fișiere aflate la distanță (de exemplu, Google Drive). Pe de altă parte, puteți utiliza aplicații precum <a class="reference external" href="https://syncthing.net/">syncthing</a> sau <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (sau dropbox și probabil multe altele) care permit sincronizartea fizică a fișierului pe dispozitiv.</p>
 <div class="section" id="favorite-directories">
-<h2>Directoare favorite<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
+<h2>Directoare favorite<a class="headerlink" href="#favorite-directories" title="Link permanent la acest titlu">¶</a></h2>
 <p>În primul ecran al selectorului de fișiere există o secțiune care prezintă directoarele preferate. Pentru a adăuga un director la favorite, efectuați un clic lung în selectorul de fișiere din numele directorului. Pentru a elimina o intrare din preferințe, efectuați un clic lung pe numele ei, în lista de favorite.</p>
 </div>
 <div class="section" id="external-sd-card">
-<h2>Card SD extern<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>Selectorul de fișiere prezintă rădăcina cardului SD marcată &#8220;numai pentru citire&#8221; și directorul specific aplicației separat de restul cardului SD, deoarece este singurul director în care aplicația are acces la scriere. Directorul este următorul:</p>
+<h2>Card SD extern<a class="headerlink" href="#external-sd-card" title="Link permanent la acest titlu">¶</a></h2>
+<p>Selectorul de fișiere prezintă rădăcina cardului SD marcată „numai pentru citire” și directorul specific aplicației separat de restul cardului SD, deoarece este singurul director în care aplicația are acces la scriere. Directorul este următorul:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">Notă</p>
 <p class="last">Din punct de vedere tehnic, aceasta se datorează faptului că Android oferă drepturi de citire, scriere, ACTION_OPEN_DOCUMENT și ACTION_OPEN_DOCUMENT_TREE numai pentru conținutul adresei returnate, nu și pentru fișierul legat real. Această limitare, care are sens pentru modul în care este structurat Android, în prezent este inutilizabilă pentru QField, întrucât acesta trebuie să acceseze fișierul real folosind o cale reală.</p>
 </div>
 </div>
 <div class="section" id="warning">
-<h2>Avertisment!<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+<h2>Avertisment!<a class="headerlink" href="#warning" title="Link permanent la acest titlu">¶</a></h2>
 <p>Prin stocarea în acest dosar, riscați să pierdeți date. Directorul specific aplicației (<cite>/Android/data/ch.opengis.qfield/</cite>) va fi șters de către sistem, la dezinstalarea QField de pe dispozitivul Android. Acest lucru este important dacă păstrați datele pe cardul SD extern.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
-<h2>Cum să transformați cardul SD extern într-un spațiu de stocare intern<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Cum să transformați cardul SD extern într-un spațiu de stocare intern<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Link permanent la acest titlu">¶</a></h2>
 <p>Începând cu Android 6.0, puteți utiliza cardul SD ca spațiu de stocare intern pentru telefonul dvs. Android. O caracteristică denumită Adoptable Storage permite sistemului de operare Android să formateze un mediu de stocare extern în scopul stocării interne permanente. Datele de pe cardul SD în cauză sunt criptate și nu pot fi montate pe un alt dispozitiv.</p>
-<p><strong>Asigurați-vă că începeți cu un card SD gol. Acesta trebuie să nu conțină nimic, întrucât atunci când va fi transformat într-un spațiu de stocare &#8220;intern&#8221;, el va fi formatat (șters).</strong></p>
+<p><strong>Asigurați-vă că începeți cu un card SD gol. Acesta trebuie să nu conțină nimic, întrucât atunci când va fi transformat într-un spațiu de stocare „intern”, el va fi formatat (șters).</strong></p>
 <ol class="arabic simple">
-<li><p class="first">Accesați &#8220;Setările&#8221; dispozitivului, apoi selectați &#8220;Stocare&#8221;.</p>
-</li>
-<li><p class="first">Selectați &#8220;Cardul SD&#8221;, accesați &#8220;meniul cu trei puncte&#8221; (dreapta-sus), după care alegeți &#8220;Setări&#8221;.</p>
-</li>
-<li><p class="first">Selectați &#8220;Formatare ca intern&#8221; iar apoi &#8220;Ștergere &amp; Formatare&#8217;.</p>
-</li>
-<li><p class="first">În acest moment, cardul dvs. SD va fi formatat pentru stocare internă.</p>
-</li>
-<li><p class="first">Restartați telefonul.</p>
-</li>
+<li>Accesați „Setările” dispozitivului, apoi selectați „Stocare”.</li>
+<li>Selectați „Cardul SD”, accesați „meniul cu trei puncte” (dreapta-sus), după care alegeți „Setări”.</li>
+<li>Selectați „Formatare ca intern” iar apoi „Ștergere &amp; Formatare».</li>
+<li>În acest moment, cardul dvs. SD va fi formatat pentru stocare internă.</li>
+<li>Restartați telefonul.</li>
 </ol>
 <p>Dacă nu reporniți telefonul, este posibil ca multe lucruri să funcționeze incorect, de aceea, asigurați-vă că ați făcut acest lucru.</p>
 <p>Este posibil ca facilitatea Adoptable Storage să nu fie prezentă pe dispozitivul dvs., chiar dacă rulează Android 6.0 sau versiuni ulterioare. Este posibil ca producătorul dispozitivului să fi dezactivat opțiunea. Cu toate acestea, există instrucțiuni pentru linia de comandă care pot forța un dispozitiv să adopte un spațiu de stocare.</p>
@@ -237,7 +229,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -249,7 +241,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

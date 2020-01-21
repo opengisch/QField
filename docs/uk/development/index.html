@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Розробка та підтримка &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Розробка та підтримка &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
     <link rel="next" title="Плаґін QFieldSync" href="../qfieldsync/index.html" />
     <link rel="prev" title="Глобальні змінні" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -105,7 +103,7 @@
 <li><a class="reference internal" href="#legend">Легенда</a></li>
 <li><a class="reference internal" href="#connection-based-on-offline-synchronization">Онлайн- / оффлайн синхронізація за наявності підключення</a></li>
 <li><a class="reference internal" href="#improved-coordinate-precision">Вдосконалена точність координат</a></li>
-<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Збереження статусу GPS в атрибутах об&#8217;єктів</a></li>
+<li><a class="reference internal" href="#saving-gps-status-information-into-attributes">Збереження статусу GPS в атрибутах об’єктів</a></li>
 <li><a class="reference internal" href="#editing-geometries">Редагування геометрій</a></li>
 <li><a class="reference internal" href="#search-functionality">Підтримка пошуку</a></li>
 <li><a class="reference internal" href="#external-measurement-devices">Зовнішні вимірювальні пристрої</a></li>
@@ -179,7 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Глобальні змінні</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Розробка та підтримка</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Розробка та підтримка</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Плаґін QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
@@ -203,14 +201,14 @@
 <h2>Підтримка<a class="headerlink" href="#support" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Ви можете ставити свої запитання на <a class="reference external" href="http://gis.stackexchange.com/questions/tagged/qfield?sort=newest">gis.stackexchange</a></p>
 <p>Також ви можете підписатися на <a class="reference external" href="http://lists.qfield.org/listinfo.cgi/users-qfield.org">список розсилки для користувачів</a></p>
-<p>Крім того, ми надаємо підтримку на комерційній основі, <a class="reference external" href="http://www.opengis.ch/contact/">зв&#8217;яжіться з нами</a></p>
+<p>Крім того, ми надаємо підтримку на комерційній основі, <a class="reference external" href="http://www.opengis.ch/contact/">зв’яжіться з нами</a></p>
 <div class="section" id="make-it-grow-make-it-yours">
 <span id="make-it-grow"></span><h3>Зроби краще, зроби для себе<a class="headerlink" href="#make-it-grow-make-it-yours" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Це список функціоналу, який на нашу думку буде вельми корисним для користувачів та зробить роботу з програмою більш ефективною.</p>
 <div class="section" id="edit-widgets">
 <h4>Віджети редагування<a class="headerlink" href="#edit-widgets" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Віджети редагування &#8212; запорука ефективної польової работи. Заповнення атрибутів на пристроях з сенсорним екраном займає найбільше часу, тому спрощення цієї задачі є основою для приємної роботи.</p>
-<p>Деякі основні <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>віджети редагування вже підтримуються</span></a>, але ще більше чакають свого часу, <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">наприклад в QGIS</a>.</p>
+<p>Віджети редагування — запорука ефективної польової работи. Заповнення атрибутів на пристроях з сенсорним екраном займає найбільше часу, тому спрощення цієї задачі є основою для приємної роботи.</p>
+<p>Деякі основні <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span class="std std-ref">віджети редагування вже підтримуються</span></a>, але ще більше чакають свого часу, <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">наприклад в QGIS</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Легенда<a class="headerlink" href="#legend" title="Постійне посилання на цей заголовок">¶</a></h4>
@@ -219,40 +217,38 @@
 </div>
 <div class="section" id="connection-based-on-offline-synchronization">
 <h4>Онлайн- / оффлайн синхронізація за наявності підключення<a class="headerlink" href="#connection-based-on-offline-synchronization" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Польовий збір даних &#8212; одна з задач, де QField може стати внагоді. Кінцевим розміщенням даних, як правило, є не мобільний пристрій, а якась база даних. QField дозволяє працювати з базами даних напряму, але оскільки мережеве підключення в полі часто нестабільне, все одно доводиться виконувати синхронізацію в ручному режимі на настільному комп&#8217;ютері.</p>
-<p>Було б добре мати автоматичну синхронізацію в фоновому режимі, коли дані синхронізуються з сервером за наявності з&#8217;єднання та кешуються локально, коли підключення відсутнє.</p>
+<p>Польовий збір даних — одна з задач, де QField може стати внагоді. Кінцевим розміщенням даних, як правило, є не мобільний пристрій, а якась база даних. QField дозволяє працювати з базами даних напряму, але оскільки мережеве підключення в полі часто нестабільне, все одно доводиться виконувати синхронізацію в ручному режимі на настільному комп’ютері.</p>
+<p>Було б добре мати автоматичну синхронізацію в фоновому режимі, коли дані синхронізуються з сервером за наявності з’єднання та кешуються локально, коли підключення відсутнє.</p>
 <p>Це може бути реалізовано за допомогою <a class="reference external" href="http://geogig.org/">GeoGIG</a> або інших серверних компонентів на кшалт баз даних.</p>
 </div>
 <div class="section" id="improved-coordinate-precision">
 <h4>Вдосконалена точність координат<a class="headerlink" href="#improved-coordinate-precision" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Переважна більшість комп&#8217;ютерів може представляти дійсні числа (числа з плаваючою комою) в двох форматах: <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">одинарної</a> та <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">подвійної</a> точності. У випадку одинарної точності лише перші 6 цифр числа є значущими та правильними, для подвійної точності значущими є перші 15 цифр. Це включає всі цифри (до та після десяткового роздільника).</p>
+<p>Переважна більшість комп’ютерів може представляти дійсні числа (числа з плаваючою комою) в двох форматах: <a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">одинарної</a> та <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">подвійної</a> точності. У випадку одинарної точності лише перші 6 цифр числа є значущими та правильними, для подвійної точності значущими є перші 15 цифр. Це включає всі цифри (до та після десяткового роздільника).</p>
 <p>Під час роботи з координатами це дуже важливо, особливо коли потрібна висока точність. Адже 6 значущих цифр дуже часто означають максимальну точність близько одного метра в залежності від системи координат та місцезнаходження на поверхні земної кулі.</p>
 <p>Деякі частини QField зараз оперують координатами як числами з одинарною точністю. Значним вдосконаленням була б можливість використовувати повну точність пристроїв позиціонування.</p>
 </div>
 <div class="section" id="saving-gps-status-information-into-attributes">
-<h4>Збереження статусу GPS в атрибутах об&#8217;єктів<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Постійне посилання на цей заголовок">¶</a></h4>
+<h4>Збереження статусу GPS в атрибутах об’єктів<a class="headerlink" href="#saving-gps-status-information-into-attributes" title="Постійне посилання на цей заголовок">¶</a></h4>
 <p>Пристрої позиціонування надають не тільки широту та довготу, а й багато іншої інформації. Наприклад, вони можуть розраховувати точність власних вимірів. Ця інформація може бути представлена у вигляді радіуса, розрахованого зі змінних на кшалт кількості супутників або додаткові позначки параметрів на зразок статусу RTK.</p>
 </div>
 <div class="section" id="editing-geometries">
 <h4>Редагування геометрій<a class="headerlink" href="#editing-geometries" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>QField підтримує оцифровку нових об&#8217;єктів, редагування наявних атрибутів та видалення об&#8217;єктів. Чого зараз не вистачає так це редагування наявних геометрій.</p>
-<p>Цей функціонал можна розділити на самостійні частини, наприклад переміщення точок, переміщення інших об&#8217;єктів, редагування вузлів, переміщення сегментів...</p>
+<p>QField підтримує оцифровку нових об’єктів, редагування наявних атрибутів та видалення об’єктів. Чого зараз не вистачає так це редагування наявних геометрій.</p>
+<p>Цей функціонал можна розділити на самостійні частини, наприклад переміщення точок, переміщення інших об’єктів, редагування вузлів, переміщення сегментів…</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Підтримка пошуку<a class="headerlink" href="#search-functionality" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Можливість пошуку об&#8217;єктів &#8212; це той функціонал, який значно підвищує ефективність роботи. Загалом його можна розділити на дві категорії:</p>
+<p>Можливість пошуку об’єктів — це той функціонал, який значно підвищує ефективність роботи. Загалом його можна розділити на дві категорії:</p>
 <dl class="docutils">
 <dt>Пошук за атрибутами</dt>
-<dd><p class="first last">Результати пошуку формуються на основі значень атрибутів об&#8217;єктів шарів проекту. Або використовується локальна база даних.</p>
-</dd>
+<dd>Результати пошуку формуються на основі значень атрибутів об’єктів шарів проекту. Або використовується локальна база даних.</dd>
 <dt>Геокодування</dt>
-<dd><p class="first last">Результати пошуку формуються на основі адреси об&#8217;єктів. Сервіси на кшалт <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> можуть використовуватися через веб-інтерфейс та конвертувати адресу в координати об&#8217;єкта. Спробуйте самі.</p>
-</dd>
+<dd>Результати пошуку формуються на основі адреси об’єктів. Сервіси на кшалт <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> можуть використовуватися через веб-інтерфейс та конвертувати адресу в координати об’єкта. Спробуйте самі.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
 <h4>Зовнішні вимірювальні пристрої<a class="headerlink" href="#external-measurement-devices" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Ви працюєте з зовнішніми пристроями, що мають датчики? Атмосферний тиск, температура, кут нахилу, концентрація оксиду вуглецю, тощо... Було б круто мати можливість автоматично записувати покази зовнішнього пристрою, а не вносити їх вручну, чи не так? Ми радо зробимо ваше життя легше шляхом реалізації підтримки вашого зовнішнього пристрою в QField.</p>
+<p>Ви працюєте з зовнішніми пристроями, що мають датчики? Атмосферний тиск, температура, кут нахилу, концентрація оксиду вуглецю, тощо… Було б круто мати можливість автоматично записувати покази зовнішнього пристрою, а не вносити їх вручну, чи не так? Ми радо зробимо ваше життя легше шляхом реалізації підтримки вашого зовнішнього пристрою в QField.</p>
 </div>
 <div class="section" id="record-audio">
 <h4>Запис звуку<a class="headerlink" href="#record-audio" title="Постійне посилання на цей заголовок">¶</a></h4>
@@ -266,7 +262,7 @@
 </div>
 <div class="section" id="your-favorite-feature">
 <h4>[Функціонал, необхідний саме вам]<a class="headerlink" href="#your-favorite-feature" title="Постійне посилання на цей заголовок">¶</a></h4>
-<p>Напевне ви маєте безліч ідей щодо розширення функціоналу QField. Будь ласка зв&#8217;яжіться з нами і ми зможемо обговорити найкращий шлях реалізації вашої ідеї в QField або у вторинній програмі.</p>
+<p>Напевне ви маєте безліч ідей щодо розширення функціоналу QField. Будь ласка зв’яжіться з нами і ми зможемо обговорити найкращий шлях реалізації вашої ідеї в QField або у вторинній програмі.</p>
 </div>
 </div>
 </div>
@@ -311,7 +307,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -323,7 +319,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

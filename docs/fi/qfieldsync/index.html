@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QFieldSync laajennus &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>QFieldSync laajennus &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
+    <link rel="search" title="Etsi" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Kehittäminen ja tuki" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -170,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globaalit muuttujat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Kehittäminen ja tuki</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync laajennus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldSync laajennus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -187,27 +185,19 @@
 <p>QFieldSync laajennus helpottaa QGIS projektin valmistelua ja pakkaamista  QField käyttöä varten.</p>
 <p>QFieldSync tukee projektisi valmistelua automatisoimalla seuraavat:</p>
 <ul class="simple">
-<li><p class="first">Pakolliset vaiheet projektin asetuksissa  (esim. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Siirrettävä projekti</span></a>)</p>
-</li>
-<li><p class="first">Peruskartan luominen yksittäisestä rasterista tai karttateemassa määritetystä tyylistä.</p>
-</li>
-<li><p class="first">Offline muokkauksen toiminnallisuuden konfigurointi ja muutosten takaisin synkronointi.</p>
-</li>
+<li>Pakolliset vaiheet projektin asetuksissa  (esim. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Siirrettävä projekti</span></a>)</li>
+<li>Peruskartan luominen yksittäisestä rasterista tai karttateemassa määritetystä tyylistä.</li>
+<li>Offline muokkauksen toiminnallisuuden konfigurointi ja muutosten takaisin synkronointi.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Työnkulku<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>Nopea yleiskatsaus luettelona tyypillisistä vaiheista:</p>
 <ol class="arabic simple">
-<li><p class="first">Luo QField paketti. Tämä on työkopio erillisessä hakemistossa.</p>
-</li>
-<li><p class="first">Kopio QField paketti kohdelaitteeseen.</p>
-</li>
-<li><p class="first">Mene ulos ja kerää datat.</p>
-</li>
-<li><p class="first">Kopioi muokatut tiedot takaisin työasemallesi.</p>
-</li>
-<li><p class="first">Synkronoi muokatut tiedot tietokantaasi tai tiedostoihisi.</p>
-</li>
+<li>Luo QField paketti. Tämä on työkopio erillisessä hakemistossa.</li>
+<li>Kopio QField paketti kohdelaitteeseen.</li>
+<li>Mene ulos ja kerää datat.</li>
+<li>Kopioi muokatut tiedot takaisin työasemallesi.</li>
+<li>Synkronoi muokatut tiedot tietokantaasi tai tiedostoihisi.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -225,17 +215,13 @@
 <p>Projektin konfigurointi-ikkunassa voidaan <em>toiminto</em> määritellä jokaiselle tasolle erikseen.  Riippuen tason tyypistä erilaisia toimintoja on käytettävissä.</p>
 <dl class="docutils">
 <dt>Kopionti</dt>
-<dd><p class="first last">Taso kopioidaan pakettihakemistoon. Tämä on käytettävissä ainoastaan tiedostopohjaisille tasoille.</p>
-</dd>
+<dd>Taso kopioidaan pakettihakemistoon. Tämä on käytettävissä ainoastaan tiedostopohjaisille tasoille.</dd>
 <dt>Ei toimintoa</dt>
-<dd><p class="first last">Lähetvä taso jätetään koskematta, Tämä on käytettävissä ainoastaan tasoille joissa ei ole tiedostoja kuten WMS, WFS, Postgis ....</p>
-</dd>
+<dd>Lähetvä taso jätetään koskematta, Tämä on käytettävissä ainoastaan tasoille joissa ei ole tiedostoja kuten WMS, WFS, Postgis ….</dd>
 <dt>Offline muokkaus</dt>
-<dd><p class="first last">Tason työkopio kopioidaan paketin hakemistoon. Jokainen muutos joka on tehty paketoituun projektiin työn aikana tallennetaan muutoslokiin. Synkronoitaessa muutokset takaisin tämä loki suoritetaan uudestaan ja kaikki muutokset suoritetaan myös varsinaisen päätietokantaan. Konfliktien hallintaa ei ole käytettävissä.</p>
-</dd>
+<dd>Tason työkopio kopioidaan paketin hakemistoon. Jokainen muutos joka on tehty paketoituun projektiin työn aikana tallennetaan muutoslokiin. Synkronoitaessa muutokset takaisin tämä loki suoritetaan uudestaan ja kaikki muutokset suoritetaan myös varsinaisen päätietokantaan. Konfliktien hallintaa ei ole käytettävissä.</dd>
 <dt>Poista</dt>
-<dd><p class="first last">Taso poistetaan työkopiosta. Tämä on käytännöllistä jos tasoa käytetään peruskartassa ja se ei ole käytettävissä paketoidussa projektissa.</p>
-</dd>
+<dd>Taso poistetaan työkopiosta. Tämä on käytännöllistä jos tasoa käytetään peruskartassa ja se ei ole käytettävissä paketoidussa projektissa.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -245,11 +231,9 @@
 <p>Peruskartalle on kaksi mahdollista lähdettä:</p>
 <dl class="docutils">
 <dt>Taso</dt>
-<dd><p class="first last">Rasteritaso. On hyödyllistä tehdä offline kopio tasosta  kuten WMS tai tehddä työkopio tukemattomasta formaatista kuten ECW tai MrSID tasosta.</p>
-</dd>
+<dd>Rasteritaso. On hyödyllistä tehdä offline kopio tasosta  kuten WMS tai tehddä työkopio tukemattomasta formaatista kuten ECW tai MrSID tasosta.</dd>
 <dt>Karttateema</dt>
-<dd><p class="first last">Karttateema. Tämä on hyödyllistä luoda jos peruskartta perustuu usean tyylitellyn taason yhdistelmästä. Sen jälkenne nämä tasot voidaan poistaa työpaketista eikä niitä tarvitse hahmottaa laitteessa. Tämä säästää levytilaa ja pattereita laitteessa.</p>
-</dd>
+<dd>Karttateema. Tämä on hyödyllistä luoda jos peruskartta perustuu usean tyylitellyn taason yhdistelmästä. Sen jälkenne nämä tasot voidaan poistaa työpaketista eikä niitä tarvitse hahmottaa laitteessa. Tämä säästää levytilaa ja pattereita laitteessa.</dd>
 </dl>
 <p>Kuvakkeen koko määrittelee spatiaalisen resoluution. Se määrittelee karttayksiköiden lukumäärän pikselissä. Jos karttapohjan koordinaattijärjestelmässä on metri yksikkönä ja koko asetetaan 1:ksi, jokainen rasterin pikseli vastaa silloin laajuutta 1x1m. jos se asetetaan 1000:ksi jokainen rasterin pikseli vastaa silloin 1 neliökilometrin aluetta.</p>
 </div>
@@ -263,7 +247,7 @@
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
@@ -286,7 +270,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -298,7 +282,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

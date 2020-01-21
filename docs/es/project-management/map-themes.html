@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Configuración de temas de mapas &mdash; documentación de QField Documentation - 1.0 - M...</title>
-    
+    <title>Configuración de temas de mapas &#8212; documentación de QField Documentation - 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentación de QField Documentation - 1.0 - M..." href="../index.html" />
-    <link rel="next" title="Proyecto portátil" href="portable-project.html" />
-    <link rel="prev" title="Selección de proyectos" href="project-selection.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Imprimir a PDF" href="print-to-pdf.html" />
+    <link rel="prev" title="Ajustes de capas vectoriales" href="vector-layers.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -111,11 +109,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Selección de proyectos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selección de ...</span>
+    <a href="vector-layers.html" title="Previous Chapter: Ajustes de capas vectoriales"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Ajustes de ca...</span>
     </a>
   </li>
   <li>
-    <a href="portable-project.html" title="Next Chapter: Proyecto portátil"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Proyecto portátil &raquo;</span>
+    <a href="print-to-pdf.html" title="Next Chapter: Imprimir a PDF"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Imprimir a PDF &raquo;</span>
     </a>
   </li>
             
@@ -152,7 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de datos soportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datos ráster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestión de Proyectos de QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Configuración de temas de mapas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuración de temas de mapas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proyecto portátil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Imprimir a PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección de proyectos</a></li>
@@ -176,7 +174,7 @@
   <div class="section" id="configure-map-themes">
 <span id="id1"></span><h1>Configuración de temas de mapas<a class="headerlink" href="#configure-map-themes" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Algo maravilloso acerca de los SIG es que los mapas son dinámicos. Las capas se pueden mostrar y ocultar individualmente y la información se puede presentar de forma más o menos prominente en base a la tarea actual.</p>
-<p>Para esto son los &#8220;Temas de Mapas&#8221; (antes de QGIS 3.0 conocidos como &#8220;Ajustes Previos de Visibilidad&#8221;).</p>
+<p>Para esto son los «Temas de Mapas» (antes de QGIS 3.0 conocidos como «Ajustes Previos de Visibilidad»).</p>
 <div class="section" id="creating-a-map-theme">
 <h2>Crear un Tema de mapa<a class="headerlink" href="#creating-a-map-theme" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La creación de un tema de mapa en QGIS es una tarea muy sencilla.</p>
@@ -184,12 +182,9 @@
 <a class="reference internal image-reference" href="../_images/map_themes_configuration.gif"><img alt="Map Theme Configuration" src="../_images/map_themes_configuration.gif" style="width: 600px;" /></a>
 </div>
 <ol class="arabic simple">
-<li><p class="first">Aplique estilo al mapa y a las capas según sus requerimientos</p>
-</li>
-<li><p class="first">Guárdelo como un Tema de mapa</p>
-</li>
-<li><p class="first">Cargue el proyecto y su dispositivo y <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span>Cambiar el Tema de mapa activo</span></a>.</p>
-</li>
+<li>Aplique estilo al mapa y a las capas según sus requerimientos</li>
+<li>Guárdelo como un Tema de mapa</li>
+<li>Cargue el proyecto y su dispositivo y <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span class="std std-ref">Cambiar el Tema de mapa activo</span></a>.</li>
 </ol>
 </div>
 </div>
@@ -207,7 +202,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -219,7 +214,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

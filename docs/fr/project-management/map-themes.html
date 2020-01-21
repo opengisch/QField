@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Configurer les thèmes de carte &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Configurer les thèmes de carte &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
-    <link rel="next" title="Projet portable" href="portable-project.html" />
-    <link rel="prev" title="Sélection de projet" href="project-selection.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Exporter en PDF" href="print-to-pdf.html" />
+    <link rel="prev" title="Configuration des couches vecteur" href="vector-layers.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -99,7 +97,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Configurer les thèmes de carte</a><ul>
-<li><a class="reference internal" href="#creating-a-map-theme">Création d&#8217;un thème de carte</a></li>
+<li><a class="reference internal" href="#creating-a-map-theme">Création d’un thème de carte</a></li>
 </ul>
 </li>
 </ul>
@@ -111,11 +109,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Sélection de projet"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Sélection de projet</span>
+    <a href="vector-layers.html" title="Previous Chapter: Configuration des couches vecteur"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configuration...</span>
     </a>
   </li>
   <li>
-    <a href="portable-project.html" title="Next Chapter: Projet portable"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Projet portable &raquo;</span>
+    <a href="print-to-pdf.html" title="Next Chapter: Exporter en PDF"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Exporter en PDF &raquo;</span>
     </a>
   </li>
             
@@ -145,21 +143,21 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Rechercher dans les couches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Données raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Gestion du projet QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Configurer les thèmes de carte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -175,21 +173,18 @@
       
   <div class="section" id="configure-map-themes">
 <span id="id1"></span><h1>Configurer les thèmes de carte<a class="headerlink" href="#configure-map-themes" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Ce qui est beau avec les SIG, c&#8217;est que les cartes sont dynamiques. Les couches peuvent être montrées ou cachées et l&#8217;information présentée de manière plus ou moins évidente selon la fonction demandée.</p>
+<p>Ce qui est beau avec les SIG, c’est que les cartes sont dynamiques. Les couches peuvent être montrées ou cachées et l’information présentée de manière plus ou moins évidente selon la fonction demandée.</p>
 <p>Voilà à quoi servent les <em>thèmes de carte</em> (connus avant QGIS 3.0 sous le nom de <em>Réglages de visibilité</em>).</p>
 <div class="section" id="creating-a-map-theme">
-<h2>Création d&#8217;un thème de carte<a class="headerlink" href="#creating-a-map-theme" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La création de d&#8217;une carte de thème dans QGIS est une tâche très simple.</p>
+<h2>Création d’un thème de carte<a class="headerlink" href="#creating-a-map-theme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La création de d’une carte de thème dans QGIS est une tâche très simple.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/map_themes_configuration.gif"><img alt="Map Theme Configuration" src="../_images/map_themes_configuration.gif" style="width: 600px;" /></a>
 </div>
 <ol class="arabic simple">
-<li><p class="first">Mettre en forme la carte et les couches selon vos exigences</p>
-</li>
-<li><p class="first">L&#8217;enregistrer comme thème de carte avec un nom</p>
-</li>
-<li><p class="first">Charger le projet sur votre appareil et <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span>Changer le thème de carte actif</span></a>.</p>
-</li>
+<li>Mettre en forme la carte et les couches selon vos exigences</li>
+<li>L’enregistrer comme thème de carte avec un nom</li>
+<li>Charger le projet sur votre appareil et <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span class="std std-ref">Changer le thème de carte actif</span></a>.</li>
 </ol>
 </div>
 </div>
@@ -207,7 +202,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -219,7 +214,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

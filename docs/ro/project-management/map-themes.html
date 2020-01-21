@@ -1,34 +1,33 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Configurarea Temelor Hărții &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Configurarea Temelor Hărții &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Proiect Portabil" href="portable-project.html" />
-    <link rel="prev" title="Selectarea proiectului" href="project-selection.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
+    <link rel="next" title="Print to PDF" href="print-to-pdf.html" />
+    <link rel="prev" title="Setările Straturilor Vectoriale" href="vector-layers.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -110,11 +109,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Selectarea proiectului"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selectarea pr...</span>
+    <a href="vector-layers.html" title="Previous Chapter: Setările Straturilor Vectoriale"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Setările Stra...</span>
     </a>
   </li>
   <li>
-    <a href="portable-project.html" title="Next Chapter: Proiect Portabil"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Proiect Portabil &raquo;</span>
+    <a href="print-to-pdf.html" title="Next Chapter: Print to PDF"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Print to PDF &raquo;</span>
     </a>
   </li>
             
@@ -151,7 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Configurarea Temelor Hărții</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configurarea Temelor Hărții</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selectarea proiectului</a></li>
@@ -173,22 +172,19 @@
     <div class="col-md-9 content">
       
   <div class="section" id="configure-map-themes">
-<span id="id1"></span><h1>Configurarea Temelor Hărții<a class="headerlink" href="#configure-map-themes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Configurarea Temelor Hărții<a class="headerlink" href="#configure-map-themes" title="Link permanent la acest titlu">¶</a></h1>
 <p>Marele avantaj al GIS este faptul că hărțile sunt dinamice. Straturile pot fi afișate și ascunse în mod individual, iar informațiile pot fi prezentate mai mult sau mai puțin vizibil, în funcție de sarcina de îndeplinit.</p>
 <p>Iată la ce servesc <em>Temele Hărților</em> (înainte de QGIS 3.0, cunoscute sub numele de <em>Presetări de Vizibilitate</em>).</p>
 <div class="section" id="creating-a-map-theme">
-<h2>Crearea unei Teme de Hartă<a class="headerlink" href="#creating-a-map-theme" title="Permalink to this headline">¶</a></h2>
+<h2>Crearea unei Teme de Hartă<a class="headerlink" href="#creating-a-map-theme" title="Link permanent la acest titlu">¶</a></h2>
 <p>Crearea unei Teme de Hartă în QGIS reprezintă o activitate facilă.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/map_themes_configuration.gif"><img alt="Map Theme Configuration" src="../_images/map_themes_configuration.gif" style="width: 600px;" /></a>
 </div>
 <ol class="arabic simple">
-<li><p class="first">Stilizarea hărții și a straturilor conform cerințelor dumneavoastră</p>
-</li>
-<li><p class="first">Salvați sub un nume Tema Hărții</p>
-</li>
-<li><p class="first">Se încarcă proiectul, dispozitivul și <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span>Schimbă Tema de Hartă activă</span></a>.</p>
-</li>
+<li>Stilizarea hărții și a straturilor conform cerințelor dumneavoastră</li>
+<li>Salvați sub un nume Tema Hărții</li>
+<li>Se încarcă proiectul, dispozitivul și <a class="reference internal" href="../user-guide/map-themes.html#change-map-theme"><span class="std std-ref">Schimbă Tema de Hartă activă</span></a>.</li>
 </ol>
 </div>
 </div>
@@ -206,7 +202,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -218,7 +214,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

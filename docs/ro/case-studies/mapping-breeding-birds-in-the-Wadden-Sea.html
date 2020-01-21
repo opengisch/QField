@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Use of QField for mapping breeding birds in the Wadden Sea &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Use of QField for mapping breeding birds in the Wadden Sea &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
     <link rel="next" title="Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes" href="mosquito-malario-ground-truth-data-collection.html" />
     <link rel="prev" title="Improving Efficiencies in Ecological Surveying using QField" href="ecological-surveying.html" />
 <meta charset='utf-8'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -166,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin-ul QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
@@ -177,11 +176,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="use-of-qfield-for-mapping-breeding-birds-in-the-wadden-sea">
-<h1>Use of QField for mapping breeding birds in the Wadden Sea<a class="headerlink" href="#use-of-qfield-for-mapping-breeding-birds-in-the-wadden-sea" title="Permalink to this headline">¶</a></h1>
+<h1>Use of QField for mapping breeding birds in the Wadden Sea<a class="headerlink" href="#use-of-qfield-for-mapping-breeding-birds-in-the-wadden-sea" title="Link permanent la acest titlu">¶</a></h1>
 <p>By Benjamin Gnep, <a class="reference external" href="https://www.schutzstation-wattenmeer.de">Schutzstation Wattenmeer e.V.</a>.</p>
 <p>2019-07-29</p>
 <div class="section" id="goal-and-field-constraints">
-<h2>Goal and field constraints :<a class="headerlink" href="#goal-and-field-constraints" title="Permalink to this headline">¶</a></h2>
+<h2>Goal and field constraints :<a class="headerlink" href="#goal-and-field-constraints" title="Link permanent la acest titlu">¶</a></h2>
 <p>The Wadden Sea in Denmark, Germany and The Netherlands is of outstanding importance for many breeding bird species. Annually, the Schutzstation Wattenmeer participates in the Wadden Sea wide trilateral monitoring and assessment program (TMAP) and monitors the number of breeding birds in more than 100 monitoring areas in Schleswig-Holstein / Germany. For a number of species we monitor a significant share of the entire German breeding population.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/Wattenmeer1.jpg"><img alt="Sketch of the project and the monitoring areas of Schutzstation Wattenmeer (yellow)." src="../_images/Wattenmeer1.jpg" style="width: 600px;" /></a>
@@ -202,7 +201,7 @@
 <p>In spring 2019 we tested our system with seven tablet devices spread over seven of in total 12 different monitoring stations.</p>
 </div>
 <div class="section" id="project-preparation">
-<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
+<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Link permanent la acest titlu">¶</a></h2>
 <p>On a desktop computer we set up a QGIS project containing a high-resolution aerial image as background layer for orientation in the field. For the monitoring data we created a custom Geopackage database with predefined dropdown columns and entry restrictions. Additionally, we added predefined walking paths to guide the volunteers and to further standardise our monitoring.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/Wattenmeer3.jpg"><img alt="Sketch of the QField Interface. For data entry we used a geopackage file with custom dropdown list and entry restrictions." src="../_images/Wattenmeer3.jpg" style="width: 600px;" /></a>
@@ -220,7 +219,7 @@
 <p>The general concept of QField as a simplified field application of QGIS turned out to be very useful for our work with volunteers. While we can set up a project with a high level of customization including all our needs in QGIS, field workers only need to understand the basics. A big advantage: unwanted changes are almost impossible in QField.</p>
 </div>
 <div class="section" id="field-work">
-<h2>Field work<a class="headerlink" href="#field-work" title="Permalink to this headline">¶</a></h2>
+<h2>Field work<a class="headerlink" href="#field-work" title="Link permanent la acest titlu">¶</a></h2>
 <p>During field work orientation was much easier on the tablets compared to printed paper maps especially in the extensive salt marshes. Data entry was pretty fast thanks to the possibility to automatically reuse the last entered value. Logging observations on the tablet only took a little bit extra time in comparison to paper maps.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/Wattenmeer7.jpg"><img alt="The field kit." src="../_images/Wattenmeer7.jpg" style="width: 600px;" /></a>
@@ -230,12 +229,12 @@
 </div>
 </div>
 <div class="section" id="evaluation-and-future">
-<h2>Evaluation and future<a class="headerlink" href="#evaluation-and-future" title="Permalink to this headline">¶</a></h2>
+<h2>Evaluation and future<a class="headerlink" href="#evaluation-and-future" title="Link permanent la acest titlu">¶</a></h2>
 <p>We had no software problems during a testing period in spring 2019 and everything worked as planned. In an evaluation survey all participants stated that they preferred using the tablet rather than the analogue paper maps for field work. The use of the custom QField project was evaluated as straightforward and easy.</p>
 <p>In total more than 18.000 data points were collected in the field. Due to automatized data treatment we saved a huge amount of office time and avoided transmission errors. Also, data collected with tablets and GPS-positioning will be of much higher spatial accuracy. In the future we will thus fully switch to tablet based fieldwork.</p>
 </div>
 <div class="section" id="acknowledgement">
-<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h2>
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Link permanent la acest titlu">¶</a></h2>
 <p>We thank the Ernst-Commentz Stiftung, the <em>Europäischer Tier- und Naturschutz Stiftung</em> and the <em>Adolf und Hildegard Isler Stiftung</em> for generously supporting our project. Additionally, we want to thank the developers of QField and R for offering fantastic open source software. It is great that, due to free software, such projects can be implemented by a comparatively small conservation society.</p>
 </div>
 </div>
@@ -253,7 +252,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -265,7 +264,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

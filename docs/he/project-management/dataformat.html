@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Supported data formats &mdash; תיעוד QField Documentation 1.0 - M...</title>
-    
+    <title>Supported data formats &#8212; תיעוד QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="תיעוד QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="אינדקס" href="../genindex.html" />
+    <link rel="search" title="חיפוש" href="../search.html" />
     <link rel="next" title="QField Project Management" href="index.html" />
     <link rel="prev" title="Search in layers" href="configure-search.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -153,7 +151,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">תפישות</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Custom SVG symbols and settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Supported data formats</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supported data formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#raster-data">Raster data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configure Map Themes</a></li>
@@ -198,23 +196,23 @@ This page offers a non-exhaustive list of supported data formats.</p>
 <tbody valign="top">
 <tr class="row-even"><td>Spatialite</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Geopackage</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WMS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>WFS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WFS-T</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Postgis</td>
 <td><span class="yay">✔</span></td>
@@ -222,11 +220,11 @@ This page offers a non-exhaustive list of supported data formats.</p>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Shapefile</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
@@ -242,7 +240,7 @@ This page offers a non-exhaustive list of supported data formats.</p>
 </tr>
 </tbody>
 </table>
-<p>If you don&#8217;t find your favorite data format on this table, please check if it
+<p>If you don’t find your favorite data format on this table, please check if it
 works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
 please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
 happy to help you with the implementation.</p>
@@ -250,12 +248,12 @@ happy to help you with the implementation.</p>
 </div>
 <div class="section" id="raster-data">
 <h1>Raster data<a class="headerlink" href="#raster-data" title="קישור קבוע לכותרת זו">¶</a></h1>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it&#8217;s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<p>Raster data can become quite big quickly, when working with uncompressed tiff files it’s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
 <div class="section" id="use-geopackage">
 <h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="קישור קבוע לכותרת זו">¶</a></h2>
 <p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust EPSG:21781 (CH1903 LV03) to your desired CRS.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
-gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
+<span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
@@ -274,7 +272,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -285,8 +283,8 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
       
     </p>
     <p>
-        &copy; זכויות שמורות 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

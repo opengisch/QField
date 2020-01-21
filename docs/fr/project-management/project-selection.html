@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Sélection de projet &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Sélection de projet &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,8 +24,9 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
-    <link rel="next" title="Configuration des couches vecteur" href="vector-layers.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Guide d’utilisateur QField" href="../user-guide/index.html" />
     <link rel="prev" title="Exporter en PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -118,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Configuration des couches vecteur"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configuration... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: Guide d’utilisateur QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Guide d’utili... &raquo;</span>
     </a>
   </li>
             
@@ -148,7 +146,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Rechercher dans les couches</a></li>
@@ -158,11 +156,11 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurer les thèmes de carte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Projet portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Exporter en PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Sélection de projet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -178,50 +176,43 @@
       
   <div class="section" id="project-selection">
 <h1>Sélection de projet<a class="headerlink" href="#project-selection" title="Lien permanent vers ce titre">¶</a></h1>
-<p>QField ouvre les projets QGIS au format &#8221;.qgs&#8221;. Actuellement il n&#8217;est pas possible d&#8217;ouvrir les projets &#8221;.qgz&#8221;.</p>
-<p>QField utilise un sélecteur de fichier personnalisé pour ouvrir les projets. En choisissant &#8220;Ouvrir le projet&#8221; dans le menu QField, le sélecteur de fichier s&#8217;ouvre et affiche les emplacements suivants :</p>
+<p>QField ouvre les projets QGIS au format «&nbsp;.qgs&nbsp;». Actuellement il n’est pas possible d’ouvrir les projets «&nbsp;.qgz&nbsp;».</p>
+<p>QField utilise un sélecteur de fichier personnalisé pour ouvrir les projets. En choisissant «&nbsp;Ouvrir le projet&nbsp;» dans le menu QField, le sélecteur de fichier s’ouvre et affiche les emplacements suivants :</p>
 <ul class="simple">
-<li><p class="first">Le répertoire principal du support de données/stockage partagé.</p>
-</li>
-<li><p class="first">Les répertoires spécifiques à l&#8217;application sur tous les périphériques de stockage partagés/externes où l&#8217;application peut placer les fichiers persistants qu&#8217;elle possède s&#8217;ils ne sont pas déjà inclus dans le répertoire de stockage principal.</p>
-</li>
+<li>Le répertoire principal du support de données/stockage partagé.</li>
+<li>Les répertoires spécifiques à l’application sur tous les périphériques de stockage partagés/externes où l’application peut placer les fichiers persistants qu’elle possède s’ils ne sont pas déjà inclus dans le répertoire de stockage principal.</li>
 </ul>
-<p>À l&#8217;intérieur de ces répertoires, seuls les sous-répertoires et fichiers avec l&#8217;extension &#8221;.qgs&#8221; sont affichés.</p>
-<p>QField exige que le fichier de projet soit physiquement sur le périphérique, il n&#8217;est donc pas possible d&#8217;utiliser des fournisseurs qui travaillent avec des fichiers distants (p. ex. Google Drive). D&#8217;autre part, vous pouvez utiliser des applications comme <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox et probablement beaucoup d&#8217;autres) qui vous permettent de synchroniser physiquement le fichier sur votre appareil.</p>
+<p>À l’intérieur de ces répertoires, seuls les sous-répertoires et fichiers avec l’extension «&nbsp;.qgs&nbsp;» sont affichés.</p>
+<p>QField exige que le fichier de projet soit physiquement sur le périphérique, il n’est donc pas possible d’utiliser des fournisseurs qui travaillent avec des fichiers distants (p. ex. Google Drive). D’autre part, vous pouvez utiliser des applications comme <a class="reference external" href="https://syncthing.net/">syncthing</a> ou <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (ou dropbox et probablement beaucoup d’autres) qui vous permettent de synchroniser physiquement le fichier sur votre appareil.</p>
 <div class="section" id="favorite-directories">
 <h2>Dossier des favoris<a class="headerlink" href="#favorite-directories" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans le premier écran du sélecteur de fichiers, il y a une section montrant les répertoires favoris. Pour ajouter un répertoire aux favoris, cliquez longtemps dans le sélecteur de fichiers sur le nom du répertoire. Pour supprimer une entrée des favoris, cliquez longtemps sur l&#8217;entrée dans la liste des favoris.</p>
+<p>Dans le premier écran du sélecteur de fichiers, il y a une section montrant les répertoires favoris. Pour ajouter un répertoire aux favoris, cliquez longtemps dans le sélecteur de fichiers sur le nom du répertoire. Pour supprimer une entrée des favoris, cliquez longtemps sur l’entrée dans la liste des favoris.</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>Carte SD externe<a class="headerlink" href="#external-sd-card" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le sélecteur de fichiers affiche la racine de la carte SD étiquetée &#8220;lecture seule&#8221; et le répertoire spécifique à l&#8217;application séparé du reste de la carte SD, car c&#8217;est le seul répertoire pour lequel l&#8217;application a accès en écriture. Le répertoire est le suivant :</p>
+<p>Le sélecteur de fichiers affiche la racine de la carte SD étiquetée «&nbsp;lecture seule&nbsp;» et le répertoire spécifique à l’application séparé du reste de la carte SD, car c’est le seul répertoire pour lequel l’application a accès en écriture. Le répertoire est le suivant :</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Techniquement, cela est dû au fait qu&#8217;Android utilise ACTION_OPEN_DOCUMENT et ACTION_OPEN_DOCUMENT_TREE, travaille et accorde un accès en lecture-écriture sur le contenu de l&#8217;URI renvoyée, pas sur le fichier lié réel. Cette limitation a du sens pour la structure d&#8217;Android mais est actuellement inutilisable avec QField car QField a besoin d&#8217;accéder au fichier réel avec un chemin réel.</p>
+<p class="last">Techniquement, cela est dû au fait qu’Android utilise ACTION_OPEN_DOCUMENT et ACTION_OPEN_DOCUMENT_TREE, travaille et accorde un accès en lecture-écriture sur le contenu de l’URI renvoyée, pas sur le fichier lié réel. Cette limitation a du sens pour la structure d’Android mais est actuellement inutilisable avec QField car QField a besoin d’accéder au fichier réel avec un chemin réel.</p>
 </div>
 </div>
 <div class="section" id="warning">
 <h2>Attention !<a class="headerlink" href="#warning" title="Lien permanent vers ce titre">¶</a></h2>
-<p>En stockant des données dans ce dossier, vous risquez de perdre des données. Le répertoire spécifique à l&#8217;application (<cite>/Android/data/ch.opengis.qfield/</cite>) sera supprimé par le système si vous désinstallez QField de votre appareil Android. Ceci est important si vous conservez les données dans la carte SD externe.</p>
+<p>En stockant des données dans ce dossier, vous risquez de perdre des données. Le répertoire spécifique à l’application (<cite>/Android/data/ch.opengis.qfield/</cite>) sera supprimé par le système si vous désinstallez QField de votre appareil Android. Ceci est important si vous conservez les données dans la carte SD externe.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>Comment transformer une carte SD externe en mémoire interne<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À partir d&#8217;Android 6.0, vous pouvez utiliser la carte SD comme mémoire interne pour votre téléphone Android. Une fonctionnalité appelée Stockage adoptable permet au système d&#8217;exploitation Android de formater un support de stockage externe comme un stockage interne permanent. Les données de la carte SD adoptée sont cryptées et ne peuvent pas être montées sur un autre appareil.</p>
-<p><strong>Merci de vérifier que vous démarrez avec une carte SD vide. Il est nécessaire qu&#8217;elle soit vide car, lorsqu&#8217;elle sera convertie en stockage &#8220;interne&#8221;, elle sera formatée (effacée).</strong></p>
+<p>À partir d’Android 6.0, vous pouvez utiliser la carte SD comme mémoire interne pour votre téléphone Android. Une fonctionnalité appelée Stockage adoptable permet au système d’exploitation Android de formater un support de stockage externe comme un stockage interne permanent. Les données de la carte SD adoptée sont cryptées et ne peuvent pas être montées sur un autre appareil.</p>
+<p><strong>Merci de vérifier que vous démarrez avec une carte SD vide. Il est nécessaire qu’elle soit vide car, lorsqu’elle sera convertie en stockage «&nbsp;interne&nbsp;», elle sera formatée (effacée).</strong></p>
 <ol class="arabic simple">
-<li><p class="first">Aller dans les paramtètres, puis sélectionnez stockage.</p>
-</li>
-<li><p class="first">Choisissez votre &#8220;carte SD&#8221;, puis cliquez sur le menu (trois points en haut à droite), et enfin sélectionnez &#8220;paramètres&#8221;.</p>
-</li>
-<li><p class="first">Maintenant séléctionnez &#8220;Formater comme interne&#8221;, puis &#8220;Vider et Formater&#8221;</p>
-</li>
-<li><p class="first">Votre carte SD va maintenant être formatée comme stockage interne.</p>
-</li>
-<li><p class="first">Redémarrez votre téléphone.</p>
-</li>
+<li>Aller dans les paramtètres, puis sélectionnez stockage.</li>
+<li>Choisissez votre «&nbsp;carte SD&nbsp;», puis cliquez sur le menu (trois points en haut à droite), et enfin sélectionnez «&nbsp;paramètres&nbsp;».</li>
+<li>Maintenant séléctionnez «&nbsp;Formater comme interne&nbsp;», puis «&nbsp;Vider et Formater&nbsp;»</li>
+<li>Votre carte SD va maintenant être formatée comme stockage interne.</li>
+<li>Redémarrez votre téléphone.</li>
 </ol>
 <p>Si vous ne redémarrez pas votre téléphone, plusieurs choses pourraient ne pas fonctionner correctement, ainsi veuillez le redémarrer.</p>
-<p>Il est possible que la fonction de stockage adoptable ne soit pas présente sur votre appareil même s&#8217;il utilise Android 6.0 ou une version ultérieure. Le fabricant de l&#8217;appareil peut avoir désactivé cette fonction. Cependant, il existe des méthodes en ligne de commande qui vous permettent de forcer un périphérique à adopter un stockage.</p>
+<p>Il est possible que la fonction de stockage adoptable ne soit pas présente sur votre appareil même s’il utilise Android 6.0 ou une version ultérieure. Le fabricant de l’appareil peut avoir désactivé cette fonction. Cependant, il existe des méthodes en ligne de commande qui vous permettent de forcer un périphérique à adopter un stockage.</p>
 </div>
 </div>
 
@@ -238,7 +229,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -250,7 +241,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

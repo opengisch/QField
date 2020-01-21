@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Плаґін QFieldSync &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Плаґін QFieldSync &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Розробка та підтримка" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -169,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Глобальні змінні</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Розробка та підтримка</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Плаґін QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Плаґін QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -186,27 +184,19 @@
 <p>Плаґін QFieldSync допомогає підготувати проект QGIS для QField.</p>
 <p>QFieldSync спрощує підготовку проектів шляхом автоматизації наступних кроків:</p>
 <ul class="simple">
-<li><p class="first">обов&#8217;язкові настройки проекту (наприклад <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable проект</span></a>)</p>
-</li>
-<li><p class="first">створення базових карт з растрового шару чи стилю, заданого темою мапи.</p>
-</li>
-<li><p class="first">настройкою офлайнового редагування та синхронізацією змін.</p>
-</li>
+<li>обов’язкові настройки проекту (наприклад <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Portable проект</span></a>)</li>
+<li>створення базових карт з растрового шару чи стилю, заданого темою мапи.</li>
+<li>настройкою офлайнового редагування та синхронізацією змін.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Порядок роботи<a class="headerlink" href="#workflow" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Ось перелік типових кроків:</p>
 <ol class="arabic simple">
-<li><p class="first">Створити пакет QField. Це буде робоча копія в окремому каталозі.</p>
-</li>
-<li><p class="first">Скопіювати пакет QField на пристрій.</p>
-</li>
-<li><p class="first">Вийти в поле та зібрати дані.</p>
-</li>
-<li><p class="first">Перенести модифіковані дані на комп&#8217;ютер.</p>
-</li>
-<li><p class="first">Синхронізувати модифіковані дані з вашою базою даних чи файлами.</p>
-</li>
+<li>Створити пакет QField. Це буде робоча копія в окремому каталозі.</li>
+<li>Скопіювати пакет QField на пристрій.</li>
+<li>Вийти в поле та зібрати дані.</li>
+<li>Перенести модифіковані дані на комп’ютер.</li>
+<li>Синхронізувати модифіковані дані з вашою базою даних чи файлами.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -224,37 +214,31 @@
 <p>У діалозі настройок проекту для кожного шару можна задати свою <em>дію</em>. В залежності від типу шару, список доступних дій може відрізнятися.</p>
 <dl class="docutils">
 <dt>Копіювати</dt>
-<dd><p class="first last">Шар слід скопіювати у каталог пакету. Доступно лише для шарів на основі файлів.</p>
-</dd>
+<dd>Шар слід скопіювати у каталог пакету. Доступно лише для шарів на основі файлів.</dd>
 <dt>Без дії</dt>
-<dd><p class="first last">Шар буде залишено без змін. Доступно лише для шарів, які використовують файли, таких як WMS, WFS, Postgis...</p>
-</dd>
+<dd>Шар буде залишено без змін. Доступно лише для шарів, які використовують файли, таких як WMS, WFS, Postgis…</dd>
 <dt>Офлайнове редагування</dt>
-<dd><p class="first last">Робочу копію шару буде створено у каталозі пакету. Всі зміни, внесені в цей шар під час польової роботи, записуються в список змін. Пізніше, під час синхронізації, список змін буде застосований до основної бази даних. Вирішення конфліктів відсутнє.</p>
-</dd>
+<dd>Робочу копію шару буде створено у каталозі пакету. Всі зміни, внесені в цей шар під час польової роботи, записуються в список змін. Пізніше, під час синхронізації, список змін буде застосований до основної бази даних. Вирішення конфліктів відсутнє.</dd>
 <dt>Видалити</dt>
-<dd><p class="first last">Шар буде видалений з робочої копії. Корисно коли шар використовуються в якості базової карти та не буде доступний у пакеті.</p>
-</dd>
+<dd>Шар буде видалений з робочої копії. Корисно коли шар використовуються в якості базової карти та не буде доступний у пакеті.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
 <h3>Настройка базових карт<a class="headerlink" href="#base-map-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
 <p>Базова карта це растровий шар, який буде найнижчим у списку шарів проекту.</p>
-<p>Якщо вибрано цю настройку, базова карта буде генеруватися кожного разу під час підготовки проекту. Область інтересу &#8212; тобто регіон, який буде оброблятися &#8212; буде вибрано під час створення пакету.</p>
+<p>Якщо вибрано цю настройку, базова карта буде генеруватися кожного разу під час підготовки проекту. Область інтересу — тобто регіон, який буде оброблятися — буде вибрано під час створення пакету.</p>
 <p>В якості базової карти може виступати:</p>
 <dl class="docutils">
 <dt>шар</dt>
-<dd><p class="first last">растровий шар. Виберіть цей варіант, щоб створити офлайнову копію онлайнових шарів на кшалт WMS або щоб створити робочу копію шару у несумісному форматі на зразок ECW чи MrSID.</p>
-</dd>
+<dd>растровий шар. Виберіть цей варіант, щоб створити офлайнову копію онлайнових шарів на кшалт WMS або щоб створити робочу копію шару у несумісному форматі на зразок ECW чи MrSID.</dd>
 <dt>Тема мапи</dt>
-<dd><p class="first last">тема мапи. Виберіть цей варіант, щоб створити базову карту з декількох шарів. Ці шари потім можна буде видалити з робочого пакету.Завдяки цьому зберігається місце та економиться заряд батареї пристрою.</p>
-</dd>
+<dd>тема мапи. Виберіть цей варіант, щоб створити базову карту з декількох шарів. Ці шари потім можна буде видалити з робочого пакету.Завдяки цьому зберігається місце та економиться заряд батареї пристрою.</dd>
 </dl>
 <p>Розмір тайлів впливає на просторову роздільну здатніть. Він визначає число одиниць мапи в одному пікселі. Якщо мапа використовує метри в якості одиниць виміру, а розмір тайлу дорівнює 1, кожний піксель растру буде мати просторову роздільну здатність 1х1 м. Якщо ж розмір тайлу буде дорівнювати 1000, кожний піксель буде мати просторову роздільну здатність 1 квадратний кілометр.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
 <h3>Настройка офлайнового редагування<a class="headerlink" href="#offline-editing-configuration" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Якщо встановлено прапорець <em>Синхронізувати об&#8217;єкти лише в області інтересу</em>, то до офлайнової робочої копії потраплять лише об&#8217;єкти, що знаходяться всередини видимої області мапи.</p>
+<p>Якщо встановлено прапорець <em>Синхронізувати об’єкти лише в області інтересу</em>, то до офлайнової робочої копії потраплять лише об’єкти, що знаходяться всередини видимої області мапи.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
@@ -262,7 +246,7 @@
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Постійне посилання на цей заголовок">¶</a></h2>
@@ -285,7 +269,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -297,7 +281,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

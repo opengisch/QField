@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Variables d’ensemble &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Variables d’ensemble &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Support et développement" href="../development/index.html" />
     <link rel="prev" title="Changer le thème de carte actif" href="map-themes.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -98,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Variables d&#8217;ensemble</a></li>
+<li><a class="reference internal" href="#">Variables d’ensemble</a></li>
 </ul>
 </ul>
 </li>
@@ -142,7 +140,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Rechercher dans les couches</a></li>
@@ -154,9 +152,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -171,16 +169,16 @@
     <div class="col-md-9 content">
       
   <div class="section" id="global-variables">
-<span id="id1"></span><h1>Variables d&#8217;ensemble<a class="headerlink" href="#global-variables" title="Lien permanent vers ce titre">¶</a></h1>
+<span id="id1"></span><h1>Variables d’ensemble<a class="headerlink" href="#global-variables" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Les variables sont utilisées dans QField et QGIS pour paramétrer des valeurs dynamiquement basées sur le projet courant, la couche ou le système. Elles peuvent être utilisées pour mettre en forme, définir des valeurs par défaut pour des champs et bien plus encore.</p>
-<p>Pour configurer une variable spécifique à un périphérique, ouvrir les paramètres et cliquer sur l&#8217;onglet &#8220;Variables d&#8217;ensemble&#8221;.</p>
+<p>Pour configurer une variable spécifique à un périphérique, ouvrir les paramètres et cliquer sur l’onglet «&nbsp;Variables d’ensemble&nbsp;».</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/configure_global_variables.png"><img alt="Configure global variables" src="../_images/configure_global_variables.png" style="width: 640px;" /></a>
-<p class="caption"><span class="caption-text">Configuration de deux nouvelles variables d&#8217;ensemble en plus des variables-système prédéfinies.</span></p>
+<p class="caption"><span class="caption-text">Configuration de deux nouvelles variables d’ensemble en plus des variables-système prédéfinies.</span></p>
 </div>
 </div>
-<p>Sur la page &#8220;Variables&#8221;, vous pouvez voir les variables prédéfinies. Pour ajouter de nouvelles variables, cliquer sur une cellule vide ci-dessous et écrire la valeur souhaitée.</p>
+<p>Sur la page «&nbsp;Variables&nbsp;», vous pouvez voir les variables prédéfinies. Pour ajouter de nouvelles variables, cliquer sur une cellule vide ci-dessous et écrire la valeur souhaitée.</p>
 </div>
 
 
@@ -196,7 +194,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -208,7 +206,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>矢量图层设置 &mdash; QField Documentation 1.0 - M... 文档</title>
-    
+    <title>矢量图层设置 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,9 +23,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... 文档" href="../index.html" />
-    <link rel="next" title="QField User Guide" href="../user-guide/index.html" />
-    <link rel="prev" title="项目选择" href="project-selection.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="配置地图主题" href="map-themes.html" />
+    <link rel="prev" title="可移植项目" href="portable-project.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -141,11 +139,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: 项目选择"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 项目选择</span>
+    <a href="portable-project.html" title="Previous Chapter: 可移植项目"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 可移植项目</span>
     </a>
   </li>
   <li>
-    <a href="../user-guide/index.html" title="Next Chapter: QField User Guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField User Guide &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: 配置地图主题"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">配置地图主题 &raquo;</span>
     </a>
   </li>
             
@@ -186,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">可移植项目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">项目选择</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">矢量图层设置</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">矢量图层设置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
@@ -230,7 +228,7 @@ the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.
 <h2>只读，不可识别和可搜索图层<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="永久链接至标题">¶</a></h2>
 <p>Some layers in a project are just there for pure visual purpose. Such
 layers should not show up when a user taps somewhere to identify objects.</p>
-<p>Some other layers serve as source of information and shouldn&#8217;t be modified
+<p>Some other layers serve as source of information and shouldn't be modified
 by the user. It is possible to protect layers from editing attributes or
 adding and deleting features.</p>
 <p>也可以配置那些图层可以被搜索。</p>
@@ -261,66 +259,53 @@ page and activate the checkboxes to match your desired behavior.</p>
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">字段类型</p>
-</th>
-<th class="head"><p class="first last">支持</p>
-</th>
-<th class="head"><p class="first last">便条</p>
-</th>
+<tr class="row-odd"><th class="head">字段类型</th>
+<th class="head">支持</th>
+<th class="head">便条</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">文本编辑</p>
-</td>
+<tr class="row-even"><td>文本编辑</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li><p class="first">不支持THML文本</p>
-</li>
-<li><p class="first">数字输入框被要求基于类型</p>
-</li>
+<li>不支持THML文本</li>
+<li>数字输入框被要求基于类型</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">复选框</p>
-</td>
+<tr class="row-odd"><td>复选框</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">值图</p>
-</td>
+<tr class="row-even"><td>值图</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">隐藏</p>
-</td>
+<tr class="row-odd"><td>隐藏</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">外部资源</p>
-</td>
+<tr class="row-even"><td>外部资源</td>
 <td><span class="moreorless">~</span></td>
 <td>This field is combined with camera integration.
 Only images can be viewed so far.
-<a class="reference internal" href="../development/index.html#make-it-grow"><span>让它成长，让它成为你自己所有</span></a></td>
+<a class="reference internal" href="../development/index.html#make-it-grow"><span class="std std-ref">让它成长，让它成为你自己所有</span></a></td>
 </tr>
-<tr class="row-odd"><td><p class="first last">日期时间</p>
-</td>
+<tr class="row-odd"><td>日期时间</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">关系参照</p>
-</td>
+<tr class="row-even"><td>关系参照</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Relation Widget</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">其他</p>
-</td>
+<tr class="row-even"><td>其他</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>让它成长，让它成为你自己所有</span></a></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span class="std std-ref">让它成长，让它成为你自己所有</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -332,11 +317,11 @@ Only images can be viewed so far.
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It&#8217;s possible to add, delete and open them.</p>
+<p>The relation widget shows all the referencing child features in a list. It's possible to add, delete and open them.</p>
 <p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
-<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it&#8217;s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
+<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it's blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
 <p><strong>Many-To-Many relations</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
 <p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
@@ -349,7 +334,7 @@ Only images can be viewed so far.
 </div>
 <div class="section" id="external-resource-photo-settings">
 <h4>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="永久链接至标题">¶</a></h4>
-<p>The widget type &#8220;Attachement&#8221; is used to store the path to collected photos.</p>
+<p>The widget type &quot;Attachement&quot; is used to store the path to collected photos.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
@@ -374,13 +359,13 @@ Only images can be viewed so far.
 <p>Groups can be hidden based on an expression. This is useful when certain attributes are
 only required under certain conditions. As an example imagine mapping trees. Some of them
 might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &#8220;diseases&#8221;. Add
-a field &#8220;desease&#8221; with a checkbox. Only when the checkbox is checked, the list of diseases
+many fields, make a group and configure a visibility expression for a group &quot;diseases&quot;. Add
+a field &quot;desease&quot; with a checkbox. Only when the checkbox is checked, the list of diseases
 will be available to the user.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &#8220;measures_taken&#8221; is checked.</span></p>
+<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &quot;measures_taken&quot; is checked.</span></p>
 </div>
 </div>
 </div>
@@ -486,8 +471,7 @@ geometries.</p>
 <h3>捕捉类型<a class="headerlink" href="#snapping-types" title="永久链接至标题">¶</a></h3>
 <p>可以捕捉新点</p>
 <ul class="simple">
-<li><p class="first">仅对已存在几何图形的顶点</p>
-</li>
+<li>仅对已存在几何图形的顶点</li>
 <li>only to segments of existing geomtries</li>
 <li>to nodes and segments of existing geomtries</li>
 </ul>
@@ -523,7 +507,7 @@ position on the earth surface. This information can be saved</p>
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -534,8 +518,8 @@ position on the earth surface. This information can be saved</p>
       
     </p>
     <p>
-        &copy; 版权所有 2019, The QField Project/OPENGIS.ch.<br/>
-      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 创建。<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 创建。<br/>
     </p>
   </div>
 </footer>

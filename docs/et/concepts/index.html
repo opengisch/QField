@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="et">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Kontseptsioon &mdash; QField Documentation 1.0 - M... dokumentatsioon</title>
-    
+    <title>Kontseptsioon &#8212; QField Documentation 1.0 - M... dokumentatsioon</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... dokumentatsioon" href="../index.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Otsing" href="../search.html" />
     <link rel="next" title="Custom SVG symbols and settings" href="../project-management/android-data-structure.html" />
     <link rel="prev" title="QField paigaldusjuhend" href="../installation-guide/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -100,7 +98,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Kontseptsioon</a><ul>
 <li><a class="reference internal" href="#keep-it-simple">Lihtsus ennekõike</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Ole ühilduv QGIS&#8217;iga</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">Ole ühilduv QGIS’iga</a></li>
 <li><a class="reference internal" href="#mode-based">Laadidel põhinev</a></li>
 </ul>
 </li>
@@ -148,7 +146,7 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField paigaldusjuhend</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Kontseptsioon</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kontseptsioon</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
@@ -182,17 +180,17 @@
 <h2>Lihtsus ennekõike<a class="headerlink" href="#keep-it-simple" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Nõudmised väljas ei ole samad mis kontoris. Ekraan on väiksem, sisendseaded on erinevad ja ka ülesanded on erinevad.</p>
 <p>QField püüab aidata kasutajal teostada peamisi ülesandeid ilma kasutajaliidest killustamata. See tähendab, liides võimaldab täita ainult ülesandeid, mis tuleb täita välitööl. Ja mitte midagi enamat.</p>
-<p>See tähendab, et kihtide kujundamine, vormide koostamine ja ülejäänud projekti seadistamise sammud tuleb enne ära teha QGIS&#8217;iga arvutis.</p>
+<p>See tähendab, et kihtide kujundamine, vormide koostamine ja ülejäänud projekti seadistamise sammud tuleb enne ära teha QGIS’iga arvutis.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h2>Ole ühilduv QGIS&#8217;iga<a class="headerlink" href="#be-compatible-with-qgis" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>QField põhineb QGIS&#8217;il. See ei ole täielikult ümber ehitatud QGIS, aga kasutab QGIS teeke. Renderdusmootor on täpselt sama mis QGIS&#8217;il laua-arvutis, nii et su kaardiprojekt näeb mobiilseadmes välja täpselt samasugune nagu arvutis.</p>
+<h2>Ole ühilduv QGIS’iga<a class="headerlink" href="#be-compatible-with-qgis" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>QField põhineb QGIS’il. See ei ole täielikult ümber ehitatud QGIS, aga kasutab QGIS teeke. Renderdusmootor on täpselt sama mis QGIS’il laua-arvutis, nii et su kaardiprojekt näeb mobiilseadmes välja täpselt samasugune nagu arvutis.</p>
 <p>Kui miski on juba seadistusena olemas QGIS projektis, siis pole seda vaja uuesti leiutada. QField kasutab seega samu editeerimise vidinaid mis QGIS desktop. Kui projektifail on juba seadistatud lauaarvutis, peaks see sama hästi jooksma ka mobiilseadmes.</p>
-<p>Pea meeles, et see on ainult <em>kontseptsioon</em>. See on see, mida me silmas peame, kui arendame QField&#8217;i. See ei tähenda, et kõik on juba lõpuni valmis.</p>
+<p>Pea meeles, et see on ainult <em>kontseptsioon</em>. See on see, mida me silmas peame, kui arendame QField’i. See ei tähenda, et kõik on juba lõpuni valmis.</p>
 </div>
 <div class="section" id="mode-based">
 <h2>Laadidel põhinev<a class="headerlink" href="#mode-based" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>QField on ehitatud <em>laadide</em> peal. Laadid on midagi nagu <em>kaardi tööriistad</em> QGIS desktop&#8217;is. Laad määrab ülesande, mida kasutaja parasjagu täidab. Ta kas <em>sirvib</em> andmeid või <em>digiteerib</em> midagi uut.</p>
+<p>QField on ehitatud <em>laadide</em> peal. Laadid on midagi nagu <em>kaardi tööriistad</em> QGIS desktop’is. Laad määrab ülesande, mida kasutaja parasjagu täidab. Ta kas <em>sirvib</em> andmeid või <em>digiteerib</em> midagi uut.</p>
 </div>
 </div>
 
@@ -209,7 +207,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -220,8 +218,8 @@
       
     </p>
     <p>
-        &copy; Autoriõigused 2019, The QField Project/OPENGIS.ch.<br/>
-      Loodud <a href="http://sphinx-doc.org/">Sphinxiga</a> (versioon: 1.3.1).<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Loodud <a href="http://sphinx-doc.org/">Sphinxiga</a> (versioon: 1.6.7).<br/>
     </p>
   </div>
 </footer>

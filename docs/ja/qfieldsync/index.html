@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QFieldSyncプラグイン &mdash; QField Documentation 1.0 - M... ドキュメント</title>
-    
+    <title>QFieldSyncプラグイン &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... ドキュメント" href="../index.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="開発とサポート" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -170,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">アクティブなマップテーマを変更する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">グローバル変数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">開発とサポート</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSyncプラグイン</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldSyncプラグイン</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -187,27 +185,19 @@
 <p>QFieldSyncプラグインはQFieldで使えるようにQGISプロジェクトを準備しパッケージ作成するのに役に立ちます。</p>
 <p>QFieldSyncは、次の自動化によりプロジェクトを準備するのをサポートします。</p>
 <ul class="simple">
-<li><p class="first">プロジェクトのセットアップに必要な手順 (例、 <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>ポータブルなプロジェクト</span></a>)</p>
-</li>
-<li><p class="first">一枚のラスタレイヤーもしくはマップテーマによって定義されたスタイルからのベースマップの生成</p>
-</li>
-<li><p class="first">オフライン編集機能の構成と変更内容の同期</p>
-</li>
+<li>プロジェクトのセットアップに必要な手順 (例、 <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">ポータブルなプロジェクト</span></a>)</li>
+<li>一枚のラスタレイヤーもしくはマップテーマによって定義されたスタイルからのベースマップの生成</li>
+<li>オフライン編集機能の構成と変更内容の同期</li>
 </ul>
 <div class="section" id="workflow">
 <h2>ワークフロー<a class="headerlink" href="#workflow" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>プロセスの概要を簡単に説明するために、一般的な手順のリストを以下に示します。</p>
 <ol class="arabic simple">
-<li><p class="first">QFieldパッケージを生成します。これは別のフォルダーにある作業用のコピーです。</p>
-</li>
-<li><p class="first">QFieldパッケージを対象のデバイスにコピーします。</p>
-</li>
-<li><p class="first">フィールドにデータ収集に行きましょう。</p>
-</li>
-<li><p class="first">更新したデータをデスクトップマシンにコピーして戻します。</p>
-</li>
-<li><p class="first">更新したデータをデータベースもしくはファイルと同期します。</p>
-</li>
+<li>QFieldパッケージを生成します。これは別のフォルダーにある作業用のコピーです。</li>
+<li>QFieldパッケージを対象のデバイスにコピーします。</li>
+<li>フィールドにデータ収集に行きましょう。</li>
+<li>更新したデータをデスクトップマシンにコピーして戻します。</li>
+<li>更新したデータをデータベースもしくはファイルと同期します。</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -225,17 +215,13 @@
 <p>プロジェクトの構成ダイアログでは、 <em>アクション</em> は個別のレイヤーごとに定義できます。レイヤーの種類によって異なるアクションを使用できます。</p>
 <dl class="docutils">
 <dt>コピー</dt>
-<dd><p class="first last">レイヤーがパッケージのフォルダー内にコピーされます。これはファイルベースのレイヤーに対してのみ使用できます。</p>
-</dd>
+<dd>レイヤーがパッケージのフォルダー内にコピーされます。これはファイルベースのレイヤーに対してのみ使用できます。</dd>
 <dt>何もしない</dt>
-<dd><p class="first last">そのレイヤーのデータソースに対しては何も変更しません。これはWMS、WFSやPostGISなどの非ファイルベースのレイヤーに対してのみ使用できます。</p>
-</dd>
+<dd>そのレイヤーのデータソースに対しては何も変更しません。これはWMS、WFSやPostGISなどの非ファイルベースのレイヤーに対してのみ使用できます。</dd>
 <dt>オフライン編集</dt>
-<dd><p class="first last">レイヤーの作業用コピーがパッケージフォルダーにコピーされます。 作業中にパッケージ化されたプロジェクトで行われたすべての変更は、ログとして記録されます。 変更内容をのちに同期する際は、このログが再生され、すべての変更がメインデータベースにも適用されます。 競合することはありません。</p>
-</dd>
+<dd>レイヤーの作業用コピーがパッケージフォルダーにコピーされます。 作業中にパッケージ化されたプロジェクトで行われたすべての変更は、ログとして記録されます。 変更内容をのちに同期する際は、このログが再生され、すべての変更がメインデータベースにも適用されます。 競合することはありません。</dd>
 <dt>削除</dt>
-<dd><p class="first last">そのレイヤーは作業用のコピーからは削除されます。レイヤーがベースマップとして使われていたりする際にとても便利な機能で、パッケージ後のプロジェクト上でそのレイヤが表示されることはありません。</p>
-</dd>
+<dd>そのレイヤーは作業用のコピーからは削除されます。レイヤーがベースマップとして使われていたりする際にとても便利な機能で、パッケージ後のプロジェクト上でそのレイヤが表示されることはありません。</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -245,11 +231,9 @@
 <p>ベースマップには2つのソースがあります。</p>
 <dl class="docutils">
 <dt>レイヤー</dt>
-<dd><p class="first last">ラスターレイヤーです。これはWMSのようなオンラインのレイヤーをオフライン用にコピーする際や、ECWとMrSIDのようなサポートされていないレイヤーを作業用コピーとして扱いたい場合などに役に立ちます。</p>
-</dd>
+<dd>ラスターレイヤーです。これはWMSのようなオンラインのレイヤーをオフライン用にコピーする際や、ECWとMrSIDのようなサポートされていないレイヤーを作業用コピーとして扱いたい場合などに役に立ちます。</dd>
 <dt>マップテーマ</dt>
-<dd><p class="first last">マップテーマです。これはスタイル設定されたいくつかのレイヤを組み合わせてベースマップを生成する際に役に立ちます。これらのレイヤーは、作業パッケージから削除でき、デバイスでレンダリングする必要はありません。 これにより、デバイスのディスク容量とバッテリーを節約できます。</p>
-</dd>
+<dd>マップテーマです。これはスタイル設定されたいくつかのレイヤを組み合わせてベースマップを生成する際に役に立ちます。これらのレイヤーは、作業パッケージから削除でき、デバイスでレンダリングする必要はありません。 これにより、デバイスのディスク容量とバッテリーを節約できます。</dd>
 </dl>
 <p>タイルサイズは空間解像度を定義し、 ピクセルごとの地図単位の数を決定します。 マップキャンバスのCRSの単位がメートルで、タイルサイズが1に設定されている場合、各ラスターのピクセルの空間範囲は1 x 1 mになり、1000に設定されている場合、各ラスターピクセルの空間範囲は1 km2になります。</p>
 </div>
@@ -286,7 +270,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -298,7 +282,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。<br/>
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。<br/>
     </p>
   </div>
 </footer>

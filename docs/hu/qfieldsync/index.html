@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QFieldSync modul &mdash; QField Documentation 1.0 - M... dokumentáció</title>
-    
+    <title>QFieldSync modul &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... dokumentáció" href="../index.html" />
+    <link rel="index" title="Tárgymutató" href="../genindex.html" />
+    <link rel="search" title="Keresés" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Fejlesztés és támogatás" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -170,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Aktív térkép téma módosítása</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globális változók</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Fejlesztés és támogatás</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync modul</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldSync modul</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -187,27 +185,19 @@
 <p>A QFieldSync modul segít a QGIS projektek előkészítésében és összecsomagolásában a QFields-hez.</p>
 <p>A QFieldSync a következők automatizálásával segíti a projektjének előkészítését:</p>
 <ul class="simple">
-<li><p class="first">A projekt beállításhoz szükséges lépések (pl. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Hordozható Projekt</span></a>)</p>
-</li>
-<li><p class="first">Egy alaptérkép létrehozása egy raszterből vagy egy térkép témában definiált stílusból.</p>
-</li>
-<li><p class="first">Az offline szerkesztés és a módosítások visszaszinkronizálásának konfigurálása.</p>
-</li>
+<li>A projekt beállításhoz szükséges lépések (pl. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Hordozható Projekt</span></a>)</li>
+<li>Egy alaptérkép létrehozása egy raszterből vagy egy térkép témában definiált stílusból.</li>
+<li>Az offline szerkesztés és a módosítások visszaszinkronizálásának konfigurálása.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Munkafolyamat<a class="headerlink" href="#workflow" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Az eljárás gyors áttekintéséhez itt egy lista a tipikus lépésekkel:</p>
 <ol class="arabic simple">
-<li><p class="first">Hozzon létre egy QField csomagot. Ez egy munka másolat egy külön könyvtárban.</p>
-</li>
-<li><p class="first">Másolja át a QField csomagot a cél eszközre.</p>
-</li>
-<li><p class="first">Menjen ki és gyűjtse össze az adatokat.</p>
-</li>
-<li><p class="first">Másolja vissza a módosított adatokat az asztali számítógépére.</p>
-</li>
-<li><p class="first">A módosított adatok szinkronizálása az adatbázisával vagy fájljaival.</p>
-</li>
+<li>Hozzon létre egy QField csomagot. Ez egy munka másolat egy külön könyvtárban.</li>
+<li>Másolja át a QField csomagot a cél eszközre.</li>
+<li>Menjen ki és gyűjtse össze az adatokat.</li>
+<li>Másolja vissza a módosított adatokat az asztali számítógépére.</li>
+<li>A módosított adatok szinkronizálása az adatbázisával vagy fájljaival.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -222,20 +212,16 @@
 <div class="section" id="layer-configuration">
 <h3>Réteg konfiguráció<a class="headerlink" href="#layer-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
-<p>A projekt konfiguráció párbeszédablakban egy &#8220;műveletet&#8221; definiálhatunk önállóan minden egyes réteghez. A réteg típus függvényében különböző műveletek használhatók.</p>
+<p>A projekt konfiguráció párbeszédablakban egy „műveletet” definiálhatunk önállóan minden egyes réteghez. A réteg típus függvényében különböző műveletek használhatók.</p>
 <dl class="docutils">
 <dt>Másolás</dt>
-<dd><p class="first last">A réteget a csomag mappába másoljuk. Ez csak a fájl alapú rétegekre alkalmazható.</p>
-</dd>
+<dd>A réteget a csomag mappába másoljuk. Ez csak a fájl alapú rétegekre alkalmazható.</dd>
 <dt>Nincs művelet</dt>
-<dd><p class="first last">A réteg forrását érintetlenül hagyjuk. Ez csak a nem fájl alapú rétegekre alkalmazható mint WMS, WFS, PostGIS...</p>
-</dd>
+<dd>A réteg forrását érintetlenül hagyjuk. Ez csak a nem fájl alapú rétegekre alkalmazható mint WMS, WFS, PostGIS…</dd>
 <dt>Offline szerkesztés</dt>
-<dd><p class="first last">A rétegről egy másolatot készítünk a csomag mappájába. Minden változást, amit munka közben az összecsomagolt projekten hajtunk végre,  a változásnaplóban rögzítünk.</p>
-</dd>
+<dd>A rétegről egy másolatot készítünk a csomag mappájába. Minden változást, amit munka közben az összecsomagolt projekten hajtunk végre,  a változásnaplóban rögzítünk.</dd>
 <dt>Eltávolítás</dt>
-<dd><p class="first last">A réteget eltávolítjuk a munka példányból. Ez hasznos, ha a réteget háttértérképként használjuk és nem lesz elérhető a becsomagolt projektben.</p>
-</dd>
+<dd>A réteget eltávolítjuk a munka példányból. Ez hasznos, ha a réteget háttértérképként használjuk és nem lesz elérhető a becsomagolt projektben.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -245,11 +231,9 @@
 <p>Két lehetséges forrása van az alaptérképnek:</p>
 <dl class="docutils">
 <dt>Réteg</dt>
-<dd><p class="first last">Egy raszter réteg. Ez hasznos offline másolat készítéséhez egy online rétegből mint például egy WMS vagy a munka másolat egy nem támogatott formátumról mint például egy ECW vagy MrSID réteg.</p>
-</dd>
+<dd>Egy raszter réteg. Ez hasznos offline másolat készítéséhez egy online rétegből mint például egy WMS vagy a munka másolat egy nem támogatott formátumról mint például egy ECW vagy MrSID réteg.</dd>
 <dt>Térkép téma</dt>
-<dd><p class="first last">Egy térkép téma. Ez egy alaptérkép létrehozásához hasznos, mely több stílussal bíró réteg kombinációjából áll össze. Ezeket a rétegeket ezután eltávolíthatja a munka csomagból és nem kell az eszközön feldolgozni. Ezzel az eszközön lemez tárhellyel és akkumulátorral spórolhat.</p>
-</dd>
+<dd>Egy térkép téma. Ez egy alaptérkép létrehozásához hasznos, mely több stílussal bíró réteg kombinációjából áll össze. Ezeket a rétegeket ezután eltávolíthatja a munka csomagból és nem kell az eszközön feldolgozni. Ezzel az eszközön lemez tárhellyel és akkumulátorral spórolhat.</dd>
 </dl>
 <p>A csempe méret adja meg a térbeli felbontást. Meghatározza a térképi egységek számát pixelenként. Ha a térképvászon vetülete méter egységű és a csempe méretet 1-re állították, akkor minden raszter pixel 1x1 m térbeli kiterjedésű lesz, ha 1000-re állítják, minden raszter pixel 1 négyzetkilométer területű lesz.</p>
 </div>
@@ -270,7 +254,7 @@ to the offline editing working copy.</p>
 <div class="section" id="synchronize-from-qfield">
 <h2>Szinkronizálás QField-ből<a class="headerlink" href="#synchronize-from-qfield" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Amikor szinkronizálni akarja amit összegyűjtött, nyissa meg újra a projektet a QGIS-ben (azt amelyiket a normál mentés másként művelettel mentett).</p>
-<p>Másolja a projekt mappát az eszközéről a számítógépére és használja a <a href="#id1"><span class="problematic" id="id2">**</span></a>Szinkronizálás QField-ből&#8221; menüt a módosításainak szinkronizálásához a mozgatható projektből a fő projektbe.</p>
+<p>Másolja a projekt mappát az eszközéről a számítógépére és használja a <a href="#id1"><span class="problematic" id="id2">**</span></a>Szinkronizálás QField-ből” menüt a módosításainak szinkronizálásához a mozgatható projektből a fő projektbe.</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
@@ -288,7 +272,7 @@ to the offline editing working copy.</p>
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -299,8 +283,8 @@ to the offline editing working copy.</p>
       
     </p>
     <p>
-        &copy; Minden jog fenntartva 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 használatával készült.<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 használatával készült.<br/>
     </p>
   </div>
 </footer>

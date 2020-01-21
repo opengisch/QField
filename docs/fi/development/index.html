@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Kehittäminen ja tuki &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Kehittäminen ja tuki &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
+    <link rel="search" title="Etsi" href="../search.html" />
     <link rel="next" title="QFieldSync laajennus" href="../qfieldsync/index.html" />
     <link rel="prev" title="Globaalit muuttujat" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -180,7 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField käyttäjän opas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globaalit muuttujat</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Kehittäminen ja tuki</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kehittäminen ja tuki</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync laajennus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
@@ -211,7 +209,7 @@
 <div class="section" id="edit-widgets">
 <h4>Muokkaustyökalut<a class="headerlink" href="#edit-widgets" title="Permalink to this headline">¶</a></h4>
 <p>Muokkaustyökalut ovat ydinosa tehokkaalle kenttä työskentelylle. Attribuuttien syöttäminen kosketusnäytölle on työn osa joka vie suurimman osan ajasta ja tämän tehtävän pitäminen niin  helppona kuin mahdollista on avain miellyttävälle työteolle.</p>
-<p>Eräitä tärkeitä <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>muokkaustyökaluja on jo käytettävissä</span></a> mutta paljon enemmän on mahdollista kuten <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">esimerkiksi QGISissä</a>.</p>
+<p>Eräitä tärkeitä <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span class="std std-ref">muokkaustyökaluja on jo käytettävissä</span></a> mutta paljon enemmän on mahdollista kuten <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">esimerkiksi QGISissä</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Selite<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h4>
@@ -237,18 +235,16 @@
 <div class="section" id="editing-geometries">
 <h4>Geometrioiden muokkaus<a class="headerlink" href="#editing-geometries" title="Permalink to this headline">¶</a></h4>
 <p>QField mahdollistaa uusien geometrioiden digitoinnin, olemassa olevien attribuuttien muokkauksen tai ominaisuuksien poiston. Puuttuvana on mahdollisuus muookata olemassa olevan ominaisuuden geometriaa.</p>
-<p>Tämä voidaan jakaa erillisiin osiin kuten pisteiden siirtämiseen, muiden ominaisuuksien siirtämiseen, kärkipisteiden muokkaamiseen, reunojen siirtämiseen...</p>
+<p>Tämä voidaan jakaa erillisiin osiin kuten pisteiden siirtämiseen, muiden ominaisuuksien siirtämiseen, kärkipisteiden muokkaamiseen, reunojen siirtämiseen…</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Haun toiminnallisuus<a class="headerlink" href="#search-functionality" title="Permalink to this headline">¶</a></h4>
 <p>Ominaisuuksien löytäminen hakutiedon avilla on jotain mikä todella helpottaisi  tehokkaampaa työskentelyä. Yleisesti tämä voidaan jakaa kahteen kategoriaan:</p>
 <dl class="docutils">
 <dt>Ominaisuuspohjainen haku</dt>
-<dd><p class="first last">Hakutulokset perustuvat projektin tasojen ominaisuuksien attribuutteihin. Mahdollisesti paikallinen tietokanta hakua varten on olemassa. Sen tiedot perustuvat työsi räätälöityihin tietoihin tai tasoja kysellään suoraan ominauuksien kyseisistä attribuuteista.</p>
-</dd>
+<dd>Hakutulokset perustuvat projektin tasojen ominaisuuksien attribuutteihin. Mahdollisesti paikallinen tietokanta hakua varten on olemassa. Sen tiedot perustuvat työsi räätälöityihin tietoihin tai tasoja kysellään suoraan ominauuksien kyseisistä attribuuteista.</dd>
 <dt>Geokoodaus</dt>
-<dd><p class="first last">Haun tulokset perustuvat todellisiin osoitteisiin. Palveluja kuten <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> voidaan käyttää web liittymällä ja muuntaa todellisen maailman osoitteiden sijainneiksi kartalla. Kokeile linkkiä.</p>
-</dd>
+<dd>Haun tulokset perustuvat todellisiin osoitteisiin. Palveluja kuten <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> voidaan käyttää web liittymällä ja muuntaa todellisen maailman osoitteiden sijainneiksi kartalla. Kokeile linkkiä.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
@@ -312,7 +308,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -324,7 +320,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

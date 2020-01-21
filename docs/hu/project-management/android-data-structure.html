@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Egyéni SVG szimbólumok és beállítások &mdash; QField Documentation 1.0 - M... dokumentáció</title>
-    
+    <title>Egyéni SVG szimbólumok és beállítások &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,10 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... dokumentáció" href="../index.html" />
-    <link rel="up" title="QField Projektmenedzsment" href="index.html" />
-    <link rel="next" title="Nyomtatás PDF-be" href="print-to-pdf.html" />
-    <link rel="prev" title="Térkép témák konfigurálása" href="map-themes.html" />
+    <link rel="index" title="Tárgymutató" href="../genindex.html" />
+    <link rel="search" title="Keresés" href="../search.html" />
+    <link rel="next" title="Keresés a rétegekben" href="configure-search.html" />
+    <link rel="prev" title="Vezérelvek" href="../concepts/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -41,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -109,11 +106,11 @@
             
               
   <li>
-    <a href="map-themes.html" title="Previous Chapter: Térkép témák konfigurálása"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Térkép témák ...</span>
+    <a href="../concepts/index.html" title="Previous Chapter: Vezérelvek"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Vezérelvek</span>
     </a>
   </li>
   <li>
-    <a href="print-to-pdf.html" title="Next Chapter: Nyomtatás PDF-be"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Nyomtatás PDF-be &raquo;</span>
+    <a href="configure-search.html" title="Next Chapter: Keresés a rétegekben"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Keresés a rétegekben &raquo;</span>
     </a>
   </li>
             
@@ -145,7 +142,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Telepítési Útmutató</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Egyéni SVG szimbólumok és beállítások</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Egyéni SVG szimbólumok és beállítások</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Keresés a rétegekben</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Támogatott adatformátumok</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raszter adatok</a></li>
@@ -175,12 +172,9 @@
 <h1>Egyéni SVG szimbólumok és beállítások<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
 <p>A QGIS 3.6 Noosa verziótól az SVG szimbólumok beágyazhatóak a QGIS projektekbe.</p>
 <ol class="arabic simple">
-<li><p class="first">Válassza ki az SVG szimbólumokat tartalmazó réteget és nyissa meg a tulajdonságok párbeszédablakot.</p>
-</li>
-<li><p class="first">Nyissa meg a jelrendszer részt  :menuselection: <cite>Tulajdonságok &#8211;&gt; Jelrendszer</cite> (Properties &#8211;&gt; Symbology).</p>
-</li>
-<li><p class="first">A <strong>Szimbólum réteg panelen</strong> válassza az egyszerű jelet.</p>
-</li>
+<li>Válassza ki az SVG szimbólumokat tartalmazó réteget és nyissa meg a tulajdonságok párbeszédablakot.</li>
+<li>Nyissa meg a jelrendszer részt  :menuselection: <cite>Tulajdonságok –&gt; Jelrendszer</cite> (Properties –&gt; Symbology).</li>
+<li>A <strong>Szimbólum réteg panelen</strong> válassza az egyszerű jelet.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -188,8 +182,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p class="first">Módosítsa a szimbólum réteg típusát a :menuselection: <a href="#id1"><span class="problematic" id="id2">`</span></a>Szimbólum réteg típus -&gt; SVG szimbólum&#8217;-ra.</p>
-</li>
+<li>Módosítsa a szimbólum réteg típusát a :menuselection: <a href="#id1"><span class="problematic" id="id2">`</span></a>Szimbólum réteg típus -&gt; SVG szimbólum»-ra.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -197,10 +190,8 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li><p class="first">Görgessen le a legalsó panelhez.</p>
-</li>
-<li><p class="first">Kattintson a fájl kiválasztó gomb jobb oldalára a legördülő menü megnyitásához.</p>
-</li>
+<li>Görgessen le a legalsó panelhez.</li>
+<li>Kattintson a fájl kiválasztó gomb jobb oldalára a legördülő menü megnyitásához.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -208,10 +199,8 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li><p class="first">Válassza a Fájl beágyazást és válassza ki az SVG fájlt a fájl kiválasztó párbeszédablakban.</p>
-</li>
-<li><p class="first">Alkalmazza a módosítások és kattintson az OK-ra.</p>
-</li>
+<li>Válassza a Fájl beágyazást és válassza ki az SVG fájlt a fájl kiválasztó párbeszédablakban.</li>
+<li>Alkalmazza a módosítások és kattintson az OK-ra.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -233,7 +222,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -244,8 +233,8 @@
       
     </p>
     <p>
-        &copy; Minden jog fenntartva 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 használatával készült.<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 használatával készült.<br/>
     </p>
   </div>
 </footer>

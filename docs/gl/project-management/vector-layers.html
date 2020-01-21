@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Configuración de Capa Vectorial &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Configuración de Capa Vectorial &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,9 +23,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Guía de Usuario de QField" href="../user-guide/index.html" />
-    <link rel="prev" title="Selección do proxecto" href="project-selection.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configurar Temas de Mapa" href="map-themes.html" />
+    <link rel="prev" title="Proxecto Portable" href="portable-project.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -141,11 +139,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: Selección do proxecto"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selección do proxecto</span>
+    <a href="portable-project.html" title="Previous Chapter: Proxecto Portable"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Proxecto Portable</span>
     </a>
   </li>
   <li>
-    <a href="../user-guide/index.html" title="Next Chapter: Guía de Usuario de QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Guía de Usuar... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Configurar Temas de Mapa"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configurar Te... &raquo;</span>
     </a>
   </li>
             
@@ -186,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proxecto Portable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Imprimir a PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selección do proxecto</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Configuración de Capa Vectorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globais</a></li>
@@ -251,67 +249,51 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Tipo de campo</p>
-</th>
-<th class="head"><p class="first last">Asistencia</p>
-</th>
-<th class="head"><p class="first last">Notas</p>
-</th>
+<tr class="row-odd"><th class="head">Tipo de campo</th>
+<th class="head">Asistencia</th>
+<th class="head">Notas</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">Edición de texto</p>
-</td>
+<tr class="row-even"><td>Edición de texto</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li><p class="first">O HTML non está admitido</p>
-</li>
-<li><p class="first">Aplícase a introdución numérica en función do tipo.</p>
-</li>
+<li>O HTML non está admitido</li>
+<li>Aplícase a introdución numérica en función do tipo.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Caixa de selección</p>
-</td>
+<tr class="row-odd"><td>Caixa de selección</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">Mapa de valores</p>
-</td>
+<tr class="row-even"><td>Mapa de valores</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Oculto</p>
-</td>
+<tr class="row-odd"><td>Oculto</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">Recurso externo</p>
-</td>
+<tr class="row-even"><td>Recurso externo</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">Este campo combínase coa integración da cámara. Ata o de agora só poden verse imaxes. <span class="xref std std-ref">faino_medrar</span></p>
-</td>
+<td>Este campo combínase coa integración da cámara. Ata o de agora só poden verse imaxes. <span class="xref std std-ref">faino_medrar</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Data Hora</p>
-</td>
+<tr class="row-odd"><td>Data Hora</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">Referencia da Relación</p>
-</td>
+<tr class="row-even"><td>Referencia da Relación</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Widget de Relación</p>
-</td>
+<tr class="row-odd"><td>Widget de Relación</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">Outros</p>
-</td>
+<tr class="row-even"><td>Outros</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last"><span class="xref std std-ref">faino_medrar</span></p>
-</td>
+<td><span class="xref std std-ref">faino_medrar</span></td>
 </tr>
 </tbody>
 </table>
@@ -340,7 +322,7 @@
 </div>
 <div class="section" id="external-resource-photo-settings">
 <h4>Recurso Externo (configuración da foto)<a class="headerlink" href="#external-resource-photo-settings" title="Permalink to this headline">¶</a></h4>
-<p>O widget de tipo &#8220;Adxunto&#8221; utilízase para almacenar a ruta ás fotos tomadas.</p>
+<p>O widget de tipo «Adxunto» utilízase para almacenar a ruta ás fotos tomadas.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
@@ -362,11 +344,11 @@
 </div>
 <div class="section" id="conditional-visibility">
 <h3>Visibilidade condicional<a class="headerlink" href="#conditional-visibility" title="Permalink to this headline">¶</a></h3>
-<p>Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo &#8220;enfermidades&#8221;. Engade un campo &#8220;enfermidade&#8221; cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
+<p>Pódense ocultar os grupos en base a unha expresión. Isto é útil cando certos atributos se precisan só baixo certas condicións. Como exemplo imaxina un mapa de árbores. Algúns deles poden ter unha enfermidade e ti tes unha lista de posibles enfermidades. Para non liar o formulario con demasiados campos, crea un grupo e configura unha expresión de visibilidade para un grupo «enfermidades». Engade un campo «enfermidade» cunha caixa de verificación. Só cando a caixa de verificación estea marcada, a lista de enfermidades será visible para o usuario.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuración dunha caixa de grupo que só se amosará se a caixa de verificación &#8220;tomar_medidas&#8221; está marcada.</span></p>
+<p class="caption"><span class="caption-text">Configuración dunha caixa de grupo que só se amosará se a caixa de verificación «tomar_medidas» está marcada.</span></p>
 </div>
 </div>
 </div>
@@ -404,22 +386,14 @@
 <h4>Variables adicionais<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h4>
 <p>En QField, hai algunhas variables adicionais dispoñibles con respecto á información da actual posición.</p>
 <ul class="simple">
-<li><p class="first"><cite>position_coordinate</cite> (Xeometría en WGS84!) : Lon, Lat, Altitude segundo se envía polo sensor. Tamén está dispoñible cando o punto de mira non se axusta ó sensor.</p>
-</li>
-<li><p class="first"><cite>position_timestamp</cite> (Data e Hora) : Data e hora da información da posición</p>
-</li>
-<li><p class="first"><cite>position_direction</cite> (decimal) : Dirección en graos dende o norte verdadeiro.</p>
-</li>
-<li><p class="first"><cite>position_ground_speed</cite> (decimal) : Velocidade no terreo en metros/segundo.</p>
-</li>
-<li><p class="first"><cite>position_magnetic_variation</cite> (decimal) : O ángulo entre a compoñente horizontal do campo magnético e o norte verdadeiro, en graos. Tamén coñecido como declinación magnética. Un valor positivo indica unha dirección no sentido horario dende o norte verdadeiro e un valor negativo indica dirección antihoraria.</p>
-</li>
-<li><p class="first"><cite>position_horizontal_accuracy</cite> (decimal) : A precisión horizontal da coordenada (en metros).</p>
-</li>
-<li><p class="first"><cite>position_vertical_accuracy</cite> (decimal) : A precisión vertical da coordenada (en metros).</p>
-</li>
-<li><p class="first"><cite>position_vertical_speed</cite> (decimal) : O valor da velocidade vertical en metros por segundo</p>
-</li>
+<li><cite>position_coordinate</cite> (Xeometría en WGS84!) : Lon, Lat, Altitude segundo se envía polo sensor. Tamén está dispoñible cando o punto de mira non se axusta ó sensor.</li>
+<li><cite>position_timestamp</cite> (Data e Hora) : Data e hora da información da posición</li>
+<li><cite>position_direction</cite> (decimal) : Dirección en graos dende o norte verdadeiro.</li>
+<li><cite>position_ground_speed</cite> (decimal) : Velocidade no terreo en metros/segundo.</li>
+<li><cite>position_magnetic_variation</cite> (decimal) : O ángulo entre a compoñente horizontal do campo magnético e o norte verdadeiro, en graos. Tamén coñecido como declinación magnética. Un valor positivo indica unha dirección no sentido horario dende o norte verdadeiro e un valor negativo indica dirección antihoraria.</li>
+<li><cite>position_horizontal_accuracy</cite> (decimal) : A precisión horizontal da coordenada (en metros).</li>
+<li><cite>position_vertical_accuracy</cite> (decimal) : A precisión vertical da coordenada (en metros).</li>
+<li><cite>position_vertical_speed</cite> (decimal) : O valor da velocidade vertical en metros por segundo</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -463,12 +437,9 @@
 <h3>Tipos de Autoaxuste<a class="headerlink" href="#snapping-types" title="Permalink to this headline">¶</a></h3>
 <p>É posible autoaxustar novos puntos</p>
 <ul class="simple">
-<li><p class="first">só a nodos de xeometrías existentes</p>
-</li>
-<li><p class="first">só a segmentos de xeometrías existentes</p>
-</li>
-<li><p class="first">a nodos e segmentos de xeometrías existentes</p>
-</li>
+<li>só a nodos de xeometrías existentes</li>
+<li>só a segmentos de xeometrías existentes</li>
+<li>a nodos e segmentos de xeometrías existentes</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
@@ -500,7 +471,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -512,7 +483,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

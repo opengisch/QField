@@ -1,35 +1,33 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Căutarea în straturi &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Căutarea în straturi &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="up" title="Managementul Proiectelor în QField" href="index.html" />
-    <link rel="next" title="Setările Straturilor Vectoriale" href="vector-layers.html" />
-    <link rel="prev" title="Proiect Portabil" href="portable-project.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
+    <link rel="next" title="Formatele de date acceptate" href="dataformat.html" />
+    <link rel="prev" title="Simboluri și setări SVG personalizate" href="android-data-structure.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -111,11 +109,11 @@
             
               
   <li>
-    <a href="portable-project.html" title="Previous Chapter: Proiect Portabil"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Proiect Portabil</span>
+    <a href="android-data-structure.html" title="Previous Chapter: Simboluri și setări SVG personalizate"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Simboluri și ...</span>
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Setările Straturilor Vectoriale"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setările Stra... &raquo;</span>
+    <a href="dataformat.html" title="Next Chapter: Formatele de date acceptate"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Formatele de ... &raquo;</span>
     </a>
   </li>
             
@@ -148,7 +146,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Simboluri și setări SVG personalizate</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Căutarea în straturi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Căutarea în straturi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
@@ -174,15 +172,13 @@
     <div class="col-md-9 content">
       
   <div class="section" id="search-in-layers">
-<span id="configure-search"></span><h1>Căutarea în straturi<a class="headerlink" href="#search-in-layers" title="Permalink to this headline">¶</a></h1>
+<span id="configure-search"></span><h1>Căutarea în straturi<a class="headerlink" href="#search-in-layers" title="Link permanent la acest titlu">¶</a></h1>
 <p>Puteți căuta entități în straturile vectoriale. În prezent, căutarea se realizează la fel ca și în <em>filtrul de localizare al tuturor straturilor</em> din QGIS (accesibil în bara de localizare QGIS prin utilizarea prefixului <em>af</em>).</p>
 <div class="section" id="configure-search-in-qgis">
-<h2>Configurarea căutării în QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Permalink to this headline">¶</a></h2>
+<h2>Configurarea căutării în QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Link permanent la acest titlu">¶</a></h2>
 <ol class="arabic simple">
-<li><p class="first">Stabiliți straturile căutabile în <span class="menuselection">Proiect ‣ Proprietățile ProiectuluiP ‣ Identificare Straturi</span></p>
-</li>
-<li><p class="first">Definiți <em>expresia de afișare</em> pentru straturi, aceasta fiind utilizată la căutarea entităților. Configurarea ei are loc în pagina <span class="menuselection">Proprietăţile Stratului Vectorial ‣ Afișare</span></p>
-</li>
+<li>Stabiliți straturile căutabile în <span class="menuselection">Proiect ‣ Proprietățile ProiectuluiP ‣ Identificare Straturi</span></li>
+<li>Definiți <em>expresia de afișare</em> pentru straturi, aceasta fiind utilizată la căutarea entităților. Configurarea ei are loc în pagina <span class="menuselection">Proprietăţile Stratului Vectorial ‣ Afișare</span></li>
 </ol>
 </div>
 </div>
@@ -200,7 +196,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -212,7 +208,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

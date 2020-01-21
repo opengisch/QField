@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Formatele de date acceptate &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Formatele de date acceptate &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
     <link rel="next" title="Managementul Proiectelor în QField" href="index.html" />
     <link rel="prev" title="Căutarea în straturi" href="configure-search.html" />
 <meta charset='utf-8'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -152,7 +151,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Simboluri și setări SVG personalizate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Căutarea în straturi</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Formatele de date acceptate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Formatele de date acceptate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#raster-data">Datele raster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurarea Temelor Hărții</a></li>
@@ -177,10 +176,12 @@
     <div class="col-md-9 content">
       
   <div class="section" id="supported-data-formats">
-<h1>Formatele de date acceptate<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline">¶</a></h1>
+<h1>Formatele de date acceptate<a class="headerlink" href="#supported-data-formats" title="Link permanent la acest titlu">¶</a></h1>
 <p>QField suportă o mare varietate de formate, prin intermediul furnizorilor de date QGIS și GDAL. Această pagină oferă o listă neexhaustivă a formatelor de date permise.</p>
 <div class="section" id="table">
-<h2>Tabel<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
+<h2>Tabel<a class="headerlink" href="#table" title="Link permanent la acest titlu">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -188,63 +189,55 @@
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Formatul Datelor</p>
-</th>
-<th class="head"><p class="first last">Acceptat</p>
-</th>
-<th class="head"><p class="first last">Observații</p>
-</th>
+<tr class="row-odd"><th class="head">Formatul Datelor</th>
+<th class="head">Acceptat</th>
+<th class="head">Observații</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Spatialite</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Geopackage</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WMS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>WFS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WFS-T</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Postgis</td>
 <td><span class="yay">✔</span></td>
-<td><p class="first last">Suportul ssl încă nu a fost implementat.</p>
-</td>
+<td>Suportul ssl încă nu a fost implementat.</td>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Fișier shape</p>
-</td>
+<tr class="row-odd"><td>Fișier shape</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>Tiff</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">Compresia JPEG nu este permisă încă.</p>
-</td>
+<td>Compresia JPEG nu este permisă încă.</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Licența restricționează utilizarea.</p>
-</td>
+<td>Licența restricționează utilizarea.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">Licența restricționează utilizarea.</p>
-</td>
+<td>Licența restricționează utilizarea.</td>
 </tr>
 </tbody>
 </table>
@@ -252,13 +245,13 @@
 </div>
 </div>
 <div class="section" id="raster-data">
-<h1>Datele raster<a class="headerlink" href="#raster-data" title="Permalink to this headline">¶</a></h1>
+<h1>Datele raster<a class="headerlink" href="#raster-data" title="Link permanent la acest titlu">¶</a></h1>
 <p>Datele raster pot deveni repede destul de mari, mai ales atunci când se lucrează cu fișiere TIFF necomprimate, care au mulți Gb de date. În special pe dispozitive mobile, acest lucru este ineficient.</p>
 <div class="section" id="use-geopackage">
-<h2>Folosirea GeoPackage<a class="headerlink" href="#use-geopackage" title="Permalink to this headline">¶</a></h2>
+<h2>Folosirea GeoPackage<a class="headerlink" href="#use-geopackage" title="Link permanent la acest titlu">¶</a></h2>
 <p>Vă recomandăm formatul geopackage pentru a lucra cu datele raster. Urmatoarele comenzi vor converti un fișier denumit <code class="code docutils literal"><span class="pre">raster.tif</span></code> în fișierul cu piramide <code class="code docutils literal"><span class="pre">raster.gpkg</span></code>. Asigurați-vă că ați schimbat EPSG:21781 (CH1903 LV03) în CRS-ul dorit.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
-gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
+<span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
@@ -277,7 +270,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -289,7 +282,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

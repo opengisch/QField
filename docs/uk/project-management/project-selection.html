@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Вибір проекції &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Вибір проекції &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,8 +23,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Налаштування векторних шарів" href="vector-layers.html" />
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="next" title="Посібник користувача QField" href="../user-guide/index.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -117,7 +115,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Налаштування векторних шарів"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Налаштування ... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: Посібник користувача QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Посібник кори... &raquo;</span>
     </a>
   </li>
             
@@ -157,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Настройка тем мапи</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable проект</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Вибір проекції</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Вибір проекції</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Налаштування векторних шарів</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Посібник користувача QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Зміна активної теми мапи</a></li>
@@ -177,15 +175,13 @@
       
   <div class="section" id="project-selection">
 <h1>Вибір проекції<a class="headerlink" href="#project-selection" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>QField відкриває проекти QGIS у форматі &#8221;.qgs&#8221;. На жаль, файли формату &#8221;.qgz&#8221; поки що відкривати неможливо.</p>
-<p>QField використовує налаштований файловий провідник для відкриття проектів. Вибравши &#8220;Відкрити проект&#8221; із меню QField, файловий провідник відображатиме наступне:</p>
+<p>QField відкриває проекти QGIS у форматі «.qgs». На жаль, файли формату «.qgz» поки що відкривати неможливо.</p>
+<p>QField використовує налаштований файловий провідник для відкриття проектів. Вибравши «Відкрити проект» із меню QField, файловий провідник відображатиме наступне:</p>
 <ul class="simple">
-<li><p class="first">Основну теку для збереження файлів.</p>
-</li>
-<li><p class="first">Теки, які залежать від інших додатків, на усіх пристроях збереження даних за умов, якщо додаток може розміщувати у них файли та якщо вони не відображені у основній теці збереження файлів.</p>
-</li>
+<li>Основну теку для збереження файлів.</li>
+<li>Теки, які залежать від інших додатків, на усіх пристроях збереження даних за умов, якщо додаток може розміщувати у них файли та якщо вони не відображені у основній теці збереження файлів.</li>
 </ul>
-<p>Всередині цих тек відображатимуться лише підтеки та файли із розширенням &#8221;.qgs&#8221;.</p>
+<p>Всередині цих тек відображатимуться лише підтеки та файли із розширенням «.qgs».</p>
 <p>Для QField потрібно, аби файл проекту знаходився на пристрої. Тому, з додатками, які забезпечують доступ до віддалених файлів (наприклад, Google Drive, працювати неможливо. Проте, Ви можете використовувати такі додатки, як  <a class="reference external" href="https://syncthing.net/">syncthing</a> чи <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (чи dropbox та інші), котрі дозволяють синхронізувати віддалений файл на Ваш пристрій.</p>
 <div class="section" id="favorite-directories">
 <h2>Обрані теки<a class="headerlink" href="#favorite-directories" title="Постійне посилання на цей заголовок">¶</a></h2>
@@ -193,7 +189,7 @@
 </div>
 <div class="section" id="external-sd-card">
 <h2>Зовнішня SD карта<a class="headerlink" href="#external-sd-card" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Файловий провідник відображає певний вміст картки SD як &#8220;лише для читання&#8221;. Тека додатку відокремлена від решти вмісту картки SD, тому що це єдина тека, до якої додаток може записувати дані. Ця тека:</p>
+<p>Файловий провідник відображає певний вміст картки SD як «лише для читання». Тека додатку відокремлена від решти вмісту картки SD, тому що це єдина тека, до якої додаток може записувати дані. Ця тека:</p>
 <div class="admonition note">
 <p class="first admonition-title">Примітка</p>
 <p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
@@ -201,23 +197,18 @@
 </div>
 <div class="section" id="warning">
 <h2>Увага!<a class="headerlink" href="#warning" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Зберігаючи дані у цій теці Ви ризикуєте їх втратити. Тека додатку (<cite>/Android/data/ch.opengis.qfield/</cite>) буде видалена системою, коли Ви деінсталюєте QField з пристрою. Пам&#8217;ятайте про це, якщо зберігаєте Ваші дані на зовнішній картці SD.</p>
+<p>Зберігаючи дані у цій теці Ви ризикуєте їх втратити. Тека додатку (<cite>/Android/data/ch.opengis.qfield/</cite>) буде видалена системою, коли Ви деінсталюєте QField з пристрою. Пам’ятайте про це, якщо зберігаєте Ваші дані на зовнішній картці SD.</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>Як перетворити зовнішню картку SD у внутрішнє сховище<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Починаючи з версії Android 6.0 Ви можете використовувати Вашу картку SD як внутрішнє сховище даних пристрою. Це називається Гнучке Зберігання і дозволяє ОС Android форматувати зовнішній накопичувач як постійне внутрішнє сховище. Інформацію на такому зовнішньому носію даних буде зашифровано і його неможливо буде використовувати на іншому пристрої.</p>
 <p><strong>Будь ласка, запевніться, що Ви починаєте із порожньою карткою SD. Це необхідно, щоб уникнути будь-якої втрати даних, оскільки в процесі Ваша картка буде відформатована (очищена).</strong></p>
 <ol class="arabic simple">
-<li><p class="first">Перейдіть налаштування Вашого телефону й виберіть &#8220;Зберігання даних&#8221;.</p>
-</li>
-<li><p class="first">Виберіть Вашу картку SD, натисніть на три крапки (у верхньому правому кутку) і виберіть &#8220;Налаштування&#8221;.</p>
-</li>
-<li><p class="first">Виберіть &#8220;Форматувати як внутр.сховище&#8221;, потім &#8220;Очистити та Форматувати&#8221;.</p>
-</li>
-<li><p class="first">Ваша картка SD буде зараз відформатована як внутрішнє сховище.</p>
-</li>
-<li><p class="first">Перезавантажте телефон.</p>
-</li>
+<li>Перейдіть налаштування Вашого телефону й виберіть «Зберігання даних».</li>
+<li>Виберіть Вашу картку SD, натисніть на три крапки (у верхньому правому кутку) і виберіть «Налаштування».</li>
+<li>Виберіть «Форматувати як внутр.сховище», потім «Очистити та Форматувати».</li>
+<li>Ваша картка SD буде зараз відформатована як внутрішнє сховище.</li>
+<li>Перезавантажте телефон.</li>
 </ol>
 <p>Якщо Ви не перезавантажите телефон, чимало функцій можуть працювати неналежним чином.</p>
 <p>Можливо, Гнучке Зберігання недоступне на Вашому пристрої навіть якщо на ньому версія Android 6.0 чи вище. Виробник пристрою міг обмежити функціонал Гнучкого Зберігання. Проте, все ще існують методи обійти обмеження із використанням командного рядку.</p>
@@ -237,7 +228,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -249,7 +240,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Створено з використанням <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

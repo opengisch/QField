@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Projektin valinta &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Projektin valinta &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,8 +24,9 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
-    <link rel="next" title="Vektoritason asetukset" href="vector-layers.html" />
+    <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
+    <link rel="search" title="Etsi" href="../search.html" />
+    <link rel="next" title="QField käyttäjän opas" href="../user-guide/index.html" />
     <link rel="prev" title="Print to PDF" href="print-to-pdf.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -118,7 +116,7 @@
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Vektoritason asetukset"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Vektoritason ... &raquo;</span>
+    <a href="../user-guide/index.html" title="Next Chapter: QField käyttäjän opas"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QField käyttäjän opas &raquo;</span>
     </a>
   </li>
             
@@ -158,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Konfiguroi karttateemat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">Siirrettävä projekti</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Projektin valinta</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Projektin valinta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vektoritason asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField käyttäjän opas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
@@ -178,15 +176,13 @@
       
   <div class="section" id="project-selection">
 <h1>Projektin valinta<a class="headerlink" href="#project-selection" title="Permalink to this headline">¶</a></h1>
-<p>QField avaa QGIS projetit &#8221;.qgs&#8221; muodossa. Nykyisellään ei ole mahdollista avata &#8221;.qgz&#8221; tiedostoja.</p>
-<p>QField käyttää räätälöityä tiedostovalintaa projektien avaamiseksi. Valitsemalla &#8220;Avaa projekti&#8221; QFieldin valikosta, tiedostovalinta avataan näyttäen seuraavia sijainteja:</p>
+<p>QField avaa QGIS projetit ”.qgs” muodossa. Nykyisellään ei ole mahdollista avata ”.qgz” tiedostoja.</p>
+<p>QField käyttää räätälöityä tiedostovalintaa projektien avaamiseksi. Valitsemalla ”Avaa projekti” QFieldin valikosta, tiedostovalinta avataan näyttäen seuraavia sijainteja:</p>
 <ul class="simple">
-<li><p class="first">Ensisijainen media/jaettu tietovarasto hakemisto.</p>
-</li>
-<li><p class="first">Sovelluskohtaiset hakemistot kaikissa jaetuissa / ulkoisissa tallennuslaitteissa, joissa sovellus voi asettaa pysyviä tiedostoja, jotka ovat sen omistuksessa, jos niitä ei ole jo sisällytetty ensisijaiseen tallennushakemistoon.</p>
-</li>
+<li>Ensisijainen media/jaettu tietovarasto hakemisto.</li>
+<li>Sovelluskohtaiset hakemistot kaikissa jaetuissa / ulkoisissa tallennuslaitteissa, joissa sovellus voi asettaa pysyviä tiedostoja, jotka ovat sen omistuksessa, jos niitä ei ole jo sisällytetty ensisijaiseen tallennushakemistoon.</li>
 </ul>
-<p>Näissä hakemistoissa näytetään ainoastaan alahakemistot ja tiedostot &#8221;.qgs&#8221; liitteellä.</p>
+<p>Näissä hakemistoissa näytetään ainoastaan alahakemistot ja tiedostot ”.qgs” liitteellä.</p>
 <p>QField edellyttää projektitiedoston olevan fyysisesti laitteella, joten ei ole mahdollista käyttää tiedostoja etäpalveluista (kuten Google Drive). Toisaalta voit käyttää sovellutuksia kuten <a class="reference external" href="https://syncthing.net/">syncthing</a> tai <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (tai dropbox ja luultavasti monia muita) jotka sallivat sinun kuitenkin fyysisesti synkronoivan tiedoston laitteellesi.</p>
 <div class="section" id="favorite-directories">
 <h2>Suosikkihakemistot<a class="headerlink" href="#favorite-directories" title="Permalink to this headline">¶</a></h2>
@@ -194,7 +190,7 @@
 </div>
 <div class="section" id="external-sd-card">
 <h2>Ulkoinen SD kortti<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>Tiedostonvalitsin näyttää SD-kortin juuren, joka on merkitty &#8220;vain luku&#8221; -tilaksi, ja sovelluskohtainen hakemisto erotetaan muusta SD-kortista, koska se on ainoa hakemisto, johon sovelluksella on kirjoitusoikeus. Hakemisto on seuraava:</p>
+<p>Tiedostonvalitsin näyttää SD-kortin juuren, joka on merkitty ”vain luku” -tilaksi, ja sovelluskohtainen hakemisto erotetaan muusta SD-kortista, koska se on ainoa hakemisto, johon sovelluksella on kirjoitusoikeus. Hakemisto on seuraava:</p>
 <div class="admonition note">
 <p class="first admonition-title">Muista</p>
 <p class="last">Teknisesti tämä johtuu siitä, että Android tarkoituksena ACTION_OPEN_DOCUMENT ja ACTION_OPEN_DOCUMENT_TREE, tehdä ja myöntää luku- ja kirjoitusoikeus palautettavan URI: n sisällölle, ei oikeassa linkitetyssä tiedostossa. Tämä rajoitus, joka on järkevää Androidin rakenteelle, mutta tällä hetkellä se on käyttökelvoton QFieldin kanssa, koska QField tarvitsee pääsyn todelliseen tiedostoon todellisella polulla.</p>
@@ -207,18 +203,13 @@
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>Kuinka saatat ulkoisen SD muistikortin sisäiseksi tietovarastoksi<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="Permalink to this headline">¶</a></h2>
 <p>Android 6.0: sta alkaen voit käyttää SD-korttia Android-puhelimen sisäisenä tallennustilana. Tämän Adoptable Storage -toiminnon avulla Android-käyttöjärjestelmä voi alustaa ulkoisen tallennusvälineen pysyväksi sisäiseksi tallennustilaksi. Hyväksytyn SD-kortin tiedot on salattu ja sitä ei voi asentaa toiseen laitteeseen.</p>
-<p>** Varmista, että aloitat tyhjällä SD-kortilla. Sen täytyy olla tyhjä, koska kun kortti muunnetaan &#8220;sisäiseksi&#8221; tallennustilaksi, se alustetaan (pyyhitään tyhjäksi). **</p>
+<p>** Varmista, että aloitat tyhjällä SD-kortilla. Sen täytyy olla tyhjä, koska kun kortti muunnetaan ”sisäiseksi” tallennustilaksi, se alustetaan (pyyhitään tyhjäksi). **</p>
 <ol class="arabic simple">
-<li><p class="first">Mene laitteesi &#8220;Asetukset&#8221;, ja sitten &#8220;Tietovarasto&#8221;.</p>
-</li>
-<li><p class="first">Valitse &#8220;SD kortti&#8221; ja sitten näpäytä &#8220;kolmen pisteen valikkoa&#8221; (yläoikealla), ja valitse sieltä &#8220;Asetukset&#8221;.</p>
-</li>
-<li><p class="first">Nyt valitse “Alusta sisäiseksi”, ja sitten “Tyhjennä &amp; alusta”.</p>
-</li>
-<li><p class="first">SD korttisi alustetaan nyt sisäiseksi tietovarastoksi.</p>
-</li>
-<li><p class="first">Käynnistä puhelimesi uudestaan.</p>
-</li>
+<li>Mene laitteesi ”Asetukset”, ja sitten ”Tietovarasto”.</li>
+<li>Valitse ”SD kortti” ja sitten näpäytä ”kolmen pisteen valikkoa” (yläoikealla), ja valitse sieltä ”Asetukset”.</li>
+<li>Nyt valitse “Alusta sisäiseksi”, ja sitten “Tyhjennä &amp; alusta”.</li>
+<li>SD korttisi alustetaan nyt sisäiseksi tietovarastoksi.</li>
+<li>Käynnistä puhelimesi uudestaan.</li>
 </ol>
 <p>Jos et käynnistä puhelinta uudelleen, monet asiat eivät ehkä toimi oikein, joten varmista, että teet sen.</p>
 <p>On mahdollista, että Adoptable Storage -ominaisuutta ei ole laitteessasi, vaikka se toimii Android 6.0: ssa tai uudemmassa. Laitteen valmistaja on ehkä poistanut toiminnon käytöstä. On kuitenkin olemassa komentorivin menetelmiä, joiden avulla voit pakottaa laitteen ottamaan vastaan tallennustilan.</p>
@@ -238,7 +229,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -250,7 +241,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

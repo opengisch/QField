@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Extension QFieldSync &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Extension QFieldSync &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Support et développement" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -104,7 +102,7 @@
 <li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuration de la couche</a></li>
 <li><a class="reference internal" href="#base-map-configuration">Configuration du fond de carte</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Configuration de l&#8217;édition hors-ligne</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Configuration de l’édition hors-ligne</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#package-for-qfield">Préparer le projet pour QField</a></li>
@@ -154,7 +152,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Rechercher dans les couches</a></li>
@@ -166,11 +164,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Extension QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -184,78 +182,64 @@
       
   <div class="section" id="qfieldsync-plugin">
 <h1>Extension QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Lien permanent vers ce titre">¶</a></h1>
-<p>L&#8217;extension QFieldSync aide à préparer et empaqueter les projets QGIS pour QField.</p>
+<p>L’extension QFieldSync aide à préparer et empaqueter les projets QGIS pour QField.</p>
 <p>QFieldSync aide à la préparation de votre projet en automatisant les éléments suivants :</p>
 <ul class="simple">
-<li><p class="first">Étapes requises pour la mise en place du projet (ex. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Projet portable</span></a>)</p>
-</li>
-<li><p class="first">Création d&#8217;un fond de carte à partir d&#8217;un raster seul ou d&#8217;un style défini dans un thème de carte.</p>
-</li>
-<li><p class="first">Configuration de la fonctionnalité d&#8217;édition hors-ligne et synchronisation des changements</p>
-</li>
+<li>Étapes requises pour la mise en place du projet (ex. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Projet portable</span></a>)</li>
+<li>Création d’un fond de carte à partir d’un raster seul ou d’un style défini dans un thème de carte.</li>
+<li>Configuration de la fonctionnalité d’édition hors-ligne et synchronisation des changements</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Flux de travail<a class="headerlink" href="#workflow" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour avoir un rapide aperçu du processus, voici une liste des étapes classiques :</p>
 <ol class="arabic simple">
-<li><p class="first">Créer un paquet QField. Ceci est une copie de travail dans un dossier séparé.</p>
-</li>
-<li><p class="first">Copier le paquet QField sur le périphérique-cible.</p>
-</li>
-<li><p class="first">Sortir en extérieur et collecter des données.</p>
-</li>
-<li><p class="first">Copie-retour des données modifiées vers votre ordinateur</p>
-</li>
-<li><p class="first">Synchroniser les données modifiées avec votre base de données ou vos fichiers</p>
-</li>
+<li>Créer un paquet QField. Ceci est une copie de travail dans un dossier séparé.</li>
+<li>Copier le paquet QField sur le périphérique-cible.</li>
+<li>Sortir en extérieur et collecter des données.</li>
+<li>Copie-retour des données modifiées vers votre ordinateur</li>
+<li>Synchroniser les données modifiées avec votre base de données ou vos fichiers</li>
 </ol>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans QGIS, ouvrez l&#8217;installeur d&#8217;extensions et cherchez <strong>qfield sync</strong>. Selectionnez l&#8217;extension dans la liste et cliquez sur <strong>Installer</strong>.</p>
+<p>Dans QGIS, ouvrez l’installeur d’extensions et cherchez <strong>qfield sync</strong>. Selectionnez l’extension dans la liste et cliquez sur <strong>Installer</strong>.</p>
 <img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La configuration du projet est enregistrée dans le projet original .qgs. Ainsi il est possible de pré-configurer une fois un projet pour l&#8217;utiliser ensuite de manière répétée.</p>
+<p>La configuration du projet est enregistrée dans le projet original .qgs. Ainsi il est possible de pré-configurer une fois un projet pour l’utiliser ensuite de manière répétée.</p>
 <img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
 <h3>Configuration de la couche<a class="headerlink" href="#layer-configuration" title="Lien permanent vers ce titre">¶</a></h3>
 <img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
-<p>Dans la boîte de dialogue de configuration du projet, une <em>action</em> peut être définie individuellement pour chaque couche. Selon le type de couche, différents types d&#8217;actions sont disponibles.</p>
+<p>Dans la boîte de dialogue de configuration du projet, une <em>action</em> peut être définie individuellement pour chaque couche. Selon le type de couche, différents types d’actions sont disponibles.</p>
 <dl class="docutils">
 <dt>Copier</dt>
-<dd><p class="first last">La couche va être copié dans le répertoire du paquet. Cela est disponible seulement pour les couches basées sur des fichiers.</p>
-</dd>
-<dt>Pas d&#8217;action</dt>
-<dd><p class="first last">La couche-source va être abandonnée sans modification. Cela est disponible seulement pour les couches non-basées sur des fichiers telles WMS, WFS, Postgis...</p>
-</dd>
+<dd>La couche va être copié dans le répertoire du paquet. Cela est disponible seulement pour les couches basées sur des fichiers.</dd>
+<dt>Pas d’action</dt>
+<dd>La couche-source va être abandonnée sans modification. Cela est disponible seulement pour les couches non-basées sur des fichiers telles WMS, WFS, Postgis…</dd>
 <dt>Édition hors-ligne</dt>
-<dd><p class="first last">Une copie de travail de la couche est faite dans le répertoire du paquet. Chaque modification réalisée dans le projet empaqueté durant le travail est enregistré dans un fichier de journalisation. Plus tard, lors de la synchronisation-retour, ce fichier sera relancé et tous les changements appliqués aussi à la base de données principale. Il n&#8217;y a pas de conflit de traitement.</p>
-</dd>
+<dd>Une copie de travail de la couche est faite dans le répertoire du paquet. Chaque modification réalisée dans le projet empaqueté durant le travail est enregistré dans un fichier de journalisation. Plus tard, lors de la synchronisation-retour, ce fichier sera relancé et tous les changements appliqués aussi à la base de données principale. Il n’y a pas de conflit de traitement.</dd>
 <dt>Enlever</dt>
-<dd><p class="first last">La couche va être enlevée de la copie de travail. Cela est utile si une couche est utilisée dans le fond de carte et ne sera pas disponible dans le projet empaqueté.</p>
-</dd>
+<dd>La couche va être enlevée de la copie de travail. Cela est utile si une couche est utilisée dans le fond de carte et ne sera pas disponible dans le projet empaqueté.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
 <h3>Configuration du fond de carte<a class="headerlink" href="#base-map-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Un fond de carte est une couche raster ajoutée comme couche d&#8217;arrière-plan au fichier du projet empaqueté.</p>
-<p>Si l&#8217;option &#8220;fond de carte&#8221; est activée, un fond de carte sera affiché, dès que le projet sera empaqueté. La zone d&#8217;intérêt - l&#8217;étendue qui sera affichée - sera choisi au moment de l&#8217;empaquetqge.</p>
+<p>Un fond de carte est une couche raster ajoutée comme couche d’arrière-plan au fichier du projet empaqueté.</p>
+<p>Si l’option «&nbsp;fond de carte&nbsp;» est activée, un fond de carte sera affiché, dès que le projet sera empaqueté. La zone d’intérêt - l’étendue qui sera affichée - sera choisi au moment de l’empaquetqge.</p>
 <p>Il y a deux sources possibles pour un fond de carte :</p>
 <dl class="docutils">
 <dt>Couche</dt>
-<dd><p class="first last">Couche raster. Utile pour faire une copie hors-ligne d&#8217;une couche en ligne tel un WMS ou réaliser une copie de travail d&#8217;un format non supporté comme une couche ECW ou MrSid.</p>
-</dd>
+<dd>Couche raster. Utile pour faire une copie hors-ligne d’une couche en ligne tel un WMS ou réaliser une copie de travail d’un format non supporté comme une couche ECW ou MrSid.</dd>
 <dt>Thème de carte</dt>
-<dd><p class="first last">Thème de carte. Cela est utile pour créer un fond de carte basé sur la combinaison de plusieurs couches avec une mise en forme. Ces couches peuvent être retirées du paquet de travail et n&#8217;ont plus besoin d’être affichées sur le périphérique. On peut économiser sur l&#8217;espace-disque et la batterie du périphérique.</p>
-</dd>
+<dd>Thème de carte. Cela est utile pour créer un fond de carte basé sur la combinaison de plusieurs couches avec une mise en forme. Ces couches peuvent être retirées du paquet de travail et n’ont plus besoin d’être affichées sur le périphérique. On peut économiser sur l’espace-disque et la batterie du périphérique.</dd>
 </dl>
-<p>La taille des tuiles définit la résolution spatiale. Elle détermine le nombre d&#8217;unités de carte par pixel. Si le SCR du canevas de carte a pour unité le mètre et que la taille de la tuile est fixée à 1, chaque pixel du raster aura une étendue spatiale d&#8216;1x1 m, si elle est fixée à 1000, chaque pixel du raster aura une étendue spatiale d&#8216;1 kilomètre carré.</p>
+<p>La taille des tuiles définit la résolution spatiale. Elle détermine le nombre d’unités de carte par pixel. Si le SCR du canevas de carte a pour unité le mètre et que la taille de la tuile est fixée à 1, chaque pixel du raster aura une étendue spatiale d’1x1 m, si elle est fixée à 1000, chaque pixel du raster aura une étendue spatiale d’1 kilomètre carré.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Configuration de l&#8217;édition hors-ligne<a class="headerlink" href="#offline-editing-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Si <em>synchroniser seulement les entités de la zone d&#8217;intérêt</em> est coché, seules les entités qui sont comprises dans l&#8217;étendue du canevas telle que définie lors de l’empaquetage seront copiées dans la copie de travail d&#8217;édition hors-ligne.</p>
+<h3>Configuration de l’édition hors-ligne<a class="headerlink" href="#offline-editing-configuration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si <em>synchroniser seulement les entités de la zone d’intérêt</em> est coché, seules les entités qui sont comprises dans l’étendue du canevas telle que définie lors de l’empaquetage seront copiées dans la copie de travail d’édition hors-ligne.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
@@ -263,11 +247,11 @@
 <p>Une fois le projet configuré, exportez le dans un dossier. Ce dossier contiendra le fichier .qgs ainsi que les données utilisées dedans.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copiez le dossier sur votre appareil. Ouvrez QField, ouvrez le projet et commencez à collecter de la donnée.</p>
-<p>Pensez également à sauvegarder le projet QGIS en utilisant Enregistrer Sous ... car vous aurez à re-ouvrir ce projet plus tard lorsque vous voudrez synchroniser vos changements.</p>
+<p>Pensez également à sauvegarder le projet QGIS en utilisant Enregistrer Sous … car vous aurez à re-ouvrir ce projet plus tard lorsque vous voudrez synchroniser vos changements.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchroniser depuis QField<a class="headerlink" href="#synchronize-from-qfield" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Lorsque vous voulez synchroniser ce que vous avez collecté, commencez par re-ouvrir le projet dans QGIS (celui que vous avez sauvegardé précédement avec Enregister Sous ... ).</p>
+<p>Lorsque vous voulez synchroniser ce que vous avez collecté, commencez par re-ouvrir le projet dans QGIS (celui que vous avez sauvegardé précédement avec Enregister Sous … ).</p>
 <p>Copiez le dossier du projet depuis votre appareil sur votre ordinateur et utilisez <strong>Synchroniser depuis QField</strong> pour synchroniser vos changements depuis le projet portable vers le projet principal.</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
@@ -286,7 +270,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -298,7 +282,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

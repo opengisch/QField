@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Desenvolvimento e suporte &mdash; Documentação QField Documentation 1.0 - M...</title>
-    
+    <title>Desenvolvimento e suporte &#8212; Documentação QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
     <link rel="next" title="Plugin QFieldSync" href="../qfieldsync/index.html" />
     <link rel="prev" title="Variáveis Globais" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -179,7 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variáveis Globais</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Desenvolvimento e suporte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
@@ -236,23 +234,21 @@
 <div class="section" id="editing-geometries">
 <h4>Edição de Geometrias<a class="headerlink" href="#editing-geometries" title="Link permanente para este título">¶</a></h4>
 <p>O Qfield oferece a digitalização de novas geometrias, editar atributos existentes ou apagar elementos. O que falta é o recurso para editar as geometrias existentes.</p>
-<p>Isso pode ser dividido em diferentes partes, como mover pontos, mover outros recursos, editar vértices, mover bordas ...</p>
+<p>Isso pode ser dividido em diferentes partes, como mover pontos, mover outros recursos, editar vértices, mover bordas …</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Funcionalidade de Pesquisa<a class="headerlink" href="#search-functionality" title="Link permanente para este título">¶</a></h4>
 <p>Localizar elementos com a ajuda de um campo de pesquisa é algo que pode realmente ajudar a trabalhar de forma mais eficiente. Em geral, isso pode ser dividido em duas categorias:</p>
 <dl class="docutils">
 <dt>Pesquisa baseada no atributo</dt>
-<dd><p class="first last">Os resultados da pesquisa são fornecidos com base nos atributos de elementos em camadas dentro do projecto. Uma base de dados local para pesquisa está disponível. Os dados internos são baseados nos dados personalizados com os quais você trabalha ou as camadas que são consultadas directamente para os elementos com esses atributos.</p>
-</dd>
+<dd>Os resultados da pesquisa são fornecidos com base nos atributos de elementos em camadas dentro do projecto. Uma base de dados local para pesquisa está disponível. Os dados internos são baseados nos dados personalizados com os quais você trabalha ou as camadas que são consultadas directamente para os elementos com esses atributos.</dd>
 <dt>Geocodificação</dt>
-<dd><p class="first last">Os resultados da pesquisa são fornecidos com base em endereços reais. Serviços como o <cite>Nominatim &lt;http://nominatim.openstreetmap.org/&gt;</cite> _ podem ser acedidos através de uma interface web e converter endereços do mundo real para locais num mapa. Tente utilizar o link.</p>
-</dd>
+<dd>Os resultados da pesquisa são fornecidos com base em endereços reais. Serviços como o <cite>Nominatim &lt;http://nominatim.openstreetmap.org/&gt;</cite> _ podem ser acedidos através de uma interface web e converter endereços do mundo real para locais num mapa. Tente utilizar o link.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
 <h4>Dispositivos externos de medição<a class="headerlink" href="#external-measurement-devices" title="Link permanente para este título">¶</a></h4>
-<p>Está a trabalhar com dispositivos externos com sensores? Pressão do ar, temperatura, inclinação, concentração de monóxido de carbono, diga qual ... Não seria óptimo não ter que ler as informações do seu dispositivo externo e digitá-las manualmente de novo? Gostaríamos muito de facilitar a sua vida adicionando suporte para ligar directamente ao seu dispositivo de medição externa ao QField.</p>
+<p>Está a trabalhar com dispositivos externos com sensores? Pressão do ar, temperatura, inclinação, concentração de monóxido de carbono, diga qual … Não seria óptimo não ter que ler as informações do seu dispositivo externo e digitá-las manualmente de novo? Gostaríamos muito de facilitar a sua vida adicionando suporte para ligar directamente ao seu dispositivo de medição externa ao QField.</p>
 </div>
 <div class="section" id="record-audio">
 <h4>Registar Audio<a class="headerlink" href="#record-audio" title="Link permanente para este título">¶</a></h4>
@@ -311,7 +307,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -323,7 +319,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

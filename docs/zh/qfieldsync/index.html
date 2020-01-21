@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QField同步插件 &mdash; QField Documentation 1.0 - M... 文档</title>
-    
+    <title>QField同步插件 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... 文档" href="../index.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="开发与支持" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -169,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">开发与支持</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QField同步插件</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField同步插件</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -186,12 +184,9 @@
 <p>QFieldSync plugin（QField同步插件）将协助将QGIS项目打包为QField使用。</p>
 <p>QFieldSync支持您的项目，并自动执行以下操作：</p>
 <ul class="simple">
-<li><p class="first">项目设置所需的步骤（例如：<a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>可移植项目</span></a>）</p>
-</li>
-<li><p class="first">从单个光栅图层或从地图主题中定义的样式创建基础地图。</p>
-</li>
-<li><p class="first">配置脱机编辑功能并重新同步更改。</p>
-</li>
+<li>项目设置所需的步骤（例如：<a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">可移植项目</span></a>）</li>
+<li>从单个光栅图层或从地图主题中定义的样式创建基础地图。</li>
+<li>配置脱机编辑功能并重新同步更改。</li>
 </ul>
 <div class="section" id="workflow">
 <h2>工作流<a class="headerlink" href="#workflow" title="永久链接至标题">¶</a></h2>
@@ -274,7 +269,7 @@ to the offline editing working copy.</p>
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you'll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="永久链接至标题">¶</a></h2>
@@ -297,7 +292,7 @@ to the offline editing working copy.</p>
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -308,8 +303,8 @@ to the offline editing working copy.</p>
       
     </p>
     <p>
-        &copy; 版权所有 2019, The QField Project/OPENGIS.ch.<br/>
-      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 创建。<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 创建。<br/>
     </p>
   </div>
 </footer>

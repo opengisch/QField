@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Plugin-ul QFieldSync &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Plugin-ul QFieldSync &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Dezvoltare și suport" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -169,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Schimbă Tema de Hartă activă</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variabile globale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Plugin-ul QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin-ul QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -182,90 +181,76 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>Plugin-ul QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
+<h1>Plugin-ul QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Link permanent la acest titlu">¶</a></h1>
 <p>Plugin-ul QFieldSync ajută la pregătirea și împachetarea proiectelor QGIS pentru QField.</p>
 <p>QFieldSync permite pregătirea proiectului, automatizând următoarele:</p>
 <ul class="simple">
-<li><p class="first">Pașii necesari configurării proiectului (ex.: <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Proiect Portabil</span></a>)</p>
-</li>
-<li><p class="first">Crearea hărților topografice pornind de la un singur strat raster sau de la un stil definit într-o temă pentru hartă.</p>
-</li>
-<li><p class="first">Configurarea funcționalității de editare offline și sincronizarea anulării modificărilor.</p>
-</li>
+<li>Pașii necesari configurării proiectului (ex.: <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Proiect Portabil</span></a>)</li>
+<li>Crearea hărților topografice pornind de la un singur strat raster sau de la un stil definit într-o temă pentru hartă.</li>
+<li>Configurarea funcționalității de editare offline și sincronizarea anulării modificărilor.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Fluxul de lucru<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<h2>Fluxul de lucru<a class="headerlink" href="#workflow" title="Link permanent la acest titlu">¶</a></h2>
 <p>Pentru a obține o scurtă prezentare a procesului, iată o listă de pași tipici:</p>
 <ol class="arabic simple">
-<li><p class="first">Creați un pachet QField. Acesta reprezintă o copie de lucru, într-un dosar separat.</p>
-</li>
-<li><p class="first">Copiați pachetul QField pe dispozitivul țintă.</p>
-</li>
-<li><p class="first">Mergeți pe teren și colectați datele.</p>
-</li>
-<li><p class="first">Copiați datele modificate, înapoi pe computerul dvs.</p>
-</li>
-<li><p class="first">Sincronizați datele modificate cu baza de date sau fișierele.</p>
-</li>
+<li>Creați un pachet QField. Acesta reprezintă o copie de lucru, într-un dosar separat.</li>
+<li>Copiați pachetul QField pe dispozitivul țintă.</li>
+<li>Mergeți pe teren și colectați datele.</li>
+<li>Copiați datele modificate, înapoi pe computerul dvs.</li>
+<li>Sincronizați datele modificate cu baza de date sau fișierele.</li>
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link permanent la acest titlu">¶</a></h2>
 <p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
 <img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configurare<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Configurare<a class="headerlink" href="#configuration" title="Link permanent la acest titlu">¶</a></h2>
 <p>Configurația proiectul este salvată în fișier master, .qgs, al proiect. În acest fel este posibilă pre-configurarea o dată a unui proiect, apoi să-l utilizați în mod repetat.</p>
 <img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
-<h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>Configurarea stratului<a class="headerlink" href="#layer-configuration" title="Link permanent la acest titlu">¶</a></h3>
 <img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
 <p>În dialogul de configurare a proiectului, o <em>acțiune</em> poate fi definită, în mod individual, pentru fiecare strat. În funcție de tipul stratului, sunt disponibile diferite tipuri de acțiuni.</p>
 <dl class="docutils">
 <dt>Copiere</dt>
-<dd><p class="first last">Stratul va fi copiat în directorul pachetului. Acest lucru este posibil numai pentru straturile stocate în fișiere.</p>
-</dd>
+<dd>Stratul va fi copiat în directorul pachetului. Acest lucru este posibil numai pentru straturile stocate în fișiere.</dd>
 <dt>Fără acțiune</dt>
-<dd><p class="first last">Sursa stratului va fi lăsată intactă. Acest lucru este disponibil numai pentru straturi nestocate în fișiere, cum ar fi WMS, WFS, PostGIS...</p>
-</dd>
+<dd>Sursa stratului va fi lăsată intactă. Acest lucru este disponibil numai pentru straturi nestocate în fișiere, cum ar fi WMS, WFS, PostGIS…</dd>
 <dt>Editare offline</dt>
-<dd><p class="first last">O copie de lucru a stratului este copiată în directorul pachetului. Fiecare schimbare care se face, pe durata lucrului, în proiectul împachetat, se înregistrează într-un jurnal al modificărilor. Atunci când are loc sincronizarea modificărilor, acest jurnal va fi urmat, toate modificările fiind aplicate asupra bazei de date principale. Nu are loc nici un conflict de manipulare.</p>
-</dd>
+<dd>O copie de lucru a stratului este copiată în directorul pachetului. Fiecare schimbare care se face, pe durata lucrului, în proiectul împachetat, se înregistrează într-un jurnal al modificărilor. Atunci când are loc sincronizarea modificărilor, acest jurnal va fi urmat, toate modificările fiind aplicate asupra bazei de date principale. Nu are loc nici un conflict de manipulare.</dd>
 <dt>Eliminare</dt>
-<dd><p class="first last">Stratul va fi eliminat din copia de lucru. Acest lucru este util în cazul în care un strat este utilizat în harta de bază, și nu va fi disponibil în cadrul proiectului împachetat.</p>
-</dd>
+<dd>Stratul va fi eliminat din copia de lucru. Acest lucru este util în cazul în care un strat este utilizat în harta de bază, și nu va fi disponibil în cadrul proiectului împachetat.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Configurarea hărții de bază<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>Configurarea hărții de bază<a class="headerlink" href="#base-map-configuration" title="Link permanent la acest titlu">¶</a></h3>
 <p>O hartă de bază este un strat raster, care se adaugă ca fundal la fișierul împachetat al proiectului.</p>
 <p>În cazul în care este activată opțiunea hărții de bază, va fi randată o hartă de bază, la fiecare împachetare a proiectului. Aria de interes - extinderea care va fi randată - va fi aleasă la momentul împachetării.</p>
 <p>Există două surse posibile pentru o hartă de bază:</p>
 <dl class="docutils">
 <dt>Strat</dt>
-<dd><p class="first last">Un strat raster. Acest lucru este util pentru a obține o copie offline a unui strat on-line, cum ar fi un WMS, sau pentru a avea o copie de lucru a unui format neacceptat, cum ar straturile ECW sau MrSID.</p>
-</dd>
+<dd>Un strat raster. Acest lucru este util pentru a obține o copie offline a unui strat on-line, cum ar fi un WMS, sau pentru a avea o copie de lucru a unui format neacceptat, cum ar straturile ECW sau MrSID.</dd>
 <dt>Tema Hărții</dt>
-<dd><p class="first last">O temă de hartă. Aceasta este utilă pentru a crea o hartă de fundal, cu un anumit stil, bazată pe o combinație a mai multor straturi. Aceste straturi pot fi ulterior eliminate din pachetul de lucru, nefiind nevoie să fie randate pe dispozitiv. În acest mod se poate economisi spațiul de pe disc, și se protejează bateria dispozitivului.</p>
-</dd>
+<dd>O temă de hartă. Aceasta este utilă pentru a crea o hartă de fundal, cu un anumit stil, bazată pe o combinație a mai multor straturi. Aceste straturi pot fi ulterior eliminate din pachetul de lucru, nefiind nevoie să fie randate pe dispozitiv. În acest mod se poate economisi spațiul de pe disc, și se protejează bateria dispozitivului.</dd>
 </dl>
 <p>Dimensiunea plăcuțelor definește rezoluția spațială. Ea determină numărul de unități de hartă per pixel. Atunci când CRS-ul canevasului hărții are metrul ca unitate și dimensiunea plăcuței este setată la 1, fiecare pixel raster va avea o extindere spațială de 1x1 m, iar în cazul în care aceasta este setată la 1000, fiecare pixel raster va avea o extindere spațială de 1 kilometru pătrat.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>Configurarea editării offline<a class="headerlink" href="#offline-editing-configuration" title="Link permanent la acest titlu">¶</a></h3>
 <p>În cazul în care este bifată <em>sincronizarea doar a entităților din zona de interes</em>, numai entitățile care sunt incluse în extinderea canevasului hărții la momentul împachetării, vor fi copiate în copia de lucru editabilă offline.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
+<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Link permanent la acest titlu">¶</a></h2>
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
+<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link permanent la acest titlu">¶</a></h2>
 <p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
 <p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
@@ -285,7 +270,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -297,7 +282,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

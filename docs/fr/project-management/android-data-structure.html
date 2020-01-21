@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Symboles SVG personnalisés et configuration &mdash; documentation QField Documentation 1.0 - M...</title>
-    
+    <title>Symboles SVG personnalisés et configuration &#8212; documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,10 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="documentation QField Documentation 1.0 - M..." href="../index.html" />
-    <link rel="up" title="Gestion du projet QField" href="index.html" />
-    <link rel="next" title="Exporter en PDF" href="print-to-pdf.html" />
-    <link rel="prev" title="Configurer les thèmes de carte" href="map-themes.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Rechercher dans les couches" href="configure-search.html" />
+    <link rel="prev" title="Concepts" href="../concepts/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -41,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -109,11 +106,11 @@
             
               
   <li>
-    <a href="map-themes.html" title="Previous Chapter: Configurer les thèmes de carte"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Configurer le...</span>
+    <a href="../concepts/index.html" title="Previous Chapter: Concepts"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Concepts</span>
     </a>
   </li>
   <li>
-    <a href="print-to-pdf.html" title="Next Chapter: Exporter en PDF"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Exporter en PDF &raquo;</span>
+    <a href="configure-search.html" title="Next Chapter: Rechercher dans les couches"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Rechercher da... &raquo;</span>
     </a>
   </li>
             
@@ -143,9 +140,9 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d&#8217;installation QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Symboles SVG personnalisés et configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Rechercher dans les couches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formats de données supportés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Données raster</a></li>
@@ -155,9 +152,9 @@
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Exporter en PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">Sélection de projet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Configuration des couches vecteur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d&#8217;utilisateur QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guide d’utilisateur QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Changer le thème de carte actif</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d&#8217;ensemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables d’ensemble</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Extension QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
@@ -173,14 +170,11 @@
       
   <div class="section" id="custom-svg-symbols-and-settings">
 <h1>Symboles SVG personnalisés et configuration<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Depuis QGIS 3.6 Noosa il est possible d&#8217;embarquer des symboles SVG dans des projets QGIS.</p>
+<p>Depuis QGIS 3.6 Noosa il est possible d’embarquer des symboles SVG dans des projets QGIS.</p>
 <ol class="arabic simple">
-<li><p class="first">Choisir la couche qui va supporter la symbologie SVG et ouvrir ses propriétés.</p>
-</li>
-<li><p class="first">Ouvrir la section symbologie dans :menuselection: <cite>Propriétés &#8211;&gt; Symbologie</cite>.</p>
-</li>
-<li><p class="first">Dans <strong>Symbol Layer Panel</strong> choisir marqueur simple.</p>
-</li>
+<li>Choisir la couche qui va supporter la symbologie SVG et ouvrir ses propriétés.</li>
+<li>Ouvrir la section symbologie dans :menuselection: <cite>Propriétés –&gt; Symbologie</cite>.</li>
+<li>Dans <strong>Symbol Layer Panel</strong> choisir marqueur simple.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -188,8 +182,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p class="first">Changer le type de couche symbole dans :menuselection: <cite>Type de couche symbole &#8211;&gt; Marqueur SVG</cite>.</p>
-</li>
+<li>Changer le type de couche symbole dans :menuselection: <cite>Type de couche symbole –&gt; Marqueur SVG</cite>.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -197,10 +190,8 @@
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li><p class="first">Défiler vers le bas le panneau du bas</p>
-</li>
-<li><p class="first">Cliquer sur le côté droite du bouton de sélection du fichier pour ouvrir le menu déroulant.</p>
-</li>
+<li>Défiler vers le bas le panneau du bas</li>
+<li>Cliquer sur le côté droite du bouton de sélection du fichier pour ouvrir le menu déroulant.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -208,10 +199,8 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li><p class="first">Sélectionner fichier intégré et choisir le fichier SVG dans la fenêtre de sélection de fichier.</p>
-</li>
-<li><p class="first">Appliquer les changements et appuyer sur OK.</p>
-</li>
+<li>Sélectionner fichier intégré et choisir le fichier SVG dans la fenêtre de sélection de fichier.</li>
+<li>Appliquer les changements et appuyer sur OK.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -233,7 +222,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -245,7 +234,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

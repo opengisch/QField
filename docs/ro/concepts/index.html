@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Concepte de bază &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Concepte de bază &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
     <link rel="next" title="Simboluri și setări SVG personalizate" href="../project-management/android-data-structure.html" />
     <link rel="prev" title="Ghidul de instalare a QField" href="../installation-guide/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -147,7 +146,7 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Concepte de bază</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepte de bază</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Simboluri și setări SVG personalizate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Căutarea în straturi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatele de date acceptate</a></li>
@@ -175,22 +174,22 @@
     <div class="col-md-9 content">
       
   <div class="section" id="concepts">
-<h1>Concepte de bază<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<h1>Concepte de bază<a class="headerlink" href="#concepts" title="Link permanent la acest titlu">¶</a></h1>
 <p>QField a fost proiectat având câteva concepte-cheie în minte.</p>
 <div class="section" id="keep-it-simple">
-<h2>Păstrarea simplității<a class="headerlink" href="#keep-it-simple" title="Permalink to this headline">¶</a></h2>
+<h2>Păstrarea simplității<a class="headerlink" href="#keep-it-simple" title="Link permanent la acest titlu">¶</a></h2>
 <p>Cerințele din teren nu sunt similare cu cele de pe un desktop. Ecranul este mai mic, dispozitivele de intrare sunt diferite, iar sarcinile sunt diferite.</p>
 <p>QField își propune să ajute utilizatorul să îndeplinească sarcinile pe care le are de executat, fără a aglomera interfața cu utilizatorul. Acest lucru înseamnă că numai sarcinile care trebuie efectuate pe teren sunt disponibile în interfața. Orice altceva nu.</p>
 <p>Acest lucru înseamnă că totul, cum ar fi stilizarea stratului, definirea formularelor, precum și alți pași de configurare a proiectului, ar trebui să se execute mai întâi pe un computer pe care este instalată aplicația QGIS.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h2>Compatibilitate cu aplicația QGIS.<a class="headerlink" href="#be-compatible-with-qgis" title="Permalink to this headline">¶</a></h2>
+<h2>Compatibilitate cu aplicația QGIS.<a class="headerlink" href="#be-compatible-with-qgis" title="Link permanent la acest titlu">¶</a></h2>
 <p>QField se bazează pe QGIS. Nu constituie o recompilare a QGIS, ci utilizează cu <em>adevărat</em> bibliotecile QGIS. Motorul de randare este același cu cel din QGIS desktop și, prin urmare, proiectul va arata pe dispozitivul mobil la fel ca și versiunea de pe computer.</p>
 <p>O opțiune de configurare, disponibilă într-un proiect QGIS, nu ar trebui să fie re-inventată. Astfel, QField utilizează aceleași controale grafice de editare ca și QGIS desktop. În cazul în care un proiect este deja configurat pentru desktop, el ar trebui să ruleze, de asemenea, și pe telefonul mobil.</p>
 <p>Rețineți că acesta reprezintă doar <em>conceptul</em>. Pe aceasta îl avem în minte atunci când dezvoltăm QField. Nu înseamnă că acest deziderat este deja îndeplinit.</p>
 </div>
 <div class="section" id="mode-based">
-<h2>Bazat pe moduri<a class="headerlink" href="#mode-based" title="Permalink to this headline">¶</a></h2>
+<h2>Bazat pe moduri<a class="headerlink" href="#mode-based" title="Link permanent la acest titlu">¶</a></h2>
 <p>QField este construit în jurul <em>modurilor</em>. Modurile sunt similare cu un <em>instrument  pentru hartă</em> din QGIS desktop. Un mod definește acțiunea curentă, pe care o efectuează un utilizator. Un utilizator fie <em>navighează</em> prin intermediul datelor, fie <em>digitizează</em> ceva nou.</p>
 </div>
 </div>
@@ -208,7 +207,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -220,7 +219,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

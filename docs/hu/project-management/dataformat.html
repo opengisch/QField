@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Támogatott adatformátumok &mdash; QField Documentation 1.0 - M... dokumentáció</title>
-    
+    <title>Támogatott adatformátumok &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... dokumentáció" href="../index.html" />
+    <link rel="index" title="Tárgymutató" href="../genindex.html" />
+    <link rel="search" title="Keresés" href="../search.html" />
     <link rel="next" title="QField Projektmenedzsment" href="index.html" />
     <link rel="prev" title="Keresés a rétegekben" href="configure-search.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -153,7 +151,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Egyéni SVG szimbólumok és beállítások</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Keresés a rétegekben</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Támogatott adatformátumok</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Támogatott adatformátumok</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#raster-data">Raszter adatok</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">QField Projektmenedzsment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Térkép témák konfigurálása</a></li>
@@ -182,6 +180,8 @@
 <p>A QField a legkülönbözőbb formátumokat támogatja a QGIS adatállományokon és a GDAL-on keresztül. Ez az oldal a teljesség igénye nélkül nyújt tájékoztatást a támogatott adatformátumokról.</p>
 <div class="section" id="table">
 <h2>Táblázat<a class="headerlink" href="#table" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -189,67 +189,55 @@
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">Adatformátum</p>
-</th>
-<th class="head"><p class="first last">Támogatás</p>
-</th>
-<th class="head"><p class="first last">Megjegyzés</p>
-</th>
+<tr class="row-odd"><th class="head">Adatformátum</th>
+<th class="head">Támogatás</th>
+<th class="head">Megjegyzés</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">SpatiaLite</p>
-</td>
+<tr class="row-even"><td>SpatiaLite</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">GeoPackage</p>
-</td>
+<tr class="row-odd"><td>GeoPackage</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WMS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>WFS</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>WFS-T</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">PostGIS</p>
-</td>
+<tr class="row-odd"><td>PostGIS</td>
 <td><span class="yay">✔</span></td>
-<td><p class="first last">Jelenleg még nem áll rendelkezésre SSL támogatás.</p>
-</td>
+<td>Jelenleg még nem áll rendelkezésre SSL támogatás.</td>
 </tr>
 <tr class="row-even"><td>MBTiles</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">Shape fájl</p>
-</td>
+<tr class="row-odd"><td>Shape fájl</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">TIF</p>
-</td>
+<tr class="row-even"><td>TIF</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">A JPEG tömörítést még nem támogatjuk.</p>
-</td>
+<td>A JPEG tömörítést még nem támogatjuk.</td>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">A licenc korlátozza a felhasználást.</p>
-</td>
+<td>A licenc korlátozza a felhasználást.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td><p class="first last">A licenc korlátozza a felhasználást.</p>
-</td>
+<td>A licenc korlátozza a felhasználást.</td>
 </tr>
 </tbody>
 </table>
@@ -262,8 +250,8 @@
 <div class="section" id="use-geopackage">
 <h2>Geopackage használata<a class="headerlink" href="#use-geopackage" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>A geopackage formátumot tanácsoljuk önnek, ha raszter adatokkal dolgozik. A következő parancs a <code class="code docutils literal"><span class="pre">raster.tif</span></code> nevű fájl konvertálja a <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> fájlba piramisokkal. Győződjön meg róla, hogy módosította az EPSG:21781 (CH1903 LV03) beállítást az ön számára kívánatos CRS-re.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co  APPEND_SUBDATASET=YES -co TILE_FORMAT=PNG_JPEG -a_srs EPSG:21781 -of GPKG raster.tif raster.gpkg
-gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 64 128 256
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
+<span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
@@ -282,7 +270,7 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -293,8 +281,8 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -r AVERAGE raster.gpkg 2 4 8 16 32 
       
     </p>
     <p>
-        &copy; Minden jog fenntartva 2019, The QField Project/OPENGIS.ch.<br/>
-      <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 használatával készült.<br/>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 használatával készült.<br/>
     </p>
   </div>
 </footer>

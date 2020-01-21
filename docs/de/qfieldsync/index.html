@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QFieldSync Plugin &mdash; QField Documentation 1.0 - M... Dokumentation</title>
-    
+    <title>QFieldSync Plugin &#8212; QField Documentation 1.0 - M... Dokumentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,7 +24,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... Dokumentation" href="../index.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Entwicklung und Support" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -170,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Das aktive Kartenthema wechseln</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globale Variablen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Entwicklung und Support</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldSync Plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldSync Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -187,27 +185,19 @@
 <p>Das QFieldSync Plugin hilft dabei, ein QGIS Projekt für QField vorzubereiten und zu verpacken.</p>
 <p>QFieldSync unterstützt die Projektvorbereitung durch die Automatisierung der folgenden Vorgänge:</p>
 <ul class="simple">
-<li><p class="first">Benötigte Schritte für die Grundkonfiguration (z.B. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span>Portable Projekte</span></a>)</p>
-</li>
-<li><p class="first">Erstellen einer Basiskarte von einem Rasterlayer oder von einem Kartenthema.</p>
-</li>
-<li><p class="first">Konfiguration der Offlineeditierfunktion und Rücksynchronisierung der Änderungen.</p>
-</li>
+<li>Benötigte Schritte für die Grundkonfiguration (z.B. <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Portable Projekte</span></a>)</li>
+<li>Erstellen einer Basiskarte von einem Rasterlayer oder von einem Kartenthema.</li>
+<li>Konfiguration der Offlineeditierfunktion und Rücksynchronisierung der Änderungen.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Arbeitsablauf<a class="headerlink" href="#workflow" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Um einen kurzen Überblick über den Prozess zu erhalten, ist hier eine Liste der typischen Schritte:</p>
 <ol class="arabic simple">
-<li><p class="first">Erzeugen eines QField Paketes. Dies ist eine Arbeitskopie in einem separaten Ordner.</p>
-</li>
-<li><p class="first">Das QField Pake auf das Zielgerät kopieren.</p>
-</li>
-<li><p class="first">Daten im Feld sammeln</p>
-</li>
-<li><p class="first">Zurückkopieren der Bearbeiteten Daten auf den Desktopcomputer.</p>
-</li>
-<li><p class="first">Synchronisation der modifizierten Daten mit der Datenbank oder Dateien.</p>
-</li>
+<li>Erzeugen eines QField Paketes. Dies ist eine Arbeitskopie in einem separaten Ordner.</li>
+<li>Das QField Pake auf das Zielgerät kopieren.</li>
+<li>Daten im Feld sammeln</li>
+<li>Zurückkopieren der Bearbeiteten Daten auf den Desktopcomputer.</li>
+<li>Synchronisation der modifizierten Daten mit der Datenbank oder Dateien.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -225,17 +215,13 @@
 <p>Im Projektkonfigurationsdialog kann für jeden Layer individuell eine <em>Aktion</em> definiert werden. Abhängig vom Layertyp sind unterschiedliche Aktionen verfügbar.</p>
 <dl class="docutils">
 <dt>Kopieren</dt>
-<dd><p class="first last">Der Layer wird in den Paketordner kopiert. Dies ist nur für Dateibasierte Layer verfügbar.</p>
-</dd>
+<dd>Der Layer wird in den Paketordner kopiert. Dies ist nur für Dateibasierte Layer verfügbar.</dd>
 <dt>Keine Aktion</dt>
-<dd><p class="first last">Die Quelle des Layers wird nicht verändert. Dies ist nur verfügbar für nicht-Dateibasierte Layer wie WMS, WFS, Postgis...</p>
-</dd>
+<dd>Die Quelle des Layers wird nicht verändert. Dies ist nur verfügbar für nicht-Dateibasierte Layer wie WMS, WFS, Postgis…</dd>
 <dt>Offline Bearbeiten</dt>
-<dd><p class="first last">Von jedem Layer wird eine Arbeitskopie im Paketordner erstellt. Jede Änderung am paketierten Projekt während der Arbeit wird in ein Änderungsprotokoll geschrieben. Bei der späteren Synchronisation wird dieses Protokoll erneut abgespielt und sämtliche Änderungen werden auch auf die zentralen Datenbank angewendet. Es gibt dabei keine Konfliktbehandlung.</p>
-</dd>
+<dd>Von jedem Layer wird eine Arbeitskopie im Paketordner erstellt. Jede Änderung am paketierten Projekt während der Arbeit wird in ein Änderungsprotokoll geschrieben. Bei der späteren Synchronisation wird dieses Protokoll erneut abgespielt und sämtliche Änderungen werden auch auf die zentralen Datenbank angewendet. Es gibt dabei keine Konfliktbehandlung.</dd>
 <dt>Entfernen</dt>
-<dd><p class="first last">Der Layer wird von der Arbeitskopie entfernt. Dies ist nützlich falls der Layer in der Basiskarte verwendet wird und nicht im verpackten Projekt verfügbar sein muss.</p>
-</dd>
+<dd>Der Layer wird von der Arbeitskopie entfernt. Dies ist nützlich falls der Layer in der Basiskarte verwendet wird und nicht im verpackten Projekt verfügbar sein muss.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -245,11 +231,9 @@
 <p>Es gibt zwei mögliche Quellen für eine Basiskarte:</p>
 <dl class="docutils">
 <dt>Layer</dt>
-<dd><p class="first last">Ein Rasterlayer. Dies ist nützlich um eine Offlinekopie eines Netzbasierten Layers wie einem WMS oder eine Kopie von einem nichtunterstützten Dateiformat wie ECW oder MrSID zu nehmen.</p>
-</dd>
+<dd>Ein Rasterlayer. Dies ist nützlich um eine Offlinekopie eines Netzbasierten Layers wie einem WMS oder eine Kopie von einem nichtunterstützten Dateiformat wie ECW oder MrSID zu nehmen.</dd>
 <dt>Kartenthema</dt>
-<dd><p class="first last">Ein Kartenthema. Das ist nützlich um eine Basiskarte basierend auf mehreren Layer mit Stilen zu erstellen. Diese Layer können dann vom Arbeitspaket entfernt werden und müssen auf QField nicht mehr zusätzlich angezeigt werden. Dies kann Speicherplatz und Batterie schonen.</p>
-</dd>
+<dd>Ein Kartenthema. Das ist nützlich um eine Basiskarte basierend auf mehreren Layer mit Stilen zu erstellen. Diese Layer können dann vom Arbeitspaket entfernt werden und müssen auf QField nicht mehr zusätzlich angezeigt werden. Dies kann Speicherplatz und Batterie schonen.</dd>
 </dl>
 <p>Die Kachelgrösse definiert die räumliche Auflösung. Sie wird in Pixel pro Karteneinheit festgelegt. Wenn das KBS des Projektes in Metern ist und die Kachelgrösse auf 1 gesetzt ist, heisst das jeder Pixel des Rasters wird 1x1m repräsentieren. Wenn die Kachelgrösse auf 1000 gesetzt wird, hat jeder Pixel eine räumliche Auflösung von einem Quadratkilometer.</p>
 </div>
@@ -263,7 +247,7 @@
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link zu dieser Überschrift">¶</a></h2>
@@ -286,7 +270,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -298,7 +282,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.<br/>
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 erstellt.<br/>
     </p>
   </div>
 </footer>

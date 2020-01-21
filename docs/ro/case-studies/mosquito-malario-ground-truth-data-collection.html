@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Căutare" href="../search.html" />
     <link rel="next" title="River State Survey Using QField" href="river-state-survey.html" />
     <link rel="prev" title="Use of QField for mapping breeding birds in the Wadden Sea" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
 <meta charset='utf-8'>
@@ -39,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -165,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin-ul QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="river-state-survey.html">River State Survey Using QField</a></li>
 </ul>
 
@@ -175,15 +174,15 @@
     <div class="col-md-9 content">
       
   <div class="section" id="use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes">
-<h1>Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="Permalink to this headline">¶</a></h1>
+<h1>Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes<a class="headerlink" href="#use-of-qfield-in-the-context-of-ground-truth-data-collection-work-of-malaria-transmitting-mosquitoes" title="Link permanent la acest titlu">¶</a></h1>
 <p>By Paul Taconet, GIS Engineer, French Research Institute for Sustainable Development (IRD)
 2018-12-11</p>
 <div class="section" id="goal-and-field-constraints">
-<h2>Goal and field constraints :<a class="headerlink" href="#goal-and-field-constraints" title="Permalink to this headline">¶</a></h2>
+<h2>Goal and field constraints :<a class="headerlink" href="#goal-and-field-constraints" title="Link permanent la acest titlu">¶</a></h2>
 <p>For a research work aiming at improving the knowledge on the environment of the mosquitoes that transmit malaria, the French Research Institute for Sustainable Development needed to generate a land cover map of two rural areas in Africa, one in Burkina Faso and one in Ivory Coast. Two satellites images (Spot 6 at 1.5 meters spatial resolutions) are used as input of a supervised object-based image classification for this work. The supervised method implies the collection of ground truth parcels, i.e. location and geo-referencing of a set of parcels of each land cover class on the ground, preferably spread all over the study areas. Both areas are 50 km2 wide and their nature (savannahs and rural areas, where roads are mainly narrow clay tracks) imply to move around in motorbike or by feet. In addition, one could quickly get lost in the rural labyrinth tracks in absence of a map. We hence needed light and very portable equipment, as well as a way to easily explore the area without getting lost.</p>
 </div>
 <div class="section" id="project-preparation">
-<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
+<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Link permanent la acest titlu">¶</a></h2>
 <p>We created a QGIS project with the Spot image and a layer to collect the ground data .
 We first converted our Spot image to a Geopackage raster, and built pyramids so as to get quick rendering in QField.
 The whole image (50 km2 at 1.5 m spatial resolution with 3 bands) weighted approximately 800 MB,
@@ -193,7 +192,7 @@ It contained a field to identify the land cover type, some fields to take pictur
 <p>We then uploaded the project in QField in our tablet.</p>
 </div>
 <div class="section" id="field-work">
-<h2>Field work<a class="headerlink" href="#field-work" title="Permalink to this headline">¶</a></h2>
+<h2>Field work<a class="headerlink" href="#field-work" title="Link permanent la acest titlu">¶</a></h2>
 <p>On the field, we were able to move around easily in motorbike without getting lost,
 thanks to our location displayed on QField with the satellite image as background.
 When a parcel of interest was identified, we were able to draw its perimeter in QField
@@ -230,7 +229,7 @@ which traditionally took days of work.</p>
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -242,7 +241,7 @@ which traditionally took days of work.</p>
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Generat cu <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

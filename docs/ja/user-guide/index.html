@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>QFieldユーザーガイド &mdash; QField Documentation 1.0 - M... ドキュメント</title>
-    
+    <title>QFieldユーザーガイド &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... ドキュメント" href="../index.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="アクティブなマップテーマを変更する" href="map-themes.html" />
-    <link rel="prev" title="ベクターレイヤの設定" href="../project-management/vector-layers.html" />
+    <link rel="prev" title="プロジェクトの選択" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -130,7 +128,7 @@
             
               
   <li>
-    <a href="../project-management/vector-layers.html" title="Previous Chapter: ベクターレイヤの設定"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ベクターレイヤの設定</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: プロジェクトの選択"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; プロジェクトの選択</span>
     </a>
   </li>
   <li>
@@ -176,7 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">PDFに印刷する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">プロジェクトの選択</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">ベクターレイヤの設定</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">QFieldユーザーガイド</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">アクティブなマップテーマを変更する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">グローバル変数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">開発とサポート</a></li>
@@ -196,7 +194,7 @@
 <h1>QFieldユーザーガイド<a class="headerlink" href="#qfield-user-guide" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="opening-a-project">
 <h2>プロジェクトを開く<a class="headerlink" href="#opening-a-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>プロジェクトを開くには、 <strong>メニューボタン &#8211;&gt; オプションボタン &#8211;&gt; プロジェクトを開く</strong> のようにタップしてください。</p>
+<p>プロジェクトを開くには、 <strong>メニューボタン --&gt; オプションボタン --&gt; プロジェクトを開く</strong> のようにタップしてください。</p>
 <p>開きたいプロジェクトを選択するか、  <strong>最近のプロジェクト</strong> や <strong>お気に入りのフォルダ</strong> ショートカットを使用してください。</p>
 <blockquote>
 <div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
@@ -214,14 +212,10 @@
 <img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
 <p>リストアップされたフィーチャの一つをタップして属性情報を表示できます。</p>
 <ol class="arabic simple">
-<li><p class="first"><strong>矢印</strong> をタップして全てのフィーチャの属性情報をスクロールできます。</p>
-</li>
-<li><p class="first"><strong>中央表示ボタン</strong> をタップして選択しているフィーチャを中央に表示できます。</p>
-</li>
-<li><p class="first"><strong>編集ボタン</strong> をタップして選択しているフィーチャの属性情報を変更できます。</p>
-</li>
-<li><p class="first"><strong>サブメニュー</strong> をスクロールして全ての属性情報を切替表示できます。</p>
-</li>
+<li><strong>矢印</strong> をタップして全てのフィーチャの属性情報をスクロールできます。</li>
+<li><strong>中央表示ボタン</strong> をタップして選択しているフィーチャを中央に表示できます。</li>
+<li><strong>編集ボタン</strong> をタップして選択しているフィーチャの属性情報を変更できます。</li>
+<li><strong>サブメニュー</strong> をスクロールして全ての属性情報を切替表示できます。</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
@@ -234,10 +228,8 @@
 <h2>検索<a class="headerlink" href="#searching" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>右上の <strong>検索ボタン</strong> をタップするとレイヤを検索できます。</p>
 <ol class="arabic simple">
-<li><p class="first">検索結果の <strong>名前</strong> をタップするとそのフィーチャを表示できます（検索結果のフィーチャは黄色でハイライトされます）。</p>
-</li>
-<li><p class="first"><strong>属性ボタン</strong> をタップして属性情報を表示することもできます。</p>
-</li>
+<li>検索結果の <strong>名前</strong> をタップするとそのフィーチャを表示できます（検索結果のフィーチャは黄色でハイライトされます）。</li>
+<li><strong>属性ボタン</strong> をタップして属性情報を表示することもできます。</li>
 </ol>
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
@@ -311,7 +303,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -323,7 +315,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。<br/>
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。<br/>
     </p>
   </div>
 </footer>

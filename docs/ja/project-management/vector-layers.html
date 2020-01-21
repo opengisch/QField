@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>ベクターレイヤの設定 &mdash; QField Documentation 1.0 - M... ドキュメント</title>
-    
+    <title>ベクターレイヤの設定 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,9 +24,10 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... ドキュメント" href="../index.html" />
-    <link rel="next" title="QFieldユーザーガイド" href="../user-guide/index.html" />
-    <link rel="prev" title="プロジェクトの選択" href="project-selection.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="マップテーマの設定" href="map-themes.html" />
+    <link rel="prev" title="ポータブルなプロジェクト" href="portable-project.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +38,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -142,11 +140,11 @@
             
               
   <li>
-    <a href="project-selection.html" title="Previous Chapter: プロジェクトの選択"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; プロジェクトの選択</span>
+    <a href="portable-project.html" title="Previous Chapter: ポータブルなプロジェクト"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ポータブルなプロジェクト</span>
     </a>
   </li>
   <li>
-    <a href="../user-guide/index.html" title="Next Chapter: QFieldユーザーガイド"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">QFieldユーザーガイド &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: マップテーマの設定"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">マップテーマの設定 &raquo;</span>
     </a>
   </li>
             
@@ -187,7 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="portable-project.html">ポータブルなプロジェクト</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">PDFに印刷する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project-selection.html">プロジェクトの選択</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">ベクターレイヤの設定</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ベクターレイヤの設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QFieldユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">アクティブなマップテーマを変更する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">グローバル変数</a></li>
@@ -252,66 +250,51 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first last">フィールドタイプ</p>
-</th>
-<th class="head"><p class="first last">サポートの可否</p>
-</th>
-<th class="head"><p class="first last">備考</p>
-</th>
+<tr class="row-odd"><th class="head">フィールドタイプ</th>
+<th class="head">サポートの可否</th>
+<th class="head">備考</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">テキスト編集</p>
-</td>
+<tr class="row-even"><td>テキスト編集</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li><p class="first">HTMLはサポートされていません。</p>
-</li>
-<li><p class="first">数値入力はデータ型に基づいて設定されます。</p>
-</li>
+<li>HTMLはサポートされていません。</li>
+<li>数値入力はデータ型に基づいて設定されます。</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">チェックボックス</p>
-</td>
+<tr class="row-odd"><td>チェックボックス</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">バリューマップ</p>
-</td>
+<tr class="row-even"><td>バリューマップ</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">非表示</p>
-</td>
+<tr class="row-odd"><td>非表示</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">アタッチメント</p>
-</td>
+<tr class="row-even"><td>アタッチメント</td>
 <td><span class="moreorless">~</span></td>
-<td><p class="first last">このフィールドはカメラ機能と統合されています。画像のみ表示できます。<a class="reference internal" href="../development/index.html#make-it-grow"><span>QFieldを成長させ、自分のものにしよう</span></a></p>
-</td>
+<td>このフィールドはカメラ機能と統合されています。画像のみ表示できます。<a class="reference internal" href="../development/index.html#make-it-grow"><span class="std std-ref">QFieldを成長させ、自分のものにしよう</span></a></td>
 </tr>
-<tr class="row-odd"><td><p class="first last">日付/時刻</p>
-</td>
+<tr class="row-odd"><td>日付/時刻</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">リレーションの参照</p>
-</td>
+<tr class="row-even"><td>リレーションの参照</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p class="first last">リレーションウィジェット</p>
-</td>
+<tr class="row-odd"><td>リレーションウィジェット</td>
 <td><span class="yay">✔</span></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p class="first last">その他</p>
-</td>
+<tr class="row-even"><td>その他</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../development/index.html#make-it-grow"><span>QFieldを成長させ、自分のものにしよう</span></a></td>
+<td><a class="reference internal" href="../development/index.html#make-it-grow"><span class="std std-ref">QFieldを成長させ、自分のものにしよう</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -404,22 +387,14 @@
 <h4>追加の変数<a class="headerlink" href="#additional-variables" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>QFieldには、現在の位置情報に関する追加の変数がいくつかあります。</p>
 <ul class="simple">
-<li><p class="first"><cite>position_coordinate</cite> (Geometry in WGS84!) : 経度、緯度、高度はセンサーによって配信されます。 十字線がセンサーにスナップされていない場合にも使用できます。</p>
-</li>
-<li><p class="first"><cite>position_timestamp</cite> (DateTime) : 位置情報のタイムスタンプ</p>
-</li>
-<li><p class="first"><cite>position_direction</cite> (float) : 真北からの度単位で示す方向</p>
-</li>
-<li><p class="first"><cite>position_ground_speed</cite> (float) : メートル/秒で示される対地速度</p>
-</li>
-<li><p class="first"><cite>position_magnetic_variation</cite> (float) : 磁場の水平成分と真北の間の度単位の角度。 磁気偏角とも呼ばれます。 正の値は真北から時計回りの方向を示し、負の値は反時計回りの方向を示します。</p>
-</li>
-<li><p class="first"><cite>position_horizontal_accuracy</cite> (float) : 座標の水平精度（メートル単位）。</p>
-</li>
-<li><p class="first"><cite>position_vertical_accuracy</cite> (float) : 座標の垂直精度（メートル単位）。</p>
-</li>
-<li><p class="first"><cite>position_vertical_speed</cite> (float) : メートル/秒で示される垂直速度の値。</p>
-</li>
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : 経度、緯度、高度はセンサーによって配信されます。 十字線がセンサーにスナップされていない場合にも使用できます。</li>
+<li><cite>position_timestamp</cite> (DateTime) : 位置情報のタイムスタンプ</li>
+<li><cite>position_direction</cite> (float) : 真北からの度単位で示す方向</li>
+<li><cite>position_ground_speed</cite> (float) : メートル/秒で示される対地速度</li>
+<li><cite>position_magnetic_variation</cite> (float) : 磁場の水平成分と真北の間の度単位の角度。 磁気偏角とも呼ばれます。 正の値は真北から時計回りの方向を示し、負の値は反時計回りの方向を示します。</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : 座標の水平精度（メートル単位）。</li>
+<li><cite>position_vertical_accuracy</cite> (float) : 座標の垂直精度（メートル単位）。</li>
+<li><cite>position_vertical_speed</cite> (float) : メートル/秒で示される垂直速度の値。</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -463,12 +438,9 @@
 <h3>スナッピングの種類<a class="headerlink" href="#snapping-types" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>新しいポイントをスナップさせることができます。</p>
 <ul class="simple">
-<li><p class="first">既存のジオメトリの頂点に対してのみ</p>
-</li>
-<li><p class="first">既存のジオメトリの線分に対してのみ</p>
-</li>
-<li><p class="first">既存のジオメトリの頂点とセグメントに対して</p>
-</li>
+<li>既存のジオメトリの頂点に対してのみ</li>
+<li>既存のジオメトリの線分に対してのみ</li>
+<li>既存のジオメトリの頂点とセグメントに対して</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
@@ -500,7 +472,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -512,7 +484,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。<br/>
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。<br/>
     </p>
   </div>
 </footer>

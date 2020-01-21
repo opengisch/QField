@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Plugin QFieldSync &mdash; Documentação QField Documentation 1.0 - M...</title>
-    
+    <title>Plugin QFieldSync &#8212; Documentação QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
     <link rel="next" title="Improving Efficiencies in Ecological Surveying using QField" href="../case-studies/ecological-surveying.html" />
     <link rel="prev" title="Desenvolvimento e suporte" href="../development/index.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -169,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Plugin QFieldSync</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -186,27 +184,19 @@
 <p>O plugin QFieldSync ajuda a preparar e a empacotar projectos QGIS para o QField.</p>
 <p>O QFieldSync suporta a preparação do seu projecto automatizando o seguinte:</p>
 <ul class="simple">
-<li><p class="first">Passos necessários para a configuração do projeto (por exemplo: ref: <cite>portable_project</cite>)</p>
-</li>
-<li><p class="first">Criando mapas base de uma única camada raster ou de um estilo definido num tema do mapa.</p>
-</li>
-<li><p class="first">Configurando a funcionalidade de edição off-line e sincronizando as alterações de volta ao projecto desktop.</p>
-</li>
+<li>Passos necessários para a configuração do projeto (por exemplo: ref: <cite>portable_project</cite>)</li>
+<li>Criando mapas base de uma única camada raster ou de um estilo definido num tema do mapa.</li>
+<li>Configurando a funcionalidade de edição off-line e sincronizando as alterações de volta ao projecto desktop.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Fluxo de trabalho<a class="headerlink" href="#workflow" title="Link permanente para este título">¶</a></h2>
 <p>Para obter rapidamente uma visão geral do processo, segue-se uma lista de passos típica:</p>
 <ol class="arabic simple">
-<li><p class="first">Criar um pacote QField. Esta é uma cópia de trabalho numa pasta separada.</p>
-</li>
-<li><p class="first">Copiar o pacote QField para o dispositivo de destino.</p>
-</li>
-<li><p class="first">Ir para campo e recolher dados</p>
-</li>
-<li><p class="first">Copiar os dados modificados de volta para o seu computador desktop.</p>
-</li>
-<li><p class="first">Sincronizar os dados modificados com a sua base de dados ou com os seus ficheiros.</p>
-</li>
+<li>Criar um pacote QField. Esta é uma cópia de trabalho numa pasta separada.</li>
+<li>Copiar o pacote QField para o dispositivo de destino.</li>
+<li>Ir para campo e recolher dados</li>
+<li>Copiar os dados modificados de volta para o seu computador desktop.</li>
+<li>Sincronizar os dados modificados com a sua base de dados ou com os seus ficheiros.</li>
 </ol>
 </div>
 <div class="section" id="installation">
@@ -224,17 +214,13 @@
 <p>Na janela de diálogo de configuração do projecto, uma <em>acção</em> pode ser definida para cada camada individualmente. Dependendo do tipo de camada, diferentes tipos de acções estão disponíveis.</p>
 <dl class="docutils">
 <dt>Copiar</dt>
-<dd><p class="first last">A camada será copiada para a pasta do pacote. Só está disponível para camadas baseadas em ficheiros.</p>
-</dd>
+<dd>A camada será copiada para a pasta do pacote. Só está disponível para camadas baseadas em ficheiros.</dd>
 <dt>Nenhuma acção</dt>
-<dd><p class="first last">A fonte da camada será deixada intacta. Só está disponível para camadas não baseadas em ficheiros, tais como WMS, WFS, Postgis...</p>
-</dd>
+<dd>A fonte da camada será deixada intacta. Só está disponível para camadas não baseadas em ficheiros, tais como WMS, WFS, Postgis…</dd>
 <dt>Edição offline</dt>
-<dd><p class="first last">Uma cópia de trabalho da camada é copiada para a pasta do pacote. Toda as alterações feitas no projecto empacotado durante o trabalho são registadas num log de alterações. Ao sincronizar as alterações mais tarde, esse log será repetido e todas as alterações também serão aplicadas à base de dados principal. Não está implementado um tratamento de conflitos.</p>
-</dd>
+<dd>Uma cópia de trabalho da camada é copiada para a pasta do pacote. Toda as alterações feitas no projecto empacotado durante o trabalho são registadas num log de alterações. Ao sincronizar as alterações mais tarde, esse log será repetido e todas as alterações também serão aplicadas à base de dados principal. Não está implementado um tratamento de conflitos.</dd>
 <dt>Remover</dt>
-<dd><p class="first last">A camada será removida da cópia de trabalho. Esta opção é útil se uma camada é usada no mapa base e não estará disponível no projecto empacotado.</p>
-</dd>
+<dd>A camada será removida da cópia de trabalho. Esta opção é útil se uma camada é usada no mapa base e não estará disponível no projecto empacotado.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
@@ -244,11 +230,9 @@
 <p>Existem duas fontes possíveis para um mapa de base:</p>
 <dl class="docutils">
 <dt>Camada</dt>
-<dd><p class="first last">Uma camada raster. É útil para obter uma cópia offline de uma camada on-line tal como uma fonte WMS ou para obter uma cópia de trabalho de um formato não suportado, tal como uma camada ECW ou MrSID.</p>
-</dd>
+<dd>Uma camada raster. É útil para obter uma cópia offline de uma camada on-line tal como uma fonte WMS ou para obter uma cópia de trabalho de um formato não suportado, tal como uma camada ECW ou MrSID.</dd>
 <dt>Tema do mapa</dt>
-<dd><p class="first last">Um tema do mapa. É útil para criar um mapa de base com base numa combinação de várias camadas com estilo. Essas camadas podem ser removidas do pacote de trabalho e não precisam ser renderizadas no dispositivo. Isso pode economizar algum espaço em disco e bateria no dispositivo.</p>
-</dd>
+<dd>Um tema do mapa. É útil para criar um mapa de base com base numa combinação de várias camadas com estilo. Essas camadas podem ser removidas do pacote de trabalho e não precisam ser renderizadas no dispositivo. Isso pode economizar algum espaço em disco e bateria no dispositivo.</dd>
 </dl>
 <p>O tamanho de mosaico define a resolução espacial. Determina o número de unidades de mapa por pixel. Se o sistema de coordenadas de referência da tela do mapa tiver metros como unidades e o tamanho de mosaico for definido como 1, cada pixel raster terá uma extensão espacial de 1m x 1m; se for definido como 1000, cada pixel raster terá uma extensão espacial de 1 quilómetro quadrado.</p>
 </div>
@@ -262,7 +246,7 @@
 <p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
 <p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you&#8217;ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link permanente para este título">¶</a></h2>
@@ -285,7 +269,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -297,7 +281,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

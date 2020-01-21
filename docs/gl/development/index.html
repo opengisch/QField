@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Desenvolvemento e asistencia &mdash; QField Documentation 1.0 - M... documentation</title>
-    
+    <title>Desenvolvemento e asistencia &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="QField Documentation 1.0 - M... documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Plugin QFieldSync" href="../qfieldsync/index.html" />
     <link rel="prev" title="Variables globais" href="../user-guide/variables.html" />
 <meta charset='utf-8'>
@@ -39,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -179,7 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Cambiar o Tema de Mapa activo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variables globais</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Desenvolvemento e asistencia</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Desenvolvemento e asistencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
@@ -210,7 +208,7 @@
 <div class="section" id="edit-widgets">
 <h4>Widgets de edición<a class="headerlink" href="#edit-widgets" title="Permalink to this headline">¶</a></h4>
 <p>Os widgets de edición son unha parte nuclear dun traballo de campo eficiente. Introducir atributos nun dispositivo táctil é un dos traballos que leva máis tempo e manter estas tarefas o máis doadas posible é clave para un traballo pracenteiro.</p>
-<p>Importantes <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span>widgets de edición de campo xa están dispoñibles</span></a> pero é posible moito máis <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">por exemplo en QGIS</a>.</p>
+<p>Importantes <a class="reference internal" href="../project-management/vector-layers.html#edit-field-widgets"><span class="std std-ref">widgets de edición de campo xa están dispoñibles</span></a> pero é posible moito máis <a class="reference external" href="http://gis.stackexchange.com/a/30051/9839">por exemplo en QGIS</a>.</p>
 </div>
 <div class="section" id="legend">
 <h4>Lenda<a class="headerlink" href="#legend" title="Permalink to this headline">¶</a></h4>
@@ -236,23 +234,21 @@
 <div class="section" id="editing-geometries">
 <h4>Editar xeometrías<a class="headerlink" href="#editing-geometries" title="Permalink to this headline">¶</a></h4>
 <p>QField se ofrece para dixitalizar novas xeometrías, editar os atributos existentes ou eliminar entidades. O que falta é a característica de editar as xeometrías existentes.</p>
-<p>Isto pode dividirse en distintas pezas como mover puntos, mover outras entidades, editar vértices, mover límites...</p>
+<p>Isto pode dividirse en distintas pezas como mover puntos, mover outras entidades, editar vértices, mover límites…</p>
 </div>
 <div class="section" id="search-functionality">
 <h4>Función de busca<a class="headerlink" href="#search-functionality" title="Permalink to this headline">¶</a></h4>
 <p>Localizar entidades coa axuda dun campo de busca é algo que pode realmente axudar a traballar máis eficientemente. En xeral isto pode dividirse en dúas categorías:</p>
 <dl class="docutils">
 <dt>Busca baseada en atributos</dt>
-<dd><p class="first last">Os resultados da busca proporciónanse en base ós atributos das entidades das capas dentro do proxecto. Hai dispoñible unha base de datos local para a busca. Os datos baséanse nos datos personalizados cos que traballas ou se consultan directamente as capas para características con atributos en cuestión.</p>
-</dd>
+<dd>Os resultados da busca proporciónanse en base ós atributos das entidades das capas dentro do proxecto. Hai dispoñible unha base de datos local para a busca. Os datos baséanse nos datos personalizados cos que traballas ou se consultan directamente as capas para características con atributos en cuestión.</dd>
 <dt>Xeocodificación</dt>
-<dd><p class="first last">Os resultados da busca proporciónanse en base a enderezos reais. Servizos coma <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> poden accederse a través dunha interface web e converter direccións do mundo real a localizacións no mapa. Proba o enlace.</p>
-</dd>
+<dd>Os resultados da busca proporciónanse en base a enderezos reais. Servizos coma <a class="reference external" href="http://nominatim.openstreetmap.org/">Nominatim</a> poden accederse a través dunha interface web e converter direccións do mundo real a localizacións no mapa. Proba o enlace.</dd>
 </dl>
 </div>
 <div class="section" id="external-measurement-devices">
 <h4>Dispositivos de medida externos<a class="headerlink" href="#external-measurement-devices" title="Permalink to this headline">¶</a></h4>
-<p>Estás a traballar con dispositivos externos con sensores? Presión do aire, temperatura, pendente, concentración de monóxido de carbono, chámalle como queiras... Non sería magnífico non ter que ler a información dende o dispositivo externo e non ter que teclear de novo manualmente? Gustaríanos facilitarche a vida engadindo asistencia para conectar directamente ou teu dispositivo de medida externo a QField.</p>
+<p>Estás a traballar con dispositivos externos con sensores? Presión do aire, temperatura, pendente, concentración de monóxido de carbono, chámalle como queiras… Non sería magnífico non ter que ler a información dende o dispositivo externo e non ter que teclear de novo manualmente? Gustaríanos facilitarche a vida engadindo asistencia para conectar directamente ou teu dispositivo de medida externo a QField.</p>
 </div>
 <div class="section" id="record-audio">
 <h4>Gravar Audio<a class="headerlink" href="#record-audio" title="Permalink to this headline">¶</a></h4>
@@ -311,7 +307,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -323,7 +319,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>

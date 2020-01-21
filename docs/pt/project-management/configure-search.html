@@ -1,24 +1,21 @@
 
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Pesquisa nas camadas &mdash; Documentação QField Documentation 1.0 - M...</title>
-    
+    <title>Pesquisa nas camadas &#8212; Documentação QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0 - M...',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -26,10 +23,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
-    <link rel="top" title="Documentação QField Documentation 1.0 - M..." href="../index.html" />
-    <link rel="up" title="QField - Gestão do Projeto" href="index.html" />
-    <link rel="next" title="Definições da Camada de Vetor" href="vector-layers.html" />
-    <link rel="prev" title="Projecto Portátil" href="portable-project.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+    <link rel="next" title="Formatos de dados suportados" href="dataformat.html" />
+    <link rel="prev" title="Definições e símbolos SVG personalizados" href="android-data-structure.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -40,7 +37,7 @@
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -111,11 +108,11 @@
             
               
   <li>
-    <a href="portable-project.html" title="Previous Chapter: Projecto Portátil"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Projecto Portátil</span>
+    <a href="android-data-structure.html" title="Previous Chapter: Definições e símbolos SVG personalizados"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Definições e ...</span>
     </a>
   </li>
   <li>
-    <a href="vector-layers.html" title="Next Chapter: Definições da Camada de Vetor"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Definições da... &raquo;</span>
+    <a href="dataformat.html" title="Next Chapter: Formatos de dados suportados"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Formatos de d... &raquo;</span>
     </a>
   </li>
             
@@ -148,7 +145,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Pesquisa nas camadas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pesquisa nas camadas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatos de dados suportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Dados raster</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">QField - Gestão do Projeto</a></li>
@@ -179,10 +176,8 @@
 <div class="section" id="configure-search-in-qgis">
 <h2>Configurar a pesquisa no QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Link permanente para este título">¶</a></h2>
 <ol class="arabic simple">
-<li><p class="first">Escolher as camadas que são pesquisáveis em <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></p>
-</li>
-<li><p class="first">Definir a <em>display expression</em> para as camadas envolvidas, isto será usado para pesquisar elementos. Isto está configurado em <span class="menuselection">Vector Layer Properties ‣ Display</span> page</p>
-</li>
+<li>Escolher as camadas que são pesquisáveis em <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></li>
+<li>Definir a <em>display expression</em> para as camadas envolvidas, isto será usado para pesquisar elementos. Isto está configurado em <span class="menuselection">Vector Layer Properties ‣ Display</span> page</li>
 </ol>
 </div>
 </div>
@@ -200,7 +195,7 @@
         <br/>
         
 
-
+ 
 
 
 <div id="sourcelink">
@@ -212,7 +207,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Criado utilizando <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>
