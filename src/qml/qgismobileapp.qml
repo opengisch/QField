@@ -19,6 +19,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
+import QtSensors 5.11
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.2
 import org.qgis 1.0
@@ -1387,6 +1388,19 @@ ApplicationWindow {
 
     function validateFileExtension(filePath) {
       return filePath.split('.').pop() === "qgs" || filePath.split('.').pop() === "qgz"
+    }
+  }
+
+
+  SensorGesture {
+    id: sensorGesture
+    enabled: false
+    gestures : ["QtSensors.shake"]
+    onDetected:{
+      if ( stateMachine.state === 'digitize' )
+         stateMachine.state = 'browse'
+      else if ( stateMachine.state === 'browse' )
+         stateMachine.state = 'digitize'
     }
   }
 
