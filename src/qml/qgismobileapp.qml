@@ -1394,7 +1394,7 @@ ApplicationWindow {
 
   SensorGesture {
     id: sensorGesture
-    enabled: false
+    enabled: true
     gestures : ["QtSensors.shake"]
     onDetected:{
       if ( stateMachine.state === 'digitize' )
