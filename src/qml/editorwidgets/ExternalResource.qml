@@ -135,7 +135,7 @@ Item {
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
-            var filepath = expressionUtils.evaluate("'DCIM/Tast/'||\"street\" ||'_test_heiz_'||'.jpg'", currentFeature)
+            var filepath = expressionUtils.evaluate("'DCIM/Tast/'||\"street\" ||'_'||@layer_name||'.jpg'", currentFeature)
             if( !filepath )
                 filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
             __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/',filepath)
@@ -160,7 +160,7 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        var filepath = expressionUtils.evaluate("DCIM/Tast/'||\"street\" ||'_test_heiz_'||'.jpg'", currentFeature)
+        var filepath = expressionUtils.evaluate("DCIM/Tast/'||\"street\" ||@project_basename||'.jpg'", currentFeature)
         if( !filepath )
             filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
@@ -203,11 +203,13 @@ Item {
         visible: true
 
         onFinished: {
-          var timestamp = (new Date()).toISOString().replace(/[^0-9]/g, "")
-          var filename = timestamp+'.jpg';
-          platformUtilities.renameFile( path, qgisProject.homePath +'/DCIM/' + filename)
-          valueChanged('DCIM/' + filename, false)
-          campopup.close()
+            Project.re
+            var filepath = expressionUtils.evaluate("DCIM/Tast/'||\"street\" ||'_test_heiz_'||'.jpg'", currentFeature)
+            if( !filepath )
+                filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
+            platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
+            valueChanged(filepath, false)
+            campopup.close()
         }
         onCanceled: {
           campopup.close()
@@ -220,14 +222,10 @@ Item {
   Connections {
     target: __pictureSource
     onPictureReceived: {
-<<<<<<< HEAD
       if( path )
       {
-          valueChanged('DCIM/' + path, false)
+          valueChanged(path, false)
       }
-=======
-      valueChanged(path, false)
->>>>>>> use exception for image path - prototype
     }
   }
 
