@@ -22,7 +22,7 @@ import android.support.v4.content.FileProvider;
 public class QFieldGalleryPictureActivity extends Activity{
     private static final String TAG = "QField Gallery Picture Activity";
     private String prefix;
-    private String pictureFileName;
+    private String pictureFilePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,8 +32,9 @@ public class QFieldGalleryPictureActivity extends Activity{
         prefix = getIntent().getExtras().getString("prefix");
         Log.d(TAG, "Received prefix: " + prefix);
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureFileName = "JPEG_" + timeStamp + ".jpg";
+        pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
+        Log.d(TAG, "Received pictureFilePath: " + pictureFilePath);
+
         callGalleryIntent();
 
         return;
@@ -52,7 +53,7 @@ public class QFieldGalleryPictureActivity extends Activity{
         Log.d(TAG, "onActivityResult()");
         Log.d(TAG, "resultCode: "+resultCode);
 
-        File result = new File(prefix, pictureFileName);
+        File result = new File(prefix+pictureFilePath);
         result.getParentFile().mkdirs();
 
         if (resultCode == RESULT_OK) {
@@ -65,7 +66,7 @@ public class QFieldGalleryPictureActivity extends Activity{
             }
 
             Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", pictureFileName);
+            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix+pictureFilePath);
             setResult(RESULT_OK, intent);
         } else {
             Intent intent = this.getIntent();

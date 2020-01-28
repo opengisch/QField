@@ -68,3 +68,12 @@ QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const Sn
 
   return scope;
 }
+
+QString ExpressionUtils::evaluate( const QString expressionText, QgsFeature feature )
+{
+  QgsExpression exp( expressionText );
+  QgsExpressionContext expressionContext;
+  expressionContext.setFeature( feature );
+  QVariant value = exp.evaluate( &expressionContext );
+  return value.toString();
+}

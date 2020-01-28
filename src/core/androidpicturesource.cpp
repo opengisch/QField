@@ -40,13 +40,15 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
     {
       QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
 
-      QAndroidJniObject picture_image_filename = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
-      picture_image_filename = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                               picture_image_filename.object<jstring>() );
 
-      qDebug() << "picture_image_filename: " << picture_image_filename.toString();
+      QAndroidJniObject picture_image_path = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
+      picture_image_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
+                           picture_image_path.object<jstring>() );
 
-      emit pictureReceived( picture_image_filename.toString() );
+      qDebug() << "picture_image_path: " << picture_image_path.toString();
+      QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
+
+      emit pictureReceived( picture_image_relative_path );
     }
     else
     {

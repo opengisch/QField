@@ -49,14 +49,14 @@ class PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.

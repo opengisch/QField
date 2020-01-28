@@ -20,7 +20,9 @@
 #define EXPRESSIONCONTEXTUTILS_H
 
 #include <qgsexpressioncontext.h>
+#include <qgsexpression.h>
 #include "snappingresult.h"
+#include <QObject>
 
 class QGeoPositionInfoSource;
 
@@ -32,6 +34,14 @@ class ExpressionContextUtils
 
   private:
     ExpressionContextUtils() = default;
+};
+
+class ExpressionUtils : public QObject
+{
+    Q_OBJECT
+
+  public:
+    Q_INVOKABLE QString evaluate( const QString expressionText, QgsFeature feature );
 };
 
 #endif // EXPRESSIONCONTEXTUTILS_H
