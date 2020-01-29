@@ -18,6 +18,7 @@
 
 #include "expressioncontextutils.h"
 #include "qgsgeometry.h"
+#include "qgsexpressioncontextutils.h"
 #include <QtPositioning/QGeoPositionInfoSource>
 
 QgsExpressionContextScope *ExpressionContextUtils::positionScope( QGeoPositionInfoSource *source )
@@ -69,11 +70,19 @@ QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const Sn
   return scope;
 }
 
-QString ExpressionUtils::evaluate( const QString expressionText, QgsFeature feature )
+
+QString ExpressionUtils::evaluate()
 {
-  QgsExpression exp( expressionText );
+  if ( mExpressionText.isEmpty() )
+    return QString();
+
+  QgsExpression exp( mExpressionText );
   QgsExpressionContext expressionContext;
-  expressionContext.setFeature( feature );
+  expressionContext.setFeature( mFeature );
+  expressionContext << QgsExpressionContextUtils::globalScope()
+                    << QgsExpressionContextUtils::projectScope( mProject )
+                    << QgsExpressionContextUtils::layerScope( mLayer );
+
   QVariant value = exp.evaluate( &expressionContext );
   return value.toString();
 }

@@ -154,8 +154,6 @@ class QgisMobileapp : public QQmlApplicationEngine
 #else
     PlatformUtilities mPlatformUtils;
 #endif
-
-    ExpressionUtils mExpressionUtils;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )

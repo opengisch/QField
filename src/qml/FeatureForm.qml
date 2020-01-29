@@ -276,6 +276,7 @@ Page {
           property bool constraintsHardValid: form.model.constraintsHardValid
           property bool constraintsSoftValid: form.model.constraintsSoftValid
           property var currentFeature: form.model.featureModel.feature
+          property var currentLayer: form.model.featureModel.currentLayer
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
