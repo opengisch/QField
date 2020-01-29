@@ -97,7 +97,7 @@
 #include "trackingmodel.h"
 #include "fileutils.h"
 #include "featureutils.h"
-#include "expressioncontextutils.h"
+#include "expressionutils.h"
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -277,11 +277,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
-<<<<<<< HEAD
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
-  qmlRegisterUncreatableType<ExpressionUtils>( "org.qfield", 1, 0, "ExpressionUtils", "" );
-=======
->>>>>>> pass project and layer to expression utils to use other scopes
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 

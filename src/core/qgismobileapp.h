@@ -44,8 +44,6 @@
 #include "androidplatformutilities.h"
 #endif
 
-#include "expressioncontextutils.h"
-
 class AppInterface;
 class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;

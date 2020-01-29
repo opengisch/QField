@@ -20,9 +20,7 @@
 #define EXPRESSIONCONTEXTUTILS_H
 
 #include <qgsexpressioncontext.h>
-#include <qgsexpression.h>
 #include "snappingresult.h"
-#include <QObject>
 
 class QGeoPositionInfoSource;
 
@@ -34,39 +32,6 @@ class ExpressionContextUtils
 
   private:
     ExpressionContextUtils() = default;
-};
-
-class ExpressionUtils : public QObject
-{
-    Q_OBJECT
-
-    Q_PROPERTY( QString expressionText READ expressionText WRITE setExpressionText NOTIFY expressionTextChanged )
-    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
-    Q_PROPERTY( QgsMapLayer *layer READ layer WRITE setLayer NOTIFY layerChanged )
-
-  public:
-    explicit ExpressionUtils( QObject *parent = nullptr );
-
-    QString expressionText() { return mExpressionText; }
-    QgsFeature feature() { return mFeature; }
-    QgsMapLayer *layer() { return mLayer; }
-
-    void setExpressionText( QString expressionText ) { mExpressionText = expressionText; }
-    void setFeature( QgsFeature feature ) { mFeature = feature; }
-    void setLayer( QgsMapLayer *layer ) { mLayer = layer; }
-
-    Q_INVOKABLE QString evaluate();
-
-  signals:
-    void layerChanged( QgsMapLayer *layer );
-    void expressionTextChanged( QString expressionText );
-    void featureChanged( QgsFeature feature );
-
-  private:
-    QString mExpressionText;
-    QgsFeature mFeature;
-    QgsMapLayer *mLayer = nullptr;
-
 };
 
 #endif // EXPRESSIONCONTEXTUTILS_H
