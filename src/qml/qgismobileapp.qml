@@ -430,6 +430,7 @@ ApplicationWindow {
     id: dashBoard
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
+    interactive: !welcomeScreen.visible
   }
 
   DropShadow {
