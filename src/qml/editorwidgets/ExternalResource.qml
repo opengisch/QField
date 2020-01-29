@@ -125,7 +125,7 @@ Item {
 
   ExpressionUtils {
     id: expressionUtils
-    expressionText: "'DCIM/Tast/'||\"street\" ||'_'||@layer_name||'.jpg'"
+    expressionText: qgisProject.readEntry('qfieldsync','/picturePathExpression') //"'DCIM/sync/'||\"street\" ||'_'||@layer_name||_||@project_crs||'.jpg'"
     feature: currentFeature
     project: qgisProject
     layer: currentLayer
