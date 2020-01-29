@@ -44,7 +44,13 @@ Item {
       }
   }
 
-<<<<<<< HEAD
+  ExpressionUtils {
+    id: expressionUtils
+    feature: currentFeature
+    layer: currentLayer
+    expressionText: JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name]
+  }
+
   Label {
     id: linkField
     height: fontMetrics.height + 20 * dp
@@ -74,6 +80,7 @@ Item {
           __viewStatus = platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
+
   }
 
   FontMetrics {
@@ -121,12 +128,6 @@ Item {
     samples: 17
     color: "#DD000000"
     source: geoTagBadge
-  }
-
-  ExpressionUtils {
-    id: expressionUtils
-    feature: currentFeature
-    layer: currentLayer
   }
 
   QField.Button {
