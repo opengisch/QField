@@ -51,7 +51,7 @@ fi
 if [[ -n ${APP_VERSION} ]];
 then
   echo "Building release version ${APP_VERSION}"
-  APP_VERSION_CODE=$(app_version_code "${APP_VERSION}")
+  APP_VERSION_CODE=$(app_version_code "${APP_VERSION}" "${ARCH}")
   echo "Generated version code: ${APP_VERSION_CODE}"
 fi
 
