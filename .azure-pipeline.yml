@@ -163,5 +163,10 @@ jobs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: qfield-$(Build.BuildNumber)
 
+  - script: |
+      echo on
+      cd ms-windows\osgeo4w
+      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield v1.4.1 $(GH_TOKEN) qfield-Windows-v1.4.1.zip
+
 # vim: set nowrap :
 
