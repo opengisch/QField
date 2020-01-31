@@ -4,11 +4,8 @@ variables:
 trigger:
   branches:
     include:
-    - windows-azure-pipeline
-
-pr:
-- master
-- azure-pipelines
+    - master
+    - refs/tags/*
 
 jobs:
 - job: build
@@ -54,13 +51,14 @@ jobs:
       
       sha="${BUILD_SOURCEVERSION:0:10}"
 
+      version=$(git describe --tags)
+
       if [ "$BUILD_REASON" = "PullRequest" ]; then
         buildname="PR $pr / $branch ($BUILD_BUILDID) ($sha) ($OSGEO4W_PKG $target $OSGEO4W_ARCH)"   # no colons allowed here
       else
         buildname="$OSGEO4W_PKG-$version-$sha-$target-VC14-$OSGEO4W_ARCH"
       fi
 
-      version="1.3.0" # TODO: make dynamic
       binary=$(Build.BuildNumber)
 
       echo "##vso[task.setvariable variable=TARGET]$target"
@@ -166,7 +164,9 @@ jobs:
   - script: |
       echo on
       cd ms-windows\osgeo4w
-      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield v1.4.1 $(GH_TOKEN) qfield-Windows-v1.4.1.zip
+      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield %VERSION% $(GH_TOKEN) qfield-Windows-%VERSION%.zip
+    displayName: 'Deploy to github'
+    condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
 
 # vim: set nowrap :
 
