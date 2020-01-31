@@ -160,7 +160,7 @@ jobs:
   - script: |
       echo on
       cd ms-windows\osgeo4w
-      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield v1.4.1 $(GH_TOKEN) qfield-Windows-v1.4.1.zip
+      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield v1.4.1 $(GH_TOKEN) qfield-Windows-v1.4.1-%OSGEO4W_ARCH%.zip
 
 # vim: set nowrap :
 
