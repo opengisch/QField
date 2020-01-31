@@ -4,11 +4,10 @@ variables:
 trigger:
   branches:
     include:
-    - windows-azure-pipeline
+    - master
 
 pr:
 - master
-- azure-pipelines
 
 jobs:
 - job: build
