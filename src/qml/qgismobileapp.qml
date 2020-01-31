@@ -1039,8 +1039,9 @@ ApplicationWindow {
     id: busyIndicator
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
-    width: 60 * dp
-    height: 60 * dp
+    padding: 5 * dp
+    width: mainMenuBar.height
+    height: mainMenuBar.height
     running: mapCanvasMap.isRendering
   }
 
