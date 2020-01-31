@@ -44,7 +44,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
 
     RELEASE_URL="https://github.com/opengisch/QField/releases/tag/${TRAVIS_TAG}"
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield internaltest ${RELEASE_URL} ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield internal ${RELEASE_URL} ${ASSETS}
 
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
     # we are on a standard commit on master branch
@@ -62,6 +62,6 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
 
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
     RELEASE_URL="https://github.com/opengisch/QField/commit/${TRAVIS_COMMIT}"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev internaltest ${RELEASE_URL} ${ASSETS}
+    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev internal ${RELEASE_URL} ${ASSETS}
   fi
 fi
