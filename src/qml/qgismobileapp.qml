@@ -1392,7 +1392,6 @@ ApplicationWindow {
       }
     }
     onDropped: {
-      console.warn('Drop URL: ' + drop.urls[0])
       iface.loadProject( drop.urls[0] )
     }
 
