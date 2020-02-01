@@ -100,6 +100,8 @@ copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_core.dll" "%QFIELD_RELEASE_PATH%"
 
 %O4W_ROOT%\apps\Qt5\bin\windeployqt.exe --concurrent --sensors --sql --webchannel --webkitwidgets --webkit --compiler-runtime --qmldir %QMLDIR% "%QFIELD_RELEASE_PATH%\qfield_core.dll"
 
+call "%QFIELD_RELEASE_PATH%\qfield.exe"
+
 goto end
 
 :usage
