@@ -143,6 +143,12 @@ jobs:
       windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
     displayName: 'Package QField'
 
+  - script: |
+      echo on
+      cd ms-windows\osgeo4w
+      checklibs.cmd $(Build.ArtifactStagingDirectory)
+    displayName: 'Check libraries'
+
 # Does not give meaningful output, except for a
 #   Cmd.exe exited with code '-1073741515'.
 #   ( DLL missing )
