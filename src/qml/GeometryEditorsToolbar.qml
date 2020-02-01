@@ -1,5 +1,5 @@
-import QtQuick 2.12
-import QtQml.Models 2.12
+import QtQuick 2.11
+import QtQml.Models 2.11
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
