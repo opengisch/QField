@@ -99,10 +99,10 @@ jobs:
 #      path: c:\temp\osgeo4w
 #    displayName: Cache OSGeo4W
 
-  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P qgis-dev-deps -P python3-clcache
+  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://ftp.osuosl.org/pub/osgeo/download/osgeo4w -l c:\temp\osgeo4w -P qgis-dev-deps -P python3-clcache
     displayName: 'Install OSGeo4W qgis-dev builddeps'
 
-  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://download.osgeo.org/osgeo4w -l c:\temp\osgeo4w -P qgis-dev
+  - powershell: ms-windows/osgeo4w/runasadmin.ps1 c:\osgeo4w-setup.exe --autoaccept --advanced --arch $env:OSGEO4W_ARCH --quiet-mode --upgrade-also --root $env:OSGEO4W_ROOT --only-site -s http://ftp.osuosl.org/pub/osgeo/download/osgeo4w -l c:\temp\osgeo4w -P qgis-dev
     displayName: 'Install OSGeo4W qgis-dev'
 
   - script: |
