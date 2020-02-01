@@ -1,6 +1,6 @@
 FIND_PACKAGE(Qt5 COMPONENTS Core REQUIRED)
 
-ADD_EXECUTABLE(qfield WIN32
+ADD_EXECUTABLE(qfield
   main.cpp
   ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
   ${CMAKE_SOURCE_DIR}/images/images.qrc
