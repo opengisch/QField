@@ -1,0 +1,4 @@
+ext-ms-.*
+api-ms-.*
+EMCLIENT.dll.*
+UpdateAPI.dll.*

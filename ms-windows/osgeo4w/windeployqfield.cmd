@@ -100,7 +100,7 @@ copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_core.dll" "%QFIELD_RELEASE_PATH%"
 
 %O4W_ROOT%\apps\Qt5\bin\windeployqt.exe --concurrent --sensors --sql --webchannel --webkitwidgets --webkit --compiler-runtime --qmldir %QMLDIR% "%QFIELD_RELEASE_PATH%\qfield_core.dll"
 
-%O4W_ROOT%\bin\Dependencies.exe -modules "%QFIELD_RELEASE_PATH%\qfield.exe"
+%O4W_ROOT%\bin\Dependencies.exe -modules "%QFIELD_RELEASE_PATH%/qfield.exe | grep "\[NOT_FOUND\]" | grep -vf acceptable_missing_libs.txt
 
 goto end
 
