@@ -17,10 +17,10 @@ jobs:
   strategy:
     maxParallel: 4
     matrix:
-      x86:
-         OSGEO4W_ROOT: C:\OSGeo4W
-         OSGEO4W_ARCH: x86
-         PLATFORM: x86
+#      x86:
+#         OSGEO4W_ROOT: C:\OSGeo4W
+#         OSGEO4W_ARCH: x86
+#         PLATFORM: x86
 
       x86_64:
          OSGEO4W_ROOT: C:\OSGeo4W64
