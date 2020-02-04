@@ -215,7 +215,7 @@ int Rubberband::traceTimeInterval() const
   return mTraceTimeInterval;
 }
 
-void Rubberband::setTraceTimeInterval(int traceTimeInterval)
+void Rubberband::setTraceTimeInterval( int traceTimeInterval )
 {
   mTraceTimeInterval = traceTimeInterval;
 }
@@ -228,17 +228,17 @@ void Rubberband::traceCollecter()
 
 void Rubberband::traceStart()
 {
-  traceTimer= new QTimer(this);
-  connect(traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
+  traceTimer = new QTimer( this );
+  connect( traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
 
   qDebug() << QString( "Tracos startos" );
-  traceTimer->start(mTraceTimeInterval*1000);
+  traceTimer->start( mTraceTimeInterval * 1000 );
 }
 
 void Rubberband::traceStop()
 {
   traceTimer->stop();
-  disconnect(traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
+  disconnect( traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
   qDebug() << QString( "Tracos stoppos" );
 }
 
