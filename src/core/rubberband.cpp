@@ -15,6 +15,9 @@
  ***************************************************************************/
 
 
+#include <QTimer>
+#include <QDebug>
+
 #include "vertexmodel.h"
 #include "rubberband.h"
 
@@ -205,6 +208,38 @@ void Rubberband::setWidthCurrentPoint( qreal width )
   mWidthCurrentPoint = width;
 
   emit widthCurrentPointChanged();
+}
+
+int Rubberband::traceTimeInterval() const
+{
+  return mTraceTimeInterval;
+}
+
+void Rubberband::setTraceTimeInterval(int traceTimeInterval)
+{
+  mTraceTimeInterval = traceTimeInterval;
+}
+
+void Rubberband::traceCollecter()
+{
+  qDebug() << QString( "Collecta " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
+  model()->addVertex();
+}
+
+void Rubberband::traceStart()
+{
+  traceTimer= new QTimer(this);
+  connect(traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
+
+  qDebug() << QString( "Tracos startos" );
+  traceTimer->start(mTraceTimeInterval*1000);
+}
+
+void Rubberband::traceStop()
+{
+  traceTimer->stop();
+  disconnect(traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
+  qDebug() << QString( "Tracos stoppos" );
 }
 
 QColor Rubberband::colorCurrentPoint() const
