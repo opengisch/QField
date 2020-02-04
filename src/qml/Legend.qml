@@ -87,6 +87,20 @@ TreeView {
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
+      Button {
+        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' ? true : false
+        width: 24 * dp
+        height: 24 * dp
+        text: layerTraces.itemAt( styleData.row ).running ? 'No' : 'Go'
+        onClicked: {
+            //start trace
+            if( layerTraces.itemAt( styleData.row ).running ){
+                layerTraces.itemAt( styleData.row ).stop();
+            }else{
+                layerTraces.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
+            }
+        }
+      }
     }
   }
 

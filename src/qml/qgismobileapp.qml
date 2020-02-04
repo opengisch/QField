@@ -233,6 +233,59 @@ ApplicationWindow {
 
         visible: stateMachine.state === 'measure'
       }
+      Repeater {
+          id: layerTraces
+          model: layerTree
+          delegate: traceComponent
+      }
+
+      Component{
+          id: traceComponent
+
+          Item{
+              id: trace
+
+              property bool running: false
+
+              Rubberband {
+                  id: rubber
+                  width: 2 * dp
+                  color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
+
+                  mapSettings: mapCanvas.mapSettings
+
+                  model: RubberbandModel {
+                      frozen: false
+                      currentCoordinate: positionSource.projectedPosition
+                      vectorLayer: model.VectorLayer //does not work
+                      crs: mapCanvas.mapSettings.destinationCrs
+                  }
+
+                  anchors.fill: parent
+                  visible: true
+
+              }
+
+              FeatureModel {
+                  id: featureModel
+              }
+
+              function start( layer )
+              {
+                  //i don't know why we have to pass the layer here and cannot just set it above in the RubberbandModel
+                  rubber.model.vectorLayer = layer
+                  rubber.traceStart();
+                  running = true;
+              }
+
+              function stop()
+              {
+                  rubber.traceStop();
+                  rubber.model.reset();
+                  running = false;
+              }
+          }
+      }
 
       /** The identify tool **/
       IdentifyTool {
