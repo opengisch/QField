@@ -42,6 +42,8 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
     //! Line width  of the aleternative rubberband for current point
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
+    //! trace interval in seconds
+    Q_PROPERTY( int traceTimeInterval READ traceTimeInterval WRITE setTraceTimeInterval NOTIFY traceTimeIntervalChanged )
 
   public:
     Rubberband( QQuickItem *parent = nullptr );
@@ -75,6 +77,14 @@ class Rubberband : public QQuickItem
     //! \copydoc widthCurrentPoint
     void setWidthCurrentPoint( qreal width );
 
+    //! \copydoc traceTimeInterval
+    int traceTimeInterval() const;
+    //! \copydoc traceTimeInterval
+    void setTraceTimeInterval( int traceTimeInterval );
+
+    Q_INVOKABLE void traceStart();
+    Q_INVOKABLE void traceStop();
+
   signals:
     void modelChanged();
     void vertexModelChanged();
@@ -87,10 +97,13 @@ class Rubberband : public QQuickItem
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
     void widthCurrentPointChanged();
+    //! \copydoc traceTimeInterval
+    void traceTimeIntervalChanged();
 
 
   private slots:
     void markDirty();
+    void traceCollecter();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
@@ -103,6 +116,9 @@ class Rubberband : public QQuickItem
     qreal mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     qreal mWidthCurrentPoint = 1.2;
+
+    QTimer *traceTimer = nullptr;
+    int mTraceTimeInterval = 3;
 };
 
 
