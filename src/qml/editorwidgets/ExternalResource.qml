@@ -31,7 +31,7 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (image.currentValue && settings.value("useNativeCamera", false))
+        if (image.currentValue && settings.value("nativeCamera", false))
           platformUtilities.open(image.currentValue, "image/*");
       }
     }
@@ -59,7 +59,7 @@ Item {
     visible: !readOnly
 
     onClicked: {
-      if ( settings.valueBool("useNativeCamera", true) ) {
+      if ( settings.valueBool("nativeCamera", true) ) {
         __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/DCIM')
       } else {
         platformUtilities.createDir( qgisProject.homePath, 'DCIM' )

@@ -17,7 +17,7 @@ Page {
   property alias locatorKeepScale: locatorKeepScaleCheckBox.checked
   property alias incrementalRendering: incrementalRenderingCheckBox.checked
   property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
-  property alias useNativeCamera: useNativeCameraCheckBox.checked
+  property alias nativeCamera: nativeCameraCheckBox.checked
 
   Settings {
     property alias showScaleBar: showScaleBarCheckBox.checked
@@ -25,7 +25,7 @@ Page {
     property alias locatorKeepScale: locatorKeepScaleCheckBox.checked
     property alias incrementalRendering: incrementalRenderingCheckBox.checked
     property alias numericalDigitizingInformation: numericalDigitizingInformationCheckBox.checked
-    property alias useNativeCamera: useNativeCameraCheckBox.checked
+    property alias nativeCamera: nativeCameraCheckBox.checked
   }
 
   Rectangle {
@@ -249,7 +249,7 @@ Page {
                     Layout.minimumHeight: contentHeight
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: useNativeCameraCheckBox.toggle()
+                        onClicked: nativeCameraCheckBox.toggle()
                     }
                 }
 
@@ -257,7 +257,7 @@ Page {
                     padding: 8 * dp
                     topPadding: 0
                     leftPadding: 22 * dp
-                    text: qsTr( "Warning: native camera function is unstable on recent Android versions." )
+                    text: qsTr( "If enabled, the user can choose the system camera app to use." )
                     font: Theme.tipFont
 
                     wrapMode: Text.WordWrap
@@ -269,10 +269,10 @@ Page {
             }
 
             QfSwitch {
-                id: useNativeCameraCheckBox
+                id: nativeCameraCheckBox
+                checked: true
                 Layout.alignment: Qt.AlignTop
             }
-
 
           /*
   // To be used in combination with code in main.cpp
