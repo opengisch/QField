@@ -63,6 +63,7 @@ public class QFieldCameraPictureActivity extends Activity{
         Log.d(TAG, "resultCode: "+resultCode);
 
         File result = new File(prefix, pictureFileName);
+        result.getParentFile().mkdirs();
 
         if (resultCode == RESULT_OK) {
 
