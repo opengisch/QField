@@ -249,8 +249,12 @@ ApplicationWindow {
               property bool running: false
               property VectorLayer traceLayer //model.VectorLayer does not work see: function start( layer )
 
+              Component.onCompleted: {
+                  console.log( "index: "+index )
+              }
+
               Rubberband {
-                  id: rubber
+                  id: traceRubberband
                   width: 4 * dp
                   color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.4);
 
@@ -263,13 +267,13 @@ ApplicationWindow {
                         crs: mapCanvas.mapSettings.destinationCrs
 
                         onVertexCountChanged: {
-                            if( ( Number( geometryType ) === 1 && vertexCount > 2 ) ||
-                                ( Number( geometryType ) === 2 && vertexCount > 3 ) )
+                            if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount > 2 ) ||
+                                ( geometryType === QgsWkbTypes.PolygonGeometry &&vertexCount > 3 ) )
                             {
                                 traceFeatureModel.applyGeometry()
 
-                                if( ( Number( geometryType ) === 1 && vertexCount == 3 ) ||
-                                    ( Number( geometryType ) === 2 && vertexCount == 4 ) )
+                                if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3 ) ||
+                                    ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
                                 {
                                     traceFeatureModel.create()
                                 }
@@ -290,7 +294,7 @@ ApplicationWindow {
                   currentLayer: traceLayer
                   geometry: Geometry {
                     id: traceGeometry
-                    rubberbandModel: rubber.model
+                    rubberbandModel: traceRubberband.model
                     vectorLayer: traceLayer
                   }
               }
@@ -306,8 +310,8 @@ ApplicationWindow {
 
               function stop()
               {
-                  rubber.traceStop();
-                  rubber.model.reset();
+                  traceRubberband.traceStop();
+                  traceRubberband.model.reset();
                   running = false;
               }
 
@@ -356,22 +360,14 @@ ApplicationWindow {
                       state: 'Add'
 
                       onTemporaryStored: {
-                          popup.close()
-                      }
-
-                      onSaved: {
-                          popup.close()
+                          embeddedFeatureForm.active = false
+                          traceRubberband.traceStart();
+                          trace.running = true;
                       }
 
                       onCancelled: {
                           popup.close()
                       }
-                  }
-
-                  onClosed: {
-                    embeddedFeatureForm.active = false
-                    rubber.traceStart();
-                    trace.running = true;
                   }
                 }
               }
