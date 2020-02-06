@@ -232,6 +232,7 @@ void Rubberband::traceStart()
   connect( traceTimer, &QTimer::timeout, this, &Rubberband::traceCollecter );
 
   qDebug() << QString( "Tracos startos" );
+  traceCollecter();
   traceTimer->start( mTraceTimeInterval * 1000 );
 }
 
