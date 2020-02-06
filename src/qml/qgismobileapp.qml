@@ -233,6 +233,7 @@ ApplicationWindow {
 
         visible: stateMachine.state === 'measure'
       }
+
       Repeater {
           id: layerTraces
           model: layerTree
@@ -246,36 +247,61 @@ ApplicationWindow {
               id: trace
 
               property bool running: false
+              property VectorLayer traceLayer //model.VectorLayer does not work see: function start( layer )
 
               Rubberband {
                   id: rubber
-                  width: 2 * dp
-                  color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
+                  width: 4 * dp
+                  color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.4);
 
                   mapSettings: mapCanvas.mapSettings
 
                   model: RubberbandModel {
-                      frozen: false
-                      currentCoordinate: positionSource.projectedPosition
-                      vectorLayer: model.VectorLayer //does not work
-                      crs: mapCanvas.mapSettings.destinationCrs
+                        frozen: false
+                        currentCoordinate: positionSource.projectedPosition
+                        vectorLayer: traceLayer
+                        crs: mapCanvas.mapSettings.destinationCrs
+
+                        onVertexCountChanged: {
+                            if( ( Number( geometryType ) === 1 && vertexCount > 2 ) ||
+                                ( Number( geometryType ) === 2 && vertexCount > 3 ) )
+                            {
+                                traceFeatureModel.applyGeometry()
+
+                                if( ( Number( geometryType ) === 1 && vertexCount == 3 ) ||
+                                    ( Number( geometryType ) === 2 && vertexCount == 4 ) )
+                                {
+                                    traceFeatureModel.create()
+                                }
+                                else
+                                {
+                                    traceFeatureModel.save()
+                                }
+                            }
+                        }
                   }
 
                   anchors.fill: parent
                   visible: true
-
               }
 
               FeatureModel {
-                  id: featureModel
+                  id: traceFeatureModel
+                  currentLayer: traceLayer
+                  geometry: Geometry {
+                    id: traceGeometry
+                    rubberbandModel: rubber.model
+                    vectorLayer: traceLayer
+                  }
               }
 
               function start( layer )
               {
-                  //i don't know why we have to pass the layer here and cannot just set it above in the RubberbandModel
-                  rubber.model.vectorLayer = layer
-                  rubber.traceStart();
-                  running = true;
+                  //layer is passed since I cannot bind traceLayer with model.VectorLayer
+                  traceLayer = layer
+                  embeddedFeatureForm.state = 'Add'
+                  traceFeatureModel.resetAttributes()
+                  embeddedFeatureForm.active = true
               }
 
               function stop()
@@ -283,6 +309,71 @@ ApplicationWindow {
                   rubber.traceStop();
                   rubber.model.reset();
                   running = false;
+              }
+
+              //the add entry stuff
+              AttributeFormModel {
+                id: embeddedAttributeFormModel
+                featureModel: traceFeatureModel
+              }
+
+              Loader {
+                id: embeddedFeatureForm
+
+                sourceComponent: embeddedFeatureFormComponent
+                active: false
+                onLoaded: {
+                  item.open()
+                }
+              }
+
+              Component {
+                id: embeddedFeatureFormComponent
+
+                Popup {
+                  id: popup
+                  parent: ApplicationWindow.overlay
+
+                  x: 24 * dp
+                  y: 24 * dp
+                  padding: 0
+                  width: parent.width - 48 * dp
+                  height: parent.height - 48 * dp
+                  modal: true
+                  closePolicy: Popup.CloseOnEscape
+
+                  FeatureForm {
+                      model: embeddedAttributeFormModel
+
+                      focus: true
+
+                      dontSave: true
+                      embedded: true
+                      toolbarVisible: true
+
+                      anchors.fill: parent
+
+                      state: 'Add'
+
+                      onTemporaryStored: {
+                          popup.close()
+                      }
+
+                      onSaved: {
+                          popup.close()
+                      }
+
+                      onCancelled: {
+                          popup.close()
+                      }
+                  }
+
+                  onClosed: {
+                    embeddedFeatureForm.active = false
+                    rubber.traceStart();
+                    trace.running = true;
+                  }
+                }
               }
           }
       }
