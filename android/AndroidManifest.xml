@@ -109,6 +109,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
 
   <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
        Remove the comment if you do not require these default features. -->
