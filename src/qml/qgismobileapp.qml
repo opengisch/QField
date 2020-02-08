@@ -284,12 +284,13 @@ ApplicationWindow {
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
-          var screenLocation = mapSettings.coordinateToScreen( location )
-          var threshold = settings.value( "/QField/Positioning/FollowThreshold", 20 * dp )
-          if ( screenLocation.x < threshold || screenLocation.y < threshold ||
-               screenLocation.x > mainWindow.width - threshold || screenLocation.y > mainWindow.height - threshold )
+          var screenLocation = mapSettings.coordinateToScreen( location );
+          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
           {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
           }
         }
       }
