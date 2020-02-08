@@ -55,7 +55,7 @@ TreeView {
           if ( legendNode )
             return "image://legend/" + legendNode
           else
-            return unknown
+            return ''
       }
       width: delegatedItem.height
       height: delegatedItem.height
