@@ -967,12 +967,6 @@ ApplicationWindow {
     featureModel: digitizingFeature
   }
 
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-    }
-  }
-
   function displayToast( message ) {
     //toastMessage.text = message
     toast.show(message)
