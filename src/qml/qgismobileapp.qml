@@ -167,6 +167,14 @@ ApplicationWindow {
           }
       }
 
+      onPanned: {
+          if ( gpsButton.followActive )
+          {
+            gpsButton.followActive = false
+            displayToast( qsTr( "Canvas stopped following location" ) )
+          }
+      }
+
       Component.onCompleted: platformUtilities.showRateThisApp()
     }
 
@@ -273,6 +281,18 @@ ApplicationWindow {
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+
+      onLocationChanged: {
+        if ( gpsButton.followActive ) {
+          var screenLocation = mapSettings.coordinateToScreen( location )
+          var threshold = settings.value( "/QField/Positioning/FollowThreshold", 20 * dp )
+          if ( screenLocation.x < threshold || screenLocation.y < threshold ||
+               screenLocation.x > mainWindow.width - threshold || screenLocation.y > mainWindow.height - threshold )
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+          }
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -515,6 +535,8 @@ ApplicationWindow {
 
       bgcolor: "#64B5F6"
 
+      property bool followActive: false
+
       states: [
         State {
 
@@ -530,22 +552,26 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_white_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
             opacity:1
           }
         }
       ]
 
       onClicked: {
+        followActive = true
         if ( positionSource.projectedPosition.x )
         {
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
           if ( !positionSource.active )
           {
             positionSource.active = true;
-            displayToast( qsTr( "Activating positioning service..." ) )
+            displayToast( qsTr( "Activating positioning service" ) )
+          }
+          else
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -554,12 +580,12 @@ ApplicationWindow {
           {
             if ( positionSource.active )
             {
-              displayToast( qsTr( "Waiting for location..." ) )
+              displayToast( qsTr( "Waiting for location" ) )
             }
             else
             {
               positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
+              displayToast( qsTr( "Activating positioning service" ) )
             }
           }
         }
