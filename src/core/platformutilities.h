@@ -102,9 +102,15 @@ class PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
 
-  /**
-   * Show the rate this app screen if required.
-   */
+    /**
+     * Sets whether the device screen is allowed to go in lock mode.
+     * @param allowLock if set to FALSE, the screen will not be allowed to lock.
+     */
+    Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
+
+    /**
+     * Show the rate this app screen if required.
+    */
     Q_INVOKABLE virtual void showRateThisApp() const {};
 
 };
