@@ -148,7 +148,7 @@ Page {
           property int currentIndex: index
 
           Rectangle {
-            anchors.fill: swipeView
+            anchors.fill: formPage
             color: "white"
           }
 
