@@ -23,6 +23,7 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
 #include <qgsconfig.h>
 
@@ -142,6 +143,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
+    QgsExifTools mExifTools;
 
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
