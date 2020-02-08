@@ -148,7 +148,7 @@ ApplicationWindow {
     Rectangle {
       id: mapCanvasBackground
       anchors.fill: parent
-      color: mapSettings.backgroundColor
+      color: mapCanvas.mapSettings.backgroundColor
     }
 
     /* The base map */
@@ -433,21 +433,14 @@ ApplicationWindow {
     interactive: !welcomeScreen.visible
   }
 
-  DropShadow {
-    anchors.fill: dashBoard
-    horizontalOffset: 2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: dashBoard
-  }
-
   /* The main menu */
   Row {
     id: mainMenuBar
     width: childrenRect.width + 8 * dp
     height: childrenRect.height + 8 * dp
+    topPadding: 4 * dp
+    leftPadding: 4 * dp
+    spacing: 4 * dp
 
     Button {
       id: menuButton
@@ -455,20 +448,12 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
       bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
     }
 
     CloseTool {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
       toolText: qsTr( 'Close measure tool' )
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
       onClosedTool: mainWindow.closeMeasureTool()
     }
 
@@ -476,10 +461,6 @@ ApplicationWindow {
       id: closeGeometryEditorsTool
       visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
       toolText: qsTr( 'Stop editing' )
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
   }
@@ -1256,8 +1237,8 @@ ApplicationWindow {
     visible: false
     nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
-    width: parent.width
-    height: parent.height
+    width: mainWindow.width
+    height: mainWindow.height
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
@@ -1308,7 +1289,6 @@ ApplicationWindow {
       width: parent.width
       y: parent.height - 112 * dp
       margins: 0
-      background: undefined
       closePolicy: Popup.NoAutoClose
 
       function show(text) {

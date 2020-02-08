@@ -58,7 +58,7 @@ Drawer {
     state: "Add"
     buffered: false
 
-    focus: parent.opened
+    focus: overlayFeatureFormDrawer.opened
 
     onSaved: {
       displayToast( qsTr( "Changes saved" ) )

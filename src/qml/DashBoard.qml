@@ -43,8 +43,6 @@ Drawer {
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
 
-  Component.onCompleted: focusstack.addFocusTaker( this )
-
   ColumnLayout {
     anchors.fill: parent
 

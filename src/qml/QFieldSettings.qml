@@ -77,7 +77,6 @@ Page {
             columnSpacing: 2 * dp
             rowSpacing: 10 * dp
             width: mainWindow.width
-            anchors.fill: parent.parent
 
             Label {
                 padding: 8 * dp
