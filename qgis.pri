@@ -15,13 +15,14 @@ include( paths.pri )
   !macx {
     INCLUDEPATH += $${QGIS_INSTALL_PATH}/include/qgis
     LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_core.so
+    LIBS += $${QGIS_INSTALL_PATH}/lib/libqgis_analysis.so
   }
 }
 android {
   QGIS_INSTALL_PATH = $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/files
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
   LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so
-
+  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_analysis.so
 }
 
 macx {

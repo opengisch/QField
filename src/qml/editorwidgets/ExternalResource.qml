@@ -40,11 +40,21 @@ Item {
       if (image.status === Image.Error) {
         image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
       } else if (image.currentValue) {
+        hasGeoTag.visible = ExifTools.hasGeoTag(qgisProject.homePath + '/' + image.currentValue)
         image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
       } else {
         image.source=Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
       }
     }
+  }
+
+  Image {
+    id: hasGeoTag
+    visible: false
+    anchors.bottom: image.bottom
+    anchors.right: image.right
+    anchors.margins: 4 * dp
+    source: Theme.getThemeIcon("ic_my_location_white_24dp")
   }
 
   QField.Button {
