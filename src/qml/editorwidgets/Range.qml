@@ -114,9 +114,15 @@ Item {
 
   IntValidator {
     id: intValidator
+
+    bottom: from
+    top: to
   }
 
   DoubleValidator {
     id: doubleValidator
+
+    bottom: from
+    top: to
   }
 }
