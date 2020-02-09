@@ -132,7 +132,7 @@ Item {
       id: invalidWarning
       visible: false
       text: qsTr( "Invalid relation")
-      color: "red"
+      color: Theme.errorColor
     }
   }
 

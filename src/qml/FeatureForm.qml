@@ -219,7 +219,7 @@ Page {
         text: Name || ''
         wrapMode: Text.WordWrap
         font.bold: true
-        color: ConstraintValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : '#c0392b'
+        color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : Theme.errorColor
       }
 
       Controls.Label {
@@ -231,10 +231,10 @@ Page {
         }
 
         text: ConstraintDescription || ''
-        height: ConstraintValid ? 0 : undefined
-        visible: !ConstraintValid
+        height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
+        visible: !ConstraintHardValid || !ConstraintSoftValid
 
-        color: "#e67e22"
+        color: !ConstraintHardValid ? Theme.errorColor : 'orange'
       }
 
       Item {
@@ -257,7 +257,8 @@ Page {
           property var field: Field
           property var relationId: RelationId
           property var nmRelationId: NmRelationId
-          property var constraintValid: ConstraintValid
+          property var constraintHardValid: ConstraintHardValid
+          property var constraintSoftValid: ConstraintSoftValid
           property bool constraintsValid: form.model.constraintsValid
           property var currentFeature: form.model.featureModel.feature
 
@@ -395,7 +396,7 @@ Page {
 
     background: Rectangle {
       //testwise have special color for buffered
-      color: model.constraintsValid ?  Theme.mainColor : 'orange'
+      color: model.constraintsValid ?  Theme.mainColor : Theme.errorColor
     }
 
     RowLayout {

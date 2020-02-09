@@ -47,7 +47,8 @@ class AttributeFormModel : public QSortFilterProxyModel
       Group,
       AttributeEditorElement,
       CurrentlyVisible,
-      ConstraintValid,
+      ConstraintHardValid,
+      ConstraintSoftValid,
       ConstraintDescription
     };
 
