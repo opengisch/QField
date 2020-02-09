@@ -6,9 +6,14 @@ Item {
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
 
+  QtObject {
+      id: fieldData
+      property bool isNumeric: field ? field.isNumeric : false
+  }
+
   TextField {
     id: textField
-    height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
+    height: fontMetrics.height + 20 * dp
     topPadding: 10 * dp
     bottomPadding: 10 * dp
     visible: height !== 0
@@ -19,7 +24,18 @@ Item {
 
     text: value !== undefined ? value : ''
 
-    inputMethodHints: Qt.ImhNone
+    validator: {
+      if (platformUtilities.fieldType( field ) === 'double')
+      {
+        doubleValidator;
+      }
+      else
+      {
+        intValidator;
+      }
+    }
+
+    inputMethodHints: Qt.ImhFormattedNumbersOnly
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
@@ -33,25 +49,16 @@ Item {
     }
   }
 
-  TextArea {
-    id: textArea
-    height: config['IsMultiline'] === true ? undefined : 0
-    visible: height !== 0
-    anchors.left: parent.left
-    anchors.right: parent.right
-    wrapMode: Text.Wrap
-    font: Theme.defaultFont
-
-    text: value !== undefined ? value : ''
-    textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
-
-    onEditingFinished: {
-      valueChanged( text, text == '' )
-    }
-  }
-
   FontMetrics {
     id: fontMetrics
     font: textField.font
+  }
+
+  IntValidator {
+    id: intValidator
+  }
+
+  DoubleValidator {
+    id: doubleValidator
   }
 }

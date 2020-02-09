@@ -22,6 +22,7 @@
         <file>editorwidgets/DateTime.qml</file>
         <file>editorwidgets/ExternalResource.qml</file>
         <file>editorwidgets/TextEdit.qml</file>
+        <file>editorwidgets/Range.qml</file>
         <file>editorwidgets/ValueMap.qml</file>
         <file>editorwidgets/RelationReference.qml</file>
         <file>editorwidgets/RelationEditor.qml</file>
