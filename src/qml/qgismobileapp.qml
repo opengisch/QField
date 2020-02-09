@@ -1285,6 +1285,8 @@ ApplicationWindow {
       margins: 0
       closePolicy: Popup.NoAutoClose
 
+      background: Rectangle { color: "transparent" }
+
       function show(text) {
           toastMessage.text = text
           toast.open()
@@ -1301,19 +1303,23 @@ ApplicationWindow {
         id: toastContent
         color: Theme.darkGray
 
-        height: 40 * dp
-        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
+        height: toastMessage.height
+        width: toastMessage.text.length * 16 * dp <= 192 * dp ? 192 * dp : ( toastMessage.text.length * 16 * dp ) - 16 * dp > mainWindow.width ? mainWindow.width - 16 * dp : toastMessage.text.length * 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20 * dp
+        radius: 16 * dp
 
         z: 1
 
         Text {
           id: toastMessage
-          anchors.centerIn: parent
+          anchors.left: parent.left
+          anchors.right: parent.right
+          wrapMode: Text.Wrap
+
           font: Theme.secondaryTitleFont
+          horizontalAlignment: Text.AlignHCenter
           color: Theme.light
         }
 
