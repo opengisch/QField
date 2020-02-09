@@ -125,7 +125,8 @@ const QUrl QgsQuickUtils::getThemeIcon( const QString &name )
 const QUrl QgsQuickUtils::getEditorComponentSource( const QString &widgetName )
 {
   QString path( "qgsquick%1.qml" );
-  QStringList supportedWidgets = { QStringLiteral( "textedit" ),
+  QStringList supportedWidgets = { QStringLiteral( "range" ),
+                                   QStringLiteral( "textedit" ),
                                    QStringLiteral( "valuemap" ),
                                    QStringLiteral( "checkbox" ),
                                    QStringLiteral( "externalresource" ),
