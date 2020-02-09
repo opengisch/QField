@@ -8,6 +8,7 @@ QtObject {
     readonly property color light: "#ffffff"
 
     property color mainColor: "#80cc28"
+    property color errorColor: "#c0392b"
 
     property font defaultFont
     defaultFont.pointSize: 16

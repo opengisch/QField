@@ -61,7 +61,7 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? Theme.mainColor : "orange"
+    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? Theme.mainColor : Theme.errorColor
 
     clip: true
 

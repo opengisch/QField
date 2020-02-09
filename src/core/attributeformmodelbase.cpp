@@ -50,7 +50,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::RelationId] = "RelationId";
   roles[AttributeFormModel::NmRelationId] = "NmRelationId";
   roles[AttributeFormModel::Group] = "Group";
-  roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
+  roles[AttributeFormModel::ConstraintHardValid] = "ConstraintHardValid";
+  roles[AttributeFormModel::ConstraintSoftValid] = "ConstraintSoftValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
 
   return roles;
@@ -286,14 +287,15 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-        item->setData( true, AttributeFormModel::ConstraintValid );
+        item->setData( true, AttributeFormModel::ConstraintHardValid );
+        item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
 
         updateAttributeValue( item );
 
         if ( !field.constraints().constraintExpression().isEmpty() )
         {
-          mConstraints.insert( item, field.constraints().constraintExpression() );
+          mConstraints.insert( item, field.constraints() );
         }
 
         items.append( item );
@@ -319,7 +321,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::NmRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-        item->setData( true, AttributeFormModel::ConstraintValid );
+        item->setData( true, AttributeFormModel::ConstraintHardValid );
+        item->setData( true, AttributeFormModel::ConstraintSoftValid );
 
         items.append( item );
 
@@ -363,22 +366,28 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   }
 
   bool allConstraintsValid = true;
-  QMap<QStandardItem *, QgsExpression>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    QgsExpression exp = constraintIterator.value();
+    QgsExpression exp = constraintIterator.value().constraintExpression();
     exp.prepare( &mExpressionContext );
     bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
 
-    if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    if ( constraintIterator.value().constraintStrength( QgsFieldConstraints::ConstraintExpression ) == QgsFieldConstraints::ConstraintStrengthHard)
     {
-      item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
+        if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          item->setData( constraintSatisfied, AttributeFormModel::ConstraintHardValid );
+        }
+        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          allConstraintsValid = false;
+        }
     }
-
-    if ( !item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    else
     {
-      allConstraintsValid = false;
+      item->setData( constraintSatisfied, AttributeFormModel::ConstraintSoftValid );
     }
   }
 

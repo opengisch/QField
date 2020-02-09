@@ -97,7 +97,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     typedef QPair<QgsExpression, QVector<QStandardItem *> > VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
-    QMap<QStandardItem *, QgsExpression> mConstraints;
+    QMap<QStandardItem *, QgsFieldConstraints> mConstraints;
 
     QgsExpressionContext mExpressionContext;
     bool mConstraintsValid;
