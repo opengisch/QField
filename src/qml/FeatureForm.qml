@@ -219,7 +219,7 @@ Page {
         text: Name || ''
         wrapMode: Text.WordWrap
         font.bold: true
-        color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : Theme.errorColor
+        color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
 
       Controls.Label {
@@ -234,7 +234,7 @@ Page {
         height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
-        color: !ConstraintHardValid ? Theme.errorColor : 'orange'
+        color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
       }
 
       Item {
@@ -259,7 +259,8 @@ Page {
           property var nmRelationId: NmRelationId
           property var constraintHardValid: ConstraintHardValid
           property var constraintSoftValid: ConstraintSoftValid
-          property bool constraintsValid: form.model.constraintsValid
+          property bool constraintsHardValid: form.model.constraintsHardValid
+          property bool constraintsSoftValid: form.model.constraintsSoftValid
           property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
@@ -314,10 +315,15 @@ Page {
 
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
-    if( !model.constraintsValid ) {
+    if ( !model.constraintsHardValid )
+    {
         displayToast( qsTr( 'Constraints not valid - cancel editing') )
         cancel()
         return
+    }
+    else if ( !model.constraintsSoftValid )
+    {
+        displayToast( qsTr( 'Note: soft constraints were not met') )
     }
 
     parent.focus = true
@@ -343,7 +349,7 @@ Page {
   }
 
   function buffer() {
-      if( !model.constraintsValid ) {
+      if( !model.constraintsHardValid ) {
           displayToast( qsTr('Constraints not valid - cannot buffer') )
           return false
       }
@@ -395,8 +401,7 @@ Page {
     }
 
     background: Rectangle {
-      //testwise have special color for buffered
-      color: model.constraintsValid ?  Theme.mainColor : Theme.errorColor
+      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.errorColor
     }
 
     RowLayout {
@@ -417,7 +422,10 @@ Page {
         iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
 
         onClicked: {
-          if( model.constraintsValid ) {
+          if( model.constraintsHardValid ) {
+            if ( !model.constraintsSoftValid ) {
+              displayToast( qsTr('Note: soft constraints were not met') )
+            }
             save()
           } else {
             displayToast( qsTr('Constraints not valid') )

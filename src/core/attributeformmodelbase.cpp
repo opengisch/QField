@@ -365,7 +365,8 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
     }
   }
 
-  bool allConstraintsValid = true;
+  bool allConstraintsHardValid = true;
+  bool allConstraintsSoftValid = true;
   QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
@@ -382,21 +383,34 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
         }
         if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
         {
-          allConstraintsValid = false;
+          allConstraintsHardValid = false;
         }
     }
     else
     {
-      item->setData( constraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        item->setData( constraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+      }
+      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        allConstraintsSoftValid = false;
+      }
     }
   }
 
-  setConstraintsValid( allConstraintsValid );
+  setConstraintsHardValid( allConstraintsHardValid );
+  setConstraintsSoftValid( allConstraintsSoftValid );
 }
 
-bool AttributeFormModelBase::constraintsValid() const
+bool AttributeFormModelBase::constraintsHardValid() const
 {
-  return mConstraintsValid;
+  return mConstraintsHardValid;
+}
+
+bool AttributeFormModelBase::constraintsSoftValid() const
+{
+  return mConstraintsSoftValid;
 }
 
 QVariant AttributeFormModelBase::attribute( const QString &name )
@@ -408,13 +422,22 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
   return mFeatureModel->feature().attribute( idx );
 }
 
-void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
+void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )
 {
-  if ( constraintsValid == mConstraintsValid )
+  if ( constraintsHardValid == mConstraintsHardValid )
     return;
 
-  mConstraintsValid = constraintsValid;
-  emit constraintsValidChanged();
+  mConstraintsHardValid = constraintsHardValid;
+  emit constraintsHardValidChanged();
+}
+
+void AttributeFormModelBase::setConstraintsSoftValid( bool constraintsSoftValid )
+{
+  if ( constraintsSoftValid == mConstraintsSoftValid )
+    return;
+
+  mConstraintsSoftValid = constraintsSoftValid;
+  emit constraintsSoftValidChanged();
 }
 
 QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )

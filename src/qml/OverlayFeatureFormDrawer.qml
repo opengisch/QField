@@ -25,7 +25,7 @@ Drawer {
      }
   }
 
-  interactive: overlayFeatureForm.model.constraintsValid
+  interactive: overlayFeatureForm.model.constraintsHardValid
   dragMargin: 0
   Keys.enabled: true
 
@@ -77,7 +77,7 @@ Drawer {
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if( overlayFeatureForm.model.constraintsValid ) {
+        if( overlayFeatureForm.model.constraintsHardValid ) {
           overlayFeatureFormDrawer.close()
         } else {
           displayToast( qsTr( "Constraints not valid" ) )
@@ -96,7 +96,7 @@ Drawer {
 
   Keys.onReleased: {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      if( overlayFeatureForm.model.constraintsValid ) {
+      if( overlayFeatureForm.model.constraintsHardValid ) {
         overlayFeatureFormDrawer.close()
       } else {
         displayToast( qsTr( "Constraints not valid" ) )

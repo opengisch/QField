@@ -56,7 +56,7 @@ Rectangle{
           Text {
               visible: !readOnly
               color: 'grey'
-              text: !readOnly && !constraintsValid ? qsTr( 'Ensure contraints') : ''
+              text: !readOnly && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -72,7 +72,7 @@ Rectangle{
                 id: addButton
                 width: parent.height
                 height: parent.height
-                enabled: constraintsValid
+                enabled: constraintsHardValid
 
                 contentItem: Rectangle {
                     anchors.fill: parent

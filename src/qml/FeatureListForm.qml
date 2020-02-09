@@ -326,7 +326,7 @@ Rectangle {
         event.key === Qt.Key_Escape ) {
       if( state != "FeatureList" ) {
         if( featureListToolBar.state === "Edit"){
-          if( featureFormList.model.constraintsValid ) {
+          if( featureFormList.model.constraintsHardValid ) {
             featureListToolBar.save()
           } else {
             displayToast( "Constraints not valid" )

@@ -9,6 +9,7 @@ QtObject {
 
     property color mainColor: "#80cc28"
     property color errorColor: "#c0392b"
+    property color warningColor: "orange"
 
     property font defaultFont
     defaultFont.pointSize: 16
