@@ -89,7 +89,6 @@ TreeView {
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
       Button {
-        anchors.right: parent.right
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
                  layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Traceable) &&
                  layerTraces.itemAt( styleData.row ).activated ? true : false

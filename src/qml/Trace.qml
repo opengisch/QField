@@ -130,13 +130,13 @@ Item{
             state: 'Add'
 
             onTemporaryStored: {
-                embeddedFeatureForm.active = false
                 traceInformationDialog.active = true
+                embeddedFeatureForm.active = false
             }
 
             onCancelled: {
                 embeddedFeatureForm.active = false
-                embeddedFeatureFormPopup.close()
+                embeddedFeatureForm.focus = false
             }
         }
       }
@@ -185,13 +185,14 @@ Item{
                 traceRubberband.traceTimeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
                 traceRubberband.traceMinimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
                 traceRubberband.traceConjunction = conjunction.checked
-                traceInformationDialog.active = false
+
                 traceRubberband.traceStart();
                 trace.running = true;
+
+                traceInformationDialog.active = false
             }
             onCancel: {
                 traceInformationDialog.active = false
-                traceInformationPopup.close()
             }
           }
 
