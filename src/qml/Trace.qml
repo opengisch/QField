@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
@@ -11,10 +12,11 @@ import Theme 1.0
 
 import '.'
 
+import QtQuick.Layouts 1.3
+
 Item{
     id: trace
 
-    property bool running: false
     property VectorLayer traceLayer //model.VectorLayer does not work see: function start( layer )
 
     Component.onCompleted: {
@@ -103,7 +105,7 @@ Item{
       id: embeddedFeatureFormComponent
 
       Popup {
-        id: popup
+        id: embeddedFeatureFormPopup
         parent: ApplicationWindow.overlay
 
         x: 24 * dp
@@ -129,13 +131,176 @@ Item{
 
             onTemporaryStored: {
                 embeddedFeatureForm.active = false
-                traceRubberband.traceStart();
-                trace.running = true;
+                traceInformationDialog.active = true
             }
 
             onCancelled: {
-                popup.close()
+                embeddedFeatureForm.active = false
+                embeddedFeatureFormPopup.close()
             }
+        }
+      }
+    }
+
+    Loader {
+      id: traceInformationDialog
+
+      sourceComponent: traceInformationDialogComponent
+      active: false
+      onLoaded: {
+        item.open()
+      }
+    }
+
+    Component {
+      id: traceInformationDialogComponent
+
+      Popup {
+        id: traceInformationPopup
+        parent: ApplicationWindow.overlay
+
+        x: 24 * dp
+        y: 24 * dp
+        padding: 0
+        width: parent.width - 48 * dp
+        height: parent.height - 48 * dp
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+
+        Page {
+            //keep it here -->
+            focus: true
+            anchors.fill: parent
+            // <-- thats
+
+            header: PageHeader {
+            title: qsTr("Track'n'Trace")
+
+            showApplyButton: true
+            showCancelButton: true
+
+            onApply: {
+                //parent.start(timeInterval.text, minimumDistance.text)
+                //set rubberband interval and distance
+                traceRubberband.traceTimeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
+                traceRubberband.traceMinimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
+                traceRubberband.traceConjunction = conjunction.checked
+                traceInformationDialog.active = false
+                traceRubberband.traceStart();
+                trace.running = true;
+            }
+            onCancel: {
+                traceInformationDialog.active = false
+                traceInformationPopup.close()
+            }
+          }
+
+          ColumnLayout{
+            anchors.fill: parent
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            spacing: 2
+            anchors {
+                margins: 4 * dp
+                topMargin: 52 * dp // Leave space for the toolbar
+            }
+
+            Controls.Label {
+              id: timeIntervalLabel
+              width: parent.width
+              text: qsTr( 'Time interval' )
+              font.bold: true
+            }
+
+            TextField {
+              id: timeIntervalText
+              height: fontMetrics.height + 20 * dp
+              topPadding: 10 * dp
+              bottomPadding: 10 * dp
+              anchors.left: parent.left
+              anchors.right: parent.right
+              font: Theme.defaultFont
+
+              inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+              validator: IntValidator {
+              }
+
+              background: Rectangle {
+                y: timeIntervalText.height - height - timeIntervalText.bottomPadding / 2
+                implicitWidth: 120 * dp
+                height: timeIntervalText.activeFocus ? 2 * dp : 1 * dp
+                color: timeIntervalText.activeFocus ? "#4CAF50" : "#C8E6C9"
+              }
+            }
+
+            Item {
+                // spacer item
+                height: 35 * dp
+            }
+
+            Controls.Label {
+              id: distanceLabel
+              width: parent.width
+              text: qsTr( 'Distance' )
+              font.bold: true
+            }
+
+            TextField {
+              id: distanceText
+              height: fontMetrics.height + 20 * dp
+              topPadding: 10 * dp
+              bottomPadding: 10 * dp
+              anchors.left: parent.left
+              anchors.right: parent.right
+              font: Theme.defaultFont
+
+              inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+              validator: IntValidator {
+              }
+
+              background: Rectangle {
+                y: distanceText.height - height - distanceText.bottomPadding / 2
+                implicitWidth: 120 * dp
+                height: distanceText.activeFocus ? 2 * dp : 1 * dp
+                color: distanceText.activeFocus ? "#4CAF50" : "#C8E6C9"
+              }
+            }
+
+
+            Item {
+                // spacer item
+                height: 35 * dp
+            }
+
+
+            CheckBox {
+                id: conjunction
+                text: qsTr('Both condition need to be fullfilled')
+                font: Theme.defaultFont
+                checked: timeIntervalText.text.length > 0 && distanceText.text.length > 0
+                enabled: timeIntervalText.text.length > 0 && distanceText.text.length > 0
+
+                indicator.height: 16 * dp
+                indicator.width: 16 * dp
+                indicator.implicitHeight: 24 * dp
+                indicator.implicitWidth: 24 * dp
+            }
+
+            Item {
+                // spacer item
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+          }
+
+          onVisibleChanged: {
+              if (visible) {
+                  timeInterval.forceActiveFocus();
+              }
+          }
         }
       }
     }

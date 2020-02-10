@@ -44,6 +44,10 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
     //! trace interval in seconds
     Q_PROPERTY( int traceTimeInterval READ traceTimeInterval WRITE setTraceTimeInterval NOTIFY traceTimeIntervalChanged )
+    //! trace distance in map units
+    Q_PROPERTY( int traceMinimumDistance READ traceMinimumDistance WRITE setTraceMinimumDistance NOTIFY traceMinimumDistanceChanged )
+    //! trace distance in map units
+    Q_PROPERTY( bool traceConjunction READ traceConjunction WRITE setTraceConjunction NOTIFY traceConjunctionChanged )
 
   public:
     Rubberband( QQuickItem *parent = nullptr );
@@ -82,6 +86,17 @@ class Rubberband : public QQuickItem
     //! \copydoc traceTimeInterval
     void setTraceTimeInterval( int traceTimeInterval );
 
+    //! \copydoc traceMinimumDistance
+    int traceMinimumDistance() const;
+    //! \copydoc traceTimeInterval
+    void setTraceMinimumDistance( int traceMinimumDistance );
+
+    //! \copydoc traceConjunction
+    bool traceConjunction() const;
+    //! \copydoc traceConjunction
+    void setTraceConjunction( bool traceConjunction );
+
+
     Q_INVOKABLE void traceStart();
     Q_INVOKABLE void traceStop();
 
@@ -99,11 +114,16 @@ class Rubberband : public QQuickItem
     void widthCurrentPointChanged();
     //! \copydoc traceTimeInterval
     void traceTimeIntervalChanged();
+    //! \copydoc traceMinimumDistance
+    void traceMinimumDistanceChanged();
+    //! \copydoc traceConjunction
+    void traceConjunctionChanged();
 
 
   private slots:
     void markDirty();
-    void traceCollecter();
+    void tracePositionReceived();
+    void traceTimeReceived();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
@@ -118,7 +138,13 @@ class Rubberband : public QQuickItem
     qreal mWidthCurrentPoint = 1.2;
 
     QTimer *traceTimer = nullptr;
-    int mTraceTimeInterval = 3;
+    int mTraceTimeInterval = 0;
+    int mTraceMinimumDistance = 0;
+    bool mTraceConjunction = true;
+    bool mTraceTimeIntervalFulfilled = false;
+    bool mTraceMinimumDistanceFulfilled = false;
+
+    void tracePosition();
 };
 
 
