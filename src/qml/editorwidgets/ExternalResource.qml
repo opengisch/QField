@@ -139,7 +139,10 @@ Item {
   Connections {
     target: __pictureSource
     onPictureReceived: {
-      valueChanged('DCIM/' + path, false)
+      if( path )
+      {
+          valueChanged('DCIM/' + path, false)
+      }
     }
   }
 }
