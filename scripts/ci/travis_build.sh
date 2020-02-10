@@ -24,7 +24,7 @@ if [ -n "${TRAVIS_TAG}" ]; then
 
 elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
-  echo "Building alpha (nightly)"
+  echo "Building dev (nightly)"
   export APP_NAME="QField Dev"
   export PKG_NAME="qfield_dev"
   export APP_ICON="qfield-testlogo.svg"

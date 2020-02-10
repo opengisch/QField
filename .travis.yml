@@ -13,11 +13,6 @@ git:
 services:
   - docker
 
-addons:
-  apt:
-    packages:
-    - bc
-
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
