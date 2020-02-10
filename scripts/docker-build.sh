@@ -18,7 +18,7 @@ source ${DIR}/version_number.sh
 
 set -e
 
-apt update && apt install zip bc
+apt update && apt install -y zip bc
 
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
