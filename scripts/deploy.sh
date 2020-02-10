@@ -25,6 +25,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data @- https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
   elif [[ -n ${TRAVIS_TAG} ]]; then
+    # we are on a standard commit on master branch => push to ALPHA
     echo -e "\e[93;1mStarting to deploy a new release\e[0m"
     openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
@@ -47,7 +48,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield internal ${RELEASE_URL} ${ASSETS}
 
   elif [[ ${TRAVIS_BRANCH} = master ]]; then
-    # we are on a standard commit on master branch
+    # we on a tag and master => push to BETA
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
     openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
