@@ -244,6 +244,11 @@ void Rubberband::setTraceMinimumDistance( int traceMinimumDistance )
 
 void Rubberband::tracePosition()
 {
+  if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
+  {
+    qDebug() << QString( "Coordinates not available " ) << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y();
+    return;
+  }
   qDebug() << QString( "Collect " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
   model()->addVertex();
   mTraceTimeIntervalFulfilled = false;
