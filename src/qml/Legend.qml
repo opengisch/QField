@@ -94,9 +94,17 @@ TreeView {
                  layerTraces.itemAt( styleData.row ).activated ? true : false
         height: 24*dp
         width: 24*dp
-        text: 'T'
         round: true
         bgcolor: layerTraces.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
+
+        Image {
+          anchors.fill: parent
+          anchors.margins: 4 * dp
+          fillMode: Image.PreserveAspectFit
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
+        }
         onClicked: {
             //start trace
             if( layerTraces.itemAt( styleData.row ).running ){
