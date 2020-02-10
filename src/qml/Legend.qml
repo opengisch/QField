@@ -9,6 +9,7 @@ import QtQml.Models 2.2
 import QtQuick.Controls.Styles 1.4
 
 import Theme 1.0
+import "."
 
 TreeView {
   id: listView
@@ -88,11 +89,15 @@ TreeView {
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
       Button {
+        anchors.right: parent.right
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
                  layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Traceable) &&
                  layerTraces.itemAt( styleData.row ).activated ? true : false
-        height: 48*dp
-        text: layerTraces.itemAt( styleData.row ).running ? 'Stop' : 'Start'
+        height: 24*dp
+        width: 24*dp
+        text: 'T'
+        round: true
+        bgcolor: layerTraces.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
         onClicked: {
             //start trace
             if( layerTraces.itemAt( styleData.row ).running ){
