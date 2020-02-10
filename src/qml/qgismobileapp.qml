@@ -245,6 +245,7 @@ ApplicationWindow {
 
           Trace {
               id:trace
+              property bool running: false
           }
       }
 
