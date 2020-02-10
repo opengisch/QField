@@ -88,10 +88,11 @@ TreeView {
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
       Button {
-        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' ? true : false
-        width: 24 * dp
-        height: 24 * dp
-        text: layerTraces.itemAt( styleData.row ).running ? 'No' : 'Go'
+        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
+                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Traceable) &&
+                 layerTraces.itemAt( styleData.row ).activated ? true : false
+        height: 48*dp
+        text: layerTraces.itemAt( styleData.row ).running ? 'Stop' : 'Start'
         onClicked: {
             //start trace
             if( layerTraces.itemAt( styleData.row ).running ){

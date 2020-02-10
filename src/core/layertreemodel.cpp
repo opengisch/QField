@@ -102,6 +102,22 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
         return node->isVisible();
       }
     }
+
+    case Traceable:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( nodeLayer->layer()->type() == QgsMapLayerType::VectorLayer )
+        {
+          QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+          return ( layer->geometryType() == QgsWkbTypes::LineGeometry || layer->geometryType() == QgsWkbTypes::PolygonGeometry );
+        }
+      }
+      return false;
+    }
+
     default:
       return QSortFilterProxyModel::data( index, role );
   }
@@ -136,6 +152,7 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   roleNames[VectorLayer] = "VectorLayer";
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
+  roleNames[Traceable] = "Traceable";
   return roleNames;
 }
 

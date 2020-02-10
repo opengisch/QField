@@ -34,7 +34,8 @@ class LayerTreeModel : public QSortFilterProxyModel
       VectorLayer = Qt::UserRole + 1,
       LegendImage,
       Type,
-      Visible
+      Visible,
+      Traceable
     };
     Q_ENUMS( Roles )
 

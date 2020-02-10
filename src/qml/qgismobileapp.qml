@@ -245,6 +245,7 @@ ApplicationWindow {
 
           Trace {
               id:trace
+              property bool activated: positionSource.active && stateMachine.state === "digitize"
               property bool running: false
           }
       }
