@@ -209,7 +209,9 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
-  qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
+
+  REGISTER_SINGLETON( "Utils", QgsQuickUtils, "Utils" );
+
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register QField QML types
@@ -245,7 +247,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
-  qmlRegisterSingletonType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModelSingleton", geometryEditorsSingletonProvider );
+  REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -458,18 +460,3 @@ QgisMobileapp::~QgisMobileapp()
   delete mProject;
 }
 
-QObject *QgisMobileapp::utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-{
-  Q_UNUSED( engine )
-  Q_UNUSED( scriptEngine )
-  QgsQuickUtils *singletonClass = new QgsQuickUtils();
-  return singletonClass;
-}
-
-QObject *QgisMobileapp::geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-{
-  Q_UNUSED( engine )
-  Q_UNUSED( scriptEngine )
-  GeometryEditorsModel *singletonClass = new GeometryEditorsModel();
-  return singletonClass;
-}
