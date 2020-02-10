@@ -32,23 +32,26 @@ AndroidPictureSource::AndroidPictureSource( const QString &prefix )
 
 void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
-  if ( receiverRequestCode == 171) {
+  if ( receiverRequestCode == 171 )
+  {
 
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
-    if ( resultCode == RESULT_OK ) {
-      QAndroidJniObject extras = data.callObjectMethod("getExtras", "()Landroid/os/Bundle;");
+    if ( resultCode == RESULT_OK )
+    {
+      QAndroidJniObject extras = data.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
 
-      QAndroidJniObject picture_image_filename = QAndroidJniObject::fromString("PICTURE_IMAGE_FILENAME");
-      picture_image_filename = extras.callObjectMethod("getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                                                       picture_image_filename.object<jstring>());
+      QAndroidJniObject picture_image_filename = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
+      picture_image_filename = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
+                               picture_image_filename.object<jstring>() );
 
       qDebug() << "picture_image_filename: " << picture_image_filename.toString();
 
       emit pictureReceived( picture_image_filename.toString() );
     }
-    else {
-      emit pictureReceived( QString::null );
+    else
+    {
+      emit pictureReceived( QString() );
     }
   }
-  
+
 }
