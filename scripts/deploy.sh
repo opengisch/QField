@@ -33,13 +33,10 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     for ARCH in "${ARCHS[@]}"
     do
       ASSET_PATH=/tmp/qfield-${TRAVIS_TAG}-${ARCH}.apk
-
       echo -e "\e[93m * Collecting apks to upload...\e[0m"
       fetch_asset ${ARCH} ${ASSET_PATH}
-
       echo -e "\e[93m * Deploying app to github release...\e[0m"
       ./scripts/upload_release_asset.py ${ASSET_PATH} ${TRAVIS_TAG}
-
       ASSETS="${ASSETS} ${ASSET_PATH}"
     done
 
@@ -49,19 +46,19 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
 
   elif [[ ${TRAVIS_BRANCH} = master ]] || [[ ${TRAVIS_BRANCH} = stable ]]; then
     # we are on a standard commit on master or stable branch
+    # write comment
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
-
-    ASSETS=""
-    for ARCH in "${ARCHS[@]}"
-    do
-      echo -e "\e[93m * Collecting apks to upload...\e[0m"
-      ASSET_PATH=/tmp/qfield-dev-${ARCH}.apk
-      fetch_asset ${ARCH} ${ASSET_PATH}
-      ASSETS="${ASSETS} ${ASSET_PATH}"
-    done
 
     # only master builds are pushed to play store
     if [[ ${TRAVIS_BRANCH} = master ]]; then
+      ASSETS=""
+      for ARCH in "${ARCHS[@]}"
+      do
+        echo -e "\e[93m * Collecting apks to upload...\e[0m"
+        ASSET_PATH=/tmp/qfield-dev-${ARCH}.apk
+        fetch_asset ${ARCH} ${ASSET_PATH}
+        ASSETS="${ASSETS} ${ASSET_PATH}"
+      done
       openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
       echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
       RELEASE_URL="https://github.com/opengisch/QField/commit/${TRAVIS_COMMIT}"
