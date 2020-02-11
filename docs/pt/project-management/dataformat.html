@@ -241,7 +241,7 @@
 </tr>
 </tbody>
 </table>
-<p>Se não encontrar o seu formato de dados favorito nesta tabela, por favor, verifique se funciona e <cite>adapte a lista acima &lt;https://github.com/opengisch/QField-docs/edit/master/en/project-management/ dataformat.rst&gt; `_ para partilhar as suas descobertas. Se isso não funcionar, por favor, `abra um issue &lt;https://github.com/opengisch/OSGeo4A/issues&gt;</cite> _. Ficaremos felizes em ajudá-lo com a implementação.</p>
+<p>Se não encontrar o seu formato de dados favorito nesta tabela, por favor, verifique se funciona e <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapte a lista acima</a> para partilhar as suas descobertas. Se isso não funcionar, por favor, <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">abra um issue</a>. Ficaremos felizes em ajudá-lo com a implementação.</p>
 </div>
 </div>
 <div class="section" id="raster-data">
@@ -249,7 +249,7 @@
 <p>Os dados raster podem se tornar muito grandes rapidamente, quando se trabalha com arquivos tiff não compactados, geralmente há vários Gb de dados. Especialmente em dispositivos móveis, isso é ineficiente.</p>
 <div class="section" id="use-geopackage">
 <h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Link permanente para este título">¶</a></h2>
-<p>Recomendamos o formato geopackage para lidar com dados raster. Os seguintes comandos irão converter um arquivo chamado: code: <cite>raster.tif</cite> para um arquivo: code:` raster.gpkg` com pirâmides. Certifique-se de ajustar o EPSG: 21781 (CH1903 LV03) ao seu SRC desejado.</p>
+<p>Recomendamos o formato geopackage para lidar com dados raster. Os seguintes comandos irão converter um arquivo chamado <code class="code docutils literal"><span class="pre">raster.tif</span></code> para um arquivo <code class="code docutils literal"><span class="pre">raster.gpkg</span></code> com pirâmides. Certifique-se de ajustar o EPSG: 21781 (CH1903 LV03) ao seu SRC desejado.</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">PNG_JPEG</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>
 </pre></div>
