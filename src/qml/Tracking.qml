@@ -11,10 +11,37 @@ import '.'
 
 
 Item{
-    id: track
+    id: tracking
 
     property VectorLayer trackLayer //model.VectorLayer does not work see: function start( layer )
 
+    RubberbandModel {
+        id: rubberbandModel
+        frozen: false
+        currentCoordinate: positionSource.projectedPosition
+        vectorLayer: trackLayer
+        crs: mapCanvas.mapSettings.destinationCrs
+
+        onVertexCountChanged: {
+          if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount > 2 ) ||
+              ( geometryType === QgsWkbTypes.PolygonGeometry &&vertexCount > 3 ) )
+          {
+              featureModel.applyGeometry()
+
+              if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3 ) ||
+                  ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
+              {
+                  featureModel.create()
+              }
+              else
+              {
+                  featureModel.save()
+              }
+          }
+        }
+    }
+
+    /* No rubberband
     Rubberband {
         id: rubberband
         width: 4 * dp
@@ -22,33 +49,17 @@ Item{
 
         mapSettings: mapCanvas.mapSettings
 
-        model: RubberbandModel {
-            frozen: false
-            currentCoordinate: positionSource.projectedPosition
-            vectorLayer: trackLayer
-            crs: mapCanvas.mapSettings.destinationCrs
-
-            onVertexCountChanged: {
-              if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount > 2 ) ||
-                  ( geometryType === QgsWkbTypes.PolygonGeometry &&vertexCount > 3 ) )
-              {
-                  featureModel.applyGeometry()
-
-                  if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3 ) ||
-                      ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
-                  {
-                      featureModel.create()
-                  }
-                  else
-                  {
-                      featureModel.save()
-                  }
-              }
-            }
-        }
+        model: rubberbandModel
 
         anchors.fill: parent
         visible: true
+    }
+    */
+
+    Track {
+        id: track
+
+        model: rubberbandModel
     }
 
     FeatureModel {
@@ -56,7 +67,7 @@ Item{
         currentLayer: trackLayer
         geometry: Geometry {
           id: featureModelGeometry
-          rubberbandModel: rubberband.model
+          rubberbandModel: rubberbandModel
           vectorLayer: trackLayer
         }
     }
@@ -72,8 +83,8 @@ Item{
 
     function stop()
     {
-        rubberband.trackStop();
-        rubberband.model.reset();
+        track.stop();
+        rubberbandModel.reset();
         running = false;
 
         displayToast( qsTr( 'Track on layer %1 stopped' ).arg( trackLayer.name  ) )
@@ -177,12 +188,12 @@ Item{
                     }
                     else
                     {
-                        rubberband.trackTimeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
-                        rubberband.trackMinimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
-                        rubberband.trackConjunction = conjunction.checked
+                        track.timeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
+                        track.minimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
+                        track.conjunction = conjunction.checked
 
-                        rubberband.trackStart();
-                        track.running = true;
+                        track.start();
+                        tracking.running = true;
 
                         trackInformationDialog.active = false
 

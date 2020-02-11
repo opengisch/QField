@@ -54,6 +54,6 @@
         <file>imports/Theme/qmldir</file>
         <file>PositioningSettings.qml</file>
         <file>PageHeader.qml</file>
-        <file>Track.qml</file>
+        <file>Tracking.qml</file>
     </qresource>
 </RCC>

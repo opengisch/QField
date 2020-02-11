@@ -43,12 +43,6 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
     //! Line width  of the aleternative rubberband for current point
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
-    //! track interval in seconds
-    Q_PROPERTY( int trackTimeInterval READ trackTimeInterval WRITE setTrackTimeInterval NOTIFY trackTimeIntervalChanged )
-    //! track minimum distance in map units
-    Q_PROPERTY( int trackMinimumDistance READ trackMinimumDistance WRITE setTrackMinimumDistance NOTIFY trackMinimumDistanceChanged )
-    //! track conjunction if track interval and minimum distance needs to be reached for tracking
-    Q_PROPERTY( bool trackConjunction READ trackConjunction WRITE setTrackConjunction NOTIFY trackConjunctionChanged )
 
   public:
     Rubberband( QQuickItem *parent = nullptr );
@@ -82,25 +76,6 @@ class Rubberband : public QQuickItem
     //! \copydoc widthCurrentPoint
     void setWidthCurrentPoint( qreal width );
 
-    //! \copydoc trackTimeInterval
-    int trackTimeInterval() const;
-    //! \copydoc trackTimeInterval
-    void setTrackTimeInterval( int trackTimeInterval );
-
-    //! \copydoc trackMinimumDistance
-    int trackMinimumDistance() const;
-    //! \copydoc trackTimeInterval
-    void setTrackMinimumDistance( int trackMinimumDistance );
-
-    //! \copydoc trackConjunction
-    bool trackConjunction() const;
-    //! \copydoc trackConjunction
-    void setTrackConjunction( bool trackConjunction );
-
-
-    Q_INVOKABLE void trackStart();
-    Q_INVOKABLE void trackStop();
-
   signals:
     void modelChanged();
     void vertexModelChanged();
@@ -113,18 +88,9 @@ class Rubberband : public QQuickItem
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
     void widthCurrentPointChanged();
-    //! \copydoc trackTimeInterval
-    void trackTimeIntervalChanged();
-    //! \copydoc trackMinimumDistance
-    void trackMinimumDistanceChanged();
-    //! \copydoc trackConjunction
-    void trackConjunctionChanged();
-
 
   private slots:
     void markDirty();
-    void trackPositionReceived();
-    void trackTimeReceived();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
@@ -137,15 +103,6 @@ class Rubberband : public QQuickItem
     qreal mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     qreal mWidthCurrentPoint = 1.2;
-
-    QTimer mTrackTimer;
-    int mTrackTimeInterval = 0;
-    int mTrackMinimumDistance = 0;
-    bool mTrackConjunction = true;
-    bool mTrackTimeIntervalFulfilled = false;
-    bool mTrackMinimumDistanceFulfilled = false;
-
-    void trackPosition();
 };
 
 

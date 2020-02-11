@@ -91,11 +91,11 @@ TreeView {
       Button {
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
                  layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Trackable) &&
-                 layerTracks.itemAt( styleData.row ).activated ? true : false
+                 layerTrackings.itemAt( styleData.row ).activated ? true : false
         height: 24*dp
         width: 24*dp
         round: true
-        bgcolor: layerTracks.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
+        bgcolor: layerTrackings.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
 
         Image {
           anchors.fill: parent
@@ -107,10 +107,10 @@ TreeView {
         }
         onClicked: {
             //start track
-            if( layerTracks.itemAt( styleData.row ).running ){
-                layerTracks.itemAt( styleData.row ).stop();
+            if( layerTrackings.itemAt( styleData.row ).running ){
+                layerTrackings.itemAt( styleData.row ).stop();
             }else{
-                layerTracks.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
+                layerTrackings.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
             }
         }
       }

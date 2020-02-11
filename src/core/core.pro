@@ -64,7 +64,8 @@ HEADERS += \
     recentprojectlistmodel.h \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
-    qfieldappauthrequesthandler.h
+    qfieldappauthrequesthandler.h \
+    track.h
 
 SOURCES += \
     appinterface.cpp \
@@ -112,7 +113,8 @@ SOURCES += \
     recentprojectlistmodel.cpp \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
-    qfieldappauthrequesthandler.cpp
+    qfieldappauthrequesthandler.cpp \
+    track.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
