@@ -234,11 +234,11 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
-      /** Trace session for each layer **/
+      /** Track session for each layer **/
       Repeater {
-          id: layerTraces
+          id: layerTracks
           model: layerTree
-          delegate: Trace {
+          delegate: Track {
               property bool activated: positionSource.active && stateMachine.state === "digitize"
               property bool running: false
           }

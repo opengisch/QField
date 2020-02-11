@@ -17,6 +17,7 @@
 #define RUBBERBAND_H
 
 #include <QQuickItem>
+#include <QTimer>
 
 class RubberbandModel;
 class VertexModel;
@@ -42,12 +43,12 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( QColor colorCurrentPoint READ colorCurrentPoint WRITE setColorCurrentPoint NOTIFY colorCurrentPointChanged )
     //! Line width  of the aleternative rubberband for current point
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
-    //! trace interval in seconds
-    Q_PROPERTY( int traceTimeInterval READ traceTimeInterval WRITE setTraceTimeInterval NOTIFY traceTimeIntervalChanged )
-    //! trace distance in map units
-    Q_PROPERTY( int traceMinimumDistance READ traceMinimumDistance WRITE setTraceMinimumDistance NOTIFY traceMinimumDistanceChanged )
-    //! trace distance in map units
-    Q_PROPERTY( bool traceConjunction READ traceConjunction WRITE setTraceConjunction NOTIFY traceConjunctionChanged )
+    //! track interval in seconds
+    Q_PROPERTY( int trackTimeInterval READ trackTimeInterval WRITE setTrackTimeInterval NOTIFY trackTimeIntervalChanged )
+    //! track minimum distance in map units
+    Q_PROPERTY( int trackMinimumDistance READ trackMinimumDistance WRITE setTrackMinimumDistance NOTIFY trackMinimumDistanceChanged )
+    //! track conjunction if track interval and minimum distance needs to be reached for tracking
+    Q_PROPERTY( bool trackConjunction READ trackConjunction WRITE setTrackConjunction NOTIFY trackConjunctionChanged )
 
   public:
     Rubberband( QQuickItem *parent = nullptr );
@@ -81,24 +82,24 @@ class Rubberband : public QQuickItem
     //! \copydoc widthCurrentPoint
     void setWidthCurrentPoint( qreal width );
 
-    //! \copydoc traceTimeInterval
-    int traceTimeInterval() const;
-    //! \copydoc traceTimeInterval
-    void setTraceTimeInterval( int traceTimeInterval );
+    //! \copydoc trackTimeInterval
+    int trackTimeInterval() const;
+    //! \copydoc trackTimeInterval
+    void setTrackTimeInterval( int trackTimeInterval );
 
-    //! \copydoc traceMinimumDistance
-    int traceMinimumDistance() const;
-    //! \copydoc traceTimeInterval
-    void setTraceMinimumDistance( int traceMinimumDistance );
+    //! \copydoc trackMinimumDistance
+    int trackMinimumDistance() const;
+    //! \copydoc trackTimeInterval
+    void setTrackMinimumDistance( int trackMinimumDistance );
 
-    //! \copydoc traceConjunction
-    bool traceConjunction() const;
-    //! \copydoc traceConjunction
-    void setTraceConjunction( bool traceConjunction );
+    //! \copydoc trackConjunction
+    bool trackConjunction() const;
+    //! \copydoc trackConjunction
+    void setTrackConjunction( bool trackConjunction );
 
 
-    Q_INVOKABLE void traceStart();
-    Q_INVOKABLE void traceStop();
+    Q_INVOKABLE void trackStart();
+    Q_INVOKABLE void trackStop();
 
   signals:
     void modelChanged();
@@ -112,18 +113,18 @@ class Rubberband : public QQuickItem
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
     void widthCurrentPointChanged();
-    //! \copydoc traceTimeInterval
-    void traceTimeIntervalChanged();
-    //! \copydoc traceMinimumDistance
-    void traceMinimumDistanceChanged();
-    //! \copydoc traceConjunction
-    void traceConjunctionChanged();
+    //! \copydoc trackTimeInterval
+    void trackTimeIntervalChanged();
+    //! \copydoc trackMinimumDistance
+    void trackMinimumDistanceChanged();
+    //! \copydoc trackConjunction
+    void trackConjunctionChanged();
 
 
   private slots:
     void markDirty();
-    void tracePositionReceived();
-    void traceTimeReceived();
+    void trackPositionReceived();
+    void trackTimeReceived();
 
   private:
     QSGNode *updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeData * );
@@ -137,14 +138,14 @@ class Rubberband : public QQuickItem
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     qreal mWidthCurrentPoint = 1.2;
 
-    QTimer *traceTimer = nullptr;
-    int mTraceTimeInterval = 0;
-    int mTraceMinimumDistance = 0;
-    bool mTraceConjunction = true;
-    bool mTraceTimeIntervalFulfilled = false;
-    bool mTraceMinimumDistanceFulfilled = false;
+    QTimer mTrackTimer;
+    int mTrackTimeInterval = 0;
+    int mTrackMinimumDistance = 0;
+    bool mTrackConjunction = true;
+    bool mTrackTimeIntervalFulfilled = false;
+    bool mTrackMinimumDistanceFulfilled = false;
 
-    void tracePosition();
+    void trackPosition();
 };
 
 

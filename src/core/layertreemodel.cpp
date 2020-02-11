@@ -103,7 +103,7 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
       }
     }
 
-    case Traceable:
+    case Trackable:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
@@ -152,7 +152,7 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   roleNames[VectorLayer] = "VectorLayer";
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
-  roleNames[Traceable] = "Traceable";
+  roleNames[Trackable] = "Trackable";
   return roleNames;
 }
 

@@ -35,7 +35,7 @@ class LayerTreeModel : public QSortFilterProxyModel
       LegendImage,
       Type,
       Visible,
-      Traceable
+      Trackable
     };
     Q_ENUMS( Roles )
 
