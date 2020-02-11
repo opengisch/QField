@@ -37,11 +37,15 @@ elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
 
 else
   echo "Building pull request beta"
+  # use a date for the version code since it's the most working solution
+  # to switch from a PR to another without needing to uninstall
+  # (as long as you always install a more recent version)
+  CUR_DATE=$(date +%Y%j%H%M)
   export APP_NAME="QField Beta ${TRAVIS_PULL_REQUEST}"
   export PKG_NAME="qfield_beta"
   export APP_ICON="qfield-testlogo.svg"
   export APP_VERSION=""
-  export APP_VERSION_CODE="1"
+  export APP_VERSION_CODE=${CUR_DATE:4:7}
   export APP_VERSION_STR="PR${TRAVIS_PULL_REQUEST}"
 fi
 
