@@ -24,8 +24,8 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data @- https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
-  elif [[ -n ${TRAVIS_TAG} ]]; then
-    # we are on a standard commit on master branch => push to ALPHA
+  elif [[ -n ${TRAVIS_TAG} ]] && [[ ${TRAVIS_BRANCH} = stable ]]; then
+    # we are on a tag and on stable branch
     echo -e "\e[93;1mStarting to deploy a new release\e[0m"
     openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
@@ -47,10 +47,9 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
     ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield internal ${RELEASE_URL} ${ASSETS}
 
-  elif [[ ${TRAVIS_BRANCH} = master ]]; then
-    # we on a tag and master => push to BETA
+  elif [[ ${TRAVIS_BRANCH} = master ]] || [[ ${TRAVIS_BRANCH} = stable ]]; then
+    # we are on a standard commit on master or stable branch
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
-    openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
     ASSETS=""
     for ARCH in "${ARCHS[@]}"
@@ -61,8 +60,12 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
       ASSETS="${ASSETS} ${ASSET_PATH}"
     done
 
-    echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
-    RELEASE_URL="https://github.com/opengisch/QField/commit/${TRAVIS_COMMIT}"
-    ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev beta ${RELEASE_URL} ${ASSETS}
+    # only master builds are pushed to play store
+    if [[ ${TRAVIS_BRANCH} = master ]]; then
+      openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
+      echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
+      RELEASE_URL="https://github.com/opengisch/QField/commit/${TRAVIS_COMMIT}"
+      ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_dev beta ${RELEASE_URL} ${ASSETS}
+    fi
   fi
 fi
