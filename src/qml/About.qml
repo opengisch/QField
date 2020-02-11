@@ -28,7 +28,7 @@ Item {
       color: Theme.light
       font: Theme.strongFont
       wrapMode: Text.WordWrap
-      text: qsTr( "QField Version: %1 (%2)").arg( version ).arg( versionCode )
+      text: qsTr( "QField Version: %1 (code: %2)").arg( version ).arg( versionCode )
     }
     Label {
       Layout.alignment: Qt.AlignCenter

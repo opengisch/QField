@@ -30,7 +30,7 @@ elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   export APP_ICON="qfield-testlogo.svg"
   export APP_VERSION=""
   export APP_VERSION_CODE=${COMMIT_COUNT_SINCE_v140}${ARCH_NUMBER}
-  export APP_VERSION_STR="${LAST_TAG}-dev${COMMIT_COUNT_SINCE_LAST_TAG} (${CURRENT_COMMIT})"
+  export APP_VERSION_STR="${LAST_TAG}-dev${COMMIT_COUNT_SINCE_LAST_TAG} (commit ${CURRENT_COMMIT})"
 
   echo "Commit number: ${COMMIT_COUNT_SINCE_LAST_TAG}"
   echo "Arch number: ${ARCH_NUMBER}"
