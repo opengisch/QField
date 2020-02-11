@@ -11,9 +11,9 @@ import '.'
 
 
 Item{
-    id: trace
+    id: track
 
-    property VectorLayer traceLayer //model.VectorLayer does not work see: function start( layer )
+    property VectorLayer trackLayer //model.VectorLayer does not work see: function start( layer )
 
     Rubberband {
         id: rubberband
@@ -25,7 +25,7 @@ Item{
         model: RubberbandModel {
             frozen: false
             currentCoordinate: positionSource.projectedPosition
-            vectorLayer: traceLayer
+            vectorLayer: trackLayer
             crs: mapCanvas.mapSettings.destinationCrs
 
             onVertexCountChanged: {
@@ -53,18 +53,18 @@ Item{
 
     FeatureModel {
         id: featureModel
-        currentLayer: traceLayer
+        currentLayer: trackLayer
         geometry: Geometry {
           id: featureModelGeometry
           rubberbandModel: rubberband.model
-          vectorLayer: traceLayer
+          vectorLayer: trackLayer
         }
     }
 
     function start( layer )
     {
-        //layer is passed since I cannot bind traceLayer with model.VectorLayer - don't know why
-        traceLayer = layer
+        //layer is passed since I cannot bind trackLayer with model.VectorLayer - don't know why
+        trackLayer = layer
         featureModel.resetAttributes()
         embeddedFeatureForm.state = 'Add'
         embeddedFeatureForm.active = true
@@ -72,11 +72,11 @@ Item{
 
     function stop()
     {
-        rubberband.traceStop();
+        rubberband.trackStop();
         rubberband.model.reset();
         running = false;
 
-        displayToast( qsTr( 'Trace on layer %1 stopped' ).arg( traceLayer.name  ) )
+        displayToast( qsTr( 'Track on layer %1 stopped' ).arg( trackLayer.name  ) )
     }
 
     //the add entry stuff
@@ -123,7 +123,7 @@ Item{
             state: 'Add'
 
             onTemporaryStored: {
-                traceInformationDialog.active = true
+                trackInformationDialog.active = true
                 embeddedFeatureForm.active = false
             }
 
@@ -136,9 +136,9 @@ Item{
     }
 
     Loader {
-      id: traceInformationDialog
+      id: trackInformationDialog
 
-      sourceComponent: traceInformationDialogComponent
+      sourceComponent: trackInformationDialogComponent
       active: false
       onLoaded: {
         item.open()
@@ -146,10 +146,10 @@ Item{
     }
 
     Component {
-      id: traceInformationDialogComponent
+      id: trackInformationDialogComponent
 
       Popup {
-        id: traceInformationPopup
+        id: trackInformationPopup
         parent: ApplicationWindow.overlay
 
         x: 24 * dp
@@ -165,7 +165,7 @@ Item{
             anchors.fill: parent
 
             header: PageHeader {
-                title: qsTr("Track'n'Trace")
+                title: qsTr("Track'n'Track")
 
                 showApplyButton: true
                 showCancelButton: true
@@ -173,25 +173,25 @@ Item{
                 onApply: {
                     if( Number(timeIntervalText.text) + Number(distanceText.text) === 0 )
                     {
-                        displayToast( qsTr( 'Cannot start trace with empty values' ) )
+                        displayToast( qsTr( 'Cannot start track with empty values' ) )
                     }
                     else
                     {
-                        rubberband.traceTimeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
-                        rubberband.traceMinimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
-                        rubberband.traceConjunction = conjunction.checked
+                        rubberband.trackTimeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
+                        rubberband.trackMinimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
+                        rubberband.trackConjunction = conjunction.checked
 
-                        rubberband.traceStart();
-                        trace.running = true;
+                        rubberband.trackStart();
+                        track.running = true;
 
-                        traceInformationDialog.active = false
+                        trackInformationDialog.active = false
 
-                        displayToast( qsTr( 'Trace on layer %1 started' ).arg( traceLayer.name  ) )
+                        displayToast( qsTr( 'Track on layer %1 started' ).arg( trackLayer.name  ) )
                     }
                 }
                 onCancel: {
-                    traceInformationDialog.active = false
-                    displayToast( qsTr( 'No trace on layer %1 started' ).arg( traceLayer.name  ) )
+                    trackInformationDialog.active = false
+                    displayToast( qsTr( 'No track on layer %1 started' ).arg( trackLayer.name  ) )
                 }
             }
 

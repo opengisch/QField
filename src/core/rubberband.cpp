@@ -212,37 +212,37 @@ void Rubberband::setWidthCurrentPoint( qreal width )
   emit widthCurrentPointChanged();
 }
 
-int Rubberband::traceTimeInterval() const
+int Rubberband::trackTimeInterval() const
 {
-  return mTraceTimeInterval;
+  return mTrackTimeInterval;
 }
 
-void Rubberband::setTraceTimeInterval( int traceTimeInterval )
+void Rubberband::setTrackTimeInterval( int trackTimeInterval )
 {
-  mTraceTimeInterval = traceTimeInterval;
+  mTrackTimeInterval = trackTimeInterval;
 }
 
-int Rubberband::traceMinimumDistance() const
+int Rubberband::trackMinimumDistance() const
 {
-  return mTraceMinimumDistance;
+  return mTrackMinimumDistance;
 }
 
-void Rubberband::setTraceConjunction( bool traceConjunction )
+void Rubberband::setTrackConjunction( bool trackConjunction )
 {
-  mTraceConjunction = traceConjunction;
+  mTrackConjunction = trackConjunction;
 }
 
-bool Rubberband::traceConjunction() const
+bool Rubberband::trackConjunction() const
 {
-  return mTraceConjunction;
+  return mTrackConjunction;
 }
 
-void Rubberband::setTraceMinimumDistance( int traceMinimumDistance )
+void Rubberband::setTrackMinimumDistance( int trackMinimumDistance )
 {
-  mTraceMinimumDistance = traceMinimumDistance;
+  mTrackMinimumDistance = trackMinimumDistance;
 }
 
-void Rubberband::tracePosition()
+void Rubberband::trackPosition()
 {
   if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
   {
@@ -251,11 +251,11 @@ void Rubberband::tracePosition()
   }
   qDebug() << QString( "Collect " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
   model()->addVertex();
-  mTraceTimeIntervalFulfilled = false;
-  mTraceMinimumDistanceFulfilled = false;
+  mTrackTimeIntervalFulfilled = false;
+  mTrackMinimumDistanceFulfilled = false;
 }
 
-void Rubberband::tracePositionReceived()
+void Rubberband::trackPositionReceived()
 {
 
   QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
@@ -272,52 +272,51 @@ void Rubberband::tracePositionReceived()
   distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
   distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
 
-  qDebug() << QString( "distance is: " ) << distanceArea.measureLine( flatPoints ) << QString( " and the minimum is " ) << mTraceMinimumDistance;
+  qDebug() << QString( "distance is: " ) << distanceArea.measureLine( flatPoints ) << QString( " and the minimum is " ) << mTrackMinimumDistance;
 
-  if ( distanceArea.measureLine( flatPoints ) > mTraceMinimumDistance )
+  if ( distanceArea.measureLine( flatPoints ) > mTrackMinimumDistance )
   {
-    mTraceMinimumDistanceFulfilled = true;
-    if ( !mTraceConjunction || mTraceTimeIntervalFulfilled )
-      tracePosition();
+    mTrackMinimumDistanceFulfilled = true;
+    if ( !mTrackConjunction || mTrackTimeIntervalFulfilled )
+      trackPosition();
   }
 }
 
-void Rubberband::traceTimeReceived()
+void Rubberband::trackTimeReceived()
 {
-  mTraceTimeIntervalFulfilled = true;
-  if ( !mTraceConjunction || mTraceMinimumDistanceFulfilled )
-    tracePosition();
+  mTrackTimeIntervalFulfilled = true;
+  if ( !mTrackConjunction || mTrackMinimumDistanceFulfilled )
+    trackPosition();
 }
 
-void Rubberband::traceStart()
+void Rubberband::trackStart()
 {
-  if ( mTraceTimeInterval > 0 )
+  if ( mTrackTimeInterval > 0 )
   {
-    traceTimer = new QTimer( this );
-    connect( traceTimer, &QTimer::timeout, this, &Rubberband::traceTimeReceived );
-    traceTimer->start( mTraceTimeInterval * 1000 );
+    connect( &mTrackTimer, &QTimer::timeout, this, &Rubberband::trackTimeReceived );
+    mTrackTimer.start( mTrackTimeInterval * 1000 );
   }
-  if ( mTraceMinimumDistance > 0 )
+  if ( mTrackMinimumDistance > 0 )
   {
-    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Rubberband::tracePositionReceived );
+    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Rubberband::trackPositionReceived );
   }
 
-  qDebug() << QString( "Tracos startos with time" ) << mTraceTimeInterval << " and distance " << mTraceMinimumDistance;
+  qDebug() << QString( "Tracos startos with time" ) << mTrackTimeInterval << " and distance " << mTrackMinimumDistance;
 
-  //trace first position
-  tracePosition();
+  //track first position
+  trackPosition();
 }
 
-void Rubberband::traceStop()
+void Rubberband::trackStop()
 {
-  if ( mTraceTimeInterval > 0 )
+  if ( mTrackTimeInterval > 0 )
   {
-    traceTimer->stop();
-    disconnect( traceTimer, &QTimer::timeout, this, &Rubberband::tracePosition );
+    mTrackTimer.stop();
+    disconnect( &mTrackTimer, &QTimer::timeout, this, &Rubberband::trackPosition );
   }
-  if ( mTraceMinimumDistance > 0 )
+  if ( mTrackMinimumDistance > 0 )
   {
-    disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Rubberband::tracePositionReceived );
+    disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Rubberband::trackPositionReceived );
   }
 
   qDebug() << QString( "Tracos stoppos" );

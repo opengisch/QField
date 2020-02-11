@@ -90,12 +90,12 @@ TreeView {
       }
       Button {
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
-                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Traceable) &&
-                 layerTraces.itemAt( styleData.row ).activated ? true : false
+                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Trackable) &&
+                 layerTracks.itemAt( styleData.row ).activated ? true : false
         height: 24*dp
         width: 24*dp
         round: true
-        bgcolor: layerTraces.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
+        bgcolor: layerTracks.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
 
         Image {
           anchors.fill: parent
@@ -106,11 +106,11 @@ TreeView {
           source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
         }
         onClicked: {
-            //start trace
-            if( layerTraces.itemAt( styleData.row ).running ){
-                layerTraces.itemAt( styleData.row ).stop();
+            //start track
+            if( layerTracks.itemAt( styleData.row ).running ){
+                layerTracks.itemAt( styleData.row ).stop();
             }else{
-                layerTraces.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
+                layerTracks.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
             }
         }
       }
