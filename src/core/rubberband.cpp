@@ -15,16 +15,11 @@
  ***************************************************************************/
 
 
-#include <QTimer>
-#include <QDebug>
-
 #include "vertexmodel.h"
 #include "rubberband.h"
 
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
-
-#include "qgsproject.h"
 
 Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )

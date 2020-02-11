@@ -17,7 +17,6 @@
 #define RUBBERBAND_H
 
 #include <QQuickItem>
-#include <QTimer>
 
 class RubberbandModel;
 class VertexModel;
@@ -88,6 +87,7 @@ class Rubberband : public QQuickItem
     void colorCurrentPointChanged();
     //! \copydoc widthCurrentPoint
     void widthCurrentPointChanged();
+
 
   private slots:
     void markDirty();
