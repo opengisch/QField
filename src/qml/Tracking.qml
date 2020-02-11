@@ -41,7 +41,6 @@ Item{
         }
     }
 
-    /* No rubberband
     Rubberband {
         id: rubberband
         width: 4 * dp
@@ -54,7 +53,6 @@ Item{
         anchors.fill: parent
         visible: true
     }
-    */
 
     Track {
         id: track

@@ -88,14 +88,14 @@ TreeView {
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
-      Button {
+      Rectangle {
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
                  layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Trackable) &&
-                 layerTrackings.itemAt( styleData.row ).activated ? true : false
+                 layerTrackings.itemAt( styleData.row ).running
         height: 24*dp
         width: 24*dp
-        round: true
-        bgcolor: layerTrackings.itemAt( styleData.row ).running ? '#50ff0000' : '#500000ff'
+        radius: height / 2
+        color: '#50ff0000'
 
         Image {
           anchors.fill: parent
@@ -104,14 +104,6 @@ TreeView {
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
           source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
-        }
-        onClicked: {
-            //start track
-            if( layerTrackings.itemAt( styleData.row ).running ){
-                layerTrackings.itemAt( styleData.row ).stop();
-            }else{
-                layerTrackings.itemAt( styleData.row ).start( layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) );
-            }
         }
       }
     }
