@@ -257,7 +257,7 @@ Page {
                     padding: 8 * dp
                     topPadding: 0
                     leftPadding: 22 * dp
-                    text: qsTr( "If enabled, the user can choose the system camera app to use." )
+                    text: qsTr( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
                     font: Theme.tipFont
 
                     wrapMode: Text.WordWrap
