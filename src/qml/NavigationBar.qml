@@ -118,12 +118,11 @@ Rectangle {
   Button {
     id: saveButton
     anchors.left: parent.left
-    opacity: featureFormList.model.constraintsHardValid ? 1 : 0.33
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+    iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
     onClicked: {
      if( featureFormList.model.constraintsHardValid ) {
        toolBar.save()
