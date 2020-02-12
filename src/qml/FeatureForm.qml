@@ -230,7 +230,7 @@ Page {
           top: fieldLabel.bottom
         }
 
-        text: ConstraintDescription || ''
+        text: !ConstraintHardValid ? qsTr( "Error: " ) + ConstraintDescription : !ConstraintSoftValid ? qsTr( "Warning: " ) + ConstraintDescription : ''
         height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
@@ -413,7 +413,8 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: form.state === 'Add' || form.state === 'Edit'
+        visible: ( form.state === 'Add' || form.state === 'Edit' )
+        opacity: model.constraintsHardValid ? 1 : 0.33
         width: 48*dp
         height: 48*dp
         clip: true
@@ -435,6 +436,7 @@ Page {
 
       Label {
         id: titleLabel
+        leftPadding: model.constraintsHardValid ? 0 : 48 * dp
 
         text:
         {

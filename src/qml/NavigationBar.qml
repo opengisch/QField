@@ -118,6 +118,7 @@ Rectangle {
   Button {
     id: saveButton
     anchors.left: parent.left
+    opacity: featureFormList.model.constraintsHardValid ? 1 : 0.33
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp
     clip: true
