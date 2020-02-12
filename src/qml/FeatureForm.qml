@@ -414,13 +414,12 @@ Page {
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
         visible: ( form.state === 'Add' || form.state === 'Edit' )
-        opacity: model.constraintsHardValid ? 1 : 0.33
         width: 48*dp
         height: 48*dp
         clip: true
         bgcolor: Theme.darkGray
 
-        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
 
         onClicked: {
           if( model.constraintsHardValid ) {
