@@ -990,11 +990,12 @@ def my_form_open(dialog, layer, feature):
                 <editWidget type="Range">
                   <config>
                     <Option type="Map">
-                      <Option type="QString" name="AllowNull" value="1"/>
-                      <Option type="QString" name="Max" value="10"/>
-                      <Option type="QString" name="Min" value="1"/>
-                      <Option type="QString" name="Step" value="1"/>
-                      <Option type="QString" name="Style" value="SpinBox"/>
+                      <Option value="true" type="bool" name="AllowNull"/>
+                      <Option value="10" type="int" name="Max"/>
+                      <Option value="1" type="int" name="Min"/>
+                      <Option value="0" type="int" name="Precision"/>
+                      <Option value="1" type="int" name="Step"/>
+                      <Option value="Slider" type="QString" name="Style"/>
                     </Option>
                   </config>
                 </editWidget>
@@ -1384,7 +1385,7 @@ def my_form_open(dialog, layer, feature):
                       <Option type="QString" name="Max" value="10"/>
                       <Option type="QString" name="Min" value="1"/>
                       <Option type="QString" name="Step" value="1"/>
-                      <Option type="QString" name="Style" value="SpinBox"/>
+                      <Option type="QString" name="Style" value="Slider"/>
                     </Option>
                   </config>
                 </editWidget>
@@ -2037,7 +2038,7 @@ def my_form_open(dialog, layer, feature):
                 <Option type="int" name="Min" value="1"/>
                 <Option type="int" name="Precision" value="0"/>
                 <Option type="int" name="Step" value="1"/>
-                <Option type="QString" name="Style" value="SpinBox"/>
+                <Option type="QString" name="Style" value="Slider"/>
               </Option>
             </config>
           </editWidget>

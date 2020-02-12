@@ -562,7 +562,7 @@
                       <Option type="QString" value="10" name="Max"/>
                       <Option type="QString" value="1" name="Min"/>
                       <Option type="QString" value="1" name="Step"/>
-                      <Option type="QString" value="SpinBox" name="Style"/>
+                      <Option type="QString" value="Slider" name="Style"/>
                     </Option>
                   </config>
                 </editWidget>
@@ -964,7 +964,7 @@ def my_form_open(dialog, layer, feature):
                       <Option type="QString" value="10" name="Max"/>
                       <Option type="QString" value="1" name="Min"/>
                       <Option type="QString" value="1" name="Step"/>
-                      <Option type="QString" value="SpinBox" name="Style"/>
+                      <Option type="QString" value="Slider" name="Style"/>
                     </Option>
                   </config>
                 </editWidget>
@@ -1630,7 +1630,7 @@ def my_form_open(dialog, layer, feature):
                 <Option type="int" value="1" name="Min"/>
                 <Option type="int" value="0" name="Precision"/>
                 <Option type="int" value="1" name="Step"/>
-                <Option type="QString" value="SpinBox" name="Style"/>
+                <Option type="QString" value="Slider" name="Style"/>
               </Option>
             </config>
           </editWidget>
