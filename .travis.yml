@@ -4,7 +4,7 @@ python:
 rvm:
   - 2.0.0
 
-if: type = pull_request OR tag IS present OR branch IN (master, stable)
+if: type = pull_request OR tag IS present OR branch =~ /^(master|release-[0-9_]+)$/
 
 # Handle git submodules manually
 git:
