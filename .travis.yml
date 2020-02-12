@@ -67,7 +67,7 @@ jobs:
     # TRANSLATIONS
     - stage: deploy
       name: "🌍 Translations"
-      if: branch = master AND type != pull_request
+      if: branch = stable AND type != pull_request
       addons:
         apt:
           packages:
