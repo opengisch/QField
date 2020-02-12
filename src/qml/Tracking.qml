@@ -13,7 +13,9 @@ import '.'
 Item{
     id: tracking
 
-    property VectorLayer trackLayer //model.VectorLayer does not work see: function start( layer )
+    property VectorLayer trackLayer //layerTree.data(layerTree.index(index,0), LayerTreeModel.VectorLayer )
+    property bool activated: false
+    property bool running: false
 
     RubberbandModel {
         id: rubberbandModel
@@ -51,7 +53,8 @@ Item{
         model: rubberbandModel
 
         anchors.fill: parent
-        visible: true
+
+        // visible: layerTree.data(layerTree.index(index,0), LayerTreeModel.Visible) //binding does not work
     }
 
     Track {

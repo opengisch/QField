@@ -37,7 +37,7 @@ class LayerTreeModel : public QSortFilterProxyModel
       Visible,
       Trackable
     };
-    Q_ENUMS( Roles )
+    Q_ENUM( Roles )
 
     explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 

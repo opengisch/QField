@@ -238,9 +238,9 @@ ApplicationWindow {
       Repeater {
           id: layerTrackings
           model: layerTree
+
           delegate: Tracking {
-              property bool activated: positionSource.active && stateMachine.state === "digitize"
-              property bool running: false
+              activated: positionSource.active && stateMachine.state === "digitize"
           }
       }
 
