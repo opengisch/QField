@@ -62,7 +62,7 @@ Item {
       width: sliderRow.width / 4
       height: fontMetrics.height + 20 * dp
       elide: Text.ElideRight
-      text: Number( slider.value ).toFixed( rangeItem.precision ).toLocaleString() + rangeItem.suffix
+      text: value !== undefined && value != '' ? Number( slider.value ).toFixed( rangeItem.precision ).toLocaleString() + rangeItem.suffix : ''
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
