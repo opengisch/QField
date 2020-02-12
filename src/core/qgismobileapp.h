@@ -53,6 +53,9 @@ class LegendImageProvider;
 class QgsProject;
 
 
+#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
+
+
 class QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
@@ -120,10 +123,6 @@ class QgisMobileapp : public QQmlApplicationEngine
     void initDeclarative();
 
     void loadProjectQuirks();
-
-    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
-
-    static QObject *geometryEditorsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine );
 
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
