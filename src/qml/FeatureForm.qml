@@ -148,7 +148,7 @@ Page {
           property int currentIndex: index
 
           Rectangle {
-            anchors.fill: swipeView
+            anchors.fill: formPage
             color: "white"
           }
 
@@ -219,7 +219,7 @@ Page {
         text: Name || ''
         wrapMode: Text.WordWrap
         font.bold: true
-        color: ConstraintValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : '#c0392b'
+        color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
 
       Controls.Label {
@@ -230,11 +230,11 @@ Page {
           top: fieldLabel.bottom
         }
 
-        text: ConstraintDescription || ''
-        height: ConstraintValid ? 0 : undefined
-        visible: !ConstraintValid
+        text: !ConstraintHardValid ? qsTr( "Error: " ) + ConstraintDescription : !ConstraintSoftValid ? qsTr( "Warning: " ) + ConstraintDescription : ''
+        height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
+        visible: !ConstraintHardValid || !ConstraintSoftValid
 
-        color: "#e67e22"
+        color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
       }
 
       Item {
@@ -257,8 +257,10 @@ Page {
           property var field: Field
           property var relationId: RelationId
           property var nmRelationId: NmRelationId
-          property var constraintValid: ConstraintValid
-          property bool constraintsValid: form.model.constraintsValid
+          property var constraintHardValid: ConstraintHardValid
+          property var constraintSoftValid: ConstraintSoftValid
+          property bool constraintsHardValid: form.model.constraintsHardValid
+          property bool constraintsSoftValid: form.model.constraintsSoftValid
           property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
@@ -313,10 +315,15 @@ Page {
 
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
-    if( !model.constraintsValid ) {
+    if ( !model.constraintsHardValid )
+    {
         displayToast( qsTr( 'Constraints not valid - cancel editing') )
         cancel()
         return
+    }
+    else if ( !model.constraintsSoftValid )
+    {
+        displayToast( qsTr( 'Note: soft constraints were not met') )
     }
 
     parent.focus = true
@@ -342,7 +349,7 @@ Page {
   }
 
   function buffer() {
-      if( !model.constraintsValid ) {
+      if( !model.constraintsHardValid ) {
           displayToast( qsTr('Constraints not valid - cannot buffer') )
           return false
       }
@@ -394,8 +401,7 @@ Page {
     }
 
     background: Rectangle {
-      //testwise have special color for buffered
-      color: model.constraintsValid ?  Theme.mainColor : 'orange'
+      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.errorColor
     }
 
     RowLayout {
@@ -407,16 +413,19 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: form.state === 'Add' || form.state === 'Edit'
+        visible: ( form.state === 'Add' || form.state === 'Edit' )
         width: 48*dp
         height: 48*dp
         clip: true
         bgcolor: Theme.darkGray
 
-        iconSource: Theme.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
 
         onClicked: {
-          if( model.constraintsValid ) {
+          if( model.constraintsHardValid ) {
+            if ( !model.constraintsSoftValid ) {
+              displayToast( qsTr('Note: soft constraints were not met') )
+            }
             save()
           } else {
             displayToast( qsTr('Constraints not valid') )
@@ -426,6 +435,7 @@ Page {
 
       Label {
         id: titleLabel
+        leftPadding: model.constraintsHardValid ? 0 : 48 * dp
 
         text:
         {

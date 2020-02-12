@@ -27,6 +27,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   signal clicked(var mouse)
+  signal panned
 
   /**
    * Freezes the map canvas refreshes.
@@ -71,6 +72,7 @@ Item {
     onPinchUpdated: {
       mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
       mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
+      mapArea.panned()
     }
 
     onPinchFinished: {
@@ -90,7 +92,6 @@ Item {
         clickedTimer.stop()
         var center = Qt.point( mouse.x, mouse.y )
         mapCanvasWrapper.zoom( center, 0.8 )
-        // mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
       }
 
       onClicked: {
@@ -109,6 +110,10 @@ Item {
               props.mouse = mouse
               clickedTimer.restart()
             }
+          }
+          else
+          {
+            mapArea.panned()
           }
         }
       }

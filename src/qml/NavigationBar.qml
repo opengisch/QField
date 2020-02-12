@@ -61,7 +61,7 @@ Rectangle {
     anchors.fill: parent
     height: 48*dp
 
-    color: featureFormList.model.constraintsValid || parent.state !== "Edit" ? Theme.mainColor : "orange"
+    color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || parent.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
     clip: true
 
@@ -122,9 +122,9 @@ Rectangle {
     height: 48*dp
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
+    iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
     onClicked: {
-     if( featureFormList.model.constraintsValid ) {
+     if( featureFormList.model.constraintsHardValid ) {
        toolBar.save()
      } else {
        displayToast( "Constraints not valid" )

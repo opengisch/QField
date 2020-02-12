@@ -30,7 +30,8 @@ class AttributeFormModelBase : public QStandardItemModel
 
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
-    Q_PROPERTY( bool constraintsValid READ constraintsValid NOTIFY constraintsValidChanged )
+    Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
+    Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
   public:
     explicit AttributeFormModelBase( QObject *parent = nullptr );
@@ -52,7 +53,9 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void deleteFeature();
 
-    bool constraintsValid() const;
+    bool constraintsHardValid() const;
+
+    bool constraintsSoftValid() const;
 
     QVariant attribute( const QString &name );
 
@@ -60,7 +63,8 @@ class AttributeFormModelBase : public QStandardItemModel
     void featureModelChanged();
     void hasTabsChanged();
     void featureChanged();
-    void constraintsValidChanged();
+    void constraintsHardValidChanged();
+    void constraintsSoftValidChanged();
 
   private slots:
     void onLayerChanged();
@@ -81,7 +85,9 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void updateVisibility( int fieldIndex = -1 );
 
-    void setConstraintsValid( bool constraintsValid );
+    void setConstraintsHardValid( bool constraintsHardValid );
+
+    void setConstraintsSoftValid( bool constraintsSoftValid );
 
     /**
      * finds the best widget type regarding to the field type or the configured widget setup
@@ -97,10 +103,11 @@ class AttributeFormModelBase : public QStandardItemModel
 
     typedef QPair<QgsExpression, QVector<QStandardItem *> > VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
-    QMap<QStandardItem *, QgsExpression> mConstraints;
+    QMap<QStandardItem *, QgsFieldConstraints> mConstraints;
 
     QgsExpressionContext mExpressionContext;
-    bool mConstraintsValid;
+    bool mConstraintsHardValid = true;
+    bool mConstraintsSoftValid = true;
 };
 
 #endif // ATTRIBUTEFORMMODELBASE_H

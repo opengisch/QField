@@ -114,7 +114,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
-
 // Check QGIS Version
 #if VERSION_INT >= 30600
   //set the authHandler to qfield-handler
@@ -143,6 +142,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
              << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
     saveRecentProjects( projects );
   }
+
+  mPlatformUtils.setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
@@ -270,6 +271,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 // Check QGIS Version
 #if VERSION_INT >= 30600

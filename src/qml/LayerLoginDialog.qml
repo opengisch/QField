@@ -50,7 +50,6 @@ Page {
     Text {
       id: usernamelabel
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredHeight: font.height
       text: qsTr( "Username" )
       font: Theme.defaultFont
     }
@@ -59,7 +58,6 @@ Page {
       id: username
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      Layout.preferredHeight: font.height + 20 * dp
       font: Theme.defaultFont
 
       background: Rectangle {
@@ -78,7 +76,6 @@ Page {
     Text {
       id: passwordlabel
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredHeight: font.height
       text: qsTr( "Password" )
       font: Theme.defaultFont
     }

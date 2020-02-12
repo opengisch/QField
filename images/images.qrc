@@ -49,14 +49,19 @@
         <file>themes/qfield/xxhdpi/ic_add_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_add_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/hdpi/ic_my_location_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/mdpi/ic_my_location_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_my_location_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_my_location_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_menu_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_my_location_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_map_white_24dp.png</file>
@@ -83,6 +88,16 @@
         <file>themes/qfield/xhdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_close_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_close_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_geotag_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_geotag_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_geotag_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_geotag_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_geotag_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_geotag_missing_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_geotag_missing_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_geotag_missing_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_geotag_missing_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_geotag_missing_24dp.png</file>
         <file>themes/qfield/nodpi/ic_gps_direction.svg</file>
         <file>themes/qfield/hdpi/ic_gps_not_fixed_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_location_disabled_white_24dp.png</file>
@@ -183,6 +198,11 @@
         <file>themes/qfield/mdpi/ic_check_white_48dp.png</file>
         <file>themes/qfield/xhdpi/ic_check_white_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_check_white_48dp.png</file>
+        <file>themes/qfield/hdpi/ic_check_gray_48dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_check_gray_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_check_gray_48dp.png</file>
+        <file>themes/qfield/xhdpi/ic_check_gray_48dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_check_gray_48dp.png</file>
         <file>themes/qfield/mdpi/ic_explore_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_explore_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_explore_white_24dp.png</file>

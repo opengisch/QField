@@ -28,7 +28,8 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
-    Q_PROPERTY( bool constraintsValid READ constraintsValid NOTIFY constraintsValidChanged )
+    Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
+    Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
   public:
     enum FeatureRoles
@@ -47,7 +48,8 @@ class AttributeFormModel : public QSortFilterProxyModel
       Group,
       AttributeEditorElement,
       CurrentlyVisible,
-      ConstraintValid,
+      ConstraintHardValid,
+      ConstraintSoftValid,
       ConstraintDescription
     };
 
@@ -61,7 +63,9 @@ class AttributeFormModel : public QSortFilterProxyModel
     FeatureModel *featureModel() const;
     void setFeatureModel( FeatureModel *featureModel );
 
-    bool constraintsValid() const;
+    bool constraintsHardValid() const;
+    bool constraintsSoftValid() const;
+
     /**
      * Save the current (already existing) feature
      */
@@ -85,7 +89,8 @@ class AttributeFormModel : public QSortFilterProxyModel
     void featureModelChanged();
     void hasTabsChanged();
     void featureChanged();
-    void constraintsValidChanged();
+    void constraintsHardValidChanged();
+    void constraintsSoftValidChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;

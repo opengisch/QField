@@ -27,14 +27,6 @@ Drawer {
   focus: opened
   clip: true
 
-  Keys.onReleased: {
-    if ( event.key === Qt.Key_Back ||
-      event.key === Qt.Key_Escape ) {
-      close()
-      event.accepted = true
-    }
-  }
-
   /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
   onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
 
@@ -42,8 +34,6 @@ Drawer {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
-
-  Component.onCompleted: focusstack.addFocusTaker( this )
 
   ColumnLayout {
     anchors.fill: parent

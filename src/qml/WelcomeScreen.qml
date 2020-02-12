@@ -214,6 +214,10 @@ Page {
                         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
                         return !firstRun && qgisProject.fileName == '' ? qsTr( "Last session" ) : ""
                     }
+                    else
+                    {
+                        return ""
+                    }
                   }
                   visible: text != ""
                   font.pointSize: Theme.tipFont.pointSize - 2

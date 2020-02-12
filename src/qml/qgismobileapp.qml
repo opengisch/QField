@@ -148,7 +148,7 @@ ApplicationWindow {
     Rectangle {
       id: mapCanvasBackground
       anchors.fill: parent
-      color: mapSettings.backgroundColor
+      color: mapCanvas.mapSettings.backgroundColor
     }
 
     /* The base map */
@@ -164,6 +164,14 @@ ApplicationWindow {
               locatorItem.searching = false
           } else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+          }
+      }
+
+      onPanned: {
+          if ( gpsButton.followActive )
+          {
+            gpsButton.followActive = false
+            displayToast( qsTr( "Canvas stopped following location" ) )
           }
       }
 
@@ -273,6 +281,19 @@ ApplicationWindow {
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+
+      onLocationChanged: {
+        if ( gpsButton.followActive ) {
+          var screenLocation = mapSettings.coordinateToScreen( location );
+          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+          }
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -433,21 +454,14 @@ ApplicationWindow {
     interactive: !welcomeScreen.visible
   }
 
-  DropShadow {
-    anchors.fill: dashBoard
-    horizontalOffset: 2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: dashBoard
-  }
-
   /* The main menu */
   Row {
     id: mainMenuBar
     width: childrenRect.width + 8 * dp
     height: childrenRect.height + 8 * dp
+    topPadding: 4 * dp
+    leftPadding: 4 * dp
+    spacing: 4 * dp
 
     Button {
       id: menuButton
@@ -455,20 +469,12 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
       bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
     }
 
     CloseTool {
       id: closeMeasureTool
       visible: stateMachine.state === 'measure'
       toolText: qsTr( 'Close measure tool' )
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
       onClosedTool: mainWindow.closeMeasureTool()
     }
 
@@ -476,10 +482,6 @@ ApplicationWindow {
       id: closeGeometryEditorsTool
       visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
       toolText: qsTr( 'Stop editing' )
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
   }
@@ -496,9 +498,10 @@ ApplicationWindow {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
-      bgcolor: Theme.darkGray
       checkable: true
+      anchors.right: parent.right
 
+      bgcolor: Theme.darkGray
       iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
@@ -515,6 +518,8 @@ ApplicationWindow {
 
       bgcolor: "#64B5F6"
 
+      property bool followActive: false
+
       states: [
         State {
 
@@ -530,22 +535,26 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_white_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
             opacity:1
           }
         }
       ]
 
       onClicked: {
+        followActive = true
         if ( positionSource.projectedPosition.x )
         {
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
           if ( !positionSource.active )
           {
             positionSource.active = true;
-            displayToast( qsTr( "Activating positioning service..." ) )
+            displayToast( qsTr( "Activating positioning service" ) )
+          }
+          else
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -554,12 +563,12 @@ ApplicationWindow {
           {
             if ( positionSource.active )
             {
-              displayToast( qsTr( "Waiting for location..." ) )
+              displayToast( qsTr( "Waiting for location" ) )
             }
             else
             {
               positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
+              displayToast( qsTr( "Activating positioning service" ) )
             }
           }
         }
@@ -986,12 +995,6 @@ ApplicationWindow {
     featureModel: digitizingFeature
   }
 
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-    }
-  }
-
   function displayToast( message ) {
     //toastMessage.text = message
     toast.show(message)
@@ -1256,8 +1259,8 @@ ApplicationWindow {
     visible: false
     nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
-    width: parent.width
-    height: parent.height
+    width: mainWindow.width
+    height: mainWindow.height
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
@@ -1308,8 +1311,9 @@ ApplicationWindow {
       width: parent.width
       y: parent.height - 112 * dp
       margins: 0
-      background: undefined
       closePolicy: Popup.NoAutoClose
+
+      background: Rectangle { color: "transparent" }
 
       function show(text) {
           toastMessage.text = text
@@ -1327,19 +1331,23 @@ ApplicationWindow {
         id: toastContent
         color: Theme.darkGray
 
-        height: 40 * dp
-        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
+        height: toastMessage.height
+        width: toastMessage.text.length * 16 * dp <= 192 * dp ? 192 * dp : ( toastMessage.text.length * 16 * dp ) - 16 * dp > mainWindow.width ? mainWindow.width - 16 * dp : toastMessage.text.length * 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20 * dp
+        radius: 16 * dp
 
         z: 1
 
         Text {
           id: toastMessage
-          anchors.centerIn: parent
+          anchors.left: parent.left
+          anchors.right: parent.right
+          wrapMode: Text.Wrap
+
           font: Theme.secondaryTitleFont
+          horizontalAlignment: Text.AlignHCenter
           color: Theme.light
         }
 
