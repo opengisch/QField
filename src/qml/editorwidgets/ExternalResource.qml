@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.0
+import QtGraphicalEffects 1.0
 import org.qgis 1.0
 import Theme 1.0
 import ".." as QField
@@ -40,7 +41,7 @@ Item {
       if (image.status === Image.Error) {
         image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
       } else if (image.currentValue) {
-        hasGeoTag.visible = ExifTools.hasGeoTag(qgisProject.homePath + '/' + image.currentValue)
+        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + image.currentValue)
         image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
       } else {
         image.source=Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
@@ -49,12 +50,23 @@ Item {
   }
 
   Image {
-    id: hasGeoTag
-    visible: false
+    property bool hasGeoTag: false
+    id: geoTagBadge
+    visible: true
     anchors.bottom: image.bottom
     anchors.right: image.right
     anchors.margins: 4 * dp
-    source: Theme.getThemeIcon("ic_my_location_white_24dp")
+    source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+  }
+
+  DropShadow {
+    anchors.fill: geoTagBadge
+    horizontalOffset: 0
+    verticalOffset: 0
+    radius: 6.0 * dp
+    samples: 17
+    color: "#DD000000"
+    source: geoTagBadge
   }
 
   QField.Button {
