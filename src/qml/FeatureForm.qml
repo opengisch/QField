@@ -401,7 +401,7 @@ Page {
     }
 
     background: Rectangle {
-      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.errorColor
+      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
 
     RowLayout {
