@@ -93,7 +93,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix)
+PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix )
 {
   if ( !checkCameraPermissions() )
     return nullptr;
@@ -107,20 +107,20 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
 
-  intent.callObjectMethod("putExtra",
-                          "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                          prefix_label.object<jstring>(),
-                          prefix_value.object<jstring>());
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           prefix_label.object<jstring>(),
+                           prefix_value.object<jstring>() );
 
   AndroidPictureSource *pictureSource = nullptr;
   pictureSource = new AndroidPictureSource( prefix );
 
-  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource);
+  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
   return pictureSource;
 }
 
-PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefix)
+PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefix )
 {
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldGalleryPictureActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
@@ -131,15 +131,15 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefi
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
 
-  intent.callObjectMethod("putExtra",
-                          "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-                          prefix_label.object<jstring>(),
-                          prefix_value.object<jstring>());
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           prefix_label.object<jstring>(),
+                           prefix_value.object<jstring>() );
 
   AndroidPictureSource *pictureSource = nullptr;
   pictureSource = new AndroidPictureSource( prefix );
 
-  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource);
+  QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
   return pictureSource;
 }
@@ -169,7 +169,7 @@ ProjectSource *AndroidPlatformUtilities::openProject()
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldProjectActivity" ) );  
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldProjectActivity" ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 
@@ -235,20 +235,33 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
   if ( mActivity.isValid() )
   {
-    QAndroidJniObject window = mActivity.callObjectMethod("getWindow", "()Landroid/view/Window;");
-
-    if ( window.isValid() )
+    QtAndroid::runOnAndroidThread( [allowLock]
     {
-      const int FLAG_KEEP_SCREEN_ON = 128;
-      if ( !allowLock )
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
       {
-        window.callObjectMethod( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        QAndroidJniObject window =
+        activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
+
+        if ( window.isValid() )
+        {
+          const int FLAG_KEEP_SCREEN_ON = 128;
+          if ( !allowLock )
+          {
+            window.callMethod<void>( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+          }
+          else
+          {
+            window.callMethod<void>( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+          }
+        }
       }
-      else
+      QAndroidJniEnvironment env;
+      if ( env->ExceptionCheck() )
       {
-        window.callObjectMethod( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        env->ExceptionClear();
       }
-    }
+    } );
   }
 }
 
@@ -259,9 +272,9 @@ void AndroidPlatformUtilities::showRateThisApp() const
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
   QAndroidJniObject packageName = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield" ) );
-  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldAppRaterActivity" ) );  
+  QAndroidJniObject className = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldAppRaterActivity" ) );
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), className.object<jstring>() );
 
-    QtAndroid::startActivity( intent.object<jobject>(), 104);
+  QtAndroid::startActivity( intent.object<jobject>(), 104 );
 }
