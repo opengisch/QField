@@ -41,6 +41,7 @@ class ExpressionUtils : public QObject
     void setFeature( QgsFeature feature ) { mFeature = feature; }
     void setLayer( QgsMapLayer *layer ) { mLayer = layer; }
 
+    //! Returns the evaluated string value
     Q_INVOKABLE QString evaluate();
 
   signals:

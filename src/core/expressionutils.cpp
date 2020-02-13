@@ -22,12 +22,11 @@
 ExpressionUtils::ExpressionUtils( QObject *parent )
   : QObject( parent )
 {
-  mExpressionText = QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "/picturePathExpression" ) );
 }
 
 QString ExpressionUtils::evaluate()
 {
-  if ( !mFeature.isValid() || !mLayer )
+  if ( !mFeature.isValid() || !mLayer || mExpressionText.isEmpty() )
     return QString();
 
   QgsExpression exp( mExpressionText );
