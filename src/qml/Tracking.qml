@@ -222,7 +222,7 @@ Item{
                 Controls.Label {
                     id: timeIntervalLabel
                     Layout.fillWidth: true
-                    text: qsTr( 'Time interval in seconds' )
+                    text: qsTr( 'Time interval (s)' )
                     font.bold: true
                 }
 
@@ -255,7 +255,7 @@ Item{
                 Controls.Label {
                     id: distanceLabel
                     Layout.fillWidth: true
-                    text: qsTr( 'Distance in meters' )
+                    text: qsTr( 'Distance (%1)' ).arg( UnitTypes.toAbbreviatedString(  mapCanvas.mapSettings.destinationCrs.mapUnits ) )
                     font.bold: true
                 }
 

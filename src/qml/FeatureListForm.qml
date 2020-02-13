@@ -220,7 +220,7 @@ Rectangle {
           onClicked: {
             if( featureOnTrack(currentLayer, featureId) )
             {
-                displayToast( qsTr( "Cannot delete feature while tracking" ) )
+                displayToast( qsTr( "Stop tracking this feature to delete it" ) )
             }
             else
             {
@@ -310,7 +310,7 @@ Rectangle {
     onEditAttributesButtonClicked: {
         if( featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
         {
-            displayToast( qsTr( "Cannot edit attributes while tracking" ) )
+            displayToast( qsTr( "Stop tracking this feature to edit attributes" ) )
         }
         else
         {
@@ -321,7 +321,7 @@ Rectangle {
     onEditGeometryButtonClicked: {
         if( featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
         {
-            displayToast( qsTr( "Cannot edit geometry while tracking" ) )
+            displayToast( qsTr( "Stop tracking this feature to edit geometry" ) )
         }
         else
         {
