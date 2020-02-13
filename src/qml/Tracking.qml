@@ -13,15 +13,19 @@ import '.'
 Item{
     id: tracking
 
-    property VectorLayer trackLayer //layerTree.data(layerTree.index(index,0), LayerTreeModel.VectorLayer )
+    property VectorLayer trackingLayer //layerTree.data(layerTree.index(index,0), LayerTreeModel.VectorLayer )
     property bool activated: false
     property bool running: false
+    property var feature: undefined
+
+    signal trackingStarted
+    signal trackingStopped
 
     RubberbandModel {
         id: rubberbandModel
         frozen: false
         currentCoordinate: positionSource.projectedPosition
-        vectorLayer: trackLayer
+        vectorLayer: trackingLayer
         crs: mapCanvas.mapSettings.destinationCrs
 
         onVertexCountChanged: {
@@ -34,6 +38,7 @@ Item{
                   ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
               {
                   featureModel.create()
+                  feature = featureModel.feature
               }
               else
               {
@@ -54,7 +59,7 @@ Item{
 
         anchors.fill: parent
 
-        // visible: layerTree.data(layerTree.index(index,0), LayerTreeModel.Visible) //binding does not work
+        visible: layerTree.data(layerTree.index(index,0), LayerTreeModel.Visible) //binding does not work and I don't know why
     }
 
     Track {
@@ -65,18 +70,18 @@ Item{
 
     FeatureModel {
         id: featureModel
-        currentLayer: trackLayer
+        currentLayer: trackingLayer
         geometry: Geometry {
           id: featureModelGeometry
           rubberbandModel: rubberbandModel
-          vectorLayer: trackLayer
+          vectorLayer: trackingLayer
         }
     }
 
     function start( layer )
     {
-        //layer is passed since I cannot bind trackLayer with model.VectorLayer - don't know why
-        trackLayer = layer
+        //layer is passed since I cannot bind trackingLayer with model.VectorLayer - don't know why
+        trackingLayer = layer
         featureModel.resetAttributes()
         embeddedFeatureForm.state = 'Add'
         embeddedFeatureForm.active = true
@@ -86,9 +91,8 @@ Item{
     {
         track.stop();
         rubberbandModel.reset();
-        running = false;
-
-        displayToast( qsTr( 'Track on layer %1 stopped' ).arg( trackLayer.name  ) )
+        feature = undefined
+        trackingStopped()
     }
 
     //the add entry stuff
@@ -192,18 +196,15 @@ Item{
                         track.timeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
                         track.minimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
                         track.conjunction = conjunction.checked
-
                         track.start();
-                        tracking.running = true;
 
                         trackInformationDialog.active = false
-
-                        displayToast( qsTr( 'Track on layer %1 started' ).arg( trackLayer.name  ) )
+                        trackingStarted()
                     }
                 }
                 onCancel: {
                     trackInformationDialog.active = false
-                    displayToast( qsTr( 'No track on layer %1 started' ).arg( trackLayer.name  ) )
+                    displayToast( qsTr( 'No track on layer %1 started' ).arg( trackingLayer.name  ) )
                 }
             }
 
@@ -220,7 +221,7 @@ Item{
 
                 Controls.Label {
                     id: timeIntervalLabel
-                    width: parent.width
+                    Layout.fillWidth: true
                     text: qsTr( 'Time interval in seconds' )
                     font.bold: true
                 }
@@ -230,8 +231,7 @@ Item{
                     height: fontMetrics.height + 20 * dp
                     topPadding: 10 * dp
                     bottomPadding: 10 * dp
-                    anchors.left: parent.left
-                    anchors.right: parent.right
+                    Layout.fillWidth: true
                     font: Theme.defaultFont
 
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -254,7 +254,7 @@ Item{
 
                 Controls.Label {
                     id: distanceLabel
-                    width: parent.width
+                    Layout.fillWidth: true
                     text: qsTr( 'Distance in meters' )
                     font.bold: true
                 }
@@ -264,8 +264,7 @@ Item{
                     height: fontMetrics.height + 20 * dp
                     topPadding: 10 * dp
                     bottomPadding: 10 * dp
-                    anchors.left: parent.left
-                    anchors.right: parent.right
+                    Layout.fillWidth: true
                     font: Theme.defaultFont
 
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -293,6 +292,7 @@ Item{
                     checked: timeIntervalText.text.length > 0 && distanceText.text.length > 0
                     enabled: timeIntervalText.text.length > 0 && distanceText.text.length > 0
 
+                    Layout.fillWidth: true
                     indicator.height: 16 * dp
                     indicator.width: 16 * dp
                     indicator.implicitHeight: 24 * dp
