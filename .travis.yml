@@ -26,8 +26,6 @@ script:
   - ./scripts/upload-artifacts.sh
 
 jobs:
-  allow_failures:
-    - name: "🍳 Testing"
   include:
     - stage: test
       name: "🍳 Testing"
@@ -76,6 +74,3 @@ jobs:
         - pip install -r requirements.txt
         - pip install pygithub
       script: ./scripts/ci/update-translations.sh
-
-matrix:
-  fast_finish: true 
