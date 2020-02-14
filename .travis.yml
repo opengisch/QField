@@ -75,5 +75,3 @@ jobs:
         - pip install pygithub
       script: ./scripts/ci/update-translations.sh
 
-matrix:
-  fast_finish: true 
