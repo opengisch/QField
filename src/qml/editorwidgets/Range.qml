@@ -95,6 +95,16 @@ Item {
         radius: 4 * dp
         color:  Theme.lightGray
       }
+
+      handle: Rectangle {
+        x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+        y: slider.topPadding + slider.availableHeight / 2 - height / 2
+        implicitWidth: 26 * dp
+        implicitHeight: 26 * dp
+        radius: 13 * dp
+        color: slider.enabled ? Theme.mainColor : Theme.lightGray
+        border.color: Theme.lightGray
+      }
     }
   }
 
