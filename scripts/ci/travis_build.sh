@@ -20,7 +20,7 @@ if [ -n "${TRAVIS_TAG}" ]; then
 
 elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
-  # DATA as YYYY DDD HH MM (without spaces)
+  # DATE as YYYY DDD HH MM (without spaces)
   CUR_DATE=$(date +%Y%j%H%M)
   echo "Building dev (nightly)"
   export APP_NAME="QField Dev"
