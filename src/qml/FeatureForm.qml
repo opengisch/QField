@@ -105,19 +105,28 @@ Page {
           TabButton {
             id: tabButton
             text: Name
+            topPadding: 0
+            bottomPadding: 0
             leftPadding: 8 * dp
             rightPadding: 8 * dp
 
             width: contentItem.width + leftPadding + rightPadding
             height: 48 * dp
 
+            background: Rectangle {
+              implicitWidth: parent.width
+              implicitHeight: parent.height
+              color: "transparent"
+            }
+
             contentItem: Text {
               // Make sure the width is derived from the text so we can get wider
               // than the parent item and the Flickable is useful
               width: paintedWidth
+              height: parent.height
               text: tabButton.text
               // color: tabButton.down ? '#17a81a' : '#21be2b'
-              color: !tabButton.enabled ? '999999' : tabButton.down ||
+              color: !tabButton.enabled ? '#999999' : tabButton.down ||
                                         tabButton.checked ? '#1B5E20' : '#4CAF50'
               font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
