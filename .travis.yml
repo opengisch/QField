@@ -26,8 +26,6 @@ script:
   - ./scripts/upload-artifacts.sh
 
 jobs:
-  # allow_failures:
-  #   - name: "🍳 Testing"
   include:
     - stage: test
       name: "🍳 Testing"
