@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
 lupdate QField.pro
-tx push -s
+if [[ ${TRAVIS_BRANCH} = master ]]; then
+  tx push --source
+else
+  tx push --source --branch
+fi

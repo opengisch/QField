@@ -24,8 +24,11 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data @- https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
-  elif [[ -n ${TRAVIS_TAG} ]] && [[ ${TRAVIS_BRANCH} =~ ^release-[0-9_]+$  ]]; then
-    # we are on a tag and on a release branch
+  elif [[ -n ${TRAVIS_TAG} ]] && [[ ${TRAVIS_BRANCH} =~ ^(master|release-[0-9_]+)$  ]]; then
+    # we are on a tag and on a release branch (if released from master, the release branched should have been checked out)
+    GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    [[ ! $(git rev-parse --abbrev-ref HEAD) =~ ^release-[0-9_]+$ ]] && echo "we must be on a release branch" && exit 1
+
     echo -e "\e[93;1mStarting to deploy a new release\e[0m"
     openssl aes-256-cbc -K $encrypted_play_upload_key -iv $encrypted_play_upload_iv -in .ci/play_developer.p12.enc -out .ci/play_developer.p12 -d
 
