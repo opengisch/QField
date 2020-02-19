@@ -41,6 +41,7 @@ if [[ -z ${APP_ICON} ]]; then
   # replace icon
   echo "Replacing icon with ${APP_ICON}"
   sed -i "s|<file alias=\"qfield_logo.svg\">icons/qfield_logo.svg</file>|<file alias=\"qfield_logo.svg\">icons/${APP_ICON}.svg</file>|" ${SOURCE_DIR}/images/images.qrc
+  sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/res/layout/unpacking_dialog.xml
   sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/AndroidManifest.xml
 fi
 if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
