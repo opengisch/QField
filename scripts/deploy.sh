@@ -51,6 +51,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   elif [[ ${TRAVIS_BRANCH} = master ]] || [[ ${TRAVIS_BRANCH} =~ ^release-[0-9_]+$ ]]; then
     # we are on a standard commit (i.e. no tag) on master or release-* branch
     # write comment
+    echo "writing comment in https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments"
     echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
 
     # only master builds are pushed to play store
