@@ -11,7 +11,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/version_number.sh
 
 
-if [[ -n ${TRAVIS_TAG} ]] && [[ ! ${TRAVIS_BRANCH} =~ ^(master|release-[0-9_]+)$ ]]; then
+if [[ -z ${TRAVIS_TAG} ]]; then
   echo "we should not be here without a TRAVIS_TAG"
   exit 1
 fi
