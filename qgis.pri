@@ -10,6 +10,7 @@ include( paths.pri )
     LIBS += -framework qgis_core
 
     INCLUDEPATH += $${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current/Headers
+    INCLUDEPATH += $${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_analysis.framework/Versions/Current/Headers
     INCLUDEPATH += $${GEOS_INCLUDE_PATH}
   }
   !macx {
