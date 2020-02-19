@@ -24,7 +24,7 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
     curl -H "Authorization: token ${GITHUB_API_TOKEN}" -X POST --data "${BODY}" https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
-  elif [[ -n ${TRAVIS_TAG} ]] && [[ ${TRAVIS_BRANCH} =~ ^(master|release-[0-9_]+)$  ]]; then
+  elif [[ -n ${TRAVIS_TAG} ]]; then
     # we are on a tag and on a release branch (if released from master, the release branched should have been checked out)
     # This cannot be checked on Travis since we are on a detached state
     #GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
