@@ -22,7 +22,7 @@ fetch_asset() {
 if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   if [ ${TRAVIS_PULL_REQUEST} != false ]; then
     echo -e "\e[31mDeploying app to pull request\e[0m"
-    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data @- https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
+    curl -H "Authorization: token ${GITHUB_API_TOKEN}" -X POST --data "${BODY}" https://api.github.com/repos/opengisch/QField/issues/${TRAVIS_PULL_REQUEST}/comments
 
   elif [[ -n ${TRAVIS_TAG} ]] && [[ ${TRAVIS_BRANCH} =~ ^(master|release-[0-9_]+)$  ]]; then
     # we are on a tag and on a release branch (if released from master, the release branched should have been checked out)
@@ -52,7 +52,9 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     # we are on a standard commit (i.e. no tag) on master or release-* branch
     # write comment
     echo "writing comment in https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments"
-    echo "${BODY}" | curl -u m-kuhn:${GITHUB_API_TOKEN} -X POST --data $@- https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
+    curl -X POST -H "Accept: application/vnd.github.squirrel-girl-preview" -H"Authorization: token xxx" https://api.github.com/repos/slevomat/slevomat/issues/8073/comments -d '{"body": "foo"}'
+
+    curl -H "Authorization: token ${GITHUB_API_TOKEN}" -X POST --data "${BODY}" https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
 
     # only master builds are pushed to play store
     if [[ ${TRAVIS_BRANCH} = master ]] && [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
