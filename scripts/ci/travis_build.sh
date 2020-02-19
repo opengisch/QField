@@ -11,7 +11,7 @@ if [[ -n ${TRAVIS_TAG} ]]; then
   echo "Building release from tag"
   export APP_NAME="QField"
   export PKG_NAME="qfield"
-  export APP_ICON="qfield-logo"
+  export APP_ICON="qfield_logo"
   export APP_VERSION="${TRAVIS_TAG}" #  (v1.2.3 or v1.2.3-rc4)
 
   # adding the code name to the version string
@@ -25,7 +25,7 @@ elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
   echo "Building dev (nightly)"
   export APP_NAME="QField Dev"
   export PKG_NAME="qfield_dev"
-  export APP_ICON="qfield-logo-beta"
+  export APP_ICON="qfield_logo_beta"
   export APP_VERSION=""
   # remove first 3 digits of the year (so YDDDHHMM) + arch
   #        YDDDHHMMA
@@ -37,7 +37,7 @@ else
   echo "Building pull request beta"
   export APP_NAME="QField Beta ${TRAVIS_PULL_REQUEST}"
   export PKG_NAME="qfield_beta"
-  export APP_ICON="qfield-logo-pr"
+  export APP_ICON="qfield_logo_pr"
   export APP_VERSION=""
   export APP_VERSION_CODE="1"
   export APP_VERSION_STR="PR${TRAVIS_PULL_REQUEST}"

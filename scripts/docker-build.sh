@@ -39,8 +39,9 @@ echo "Package name ${PKG_NAME}"
 
 if [[ -z ${APP_ICON} ]]; then
   # replace icon
-  sed -i "s|<file alias=\"qfield-logo.svg\">icons/qfield-logo.svg</file>|<file alias=\"qfield-logo.svg\">icons/${APP_ICON}.svg</file>|" ${SOURCE_DIR}/images/images.qrc
-  sed -i "s|@drawable/qfield-logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/AndroidManifest.xml
+  echo "Replacing icon with ${APP_ICON}"
+  sed -i "s|<file alias=\"qfield_logo.svg\">icons/qfield_logo.svg</file>|<file alias=\"qfield_logo.svg\">icons/${APP_ICON}.svg</file>|" ${SOURCE_DIR}/images/images.qrc
+  sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/AndroidManifest.xml
 fi
 if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
   grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
