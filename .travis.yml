@@ -1,8 +1,9 @@
 language: python
+dist: bionic
 python:
-  - 3.5
+  - 3.8
 rvm:
-  - 2.0.0
+  - 2.5
 
 if: type = pull_request OR tag IS present OR branch =~ /^(master|release-[0-9_]+)$/
 
@@ -21,12 +22,22 @@ before_install:
 script:
   - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
   - ./scripts/ci/docker_pull.sh
+  - pip install transifex-client
   - ./scripts/ci/pull_translations.sh
   - ./scripts/ci/travis_build.sh
   - ./scripts/upload-artifacts.sh
 
 jobs:
   include:
+    - stage: prepare release
+      if: tag IS present AND branch =~ /^(master|release-[0-9_]+)$/
+      name: "👷 Prepare release"
+      script:
+        - pip install transifex-client pytransifex
+        #- git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+        #- git fetch --unshallow --tags
+        - ./scripts/ci/prepare-release.sh
+
     - stage: test
       name: "🍳 Testing"
       script:
@@ -52,7 +63,6 @@ jobs:
       env:
         - ARCH=x86_64
 
-
     - stage: deploy
       name: "🍺 Deploy"
       script:
@@ -64,14 +74,13 @@ jobs:
 
     # TRANSLATIONS
     - stage: deploy
-      name: "🌍 Translations"
-      if: branch = master AND type != pull_request
+      name: "🌍 Push Translations"
+      if: branch =~ /^(master|release-[0-9_]+)$/ AND type != pull_request
       addons:
         apt:
           packages:
           - qttools5-dev-tools
       install:
-        - pip install -r requirements.txt
-        - pip install pygithub
+        - pip install pygithub transifex-client
       script: ./scripts/ci/update-translations.sh
 
