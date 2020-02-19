@@ -4,13 +4,11 @@
     android:hardwareAccelerated="true"
     android:name="org.qtproject.qt5.android.bindings.QtApplication"
     android:label="@string/app_name"
-    android:icon="@drawable/qfield_logo"
-    <!--android:roundIcon="@drawable/qfield_logo_round" --> >
+    android:icon="@drawable/qfield_logo" >
     <activity
       android:name="ch.opengis.qfield.QFieldActivity"
       android:noHistory="true"
       android:icon="@drawable/qfield_logo"
-      android:roundIcon="@drawable/qfield_logo_round" >
       android:label="@string/app_name"
       android:screenOrientation="locked">
       <intent-filter>
