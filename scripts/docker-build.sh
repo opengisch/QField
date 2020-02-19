@@ -37,7 +37,7 @@ QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
 
 echo "Package name ${PKG_NAME}"
 
-if [[ -z ${APP_ICON} ]]; then
+if [[ -n ${APP_ICON} ]]; then
   # replace icon
   echo "Replacing icon with ${APP_ICON}"
   sed -i "s|<file alias=\"qfield_logo.svg\">icons/qfield_logo.svg</file>|<file alias=\"qfield_logo.svg\">icons/${APP_ICON}.svg</file>|" ${SOURCE_DIR}/images/images.qrc
