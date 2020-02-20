@@ -1,14 +1,10 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import Theme 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
-
-  QtObject {
-      id: fieldData
-      property bool isNumeric: field ? field.isNumeric : false
-  }
 
   TextField {
     id: textField
@@ -18,23 +14,12 @@ Item {
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
-    font.pointSize: 14
+    font: Theme.defaultFont
+    color: value === undefined || !enabled ? 'gray' : 'black'
 
     text: value !== undefined ? value : ''
 
-    validator: {
-      if (fieldData.isNumeric || widget == 'Range') {
-        if (platformUtilities.fieldType( field ) === 'double')
-          doubleValidator;
-        else
-          intValidator;
-      }
-      else {
-        null;
-      }
-    }
-
-    inputMethodHints: fieldData.isNumeric || widget == 'Range' ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
+    inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
@@ -55,7 +40,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
-    font.pointSize: 14
+    font: Theme.defaultFont
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
@@ -68,13 +53,5 @@ Item {
   FontMetrics {
     id: fontMetrics
     font: textField.font
-  }
-
-  IntValidator {
-    id: intValidator
-  }
-
-  DoubleValidator {
-    id: doubleValidator
   }
 }

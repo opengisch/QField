@@ -31,6 +31,7 @@
 #include "qgsquickmapsettings.h"
 #include "qgsquickfeaturelayerpair.h"
 #include <qgscoordinateformatter.h>
+#include "qgsvectorlayer.h"
 
 
 class QgsFeature;
@@ -102,6 +103,11 @@ class QgsQuickUtils: public QObject
         const QgsCoordinateReferenceSystem &destCrs,
         const QgsCoordinateTransformContext &context,
         const QgsPointXY &srcPoint );
+
+    /**
+      * Calculates the conversion factor between the specified distance units.
+      */
+    Q_INVOKABLE static double distanceFromUnitToUnitFactor( const QgsUnitTypes::DistanceUnit fromUnit, const QgsUnitTypes::DistanceUnit toUnit );
 
     /**
       * Calculates the distance in meter representing baseLengthPixels pixels on the screen based on the current map settings.
@@ -193,6 +199,17 @@ class QgsQuickUtils: public QObject
 
     //! Returns a string with information about screen size and resolution - useful for debugging
     QString dumpScreenInfo() const;
+
+    /**
+     * Selects features in a layer
+     * This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId (i.e. a qint64)
+     * \param layer the vector layer
+     * \param fids the list of feature IDs
+     * \param behavior the selection behavior
+     *
+     * \since QGIS 3.12
+     */
+    Q_INVOKABLE static void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
 
   private:
     static void formatToMetricDistance( double srcDistance,

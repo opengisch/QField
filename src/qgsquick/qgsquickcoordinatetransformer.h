@@ -17,6 +17,7 @@
 #define QGSQUICKCOORDINATETRANSFORMER_H
 
 #include <QObject>
+#include <QGeoCoordinate>
 
 #include <qgspoint.h>
 
@@ -43,6 +44,9 @@ class QgsQuickCoordinateTransformer : public QObject
     //! Source position  (in source CRS)
     Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition WRITE setSourcePosition NOTIFY sourcePositionChanged )
 
+    //! Source coordinate for integrating with QtPositioning, alternative to source position
+    Q_PROPERTY( QGeoCoordinate sourceCoordinate READ sourceCoordinate WRITE setSourceCoordinate NOTIFY sourceCoordinateChanged )
+
     //! Destination CRS
     Q_PROPERTY( QgsCoordinateReferenceSystem destinationCrs READ destinationCrs WRITE setDestinationCrs NOTIFY destinationCrsChanged )
 
@@ -51,6 +55,17 @@ class QgsQuickCoordinateTransformer : public QObject
 
     //! Transformation context, can be set from QgsQuickMapSettings::transformContext()
     Q_PROPERTY( QgsCoordinateTransformContext transformContext READ transformContext WRITE setTransformContext NOTIFY transformContextChanged )
+
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    Q_PROPERTY( qreal deltaZ READ deltaZ WRITE setDeltaZ NOTIFY deltaZChanged )
+
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    Q_PROPERTY( bool skipAltitudeTransformation READ skipAltitudeTransformation WRITE setSkipAltitudeTransformation NOTIFY skipAltitudeTransformationChanged )
 
   public:
     //! Creates new coordinate transformer
@@ -83,12 +98,39 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     QgsCoordinateTransformContext transformContext() const;
 
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    qreal deltaZ() const;
+
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    void setDeltaZ( const qreal &deltaZ );
+
+    QGeoCoordinate sourceCoordinate() const;
+    void setSourceCoordinate( const QGeoCoordinate &sourceCoordinate );
+
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    bool skipAltitudeTransformation() const;
+
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    void setSkipAltitudeTransformation( bool skipAltitudeTransformation );
+
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
     void projectedPositionChanged();
 
     //!\copydoc QgsQuickCoordinateTransformer::sourcePosition
     void sourcePositionChanged();
+
+    void sourceCoordinateChanged();
 
     //!\copydoc QgsQuickCoordinateTransformer::destinationCrs
     void destinationCrsChanged();
@@ -99,12 +141,31 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::transformContext
     void transformContextChanged();
 
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    void deltaZChanged();
+
+    /**
+     * Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.
+     */
+    void skipAltitudeTransformationChanged();
+
   private:
     void updatePosition();
 
     QgsPoint mProjectedPosition;
     QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
+
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    qreal mDeltaZ = 0;
+
+    bool mSkipAltitudeTransformation = true;
 };
 
 #endif // QGSQUICKCOORDINATETRANSFORMER_H

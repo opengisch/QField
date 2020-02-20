@@ -25,7 +25,8 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );
-  connect( mSourceModel, &AttributeFormModelBase::constraintsValidChanged, this, &AttributeFormModel::constraintsValidChanged );
+  connect( mSourceModel, &AttributeFormModelBase::constraintsHardValidChanged, this, &AttributeFormModel::constraintsHardValidChanged );
+  connect( mSourceModel, &AttributeFormModelBase::constraintsSoftValidChanged, this, &AttributeFormModel::constraintsSoftValidChanged );
 }
 
 bool AttributeFormModel::hasTabs() const
@@ -48,9 +49,14 @@ void AttributeFormModel::setFeatureModel( FeatureModel *featureModel )
   mSourceModel->setFeatureModel( featureModel );
 }
 
-bool AttributeFormModel::constraintsValid() const
+bool AttributeFormModel::constraintsHardValid() const
 {
-  return mSourceModel->constraintsValid();
+  return mSourceModel->constraintsHardValid();
+}
+
+bool AttributeFormModel::constraintsSoftValid() const
+{
+  return mSourceModel->constraintsSoftValid();
 }
 
 void AttributeFormModel::save()

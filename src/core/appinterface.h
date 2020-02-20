@@ -37,6 +37,7 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
+    Q_INVOKABLE void loadLastProject();
     Q_INVOKABLE void loadProject( const QString &path );
     Q_INVOKABLE void reloadProject( const QString &path );
 

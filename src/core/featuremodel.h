@@ -19,7 +19,7 @@
 #define FEATUREMODEL_H
 
 #include <QAbstractListModel>
-#include <QGeoPositionInfoSource>
+#include <QtPositioning/QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 #include <memory>
 #include <qgsfeature.h>
@@ -41,7 +41,6 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( QString positionSourceName READ positionSourceName WRITE setPositionSourceName NOTIFY positionSourceChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
-    Q_ENUMS( FeatureRoles )
 
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
@@ -59,6 +58,7 @@ class FeatureModel : public QAbstractListModel
       RememberAttribute,
       LinkedAttribute  //! value of this attribute is given by the parent feature and does not to be available for editing in the form
     };
+    Q_ENUM( FeatureRoles )
 
     explicit FeatureModel( QObject *parent = nullptr );
     explicit FeatureModel( const QgsFeature &feat, QObject *parent = nullptr );

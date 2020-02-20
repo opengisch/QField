@@ -1,11 +1,12 @@
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
         google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.5.0'
     }
 }
 
@@ -13,6 +14,12 @@ allprojects {
     repositories {
         jcenter()
         google()
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+        }
     }
 }
 
@@ -22,6 +29,8 @@ def outputPathName = "some.apk"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:26.1.0'
+
 }
 
 android {

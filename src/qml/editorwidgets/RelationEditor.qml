@@ -5,7 +5,7 @@ import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import ".."
-import "../js/style.js" as Style
+import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -56,7 +56,7 @@ Rectangle{
           Text {
               visible: !readOnly
               color: 'grey'
-              text: !readOnly && !constraintsValid ? qsTr( 'Ensure contraints') : ''
+              text: !readOnly && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -72,7 +72,7 @@ Rectangle{
                 id: addButton
                 width: parent.height
                 height: parent.height
-                enabled: constraintsValid
+                enabled: constraintsHardValid
 
                 contentItem: Rectangle {
                     anchors.fill: parent
@@ -83,7 +83,7 @@ Rectangle{
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_add_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_add_white_24dp' )
                     }
                 }
 
@@ -156,14 +156,14 @@ Rectangle{
 
                 contentItem: Rectangle {
                     anchors.fill: parent
-                    color: nmRelationId ? 'blue' : 'black'
+                    color: nmRelationId ? 'blue' : '#900000'
                     Image {
                       anchors.fill: parent
                       anchors.margins: 4 * dp
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
-                      source: Style.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                      source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
                     }
                 }
 
@@ -245,6 +245,7 @@ Rectangle{
 
         x: 24 * dp
         y: 24 * dp
+        padding: 0
         width: parent.width - 48 * dp
         height: parent.height - 48 * dp
         modal: true

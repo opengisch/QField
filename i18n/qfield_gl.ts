@@ -62,13 +62,74 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>As seguintes capas non se poden cargar.
-Revísaas e configura de novo o proxecto de QGIS.
-Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación de QField.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to load some layers</source>
         <translation>Incapaz de cargar algunhas capas</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>As seguintes capas non se puideron cargar. Por favor, revísaas e configura de novo o proxecto de QGIS.</translation>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation>Podes revisar a sección de Proxecto Portable na documentación de QField para máis axuda.</translation>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation>Que é novo no último QField</translation>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation>Rexistro de cambios %1</translation>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation>O widget de valor da relación admite selección múltiple</translation>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation>Admite axuste total indicando os resultados do axuste e os valores Z da entidade axustada</translation>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation>Diálogo de autenticación para capas</translation>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation>Amañar widget da cela de verificación</translation>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation>Outros arranxos (imprimir, localizador)</translation>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation>Rexistro mellorado</translation>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation>Gústache QField? Dálle agarimo e colabora coa campaña de financiamento colectivo. Antes do 16 de outubro.</translation>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation>www.opengis.ch/projects/qfield-love/</translation>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation>Deámoslle agarimo</translation>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation>Quizais despois</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Non</translation>
     </message>
 </context>
 <context>
@@ -86,26 +147,61 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>(no date)</source>
         <translation>(sen datos)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
+        <translation>Almacenamento non dispoñible para Android 5 das listas de comprobación do widget do valor da relación </translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Engadir entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Editar entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Ver entidade en &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation>Restricións non válidas - cancelar edición</translation>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation>Restricións non válidas - non se pode realizar o búfer</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Restricións non válidas</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Engadir entidade en %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Editar entidade en %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Ver entidade en %1</translation>
     </message>
 </context>
 <context>
@@ -179,6 +275,17 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Features In All Layers</source>
         <translation>Entidades en Tódalas Capas</translation>
+    </message>
+</context>
+<context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation>Nome de usuario</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasinal</translation>
     </message>
 </context>
 <context>
@@ -276,31 +383,67 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Amosar barra de escala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Amosar formulario de atributos en pantalla completa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Debuxar de novo o mapa cada 250 ms mentres se renderiza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Amosar información numérica cando se dixitaliza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation>Utilizar a función de cámara nativa (inestable en versións recentes de Android)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>Configuración de QField</translation>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
-        <translation>Manter a actual escala cando se despreguen os resultados da busca</translation>
+        <source>Show scale bar</source>
+        <translation>Amosar barra de escala</translation>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation>Maximizar o formulario de atributos</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navegación a escala fixa</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Cando está activa a navegación a escala fixa, o centrado nun resultado dunha busca desprazará ata a entidade. Coa navegación a escala fixa desactivada desprazará e achegará ata a entidade.</translation>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation>Representación progresiva</translation>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation>Cando se activa a representación progresiva, o mapa debuxarase cada 250 milisegundos mentres se represente.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Amosar información da dixitalización</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation>Cando se activa, información das coordenadas, tales coma latitude e lonxitude, sobreponse na vista do mapa ó dixitalizar novas entidades ou ó empregar a ferramenta de medición.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Utilizar cámara nativa</translation>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
+        <translation>Advertencia: a función da cámara nativa é inestable nas versións recentes de Android.</translation>
     </message>
 </context>
 <context>
@@ -308,6 +451,22 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Position</source>
         <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation>Ferramenta de Captura do Mapa</translation>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation>Precisa autenticación</translation>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation>Houbo un erro ó abrir a base de datos &lt;b&gt;%1&lt;/b&gt;: %2</translation>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
+        <translation>Non se puido descargar a base de datos %1 (%3)</translation>
     </message>
 </context>
 <context>
@@ -350,10 +509,37 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
         <translation>Relación non válida</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditor</name>
+    <message>
+        <source>Ensure contraints</source>
+        <translation>Garantir restricións</translation>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation>Non se pode engadir a capa filla. Non están dispoñibles as claves primarias da capa de orixe.</translation>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation>Retirar ligazón da entidade %1 (%2) de %3</translation>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation>Eliminar entidade %1 (%2) en %3</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
 </context>
 <context>
@@ -478,7 +664,7 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>Proxectos de QGIS (*.qgs)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All files (*)</source>
@@ -487,6 +673,38 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Press back again to close project and app</source>
         <translation>Premer atrás de novo para pechar o proxecto e a aplicación</translation>
+    </message>
+    <message>
+        <source>You are now in %1 mode </source>
+        <translation>Agora estás no modo %1</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Segmento</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Lonxitude</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Área</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Pechar a ferramenta de medición</translation>
+    </message>
+    <message>
+        <source>Measure Tool</source>
+        <translation>Ferramenta de Medición</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -503,6 +721,10 @@ Podes visitar a sección &lt;i&gt;Proxecto Portable&lt;/i&gt; na documentación 
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>Non se admite a edición de capas multixeometría aínda.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
+        <translation>Proxectos de QGIS (*.qgs *.qgz)</translation>
     </message>
 </context>
 </TS>

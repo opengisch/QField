@@ -50,6 +50,7 @@ void QgsQuickCoordinateTransformer::setSourcePosition( const QgsPoint &sourcePos
   mSourcePosition = sourcePosition;
 
   emit sourcePositionChanged();
+  emit sourceCoordinateChanged();
   updatePosition();
 }
 
@@ -118,8 +119,62 @@ void QgsQuickCoordinateTransformer::updatePosition()
     QgsDebugMsg( exp.what() );
   }
 
+  if ( mSkipAltitudeTransformation )
+    z = mSourcePosition.z();
+
   mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( mSourcePosition.z() );
+  mProjectedPosition.addZValue( z + mDeltaZ );
 
   emit projectedPositionChanged();
+}
+
+bool QgsQuickCoordinateTransformer::skipAltitudeTransformation() const
+{
+  return mSkipAltitudeTransformation;
+}
+
+void QgsQuickCoordinateTransformer::setSkipAltitudeTransformation( bool skipAltitudeTransformation )
+{
+  if ( mSkipAltitudeTransformation == skipAltitudeTransformation )
+    return;
+
+  mSkipAltitudeTransformation = skipAltitudeTransformation;
+  emit skipAltitudeTransformationChanged();
+}
+
+QGeoCoordinate QgsQuickCoordinateTransformer::sourceCoordinate() const
+{
+  return QGeoCoordinate( mSourcePosition.y(), mSourcePosition.x(), mSourcePosition.z() );
+}
+
+void QgsQuickCoordinateTransformer::setSourceCoordinate( const QGeoCoordinate &sourceCoordinate )
+{
+  if ( qgsDoubleNear( sourceCoordinate.latitude(), mSourcePosition.y() )
+       && qgsDoubleNear( sourceCoordinate.longitude(), mSourcePosition.x() )
+       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() )
+     )
+    return;
+
+  mSourcePosition = QgsPoint( sourceCoordinate.longitude(), sourceCoordinate.latitude(), sourceCoordinate.altitude() );
+  emit sourcePositionChanged();
+  emit sourceCoordinateChanged();
+  updatePosition();
+}
+
+qreal QgsQuickCoordinateTransformer::deltaZ() const
+{
+  return mDeltaZ;
+}
+
+void QgsQuickCoordinateTransformer::setDeltaZ( const qreal &deltaZ )
+{
+  if ( qgsDoubleNear( mDeltaZ, deltaZ ) )
+    return;
+
+  if ( std::isnan( deltaZ ) )
+    mDeltaZ = 0;
+  else
+    mDeltaZ = deltaZ;
+
+  emit deltaZChanged();
 }

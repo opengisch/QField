@@ -20,6 +20,7 @@
 #include <qgseditorwidgetsetup.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
+#include <qgsdatetimefieldformatter.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -49,7 +50,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::RelationId] = "RelationId";
   roles[AttributeFormModel::NmRelationId] = "NmRelationId";
   roles[AttributeFormModel::Group] = "Group";
-  roles[AttributeFormModel::ConstraintValid] = "ConstraintValid";
+  roles[AttributeFormModel::ConstraintHardValid] = "ConstraintHardValid";
+  roles[AttributeFormModel::ConstraintSoftValid] = "ConstraintSoftValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
 
   return roles;
@@ -276,7 +278,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
-        QgsEditorWidgetSetup setup = mLayer->editorWidgetSetup( fieldIndex );
+        const QgsEditorWidgetSetup setup = findBest( fieldIndex );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
@@ -285,14 +287,15 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( fieldIndex, AttributeFormModel::FieldIndex );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-        item->setData( true, AttributeFormModel::ConstraintValid );
+        item->setData( true, AttributeFormModel::ConstraintHardValid );
+        item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
 
         updateAttributeValue( item );
 
         if ( !field.constraints().constraintExpression().isEmpty() )
         {
-          mConstraints.insert( item, field.constraints().constraintExpression() );
+          mConstraints.insert( item, field.constraints() );
         }
 
         items.append( item );
@@ -318,7 +321,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::NmRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
-        item->setData( true, AttributeFormModel::ConstraintValid );
+        item->setData( true, AttributeFormModel::ConstraintHardValid );
+        item->setData( true, AttributeFormModel::ConstraintSoftValid );
 
         items.append( item );
 
@@ -361,32 +365,52 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
     }
   }
 
-  bool allConstraintsValid = true;
-  QMap<QStandardItem *, QgsExpression>::ConstIterator constraintIterator( mConstraints.constBegin() );
+  bool allConstraintsHardValid = true;
+  bool allConstraintsSoftValid = true;
+  QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    QgsExpression exp = constraintIterator.value();
+    QgsExpression exp = constraintIterator.value().constraintExpression();
     exp.prepare( &mExpressionContext );
     bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
 
-    if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    if ( constraintIterator.value().constraintStrength( QgsFieldConstraints::ConstraintExpression ) == QgsFieldConstraints::ConstraintStrengthHard)
     {
-      item->setData( constraintSatisfied, AttributeFormModel::ConstraintValid );
+        if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          item->setData( constraintSatisfied, AttributeFormModel::ConstraintHardValid );
+        }
+        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+        {
+          allConstraintsHardValid = false;
+        }
     }
-
-    if ( !item->data( AttributeFormModel::ConstraintValid ).toBool() )
+    else
     {
-      allConstraintsValid = false;
+      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        item->setData( constraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+      }
+      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        allConstraintsSoftValid = false;
+      }
     }
   }
 
-  setConstraintsValid( allConstraintsValid );
+  setConstraintsHardValid( allConstraintsHardValid );
+  setConstraintsSoftValid( allConstraintsSoftValid );
 }
 
-bool AttributeFormModelBase::constraintsValid() const
+bool AttributeFormModelBase::constraintsHardValid() const
 {
-  return mConstraintsValid;
+  return mConstraintsHardValid;
+}
+
+bool AttributeFormModelBase::constraintsSoftValid() const
+{
+  return mConstraintsSoftValid;
 }
 
 QVariant AttributeFormModelBase::attribute( const QString &name )
@@ -398,13 +422,70 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
   return mFeatureModel->feature().attribute( idx );
 }
 
-void AttributeFormModelBase::setConstraintsValid( bool constraintsValid )
+void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )
 {
-  if ( constraintsValid == mConstraintsValid )
+  if ( constraintsHardValid == mConstraintsHardValid )
     return;
 
-  mConstraintsValid = constraintsValid;
-  emit constraintsValidChanged();
+  mConstraintsHardValid = constraintsHardValid;
+  emit constraintsHardValidChanged();
+}
+
+void AttributeFormModelBase::setConstraintsSoftValid( bool constraintsSoftValid )
+{
+  if ( constraintsSoftValid == mConstraintsSoftValid )
+    return;
+
+  mConstraintsSoftValid = constraintsSoftValid;
+  emit constraintsSoftValidChanged();
+}
+
+QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
+{
+  QgsFields fields = mLayer->fields();
+
+  //make the default one
+  QgsEditorWidgetSetup setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+
+  if ( index >= 0 && index < fields.count() )
+  {
+    //when field has a configured setup, take it
+    setup = mLayer->editorWidgetSetup( index );
+    if ( !setup.isNull() )
+      return setup;
+
+    //when it's a provider field with default value clause, take Textedit
+    if ( fields.fieldOrigin( index ) == QgsFields::OriginProvider )
+    {
+      int providerOrigin = fields.fieldOriginIndex( index );
+      if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
+        return setup;
+    }
+
+    //find the best one
+    const QgsField field = fields.at( index );
+    //on a boolean type take "CheckBox"
+    if ( field.type() == QVariant::Bool )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
+    //on a date or time type take "DateTime"
+    if ( field.isDateOrTime() )
+    {
+      QVariantMap config;
+      config.insert( QStringLiteral( "field_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( "display_format" ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( "calendar_popup" ), true );
+      config.insert( QStringLiteral( "allow_null" ), true );
+      setup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), config );
+    }
+    //on numeric types take "Range"
+    if ( field.type() == QVariant::Int || field.type() == QVariant::Double || field.isNumeric() )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
+    //if it's a foreign key configured in a relation take "RelationReference"
+    if ( !mLayer->referencingRelations( index ).isEmpty() )
+      setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), QVariantMap() );
+  }
+
+  return setup;
 }
 
 bool AttributeFormModelBase::hasTabs() const

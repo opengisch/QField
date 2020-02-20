@@ -7,10 +7,12 @@ astyle.*.diff
 *.autosave
 .DS_Store
 .idea
+keystore.p12
 QField.pro.user
 QField.pro.user.*
 /config.pri
 /build*
+/scripts/astyle
 android/gradle.properties
 android/local.properties
 android/res/values/generated.xml
@@ -20,3 +22,4 @@ android/.build
 android/.gradle
 .idea
 *~
+keystore.p12

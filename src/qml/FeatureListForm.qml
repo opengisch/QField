@@ -21,7 +21,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import org.qgis 1.0
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 Rectangle {
   id: featureForm
@@ -41,7 +41,7 @@ Rectangle {
           if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
               parent.width
           } else {
-              Math.min(Math.max( 200 * dp, parent.width / 3), parent.width)
+              Math.min(Math.max( 200 * dp, parent.width / 2.6), parent.width)
           }
       } else { 0 }
   }
@@ -215,7 +215,7 @@ Rectangle {
 
           visible: deleteFeatureCapability && allowEdit
 
-          iconSource: Style.getThemeIcon( "ic_delete_forever_white_24dp" )
+          iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
 
           onClicked: {
             deleteDialog.currentLayer = currentLayer
@@ -326,7 +326,7 @@ Rectangle {
         event.key === Qt.Key_Escape ) {
       if( state != "FeatureList" ) {
         if( featureListToolBar.state === "Edit"){
-          if( featureFormList.model.constraintsValid ) {
+          if( featureFormList.model.constraintsHardValid ) {
             featureListToolBar.save()
           } else {
             displayToast( "Constraints not valid" )

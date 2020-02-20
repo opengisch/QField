@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtMultimedia 5.8
-import "js/style.js" as Style
+import Theme 1.0
 import QtQuick.Controls 1.4 as Controls
 
 Item{
@@ -76,7 +76,7 @@ Item{
       round: true
       roundborder: true
       bgcolor: "grey"
-      borderColor: "#80CC28"
+      borderColor: Theme.mainColor
 
       onClicked: camera.imageCapture.captureToLocation(qgisProject.homePath+ '/DCIM/')
     }
@@ -99,10 +99,10 @@ Item{
 
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
-      bgcolor: "#80CC28"
+      bgcolor: Theme.mainColor
       round: true
 
-      iconSource: Style.getThemeIcon("ic_save_white_24dp")
+      iconSource: Theme.getThemeIcon("ic_save_white_24dp")
 
       onClicked: cameraItem.finished( currentPath )
     }
@@ -113,10 +113,10 @@ Item{
 
       anchors.right: parent.right
       anchors.top: parent.top
-      bgcolor: "#80CC28"
+      bgcolor: Theme.mainColor
       round: true
 
-      iconSource: Style.getThemeIcon("ic_clear_white_24dp")
+      iconSource: Theme.getThemeIcon("ic_clear_white_24dp")
       onClicked: {
         platformUtilities.rmFile( currentPath )
         cameraItem.state = "PhotoCapture"

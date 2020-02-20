@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="done_unpacking_msg">データの解凍をし、QGISを起動します。</string>
+    <string name="unpacking_msg">ポストインストールデータを解凍します。しばらくお待ちください。</string>
+    <string name="use_internal_storage">内部ストレージを使う</string>
+    <string name="external_storage_unavailable">ポストインストールデータを解凍します。しばらくお待ちください。</string>
+    <string name="noexternalstorage_dialog">外部ストレージ (/sdcard) が見つかりません. USB経由でデバイスに接続した場合にこのエラーが起きることがあります。\nQGISは内部ストレージから起動できますが、ストレージ容量が少ない可能性があるため推奨されません。\nキャンセルボタンを押下後、一度USBケーブルを外してQGISを再起動してください。</string>
+    <string name="primary_storage">内部ストレージ</string>
+    <string name="secondary_storage">外部ストレージ上のQFieldディレクトリ</string>
+    <string name="secondary_storage_read_only">外部ストレージ (読み取り専用)</string>
+    <string name="inaccessible">アクセスできません</string>
+    <string name="loading">読み込み中</string>
+    <string name="select_project">QGISプロジェクトを選択してください</string>
+    <string name="recent_projects">最近使用したプロジェクト</string>
+    <string name="rate_title">QFieldの評価をお願いします</string>
+    <string name="rate_message">もしQFieldに満足いただけましたら、少し時間をいただき評価をお願いします。ご支援いただきありがとうございます!</string>
+    <string name="rate_now">評価する</string>
+    <string name="remind_later">後で通知する</string>
+    <string name="no_thanks">結構です!</string>
+    <string name="favorite_directories">お気に入り</string>
+    <string name="added_to_favorites">お気に入りに追加しました</string>
+    <string name="removed_from_favorites">お気に入りから削除しました</string>
+    <string name="alert_sd_card_title">警告</string>
+    <string name="alert_sd_card_message">QFieldをAndroid端末からアンインストールすると、このディレクトリ内の全てのファイルが削除されます。</string>
+    <string name="alert_sd_card_ok">OK</string>
+</resources>

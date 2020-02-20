@@ -21,10 +21,12 @@ include( ../../version.pri )
 HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
+    geometryeditorsmodel.h \
     multifeaturelistmodel.h \
     featurelistmodelselection.h \
     featuremodel.h \
     qgismobileapp.h \
+    qgsgpkgflusher.h \
     qgssggeometry.h \
     sgrubberband.h \
     settings.h \
@@ -59,6 +61,7 @@ HEADERS += \
     linepolygonhighlight.h \
     qgsgeometrywrapper.h \
     valuemapmodel.h \
+    recentprojectlistmodel.h \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
     qfieldappauthrequesthandler.h
@@ -66,10 +69,12 @@ HEADERS += \
 SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
+    geometryeditorsmodel.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
     qgismobileapp.cpp \
+    qgsgpkgflusher.cpp \
     qgssggeometry.cpp \
     sgrubberband.cpp \
     settings.cpp \
@@ -104,6 +109,7 @@ SOURCES += \
     linepolygonhighlight.cpp \
     qgsgeometrywrapper.cpp \
     valuemapmodel.cpp \
+    recentprojectlistmodel.cpp \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp

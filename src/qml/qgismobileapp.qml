@@ -16,7 +16,6 @@
  ***************************************************************************/
 
 import QtQuick 2.11
-import QtQuick.Controls 1.4 as Controls
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
@@ -25,7 +24,7 @@ import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
 import QtPositioning 5.11
-import "js/style.js" as Style
+import Theme 1.0
 
 import '.'
 
@@ -57,7 +56,7 @@ ApplicationWindow {
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
         if ( stateMachine.state === 'measure' ) {
-          closeTool()
+          mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
         }
@@ -71,7 +70,7 @@ ApplicationWindow {
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
 
-  signal closeTool()
+  signal closeMeasureTool()
   signal changeMode( string mode )
 
   Item {
@@ -95,7 +94,6 @@ ApplicationWindow {
         name: 'measure'
         PropertyChanges { target: identifyTool; deactivated: true }
         PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
-        PropertyChanges { target: dashBoard; visible: false }
         PropertyChanges { target: featureForm; state: "Hidden" }
       }
     ]
@@ -108,7 +106,8 @@ ApplicationWindow {
     displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
   }
 
-  onCloseTool: {
+  onCloseMeasureTool: {
+    overlayFeatureFormDrawer.close()
     changeMode( stateMachine.lastState)
   }
 
@@ -119,22 +118,8 @@ ApplicationWindow {
     id: positionSource
     active: settings.valueBool( "/QField/Positioning/Active", false )
     destinationCrs: mapCanvas.mapSettings.destinationCrs
-  }
-
-  Item {
-    id: positionInformationView
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
-    height: childrenRect.height
-    width: parent.width
-
-    PositionInformationView {
-      positionSource: positionSource
-      crs: mapCanvas.mapSettings.destinationCrs
-    }
+    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+    skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
   }
 
   Item {
@@ -163,7 +148,7 @@ ApplicationWindow {
     Rectangle {
       id: mapCanvasBackground
       anchors.fill: parent
-      color: mapSettings.backgroundColor
+      color: mapCanvas.mapSettings.backgroundColor
     }
 
     /* The base map */
@@ -179,6 +164,14 @@ ApplicationWindow {
               locatorItem.searching = false
           } else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+          }
+      }
+
+      onPanned: {
+          if ( gpsButton.followActive )
+          {
+            gpsButton.followActive = false
+            displayToast( qsTr( "Canvas stopped following location" ) )
           }
       }
 
@@ -214,10 +207,6 @@ ApplicationWindow {
           currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
-
-          onCurrentCoordinateChanged: {
-              console.info( currentCoordinate.x+', '+currentCoordinate.y+', '+currentCoordinate.z )
-          }
         }
 
         anchors.fill: parent
@@ -245,13 +234,30 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
-
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
 
         mapSettings: mapCanvas.mapSettings
         model: featureForm.model
+      }
+
+      /** A rubberband for the different geometry editors **/
+      Rubberband {
+        id: geometryEditorsRubberband
+        width: 2 * dp
+        color: '#80000000'
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          frozen: false
+          currentCoordinate: coordinateLocator.currentCoordinate
+          crs: mapCanvas.mapSettings.destinationCrs
+          geometryType: QgsWkbTypes.LineGeometry
+        }
+
+        anchors.fill: parent
       }
     }
 
@@ -273,6 +279,21 @@ ApplicationWindow {
       anchors.fill: parent
       visible: positionSource.active
       location: positionSource.projectedPosition
+      accuracy: positionSource.projectedHorizontalAccuracy
+      direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+
+      onLocationChanged: {
+        if ( gpsButton.followActive ) {
+          var screenLocation = mapSettings.coordinateToScreen( location );
+          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+          }
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -316,6 +337,33 @@ ApplicationWindow {
     }
   }
 
+  Item {
+    id: positionInformationView
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+    height: childrenRect.height
+    width: parent.width
+
+    PositionInformationView {
+      id: p
+      positionSource: positionSource
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+    }
+  }
+
+  DropShadow {
+    anchors.fill: positionInformationView
+    visible: positionInformationView.visible
+    verticalOffset: -2 * dp
+    radius: 6.0 * dp
+    samples: 17
+    color: "#30000000"
+    source: positionInformationView
+  }
+
   /**************************************************
    * Map Canvas Decorations like
    * - Position Information View
@@ -338,30 +386,35 @@ ApplicationWindow {
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
-                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1 / %2</p>'
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
 
-                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1 %2</p>'
+                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1: %2%3</p>'
+                  .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length') )
                   .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                  .arg(digitizingGeometryMeasure.length !== -1 ? '(%1)'.arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
+                  .arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '<br>%1: %2'.arg( qsTr( 'Length') ).arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
                   : '' )
 
-                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1</p>'
+                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
+                  .arg( qsTr( 'Area') )
                   .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
                   : '' )
 
-                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1 / %2</p>'
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed(3))
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed(3))
+                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1: %2<br>%3: %4</p>'
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
+                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
+                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
+                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
                   : '' )
               : ''
 
-    font.pointSize: 12
+    font: Theme.strongFont
     style: Text.Outline
-    font.weight: Font.Bold
-    styleColor: "white"
+    styleColor: Theme.light
   }
 
   ScaleBar {
@@ -386,10 +439,10 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: mainWindow.width < 300 * dp ? mainWindow.width - anchors.margins - mainMenuBar.width : 200 * dp
+    width: Math.max( 200 * dp, mainWindow.width / 3 )
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: 10 * dp
+    anchors.margins: 4 * dp
 
     visible: stateMachine.state !== 'measure'
   }
@@ -398,16 +451,7 @@ ApplicationWindow {
     id: dashBoard
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-  }
-
-  DropShadow {
-    anchors.fill: dashBoard
-    horizontalOffset: 2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: dashBoard
+    interactive: !welcomeScreen.visible
   }
 
   /* The main menu */
@@ -415,71 +459,30 @@ ApplicationWindow {
     id: mainMenuBar
     width: childrenRect.width + 8 * dp
     height: childrenRect.height + 8 * dp
+    topPadding: 4 * dp
+    leftPadding: 4 * dp
+    spacing: 4 * dp
 
     Button {
       id: menuButton
       round: true
-      iconSource: Style.getThemeIcon( "ic_menu_white_24dp" )
-      onClicked: dashBoard.visible = !dashBoard.visible
-      bgcolor: dashBoard.visible ? "#80CC28" : "#212121"
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
+      iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
+      onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
+      bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
     }
 
-    ToolButton {
+    CloseTool {
       id: closeMeasureTool
-      height: 48 * dp
-      width: height + buttonText.width + 32 * dp
-
-      contentItem: Rectangle {
-        anchors.fill: parent
-        color: '#80000000'
-        radius: height / 2
-
-        Row {
-          spacing: 8 * dp
-          Rectangle {
-            height: 48 * dp
-            width: 48 * dp
-            radius: height / 2
-            color: '#212121'
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( "ic_close_white_24dp" )
-            }
-          }
-
-          Text {
-            id: buttonText
-            anchors.verticalCenter: parent.verticalCenter
-            verticalAlignment: Text.AlignVCenter
-            text: qsTr( 'Close measure tool' )
-            color: 'white'
-            font.bold: true
-            font.pixelSize: 16 * dp
-          }
-        }
-
-        Behavior on color {
-          ColorAnimation {
-            duration: 200
-          }
-        }
-      }
       visible: stateMachine.state === 'measure'
-      onClicked: {
-        overlayFeatureFormDrawer.close()
-        closeTool()
-      }
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
+      toolText: qsTr( 'Close measure tool' )
+      onClosedTool: mainWindow.closeMeasureTool()
+    }
+
+    CloseTool {
+      id: closeGeometryEditorsTool
+      visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      toolText: qsTr( 'Stop editing' )
+      onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
   }
 
@@ -488,17 +491,18 @@ ApplicationWindow {
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: digitizingToolbar.height + 4 * dp
+    anchors.bottomMargin: 4 * dp
     spacing: 4 * dp
 
     Button {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
-      bgcolor: "#212121"
       checkable: true
+      anchors.right: parent.right
 
-      iconSource: linkActive ? Style.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Style.getThemeIcon( "ic_gps_link_white_24dp" )
+      bgcolor: Theme.darkGray
+      iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
 
@@ -510,8 +514,11 @@ ApplicationWindow {
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
       round: true
+      anchors.right: parent.right
 
       bgcolor: "#64B5F6"
+
+      property bool followActive: false
 
       states: [
         State {
@@ -519,7 +526,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: gpsButton
-            iconSource: Style.getThemeIcon( "ic_location_disabled_white_24dp" )
+            iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
             bgcolor: "#88212121"
           }
         },
@@ -528,22 +535,26 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Style.getThemeIcon( "ic_my_location_white_24dp" ) : Style.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
             opacity:1
           }
         }
       ]
 
       onClicked: {
+        followActive = true
         if ( positionSource.projectedPosition.x )
         {
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
           if ( !positionSource.active )
           {
             positionSource.active = true;
-            displayToast( qsTr( "Activating positioning service..." ) )
+            displayToast( qsTr( "Activating positioning service" ) )
+          }
+          else
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -552,12 +563,12 @@ ApplicationWindow {
           {
             if ( positionSource.active )
             {
-              displayToast( qsTr( "Waiting for location..." ) )
+              displayToast( qsTr( "Waiting for location" ) )
             }
             else
             {
               positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
+              displayToast( qsTr( "Activating positioning service" ) )
             }
           }
         }
@@ -582,173 +593,181 @@ ApplicationWindow {
         }
       }
     }
-  }
 
-  DigitizingToolbar {
-    id: digitizingToolbar
+    DigitizingToolbar {
+      id: digitizingToolbar
 
-    anchors.bottom: mapCanvas.bottom
-    anchors.right: mapCanvas.right
+      stateVisible: (stateMachine.state === "digitize"
+                     && dashBoard.currentLayer
+                     && !dashBoard.currentLayer.readOnly
+                     && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
+      rubberbandModel: currentRubberband.model
+      coordinateLocator: coordinateLocator
+      mapSettings: mapCanvas.mapSettings
+      showConfirmButton: stateMachine.state === "digitize"
 
-    stateVisible: (stateMachine.state === "digitize"
-                   && dashBoard.currentLayer
-                   && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible ) || stateMachine.state === 'measure'
-    rubberbandModel: currentRubberband.model
+      FeatureModel {
+        id: digitizingFeature
+        currentLayer: dashBoard.currentLayer
+        positionSourceName: positionSource.name
+        topSnappingResult: coordinateLocator.topSnappingResult
 
-    FeatureModel {
-      id: digitizingFeature
-      currentLayer: dashBoard.currentLayer
-      positionSourceName: positionSource.name
-      topSnappingResult: coordinateLocator.topSnappingResult
+        geometry: Geometry {
+          id: digitizingGeometry
+          rubberbandModel: digitizingRubberband.model
+          vectorLayer: dashBoard.currentLayer
+        }
+      }
 
-      geometry: Geometry {
-        id: digitizingGeometry
-        rubberbandModel: digitizingRubberband.model
-        vectorLayer: dashBoard.currentLayer
+      onConfirm: {
+        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+        {
+          digitizingRubberband.model.reset()
+        }
+        else
+        {
+          coordinateLocator.flash()
+          digitizingFeature.geometry.applyRubberband()
+          digitizingFeature.applyGeometry()
+          digitizingRubberband.model.frozen = true
+        }
+
+        if ( !digitizingFeature.suppressFeatureForm() )
+        {
+          digitizingFeature.resetAttributes();
+          overlayFeatureFormDrawer.open()
+          overlayFeatureFormDrawer.state = "Add"
+          overlayFeatureFormDrawer.featureForm.reset()
+        }
+        else
+        {
+          digitizingFeature.create()
+          digitizingRubberband.model.reset()
+        }
       }
     }
 
-    onVertexAdded: {
-      coordinateLocator.flash()
-      currentRubberband.model.addVertex()
-    }
+    GeometryEditorsToolbar {
+      id: geometryEditorsToolbar
 
-    onVertexRemoved:
-    {
-      currentRubberband.model.removeVertex()
-      mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
-    }
+      featureModel: geometryEditingFeature
+      mapSettings: mapCanvas.mapSettings
+      editorRubberbandModel: geometryEditorsRubberband.model
 
-    onCancel:
-    {
-      currentRubberband.model.reset()
-    }
-
-    onConfirm: {
-      if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-      {
-        digitizingRubberband.model.reset()
-      }
-      else
-      {
-        coordinateLocator.flash()
-        digitizingFeature.geometry.applyRubberband()
-        digitizingFeature.applyGeometry()
-        digitizingRubberband.model.frozen = true
-      }
-
-      if ( !digitizingFeature.suppressFeatureForm() )
-      {
-        digitizingFeature.resetAttributes();
-        overlayFeatureFormDrawer.open()
-        overlayFeatureFormDrawer.state = "Add"
-        overlayFeatureFormDrawer.featureForm.reset()
-      }
-      else
-      {
-        digitizingFeature.create()
-        digitizingRubberband.model.reset()
-      }
+      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
     }
   }
 
-  GeometryEditingToolbar {
-    id: geometryEditingToolbar
 
-    featureModel: geometryEditingFeature
-    mapSettings: mapCanvas.mapSettings
-
-    anchors.bottom: mapCanvas.bottom
-    anchors.right: mapCanvas.right
-
-    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
-  }
-
-
-  Controls.Menu {
+  Menu {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    Controls.MenuItem {
+    width: Math.max(200*dp, mainWindow.width/4)
+
+    MenuItem {
       id: openProjectMenuItem
-      property ProjectSource __projectSource
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
 
       text: qsTr( "Open Project" )
-      iconSource: Style.getThemeIcon( "ic_map_white_24dp" )
       onTriggered: {
-        __projectSource = platformUtilities.openProject()
+        dashBoard.close()
+        welcomeScreen.visible = true
+        welcomeScreen.focus = true
+        highlighted = false
       }
     }
 
-    Controls.MenuSeparator {}
+    MenuSeparator { width: parent.width }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Settings" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.close()
         qfieldSettings.visible = true
+        highlighted = false
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "About" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.close()
         aboutDialog.visible = true
+        highlighted = false
       }
     }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Log" )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.close()
         messageLog.visible = true
+        highlighted = false
       }
     }
 
+    MenuSeparator { width: parent.width }
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( 'Measure Tool' )
 
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
+
       onTriggered: {
+        dashBoard.close()
         changeMode( 'measure' )
+        highlighted = false
       }
     }
 
-    Controls.Menu {
-      id: printMenu
-      title: qsTr( "Print to PDF" )
+    MenuItem {
+      id: printItem
+      text: qsTr( "Print to PDF" )
 
-      Instantiator {
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48 * dp
+      leftPadding: 10 * dp
 
-        id: layoutListInstantiator
-
-        model: PrintLayoutListModel {
-        }
-
-        Controls.MenuItem {
-          text: Title
-
-          onTriggered: {
-            iface.print( Index )
-          }
-        }
-        onObjectAdded: printMenu.insertItem(index, object)
-        onObjectRemoved: printMenu.removeItem(object)
-      }
-
-      Connections {
-        target: iface
-
-        onLoadProjectEnded: {
-          layoutListInstantiator.model.project = qgisProject
-          layoutListInstantiator.model.reloadModel()
-          printMenu.visible = layoutListInstantiator.model.rowCount()
-        }
+      onTriggered: {
+        printMenu.popup( mainMenu.x, 2 * dp )
+        highlighted = false
       }
     }
 
+    Connections {
+        target: printMenu
+
+        onEnablePrintItem: {
+          printItem.enabled = rows
+        }
+    }
 
     /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
@@ -760,7 +779,7 @@ ApplicationWindow {
 
     Controls.MenuItem {
       text: qsTr( "Quit" )
-      iconSource: Style.getThemeIcon( "ic_close_white_24dp" )
+      iconSource: Theme.getThemeIcon( "ic_close_white_24dp" )
       onTriggered: {
         Qt.quit()
       }
@@ -768,14 +787,74 @@ ApplicationWindow {
     */
   }
 
-  Controls.Menu {
+  Menu {
+    id: printMenu
+
+    title: qsTr( "Print to PDF" )
+
+    signal enablePrintItem( int rows )
+
+    width: Math.max(200*dp, mainWindow.width/4)
+    font: Theme.defaultFont
+
+    Instantiator {
+
+      id: layoutListInstantiator
+
+      model: PrintLayoutListModel {
+      }
+
+      MenuItem {
+        text: Title
+
+        width: parent.width
+        height: 48 * dp
+        font: Theme.defaultFont
+        leftPadding: 10 * dp
+
+        onTriggered: {
+          iface.print( Index )
+          highlighted = false
+        }
+      }
+      onObjectAdded: printMenu.insertItem(index, object)
+      onObjectRemoved: printMenu.removeItem(object)
+    }
+
+    Connections {
+      target: iface
+
+      onLoadProjectEnded: {
+        layoutListInstantiator.model.project = qgisProject
+        layoutListInstantiator.model.reloadModel()
+        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
+        welcomeScreen.visible = false
+        welcomeScreen.focus = false
+        recentProjectListModel.reloadModel()
+        settings.setValue( "/QField/FirstRunFlag", false )
+      }
+    }
+  }
+
+  Menu {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
+    font: Theme.defaultFont
+    width: Math.max(200*dp, mainWindow.width/1.5)
 
-    Controls.MenuItem {
+    MenuItem {
       text: qsTr( "Enable Positioning" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: parent.width
       checkable: true
       checked: positionSource.active
+      indicator.height: 20 * dp
+      indicator.width: 20 * dp
+      indicator.implicitHeight: 24 * dp
+      indicator.implicitWidth: 24 * dp
+
       onCheckedChanged: {
         if ( checked && platformUtilities.checkPositioningPermissions() ) {
           positionSource.active = checked
@@ -788,8 +867,14 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuItem {
-      text: qsTr( "Center current location" )
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( "Center to Current Location" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: parent.width
       onTriggered: {
         var coord = positionSource.position.coordinate;
         var loc = Qt.point( coord.longitude, coord.latitude );
@@ -797,37 +882,53 @@ ApplicationWindow {
       }
     }
 
-    Controls.MenuSeparator {}
+    MenuSeparator { width: parent.width }
 
-    Controls.MenuItem {
-      text: qsTr( "Show position information" )
+    MenuItem {
+      text: qsTr( "Show Position Information" )
+
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: parent.width
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+
+      indicator.height: 20 * dp
+      indicator.width: 20 * dp
+      indicator.implicitHeight: 24 * dp
+      indicator.implicitWidth: 24 * dp
       onCheckedChanged:
       {
         settings.setValue( "/QField/Positioning/ShowInformationView", checked )
         positionInformationView.visible = checked
       }
     }
+
+    MenuItem {
+      text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
+      height: 48 * dp
+      font: Theme.defaultFont
+      width: parent.width
+
+      onTriggered: {
+        positioningSettings.visible = true
+      }
+    }
   }
 
-  Image {
+  Button {
     id: alertIcon
-    source: Style.getThemeIcon( "ic_add_alert_black_18dp" )
+    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
+    round: true
+    bgcolor: "transparent"
 
     visible: messageLog.unreadMessages
 
-    anchors.right: mapCanvas.right
+    anchors.right: locatorItem.right
     anchors.top: locatorItem.bottom
-    anchors.topMargin: 10 * dp
-    anchors.rightMargin: 15 * dp
-    width: 36 * dp
-    height: 36 * dp
+    anchors.topMargin: 5 * dp
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: messageLog.visible = true
-    }
+    onClicked: messageLog.visible = true
   }
 
   /* The feature form */
@@ -869,6 +970,8 @@ ApplicationWindow {
       {
         featureForm.state = "Hidden"
       }
+
+      geometryEditorsToolbar.init()
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
@@ -892,12 +995,6 @@ ApplicationWindow {
     featureModel: digitizingFeature
   }
 
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-    }
-  }
-
   function displayToast( message ) {
     //toastMessage.text = message
     toast.show(message)
@@ -906,11 +1003,11 @@ ApplicationWindow {
   Rectangle {
     id: busyMessage
     anchors.fill: parent
-    color: "#272727"
+    color: Theme.darkGray
     opacity: 0.5
     visible: false
 
-    Controls.BusyIndicator {
+    BusyIndicator {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
@@ -941,11 +1038,13 @@ ApplicationWindow {
     }
   }
 
-  Controls.BusyIndicator {
+  BusyIndicator {
     id: busyIndicator
-    anchors.centerIn: mapCanvas
-    width: 36 * dp
-    height: 36 * dp
+    anchors.left: mainMenuBar.left
+    anchors.top: mainMenuBar.bottom
+    padding: 5 * dp
+    width: mainMenuBar.height
+    height: mainMenuBar.height
     running: mapCanvasMap.isRendering
   }
 
@@ -959,6 +1058,10 @@ ApplicationWindow {
     }
 
     visible: false
+
+    onFinished: {
+      visible = false
+    }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
@@ -1034,6 +1137,7 @@ ApplicationWindow {
       y: 24 * dp
       width: parent.width - 48 * dp
       height: parent.height - 48 * dp
+      padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
 
@@ -1083,19 +1187,14 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
+  PositioningSettings {
+    id: positioningSettings
     visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
-    width: parent.width
-    height: parent.height
-
-    onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      mainWindow.keyHandler.focus=true
-    }
+    x: 24 * dp
+    y: 24 * dp
+    width: parent.width - 48 * dp
+    height: parent.height - 48 * dp
   }
 
   QFieldSettings {
@@ -1121,13 +1220,51 @@ ApplicationWindow {
 
   WelcomeScreen {
     id: welcomeScreen
-    anchors.fill: parent
-    visible: !settings.value( "/QField/FirstRunFlag", false )
+    model: RecentProjectListModel {
+      id: recentProjectListModel
+    }
     property ProjectSource __projectSource
 
+    anchors.fill: parent
+    focus: true
+
+    visible: true
+
     onShowOpenProjectDialog: {
-      welcomeScreen.visible = false
       __projectSource = platformUtilities.openProject()
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        console.log(focus)
+        if ( qgisProject.fileName != '') {
+          event.accepted = true
+          visible = false
+          focus = false
+        } else {
+          event.accepted = false
+          mainWindow.close()
+        }
+      }
+    }
+
+    Component.onCompleted: {
+        focusstack.addFocusTaker( this )
+    }
+  }
+
+  FileDialog {
+    id: openProjectDialog
+    title: qsTr( "Open project" )
+    visible: false
+    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
+
+    width: mainWindow.width
+    height: mainWindow.height
+
+    onAccepted: {
+      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
+      mainWindow.keyHandler.focus=true
     }
   }
 
@@ -1174,8 +1311,9 @@ ApplicationWindow {
       width: parent.width
       y: parent.height - 112 * dp
       margins: 0
-      background: undefined
       closePolicy: Popup.NoAutoClose
+
+      background: Rectangle { color: "transparent" }
 
       function show(text) {
           toastMessage.text = text
@@ -1190,23 +1328,35 @@ ApplicationWindow {
       }
 
       Rectangle {
-          id: toastContent
-        color: "#272727"
+        id: toastContent
+        color: Theme.darkGray
 
-        height: 40 * dp
-        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
+        height: toastMessage.height
+        width: toastMessage.text.length * 16 * dp <= 192 * dp ? 192 * dp : ( toastMessage.text.length * 16 * dp ) - 16 * dp > mainWindow.width ? mainWindow.width - 16 * dp : toastMessage.text.length * 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20 * dp
+        radius: 16 * dp
 
         z: 1
 
         Text {
           id: toastMessage
-          anchors.centerIn: parent
-          font.pixelSize: 16 * dp
-          color: "#ffffff"
+          anchors.left: parent.left
+          anchors.right: parent.right
+          wrapMode: Text.Wrap
+
+          font: Theme.secondaryTitleFont
+          horizontalAlignment: Text.AlignHCenter
+          color: Theme.light
+        }
+
+        MouseArea {
+          anchors.fill: parent
+          propagateComposedEvents: true
+          onClicked: {
+              mouse.accepted = false
+          }
         }
       }
 

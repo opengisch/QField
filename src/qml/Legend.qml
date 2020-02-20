@@ -8,7 +8,7 @@ import org.qfield 1.0
 import QtQml.Models 2.2
 import QtQuick.Controls.Styles 1.4
 
-import "js/style.js" as Style
+import Theme 1.0
 
 TreeView {
   id: listView
@@ -24,7 +24,7 @@ TreeView {
             color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer && currentLayer != null ? "#999" : "#fff"
             Image {
               anchors.fill: parent
-              source:  styleData.isExpanded ? Style.getThemeIcon("ic_arrow_drop_down_black_24dp") : Style.getThemeIcon("ic_arrow_right_black_24dp")
+              source:  styleData.isExpanded ? Theme.getThemeIcon("ic_arrow_drop_down_black_24dp") : Theme.getThemeIcon("ic_arrow_right_black_24dp")
             }
         }
     }
@@ -55,7 +55,7 @@ TreeView {
           if ( legendNode )
             return "image://legend/" + legendNode
           else
-            return unknown
+            return ''
       }
       width: delegatedItem.height
       height: delegatedItem.height

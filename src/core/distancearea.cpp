@@ -31,7 +31,7 @@ void DistanceArea::init()
   if ( mProject )
     mDistanceArea.setEllipsoid( mProject->ellipsoid() );
   else
-    mDistanceArea.setEllipsoid( GEO_NONE );
+    mDistanceArea.setEllipsoid( geoNone() );
   mDistanceArea.setSourceCrs( mCrs, mProject->transformContext() );
 
   emit lengthUnitsChanged();
@@ -148,7 +148,7 @@ bool DistanceArea::lengthValid() const
       return false;
 
     case QgsWkbTypes::LineGeometry:
-      FALLTHROUGH;
+      FALLTHROUGH
     case QgsWkbTypes::PolygonGeometry:
       return mRubberbandModel->vertexCount() >= 2;
 

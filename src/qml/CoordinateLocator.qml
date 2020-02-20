@@ -115,19 +115,37 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: parent.border.color
+      color: highlightColor
 
-      width: 1.2 * dp
-      height: parent.height * 4 / 6
+      width: 3
+      height: parent.height * 4 / 6 + 3
+    }
+    Rectangle {
+      anchors.centerIn: parent
+
+      color: highlightColor
+
+      width: parent.width * 4 / 6 + 3
+      height: 3
     }
 
     Rectangle {
       anchors.centerIn: parent
 
       color: parent.border.color
+      border.color: parent.color
+      border.width: 1.2 * dp
+
+      width: 1
+      height: parent.height * 4 / 6
+    }
+    Rectangle {
+      anchors.centerIn: parent
+
+      color: parent.border.color
 
       width: parent.width * 4 / 6
-      height: 1.2 * dp
+      height: 1
     }
   }
 

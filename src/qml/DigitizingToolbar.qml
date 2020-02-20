@@ -1,24 +1,24 @@
 import QtQuick 2.6
 import org.qgis 1.0
-import "js/style.js" as Style
+import Theme 1.0
 
 VisibilityFadingRow {
   id: digitizingToolbar
   property RubberbandModel rubberbandModel
+  property CoordinateLocator coordinateLocator // optional coordinateLocator to flash
+  property MapSettings mapSettings
+  property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
+
   property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   spacing: 4 * dp
-  padding: 4 * dp
 
-  signal vertexAdded
-  signal vertexRemoved
-  signal cancel
   signal confirm
 
   Button {
     id: cancelButton
-    iconSource: Style.getThemeIcon( "ic_clear_white_24dp" )
-    visible: rubberbandModel.vertexCount > 1
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
+    visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
     bgcolor: "#900000"
 
@@ -30,10 +30,14 @@ VisibilityFadingRow {
   Button {
     id: confirmButton
     iconSource: {
-      Style.getThemeIcon( "ic_save_white_24dp" )
+      Theme.getThemeIcon( "ic_check_white_48dp" )
     }
     visible: {
-      if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 || stateMachine.state === 'measure' )
+      if ( !showConfirmButton)
+      {
+        false
+      }
+      else if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
       {
         false
       }
@@ -49,41 +53,66 @@ VisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: "#80cc28"
+    bgcolor: Theme.mainColor
 
     onClicked: {
       // remove editing vertex for lines and polygons
-      vertexRemoved()
+      removeVertex()
       confirm()
     }
   }
 
   Button {
     id: removeVertexButton
-    iconSource: Style.getThemeIcon( "ic_remove_white_24dp" )
-    visible: rubberbandModel.vertexCount > 1
+    iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+    visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: "#212121"
+    bgcolor: Theme.darkGray
 
     onClicked: {
-      vertexRemoved()
+      removeVertex()
     }
   }
 
   Button {
     id: addVertexButton
     iconSource: {
-        Style.getThemeIcon( "ic_add_white_24dp" )
+        Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
-    bgcolor: stateMachine.state === 'measure' ? "#000000": Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ? "#80cc28" : "#212121"
+    bgcolor: {
+        if (!showConfirmButton)
+          Theme.darkGray
+        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
+          Theme.mainColor
+        else
+          Theme.darkGray
+    }
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
            Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry )
         confirm()
       else
-        vertexAdded()
+        addVertex()
     }
+  }
+
+  function addVertex()
+  {
+    if (coordinateLocator)
+      coordinateLocator.flash()
+    rubberbandModel.addVertex()
+  }
+
+  function removeVertex()
+  {
+    rubberbandModel.removeVertex()
+    mapSettings.setCenter( rubberbandModel.currentCoordinate )
+  }
+
+  function cancel()
+  {
+    rubberbandModel.reset()
   }
 }

@@ -1,10 +1,10 @@
 import QtQuick 2.11
 import org.qgis 1.0
-import QtQuick.Controls 2.4 as Controls
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.1
-import "js/style.js" as Style
+import Theme 1.0
 
-Controls.Drawer {
+Drawer {
   objectName: "dashBoard"
 
   signal showMenu
@@ -13,7 +13,7 @@ Controls.Drawer {
   property alias currentLayer: legend.currentLayer
   property MapSettings mapSettings
 
-  property color mainColor: "#80CC28"
+  property color mainColor: Theme.mainColor
 
   width: Math.min( 300 * dp, mainWindow.width)
   height: parent.height
@@ -22,29 +22,18 @@ Controls.Drawer {
   padding: 0
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
-  readonly property bool open: dashBoard.visible && !preventFromOpening
 
   position: 0
-  focus: visible
+  focus: opened
   clip: true
 
-  Keys.onReleased: {
-    if ( event.key === Qt.Key_Back ||
-      event.key === Qt.Key_Escape ) {
-      close()
-      event.accepted = true
-    }
-  }
-
-  /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
-  onShowMenu: mainMenu.__popup(Qt.rect(menuButton.x + 2 * menuButton.width, menuButton.y, mainMenu.__popupGeometry.width, mainMenu.__popupGeometry.height), 0, 0)
+  /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
+  onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
-
-  Component.onCompleted: focusstack.addFocusTaker( this )
 
   ColumnLayout {
     anchors.fill: parent
@@ -59,26 +48,28 @@ Controls.Drawer {
         height: childrenRect.height
         spacing: 1 * dp
 
-        Controls.ToolButton {
+        ToolButton {
           height: 56 * dp
           width: 56 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent
             color: mainColor
+            enabled: welcomeScreen.visible
             Image {
               anchors.fill: parent
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( 'ic_chevron_left_white_24dp' )
+              source: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
             }
           }
 
           onClicked: close()
         }
 
-        Controls.ToolButton {
+        ToolButton {
+          id: settingsButton
           height: 56 * dp
           width: 56 * dp
 
@@ -90,7 +81,7 @@ Controls.Drawer {
               fillMode: Image.Pad
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Style.getThemeIcon( 'ic_settings_white_24dp' )
+              source: Theme.getThemeIcon( 'ic_settings_white_24dp' )
             }
           }
 
@@ -99,7 +90,7 @@ Controls.Drawer {
       }
 
 
-      Controls.Switch {
+      Switch {
         id: modeswitch
         height: 56 * dp
         width: ( 56 + 36 )  * dp
@@ -117,7 +108,7 @@ Controls.Drawer {
             width: parent.width / 2
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            source: Style.getThemeIcon( 'ic_map_white_48dp' )
+            source: Theme.getThemeIcon( 'ic_map_white_48dp' )
             opacity: 0.4
           }
           Image {
@@ -125,7 +116,7 @@ Controls.Drawer {
             width: parent.width / 2
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            source: Style.getThemeIcon( 'ic_create_white_24dp' )
+            source: Theme.getThemeIcon( 'ic_create_white_24dp' )
             opacity: 0.4
           }
           Rectangle {
@@ -133,7 +124,7 @@ Controls.Drawer {
             width: 36 * dp
             height: 36 * dp
             radius: 4 * dp
-            color:  "#80CC28"
+            color:  Theme.mainColor
             border.color: "white"
             Image {
               height: parent.height
@@ -141,7 +132,7 @@ Controls.Drawer {
               anchors.right:  modeswitch.checked ? parent.right : undefined
               anchors.left:  modeswitch.checked ? undefined : parent.left
               anchors.verticalCenter: parent.verticalCenter
-              source:  modeswitch.checked ? Style.getThemeIcon( 'ic_create_white_24dp' ) : Style.getThemeIcon( 'ic_map_white_24dp' )
+              source:  modeswitch.checked ? Theme.getThemeIcon( 'ic_create_white_24dp' ) : Theme.getThemeIcon( 'ic_map_white_24dp' )
             }
             Behavior on x {
               PropertyAnimation {
@@ -161,12 +152,12 @@ Controls.Drawer {
       }
     }
 
-    Controls.GroupBox {
+    GroupBox {
       id: mapThemeContainer
       Layout.fillWidth: true
       property bool isLoading: false
 
-      Controls.ComboBox {
+      ComboBox {
         id: mapThemeComboBox
         anchors { left: parent.left; right: parent.right }
 
@@ -179,7 +170,7 @@ Controls.Drawer {
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
             layerTree.updateCurrentMapTheme()
-            mapThemeComboBox.currentIndex = mapThemeComboBox.find( layerTree.mapTheme )
+            mapThemeComboBox.currentIndex = layerTree.mapTheme != '' ? mapThemeComboBox.find( layerTree.mapTheme ) : -1
             mapThemeContainer.isLoading = false
           }
         }
@@ -191,12 +182,12 @@ Controls.Drawer {
         }
 
         // [hidpi fixes]
-        delegate: Controls.ItemDelegate {
+        delegate: ItemDelegate {
           width: mapThemeComboBox.width
           height: 36 * dp
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-          font.pointSize: 12
+          font.pointSize: Theme.defaultFont.pointSize
           highlighted: mapThemeComboBox.highlightedIndex == index
         }
 
@@ -218,7 +209,7 @@ Controls.Drawer {
             id: backgroundRect
             border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
             border.width: mapThemeComboBox.visualFocus ? 2 : 1
-            //color: "#dddddd"
+            //color: Theme.lightGray
             radius: 2
           }
         }

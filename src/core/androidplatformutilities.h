@@ -29,9 +29,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
-    QString packagePath() const;
+    virtual QString packagePath() const override;
     virtual QString qgsProject() const override;
-    virtual PictureSource *getPicture( const QString &prefix ) override;
+    virtual PictureSource *getCameraPicture( const QString &prefix) override;
+    virtual PictureSource *getGalleryPicture( const QString &prefix) override;
     virtual void open( const QString &uri, const QString &mimeType ) override;
     virtual ProjectSource *openProject() override;
 
@@ -43,11 +44,14 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void showRateThisApp() const override;
 
+    void setScreenLockPermission( const bool allowLock ) override;
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
+    QAndroidJniObject mActivity;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

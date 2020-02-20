@@ -1,0 +1,3 @@
+module Theme
+singleton Theme 1.0 Theme.qml
+QfSwitch 1.0 QfSwitch.qml

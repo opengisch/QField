@@ -30,6 +30,12 @@ If you found it useful, we will be even happier if you could give something back
  * [Sponsor a feature](https://opengisch.github.io/QField-docs/development/index.html#make-it-grow-make-it-yours)
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
 
+## Get master (unstable) version
+We automatically publish the latest master build to a dedicated channel on the playstore at https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev. You'll need to join the beta program (https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version. 
+
+Please remember that this is the latest development build and is **not** tested much.
+
+
 ## Build
 
 ### For Android
@@ -40,7 +46,7 @@ Use the dockerized QField SDK.
 
 ```
 # get the latest tag from https://hub.docker.com/r/opengisch/qfield-sdk/tags/
-TAG=20180821
+TAG=20191001
 cd QField
 
 git submodule init
@@ -83,19 +89,28 @@ cp config.pri.default config.pri
  * open QField.pro with QtCreator (installed during OSGeo4A installation)
  * hit build
 
- #### On Mac
+ ### On Mac
 
-Building on a Mac requires some adjustments:
+#### In `Qt Creator` > `Projects` > `Build` > In Build Environment
 
-1. In `Qt Creator` > `Projects` > `Run` >
+add the following variables:
+  * `QGIS_INSTALL_PATH`: the same value than in the config.pri (could be /usr/local/opt/qgis3/ or the installation folder of a local build)
+  * `DYLD_FRAMEWORK_PATH` add `_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks` (replace `_QGIS_INSTALL_PATH_`)
+  * `DYLD_LIBRARY_PATH` add `:_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current` (replace `_QGIS_INSTALL_PATH_`)
+
+#### Invalid version number issue
+
+If you get the error `invalid version number in '-mmacosx-version-min='`, you need to hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10` in `/usr/local/opt/qt/mkspecs/features/mac/default_post.prf`.
+
+One line command: 
+```
+gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/opt/qt/mkspecs/features/mac/default_post.prf
+```
+
+#### In `Qt Creator` > `Projects` > `Run` >
 * Check `Use debug version of frameworks`
-* In Run Environment, add QGIS frameworks by editing following variables (Homebrew path might require adjustments):
-  * `DYLD_FRAMEWORK_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks`
-  * `DYLD_LIBRARY_PATH` add `:/usr/local/Cellar/qgis3/3.2/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current`
+* Add a custom deployment step: `_QField_SOURCE_DIR_/scripts/mac_deploy.sh` with `${QGIS_INSTALL_PATH}` as argument.
+* In Debugger settings, check `Enable QML`
 
-2. If you get the error `invalid version number in '-mmacosx-version-min='`, you might need to modify some Qt file. In `/usr/local/Cellar/qt/5.10.1/mkspecs/features/mac/default_post.prf`, hardcode the minimum deployment target by setting `version_min_flag = -m$${version_identifier}-version-min=10.10`
-Or by running `gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deployment_target/version_min_flag = -m\$\${version_identifier}-version-min=10\.10/" /usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`
-
-3. If you have any issue with qmake not finding the proper SDK, in `/usr/local/Cellar/qt/5.11.1/mkspecs/features/mac/default_post.prf`, replace `$$QMAKE_MAC_SDK_PATH` (3 occurences) by `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk`
-
-4. Instead of step 1, you can add a custom deployment step in Qt Creator (project config -> run). Use the scripts at `./scripts/mac_deploy.sh` and give `"${QGIS_INSTALL_PATH}"` as argument.
+#### Other issues
+If you have any issue with qmake not finding the proper SDK, in `/usr/local/opt/qt/mkspecs/features/mac/default_post.prf`, replace `$$QMAKE_MAC_SDK_PATH` (3 occurences) by `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk`

@@ -29,25 +29,33 @@ class PlatformUtilities : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString configDir READ configDir )
-    Q_PROPERTY( QString shareDir READ shareDir )
+    Q_PROPERTY( QString configDir READ configDir CONSTANT )
+    Q_PROPERTY( QString shareDir READ shareDir CONSTANT )
 
   public:
     virtual ~PlatformUtilities();
 
     virtual QString configDir() const;
     virtual QString shareDir() const;
+    virtual QString packagePath() const;
     virtual QString qgsProject() const;
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
     Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
 
     /**
-     * Get a picture and copy it to the requested prefix
+     * Get a picture from camera and copy it to the requested prefix
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix);
+
+    /**
+     * Get a picture from gallery and copy it to the requested prefix
+     * @param prefix The folder where the picture should be put
+     * @return The name of the picture or null
+     */
+    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix);
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
@@ -94,9 +102,15 @@ class PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
 
-  /**
-   * Show the rate this app screen if required.
-   */
+    /**
+     * Sets whether the device screen is allowed to go in lock mode.
+     * @param allowLock if set to FALSE, the screen will not be allowed to lock.
+     */
+    Q_INVOKABLE virtual void setScreenLockPermission( const bool allowLock ) { Q_UNUSED( allowLock ); }
+
+    /**
+     * Show the rate this app screen if required.
+    */
     Q_INVOKABLE virtual void showRateThisApp() const {};
 
 };

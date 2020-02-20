@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <manifest package="ch.opengis.qfield" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="%%VERSION_NAME%%" android:versionCode="%%VERSION_CODE%%" android:installLocation="auto">
   <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="@string/app_name" android:icon="@drawable/icon" >
-    <activity android:name="ch.opengis.qfield.QFieldActivity" android:noHistory="true" android:icon="@drawable/icon" android:label="@string/app_name" android:screenOrientation="userLandscape">
+    <activity android:name="ch.opengis.qfield.QFieldActivity" android:noHistory="true" android:icon="@drawable/icon" android:label="@string/app_name" android:screenOrientation="locked">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
@@ -81,6 +81,23 @@
     <!-- Activity "Rate this app" -->
     <activity android:name="ch.opengis.qfield.QFieldAppRaterActivity" />
 
+    <!-- Activity to get picture with the native camera -->
+    <activity android:name="ch.opengis.qfield.QFieldCameraPictureActivity" />
+
+    <!-- Activity to get picture from the gallery -->
+    <activity android:name="ch.opengis.qfield.QFieldGalleryPictureActivity" />
+
+    <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="ch.opengis.qfield.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths">
+        </meta-data>
+    </provider>
+
   </application>
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
   <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
@@ -92,6 +109,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
 
   <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
        Remove the comment if you do not require these default features. -->

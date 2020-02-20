@@ -8,7 +8,7 @@ import QtQml 2.3
 
 import org.qgis 1.0
 import org.qfield 1.0
-import "js/style.js" as Style
+import Theme 1.0
 import QtQuick.Controls.Styles 1.4
 import "."
 
@@ -105,19 +105,28 @@ Page {
           TabButton {
             id: tabButton
             text: Name
+            topPadding: 0
+            bottomPadding: 0
             leftPadding: 8 * dp
             rightPadding: 8 * dp
 
             width: contentItem.width + leftPadding + rightPadding
             height: 48 * dp
 
+            background: Rectangle {
+              implicitWidth: parent.width
+              implicitHeight: parent.height
+              color: "transparent"
+            }
+
             contentItem: Text {
               // Make sure the width is derived from the text so we can get wider
               // than the parent item and the Flickable is useful
               width: paintedWidth
+              height: parent.height
               text: tabButton.text
               // color: tabButton.down ? '#17a81a' : '#21be2b'
-              color: !tabButton.enabled ? '999999' : tabButton.down ||
+              color: !tabButton.enabled ? '#999999' : tabButton.down ||
                                         tabButton.checked ? '#1B5E20' : '#4CAF50'
               font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
@@ -148,7 +157,7 @@ Page {
           property int currentIndex: index
 
           Rectangle {
-            anchors.fill: swipeView
+            anchors.fill: formPage
             color: "white"
           }
 
@@ -219,7 +228,7 @@ Page {
         text: Name || ''
         wrapMode: Text.WordWrap
         font.bold: true
-        color: ConstraintValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : 'black' : '#c0392b'
+        color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
 
       Controls.Label {
@@ -230,11 +239,11 @@ Page {
           top: fieldLabel.bottom
         }
 
-        text: ConstraintDescription || ''
-        height: ConstraintValid ? 0 : undefined
-        visible: !ConstraintValid
+        text: !ConstraintHardValid ? qsTr( "Error: " ) + ConstraintDescription : !ConstraintSoftValid ? qsTr( "Warning: " ) + ConstraintDescription : ''
+        height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
+        visible: !ConstraintHardValid || !ConstraintSoftValid
 
-        color: "#e67e22"
+        color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
       }
 
       Item {
@@ -257,8 +266,10 @@ Page {
           property var field: Field
           property var relationId: RelationId
           property var nmRelationId: NmRelationId
-          property var constraintValid: ConstraintValid
-          property bool constraintsValid: form.model.constraintsValid
+          property var constraintHardValid: ConstraintHardValid
+          property var constraintSoftValid: ConstraintSoftValid
+          property bool constraintsHardValid: form.model.constraintsHardValid
+          property bool constraintsSoftValid: form.model.constraintsSoftValid
           property var currentFeature: form.model.featureModel.feature
 
           active: widget !== 'Hidden'
@@ -313,10 +324,15 @@ Page {
 
   function save() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
-    if( !model.constraintsValid ) {
+    if ( !model.constraintsHardValid )
+    {
         displayToast( qsTr( 'Constraints not valid - cancel editing') )
         cancel()
         return
+    }
+    else if ( !model.constraintsSoftValid )
+    {
+        displayToast( qsTr( 'Note: soft constraints were not met') )
     }
 
     parent.focus = true
@@ -342,7 +358,7 @@ Page {
   }
 
   function buffer() {
-      if( !model.constraintsValid ) {
+      if( !model.constraintsHardValid ) {
           displayToast( qsTr('Constraints not valid - cannot buffer') )
           return false
       }
@@ -394,8 +410,7 @@ Page {
     }
 
     background: Rectangle {
-      //testwise have special color for buffered
-      color: model.constraintsValid ?  form.state === 'Add' ? 'blue' : '#80CC28' : 'orange'
+      color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
 
     RowLayout {
@@ -407,16 +422,19 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: form.state === 'Add' || form.state === 'Edit'
+        visible: ( form.state === 'Add' || form.state === 'Edit' )
         width: 48*dp
         height: 48*dp
         clip: true
-        bgcolor: "#212121"
+        bgcolor: Theme.darkGray
 
-        iconSource: Style.getThemeIcon( 'ic_check_white_48dp' )
+        iconSource: model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
 
         onClicked: {
-          if( model.constraintsValid ) {
+          if( model.constraintsHardValid ) {
+            if ( !model.constraintsSoftValid ) {
+              displayToast( qsTr('Note: soft constraints were not met') )
+            }
             save()
           } else {
             displayToast( qsTr('Constraints not valid') )
@@ -426,6 +444,7 @@ Page {
 
       Label {
         id: titleLabel
+        leftPadding: model.constraintsHardValid ? 0 : 48 * dp
 
         text:
         {
@@ -435,14 +454,14 @@ Page {
             layerName = currentLayer.name
 
           if ( form.state === 'Add' )
-            qsTr( 'Add feature on <i>%1</i>' ).arg(layerName )
+            qsTr( 'Add feature on %1' ).arg(layerName )
           else if ( form.state === 'Edit' )
-            qsTr( 'Edit feature on <i>%1</i>' ).arg(layerName)
+            qsTr( 'Edit feature on %1' ).arg(layerName)
           else
-            qsTr( 'View feature on <i>%1</i>' ).arg(layerName)
+            qsTr( 'View feature on %1' ).arg(layerName)
         }
-        font.bold: true
-        font.pointSize: 16
+        font: Theme.strongFont
+        color: "#FFFFFF"
         elide: Label.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
@@ -454,12 +473,12 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 48*dp
+        width: 49*dp
         height: 48*dp
         clip: true
-        bgcolor: "#212121"
+        bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
 
-        iconSource: form.state === 'Add' ? Style.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Style.getThemeIcon( 'ic_close_white_24dp' )
+        iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 
         onClicked: {
           Qt.inputMethod.hide()

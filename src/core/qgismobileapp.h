@@ -23,6 +23,7 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
 #include <qgsconfig.h>
 
@@ -31,6 +32,8 @@
 #include "settings.h"
 #include "focusstack.h"
 #include "qgsquickutils.h"
+#include "qgsgpkgflusher.h"
+#include "geometryeditorsmodel.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -50,12 +53,30 @@ class LegendImageProvider;
 class QgsProject;
 
 
+#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
+
+
 class QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:
     QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
     ~QgisMobileapp() override;
+
+    /**
+     * Returns a list of recent projects.
+     */
+    QList<QPair<QString, QString>> recentProjects();
+
+    /**
+     * Saves a list of recent \a projects.
+     */
+    void saveRecentProjects( QList<QPair<QString, QString>> &projects );
+
+    /**
+     * When called loads the last project
+     */
+    void loadLastProject();
 
     /**
      * When called loads the project file found at path.
@@ -90,11 +111,6 @@ class QgisMobileapp : public QQmlApplicationEngine
   private slots:
 
     /**
-     * When called loads the last project
-     */
-    void loadLastProject();
-
-    /**
      * Is called when a project is read.
      * Saves the last project location for auto-load on next start.
      * @param doc The xml content
@@ -108,14 +124,6 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     void loadProjectQuirks();
 
-    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-    {
-      Q_UNUSED( engine )
-      Q_UNUSED( scriptEngine )
-      QgsQuickUtils *singletonClass = new QgsQuickUtils();
-      return singletonClass;
-    }
-
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
     LayerTreeModel *mLayerTree;
@@ -127,12 +135,14 @@ class QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider;
 
     QgsProject *mProject;
+    std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
 #if VERSION_INT >= 30600
     QFieldAppAuthRequestHandler *mAuthRequestHandler;
 #endif
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
+    QgsExifTools mExifTools;
 
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
@@ -143,6 +153,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
+Q_DECLARE_METATYPE( QgsFeatureIds )
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QVariant::Type )
 Q_DECLARE_METATYPE( QgsFieldConstraints )

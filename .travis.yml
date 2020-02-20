@@ -1,8 +1,11 @@
 language: python
+dist: bionic
 python:
-  - 3.5
+  - 3.8
 rvm:
-  - 2.0.0
+  - 2.5
+
+if: type = pull_request OR tag IS present OR branch =~ /^(master|release-[0-9_]+)$/
 
 # Handle git submodules manually
 git:
@@ -15,66 +18,71 @@ before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
   - openssl aes-256-cbc -K $encrypted_c158cd588669_key -iv $encrypted_c158cd588669_iv -in keystore.p12.enc -out keystore.p12 -d
-  - gem update --system
-  - gem --version
 
 script:
-  - export QFIELD_SDK_VERSION=${QFIELD_SDK_VERSION:-testssl1_1}
-  - echo "travis_fold:start:docker-pull"
-  - docker pull opengisch/qfield-sdk:${QFIELD_SDK_VERSION}
-  - echo "travis_fold:end:docker-pull"
-  - echo "travis_fold:start:tx-pull"
+  - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+  - ./scripts/ci/docker_pull.sh
+  - pip install transifex-client
   - ./scripts/ci/pull_translations.sh
-  - echo "travis_fold:end:tx-pull"
-  - APP_NAME=$(if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "QField"; else echo "QField Beta ${TRAVIS_PULL_REQUEST}"; fi)
-  - PKG_NAME=$(if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "qfield"; else echo "qfield_beta"; fi)
-  - APP_ICON=$(if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "qfield-logo.svg"; else echo "qfield-testlogo.svg"; fi)
-  - docker run -v $(pwd):/usr/src/qfield -e "BUILD_FOLDER=build-${ARCH}" -e "ARCH=${ARCH}" -e "STOREPASS=${STOREPASS}" -e "KEYNAME=${KEYNAME}" -e "KEYPASS=${KEYPASS}" -e "VERSION=${TRAVIS_TAG}" -e "PKG_NAME=${PKG_NAME}" -e "APP_NAME=${APP_NAME}" -e "APP_ICON=${APP_ICON}" opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
+  - ./scripts/ci/travis_build.sh
   - ./scripts/upload-artifacts.sh
 
 jobs:
-  allow_failures:
-#    - name: "🍳 Testing"
   include:
+    - stage: prepare release
+      if: tag IS present
+      name: "👷 Prepare release"
+      install:
+        - ./scripts/ci/git-full-fetch.sh
+      script:
+        - pip install transifex-client pytransifex
+        #- git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+        #- git fetch --unshallow --tags
+        - ./scripts/ci/prepare-release.sh
+
     - stage: test
       name: "🍳 Testing"
       script:
+        - ./test/test_version_number.sh
         - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
+        - ./scripts/ci/pull_translations.sh
         - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
-      if: type = pull_request OR tag IS present OR branch = master
+
     - stage: test
-      name: "📱 Build ARMv7"
+      name: "📱 Build armv7"
       env:
         - ARCH=armv7
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build ARM64-v8a"
+      name: "📱 Build arm64-v8a"
       env:
         - ARCH=arm64_v8a
-      if: type = pull_request OR tag IS present OR branch = master
     - stage: test
-      name: "📱 Build X86"
+      name: "📱 Build x86"
       env:
         - ARCH=x86
-      if: type = pull_request OR tag IS present OR branch = master
+    - stage: test
+      name: "📱 Build x86_64"
+      env:
+        - ARCH=x86_64
+
     - stage: deploy
       name: "🍺 Deploy"
-      if: type = pull_request OR tag IS present OR branch = master
       script:
         - pip install pyopenssl
         - pip install google-api-python-client
+        - pip install oauth2client
+        - pip install pygithub
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
+
+    # TRANSLATIONS
     - stage: deploy
-      name: "🌍 Translations"
-      if: branch = master AND type != pull_request
+      name: "🌍 Push Translations"
+      if: branch =~ /^(master|release-[0-9_]+)$/ AND type != pull_request
       addons:
         apt:
           packages:
           - qttools5-dev-tools
       install:
-        - pip install -r requirements.txt
-        - pip install pygithub
+        - pip install pygithub transifex-client
       script: ./scripts/ci/update-translations.sh
 
-matrix:
-  fast_finish: true 

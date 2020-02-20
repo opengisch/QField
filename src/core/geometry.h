@@ -2,7 +2,7 @@
 #define GEOMETRY_H
 
 #include <qgsgeometry.h>
-#include <rubberbandmodel.h>
+#include "rubberbandmodel.h"
 
 #include <QtPositioning/QGeoCoordinate>
 

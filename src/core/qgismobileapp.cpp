@@ -31,6 +31,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QTemporaryFile>
+#include <QFileInfo>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -43,10 +44,12 @@
 #include <qgsprintlayout.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
+#include <qgslayoutitemmap.h>
 #include <qgslocator.h>
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsvectorlayereditbuffer.h>
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -85,13 +88,19 @@
 #include "qgsgeometrywrapper.h"
 #include "linepolygonhighlight.h"
 #include "valuemapmodel.h"
+#include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
+#include "geometryeditorsmodel.h"
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
 #include "qgsnetworkaccessmanager.h"
 #endif
+
+#define QUOTE(string) _QUOTE(string)
+#define _QUOTE(string) #string
+
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -105,7 +114,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
-
 // Check QGIS Version
 #if VERSION_INT >= 30600
   //set the authHandler to qfield-handler
@@ -116,10 +124,26 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 #endif
 
   mProject = QgsProject::instance();
+  mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
 
   initDeclarative();
+
+  QSettings settings;
+  const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
+  if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
+  {
+    QList<QPair<QString, QString>> projects;
+    QString path = mPlatformUtils.packagePath();
+    path.chop( 6 ); // remove /share/ from the path
+    projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
+             << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
+             << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
+    saveRecentProjects( projects );
+  }
+
+  mPlatformUtils.setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
@@ -144,17 +168,21 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 void QgisMobileapp::initDeclarative()
 {
+  addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
+
   // Register QGIS QML types
   qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
   qmlRegisterType<QgsMapLayerProxyModel>( "org.qgis", 1, 0, "MapLayerModel" );
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+  qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
@@ -167,6 +195,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+  qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
@@ -174,12 +203,15 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
-  qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
+
+  REGISTER_SINGLETON( "Utils", QgsQuickUtils, "Utils" );
+
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register QField QML types
@@ -211,8 +243,11 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<LinePolygonHighlight>( "org.qfield", 1, 0, "LinePolygonHighlight" );
   qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
+  qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
+  qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
+  REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -232,12 +267,13 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
+  rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -264,11 +300,55 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
+QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
+{
+  QSettings settings;
+  QList<QPair<QString, QString>> projects;
+
+  settings.beginGroup( "/qgis/recentProjects" );
+  const QStringList projectKeysList = settings.childGroups();
+  QList<int> projectKeys;
+  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
+  for ( const QString &key : projectKeysList )
+  {
+    projectKeys.append( key.toInt() );
+  }
+  for ( int i = 0; i < projectKeys.count(); i++ )
+  {
+    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
+    projects << qMakePair( settings.value( QStringLiteral( "title" ) ).toString(), settings.value( QStringLiteral( "path" ) ).toString() );
+    settings.endGroup();
+  }
+  settings.endGroup();
+  return projects;
+}
+
+void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects )
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
+  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  {
+    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
+    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
+    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
+    settings.endGroup();
+  }
+}
+
 void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
-  Q_UNUSED( doc );
+  Q_UNUSED( doc )
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
-  QSettings().setValue( "/qgis/project/lastProjectFile", mProject->fileName() );
+
+  QList<QPair<QString, QString>> projects = recentProjects();
+  QFileInfo fi( mProject->fileName() );
+  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.baseName() : mProject->title(), mProject->fileName() );
+  if ( projects.contains( project ) )
+    projects.removeAt( projects.indexOf( project ) );
+  projects.insert( 0, project );
+  saveRecentProjects( projects );
+
   const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
   for ( QgsMapLayer *layer : mapLayers )
   {
@@ -304,17 +384,13 @@ void QgisMobileapp::onAfterFirstRendering()
     {
       loadProjectFile( mPlatformUtils.qgsProject() );
     }
-    else
-    {
-      QTimer::singleShot( 0, this, SLOT( loadLastProject() ) );
-    }
     mFirstRenderingFlag = false;
   }
 }
 
 void QgisMobileapp::loadLastProject()
 {
-  QVariant lastProjectFile = QSettings().value( "/qgis/project/lastProjectFile" );
+  QVariant lastProjectFile = QSettings().value( "/qgis/recentProjects/0/path" );
   if ( lastProjectFile.isValid() )
     loadProjectFile( lastProjectFile.toString() );
 }
@@ -346,6 +422,8 @@ void QgisMobileapp::print( int layoutIndex )
 
   if ( layoutToPrint->pageCollection()->pageCount() == 0 )
     return;
+
+  layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
 
   QPrinter printer;
   QString documentsLocation = QStringLiteral( "%1/QField" ).arg( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
@@ -381,3 +459,4 @@ QgisMobileapp::~QgisMobileapp()
   // Reintroduce when created on the heap
   delete mProject;
 }
+

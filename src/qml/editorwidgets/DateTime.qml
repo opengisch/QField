@@ -1,8 +1,9 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
-import "../js/style.js" as Style
+import Theme 1.0
 
 
 /*
@@ -37,20 +38,28 @@ Item {
       Layout.minimumHeight: 48 * dp
 
       Rectangle {
-        anchors.fill: parent
         id: backgroundRect
+        anchors.top: label.top
+        anchors.left: label.left
+        width: label.width
+        height: label.height - label.bottomPadding / 2
         border.color: label.activeFocus ? "#17a81a" : "#21be2b"
         border.width: label.activeFocus ? 2 : 1
-        color: "#dddddd"
+        color: enabled ? Theme.lightGray : "transparent"
         radius: 2
+        visible: enabled
       }
 
       TextField {
         id: label
 
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 16
+        font: Theme.defaultFont
+        height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
+        topPadding: 10 * dp
+        bottomPadding: 10 * dp
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -90,7 +99,15 @@ Item {
                 }
               }
 
-        color: value === undefined ? 'gray' : 'black'
+        color: value === undefined || !enabled ? 'gray' : 'black'
+
+        background: Rectangle {
+          visible: !enabled
+          y: label.height - height - label.bottomPadding / 2
+          implicitWidth: 120 * dp
+          height: label.activeFocus ? 2 * dp : 1 * dp
+          color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
+        }
 
         MouseArea {
           enabled: config['calendar_popup']
@@ -140,11 +157,41 @@ Item {
         }
 
         Image {
-          id: clearButton
-          source: Style.getThemeIcon("ic_clear_black_18dp")
+          id: todayButton
+          source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
           anchors.right: parent.right
+          anchors.rightMargin: 4 * dp
           anchors.verticalCenter: parent.verticalCenter
-          visible: ( value !== undefined ) && config['allow_null']
+          anchors.verticalCenterOffset: -2 * dp
+          visible: enabled
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if ( main.isDateTimeType )
+              {
+                var currentDateTime = new Date()
+                valueChanged(currentDateTime, false)
+              }
+              else
+              {
+                var currentDate = new Date()
+                var textDate = Qt.formatDateTime(currentDate, config['field_format'])
+                valueChanged(textDate, false)
+              }
+              displayToast(qsTr( 'Date value set to today.'))
+            }
+          }
+        }
+
+        Image {
+          id: clearButton
+          source: Theme.getThemeIcon("ic_clear_black_18dp")
+          anchors.right: todayButton.left
+          anchors.rightMargin: 4 * dp
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -2 * dp
+          visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
             anchors.fill: parent
@@ -162,6 +209,8 @@ Item {
       focus: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
       parent: ApplicationWindow.overlay
+      x: (parent.width - width) / 2
+      y: (parent.height - height) / 2
 
       // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
@@ -170,6 +219,90 @@ Item {
           weekNumbersVisible: true
           focus: false
 
+          style: CalendarStyle {
+              gridVisible: false
+              weekNumberDelegate: Rectangle {
+                  implicitWidth: 24 * dp
+                  color: "white"
+
+                  Label {
+                      text: styleData.weekNumber
+                      anchors.centerIn: parent
+                      font.pixelSize: 14 * dp
+                      color: "lightgrey"
+                  }
+              }
+
+              dayDelegate: Rectangle {
+                  color: styleData.selected ? Theme.mainColor : "white"
+
+                  Label {
+                      text: styleData.date.getDate()
+                      anchors.centerIn: parent
+                      font.pixelSize: 14 * dp
+                      color: styleData.visibleMonth ? "black" : "lightgrey"
+                  }
+              }
+
+              navigationBar: Rectangle {
+                  height: 42 * dp
+                  color: "transparent"
+
+                  ToolButton {
+                      id: previousMonth
+                      width: parent.height
+                      height: width
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.left: parent.left
+                      contentItem: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 10*dp
+                        color: "transparent"
+                        Image {
+                          anchors.fill: parent
+                          fillMode: Image.Pad
+                          horizontalAlignment: Image.AlignHCenter
+                          verticalAlignment: Image.AlignVCenter
+                          source: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                        }
+                      }
+                      onClicked: calendar.showPreviousMonth()
+                  }
+                  Label {
+                      id: dateText
+                      text: styleData.title
+                      elide: Text.ElideRight
+                      horizontalAlignment: Text.AlignHCenter
+                      font.pixelSize: 18 * dp
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.left: previousMonth.right
+                      anchors.leftMargin: 2
+                      anchors.right: nextMonth.left
+                      anchors.rightMargin: 2
+                  }
+                  ToolButton {
+                      id: nextMonth
+                      width: parent.height
+                      height: width
+                      anchors.verticalCenter: parent.verticalCenter
+                      anchors.right: parent.right
+                      contentItem: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 10*dp
+                        color: "transparent"
+                        Image {
+                          anchors.fill: parent
+                          fillMode: Image.Pad
+                          horizontalAlignment: Image.AlignHCenter
+                          verticalAlignment: Image.AlignVCenter
+                          source: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                        }
+                      }
+                      onClicked: calendar.showNextMonth()
+                  }
+              }
+          }
+
           function resetDate() {
             selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
           }
@@ -177,7 +310,8 @@ Item {
 
         RowLayout {
           Button {
-            text: qsTr( "Ok" )
+            text: qsTr( "OK" )
+            font: Theme.tipFont
             Layout.fillWidth: true
 
             onClicked: {

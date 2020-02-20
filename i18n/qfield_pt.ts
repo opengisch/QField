@@ -38,7 +38,7 @@
     </message>
     <message>
         <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>Nao foi possível copiar a Imagem %1 para a pasta do projecto %2.</translation>
+        <translation>Não foi possível copiar a Imagem %1 para a pasta do projecto %2.</translation>
     </message>
 </context>
 <context>
@@ -62,13 +62,74 @@
         <source>The following layers could not be loaded.
 Please review them and reconfigure the QGIS project.
 You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField documentation.</source>
-        <translation>As camadas seguintes não foram carregadas.
-Reveja-as e reconfigure-as no projeto QGIS.
-Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentação do QField.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to load some layers</source>
         <translation>Não foi possível carregar todas as camadas</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Não foi possível carregar as seguintes camadas, revise-as e reconfigure o projeto QGIS.</translation>
+    </message>
+    <message>
+        <source>You may check the Portable Project section in the QField documentation for more help.</source>
+        <translation>Você pode verificar a seção de Projeto Portátil na documentação do QField para obter mais ajuda.</translation>
+    </message>
+</context>
+<context>
+    <name>Changelog</name>
+    <message>
+        <source>What&apos;s new in the latest QField</source>
+        <translation>O que há de novo na mais recente versão do QField</translation>
+    </message>
+    <message>
+        <source>Changelog %1</source>
+        <translation>Registro de alterações %1</translation>
+    </message>
+    <message>
+        <source>Value relation widget with multiple selection support</source>
+        <translation>Widget de relação de valor com suporte a seleção múltipla</translation>
+    </message>
+    <message>
+        <source>Full snapping support providing snapping results and Z values of snapped feature</source>
+        <translation>Suporte completo para acoplamento, fornecendo resultados e valores Z da feição acoplada</translation>
+    </message>
+    <message>
+        <source>Authentication dialog for layers</source>
+        <translation>Diálogo de autenticação para camadas</translation>
+    </message>
+    <message>
+        <source>Fix checkbox widget</source>
+        <translation>Fixar widget da caixa de seleção</translation>
+    </message>
+    <message>
+        <source>Other fixes (printing, locator)</source>
+        <translation>Outras fixações (impressão, localizador)</translation>
+    </message>
+    <message>
+        <source>Improved log</source>
+        <translation>Registo aprimorado</translation>
+    </message>
+    <message>
+        <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
+        <translation>Você gosta do QField? Mostre seu amor e apoie a campanha de financiamento coletivo. Até dia 16 de outubro.</translation>
+    </message>
+    <message>
+        <source>www.opengis.ch/projects/qfield-love/</source>
+        <translation>www.opengis.ch/projects/qfield-love/</translation>
+    </message>
+    <message>
+        <source>Let&apos;s give love</source>
+        <translation>Vamos dar amor</translation>
+    </message>
+    <message>
+        <source>Maybe later</source>
+        <translation>Talvez mais tarde</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Não</translation>
     </message>
 </context>
 <context>
@@ -86,26 +147,61 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     <name>DateTime</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>(no date)</source>
         <translation>(sem data)</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>FeatureCheckListModel</name>
+    <message>
+        <source>Storing of value relation widget checklists not available for Android 5</source>
+        <translation>O armazenamento de listas de verificação do widget de relação de valor não está disponível para Android 5</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Add feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Adicionar elemento no &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Editar elemento no &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on &lt;i&gt;%1&lt;/i&gt;</source>
-        <translation>Visualizar elemento no &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Constraints not valid - cancel editing</source>
+        <translation>Restrições não válidas - cancelar edição</translation>
+    </message>
+    <message>
+        <source>Constraints not valid - cannot buffer</source>
+        <translation>Restrições não válidas - não é possível armazenar em buffer</translation>
+    </message>
+    <message>
+        <source>Constraints not valid</source>
+        <translation>Restrições não válidas</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Adicionar feição em %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Editar feição em %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Visualizar o feição em %1</translation>
     </message>
 </context>
 <context>
@@ -120,15 +216,15 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Não existe elemento nesta posição</translation>
+        <translation>Não existe feição nesta posição</translation>
     </message>
     <message>
         <source>Delete feature</source>
-        <translation>Apagar elemento</translation>
+        <translation>Apagar feição</translation>
     </message>
     <message>
         <source>Should this feature really be deleted?</source>
-        <translation>Este elemento deve ser mesmo apagado?</translation>
+        <translation>Esta feição deve ser mesmo apagada?</translation>
     </message>
 </context>
 <context>
@@ -139,11 +235,11 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Não é possível actualizar o elemento</translation>
+        <translation>Não é possível actualizar a feição</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Não foi possível obter o elemento %1 após a submissão</translation>
+        <translation>Não foi possível obter a feição %1 após a submissão</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
@@ -155,7 +251,7 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation>Não foi possível adicionar o elemento</translation>
+        <translation>Não foi possível adicionar a feição</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
@@ -174,11 +270,22 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>O elemento não tem geometria</translation>
+        <translation>A feição não tem geometria</translation>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation>Elementos em Todas as Camadas</translation>
+        <translation>Feições em Todas as Camadas</translation>
+    </message>
+</context>
+<context>
+    <name>LayerLoginDialog</name>
+    <message>
+        <source>Username</source>
+        <translation>Usuário</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Senha</translation>
     </message>
 </context>
 <context>
@@ -276,31 +383,67 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Show scalebar</source>
-        <translation>Mostrar barra de escala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show attribute form in full screen</source>
-        <translation>Mostrar formulário de atributos em todo o ecrã</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redraw map every 250 ms while rendering</source>
-        <translation>Redesenhar o mapa a cada 250 ms enquanto renderiza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show numerical information while digitizing</source>
-        <translation>Mostrar informação numérica enquanto digitaliza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera function (unstable on recent Android versions)</source>
-        <translation>Usar a câmara nativa (instável nas recentes versões do Android)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
         <translation>Definições do QField</translation>
     </message>
     <message>
-        <source>Keep current scale when triggering search results</source>
-        <translation>Manter escala actual quando activar resultados da pesquisa</translation>
+        <source>Show scale bar</source>
+        <translation>Mostrar barra de escala</translation>
+    </message>
+    <message>
+        <source>Maximized attribute form</source>
+        <translation>Formulário de atributo maximizado</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navegação em escala fixa</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Quando a navegação em escala fixa estiver ativa, o foco no resultado da pesquisa será deslocado para a feição. Com a navegação em escala fixa desativada, será deslocado para a feição e ampliado.</translation>
+    </message>
+    <message>
+        <source>Progressive rendering</source>
+        <translation>Renderização progressiva</translation>
+    </message>
+    <message>
+        <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
+        <translation>Quando a renderização progressiva estiver activada, o mapa será desenhado a cada 250 milissegundos durante a renderização.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Mostrar informações de digitalização</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
+        <translation>Quando activada, as informações de coordenadas, como latitude e longitude, serão sobrepostas na tela ao digitalizar novas feições ou usar a ferramenta de medição.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Usar câmera nativa</translation>
+    </message>
+    <message>
+        <source>Warning: native camera function is unstable on recent Android versions.</source>
+        <translation>Aviso: a função de câmera nativa é instável nas versões recentes do Android.</translation>
     </message>
 </context>
 <context>
@@ -309,12 +452,28 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
         <source>Position</source>
         <translation>Posição</translation>
     </message>
+    <message>
+        <source>Map Tool Capture</source>
+        <translation>Capturar mapa</translation>
+    </message>
+    <message>
+        <source>Authentication required</source>
+        <translation>Requer autenticação</translation>
+    </message>
+    <message>
+        <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
+        <translation>Ocorreu um erro ao abrir o banco de dados &lt;b&gt;%1&lt;/b&gt;: %2</translation>
+    </message>
+    <message>
+        <source>Could not flush database %1 (%3) </source>
+        <translation>Não foi possível liberar o banco de dados %1 (%3) </translation>
+    </message>
 </context>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>Rendirizando</translation>
+        <translation>Renderizando</translation>
     </message>
 </context>
 <context>
@@ -350,10 +509,37 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
 </context>
 <context>
-    <name>RelationReference</name>
+    <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
         <translation>Relação inválida</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditor</name>
+    <message>
+        <source>Ensure contraints</source>
+        <translation>Garantir restrições</translation>
+    </message>
+    <message>
+        <source>Cannot add child. Parent primary keys are not available.</source>
+        <translation>Não foi possível adicionar o item. As chaves primárias precursoras não estão disponíveis.</translation>
+    </message>
+    <message>
+        <source>Unlink feature %1 (%2) of %3</source>
+        <translation>Separar a feição %1 (%2) de %3</translation>
+    </message>
+    <message>
+        <source>Delete feature %1 (%2) on %3</source>
+        <translation>Apagar a feição %1 (%2) em %3</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>A feição &lt;b&gt;%1 (%2)&lt;/b&gt; da camada &lt;b&gt;%3&lt;/b&gt; deve ser separada?&lt;br&gt;&lt;i&gt;(A união será excluída da camada &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>A feição &lt;b&gt;%1 (%2)&lt;/b&gt; na camada &lt;b&gt;%3&lt;/b&gt; deve ser apagada?</translation>
     </message>
 </context>
 <context>
@@ -438,7 +624,7 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Imprimir para PDF</translation>
+        <translation>Exportar para PDF</translation>
     </message>
     <message>
         <source>GPS Options</source>
@@ -478,7 +664,7 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
-        <translation>Projetos do QGIS (*.qgs)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All files (*)</source>
@@ -487,6 +673,38 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     <message>
         <source>Press back again to close project and app</source>
         <translation>Volte a pressionar novamente o retroceder para fechar o projecto e a app</translation>
+    </message>
+    <message>
+        <source>You are now in %1 mode </source>
+        <translation>Agora você está no modo %1</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Trecho</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Comprimento</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Área</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Fechar ferramenta de medição</translation>
+    </message>
+    <message>
+        <source>Measure Tool</source>
+        <translation>Ferramenta para Medir</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -503,6 +721,10 @@ Pode consultar a secção&lt;i&gt;Projetos portáteis&lt;/i&gt; da documentaçã
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
         <translation>A edição de camada com geometria multiparte ainda não é suportada.</translation>
+    </message>
+    <message>
+        <source>QGIS projects (*.qgs *.qgz)</source>
+        <translation>Projetos QGIS (*.qgs e *.qgz)</translation>
     </message>
 </context>
 </TS>

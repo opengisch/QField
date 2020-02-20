@@ -5,7 +5,7 @@ import QtQuick.Controls 2.4
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import ".."
-import "../js/style.js" as Style
+import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -110,6 +110,11 @@ Item {
             onCheckedChanged: {
               model.checked = checked
             }
+
+            indicator.height: 16 * dp
+            indicator.width: 16 * dp
+            indicator.implicitHeight: 24 * dp
+            indicator.implicitWidth: 24 * dp
           }
         }
 

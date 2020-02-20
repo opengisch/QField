@@ -1,59 +1,80 @@
-import QtQuick.Controls 1.4
-import QtQuick 2.5
-import org.qgis 1.0
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.3
 
-Item {
+import org.qfield 1.0
+import Theme 1.0
+
+Page {
   property alias model: table.model
+  signal finished
   property bool unreadMessages: false
 
-  id: item
-  anchors.fill: parent
 
-  Rectangle {
-    color: 'lightgrey'
+  header: PageHeader {
+      title: qsTr( 'Message Logs' )
+
+      showApplyButton: false
+      showCancelButton: true
+
+      onFinished: parent.finished()
+    }
+
+  ColumnLayout {
+    anchors.margins: 8 * dp
     anchors.fill: parent
-  }
+    Layout.margins: 0
+    spacing: 10 * dp
 
-  ListView {
-    id: table
-    anchors.fill: parent
+    Rectangle {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        color: "white"
+        border.color: "lightgray"
+        border.width: 1
 
-    delegate: Rectangle {
-      color: index % 2 == 0 ? 'lightgrey' : 'white'
-      width: parent.width
-      height: line.height
-      Row {
-        id: line
-        spacing: 10 * dp
-        Text {
-          id: datetext
-          text: MessageDateTime
-        }
-        Rectangle {
-          id: separator
-          color: index % 2 == 0 ? 'white' : 'lightgrey'
-          height: parent.height
-          width: 5 * dp
-        }
-        Text {
-          id: tagtext
-          text: MessageTag
-          font.bold: true
-        }
-        Text {
-          id: messagetext
-          width: table.width - datetext.width - tagtext.width - separator.width
-          text: Message
-          wrapMode: Text.WordWrap
+      ListView {
+        id: table
+        flickableDirection: Flickable.VerticalFlick
+        boundsBehavior: Flickable.StopAtBounds
+        clip: true
+        anchors.fill: parent
+        spacing: 2
+
+        delegate: Rectangle {
+          id: rectangle
+          width: parent.width
+          height: line.height
+          color: "transparent"
+
+          Row {
+            id: line
+            spacing: 5 * dp
+            Text {
+              id: datetext
+              padding: 5 * dp
+              text: MessageDateTime.replace(' ','\n')
+            }
+            Rectangle {
+              id: separator
+              width: 0 * dp
+            }
+            Text {
+              id: tagtext
+              padding: MessageTag ? 5 * dp : 0
+              text: MessageTag
+              font.bold: true
+            }
+            Text {
+              id: messagetext
+              padding: 5 * dp
+              width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
+              text: Message
+              wrapMode: Text.WordWrap
+            }
+          }
         }
       }
-    }
-  }
-
-  MouseArea {
-    anchors.fill: parent
-    onClicked: {
-      parent.visible = false
     }
   }
 
