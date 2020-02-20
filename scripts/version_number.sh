@@ -7,7 +7,7 @@ if [[ "$OSTYPE" =~ darwin* ]]; then
 fi
 
 travis_to_release_branch() {
-  if [[ ${TRAVIS_BRANCH} = master ]]; then
+  if [[ -n ${TRAVIS_TAG} ]]; then
     RELEASE_BRANCH=$(${GP}sed -r 's/v([0-9])\.([0-9])(\.[0-9])?/release-\1_\2/' <<< ${TRAVIS_TAG})
   else
     RELEASE_BRANCH=${TRAVIS_BRANCH}

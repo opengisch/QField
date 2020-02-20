@@ -30,8 +30,10 @@ script:
 jobs:
   include:
     - stage: prepare release
-      if: tag IS present AND branch =~ /^(master|release-[0-9_]+)$/
+      if: tag IS present
       name: "👷 Prepare release"
+      install:
+        - ./scripts/ci/git-full-fetch.sh
       script:
         - pip install transifex-client pytransifex
         #- git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
