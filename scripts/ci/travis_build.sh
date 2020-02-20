@@ -16,7 +16,7 @@ if [[ -n ${TRAVIS_TAG} ]]; then
 
   # adding the code name to the version string
   CURRENT_CODENAME=$(cat ${DIR}/../../RELEASE_NAME)
-  APP_VERSION_STR="$( app_version_str ${TRAVIS_TAG} ) - ${CURRENT_CODENAME}"
+  export APP_VERSION_STR="$( app_version_str ${TRAVIS_TAG} ) - ${CURRENT_CODENAME}"
 
 elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
