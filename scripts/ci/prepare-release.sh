@@ -46,5 +46,5 @@ EOF
 echo "Resource '${RESOURCE}' exists: ${TX_RESOURCE_EXISTS}"
 if [[ ${TX_RESOURCE_EXISTS} = no ]]; then
   tx pull --all --force
-  tx push --source --translations --branch --skip
+  tx push --source --translations --branch ${RELEASE_BRANCH//_/-} --skip
 fi
