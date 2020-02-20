@@ -65,7 +65,8 @@ HEADERS += \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
     qfieldappauthrequesthandler.h \
-    track.h
+    tracker.h \
+    trackingmodel.h
 
 SOURCES += \
     appinterface.cpp \
@@ -114,7 +115,8 @@ SOURCES += \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp \
-    track.cpp
+    tracker.cpp \
+    trackingmodel.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

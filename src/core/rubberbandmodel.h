@@ -36,6 +36,7 @@ class RubberbandModel : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
+    Q_PROPERTY( double currentSpeed READ currentSpeed WRITE setCurrentSpeed NOTIFY currentSpeedChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
@@ -79,6 +80,9 @@ class RubberbandModel : public QObject
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 
+    double currentSpeed() const;
+    void setCurrentSpeed( const double currentSpeed );
+
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();
 
@@ -111,11 +115,12 @@ class RubberbandModel : public QObject
     void crsChanged();
     //! \copydoc frozen
     void frozenChanged();
-
+    void currentSpeedChanged();
 
   private:
     QVector<QgsPoint> mPointList;
     int mCurrentCoordinateIndex;
+    double mCurrentSpeed;
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer *mLayer;
     QgsCoordinateReferenceSystem mCrs;

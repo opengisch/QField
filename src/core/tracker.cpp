@@ -1,62 +1,59 @@
 #include <QTimer>
 #include <QDebug>
 
-#include "track.h"
+#include "tracker.h"
 
 #include "rubberbandmodel.h"
 #include "qgsproject.h"
 
-Track::Track( QQuickItem *parent )
-  : QQuickItem( parent )
+Tracker::Tracker( QgsVectorLayer *layer )
+  : mLayer( layer )
 {
-  setFlags( QQuickItem::ItemHasContents );
-  setAntialiasing( true );
 }
 
-RubberbandModel *Track::model() const
+RubberbandModel *Tracker::model() const
 {
   return mRubberbandModel;
 }
 
-void Track::setModel( RubberbandModel *model )
+void Tracker::setModel( RubberbandModel *model )
 {
   if ( mRubberbandModel == model )
     return;
   mRubberbandModel = model;
-  emit modelChanged();
 }
 
-int Track::timeInterval() const
+int Tracker::timeInterval() const
 {
   return mTimeInterval;
 }
 
-void Track::setTimeInterval( int timeInterval )
+void Tracker::setTimeInterval( int timeInterval )
 {
   mTimeInterval = timeInterval;
 }
 
-int Track::minimumDistance() const
+int Tracker::minimumDistance() const
 {
   return mMinimumDistance;
 }
 
-void Track::setConjunction( bool conjunction )
+void Tracker::setConjunction( bool conjunction )
 {
   mConjunction = conjunction;
 }
 
-bool Track::conjunction() const
+bool Tracker::conjunction() const
 {
   return mConjunction;
 }
 
-void Track::setMinimumDistance( int minimumDistance )
+void Tracker::setMinimumDistance( int minimumDistance )
 {
   mMinimumDistance = minimumDistance;
 }
 
-void Track::trackPosition()
+void Tracker::trackPosition()
 {
   if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
   {
@@ -64,12 +61,18 @@ void Track::trackPosition()
     return;
   }
   qDebug() << QString( "Collect " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
+
+  QgsPoint currentCoordinate = model()->currentCoordinate();
+  currentCoordinate.setM( model()->currentSpeed() );
+  model()->setCurrentCoordinate( currentCoordinate );
+
+  qDebug() << QString( "Coordinates are " ) << model()->currentSpeed() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " m:" << model()->currentCoordinate().m();
   model()->addVertex();
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
 }
 
-void Track::positionReceived()
+void Tracker::positionReceived()
 {
 
   QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
@@ -96,23 +99,23 @@ void Track::positionReceived()
   }
 }
 
-void Track::timeReceived()
+void Tracker::timeReceived()
 {
   mTimeIntervalFulfilled = true;
   if ( !mConjunction || mMinimumDistanceFulfilled )
     trackPosition();
 }
 
-void Track::start()
+void Tracker::start()
 {
   if ( mTimeInterval > 0 )
   {
-    connect( &mTimer, &QTimer::timeout, this, &Track::timeReceived );
+    connect( &mTimer, &QTimer::timeout, this, &Tracker::timeReceived );
     mTimer.start( mTimeInterval * 1000 );
   }
   if ( mMinimumDistance > 0 )
   {
-    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Track::positionReceived );
+    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
 
   qDebug() << QString( "Tracos startos with time" ) << mTimeInterval << " and distance " << mMinimumDistance;
@@ -121,16 +124,16 @@ void Track::start()
   trackPosition();
 }
 
-void Track::stop()
+void Tracker::stop()
 {
   if ( mTimeInterval > 0 )
   {
     mTimer.stop();
-    disconnect( &mTimer, &QTimer::timeout, this, &Track::trackPosition );
+    disconnect( &mTimer, &QTimer::timeout, this, &Tracker::trackPosition );
   }
   if ( mMinimumDistance > 0 )
   {
-    disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Track::positionReceived );
+    disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
 
   qDebug() << QString( "Tracos stoppos" );

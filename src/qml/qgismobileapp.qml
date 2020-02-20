@@ -235,23 +235,21 @@ ApplicationWindow {
       }
 
       /** Tracking session for each layer **/
-      Repeater {
-          id: layerTrackings
-          model: layerTree
-
-          delegate: Tracking {
-              activated: positionSource.active && stateMachine.state === "digitize"
-
-              onTrackingStarted: {
-                  running = true;
-                  displayToast( qsTr( 'Track on layer %1 started' ).arg( trackingLayer.name  ) )
-              }
-              onTrackingStopped: {
-                  running = false;
-                  displayToast( qsTr( 'Track on layer %1 stopped' ).arg( trackingLayer.name  ) )
-              }
+      TrackingModel{
+          id: trackingModel
+          activated: positionSource.active && stateMachine.state === "digitize"
+          onTrackerStarted: {
+              displayToast( qsTr( 'Track on layer %1 started' ).arg( layer.name  ) )
           }
-
+          onTrackerStopped: {
+              displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layer.name  ) )
+          }
+      }
+      Repeater {
+          id: trackings
+          model: trackingModel
+          Tracking {
+          }
       }
 
       /** The identify tool **/
@@ -1019,24 +1017,6 @@ ApplicationWindow {
   function displayToast( message ) {
     //toastMessage.text = message
     toast.show(message)
-  }
-
-  /** check if feature currently in trecking session **/
-  function featureOnTrack( layer, featureId ){
-      for(var i=0; i<layerTree.rowCount(); i++ )
-      {
-          if( layerTrackings.itemAt(i).running )
-          {
-              if( layerTrackings.itemAt(i).feature )
-              {
-                  if( layerTrackings.itemAt(i).feature.id === featureId && layerTrackings.itemAt(i).trackingLayer === layer )
-                  {
-                      return true;
-                  }
-              }
-          }
-      }
-      return false;
   }
 
   Rectangle {

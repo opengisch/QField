@@ -177,6 +177,19 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   emit vertexChanged( mCurrentCoordinateIndex );
 }
 
+double RubberbandModel::currentSpeed() const
+{
+  return mCurrentSpeed;
+}
+
+void RubberbandModel::setCurrentSpeed( const double currentSpeed )
+{
+  if ( currentSpeed == mCurrentSpeed )
+    return;
+
+  mCurrentSpeed = currentSpeed;
+}
+
 void RubberbandModel::addVertex()
 {
   // Avoid double vertices accidentally

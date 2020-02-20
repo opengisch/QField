@@ -18,21 +18,22 @@ LayerTreeItemProperties {
   onIndexChanged: {
     itemVisible = layerTree.data(index, LayerTreeModel.Visible)
     title = qsTr("%1 : Properties").arg(layerTree.data(index, 0))
-    trackingButtonVisible = layerTree.data(index, LayerTreeModel.Type) === 'layer' && layerTree.data(index, LayerTreeModel.Trackable) && layerTrackings.itemAt( index.row ).activated ? true : false
-    trackingButtonBgColor = layerTrackings.itemAt( index.row ).running ? '#50ff0000' : '#500000ff'
-    trackingButtonText = layerTrackings.itemAt( index.row ).running ? qsTr('Stop tracking'): qsTr('Start tracking')
+    trackingButtonVisible = layerTree.data(index, LayerTreeModel.Type) === 'layer' && layerTree.data(index, LayerTreeModel.Trackable) && trackingModel.activated ? true : false
+    trackingButtonBgColor = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? '#50ff0000' : '#500000ff'
+    trackingButtonText = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
 
   onItemVisibleChanged: {
-    layerTree.setData(index, itemVisible, LayerTreeModel.Visible)
+    layerTree.setData(index, itemVisible, LayerTreeModel.Visible);
+    trackingModel.setLayerVisible( layerTree.data(index, LayerTreeModel.VectorLayer ), itemVisible );
   }
 
   onTrackingButtonClicked: {
       //start track
-      if( layerTrackings.itemAt( index.row ).running ){
-          layerTrackings.itemAt( index.row ).stop();
+      if( trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ) {
+          trackingModel.stopTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
       }else{
-          layerTrackings.itemAt( index.row ).start( layerTree.data(index, LayerTreeModel.VectorLayer) );
+          trackingModel.createTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
       }
       close()
   }

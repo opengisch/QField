@@ -6,26 +6,27 @@ import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 import QtQuick.Layouts 1.3
+import QtPositioning 5.3
 
 import '.'
-
 
 Item{
     id: tracking
 
-    property VectorLayer trackingLayer //layerTree.data(layerTree.index(index,0), LayerTreeModel.VectorLayer )
-    property bool activated: false
-    property bool running: false
-    property var feature: undefined
+    property var mainModel: model
 
-    signal trackingStarted
-    signal trackingStopped
+    Component.onCompleted: {
+        featureModel.resetAttributes()
+        embeddedFeatureForm.state = 'Add'
+        embeddedFeatureForm.active = true
+    }
 
     RubberbandModel {
         id: rubberbandModel
         frozen: false
         currentCoordinate: positionSource.projectedPosition
-        vectorLayer: trackingLayer
+        currentSpeed: positionSource.position.speed
+        vectorLayer: mainModel.vectorLayer
         crs: mapCanvas.mapSettings.destinationCrs
 
         onVertexCountChanged: {
@@ -38,7 +39,7 @@ Item{
                   ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
               {
                   featureModel.create()
-                  feature = featureModel.feature
+                  mainModel.feature = featureModel.feature
               }
               else
               {
@@ -47,6 +48,12 @@ Item{
           }
         }
     }
+
+    /*
+    onDataChanged: {
+        console.log( "visible is: "+ mainModel.visible );
+    }
+    */
 
     Rubberband {
         id: rubberband
@@ -59,43 +66,20 @@ Item{
 
         anchors.fill: parent
 
-        visible: layerTree.data(layerTree.index(index,0), LayerTreeModel.Visible) //binding does not work and I don't know why
-    }
-
-    Track {
-        id: track
-
-        model: rubberbandModel
+        visible: true //mainModel.visible needs to be more flexible
     }
 
     FeatureModel {
         id: featureModel
-        currentLayer: trackingLayer
+        currentLayer: mainModel.vectorLayer
         geometry: Geometry {
           id: featureModelGeometry
           rubberbandModel: rubberbandModel
-          vectorLayer: trackingLayer
+          vectorLayer: mainModel.vectorLayer
         }
     }
 
-    function start( layer )
-    {
-        //layer is passed since I cannot bind trackingLayer with model.VectorLayer - don't know why
-        trackingLayer = layer
-        featureModel.resetAttributes()
-        embeddedFeatureForm.state = 'Add'
-        embeddedFeatureForm.active = true
-    }
-
-    function stop()
-    {
-        track.stop();
-        rubberbandModel.reset();
-        feature = undefined
-        trackingStopped()
-    }
-
-    //the add entry stuff
+    // FEATURE FORM
     AttributeFormModel {
       id: embeddedAttributeFormModel
       featureModel: featureModel
@@ -144,13 +128,16 @@ Item{
             }
 
             onCancelled: {
+                //displayToast( qsTr( 'No track on layer %1 started' ).arg( model.vectorLayer.name  ) )
                 embeddedFeatureForm.active = false
                 embeddedFeatureForm.focus = false
+                mainModel.stopTracker( mainModel.vectorLayer )
             }
         }
       }
     }
 
+    // TRACK INFORMATION STUFF
     Loader {
       id: trackInformationDialog
 
@@ -193,18 +180,20 @@ Item{
                     }
                     else
                     {
-                        track.timeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
-                        track.minimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
-                        track.conjunction = conjunction.checked
-                        track.start();
+                        mainModel.timeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
+                        mainModel.minimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
+                        mainModel.conjunction = conjunction.checked
+                        mainModel.rubberModel = rubberbandModel
+
+                        trackingModel.startTracker( mainModel.vectorLayer )
 
                         trackInformationDialog.active = false
-                        trackingStarted()
                     }
                 }
                 onCancel: {
                     trackInformationDialog.active = false
-                    displayToast( qsTr( 'No track on layer %1 started' ).arg( trackingLayer.name  ) )
+                    //displayToast( qsTr( 'No track on layer %1 started' ).arg( model.vectorLayer.name  ) )
+                    trackingModel.stopTracker( mainModel.vectorLayer )
                 }
             }
 
@@ -308,7 +297,7 @@ Item{
 
             onVisibleChanged: {
                 if (visible) {
-                    timeInterval.forceActiveFocus();
+                    timeIntervalText.forceActiveFocus();
                 }
             }
         }

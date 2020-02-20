@@ -92,7 +92,7 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 #include "geometryeditorsmodel.h"
-#include "track.h"
+#include "trackingmodel.h"
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -128,6 +128,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
+  mTrackingModel = new TrackingModel;
 
   initDeclarative();
 
@@ -249,12 +250,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
-  qmlRegisterType<Track>( "org.qgis", 1, 0, "Track" );
+  qmlRegisterType<TrackingModel>( "org.qgis", 1, 0, "TrackingModel" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
+  //qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -281,6 +283,7 @@ void QgisMobileapp::initDeclarative()
 #if VERSION_INT >= 30600
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 #endif
+  //rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }

@@ -218,7 +218,7 @@ Rectangle {
           iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
 
           onClicked: {
-            if( featureOnTrack(currentLayer, featureId) )
+            if( trackingModel.featureOnTrack(currentLayer, featureId) )
             {
                 displayToast( qsTr( "Stop tracking this feature to delete it" ) )
             }
@@ -308,7 +308,7 @@ Rectangle {
     }
 
     onEditAttributesButtonClicked: {
-        if( featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
+        if( trackingModel.featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
         {
             displayToast( qsTr( "Stop tracking this feature to edit attributes" ) )
         }
@@ -319,7 +319,7 @@ Rectangle {
     }
 
     onEditGeometryButtonClicked: {
-        if( featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
+        if( trackingModel.featureOnTrack(selection.selectedLayer, selection.selectedFeature.id) )
         {
             displayToast( qsTr( "Stop tracking this feature to edit geometry" ) )
         }
