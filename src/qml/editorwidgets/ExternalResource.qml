@@ -26,15 +26,6 @@ Item {
     //source is managed over onCurrentValueChanged since the binding would break somewhere
     source: Style.getThemeIcon("ic_photo_notavailable_white_48dp")
 
-    MouseArea {
-      anchors.fill: parent
-
-      onClicked: {
-        if (image.currentValue && settings.value("useNativeCamera", false))
-          platformUtilities.open(image.currentValue, "image/*");
-      }
-    }
-
     onCurrentValueChanged: {
       if (image.status === Image.Error) {
         image.source=Style.getThemeIcon("ic_broken_image_black_24dp")
