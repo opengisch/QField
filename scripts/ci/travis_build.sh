@@ -30,7 +30,7 @@ elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
   # remove first 3 digits of the year (so YDDDHHMM) + arch
   #        YDDDHHMMA
   # max = 2100000000
-  export APP_VERSION_CODE=${CUR_DATE:4:7}${ARCH_NUMBER}
+  export APP_VERSION_CODE=${CUR_DATE:3:7}${ARCH_NUMBER}
   export APP_VERSION_STR="${LAST_TAG}-dev (commit ${CURRENT_COMMIT})"
 
 else
