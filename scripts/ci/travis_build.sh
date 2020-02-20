@@ -7,8 +7,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/../version_number.sh
 
 
-if [ -n "${TRAVIS_TAG}" ]; then
-  echo "Building release"
+if [[ -n ${TRAVIS_TAG} ]]; then
+  echo "Building release from tag"
   export APP_NAME="QField"
   export PKG_NAME="qfield"
   export APP_ICON="qfield-logo.svg"
@@ -18,7 +18,7 @@ if [ -n "${TRAVIS_TAG}" ]; then
   CURRENT_CODENAME=$(cat ${DIR}/../../RELEASE_NAME)
   APP_VERSION_STR="$( app_version_str ${TRAVIS_TAG} ) - ${CURRENT_CODENAME}"
 
-elif [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
   # DATE as YYYY DDD HH MM (without spaces)
   CUR_DATE=$(date +%Y%j%H%M)
