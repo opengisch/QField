@@ -16,11 +16,14 @@ if [[ -z ${TRAVIS_TAG} ]]; then
   exit 1
 fi
 
+# git-full-fetch has been called before, we should be on a complete clone
+GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 # define RELEASE_BRANCH
 travis_to_release_branch
 
 # Create release branch if needed
-if [[ ${TRAVIS_BRANCH} = master ]]; then
+if [[ ${GIT_BRANCH} = master ]]; then
   if [[ ! ${RELEASE_BRANCH} =~ ^release ]]; then
     echo "Something wrong happened"
     exit 1
