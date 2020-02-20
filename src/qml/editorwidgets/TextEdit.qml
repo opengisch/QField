@@ -6,11 +6,6 @@ Item {
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
 
-  QtObject {
-      id: fieldData
-      property bool isNumeric: field ? field.isNumeric : false
-  }
-
   TextField {
     id: textField
     height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
@@ -24,19 +19,7 @@ Item {
 
     text: value !== undefined ? value : ''
 
-    validator: {
-      if (fieldData.isNumeric || widget == 'Range') {
-        if (platformUtilities.fieldType( field ) === 'double')
-          doubleValidator;
-        else
-          intValidator;
-      }
-      else {
-        null;
-      }
-    }
-
-    inputMethodHints: fieldData.isNumeric || widget == 'Range' ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
+    inputMethodHints: Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
@@ -70,13 +53,5 @@ Item {
   FontMetrics {
     id: fontMetrics
     font: textField.font
-  }
-
-  IntValidator {
-    id: intValidator
-  }
-
-  DoubleValidator {
-    id: doubleValidator
   }
 }

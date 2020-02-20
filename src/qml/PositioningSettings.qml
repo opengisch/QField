@@ -44,7 +44,6 @@ Popup {
       GridLayout {
         id: positioningGrid
         width: parent.parent.width
-        anchors.fill: parent.parent
 
         columns: 2
         columnSpacing: 2 * dp

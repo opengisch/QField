@@ -56,7 +56,7 @@ ApplicationWindow {
       if ( event.key === Qt.Key_Back ||
         event.key === Qt.Key_Escape ) {
         if ( stateMachine.state === 'measure' ) {
-          closeTool()
+          mainWindow.closeMeasureTool()
         } else {
           mainWindow.close();
         }
@@ -70,7 +70,7 @@ ApplicationWindow {
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
 
-  signal closeTool()
+  signal closeMeasureTool()
   signal changeMode( string mode )
 
   Item {
@@ -103,21 +103,11 @@ ApplicationWindow {
   onChangeMode: {
     stateMachine.lastState = stateMachine.state
     stateMachine.state = mode
-    switch ( stateMachine.state )
-    {
-      case 'browse':
-        displayToast( qsTr( 'You are now in browse mode' ) );
-        break;
-      case 'digitize':
-        displayToast( qsTr( 'You are now in digitize mode' ) );
-        break;
-      case 'measure':
-        displayToast( qsTr( 'You are now in measure mode' ) );
-        break;
-    }
+    displayToast( qsTr( 'You are now in %1 mode ' ).arg( stateMachine.state  ) )
   }
 
-  onCloseTool: {
+  onCloseMeasureTool: {
+    overlayFeatureFormDrawer.close()
     changeMode( stateMachine.lastState)
   }
 
@@ -158,7 +148,7 @@ ApplicationWindow {
     Rectangle {
       id: mapCanvasBackground
       anchors.fill: parent
-      color: parent.mapSettings.backgroundColor
+      color: mapCanvas.mapSettings.backgroundColor
     }
 
     /* The base map */
@@ -174,6 +164,14 @@ ApplicationWindow {
               locatorItem.searching = false
           } else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+          }
+      }
+
+      onPanned: {
+          if ( gpsButton.followActive )
+          {
+            gpsButton.followActive = false
+            displayToast( qsTr( "Canvas stopped following location" ) )
           }
       }
 
@@ -236,13 +234,30 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
-
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
 
         mapSettings: mapCanvas.mapSettings
         model: featureForm.model
+      }
+
+      /** A rubberband for the different geometry editors **/
+      Rubberband {
+        id: geometryEditorsRubberband
+        width: 2 * dp
+        color: '#80000000'
+
+        mapSettings: mapCanvas.mapSettings
+
+        model: RubberbandModel {
+          frozen: false
+          currentCoordinate: coordinateLocator.currentCoordinate
+          crs: mapCanvas.mapSettings.destinationCrs
+          geometryType: QgsWkbTypes.LineGeometry
+        }
+
+        anchors.fill: parent
       }
     }
 
@@ -265,7 +280,20 @@ ApplicationWindow {
       visible: positionSource.active
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.projection.directionValid ? positionSource.projection.direction : -1
+      direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+
+      onLocationChanged: {
+        if ( gpsButton.followActive ) {
+          var screenLocation = mapSettings.coordinateToScreen( location );
+          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+          }
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -423,16 +451,7 @@ ApplicationWindow {
     id: dashBoard
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
-  }
-
-  DropShadow {
-    anchors.fill: dashBoard
-    horizontalOffset: 2 * dp
-    verticalOffset: 0
-    radius: 6.0 * dp
-    samples: 17
-    color: "#80000000"
-    source: dashBoard
+    interactive: !welcomeScreen.visible
   }
 
   /* The main menu */
@@ -440,6 +459,9 @@ ApplicationWindow {
     id: mainMenuBar
     width: childrenRect.width + 8 * dp
     height: childrenRect.height + 8 * dp
+    topPadding: 4 * dp
+    leftPadding: 4 * dp
+    spacing: 4 * dp
 
     Button {
       id: menuButton
@@ -447,63 +469,20 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
       onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
       bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
     }
 
-    ToolButton {
+    CloseTool {
       id: closeMeasureTool
-      height: 48 * dp
-      width: height + buttonText.width + 32 * dp
-
-      contentItem: Rectangle {
-        anchors.fill: parent
-        color: '#80000000'
-        radius: height / 2
-
-        Row {
-          spacing: 8 * dp
-          Rectangle {
-            height: 48 * dp
-            width: 48 * dp
-            radius: height / 2
-            color: Theme.darkGray
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( "ic_close_white_24dp" )
-            }
-          }
-
-          Text {
-            id: buttonText
-            anchors.verticalCenter: parent.verticalCenter
-            verticalAlignment: Text.AlignVCenter
-            text: qsTr( 'Close measure tool' )
-            color: Theme.light
-            font: Theme.strongFont
-          }
-        }
-
-        Behavior on color {
-          ColorAnimation {
-            duration: 200
-          }
-        }
-      }
       visible: stateMachine.state === 'measure'
-      onClicked: {
-        overlayFeatureFormDrawer.close()
-        closeTool()
-      }
-      anchors.left: mainMenuBar.left
-      anchors.leftMargin: 4 * dp
-      anchors.top: mainMenuBar.top
-      anchors.topMargin: 4 * dp
+      toolText: qsTr( 'Close measure tool' )
+      onClosedTool: mainWindow.closeMeasureTool()
+    }
+
+    CloseTool {
+      id: closeGeometryEditorsTool
+      visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+      toolText: qsTr( 'Stop editing' )
+      onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
   }
 
@@ -511,7 +490,7 @@ ApplicationWindow {
     id: mainToolBar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
-    anchors.bottom: digitizingToolbar.stateVisible ? digitizingToolbar.top : mapCanvas.bottom
+    anchors.bottom: mapCanvas.bottom
     anchors.bottomMargin: 4 * dp
     spacing: 4 * dp
 
@@ -519,9 +498,10 @@ ApplicationWindow {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
-      bgcolor: Theme.darkGray
       checkable: true
+      anchors.right: parent.right
 
+      bgcolor: Theme.darkGray
       iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
@@ -534,8 +514,11 @@ ApplicationWindow {
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
       round: true
+      anchors.right: parent.right
 
       bgcolor: "#64B5F6"
+
+      property bool followActive: false
 
       states: [
         State {
@@ -552,22 +535,26 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_white_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: "#64B5F6"
+            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
             opacity:1
           }
         }
       ]
 
       onClicked: {
+        followActive = true
         if ( positionSource.projectedPosition.x )
         {
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-
           if ( !positionSource.active )
           {
             positionSource.active = true;
-            displayToast( qsTr( "Activating positioning service..." ) )
+            displayToast( qsTr( "Activating positioning service" ) )
+          }
+          else
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -576,12 +563,12 @@ ApplicationWindow {
           {
             if ( positionSource.active )
             {
-              displayToast( qsTr( "Waiting for location..." ) )
+              displayToast( qsTr( "Waiting for location" ) )
             }
             else
             {
               positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
+              displayToast( qsTr( "Activating positioning service" ) )
             }
           }
         }
@@ -606,87 +593,69 @@ ApplicationWindow {
         }
       }
     }
-  }
 
-  DigitizingToolbar {
-    id: digitizingToolbar
+    DigitizingToolbar {
+      id: digitizingToolbar
 
-    anchors.bottom: mapCanvas.bottom
-    anchors.right: mapCanvas.right
+      stateVisible: (stateMachine.state === "digitize"
+                     && dashBoard.currentLayer
+                     && !dashBoard.currentLayer.readOnly
+                     && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
+      rubberbandModel: currentRubberband.model
+      coordinateLocator: coordinateLocator
+      mapSettings: mapCanvas.mapSettings
+      showConfirmButton: stateMachine.state === "digitize"
 
-    stateVisible: (stateMachine.state === "digitize"
-                   && dashBoard.currentLayer
-                   && !dashBoard.currentLayer.readOnly
-                   && !geometryEditingToolbar.stateVisible ) || stateMachine.state === 'measure'
-    rubberbandModel: currentRubberband.model
+      FeatureModel {
+        id: digitizingFeature
+        currentLayer: dashBoard.currentLayer
+        positionSourceName: positionSource.name
+        topSnappingResult: coordinateLocator.topSnappingResult
 
-    FeatureModel {
-      id: digitizingFeature
-      currentLayer: dashBoard.currentLayer
-      positionSourceName: positionSource.name
-      topSnappingResult: coordinateLocator.topSnappingResult
+        geometry: Geometry {
+          id: digitizingGeometry
+          rubberbandModel: digitizingRubberband.model
+          vectorLayer: dashBoard.currentLayer
+        }
+      }
 
-      geometry: Geometry {
-        id: digitizingGeometry
-        rubberbandModel: digitizingRubberband.model
-        vectorLayer: dashBoard.currentLayer
+      onConfirm: {
+        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+        {
+          digitizingRubberband.model.reset()
+        }
+        else
+        {
+          coordinateLocator.flash()
+          digitizingFeature.geometry.applyRubberband()
+          digitizingFeature.applyGeometry()
+          digitizingRubberband.model.frozen = true
+        }
+
+        if ( !digitizingFeature.suppressFeatureForm() )
+        {
+          digitizingFeature.resetAttributes();
+          overlayFeatureFormDrawer.open()
+          overlayFeatureFormDrawer.state = "Add"
+          overlayFeatureFormDrawer.featureForm.reset()
+        }
+        else
+        {
+          digitizingFeature.create()
+          digitizingRubberband.model.reset()
+        }
       }
     }
 
-    onVertexAdded: {
-      coordinateLocator.flash()
-      currentRubberband.model.addVertex()
+    GeometryEditorsToolbar {
+      id: geometryEditorsToolbar
+
+      featureModel: geometryEditingFeature
+      mapSettings: mapCanvas.mapSettings
+      editorRubberbandModel: geometryEditorsRubberband.model
+
+      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
     }
-
-    onVertexRemoved:
-    {
-      currentRubberband.model.removeVertex()
-      mapCanvas.mapSettings.setCenter( currentRubberband.model.currentCoordinate )
-    }
-
-    onCancel:
-    {
-      currentRubberband.model.reset()
-    }
-
-    onConfirm: {
-      if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-      {
-        digitizingRubberband.model.reset()
-      }
-      else
-      {
-        coordinateLocator.flash()
-        digitizingFeature.geometry.applyRubberband()
-        digitizingFeature.applyGeometry()
-        digitizingRubberband.model.frozen = true
-      }
-
-      if ( !digitizingFeature.suppressFeatureForm() )
-      {
-        digitizingFeature.resetAttributes();
-        overlayFeatureFormDrawer.open()
-        overlayFeatureFormDrawer.state = "Add"
-        overlayFeatureFormDrawer.featureForm.reset()
-      }
-      else
-      {
-        digitizingFeature.create()
-        digitizingRubberband.model.reset()
-      }
-    }
-  }
-
-  GeometryEditingToolbar {
-    id: geometryEditingToolbar
-
-    featureModel: geometryEditingFeature
-    mapSettings: mapCanvas.mapSettings
-
-    anchors.bottom: mapCanvas.bottom
-    anchors.right: mapCanvas.right
-
-    stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
   }
 
 
@@ -1001,6 +970,8 @@ ApplicationWindow {
       {
         featureForm.state = "Hidden"
       }
+
+      geometryEditorsToolbar.init()
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
@@ -1022,12 +993,6 @@ ApplicationWindow {
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     featureModel: digitizingFeature
-  }
-
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-    }
   }
 
   function displayToast( message ) {
@@ -1077,8 +1042,9 @@ ApplicationWindow {
     id: busyIndicator
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
-    width: 60 * dp
-    height: 60 * dp
+    padding: 5 * dp
+    width: mainMenuBar.height
+    height: mainMenuBar.height
     running: mapCanvasMap.isRendering
   }
 
@@ -1293,8 +1259,8 @@ ApplicationWindow {
     visible: false
     nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
 
-    width: parent.width
-    height: parent.height
+    width: mainWindow.width
+    height: mainWindow.height
 
     onAccepted: {
       iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
@@ -1345,8 +1311,9 @@ ApplicationWindow {
       width: parent.width
       y: parent.height - 112 * dp
       margins: 0
-      background: undefined
       closePolicy: Popup.NoAutoClose
+
+      background: Rectangle { color: "transparent" }
 
       function show(text) {
           toastMessage.text = text
@@ -1364,19 +1331,23 @@ ApplicationWindow {
         id: toastContent
         color: Theme.darkGray
 
-        height: 40 * dp
-        width: ( (toastMessage.width + 16 * dp) <= 192 * dp ) ? 192 * dp : toastMessage.width + 16 * dp
+        height: toastMessage.height
+        width: toastMessage.text.length * 16 * dp <= 192 * dp ? 192 * dp : ( toastMessage.text.length * 16 * dp ) - 16 * dp > mainWindow.width ? mainWindow.width - 16 * dp : toastMessage.text.length * 16 * dp
 
         anchors.centerIn: parent
 
-        radius: 20 * dp
+        radius: 16 * dp
 
         z: 1
 
         Text {
           id: toastMessage
-          anchors.centerIn: parent
+          anchors.left: parent.left
+          anchors.right: parent.right
+          wrapMode: Text.Wrap
+
           font: Theme.secondaryTitleFont
+          horizontalAlignment: Text.AlignHCenter
           color: Theme.light
         }
 

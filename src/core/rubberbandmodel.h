@@ -61,7 +61,7 @@ class RubberbandModel : public QObject
      *
      * By default coordinates will be returned unprojected.
      */
-    QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
+    Q_INVOKABLE QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 

@@ -125,7 +125,8 @@ const QUrl QgsQuickUtils::getThemeIcon( const QString &name )
 const QUrl QgsQuickUtils::getEditorComponentSource( const QString &widgetName )
 {
   QString path( "qgsquick%1.qml" );
-  QStringList supportedWidgets = { QStringLiteral( "textedit" ),
+  QStringList supportedWidgets = { QStringLiteral( "range" ),
+                                   QStringLiteral( "textedit" ),
                                    QStringLiteral( "valuemap" ),
                                    QStringLiteral( "checkbox" ),
                                    QStringLiteral( "externalresource" ),
@@ -327,4 +328,12 @@ qreal QgsQuickUtils::calculateScreenDensity()
   int dpiY = QApplication::desktop()->physicalDpiY();
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymmetrical DPI. Improbable
   return dpi / 160.;  // 160 DPI is baseline for density-independent pixels in Android
+}
+
+void QgsQuickUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior )
+{
+  QgsFeatureIds qgsFids;
+  for ( const int &fid : fids )
+    qgsFids << fid;
+  layer->selectByIds( qgsFids, behavior );
 }

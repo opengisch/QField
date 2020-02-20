@@ -45,6 +45,16 @@ Item {
     rotation: direction
     transformOrigin: Item.Bottom
     smooth: true
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        transparentBorder: true
+        radius: 8
+        samples: 25
+        color: "#99000000"
+        horizontalOffset: 0
+        verticalOffset: 0
+    }
   }
 
   Rectangle {

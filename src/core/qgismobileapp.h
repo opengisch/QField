@@ -23,6 +23,7 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
 #include <qgsconfig.h>
 
@@ -32,6 +33,7 @@
 #include "focusstack.h"
 #include "qgsquickutils.h"
 #include "qgsgpkgflusher.h"
+#include "geometryeditorsmodel.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
@@ -49,6 +51,9 @@ class LayerTreeMapCanvasBridge;
 class LayerTreeModel;
 class LegendImageProvider;
 class QgsProject;
+
+
+#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 
 class QgisMobileapp : public QQmlApplicationEngine
@@ -119,14 +124,6 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     void loadProjectQuirks();
 
-    static QObject *utilsSingletonProvider( QQmlEngine *engine, QJSEngine *scriptEngine )
-    {
-      Q_UNUSED( engine )
-      Q_UNUSED( scriptEngine )
-      QgsQuickUtils *singletonClass = new QgsQuickUtils();
-      return singletonClass;
-    }
-
     QgsOfflineEditing *mOfflineEditing;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
     LayerTreeModel *mLayerTree;
@@ -145,6 +142,7 @@ class QgisMobileapp : public QQmlApplicationEngine
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
+    QgsExifTools mExifTools;
 
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
@@ -155,6 +153,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
 Q_DECLARE_METATYPE( QgsFeatureId )
+Q_DECLARE_METATYPE( QgsFeatureIds )
 Q_DECLARE_METATYPE( QgsAttributes )
 Q_DECLARE_METATYPE( QVariant::Type )
 Q_DECLARE_METATYPE( QgsFieldConstraints )

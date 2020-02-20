@@ -44,11 +44,14 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void showRateThisApp() const override;
 
+    void setScreenLockPermission( const bool allowLock ) override;
+
   private:
     bool checkAndAcquirePermissions( const QString &permissionString ) const;
     QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
+    QAndroidJniObject mActivity;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

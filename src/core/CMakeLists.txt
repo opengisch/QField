@@ -14,6 +14,7 @@ SET(QFIELD_CORE_SRCS
   featureslocatorfilter.cpp
   focusstack.cpp
   geometry.cpp
+  geometryeditorsmodel.cpp
   identifytool.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
@@ -62,6 +63,7 @@ SET(QFIELD_CORE_HDRS
   featureslocatorfilter.h
   focusstack.h
   geometry.h
+  geometryeditorsmodel.h
   identifytool.h
   layertreemapcanvasbridge.h
   layertreemodel.h
@@ -118,6 +120,7 @@ TARGET_LINK_LIBRARIES(qfield_core
   Qt5::Network
   Qt5::Quick
   ${QGIS_CORE_LIBRARY}
+  ${QGIS_ANALYSIS_LIBRARY}
 )
 
 INSTALL(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})

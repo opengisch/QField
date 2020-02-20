@@ -1,40 +1,53 @@
-import QtQuick 2.6
+import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 
 VisibilityFadingRow {
-  id: geometryEditingToolbar
+  id: vertexEditorToolbar
+
+  signal finished()
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+  readonly property bool blocking: featureModel.vertexModel.dirty
 
   spacing: 4 * dp
-  padding: 4 * dp
+
+  function init(featureModel, mapSettings, editorRubberbandModel)
+  {
+    vertexEditorToolbar.featureModel = featureModel
+    vertexEditorToolbar.mapSettings = mapSettings
+  }
+
+  function cancel()
+  {
+    featureModel.vertexModel.reset()
+  }
 
   Button {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
-    bgcolor: "#FFD600"
-
+    visible: featureModel.vertexModel.dirty
+    bgcolor: "#900000"
     onClicked: {
-      featureModel.vertexModel.clear()
+      cancel()
     }
   }
 
   Button {
     id: applyButton
-    iconSource: Theme.getThemeIcon( "ic_save_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    bgcolor: featureModel.vertexModel.dirty ? "#FFD600" : "#616161"
+    bgcolor: featureModel.vertexModel.dirty ? Theme.mainColor : "#616161"
 
     onClicked: {
       if (featureModel.vertexModel.dirty){
         featureModel.applyVertexModelToGeometry()
         featureModel.save()
-        featureModel.vertexModel.clear()
       }
+      finished()
     }
   }
 

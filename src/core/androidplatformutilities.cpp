@@ -28,7 +28,7 @@
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
-
+  mActivity = QtAndroid::androidActivity();
 }
 
 QString AndroidPlatformUtilities::configDir() const
@@ -72,9 +72,10 @@ QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroid
 QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
   QAndroidJniObject activity = QtAndroid::androidActivity();
-  if ( activity.isValid() )
+
+  if ( mActivity.isValid() )
   {
-    QAndroidJniObject intent = activity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
+    QAndroidJniObject intent = mActivity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
     return intent;
   }
   return nullptr;
@@ -233,6 +234,27 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
     }
   }
   return true;
+}
+
+void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
+{
+  if ( mActivity.isValid() )
+  {
+    QAndroidJniObject window = mActivity.callObjectMethod("getWindow", "()Landroid/view/Window;");
+
+    if ( window.isValid() )
+    {
+      const int FLAG_KEEP_SCREEN_ON = 128;
+      if ( !allowLock )
+      {
+        window.callObjectMethod( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+      }
+      else
+      {
+        window.callObjectMethod( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+      }
+    }
+  }
 }
 
 void AndroidPlatformUtilities::showRateThisApp() const

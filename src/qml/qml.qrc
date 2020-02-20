@@ -22,6 +22,7 @@
         <file>editorwidgets/DateTime.qml</file>
         <file>editorwidgets/ExternalResource.qml</file>
         <file>editorwidgets/TextEdit.qml</file>
+        <file>editorwidgets/Range.qml</file>
         <file>editorwidgets/ValueMap.qml</file>
         <file>editorwidgets/RelationReference.qml</file>
         <file>editorwidgets/RelationEditor.qml</file>
@@ -32,7 +33,8 @@
         <file>LayerTreeItemProperties.qml</file>
         <file>ui/LayerTreeItemProperties.qml</file>
         <file>QFieldCamera.qml</file>
-        <file>GeometryEditingToolbar.qml</file>
+        <file>VertexEditorToolbar.qml</file>
+        <file>GeometryEditorsToolbar.qml</file>
         <file>VertexRubberband.qml</file>
         <file>Switch.qml</file>
         <file>VisibilityFadingRow.qml</file>
@@ -45,6 +47,8 @@
         <file>RelationCombobox.qml</file>
         <file>Changelog.qml</file>
         <file>LayerLoginDialog.qml</file>
+        <file>SplitFeatureToolbar.qml</file>
+        <file>CloseTool.qml</file>
         <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/qmldir</file>

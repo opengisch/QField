@@ -49,6 +49,7 @@
 #include <qgslocatormodel.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
+#include <qgsvectorlayereditbuffer.h>
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
@@ -90,11 +91,16 @@
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
+#include "geometryeditorsmodel.h"
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
 #include "qgsnetworkaccessmanager.h"
 #endif
+
+#define QUOTE(string) _QUOTE(string)
+#define _QUOTE(string) #string
+
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
@@ -107,7 +113,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   setFormat( format );
   create();
 #endif
-
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -137,6 +142,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
              << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
     saveRecentProjects( projects );
   }
+
+  mPlatformUtils.setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
@@ -169,11 +176,13 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
   qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
   qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsPoint>( "QgsPoint" );
   qRegisterMetaType<QgsPointXY>( "QgsPointXY" );
+  qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
@@ -186,6 +195,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QVariant::Type>( "QVariant::Type" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+  qRegisterMetaType<QgsGeometry::OperationResult>( "QgsGeometry::OperationResult" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
@@ -193,12 +203,15 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
   qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
-  qmlRegisterSingletonType<QgsQuickUtils>( "Utils", 1, 0, "Utils", utilsSingletonProvider );
+
+  REGISTER_SINGLETON( "Utils", QgsQuickUtils, "Utils" );
+
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register QField QML types
@@ -233,6 +246,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<RecentProjectListModel>( "org.qgis", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qgis", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
+  qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
+  REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
@@ -252,12 +267,13 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "version", QString( "" VERSTR ) );
+  rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
+  rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -322,7 +338,7 @@ void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects
 
 void QgisMobileapp::onReadProject( const QDomDocument &doc )
 {
-  Q_UNUSED( doc );
+  Q_UNUSED( doc )
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
 
   QList<QPair<QString, QString>> projects = recentProjects();
@@ -443,3 +459,4 @@ QgisMobileapp::~QgisMobileapp()
   // Reintroduce when created on the heap
   delete mProject;
 }
+

@@ -115,7 +115,7 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: parent.higlightColor
+      color: highlightColor
 
       width: 3
       height: parent.height * 4 / 6 + 3
@@ -123,7 +123,7 @@ Item {
     Rectangle {
       anchors.centerIn: parent
 
-      color: parent.higlightColor
+      color: highlightColor
 
       width: parent.width * 4 / 6 + 3
       height: 3

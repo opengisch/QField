@@ -1,10 +1,10 @@
 import QtQuick 2.11
 import org.qgis 1.0
-import QtQuick.Controls 2.4 as Controls
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.1
 import Theme 1.0
 
-Controls.Drawer {
+Drawer {
   objectName: "dashBoard"
 
   signal showMenu
@@ -27,23 +27,13 @@ Controls.Drawer {
   focus: opened
   clip: true
 
-  Keys.onReleased: {
-    if ( event.key === Qt.Key_Back ||
-      event.key === Qt.Key_Escape ) {
-      close()
-      event.accepted = true
-    }
-  }
-
-  /* Workaround for menu position, will need to be adjusted when updating menu to QuickControls.2 */
+  /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
   onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
       displayToast( qsTr( "The layer %1 is read only." ).arg( currentLayer.name ) )
   }
-
-  Component.onCompleted: focusstack.addFocusTaker( this )
 
   ColumnLayout {
     anchors.fill: parent
@@ -58,13 +48,14 @@ Controls.Drawer {
         height: childrenRect.height
         spacing: 1 * dp
 
-        Controls.ToolButton {
+        ToolButton {
           height: 56 * dp
           width: 56 * dp
 
           contentItem: Rectangle {
             anchors.fill: parent
             color: mainColor
+            enabled: welcomeScreen.visible
             Image {
               anchors.fill: parent
               fillMode: Image.Pad
@@ -77,7 +68,7 @@ Controls.Drawer {
           onClicked: close()
         }
 
-        Controls.ToolButton {
+        ToolButton {
           id: settingsButton
           height: 56 * dp
           width: 56 * dp
@@ -99,7 +90,7 @@ Controls.Drawer {
       }
 
 
-      Controls.Switch {
+      Switch {
         id: modeswitch
         height: 56 * dp
         width: ( 56 + 36 )  * dp
@@ -161,12 +152,12 @@ Controls.Drawer {
       }
     }
 
-    Controls.GroupBox {
+    GroupBox {
       id: mapThemeContainer
       Layout.fillWidth: true
       property bool isLoading: false
 
-      Controls.ComboBox {
+      ComboBox {
         id: mapThemeComboBox
         anchors { left: parent.left; right: parent.right }
 
@@ -191,7 +182,7 @@ Controls.Drawer {
         }
 
         // [hidpi fixes]
-        delegate: Controls.ItemDelegate {
+        delegate: ItemDelegate {
           width: mapThemeComboBox.width
           height: 36 * dp
           text: modelData
