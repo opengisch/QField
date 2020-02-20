@@ -8,7 +8,7 @@ set -e
 # if TX resource doesn't exist => create it from master
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-source ${DIR}/version_number.sh
+source ${DIR}/../version_number.sh
 
 
 if [[ -z ${TRAVIS_TAG} ]]; then
