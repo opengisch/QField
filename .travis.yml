@@ -30,7 +30,7 @@ script:
 jobs:
   include:
     - stage: prepare release
-      if: tag IS present AND branch =~ /^(master|release-[0-9_]+)$/
+      if: tag IS present
       name: "👷 Prepare release"
       script:
         - pip install transifex-client pytransifex
