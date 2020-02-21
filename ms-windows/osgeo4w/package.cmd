@@ -119,6 +119,7 @@ cmake -G "%CMAKEGEN%" ^
 	-D QT_HEADERS_DIR=%O4W_ROOT%/apps/qt5/include ^
 	-D CMAKE_INSTALL_PREFIX=%O4W_ROOT%/apps/%PACKAGENAME% ^
 	-D QGIS_CORE_LIBRARY=%OSGEO4W_ROOT%\apps\qgis-dev\lib\qgis_core.lib ^
+	-D QGIS_ANALYSIS_LIBRARY=%OSGEO4W_ROOT%\apps\qgis-dev\lib\qgis_analysis.lib ^
 	-D QGIS_INCLUDE_DIR=%OSGEO4W_ROOT%\apps\qgis-dev\include ^
         -D PROJ_LIBRARY=%O4W_ROOT%/apps/proj-dev/lib/proj.lib ^
         -D PROJ_INCLUDE_DIR=%O4W_ROOT%/apps/proj-dev/include ^
