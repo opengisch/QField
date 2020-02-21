@@ -104,7 +104,7 @@
 <li><a class="reference internal" href="#suppress-feature-form">Estä ominaisuuslomake</a></li>
 <li><a class="reference internal" href="#field-widget">Tietotyökalu</a><ul>
 <li><a class="reference internal" href="#relation-widget">Relaatiotyökalu</a></li>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#external-resource-photo-settings">Ulkoiset resurssit (kuva-asetukset)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Vedä ja pudota suunnittelulomake</a></li>
@@ -176,7 +176,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField asennusopas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Salli selitevalintojen piilottaminen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Räätälöidyt SVG symbolit ja asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Haku tasoilta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">Tuetut dataformaatit</a></li>
@@ -301,18 +301,18 @@
 </table>
 <div class="section" id="relation-widget">
 <h4>Relaatiotyökalu<a class="headerlink" href="#relation-widget" title="Permalink to this headline">¶</a></h4>
-<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<p>Lisätiedon saamiseksi viittaamme relaatiokappaleeseen virallisessa  <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Dokumentaatiossa</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It’s possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
-<p><strong>Key handling</strong></p>
+<p>Relaatiotyökalu näyttöö kaikki liittyvät alemmat ominaisuudet listana. On mahdollista lisätä, poistaa tai avata ne.</p>
+<p>Listan jäsenten visuaalinen tunnistaminen tehdään käyttäen Display Expression alatasolla.</p>
+<p><strong>Avainten käsittely</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>Child features can be added before the parent is finaly saved - means while adding a parent. But it’s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
-<p><strong>Many-To-Many relations</strong></p>
+<p><strong>Moni-Moneen relaatiot</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
 <p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
 <div class="clearer text-center docutils container">
@@ -323,21 +323,21 @@
 <p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
 </div>
 <div class="section" id="external-resource-photo-settings">
-<h4>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="Permalink to this headline">¶</a></h4>
-<p>The widget type ”Attachement” is used to store the path to collected photos.</p>
+<h4>Ulkoiset resurssit (kuva-asetukset)<a class="headerlink" href="#external-resource-photo-settings" title="Permalink to this headline">¶</a></h4>
+<p>”Attachement” työkalua käytetään tallentamaan polku kerätyistä kuvista.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. Means the pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
-<p>In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.</p>
+<p>Polku tulee asettaa relatiiviseksi. Tämä tarkoittaa että kuvat tallennetaan projektin alahakemistoon, jonne tallennettu linkki tekstikentässä osoittaa.</p>
+<p>Kuva näytetään QFieldissä. Klikkaamalla kamerasymbolia käynnistetään kamera päivittämään kuvaa uudella kuvalla.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures has to be copied as well.</p>
+<p>Synkronoinnissa on alahakemisto, jossa kuvat ovat, on myös kopioitava.</p>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
