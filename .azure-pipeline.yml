@@ -119,8 +119,8 @@ jobs:
   - script: c:\cygwin\bin\unzip -o c:\ninja.zip -d %OSGEO4W_ROOT%\bin
     displayName: 'Extracting Ninja'
 
-  - script: c:\cygwin\bin\unzip -o c:\dependencies.zip -d %OSGEO4W_ROOT%\bin
-    displayName: 'Extracting Dependencies'
+    #  - script: c:\cygwin\bin\unzip -o c:\dependencies.zip -d %OSGEO4W_ROOT%\bin
+    #    displayName: 'Extracting Dependencies'
 
   - script: |
       PATH %OSGEO4W_ROOT%\bin;%ProgramFiles%\CMake\bin;%PATH%
