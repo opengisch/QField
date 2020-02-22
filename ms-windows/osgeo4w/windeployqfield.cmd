@@ -97,6 +97,7 @@ copy "%O4W_ROOT%\apps\Qt5\bin\qca-qt5.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\apps\Qt5\bin\qt5keychain.dll" "%QFIELD_RELEASE_PATH%"
 
 copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_core.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_analysis.dll" "%QFIELD_RELEASE_PATH%"
 
 %O4W_ROOT%\apps\Qt5\bin\windeployqt.exe --concurrent --sensors --sql --webchannel --webkitwidgets --webkit --compiler-runtime --qmldir %QMLDIR% "%QFIELD_RELEASE_PATH%\qfield_core.dll"
 
