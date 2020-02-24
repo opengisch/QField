@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Allow hiding legend nodes &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>凡例のノードを非表示にするのを許可する &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -96,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Allow hiding legend nodes</a></li>
+<li><a class="reference internal" href="#">凡例のノードを非表示にするのを許可する</a></li>
 </ul>
 </ul>
 </li>
@@ -142,7 +142,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Allow hiding legend nodes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">凡例のノードを非表示にするのを許可する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">レイヤーの検索</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">サポート対象のデータフォーマット</a></li>
@@ -170,23 +170,23 @@
     <div class="col-md-9 content">
       
   <div class="section" id="allow-hiding-legend-nodes">
-<h1>Allow hiding legend nodes<a class="headerlink" href="#allow-hiding-legend-nodes" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>First, you should to verify if the plugin <strong>Invisible layers and groups</strong> is installed, if you don't have installed, you can do it going to <strong>Plugins &gt; Manage and install plugins &gt; find Invisible layers and groups &gt; click in install plugin</strong>.</p>
+<h1>凡例のノードを非表示にするのを許可する<a class="headerlink" href="#allow-hiding-legend-nodes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>まず最初にプラグインの <strong>Invisible layers and groups</strong> がインストールされているか確認してください。もしインストールされていないのであれば、<strong>プラグイン &gt; プラグインの管理とインストール &gt; Invisible layers and groupsプラグインを検索 &gt; インストールをクリック</strong> を行ってください。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/install_plugin.png"><img alt="Install plugin Invisible layers and groups" src="../_images/install_plugin.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>When you finish the installation of the plugin, you will see in the QGIS interface this buttons:</p>
+<p>プラグインのインストールが完了すれば、QGIS上でこのようなボタンが表示されるようになります。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/plugin_invisible_layers.png"><img alt="Install plugin Invisible layers and groups" src="../_images/plugin_invisible_layers.png" style="width: 80px;" /></a>
 </div>
 </div>
-<p>Once the installation process is finished, it is possible to start hiding the nodes of the legend our project.</p>
+<p>インストールのプロセスが終わったら、プロジェクトの凡例のノードを非表示にできます。</p>
 <ol class="arabic simple">
-<li>Choose the layers or groups that you want to hide.</li>
-<li>When you finish the layer/group selection, <strong>click Make selected layers and groups invisible</strong>. You will notice the selected layers and groups have disappear from the layers panel. They are still available in the project for visualization and joins, though.</li>
+<li>非表示にしたい複数のレイヤー及びグループを選択します。</li>
+<li>レイヤー/グループの選択を終えたら、<strong>Make selected layers and groups invisible</strong> をクリックします。レイヤーパネルから選択されたレイヤーとグループが非表示になったのがわかると思います。ただし、それら非表示のレイヤーは依然地図の描画に使用されます。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -194,16 +194,16 @@
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Save your project, you can use the section QFieldSync plugin to save your project, or save your geopackage and project in the same folder.</li>
-<li>Copy  the files generated in your device.</li>
-<li>Open QField in your device, and you will see the configuration of hidden legend nodes.</li>
+<li>プロジェクトを保存しまず。QFieldSyncプラグインを使ってプロジェクトを保存するか、マニュアルでGeoPackageとプロジェクトを同じフォルダに保存します。</li>
+<li>保存されたファイルをデバイスにコピーします。</li>
+<li>QFieldをデバイスで起動し、凡例のノードが非表示になっているか確認します。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/process_hide_and_show_layers.gif"><img alt="Hide and show layers in Qgis and QFiedl." src="../_images/process_hide_and_show_layers.gif" style="width: 500px;" /></a>
 </div>
 </div>
-<p>Note: If you want to see the hidden layers/groups again, click on show invisible layers and groups.</p>
+<p>注: もし非表示にしたレイヤー/グループをまた表示したい場合は、show invisible layers and groupsをクリックしてください。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/plugin_invisible_layers_show.png"><img alt="Plugin Invisible layers and groups show" src="../_images/plugin_invisible_layers_show.png" style="width: 40px;" /></a>
