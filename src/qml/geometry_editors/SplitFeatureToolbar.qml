@@ -3,6 +3,7 @@ import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 import Utils 1.0
+import ".."
 
 
 VisibilityFadingRow {
@@ -36,6 +37,7 @@ VisibilityFadingRow {
   {
     splitFeatureToolbar.featureModel = featureModel
     drawLineToolbar.rubberbandModel = editorRubberbandModel
+    drawPolygonToolbar.rubberbandModel.geometryType = QgsWkbTypes.LineGeometry
     drawLineToolbar.mapSettings = mapSettings
     drawLineToolbar.stateVisible = true
   }

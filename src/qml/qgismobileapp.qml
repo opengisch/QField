@@ -27,6 +27,7 @@ import QtPositioning 5.11
 import Theme 1.0
 
 import '.'
+import 'geometry_editors'
 
 ApplicationWindow {
   id: mainWindow
