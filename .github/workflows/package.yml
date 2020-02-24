@@ -1,0 +1,33 @@
+
+
+
+name: Pacakge
+on:
+  push
+
+jobs:
+  backport:
+    runs-on: ubuntu-18.04
+    name: Package
+    steps:
+      - name: Package
+        with:
+          APP_NAME: "QField Beta ${{ github.head_ref }}"
+          PKG_NAME: "qfield_beta"
+          APP_ICON: "qfield-testlogo.svg"
+          APP_VERSION: ""
+          APP_VERSION_CODE: "1"
+          APP_VERSION_STR: ${{ github.head_ref }}
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRAVIS_PULL_REQUEST: "false"
+          TRAVIS_TAG: ""
+          TRAVIS_SECURE_ENV_VARS: TRUE
+          TRAVIS_BRANCH: ${{ github.head_ref }}
+
+        run: |
+          docker run -v $(pwd):/usr/src/qfield \
+            -e "BUILD_FOLDER=build-${ARCH}" \
+            -e ARCH -e STOREPASS -e KEYNAME -e KEYPASS -e PKG_NAME -e APP_NAME -e APP_ICON -e APP_VERSION -e APP_VERSION_CODE -e APP_VERSION_STR \
+            opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
+          ./scripts/deploy.sh
+          

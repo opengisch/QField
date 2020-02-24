@@ -48,12 +48,10 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
     echo -e "\e[93m * Deploying app to google play (release version)...\e[0m"
     ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield internal ${RELEASE_URL} ${ASSETS}
 
-  elif [[ ${TRAVIS_BRANCH} = master ]] || [[ ${TRAVIS_BRANCH} =~ ^release-[0-9_]+$ ]]; then
-    # we are on a standard commit (i.e. no tag) on master or release-* branch
+  else
+    # we are on a standard commit (i.e. no tag) on master or release-* branch or any branch
     # write comment
     echo "writing comment in https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments"
-    curl -X POST -H "Accept: application/vnd.github.squirrel-girl-preview" -H"Authorization: token xxx" https://api.github.com/repos/slevomat/slevomat/issues/8073/comments -d '{"body": "foo"}'
-
     curl -H "Authorization: token ${GITHUB_API_TOKEN}" -X POST --data "${BODY}" https://api.github.com/repos/opengisch/QField/commits/${TRAVIS_COMMIT}/comments
 
     # only master builds are pushed to play store
