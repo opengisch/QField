@@ -1,3 +1,18 @@
+/***************************************************************************
+ tracker.cpp - Tracker
+  ---------------------
+ begin                : 20.02.2020
+ copyright            : (C) 2020 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include <QTimer>
 #include <QDebug>
 
@@ -29,7 +44,7 @@ int Tracker::timeInterval() const
   return mTimeInterval;
 }
 
-void Tracker::setTimeInterval( int timeInterval )
+void Tracker::setTimeInterval( const int timeInterval )
 {
   mTimeInterval = timeInterval;
 }
@@ -39,7 +54,7 @@ int Tracker::minimumDistance() const
   return mMinimumDistance;
 }
 
-void Tracker::setConjunction( bool conjunction )
+void Tracker::setConjunction( const bool conjunction )
 {
   mConjunction = conjunction;
 }
@@ -49,7 +64,7 @@ bool Tracker::conjunction() const
   return mConjunction;
 }
 
-void Tracker::setMinimumDistance( int minimumDistance )
+void Tracker::setMinimumDistance( const int minimumDistance )
 {
   mMinimumDistance = minimumDistance;
 }

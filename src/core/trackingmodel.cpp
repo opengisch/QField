@@ -115,7 +115,7 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
   return true;
 }
 
-bool TrackingModel::featureOnTrack( QgsVectorLayer *layer, QgsFeatureId featureId )
+bool TrackingModel::featureOnTrack( QgsVectorLayer *layer, const QgsFeatureId featureId )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
