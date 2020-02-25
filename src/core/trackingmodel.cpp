@@ -139,11 +139,11 @@ void TrackingModel::reset()
   endResetModel();
 }
 
-void TrackingModel::createTracker( QgsVectorLayer *layer )
+void TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
 {
   qDebug() << "Here we are ";
   beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
-  mTrackers.append( new Tracker( layer ) );
+  mTrackers.append( new Tracker( layer, visible ) );
   endInsertRows();
 
   qDebug() << "Done, should be here now" ;

@@ -25,7 +25,6 @@ LayerTreeItemProperties {
 
   onItemVisibleChanged: {
     layerTree.setData(index, itemVisible, LayerTreeModel.Visible);
-    trackingModel.setLayerVisible( layerTree.data(index, LayerTreeModel.VectorLayer ), itemVisible );
   }
 
   onTrackingButtonClicked: {
@@ -34,7 +33,7 @@ LayerTreeItemProperties {
           trackingModel.stopTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
           displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, LayerTreeModel.VectorLayer).name  ) )
       }else{
-          trackingModel.createTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
+          trackingModel.createTracker(layerTree.data(index, LayerTreeModel.VectorLayer), itemVisible);
       }
       close()
   }

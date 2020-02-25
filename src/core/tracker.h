@@ -10,7 +10,7 @@ class Tracker : public QObject
 {
     Q_OBJECT
   public:
-    explicit Tracker( QgsVectorLayer *layer );
+    explicit Tracker( QgsVectorLayer *layer, bool visible );
 
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );

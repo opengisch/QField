@@ -25,11 +25,12 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgslayertreemodel.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
   , mRoot( model->layerTree() )
   , mModel( model )
   , mMapSettings( mapSettings )
+  , mTrackingModel( trackingModel )
   , mPendingCanvasUpdate( false )
   , mHasCustomLayerOrder( false )
   , mAutoSetupOnFirstLayer( false )
@@ -38,7 +39,6 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQu
 {
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
-
   setCanvasLayers();
 }
 
@@ -115,7 +115,11 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<Qg
     {
       allLayers << nodeLayer->layer();
       if ( nodeLayer->isVisible() )
+      {
         canvasLayers << nodeLayer->layer();
+      }
+      if ( nodeLayer->layer()->type() == QgsMapLayerType::VectorLayer )
+        mTrackingModel->setLayerVisible( qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ), nodeLayer->isVisible() );
     }
   }
 

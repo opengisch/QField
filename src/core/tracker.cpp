@@ -6,8 +6,9 @@
 #include "rubberbandmodel.h"
 #include "qgsproject.h"
 
-Tracker::Tracker( QgsVectorLayer *layer )
-  : mLayer( layer )
+Tracker::Tracker( QgsVectorLayer *layer, bool visible )
+  : mLayer( layer ),
+    mVisible( visible )
 {
 }
 

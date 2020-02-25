@@ -55,7 +55,7 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
 
     //function used external from the model dependen objects
-    Q_INVOKABLE void createTracker( QgsVectorLayer *layer );
+    Q_INVOKABLE void createTracker( QgsVectorLayer *layer, bool visible );
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
 
     Q_INVOKABLE void setLayerVisible( QgsVectorLayer *layer, bool visible );
