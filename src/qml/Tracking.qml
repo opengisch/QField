@@ -177,7 +177,7 @@ Item{
                     else
                     {
                         mainModel.timeInterval = timeIntervalText.text.length == 0 || !timeIntervalCheck.checked ? 0 : timeIntervalText.text
-                        mainModel.minimumDistance = distanceText.text.length || !distanceCheck.checked ? 0 : distanceText.text
+                        mainModel.minimumDistance = distanceText.text.length == 0 || !distanceCheck.checked ? 0 : distanceText.text
                         mainModel.conjunction = conjunction.checked
                         mainModel.rubberModel = rubberbandModel
 
