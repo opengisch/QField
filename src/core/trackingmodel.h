@@ -28,8 +28,6 @@ class TrackingModel : public QAbstractItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool activated  WRITE setActivated READ activated NOTIFY activatedChanged )
-
   public:
     explicit TrackingModel( QObject *parent = nullptr );
     ~TrackingModel() override;
@@ -54,9 +52,6 @@ class TrackingModel : public QAbstractItemModel
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    void setActivated( const bool activated ) { mActivated = activated; }
-    bool activated() const { return mActivated; }
-
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
 
     //function used external from the model dependen objects
@@ -69,7 +64,6 @@ class TrackingModel : public QAbstractItemModel
 
 
   signals:
-    void activatedChanged();
     void trackerStarted( QgsVectorLayer *layer );
     void trackerStopped( QgsVectorLayer *layer );
 
@@ -79,8 +73,6 @@ class TrackingModel : public QAbstractItemModel
     {
       return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker * tracker ) { return tracker->layer() == layer;} );
     }
-
-    bool mActivated = false;
 };
 
 

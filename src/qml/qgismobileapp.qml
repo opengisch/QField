@@ -237,7 +237,6 @@ ApplicationWindow {
       /** Tracking session for each layer **/
       TrackingModel{
           id: trackingModel
-          activated: positionSource.active && stateMachine.state === "digitize"
           onTrackerStarted: {
               displayToast( qsTr( 'Track on layer %1 started' ).arg( layer.name  ) )
           }
