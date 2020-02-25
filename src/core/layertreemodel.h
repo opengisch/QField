@@ -43,6 +43,7 @@ class LayerTreeModel : public QSortFilterProxyModel
 
     explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
+    ~LayerTreeModel() override;
     Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
 
     Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
@@ -75,7 +76,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
     QgsProject *mProject;
-    QList<QgsLayerTreeLayer *> layerOnTrack;
+    QList<QgsLayerTreeLayer *> mLayerOnTrack;
 };
 
 #endif // LAYERTREEMODEL_H

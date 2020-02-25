@@ -30,6 +30,11 @@ LayerTreeModel::LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QO
   setSourceModel( mLayerTreeModel );
 }
 
+LayerTreeModel::~LayerTreeModel()
+{
+  qDeleteAll( mLayerOnTrack );
+}
+
 QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
 {
   switch ( role )
@@ -120,13 +125,12 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
 
     case OnTrack:
     {
-      qDebug() << "requesting on track ";
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
 
-        return ( layerOnTrack.contains( nodeLayer ) );
+        return ( mLayerOnTrack.contains( nodeLayer ) );
       }
       return false;
     }
@@ -221,17 +225,14 @@ void LayerTreeModel::setLayerOnTrack( QgsLayerTreeLayer *nodeLayer, bool onTrack
 {
   if ( onTrack )
   {
-    if ( !layerOnTrack.contains( nodeLayer ) )
-      layerOnTrack.append( nodeLayer );
+    if ( !mLayerOnTrack.contains( nodeLayer ) )
+      mLayerOnTrack.append( nodeLayer );
   }
   else
   {
-    if ( layerOnTrack.contains( nodeLayer ) )
-      layerOnTrack.removeOne( nodeLayer );
+    if ( mLayerOnTrack.contains( nodeLayer ) )
+      mLayerOnTrack.removeOne( nodeLayer );
   }
-  qDebug() << "layer on track count " << layerOnTrack.count();
-
-
   QgsLayerTreeNode *node = static_cast<QgsLayerTreeNode *>( nodeLayer );
   QModelIndex sourceIndex = mLayerTreeModel->node2index( node );
   QModelIndex index = mapFromSource( sourceIndex );
