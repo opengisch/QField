@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 import QtQuick.Controls 1.4 as Controls
+import QtGraphicalEffects 1.12
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
@@ -89,12 +90,17 @@ TreeView {
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
       Rectangle {
-        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
-                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.onTrack)
+        visible: model.onTrack ? true : false
         height: 24*dp
         width: 24*dp
         radius: height / 2
-        color: '#50ff0000'
+        color: '#64B5F6'
+
+        SequentialAnimation on color  {
+          loops: Animation.Infinite
+          ColorAnimation  { from: "#64b5f6"; to: "#2374b5"; duration: 2000; easing.type: Easing.InOutQuad }
+          ColorAnimation  { from: "#2374b5"; to: "#64b5f6"; duration: 1000; easing.type: Easing.InOutQuad }
+        }
 
         Image {
           anchors.fill: parent

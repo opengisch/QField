@@ -20,6 +20,7 @@
 #include <qgslayertree.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgsmapthemecollection.h>
+#include <qgsvectorlayer.h>
 
 LayerTreeModel::LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -119,19 +120,13 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
 
     case OnTrack:
     {
+      qDebug() << "requesting on track ";
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-        if ( nodeLayer->layer()->type() == QgsMapLayerType::VectorLayer )
-        {
-          QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
 
-          qDebug() << "data on Track count " << layerOnTrack.count();
-          qDebug() << "means " << layerOnTrack.contains( layer );
-
-          return ( layerOnTrack.contains( layer ) );
-        }
+        return ( layerOnTrack.contains( nodeLayer ) );
       }
       return false;
     }
@@ -222,21 +217,26 @@ void LayerTreeModel::updateCurrentMapTheme()
   }
 }
 
-void LayerTreeModel::setLayerOnTrack( QgsVectorLayer *layer, bool onTrack )
+void LayerTreeModel::setLayerOnTrack( QgsLayerTreeLayer *nodeLayer, bool onTrack )
 {
-  beginResetModel();
   if ( onTrack )
   {
-    if ( !layerOnTrack.contains( layer ) )
-      layerOnTrack.append( layer );
+    if ( !layerOnTrack.contains( nodeLayer ) )
+      layerOnTrack.append( nodeLayer );
   }
   else
   {
-    if ( layerOnTrack.contains( layer ) )
-      layerOnTrack.removeOne( layer );
+    if ( layerOnTrack.contains( nodeLayer ) )
+      layerOnTrack.removeOne( nodeLayer );
   }
   qDebug() << "layer on track count " << layerOnTrack.count();
-  endResetModel();
+
+
+  QgsLayerTreeNode *node = static_cast<QgsLayerTreeNode *>( nodeLayer );
+  QModelIndex sourceIndex = mLayerTreeModel->node2index( node );
+  QModelIndex index = mapFromSource( sourceIndex );
+
+  emit dataChanged( index, index, QVector<int>() << OnTrack );
 }
 
 bool LayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const

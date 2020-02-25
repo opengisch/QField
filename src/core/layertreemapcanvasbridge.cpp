@@ -153,7 +153,8 @@ void LayerTreeMapCanvasBridge::mapThemeChanged()
 
 void LayerTreeMapCanvasBridge::layerOnTrackChanged( QgsVectorLayer *layer, bool onTrack )
 {
-  mModel->setLayerOnTrack( layer, onTrack );
+  QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
+  mModel->setLayerOnTrack( nodeLayer, onTrack );
 }
 
 
