@@ -153,7 +153,7 @@ void TrackingModel::startTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
   mTrackers[ listIndex ]->start();
-  emit trackerStarted( layer );
+  emit layerOnTrackChanged( layer, true );
 }
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
@@ -166,7 +166,7 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   endRemoveRows();
 
   qDebug() << QString( "remove tracker for layer " ) << layer->name();
-  emit trackerStopped( layer );
+  emit layerOnTrackChanged( layer, false );
 }
 
 void TrackingModel::setLayerVisible( QgsVectorLayer *layer, bool visible )

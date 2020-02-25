@@ -17,6 +17,7 @@
 #define LAYERTREEMODEL_H
 
 #include <QSortFilterProxyModel>
+#include <qgsvectorlayer.h>
 
 class QgsLayerTree;
 class QgsLayerTreeModel;
@@ -35,7 +36,8 @@ class LayerTreeModel : public QSortFilterProxyModel
       LegendImage,
       Type,
       Visible,
-      Trackable
+      Trackable,
+      OnTrack
     };
     Q_ENUM( Roles )
 
@@ -60,6 +62,8 @@ class LayerTreeModel : public QSortFilterProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
+    void setLayerOnTrack( QgsVectorLayer *layer, bool onTrack );
+
   signals:
     void mapThemeChanged();
 
@@ -71,6 +75,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
     QgsProject *mProject;
+    QList<QgsVectorLayer *> layerOnTrack;
 };
 
 #endif // LAYERTREEMODEL_H

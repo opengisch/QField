@@ -18,7 +18,6 @@
 #include <qgslayertreemodel.h>
 #include <qgslayertreenode.h>
 #include <qgslayertree.h>
-#include <qgsvectorlayer.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgsmapthemecollection.h>
 
@@ -118,6 +117,25 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
       return false;
     }
 
+    case OnTrack:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( nodeLayer->layer()->type() == QgsMapLayerType::VectorLayer )
+        {
+          QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+
+          qDebug() << "data on Track count " << layerOnTrack.count();
+          qDebug() << "means " << layerOnTrack.contains( layer );
+
+          return ( layerOnTrack.contains( layer ) );
+        }
+      }
+      return false;
+    }
+
     default:
       return QSortFilterProxyModel::data( index, role );
   }
@@ -152,7 +170,8 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   roleNames[VectorLayer] = "VectorLayer";
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
-  roleNames[Trackable] = "Trackable";
+  roleNames[Trackable] = "trackable";
+  roleNames[OnTrack] = "onTrack";
   return roleNames;
 }
 
@@ -201,6 +220,23 @@ void LayerTreeModel::updateCurrentMapTheme()
       return;
     }
   }
+}
+
+void LayerTreeModel::setLayerOnTrack( QgsVectorLayer *layer, bool onTrack )
+{
+  beginResetModel();
+  if ( onTrack )
+  {
+    if ( !layerOnTrack.contains( layer ) )
+      layerOnTrack.append( layer );
+  }
+  else
+  {
+    if ( layerOnTrack.contains( layer ) )
+      layerOnTrack.removeOne( layer );
+  }
+  qDebug() << "layer on track count " << layerOnTrack.count();
+  endResetModel();
 }
 
 bool LayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const

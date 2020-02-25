@@ -39,6 +39,9 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQu
 {
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
+
+  connect( mTrackingModel, &TrackingModel::layerOnTrackChanged, this, &LayerTreeMapCanvasBridge::layerOnTrackChanged );
+
   setCanvasLayers();
 }
 
@@ -146,6 +149,11 @@ void LayerTreeMapCanvasBridge::nodeVisibilityChanged()
 void LayerTreeMapCanvasBridge::mapThemeChanged()
 {
   QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
+}
+
+void LayerTreeMapCanvasBridge::layerOnTrackChanged( QgsVectorLayer *layer, bool onTrack )
+{
+  mModel->setLayerOnTrack( layer, onTrack );
 }
 
 
