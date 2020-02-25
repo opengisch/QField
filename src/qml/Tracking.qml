@@ -174,8 +174,8 @@ Item{
                     }
                     else
                     {
-                        mainModel.timeInterval = timeIntervalText.text.length == 0 ? 0 : timeIntervalText.text
-                        mainModel.minimumDistance = distanceText.text.length == 0 ? 0 : distanceText.text
+                        mainModel.timeInterval = timeIntervalText.text.length == 0 || !timeIntervalCheck.checked ? 0 : timeIntervalText.text
+                        mainModel.minimumDistance = distanceText.text.length || !distanceCheck.checked ? 0 : distanceText.text
                         mainModel.conjunction = conjunction.checked
                         mainModel.rubberModel = rubberbandModel
 
@@ -200,18 +200,24 @@ Item{
                 spacing: 2
                 anchors {
                     margins: 4 * dp
-                    topMargin: 52 * dp // Leave space for the toolbar
+                    topMargin: 35 * dp // Leave space for the toolbar
                 }
 
-                Controls.Label {
-                    id: timeIntervalLabel
-                    Layout.fillWidth: true
+                CheckBox {
+                    id: timeIntervalCheck
                     text: qsTr( 'Time interval (s)' )
-                    font.bold: true
+                    font: Theme.defaultFont
+
+                    Layout.fillWidth: true
+                    indicator.height: 16 * dp
+                    indicator.width: 16 * dp
+                    indicator.implicitHeight: 24 * dp
+                    indicator.implicitWidth: 24 * dp
                 }
 
                 TextField {
                     id: timeIntervalText
+                    enabled: timeIntervalCheck.checked
                     height: fontMetrics.height + 20 * dp
                     topPadding: 10 * dp
                     bottomPadding: 10 * dp
@@ -231,20 +237,21 @@ Item{
                     }
                 }
 
-                Item {
-                    // spacer item
-                    height: 35 * dp
-                }
-
-                Controls.Label {
-                    id: distanceLabel
-                    Layout.fillWidth: true
+                CheckBox {
+                    id: distanceCheck
                     text: qsTr( 'Distance (%1)' ).arg( UnitTypes.toAbbreviatedString(  mapCanvas.mapSettings.destinationCrs.mapUnits ) )
-                    font.bold: true
+                    font: Theme.defaultFont
+
+                    Layout.fillWidth: true
+                    indicator.height: 16 * dp
+                    indicator.width: 16 * dp
+                    indicator.implicitHeight: 24 * dp
+                    indicator.implicitWidth: 24 * dp
                 }
 
                 TextField {
                     id: distanceText
+                    enabled: distanceCheck.checked
                     height: fontMetrics.height + 20 * dp
                     topPadding: 10 * dp
                     bottomPadding: 10 * dp
@@ -266,15 +273,15 @@ Item{
 
                 Item {
                     // spacer item
-                    height: 35 * dp
+                    height: 12 * dp
                 }
 
                 CheckBox {
                     id: conjunction
                     text: qsTr('Both conditions need to be fullfilled')
                     font: Theme.defaultFont
-                    checked: timeIntervalText.text.length > 0 && distanceText.text.length > 0
-                    enabled: timeIntervalText.text.length > 0 && distanceText.text.length > 0
+                    checked: timeIntervalCheck.checked && timeIntervalText.text.length > 0 && distanceCheck.checked && distanceText.text.length > 0
+                    enabled: timeIntervalCheck.checked && timeIntervalText.text.length > 0 && distanceCheck.checked && distanceText.text.length > 0
 
                     Layout.fillWidth: true
                     indicator.height: 16 * dp
