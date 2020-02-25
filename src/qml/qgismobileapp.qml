@@ -234,16 +234,7 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
-      /** Tracking session for each layer **/
-      TrackingModel{
-          id: trackingModel
-          onTrackerStarted: {
-              displayToast( qsTr( 'Track on layer %1 started' ).arg( layer.name  ) )
-          }
-          onTrackerStopped: {
-              displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layer.name  ) )
-          }
-      }
+      /** Tracking sessions **/
       Repeater {
           id: trackings
           model: trackingModel

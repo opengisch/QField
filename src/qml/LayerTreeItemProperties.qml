@@ -32,6 +32,7 @@ LayerTreeItemProperties {
       //start track
       if( trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ) {
           trackingModel.stopTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
+          displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, LayerTreeModel.VectorLayer).name  ) )
       }else{
           trackingModel.createTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
       }

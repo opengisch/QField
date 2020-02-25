@@ -62,7 +62,7 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE bool featureOnTrack( QgsVectorLayer *layer,  QgsFeatureId featureId );
     Q_INVOKABLE bool layerOnTrack( QgsVectorLayer *layer );
 
-
+    void reset();
   signals:
     void trackerStarted( QgsVectorLayer *layer );
     void trackerStopped( QgsVectorLayer *layer );

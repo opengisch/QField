@@ -180,6 +180,7 @@ Item{
                         mainModel.rubberModel = rubberbandModel
 
                         trackingModel.startTracker( mainModel.vectorLayer )
+                        displayToast( qsTr( 'Track on layer %1 started' ).arg( mainModel.vectorLayer.name  ) )
 
                         trackInformationDialog.active = false
                     }

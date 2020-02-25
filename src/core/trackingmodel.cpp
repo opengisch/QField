@@ -131,6 +131,14 @@ bool TrackingModel::layerOnTrack( QgsVectorLayer *layer )
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
 
+void TrackingModel::reset()
+{
+  beginResetModel();
+  qDeleteAll( mTrackers );
+  mTrackers.clear();
+  endResetModel();
+}
+
 void TrackingModel::createTracker( QgsVectorLayer *layer )
 {
   qDebug() << "Here we are ";
