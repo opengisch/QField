@@ -162,13 +162,15 @@ Item{
             anchors.fill: parent
 
             header: PageHeader {
-                title: qsTr("Track'n'Track")
+                title: qsTr("Tracker Settings")
 
                 showApplyButton: true
                 showCancelButton: true
 
                 onApply: {
-                    if( Number(timeIntervalText.text) + Number(distanceText.text) === 0 )
+                    if( Number(timeIntervalText.text) + Number(distanceText.text) === 0 ||
+                        ( timeIntervalCheck.checked && distanceCheck.checked && conjunction.checked &&
+                          ( Number(timeIntervalText.text) === 0 || Number(distanceText.text) === 0 ) ) )
                     {
                         displayToast( qsTr( 'Cannot start track with empty values' ) )
                     }
@@ -280,8 +282,8 @@ Item{
                     id: conjunction
                     text: qsTr('Both conditions need to be fullfilled')
                     font: Theme.defaultFont
-                    checked: timeIntervalCheck.checked && timeIntervalText.text.length > 0 && distanceCheck.checked && distanceText.text.length > 0
-                    enabled: timeIntervalCheck.checked && timeIntervalText.text.length > 0 && distanceCheck.checked && distanceText.text.length > 0
+                    checked: timeIntervalCheck.checked && distanceCheck.checked
+                    enabled: timeIntervalCheck.checked && distanceCheck.checked
 
                     Layout.fillWidth: true
                     indicator.height: 16 * dp
