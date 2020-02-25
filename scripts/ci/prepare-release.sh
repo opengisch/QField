@@ -8,7 +8,7 @@ set -e
 # if TX resource doesn't exist => create it from master
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-source ${DIR}/version_number.sh
+source ${DIR}/../version_number.sh
 
 
 if [[ -z ${TRAVIS_TAG} ]]; then
@@ -16,11 +16,14 @@ if [[ -z ${TRAVIS_TAG} ]]; then
   exit 1
 fi
 
+# git-full-fetch has been called before, we should be on a complete clone
+GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 # define RELEASE_BRANCH
 travis_to_release_branch
 
 # Create release branch if needed
-if [[ ${TRAVIS_BRANCH} = master ]]; then
+if [[ ${GIT_BRANCH} = master ]]; then
   if [[ ! ${RELEASE_BRANCH} =~ ^release ]]; then
     echo "Something wrong happened"
     exit 1
@@ -46,5 +49,5 @@ EOF
 echo "Resource '${RESOURCE}' exists: ${TX_RESOURCE_EXISTS}"
 if [[ ${TX_RESOURCE_EXISTS} = no ]]; then
   tx pull --all --force
-  tx push --source --translations --branch --skip
+  tx push --source --translations --branch ${RELEASE_BRANCH//_/-} --skip
 fi
