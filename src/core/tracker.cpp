@@ -62,9 +62,12 @@ void Tracker::trackPosition()
   }
   qDebug() << QString( "Collect " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
 
-  QgsPoint currentCoordinate = model()->currentCoordinate();
-  currentCoordinate.setM( model()->currentSpeed() );
-  model()->setCurrentCoordinate( currentCoordinate );
+  if ( QgsWkbTypes::hasM( mLayer->wkbType() ) )
+  {
+    QgsPoint currentCoordinate = model()->currentCoordinate();
+    currentCoordinate.addMValue( model()->currentSpeed() );
+    model()->setCurrentCoordinate( currentCoordinate );
+  }
 
   qDebug() << QString( "Coordinates are " ) << model()->currentSpeed() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " m:" << model()->currentCoordinate().m();
   model()->addVertex();

@@ -36,7 +36,6 @@ class RubberbandModel : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
-    Q_PROPERTY( double currentSpeed READ currentSpeed WRITE setCurrentSpeed NOTIFY currentSpeedChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
@@ -44,6 +43,8 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! freeze the rubberband so it doesn't get modified while panning map
     Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
+    //! currentSpeed is used externally by tracking, not (yet) stored in the coordinates by the rubberbandmodel
+    Q_PROPERTY( double currentSpeed READ currentSpeed WRITE setCurrentSpeed NOTIFY currentSpeedChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = nullptr );
@@ -80,7 +81,9 @@ class RubberbandModel : public QObject
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 
+    //! \copydoc currentSpeed
     double currentSpeed() const;
+    //! \copydoc currentSpeed
     void setCurrentSpeed( const double currentSpeed );
 
     Q_INVOKABLE void addVertex();

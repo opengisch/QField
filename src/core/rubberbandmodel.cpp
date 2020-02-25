@@ -184,9 +184,6 @@ double RubberbandModel::currentSpeed() const
 
 void RubberbandModel::setCurrentSpeed( const double currentSpeed )
 {
-  if ( currentSpeed == mCurrentSpeed )
-    return;
-
   mCurrentSpeed = currentSpeed;
 }
 

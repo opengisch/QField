@@ -57,7 +57,7 @@ class Tracker : public QObject
     QgsVectorLayer *mLayer = nullptr;
     QgsFeature mFeature;
 
-    bool mVisible = false;
+    bool mVisible = true;
 
     void trackPosition();
 };

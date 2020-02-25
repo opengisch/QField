@@ -49,12 +49,6 @@ Item{
         }
     }
 
-    /*
-    onDataChanged: {
-        console.log( "visible is: "+ mainModel.visible );
-    }
-    */
-
     Rubberband {
         id: rubberband
         width: 4 * dp
@@ -66,7 +60,7 @@ Item{
 
         anchors.fill: parent
 
-        visible: true //mainModel.visible needs to be more flexible
+        visible: mainModel.visible
     }
 
     FeatureModel {

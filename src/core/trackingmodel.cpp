@@ -38,6 +38,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[Conjunction] = "conjunction";
   roles[Feature] = "feature";
   roles[RubberModel] = "rubberModel";
+  roles[Visible] = "visible";
 
   return roles;
 }
@@ -104,9 +105,13 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
     case RubberModel:
       currentTracker->setModel( value.value< RubberbandModel * >() );
       break;
+    case Visible:
+      currentTracker->setVisible( value.toBool() );
+      break;
     default:
       return false;
   }
+  emit dataChanged( index, index, QVector<int>() << role );
   return true;
 }
 
@@ -114,8 +119,8 @@ bool TrackingModel::featureOnTrack( QgsVectorLayer *layer, QgsFeatureId featureI
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
-    int index = trackerIterator( layer ) - mTrackers.constBegin();
-    if ( mTrackers[ index ]->feature().id() == featureId )
+    int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+    if ( mTrackers[ listIndex ]->feature().id() == featureId )
       return true;
   }
   return false;
@@ -138,18 +143,18 @@ void TrackingModel::createTracker( QgsVectorLayer *layer )
 
 void TrackingModel::startTracker( QgsVectorLayer *layer )
 {
-  int index = trackerIterator( layer ) - mTrackers.constBegin();
-  mTrackers[ index ]->start();
+  int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+  mTrackers[ listIndex ]->start();
   emit trackerStarted( layer );
 }
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
 {
-  int index = trackerIterator( layer ) - mTrackers.constBegin();
-  mTrackers[ index ]->stop();
+  int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+  mTrackers[ listIndex ]->stop();
 
-  beginRemoveRows( QModelIndex(), index, index );
-  delete mTrackers.takeAt( index );
+  beginRemoveRows( QModelIndex(), listIndex, listIndex );
+  delete mTrackers.takeAt( listIndex );
   endRemoveRows();
 
   qDebug() << QString( "remove tracker for layer " ) << layer->name();
@@ -158,6 +163,10 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
 
 void TrackingModel::setLayerVisible( QgsVectorLayer *layer, bool visible )
 {
-  //setData( index( trackerIterator(layer).operator-(mTrackers.constBegin()),0,QModelIndex()), visible, Visible );
+  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  {
+    int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+    setData( index( listIndex, 0, QModelIndex() ), visible, Visible );
+  }
 }
 

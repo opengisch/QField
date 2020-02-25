@@ -90,8 +90,7 @@ TreeView {
       }
       Rectangle {
         visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer' &&
-                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Trackable) //&&
-                 //trackingModel.getLayerVisible kind of
+                 layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Trackable)
         height: 24*dp
         width: 24*dp
         radius: height / 2
