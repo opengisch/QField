@@ -177,14 +177,14 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   emit vertexChanged( mCurrentCoordinateIndex );
 }
 
-double RubberbandModel::currentSpeed() const
+QDateTime RubberbandModel::currentPositionTimestamp() const
 {
-  return mCurrentSpeed;
+  return mCurrentPositionTimestamp;
 }
 
-void RubberbandModel::setCurrentSpeed( const double currentSpeed )
+void RubberbandModel::setCurrentPositionTimestamp( const QDateTime currentPositionTimestamp )
 {
-  mCurrentSpeed = currentSpeed;
+  mCurrentPositionTimestamp = currentPositionTimestamp;
 }
 
 void RubberbandModel::addVertex()

@@ -80,12 +80,26 @@ void Tracker::trackPosition()
 
   if ( QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
+    if( !model()->currentPositionTimestamp().isValid() )
+    {
+      qDebug() << QString( "Position Timestamp not valid " ) << model()->currentPositionTimestamp().toString();
+      return;
+    }
+    double secsSinceStart = 0;
+    if( mStartPositionTimestamp.isValid() )
+    {
+      secsSinceStart = mStartPositionTimestamp.secsTo(model()->currentPositionTimestamp());
+    }
+    else
+    {
+      mStartPositionTimestamp = model()->currentPositionTimestamp();
+    }
     QgsPoint currentCoordinate = model()->currentCoordinate();
-    currentCoordinate.addMValue( model()->currentSpeed() );
+    currentCoordinate.addMValue( secsSinceStart );
     model()->setCurrentCoordinate( currentCoordinate );
   }
 
-  qDebug() << QString( "Coordinates are " ) << model()->currentSpeed() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " m:" << model()->currentCoordinate().m();
+  qDebug() << QString( "Coordinates are " ) << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " m:" << model()->currentCoordinate().m() << " its "<< mStartPositionTimestamp.toString()<<" secs to "<< model()->currentPositionTimestamp().toString();
   model()->addVertex();
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;

@@ -74,7 +74,10 @@ class Tracker : public QObject
 
     bool mVisible = true;
 
+    QDateTime mStartPositionTimestamp;
+
     void trackPosition();
+
 };
 
 #endif // TRACKER_H

@@ -25,7 +25,7 @@ Item{
         id: rubberbandModel
         frozen: false
         currentCoordinate: positionSource.projectedPosition
-        currentSpeed: positionSource.position.speed
+        currentPositionTimestamp: positionSource.position.timestamp
         vectorLayer: mainModel.vectorLayer
         crs: mapCanvas.mapSettings.destinationCrs
 
