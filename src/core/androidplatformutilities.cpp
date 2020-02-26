@@ -159,7 +159,7 @@ void AndroidPlatformUtilities::open( const QString &uri )
   QAndroidJniObject filepath_label = QAndroidJniObject::fromString( "filepath" );
   QAndroidJniObject filepath = QAndroidJniObject::fromString( uri );
   QAndroidJniObject filetype_label = QAndroidJniObject::fromString( "filetype" );
-  QAndroidJniObject filetype = QAndroidJniObject::fromString( db.mimeTypeForFile(uri).name() );
+  QAndroidJniObject filetype = QAndroidJniObject::fromString( db.mimeTypeForFile( uri ).name() );
 
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
