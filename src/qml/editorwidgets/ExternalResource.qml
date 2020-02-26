@@ -33,7 +33,7 @@ Item {
 
       onClicked: {
         if (image.currentValue)
-          platformUtilities.open( qgisProject.homePath + '/' + image.currentValue, "image/*");
+          platformUtilities.open( qgisProject.homePath + '/' + image.currentValue );
       }
     }
 
