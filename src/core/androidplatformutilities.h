@@ -33,7 +33,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     virtual QString qgsProject() const override;
     virtual PictureSource *getCameraPicture( const QString &prefix) override;
     virtual PictureSource *getGalleryPicture( const QString &prefix) override;
-    virtual void open( const QString &uri, const QString &mimeType ) override;
+    virtual void open( const QString &uri ) override;
     virtual ProjectSource *openProject() override;
 
     virtual bool checkPositioningPermissions() const override;

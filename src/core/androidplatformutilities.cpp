@@ -25,6 +25,7 @@
 #include <QtAndroid>
 #include <QDebug>
 #include <QAndroidJniEnvironment>
+#include <QMimeDatabase>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
@@ -144,7 +145,7 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefi
   return pictureSource;
 }
 
-void AndroidPlatformUtilities::open( const QString &uri, const QString &mimeType )
+void AndroidPlatformUtilities::open( const QString &uri )
 {
   checkWriteExternalStoragePermissions();
 
@@ -154,11 +155,11 @@ void AndroidPlatformUtilities::open( const QString &uri, const QString &mimeType
 
   intent.callObjectMethod( "setClassName", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", packageName.object<jstring>(), activity.object<jstring>() );
 
-
+  QMimeDatabase db;
   QAndroidJniObject filepath_label = QAndroidJniObject::fromString( "filepath" );
   QAndroidJniObject filepath = QAndroidJniObject::fromString( uri );
   QAndroidJniObject filetype_label = QAndroidJniObject::fromString( "filetype" );
-  QAndroidJniObject filetype = QAndroidJniObject::fromString( mimeType );
+  QAndroidJniObject filetype = QAndroidJniObject::fromString( db.mimeTypeForFile(uri).name() );
 
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
@@ -238,6 +239,7 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
 
 void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
+  /*
   if ( mActivity.isValid() )
   {
     QAndroidJniObject window = mActivity.callObjectMethod("getWindow", "()Landroid/view/Window;");
@@ -255,6 +257,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       }
     }
   }
+  */
 }
 
 void AndroidPlatformUtilities::showRateThisApp() const

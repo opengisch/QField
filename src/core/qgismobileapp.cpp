@@ -441,7 +441,7 @@ void QgisMobileapp::print( int layoutIndex )
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.print( printer, printSettings );
 
-  mPlatformUtils.open( printer.outputFileName(), QStringLiteral( "application/pdf" ) );
+  mPlatformUtils.open( printer.outputFileName() );
 }
 
 bool QgisMobileapp::event( QEvent *event )

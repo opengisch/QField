@@ -59,10 +59,10 @@ class PlatformUtilities : public QObject
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
-     * A \a mimeType can be provided to indicate the system how the file should
+     * The mimetype is detected to indicate the system how the file should
      * be opened.
      */
-    Q_INVOKABLE virtual void open( const QString &uri, const QString &mimeType );
+    Q_INVOKABLE virtual void open( const QString &uri );
 
     /**
      * Returns the QVariant typeName of a \a field.
