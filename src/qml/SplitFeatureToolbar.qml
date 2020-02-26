@@ -25,7 +25,7 @@ VisibilityFadingRow {
       var line = drawLineToolbar.rubberbandModel.pointSequence(featureModel.currentLayer.crs)
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
-      featureModel.currentLayer.splitFeatures(line) // TODO: add option for topological mode
+      featureModel.currentLayer.splitFeatures(line, true)
       featureModel.currentLayer.commitChanges()
       cancel()
       finished()
