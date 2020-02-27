@@ -9,20 +9,20 @@ FileUtils::FileUtils( QObject *parent )
 
 }
 
-QString FileUtils::mimeTypeName( const QString filePath )
+QString FileUtils::mimeTypeName( const QString &filePath )
 {
   QMimeDatabase db;
   QMimeType mimeType = db.mimeTypeForFile( filePath );
   return mimeType.name();
 }
 
-QString FileUtils::fileName( const QString filePath )
+QString FileUtils::fileName( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
   return fileInfo.fileName();
 }
 
-bool FileUtils::fileExists( const QString filePath )
+bool FileUtils::fileExists( const QString &filePath )
 {
   return QFileInfo::exists( filePath );
 }
