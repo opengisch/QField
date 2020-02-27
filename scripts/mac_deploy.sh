@@ -7,7 +7,10 @@
 
 QGIS_INSTALL_PATH=$1
 
-install_name_tool -change @executable_path/../Frameworks/qgis_core.framework/qgis_core ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/qgis_core src/qgsquick/libqgsquick.dylib
-install_name_tool -change @executable_path/../Frameworks/qgis_core.framework/qgis_core ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/qgis_core src/core/libcore.dylib
-install_name_tool -change @executable_path/../Frameworks/qgis_core.framework/qgis_core ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/qgis_core src/app/qfield.app/Contents/MacOS/qfield
-#install_name_tool -change @executable_path/../Frameworks/qgis_core.framework/qgis_core ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/qgis_core.framework/qgis_core test/test.app/Contents/MacOS/test
+qgis_libs=( qgis_core qgis_analysis )
+for qgis_lib in "${qgis_libs[@]}"; do
+  install_name_tool -change @executable_path/../Frameworks/${qgis_lib}.framework/${qgis_lib} ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/${qgis_lib}.framework/${qgis_lib} src/qgsquick/libqgsquick.dylib
+  install_name_tool -change @executable_path/../Frameworks/${qgis_lib}.framework/${qgis_lib} ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/${qgis_lib}.framework/${qgis_lib} src/core/libcore.dylib
+  install_name_tool -change @executable_path/../Frameworks/${qgis_lib}.framework/${qgis_lib} ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/${qgis_lib}.framework/${qgis_lib} src/app/qfield.app/Contents/MacOS/qfield
+  # install_name_tool -change @executable_path/../Frameworks/${qgis_lib}.framework/${qgis_lib} ${QGIS_INSTALL_PATH}/QGIS.app/Contents/Frameworks/${qgis_lib}.framework/${qgis_lib} test/test.app/Contents/MacOS/test
+done
