@@ -42,25 +42,24 @@ public class QFieldOpenExternallyActivity extends Activity{
         //copy file to a temporary file
         try{
             copyFile( file, cacheFile );
+
+            Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
+
+            Log.d(TAG, "content URI: " + contentUri);
+            Log.d(TAG, "call ACTION_VIEW intent");
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(contentUri, mimeType);
+            try{
+                startActivityForResult(intent, 102);
+            }catch (Exception e) {
+                Log.d(TAG, e.getMessage());
+                Toast.makeText( this, "No handler for this type of file.", Toast.LENGTH_LONG).show();
+            }
         }catch(IOException e){
             Log.d(TAG, e.getMessage());
             Toast.makeText( this, e.getMessage(), Toast.LENGTH_LONG).show();
-            finish()
-        }
-
-        Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
-
-        Log.d(TAG, "content URI: " + contentUri);
-        Log.d(TAG, "call ACTION_VIEW intent");
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(contentUri, mimeType);
-        try{
-            startActivityForResult(intent, 102);
-        }catch (Exception e) {
-            Log.d(TAG, e.getMessage());
-            Toast.makeText( this, "No handler for this type of file.", Toast.LENGTH_LONG).show();
         }
         finish();
     }
