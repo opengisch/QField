@@ -242,7 +242,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
   /*
   if ( mActivity.isValid() )
   {
-    QAndroidJniObject window = mActivity.callObjectMethod("getWindow", "()Landroid/view/Window;");
+    QAndroidJniObject window = mActivity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
 
     if ( window.isValid() )
     {

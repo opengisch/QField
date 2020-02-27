@@ -61,6 +61,7 @@ public class QFieldOpenExternallyActivity extends Activity{
             Log.d(TAG, e.getMessage());
             Toast.makeText( this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+      
         finish();
     }
 
