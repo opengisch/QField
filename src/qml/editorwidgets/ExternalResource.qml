@@ -2,6 +2,7 @@ import QtQuick 2.5
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import org.qgis 1.0
+import org.qfield 1.0
 import Theme 1.0
 import ".." as QField
 import QtQuick.Window 2.2
@@ -16,35 +17,72 @@ Item {
 
   property PictureSource __pictureSource
 
-  Image {
-    property var currentValue: value
+  property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/")
 
+  Label {
+    id: linkField
+    height: fontMetrics.height + 20 * dp
+    topPadding: 10 * dp
+    bottomPadding: 10 * dp
+    visible: !isImage
+    anchors.left: parent.left
+    anchors.right: parent.right
+    font: Theme.defaultFont
+    color: '#0000EE'
+
+    text: value
+
+    background: Rectangle {
+      y: linkField.height - height - textField.bottomPadding / 2
+      implicitWidth: 120 * dp
+      height: 1 * dp
+      color: "#C8E6C9"
+    }
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        if (value)
+          platformUtilities.open( qgisProject.homePath + '/' + value );
+      }
+    }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: textField.font
+  }
+
+  Image {
     id: image
+    visible: isImage
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
 
     //source is managed over onCurrentValueChanged since the binding would break somewhere
-    source: Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
+    source: if ( isImage ) {
+              if (image.status === Image.Error) {
+                Theme.getThemeIcon("ic_broken_image_black_24dp")
+              }else if ( value ) {
+                'file://' + qgisProject.homePath + '/' + value
+              } else {
+                Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
+              }
+            } else { '' }
+
+    onSourceChanged: {
+        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
+    }
 
     MouseArea {
       anchors.fill: parent
 
       onClicked: {
-        if (image.currentValue)
-          platformUtilities.open( qgisProject.homePath + '/' + image.currentValue );
-      }
-    }
-
-    onCurrentValueChanged: {
-      if (image.status === Image.Error) {
-        image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
-      } else if (image.currentValue) {
-        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + image.currentValue)
-        image.source= 'file://' + qgisProject.homePath + '/' + image.currentValue
-      } else {
-        image.source=Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
+        if (value)
+          platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
   }
@@ -52,7 +90,7 @@ Item {
   Image {
     property bool hasGeoTag: false
     id: geoTagBadge
-    visible: true
+    visible: isImage
     anchors.bottom: image.bottom
     anchors.right: image.right
     anchors.margins: 4 * dp
@@ -61,6 +99,7 @@ Item {
 
   DropShadow {
     anchors.fill: geoTagBadge
+    visible: isImage
     horizontalOffset: 0
     verticalOffset: 0
     radius: 6.0 * dp
@@ -78,7 +117,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly
+    visible: !readOnly && isImage
 
     onClicked: {
       if ( settings.valueBool("nativeCamera", true) ) {
@@ -101,7 +140,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly
+    visible: !readOnly && isImage
 
     onClicked: {
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/DCIM')
