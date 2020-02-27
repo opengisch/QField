@@ -17,7 +17,12 @@ Item {
 
   property PictureSource __pictureSource
 
-  property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/")
+  //on all mimetypes image/... and on empty values it should appear as an image widget
+  property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+
+  onValueChanged: {
+      console.log( "its mimetype "+FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ))
+  }
 
   Label {
     id: linkField
@@ -30,10 +35,10 @@ Item {
     font: Theme.defaultFont
     color: '#0000EE'
 
-    text: value
+    text: FileUtils.fileName( qgisProject.homePath + '/' + value )
 
     background: Rectangle {
-      y: linkField.height - height - textField.bottomPadding / 2
+      y: linkField.height - height - linkField.bottomPadding / 2
       implicitWidth: 120 * dp
       height: 1 * dp
       color: "#C8E6C9"

@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.support.v4.content.FileProvider;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,6 +44,8 @@ public class QFieldOpenExternallyActivity extends Activity{
             copyFile( file, cacheFile );
         }catch(IOException e){
             Log.d(TAG, e.getMessage());
+            Toast.makeText( this, e.getMessage(), Toast.LENGTH_LONG).show();
+            finish()
         }
 
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
@@ -53,8 +56,12 @@ public class QFieldOpenExternallyActivity extends Activity{
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
-        startActivityForResult(intent, 102);
-
+        try{
+            startActivityForResult(intent, 102);
+        }catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+            Toast.makeText( this, "No handler for this type of file.", Toast.LENGTH_LONG).show();
+        }
         finish();
     }
 

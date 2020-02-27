@@ -13,6 +13,7 @@ class FileUtils : public QObject
     ~FileUtils() = default;
 
     Q_INVOKABLE static QString mimeTypeName( const QString filePath );
+    Q_INVOKABLE static QString fileName( const QString filePath );
 
 };
 
