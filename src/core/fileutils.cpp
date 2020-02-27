@@ -21,3 +21,8 @@ QString FileUtils::fileName( const QString filePath )
   QFileInfo fileInfo( filePath );
   return fileInfo.fileName();
 }
+
+bool FileUtils::fileExists( const QString filePath )
+{
+  return QFileInfo::exists( filePath );
+}

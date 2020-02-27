@@ -29,7 +29,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: '#0000EE'
+    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? '#0000EE' : 'black'
 
     text: FileUtils.fileName( qgisProject.homePath + '/' + value )
 
@@ -44,7 +44,7 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (value)
+        if (value && FileUtils.fileExists(qgisProject.homePath + '/' + value) )
           platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
@@ -52,7 +52,7 @@ Item {
 
   FontMetrics {
     id: fontMetrics
-    font: textField.font
+    font: linkField.font
   }
 
   Image {
@@ -63,16 +63,15 @@ Item {
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
 
-    //source is managed over onCurrentValueChanged since the binding would break somewhere
-    source: if ( isImage ) {
-              if (image.status === Image.Error) {
-                Theme.getThemeIcon("ic_broken_image_black_24dp")
-              }else if ( value ) {
-                'file://' + qgisProject.homePath + '/' + value
-              } else {
+    source: if ( FileUtils.fileName( qgisProject.homePath + '/' + value ) !== '' ) {
+                if( FileUtils.fileExists(qgisProject.homePath + '/' + value) && image.status !== Image.Error ) {
+                    'file://' + qgisProject.homePath + '/' + value
+                } else {
+                  Theme.getThemeIcon("ic_broken_image_black_24dp")
+                }
+            } else {
                 Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
-              }
-            } else { '' }
+            }
 
     onSourceChanged: {
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
@@ -100,7 +99,7 @@ Item {
 
   DropShadow {
     anchors.fill: geoTagBadge
-    visible: isImage
+    visible: geoTagBadge.visible
     horizontalOffset: 0
     verticalOffset: 0
     radius: 6.0 * dp
