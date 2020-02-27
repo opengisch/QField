@@ -36,8 +36,8 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "Received mimeType: " + mimeType);
 
         File file = new File(filePath);
-        tempFileName = "JPEG_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".jpg";
-        File cacheFile = new File(getCacheDir(), tempFileName);
+        File cacheFile = new File(getCacheDir(), file.getName());
+
         //copy file to a temporary file
         try{
             copyFile( file, cacheFile );
