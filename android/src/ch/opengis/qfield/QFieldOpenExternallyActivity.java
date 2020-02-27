@@ -43,6 +43,7 @@ public class QFieldOpenExternallyActivity extends Activity{
             copyFile( file, cacheFile );
         }catch(IOException e){
             Log.d(TAG, e.getMessage());
+            finish();
         }
 
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
