@@ -28,6 +28,15 @@ Item {
     //source is managed over onCurrentValueChanged since the binding would break somewhere
     source: Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
 
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        if (image.currentValue)
+          platformUtilities.open( qgisProject.homePath + '/' + image.currentValue );
+      }
+    }
+
     onCurrentValueChanged: {
       if (image.status === Image.Error) {
         image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")

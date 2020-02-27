@@ -87,6 +87,9 @@
     <!-- Activity to get picture from the gallery -->
     <activity android:name="ch.opengis.qfield.QFieldGalleryPictureActivity" />
 
+    <!-- Activity to open file externally -->
+    <activity android:name="ch.opengis.qfield.QFieldOpenExternallyActivity" />
+
     <provider
         android:name="android.support.v4.content.FileProvider"
         android:authorities="ch.opengis.qfield.fileprovider"
