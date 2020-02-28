@@ -184,7 +184,18 @@ ApplicationWindow {
       onClicked: {
           if (locatorItem.searching) {
               locatorItem.searching = false
-          } else if( !overlayFeatureFormDrawer.visible ) {
+          }
+          else if ( stateMachine.state === "digitize" ) {
+                if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
+                     Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+                  digitizingToolbar.confirm()
+                else
+                {
+                    currentRubberband.model.addVertex()
+                    coordinateLocator.flash()
+                }
+          }
+          else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
           }
       }
