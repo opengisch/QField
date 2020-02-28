@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.11
+import QtQuick 2.12
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
@@ -140,6 +140,17 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
+
+    HoverHandler {
+        onPointChanged: {
+            coordinateLocator.sourceLocation = point.position
+        }
+
+        onHoveredChanged: {
+            if ( !hovered )
+                coordinateLocator.sourceLocation = undefined
+        }
+    }
 
     /* Initialize a MapSettings object. This will contain information about
      * the current canvas extent. It is shared between the base map and all
