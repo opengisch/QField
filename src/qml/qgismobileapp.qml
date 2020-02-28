@@ -185,7 +185,7 @@ ApplicationWindow {
           if (locatorItem.searching) {
               locatorItem.searching = false
           }
-          else if ( stateMachine.state === "digitize" ) {
+          else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
