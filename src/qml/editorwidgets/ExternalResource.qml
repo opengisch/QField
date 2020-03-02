@@ -13,13 +13,34 @@ Item {
   anchors.left: parent.left
   anchors.right: parent.right
 
-  height: Math.max(image.height, button_camera.height, button_gallery.height)
+  height: Math.max(isImage? image.height : linkField.height, button_camera.height, button_gallery.height)
 
   property PictureSource __pictureSource
   property ViewStatus __viewStatus
 
   //on all mimetypes image/... and on empty values it should appear as an image widget
   property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+
+  //to not break any binding of image.source
+  property var currentValue: value
+  onCurrentValueChanged: {
+      console.log
+      if (isImage ) {
+          if ( FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
+              image.source=Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
+              geoTagBadge.visible = false
+          } else if ( image.status === Image.Error || !FileUtils.fileExists( qgisProject.homePath + '/' + value ) ) {
+              image.source=Theme.getThemeIcon("ic_broken_image_black_24dp")
+              geoTagBadge.visible = false
+          } else {
+              geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
+              image.source= 'file://' + qgisProject.homePath + '/' + value
+              geoTagBadge.visible = true
+          }
+      } else {
+          geoTagBadge.visible = false
+      }
+  }
 
   Label {
     id: linkField
@@ -64,25 +85,13 @@ Item {
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
 
-    source: if ( FileUtils.fileName( qgisProject.homePath + '/' + value ) !== '' ) {
-                if( FileUtils.fileExists(qgisProject.homePath + '/' + value) && image.status !== Image.Error ) {
-                    'file://' + qgisProject.homePath + '/' + value
-                } else {
-                  Theme.getThemeIcon("ic_broken_image_black_24dp")
-                }
-            } else {
-                Theme.getThemeIcon("ic_photo_notavailable_white_48dp")
-            }
-
-    onSourceChanged: {
-        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(qgisProject.homePath + '/' + value)
-    }
+    source: Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
 
     MouseArea {
       anchors.fill: parent
 
       onClicked: {
-        if (value)
+        if ( FileUtils.fileExists( qgisProject.homePath + '/' + value ) )
           platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
@@ -91,7 +100,7 @@ Item {
   Image {
     property bool hasGeoTag: false
     id: geoTagBadge
-    visible: isImage
+    visible: false
     anchors.bottom: image.bottom
     anchors.right: image.right
     anchors.margins: 4 * dp
