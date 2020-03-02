@@ -29,7 +29,7 @@ class ViewStatus : public QObject
     virtual ~ViewStatus() = default;
 
   signals:
-    //! This signal communitcates, when a status about the view action has been received
+    //! This signal is emitted, when a status about the view action has been received
     void statusReceived( const QString &statusText );
 };
 

@@ -222,7 +222,7 @@ Item {
     onStatusReceived: {
       if( status )
       {
-        //default message (we would have the passed the error message still)
+        //default message (we would have the passed error message still)
         displayToast( qsTr("Cannot handle this file type"))
       }
     }

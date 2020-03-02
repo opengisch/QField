@@ -244,7 +244,6 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
 
 void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
-  /*
   if ( mActivity.isValid() )
   {
     QAndroidJniObject window = mActivity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
@@ -262,7 +261,6 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       }
     }
   }
-  */
 }
 
 void AndroidPlatformUtilities::showRateThisApp() const
