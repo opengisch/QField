@@ -16,6 +16,7 @@ Item {
   height: Math.max(image.height, button_camera.height, button_gallery.height)
 
   property PictureSource __pictureSource
+  property ViewStatus __viewStatus
 
   //on all mimetypes image/... and on empty values it should appear as an image widget
   property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
@@ -45,7 +46,7 @@ Item {
 
       onClicked: {
         if (value && FileUtils.fileExists(qgisProject.homePath + '/' + value) )
-          platformUtilities.open( qgisProject.homePath + '/' + value );
+          __viewStatus = platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
   }
@@ -206,4 +207,16 @@ Item {
       }
     }
   }
+
+  Connections {
+    target: __viewStatus
+    onStatusReceived: {
+      if( status )
+      {
+        //default message (we would have the passed the error message still)
+        displayToast( qsTr("Cannot handle this file type"))
+      }
+    }
+  }
+
 }

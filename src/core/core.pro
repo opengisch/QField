@@ -65,7 +65,9 @@ HEADERS += \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
     qfieldappauthrequesthandler.h \
-    fileutils.h
+    fileutils.h \
+    androidviewstatus.h \
+    viewstatus.h
 
 SOURCES += \
     appinterface.cpp \
@@ -114,7 +116,9 @@ SOURCES += \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp \
-    fileutils.cpp
+    fileutils.cpp \
+    androidviewstatus.cpp \
+    viewstatus.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

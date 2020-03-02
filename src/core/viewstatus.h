@@ -1,5 +1,5 @@
 /***************************************************************************
- fileutils.h
+ viewstatus.h
 
  ---------------------
  begin                : 29.02.2020
@@ -14,27 +14,23 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FILEUTILS_H
-#define FILEUTILS_H
+#ifndef VIEWSTATUS_H
+#define VIEWSTATUS_H
 
 #include <QObject>
 
-class FileUtils : public QObject
+class ViewStatus : public QObject
 {
     Q_OBJECT
 
   public:
-    FileUtils( QObject *parent = nullptr );
-    //! Destructor
-    ~FileUtils() = default;
+    explicit ViewStatus( QObject *parent = nullptr );
 
-    //! returns the mimetype of a filepath as string
-    Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
-    //! returns the filename of a filepath - if no file name exists it's empty
-    Q_INVOKABLE static QString fileName( const QString &filePath );
-    //! returns true if the file exists
-    Q_INVOKABLE static bool fileExists( const QString &filePath );
+    virtual ~ViewStatus() = default;
 
+  signals:
+    //! This signal communitcates, when a status about the view action has been received
+    void statusReceived( const QString &statusText );
 };
 
-#endif // FILEUTILS_H
+#endif // VIEWSTATUS_H

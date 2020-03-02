@@ -46,6 +46,7 @@ SET(QFIELD_CORE_SRCS
   valuemapmodel.cpp
   vertexmodel.cpp
   fileutils.cpp
+  viewstatus.cpp
 )
 
 SET(QFIELD_CORE_HDRS
@@ -96,6 +97,7 @@ SET(QFIELD_CORE_HDRS
   valuemapmodel.h
   vertexmodel.h
   fileutils.h
+  viewstatus.h
 )
 
 FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)

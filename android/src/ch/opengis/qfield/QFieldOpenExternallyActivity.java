@@ -25,6 +25,7 @@ public class QFieldOpenExternallyActivity extends Activity{
     private String filePath;
     private String mimeType;
     private String tempFileName;
+    private String errorMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -42,29 +43,43 @@ public class QFieldOpenExternallyActivity extends Activity{
         //copy file to a temporary file
         try{
             copyFile( file, cacheFile );
-
-            Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
-
-            Log.d(TAG, "content URI: " + contentUri);
-            Log.d(TAG, "call ACTION_VIEW intent");
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.setDataAndType(contentUri, mimeType);
-            try{
-                startActivityForResult(intent, 102);
-            }catch (Exception e) {
-                Log.d(TAG, e.getMessage());
-                Toast.makeText( this, "No handler for this type of file.", Toast.LENGTH_LONG).show();
-            }
         }catch(IOException e){
             Log.d(TAG, e.getMessage());
-            Toast.makeText( this, e.getMessage(), Toast.LENGTH_LONG).show();
+            finish();
         }
       
-        finish();
+        Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
+
+        Log.d(TAG, "content URI: " + contentUri);
+        Log.d(TAG, "call ACTION_VIEW intent");
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setDataAndType(contentUri, mimeType);
+        try{
+            startActivityForResult(intent, 102);
+        }catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+            errorMessage = e.getMessage();
+        }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+    {
+      //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
+      if (resultCode == RESULT_OK) {
+          Intent intent = this.getIntent();
+          setResult(RESULT_OK, intent);
+      } else {
+          Intent intent = this.getIntent();
+          intent.putExtra("ERROR_MESSAGE", errorMessage);
+          setResult(RESULT_CANCELED, intent);
+      }
+
+      finish();
+    }
+    
     private void copyFile(File src, File dst) throws IOException {
         Log.d(TAG, "Copy file: "+src.getAbsolutePath()+" to file: "+dst.getAbsolutePath());
         try (InputStream in = new FileInputStream(src)) {

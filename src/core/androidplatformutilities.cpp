@@ -19,6 +19,7 @@
 #include "androidplatformutilities.h"
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
+#include "androidviewstatus.h"
 
 #include <QMap>
 #include <QString>
@@ -145,7 +146,7 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefi
   return pictureSource;
 }
 
-void AndroidPlatformUtilities::open( const QString &uri )
+ViewStatus *AndroidPlatformUtilities::open( const QString &uri )
 {
   checkWriteExternalStoragePermissions();
 
@@ -164,7 +165,11 @@ void AndroidPlatformUtilities::open( const QString &uri )
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
 
-  QtAndroid::startActivity( intent.object<jobject>(), 102 );
+  AndroidViewStatus *viewStatus = nullptr;
+  viewStatus = new AndroidViewStatus();
+  QtAndroid::startActivity( intent.object<jobject>(), 102, viewStatus );
+
+  return viewStatus;
 }
 
 ProjectSource *AndroidPlatformUtilities::openProject()
@@ -239,6 +244,7 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
 
 void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
+  /*
   if ( mActivity.isValid() )
   {
     QAndroidJniObject window = mActivity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
@@ -256,6 +262,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       }
     }
   }
+  */
 }
 
 void AndroidPlatformUtilities::showRateThisApp() const
