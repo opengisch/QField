@@ -381,8 +381,8 @@ ApplicationWindow {
       crs: qgisProject.crs
     }
 
-    x: mainWindow.width / 2 + 24 * dp
-    y: mainWindow.height / 2 + 24 * dp
+    x: mapCanvas.width / 2 + 10 * dp
+    y: mapCanvas.height / 2 + 22 * dp
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
@@ -412,7 +412,7 @@ ApplicationWindow {
                   : '' )
               : ''
 
-    font: Theme.strongFont
+    font: Theme.strongTipFont
     style: Text.Outline
     styleColor: Theme.light
   }
