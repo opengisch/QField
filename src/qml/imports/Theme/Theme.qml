@@ -19,6 +19,10 @@ QtObject {
     strongFont.pointSize: defaultFont.pointSize
     strongFont.bold: true
 
+    property font strongTipFont
+    strongTipFont.pointSize: tipFont.pointSize
+    strongTipFont.bold: true
+
     property font secondaryTitleFont
     secondaryTitleFont.pointSize: 18
 
