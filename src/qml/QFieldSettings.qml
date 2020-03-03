@@ -302,7 +302,10 @@ Page {
       showApplyButton: true
       showCancelButton: false
 
-      onFinished: parent.finished()
+      onFinished: {
+          parent.finished()
+          variableEditor.apply()
+      }
     }
 
   Keys.onReleased: {
