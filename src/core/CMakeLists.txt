@@ -47,6 +47,8 @@ SET(QFIELD_CORE_SRCS
   vertexmodel.cpp
   trackingmodel.cpp
   tracker.cpp
+  fileutils.cpp
+  viewstatus.cpp
 )
 
 SET(QFIELD_CORE_HDRS
@@ -98,6 +100,8 @@ SET(QFIELD_CORE_HDRS
   vertexmodel.h
   trackingmodel.h
   tracker.h
+  fileutils.h
+  viewstatus.h
 )
 
 FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)
