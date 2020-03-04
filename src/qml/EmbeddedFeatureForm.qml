@@ -1,31 +1,19 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
-
-import QtQuick.Layouts 1.0
-import "."
-import Theme 1.0
-
 import org.qfield 1.0
-import org.qgis 1.0
 
 Popup {
     id: formPopup
 
-    //the add entry stuff
-    property var attributeFormModel: AttributeFormModel {
+    property alias state: form.state
+    //featureModel needs to be created to be accessible from outside
+    property AttributeFormModel attributeFormModel: AttributeFormModel {
         featureModel: FeatureModel {
         }
     }
 
-    property var state
-
     signal featureSaved
     signal featureCancelled
-
-    onStateChanged: {
-        //because the binding in form does not work
-        form.state = formPopup.state
-    }
 
     parent: ApplicationWindow.overlay
 
