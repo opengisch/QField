@@ -76,9 +76,10 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix )
   return nullptr;
 }
 
-void PlatformUtilities::open( const QString &uri )
+ViewStatus *PlatformUtilities::open( const QString &uri )
 {
   QDesktopServices::openUrl( QUrl( uri ) );
+  return nullptr;
 }
 
 QString PlatformUtilities::fieldType( const QgsField &field ) const
