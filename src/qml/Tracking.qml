@@ -73,7 +73,8 @@ Item{
         }
     }
 
-    // FEATURE FORM
+
+    // Feature form to set attributes
     AttributeFormModel {
       id: embeddedAttributeFormModel
       featureModel: featureModel
@@ -131,7 +132,8 @@ Item{
       }
     }
 
-    // TRACK INFORMATION STUFF
+
+    // Dialog to set tracker properties
     Loader {
       id: trackInformationDialog
 

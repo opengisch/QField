@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "trackingmodel.h"
-#include <QDebug>
 
 TrackingModel::TrackingModel( QObject *parent )
   : QAbstractItemModel( parent )
@@ -141,12 +140,9 @@ void TrackingModel::reset()
 
 void TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
 {
-  qDebug() << "Here we are ";
   beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
   mTrackers.append( new Tracker( layer, visible ) );
   endInsertRows();
-
-  qDebug() << "Done, should be here now" ;
 }
 
 void TrackingModel::startTracker( QgsVectorLayer *layer )
@@ -165,7 +161,6 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   delete mTrackers.takeAt( listIndex );
   endRemoveRows();
 
-  qDebug() << QString( "remove tracker for layer " ) << layer->name();
   emit layerOnTrackChanged( layer, false );
 }
 

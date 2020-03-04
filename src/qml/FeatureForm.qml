@@ -438,7 +438,7 @@ Page {
               displayToast( qsTr('Note: soft constraints were not met') )
             }
             if( dontSave ) {
-                //neither saved nor cleared (so feature data is handled elsewhere)
+                //neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
                 temporaryStored()
             }else{
                 save()

@@ -45,6 +45,7 @@ class QgsMapLayer;
  * in advanced cases where the grouping in layer tree should be independent from the actual
  * order in the canvas.
  *
+ * Passes to the legend (LayerTreeModel) the information, if the layer is in a tracking session
  */
 class LayerTreeMapCanvasBridge : public QObject
 {

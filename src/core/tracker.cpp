@@ -14,7 +14,6 @@
  ***************************************************************************/
 
 #include <QTimer>
-#include <QDebug>
 
 #include "tracker.h"
 
@@ -73,22 +72,19 @@ void Tracker::trackPosition()
 {
   if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
   {
-    qDebug() << QString( "Coordinates not available " ) << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y();
     return;
   }
-  qDebug() << QString( "Collect " ) << model()->vectorLayer() << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " z:" << model()->currentCoordinate().z();
 
   if ( QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
-    if( !model()->currentPositionTimestamp().isValid() )
+    if ( !model()->currentPositionTimestamp().isValid() )
     {
-      qDebug() << QString( "Position Timestamp not valid " ) << model()->currentPositionTimestamp().toString();
       return;
     }
     double secsSinceStart = 0;
-    if( mStartPositionTimestamp.isValid() )
+    if ( mStartPositionTimestamp.isValid() )
     {
-      secsSinceStart = mStartPositionTimestamp.secsTo(model()->currentPositionTimestamp());
+      secsSinceStart = mStartPositionTimestamp.secsTo( model()->currentPositionTimestamp() );
     }
     else
     {
@@ -99,7 +95,6 @@ void Tracker::trackPosition()
     model()->setCurrentCoordinate( currentCoordinate );
   }
 
-  qDebug() << QString( "Coordinates are " ) << " x:" << model()->currentCoordinate().x() << " y:" << model()->currentCoordinate().y() << " m:" << model()->currentCoordinate().m() << " its "<< mStartPositionTimestamp.toString()<<" secs to "<< model()->currentPositionTimestamp().toString();
   model()->addVertex();
   mTimeIntervalFulfilled = false;
   mMinimumDistanceFulfilled = false;
@@ -121,8 +116,6 @@ void Tracker::positionReceived()
   QgsDistanceArea distanceArea;
   distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
   distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
-
-  qDebug() << QString( "distance is: " ) << distanceArea.measureLine( flatPoints ) << QString( " and the minimum is " ) << mMinimumDistance;
 
   if ( distanceArea.measureLine( flatPoints ) > mMinimumDistance )
   {
@@ -151,8 +144,6 @@ void Tracker::start()
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
 
-  qDebug() << QString( "Tracos startos with time" ) << mTimeInterval << " and distance " << mMinimumDistance;
-
   //track first position
   trackPosition();
 }
@@ -168,6 +159,4 @@ void Tracker::stop()
   {
     disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
-
-  qDebug() << QString( "Tracos stoppos" );
 }

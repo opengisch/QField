@@ -30,26 +30,32 @@ class Tracker : public QObject
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );
 
-    //! \copydoc timeInterval
+    //! the (minimum) time interval between setting trackpoints
     int timeInterval() const;
-    //! \copydoc timeInterval
+    //! the (minimum) time interval between setting trackpoints
     void setTimeInterval( const int timeInterval );
 
-    //! \copydoc minimumDistance
+    //! the minimum distance between setting trackpoints
     int minimumDistance() const;
-    //! \copydoc timeInterval
+    //! the minimum distance between setting trackpoints
     void setMinimumDistance( const int minimumDistance );
 
-    //! \copydoc conjunction
+    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
     bool conjunction() const;
-    //! \copydoc conjunction
+    //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
     void setConjunction( const bool conjunction );
 
+    //! the current layer
     QgsVectorLayer *layer() const { return mLayer; }
+    //! the current layer
     void setLayer( QgsVectorLayer *layer ) { mLayer = layer; }
+    //! the created feature
     QgsFeature feature() const { return mFeature; }
+    //! the created feature
     void setFeature( const QgsFeature feature ) { mFeature = feature; }
+    //! if the layer (and the rubberband ) is visible
     bool visible() const { return mVisible; }
+    //! if the layer (and rubberband ) is visible
     void setVisible( const bool visible ) { mVisible = visible; }
 
     void start();

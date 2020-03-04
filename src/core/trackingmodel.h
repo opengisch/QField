@@ -53,11 +53,8 @@ class TrackingModel : public QAbstractItemModel
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
-
-    //function used external from the model dependen objects
     Q_INVOKABLE void createTracker( QgsVectorLayer *layer, bool visible );
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
-
     Q_INVOKABLE void setLayerVisible( QgsVectorLayer *layer, bool visible );
     Q_INVOKABLE bool featureOnTrack( QgsVectorLayer *layer,  const QgsFeatureId featureId );
     Q_INVOKABLE bool layerOnTrack( QgsVectorLayer *layer );

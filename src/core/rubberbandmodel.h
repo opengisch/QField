@@ -44,7 +44,7 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! freeze the rubberband so it doesn't get modified while panning map
     Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
-    //! currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates by the rubberbandmodel itself
+    //! currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself
     Q_PROPERTY( QDateTime currentPositionTimestamp READ currentPositionTimestamp WRITE setCurrentPositionTimestamp NOTIFY currentPositionTimestampChanged )
 
   public:

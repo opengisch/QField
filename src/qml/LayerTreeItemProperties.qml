@@ -17,7 +17,7 @@ LayerTreeItemProperties {
 
   onIndexChanged: {
     itemVisible = layerTree.data(index, LayerTreeModel.Visible)
-    title = qsTr("%1 : Properties").arg(layerTree.data(index, 0))
+    title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
     trackingButtonVisible = layerTree.data(index, LayerTreeModel.Type) === 'layer' && layerTree.data(index, LayerTreeModel.Trackable) && positionSource.active && stateMachine.state === "digitize" ? true : false
     trackingButtonBgColor = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? '#F6A564' : '#64B5F6'
     trackingButtonText = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
