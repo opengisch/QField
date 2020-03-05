@@ -258,7 +258,7 @@ Page {
           anchors { left: parent.left; right: parent.right }
 
           //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
-          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor' || EditorWidget === 'ValueRelation' ) && !!AttributeEditable
+          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor' || EditorWidget === 'ValueRelation' || EditorWidget === 'ExternalResource' ) && !!AttributeEditable
           property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )

@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.support.v4.content.FileProvider;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +25,7 @@ public class QFieldOpenExternallyActivity extends Activity{
     private String filePath;
     private String mimeType;
     private String tempFileName;
+    private String errorMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -45,7 +47,7 @@ public class QFieldOpenExternallyActivity extends Activity{
             Log.d(TAG, e.getMessage());
             finish();
         }
-
+      
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
 
         Log.d(TAG, "content URI: " + contentUri);
@@ -54,11 +56,30 @@ public class QFieldOpenExternallyActivity extends Activity{
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
-        startActivityForResult(intent, 102);
-
-        finish();
+        try{
+            startActivityForResult(intent, 102);
+        }catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+            errorMessage = e.getMessage();
+        }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+    {
+      //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
+      if (resultCode == RESULT_OK) {
+          Intent intent = this.getIntent();
+          setResult(RESULT_OK, intent);
+      } else {
+          Intent intent = this.getIntent();
+          intent.putExtra("ERROR_MESSAGE", errorMessage);
+          setResult(RESULT_CANCELED, intent);
+      }
+
+      finish();
+    }
+    
     private void copyFile(File src, File dst) throws IOException {
         Log.d(TAG, "Copy file: "+src.getAbsolutePath()+" to file: "+dst.getAbsolutePath());
         try (InputStream in = new FileInputStream(src)) {
