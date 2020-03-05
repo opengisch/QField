@@ -92,10 +92,9 @@ Rectangle{
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
                           embeddedPopup.state = 'Add'
-                          embeddedPopup.attributeFormModel.featureModel.currentLayer = relationEditorModel.relation.referencingLayer
-                          embeddedPopup.attributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
-                          embeddedPopup.attributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                          embeddedPopup.attributeFormModel.featureModel.resetAttributes()
+                          embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
+                          embeddedPopup.linkedParentFeature = relationEditorModel.feature
+                          embeddedPopup.linkedRelation = relationEditorModel.relation
                           embeddedPopup.open()
                       }
                       else
@@ -134,10 +133,10 @@ Rectangle{
 
             onClicked: {
                 embeddedPopup.state = !readOnly ? 'Edit' : 'ReadOnly'
-                embeddedPopup.attributeFormModel.featureModel.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
-                embeddedPopup.attributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedPopup.attributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
-                embeddedPopup.attributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
+                embeddedPopup.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
+                embeddedPopup.linkedRelation = relationEditorModel.relation
+                embeddedPopup.linkedParentFeature = relationEditorModel.feature
+                embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
                 embeddedPopup.open()
             }
           }

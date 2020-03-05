@@ -6,10 +6,15 @@ Popup {
     id: formPopup
 
     property alias state: form.state
-    //featureModel needs to be created to be accessible from outside
-    property AttributeFormModel attributeFormModel: AttributeFormModel {
-        featureModel: FeatureModel {
-        }
+
+    property alias currentLayer: formFeatureModel.currentLayer
+    property alias linkedRelation: formFeatureModel.linkedRelation
+    property alias linkedParentFeature: formFeatureModel.linkedParentFeature
+    property alias feature: formFeatureModel.feature
+
+    onAboutToShow: {
+        if( state === 'Add' )
+           formFeatureModel.resetAttributes()
     }
 
     signal featureSaved
@@ -27,7 +32,11 @@ Popup {
 
     FeatureForm {
         id: form
-        model: formPopup.attributeFormModel
+        model: AttributeFormModel {
+            featureModel: FeatureModel {
+                id: formFeatureModel
+            }
+        }
 
         focus: true
 
