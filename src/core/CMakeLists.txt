@@ -47,8 +47,10 @@ SET(QFIELD_CORE_SRCS
   vertexmodel.cpp
   trackingmodel.cpp
   tracker.cpp
-  fileutils.cpp
   viewstatus.cpp
+  utils/fileutils.cpp
+  utils/geometryutils.cpp
+  utils/featureutils.cpp
 )
 
 SET(QFIELD_CORE_HDRS
@@ -100,8 +102,10 @@ SET(QFIELD_CORE_HDRS
   vertexmodel.h
   trackingmodel.h
   tracker.h
-  fileutils.h
   viewstatus.h
+  utils/fileutils.h
+  utils/geometryutils.h
+  utils/featureutils.h
 )
 
 FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)
