@@ -185,7 +185,7 @@ ApplicationWindow {
           if (locatorItem.searching) {
               locatorItem.searching = false
           }
-          else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) {
+          else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
@@ -196,7 +196,18 @@ ApplicationWindow {
                 }
           }
           else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
+              identifyTool.identify(point.position)
+          }
+      }
+
+      onDoubleClicked: {
+          if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
+              if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
+                 || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
+                  currentRubberband.model.addVertex()
+                  coordinateLocator.flash()
+                  digitizingToolbar.confirm()
+              }
           }
       }
 
@@ -696,7 +707,7 @@ ApplicationWindow {
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
-                     && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
+                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
       rubberbandModel: currentRubberband.model
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings

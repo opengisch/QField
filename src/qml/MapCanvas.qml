@@ -26,7 +26,8 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
-  signal clicked(var mouse)
+  signal clicked(var point)
+  signal doubleClicked(var point)
   signal panned
 
   /**
@@ -61,16 +62,27 @@ Item {
   }
 
     TapHandler {
-      grabPermissions: PointerHandler.TakeOverForbidden
+      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
-      onTapCountChanged: {
-          if (tapCount == 2) {
-              mapCanvasWrapper.zoom(point.position, 0.8)
+      property var timer: Timer {
+          property var firstClickPoint
+          interval: mouseDoubleClickInterval
+          repeat: false
+
+          onTriggered: {
+              clicked(firstClickPoint)
           }
       }
 
-      onSingleTapped: {
-          mapArea.clicked(point)
+      onTapCountChanged: {
+          if (tapCount == 1) {
+              timer.firstClickPoint = point
+              timer.running = true
+          }
+          else if (tapCount == 2) {
+              timer.running = false
+              doubleClicked(point)
+          }
       }
     }
 
@@ -85,7 +97,7 @@ Item {
 
     DragHandler {
         target: null
-        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType
+        grabPermissions: PointerHandler.TakeOverForbidden
 
         property var oldPos
 
@@ -100,7 +112,10 @@ Item {
             var oldPos1 = oldPos
             oldPos = centroid.position
             if ( active )
+            {
                 mapCanvasWrapper.pan(centroid.position, oldPos1)
+                panned()
+            }
         }
     }
 
@@ -118,11 +133,11 @@ Item {
                 oldTranslationY = 0
                 zoomCenter = centroid.position
             }
-/*
+
             if ( active )
                 freeze('zoom')
             else
-                unfreeze('zoom')*/
+                unfreeze('zoom')
         }
 
         onTranslationChanged: {
@@ -130,6 +145,37 @@ Item {
                 mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
 
             oldTranslationY = translation.y
+        }
+    }
+
+    PinchHandler {
+        target: null
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        property var oldPos
+
+        onActiveChanged: {
+            if ( active )
+                freeze('pinch')
+            else
+                unfreeze('pinch')
+        }
+
+        onCentroidChanged: {
+            var oldPos1 = oldPos
+            oldPos = centroid.position
+            if ( active )
+            {
+                mapCanvasWrapper.pan(centroid.position, oldPos1)
+                panned()
+            }
+        }
+
+        onActiveScaleChanged: {
+            mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
+            mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
+            mapArea.panned()
+
         }
     }
 
