@@ -38,6 +38,18 @@ QString FileUtils::fileName( const QString &filePath )
   return fileInfo.fileName();
 }
 
+QString FileUtils::fileCompleteBaseName( const QString &filePath )
+{
+  QFileInfo fileInfo( filePath );
+  return fileInfo.baseName();
+}
+
+QString FileUtils::filePath( const QString &filePath )
+{
+  QFileInfo fileInfo( filePath );
+  return fileInfo.path();
+}
+
 bool FileUtils::fileExists( const QString &filePath )
 {
   return QFileInfo::exists( filePath );

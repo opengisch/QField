@@ -26,8 +26,7 @@ Item {
   //to not break any binding of image.source
   property var currentValue: value
   onCurrentValueChanged: {
-      console.log
-      if (isImage ) {
+      if ( isImage ) {
           if ( value === undefined || FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
               image.source=Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
@@ -48,7 +47,7 @@ Item {
     id: expressionUtils
     feature: currentFeature
     layer: currentLayer
-    expressionText: currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : ''
+    expressionText: currentLayer ? currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : '' : ''
   }
 
   Label {
@@ -143,9 +142,9 @@ Item {
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
-            var filepath = expressionUtils.evaluate()
-            if( !filepath )
-                filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
+            var evaluated_filepath = expressionUtils.evaluate()
+            var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
+                                                 FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
             __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/',filepath)
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
@@ -168,9 +167,9 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        var filepath = expressionUtils.evaluate()
-        if( !filepath )
-            filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
+        var evaluated_filepath = expressionUtils.evaluate()
+        var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
+                                             FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
 
@@ -211,10 +210,9 @@ Item {
         visible: true
 
         onFinished: {
-            Project.re
-            var filepath = expressionUtils.evaluate()
-            if( !filepath )
-                filepath = 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg'
+            var evaluated_filepath = expressionUtils.evaluate()
+            var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
+                                                 FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
             valueChanged(filepath, false)
             campopup.close()
