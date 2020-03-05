@@ -48,6 +48,7 @@ Item {
     topPadding: 10 * dp
     bottomPadding: 10 * dp
     visible: !isImage
+    enabled: !isImage
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -80,6 +81,7 @@ Item {
   Image {
     id: image
     visible: isImage
+    enabled: isImage
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
