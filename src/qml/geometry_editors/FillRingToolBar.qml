@@ -3,7 +3,6 @@ import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import Utils 1.0
 
 VisibilityFadingRow {
   id: fillRingToolbar
@@ -30,7 +29,7 @@ VisibilityFadingRow {
     onConfirm: {
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
-      var result = QFieldUtils.addRingFromRubberBand(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
+      var result = GeometryUtils.addRingFromRubberBand(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
       if ( result !== QgsGeometryStatic.Success )
       {
         // TODO WARN
@@ -89,8 +88,8 @@ VisibilityFadingRow {
 
   function fillPolygon()
   {
-    var polygonGeometry = QFieldUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs)
-    var feature = QFieldUtils.initFeature(featureModel.currentLayer, polygonGeometry)
+    var polygonGeometry = GeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs)
+    var feature = FeatureUtils.initFeature(featureModel.currentLayer, polygonGeometry)
 
     // Show form
     formPopupLoader.source = '../EmbeddedFeatureForm.qml'
