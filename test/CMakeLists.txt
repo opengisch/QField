@@ -13,9 +13,9 @@ INCLUDE_DIRECTORIES(
 MACRO (ADD_QFIELD_TEST TESTNAME TESTSRC)
   ADD_EXECUTABLE(${TESTNAME} ${TESTSRC})
   TARGET_LINK_LIBRARIES(${TESTNAME}
-    qgis_core
-    qgis_analysis
     qfield_core
+    ${QGIS_CORE_LIBRARY}
+    ${QGIS_ANALYSIS_LIBRARY}
     Qt5::Test
     Qt5::Core
     Qt5::Gui
