@@ -13,6 +13,8 @@ And contains following functions:
   * function cancel()
 The following signal:
   * signal finished()
+It can also implement:
+  * blocking (bool) which prevents from swichting tools
 */
 
 VisibilityFadingRow {

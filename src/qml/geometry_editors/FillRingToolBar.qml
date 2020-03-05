@@ -5,7 +5,6 @@ import org.qfield 1.0
 import Theme 1.0
 import Utils 1.0
 
-
 VisibilityFadingRow {
   id: fillRingToolbar
 
@@ -19,6 +18,14 @@ VisibilityFadingRow {
   DigitizingToolbar {
     id: drawPolygonToolbar
     showConfirmButton: true
+
+    QuestionDialog{
+      id: questionDialog
+    }
+
+    Loader {
+      id: formPopupLoader
+    }
 
     onConfirm: {
       if (!featureModel.currentLayer.editBuffer())
@@ -39,21 +46,16 @@ VisibilityFadingRow {
       }
       else
       {
-        var polygonGeometry = QFieldUtils.polygonFromRubberband(rubberbandModel, featureModel.currentLayer.crs)
-        var feature = QFieldUtils.initFeature(featureModel.currentLayer, polygonGeometry)
+        questionDialog.questionText = qsTr("Do you want to add a ring of fill a polygon in the ring?")
+        questionDialog.nButtons = 3
+        questionDialog.button1Text = qsTr("Cancel")
+        questionDialog.button2Text = qsTr("Add ring")
+        questionDialog.button3Text = qsTr("Fill poylgon")
 
-        // Show form
-        var popupComponent = Qt.createComponent("qrc:/qml/EmbeddedFeatureForm.qml")
-        var embeddedPopup = popupComponent.createObject(mainWindow, {"parent" : mainWindow})
-
-        embeddedPopup.onFeatureSaved.connect(newFeatureSaved)
-        embeddedPopup.onFeatureCancelled.connect(newFeatureDiscarded)
-
-        embeddedPopup.state = 'Add'
-        embeddedPopup.attributeFormModel.featureModel.currentLayer = featureModel.currentLayer
-        embeddedPopup.attributeFormModel.featureModel.resetAttributes()
-        embeddedPopup.attributeFormModel.featureModel.feature = feature
-        embeddedPopup.open()
+        questionDialog.button1Clicked.connect(rollbackRingAndCancel)
+        questionDialog.button2Clicked.connect(commitAndFinish)
+        questionDialog.button3Clicked.connect(fillPolygon)
+        questionDialog.open()
       }
     }
   }
@@ -72,17 +74,34 @@ VisibilityFadingRow {
     drawPolygonToolbar.cancel()
   }
 
-  function newFeatureSaved(){
+  function commitAndFinish(){
     featureModel.currentLayer.commitChanges()
     cancel()
     finished()
   }
 
-  function newFeatureDiscarded()
+  function rollbackRingAndCancel()
   {
     featureModel.currentLayer.rollBack()
     cancel()
     finished()
   }
 
+  function fillPolygon()
+  {
+    var polygonGeometry = QFieldUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs)
+    var feature = QFieldUtils.initFeature(featureModel.currentLayer, polygonGeometry)
+
+    // Show form
+    formPopupLoader.source = '../EmbeddedFeatureForm.qml'
+
+    formPopupLoader.item.onFeatureSaved.connect(commitAndFinish)
+    formPopupLoader.item.onFeatureCancelled.connect(rollbackRingAndCancel)
+
+    formPopupLoader.item.state = 'Add'
+    formPopupLoader.item.attributeFormModel.featureModel.currentLayer = featureModel.currentLayer
+    formPopupLoader.item.attributeFormModel.featureModel.resetAttributes()
+    formPopupLoader.item.attributeFormModel.featureModel.feature = feature
+    formPopupLoader.item.open()
+  }
 }
