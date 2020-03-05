@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 1.2
 import QtQml 2.2
 import org.qgis 1.0
@@ -60,106 +60,78 @@ Item {
     freeze: false
   }
 
-  PinchArea {
-    id: pinchArea
+    TapHandler {
+      grabPermissions: PointerHandler.TakeOverForbidden
 
-    anchors.fill: parent
-
-    onPinchStarted: {
-      freeze('pinch')
-    }
-
-    onPinchUpdated: {
-      mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
-      mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
-      mapArea.panned()
-    }
-
-    onPinchFinished: {
-      unfreeze('pinch')
-      mapCanvasWrapper.refresh()
-    }
-
-    MouseArea {
-      id: mouseArea
-
-      property point __initialPosition
-      property point __lastPosition
-
-      anchors.fill : parent
-
-      onDoubleClicked: {
-        clickedTimer.stop()
-        var center = Qt.point( mouse.x, mouse.y )
-        mapCanvasWrapper.zoom( center, 0.8 )
+      onTapCountChanged: {
+          if (tapCount == 2) {
+              mapCanvasWrapper.zoom(point.position, 0.8)
+          }
       }
 
-      onClicked: {
-        if ( mouse.button === Qt.RightButton )
-        {
-          var center = Qt.point( mouse.x, mouse.y )
-          mapCanvasWrapper.zoom( center, 1.2 )
-        }
-        else
-        {
-          var distance = Math.abs( mouse.x - __initialPosition.x ) + Math.abs( mouse.y - __initialPosition.y )
+      onSingleTapped: {
+          mapArea.clicked(point)
+      }
+    }
 
-          if ( distance < 5 * dp)
-          {
-            if (!clickedTimer.running) {
-              props.mouse = mouse
-              clickedTimer.restart()
+    TapHandler {
+        grabPermissions: PointerHandler.CanTakeOverFromItems
+        acceptedButtons: Qt.RightButton
+
+        onSingleTapped: {
+            mapCanvasWrapper.zoom(point.position, 1.2)
+        }
+    }
+
+    DragHandler {
+        target: null
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType
+
+        property var oldPos
+
+        onActiveChanged: {
+            if ( active )
+                freeze('pan')
+            else
+                unfreeze('pan')
+        }
+
+        onCentroidChanged: {
+            var oldPos1 = oldPos
+            oldPos = centroid.position
+            if ( active )
+                mapCanvasWrapper.pan(centroid.position, oldPos1)
+        }
+    }
+
+    DragHandler {
+        target: null
+        grabPermissions: PointerHandler.TakeOverForbidden
+        acceptedButtons: Qt.MiddleButton | Qt.RightButton
+
+        property real oldTranslationY
+        property point zoomCenter
+
+        onActiveChanged: {
+            if (active)
+            {
+                oldTranslationY = 0
+                zoomCenter = centroid.position
             }
-          }
-          else
-          {
-            mapArea.panned()
-          }
+/*
+            if ( active )
+                freeze('zoom')
+            else
+                unfreeze('zoom')*/
         }
-      }
 
-      onPressed: {
-        __lastPosition = Qt.point( mouse.x, mouse.y)
-        __initialPosition = __lastPosition
-        freeze('pan')
-      }
+        onTranslationChanged: {
+            if (active)
+                mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
 
-      onReleased: {
-        unfreeze('pan')
-      }
-
-      onPositionChanged: {
-        var currentPosition = Qt.point( mouse.x, mouse.y )
-        mapCanvasWrapper.pan( currentPosition, __lastPosition )
-        __lastPosition = currentPosition
-      }
-
-      onCanceled: {
-        unfreezePanTimer.start()
-      }
-
-      onWheel: {
-        mapCanvasWrapper.zoom( Qt.point( wheel.x, wheel.y ), Math.pow( 0.8, wheel.angleDelta.y / 60 ) )
-      }
-
-      Timer {
-        id: clickedTimer
-        interval: 250
-        onTriggered: mapArea.clicked( props.mouse )
-      }
-
-      Timer {
-        id: unfreezePanTimer
-        interval: 500;
-        running: false;
-        repeat: false
-        onTriggered: unfreeze('pan')
-      }
-
-      QtObject {
-        id: props
-        property var mouse
-      }
+            oldTranslationY = translation.y
+        }
     }
-  }
+
+    // TODO add WheelHandler once we can expect Qt 5.14 on all platforms
 }
