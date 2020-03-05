@@ -170,7 +170,7 @@ QHash<int, QByteArray> LayerTreeModel::roleNames() const
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
   roleNames[Trackable] = "trackable";
-  roleNames[OnTrack] = "onTrack";
+  roleNames[IsTracking] = "isTracking";
   return roleNames;
 }
 
