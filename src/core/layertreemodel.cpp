@@ -123,7 +123,7 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
       return false;
     }
 
-    case OnTrack:
+    case IsTracking:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       if ( QgsLayerTree::isLayer( node ) )
