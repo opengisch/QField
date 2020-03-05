@@ -50,7 +50,7 @@ class PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath );
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix

@@ -38,16 +38,10 @@ QString FileUtils::fileName( const QString &filePath )
   return fileInfo.fileName();
 }
 
-QString FileUtils::fileCompleteBaseName( const QString &filePath )
+QString FileUtils::fileSuffix( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
-  return fileInfo.baseName();
-}
-
-QString FileUtils::filePath( const QString &filePath )
-{
-  QFileInfo fileInfo( filePath );
-  return fileInfo.path();
+  return fileInfo.suffix();
 }
 
 bool FileUtils::fileExists( const QString &filePath )

@@ -23,6 +23,7 @@ public class QFieldCameraPictureActivity extends Activity{
     private static final String TAG = "QField Camera Picture Activity";
     private String prefix;
     private String pictureFilePath;
+    private String suffix;
     private String pictureTempFileName;
 
     @Override
@@ -35,9 +36,12 @@ public class QFieldCameraPictureActivity extends Activity{
 
         pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
         Log.d(TAG, "Received pictureFilePath: " + pictureFilePath);
-        
+
+        suffix = getIntent().getExtras().getString("suffix");
+        Log.d(TAG, "Received suffix: " + suffix);
+
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureTempFileName = "JPEG_" + timeStamp + ".jpg";
+        pictureTempFileName = "QFieldPicture" + timeStamp + '.' +suffix;
         Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
 
         callCameraIntent();

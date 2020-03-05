@@ -143,9 +143,8 @@ Item {
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
             var evaluated_filepath = expressionUtils.evaluate()
-            var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
-                                                 FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
-            __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/',filepath)
+            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
             camloader.active = true
@@ -168,8 +167,7 @@ Item {
 
     onClicked: {
         var evaluated_filepath = expressionUtils.evaluate()
-        var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
-                                             FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
+        var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
 
@@ -211,8 +209,7 @@ Item {
 
         onFinished: {
             var evaluated_filepath = expressionUtils.evaluate()
-            var filepath = !evaluated_filepath ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' :
-                                                 FileUtils.filePath(evaluated_filepath)+'/'+FileUtils.fileCompleteBaseName(evaluated_filepath) +'.jpg'
+            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
             valueChanged(filepath, false)
             campopup.close()

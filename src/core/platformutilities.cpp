@@ -67,10 +67,11 @@ bool PlatformUtilities::renameFile( const QString &filename, const QString &newn
   return file.rename( newname );
 }
 
-PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath )
+PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   Q_UNUSED( prefix )
   Q_UNUSED( pictureFilePath )
+  Q_UNUSED( suffix )
   return nullptr;
 }
 

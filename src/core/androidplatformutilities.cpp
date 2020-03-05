@@ -95,7 +95,7 @@ QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
   return nullptr;
 }
 
-PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath )
+PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix )
 {
   if ( !checkCameraPermissions() )
     return nullptr;
@@ -116,11 +116,17 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix
 
   QAndroidJniObject prefix_label = QAndroidJniObject::fromString( "prefix" );
   QAndroidJniObject prefix_value = QAndroidJniObject::fromString( prefix );
-
   intent.callObjectMethod( "putExtra",
                            "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
                            prefix_label.object<jstring>(),
                            prefix_value.object<jstring>() );
+
+  QAndroidJniObject suffix_label = QAndroidJniObject::fromString( "suffix" );
+  QAndroidJniObject suffix_value = QAndroidJniObject::fromString( suffix );
+  intent.callObjectMethod( "putExtra",
+                           "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
+                           suffix_label.object<jstring>(),
+                           suffix_value.object<jstring>() );
 
   AndroidPictureSource *pictureSource = nullptr;
   pictureSource = new AndroidPictureSource( prefix );
