@@ -19,8 +19,8 @@ LayerTreeItemProperties {
     itemVisible = layerTree.data(index, LayerTreeModel.Visible)
     title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
     trackingButtonVisible = layerTree.data(index, LayerTreeModel.Type) === 'layer' && layerTree.data(index, LayerTreeModel.Trackable) && positionSource.active && stateMachine.state === "digitize" ? true : false
-    trackingButtonBgColor = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? '#F6A564' : '#64B5F6'
-    trackingButtonText = trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
+    trackingButtonBgColor = trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? '#F6A564' : '#64B5F6'
+    trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
 
   onItemVisibleChanged: {
@@ -29,7 +29,7 @@ LayerTreeItemProperties {
 
   onTrackingButtonClicked: {
       //start track
-      if( trackingModel.layerOnTrack( layerTree.data(index, LayerTreeModel.VectorLayer) ) ) {
+      if( trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ) {
           trackingModel.stopTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
           displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, LayerTreeModel.VectorLayer).name  ) )
       }else{

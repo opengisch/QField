@@ -114,7 +114,7 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
   return true;
 }
 
-bool TrackingModel::featureOnTrack( QgsVectorLayer *layer, const QgsFeatureId featureId )
+bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId featureId )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
@@ -125,7 +125,7 @@ bool TrackingModel::featureOnTrack( QgsVectorLayer *layer, const QgsFeatureId fe
   return false;
 }
 
-bool TrackingModel::layerOnTrack( QgsVectorLayer *layer )
+bool TrackingModel::layerInTracking( QgsVectorLayer *layer )
 {
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
@@ -149,7 +149,7 @@ void TrackingModel::startTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
   mTrackers[ listIndex ]->start();
-  emit layerOnTrackChanged( layer, true );
+  emit layerInTrackingChanged( layer, true );
 }
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
@@ -161,7 +161,7 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   delete mTrackers.takeAt( listIndex );
   endRemoveRows();
 
-  emit layerOnTrackChanged( layer, false );
+  emit layerInTrackingChanged( layer, false );
 }
 
 void TrackingModel::setLayerVisible( QgsVectorLayer *layer, bool visible )

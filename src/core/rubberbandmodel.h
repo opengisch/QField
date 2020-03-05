@@ -85,7 +85,7 @@ class RubberbandModel : public QObject
     //! \copydoc currentPositionTimestamp
     QDateTime currentPositionTimestamp() const;
     //! \copydoc currentPositionTimestamp
-    void setCurrentPositionTimestamp( const QDateTime currentPositionTimestamp );
+    void setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp );
 
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();

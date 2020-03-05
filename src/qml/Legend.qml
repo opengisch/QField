@@ -90,7 +90,7 @@ TreeView {
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
       }
       Rectangle {
-        visible: model.onTrack ? true : false
+        visible: model.inTracking ? true : false
         height: 24*dp
         width: 24*dp
         radius: height / 2

@@ -182,7 +182,7 @@ QDateTime RubberbandModel::currentPositionTimestamp() const
   return mCurrentPositionTimestamp;
 }
 
-void RubberbandModel::setCurrentPositionTimestamp( const QDateTime currentPositionTimestamp )
+void RubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp )
 {
   mCurrentPositionTimestamp = currentPositionTimestamp;
 }

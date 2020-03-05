@@ -37,7 +37,7 @@ class LayerTreeModel : public QSortFilterProxyModel
       Type,
       Visible,
       Trackable,
-      OnTrack
+      InTracking
     };
     Q_ENUM( Roles )
 
@@ -63,7 +63,8 @@ class LayerTreeModel : public QSortFilterProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
-    void setLayerOnTrack( QgsLayerTreeLayer *nodeLayer, bool onTrack );
+    //! Sets the information if the \a nodeLayer is currently in \a tracking state
+    void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
 
   signals:
     void mapThemeChanged();
@@ -76,7 +77,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
     QgsProject *mProject;
-    QList<QgsLayerTreeLayer *> mLayerOnTrack;
+    QList<QgsLayerTreeLayer *> mLayersInTracking;
 };
 
 #endif // LAYERTREEMODEL_H

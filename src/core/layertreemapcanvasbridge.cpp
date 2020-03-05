@@ -40,7 +40,7 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQu
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
 
-  connect( mTrackingModel, &TrackingModel::layerOnTrackChanged, this, &LayerTreeMapCanvasBridge::layerOnTrackChanged );
+  connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
 
   setCanvasLayers();
 }
@@ -121,8 +121,9 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<Qg
       {
         canvasLayers << nodeLayer->layer();
       }
-      if ( nodeLayer->layer()->type() == QgsMapLayerType::VectorLayer )
-        mTrackingModel->setLayerVisible( qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ), nodeLayer->isVisible() );
+      QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      if ( layer )
+        mTrackingModel->setLayerVisible( layer, nodeLayer->isVisible() );
     }
   }
 
@@ -151,10 +152,10 @@ void LayerTreeMapCanvasBridge::mapThemeChanged()
   QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
 }
 
-void LayerTreeMapCanvasBridge::layerOnTrackChanged( QgsVectorLayer *layer, bool onTrack )
+void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
 {
   QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
-  mModel->setLayerOnTrack( nodeLayer, onTrack );
+  mModel->setLayerInTracking( nodeLayer, tracking );
 }
 
 
