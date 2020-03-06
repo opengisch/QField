@@ -91,12 +91,11 @@ Rectangle{
                   if( buffer() ) {
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
-                          embeddedFeatureForm.state = 'Add'
-                          embeddedAttributeFormModel.featureModel.currentLayer = relationEditorModel.relation.referencingLayer
-                          embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
-                          embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                          embeddedAttributeFormModel.featureModel.resetAttributes()
-                          embeddedFeatureForm.active = true
+                          embeddedPopup.state = 'Add'
+                          embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
+                          embeddedPopup.linkedParentFeature = relationEditorModel.feature
+                          embeddedPopup.linkedRelation = relationEditorModel.relation
+                          embeddedPopup.open()
                       }
                       else
                       {
@@ -133,12 +132,12 @@ Rectangle{
             anchors.fill: parent
 
             onClicked: {
-                embeddedFeatureForm.state = !readOnly ? 'Edit' : 'ReadOnly'
-                embeddedAttributeFormModel.featureModel.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
-                embeddedAttributeFormModel.featureModel.linkedRelation = relationEditorModel.relation
-                embeddedAttributeFormModel.featureModel.linkedParentFeature = relationEditorModel.feature
-                embeddedAttributeFormModel.featureModel.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
-                embeddedFeatureForm.active = true
+                embeddedPopup.state = !readOnly ? 'Edit' : 'ReadOnly'
+                embeddedPopup.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
+                embeddedPopup.linkedRelation = relationEditorModel.relation
+                embeddedPopup.linkedParentFeature = relationEditorModel.feature
+                embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature
+                embeddedPopup.open()
             }
           }
 
@@ -216,67 +215,12 @@ Rectangle{
 
     }
 
-    //the add entry stuff
-    AttributeFormModel {
-      id: embeddedAttributeFormModel
-      featureModel: FeatureModel {
-        id: embeddedFeatureModel
-      }
-    }
+    EmbeddedFeatureForm{
+        id: embeddedPopup
 
-    Loader {
-      id: embeddedFeatureForm
-
-      property var state
-
-      sourceComponent: embeddedFeatureFormComponent
-      active: false
-      onLoaded: {
-        item.open()
-      }
-    }
-
-    Component {
-      id: embeddedFeatureFormComponent
-
-      Popup {
-        id: popup
-        parent: ApplicationWindow.overlay
-
-        x: 24 * dp
-        y: 24 * dp
-        padding: 0
-        width: parent.width - 48 * dp
-        height: parent.height - 48 * dp
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-
-        FeatureForm {
-            model: embeddedAttributeFormModel
-
-            focus: true
-
-            embedded: true
-            toolbarVisible: true
-
-            anchors.fill: parent
-
-            state: embeddedFeatureForm.state
-
-            onSaved: {
-                popup.close()
-            }
-
-            onCancelled: {
-                popup.close()
-            }
+        onFeatureSaved: {
+            relationEditorModel.reload()
         }
-
-        onClosed: {
-          embeddedFeatureForm.active = false
-          relationEditorModel.reload()
-        }
-      }
     }
 
     BusyIndicator {
