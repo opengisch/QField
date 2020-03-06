@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-
+import Theme 1.0
 
 
 Popup {
@@ -26,11 +26,13 @@ Popup {
             id: label
             Layout.columnSpan: 2
             Layout.fillWidth: true
+            font: Theme.secondaryTitleFont
         }
         RowLayout {
             Layout.alignment: Qt.AlignRight
             Button{
                 id: button1
+                font: Theme.defaultFont
                 onClicked: {
                     button1Clicked();
                     close();
@@ -39,6 +41,7 @@ Popup {
             Button{
                 id: button2
                 visible: nButtons >= 2
+                font: Theme.defaultFont
                 onClicked: {
                     button2Clicked();
                     close();
@@ -47,6 +50,7 @@ Popup {
             Button{
                 id: button3
                 visible: nButtons >= 3
+                font: Theme.defaultFont
                 onClicked: {
                     button3Clicked();
                     close();
