@@ -98,9 +98,8 @@ VisibilityFadingRow {
     formPopupLoader.item.onFeatureCancelled.connect(rollbackRingAndCancel)
 
     formPopupLoader.item.state = 'Add'
-    formPopupLoader.item.attributeFormModel.featureModel.currentLayer = featureModel.currentLayer
-    formPopupLoader.item.attributeFormModel.featureModel.resetAttributes()
-    formPopupLoader.item.attributeFormModel.featureModel.feature = feature
+    formPopupLoader.item.currentLayer = featureModel.currentLayer
+    formPopupLoader.item.feature = feature
     formPopupLoader.item.open()
   }
 }
