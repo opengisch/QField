@@ -319,12 +319,14 @@ ApplicationWindow {
 
     /* Rubberband for vertices  */
     Item {
+      // highlighting vertices
       VertexRubberband {
         id: vertexRubberband
         model: vertexModel
         mapSettings: mapCanvas.mapSettings
       }
 
+      // highlighting geometry (point, line, surface)
       Rubberband {
         id: editingRubberBand
         vertexModel: vertexModel

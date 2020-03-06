@@ -18,6 +18,9 @@ Popup {
     signal button2Clicked()
     signal button3Clicked()
 
+    modal: true
+    closePolicy: Popup.NoAutoClose
+
     anchors.centerIn: parent
 
     ColumnLayout {
@@ -27,6 +30,7 @@ Popup {
             Layout.columnSpan: 2
             Layout.fillWidth: true
             font: Theme.secondaryTitleFont
+            wrapMode: Text.Wrap
         }
         RowLayout {
             Layout.alignment: Qt.AlignRight
