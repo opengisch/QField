@@ -19,14 +19,14 @@ Item {
   property ViewStatus __viewStatus
 
   //on all mimetypes image/... and on empty values it should appear as an image widget
-  property bool isImage: FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+  property bool isImage: value === undefined || FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
 
   //to not break any binding of image.source
   property var currentValue: value
   onCurrentValueChanged: {
       console.log
       if (isImage ) {
-          if ( FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
+          if ( value === undefined || FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
               image.source=Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
           } else if ( image.status === Image.Error || !FileUtils.fileExists( qgisProject.homePath + '/' + value ) ) {
@@ -48,6 +48,7 @@ Item {
     topPadding: 10 * dp
     bottomPadding: 10 * dp
     visible: !isImage
+    enabled: !isImage
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -80,6 +81,7 @@ Item {
   Image {
     id: image
     visible: isImage
+    enabled: isImage
     width: 200 * dp
     autoTransform: true
     fillMode: Image.PreserveAspectFit
