@@ -8,6 +8,12 @@ if [[ -z $1 ]]; then
 else
   FILES=$1
 fi
+if [[ -z $2 ]]; then
+  DESTINATION_PATH=${DIR}/../images/themes/qfield
+else
+  DESTINATION_PATH=${DIR}/../android/res
+  PREFIX="drawable-"
+fi
 
 for f in $FILES
 do
@@ -33,9 +39,9 @@ do
         res=96
         ;;
     esac
-    DEST_FILE=${DIR}/../images/themes/qfield/$size/$filename.png
+    DEST_FILE=${DESTINATION_PATH}/${PREFIX}${size}/$filename.png
     if ( [[ ! -f ${DEST_FILE} ]] || [[ ${SKIP_EXISTING} != TRUE ]] ); then
-      inkscape -z -e ${DEST_FILE} -w $res -h $res $f
+      inkscape -z -o ${DEST_FILE} -w $res -h $res $f
     else
       echo "  skipping"
     fi

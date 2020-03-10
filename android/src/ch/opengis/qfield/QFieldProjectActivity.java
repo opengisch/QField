@@ -99,7 +99,7 @@ public class QFieldProjectActivity extends Activity {
                 for (int i=lastUsedProjectsArray.length-1; i>=0; i--) {
                     File f = new File(lastUsedProjectsArray[i]);
                     if (f.exists()){
-                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(f, f.getName(), R.drawable.qfield_logo, QFieldProjectListItem.TYPE_ITEM));
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class QFieldProjectActivity extends Activity {
                     if (file.getName().startsWith(".")) {
                         continue;
                     }else if (file.getName().toLowerCase().endsWith(".qgs") || file.getName().toLowerCase().endsWith(".qgz")){
-                        values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.icon, QFieldProjectListItem.TYPE_ITEM));
+                        values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.qfield_logo, QFieldProjectListItem.TYPE_ITEM));
                     }else if (file.isDirectory()){
                         values.add(new QFieldProjectListItem(file, file.getName(), R.drawable.directory, QFieldProjectListItem.TYPE_ITEM));
                     }
