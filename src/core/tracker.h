@@ -24,6 +24,9 @@ class RubberbandModel;
 class Tracker : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
+
   public:
     explicit Tracker( QgsVectorLayer *layer, bool visible );
 
@@ -45,6 +48,11 @@ class Tracker : public QObject
     //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
     void setConjunction( const bool conjunction );
 
+    //! the timestamp of the first recorded position
+    QDateTime startPositionTimestamp() const;
+    //! the timestamp of the first recorded position
+    void setStartPositionTimestamp( const QDateTime &startPositionTimestamp );
+
     //! the current layer
     QgsVectorLayer *layer() const { return mLayer; }
     //! the current layer
@@ -60,6 +68,9 @@ class Tracker : public QObject
 
     void start();
     void stop();
+
+  signals:
+    void startPositionTimestampChanged();
 
   private slots:
     void positionReceived();

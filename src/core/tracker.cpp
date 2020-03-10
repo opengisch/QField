@@ -58,6 +58,16 @@ void Tracker::setConjunction( const bool conjunction )
   mConjunction = conjunction;
 }
 
+QDateTime Tracker::startPositionTimestamp() const
+{
+  return mStartPositionTimestamp;
+}
+
+void Tracker::setStartPositionTimestamp(const QDateTime &startPositionTimestamp)
+{
+  mStartPositionTimestamp = startPositionTimestamp;
+}
+
 bool Tracker::conjunction() const
 {
   return mConjunction;
@@ -73,26 +83,6 @@ void Tracker::trackPosition()
   if ( std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
   {
     return;
-  }
-
-  if ( QgsWkbTypes::hasM( mLayer->wkbType() ) )
-  {
-    if ( !model()->currentPositionTimestamp().isValid() )
-    {
-      return;
-    }
-    double secsSinceStart = 0;
-    if ( mStartPositionTimestamp.isValid() )
-    {
-      secsSinceStart = mStartPositionTimestamp.secsTo( model()->currentPositionTimestamp() );
-    }
-    else
-    {
-      mStartPositionTimestamp = model()->currentPositionTimestamp();
-    }
-    QgsPoint currentCoordinate = model()->currentCoordinate();
-    currentCoordinate.addMValue( secsSinceStart );
-    model()->setCurrentCoordinate( currentCoordinate );
   }
 
   model()->addVertex();
@@ -143,6 +133,10 @@ void Tracker::start()
   {
     connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
+
+  //set the start time
+  setStartPositionTimestamp( QDateTime::currentDateTime() );
+  model()->setMeasureValue(0);
 
   //track first position
   trackPosition();

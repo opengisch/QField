@@ -38,6 +38,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   roles[Feature] = "feature";
   roles[RubberModel] = "rubberModel";
   roles[Visible] = "visible";
+  roles[StartPositionTimestamp] = "startPositionTimestamp";
 
   return roles;
 }
@@ -79,6 +80,8 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
       return QVariant::fromValue< QgsVectorLayer *>( mTrackers.at( index.row() )->layer() );
     case Visible:
       return mTrackers.at( index.row() )->visible();
+    case StartPositionTimestamp:
+      return mTrackers.at( index.row() )->startPositionTimestamp();
     default:
       return QVariant();
   }

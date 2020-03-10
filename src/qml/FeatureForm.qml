@@ -22,6 +22,7 @@ Page {
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
+  //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
   property bool dontSave: false
 
   function reset() {
@@ -438,7 +439,6 @@ Page {
               displayToast( qsTr('Note: soft constraints were not met') )
             }
             if( dontSave ) {
-                //neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
                 temporaryStored()
             }else{
                 save()

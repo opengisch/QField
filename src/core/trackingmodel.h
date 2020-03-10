@@ -41,7 +41,8 @@ class TrackingModel : public QAbstractItemModel
       MinimumDistance,    //! the minimum distance between setting trackpoints
       Conjunction,        //! if both, the minimum distance and the time interval, needs to be fulfilled before setting trackpoints
       Visible,            //! if the layer and so the tracking components like rubberband is visible
-      Feature             //! the feature in the current tracking session
+      Feature,            //! the feature in the current tracking session
+      StartPositionTimestamp             //!
     };
 
     QHash<int, QByteArray> roleNames() const override;

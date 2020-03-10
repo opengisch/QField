@@ -149,12 +149,15 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   double x = currentPt.x();
   double y = currentPt.y();
   double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
+  double m = QgsWkbTypes::hasM( currentPt.wkbType() ) ? currentPt.m() : 0;
 
   ct.transformInPlace( x, y, z );
 
   QgsPoint resultPt( x, y );
   if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
     resultPt.addZValue( z );
+  if ( QgsWkbTypes::hasM( currentPt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+    resultPt.addMValue( m );
 
   return resultPt;
 }
@@ -185,6 +188,30 @@ QDateTime RubberbandModel::currentPositionTimestamp() const
 void RubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp )
 {
   mCurrentPositionTimestamp = currentPositionTimestamp;
+}
+
+double RubberbandModel::measureValue() const
+{
+  if( mPointList.at( mCurrentCoordinateIndex ).isMeasure() )
+  {
+    return mPointList.at( mCurrentCoordinateIndex ).m();
+  }
+  return 0;
+}
+
+void RubberbandModel::setMeasureValue(const double measureValue)
+{
+  if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
+  {
+    if( !std::isnan(measureValue) )
+    {
+      double mValue = measureValue;
+
+      QgsPoint currentPoint = currentCoordinate();
+      currentPoint.addMValue( mValue );
+      setCurrentCoordinate( currentPoint );
+    }
+  }
 }
 
 void RubberbandModel::addVertex()

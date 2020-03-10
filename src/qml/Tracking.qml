@@ -24,9 +24,10 @@ Item{
     RubberbandModel {
         id: rubberbandModel
         frozen: false
-        currentCoordinate: positionSource.projectedPosition
-        currentPositionTimestamp: positionSource.position.timestamp
         vectorLayer: mainModel.vectorLayer
+        currentCoordinate: positionSource.projectedPosition
+        measureValue: ( positionSource.position.timestamp - mainModel.startPositionTimestamp ) / 1000
+        currentPositionTimestamp: positionSource.position.timestamp
         crs: mapCanvas.mapSettings.destinationCrs
 
         onVertexCountChanged: {
