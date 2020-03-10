@@ -18,7 +18,7 @@ Item{
     Component.onCompleted: {
         featureModel.resetAttributes()
         embeddedFeatureForm.state = 'Add'
-        embeddedFeatureForm.active = true
+        trackInformationDialog.active = true
     }
 
     RubberbandModel {
@@ -119,15 +119,16 @@ Item{
             state: 'Add'
 
             onTemporaryStored: {
-                trackInformationDialog.active = true
                 embeddedFeatureForm.active = false
+                trackingModel.startTracker( mainModel.vectorLayer )
+                displayToast( qsTr( 'Track on layer %1 started' ).arg( mainModel.vectorLayer.name  ) )
             }
 
             onCancelled: {
                 //displayToast( qsTr( 'No track on layer %1 started' ).arg( model.vectorLayer.name  ) )
                 embeddedFeatureForm.active = false
                 embeddedFeatureForm.focus = false
-                mainModel.stopTracker( mainModel.vectorLayer )
+                trackingModel.stopTracker( mainModel.vectorLayer )
             }
         }
       }
@@ -184,15 +185,12 @@ Item{
                         mainModel.conjunction = conjunction.checked
                         mainModel.rubberModel = rubberbandModel
 
-                        trackingModel.startTracker( mainModel.vectorLayer )
-                        displayToast( qsTr( 'Track on layer %1 started' ).arg( mainModel.vectorLayer.name  ) )
-
                         trackInformationDialog.active = false
+                        embeddedFeatureForm.active = true
                     }
                 }
                 onCancel: {
                     trackInformationDialog.active = false
-                    //displayToast( qsTr( 'No track on layer %1 started' ).arg( model.vectorLayer.name  ) )
                     trackingModel.stopTracker( mainModel.vectorLayer )
                 }
             }
@@ -228,6 +226,7 @@ Item{
                     bottomPadding: 10 * dp
                     Layout.fillWidth: true
                     font: Theme.defaultFont
+                    text: '30'
 
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
 
@@ -243,8 +242,16 @@ Item{
                 }
 
                 CheckBox {
+                    DistanceArea {
+                      id: infoDistanceArea
+                      property VectorLayer currentLayer: mainModel.vectorLayer
+                      project: qgisProject
+                      crs: qgisProject.crs
+                    }
+
                     id: distanceCheck
-                    text: qsTr( 'Distance (%1)' ).arg( UnitTypes.toAbbreviatedString(  mapCanvas.mapSettings.destinationCrs.mapUnits ) )
+
+                    text: qsTr( 'Distance (%1)' ).arg( UnitTypes.toAbbreviatedString( infoDistanceArea.lengthUnits ) )
                     font: Theme.defaultFont
 
                     Layout.fillWidth: true
@@ -262,6 +269,7 @@ Item{
                     bottomPadding: 10 * dp
                     Layout.fillWidth: true
                     font: Theme.defaultFont
+                    text: '50'
 
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
 
@@ -283,7 +291,7 @@ Item{
 
                 CheckBox {
                     id: conjunction
-                    text: qsTr('Both conditions need to be fullfilled')
+                    text: qsTr('Digitize vertex only when both conditions are met')
                     font: Theme.defaultFont
                     checked: timeIntervalCheck.checked && distanceCheck.checked
                     enabled: timeIntervalCheck.checked && distanceCheck.checked
