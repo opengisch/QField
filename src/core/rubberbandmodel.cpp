@@ -70,6 +70,18 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     QgsPoint p2 = SnappingUtils::newPoint( pt, wkbType );
     p2.setX( p1.x() );
     p2.setY( p1.y() );
+
+    //overwrite z and m values if already existent in the point
+    if ( QgsWkbTypes::hasM( pt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+    {
+      p2.addMValue( pt.m() );
+    }
+
+    if ( QgsWkbTypes::hasZ( pt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
+    {
+      p2.addMValue( pt.z() );
+    }
+
     sequence.append( p2 );
   }
 
@@ -192,11 +204,7 @@ void RubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPosit
 
 double RubberbandModel::measureValue() const
 {
-  if( mPointList.at( mCurrentCoordinateIndex ).isMeasure() )
-  {
-    return mPointList.at( mCurrentCoordinateIndex ).m();
-  }
-  return 0;
+  return QgsWkbTypes::hasM( mPointList.at( mCurrentCoordinateIndex ).wkbType() ) ? mPointList.at( mCurrentCoordinateIndex ).m() : 0;
 }
 
 void RubberbandModel::setMeasureValue(const double measureValue)
