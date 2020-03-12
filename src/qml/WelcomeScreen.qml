@@ -48,7 +48,7 @@ Page {
       Layout.preferredHeight: Math.min( 138 * dp, mainWindow.height / 4 )
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: "qrc:/images/qfield-logo.svg"
+      source: "qrc:/images/qfield_logo.svg"
       sourceSize.width: 200 * dp
       sourceSize.height: 200 * dp
     }

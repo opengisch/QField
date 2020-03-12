@@ -23,6 +23,7 @@
 #include <qgsfield.h>
 #include "picturesource.h"
 #include "qfieldcore_global.h"
+#include "viewstatus.h"
 
 class ProjectSource;
 
@@ -49,21 +50,21 @@ class QFIELDCORE_EXPORT PlatformUtilities : public QObject
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix);
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
      * @param prefix The folder where the picture should be put
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix);
+    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
-     * A \a mimeType can be provided to indicate the system how the file should
+     * The mimetype is detected to indicate the system how the file should
      * be opened.
      */
-    Q_INVOKABLE virtual void open( const QString &uri, const QString &mimeType );
+    Q_INVOKABLE virtual ViewStatus *open( const QString &uri );
 
     /**
      * Returns the QVariant typeName of a \a field.

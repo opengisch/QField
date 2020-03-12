@@ -33,9 +33,9 @@ class QFIELDCORE_EXPORT AndroidPlatformUtilities : public PlatformUtilities
     virtual QString shareDir() const override;
     virtual QString packagePath() const override;
     virtual QString qgsProject() const override;
-    virtual PictureSource *getCameraPicture( const QString &prefix) override;
-    virtual PictureSource *getGalleryPicture( const QString &prefix) override;
-    virtual void open( const QString &uri, const QString &mimeType ) override;
+    virtual PictureSource *getCameraPicture( const QString &prefix ) override;
+    virtual PictureSource *getGalleryPicture( const QString &prefix ) override;
+    virtual ViewStatus *open( const QString &uri ) override;
     virtual ProjectSource *openProject() override;
 
     virtual bool checkPositioningPermissions() const override;

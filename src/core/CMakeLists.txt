@@ -45,6 +45,8 @@ SET(QFIELD_CORE_SRCS
   submodel.cpp
   valuemapmodel.cpp
   vertexmodel.cpp
+  fileutils.cpp
+  viewstatus.cpp
 )
 
 SET(QFIELD_CORE_HDRS
@@ -95,6 +97,8 @@ SET(QFIELD_CORE_HDRS
   valuemapmodel.h
   vertexmodel.h
   qfieldcore_global.h
+  fileutils.h
+  viewstatus.h
 )
 
 FIND_PACKAGE(Sqlite3)

@@ -108,7 +108,7 @@ void VertexModel::refreshGeometry()
   int r = 0;
   while ( abstractGeom->nextVertex( vertexId, pt ) )
   {
-    if ( vertexId.part > 1 || vertexId.ring > 1 )
+    if ( vertexId.part > 1 || vertexId.ring > 0 )
       break;
 
     // skip first vertex on polygon, as it's duplicate of the last one
