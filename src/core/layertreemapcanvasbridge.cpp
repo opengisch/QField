@@ -25,11 +25,12 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgslayertreemodel.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
   , mRoot( model->layerTree() )
   , mModel( model )
   , mMapSettings( mapSettings )
+  , mTrackingModel( trackingModel )
   , mPendingCanvasUpdate( false )
   , mHasCustomLayerOrder( false )
   , mAutoSetupOnFirstLayer( false )
@@ -38,6 +39,8 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQu
 {
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
+
+  connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
 
   setCanvasLayers();
 }
@@ -115,7 +118,12 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<Qg
     {
       allLayers << nodeLayer->layer();
       if ( nodeLayer->isVisible() )
+      {
         canvasLayers << nodeLayer->layer();
+      }
+      QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      if ( layer )
+        mTrackingModel->setLayerVisible( layer, nodeLayer->isVisible() );
     }
   }
 
@@ -142,6 +150,12 @@ void LayerTreeMapCanvasBridge::nodeVisibilityChanged()
 void LayerTreeMapCanvasBridge::mapThemeChanged()
 {
   QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
+}
+
+void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
+{
+  QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
+  mModel->setLayerInTracking( nodeLayer, tracking );
 }
 
 

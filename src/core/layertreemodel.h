@@ -17,6 +17,7 @@
 #define LAYERTREEMODEL_H
 
 #include <QSortFilterProxyModel>
+#include <qgslayertreelayer.h>
 
 class QgsLayerTree;
 class QgsLayerTreeModel;
@@ -34,12 +35,15 @@ class LayerTreeModel : public QSortFilterProxyModel
       VectorLayer = Qt::UserRole + 1,
       LegendImage,
       Type,
-      Visible
+      Visible,
+      Trackable,
+      InTracking
     };
-    Q_ENUMS( Roles )
+    Q_ENUM( Roles )
 
     explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
+    ~LayerTreeModel() override;
     Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
 
     Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
@@ -59,6 +63,9 @@ class LayerTreeModel : public QSortFilterProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
+    //! Sets the information if the \a nodeLayer is currently in \a tracking state
+    void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
+
   signals:
     void mapThemeChanged();
 
@@ -70,6 +77,7 @@ class LayerTreeModel : public QSortFilterProxyModel
     QgsLayerTreeModel *mLayerTreeModel;
     QString mMapTheme;
     QgsProject *mProject;
+    QList<QgsLayerTreeLayer *> mLayersInTracking;
 };
 
 #endif // LAYERTREEMODEL_H

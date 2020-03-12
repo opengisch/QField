@@ -70,6 +70,18 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     QgsPoint p2 = SnappingUtils::newPoint( pt, wkbType );
     p2.setX( p1.x() );
     p2.setY( p1.y() );
+
+    //overwrite z and m values if already existent in the point
+    if ( QgsWkbTypes::hasM( pt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+    {
+      p2.addMValue( pt.m() );
+    }
+
+    if ( QgsWkbTypes::hasZ( pt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
+    {
+      p2.addMValue( pt.z() );
+    }
+
     sequence.append( p2 );
   }
 
@@ -149,12 +161,15 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   double x = currentPt.x();
   double y = currentPt.y();
   double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
+  double m = QgsWkbTypes::hasM( currentPt.wkbType() ) ? currentPt.m() : 0;
 
   ct.transformInPlace( x, y, z );
 
   QgsPoint resultPt( x, y );
   if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
     resultPt.addZValue( z );
+  if ( QgsWkbTypes::hasM( currentPt.wkbType() ) && QgsWkbTypes::hasM( wkbType ) )
+    resultPt.addMValue( m );
 
   return resultPt;
 }
@@ -175,6 +190,36 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   mPointList.replace( mCurrentCoordinateIndex, currentCoordinate );
   emit currentCoordinateChanged();
   emit vertexChanged( mCurrentCoordinateIndex );
+}
+
+QDateTime RubberbandModel::currentPositionTimestamp() const
+{
+  return mCurrentPositionTimestamp;
+}
+
+void RubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp )
+{
+  mCurrentPositionTimestamp = currentPositionTimestamp;
+}
+
+double RubberbandModel::measureValue() const
+{
+  return QgsWkbTypes::hasM( mPointList.at( mCurrentCoordinateIndex ).wkbType() ) ? mPointList.at( mCurrentCoordinateIndex ).m() : 0;
+}
+
+void RubberbandModel::setMeasureValue(const double measureValue)
+{
+  if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
+  {
+    if( !std::isnan(measureValue) )
+    {
+      double mValue = measureValue;
+
+      QgsPoint currentPoint = currentCoordinate();
+      currentPoint.addMValue( mValue );
+      setCurrentCoordinate( currentPoint );
+    }
+  }
 }
 
 void RubberbandModel::addVertex()

@@ -93,8 +93,8 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 #include "geometryeditorsmodel.h"
+#include "trackingmodel.h"
 #include "fileutils.h"
-
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -140,6 +140,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
   mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
+  mTrackingModel = new TrackingModel;
 
   initDeclarative();
 
@@ -169,7 +170,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
@@ -268,6 +269,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
+  qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -294,6 +296,7 @@ void QgisMobileapp::initDeclarative()
 #if VERSION_INT >= 30600
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 #endif
+  rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
@@ -382,6 +385,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
     qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
     mIface->openFeatureForm();
   }
+  
 }
 
 void QgisMobileapp::onAfterFirstRendering()
@@ -422,6 +426,8 @@ void QgisMobileapp::loadProjectFile( const QString &path )
 void QgisMobileapp::reloadProjectFile( const QString &path )
 {
   mProject->removeAllMapLayers();
+  mTrackingModel->reset();
+
   emit loadProjectStarted( path );
   mProject->read( path );
 

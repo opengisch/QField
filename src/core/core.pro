@@ -67,6 +67,8 @@ HEADERS += \
     referencingfeaturelistmodel.h \
     featurechecklistmodel.h \
     qfieldappauthrequesthandler.h \
+    tracker.h \
+    trackingmodel.h \
     fileutils.h \
     viewstatus.h
 
@@ -117,6 +119,8 @@ SOURCES += \
     referencingfeaturelistmodel.cpp \
     featurechecklistmodel.cpp \
     qfieldappauthrequesthandler.cpp \
+    tracker.cpp \
+    trackingmodel.cpp \
     fileutils.cpp \
     viewstatus.cpp
 

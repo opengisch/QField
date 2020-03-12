@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 import QtQuick.Controls 1.4 as Controls
+import QtGraphicalEffects 1.12
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
@@ -9,6 +10,7 @@ import QtQml.Models 2.2
 import QtQuick.Controls.Styles 1.4
 
 import Theme 1.0
+import "."
 
 TreeView {
   id: listView
@@ -86,6 +88,28 @@ TreeView {
         text: styleData.value !== undefined ? styleData.value : ""
         renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
         color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
+      }
+      Rectangle {
+        visible: model.inTracking ? true : false
+        height: 24*dp
+        width: 24*dp
+        radius: height / 2
+        color: '#64B5F6'
+
+        SequentialAnimation on color  {
+          loops: Animation.Infinite
+          ColorAnimation  { from: "#64b5f6"; to: "#2374b5"; duration: 2000; easing.type: Easing.InOutQuad }
+          ColorAnimation  { from: "#2374b5"; to: "#64b5f6"; duration: 1000; easing.type: Easing.InOutQuad }
+        }
+
+        Image {
+          anchors.fill: parent
+          anchors.margins: 4 * dp
+          fillMode: Image.PreserveAspectFit
+          horizontalAlignment: Image.AlignHCenter
+          verticalAlignment: Image.AlignVCenter
+          source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
+        }
       }
     }
   }

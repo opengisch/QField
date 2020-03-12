@@ -45,6 +45,8 @@ SET(QFIELD_CORE_SRCS
   submodel.cpp
   valuemapmodel.cpp
   vertexmodel.cpp
+  trackingmodel.cpp
+  tracker.cpp
   fileutils.cpp
   viewstatus.cpp
 )
@@ -96,6 +98,8 @@ SET(QFIELD_CORE_HDRS
   submodel.h
   valuemapmodel.h
   vertexmodel.h
+  trackingmodel.h
+  tracker.h
   fileutils.h
   viewstatus.h
 )

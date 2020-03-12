@@ -19,6 +19,7 @@
 #include <QVector>
 #include <QObject>
 #include <QPointF>
+#include <QDateTime>
 #include <qgis.h>
 #include <qgspoint.h>
 #include <qgsabstractgeometry.h>
@@ -43,6 +44,10 @@ class RubberbandModel : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! freeze the rubberband so it doesn't get modified while panning map
     Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
+    //! currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself
+    Q_PROPERTY( QDateTime currentPositionTimestamp READ currentPositionTimestamp WRITE setCurrentPositionTimestamp NOTIFY currentPositionTimestampChanged )
+    //! measureValue defines the M value of the coordinates
+    Q_PROPERTY( double measureValue READ measureValue WRITE setMeasureValue NOTIFY measureValueChanged )
 
   public:
     explicit RubberbandModel( QObject *parent = nullptr );
@@ -79,6 +84,16 @@ class RubberbandModel : public QObject
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 
+    //! \copydoc currentPositionTimestamp
+    QDateTime currentPositionTimestamp() const;
+    //! \copydoc currentPositionTimestamp
+    void setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp );
+
+    //! \copydoc measureValue
+    double measureValue() const;
+    //! \copydoc measureValue
+    void setMeasureValue( const double measureValue );
+
     Q_INVOKABLE void addVertex();
     Q_INVOKABLE void removeVertex();
 
@@ -111,11 +126,13 @@ class RubberbandModel : public QObject
     void crsChanged();
     //! \copydoc frozen
     void frozenChanged();
-
+    void currentPositionTimestampChanged();
+    void measureValueChanged();
 
   private:
     QVector<QgsPoint> mPointList;
     int mCurrentCoordinateIndex;
+    QDateTime mCurrentPositionTimestamp;
     QgsWkbTypes::GeometryType mGeometryType;
     QgsVectorLayer *mLayer;
     QgsCoordinateReferenceSystem mCrs;

@@ -15,12 +15,15 @@ import "."
 Page {
   signal saved
   signal cancelled
+  signal temporaryStored
   signal aboutToSave
 
   property AttributeFormModel model
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
+  //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
+  property bool dontSave: false
 
   function reset() {
     master.reset()
@@ -435,7 +438,11 @@ Page {
             if ( !model.constraintsSoftValid ) {
               displayToast( qsTr('Note: soft constraints were not met') )
             }
-            save()
+            if( dontSave ) {
+                temporaryStored()
+            }else{
+                save()
+            }
           } else {
             displayToast( qsTr('Constraints not valid') )
           }
