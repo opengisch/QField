@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/fonts">
+    <file alias="Cadastra-Bold.ttf">fonts/ch.cadastra/Cadastra-Bold.ttf</file>
+    <file alias="Cadastra-BoldItalic.ttf">fonts/ch.cadastra/Cadastra-BoldItalic.ttf</file>
+    <file alias="Cadastra-Condensed.ttf">fonts/ch.cadastra/Cadastra-Condensed.ttf</file>
+    <file alias="Cadastra-Italic.ttf">fonts/ch.cadastra/Cadastra-Italic.ttf</file>
+    <file alias="Cadastra-Regular.ttf">fonts/ch.cadastra/Cadastra-Regular.ttf</file>
+    <file alias="Cadastra-Semibolditalic.ttf">fonts/ch.cadastra/Cadastra-Semibolditalic.ttf</file>
+    <file alias="CadastraSymbol-Mask.ttf">fonts/ch.cadastra/CadastraSymbol-Mask.ttf</file>
+    <file alias="CadastraSymbol-Regular.ttf">fonts/ch.cadastra/CadastraSymbol-Regular.ttf</file>
+</qresource>
+</RCC>
