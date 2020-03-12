@@ -4,6 +4,7 @@ ADD_EXECUTABLE(qfield
   main.cpp
   ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
   ${CMAKE_SOURCE_DIR}/images/images.qrc
+  ${CMAKE_SOURCE_DIR}/resources/resources.qrc
   ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
 )
 

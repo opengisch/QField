@@ -34,6 +34,7 @@ lupdate_only{
 
 RESOURCES += \
     ../../images/images.qrc \
+    ../../resources/resources.qrc \
     ../qml/qml.qrc \
     ../../i18n/translations.qrc
 

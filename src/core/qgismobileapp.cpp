@@ -32,6 +32,7 @@
 #include <QPrintDialog>
 #include <QTemporaryFile>
 #include <QFileInfo>
+#include <QFontDatabase>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -124,6 +125,16 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 #endif
+
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Bold.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-BoldItalic.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Condensed.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Italic.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Regular.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Semibolditalic.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Mask.ttf");
+  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Regular.ttf");
+
 
   mProject = QgsProject::instance();
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
@@ -413,6 +424,20 @@ void QgisMobileapp::reloadProjectFile( const QString &path )
   mProject->removeAllMapLayers();
   emit loadProjectStarted( path );
   mProject->read( path );
+
+  // load fonts in same directory
+  QDir fontDir = QDir::cleanPath( QFileInfo( path ).absoluteDir().path() + QDir::separator() + ".fonts" );
+  QStringList fontExts = QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF";
+  const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+  for ( const QString &fontFile : fontFiles )
+  {
+    int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+    if ( id < 0 )
+      QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
+    else
+      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ));
+  }
+
   loadProjectQuirks();
 
   emit loadProjectEnded();
