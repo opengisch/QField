@@ -18,7 +18,6 @@
 	  </Dependencies>
 	  <Capabilities>
 	    <rescap:Capability Name="runFullTrust"/>
-      <DeviceCapability Name="location"/>
 	  </Capabilities>
     <Applications>
       <Application Id="QField" Executable="qfield.exe" EntryPoint="Windows.FullTrustApplication">
