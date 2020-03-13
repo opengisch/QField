@@ -182,7 +182,7 @@ jobs:
     displayName: 'Package msix QField'
 
 
-  - task: PublishBuildArtifacts@2
+  - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)\QField-windows.msix'
       artifactName: qfield-$(Build.BuildNumber).exe
