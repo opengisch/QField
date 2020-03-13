@@ -127,7 +127,6 @@ ApplicationWindow {
    */
   TransformedPositionSource {
     id: positionSource
-    active: positionSettings.positioningActivated
     destinationCrs: mapCanvas.mapSettings.destinationCrs
     deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
@@ -866,7 +865,22 @@ ApplicationWindow {
 
   LabSettings.Settings {
     id: positionSettings
-    property alias positioningActivated: positioningItem.checked
+    property bool positioningActivated: false
+
+    onPositioningActivatedChanged: {
+        if( positioningActivated ){
+          if( platformUtilities.checkPositioningPermissions() ) {
+            positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
+            displayToast( qsTr( "Activating positioning service" ) )
+            positionSource.active = true
+          }else{
+            displayToast( qsTr( "QField has no permissions to use positioning." ) )
+            positionSettings.positioningActivated = false
+          }
+        }else{
+            positionSource.active = false
+        }
+    }
   }
 
   Menu {
@@ -883,7 +897,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       width: parent.width
       checkable: true
-      checked: false
+      checked: positionSettings.positioningActivated
       indicator.height: 20 * dp
       indicator.width: 20 * dp
       indicator.implicitHeight: 24 * dp
@@ -891,13 +905,9 @@ ApplicationWindow {
 
       onCheckedChanged: {
         if ( checked ) {
-            if( platformUtilities.checkPositioningPermissions() ) {
-              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
-              displayToast( qsTr( "Activating positioning service" ) )
-            }else{
-              displayToast( qsTr( "QField has no permissions to use positioning." ) )
-              checked = false
-            }
+            positionSettings.positioningActivated = true
+        } else {
+            positionSettings.positioningActivated = false
         }
       }
     }
