@@ -194,13 +194,7 @@ bool AndroidPlatformUtilities::checkPositioningPermissions() const
   QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
   if ( r == QtAndroid::PermissionResult::Denied )
   {
-    // If there are no permissions available, ask for fine location permissions
-    QtAndroid::requestPermissionsSync( QStringList() << "android.permission.ACCESS_FINE_LOCATION" );
-    r = QtAndroid::checkPermission( "android.permission.ACCESS_FINE_LOCATION" );
-    if ( r == QtAndroid::PermissionResult::Denied )
-    {
-      return false;
-    }
+    return checkAndAcquirePermissions( "android.permission.ACCESS_FINE_LOCATION" );
   }
   return true;
 }
