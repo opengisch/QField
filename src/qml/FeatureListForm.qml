@@ -218,9 +218,16 @@ Rectangle {
           iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
 
           onClicked: {
-            deleteDialog.currentLayer = currentLayer
-            deleteDialog.featureId = featureId
-            deleteDialog.visible = true
+            if( trackingModel.featureInTracking(currentLayer, featureId) )
+            {
+                displayToast( qsTr( "Stop tracking this feature to delete it" ) )
+            }
+            else
+            {
+                deleteDialog.currentLayer = currentLayer
+                deleteDialog.featureId = featureId
+                deleteDialog.visible = true
+            }
           }
         }
       }
@@ -301,11 +308,25 @@ Rectangle {
     }
 
     onEditAttributesButtonClicked: {
-      featureForm.state = "FeatureFormEdit"
+        if( trackingModel.featureInTracking(selection.selectedLayer, selection.selectedFeature.id) )
+        {
+            displayToast( qsTr( "Stop tracking this feature to edit attributes" ) )
+        }
+        else
+        {
+            featureForm.state = "FeatureFormEdit"
+        }
     }
 
     onEditGeometryButtonClicked: {
-      editGeometry()
+        if( trackingModel.featureInTracking(selection.selectedLayer, selection.selectedFeature.id) )
+        {
+            displayToast( qsTr( "Stop tracking this feature to edit geometry" ) )
+        }
+        else
+        {
+            editGeometry()
+        }
     }
 
     onSave: {

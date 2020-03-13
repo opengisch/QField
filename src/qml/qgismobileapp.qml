@@ -245,6 +245,14 @@ ApplicationWindow {
         visible: stateMachine.state === 'measure'
       }
 
+      /** Tracking sessions **/
+      Repeater {
+          id: trackings
+          model: trackingModel
+          Tracking {
+          }
+      }
+
       /** The identify tool **/
       IdentifyTool {
         id: identifyTool
@@ -271,6 +279,7 @@ ApplicationWindow {
         anchors.fill: parent
       }
     }
+
 
     /** A coordinate locator for digitizing **/
     CoordinateLocator {

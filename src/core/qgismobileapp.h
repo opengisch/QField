@@ -51,6 +51,7 @@ class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
 class LayerTreeModel;
 class LegendImageProvider;
+class TrackingModel;
 class QgsProject;
 
 
@@ -144,6 +145,8 @@ class QFIELDCORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
     QgsExifTools mExifTools;
+
+    TrackingModel *mTrackingModel;
 
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;

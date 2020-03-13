@@ -25,6 +25,8 @@
 #include "layertreemodel.h"
 #include "qfieldcore_global.h"
 
+#include "trackingmodel.h"
+
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
 class QgsQuickMapSettings;
@@ -44,13 +46,14 @@ class QgsMapLayer;
  * in advanced cases where the grouping in layer tree should be independent from the actual
  * order in the canvas.
  *
+ * Passes to the legend (LayerTreeModel) the information, if the layer is in a tracking session
  */
 class QFIELDCORE_EXPORT LayerTreeMapCanvasBridge : public QObject
 {
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, QObject *parent = nullptr );
+    LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
 
     QgsLayerTree *rootGroup() const { return mRoot; }
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -77,6 +80,7 @@ class QFIELDCORE_EXPORT LayerTreeMapCanvasBridge : public QObject
   private slots:
     void nodeVisibilityChanged();
     void mapThemeChanged();
+    void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
   private:
 
@@ -87,6 +91,7 @@ class QFIELDCORE_EXPORT LayerTreeMapCanvasBridge : public QObject
     QgsLayerTree *mRoot = nullptr;
     LayerTreeModel *mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
+    TrackingModel *mTrackingModel = nullptr;
 
     bool mPendingCanvasUpdate;
 

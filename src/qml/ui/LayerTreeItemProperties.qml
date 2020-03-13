@@ -5,6 +5,9 @@ import Theme 1.0
 
 Popup {
     property alias itemVisible: itemVisibleCheckBox.checked
+
+    signal trackingButtonClicked
+
     padding: 0
 
     Page {
@@ -19,15 +22,36 @@ Popup {
             font: Theme.strongFont
         }
 
-        CheckBox {
-            id: itemVisibleCheckBox
-            text: qsTr("Show on map canvas")
-            font: Theme.defaultFont
+        ColumnLayout{
+            spacing: 4 * dp
 
-            indicator.height: 16 * dp
-            indicator.width: 16 * dp
-            indicator.implicitHeight: 24 * dp
-            indicator.implicitWidth: 24 * dp
+            CheckBox {
+                id: itemVisibleCheckBox
+                text: qsTr("Show on map canvas")
+                font: Theme.defaultFont
+
+                indicator.height: 16 * dp
+                indicator.width: 16 * dp
+                indicator.implicitHeight: 24 * dp
+                indicator.implicitWidth: 24 * dp
+            }
+
+            Button {
+                id: trackingButton
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                font: Theme.defaultFont
+                text: trackingButtonText
+                visible: trackingButtonVisible
+                background: Rectangle {
+                    color: trackingButtonBgColor
+                }
+
+                onClicked: {
+                    trackingButtonClicked()
+                }
+            }
         }
+
     }
 }

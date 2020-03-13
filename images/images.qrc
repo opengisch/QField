@@ -278,5 +278,11 @@
         <file>themes/qfield/xhdpi/ray-vertex.png</file>
         <file>themes/qfield/xxhdpi/ray-vertex.png</file>
         <file>themes/qfield/xxxhdpi/ray-vertex.png</file>
+        <file>themes/qfield/hdpi/ic_directions_walk_black_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_directions_walk_black_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_directions_walk_black_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_directions_walk_black_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_directions_walk_black_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_directions_walk_black_24dp.png</file>
     </qresource>
 </RCC>
