@@ -47,8 +47,8 @@ copy "%BUILDDIR%\output\bin\qfield.exe" "%QFIELD_RELEASE_PATH%"
 copy "%CD%\..\uwp\AppxManifest.xml" "%QFIELD_RELEASE_PATH%"
 
 mkdir "%QFIELD_RELEASE_PATH%\images"
-copy "%CD%\..\..\images\icons\qfield_icon_150.png" "%QFIELD_RELEASE_PATH%\images"
-copy "%CD%\..\..\images\icons\qfield_icon_40.png" "%QFIELD_RELEASE_PATH%\images"
+copy "%CD%\..\uwp\images\icon.png" "%QFIELD_RELEASE_PATH%\images"
+copy "%CD%\..\uwp\images\small_icon.png" "%QFIELD_RELEASE_PATH%\images"
 
 copy "%O4W_ROOT%\bin\zlib1.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\bin\netcdf.dll" "%QFIELD_RELEASE_PATH%"

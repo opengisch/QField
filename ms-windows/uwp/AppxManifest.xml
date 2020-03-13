@@ -22,7 +22,7 @@
     <Applications>
       <Application Id="QField" Executable="qfield.exe" EntryPoint="Windows.FullTrustApplication">
         <uap:VisualElements DisplayName="QField" Description="Field data collection for QGIS"	Square150x150Logo="images\icon.png"
-				   Square44x44Logo="images\small_icon.png"	BackgroundColor="#464646" />
+				   Square44x44Logo="images\small_icon.png" />
       </Application>
      </Applications>
   </Package>
