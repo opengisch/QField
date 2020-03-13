@@ -174,4 +174,17 @@ jobs:
 #      cd ms-windows\osgeo4w
 #      deploytogithub.cmd $(Build.ArtifactStagingDirectory) opengisch/qfield v1.4.1 $(GH_TOKEN) qfield-Windows-v1.4.1-%OSGEO4W_ARCH%.zip
 
+  - script: |
+      echo on
+      cd ms-windows\osgeo4w
+      makeappx.exe pack /d $(Build.ArtifactStagingDirectory) /p $(Build.ArtifactStagingDirectory)\QField-windows.msix
+      ## windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
+    displayName: 'Package msix QField'
+
+
+  - task: PublishBuildArtifacts@2
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)\QField-windows.msix'
+      artifactName: qfield-$(Build.BuildNumber).exe
+
 # vim: set nowrap :
