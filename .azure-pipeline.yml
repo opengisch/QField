@@ -177,7 +177,7 @@ jobs:
   - script: |
       echo on
       cd ms-windows\osgeo4w
-      makeappx.exe pack /d $(Build.ArtifactStagingDirectory) /p $(Build.ArtifactStagingDirectory)\QField-windows.msix
+      "C:\Program Files (x86)\Windows Kits\10\bin\x64\makeappx.exe" pack /d $(Build.ArtifactStagingDirectory) /p $(Build.ArtifactStagingDirectory)\QField-windows.msix
       ## windeployqfield.cmd $(Build.ArtifactStagingDirectory) $(Build.SourcesDirectory)\ms-windows\osgeo4w\build-%OSGEO4W_PKG%-%OSGEO4W_ARCH% $(Build.SourcesDirectory)\src\qml
     displayName: 'Package msix QField'
 
