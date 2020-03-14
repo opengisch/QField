@@ -56,21 +56,26 @@ int main( int argc, char **argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
-#  if defined(Q_OS_WIN)
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
-  qputenv( "PROJ_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/proj" ).toLocal8Bit() );
-#  endif
-  QgsApplication::init();
   QgsApplication app( argc, argv, true );
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 #  if defined(Q_OS_WIN)
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
+  qputenv( "PROJ_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/proj" ).toLocal8Bit() );
   app.setPrefixPath( app.applicationDirPath() + "/qgis", true );
 #  else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #  endif
 #endif
+  QgsApplication::init();
+  
+  QString dbError;
+  if ( !QgsApplication::createDatabase( &dbError ) )
+  {
+    QgsDebugMsg( QStringLiteral( "Copying qgis.db to profile directory" ).arg( dbError ) );
+  }
+  
   app.initQgis();
 
   //set NativeFormat for settings
@@ -87,7 +92,14 @@ int main( int argc, char **argv )
   qtTranslator.load( QLocale(), "qt", "_", ":/" );
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
-
+  
+  // Do this early on before anyone else opens it and prevents us copying it
+  QString dbError;
+  if ( !QgsApplication::createDatabase( &dbError ) )
+  {
+    QMessageBox::critical( this, tr( "Private qgis.db" ), dbError );
+  }
+  
   QgisMobileapp mApp( &app );
   return app.exec();
 }
