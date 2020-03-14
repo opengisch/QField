@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 import QtQuick.Controls 1.4 as Controls
-import QtGraphicalEffects 1.12
+import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
