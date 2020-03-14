@@ -56,14 +56,17 @@ int main( int argc, char **argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
+#  if defined(Q_OS_WIN)
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
+  qputenv( "PROJ_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/proj" ).toLocal8Bit() );
+#  endif
+  QgsApplication::init();
   QgsApplication app( argc, argv, true );
   QSettings settings;
 
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 #  if defined(Q_OS_WIN)
   app.setPrefixPath( app.applicationDirPath() + "/qgis", true );
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/gdal" ).toLocal8Bit() );
-  qputenv( "PROJ_DATA", QDir::toNativeSeparators( app.applicationDirPath() + "/proj" ).toLocal8Bit() );
 #  else
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #  endif
