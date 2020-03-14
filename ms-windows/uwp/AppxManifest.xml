@@ -3,7 +3,7 @@
 	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
-  <Identity Name="Opengisch.QField" Version="1.4.5.0" Publisher="CN=opengis.ch, O=OPENGIS.ch, L=Einsiedeln, S=Schwyz, C=Switzerland" ProcessorArchitecture="x64" />
+  <Identity Name="Opengisch.QField" Version="1.4.5.0" Publisher="CN=OPENGIS.ch GmbH, O=OPENGIS.ch GmbH, STREET=Mythenstrasse 37A, L=Einsiedeln, S=Schwyz, PostalCode=8840, C=CH, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=CH, SERIALNUMBER=CHE-183.516.448" ProcessorArchitecture="x64" />
     <Properties>
        <DisplayName>QField</DisplayName>
        <PublisherDisplayName>OPENGIS.ch</PublisherDisplayName>
