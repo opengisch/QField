@@ -100,6 +100,12 @@ copy "%O4W_ROOT%\apps\Qt5\bin\qt5keychain.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_core.dll" "%QFIELD_RELEASE_PATH%"
 copy "%O4W_ROOT%\apps\qgis-dev\bin\qgis_analysis.dll" "%QFIELD_RELEASE_PATH%"
 
+mkdir "%QFIELD_RELEASE_PATH%\qgis"
+mkdir "%QFIELD_RELEASE_PATH%\qgis\plugins"
+
+copy "%O4W_ROOT%\apps\qgis-dev\plugins\*provider.dll" "%QFIELD_RELEASE_PATH%"
+copy "%O4W_ROOT%\apps\qgis-dev\plugins\*authmethod.dll" "%QFIELD_RELEASE_PATH%"
+
 %O4W_ROOT%\apps\Qt5\bin\windeployqt.exe --concurrent --sensors --sql --webchannel --webkitwidgets --webkit --compiler-runtime --qmldir %QMLDIR% "%QFIELD_RELEASE_PATH%\qfield_core.dll"
 
 REM %O4W_ROOT%\bin\Dependencies.exe -modules "%QFIELD_RELEASE_PATH%/qfield.exe | grep "\[NOT_FOUND\]" | grep -vf acceptable_missing_libs.txt
