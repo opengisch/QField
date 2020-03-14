@@ -110,13 +110,13 @@ copy "%O4W_ROOT%\apps\qgis-dev\plugins\*authmethod.dll" "%QFIELD_RELEASE_PATH%\q
 
 mkdir "%QFIELD_RELEASE_PATH%\qgis\resources"
 
-robocopy  "%O4W_ROOT%\apps\qgis-dev\resources" "%QFIELD_RELEASE_PATH%\qgis\resources" /s /e
+xcopy  "%O4W_ROOT%\apps\qgis-dev\resources" "%QFIELD_RELEASE_PATH%\qgis\resources" /s /e
 
 :: Install proj resources
 
 mkdir "%QFIELD_RELEASE_PATH%\proj"
 
-copy "%O4W_ROOT%\apps\proj-dev\share\proj.db" "%QFIELD_RELEASE_PATH%\proj"
+copy "%O4W_ROOT%\apps\proj-dev\share\proj\proj.db" "%QFIELD_RELEASE_PATH%\proj"
 
 %O4W_ROOT%\apps\Qt5\bin\windeployqt.exe --concurrent --sensors --sql --webchannel --webkitwidgets --webkit --compiler-runtime --qmldir %QMLDIR% "%QFIELD_RELEASE_PATH%\qfield_core.dll"
 
