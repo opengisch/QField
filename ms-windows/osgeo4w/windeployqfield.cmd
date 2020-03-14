@@ -122,6 +122,9 @@ copy "%O4W_ROOT%\apps\proj-dev\share\proj\proj.db" "%QFIELD_RELEASE_PATH%\proj"
 
 REM %O4W_ROOT%\bin\Dependencies.exe -modules "%QFIELD_RELEASE_PATH%/qfield.exe | grep "\[NOT_FOUND\]" | grep -vf acceptable_missing_libs.txt
 
+:: Copy all dlls
+copy "%O4W_ROOT%\bin\*.dll" "%QFIELD_RELEASE_PATH%"
+
 goto end
 
 :usage
