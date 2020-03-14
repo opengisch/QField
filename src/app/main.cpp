@@ -92,14 +92,7 @@ int main( int argc, char **argv )
   qtTranslator.load( QLocale(), "qt", "_", ":/" );
   app.installTranslator( &qtTranslator );
   app.installTranslator( &qfieldTranslator );
-  
-  // Do this early on before anyone else opens it and prevents us copying it
-  QString dbError;
-  if ( !QgsApplication::createDatabase( &dbError ) )
-  {
-    QMessageBox::critical( this, tr( "Private qgis.db" ), dbError );
-  }
-  
+
   QgisMobileapp mApp( &app );
   return app.exec();
 }
