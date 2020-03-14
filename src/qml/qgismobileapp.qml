@@ -128,7 +128,7 @@ ApplicationWindow {
   TransformedPositionSource {
     id: positionSource
     destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+    deltaZ: positioningSettings.antennaHeightActivated ? parseFloat( positioningSettings.antennaHeight ) * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
   }
 
@@ -369,7 +369,7 @@ ApplicationWindow {
     PositionInformationView {
       id: p
       positionSource: positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
+      antennaHeight: positioningSettings.antennaHeightActivated ? parseFloat( positioningSettings.antennaHeight ) : NaN
     }
   }
 
@@ -577,7 +577,7 @@ ApplicationWindow {
         {
           if ( !positionSource.active )
           {
-            positionSettings.positioningActivated = true
+            positioningSettings.positioningActivated = true
           }
           else
           {
@@ -595,7 +595,7 @@ ApplicationWindow {
             }
             else
             {
-              positionSettings.positioningActivated = true
+              positioningSettings.positioningActivated = true
             }
           }
         }
@@ -863,24 +863,23 @@ ApplicationWindow {
     }
   }
 
-  LabSettings.Settings {
-    id: positionSettings
-    property bool positioningActivated: false
+  PositioningSettings {
+      id: positioningSettings
 
-    onPositioningActivatedChanged: {
-        if( positioningActivated ){
-          if( platformUtilities.checkPositioningPermissions() ) {
-            positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
-            displayToast( qsTr( "Activating positioning service" ) )
-            positionSource.active = true
+      onPositioningActivatedChanged: {
+          if( positioningActivated ){
+            if( platformUtilities.checkPositioningPermissions() ) {
+              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
+              displayToast( qsTr( "Activating positioning service" ) )
+              positionSource.active = true
+            }else{
+              displayToast( qsTr( "QField has no permissions to use positioning." ) )
+              positioningSettings.positioningActivated = false
+            }
           }else{
-            displayToast( qsTr( "QField has no permissions to use positioning." ) )
-            positionSettings.positioningActivated = false
+              positionSource.active = false
           }
-        }else{
-            positionSource.active = false
-        }
-    }
+      }
   }
 
   Menu {
@@ -897,7 +896,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       width: parent.width
       checkable: true
-      checked: positionSettings.positioningActivated
+      checked: positioningSettings.positioningActivated
       indicator.height: 20 * dp
       indicator.width: 20 * dp
       indicator.implicitHeight: 24 * dp
@@ -905,9 +904,9 @@ ApplicationWindow {
 
       onCheckedChanged: {
         if ( checked ) {
-            positionSettings.positioningActivated = true
+            positioningSettings.positioningActivated = true
         } else {
-            positionSettings.positioningActivated = false
+            positioningSettings.positioningActivated = false
         }
       }
     }
@@ -956,7 +955,7 @@ ApplicationWindow {
       width: parent.width
 
       onTriggered: {
-        positioningSettings.visible = true
+        positioningSettingsPopup.visible = true
       }
     }
   }
@@ -1232,8 +1231,8 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
-  PositioningSettings {
-    id: positioningSettings
+  PositioningSettingsPopup {
+    id: positioningSettingsPopup
     visible: false
 
     x: 24 * dp

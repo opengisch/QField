@@ -52,9 +52,11 @@
         <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/qmldir</file>
-        <file>PositioningSettings.qml</file>
+        <file>PositioningSettingsPopup.qml</file>
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
+        <file>PositioningSettings.qml</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
