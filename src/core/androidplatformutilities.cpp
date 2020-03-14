@@ -260,6 +260,7 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permis
 
 void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
+#if 0
   if ( mActivity.isValid() )
   {
     QAndroidJniObject window = mActivity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
@@ -269,14 +270,15 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       const int FLAG_KEEP_SCREEN_ON = 128;
       if ( !allowLock )
       {
-        window.callObjectMethod( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        window.callMethod<void>( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
       }
       else
       {
-        window.callObjectMethod( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        window.callMethod<void>( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
       }
     }
   }
+#endif
 }
 
 void AndroidPlatformUtilities::showRateThisApp() const
