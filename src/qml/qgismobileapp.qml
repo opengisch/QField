@@ -142,8 +142,16 @@ ApplicationWindow {
     clip: true
 
     HoverHandler {
+        id: hoverHandler
+        grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+
         onPointChanged: {
             coordinateLocator.sourceLocation = point.position
+        }
+
+        onActiveChanged: {
+            if ( !active )
+                coordinateLocator.sourceLocation = undefined
         }
 
         onHoveredChanged: {
@@ -200,7 +208,7 @@ ApplicationWindow {
           }
       }
 
-      onDoubleClicked: {
+      onLongPressed: {
           if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
               if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
                  || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {

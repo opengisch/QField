@@ -28,6 +28,7 @@ Item {
 
   signal clicked(var point)
   signal doubleClicked(var point)
+  signal longPressed(var point)
   signal panned
 
   /**
@@ -83,6 +84,10 @@ Item {
               timer.running = false
               doubleClicked(point)
           }
+      }
+
+      onLongPressed: {
+          mapArea.longPressed(point)
       }
     }
 
