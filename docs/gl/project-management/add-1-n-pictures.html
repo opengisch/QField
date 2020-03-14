@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add 1:n pictures &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Engadidas 1:n imaxes &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,16 +95,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add 1:n pictures</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
-<li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
-<li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
+<li><a class="reference internal" href="#">Engadidas 1:n imaxes</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">Crear dúas táboas</a><ul>
+<li><a class="reference internal" href="#apiary"><strong>Colmea</strong></a></li>
+<li><a class="reference internal" href="#apiary-pictures"><strong>Imaxes_colmea</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
+<li><a class="reference internal" href="#relations">Relacións</a></li>
 <li><a class="reference internal" href="#widgets">Widgets</a><ul>
-<li><a class="reference internal" href="#id1">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#id1">colmea</a></li>
+<li><a class="reference internal" href="#picture">imaxe</a></li>
 </ul>
 </li>
 </ul>
@@ -154,7 +154,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Add 1:n pictures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Engadidas 1:n imaxes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Permite agochar os nodos da lenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Configuración e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Buscar nas capas</a></li>
@@ -183,36 +183,36 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-1-n-pictures">
-<h1>Add 1:n pictures<a class="headerlink" href="#add-1-n-pictures" title="Permalink to this headline">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an exemple how to proceed.</p>
+<h1>Engadidas 1:n imaxes<a class="headerlink" href="#add-1-n-pictures" title="Permalink to this headline">¶</a></h1>
+<p>Podes engadir unha ou máis imaxes á entidade. Debaixo podes atopar un exemplo de como proceder.</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Crear dúas táboas<a class="headerlink" href="#creating-two-tables" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Colmea</strong><a class="headerlink" href="#apiary" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>id (UUID)</li>
-<li>geometry</li>
+<li>xeometría</li>
 <li>…</li>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Permalink to this headline">¶</a></h3>
+<h3><strong>Imaxes_colmea</strong><a class="headerlink" href="#apiary-pictures" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>id</li>
-<li>apiary_id (UUID)</li>
-<li>path (TEXT)</li>
+<li>colmea_id(UUID)</li>
+<li>ruta (TEXTO)</li>
 <li>…</li>
 </ul>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
-<p>Create a relation with:</p>
+<h2>Relacións<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
+<p>Crear unha relación con:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
+<li>Capa que fai referencia a <code class="docutils literal"><span class="pre">colmea</span></code></li>
+<li>Campo que fai referencia á <code class="docutils literal"><span class="pre">id</span></code></li>
+<li>Capa que fai referencia a <code class="docutils literal"><span class="pre">imaxes_colmea</span></code></li>
+<li>Campo que fai referencia á <code class="docutils literal"><span class="pre">id_colmea</span></code></li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-relations.png"><img alt="Relations" src="../_images/add-1-n-pictures-relations.png" style="width: 600px;" /></a>
@@ -221,19 +221,19 @@
 <div class="section" id="widgets">
 <h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Set the default value of id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<h3>colmea<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Establecer o valor predeterminado da id a <code class="docutils literal"><span class="pre">uuid()</span></code>. Non se precisa amosar no formulario.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="images/add-1-n-pictures-widgets.png"><img alt="widgets" src="images/add-1-n-pictures-widgets.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code></p>
+<p>Establecer o widget da relación a <code class="docutils literal"><span class="pre">Relación</span> <span class="pre">de</span> <span class="pre">moitos</span> <span class="pre">a</span> <span class="pre">un</span></code></p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="images/add-1-n-pictures-widgets2.png"><img alt="widgets2" src="images/add-1-n-pictures-widgets2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="Permalink to this headline">¶</a></h3>
-<p>Set the widget type of path to <code class="docutils literal"><span class="pre">attachment</span></code></p>
+<h3>imaxe<a class="headerlink" href="#picture" title="Permalink to this headline">¶</a></h3>
+<p>Establecer o tipo  de widget da ruta a <code class="docutils literal"><span class="pre">adxunto</span></code></p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="images/add-1-n-pictures-widget_picture.png"><img alt="widget picture" src="images/add-1-n-pictures-widget_picture.png" style="width: 600px;" /></a>
 </div>
