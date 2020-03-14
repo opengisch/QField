@@ -1273,7 +1273,6 @@ ApplicationWindow {
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        console.log(focus)
         if ( qgisProject.fileName != '') {
           event.accepted = true
           visible = false

@@ -93,13 +93,11 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 ProjectSource *PlatformUtilities::openProject()
 {
   ProjectSource *source = new ProjectSource( );
-  QString path { QFileDialog::getOpenFileName(nullptr, tr("Open QGIS Project File"), QString(), tr("QGIS Project Files (*.qgs *.qgz)")) };
+
+  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) ) };
   if ( ! path.isEmpty() )
   {
-    // Need a timer here because source is not yet connected to the listener
-    QTimer::singleShot(0, [ = ] {
-      emit source->projectOpened( path );
-    });
+    QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );
   }
   return source;
 }
