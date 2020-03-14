@@ -23,6 +23,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QFileDialog>
+#include <QTimer>
 
 PlatformUtilities::~PlatformUtilities()
 {
@@ -95,7 +96,7 @@ ProjectSource *PlatformUtilities::openProject()
   QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) ) };
   if ( ! path.isEmpty() )
   {
-    QMetaObject::invokeMethod( source, [source, path]() { emit source->projectOpened( path ); }, Qt::QueuedConnection );
+    QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );
   }
   return source;
 }
