@@ -6,7 +6,7 @@ import Theme 1.0
 
 Popup {
     id: questionDialog
-    parent: ApplicationWindow.overlay
+    parent: Overlay.overlay
 
     property alias questionText: label.text
     property alias button1Text: button1.text
@@ -21,13 +21,16 @@ Popup {
     modal: true
     closePolicy: Popup.NoAutoClose
 
+    width: parent.width
     anchors.centerIn: parent
 
     ColumnLayout {
         id: column
+        width: parent.width
         Label {
             id: label
-            Layout.columnSpan: 2
+            width: parent.width
+            Layout.columnSpan: 1
             Layout.fillWidth: true
             font: Theme.secondaryTitleFont
             wrapMode: Text.Wrap
