@@ -37,7 +37,7 @@ VisibilityFadingRow {
   {
     splitFeatureToolbar.featureModel = featureModel
     drawLineToolbar.rubberbandModel = editorRubberbandModel
-    drawPolygonToolbar.rubberbandModel.geometryType = QgsWkbTypes.LineGeometry
+    drawLineToolbar.rubberbandModel.geometryType = QgsWkbTypes.LineGeometry
     drawLineToolbar.mapSettings = mapSettings
     drawLineToolbar.stateVisible = true
   }
