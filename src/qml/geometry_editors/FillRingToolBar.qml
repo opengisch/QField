@@ -49,7 +49,7 @@ VisibilityFadingRow {
       }
       else
       {
-        questionDialog.questionText = qsTr("Do you want to add a ring of fill a polygon in the ring?")
+        questionDialog.questionText = qsTr("Would you like to add a ring or rather fill a new polygon in the ring?")
         questionDialog.nButtons = 3
         questionDialog.button1Text = qsTr("Cancel")
         questionDialog.button2Text = qsTr("Add ring")
