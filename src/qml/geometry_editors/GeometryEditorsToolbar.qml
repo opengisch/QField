@@ -3,7 +3,7 @@ import QtQml.Models 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-
+import ".."
 
 /**
 This contains several geometry editing tools
@@ -13,13 +13,17 @@ And contains following functions:
   * function cancel()
 The following signal:
   * signal finished()
+It can also implement:
+  * blocking (bool) which prevents from swichting tools
 */
 
 VisibilityFadingRow {
   id: geometryEditorsToolbar
 
+  // the feature which has its geometry being edited
   property FeatureModel featureModel
   property MapSettings mapSettings
+  // an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
   property RubberbandModel editorRubberbandModel
 
   spacing: 4 * dp
@@ -28,13 +32,14 @@ VisibilityFadingRow {
     id: editors
   }
   Component.onCompleted: {
-    editors.addEditor("Vertex tool", "ray-vertex", "VertexEditorToolbar.qml")
-    editors.addEditor("Split tool", "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Vertex Tool"), "ray-vertex", "VertexEditorToolbar.qml")
+    editors.addEditor(qsTr("Split Tool"), "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Fill Ring Tool"), "picture_in_picture", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
   function init() {
     selectorRow.stateVisible = false
-    var lastUsed = settings.setValue( "/QField/GeometryEditorLastUsed", 0 )
+    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", 0 )
     var toolbarQml = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.ToolbarRole)
     var iconPath = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.IconPathRole)
     toolbarRow.load(toolbarQml, iconPath)

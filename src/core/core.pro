@@ -69,8 +69,10 @@ HEADERS += \
     qfieldappauthrequesthandler.h \
     tracker.h \
     trackingmodel.h \
-    fileutils.h \
-    viewstatus.h
+    viewstatus.h \
+    utils/featureutils.h \
+    utils/geometryutils.h \
+    utils/fileutils.h
 
 SOURCES += \
     appinterface.cpp \
@@ -121,11 +123,14 @@ SOURCES += \
     qfieldappauthrequesthandler.cpp \
     tracker.cpp \
     trackingmodel.cpp \
-    fileutils.cpp \
-    viewstatus.cpp
+    viewstatus.cpp \
+    utils/featureutils.cpp \
+    utils/geometryutils.cpp \
+    utils/fileutils.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \
+               utils
 
 DEPENDPATH += ../qgsquick
 

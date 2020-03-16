@@ -93,8 +93,11 @@
 #include "referencingfeaturelistmodel.h"
 #include "featurechecklistmodel.h"
 #include "geometryeditorsmodel.h"
+#include "geometryutils.h"
 #include "trackingmodel.h"
 #include "fileutils.h"
+#include "featureutils.h"
+
 
 // Check QGIS Version
 #if VERSION_INT >= 30600
@@ -199,6 +202,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
@@ -218,6 +222,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
   qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
+  qmlRegisterUncreatableType<QgsGeometry>( "org.qgis", 1, 0, "QgsGeometryStatic", "" );
 
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
@@ -263,6 +268,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
+  REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
+  REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
   REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
@@ -385,7 +392,6 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
     qDebug() << QString( "Loading itinerary for %1 layers." ).arg( requests.count() );
     mIface->openFeatureForm();
   }
-  
 }
 
 void QgisMobileapp::onAfterFirstRendering()
