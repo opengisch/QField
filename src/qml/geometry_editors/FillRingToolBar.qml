@@ -22,7 +22,7 @@ VisibilityFadingRow {
       id: questionDialog
     }
 
-    Loader {
+    EmbeddedFeatureForm {
       id: formPopupLoader
     }
 
@@ -92,14 +92,12 @@ VisibilityFadingRow {
     var feature = FeatureUtils.initFeature(featureModel.currentLayer, polygonGeometry)
 
     // Show form
-    formPopupLoader.source = '../EmbeddedFeatureForm.qml'
+    formPopupLoader.onFeatureSaved.connect(commitAndFinish)
+    formPopupLoader.onFeatureCancelled.connect(rollbackRingAndCancel)
 
-    formPopupLoader.item.onFeatureSaved.connect(commitAndFinish)
-    formPopupLoader.item.onFeatureCancelled.connect(rollbackRingAndCancel)
-
-    formPopupLoader.item.state = 'Add'
-    formPopupLoader.item.currentLayer = featureModel.currentLayer
-    formPopupLoader.item.feature = feature
-    formPopupLoader.item.open()
+    formPopupLoader.state = 'Add'
+    formPopupLoader.currentLayer = featureModel.currentLayer
+    formPopupLoader.feature = feature
+    formPopupLoader.open()
   }
 }
