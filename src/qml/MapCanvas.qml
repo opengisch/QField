@@ -29,6 +29,11 @@ Item {
   signal clicked(var point)
   signal doubleClicked(var point)
   signal longPressed(var point)
+
+  /**
+   * Emitted when a release happens after a long press.
+   */
+  signal longPressReleased()
   signal panned
 
   /**
@@ -65,6 +70,8 @@ Item {
     TapHandler {
       grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
+      property bool longPressActive: false
+
       property var timer: Timer {
           property var firstClickPoint
           interval: mouseDoubleClickInterval
@@ -88,6 +95,13 @@ Item {
 
       onLongPressed: {
           mapArea.longPressed(point)
+          longPressActive = true
+      }
+
+      onPressedChanged: {
+          if (longPressActive)
+              mapArea.longPressReleased()
+          longPressActive = false
       }
     }
 
