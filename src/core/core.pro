@@ -127,7 +127,7 @@ SOURCES += \
     viewstatus.cpp \
     utils/featureutils.cpp \
     utils/geometryutils.cpp \
-    utils/fileutils.cpp
+    utils/fileutils.cpp \
     expressionutils.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
