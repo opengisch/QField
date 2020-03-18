@@ -70,7 +70,7 @@ Popup {
         TextField {
           id: antennaHeightInput
           enabled: antennaHeightActivated.checked
-          text: positioningSettings.antennaHeight
+          text: parseFloat( positioningSettings.antennaHeight )
           width: 60 * dp
           font: Theme.defaultFont
           Layout.preferredWidth: 60 * dp

@@ -128,7 +128,7 @@ ApplicationWindow {
   TransformedPositionSource {
     id: positionSource
     destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? parseFloat( positioningSettings.antennaHeight ) * -1 : 0
+    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
   }
 
@@ -369,7 +369,7 @@ ApplicationWindow {
     PositionInformationView {
       id: p
       positionSource: positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? parseFloat( positioningSettings.antennaHeight ) : NaN
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
     }
   }
 
