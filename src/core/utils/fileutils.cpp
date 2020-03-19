@@ -40,5 +40,6 @@ QString FileUtils::fileName( const QString &filePath )
 
 bool FileUtils::fileExists( const QString &filePath )
 {
-  return QFileInfo::exists( filePath );
+  QFileInfo fileInfo( filePath );
+  return (fileInfo.exists() && fileInfo.isFile() );
 }

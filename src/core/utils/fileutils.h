@@ -32,7 +32,7 @@ class FileUtils : public QObject
     Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
     //! returns the filename of a filepath - if no file name exists it's empty
     Q_INVOKABLE static QString fileName( const QString &filePath );
-    //! returns true if the file exists
+    //! returns true if the file exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
 
 };

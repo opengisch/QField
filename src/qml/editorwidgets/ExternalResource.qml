@@ -93,7 +93,7 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if ( FileUtils.fileName( qgisProject.homePath + '/' + value ) !== '' && FileUtils.fileExists( qgisProject.homePath + '/' + value ) )
+        if ( FileUtils.fileExists( qgisProject.homePath + '/' + value ) )
           platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
