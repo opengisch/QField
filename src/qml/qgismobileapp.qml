@@ -531,8 +531,6 @@ ApplicationWindow {
           displayToast( qsTr( "No position source available" ) )
       }
 
-      property bool followActive: false
-
       states: [
         State {
 
