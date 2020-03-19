@@ -30,15 +30,10 @@ public class QFieldCameraPictureActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
-        
         prefix = getIntent().getExtras().getString("prefix");
-        Log.d(TAG, "Received prefix: " + prefix);
-
         pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
-        Log.d(TAG, "Received pictureFilePath: " + pictureFilePath);
-
         suffix = getIntent().getExtras().getString("suffix");
-        Log.d(TAG, "Received suffix: " + suffix);
+        Log.d(TAG, "Received prefix: " + prefix +" and pictureFilePath: " + pictureFilePath + "and suffix: " + suffix);
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         pictureTempFileName = "QFieldPicture" + timeStamp + '.' +suffix;

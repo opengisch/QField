@@ -30,10 +30,8 @@ public class QFieldGalleryPictureActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         prefix = getIntent().getExtras().getString("prefix");
-        Log.d(TAG, "Received prefix: " + prefix);
-
         pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
-        Log.d(TAG, "Received pictureFilePath: " + pictureFilePath);
+        Log.d(TAG, "Received prefix: " + prefix + " and pictureFilePath: " + pictureFilePath);
 
         callGalleryIntent();
 

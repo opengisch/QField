@@ -33,9 +33,8 @@ public class QFieldOpenExternallyActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         filePath = getIntent().getExtras().getString("filepath");
-        Log.d(TAG, "Received filepath: " + filePath);
         mimeType = getIntent().getExtras().getString("filetype");
-        Log.d(TAG, "Received mimeType: " + mimeType);
+        Log.d(TAG, "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
         File file = new File(filePath);
         File cacheFile = new File(getCacheDir(), file.getName());
