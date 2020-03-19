@@ -1,5 +1,5 @@
 /***************************************************************************
- expressionutils.h - ExpressionUtils
+ expressionevaluator.h - ExpressionEvaluator
                               -------------------
  begin                : January 2020
  copyright            : (C) 2020 by David Signer
@@ -15,14 +15,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef EXPRESSIONUTILS_H
-#define EXPRESSIONUTILS_H
+#ifndef EXPRESSIONEVALUATOR_H
+#define EXPRESSIONEVALUATOR_H
 
 #include <qgsexpression.h>
 #include <qgsexpressioncontext.h>
 #include <QObject>
 
-class ExpressionUtils : public QObject
+class ExpressionEvaluator : public QObject
 {
     Q_OBJECT
 
@@ -31,18 +31,18 @@ class ExpressionUtils : public QObject
     Q_PROPERTY( QgsMapLayer *layer READ layer WRITE setLayer NOTIFY layerChanged )
 
   public:
-    explicit ExpressionUtils( QObject *parent = nullptr );
+    explicit ExpressionEvaluator( QObject *parent = nullptr );
 
-    QString expressionText() { return mExpressionText; }
-    QgsFeature feature() { return mFeature; }
+    const QString expressionText() { return mExpressionText; }
+    const QgsFeature feature() { return mFeature; }
     QgsMapLayer *layer() { return mLayer; }
 
-    void setExpressionText( QString expressionText ) { mExpressionText = expressionText; }
-    void setFeature( QgsFeature feature ) { mFeature = feature; }
-    void setLayer( QgsMapLayer *layer ) { mLayer = layer; }
+    void setExpressionText( const QString expressionText );
+    void setFeature( const QgsFeature feature );
+    void setLayer( QgsMapLayer *layer );
 
     //! Returns the evaluated string value
-    Q_INVOKABLE QString evaluate();
+    Q_INVOKABLE QVariant evaluate();
 
   signals:
     void layerChanged( QgsMapLayer *layer );
@@ -55,4 +55,4 @@ class ExpressionUtils : public QObject
     QgsMapLayer *mLayer = nullptr;
 
 };
-#endif // EXPRESSIONUTILS_H
+#endif // EXPRESSIONEVALUATOR_H

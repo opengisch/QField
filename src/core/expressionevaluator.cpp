@@ -1,5 +1,5 @@
 /***************************************************************************
- expressionutils.cpp - ExpressionUtils
+ expressionevaluator.cpp - ExpressionEvaluator
                               -------------------
  begin                : January 2020
  copyright            : (C) 2020 by David Signer
@@ -15,16 +15,34 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "expressionutils.h"
+#include "expressionevaluator.h"
 #include "qgsproject.h"
 #include "qgsexpressioncontextutils.h"
 
-ExpressionUtils::ExpressionUtils( QObject *parent )
+ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
   : QObject( parent )
 {
 }
 
-QString ExpressionUtils::evaluate()
+void ExpressionEvaluator::setExpressionText(const QString expressionText)
+{
+  mExpressionText = expressionText;
+  emit expressionTextChanged( mExpressionText );
+}
+
+void ExpressionEvaluator::setFeature(const QgsFeature feature)
+{
+  mFeature = feature;
+  emit featureChanged( mFeature );
+}
+
+void ExpressionEvaluator::setLayer(QgsMapLayer *layer)
+{
+  mLayer = layer;
+  emit layerChanged( mLayer );
+}
+
+QVariant ExpressionEvaluator::evaluate()
 {
   if ( !mFeature.isValid() || !mLayer || mExpressionText.isEmpty() )
     return QString();

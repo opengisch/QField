@@ -43,8 +43,8 @@ Item {
       }
   }
 
-  ExpressionUtils {
-    id: expressionUtils
+  ExpressionEvaluator {
+    id: expressionEvaluator
     feature: currentFeature
     layer: currentLayer
     expressionText: currentLayer ? currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : '' : ''
@@ -142,7 +142,7 @@ Item {
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
-            var evaluated_filepath = expressionUtils.evaluate()
+            var evaluated_filepath = expressionEvaluator.evaluate()
             var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
             __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
@@ -166,7 +166,7 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        var evaluated_filepath = expressionUtils.evaluate()
+        var evaluated_filepath = expressionEvaluator.evaluate()
         var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
@@ -208,7 +208,7 @@ Item {
         visible: true
 
         onFinished: {
-            var evaluated_filepath = expressionUtils.evaluate()
+            var evaluated_filepath = expressionEvaluator.evaluate()
             var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
             valueChanged(filepath, false)

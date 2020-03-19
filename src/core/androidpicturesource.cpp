@@ -45,7 +45,6 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       picture_image_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
                            picture_image_path.object<jstring>() );
 
-      qDebug() << "picture_image_path: " << picture_image_path.toString();
       QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
 
       emit pictureReceived( picture_image_relative_path );
