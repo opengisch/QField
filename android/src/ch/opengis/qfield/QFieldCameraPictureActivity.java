@@ -22,18 +22,23 @@ import android.support.v4.content.FileProvider;
 public class QFieldCameraPictureActivity extends Activity{
     private static final String TAG = "QField Camera Picture Activity";
     private String prefix;
-    private String pictureFileName;
+    private String pictureFilePath;
+    private String suffix;
+    private String pictureTempFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
-
         prefix = getIntent().getExtras().getString("prefix");
-        Log.d(TAG, "Received prefix: " + prefix);
+        pictureFilePath = getIntent().getExtras().getString("pictureFilePath");
+        suffix = getIntent().getExtras().getString("suffix");
+        Log.d(TAG, "Received prefix: " + prefix +" and pictureFilePath: " + pictureFilePath + "and suffix: " + suffix);
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        pictureFileName = "JPEG_" + timeStamp + ".jpg";
+        pictureTempFileName = "QFieldPicture" + timeStamp + '.' +suffix;
+        Log.d(TAG, "Created pictureTempFileName: " + pictureTempFileName);
+
         callCameraIntent();
 
         return;
@@ -43,7 +48,7 @@ public class QFieldCameraPictureActivity extends Activity{
         Log.d(TAG, "callCameraIntent()");
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File pictureFile = new File(getCacheDir(), pictureFileName);
+            File pictureFile = new File(getCacheDir(), pictureTempFileName);
 
             if (pictureFile != null) {
 
@@ -62,12 +67,12 @@ public class QFieldCameraPictureActivity extends Activity{
         Log.d(TAG, "onActivityResult()");
         Log.d(TAG, "resultCode: "+resultCode);
 
-        File result = new File(prefix, pictureFileName);
+        File result = new File(prefix+pictureFilePath);
         result.getParentFile().mkdirs();
 
         if (resultCode == RESULT_OK) {
 
-            File pictureFile = new File(getCacheDir(), pictureFileName);
+            File pictureFile = new File(getCacheDir(), pictureTempFileName);
             Log.d(TAG, "Taken picture: " + pictureFile.getAbsolutePath());
             try{
                 copyFile(pictureFile, result);
@@ -76,7 +81,7 @@ public class QFieldCameraPictureActivity extends Activity{
             }
 
             Intent intent = this.getIntent();
-            intent.putExtra("PICTURE_IMAGE_FILENAME", pictureFileName);
+            intent.putExtra("PICTURE_IMAGE_FILENAME", prefix+pictureFilePath);
             setResult(RESULT_OK, intent);
         } else {
             Intent intent = this.getIntent();

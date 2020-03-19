@@ -34,7 +34,8 @@ class FileUtils : public QObject
     Q_INVOKABLE static QString fileName( const QString &filePath );
     //! returns true if the file exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
-
+    //! returns the suffix (extension)
+    Q_INVOKABLE static QString fileSuffix( const QString &filePath );
 };
 
 #endif // FILEUTILS_H

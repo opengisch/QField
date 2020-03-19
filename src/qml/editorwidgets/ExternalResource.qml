@@ -7,6 +7,8 @@ import Theme 1.0
 import ".." as QField
 import QtQuick.Window 2.2
 
+import org.qfield 1.0
+
 Item {
   signal valueChanged(var value, bool isNull)
 
@@ -24,8 +26,7 @@ Item {
   //to not break any binding of image.source
   property var currentValue: value
   onCurrentValueChanged: {
-      console.log
-      if (isImage ) {
+      if ( isImage ) {
           if ( value === undefined || FileUtils.fileName( qgisProject.homePath + '/' + value ) === '' ) {
               image.source=Theme.getThemeIcon("ic_photo_notavailable_black_24dp")
               geoTagBadge.visible = false
@@ -40,6 +41,13 @@ Item {
       } else {
           geoTagBadge.visible = false
       }
+  }
+
+  ExpressionEvaluator {
+    id: expressionEvaluator
+    feature: currentFeature
+    layer: currentLayer
+    expressionText: currentLayer ? currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : '' : ''
   }
 
   Label {
@@ -71,6 +79,7 @@ Item {
           __viewStatus = platformUtilities.open( qgisProject.homePath + '/' + value );
       }
     }
+
   }
 
   FontMetrics {
@@ -132,12 +141,14 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-      if ( settings.valueBool("nativeCamera", true) ) {
-        __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/DCIM')
-      } else {
-        platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
-        camloader.active = true
-      }
+        if ( settings.valueBool("nativeCamera", true) ) {
+            var evaluated_filepath = expressionEvaluator.evaluate()
+            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
+        } else {
+            platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
+            camloader.active = true
+        }
     }
 
     iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
@@ -155,7 +166,9 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/DCIM')
+        var evaluated_filepath = expressionEvaluator.evaluate()
+        var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+        __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
@@ -195,11 +208,11 @@ Item {
         visible: true
 
         onFinished: {
-          var timestamp = (new Date()).toISOString().replace(/[^0-9]/g, "")
-          var filename = timestamp+'.jpg';
-          platformUtilities.renameFile( path, qgisProject.homePath +'/DCIM/' + filename)
-          valueChanged('DCIM/' + filename, false)
-          campopup.close()
+            var evaluated_filepath = expressionEvaluator.evaluate()
+            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
+            valueChanged(filepath, false)
+            campopup.close()
         }
         onCanceled: {
           campopup.close()
@@ -214,7 +227,7 @@ Item {
     onPictureReceived: {
       if( path )
       {
-          valueChanged('DCIM/' + path, false)
+          valueChanged(path, false)
       }
     }
   }

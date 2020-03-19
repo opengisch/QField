@@ -72,7 +72,8 @@ HEADERS += \
     viewstatus.h \
     utils/featureutils.h \
     utils/geometryutils.h \
-    utils/fileutils.h
+    utils/fileutils.h \
+    expressionevaluator.h
 
 SOURCES += \
     appinterface.cpp \
@@ -126,7 +127,8 @@ SOURCES += \
     viewstatus.cpp \
     utils/featureutils.cpp \
     utils/geometryutils.cpp \
-    utils/fileutils.cpp
+    utils/fileutils.cpp \
+    expressionevaluator.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
                ../qgsquick \

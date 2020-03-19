@@ -128,7 +128,6 @@ ApplicationWindow {
    */
   TransformedPositionSource {
     id: positionSource
-    active: settings.valueBool( "/QField/Positioning/Active", false )
     destinationCrs: mapCanvas.mapSettings.destinationCrs
     deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
@@ -581,7 +580,7 @@ ApplicationWindow {
         {
           if ( !positionSource.active )
           {
-            gpsMenu.gpsActivated = true
+            positioningSettings.positioningActivated = true
           }
           else
           {
@@ -599,7 +598,7 @@ ApplicationWindow {
             }
             else
             {
-              gpsMenu.gpsActivated = true
+              positioningSettings.positioningActivated = true
             }
           }
         }
@@ -867,12 +866,30 @@ ApplicationWindow {
     }
   }
 
+  PositioningSettings {
+      id: positioningSettings
+
+      onPositioningActivatedChanged: {
+          if( positioningActivated ){
+            if( platformUtilities.checkPositioningPermissions() ) {
+              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
+              displayToast( qsTr( "Activating positioning service" ) )
+              positionSource.active = true
+            }else{
+              displayToast( qsTr( "QField has no permissions to use positioning." ) )
+              positioningSettings.positioningActivated = false
+            }
+          }else{
+              positionSource.active = false
+          }
+      }
+  }
+
   Menu {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
     width: Math.max(200*dp, mainWindow.width/1.5)
-    property alias gpsActivated: positioningItem.checked
 
     MenuItem {
       id: positioningItem
@@ -882,7 +899,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       width: parent.width
       checkable: true
-      checked: settings.valueBool("/QField/Positioning/Active", false )
+      checked: positioningSettings.positioningActivated
       indicator.height: 20 * dp
       indicator.width: 20 * dp
       indicator.implicitHeight: 24 * dp
@@ -890,20 +907,10 @@ ApplicationWindow {
 
       onCheckedChanged: {
         if ( checked ) {
-          if( platformUtilities.checkPositioningPermissions() ) {
-            positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
-            positionSource.active = true
-            displayToast( qsTr( "Activating positioning service" ) )
-          }else{
-            displayToast( qsTr( "QField has no permissions to use positioning." ) )
-            //deactivate again
-            checked = false
-          }
+            positioningSettings.positioningActivated = true
+        } else {
+            positioningSettings.positioningActivated = false
         }
-        else {
-          positionSource.active = false
-        }
-        settings.setValue("/QField/Positioning/Active", checked )
       }
     }
 
@@ -951,7 +958,7 @@ ApplicationWindow {
       width: parent.width
 
       onTriggered: {
-        positioningSettings.visible = true
+        positioningSettingsPopup.visible = true
       }
     }
   }
@@ -1227,8 +1234,8 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker( this )
   }
 
-  PositioningSettings {
-    id: positioningSettings
+  PositioningSettingsPopup {
+    id: positioningSettingsPopup
     visible: false
 
     x: 24 * dp
