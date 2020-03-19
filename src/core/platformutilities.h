@@ -46,17 +46,19 @@ class PlatformUtilities : public QObject
 
     /**
      * Get a picture from camera and copy it to the requested prefix
-     * @param prefix The folder where the picture should be put
+     * @param prefix The project folder
+     * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
-     * @param prefix The folder where the picture should be put
+     * @param prefix The project folder
+     * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix );
+    Q_INVOKABLE virtual PictureSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
