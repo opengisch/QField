@@ -1037,7 +1037,8 @@ ApplicationWindow {
 
   function displayToast( message ) {
     //toastMessage.text = message
-    toast.show(message)
+    if( !welcomeScreen.visible )
+      toast.show(message)
   }
 
   Rectangle {
