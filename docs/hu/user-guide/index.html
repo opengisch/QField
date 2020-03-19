@@ -164,7 +164,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Telepítési Útmutató</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">1:n képek hozzáadása</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Jelmagyarázat elrejtésének engedélyezése</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Egyéni SVG szimbólumok és beállítások</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Keresés a rétegekben</a></li>
@@ -215,9 +215,9 @@
 <p>Koppintson az egyik listázott elemre az attribútumok eléréséhez.</p>
 <ol class="arabic simple">
 <li>Koppintson a <strong>nyílakra</strong> az összes azonosított elem áttekintésére.</li>
-<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
-<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
-<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+<li>Koppintson a <strong>középre gombra</strong>, hogy a térkép közepét a kiválasztott elemre mozgassa.</li>
+<li>Koppintson a <strong>szerkeszt gombra</strong> a kiválasztott elem attribútumainak szerkesztéséhez.</li>
+<li>Görgesse át az <a href="#id1"><span class="problematic" id="id2">**</span></a>almenü**t az összes attribútum eléréséhez.</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
@@ -228,16 +228,16 @@
 </div>
 <div class="section" id="searching">
 <h2>Keresés<a class="headerlink" href="#searching" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<p>Koppintson a <strong>Keresés gombra</strong> jobb felső sarokban a rétegekben kereséshez.</p>
 <ol class="arabic simple">
-<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
-<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+<li>Koppintson a <strong>névre</strong> az eredményben, hogy eltoljuk a térképet az elemre (az elem sárgával kiemelten jelenik meg).</li>
+<li>Koppintson az <strong>attribútumok gombra</strong> az attribútumok megnyitásához.</li>
 </ol>
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
 <h2>Térkép téma váltás<a class="headerlink" href="#switching-map-theme" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<p>Ha a QGIS-ben a projektjéhez térkép témákat definiált, akkor a <strong>fő menü</strong> első legördülő elemében válthat közöttük.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
@@ -258,32 +258,26 @@
 </div>
 <div class="section" id="digitizing">
 <h2>Digitalizálás<a class="headerlink" href="#digitizing" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<p>Új elemek digitalizálásának megkezdéséhez engedélyezze a <strong>Szerkesztés módot</strong> a fő menüben (<em>ceruza gomb</em>) és válassza ki a réteget, melyhez az új elemet hozzá akarja adni (a réteg szürke kiemelést kap).</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
 <h3>Pontok<a class="headerlink" href="#points" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
-new point feature.</p>
-<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<p>Mozgassa a képernyő közepén megjelenő szálkeresztet a digitalizálandó pozícióba és kattintson a <strong>+ gombra</strong> a képernyő jobb alsó sarkában az új pont elem létrehozásának megerősítéséhez.</p>
+<p>Használhatja a <strong>tartsd középen</strong> gombot, hogy a szálkeresztet az ön pozíciójába kényszerítse, ha bekapcsolta a GPS-t.</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
 <h3>Vonalak és felületek<a class="headerlink" href="#lines-and-polygons" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
-<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
+<p>Mozgassa a képernyő közepén megjelenő szálkeresztet a digitalizálandó vonal vagy felület kezdőpontjába és kattintson a <strong>plusz(+) gombra</strong> a képernyő jobb alsó sarkában az első töréspont hozzáadásához.</p>
+<p>Haladjon tovább a pontok hozzáadásával a <strong>plusz(+) gombra</strong> kattintva minden alkalommal amikor új töréspontot adna az elemhez, hogy kialakítsa a törtvonalat vagy felületet.</p>
 <p>Kattintson a <strong>mínusz (-) gombra</strong> az utoljára hozzáadott pont eltávolításához.</p>
-<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
-<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<p>Kattintson a <strong>lezár(X) gombra</strong>, hogy az elem létrehozást megszakítsa.</p>
+<p>Amikor már két pontot adott a törtvonalhoz vagy három pontot a felülethez, egy <strong>Mentés gomb</strong> jelenik meg. Kattintson erre a rajz befejezéséhez.</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
 <h3>Attribútum űrlap<a class="headerlink" href="#attribute-form" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.
-The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<p>A geometria digitalizálása után az attribútumok űrlapja jelenik meg, ha nincs letiltva és a felhasználó kitöltheti az új elem attribútumait. A jelölő négyzet minden attribútum mellett jobbra lehetővé teszi az egyes attribútum értékek megjegyzését. Legközelebb, amikor ugyanehhez a réteghez ad új elemet, ezeket az attribútumokat kitölti a program.</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
