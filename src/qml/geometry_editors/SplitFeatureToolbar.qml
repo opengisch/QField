@@ -40,8 +40,6 @@ VisibilityFadingRow {
         cancel()
         finished()
       }
-
-      featureModel.currentLayer.removeSelection()
     }
   }
 
