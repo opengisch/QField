@@ -55,7 +55,7 @@ QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType, bool closeLine ) const
+QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType ) const
 {
   QgsPointSequence sequence;
 
@@ -83,11 +83,6 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     }
 
     sequence.append( p2 );
-  }
-
-  if (closeLine && sequence.count() > 1)
-  {
-    sequence.append(sequence.at(0));
   }
 
   return sequence;

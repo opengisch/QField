@@ -27,7 +27,6 @@ import QtPositioning 5.11
 import Theme 1.0
 
 import '.'
-import 'geometry_editors'
 
 ApplicationWindow {
   id: mainWindow
@@ -318,14 +317,12 @@ ApplicationWindow {
 
     /* Rubberband for vertices  */
     Item {
-      // highlighting vertices
       VertexRubberband {
         id: vertexRubberband
         model: vertexModel
         mapSettings: mapCanvas.mapSettings
       }
 
-      // highlighting geometry (point, line, surface)
       Rubberband {
         id: editingRubberBand
         vertexModel: vertexModel

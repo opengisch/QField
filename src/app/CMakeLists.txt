@@ -14,7 +14,6 @@ INCLUDE_DIRECTORIES(SYSTEM
 
 INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/src/core
-  ${CMAKE_SOURCE_DIR}/src/core/utils
   ${CMAKE_SOURCE_DIR}/src/qgsquick
 )
 
