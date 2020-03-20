@@ -22,15 +22,15 @@
 
 #include "rubberbandmodel.h"
 
-GeometryUtils::GeometryUtils( QObject *parent ) : QObject( parent )
+GeometryUtils::GeometryUtils(QObject *parent) : QObject(parent)
 {
 
 }
 
 
-QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+QgsGeometry GeometryUtils::polygonFromRubberband(RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs)
 {
-  QgsPointSequence ring = rubberBandModel->pointSequence( crs, QgsWkbTypes::Point, true );
+  QgsPointSequence ring = rubberBandModel->pointSequence(crs, QgsWkbTypes::Point, true);
   QgsLineString ext( ring );
   std::unique_ptr< QgsPolygon > polygon = qgis::make_unique< QgsPolygon >( );
   polygon->setExteriorRing( ext.clone() );
@@ -38,15 +38,9 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   return g;
 }
 
-QgsGeometry::OperationResult GeometryUtils::addRingFromRubberBand( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QgsGeometry::OperationResult GeometryUtils::addRingFromRubberBand(QgsVectorLayer* layer, QgsFeatureId fid, RubberbandModel *rubberBandModel)
 {
-  QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
-  return layer->addRing( ring, &fid );
-}
-
-QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberBand( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
-{
-  QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
-  return layer->splitFeatures( line, true );
+  QgsPointSequence ring = rubberBandModel->pointSequence(layer->crs(), layer->wkbType(), true);
+  return layer->addRing(ring, &fid);
 }
 

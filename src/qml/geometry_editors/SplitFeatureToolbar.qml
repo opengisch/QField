@@ -23,23 +23,13 @@ VisibilityFadingRow {
     onConfirm: {
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
       Utils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
+      var line = drawLineToolbar.rubberbandModel.pointSequence(featureModel.currentLayer.crs)
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
-
-      var result = GeometryUtils.splitFeatureFromRubberBand(featureModel.currentLayer, drawLineToolbar.rubberbandModel)
-      if ( result !== QgsGeometryStatic.Success )
-      {
-        displayToast( qsTr( 'Feature could not be split' ) );
-        featureModel.currentLayer.rollBack()
-        cancel()
-        finished()
-      }
-      else
-      {
-        featureModel.currentLayer.commitChanges()
-        cancel()
-        finished()
-      }
+      featureModel.currentLayer.splitFeatures(line, true)
+      featureModel.currentLayer.commitChanges()
+      cancel()
+      finished()
     }
   }
 
