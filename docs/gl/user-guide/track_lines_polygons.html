@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="gl">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tracking of lines and polygons &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Seguimentos de liñas e polígonos &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,7 +95,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Tracking of lines and polygons</a></li>
+<li><a class="reference internal" href="#">Seguimentos de liñas e polígonos</a></li>
 </ul>
 </ul>
 </li>
@@ -155,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Configuración de Capa Vectorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Guía de Usuario de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Cambiar o Tema de Mapa activo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tracking of lines and polygons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Seguimentos de liñas e polígonos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvemento e asistencia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
@@ -171,29 +171,26 @@
     <div class="col-md-9 content">
       
   <div class="section" id="tracking-of-lines-and-polygons">
-<span id="track-linges-polygons"></span><h1>Tracking of lines and polygons<a class="headerlink" href="#tracking-of-lines-and-polygons" title="Permalink to this headline">¶</a></h1>
-<p>You have the possibility to do tracking on lines and polygons.</p>
-<p>It’s available when GPS is enabled.
-A tracking session can be started over the legend - long press on the layer.</p>
+<span id="track-linges-polygons"></span><h1>Seguimentos de liñas e polígonos<a class="headerlink" href="#tracking-of-lines-and-polygons" title="Permalink to this headline">¶</a></h1>
+<p>Tes a posibilidade de facer seguimento en liñas e polígonos.</p>
+<p>Está dispoñible cando o GPS está activado. Unha sesión de seguimento pode iniciarse na lenda - cunha pulsación longa sobre a capa.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_started.jpeg"><img alt="track_lines_started" src="../_images/track_lines_started.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.</p>
+<p>O intervalo de tempo e a distancia mínima poden introducirse individualmente para definir cando un vértice pode establecerse.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracker_settings.jpeg"><img alt="tracker_settings" src="../_images/track_lines_tracker_settings.jpeg" style="width: 640px;" /></a>
 </div>
-<p>There can be several trackings session active on several layers.
-But only one tracking session per layer can be active at the time.</p>
+<p>Pode haber varias sesións de seguimento activas en varias capas. Pero só pode estar activa unha sesión de seguimento ó mesmo tempo.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers1.jpeg"><img alt="tracking_layers1" src="../_images/track_lines_tracking_layers1.jpeg" style="width: 640px;" /></a>
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers2.jpeg"><img alt="tracking_layers2" src="../_images/track_lines_tracking_layers2.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The tracked feature is saved on every vertex.
-While the tracking session is active the layer is still editable, but the tracked feature can’t be edited or deleted until the tracking session is stopped over the legend again.</p>
+<p>A entidade trazada gárdase en cada vértice. Mentres que a sesión de seguimento estea activa a capa seguirá editable, pero a entidade trazada non poderá editarse nin borrarse ata que a sesión de seguimento volva a pararse pulsando na lenda.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_stop_tracking_delete.jpeg"><img alt="stop_tracking_delete" src="../_images/track_lines_stop_tracking_delete.jpeg" style="width: 640px;" /></a>
 </div>
-<p>If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking session has been recorded.</p>
+<p>Se a xeometría da capa admite o valor m, a hora almacénase no valor m, anotando a que transcorreu dende o primeiro vértice desta sesión de seguimento dende que este foi rexistrado.</p>
 </div>
 
 
