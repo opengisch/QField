@@ -6,7 +6,7 @@ Tracking of lines and polygons
 You have the possibility to do tracking on lines and polygons.
 
 It's available when GPS is enabled. 
-Tracking can be started over the legend - long press on the layer.
+A tracking session can be started over the legend - long press on the layer.
 
 .. container:: clearer text-center
 
@@ -24,7 +24,7 @@ The time interval and the minimum distance can be entered individually to define
        :alt: tracker_settings
 
 
-There can be several trackings active on several layers. 
+There can be several trackings session active on several layers. 
 But only one tracking session per layer can be active at the time. 
 
 .. container:: clearer text-center
@@ -48,4 +48,4 @@ While the tracking session is active the layer is still editable, but the tracke
        :alt: stop_tracking_delete
 
 
-If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking has been recorded.
+If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking session has been recorded.
