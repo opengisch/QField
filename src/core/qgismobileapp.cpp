@@ -55,6 +55,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmaptransform.h"
+#include "qgsnetworkaccessmanager.h"
 
 #include "qgismobileapp.h"
 
@@ -98,7 +99,6 @@
 #include "fileutils.h"
 #include "featureutils.h"
 #include "expressionevaluator.h"
-#include "qgsnetworkaccessmanager.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
