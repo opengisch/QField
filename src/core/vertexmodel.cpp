@@ -217,6 +217,32 @@ void VertexModel::next()
   setCurrentVertex( mCurrentIndex == -1 ? 0 : mCurrentIndex + 1 );
 }
 
+void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
+{
+  QgsPoint mapPoint( mapSettings()->mapSettings().mapToPixel().toMapCoordinates( point.x(), point.y() ) );
+  int closestRow = -1;
+  double closestDistance = std::numeric_limits<double>::max();
+
+  int rc = rowCount();
+  for ( int row = 0; row < rc; ++row )
+  {
+    QStandardItem *it = item( row );
+    if ( it )
+    {
+      QgsPoint pt = it->data( PointRole ).value<QgsPoint>();
+      double dist = pt.distance( mapPoint );
+      if ( dist < closestDistance )
+      {
+        closestDistance = dist;
+        closestRow = row;
+      }
+    }
+  }
+
+  if ( closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
+    setCurrentVertex( closestRow );
+}
+
 void VertexModel::removeCurrentVertex()
 {
   if ( !mCanRemoveVertex )

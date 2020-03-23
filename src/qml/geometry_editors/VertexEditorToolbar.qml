@@ -28,6 +28,12 @@ VisibilityFadingRow {
     featureModel.vertexModel.reset()
   }
 
+  function onClicked(point)
+  {
+    featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+    return true // handled
+  }
+
   Button {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )

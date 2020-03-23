@@ -192,7 +192,9 @@ ApplicationWindow {
       onClicked: {
           if (locatorItem.searching) {
               locatorItem.searching = false
-          }
+          }/*
+          else if (geometryEditorsToolbar.clicked(point.position)) {
+          }*/
           else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
@@ -206,6 +208,8 @@ ApplicationWindow {
           else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify(point.position)
           }
+
+          vertexModel.currentPoint
       }
 
       onLongPressed: {

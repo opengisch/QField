@@ -126,6 +126,8 @@ class VertexModel : public QStandardItemModel
     //! next vertex or segment
     Q_INVOKABLE void next();
 
+    Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold );
+
     Q_INVOKABLE void removeCurrentVertex();
 
     //! \copydoc editingMode
