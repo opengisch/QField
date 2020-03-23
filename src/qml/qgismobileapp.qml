@@ -280,7 +280,7 @@ ApplicationWindow {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
-      visible: positionSource.active
+      visible: positionSource.active && positionSource.position.latitudeValid
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
       direction: positionSource.position.directionValid ? positionSource.position.direction : -1
@@ -371,8 +371,8 @@ ApplicationWindow {
       crs: qgisProject.crs
     }
 
-    x: mainWindow.width / 2 + 24 * dp
-    y: mainWindow.height / 2 + 24 * dp
+    x: mapCanvas.width / 2 + 10 * dp
+    y: mapCanvas.height / 2 + 22 * dp
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
@@ -402,7 +402,7 @@ ApplicationWindow {
                   : '' )
               : ''
 
-    font: Theme.strongFont
+    font: Theme.strongTipFont
     style: Text.Outline
     styleColor: Theme.light
   }
@@ -565,8 +565,12 @@ ApplicationWindow {
 
           if ( !positionSource.active )
           {
-            positionSource.active = true;
-            displayToast( qsTr( "Activating positioning service..." ) )
+            gpsMenu.gpsActivated = true
+          }
+          else
+          {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
+            displayToast( qsTr( "Canvas follows location" ) )
           }
         }
         else
@@ -579,8 +583,7 @@ ApplicationWindow {
             }
             else
             {
-              positionSource.active = true
-              displayToast( qsTr( "Activating positioning service..." ) )
+              gpsMenu.gpsActivated = true
             }
           }
         }
@@ -853,29 +856,38 @@ ApplicationWindow {
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
     width: Math.max(200*dp, mainWindow.width/1.5)
+    property alias gpsActivated: positioningItem.checked
 
     MenuItem {
+      id: positioningItem
       text: qsTr( "Enable Positioning" )
 
       height: 48 * dp
       font: Theme.defaultFont
       width: parent.width
       checkable: true
-      checked: positionSource.active
+      checked: settings.valueBool("/QField/Positioning/Active", false )
       indicator.height: 20 * dp
       indicator.width: 20 * dp
       indicator.implicitHeight: 24 * dp
       indicator.implicitWidth: 24 * dp
 
       onCheckedChanged: {
-        if ( checked && platformUtilities.checkPositioningPermissions() ) {
-          positionSource.active = checked
+        if ( checked ) {
+          if( platformUtilities.checkPositioningPermissions() ) {
+            positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
+            positionSource.active = true
+            displayToast( qsTr( "Activating positioning service" ) )
+          }else{
+            displayToast( qsTr( "QField has no permissions to use positioning." ) )
+            //deactivate again
+            checked = false
+          }
         }
         else {
-          displayToast( qsTr( "QField has no permissions to use positioning." ) )
           positionSource.active = false
         }
-
+        settings.setValue("/QField/Positioning/Active", checked )
       }
     }
 
