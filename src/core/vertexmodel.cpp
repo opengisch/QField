@@ -129,6 +129,7 @@ void VertexModel::refreshGeometry()
   setDirty( false );
 
   emit ringCountChanged();
+  emit currentVertexIndexChanged();
   emit vertexCountChanged();
 
   // for points, enable the editing mode directly
@@ -318,6 +319,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 
   int oldVertex = mCurrentIndex;
   mCurrentIndex = newVertex;
+  emit currentVertexIndexChanged();
 
   if ( mMode == AddVertex && oldVertex >= 0 )
   {
@@ -424,6 +426,20 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   }
 
   return centroid;
+}
+
+void VertexModel::setCurrentVertexIndex( int currentIndex )
+{
+  if ( currentIndex == mCurrentIndex )
+    return;
+
+  mCurrentIndex = currentIndex;
+  emit currentVertexIndexChanged();
+}
+
+int VertexModel::currentVertexIndex() const
+{
+  return mCurrentIndex;
 }
 
 int VertexModel::vertexCount() const

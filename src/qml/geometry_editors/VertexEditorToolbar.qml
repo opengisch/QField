@@ -30,7 +30,13 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+    if ( featureModel.vertexModel.currentVertexIndex == -1 )
+      featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+    else
+    {
+      featureModel.vertexModel.currentVertexIndex = -1
+    }
+
     return true // handled
   }
 
@@ -115,10 +121,10 @@ VisibilityFadingRow {
 
   Connections {
     target: vertexModel
-    onCurrentPointChanged:
+    onCurrentVertexIndexChanged:
     {
-      if (featureModel.vertexModel.editingMode === VertexModel.EditVertex  ||
-          featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+      if ( currentVertexIndex != -1 && (featureModel.vertexModel.editingMode === VertexModel.EditVertex  ||
+          featureModel.vertexModel.editingMode === VertexModel.AddVertex))
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
     }
   }
