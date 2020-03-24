@@ -56,9 +56,9 @@ VisibilityFadingRow {
   }
 
   // returns true if handled
-  function clicked(point) {
+  function canvasClicked(point) {
     if ( toolbarRow.item )
-      return toolbarRow.item.clicked(point)
+      return toolbarRow.item.canvasClicked(point)
     else
       return false
   }

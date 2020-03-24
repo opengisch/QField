@@ -192,9 +192,9 @@ ApplicationWindow {
       onClicked: {
           if (locatorItem.searching) {
               locatorItem.searching = false
-          }/*
-          else if (geometryEditorsToolbar.clicked(point.position)) {
-          }*/
+          }
+          else if (geometryEditorsToolbar.canvasClicked(point)) {
+          }
           else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )

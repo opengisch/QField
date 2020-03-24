@@ -28,7 +28,7 @@ VisibilityFadingRow {
     featureModel.vertexModel.reset()
   }
 
-  function onClicked(point)
+  function canvasClicked(point)
   {
     featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
     return true // handled
