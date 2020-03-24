@@ -325,7 +325,7 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   Centroid centroid;
 
   QList<int> indexes = QList<int>() << leftIndex << rightIndex;
-  qSort( indexes.begin(), indexes.end() );
+  std::sort( indexes.begin(), indexes.end() );
 
   if ( indexes[1] - indexes[0] > 1 )
     indexes[0] = indexes[1] - 1;
@@ -584,4 +584,3 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
 
   emit editingModeChanged();
 }
-
