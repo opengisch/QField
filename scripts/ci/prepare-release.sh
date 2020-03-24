@@ -22,8 +22,8 @@ GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # define RELEASE_BRANCH
 travis_to_release_branch
 
-# Create release branch if needed
-if [[ ${GIT_BRANCH} = master ]]; then
+# Create release branch if needed (if we are on master)
+if [[ ${TRAVIS_BRANCH} = master ]]; then
   if [[ ! ${RELEASE_BRANCH} =~ ^release ]]; then
     echo "Something wrong happened"
     exit 1
