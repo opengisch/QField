@@ -73,7 +73,6 @@ QgsCoordinateReferenceSystem VertexModel::crs() const
 
 void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
-  qDebug() << "Set geometry " << geometry.asWkt();
   clear();
   mOriginalGeometry = geometry;
   mGeometryType = geometry.type();
