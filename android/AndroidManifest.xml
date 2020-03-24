@@ -91,10 +91,10 @@
     <activity android:name="ch.opengis.qfield.QFieldAppRaterActivity" />
 
     <!-- Activity to get picture with the native camera -->
-    <activity android:name="ch.opengis.qfield.QFieldCameraPictureActivity" />
+    <activity android:name="ch.opengis.qfield.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to get picture from the gallery -->
-    <activity android:name="ch.opengis.qfield.QFieldGalleryPictureActivity" />
+    <activity android:name="ch.opengis.qfield.QFieldGalleryPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to open file externally -->
     <activity android:name="ch.opengis.qfield.QFieldOpenExternallyActivity" />
