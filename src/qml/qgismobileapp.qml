@@ -206,10 +206,8 @@ ApplicationWindow {
                 }
           }
           else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify(point.position)
+              identifyTool.identify(point)
           }
-
-          vertexModel.currentPoint
       }
 
       onLongPressed: {

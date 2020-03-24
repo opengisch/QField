@@ -84,7 +84,7 @@ Item {
 
       onTapCountChanged: {
           if (tapCount == 1) {
-              timer.firstClickPoint = point
+              timer.firstClickPoint = point.position
               timer.running = true
           }
           else if (tapCount == 2) {
