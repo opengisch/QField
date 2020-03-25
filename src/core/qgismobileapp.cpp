@@ -55,6 +55,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmaptransform.h"
+#include "qgsnetworkaccessmanager.h"
 
 #include "qgismobileapp.h"
 
@@ -99,11 +100,6 @@
 #include "featureutils.h"
 #include "expressionevaluator.h"
 
-// Check QGIS Version
-#if VERSION_INT >= 30600
-#include "qgsnetworkaccessmanager.h"
-#endif
-
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
 
@@ -120,14 +116,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   create();
 #endif
 
-// Check QGIS Version
-#if VERSION_INT >= 30600
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
   mAuthRequestHandler = new QFieldAppAuthRequestHandler();
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
-#endif
 
   QFontDatabase::addApplicationFont(":/fonts/Cadastra-Bold.ttf");
   QFontDatabase::addApplicationFont(":/fonts/Cadastra-BoldItalic.ttf");
