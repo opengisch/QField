@@ -59,6 +59,8 @@ bool GeometryEditorsModel::supportsGeometry( const QgsGeometry &geometry, const 
     case QgsWkbTypes::NullGeometry:
       return false;
   }
+
+  return false;
 }
 
 void GeometryEditorsModel::setVertexModel( VertexModel *vertexModel )

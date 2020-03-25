@@ -101,8 +101,8 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
-    bgcolor: featureModel.vertexModel.canNextVertex ? "#FFD600" : "#616161"
+    visible: featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? "#FFD600" : "#616161"
 
     onClicked: {
       featureModel.vertexModel.next()
