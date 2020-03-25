@@ -293,20 +293,20 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         // create constraint description
         QStringList descriptions;
-        if( !field.constraints().constraintDescription().isEmpty() )
+        if ( !field.constraints().constraintDescription().isEmpty() )
         {
           descriptions << field.constraints().constraintDescription();
         }
         if ( field.constraints().constraints() & QgsFieldConstraints::ConstraintNotNull )
         {
-          descriptions << tr("Not NULL");
+          descriptions << tr( "Not NULL" );
         }
-        if( field.constraints().constraints() & QgsFieldConstraints::ConstraintUnique )
+        if ( field.constraints().constraints() & QgsFieldConstraints::ConstraintUnique )
         {
-          descriptions << tr("Unique");
+          descriptions << tr( "Unique" );
         }
 
-        item->setData( descriptions.join(", "), AttributeFormModel::ConstraintDescription );
+        item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
 
         updateAttributeValue( item );
 
@@ -387,7 +387,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
     QStandardItem *item = constraintIterator.key();
 
     QStringList errors;
-    bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex).toInt(), errors, QgsFieldConstraints::ConstraintStrengthHard );
+    bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), errors, QgsFieldConstraints::ConstraintStrengthHard );
     if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
     {
       item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
@@ -398,7 +398,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
     }
 
     QStringList softErrors;
-    bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+    bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
     if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
     {
       item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
