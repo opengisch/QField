@@ -36,7 +36,7 @@ Search.setIndex({docnames:["case-studies/ecological-surveying","case-studies/map
 :14,info:0,inform:18,install:19,interest:19,intern:17,invis:9,is
 :[18,19],issu:12,it
 :12,italiano:6,its
-:3,layer
+:3,jpeg2000:12,layer
 :19,layer:[8,11,18,19],legend:5,length:0,lietuvo:6,like
 :19,list:5,live:2,magyar:6,map
 :19,marker:10,mbtile:12,menu:[17,20],meters

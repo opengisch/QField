@@ -48,14 +48,14 @@ Set the default value of id to ``uuid()``. No need to show it in the form.
 
 .. container:: clearer text-center
 
-    .. image:: /images/add-1-n-pictures-widgets.png
+    .. image:: /images/add-1-n-pictures-widgets_hive.png
        :width: 600px
        :alt: widgets
 Set the relation widget to ``Many to one relation``
 
 .. container:: clearer text-center
 
-    .. image:: /images/add-1-n-pictures-widgets2.png
+    .. image:: /images/add-1-n-pictures-widgets_hive2.png
        :width: 600px
        :alt: widgets2
 
@@ -66,6 +66,6 @@ Set the widget type of path to ``attachment``
 
 .. container:: clearer text-center
 
-    .. image:: /images/add-1-n-pictures-widget_picture.png
+    .. image:: /images/add-1-n-pictures-widgets_picture.png
        :width: 600px
        :alt: widget picture
