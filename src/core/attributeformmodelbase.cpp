@@ -21,6 +21,7 @@
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
 #include <qgsdatetimefieldformatter.h>
+#include <qgsvectorlayerutils.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
@@ -293,10 +294,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         updateAttributeValue( item );
 
-        if ( !field.constraints().constraintExpression().isEmpty() )
-        {
-          mConstraints.insert( item, field.constraints() );
-        }
+        mConstraints.insert( item, field.constraints() );
 
         items.append( item );
 
@@ -371,31 +369,27 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-    QgsExpression exp = constraintIterator.value().constraintExpression();
-    exp.prepare( &mExpressionContext );
-    bool constraintSatisfied = exp.evaluate( &mExpressionContext ).toBool();
 
-    if ( constraintIterator.value().constraintStrength( QgsFieldConstraints::ConstraintExpression ) == QgsFieldConstraints::ConstraintStrengthHard)
+    QStringList errors;
+    bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex).toInt(), errors, QgsFieldConstraints::ConstraintStrengthHard );
+    if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
     {
-        if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
-        {
-          item->setData( constraintSatisfied, AttributeFormModel::ConstraintHardValid );
-        }
-        if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
-        {
-          allConstraintsHardValid = false;
-        }
+      item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
     }
-    else
+    if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
     {
-      if ( constraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
-      {
-        item->setData( constraintSatisfied, AttributeFormModel::ConstraintSoftValid );
-      }
-      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
-      {
-        allConstraintsSoftValid = false;
-      }
+      allConstraintsHardValid = false;
+    }
+
+    QStringList softErrors;
+    bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+    if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+    {
+      item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+    }
+    if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+    {
+      allConstraintsSoftValid = false;
     }
   }
 
