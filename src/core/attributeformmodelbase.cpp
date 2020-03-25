@@ -290,7 +290,23 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
-        item->setData( field.constraints().constraintDescription(), AttributeFormModel::ConstraintDescription );
+
+        // create constraint description
+        QStringList descriptions;
+        if( !field.constraints().constraintDescription().isEmpty() )
+        {
+          descriptions << field.constraints().constraintDescription();
+        }
+        if ( field.constraints().constraints() & QgsFieldConstraints::ConstraintNotNull )
+        {
+          descriptions << tr("Not NULL");
+        }
+        if( field.constraints().constraints() & QgsFieldConstraints::ConstraintUnique )
+        {
+          descriptions << tr("Unique");
+        }
+
+        item->setData( descriptions.join(", "), AttributeFormModel::ConstraintDescription );
 
         updateAttributeValue( item );
 

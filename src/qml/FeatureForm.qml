@@ -242,7 +242,8 @@ Page {
           top: fieldLabel.bottom
         }
 
-        text: !ConstraintHardValid ? qsTr( "Error: " ) + ConstraintDescription : !ConstraintSoftValid ? qsTr( "Warning: " ) + ConstraintDescription : ''
+        //text: !ConstraintHardValid ? qsTr( "Error: " ) + ConstraintDescription : !ConstraintSoftValid ? qsTr( "Warning: " ) + ConstraintDescription : ''
+        text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
         height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
