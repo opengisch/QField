@@ -10,7 +10,7 @@ A tracking session can be started over the legend - long press on the layer.
 
 .. container:: clearer text-center
 
-    .. image:: ../images/track_lines_started.jpeg
+    .. image:: /images/track_lines_started.jpeg
        :width: 640px
        :alt: track_lines_started
 
@@ -19,7 +19,7 @@ The time interval and the minimum distance can be entered individually to define
 
 .. container:: clearer text-center
 
-    .. image:: ../images/track_lines_tracker_settings.jpeg
+    .. image:: /images/track_lines_tracker_settings.jpeg
        :width: 640px
        :alt: tracker_settings
 
@@ -29,11 +29,11 @@ But only one tracking session per layer can be active at the time.
 
 .. container:: clearer text-center
 
-    .. image:: ../images/track_lines_tracking_layers1.jpeg
+    .. image:: /images/track_lines_tracking_layers1.jpeg
        :width: 640px
        :alt: tracking_layers1
 
-    .. image:: ../images/track_lines_tracking_layers2.jpeg
+    .. image:: /images/track_lines_tracking_layers2.jpeg
        :width: 640px
        :alt: tracking_layers2
 
@@ -43,7 +43,7 @@ While the tracking session is active the layer is still editable, but the tracke
 
 .. container:: clearer text-center
 
-    .. image:: ../images/track_lines_stop_tracking_delete.jpeg
+    .. image:: /images/track_lines_stop_tracking_delete.jpeg
        :width: 640px
        :alt: stop_tracking_delete
 
