@@ -242,6 +242,7 @@ Page {
           top: fieldLabel.bottom
         }
 
+        font.pixelSize: fieldLabel.font.pixelSize/3*2
         text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
         height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
