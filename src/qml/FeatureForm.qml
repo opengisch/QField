@@ -243,7 +243,7 @@ Page {
         }
 
         text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
-        height: ConstraintHardValid || ConstraintSoftValid ? 0 : undefined
+        height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
         color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
@@ -252,7 +252,7 @@ Page {
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp  }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp; }
 
         Loader {
           id: attributeEditorLoader
@@ -314,7 +314,7 @@ Page {
         visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
         width: visible ? undefined : 0
 
-        anchors { right: parent.right; top: fieldLabel.bottom }
+        anchors { right: parent.right; top: constraintDescriptionLabel.bottom }
 
         onCheckedChanged: {
           RememberValue = checked
