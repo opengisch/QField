@@ -262,20 +262,34 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
   if ( mActivity.isValid() )
   {
-    QAndroidJniObject window = mActivity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
-
-    if ( window.isValid() )
+    QtAndroid::runOnAndroidThread( [allowLock]
     {
-      const int FLAG_KEEP_SCREEN_ON = 128;
-      if ( !allowLock )
+      QAndroidJniObject activity = QtAndroid::androidActivity();
+      if ( activity.isValid() )
       {
-        window.callObjectMethod( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        QAndroidJniObject window =
+        activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
+
+        if ( window.isValid() )
+        {
+          const int FLAG_KEEP_SCREEN_ON = 128;
+          if ( !allowLock )
+          {
+            window.callMethod<void>( "addFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+          }
+          else
+          {
+            window.callMethod<void>( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+          }
+        }
       }
-      else
+
+      QAndroidJniEnvironment env;
+      if ( env->ExceptionCheck() )
       {
-        window.callObjectMethod( "clearFlags", "(I)V", FLAG_KEEP_SCREEN_ON );
+        env->ExceptionClear();
       }
-    }
+    } );
   }
 }
 
