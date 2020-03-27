@@ -527,8 +527,13 @@ ApplicationWindow {
       bgcolor: "#64B5F6"
 
       onIconSourceChanged: {
-        if( state === "On" && !positionSource.position.latitudeValid )
-          displayToast( qsTr( "No position source available" ) )
+        if( state === "On" ){
+          if( positionSource.position.latitudeValid ) {
+            displayToast( qsTr( "Received position" ) )
+          } else {
+            displayToast( qsTr( "Searching for position" ) )
+          }
+        }
       }
 
       states: [
