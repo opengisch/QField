@@ -1,0 +1,13 @@
+name: QML Format
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Perform qml format
+      run: docker run --rm -v $(pwd):/usr/src forderud/qtwasm:qt-5.15 /usr/src/scripts/qmlformat.sh
