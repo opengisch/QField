@@ -12,21 +12,21 @@ AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterReturnType: AllDefinitions
+AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: No
 BinPackArguments: true
 BinPackParameters: true
 BraceWrapping:
-  AfterClass:      false
+  AfterClass:      true
   AfterControlStatement: true
-  AfterEnum:       false
+  AfterEnum:       true
   AfterFunction:   true
-  AfterNamespace:  false
+  AfterNamespace:  true
   AfterObjCDeclaration: false
   AfterStruct:     true
-  AfterUnion:      false
-  BeforeCatch:     false
+  AfterUnion:      true
+  BeforeCatch:     true
   BeforeElse:      true
   IndentBraces:    false
   SplitEmptyFunction: false
@@ -54,14 +54,12 @@ FixNamespaceComments: true
 ForEachMacros:
   - forever # avoids { wrapped to next line
   - foreach
-  - Q_FOREACH
   - BOOST_FOREACH
 IncludeCategories:
   - Regex:           '^<Q.*'
     Priority:        200
 IncludeIsMainRegex: '(test_?)?$'
 IndentCaseLabels: true
-IndentPPDirectives: false
 IndentWidth: 2
 IndentWrappedFunctionNames: true
 JavaScriptQuotes: Leave
