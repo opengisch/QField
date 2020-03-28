@@ -9,5 +9,4 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Perform qml format lint check
-      run: docker run --rm -v $(pwd):/usr/src forderud/qtwasm:qt-5.15 /usr/src/scripts/ci/qmlformatcheck.sh
+    - uses: opengisch/qmlformat-lint-action
