@@ -18,6 +18,7 @@ AlwaysBreakTemplateDeclarations: No
 BinPackArguments: true
 BinPackParameters: true
 BraceWrapping:
+  AfterCaseLabel:  true
   AfterClass:      true
   AfterControlStatement: true
   AfterEnum:       true
@@ -102,3 +103,11 @@ SpacesInSquareBrackets: false
 Standard:        Cpp11
 TabWidth:        2
 UseTab:       Never
+
+---
+
+Language:        Java
+TabWidth:        4
+IndentWidth:     4
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
