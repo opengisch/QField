@@ -1,4 +1,4 @@
-name: QML Format
+name: QML format lint
 
 on:
   push
@@ -9,5 +9,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Perform qml format
-      run: docker run --rm -v $(pwd):/usr/src forderud/qtwasm:qt-5.15 /usr/src/scripts/qmlformat.sh
+    - name: Perform qml format lint check
+      run: docker run --rm -v $(pwd):/usr/src forderud/qtwasm:qt-5.15 /usr/src/scripts/ci/qmlformatcheck.sh

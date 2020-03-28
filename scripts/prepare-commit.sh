@@ -108,4 +108,6 @@ else
   rm $ASTYLEDIFF
 fi
 
+qmlformat.sh
+
 exit 0
