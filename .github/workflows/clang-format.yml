@@ -1,6 +1,6 @@
 name: clang-format
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,3 +13,26 @@ jobs:
         source: '.'
         extensions: 'h,cpp'
         clangFormatVersion: 9
+
+    # write comment to ping the PR author
+    - name: Help setting up git filter
+      if: failure()
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        token:  ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          The clang lint check has found issues in the format of this pull request.
+
+          Format your code by running clang-format from the source code folder:
+
+          ```sh
+          find . -iname '*.h' -o -iname '*.cpp' | xargs clang-format -i
+          ```
+
+          To avoid this in the future, setup up the git filters:
+
+          ```sh
+          git config --global filter.clang-format-cpp.smudge cat
+          git config --global filter.clang-format-cpp.clean 'clang-format -assume-filename=test.cpp'
+          ```
