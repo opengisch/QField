@@ -4,6 +4,7 @@ astyle.*.diff
 *.prepare
 *.orig
 *.iml
+*.swp
 *.autosave
 .DS_Store
 .idea
