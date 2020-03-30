@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+
 #include "qgismobileapp.h"
 
 AppInterface::AppInterface( QgisMobileapp *app )
