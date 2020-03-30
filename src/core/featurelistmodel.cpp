@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 #include "featurelistmodel.h"
-
 #include "qgsvectorlayer.h"
+
 #include <qgsproject.h>
 
 FeatureListModel::FeatureListModel()
@@ -205,8 +205,7 @@ void FeatureListModel::processReloadLayer()
 
   if ( mOrderByValue )
   {
-    qSort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    qSort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
         return true;
 

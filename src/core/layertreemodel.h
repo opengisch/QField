@@ -25,59 +25,59 @@ class QgsProject;
 
 class LayerTreeModel : public QSortFilterProxyModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+  Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
 
-  public:
-    enum Roles
-    {
-      VectorLayer = Qt::UserRole + 1,
-      LegendImage,
-      Type,
-      Visible,
-      Trackable,
-      InTracking
-    };
-    Q_ENUM( Roles )
+public:
+  enum Roles
+  {
+    VectorLayer = Qt::UserRole + 1,
+    LegendImage,
+    Type,
+    Visible,
+    Trackable,
+    InTracking
+  };
+  Q_ENUM( Roles )
 
-    explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+  explicit LayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
-    ~LayerTreeModel() override;
-    Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
+  ~LayerTreeModel() override;
+  Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
 
-    Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+  Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-    QHash<int, QByteArray> roleNames() const override;
+  QHash<int, QByteArray> roleNames() const override;
 
-    QgsLayerTreeModel *layerTreeModel() const;
+  QgsLayerTreeModel *layerTreeModel() const;
 
-    QgsLayerTree *layerTree() const;
+  QgsLayerTree *layerTree() const;
 
-    QString mapTheme() const;
-    void setMapTheme( const QString &mapTheme );
+  QString mapTheme() const;
+  void setMapTheme( const QString &mapTheme );
 
-    QgsProject *project() const;
+  QgsProject *project() const;
 
-    //! Update map theme as currently used by the model
-    //! This should be triggered after a project has been loaded
-    Q_INVOKABLE void updateCurrentMapTheme();
+  //! Update map theme as currently used by the model
+  //! This should be triggered after a project has been loaded
+  Q_INVOKABLE void updateCurrentMapTheme();
 
-    //! Sets the information if the \a nodeLayer is currently in \a tracking state
-    void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
+  //! Sets the information if the \a nodeLayer is currently in \a tracking state
+  void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
 
-  signals:
-    void mapThemeChanged();
+signals:
+  void mapThemeChanged();
 
-  protected:
-    bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+protected:
+  bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
 
-  private:
-    QgsLayerTreeModel *mLayerTreeModel = nullptr;
-    QString mMapTheme;
-    QgsProject *mProject = nullptr;
-    QList<QgsLayerTreeLayer *> mLayersInTracking;
+private:
+  QgsLayerTreeModel *mLayerTreeModel = nullptr;
+  QString mMapTheme;
+  QgsProject *mProject = nullptr;
+  QList<QgsLayerTreeLayer *> mLayersInTracking;
 };
 
 #endif // LAYERTREEMODEL_H

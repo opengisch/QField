@@ -19,14 +19,14 @@
 #include <qgsvectorlayer.h>
 
 
-FeatureUtils::FeatureUtils(QObject *parent) : QObject(parent)
+FeatureUtils::FeatureUtils( QObject *parent )
+  : QObject( parent )
 {
-
 }
 
-QgsFeature FeatureUtils::initFeature(QgsVectorLayer *layer, QgsGeometry geometry)
+QgsFeature FeatureUtils::initFeature( QgsVectorLayer *layer, QgsGeometry geometry )
 {
-  QgsFeature f(layer->fields());
-  f.setGeometry(geometry);
+  QgsFeature f( layer->fields() );
+  f.setGeometry( geometry );
   return f;
 }

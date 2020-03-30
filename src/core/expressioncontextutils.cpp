@@ -18,6 +18,7 @@
 
 #include "expressioncontextutils.h"
 #include "qgsgeometry.h"
+
 #include <QtPositioning/QGeoPositionInfoSource>
 
 QgsExpressionContextScope *ExpressionContextUtils::positionScope( QGeoPositionInfoSource *source )

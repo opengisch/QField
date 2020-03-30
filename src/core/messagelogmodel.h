@@ -26,55 +26,55 @@
  */
 class MessageLogModel : public QAbstractListModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    struct LogMessage
+  struct LogMessage
+  {
+    LogMessage()
+    {}
+
+    LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
     {
-      LogMessage()
-      {}
+      this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) );
+      this->tag = tag;
+      this->message = message;
+      this->level = level;
+    }
 
-      LogMessage( const QString &tag, const QString &message, Qgis::MessageLevel level )
-      {
-        this->datetime = QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-dd hh:mm:ss:zzz" ) );
-        this->tag = tag;
-        this->message = message;
-        this->level = level;
-      }
+    QString datetime;
+    QString tag;
+    QString message;
+    Qgis::MessageLevel level;
+  };
 
-      QString datetime;
-      QString tag;
-      QString message;
-      Qgis::MessageLevel level;
-    };
+  enum Roles
+  {
+    MessageRole = Qt::UserRole,
+    MessageTagRole,
+    MessageLevelRole,
+    MessageDateTimeRole
+  };
 
-    enum Roles
-    {
-      MessageRole = Qt::UserRole,
-      MessageTagRole,
-      MessageLevelRole,
-      MessageDateTimeRole
-    };
+public:
+  MessageLogModel( QObject *parent = nullptr );
 
-  public:
-    MessageLogModel( QObject *parent = nullptr );
+  QHash<int, QByteArray> roleNames() const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+  int rowCount( const QModelIndex &parent ) const override;
+  QVariant data( const QModelIndex &index, int role ) const override;
 
-    int rowCount( const QModelIndex &parent ) const override;
-    QVariant data( const QModelIndex &index, int role ) const override;
+  //! activates suppression of messages wit specific tags
+  Q_INVOKABLE void suppressTags( const QList<QString> &tags );
+  //! deactivates suppression of messages wit specific tags
+  Q_INVOKABLE void unsuppressTags( const QList<QString> &tags );
 
-    //! activates suppression of messages wit specific tags
-    Q_INVOKABLE void suppressTags( const QList <QString> &tags );
-    //! deactivates suppression of messages wit specific tags
-    Q_INVOKABLE void unsuppressTags( const QList <QString> &tags );
+private slots:
+  void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
 
-  private slots:
-    void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
-
-  private:
-    QgsMessageLog *mMessageLog = nullptr;
-    QVector<LogMessage> mMessages;
-    QList< QString > mSuppressedTags;
+private:
+  QgsMessageLog *mMessageLog = nullptr;
+  QVector<LogMessage> mMessages;
+  QList<QString> mSuppressedTags;
 };
 
 #endif // MESSAGELOGMODEL_H

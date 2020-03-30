@@ -19,19 +19,20 @@
 #ifndef EXPRESSIONCONTEXTUTILS_H
 #define EXPRESSIONCONTEXTUTILS_H
 
-#include <qgsexpressioncontext.h>
 #include "snappingresult.h"
+
+#include <qgsexpressioncontext.h>
 
 class QGeoPositionInfoSource;
 
 class ExpressionContextUtils
 {
-  public:
-    static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
-    static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
+public:
+  static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
+  static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
 
-  private:
-    ExpressionContextUtils() = default;
+private:
+  ExpressionContextUtils() = default;
 };
 
 #endif // EXPRESSIONCONTEXTUTILS_H

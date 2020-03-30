@@ -18,10 +18,8 @@
 PictureSource::PictureSource( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 PictureSource::~PictureSource()
 {
-
 }

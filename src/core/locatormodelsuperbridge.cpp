@@ -15,15 +15,14 @@
  ***************************************************************************/
 
 
-#include <QStandardItem>
-
-#include <qgslocatormodel.h>
-
-#include "locatormodelsuperbridge.h"
-#include "qgsquickmapsettings.h"
-#include "featureslocatorfilter.h"
-#include "qgslocator.h"
 #include "featurelistextentcontroller.h"
+#include "featureslocatorfilter.h"
+#include "locatormodelsuperbridge.h"
+#include "qgslocator.h"
+#include "qgsquickmapsettings.h"
+
+#include <QStandardItem>
+#include <qgslocatormodel.h>
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
@@ -47,8 +46,8 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateCanvasExtent( mMapSettings->extent() );
   updateCanvasCrs( mMapSettings->destinationCrs() );
 
-  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [ = ]() {updateCanvasExtent( mMapSettings->visibleExtent() );} );
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [ = ]() {updateCanvasCrs( mMapSettings->destinationCrs() );} ) ;
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [=]() { updateCanvasExtent( mMapSettings->visibleExtent() ); } );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [=]() { updateCanvasCrs( mMapSettings->destinationCrs() ); } );
 
   emit mapSettingsChanged();
 }

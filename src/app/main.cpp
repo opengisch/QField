@@ -17,19 +17,18 @@
  ***************************************************************************/
 
 #include "qgismobileapp.h"
-
-#include <QLocale>
-#include <QDir>
-#include <QSettings>
-#include <QTranslator>
-#include <QMainWindow>
-#include <QLabel>
-#include <QDialog>
-#include <QApplication>
 #include "qgsapplication.h"
 #include "qgslogger.h"
-#include <qmainwindow.h>
+
 #include <QApplication>
+#include <QDialog>
+#include <QDir>
+#include <QLabel>
+#include <QLocale>
+#include <QMainWindow>
+#include <QSettings>
+#include <QTranslator>
+#include <qmainwindow.h>
 
 int main( int argc, char **argv )
 {

@@ -16,55 +16,55 @@
 #ifndef FEATURELISTEXTENTCONTROLLER_H
 #define FEATURELISTEXTENTCONTROLLER_H
 
-#include <QObject>
-
-#include "multifeaturelistmodel.h"
 #include "featurelistmodelselection.h"
+#include "multifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
+
+#include <QObject>
 
 class FeatureListExtentController : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( MultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
-    Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
-    Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+  Q_PROPERTY( MultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
+  Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
+  Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
-  public:
-    FeatureListExtentController( QObject *parent = nullptr );
-    ~FeatureListExtentController();
+public:
+  FeatureListExtentController( QObject *parent = nullptr );
+  ~FeatureListExtentController();
 
-    //! Returns the selection of the feature list model
-    FeatureListModelSelection *selection() const;
+  //! Returns the selection of the feature list model
+  FeatureListModelSelection *selection() const;
 
-    //! Returns the feature list model
-    MultiFeatureListModel *model() const;
+  //! Returns the feature list model
+  MultiFeatureListModel *model() const;
 
-    //! This will emit a signal to request a state change in the feature form
-    void requestFeatureFormState();
+  //! This will emit a signal to request a state change in the feature form
+  void requestFeatureFormState();
 
-  public slots:
-    //! zoom to the selected features.
-    //! If \a skipIfIntersects is true, no change will be applied if bounding box intersects with canvas extent
-    void zoomToSelected( bool skipIfIntersects = false ) const;
+public slots:
+  //! zoom to the selected features.
+  //! If \a skipIfIntersects is true, no change will be applied if bounding box intersects with canvas extent
+  void zoomToSelected( bool skipIfIntersects = false ) const;
 
-  signals:
-    void autoZoomChanged();
-    void selectionChanged();
-    void modelChanged();
-    void mapSettingsChanged();
-    void featureFormStateRequested();
+signals:
+  void autoZoomChanged();
+  void selectionChanged();
+  void modelChanged();
+  void mapSettingsChanged();
+  void featureFormStateRequested();
 
-  private slots:
-    void onModelChanged();
-    void onCurrentSelectionChanged();
+private slots:
+  void onModelChanged();
+  void onCurrentSelectionChanged();
 
-  private:
-    MultiFeatureListModel *mModel = nullptr;
-    FeatureListModelSelection *mSelection = nullptr;
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    bool mAutoZoom = false;
+private:
+  MultiFeatureListModel *mModel = nullptr;
+  FeatureListModelSelection *mSelection = nullptr;
+  QgsQuickMapSettings *mMapSettings = nullptr;
+  bool mAutoZoom = false;
 };
 
 #endif // FEATURELISTEXTENTCONTROLLER_H

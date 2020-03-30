@@ -23,34 +23,34 @@ class QgsProject;
 
 class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+  Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
-  public:
-    enum Roles
-    {
-      DataSourceRole = Qt::UserRole,
-      LayerNameRole
-    };
+public:
+  enum Roles
+  {
+    DataSourceRole = Qt::UserRole,
+    LayerNameRole
+  };
 
-    BadLayerHandler( QObject *parent = nullptr );
+  BadLayerHandler( QObject *parent = nullptr );
 
-    QHash<int, QByteArray> roleNames() const override;
+  QHash<int, QByteArray> roleNames() const override;
 
-    QgsProject *project() const;
-    void setProject( QgsProject *project );
+  QgsProject *project() const;
+  void setProject( QgsProject *project );
 
-    void handleBadLayers( const QList<QDomNode> &layers ) override;
+  void handleBadLayers( const QList<QDomNode> &layers ) override;
 
-  signals:
-    void projectChanged();
-    void badLayersFound();
+signals:
+  void projectChanged();
+  void badLayersFound();
 
-  private:
-    QString layerName( const QDomNode &layerNode ) const;
+private:
+  QString layerName( const QDomNode &layerNode ) const;
 
-    QgsProject *mProject = nullptr;
+  QgsProject *mProject = nullptr;
 };
 
 #endif // BADLAYERHANDLER_H

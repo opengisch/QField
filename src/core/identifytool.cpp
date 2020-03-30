@@ -14,21 +14,19 @@
  *                                                                         *
  ***************************************************************************/
 #include "identifytool.h"
-
-#include "qgsquickmapsettings.h"
 #include "multifeaturelistmodel.h"
+#include "qgsquickmapsettings.h"
 
-#include <qgsvectorlayer.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsrenderer.h>
-#include <qgsexpressioncontextutils.h>
+#include <qgsvectorlayer.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )
   , mMapSettings( nullptr )
   , mSearchRadiusMm( 8 )
 {
-
 }
 
 QgsQuickMapSettings *IdentifyTool::mapSettings() const
@@ -60,7 +58,7 @@ void IdentifyTool::identify( const QPointF &point ) const
 
   QgsPointXY mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
 
-  const QList<QgsMapLayer *> layers { mMapSettings->mapSettings().layers() };
+  const QList<QgsMapLayer *> layers {mMapSettings->mapSettings().layers()};
   for ( QgsMapLayer *layer : layers )
   {
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )

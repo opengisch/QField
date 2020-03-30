@@ -16,13 +16,13 @@
 #ifndef RUBBERBANDMODEL_H
 #define RUBBERBANDMODEL_H
 
-#include <QVector>
+#include <QDateTime>
 #include <QObject>
 #include <QPointF>
-#include <QDateTime>
+#include <QVector>
 #include <qgis.h>
-#include <qgspoint.h>
 #include <qgsabstractgeometry.h>
+#include <qgspoint.h>
 
 class QgsVectorLayer;
 
@@ -34,109 +34,109 @@ class QgsVectorLayer;
 
 class RubberbandModel : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
-    Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
-    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
-    Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
-    Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
-    Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
-    //! freeze the rubberband so it doesn't get modified while panning map
-    Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
-    //! currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself
-    Q_PROPERTY( QDateTime currentPositionTimestamp READ currentPositionTimestamp WRITE setCurrentPositionTimestamp NOTIFY currentPositionTimestampChanged )
-    //! measureValue defines the M value of the coordinates
-    Q_PROPERTY( double measureValue READ measureValue WRITE setMeasureValue NOTIFY measureValueChanged )
+  Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
+  Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
+  Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
+  Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
+  Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
+  Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
+  //! freeze the rubberband so it doesn't get modified while panning map
+  Q_PROPERTY( bool frozen READ frozen WRITE setFrozen NOTIFY frozenChanged )
+  //! currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself
+  Q_PROPERTY( QDateTime currentPositionTimestamp READ currentPositionTimestamp WRITE setCurrentPositionTimestamp NOTIFY currentPositionTimestampChanged )
+  //! measureValue defines the M value of the coordinates
+  Q_PROPERTY( double measureValue READ measureValue WRITE setMeasureValue NOTIFY measureValueChanged )
 
-  public:
-    explicit RubberbandModel( QObject *parent = nullptr );
+public:
+  explicit RubberbandModel( QObject *parent = nullptr );
 
-    int vertexCount() const;
+  int vertexCount() const;
 
-    bool isEmpty() const;
+  bool isEmpty() const;
 
-    QVector<QgsPoint> vertices() const;
+  QVector<QgsPoint> vertices() const;
 
-    QVector<QgsPoint> flatVertices( bool skipCurrentPoint = false ) const;
+  QVector<QgsPoint> flatVertices( bool skipCurrentPoint = false ) const;
 
-    /**
+  /**
      * The target CRS into which points should be reprojected.
      * To retrieve unprojected points pass an invalid QgsCoordinateReferenceSystem object.
      *
      * By default coordinates will be returned unprojected.
      */
-    Q_INVOKABLE QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::Point, bool closeLine = false ) const;
+  Q_INVOKABLE QgsPointSequence pointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::Point, bool closeLine = false ) const;
 
-    QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
+  QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 
-    void setVertex( int index, QgsPoint coordinate );
+  void setVertex( int index, QgsPoint coordinate );
 
-    void insertVertices( int index, int count );
+  void insertVertices( int index, int count );
 
-    void removeVertices( int index, int count );
+  void removeVertices( int index, int count );
 
-    int currentCoordinateIndex() const;
-    void setCurrentCoordinateIndex( int currentCoordinateIndex );
+  int currentCoordinateIndex() const;
+  void setCurrentCoordinateIndex( int currentCoordinateIndex );
 
-    QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
+  QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
-    QgsPoint currentCoordinate() const;
-    void setCurrentCoordinate( const QgsPoint &currentCoordinate );
+  QgsPoint currentCoordinate() const;
+  void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 
-    //! \copydoc currentPositionTimestamp
-    QDateTime currentPositionTimestamp() const;
-    //! \copydoc currentPositionTimestamp
-    void setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp );
+  //! \copydoc currentPositionTimestamp
+  QDateTime currentPositionTimestamp() const;
+  //! \copydoc currentPositionTimestamp
+  void setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp );
 
-    //! \copydoc measureValue
-    double measureValue() const;
-    //! \copydoc measureValue
-    void setMeasureValue( const double measureValue );
+  //! \copydoc measureValue
+  double measureValue() const;
+  //! \copydoc measureValue
+  void setMeasureValue( const double measureValue );
 
-    Q_INVOKABLE void addVertex();
-    Q_INVOKABLE void removeVertex();
+  Q_INVOKABLE void addVertex();
+  Q_INVOKABLE void removeVertex();
 
-    Q_INVOKABLE void reset();
+  Q_INVOKABLE void reset();
 
-    QgsWkbTypes::GeometryType geometryType() const;
+  QgsWkbTypes::GeometryType geometryType() const;
 
-    QgsVectorLayer *vectorLayer() const;
-    void setVectorLayer( QgsVectorLayer *vectorLayer );
+  QgsVectorLayer *vectorLayer() const;
+  void setVectorLayer( QgsVectorLayer *vectorLayer );
 
-    QgsCoordinateReferenceSystem crs() const;
-    void setCrs( const QgsCoordinateReferenceSystem &crs );
+  QgsCoordinateReferenceSystem crs() const;
+  void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    //! \copydoc frozen
-    bool frozen() const;
-    //! \copydoc frozen
-    void setFrozen( const bool &frozen );
+  //! \copydoc frozen
+  bool frozen() const;
+  //! \copydoc frozen
+  void setFrozen( const bool &frozen );
 
-    void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
+  void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
 
-  signals:
-    void vertexChanged( int index );
-    void verticesInserted( int index, int count );
-    void verticesRemoved( int index, int count );
-    void currentCoordinateIndexChanged();
-    void currentCoordinateChanged();
-    void geometryTypeChanged();
-    void vectorLayerChanged();
-    void vertexCountChanged();
-    void crsChanged();
-    //! \copydoc frozen
-    void frozenChanged();
-    void currentPositionTimestampChanged();
-    void measureValueChanged();
+signals:
+  void vertexChanged( int index );
+  void verticesInserted( int index, int count );
+  void verticesRemoved( int index, int count );
+  void currentCoordinateIndexChanged();
+  void currentCoordinateChanged();
+  void geometryTypeChanged();
+  void vectorLayerChanged();
+  void vertexCountChanged();
+  void crsChanged();
+  //! \copydoc frozen
+  void frozenChanged();
+  void currentPositionTimestampChanged();
+  void measureValueChanged();
 
-  private:
-    QVector<QgsPoint> mPointList;
-    int mCurrentCoordinateIndex;
-    QDateTime mCurrentPositionTimestamp;
-    QgsWkbTypes::GeometryType mGeometryType;
-    QgsVectorLayer *mLayer = nullptr;
-    QgsCoordinateReferenceSystem mCrs;
-    bool mFrozen = false;
+private:
+  QVector<QgsPoint> mPointList;
+  int mCurrentCoordinateIndex;
+  QDateTime mCurrentPositionTimestamp;
+  QgsWkbTypes::GeometryType mGeometryType;
+  QgsVectorLayer *mLayer = nullptr;
+  QgsCoordinateReferenceSystem mCrs;
+  bool mFrozen = false;
 };
 
 #endif // RUBBERBANDMODEL_H

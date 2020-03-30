@@ -21,21 +21,21 @@
 
 class FileUtils : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    FileUtils( QObject *parent = nullptr );
-    //! Destructor
-    ~FileUtils() = default;
+public:
+  FileUtils( QObject *parent = nullptr );
+  //! Destructor
+  ~FileUtils() = default;
 
-    //! returns the mimetype of a filepath as string
-    Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
-    //! returns the filename of a filepath - if no file name exists it's empty
-    Q_INVOKABLE static QString fileName( const QString &filePath );
-    //! returns true if the file exists (false if it's a directory)
-    Q_INVOKABLE static bool fileExists( const QString &filePath );
-    //! returns the suffix (extension)
-    Q_INVOKABLE static QString fileSuffix( const QString &filePath );
+  //! returns the mimetype of a filepath as string
+  Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
+  //! returns the filename of a filepath - if no file name exists it's empty
+  Q_INVOKABLE static QString fileName( const QString &filePath );
+  //! returns true if the file exists (false if it's a directory)
+  Q_INVOKABLE static bool fileExists( const QString &filePath );
+  //! returns the suffix (extension)
+  Q_INVOKABLE static QString fileSuffix( const QString &filePath );
 };
 
 #endif // FILEUTILS_H

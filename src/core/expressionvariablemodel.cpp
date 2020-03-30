@@ -15,12 +15,11 @@
  ***************************************************************************/
 
 #include "expressionvariablemodel.h"
+
+#include <QDebug>
+#include <QSettings>
 #include <qgsexpressioncontext.h>
 #include <qgsexpressioncontextutils.h>
-
-
-#include <QSettings>
-#include <QDebug>
 
 ExpressionVariableModel::ExpressionVariableModel( QObject *parent )
   : QStandardItemModel( parent )

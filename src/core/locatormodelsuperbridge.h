@@ -31,16 +31,16 @@ class FeatureListExtentController;
  */
 class LocatorActionsModel : public QStandardItemModel
 {
-    Q_OBJECT
-  public:
-    enum ActionRoles
-    {
-      IdRole = Qt::UserRole + 1,
-      IconPathRole
-    };
-    explicit LocatorActionsModel( QObject *parent = nullptr );
-    LocatorActionsModel( int rows, int columns, QObject *parent = nullptr );
-    QHash<int, QByteArray> roleNames() const override;
+  Q_OBJECT
+public:
+  enum ActionRoles
+  {
+    IdRole = Qt::UserRole + 1,
+    IconPathRole
+  };
+  explicit LocatorActionsModel( QObject *parent = nullptr );
+  LocatorActionsModel( int rows, int columns, QObject *parent = nullptr );
+  QHash<int, QByteArray> roleNames() const override;
 };
 
 
@@ -50,47 +50,47 @@ class LocatorActionsModel : public QStandardItemModel
  */
 class LocatorModelSuperBridge : public QgsLocatorModelBridge
 {
-    Q_OBJECT
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
-    Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
-    Q_PROPERTY( bool keepScale READ keepScale WRITE setKeepScale NOTIFY keepScaleChanged )
+  Q_OBJECT
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+  Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
+  Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
+  Q_PROPERTY( bool keepScale READ keepScale WRITE setKeepScale NOTIFY keepScaleChanged )
 
-  public:
-    explicit LocatorModelSuperBridge( QObject *parent = nullptr );
-    ~LocatorModelSuperBridge() = default;
+public:
+  explicit LocatorModelSuperBridge( QObject *parent = nullptr );
+  ~LocatorModelSuperBridge() = default;
 
-    QgsQuickMapSettings *mapSettings() const;
-    void setMapSettings( QgsQuickMapSettings *mapSettings );
+  QgsQuickMapSettings *mapSettings() const;
+  void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    QObject *locatorHighlightGeometry() const;
-    void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
+  QObject *locatorHighlightGeometry() const;
+  void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
 
-    FeatureListExtentController *featureListController() const;
-    void setFeatureListController( FeatureListExtentController *featureListController );
+  FeatureListExtentController *featureListController() const;
+  void setFeatureListController( FeatureListExtentController *featureListController );
 
-    bool keepScale() const;
-    void setKeepScale( bool keepScale );
+  bool keepScale() const;
+  void setKeepScale( bool keepScale );
 
-    Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
+  Q_INVOKABLE LocatorActionsModel *contextMenuActionsModel( const int row );
 
-    void emitMessage( const QString &text );
+  void emitMessage( const QString &text );
 
-  signals:
-    void mapSettingsChanged();
-    void locatorHighlightGeometryChanged();
-    void featureListControllerChanged();
-    void messageEmitted( const QString &text );
-    void keepScaleChanged();
+signals:
+  void mapSettingsChanged();
+  void locatorHighlightGeometryChanged();
+  void featureListControllerChanged();
+  void messageEmitted( const QString &text );
+  void keepScaleChanged();
 
-  public slots:
-    Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
+public slots:
+  Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
 
-  private:
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    QObject *mLocatorHighlightGeometry = nullptr;
-    FeatureListExtentController *mFeatureListController = nullptr;
-    bool mKeepScale = false;
+private:
+  QgsQuickMapSettings *mMapSettings = nullptr;
+  QObject *mLocatorHighlightGeometry = nullptr;
+  FeatureListExtentController *mFeatureListController = nullptr;
+  bool mKeepScale = false;
 };
 
 #endif // LOCATORMODELSUPERBRIDGE_H

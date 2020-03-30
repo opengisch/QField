@@ -15,14 +15,14 @@
  ***************************************************************************/
 
 #include "fileutils.h"
-#include <QMimeDatabase>
+
 #include <QDebug>
 #include <QFileInfo>
+#include <QMimeDatabase>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 QString FileUtils::mimeTypeName( const QString &filePath )
@@ -47,5 +47,5 @@ QString FileUtils::fileSuffix( const QString &filePath )
 bool FileUtils::fileExists( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
-  return (fileInfo.exists() && fileInfo.isFile() );
+  return ( fileInfo.exists() && fileInfo.isFile() );
 }

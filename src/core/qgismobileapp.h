@@ -23,24 +23,24 @@
 
 // QGIS includes
 #include <qgsapplication.h>
+#include <qgsconfig.h>
 #include <qgsexiftools.h>
 #include <qgsmaplayerproxymodel.h>
-#include <qgsconfig.h>
 
 // QGIS mobile includes
-#include "multifeaturelistmodel.h"
-#include "settings.h"
 #include "focusstack.h"
-#include "qgsquickutils.h"
-#include "qgsgpkgflusher.h"
 #include "geometryeditorsmodel.h"
+#include "multifeaturelistmodel.h"
+#include "qgsgpkgflusher.h"
+#include "qgsquickutils.h"
+#include "settings.h"
 
 #if VERSION_INT >= 30600
 #include "qfieldappauthrequesthandler.h"
 #endif
 
 #include "platformutilities.h"
-#if defined(Q_OS_ANDROID)
+#if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
 #endif
 
@@ -54,103 +54,103 @@ class TrackingModel;
 class QgsProject;
 
 
-#define REGISTER_SINGLETON(uri, _class, name) qmlRegisterSingletonType<_class>( uri, 1, 0, name, [] ( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
+#define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 
 class QgisMobileapp : public QQmlApplicationEngine
 {
-    Q_OBJECT
-  public:
-    QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
-    ~QgisMobileapp() override;
+  Q_OBJECT
+public:
+  QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
+  ~QgisMobileapp() override;
 
-    /**
+  /**
      * Returns a list of recent projects.
      */
-    QList<QPair<QString, QString>> recentProjects();
+  QList<QPair<QString, QString>> recentProjects();
 
-    /**
+  /**
      * Saves a list of recent \a projects.
      */
-    void saveRecentProjects( QList<QPair<QString, QString>> &projects );
+  void saveRecentProjects( QList<QPair<QString, QString>> &projects );
 
-    /**
+  /**
      * When called loads the last project
      */
-    void loadLastProject();
+  void loadLastProject();
 
-    /**
+  /**
      * When called loads the project file found at path.
      *
      * @param path The project file to load
      */
-    void loadProjectFile( const QString &path );
-    /**
+  void loadProjectFile( const QString &path );
+  /**
      * Loads the project file found at path.
      * It does not reset the Auth Request Handler.
      *
      * @param path The project file to load
      */
-    void reloadProjectFile( const QString &path );
-    void print( int layoutIndex );
+  void reloadProjectFile( const QString &path );
+  void print( int layoutIndex );
 
-    bool event( QEvent *event ) override;
+  bool event( QEvent *event ) override;
 
-  signals:
-    /**
+signals:
+  /**
      * Emitted when a project file is being loaded
      *
      * @param filename The filename of the project that is being loaded
      */
-    void loadProjectStarted( const QString &filename );
+  void loadProjectStarted( const QString &filename );
 
-    /**
+  /**
      * Emitted when the project is fully loaded
      */
-    void loadProjectEnded();
+  void loadProjectEnded();
 
-  private slots:
+private slots:
 
-    /**
+  /**
      * Is called when a project is read.
      * Saves the last project location for auto-load on next start.
      * @param doc The xml content
      */
-    void onReadProject( const QDomDocument &doc );
+  void onReadProject( const QDomDocument &doc );
 
-    void onAfterFirstRendering();
+  void onAfterFirstRendering();
 
-  private:
-    void initDeclarative();
+private:
+  void initDeclarative();
 
-    void loadProjectQuirks();
+  void loadProjectQuirks();
 
-    QgsOfflineEditing *mOfflineEditing = nullptr;
-    LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
-    LayerTreeModel *mLayerTree = nullptr;
-    QgsMapLayerProxyModel *mLayerList = nullptr;
-    AppInterface *mIface = nullptr;
-    Settings mSettings;
-    QgsQuickMapCanvasMap *mMapCanvas = nullptr;
-    bool mFirstRenderingFlag;
-    LegendImageProvider *mLegendImageProvider = nullptr;
+  QgsOfflineEditing *mOfflineEditing = nullptr;
+  LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
+  LayerTreeModel *mLayerTree = nullptr;
+  QgsMapLayerProxyModel *mLayerList = nullptr;
+  AppInterface *mIface = nullptr;
+  Settings mSettings;
+  QgsQuickMapCanvasMap *mMapCanvas = nullptr;
+  bool mFirstRenderingFlag;
+  LegendImageProvider *mLegendImageProvider = nullptr;
 
-    QgsProject *mProject = nullptr;
-    std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
+  QgsProject *mProject = nullptr;
+  std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
 #if VERSION_INT >= 30600
-    QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
+  QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 #endif
-    // Dummy objects. We are not able to call static functions from QML, so we need something here.
-    QgsCoordinateReferenceSystem mCrsFactory;
-    QgsUnitTypes mUnitTypes;
-    QgsExifTools mExifTools;
+  // Dummy objects. We are not able to call static functions from QML, so we need something here.
+  QgsCoordinateReferenceSystem mCrsFactory;
+  QgsUnitTypes mUnitTypes;
+  QgsExifTools mExifTools;
 
-    TrackingModel *mTrackingModel = nullptr;
+  TrackingModel *mTrackingModel = nullptr;
 
-#if defined(Q_OS_ANDROID)
-    AndroidPlatformUtilities mPlatformUtils;
+#if defined( Q_OS_ANDROID )
+  AndroidPlatformUtilities mPlatformUtils;
 #else
-    PlatformUtilities mPlatformUtils;
+  PlatformUtilities mPlatformUtils;
 #endif
 };
 

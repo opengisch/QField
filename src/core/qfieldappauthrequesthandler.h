@@ -39,51 +39,49 @@
  */
 class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticationHandler
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
+public:
+  QFieldAppAuthRequestHandler();
 
-    QFieldAppAuthRequestHandler();
+  //! handles the auth request - triggered by the authRequestOccurred signal
+  void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth );
 
-    //! handles the auth request - triggered by the authRequestOccurred signal
-    void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth );
+  //! stores the credentials after the information is entered in the login dialog
+  Q_INVOKABLE void enterCredentials( const QString &realm, const QString &username, const QString &password );
 
-    //! stores the credentials after the information is entered in the login dialog
-    Q_INVOKABLE void enterCredentials( const QString &realm, const QString &username, const QString &password );
+  //! handles each realm after the project has been loaded
+  Q_INVOKABLE bool handleLayerLogins();
 
-    //! handles each realm after the project has been loaded
-    Q_INVOKABLE bool handleLayerLogins();
-
-    //! clears the stored realms
-    Q_INVOKABLE void clearStoredRealms();
+  //! clears the stored realms
+  Q_INVOKABLE void clearStoredRealms();
 
 
-  signals:
-    void showLoginDialog( const QString &realm );
-    void loginDialogClosed( const QString &realm, const bool canceled );
-    void reloadEverything();
+signals:
+  void showLoginDialog( const QString &realm );
+  void loginDialogClosed( const QString &realm, const bool canceled );
+  void reloadEverything();
 
-  private:
+private:
+  //! adds the realm to the list on loading the project
+  void authNeeded( const QString &realm );
 
-    //! adds the realm to the list on loading the project
-    void authNeeded( const QString &realm );
+  //! returns an unhandled realm
+  QString getFirstUnhandledRealm() const;
 
-    //! returns an unhandled realm
-    QString getFirstUnhandledRealm() const;
+  //! the realms that are not (yet) successfully logged in into
+  struct RealmEntry
+  {
+    RealmEntry( const QString &realm, bool canceled = false )
+      : realm( realm )
+      , canceled( canceled )
+    {}
 
-    //! the realms that are not (yet) successfully logged in into
-    struct RealmEntry
-    {
-      RealmEntry( const QString &realm, bool canceled = false )
-        : realm( realm )
-        , canceled( canceled )
-      {}
+    QString realm;
+    bool canceled = false;
+  };
 
-      QString realm;
-      bool canceled = false;
-    };
-
-    QList<RealmEntry> mRealms;
+  QList<RealmEntry> mRealms;
 };
 #endif // VERSION_INT >= 30600
 #endif // QFIELDAPPAUTHREQUESTHANDLER_H

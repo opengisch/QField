@@ -14,13 +14,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "attributeformmodelbase.h"
 #include "attributeformmodel.h"
-#include <qgsvectorlayer.h>
+#include "attributeformmodelbase.h"
+
+#include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
-#include <qgsdatetimefieldformatter.h>
+#include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
@@ -40,8 +41,8 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[AttributeFormModel::ElementType]  = "Type";
-  roles[AttributeFormModel::Name]  = "Name";
+  roles[AttributeFormModel::ElementType] = "Type";
+  roles[AttributeFormModel::Name] = "Name";
   roles[AttributeFormModel::AttributeValue] = "AttributeValue";
   roles[AttributeFormModel::AttributeEditable] = "AttributeEditable";
   roles[AttributeFormModel::EditorWidget] = "EditorWidget";
@@ -150,7 +151,7 @@ void AttributeFormModelBase::onLayerChanged()
     invisibleRootItem()->setColumnCount( 1 );
     if ( mHasTabs )
     {
-      const QList<QgsAttributeEditorElement *> children { root->children() };
+      const QList<QgsAttributeEditorElement *> children {root->children()};
       for ( QgsAttributeEditorElement *element : children )
       {
         if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
@@ -185,7 +186,7 @@ void AttributeFormModelBase::onLayerChanged()
 
 void AttributeFormModelBase::onFeatureChanged()
 {
-  for ( int i = 0 ; i < invisibleRootItem()->rowCount(); ++i )
+  for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
   }
@@ -242,7 +243,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
 
 void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items )
 {
-  const QList<QgsAttributeEditorElement *> children { container->children() };
+  const QList<QgsAttributeEditorElement *> children {container->children()};
   for ( QgsAttributeEditorElement *element : children )
   {
     switch ( element->type() )
@@ -332,7 +333,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
         item->setData( relation.id(), AttributeFormModel::RelationId );
-        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[ QStringLiteral( "nm-rel" ) ].toString(), AttributeFormModel::NmRelationId );
+        item->setData( mLayer->editFormConfig().widgetConfig( relation.id() )[QStringLiteral( "nm-rel" )].toString(), AttributeFormModel::NmRelationId );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );

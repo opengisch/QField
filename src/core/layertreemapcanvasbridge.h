@@ -16,15 +16,13 @@
 #ifndef LAYERTREEMAPCANVASBRIDGE_H
 #define LAYERTREEMAPCANVASBRIDGE_H
 
+#include "layertreemodel.h"
+#include "trackingmodel.h"
+
 #include <QObject>
 #include <QStringList>
-
 #include <qgscoordinatereferencesystem.h>
 #include <qgsmapthemecollection.h>
-
-#include "layertreemodel.h"
-
-#include "trackingmodel.h"
 
 class QgsLayerTreeGroup;
 class QgsLayerTreeNode;
@@ -49,61 +47,60 @@ class QgsMapLayer;
  */
 class LayerTreeMapCanvasBridge : public QObject
 {
-    Q_OBJECT
-  public:
-    //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
+  Q_OBJECT
+public:
+  //! Constructor: does not take ownership of the layer tree nor canvas
+  LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
 
-    QgsLayerTree *rootGroup() const { return mRoot; }
-    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+  QgsLayerTree *rootGroup() const { return mRoot; }
+  QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
 
-    //! if enabled, will automatically set full canvas extent and destination CRS + map units
-    //! when first layer(s) are added
-    void setAutoSetupOnFirstLayer( bool enabled ) {  mAutoSetupOnFirstLayer = enabled; }
-    bool autoSetupOnFirstLayer() const    {  return mAutoSetupOnFirstLayer;  }
+  //! if enabled, will automatically set full canvas extent and destination CRS + map units
+  //! when first layer(s) are added
+  void setAutoSetupOnFirstLayer( bool enabled ) { mAutoSetupOnFirstLayer = enabled; }
+  bool autoSetupOnFirstLayer() const { return mAutoSetupOnFirstLayer; }
 
-    //! if enabled, will automatically turn on on-the-fly reprojection of layers if a layer
-    //! with different source CRS is added
-    void setAutoEnableCrsTransform( bool enabled )
-    {
-      mAutoEnableCrsTransform = enabled;
-    }
-    bool autoEnableCrsTransform() const
-    {
-      return mAutoEnableCrsTransform;
-    }
+  //! if enabled, will automatically turn on on-the-fly reprojection of layers if a layer
+  //! with different source CRS is added
+  void setAutoEnableCrsTransform( bool enabled )
+  {
+    mAutoEnableCrsTransform = enabled;
+  }
+  bool autoEnableCrsTransform() const
+  {
+    return mAutoEnableCrsTransform;
+  }
 
-    //! force update of canvas layers from the layer tree. Normally this should not be needed to be called.
-    Q_INVOKABLE void setCanvasLayers();
+  //! force update of canvas layers from the layer tree. Normally this should not be needed to be called.
+  Q_INVOKABLE void setCanvasLayers();
 
-  private slots:
-    void nodeVisibilityChanged();
-    void mapThemeChanged();
-    void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
+private slots:
+  void nodeVisibilityChanged();
+  void mapThemeChanged();
+  void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
-  private:
+private:
+  void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers );
 
-    void setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers );
+  void deferredSetCanvasLayers();
 
-    void deferredSetCanvasLayers();
+  QgsLayerTree *mRoot = nullptr;
+  LayerTreeModel *mModel = nullptr;
+  QgsQuickMapSettings *mMapSettings = nullptr;
+  TrackingModel *mTrackingModel = nullptr;
 
-    QgsLayerTree *mRoot = nullptr;
-    LayerTreeModel *mModel = nullptr;
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    TrackingModel *mTrackingModel = nullptr;
+  bool mPendingCanvasUpdate;
 
-    bool mPendingCanvasUpdate;
+  bool mHasCustomLayerOrder;
+  QStringList mCustomLayerOrder;
 
-    bool mHasCustomLayerOrder;
-    QStringList mCustomLayerOrder;
+  bool mAutoSetupOnFirstLayer;
+  bool mAutoEnableCrsTransform;
 
-    bool mAutoSetupOnFirstLayer;
-    bool mAutoEnableCrsTransform;
+  bool mHasFirstLayer;
+  bool mHasLayersLoaded;
 
-    bool mHasFirstLayer;
-    bool mHasLayersLoaded;
-
-    QgsCoordinateReferenceSystem mFirstCRS;
+  QgsCoordinateReferenceSystem mFirstCRS;
 };
 
 #endif // LAYERTREEMAPCANVASBRIDGE_H

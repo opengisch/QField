@@ -15,8 +15,8 @@
  ***************************************************************************/
 #include "messagelogmodel.h"
 
-#include <qgsapplication.h>
 #include <QDebug>
+#include <qgsapplication.h>
 
 MessageLogModel::MessageLogModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -28,7 +28,7 @@ MessageLogModel::MessageLogModel( QObject *parent )
 QHash<int, QByteArray> MessageLogModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[MessageRole]  = "Message";
+  roles[MessageRole] = "Message";
   roles[MessageTagRole] = "MessageTag";
   roles[MessageLevelRole] = "MessageLevel";
   roles[MessageDateTimeRole] = "MessageDateTime";
@@ -59,7 +59,7 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppressTags( const QList <QString> &tags )
+void MessageLogModel::suppressTags( const QList<QString> &tags )
 {
   for ( const QString &tag : tags )
   {
@@ -68,7 +68,7 @@ void MessageLogModel::suppressTags( const QList <QString> &tags )
   }
 }
 
-void MessageLogModel::unsuppressTags( const QList <QString> &tags )
+void MessageLogModel::unsuppressTags( const QList<QString> &tags )
 {
   for ( const QString &tag : tags )
   {

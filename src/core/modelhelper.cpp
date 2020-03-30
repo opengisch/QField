@@ -19,7 +19,6 @@ ModelHelper::ModelHelper( QObject *parent )
   : QObject( parent )
   , mModel( nullptr )
 {
-
 }
 
 QModelIndex ModelHelper::index( int row, int column )

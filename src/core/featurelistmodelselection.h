@@ -18,41 +18,41 @@
 #ifndef FEATURELISTMODELSELECTION_H
 #define FEATURELISTMODELSELECTION_H
 
-#include <QObject>
-#include <QItemSelectionModel>
-
 #include "multifeaturelistmodel.h"
+
+#include <QItemSelectionModel>
+#include <QObject>
 
 class FeatureListModelSelection : public QObject
 {
-    Q_OBJECT
-    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
-    Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectionChanged )
-    Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
-    Q_PROPERTY( QgsGeometry selectedGeometry READ selectedGeometry NOTIFY selectionChanged )
+  Q_OBJECT
+  Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+  Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
+  Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectionChanged )
+  Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
+  Q_PROPERTY( QgsGeometry selectedGeometry READ selectedGeometry NOTIFY selectionChanged )
 
-  public:
-    explicit FeatureListModelSelection( QObject *parent = nullptr );
+public:
+  explicit FeatureListModelSelection( QObject *parent = nullptr );
 
-    int selection();
-    void setSelection( int selection );
+  int selection();
+  void setSelection( int selection );
 
-    MultiFeatureListModel *model() const;
-    void setModel( MultiFeatureListModel *model );
+  MultiFeatureListModel *model() const;
+  void setModel( MultiFeatureListModel *model );
 
-    QgsVectorLayer *selectedLayer() const;
-    QgsFeature selectedFeature() const;
+  QgsVectorLayer *selectedLayer() const;
+  QgsFeature selectedFeature() const;
 
-    QgsGeometry selectedGeometry() const;
+  QgsGeometry selectedGeometry() const;
 
-  signals:
-    void modelChanged();
-    void selectionChanged();
+signals:
+  void modelChanged();
+  void selectionChanged();
 
-  private:
-    MultiFeatureListModel *mModel = nullptr;
-    QItemSelectionModel *mSelection = nullptr;
+private:
+  MultiFeatureListModel *mModel = nullptr;
+  QItemSelectionModel *mSelection = nullptr;
 };
 
 #endif // FEATURELISTMODELSELECTION_H

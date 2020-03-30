@@ -13,14 +13,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgsgeometry.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsproject.h>
-
 #include "linepolygonhighlight.h"
-
 #include "qgsgeometrywrapper.h"
 #include "qgssggeometry.h"
+
+#include <qgscoordinatereferencesystem.h>
+#include <qgsgeometry.h>
+#include <qgsproject.h>
 
 
 LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )

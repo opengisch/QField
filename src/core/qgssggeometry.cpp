@@ -1,5 +1,4 @@
 #include "math.h"
-
 #include "qgssggeometry.h"
 extern "C" {
 #include "tessellate.h"
@@ -130,8 +129,8 @@ QSGGeometry *QgsSGGeometry::qgsPolygonToQSGGeometry( const QgsPolygonXY &polygon
 
   const QgsPolylineXY &ring = *it;
 
-  double *vertices_in = ( double * )malloc( ring.size() * 2 * sizeof( double ) );
-  const double *contours_array[] = { vertices_in, vertices_in + ring.size() * 2 };
+  double *vertices_in = ( double * ) malloc( ring.size() * 2 * sizeof( double ) );
+  const double *contours_array[] = {vertices_in, vertices_in + ring.size() * 2};
   int i = 0;
 
   for ( const QgsPointXY &point : ring )

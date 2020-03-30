@@ -14,27 +14,26 @@
  *                                                                         *
  ***************************************************************************/
 #include "androidpicturesource.h"
-#include "qgsmessagelog.h"
 #include "qgsapplication.h"
+#include "qgsmessagelog.h"
+
 #include <QAndroidJniEnvironment>
-#include <QtAndroid>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
-#include <QDebug>
+#include <QtAndroid>
 
 AndroidPictureSource::AndroidPictureSource( const QString &prefix )
   : PictureSource( nullptr )
   , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
 {
-
 }
 
 void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data )
 {
   if ( receiverRequestCode == 171 )
   {
-
     jint RESULT_OK = QAndroidJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
     if ( resultCode == RESULT_OK )
     {
@@ -43,7 +42,7 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
 
       QAndroidJniObject picture_image_path = QAndroidJniObject::fromString( "PICTURE_IMAGE_FILENAME" );
       picture_image_path = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;",
-                           picture_image_path.object<jstring>() );
+                                                    picture_image_path.object<jstring>() );
 
       QString picture_image_relative_path = picture_image_path.toString().remove( mPrefix );
 
@@ -54,5 +53,4 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       emit pictureReceived( QString() );
     }
   }
-
 }

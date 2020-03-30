@@ -16,8 +16,8 @@
  ***************************************************************************/
 
 #include "expressionevaluator.h"
-#include "qgsproject.h"
 #include "qgsexpressioncontextutils.h"
+#include "qgsproject.h"
 
 ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
   : QObject( parent )

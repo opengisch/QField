@@ -14,21 +14,20 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "featurelistextentcontroller.h"
 #include "featureslocatorfilter.h"
+#include "locatormodelsuperbridge.h"
+#include "qgsgeometrywrapper.h"
+#include "qgsquickmapsettings.h"
 
-#include <math.h>
 #include <QAction>
-
+#include <qgsexpressioncontextutils.h>
+#include <qgsfeedback.h>
+#include <qgsmaplayermodel.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-#include <qgsmaplayermodel.h>
-#include <qgsfeedback.h>
-#include <qgsexpressioncontextutils.h>
 
-#include "locatormodelsuperbridge.h"
-#include "qgsquickmapsettings.h"
-#include "featurelistextentcontroller.h"
-#include "qgsgeometrywrapper.h"
+#include <math.h>
 
 
 FeaturesLocatorFilter::FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
@@ -54,7 +53,7 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
   const QMap<QString, QgsMapLayer *> layers = QgsProject::instance()->mapLayers();
   for ( auto it = layers.constBegin(); it != layers.constEnd(); ++it )
   {
-    QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( it.value() );
+    QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( it.value() );
     if ( !layer || !layer->dataProvider() || !layer->flags().testFlag( QgsMapLayer::Searchable ) )
       continue;
 
@@ -112,7 +111,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 
       result.userData = QVariantList() << f.id() << preparedLayer->layerId;
       result.icon = preparedLayer->layerIcon;
-      result.score = static_cast< double >( string.length() ) / result.displayString.size();
+      result.score = static_cast<double>( string.length() ) / result.displayString.size();
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_alt-24px" ) );
 
       emit resultFetched( result );
@@ -137,7 +136,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   QVariantList dataList = result.userData.toList();
   QgsFeatureId fid = dataList.at( 0 ).toLongLong();
   QString layerId = dataList.at( 1 ).toString();
-  QgsVectorLayer *layer = qobject_cast< QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
+  QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
   if ( !layer )
     return;
 

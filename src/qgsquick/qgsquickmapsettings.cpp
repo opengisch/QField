@@ -14,13 +14,13 @@
  ***************************************************************************/
 
 
+#include "qgis.h"
+#include "qgsquickmapsettings.h"
+
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstylemanager.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
-#include "qgis.h"
-
-#include "qgsquickmapsettings.h"
 
 QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
   : QObject( parent )

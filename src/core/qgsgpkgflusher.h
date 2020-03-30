@@ -33,25 +33,25 @@ class Flusher;
  */
 class QgsGpkgFlusher : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    QgsGpkgFlusher( QgsProject *project );
-    ~QgsGpkgFlusher();
+public:
+  QgsGpkgFlusher( QgsProject *project );
+  ~QgsGpkgFlusher();
 
-  signals:
-    /**
+signals:
+  /**
      * Emitted when a file has changed and a flush should be scheduled.
      */
-    void requestFlush( const QString &filename );
+  void requestFlush( const QString &filename );
 
-  private slots:
-    void onLayersAdded( const QList<QgsMapLayer *> layers );
+private slots:
+  void onLayersAdded( const QList<QgsMapLayer *> layers );
 
-  private:
-    QgsProject *mProject = nullptr;
-    QThread mFlusherThread;
-    Flusher *mFlusher = nullptr;
+private:
+  QgsProject *mProject = nullptr;
+  QThread mFlusherThread;
+  Flusher *mFlusher = nullptr;
 };
 
 #endif // QGSGPKGFLUSHER_H

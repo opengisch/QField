@@ -15,10 +15,10 @@
  ***************************************************************************/
 #include "layertreemodel.h"
 
-#include <qgslayertreemodel.h>
-#include <qgslayertreenode.h>
 #include <qgslayertree.h>
+#include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
+#include <qgslayertreenode.h>
 #include <qgsmapthemecollection.h>
 #include <qgsvectorlayer.h>
 
@@ -72,7 +72,7 @@ QVariant LayerTreeModel::data( const QModelIndex &index, int role ) const
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
           id += QStringLiteral( "layer" );
-          id += '/' +  nodeLayer->layerId();
+          id += '/' + nodeLayer->layerId();
         }
         /*
         else if ( QgsLayerTree::isGroup( node ) )
@@ -161,7 +161,6 @@ bool LayerTreeModel::setData( const QModelIndex &index, const QVariant &value, i
 }
 
 
-
 QHash<int, QByteArray> LayerTreeModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QSortFilterProxyModel::roleNames();
@@ -243,7 +242,7 @@ void LayerTreeModel::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool trac
 bool LayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   QgsLayerTreeNode *node = mLayerTreeModel->index2node( source_parent );
-  QgsLayerTreeGroup *parentgroup = qobject_cast < QgsLayerTreeGroup *>( node );
+  QgsLayerTreeGroup *parentgroup = qobject_cast<QgsLayerTreeGroup *>( node );
 
   if ( parentgroup )
   {
@@ -251,7 +250,7 @@ bool LayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source
     QgsLayerTreeNode *child = children.at( source_row );
     if ( child )
     {
-      QVariant nodeHidden = child-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) );
+      QVariant nodeHidden = child->customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) );
       if ( nodeHidden.toString() == QStringLiteral( "true" ) )
       {
         return false;

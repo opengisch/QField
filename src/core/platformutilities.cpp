@@ -18,12 +18,13 @@
 
 #include "platformutilities.h"
 #include "projectsource.h"
+
 #include <QDebug>
-#include <QDir>
 #include <QDesktopServices>
-#include <QUrl>
+#include <QDir>
 #include <QFileDialog>
 #include <QTimer>
+#include <QUrl>
 
 PlatformUtilities::~PlatformUtilities()
 {
@@ -95,9 +96,9 @@ QString PlatformUtilities::fieldType( const QgsField &field ) const
 
 ProjectSource *PlatformUtilities::openProject()
 {
-  ProjectSource *source = new ProjectSource( );
-  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) ) };
-  if ( ! path.isEmpty() )
+  ProjectSource *source = new ProjectSource();
+  QString path {QFileDialog::getOpenFileName( nullptr, tr( "Open QGIS Project File" ), QString(), tr( "QGIS Project Files (*.qgs *.qgz)" ) )};
+  if ( !path.isEmpty() )
   {
     QTimer::singleShot( 0, this, [source, path]() { emit source->projectOpened( path ); } );
   }
@@ -118,4 +119,3 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
 }
-

@@ -26,9 +26,9 @@ RecentProjectListModel::RecentProjectListModel( QObject *parent )
 QHash<int, QByteArray> RecentProjectListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[ProjectTypeRole]  = "ProjectType";
-  roles[ProjectTitleRole]  = "ProjectTitle";
-  roles[ProjectPathRole]  = "ProjectPath";
+  roles[ProjectTypeRole] = "ProjectType";
+  roles[ProjectTitleRole] = "ProjectTitle";
+  roles[ProjectPathRole] = "ProjectPath";
 
   return roles;
 }

@@ -16,16 +16,15 @@
 #ifndef QGSQUICKMAPCANVASMAP_H
 #define QGSQUICKMAPCANVASMAP_H
 
-#include <memory>
+#include "qgsquickmapsettings.h"
 
-#include <QtQuick/QQuickItem>
 #include <QFutureSynchronizer>
 #include <QTimer>
-
+#include <QtQuick/QQuickItem>
 #include <qgsmapsettings.h>
 #include <qgspoint.h>
 
-#include "qgsquickmapsettings.h"
+#include <memory>
 
 class QgsMapRendererParallelJob;
 class QgsMapRendererCache;
@@ -48,9 +47,9 @@ class QgsLabelingResults;
  */
 class QgsQuickMapCanvasMap : public QQuickItem
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    /**
+  /**
      * The mapSettings property contains configuration for rendering of the map.
      *
      * It should be used as a primary source of map settings (and project) for
@@ -58,144 +57,143 @@ class QgsQuickMapCanvasMap : public QQuickItem
      *
      * This is a readonly property.
      */
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings )
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings )
 
-    /**
+  /**
      * When freeze property is set to true, the map canvas does not refresh.
      * The value temporary changes during the rendering process.
      */
-    Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
+  Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
 
-    /**
+  /**
      * The isRendering property is set to true while a rendering job is pending for this map canvas map.
      * It can be used to show a notification icon about an ongoing rendering job.
      * This is a readonly property.
      */
-    Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
+  Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
 
-    /**
+  /**
      * Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing.
      * This only has an effect if incrementalRendering is activated.
      * Default is 250 [ms].
      */
-    Q_PROPERTY( int mapUpdateInterval READ mapUpdateInterval WRITE setMapUpdateInterval NOTIFY mapUpdateIntervalChanged )
+  Q_PROPERTY( int mapUpdateInterval READ mapUpdateInterval WRITE setMapUpdateInterval NOTIFY mapUpdateIntervalChanged )
 
-    /**
+  /**
      * When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.
      */
-    Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
+  Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
 
-  public:
-    //! Create map canvas map
-    QgsQuickMapCanvasMap( QQuickItem *parent = nullptr );
-    ~QgsQuickMapCanvasMap() = default;
+public:
+  //! Create map canvas map
+  QgsQuickMapCanvasMap( QQuickItem *parent = nullptr );
+  ~QgsQuickMapCanvasMap() = default;
 
-    QSGNode *updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * ) override;
+  QSGNode *updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * ) override;
 
-    //! \copydoc QgsQuickMapCanvasMap::mapSettings
-    QgsQuickMapSettings *mapSettings() const;
+  //! \copydoc QgsQuickMapCanvasMap::mapSettings
+  QgsQuickMapSettings *mapSettings() const;
 
-    //! \copydoc QgsQuickMapCanvasMap::freeze
-    bool freeze() const;
+  //! \copydoc QgsQuickMapCanvasMap::freeze
+  bool freeze() const;
 
-    //! \copydoc QgsQuickMapCanvasMap::freeze
-    void setFreeze( bool freeze );
+  //! \copydoc QgsQuickMapCanvasMap::freeze
+  void setFreeze( bool freeze );
 
-    //! \copydoc QgsQuickMapCanvasMap::isRendering
-    bool isRendering() const;
+  //! \copydoc QgsQuickMapCanvasMap::isRendering
+  bool isRendering() const;
 
-    //! \copydoc QgsQuickMapCanvasMap::mapUpdateInterval
-    int mapUpdateInterval() const;
+  //! \copydoc QgsQuickMapCanvasMap::mapUpdateInterval
+  int mapUpdateInterval() const;
 
-    //! \copydoc QgsQuickMapCanvasMap::mapUpdateInterval
-    void setMapUpdateInterval( int mapUpdateInterval );
+  //! \copydoc QgsQuickMapCanvasMap::mapUpdateInterval
+  void setMapUpdateInterval( int mapUpdateInterval );
 
-    //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
-    bool incrementalRendering() const;
+  //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
+  bool incrementalRendering() const;
 
-    //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
-    void setIncrementalRendering( bool incrementalRendering );
+  //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
+  void setIncrementalRendering( bool incrementalRendering );
 
-  signals:
+signals:
 
-    /**
+  /**
      * Signal is emitted when a rendering is starting
      */
-    void renderStarting();
+  void renderStarting();
 
-    /**
+  /**
      * Signal is emitted when a canvas is refreshed
      */
-    void mapCanvasRefreshed();
+  void mapCanvasRefreshed();
 
-    //! \copydoc QgsQuickMapCanvasMap::freeze
-    void freezeChanged();
+  //! \copydoc QgsQuickMapCanvasMap::freeze
+  void freezeChanged();
 
-    //! \copydoc QgsQuickMapCanvasMap::isRendering
-    void isRenderingChanged();
+  //! \copydoc QgsQuickMapCanvasMap::isRendering
+  void isRenderingChanged();
 
-    //!\copydoc QgsQuickMapCanvasMap::mapUpdateInterval
-    void mapUpdateIntervalChanged();
+  //!\copydoc QgsQuickMapCanvasMap::mapUpdateInterval
+  void mapUpdateIntervalChanged();
 
-    //!\copydoc QgsQuickMapCanvasMap::incrementalRendering
-    void incrementalRenderingChanged();
+  //!\copydoc QgsQuickMapCanvasMap::incrementalRendering
+  void incrementalRenderingChanged();
 
-  protected:
-    void geometryChanged( const QRectF &newGeometry, const QRectF &oldGeometry ) override;
+protected:
+  void geometryChanged( const QRectF &newGeometry, const QRectF &oldGeometry ) override;
 
-  public slots:
-    //! Stop map rendering
-    void stopRendering();
+public slots:
+  //! Stop map rendering
+  void stopRendering();
 
-    /**
+  /**
      * Set map setting's extent (zoom the map) on the center by given scale
      */
-    void zoom( QPointF center, qreal scale );
+  void zoom( QPointF center, qreal scale );
 
-    /**
+  /**
      * Set map setting's extent (pan the map) based on the difference of positions
      */
-    void pan( QPointF oldPos, QPointF newPos );
+  void pan( QPointF oldPos, QPointF newPos );
 
-    /**
+  /**
      * Refresh the map canvas.
      * Does nothing when output size of map settings is not set
      */
-    void refresh();
+  void refresh();
 
-  private slots:
-    void refreshMap();
-    void renderJobUpdated();
-    void renderJobFinished();
-    void onWindowChanged( QQuickWindow *window );
-    void onScreenChanged( QScreen *screen );
-    void onExtentChanged();
-    void onLayersChanged();
+private slots:
+  void refreshMap();
+  void renderJobUpdated();
+  void renderJobFinished();
+  void onWindowChanged( QQuickWindow *window );
+  void onScreenChanged( QScreen *screen );
+  void onExtentChanged();
+  void onLayersChanged();
 
-  private:
-
-    /**
+private:
+  /**
      * Should only be called by stopRendering()!
      */
-    void destroyJob( QgsMapRendererJob *job );
-    QgsMapSettings prepareMapSettings() const;
-    void updateTransform();
-    void zoomToFullExtent();
+  void destroyJob( QgsMapRendererJob *job );
+  QgsMapSettings prepareMapSettings() const;
+  void updateTransform();
+  void zoomToFullExtent();
 
-    std::unique_ptr<QgsQuickMapSettings> mMapSettings;
-    bool mPinching = false;
-    QPoint mPinchStartPoint;
-    QgsMapRendererParallelJob *mJob = nullptr;
-    QgsMapRendererCache *mCache = nullptr;
-    QgsLabelingResults *mLabelingResults = nullptr;
-    QImage mImage;
-    QgsMapSettings mImageMapSettings;
-    QTimer mRefreshTimer;
-    bool mDirty = false;
-    bool mFreeze = false;
-    QList<QMetaObject::Connection> mLayerConnections;
-    QTimer mMapUpdateTimer;
-    bool mIncrementalRendering = false;
+  std::unique_ptr<QgsQuickMapSettings> mMapSettings;
+  bool mPinching = false;
+  QPoint mPinchStartPoint;
+  QgsMapRendererParallelJob *mJob = nullptr;
+  QgsMapRendererCache *mCache = nullptr;
+  QgsLabelingResults *mLabelingResults = nullptr;
+  QImage mImage;
+  QgsMapSettings mImageMapSettings;
+  QTimer mRefreshTimer;
+  bool mDirty = false;
+  bool mFreeze = false;
+  QList<QMetaObject::Connection> mLayerConnections;
+  QTimer mMapUpdateTimer;
+  bool mIncrementalRendering = false;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H

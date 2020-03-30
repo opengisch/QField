@@ -14,12 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "badlayerhandler.h"
+
 #include <qgsproject.h>
 
 BadLayerHandler::BadLayerHandler( QObject *parent )
   : QStandardItemModel( parent )
 {
-
 }
 
 QHash<int, QByteArray> BadLayerHandler::roleNames() const

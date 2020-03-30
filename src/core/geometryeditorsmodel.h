@@ -18,54 +18,54 @@
 #define GEOMETRYEDITORSMODEL_H
 
 
-
-#include <QStandardItemModel>
-#include <QQuickItem>
-
 #include "vertexmodel.h"
+
+#include <QQuickItem>
+#include <QStandardItemModel>
 
 
 class GeometryEditorsModel : public QStandardItemModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+  Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
 
-  public:
-    enum ActionRoles
-    {
-      NameRole = Qt::UserRole + 1,
-      IconPathRole,
-      ToolbarRole,
-      SupportedGeometriesRole
-    };
-    Q_ENUM( ActionRoles )
+public:
+  enum ActionRoles
+  {
+    NameRole = Qt::UserRole + 1,
+    IconPathRole,
+    ToolbarRole,
+    SupportedGeometriesRole
+  };
+  Q_ENUM( ActionRoles )
 
-    enum GeometryType
-    {
-      Point = 1,
-      Line = 2,
-      Polygon = 4,
-      AllGeometries = Point | Line | Polygon
-    };
+  enum GeometryType
+  {
+    Point = 1,
+    Line = 2,
+    Polygon = 4,
+    AllGeometries = Point | Line | Polygon
+  };
 
-    Q_DECLARE_FLAGS( SupportedGeometries, GeometryType )
-    Q_FLAG( SupportedGeometries )
+  Q_DECLARE_FLAGS( SupportedGeometries, GeometryType )
+  Q_FLAG( SupportedGeometries )
 
 
-    explicit GeometryEditorsModel( QObject *parent = nullptr );
-    QHash<int, QByteArray> roleNames() const override;
-    Q_INVOKABLE void addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries = AllGeometries );
+  explicit GeometryEditorsModel( QObject *parent = nullptr );
+  QHash<int, QByteArray> roleNames() const override;
+  Q_INVOKABLE void addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries = AllGeometries );
 
-    Q_INVOKABLE static bool supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries );
+  Q_INVOKABLE static bool supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries );
 
-    VertexModel *vertexModel() const {return mVertexModel;}
-    void setVertexModel( VertexModel *vertexModel );
+  VertexModel *vertexModel() const { return mVertexModel; }
+  void setVertexModel( VertexModel *vertexModel );
 
-  signals:
-    void vertexModelChanged();
-  private:
-    VertexModel *mVertexModel = nullptr;
+signals:
+  void vertexModelChanged();
+
+private:
+  VertexModel *mVertexModel = nullptr;
 };
 
 

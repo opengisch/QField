@@ -16,23 +16,23 @@
 #ifndef ANDROIDPICTURESOURCE_H
 #define ANDROIDPICTURESOURCE_H
 
-#include <QAndroidActivityResultReceiver>
-
 #include "picturesource.h"
+
+#include <QAndroidActivityResultReceiver>
 
 
 class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    AndroidPictureSource( const QString &prefix );
+public:
+  AndroidPictureSource( const QString &prefix );
 
-    //! QAndroidActivityResultReceiver
-    void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
+  //! QAndroidActivityResultReceiver
+  void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 
-  private:
-    QString mPrefix;
+private:
+  QString mPrefix;
 };
 
 #endif // ANDROIDPICTURESOURCE_H

@@ -28,67 +28,67 @@
  */
 class ValueMapModel : public QAbstractListModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    /**
+  /**
      * A list of QVariantMap, wrapped in a QVariant.
      *
      * Like this:
      *
      * [{'CH': 'Switzerland'}, {'DE': 'Germany'}, {'FR': 'France'}]
      */
-    Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
+  Q_PROPERTY( QVariant valueMap READ map WRITE setMap NOTIFY mapChanged )
 
-    Q_ENUMS( ValueMapRoles )
+  Q_ENUMS( ValueMapRoles )
 
 
-  public:
-    //! The roles provided by this model
-    enum ValueMapRoles
-    {
-      KeyRole = Qt::UserRole + 1, //!< obtain the key
-      ValueRole                   //!< obtain the value
-    };
+public:
+  //! The roles provided by this model
+  enum ValueMapRoles
+  {
+    KeyRole = Qt::UserRole + 1, //!< obtain the key
+    ValueRole                   //!< obtain the value
+  };
 
-    /**
+  /**
      * Create a new value map model
      */
-    ValueMapModel( QObject *parent = nullptr );
+  ValueMapModel( QObject *parent = nullptr );
 
-    /**
+  /**
      * The map, see the property description
      */
-    QVariant map() const;
-    /**
+  QVariant map() const;
+  /**
      * The map, see the property description
      */
-    void setMap( const QVariant &map );
+  void setMap( const QVariant &map );
 
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+  int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+  QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+  QHash<int, QByteArray> roleNames() const override;
 
-    /**
+  /**
      * Returns the row (index) of a key or -1 if not found.
      */
-    Q_INVOKABLE int keyToIndex( const QVariant &key ) const;
+  Q_INVOKABLE int keyToIndex( const QVariant &key ) const;
 
-    /**
+  /**
      * Returns the key for a value or an invalid QVariant if not found.
      */
-    Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
+  Q_INVOKABLE QVariant keyForValue( const QString &value ) const;
 
-  signals:
-    /**
+signals:
+  /**
      * Emitted when the map changes.
      */
-    void mapChanged();
+  void mapChanged();
 
-  private:
-    QList<QPair<QVariant, QString>> mMap;
-    QVariant mConfiguredMap;
+private:
+  QList<QPair<QVariant, QString>> mMap;
+  QVariant mConfiguredMap;
 };
 
 #endif // VALUEMAPMODEL_H

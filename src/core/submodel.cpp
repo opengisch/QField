@@ -14,12 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "submodel.h"
+
 #include <QDebug>
 
 SubModel::SubModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
-
 }
 
 QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) const

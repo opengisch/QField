@@ -19,62 +19,62 @@
 
 class QgsQuickMapSettings;
 
-#include <qgssnappingutils.h>
-
 #include "snappingresult.h"
+
+#include <qgssnappingutils.h>
 
 class SnappingUtils : public QgsSnappingUtils
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
-    Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
-    Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
+  Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
+  Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+  Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
+  Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
 
-  public:
-    SnappingUtils( QObject *parent = nullptr );
+public:
+  SnappingUtils( QObject *parent = nullptr );
 
-    QgsQuickMapSettings *mapSettings() const;
-    void setMapSettings( QgsQuickMapSettings *settings );
+  QgsQuickMapSettings *mapSettings() const;
+  void setMapSettings( QgsQuickMapSettings *settings );
 
-    QgsVectorLayer *currentLayer() const;
-    void setCurrentLayer( QgsVectorLayer *currentLayer );
+  QgsVectorLayer *currentLayer() const;
+  void setCurrentLayer( QgsVectorLayer *currentLayer );
 
-    QPointF inputCoordinate() const;
-    void setInputCoordinate( const QPointF &inputCoordinate );
+  QPointF inputCoordinate() const;
+  void setInputCoordinate( const QPointF &inputCoordinate );
 
-    SnappingResult snappingResult() const;
+  SnappingResult snappingResult() const;
 
-    static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
+  static QgsPoint newPoint( const QgsPoint &snappedPoint, const QgsWkbTypes::Type wkbType );
 
-  signals:
-    void mapSettingsChanged();
-    void currentLayerChanged();
-    void snappingResultChanged();
-    void inputCoordinateChanged();
+signals:
+  void mapSettingsChanged();
+  void currentLayerChanged();
+  void snappingResultChanged();
+  void inputCoordinateChanged();
 
-    void indexingStarted( int count );
-    void indexingProgress( int index );
-    void indexingFinished();
+  void indexingStarted( int count );
+  void indexingProgress( int index );
+  void indexingFinished();
 
-  protected:
-    virtual void prepareIndexStarting( int count ) override;
-    virtual void prepareIndexProgress( int index ) override;
+protected:
+  virtual void prepareIndexStarting( int count ) override;
+  virtual void prepareIndexProgress( int index ) override;
 
-  private slots:
-    void onMapSettingsUpdated();
-    void removeOutdatedLocators();
+private slots:
+  void onMapSettingsUpdated();
+  void removeOutdatedLocators();
 
-  private:
-    void snap();
+private:
+  void snap();
 
-    QgsQuickMapSettings *mSettings = nullptr;
-    QgsVectorLayer *mCurrentLayer = nullptr;
+  QgsQuickMapSettings *mSettings = nullptr;
+  QgsVectorLayer *mCurrentLayer = nullptr;
 
-    int mIndexLayerCount;
-    SnappingResult mSnappingResult;
-    QPointF mInputCoordinate;
+  int mIndexLayerCount;
+  SnappingResult mSnappingResult;
+  QPointF mInputCoordinate;
 };
 
 

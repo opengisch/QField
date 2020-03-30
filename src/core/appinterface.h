@@ -20,41 +20,40 @@
 
 #include <QObject>
 #include <QPointF>
-
 #include <QStandardItemModel>
 
 class QgisMobileapp;
 
 class AppInterface : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    AppInterface( QgisMobileapp *app );
-    AppInterface()
-    {
-      // You shouldn't get here, this constructor only exists that we can register it as a QML type
-      Q_ASSERT( false );
-    }
+public:
+  AppInterface( QgisMobileapp *app );
+  AppInterface()
+  {
+    // You shouldn't get here, this constructor only exists that we can register it as a QML type
+    Q_ASSERT( false );
+  }
 
-    Q_INVOKABLE void loadLastProject();
-    Q_INVOKABLE void loadProject( const QString &path );
-    Q_INVOKABLE void reloadProject( const QString &path );
+  Q_INVOKABLE void loadLastProject();
+  Q_INVOKABLE void loadProject( const QString &path );
+  Q_INVOKABLE void reloadProject( const QString &path );
 
-    Q_INVOKABLE void print( int layoutIndex );
+  Q_INVOKABLE void print( int layoutIndex );
 
-  public slots:
-    void openFeatureForm();
+public slots:
+  void openFeatureForm();
 
-  signals:
-    void openFeatureFormRequested();
+signals:
+  void openFeatureFormRequested();
 
-    void loadProjectStarted( const QString &path );
+  void loadProjectStarted( const QString &path );
 
-    void loadProjectEnded();
+  void loadProjectEnded();
 
-  private:
-    QgisMobileapp *mApp = nullptr;
+private:
+  QgisMobileapp *mApp = nullptr;
 };
 
 #endif // APPINTERFACE_H

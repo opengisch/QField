@@ -15,93 +15,90 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
+#include "attributeformmodel.h"
+#include "badlayerhandler.h"
+#include "distancearea.h"
+#include "expressionevaluator.h"
+#include "expressionvariablemodel.h"
+#include "featurechecklistmodel.h"
+#include "featurelistextentcontroller.h"
+#include "featurelistmodel.h"
+#include "featurelistmodelselection.h"
+#include "featuremodel.h"
+#include "featureutils.h"
+#include "fileutils.h"
+#include "geometry.h"
+#include "geometryeditorsmodel.h"
+#include "geometryutils.h"
+#include "identifytool.h"
+#include "layertreemapcanvasbridge.h"
+#include "layertreemodel.h"
+#include "legendimageprovider.h"
+#include "linepolygonhighlight.h"
+#include "locatormodelsuperbridge.h"
+#include "maptoscreen.h"
+#include "messagelogmodel.h"
+#include "modelhelper.h"
+#include "printlayoutlistmodel.h"
+#include "projectsource.h"
+#include "qgismobileapp.h"
+#include "qgsgeometrywrapper.h"
+#include "qgsnetworkaccessmanager.h"
+#include "qgsofflineediting.h"
+#include "qgsquickcoordinatetransformer.h"
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickmapsettings.h"
+#include "qgsquickmaptransform.h"
+#include "qgsrelationmanager.h"
+#include "recentprojectlistmodel.h"
+#include "referencingfeaturelistmodel.h"
+#include "rubberband.h"
+#include "rubberbandmodel.h"
+#include "snappingresult.h"
+#include "snappingutils.h"
+#include "submodel.h"
+#include "trackingmodel.h"
+#include "valuemapmodel.h"
+#include "vertexmodel.h"
+
 #include <QApplication>
+#include <QFileInfo>
+#include <QFontDatabase>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QStandardItemModel>
+#include <QStandardPaths>
+#include <QTemporaryFile>
+#include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
+#include <QtWidgets/QDesktopWidget>
+#include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
+#include <QtWidgets/QMenu>       // Until native looking QML dialogs are implemented (Qt5.4?)
+#include <QtWidgets/QMenuBar>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsfeature.h>
+#include <qgsfield.h>
+#include <qgsfieldconstraints.h>
+#include <qgslayertreemodel.h>
+#include <qgslayoutitemmap.h>
+#include <qgslayoutmanager.h>
+#include <qgslayoutpagecollection.h>
+#include <qgslocator.h>
+#include <qgslocatormodel.h>
+#include <qgsmapthemecollection.h>
+#include <qgsprintlayout.h>
+#include <qgsproject.h>
+#include <qgssnappingutils.h>
+#include <qgsunittypes.h>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayereditbuffer.h>
 
 #include <unistd.h>
 
-#include <QStandardPaths>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlContext>
-#include <QtQml/QQmlApplicationEngine>
-#include <QtWidgets/QDesktopWidget>
-#include <QtWidgets/QFileDialog> // Until native looking QML dialogs are implemented (Qt5.4?)
-#include <QtWidgets/QMenu> // Until native looking QML dialogs are implemented (Qt5.4?)
-#include <QtWidgets/QMenuBar>
-#include <QStandardItemModel>
-#include <QPrinter>
-#include <QPrintDialog>
-#include <QTemporaryFile>
-#include <QFileInfo>
-#include <QFontDatabase>
-
-#include <qgslayertreemodel.h>
-#include <qgsproject.h>
-#include <qgsfeature.h>
-#include <qgsvectorlayer.h>
-#include <qgssnappingutils.h>
-#include <qgsunittypes.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsmapthemecollection.h>
-#include <qgsprintlayout.h>
-#include <qgslayoutmanager.h>
-#include <qgslayoutpagecollection.h>
-#include <qgslayoutitemmap.h>
-#include <qgslocator.h>
-#include <qgslocatormodel.h>
-#include <qgsfield.h>
-#include <qgsfieldconstraints.h>
-#include <qgsvectorlayereditbuffer.h>
-#include "qgsquickmapsettings.h"
-#include "qgsquickmapcanvasmap.h"
-#include "qgsquickcoordinatetransformer.h"
-#include "qgsquickmaptransform.h"
-#include "qgsnetworkaccessmanager.h"
-
-#include "qgismobileapp.h"
-
-#include "appinterface.h"
-#include "featurelistmodelselection.h"
-#include "featurelistextentcontroller.h"
-#include "modelhelper.h"
-#include "rubberband.h"
-#include "rubberbandmodel.h"
-#include "qgsofflineediting.h"
-#include "messagelogmodel.h"
-#include "attributeformmodel.h"
-#include "geometry.h"
-#include "featuremodel.h"
-#include "layertreemapcanvasbridge.h"
-#include "identifytool.h"
-#include "submodel.h"
-#include "expressionvariablemodel.h"
-#include "badlayerhandler.h"
-#include "snappingutils.h"
-#include "snappingresult.h"
-#include "layertreemodel.h"
-#include "legendimageprovider.h"
-#include "featurelistmodel.h"
-#include "qgsrelationmanager.h"
-#include "distancearea.h"
-#include "printlayoutlistmodel.h"
-#include "vertexmodel.h"
-#include "maptoscreen.h"
-#include "projectsource.h"
-#include "locatormodelsuperbridge.h"
-#include "qgsgeometrywrapper.h"
-#include "linepolygonhighlight.h"
-#include "valuemapmodel.h"
-#include "recentprojectlistmodel.h"
-#include "referencingfeaturelistmodel.h"
-#include "featurechecklistmodel.h"
-#include "geometryeditorsmodel.h"
-#include "geometryutils.h"
-#include "trackingmodel.h"
-#include "fileutils.h"
-#include "featureutils.h"
-#include "expressionevaluator.h"
-
-#define QUOTE(string) _QUOTE(string)
-#define _QUOTE(string) #string
+#define QUOTE( string ) _QUOTE( string )
+#define _QUOTE( string ) #string
 
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
@@ -122,14 +119,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Bold.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-BoldItalic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Condensed.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Italic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Regular.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Semibolditalic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Mask.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Regular.ttf");
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-BoldItalic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Condensed.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Italic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Regular.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
 
 
   mProject = QgsProject::instance();
@@ -147,9 +144,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QList<QPair<QString, QString>> projects;
     QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
-    projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
+    projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
+             << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), path + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
+             << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
     saveRecentProjects( projects );
   }
 
@@ -195,7 +192,7 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<QgsPointSequence>( "QgsPointSequence" );
   qRegisterMetaType<QgsCoordinateTransformContext>( "QgsCoordinateTransformContext" );
   qRegisterMetaType<QgsWkbTypes::GeometryType>( "QgsWkbTypes::GeometryType" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
-  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" ); // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
+  qRegisterMetaType<QgsWkbTypes::Type>( "QgsWkbTypes::Type" );                 // could be removed since we have now qmlRegisterUncreatableType<QgsWkbTypes> ?
   qRegisterMetaType<QgsFeatureId>( "QgsFeatureId" );
   qRegisterMetaType<QgsAttributes>( "QgsAttributes" );
   qRegisterMetaType<QgsSnappingConfig>( "QgsSnappingConfig" );
@@ -368,7 +365,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
   projects.insert( 0, project );
   saveRecentProjects( projects );
 
-  const QList<QgsMapLayer *> mapLayers { mProject->mapLayers().values() };
+  const QList<QgsMapLayer *> mapLayers {mProject->mapLayers().values()};
   for ( QgsMapLayer *layer : mapLayers )
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
@@ -433,7 +430,10 @@ void QgisMobileapp::reloadProjectFile( const QString &path )
 
   // load fonts in same directory
   QDir fontDir = QDir::cleanPath( QFileInfo( path ).absoluteDir().path() + QDir::separator() + ".fonts" );
-  QStringList fontExts = QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF";
+  QStringList fontExts = QStringList() << "*.ttf"
+                                       << "*.TTF"
+                                       << "*.otf"
+                                       << "*.OTF";
   const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
   for ( const QString &fontFile : fontFiles )
   {
@@ -441,7 +441,7 @@ void QgisMobileapp::reloadProjectFile( const QString &path )
     if ( id < 0 )
       QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
     else
-      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ));
+      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
   }
 
   loadProjectQuirks();
@@ -466,7 +466,7 @@ void QgisMobileapp::print( int layoutIndex )
   if ( !documentsDir.exists() )
     documentsDir.mkpath( "." );
 
-  printer.setOutputFileName( documentsLocation  + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
+  printer.setOutputFileName( documentsLocation + '/' + layoutToPrint->name() + QStringLiteral( ".pdf" ) );
 
   QgsLayoutExporter::PrintExportSettings printSettings;
   printSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
@@ -494,4 +494,3 @@ QgisMobileapp::~QgisMobileapp()
   // Reintroduce when created on the heap
   delete mProject;
 }
-

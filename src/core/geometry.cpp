@@ -1,14 +1,13 @@
 #include "geometry.h"
 
-#include <qgspoint.h>
 #include <qgslinestring.h>
+#include <qgspoint.h>
 #include <qgspolygon.h>
 #include <qgsvectorlayer.h>
 
 Geometry::Geometry( QObject *parent )
   : QObject( parent )
 {
-
 }
 
 QgsGeometry Geometry::asQgsGeometry() const
@@ -46,7 +45,6 @@ QgsGeometry Geometry::asQgsGeometry() const
       break;
     case QgsWkbTypes::NullGeometry:
       break;
-
   }
 
   // QgsCoordinateTransform ct( mRubberbandModel->crs(), mVectorLayer->crs() );

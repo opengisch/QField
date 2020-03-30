@@ -15,8 +15,9 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include "snappingutils.h"
-#include <qgsvectorlayer.h>
+
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
@@ -85,9 +86,9 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     sequence.append( p2 );
   }
 
-  if (closeLine && sequence.count() > 1)
+  if ( closeLine && sequence.count() > 1 )
   {
-    sequence.append(sequence.at(0));
+    sequence.append( sequence.at( 0 ) );
   }
 
   return sequence;
@@ -212,11 +213,11 @@ double RubberbandModel::measureValue() const
   return QgsWkbTypes::hasM( mPointList.at( mCurrentCoordinateIndex ).wkbType() ) ? mPointList.at( mCurrentCoordinateIndex ).m() : 0;
 }
 
-void RubberbandModel::setMeasureValue(const double measureValue)
+void RubberbandModel::setMeasureValue( const double measureValue )
 {
   if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
-    if( !std::isnan(measureValue) )
+    if ( !std::isnan( measureValue ) )
     {
       double mValue = measureValue;
 

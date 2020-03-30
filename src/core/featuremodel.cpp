@@ -15,15 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "featuremodel.h"
 #include "expressioncontextutils.h"
+#include "featuremodel.h"
 #include "vertexmodel.h"
 
-#include <qgsproject.h>
-#include <qgsmessagelog.h>
-#include <qgsvectorlayer.h>
 #include <QGeoPositionInfoSource>
+#include <qgsmessagelog.h>
+#include <qgsproject.h>
 #include <qgsrelationmanager.h>
+#include <qgsvectorlayer.h>
 
 
 FeatureModel::FeatureModel( QObject *parent )
@@ -142,7 +142,7 @@ QgsRelation FeatureModel::linkedRelation() const
 QHash<int, QByteArray> FeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-  roles[AttributeName]  = "AttributeName";
+  roles[AttributeName] = "AttributeName";
   roles[AttributeValue] = "AttributeValue";
   roles[Field] = "Field";
   roles[RememberAttribute] = "RememberAttribute";
@@ -178,7 +178,6 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 
     case LinkedAttribute:
       return mLinkedAttributeIndexes.contains( index.row() );
-
   }
 
   return QVariant();
@@ -210,7 +209,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
 
     case RememberAttribute:
     {
-      mRememberings[mLayer].rememberedAttributes[ index.row() ] = value.toBool();
+      mRememberings[mLayer].rememberedAttributes[index.row()] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
       break;
     }
@@ -284,8 +283,7 @@ void FeatureModel::resetAttributes()
   for ( int i = 0; i < fields.count(); ++i )
   {
     //if the value does not need to be remembered and it's not prefilled by the linked parent feature
-    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) &&
-         !mLinkedAttributeIndexes.contains( i ) )
+    if ( !mRememberings[mLayer].rememberedAttributes.at( i ) && !mLinkedAttributeIndexes.contains( i ) )
     {
       if ( fields.at( i ).defaultValueDefinition().isValid() )
       {
@@ -318,7 +316,7 @@ void FeatureModel::applyGeometry()
 
 void FeatureModel::removeLayer( QObject *layer )
 {
-  mRememberings.remove( static_cast< QgsVectorLayer * >( layer ) );
+  mRememberings.remove( static_cast<QgsVectorLayer *>( layer ) );
 }
 
 void FeatureModel::featureAdded( QgsFeatureId fid )

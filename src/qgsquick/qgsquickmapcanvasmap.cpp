@@ -13,20 +13,19 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QQuickWindow>
-#include <QScreen>
-#include <QSGSimpleTextureNode>
+#include "qgsquickmapcanvasmap.h"
+#include "qgsquickmapsettings.h"
 
+#include <QQuickWindow>
+#include <QSGSimpleTextureNode>
+#include <QScreen>
+#include <qgis.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
-#include <qgsexpressioncontextutils.h>
-#include <qgis.h>
-
-#include "qgsquickmapcanvasmap.h"
-#include "qgsquickmapsettings.h"
 
 
 QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
@@ -281,9 +280,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   QRectF rect( boundingRect() );
 
   // Check for resizes that change the w/h ratio
-  if ( !rect.isEmpty() &&
-       !mImage.size().isEmpty() &&
-       !qgsDoubleNear( rect.width() / rect.height(), mImage.width() / mImage.height() ) )
+  if ( !rect.isEmpty() && !mImage.size().isEmpty() && !qgsDoubleNear( rect.width() / rect.height(), mImage.width() / mImage.height() ) )
   {
     if ( qgsDoubleNear( rect.height(), mImage.height() ) )
     {
@@ -375,7 +372,7 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
 void QgsQuickMapCanvasMap::refresh()
 {
   if ( mMapSettings->outputSize().isNull() )
-    return;  // the map image size has not been set yet
+    return; // the map image size has not been set yet
 
   if ( !mFreeze )
     mRefreshTimer.start( 1 );

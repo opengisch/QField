@@ -15,11 +15,10 @@
  ***************************************************************************/
 
 
-#include "vertexmodel.h"
 #include "rubberband.h"
-
 #include "rubberbandmodel.h"
 #include "sgrubberband.h"
+#include "vertexmodel.h"
 
 Rubberband::Rubberband( QQuickItem *parent )
   : QQuickItem( parent )
@@ -221,4 +220,3 @@ void Rubberband::setColorCurrentPoint( const QColor &color )
 
   emit colorCurrentPointChanged();
 }
-

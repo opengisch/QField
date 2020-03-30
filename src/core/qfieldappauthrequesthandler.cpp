@@ -21,13 +21,11 @@
 #if VERSION_INT >= 30600
 #include <QAuthenticator>
 #include <QThread>
-#include <qgsmessagelog.h>
-
 #include <qgscredentials.h>
+#include <qgsmessagelog.h>
 
 QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 {
-
 }
 
 void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
@@ -53,8 +51,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   {
     emit showLoginDialog( getFirstUnhandledRealm() );
 
-    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( const QString & realm, bool canceled )
-    {
+    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [=]( const QString &realm, bool canceled ) {
       if ( canceled )
       {
         //realm not successful handled - but canceled
@@ -143,9 +140,9 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   for ( ;; )
   {
     bool ok = QgsCredentials::instance()->get(
-                QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-                username, password,
-                QObject::tr( "Authentication required" ) );
+    QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+    username, password,
+    QObject::tr( "Authentication required" ) );
 
     if ( !ok )
     {
@@ -157,17 +154,16 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     {
       // save credentials
       QgsCredentials::instance()->put(
-        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-        username, password
-      );
+      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+      username, password );
       break;
     }
     else
     {
       // credentials didn't change - stored ones probably wrong? clear password and retry
       QgsCredentials::instance()->put(
-        QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
-        username, QString() );
+      QStringLiteral( "%1 at %2" ).arg( auth->realm(), reply->url().host() ),
+      username, QString() );
     }
   }
 

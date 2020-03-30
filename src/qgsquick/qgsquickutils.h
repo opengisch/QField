@@ -17,21 +17,21 @@
 #define QGSQUICKUTILS_H
 
 
+#include "qgsquickfeaturelayerpair.h"
+#include "qgsquickmapsettings.h"
+#include "qgsvectorlayer.h"
+
 #include <QObject>
 #include <QString>
 #include <QUrl>
 #include <QtPositioning/QGeoCoordinate>
-
-#include <limits>
-
+#include <qgscoordinateformatter.h>
 #include <qgsmessagelog.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
 #include <qgsunittypes.h>
-#include "qgsquickmapsettings.h"
-#include "qgsquickfeaturelayerpair.h"
-#include <qgscoordinateformatter.h>
-#include "qgsvectorlayer.h"
+
+#include <limits>
 
 
 class QgsFeature;
@@ -45,11 +45,11 @@ class QgsCoordinateReferenceSystem;
  * \note QML Type: Utils (Singleton)
  *
  */
-class QgsQuickUtils: public QObject
+class QgsQuickUtils : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    /**
+  /**
       * "dp" is useful for building building components that work well with different screen densities.
       * It stands for density-independent pixels. A width of 10dp is going to be the same physical size
       * on all screens regardless their density. In QML code, all values are specified in screen pixels,
@@ -60,107 +60,107 @@ class QgsQuickUtils: public QObject
       *
       * This is a readonly property.
       */
-    Q_PROPERTY( qreal dp READ screenDensity CONSTANT )
+  Q_PROPERTY( qreal dp READ screenDensity CONSTANT )
 
-  public:
-    //! Create new utilities
-    QgsQuickUtils( QObject *parent = nullptr );
-    //! Destructor
-    ~QgsQuickUtils() = default;
+public:
+  //! Create new utilities
+  QgsQuickUtils( QObject *parent = nullptr );
+  //! Destructor
+  ~QgsQuickUtils() = default;
 
-    //! \copydoc QgsQuickUtils::dp
-    qreal screenDensity() const;
+  //! \copydoc QgsQuickUtils::dp
+  qreal screenDensity() const;
 
-    /**
+  /**
       * Creates crs from epsg code in QML
       *
       */
-    Q_INVOKABLE static QgsCoordinateReferenceSystem coordinateReferenceSystemFromEpsgId( long epsg );
+  Q_INVOKABLE static QgsCoordinateReferenceSystem coordinateReferenceSystemFromEpsgId( long epsg );
 
-    /**
+  /**
       * Creates QgsPointXY in QML
       *
       */
-    Q_INVOKABLE static QgsPointXY pointXY( double x, double y );
+  Q_INVOKABLE static QgsPointXY pointXY( double x, double y );
 
-    /**
+  /**
       * Creates QgsPoint in QML
       *
       */
-    Q_INVOKABLE static QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() );
+  Q_INVOKABLE static QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() );
 
-    /**
+  /**
       * Converts QGeoCoordinate to QgsPoint
       *
       */
-    Q_INVOKABLE static QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
+  Q_INVOKABLE static QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
 
-    /**
+  /**
       * Transforms point between different crs from QML
       *
       */
-    Q_INVOKABLE static QgsPointXY transformPoint( const QgsCoordinateReferenceSystem &srcCrs,
-        const QgsCoordinateReferenceSystem &destCrs,
-        const QgsCoordinateTransformContext &context,
-        const QgsPointXY &srcPoint );
+  Q_INVOKABLE static QgsPointXY transformPoint( const QgsCoordinateReferenceSystem &srcCrs,
+                                                const QgsCoordinateReferenceSystem &destCrs,
+                                                const QgsCoordinateTransformContext &context,
+                                                const QgsPointXY &srcPoint );
 
-    /**
+  /**
       * Calculates the conversion factor between the specified distance units.
       */
-    Q_INVOKABLE static double distanceFromUnitToUnitFactor( const QgsUnitTypes::DistanceUnit fromUnit, const QgsUnitTypes::DistanceUnit toUnit );
+  Q_INVOKABLE static double distanceFromUnitToUnitFactor( const QgsUnitTypes::DistanceUnit fromUnit, const QgsUnitTypes::DistanceUnit toUnit );
 
-    /**
+  /**
       * Calculates the distance in meter representing baseLengthPixels pixels on the screen based on the current map settings.
       */
-    Q_INVOKABLE static double screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels );
+  Q_INVOKABLE static double screenUnitsToMeters( QgsQuickMapSettings *mapSettings, int baseLengthPixels );
 
-    /**
+  /**
       * Returns whether file on path exists
       */
-    Q_INVOKABLE static bool fileExists( const QString &path );
+  Q_INVOKABLE static bool fileExists( const QString &path );
 
-    /**
+  /**
      * Extracts filename from path
      */
-    Q_INVOKABLE static QString getFileName( const QString &path );
+  Q_INVOKABLE static QString getFileName( const QString &path );
 
-    /**
+  /**
       * Log message in QgsMessageLog
       */
-    Q_INVOKABLE static void logMessage( const QString &message,
-                                        const QString &tag = QString( "QgsQuick" ),
-                                        Qgis::MessageLevel level = Qgis::Warning );
+  Q_INVOKABLE static void logMessage( const QString &message,
+                                      const QString &tag = QString( "QgsQuick" ),
+                                      Qgis::MessageLevel level = Qgis::Warning );
 
-    /**
+  /**
       * QgsQuickFeatureLayerPair factory for tuple of QgsFeature and QgsVectorLayer used in QgsQUick library.
       * \param feature QgsFeature linked to new QgsQuickFeature instance.
       * \param layer QgsVectorLayer which the feature belongs to, optional.
       *
       */
-    Q_INVOKABLE static QgsQuickFeatureLayerPair featureFactory( const QgsFeature &feature, QgsVectorLayer *layer = nullptr );
+  Q_INVOKABLE static QgsQuickFeatureLayerPair featureFactory( const QgsFeature &feature, QgsVectorLayer *layer = nullptr );
 
-    /**
+  /**
       * Returns QUrl to image from library's /images folder.
       */
-    Q_INVOKABLE static const QUrl getThemeIcon( const QString &name );
+  Q_INVOKABLE static const QUrl getThemeIcon( const QString &name );
 
-    /**
+  /**
       * Returns url to field editor component for a feature form.
       * If the widgetName does not match any supported widget, text edit is returned.
       * \param widgetName name of the attribute field widget
       */
-    Q_INVOKABLE static const QUrl getEditorComponentSource( const QString &widgetName );
+  Q_INVOKABLE static const QUrl getEditorComponentSource( const QString &widgetName );
 
-    /**
+  /**
      * \copydoc QgsCoordinateFormatter::format()
      */
-    Q_INVOKABLE static QString formatPoint(
-      const QgsPoint &point,
-      QgsCoordinateFormatter::Format format = QgsCoordinateFormatter::FormatPair,
-      int decimals = 3,
-      QgsCoordinateFormatter::FormatFlags flags = QgsCoordinateFormatter::FlagDegreesUseStringSuffix );
+  Q_INVOKABLE static QString formatPoint(
+  const QgsPoint &point,
+  QgsCoordinateFormatter::Format format = QgsCoordinateFormatter::FormatPair,
+  int decimals = 3,
+  QgsCoordinateFormatter::FormatFlags flags = QgsCoordinateFormatter::FlagDegreesUseStringSuffix );
 
-    /**
+  /**
       * Converts distance to human readable distance
       *
       * This is useful for scalebar texts or output of the GPS accuracy
@@ -175,12 +175,12 @@ class QgsQuickUtils: public QObject
       * \param destSystem system of measurement of the result
       * \returns string represetation of dist in desired destSystem. For distance less than 0, 0 is returned.
       */
-    Q_INVOKABLE static QString formatDistance( double distance,
-        QgsUnitTypes::DistanceUnit units,
-        int decimals,
-        QgsUnitTypes::SystemOfMeasurement destSystem = QgsUnitTypes::MetricSystem );
+  Q_INVOKABLE static QString formatDistance( double distance,
+                                             QgsUnitTypes::DistanceUnit units,
+                                             int decimals,
+                                             QgsUnitTypes::SystemOfMeasurement destSystem = QgsUnitTypes::MetricSystem );
 
-    /**
+  /**
       * Converts distance to human readable distance in destination system of measurement
       *
       * \sa QgsQuickUtils::formatDistance()
@@ -191,16 +191,16 @@ class QgsQuickUtils: public QObject
       * \param destDistance output: distance if desired system of measurement
       * \param destUnits output: unit of destDistance
       */
-    static void humanReadableDistance( double srcDistance,
-                                       QgsUnitTypes::DistanceUnit srcUnits,
-                                       QgsUnitTypes::SystemOfMeasurement destSystem,
-                                       double &destDistance,
-                                       QgsUnitTypes::DistanceUnit &destUnits );
+  static void humanReadableDistance( double srcDistance,
+                                     QgsUnitTypes::DistanceUnit srcUnits,
+                                     QgsUnitTypes::SystemOfMeasurement destSystem,
+                                     double &destDistance,
+                                     QgsUnitTypes::DistanceUnit &destUnits );
 
-    //! Returns a string with information about screen size and resolution - useful for debugging
-    QString dumpScreenInfo() const;
+  //! Returns a string with information about screen size and resolution - useful for debugging
+  QString dumpScreenInfo() const;
 
-    /**
+  /**
      * Selects features in a layer
      * This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId (i.e. a qint64)
      * \param layer the vector layer
@@ -209,28 +209,28 @@ class QgsQuickUtils: public QObject
      *
      * \since QGIS 3.12
      */
-    Q_INVOKABLE static void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
+  Q_INVOKABLE static void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, QgsVectorLayer::SelectBehavior behavior = QgsVectorLayer::SetSelection );
 
-  private:
-    static void formatToMetricDistance( double srcDistance,
-                                        QgsUnitTypes::DistanceUnit srcUnits,
-                                        double &destDistance,
-                                        QgsUnitTypes::DistanceUnit &destUnits );
-
-    static void formatToImperialDistance( double srcDistance,
-                                          QgsUnitTypes::DistanceUnit srcUnits,
-                                          double &destDistance,
-                                          QgsUnitTypes::DistanceUnit &destUnits );
-
-    static void formatToUSCSDistance( double srcDistance,
+private:
+  static void formatToMetricDistance( double srcDistance,
                                       QgsUnitTypes::DistanceUnit srcUnits,
                                       double &destDistance,
                                       QgsUnitTypes::DistanceUnit &destUnits );
 
+  static void formatToImperialDistance( double srcDistance,
+                                        QgsUnitTypes::DistanceUnit srcUnits,
+                                        double &destDistance,
+                                        QgsUnitTypes::DistanceUnit &destUnits );
 
-    static qreal calculateScreenDensity();
+  static void formatToUSCSDistance( double srcDistance,
+                                    QgsUnitTypes::DistanceUnit srcUnits,
+                                    double &destDistance,
+                                    QgsUnitTypes::DistanceUnit &destUnits );
 
-    qreal mScreenDensity;
+
+  static qreal calculateScreenDensity();
+
+  qreal mScreenDensity;
 };
 
 #endif // QGSQUICKUTILS_H

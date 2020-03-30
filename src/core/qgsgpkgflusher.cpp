@@ -17,24 +17,25 @@
 
 
 #include "qgsgpkgflusher.h"
+
+#include <QObject>
 #include <qgsmessagelog.h>
+#include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
-#include <qgsproject.h>
 #include <sqlite3.h>
-#include <QObject>
 
 class Flusher : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public slots:
-    void scheduleFlush( const QString &filename );
+public slots:
+  void scheduleFlush( const QString &filename );
 
-    void flush( const QString &filename );
+  void flush( const QString &filename );
 
-  private:
-    QMap<QString, QTimer *> mScheduledFlushes;
+private:
+  QMap<QString, QTimer *> mScheduledFlushes;
 };
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )

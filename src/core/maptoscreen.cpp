@@ -16,8 +16,8 @@
 #include "maptoscreen.h"
 #include "qgspoint.h"
 
-MapToScreen::MapToScreen( QObject *parent ) :
-  QObject( parent )
+MapToScreen::MapToScreen( QObject *parent )
+  : QObject( parent )
 {
 }
 
@@ -57,7 +57,7 @@ void MapToScreen::setMapPoint( const QgsPoint &point )
 
 QgsPoint MapToScreen::mapPoint()
 {
-  return  mMapPoint;
+  return mMapPoint;
 }
 
 QPointF MapToScreen::screenPoint()
@@ -77,5 +77,3 @@ void MapToScreen::transformPoint()
   }
   emit screenPointChanged();
 }
-
-

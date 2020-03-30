@@ -77,7 +77,7 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
     case DisplayString:
       return QString( "Tracker on layer %1" ).arg( mTrackers.at( index.row() )->layer()->name() );
     case VectorLayer:
-      return QVariant::fromValue< QgsVectorLayer *>( mTrackers.at( index.row() )->layer() );
+      return QVariant::fromValue<QgsVectorLayer *>( mTrackers.at( index.row() )->layer() );
     case Visible:
       return mTrackers.at( index.row() )->visible();
     case StartPositionTimestamp:
@@ -89,7 +89,7 @@ QVariant TrackingModel::data( const QModelIndex &index, int role ) const
 
 bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  Tracker *currentTracker = mTrackers[ index.row() ];
+  Tracker *currentTracker = mTrackers[index.row()];
   switch ( role )
   {
     case TimeInterval:
@@ -102,10 +102,10 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
       currentTracker->setConjunction( value.toBool() );
       break;
     case Feature:
-      currentTracker->setFeature( value.value< QgsFeature >() );
+      currentTracker->setFeature( value.value<QgsFeature>() );
       break;
     case RubberModel:
-      currentTracker->setModel( value.value< RubberbandModel * >() );
+      currentTracker->setModel( value.value<RubberbandModel *>() );
       break;
     case Visible:
       currentTracker->setVisible( value.toBool() );
@@ -122,7 +122,7 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
     int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
-    if ( mTrackers[ listIndex ]->feature().id() == featureId )
+    if ( mTrackers[listIndex]->feature().id() == featureId )
       return true;
   }
   return false;
@@ -151,14 +151,14 @@ void TrackingModel::createTracker( QgsVectorLayer *layer, bool visible )
 void TrackingModel::startTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
-  mTrackers[ listIndex ]->start();
+  mTrackers[listIndex]->start();
   emit layerInTrackingChanged( layer, true );
 }
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
 {
   int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
-  mTrackers[ listIndex ]->stop();
+  mTrackers[listIndex]->stop();
 
   beginRemoveRows( QModelIndex(), listIndex, listIndex );
   delete mTrackers.takeAt( listIndex );
@@ -175,4 +175,3 @@ void TrackingModel::setLayerVisible( QgsVectorLayer *layer, bool visible )
     setData( index( listIndex, 0, QModelIndex() ), visible, Visible );
   }
 }
-

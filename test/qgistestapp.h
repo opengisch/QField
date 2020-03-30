@@ -20,40 +20,39 @@
 
 class QgisTestApp
 {
-  public:
-    QgisTestApp()
-    {
-      int argc = 0;
-      char **argv = 0;
-      mApp = new QgsApplication( argc, argv, false );
+public:
+  QgisTestApp()
+  {
+    int argc = 0;
+    char **argv = 0;
+    mApp = new QgsApplication( argc, argv, false );
 
-      // load providers
-#if defined(Q_WS_WIN)
-      QString prefixPath = QApplication::applicationDirPath();
+    // load providers
+#if defined( Q_WS_WIN )
+    QString prefixPath = QApplication::applicationDirPath();
 #else
-      QString prefixPath = QApplication::applicationDirPath() + "/..";
+    QString prefixPath = QApplication::applicationDirPath() + "/..";
 #endif
 
-      mApp->setPrefixPath( prefixPath, true );
+    mApp->setPrefixPath( prefixPath, true );
 #ifdef ANDROID
-      mApp->setPluginPath( QApplication::applicationDirPath() );
+    mApp->setPluginPath( QApplication::applicationDirPath() );
 #else
-      mApp->setPluginPath( "" QGIS_PLUGIN_DIR );
+    mApp->setPluginPath( "" QGIS_PLUGIN_DIR );
 #endif
-      mApp->initQgis();
-    }
+    mApp->initQgis();
+  }
 
-    ~QgisTestApp()
-    {
+  ~QgisTestApp()
+  {
 #if 0
       // Crashes...
       delete mApp;
 #endif
-    }
+  }
 
-  private:
-    QgsApplication *mApp;
+private:
+  QgsApplication *mApp;
 };
 
 #endif // QGISTESTAPP
-

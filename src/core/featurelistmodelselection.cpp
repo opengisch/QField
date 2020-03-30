@@ -15,10 +15,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QDebug>
-
-#include <qgsvectorlayer.h>
 #include "featurelistmodelselection.h"
+
+#include <QDebug>
+#include <qgsvectorlayer.h>
 
 FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
   : QObject( parent )
@@ -27,7 +27,7 @@ FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
 
 int FeatureListModelSelection::selection()
 {
-  if ( mSelection  && mSelection->selectedIndexes().count() )
+  if ( mSelection && mSelection->selectedIndexes().count() )
   {
     return mSelection->selectedIndexes().first().row();
   }

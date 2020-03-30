@@ -18,12 +18,12 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 
-#include <qgslayertreegroup.h>
 #include <qgslayertree.h>
-#include <qgsmaplayer.h>
-#include <qgslayertreeutils.h>
-#include <qgsmaplayerstylemanager.h>
+#include <qgslayertreegroup.h>
 #include <qgslayertreemodel.h>
+#include <qgslayertreeutils.h>
+#include <qgsmaplayer.h>
+#include <qgsmaplayerstylemanager.h>
 
 LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
@@ -157,7 +157,3 @@ void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bo
   QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
   mModel->setLayerInTracking( nodeLayer, tracking );
 }
-
-
-
-

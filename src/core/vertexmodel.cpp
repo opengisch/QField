@@ -14,16 +14,15 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsquickmapsettings.h"
+#include "vertexmodel.h"
+
 #include <QDebug>
 #include <QStandardItem>
-
 #include <qgsgeometry.h>
-#include <qgswkbtypes.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
-
-#include "vertexmodel.h"
-#include "qgsquickmapsettings.h"
+#include <qgswkbtypes.h>
 
 
 VertexModel::VertexModel( QObject *parent )
@@ -452,21 +451,20 @@ void VertexModel::updateCanRemoveVertex()
 
   if ( mMode == EditVertex )
   {
-
     switch ( mGeometryType )
     {
       case QgsWkbTypes::PointGeometry:
         canRemoveVertex = false;
         break;
       case QgsWkbTypes::LineGeometry:
-        canRemoveVertex =  rowCount() > 2;
+        canRemoveVertex = rowCount() > 2;
         break;
       case QgsWkbTypes::PolygonGeometry:
-        canRemoveVertex =  rowCount() > 3;
+        canRemoveVertex = rowCount() > 3;
         break;
       case QgsWkbTypes::NullGeometry:
       case QgsWkbTypes::UnknownGeometry:
-        canRemoveVertex =  false;
+        canRemoveVertex = false;
         break;
     }
   }

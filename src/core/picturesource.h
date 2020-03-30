@@ -24,17 +24,17 @@
  */
 class PictureSource : public QObject
 {
-    Q_OBJECT
-  public:
-    explicit PictureSource( QObject *parent = nullptr );
+  Q_OBJECT
+public:
+  explicit PictureSource( QObject *parent = nullptr );
 
-    virtual ~PictureSource();
+  virtual ~PictureSource();
 
-  signals:
-    /**
+signals:
+  /**
      * Emit this signal when a picture really has been received.
      */
-    void pictureReceived( const QString &path );
+  void pictureReceived( const QString &path );
 };
 
 #endif // PICTURESOURCE_H

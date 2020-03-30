@@ -14,6 +14,7 @@
  ***************************************************************************/
 
 #include "qgsquickcoordinatetransformer.h"
+
 #include <qgslogger.h>
 
 QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer( QObject *parent )
@@ -151,8 +152,7 @@ void QgsQuickCoordinateTransformer::setSourceCoordinate( const QGeoCoordinate &s
 {
   if ( qgsDoubleNear( sourceCoordinate.latitude(), mSourcePosition.y() )
        && qgsDoubleNear( sourceCoordinate.longitude(), mSourcePosition.x() )
-       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() )
-     )
+       && qgsDoubleNear( sourceCoordinate.altitude(), mSourcePosition.z() ) )
     return;
 
   mSourcePosition = QgsPoint( sourceCoordinate.longitude(), sourceCoordinate.latitude(), sourceCoordinate.altitude() );

@@ -15,20 +15,19 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qgsvectorlayer.h>
-#include <qgsvectordataprovider.h>
-#include <qgsproject.h>
-#include <qgsgeometry.h>
-#include <qgscoordinatereferencesystem.h>
-#include <qgsexpressioncontextutils.h>
-#include <qgsrelationmanager.h>
-
 #include "multifeaturelistmodel.h"
 
 #include <QDebug>
+#include <qgscoordinatereferencesystem.h>
+#include <qgsexpressioncontextutils.h>
+#include <qgsgeometry.h>
+#include <qgsproject.h>
+#include <qgsrelationmanager.h>
+#include <qgsvectordataprovider.h>
+#include <qgsvectorlayer.h>
 
 MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
-  :  QAbstractItemModel( parent )
+  : QAbstractItemModel( parent )
 {
   connect( this, &MultiFeatureListModel::modelReset, this, &MultiFeatureListModel::countChanged );
 }
@@ -46,7 +45,7 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeature
     QgsFeatureIterator fit = it.key()->getFeatures( it.value() );
     while ( fit.nextFeature( feat ) )
     {
-      mFeatures.append( QPair< QgsVectorLayer *, QgsFeature >( it.key(), feat ) );
+      mFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( it.key(), feat ) );
       connect( it.key(), &QgsVectorLayer::destroyed, this, &MultiFeatureListModel::layerDeleted, Qt::UniqueConnection );
       connect( it.key(), &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModel::featureDeleted, Qt::UniqueConnection );
       connect( it.key(), &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModel::attributeValueChanged, Qt::UniqueConnection );
@@ -101,7 +100,7 @@ QModelIndex MultiFeatureListModel::index( int row, int column, const QModelIndex
   if ( row < 0 || row >= mFeatures.size() || column != 0 )
     return QModelIndex();
 
-  return createIndex( row, column, const_cast<QPair< QgsVectorLayer *, QgsFeature >*>( &mFeatures.at( row ) ) );
+  return createIndex( row, column, const_cast<QPair<QgsVectorLayer *, QgsFeature> *>( &mFeatures.at( row ) ) );
 }
 
 QModelIndex MultiFeatureListModel::parent( const QModelIndex &child ) const
@@ -126,7 +125,7 @@ int MultiFeatureListModel::columnCount( const QModelIndex &parent ) const
 
 QVariant MultiFeatureListModel::data( const QModelIndex &index, int role ) const
 {
-  QPair< QgsVectorLayer *, QgsFeature > *feature = toFeature( index );
+  QPair<QgsVectorLayer *, QgsFeature> *feature = toFeature( index );
   if ( !feature )
     return QVariant();
 
@@ -176,7 +175,7 @@ bool MultiFeatureListModel::removeRows( int row, int count, const QModelIndex &p
     return true;
 
   int i = 0;
-  QMutableListIterator<QPair< QgsVectorLayer *, QgsFeature >> it( mFeatures );
+  QMutableListIterator<QPair<QgsVectorLayer *, QgsFeature>> it( mFeatures );
   while ( i < row )
   {
     it.next();

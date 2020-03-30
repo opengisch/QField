@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "snappingutils.h"
+#include "qgsproject.h"
 #include "qgsquickmapsettings.h"
 #include "qgsvectorlayer.h"
-#include "qgsproject.h"
+#include "snappingutils.h"
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent, false /*enableSnappingForInvisibleFeature*/ )
@@ -35,7 +35,6 @@ void SnappingUtils::onMapSettingsUpdated()
 
 void SnappingUtils::removeOutdatedLocators()
 {
-
   clearAllLocators();
 }
 

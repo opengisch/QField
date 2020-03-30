@@ -15,18 +15,17 @@
  ***************************************************************************/
 #include "legendimageprovider.h"
 
-#include <qgsproject.h>
 #include <qgslayertree.h>
 #include <qgslayertreelayer.h>
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
+#include <qgsproject.h>
 
 LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   : QQuickImageProvider( Pixmap )
   , mLayerTreeModel( layerTreeModel )
   , mRootNode( layerTreeModel->rootGroup() )
 {
-
 }
 
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )

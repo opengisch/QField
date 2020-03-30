@@ -13,16 +13,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QTimer>
-
+#include "qgsproject.h"
+#include "rubberbandmodel.h"
 #include "tracker.h"
 
-#include "rubberbandmodel.h"
-#include "qgsproject.h"
+#include <QTimer>
 
 Tracker::Tracker( QgsVectorLayer *layer, bool visible )
-  : mLayer( layer ),
-    mVisible( visible )
+  : mLayer( layer ), mVisible( visible )
 {
 }
 
@@ -63,7 +61,7 @@ QDateTime Tracker::startPositionTimestamp() const
   return mStartPositionTimestamp;
 }
 
-void Tracker::setStartPositionTimestamp(const QDateTime &startPositionTimestamp)
+void Tracker::setStartPositionTimestamp( const QDateTime &startPositionTimestamp )
 {
   mStartPositionTimestamp = startPositionTimestamp;
 }
@@ -92,7 +90,6 @@ void Tracker::trackPosition()
 
 void Tracker::positionReceived()
 {
-
   QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
 
   auto pointIt = points.constEnd() - 1;
@@ -136,7 +133,7 @@ void Tracker::start()
 
   //set the start time
   setStartPositionTimestamp( QDateTime::currentDateTime() );
-  model()->setMeasureValue(0);
+  model()->setMeasureValue( 0 );
 
   //track first position
   trackPosition();
@@ -151,6 +148,6 @@ void Tracker::stop()
   }
   if ( mMinimumDistance > 0 )
   {
-    disconnect( mRubberbandModel,  &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+    disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   }
 }

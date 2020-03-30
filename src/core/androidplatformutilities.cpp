@@ -16,17 +16,17 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "androidplatformutilities.h"
 #include "androidpicturesource.h"
+#include "androidplatformutilities.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
 
+#include <QAndroidJniEnvironment>
+#include <QDebug>
 #include <QMap>
+#include <QMimeDatabase>
 #include <QString>
 #include <QtAndroid>
-#include <QDebug>
-#include <QAndroidJniEnvironment>
-#include <QMimeDatabase>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
@@ -262,13 +262,11 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 {
   if ( mActivity.isValid() )
   {
-    QtAndroid::runOnAndroidThread( [allowLock]
-    {
+    QtAndroid::runOnAndroidThread( [allowLock] {
       QAndroidJniObject activity = QtAndroid::androidActivity();
       if ( activity.isValid() )
       {
-        QAndroidJniObject window =
-        activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
+        QAndroidJniObject window = activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
 
         if ( window.isValid() )
         {
@@ -295,7 +293,6 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
 
 void AndroidPlatformUtilities::showRateThisApp() const
 {
-
   QAndroidJniObject activity = QAndroidJniObject::fromString( QStringLiteral( "ch.opengis.qfield.QFieldAppRaterActivity" ) );
   QAndroidJniObject intent = QAndroidJniObject( "android/content/Intent", "(Ljava/lang/String;)V", activity.object<jstring>() );
 
