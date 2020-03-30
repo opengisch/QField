@@ -71,7 +71,7 @@ class PrintLayoutListModel : public QAbstractListModel
     void projectChanged();
 
   private:
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
     //!List of PrintLayouts of current project to display
     QList<PrintLayout> mPrintLayouts;
 };

@@ -72,7 +72,7 @@ class MessageLogModel : public QAbstractListModel
     void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
 
   private:
-    QgsMessageLog *mMessageLog;
+    QgsMessageLog *mMessageLog = nullptr;
     QVector<LogMessage> mMessages;
     QList< QString > mSuppressedTags;
 };

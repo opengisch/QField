@@ -96,7 +96,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-    AttributeFormModelBase *mSourceModel;
+    AttributeFormModelBase *mSourceModel = nullptr;
 };
 
 #endif // ATTRIBUTEFORMMODEL_H

@@ -69,8 +69,8 @@ class SnappingUtils : public QgsSnappingUtils
   private:
     void snap();
 
-    QgsQuickMapSettings *mSettings;
-    QgsVectorLayer *mCurrentLayer;
+    QgsQuickMapSettings *mSettings = nullptr;
+    QgsVectorLayer *mCurrentLayer = nullptr;
 
     int mIndexLayerCount;
     SnappingResult mSnappingResult;

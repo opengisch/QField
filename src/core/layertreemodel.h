@@ -74,9 +74,9 @@ class LayerTreeModel : public QSortFilterProxyModel
 
 
   private:
-    QgsLayerTreeModel *mLayerTreeModel;
+    QgsLayerTreeModel *mLayerTreeModel = nullptr;
     QString mMapTheme;
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 };
 
