@@ -58,10 +58,17 @@ ForEachMacros:
   - BOOST_FOREACH
 IncludeCategories:
   - Regex:           '^<Q.*'
-    Priority:        200
+    Priority:        300
   - Regex:           '^<qgs.*'
-    Priority:        150
-IncludeIsMainRegex: '(test_?)?$'
+    Priority:        200
+  - Regex:           '<.*'
+    Priority:        400
+  - Regex:           '^".*'
+    Priority:        100
+  - Regex:           '.*'
+    Priority:        1
+IncludeIsMainRegex: '$'
+IncludeBlocks: Regroup
 IndentCaseLabels: true
 IndentWidth: 2
 IndentWrappedFunctionNames: true
