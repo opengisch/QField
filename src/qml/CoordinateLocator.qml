@@ -21,6 +21,8 @@ Item {
    */
   property variant overrideLocation: undefined // QgsPoint
 
+  //! Source location for snapping. If this is set to undefined, the center of the screen will be used.
+  //! Overwritten by stylus / hoverHandler.
   property variant sourceLocation: undefined // Screen coordinate
 
   readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
