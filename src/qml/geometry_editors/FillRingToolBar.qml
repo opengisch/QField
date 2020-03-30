@@ -24,6 +24,8 @@ VisibilityFadingRow {
 
     EmbeddedFeatureForm {
       id: formPopupLoader
+      state: 'Add'
+      currentLayer: featureModel.currentLayer
     }
 
     onConfirm: {
@@ -99,8 +101,6 @@ VisibilityFadingRow {
     formPopupLoader.onFeatureSaved.connect(commitAndFinish)
     formPopupLoader.onFeatureCancelled.connect(rollbackRingAndCancel)
 
-    formPopupLoader.state = 'Add'
-    formPopupLoader.currentLayer = featureModel.currentLayer
     formPopupLoader.feature = feature
     formPopupLoader.open()
   }
