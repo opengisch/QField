@@ -923,9 +923,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       width: parent.width
       onTriggered: {
-        var coord = positionSource.position.coordinate;
-        var loc = Qt.point( coord.longitude, coord.latitude );
-        mapCanvas.mapSettings.setCenter( locationMarker.coordinateTransform.transform( loc ) )
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
       }
     }
 
