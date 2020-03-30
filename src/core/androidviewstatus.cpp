@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "androidviewstatus.h"
-
 #include "qgsmessagelog.h"
 
 #include <QtAndroid>

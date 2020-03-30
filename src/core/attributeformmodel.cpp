@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "attributeformmodel.h"
-
 #include "attributeformmodelbase.h"
 
 AttributeFormModel::AttributeFormModel( QObject *parent )
