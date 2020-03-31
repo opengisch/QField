@@ -57,7 +57,7 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
-        height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
+        height: fontMetrics.height + 20 * dp
         topPadding: 10 * dp
         bottomPadding: 10 * dp
 
