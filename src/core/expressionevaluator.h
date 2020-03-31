@@ -33,12 +33,12 @@ class ExpressionEvaluator : public QObject
   public:
     explicit ExpressionEvaluator( QObject *parent = nullptr );
 
-    const QString expressionText() { return mExpressionText; }
-    const QgsFeature feature() { return mFeature; }
+    QString expressionText() { return mExpressionText; }
+    QgsFeature feature() { return mFeature; }
     QgsMapLayer *layer() { return mLayer; }
 
-    void setExpressionText( const QString expressionText );
-    void setFeature( const QgsFeature feature );
+    void setExpressionText( const QString &expressionText );
+    void setFeature( const QgsFeature &feature );
     void setLayer( QgsMapLayer *layer );
 
     //! Returns the evaluated string value

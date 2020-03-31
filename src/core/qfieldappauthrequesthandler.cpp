@@ -30,7 +30,7 @@ QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
 
 }
 
-void QFieldAppAuthRequestHandler::enterCredentials( const QString realm, const QString username, const QString password )
+void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
 {
   QgsCredentials::instance()->put( realm, username, password );
 }
@@ -53,7 +53,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   {
     emit showLoginDialog( getFirstUnhandledRealm() );
 
-    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( const QString &realm, bool canceled )
+    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [ = ]( const QString & realm, bool canceled )
     {
       if ( canceled )
       {
@@ -103,7 +103,7 @@ void QFieldAppAuthRequestHandler::clearStoredRealms()
   mRealms.clear();
 }
 
-void QFieldAppAuthRequestHandler::authNeeded( const QString realm )
+void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
 {
   for ( const RealmEntry &entry : qgis::as_const( mRealms ) )
   {

@@ -49,7 +49,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
     void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth );
 
     //! stores the credentials after the information is entered in the login dialog
-    Q_INVOKABLE void enterCredentials( const QString realm, const QString username, const QString password );
+    Q_INVOKABLE void enterCredentials( const QString &realm, const QString &username, const QString &password );
 
     //! handles each realm after the project has been loaded
     Q_INVOKABLE bool handleLayerLogins();
@@ -59,14 +59,14 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsNetworkAuthenticat
 
 
   signals:
-    void showLoginDialog( const QString realm );
-    void loginDialogClosed( const QString realm, const bool canceled );
+    void showLoginDialog( const QString &realm );
+    void loginDialogClosed( const QString &realm, const bool canceled );
     void reloadEverything();
 
   private:
 
     //! adds the realm to the list on loading the project
-    void authNeeded( const QString realm );
+    void authNeeded( const QString &realm );
 
     //! returns an unhandled realm
     QString getFirstUnhandledRealm() const;
