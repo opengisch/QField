@@ -42,7 +42,7 @@ class FeatureListModelSelection : public QObject
     void setModel( MultiFeatureListModel *model );
 
     QgsVectorLayer *selectedLayer() const;
-    const QgsFeature selectedFeature() const;
+    QgsFeature selectedFeature() const;
 
     QgsGeometry selectedGeometry() const;
 

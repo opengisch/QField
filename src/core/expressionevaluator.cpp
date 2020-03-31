@@ -24,19 +24,19 @@ ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
 {
 }
 
-void ExpressionEvaluator::setExpressionText(const QString expressionText)
+void ExpressionEvaluator::setExpressionText( const QString &expressionText )
 {
   mExpressionText = expressionText;
   emit expressionTextChanged( mExpressionText );
 }
 
-void ExpressionEvaluator::setFeature(const QgsFeature feature)
+void ExpressionEvaluator::setFeature( const QgsFeature &feature )
 {
   mFeature = feature;
   emit featureChanged( mFeature );
 }
 
-void ExpressionEvaluator::setLayer(QgsMapLayer *layer)
+void ExpressionEvaluator::setLayer( QgsMapLayer *layer )
 {
   mLayer = layer;
   emit layerChanged( mLayer );

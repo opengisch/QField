@@ -60,7 +60,7 @@ class Tracker : public QObject
     //! the created feature
     QgsFeature feature() const { return mFeature; }
     //! the created feature
-    void setFeature( const QgsFeature feature ) { mFeature = feature; }
+    void setFeature( const QgsFeature& feature ) { mFeature = feature; }
     //! if the layer (and the rubberband ) is visible
     bool visible() const { return mVisible; }
     //! if the layer (and the rubberband ) is visible

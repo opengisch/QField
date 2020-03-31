@@ -71,7 +71,7 @@ QgsVectorLayer *FeatureListModelSelection::selectedLayer() const
   return nullptr;
 }
 
-const QgsFeature FeatureListModelSelection::selectedFeature() const
+QgsFeature FeatureListModelSelection::selectedFeature() const
 {
   if ( mSelection->selectedIndexes().count() )
   {
