@@ -140,7 +140,7 @@ class FeatureListModel : public QAbstractItemModel
      */
     void reloadLayer();
 
-    QgsVectorLayer *mCurrentLayer;
+    QgsVectorLayer *mCurrentLayer = nullptr;
 
     QList<Entry> mEntries;
     QString mKeyField;

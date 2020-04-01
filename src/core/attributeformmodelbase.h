@@ -96,9 +96,9 @@ class AttributeFormModelBase : public QStandardItemModel
      */
     QgsEditorWidgetSetup findBest( int fieldIndex );
 
-    FeatureModel *mFeatureModel;
-    QgsVectorLayer *mLayer;
-    QgsAttributeEditorContainer *mTemporaryContainer;
+    FeatureModel *mFeatureModel = nullptr;
+    QgsVectorLayer *mLayer = nullptr;
+    QgsAttributeEditorContainer *mTemporaryContainer = nullptr;
     bool mHasTabs;
 
     typedef QPair<QgsExpression, QVector<QStandardItem *> > VisibilityExpression;

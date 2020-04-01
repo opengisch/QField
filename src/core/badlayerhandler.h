@@ -50,7 +50,7 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
   private:
     QString layerName( const QDomNode &layerNode ) const;
 
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
 };
 
 #endif // BADLAYERHANDLER_H

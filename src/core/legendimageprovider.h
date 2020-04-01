@@ -29,8 +29,8 @@ class LegendImageProvider : public QQuickImageProvider
     QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize );
 
   private:
-    QgsLayerTreeModel *mLayerTreeModel;
-    QgsLayerTree *mRootNode;
+    QgsLayerTreeModel *mLayerTreeModel = nullptr;
+    QgsLayerTree *mRootNode = nullptr;
 };
 
 #endif // LEGENDIMAGEPROVIDER_H
