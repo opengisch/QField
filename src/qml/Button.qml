@@ -26,6 +26,8 @@ Item {
 
         anchors.fill: parent
         icon.color: "white"
+        icon.height: 24 * dp
+        icon.width: icon.height
 
         MouseArea {
             anchors.fill: parent
