@@ -1,6 +1,6 @@
 name: clang-format
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -8,11 +8,45 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - uses: DoozyX/clang-format-lint-action@v0.5
       with:
         source: '.'
         extensions: 'h,cpp'
         clangFormatVersion: 9
+
+    - name: Get all comments
+      if: failure()
+      uses: octokit/graphql-action@v2.x
+      id: get_comments
+      with:
+        query: |
+          query commentId($prnumber: Int!) {
+            repository(owner: "opengisch", name: "QField") {
+              pullRequest(number: $prnumber) {
+                comments(first: 100) {
+                  nodes {
+                    author {
+                      login
+                    }
+                    databaseId
+                  }
+                }
+              }
+            }
+          }
+        prnumber: ${{ github.event.pull_request.number }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Filter github_actions comment
+      if: failure()
+      id: github_actions_comment
+      env:
+        JSON_DATA: ${{ steps.get_comments.outputs.data }}
+      run: |
+        GITHUB_ACTIONS_COMMENT=$(echo "${JSON_DATA}" | jq '.repository.pullRequest.comments.nodes | map(select(.author.login == "github-actions"))[0].databaseId // empty')
+        echo "::set-output name=id::${GITHUB_ACTIONS_COMMENT}"
 
     # write comment to ping the PR author
     - name: Help setting up git filter
@@ -21,6 +55,8 @@ jobs:
       with:
         token:  ${{ secrets.GITHUB_TOKEN }}
         issue-number: ${{ github.event.pull_request.number }}
+        comment-id: ${{ steps.github_actions_comment.outputs.id }}
+        edit-mode: replace
         body: |
           The clang lint check has found issues in the format of this pull request.
 
