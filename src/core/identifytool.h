@@ -76,8 +76,8 @@ class IdentifyTool : public QObject
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
 
   private:
-    QgsQuickMapSettings *mMapSettings;
-    MultiFeatureListModel *mModel;
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    MultiFeatureListModel *mModel = nullptr;
 
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;

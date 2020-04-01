@@ -134,7 +134,7 @@ class RubberbandModel : public QObject
     int mCurrentCoordinateIndex;
     QDateTime mCurrentPositionTimestamp;
     QgsWkbTypes::GeometryType mGeometryType;
-    QgsVectorLayer *mLayer;
+    QgsVectorLayer *mLayer = nullptr;
     QgsCoordinateReferenceSystem mCrs;
     bool mFrozen = false;
 };

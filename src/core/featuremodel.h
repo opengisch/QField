@@ -188,13 +188,13 @@ class FeatureModel : public QAbstractListModel
     bool startEditing();
     void setLinkedFeatureValues();
 
-    QgsVectorLayer *mLayer;
+    QgsVectorLayer *mLayer = nullptr;
     QgsFeature mFeature;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
     QList<int> mLinkedAttributeIndexes;
     VertexModel *mVertexModel = nullptr;
-    Geometry *mGeometry;
+    Geometry *mGeometry = nullptr;
     std::unique_ptr<QGeoPositionInfoSource> mPositionSource;
     SnappingResult mTopSnappingResult;
     QString mTempName;

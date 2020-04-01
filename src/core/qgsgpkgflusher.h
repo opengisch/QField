@@ -49,9 +49,9 @@ class QgsGpkgFlusher : public QObject
     void onLayersAdded( const QList<QgsMapLayer *> layers );
 
   private:
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
     QThread mFlusherThread;
-    Flusher *mFlusher;
+    Flusher *mFlusher = nullptr;
 };
 
 #endif // QGSGPKGFLUSHER_H

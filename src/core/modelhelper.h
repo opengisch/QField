@@ -41,7 +41,7 @@ class ModelHelper : public QObject
     void modelChanged();
 
   private:
-    QAbstractItemModel *mModel;
+    QAbstractItemModel *mModel = nullptr;
 };
 
 #endif // MODELHELPER_H

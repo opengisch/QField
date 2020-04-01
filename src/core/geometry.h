@@ -31,8 +31,8 @@ class Geometry : public QObject
     void vectorLayerChanged();
 
   private:
-    RubberbandModel *mRubberbandModel;
-    QgsVectorLayer *mVectorLayer;
+    RubberbandModel *mRubberbandModel = nullptr;
+    QgsVectorLayer *mVectorLayer = nullptr;
 };
 
 #endif // GEOMETRY_H

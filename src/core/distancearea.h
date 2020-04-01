@@ -82,9 +82,9 @@ class DistanceArea : public QObject
     void init();
 
   private:
-    RubberbandModel *mRubberbandModel;
+    RubberbandModel *mRubberbandModel = nullptr;
     QgsCoordinateReferenceSystem mCrs;
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
 
     QgsDistanceArea mDistanceArea;
 };

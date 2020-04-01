@@ -54,7 +54,7 @@ class AppInterface : public QObject
     void loadProjectEnded();
 
   private:
-    QgisMobileapp *mApp;
+    QgisMobileapp *mApp = nullptr;
 };
 
 #endif // APPINTERFACE_H
