@@ -57,7 +57,7 @@ class SubModel : public QAbstractItemModel
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const;
     QModelIndex mapToSource( const QModelIndex &index ) const;
 
-    QAbstractItemModel *mModel;
+    QAbstractItemModel *mModel = nullptr;
     QPersistentModelIndex mRootIndex;
 
     // Map internal id to parent index

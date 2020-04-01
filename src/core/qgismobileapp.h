@@ -125,27 +125,27 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     void loadProjectQuirks();
 
-    QgsOfflineEditing *mOfflineEditing;
-    LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge;
-    LayerTreeModel *mLayerTree;
-    QgsMapLayerProxyModel *mLayerList;
-    AppInterface *mIface;
+    QgsOfflineEditing *mOfflineEditing = nullptr;
+    LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
+    LayerTreeModel *mLayerTree = nullptr;
+    QgsMapLayerProxyModel *mLayerList = nullptr;
+    AppInterface *mIface = nullptr;
     Settings mSettings;
-    QgsQuickMapCanvasMap *mMapCanvas;
+    QgsQuickMapCanvasMap *mMapCanvas = nullptr;
     bool mFirstRenderingFlag;
-    LegendImageProvider *mLegendImageProvider;
+    LegendImageProvider *mLegendImageProvider = nullptr;
 
-    QgsProject *mProject;
+    QgsProject *mProject = nullptr;
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
 #if VERSION_INT >= 30600
-    QFieldAppAuthRequestHandler *mAuthRequestHandler;
+    QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 #endif
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;
     QgsUnitTypes mUnitTypes;
     QgsExifTools mExifTools;
 
-    TrackingModel *mTrackingModel;
+    TrackingModel *mTrackingModel = nullptr;
 
 #if defined(Q_OS_ANDROID)
     AndroidPlatformUtilities mPlatformUtils;
