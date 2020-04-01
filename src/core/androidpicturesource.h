@@ -18,7 +18,7 @@
 
 #include "picturesource.h"
 
-#include <QAndroidActivityResultReceiver>
+   #include <QAndroidActivityResultReceiver>
 
 
 class AndroidPictureSource : public PictureSource, public QAndroidActivityResultReceiver
