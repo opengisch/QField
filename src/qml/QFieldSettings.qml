@@ -12,12 +12,14 @@ import "."
 Page {
   signal finished
 
+<<<<<<< HEAD
   property alias showScaleBar: registry.showScaleBar
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias incrementalRendering: registry.incrementalRendering
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias nativeCamera: registry.nativeCamera
+  property alias autoSave: registry.autoSave
 
   Settings {
     id: registry
@@ -27,6 +29,7 @@ Page {
     property bool incrementalRendering
     property bool numericalDigitizingInformation
     property bool nativeCamera
+    property bool autoSave
   }
 
   ListModel {
@@ -58,6 +61,11 @@ Page {
           title: QT_TR_NOOP( "Use native camera" )
           description: QT_TR_NOOP( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
           settingAlias: "nativeCamera"
+      }
+      ListElement {
+          title: QT_TR_NOOP( "Fast editing mode" )
+          description: QT_TR_NOOP( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
+          settingAlias: "autoSave"
       }
   }
 
