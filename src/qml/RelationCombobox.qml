@@ -32,7 +32,8 @@ Item {
     ComboBox {
       id: comboBox
 
-      property var myCurrentValue: value
+      // the currentValue is a read-only property of ComboBox
+      property var comboBoxCurrentValue: value
       property var _cachedCurrentValue
 
       textRole: 'display'
@@ -48,18 +49,18 @@ Item {
 
       // Workaround to get a signal when the value has changed
       onMyCurrentValueChanged: {
-        currentIndex = featureListModel.findKey(myCurrentValue)
+        currentIndex = featureListModel.findKey(comboBoxCurrentValue)
       }
 
       Connections {
         target: featureListModel
 
         onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = comboBox.myCurrentValue
+          comboBox._cachedCurrentValue = comboBox.comboBoxCurrentValue
         }
 
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(comboBox.myCurrentValue)
+          comboBox.currentIndex = featureListModel.findKey(comboBox.comboBoxCurrentValue)
         }
       }
 
@@ -176,7 +177,7 @@ Item {
 
         onSaved: {
           var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          comboBox.myCurrentValue = referencedValue
+          comboBox.comboBoxCurrentValue = referencedValue
           popup.close()
         }
 
