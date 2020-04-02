@@ -10,6 +10,11 @@ Item {
   property bool searching: false
   height: childrenRect.height
 
+  function leaveSearching() {
+    searching = false
+    focus = false
+  }
+
   LocatorModelSuperBridge {
     id: locator
     mapSettings: mapCanvas.mapSettings

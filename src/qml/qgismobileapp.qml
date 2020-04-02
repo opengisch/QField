@@ -172,7 +172,7 @@ ApplicationWindow {
 
       onClicked: {
           if (locatorItem.searching) {
-              locatorItem.searching = false
+              locatorItem.leaveSearching()
           } else if( !overlayFeatureFormDrawer.visible ) {
               identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
           }
