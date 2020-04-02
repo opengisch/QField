@@ -198,7 +198,7 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model && form.model.hasTabs ? form.model.index(currentIndex, 0) : undefined
+              rootIndex: form.model && form.model.hasTabs ? form.model.index(currentIndex, 0) : null
             }
 
             delegate: fieldItem
@@ -257,8 +257,6 @@ Page {
 
         Loader {
           id: attributeEditorLoader
-          asynchronous: true
-          visible: status == Loader.Ready
 
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
