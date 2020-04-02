@@ -257,8 +257,6 @@ Page {
 
         Loader {
           id: attributeEditorLoader
-          //asynchronous: true
-          //visible: status == Loader.Ready
 
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
