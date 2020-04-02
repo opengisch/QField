@@ -1,8 +1,11 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 Item {
   signal valueChanged( var value, bool isNull )
+
+  property alias checked: checkBox.checked
+  property alias indicator: checkBox.indicator
 
   height: childrenRect.height
 
@@ -12,6 +15,7 @@ Item {
   }
 
   CheckBox {
+    id: checkBox
 
     property var currentValue: value
     //if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
