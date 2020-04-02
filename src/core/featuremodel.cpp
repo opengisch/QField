@@ -317,6 +317,13 @@ void FeatureModel::resetAttributes()
   endResetModel();
 }
 
+bool FeatureModel::featureExists() const
+{
+  QgsFeature feature;
+  mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feature );
+  return feature.isValid();
+}
+
 void FeatureModel::applyGeometry()
 {
   QgsGeometry geometry = mGeometry->asQgsGeometry();

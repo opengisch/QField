@@ -45,7 +45,7 @@ Popup {
 
         anchors.fill: parent
 
-        onSaved: {
+        onConfirmed: {
             formPopup.featureSaved()
             formPopup.close()
         }

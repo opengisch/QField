@@ -37,7 +37,7 @@ Drawer {
 
   onClosed: {
       if( !overlayFeatureForm.isSaved ) {
-        overlayFeatureForm.save()
+        overlayFeatureForm.confirm()
       } else {
         overlayFeatureForm.isSaved=false //reset
       }
@@ -56,11 +56,10 @@ Drawer {
     model: AttributeFormModel {id: attributeFormModel}
 
     state: "Add"
-    buffered: false
 
     focus: overlayFeatureFormDrawer.opened
 
-    onSaved: {
+    onConfirmed: {
       displayToast( qsTr( "Changes saved" ) )
       //close drawer if still open
       if( overlayFeatureFormDrawer.position > 0 ) {
