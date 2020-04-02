@@ -13,7 +13,7 @@ import QtQuick.Controls.Styles 1.4
 import "."
 
 Page {
-  signal saved
+  signal confirmed
   signal cancelled
   signal temporaryStored
   signal aboutToSave
@@ -42,13 +42,6 @@ Page {
       name: 'Add'
     }
   ]
-
-  /**
-   * a substate used under 'Add' (not yet under 'Edit' but possibly in future)
-   * in case that the feature needs to be stored "meanwhile"
-   * e.g. on relation editor widget when adding childs to a not yet stored parent
-   */
-  property bool buffered: false
 
   /**
    * This is a relay to forward private signals to internal components.
@@ -304,7 +297,7 @@ Page {
           onValueChanged: {
             AttributeValue = isNull ? undefined : value
             if ( qfieldSettings.autoSave ) {
-                buffer()
+                save()
             }
           }
         }
@@ -330,71 +323,50 @@ Page {
     }
   }
 
-  function save() {
+  function confirm() {
     //if this is for some reason not handled before (like when tiping on a map while editing)
     if ( !model.constraintsHardValid )
     {
-        displayToast( qsTr( 'Constraints not valid - cancel editing') )
-        cancel()
-        return
+      displayToast( qsTr( 'Constraints not valid - cancel editing') )
+      cancel()
+      return
     }
     else if ( !model.constraintsSoftValid )
     {
-        displayToast( qsTr( 'Note: soft constraints were not met') )
+      displayToast( qsTr( 'Note: soft constraints were not met') )
     }
 
     parent.focus = true
-    aboutToSave()
 
-    if ( form.state === 'Add' ) {
-      if( !buffered )
-      {
-        model.create()
-      }
-      else
-      {
-        model.save()
-        buffered = false
-      }
-      state = 'Edit'
+    save()
+
+    state = 'Edit'
+
+    confirmed()
+  }
+
+  function save() {
+    if( !model.constraintsHardValid ) {
+      return false
+    }
+
+    aboutToSave() //used the same way like on save
+
+    if( !model.featureModel.featureExists() )
+    {
+      model.create()
     }
     else
     {
       model.save()
     }
-    saved()
-  }
 
-  function buffer() {
-      if( !model.constraintsHardValid ) {
-          displayToast( qsTr('Constraints not valid - cannot buffer') )
-          return false
-      }
-
-      aboutToSave() //used the same way like on save
-
-      if ( form.state === 'Add' ) {
-        if( !buffered )
-        {
-          model.create()
-          buffered = true
-        }
-        else
-        {
-          model.save()
-        }
-      }
-      else{
-        model.save()
-      }
-
-      return true
+    return true
   }
 
   function cancel() {
-    if( buffered )
+    if( form.state === 'Add' && model.featureModel.featureExists() )
       model.deleteFeature()
-    buffered = false
     cancelled()
   }
 
@@ -446,7 +418,7 @@ Page {
             if( dontSave ) {
                 temporaryStored()
             }else{
-                save()
+                confirm()
             }
           } else {
             displayToast( qsTr('Constraints not valid') )

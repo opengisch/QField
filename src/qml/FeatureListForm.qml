@@ -63,7 +63,7 @@ Rectangle {
           hide()
           if( featureFormList.state === "Edit" ){
             //e.g. tip on the canvas during an edit
-            featureFormList.save()
+            featureFormList.confirm()
           }
         }
       }
@@ -86,7 +86,7 @@ Rectangle {
           locatorItem.searching = false
           if( featureFormList.state === "Edit" ){
             ///e.g. tip on the canvas during an edit
-            featureFormList.save()
+            featureFormList.confirm()
           }
         }
       }
@@ -330,7 +330,7 @@ Rectangle {
     }
 
     onSave: {
-      featureFormList.save()
+      featureFormList.confirm()
       featureForm.state = "FeatureForm"
       displayToast( qsTr( "Changes saved" ) )
     }
