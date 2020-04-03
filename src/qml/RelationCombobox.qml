@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.0
 import "." as QField
@@ -12,7 +12,7 @@ Item {
   id: relationCombobox
 
   Component.onCompleted: {
-    comboBox.currentIndex = featureListModel.findKey(comboBox.value)
+    comboBox.currentIndex = featureListModel.findKey(value)
     comboBox.visible = _relation !== undefined ? _relation.isValid : true
     addButton.visible = _relation !== undefined ? _relation.isValid : false
     invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
@@ -24,6 +24,11 @@ Item {
     rightMargin: 10 * dp
   }
 
+  property var currentKeyValue: value
+  onCurrentKeyValueChanged: {
+    comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
+  }
+
   height: childrenRect.height + 10 * dp
 
   RowLayout {
@@ -32,7 +37,6 @@ Item {
     ComboBox {
       id: comboBox
 
-      property var currentValue: value
       property var _cachedCurrentValue
 
       textRole: 'display'
@@ -42,25 +46,19 @@ Item {
       model: featureListModel
 
       onCurrentIndexChanged: {
-        var idx = featureListModel.index(currentIndex, 0, undefined)
-        var newValue = featureListModel.data(idx, FeatureListModel.KeyFieldRole)
+        var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole)
         valueChanged(newValue, false)
-      }
-
-      // Workaround to get a signal when the value has changed
-      onCurrentValueChanged: {
-        currentIndex = featureListModel.findKey(currentValue)
       }
 
       Connections {
         target: featureListModel
 
         onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = comboBox.currentValue
+          comboBox._cachedCurrentValue = relationCombobox.currentKeyValue
         }
 
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(comboBox.currentValue)
+          comboBox.currentIndex = featureListModel.findKey(relationCombobox.currentKeyValue)
         }
       }
 
@@ -139,7 +137,7 @@ Item {
   AttributeFormModel {
    id: attributeFormModel
    featureModel: FeatureModel {
-       currentLayer: relationCombobox._relation.referencedLayer
+       currentLayer: relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
      }
   }
 
@@ -177,7 +175,7 @@ Item {
 
         onSaved: {
           var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          comboBox.currentValue = referencedValue
+          comboBox.currentIndex = featureListModel.findKey(referencedValue)
           popup.close()
         }
 
