@@ -5,6 +5,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 Item {
+  id: valueMap
   signal valueChanged(var value, bool isNull)
 
   anchors {
@@ -13,13 +14,17 @@ Item {
     rightMargin: 10 * dp
   }
 
+  property var currentKeyValue: value
+  // Workaround to get a signal when the value has changed
+  onCurrentKeyValueChanged: {
+    comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
+  }
+
   height: childrenRect.height + 10 * dp
 
 
   ComboBox {
     id: comboBox
-
-    property var currentValue: value
 
     anchors { left: parent.left; right: parent.right }
 
@@ -29,7 +34,7 @@ Item {
       id: listModel
 
       onMapChanged: {
-        comboBox.currentIndex = keyToIndex(comboBox.currentValue)
+        comboBox.currentIndex = keyToIndex(valueMap.currentKeyValue)
       }
     }
 
@@ -43,11 +48,6 @@ Item {
     onCurrentTextChanged: {
       var key = model.keyForValue(currentText)
       valueChanged(key, false)
-    }
-
-    // Workaround to get a signal when the value has changed
-    onCurrentValueChanged: {
-      currentIndex = model.keyToIndex(currentValue)
     }
 
     MouseArea {
