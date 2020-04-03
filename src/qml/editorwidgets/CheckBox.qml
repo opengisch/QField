@@ -4,9 +4,6 @@ import QtQuick.Controls 2.12
 Item {
   signal valueChanged( var value, bool isNull )
 
-  property alias checked: checkBox.checked
-  property alias indicator: checkBox.indicator
-
   height: childrenRect.height
 
   anchors {
