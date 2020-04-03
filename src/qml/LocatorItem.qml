@@ -10,6 +10,10 @@ Item {
   property bool searching: false
   height: childrenRect.height
 
+  onSearchingChanged: {
+      searchField.focus = searching
+  }
+
   LocatorModelSuperBridge {
     id: locator
     mapSettings: mapCanvas.mapSettings
@@ -69,7 +73,6 @@ Item {
 
     onClicked: {
       locatorItem.searching = true
-      searchField.focus = true
     }
   }
 
