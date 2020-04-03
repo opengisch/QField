@@ -299,7 +299,7 @@ Page {
             if( AttributeValue !== value && !( AttributeValue === undefined && isNull ) )
             {
               AttributeValue = isNull ? undefined : value
-              if (qfieldSettings.autoSave) {
+              if (qfieldSettings.autoSave && featureCreated) {
                 save()
               }
             }
@@ -347,6 +347,7 @@ Page {
     state = 'Edit'
 
     confirmed()
+    featureCreated = false
   }
 
   function save() {
@@ -359,13 +360,11 @@ Page {
     if( form.state === 'Add' && !featureCreated )
     {
       model.create()
-      console.log("CREATED now!")
       featureCreated = true
     }
-    else
+    else if ( featureCreated )
     {
       model.save()
-      console.log("just saved")
     }
 
     return true
@@ -374,10 +373,10 @@ Page {
   function cancel() {
     if( form.state === 'Add' && featureCreated )
     {
-      console.log("delete again")
       model.deleteFeature()
     }
     cancelled()
+    featureCreated = false
   }
 
   Connections {

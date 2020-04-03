@@ -398,7 +398,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: currentRubberband.model
+      rubberbandModel: measuringRubberband.model
       project: qgisProject
       crs: qgisProject.crs
     }
@@ -692,6 +692,54 @@ ApplicationWindow {
         }
       }
 
+      onVertexCountChanged: {
+        if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
+            if( digitizingToolbar.geometryValid )
+            {
+                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+                {
+                  digitizingRubberband.model.reset()
+                }
+                else
+                {
+                  digitizingFeature.geometry.applyRubberband()
+                  digitizingFeature.applyGeometry()
+                }
+
+                if( !overlayFeatureFormDrawer.featureForm.featureCreated )
+                {
+                    digitizingFeature.resetAttributes();
+                    if( overlayFeatureFormDrawer.interactive ){
+                      //when the constrainst are fulfilled
+                      digitizingFeature.create()
+                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+                    }
+                    else
+                    {
+                      console.log( "constraints not valid - do nothing")
+                    }
+                } else {
+                    digitizingFeature.save()
+                }
+            } else {
+                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                  //delete the feature when the geometry gets invalid again
+                  digitizingFeature.deleteFeature()
+                  overlayFeatureFormDrawer.featureForm.featureCreated = false
+                }
+            }
+        }
+      }
+
+      /*console.log
+      Connections {
+          target: currentRubberband.model
+          onVertexCountChanged: {
+                console.log( "---------------" )
+                console.log( "That would work as well - is ist preferable?" )
+          }
+      }*/
+
       onConfirm: {
         if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
         {
@@ -709,7 +757,6 @@ ApplicationWindow {
         if ( !digitizingFeature.suppressFeatureForm() )
         {
           digitizingFeature.resetAttributes();
-          overlayFeatureFormDrawer.featureForm.featureCreated = false
           overlayFeatureFormDrawer.open()
           overlayFeatureFormDrawer.state = "Add"
           overlayFeatureFormDrawer.featureForm.reset()
