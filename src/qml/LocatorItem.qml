@@ -10,9 +10,8 @@ Item {
   property bool searching: false
   height: childrenRect.height
 
-  function leaveSearching() {
-    searching = false
-    focus = false
+  onSearchingChanged: {
+      searchField.focus = searching
   }
 
   LocatorModelSuperBridge {
@@ -74,7 +73,6 @@ Item {
 
     onClicked: {
       locatorItem.searching = true
-      searchField.focus = true
     }
   }
 
