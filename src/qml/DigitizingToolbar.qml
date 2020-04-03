@@ -12,9 +12,36 @@ VisibilityFadingRow {
 
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
+  property bool geometryValid: false
+
   spacing: 4 * dp
 
   signal confirm
+  signal vertexCountChanged
+
+  Connections {
+      target: rubberbandModel
+      onVertexCountChanged: {
+          // set geometry valid
+          if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
+          {
+            geometryValid = false
+          }
+          else if  ( Number( rubberbandModel.geometryType ) === 1 )
+          {
+            // Line: at least 2 points (last point not saved)
+            geometryValid = rubberbandModel.vertexCount > 2
+          }
+          else if  ( Number( rubberbandModel.geometryType ) === 2 )
+          {
+            // Polygon: at least 3 points (last point not saved)
+            geometryValid = rubberbandModel.vertexCount > 3
+          }
+
+          // emit the signal of digitizingToolbar
+          vertexCountChanged()
+      }
+  }
 
   Button {
     id: cancelButton
@@ -38,19 +65,9 @@ VisibilityFadingRow {
       {
         false
       }
-      else if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
+      else
       {
-        false
-      }
-      else if  ( Number( rubberbandModel.geometryType ) === 1 )
-      {
-        // Line: at least 2 points (last point not saved)
-        rubberbandModel.vertexCount > 2
-      }
-      else if  ( Number( rubberbandModel.geometryType ) === 2 )
-      {
-        // Polygon: at least 3 points (last point not saved)
-        rubberbandModel.vertexCount > 3
+        geometryValid
       }
     }
     round: true
