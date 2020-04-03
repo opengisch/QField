@@ -24,6 +24,7 @@ Page {
   property bool embedded: false
   //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
   property bool dontSave: false
+  property bool featureCreated: false
 
   function reset() {
     master.reset()
@@ -295,9 +296,12 @@ Page {
         Connections {
           target: attributeEditorLoader.item
           onValueChanged: {
-            AttributeValue = isNull ? undefined : value
-            if ( qfieldSettings.autoSave ) {
+            if( AttributeValue !== value && !( AttributeValue === undefined && isNull ) )
+            {
+              AttributeValue = isNull ? undefined : value
+              if (qfieldSettings.autoSave) {
                 save()
+              }
             }
           }
         }
@@ -350,23 +354,29 @@ Page {
       return false
     }
 
-    aboutToSave() //used the same way like on save
+    aboutToSave()
 
-    if( !model.featureModel.featureExists() )
+    if( form.state === 'Add' && !featureCreated )
     {
       model.create()
+      console.log("CREATED now!")
+      featureCreated = true
     }
     else
     {
       model.save()
+      console.log("just saved")
     }
 
     return true
   }
 
   function cancel() {
-    if( form.state === 'Add' && model.featureModel.featureExists() )
+    if( form.state === 'Add' && featureCreated )
+    {
+      console.log("delete again")
       model.deleteFeature()
+    }
     cancelled()
   }
 

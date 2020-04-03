@@ -685,7 +685,6 @@ ApplicationWindow {
         currentLayer: dashBoard.currentLayer
         positionSourceName: positionSource.name
         topSnappingResult: coordinateLocator.topSnappingResult
-
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
@@ -710,6 +709,7 @@ ApplicationWindow {
         if ( !digitizingFeature.suppressFeatureForm() )
         {
           digitizingFeature.resetAttributes();
+          overlayFeatureFormDrawer.featureForm.featureCreated = false
           overlayFeatureFormDrawer.open()
           overlayFeatureFormDrawer.state = "Add"
           overlayFeatureFormDrawer.featureForm.reset()
