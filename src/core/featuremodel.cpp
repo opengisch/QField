@@ -338,6 +338,9 @@ void FeatureModel::create()
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
 
+  if ( QgsProject::instance()->topologicalEditing() )
+    mLayer->addTopologicalPoints( mFeature.geometry() );
+
   if ( commit() )
   {
     QgsFeature feat;
