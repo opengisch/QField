@@ -226,6 +226,11 @@ Rectangle{
     EmbeddedFeatureForm{
         id: embeddedPopup
 
+        onFeatureCancelled: {
+            if( autoSave )
+                relationEditorModel.reload()
+        }
+
         onFeatureSaved: {
             relationEditorModel.reload()
         }

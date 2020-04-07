@@ -14,6 +14,7 @@ Popup {
 
     onAboutToShow: {
         if( state === 'Add' )
+           form.featureCreated = false
            formFeatureModel.resetAttributes()
     }
 
@@ -32,6 +33,8 @@ Popup {
 
     FeatureForm {
         id: form
+        property bool isSaved: false
+
         model: AttributeFormModel {
             featureModel: FeatureModel {
                 id: formFeatureModel
@@ -47,12 +50,30 @@ Popup {
 
         onConfirmed: {
             formPopup.featureSaved()
-            formPopup.close()
+            if( formPopup.opened ){
+              isSaved = true
+              formPopup.close()
+            }else{
+              isSaved = false
+            }
         }
 
         onCancelled: {
             formPopup.featureCancelled()
-            formPopup.close()
+            if( formPopup.opened ){
+              isSaved = true
+              formPopup.close()
+            }else{
+              isSaved = false
+            }
         }
+    }
+
+    onClosed: {
+      if( !form.isSaved ){
+          form.confirm()
+      }else{
+          form.isSaved = false
+      }
     }
 }
