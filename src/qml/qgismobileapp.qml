@@ -1407,7 +1407,7 @@ ApplicationWindow {
           toast.open()
           toastContent.visible = true
           toast.opacity = 1
-          toastTimer.start()
+          toastTimer.restart()
       }
 
       Behavior on opacity {
