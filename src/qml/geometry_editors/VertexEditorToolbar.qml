@@ -42,12 +42,19 @@ VisibilityFadingRow {
     return true // handled
   }
 
+  function applyChanges( apply ) {
+    if ( apply && featureModel.vertexModel.dirty ){
+      featureModel.applyVertexModelToGeometry()
+      featureModel.save()
+    }
+  }
+
   Button {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.dirty
-    bgcolor: featureModel.vertexModel.dirty ? Theme.darkRed : Theme.darkGray
+    visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
+    bgcolor: "#900000"
     onClicked: {
       cancel()
     }
@@ -57,12 +64,11 @@ VisibilityFadingRow {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    visible: featureModel.vertexModel.dirty
+    visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
     bgcolor: Theme.mainColor
 
     onClicked: {
-      featureModel.applyVertexModelToGeometry()
-      featureModel.save()
+      applyChanges( true )
       finished()
     }
   }
@@ -78,6 +84,8 @@ VisibilityFadingRow {
       if (featureModel.vertexModel.canRemoveVertex){
         featureModel.vertexModel.removeCurrentVertex()
       }
+      //on remove we have to apply directly after the action
+      applyChanges( qfieldSettings.autoSave )
     }
   }
 
@@ -90,6 +98,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkGray
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       if (featureModel.vertexModel.editingMode === VertexModel.AddVertex)
         featureModel.vertexModel.editingMode = VertexModel.EditVertex
       else
@@ -117,6 +126,7 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.next()
     }
   }
