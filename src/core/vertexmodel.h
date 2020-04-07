@@ -69,6 +69,7 @@ class VertexModel : public QStandardItemModel
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
       SegmentVertexRole,
+      OriginalPointRole,
     };
 
     enum EditingMode
@@ -152,8 +153,14 @@ class VertexModel : public QStandardItemModel
     //! Returns the geometry type
     QgsWkbTypes::GeometryType geometryType() const;
 
-    //! list of points. Segment vertex, if any, will be skipped.
+    //! Returns a list of point (segment vertex, if any, will be skipped)
     QVector<QgsPoint> flatVertices() const;
+
+    //! Returns a list of moved vertices found in linked geometry
+    QVector<QPair<QgsPoint,QgsPoint>> verticesMoved() const;
+
+    //! Returns a list of added vertices not found in linked geometry
+    QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -201,6 +208,9 @@ class VertexModel : public QStandardItemModel
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
+
+    QVector<QgsPoint> mVerticesDeleted;
+
     /**
      * @brief setCurrentVertex set the current vertex viewed/edited in the model
      * @param newVertex the new vertex index
