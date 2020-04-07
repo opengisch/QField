@@ -25,7 +25,7 @@ Drawer {
      }
   }
 
-  interactive: overlayFeatureForm.model.constraintsHardValid
+  interactive: overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ? true : false
   dragMargin: 0
   Keys.enabled: true
 
@@ -65,20 +65,28 @@ Drawer {
       if( overlayFeatureFormDrawer.position > 0 ) {
         overlayFeatureForm.isSaved=true //because just saved
         overlayFeatureFormDrawer.close()
+      }else{
+        overlayFeatureForm.isSaved=false //reset
       }
     }
 
     onCancelled: {
-      displayToast( qsTr( "Changes discarded" ) )
-      overlayFeatureForm.isSaved=true //because never changed
-      overlayFeatureFormDrawer.close()
+      displayToast( qsTr( "Last changes discarded" ) )
+      //close drawer if still open
+      if( overlayFeatureFormDrawer.position > 0 ) {
+        overlayFeatureForm.isSaved=true //because never changed
+        overlayFeatureFormDrawer.close()
+      } else {
+        overlayFeatureForm.isSaved=false //reset
+      }
     }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if( overlayFeatureForm.model.constraintsHardValid ) {
+        if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
           overlayFeatureFormDrawer.close()
         } else {
+          //block closing to fix constraints or cancel with button
           displayToast( qsTr( "Constraints not valid" ) )
         }
         event.accepted = true
@@ -95,9 +103,10 @@ Drawer {
 
   Keys.onReleased: {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      if( overlayFeatureForm.model.constraintsHardValid ) {
+      if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
         overlayFeatureFormDrawer.close()
       } else {
+        //block closing to fix constraints or cancel with button
         displayToast( qsTr( "Constraints not valid" ) )
       }
       event.accepted = true

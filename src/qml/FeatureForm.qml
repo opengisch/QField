@@ -299,7 +299,7 @@ Page {
             if( AttributeValue !== value && !( AttributeValue === undefined && isNull ) )
             {
               AttributeValue = isNull ? undefined : value
-              if (qfieldSettings.autoSave && featureCreated) {
+              if ( qfieldSettings.autoSave ) {
                 save()
               }
             }
@@ -328,10 +328,11 @@ Page {
   }
 
   function confirm() {
-    //if this is for some reason not handled before (like when tiping on a map while editing)
+
+    //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if ( !model.constraintsHardValid )
     {
-      displayToast( qsTr( 'Constraints not valid - cancel editing') )
+      displayToast( qsTr( 'Constraints not valid') )
       cancel()
       return
     }
@@ -362,7 +363,7 @@ Page {
       model.create()
       featureCreated = true
     }
-    else if ( featureCreated )
+    else
     {
       model.save()
     }
@@ -371,7 +372,7 @@ Page {
   }
 
   function cancel() {
-    if( form.state === 'Add' && featureCreated )
+    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave )
     {
       model.deleteFeature()
     }
