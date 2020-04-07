@@ -709,7 +709,7 @@ ApplicationWindow {
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     digitizingFeature.resetAttributes();
-                    if( overlayFeatureFormDrawer.interactive ){
+                    if( overlayFeatureForm.model.constraintsHardValid ){
                       //when the constrainst are fulfilled
                       digitizingFeature.create()
                       overlayFeatureFormDrawer.featureForm.featureCreated = true

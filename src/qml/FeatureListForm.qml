@@ -338,7 +338,7 @@ Rectangle {
     onCancel: {
       featureFormList.model.featureModel.reset()
       featureForm.state = "FeatureForm"
-      displayToast( qsTr( "Changes discarded" ) )
+      displayToast( qsTr( "Last changes discarded" ) )
     }
   }
 
@@ -351,6 +351,9 @@ Rectangle {
             featureListToolBar.save()
           } else {
             displayToast( "Constraints not valid" )
+            if( qfieldSettings.autoSave ){
+               featureListToolBar.cancel()
+            }
           }
         }else{
           state = "FeatureList"
