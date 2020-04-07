@@ -25,8 +25,6 @@
 #include <QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 
-#include <QDebug>
-
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
 {
@@ -450,7 +448,8 @@ void FeatureModel::applyVertexModelToGeometry()
   mFeature.setGeometry( mVertexModel->geometry() );
 }
 
-//! a filter just to gather all matches at the same place
+// a filter to gather all matches at the same place
+// taken from QGIS' qgsvectortool.cpp
 class MatchCollectingFilter : public QgsPointLocator::MatchFilter
 {
   public:
