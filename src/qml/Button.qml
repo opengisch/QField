@@ -1,70 +1,64 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls.Styles 1.4
+import QtQuick 2.5
 import Theme 1.0
 
 Item {
-    id: item
+  id: item
 
-    property alias iconColor: button.icon.color
-    property alias iconSource: button.icon.source
-    property alias checked: button.checked
-    property alias checkable: button.checkable
-    property bool round: false
-    property bool roundborder: false
-    property alias text: button.text
-    property color bgcolor: Theme.darkGray
-    property color borderColor: bgcolor
+  property alias iconSource: button.iconSource
+  property alias checked: button.checked
+  property alias checkable: button.checkable
+  property bool round: false
+  property bool roundborder: false
+  property alias text: button.text
 
-    signal pressAndHold()
-    signal clicked()
+  property color bgcolor: Theme.darkGray
+  property color borderColor: bgcolor
 
-    height: 48 * dp
-    width: 48 * dp
+  signal pressAndHold
+  signal clicked
 
-    RoundButton {
-        id: button
+  height: 48 * dp
+  width: 48 * dp
 
-        anchors.fill: parent
-        icon.color: "white"
+  Controls.Button {
+    id: button
+    anchors.fill: parent
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: item.clicked()
-            onPressAndHold: item.pressAndHold()
+    style: ButtonStyle {
+      background: Rectangle {
+        implicitWidth: 100
+        implicitHeight: 25
+        border.width: round&&roundborder ? height/6 : !round
+        border.color: borderColor
+        color: bgcolor
+        radius: round ? height / 2 : 0
+
+        Behavior on color {
+          ColorAnimation {
+            duration: 200
+          }
         }
-
-        background: Rectangle {
-            implicitWidth: 100
-            implicitHeight: 25
-            border.width: round && roundborder ? height / 6 : !round
-            border.color: borderColor
-            color: bgcolor
-            radius: round ? height / 2 : 0
-
-            Behavior on color {
-                ColorAnimation {
-                    duration: 200
-                }
-
-            }
-
-        }
-
+      }
     }
 
-    transform: Rotation {
-        id: rotation
+    MouseArea {
+      anchors.fill: parent
 
-        origin.x: width / 2
-        origin.y: height / 2
-
-        Behavior on angle {
-            NumberAnimation {
-                duration: 200
-            }
-
-        }
-
+      onClicked: item.clicked()
+      onPressAndHold: item.pressAndHold()
     }
+  }
 
+  transform: Rotation {
+    id: rotation
+    origin.x: width / 2; origin.y: height / 2;
+
+    Behavior on angle {
+      NumberAnimation {
+        duration: 200
+      }
+    }
+  }
 }
