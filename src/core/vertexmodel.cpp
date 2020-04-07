@@ -74,6 +74,7 @@ QgsCoordinateReferenceSystem VertexModel::crs() const
 void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
   clear();
+  mVerticesDeleted.clear();
   mOriginalGeometry = geometry;
   mGeometryType = geometry.type();
 
@@ -116,6 +117,7 @@ void VertexModel::refreshGeometry()
 
     QStandardItem *item = new QStandardItem();
     item->setData( QVariant::fromValue<QgsPoint>( pt ), PointRole );
+    item->setData( QVariant::fromValue<QgsPoint>( pt ), OriginalPointRole );
     item->setData( r == mCurrentIndex, CurrentVertexRole );
     appendRow( QList<QStandardItem *>() << item );
     r++;
@@ -210,6 +212,10 @@ void VertexModel::removeCurrentVertex()
 {
   if ( !mCanRemoveVertex )
     return;
+
+  QStandardItem *it = item( mCurrentIndex );
+  if ( it && !it->data( OriginalPointRole ).isNull() )
+    mVerticesDeleted << it->data( OriginalPointRole ).value<QgsPoint>();
 
   removeRow( mCurrentIndex );
 
@@ -428,12 +434,29 @@ QVector<QgsPoint> VertexModel::flatVertices() const
   return vertices;
 }
 
+QVector<QPair<QgsPoint,QgsPoint>> VertexModel::verticesMoved() const
+{
+  QVector<QPair<QgsPoint,QgsPoint>> vertices;
+  for ( int r = 0; r < rowCount(); r++ )
+  {
+    QStandardItem *it = item( r );
+    if ( it->data( OriginalPointRole ).isNull() )
+      continue;
+    QgsPoint originalPoint = it->data( OriginalPointRole ).value<QgsPoint>();
+    QgsPoint point = it->data( PointRole ).value<QgsPoint>();
+    if ( point != originalPoint )
+      vertices << qMakePair( originalPoint, point);
+  }
+  return vertices;
+}
+
 QHash<int, QByteArray> VertexModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[PointRole] = "Point";
   roles[CurrentVertexRole] = "CurrentVertex";
   roles[SegmentVertexRole] = "SegmentVertex";
+  roles[OriginalPointRole] = "OriginalPoint";
   return roles;
 }
 
