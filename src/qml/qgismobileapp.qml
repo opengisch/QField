@@ -509,7 +509,49 @@ ApplicationWindow {
   }
 
   Column {
-    id: mainToolBar
+    id: mainToolbar
+    anchors.left: mainMenuBar.left
+    anchors.top: mainMenuBar.bottom
+    anchors.leftMargin: 4 * dp
+    spacing: 4 * dp
+
+    Button {
+      id: topologyButton
+      round: true
+      visible: stateMachine.state === "digitize"
+      state: qgisProject.topologicalEditing ? "On" : "Off"
+      iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      states: [
+        State {
+
+          name: "Off"
+          PropertyChanges {
+            target: topologyButton
+            bgcolor: "#88212121"
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: topologyButton
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
+        displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+      }
+    }
+  }
+
+  Column {
+    id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
     anchors.bottom: mapCanvas.bottom

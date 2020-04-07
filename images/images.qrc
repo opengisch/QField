@@ -172,6 +172,11 @@
         <file>themes/qfield/xhdpi/ic_settings_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_settings_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_topology_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/mdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xhdpi/ic_clear_black_18dp.png</file>
