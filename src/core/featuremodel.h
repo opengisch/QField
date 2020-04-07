@@ -125,7 +125,6 @@ class FeatureModel : public QAbstractListModel
      * Will reset the feature to the original values and dismiss any buffered edits.
      */
     Q_INVOKABLE void reset();
-
     Q_INVOKABLE void create();
 
     /**
