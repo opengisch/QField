@@ -20,6 +20,7 @@ class Geometry : public QObject
 
     RubberbandModel *rubberbandModel() const;
     void setRubberbandModel( RubberbandModel *rubberbandModel );
+    void updateRubberband( const QgsGeometry &geometry );
 
     Q_INVOKABLE void applyRubberband();
 
