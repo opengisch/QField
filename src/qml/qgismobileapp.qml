@@ -660,6 +660,7 @@ ApplicationWindow {
           digitizingFeature.geometry.applyRubberband()
           digitizingFeature.applyGeometry()
           digitizingRubberband.model.frozen = true
+          digitizingFeature.updateRubberband()
         }
 
         if ( !digitizingFeature.suppressFeatureForm() )

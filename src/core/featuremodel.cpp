@@ -319,7 +319,15 @@ void FeatureModel::resetAttributes()
 
 void FeatureModel::applyGeometry()
 {
-  mFeature.setGeometry( mGeometry->asQgsGeometry() );
+  QgsGeometry geometry = mGeometry->asQgsGeometry();
+
+  const QList<QgsVectorLayer *> intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+  if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
+  {
+    geometry.avoidIntersections( intersectionLayers );
+  }
+
+  mFeature.setGeometry( geometry  );
 }
 
 void FeatureModel::removeLayer( QObject *layer )
@@ -338,14 +346,6 @@ void FeatureModel::create()
     return;
 
   startEditing();
-
-  const QList<QgsVectorLayer *> intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-  if ( !intersectionLayers.isEmpty() && mFeature.geometry().type() == QgsWkbTypes::PolygonGeometry )
-  {
-    QgsGeometry geom = mFeature.geometry();
-    geom.avoidIntersections( intersectionLayers );
-    mFeature.setGeometry( geom );
-  }
 
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
   if ( !mLayer->addFeature( mFeature ) )
@@ -542,4 +542,9 @@ void FeatureModel::applyVertexModelToLayerTopography()
 QVector<bool> FeatureModel::rememberedAttributes() const
 {
   return mRememberings[mLayer].rememberedAttributes;
+}
+
+void FeatureModel::updateRubberband() const
+{
+  mGeometry->updateRubberband( mFeature.geometry() );
 }
