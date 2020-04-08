@@ -44,7 +44,8 @@ VisibilityFadingRow {
       selectorRow.stateVisible = false
       var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole)
       var iconPath = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.IconPathRole)
-      toolbarRow.load(toolbarQml, iconPath)
+      var name = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.NameRole)
+      toolbarRow.load(toolbarQml, iconPath, name)
     }
   }
 
@@ -72,9 +73,8 @@ VisibilityFadingRow {
           if (toolbarRow.item)
             toolbarRow.item.cancel()
           selectorRow.stateVisible = false
-          toolbarRow.load(toolbar, iconPath)
+          toolbarRow.load(toolbar, iconPath, name)
           settings.setValue( "/QField/GeometryEditorLastUsed", index )
-          displayToast(name)
         }
       }
     }
@@ -85,10 +85,11 @@ VisibilityFadingRow {
 
     width: item && item.stateVisible ? item.implicitWidth : 0   
 
-    function load(qmlSource, iconPath){
+    function load(qmlSource, iconPath, name){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
       toolbarRow.item.stateVisible = true
+      displayToast(name)
     }
   }
 
