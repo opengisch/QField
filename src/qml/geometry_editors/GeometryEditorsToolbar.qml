@@ -38,11 +38,14 @@ VisibilityFadingRow {
   }
 
   function init() {
-    selectorRow.stateVisible = false
-    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", 0 )
-    var toolbarQml = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.ToolbarRole)
-    var iconPath = editors.data(editors.index(lastUsed,0), GeometryEditorsModelSingleton.IconPathRole)
-    toolbarRow.load(toolbarQml, iconPath)
+    var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", -1 )
+    if (lastUsed >= 0)
+    {
+      selectorRow.stateVisible = false
+      var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole)
+      var iconPath = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.IconPathRole)
+      toolbarRow.load(toolbarQml, iconPath)
+    }
   }
 
   function cancelEditors() {
@@ -53,7 +56,7 @@ VisibilityFadingRow {
 
   VisibilityFadingRow {
     id: selectorRow
-    stateVisible: false
+    stateVisible: true
 
     spacing: 4 * dp
 
@@ -80,13 +83,12 @@ VisibilityFadingRow {
   Loader {
     id: toolbarRow
 
-    width: item && item.stateVisible ? item.implicitWidth : 0
+    width: item && item.stateVisible ? item.implicitWidth : 0   
 
     function load(qmlSource, iconPath){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
       toolbarRow.item.stateVisible = true
-      activeToolButton.iconSource = Theme.getThemeIcon(iconPath)
     }
   }
 
@@ -97,6 +99,7 @@ VisibilityFadingRow {
 
   Button {
     id: activeToolButton
+    iconSource: Theme.getThemeIcon("more_horiz")
     round: true
     visible: !selectorRow.stateVisible && !( toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking )
     bgcolor: Theme.mainColor
