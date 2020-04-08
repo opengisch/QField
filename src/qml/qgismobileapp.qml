@@ -518,7 +518,7 @@ ApplicationWindow {
     Button {
       id: topologyButton
       round: true
-      visible: stateMachine.state === "digitize"
+      visible: stateMachine.state === "digitize" && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
       state: qgisProject.topologicalEditing ? "On" : "Off"
       iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
 
