@@ -194,8 +194,9 @@ ApplicationWindow {
               locatorItem.searching = false
           }
           else if (geometryEditorsToolbar.canvasClicked(point)) {
+
           }
-          else if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
+          else if ( stateMachine.state === "digitize" && hoverHandler.hovered && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
@@ -211,7 +212,7 @@ ApplicationWindow {
       }
 
       onLongPressed: {
-          if ( stateMachine.state === "digitize" && coordinateLocator.sourceLocation !== undefined ) { // the sourceLocation test checks if a (stylus) hover is active
+          if ( stateMachine.state === "digitize" && hoverHandler.hovered && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
               if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
                  || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
                   currentRubberband.model.addVertex()

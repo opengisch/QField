@@ -85,10 +85,10 @@ Item {
       onTapCountChanged: {
           if (tapCount == 1) {
               timer.firstClickPoint = point.position
-              timer.running = true
+              timer.restart()
           }
           else if (tapCount == 2) {
-              timer.running = false
+              timer.stop()
               doubleClicked(point)
           }
       }
