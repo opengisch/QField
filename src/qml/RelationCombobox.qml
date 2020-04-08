@@ -120,8 +120,9 @@ Item {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-            attributeFormModel.featureModel.resetAttributes()
-            addFeatureForm.active = true
+            addFeaturePopup.state = 'Add'
+            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            addFeaturePopup.open()
         }
       }
     }
@@ -134,59 +135,12 @@ Item {
     }
   }
 
-  AttributeFormModel {
-   id: attributeFormModel
-   featureModel: FeatureModel {
-       currentLayer: relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
-     }
-  }
+  EmbeddedFeatureForm{
+      id: addFeaturePopup
 
-  Loader {
-    id: addFeatureForm
-    sourceComponent: addFeatureFormComponent
-    active: false
-    onLoaded: {
-      item.open()
-    }
-  }
-
-  Component {
-    id: addFeatureFormComponent
-    Popup {
-      id: popup
-      parent: ApplicationWindow.overlay
-
-      x: 24 * dp
-      y: 24 * dp
-      width: parent.width - 48 * dp
-      height: parent.height - 48 * dp
-      padding: 0
-      modal: true
-      focus: true
-      closePolicy: Popup.CloseOnEscape
-
-      FeatureForm {
-        model: attributeFormModel
-
-        anchors.fill: parent
-
-        state: "Add"
-        embedded: true
-
-        onConfirmed: {
-          var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+      onFeatureSaved: {
+          var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
           comboBox.currentIndex = featureListModel.findKey(referencedValue)
-          popup.close()
-        }
-
-        onCancelled: {
-          popup.close()
-        }
       }
-
-      onClosed: {
-        addFeatureForm.active = false
-      }
-    }
   }
 }
