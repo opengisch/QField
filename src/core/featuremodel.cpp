@@ -338,6 +338,15 @@ void FeatureModel::create()
     return;
 
   startEditing();
+
+  const QList<QgsVectorLayer *> intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+  if ( !intersectionLayers.isEmpty() && mFeature.geometry().type() == QgsWkbTypes::PolygonGeometry )
+  {
+    QgsGeometry geom = mFeature.geometry();
+    geom.avoidIntersections( intersectionLayers );
+    mFeature.setGeometry( geom );
+  }
+
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
   if ( !mLayer->addFeature( mFeature ) )
   {
