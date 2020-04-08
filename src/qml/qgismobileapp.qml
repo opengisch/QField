@@ -1001,6 +1001,12 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
+      // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
+      // important for snapping settings to make sense when set to current layer
+      if ( dashBoard.currentLayer != featureForm.selection.selectedLayer ) {
+        dashBoard.currentLayer = featureForm.selection.selectedLayer
+        displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
+      }
       vertexModel.geometry = featureForm.selection.selectedGeometry
       vertexModel.crs = featureForm.selection.selectedLayer.crs
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
