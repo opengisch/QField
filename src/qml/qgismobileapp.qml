@@ -530,6 +530,7 @@ ApplicationWindow {
           name: "Off"
           PropertyChanges {
             target: topologyButton
+            iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
             bgcolor: "#88212121"
           }
         },
@@ -538,6 +539,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: topologyButton
+            iconSource: Theme.getThemeIcon( "ic_topology_green_24dp" )
             bgcolor: Theme.darkGray
           }
         }
