@@ -11,11 +11,13 @@ Popup {
     property alias linkedRelation: formFeatureModel.linkedRelation
     property alias linkedParentFeature: formFeatureModel.linkedParentFeature
     property alias feature: formFeatureModel.feature
+    property alias attributeFormModel: formAttributeFormModel
 
     onAboutToShow: {
-        if( state === 'Add' )
+        if( state === 'Add' ) {
            form.featureCreated = false
            formFeatureModel.resetAttributes()
+        }
     }
 
     signal featureSaved
@@ -36,6 +38,7 @@ Popup {
         property bool isSaved: false
 
         model: AttributeFormModel {
+            id: formAttributeFormModel
             featureModel: FeatureModel {
                 id: formFeatureModel
             }
@@ -50,21 +53,20 @@ Popup {
 
         onConfirmed: {
             formPopup.featureSaved()
-            if( formPopup.opened ){
-              isSaved = true
-              formPopup.close()
-            }else{
-              isSaved = false
-            }
+            closePopup()
         }
 
         onCancelled: {
             formPopup.featureCancelled()
+            closePopup()
+        }
+
+        function closePopup(){
             if( formPopup.opened ){
-              isSaved = true
-              formPopup.close()
+                isSaved = true
+                formPopup.close()
             }else{
-              isSaved = false
+                isSaved = false
             }
         }
     }
