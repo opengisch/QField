@@ -24,6 +24,7 @@ VisibilityFadingRow {
 
   function cancel()
   {
+    featureModel.vertexModel.editingMode = VertexModel.NoEditing
     featureModel.vertexModel.reset()
   }
 
@@ -32,7 +33,7 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
     visible: featureModel.vertexModel.dirty
-    bgcolor: "#900000"
+    bgcolor: featureModel.vertexModel.dirty ? Theme.darkRed : Theme.darkGray
     onClicked: {
       cancel()
     }
@@ -42,27 +43,13 @@ VisibilityFadingRow {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    bgcolor: featureModel.vertexModel.dirty ? Theme.mainColor : "#616161"
+    visible: featureModel.vertexModel.dirty
+    bgcolor: Theme.mainColor
 
     onClicked: {
-      if (featureModel.vertexModel.dirty){
-        featureModel.applyVertexModelToGeometry()
-        featureModel.save()
-      }
+      featureModel.applyVertexModelToGeometry()
+      featureModel.save()
       finished()
-    }
-  }
-
-
-  Button {
-    id: previousVertexButton
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
-    round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
-    bgcolor: featureModel.vertexModel.canPreviousVertex ? "#FFD600" : "#616161"
-
-    onClicked: {
-      featureModel.vertexModel.previous()
     }
   }
 
@@ -71,7 +58,7 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     round: true
     visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
-    bgcolor: featureModel.vertexModel.canRemoveVertex ? "#FFD600" : "#616161"
+    bgcolor: featureModel.vertexModel.canRemoveVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
       if (featureModel.vertexModel.canRemoveVertex){
@@ -86,7 +73,7 @@ VisibilityFadingRow {
                                      "ic_my_location_white_24dp.png" : "ic_add_white_24dp" )
     visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     round: true
-    bgcolor: "#FFD600"
+    bgcolor: Theme.darkGray
 
     onClicked: {
       if (featureModel.vertexModel.editingMode === VertexModel.AddVertex)
@@ -96,13 +83,24 @@ VisibilityFadingRow {
     }
   }
 
+  Button {
+    id: previousVertexButton
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+    round: true
+    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+
+    onClicked: {
+      featureModel.vertexModel.previous()
+    }
+  }
 
   Button {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
     visible: featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
-    bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? "#FFD600" : "#616161"
+    bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
       featureModel.vertexModel.next()

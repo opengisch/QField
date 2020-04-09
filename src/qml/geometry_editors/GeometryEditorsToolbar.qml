@@ -105,6 +105,7 @@ VisibilityFadingRow {
     visible: !selectorRow.stateVisible && !( toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking )
     bgcolor: Theme.mainColor
     onClicked: {
+      toolbarRow.item.cancel()
       toolbarRow.source = ''
       selectorRow.stateVisible = true
     }
