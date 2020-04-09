@@ -189,12 +189,12 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      onClicked: {
+      onImmediateClicked: {
           if (locatorItem.searching) {
               locatorItem.searching = false
           }
           else if (geometryEditorsToolbar.canvasClicked(point)) {
-
+            // for instance, the vertex editor will select a vertex if possible
           }
           else if ( stateMachine.state === "digitize" && hoverHandler.hovered && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
@@ -202,7 +202,7 @@ ApplicationWindow {
                   digitizingToolbar.confirm()
                 else
                 {
-                    var mapPoint = mapSettings.screenToCoordinate( point )
+                    var mapPoint = mapSettings.screenToCoordinate(point)
                     currentRubberband.model.addVertexFromPoint(mapPoint)
                     coordinateLocator.flash()
                 }

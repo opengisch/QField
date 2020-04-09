@@ -26,7 +26,12 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
-  signal clicked(var point)
+  //! This signal is emitted independently of an upcoming doubleClicked
+  signal immediateClicked(var point)
+
+  //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
+  signal confirmedClicked(var point)
+
   signal doubleClicked(var point)
   signal longPressed(var point)
 
@@ -78,7 +83,7 @@ Item {
           repeat: false
 
           onTriggered: {
-              clicked(firstClickPoint)
+              confirmedClicked(firstClickPoint)
           }
       }
 
@@ -86,6 +91,7 @@ Item {
           if (tapCount == 1) {
               timer.firstClickPoint = point.position
               timer.restart()
+              immediateClicked(point.position)
           }
           else if (tapCount == 2) {
               timer.stop()
