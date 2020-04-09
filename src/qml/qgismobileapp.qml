@@ -202,7 +202,8 @@ ApplicationWindow {
                   digitizingToolbar.confirm()
                 else
                 {
-                    currentRubberband.model.addVertex()
+                    var mapPoint = mapSettings.screenToCoordinate( point )
+                    currentRubberband.model.addVertexFromPoint(mapPoint)
                     coordinateLocator.flash()
                 }
           }

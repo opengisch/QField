@@ -237,6 +237,12 @@ void RubberbandModel::addVertex()
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
 }
 
+void RubberbandModel::addVertexFromPoint(const QgsPoint &point)
+{
+  setCurrentCoordinate(point);
+  addVertex();
+}
+
 void RubberbandModel::removeVertex()
 {
   setCurrentCoordinateIndex( mCurrentCoordinateIndex - 1 );
