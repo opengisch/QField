@@ -70,7 +70,7 @@ VisibilityFadingRow {
   Button {
     id: addVertexButton
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
-                                     "ic_my_location_white_24dp.png" : "ic_add_white_24dp" )
+                                     "ic_my_location_white_24dp" : "ic_add_white_24dp" )
     round: true
     visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
