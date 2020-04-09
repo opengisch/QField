@@ -115,6 +115,10 @@ class RubberbandModel : public QObject
 
     void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
 
+    /**
+     * Sets the model data to match a given \a geometry
+     * \note rings and multiparts are discarded
+     */
     void setDataFromGeometry( const QgsGeometry &geometry );
 
   signals:
