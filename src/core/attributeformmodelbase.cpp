@@ -23,6 +23,7 @@
 #include <qgsdatetimefieldformatter.h>
 #include <qgsvectorlayerutils.h>
 
+
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
   , mFeatureModel( nullptr )
@@ -269,7 +270,11 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeField:
       {
         QgsAttributeEditorField *editorField = static_cast<QgsAttributeEditorField *>( element );
-        int fieldIndex = editorField->idx();
+
+        // editorField->idx() is not working on joined fields
+        const QgsFields fields = mLayer->fields();
+        int fieldIndex = fields.lookupField( editorField->name() );
+
         if ( fieldIndex < 0 || fieldIndex >= mLayer->fields().size() )
           continue;
 
