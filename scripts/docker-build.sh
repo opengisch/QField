@@ -33,7 +33,7 @@ fi
 [[ -z ${PKG_NAME} ]] && PKG_NAME="qfield"
 
 INSTALL_DIR=${BUILD_DIR}/out
-QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
+QT_ANDROID=${QT_ANDROID_BASE}/android
 
 echo "Package name ${PKG_NAME}"
 
