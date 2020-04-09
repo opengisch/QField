@@ -37,7 +37,7 @@ Item {
   Rectangle{
     id: valueRelationList
 
-    visible: config['AllowMulti']
+    visible: Number(config['AllowMulti']) === 1
 
     height: Math.max( valueListView.height, itemHeight)
 
