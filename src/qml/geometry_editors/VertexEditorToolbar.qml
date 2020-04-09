@@ -57,8 +57,8 @@ VisibilityFadingRow {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
-    bgcolor: featureModel.vertexModel.canRemoveVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
+    visible: featureModel.vertexModel.canRemoveVertex // for now, TODO multi geom
+    bgcolor: Theme.darkGray
 
     onClicked: {
       if (featureModel.vertexModel.canRemoveVertex){
@@ -71,8 +71,8 @@ VisibilityFadingRow {
     id: addVertexButton
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp.png" : "ic_add_white_24dp" )
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     round: true
+    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
 
     onClicked: {
