@@ -111,14 +111,28 @@ Item {
       }
     }
 
+
     TapHandler {
+        // zoom out on 2-fingers single tap
         grabPermissions: PointerHandler.CanTakeOverFromItems
+        acceptedDevices: PointerDevice.TouchScreen
         acceptedButtons: Qt.RightButton
 
         onSingleTapped: {
             mapCanvasWrapper.zoom(point.position, 1.2)
         }
     }
+
+    TapHandler {
+        // zoom in on double tap
+        grabPermissions: PointerHandler.CanTakeOverFromItems
+        acceptedDevices: PointerDevice.TouchScreen
+
+        onDoubleTapped: {
+            mapCanvasWrapper.zoom(point.position, 0.8)
+        }
+    }
+
 
     DragHandler {
         target: null
