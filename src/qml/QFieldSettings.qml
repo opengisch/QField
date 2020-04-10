@@ -12,7 +12,6 @@ import "."
 Page {
   signal finished
 
-<<<<<<< HEAD
   property alias showScaleBar: registry.showScaleBar
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
@@ -135,6 +134,7 @@ Page {
                   onClicked: toggle.toggle()
               }
             }
+
             Label {
               width: parent.width
               visible: !!description

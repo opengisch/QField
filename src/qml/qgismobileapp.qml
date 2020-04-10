@@ -731,15 +731,6 @@ ApplicationWindow {
         }
       }
 
-      /*console.log
-      Connections {
-          target: currentRubberband.model
-          onVertexCountChanged: {
-                console.log( "---------------" )
-                console.log( "That would work as well - is ist preferable?" )
-          }
-      }*/
-
       onConfirm: {
         if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
         {
