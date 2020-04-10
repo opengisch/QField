@@ -148,8 +148,12 @@ Item {
         acceptedDevices: PointerDevice.TouchScreen
 
         onSingleTapped: {
-            var factor = point.modifiers === Qt.RightButton ? 1.25 : 0.8
-            mapCanvasWrapper.zoom(point.position, factor)
+            if( point.modifiers === Qt.RightButton)
+              mapCanvasWrapper.zoom(point.position, 1.25)
+        }
+
+        onDoubleTapped: {
+          mapCanvasWrapper.zoom(point.position, 0.8)
         }
     }
 
