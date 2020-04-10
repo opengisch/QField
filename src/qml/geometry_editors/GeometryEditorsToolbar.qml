@@ -20,11 +20,10 @@ It can also implement:
 VisibilityFadingRow {
   id: geometryEditorsToolbar
 
-  // the feature which has its geometry being edited
-  property FeatureModel featureModel
+  property FeatureModel featureModel //<! the feature which has its geometry being edited
   property MapSettings mapSettings
-  // an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
-  property RubberbandModel editorRubberbandModel
+  property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   spacing: 4 * dp
 
@@ -96,9 +95,15 @@ VisibilityFadingRow {
     function load(qmlSource, iconPath, name){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
+      if (!!toolbarRow.item.screenHovering)
+        toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
       toolbarRow.item.stateVisible = true
       displayToast(name)
     }
+  }
+
+  onScreenHoveringChanged: {
+     toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
   }
 
   Connections {

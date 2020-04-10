@@ -10,6 +10,8 @@ VisibilityFadingRow {
   signal finished()
 
   property FeatureModel featureModel
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
 
   spacing: 4 * dp
@@ -17,6 +19,7 @@ VisibilityFadingRow {
   DigitizingToolbar {
     id: drawPolygonToolbar
     showConfirmButton: true
+    screenHovering: fillRingToolbar.screenHovering
 
     QuestionDialog{
       id: questionDialog
