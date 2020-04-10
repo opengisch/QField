@@ -742,6 +742,7 @@ ApplicationWindow {
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
+      screenHovering: hoverHandler.hovered
 
       FeatureModel {
         id: digitizingFeature
