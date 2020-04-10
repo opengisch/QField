@@ -321,7 +321,18 @@ void FeatureModel::applyGeometry()
 {
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
-  const QList<QgsVectorLayer *> intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+  QList<QgsVectorLayer *> intersectionLayers;
+  switch ( QgsProject::instance()->avoidIntersectionsMode() )
+  {
+    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+      intersectionLayers.append( mLayer );
+      break;
+    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+      intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+      break;
+    case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+      break;
+  }
   if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
   {
     geometry.avoidIntersections( intersectionLayers );
