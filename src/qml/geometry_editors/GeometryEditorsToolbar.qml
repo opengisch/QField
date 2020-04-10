@@ -103,6 +103,7 @@ VisibilityFadingRow {
   }
 
   onScreenHoveringChanged: {
+    if (!!toolbarRow.item.screenHovering)
      toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
   }
 
