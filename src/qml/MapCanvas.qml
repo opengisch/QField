@@ -146,7 +146,6 @@ Item {
     TapHandler {
         grabPermissions: PointerHandler.CanTakeOverFromItems
         acceptedDevices: PointerDevice.TouchScreen
-        acceptedButtons: Qt.RightButton
 
         onSingleTapped: {
             var factor = point.modifiers === Qt.RightButton ? 1.25 : 0.8
@@ -208,10 +207,12 @@ Item {
     }
 
     PinchHandler {
+        id: pinch
         target: null
         grabPermissions: PointerHandler.TakeOverForbidden
 
         property var oldPos
+        property real oldScale: 1.0
 
         onActiveChanged: {
             if ( active )
@@ -231,10 +232,10 @@ Item {
         }
 
         onActiveScaleChanged: {
-            mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
-            mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
+            mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
+            mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
             mapArea.panned()
-
+            oldScale = pinch.activeScale
         }
     }
 
