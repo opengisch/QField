@@ -141,6 +141,7 @@ Page {
                   onClicked: toggle.toggle()
               }
             }
+
             Label {
               width: parent.width
               visible: !!description
