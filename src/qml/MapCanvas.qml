@@ -26,19 +26,21 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
+  // for signals, type can be "stylus" for any device click or "touch"
+
   //! This signal is emitted independently of an upcoming doubleClicked
-  signal immediateClicked(var point)
+  signal clicked(var point, var type)
 
   //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
   signal confirmedClicked(var point)
 
   signal doubleClicked(var point)
-  signal longPressed(var point)
 
-  /**
-   * Emitted when a release happens after a long press.
-   */
-  signal longPressReleased()
+  signal longPressed(var point, var type)
+
+  //! Emitted when a release happens after a long press
+  signal longPressReleased(var type)
+
   signal panned
 
   /**
@@ -75,8 +77,6 @@ Item {
     TapHandler {
       grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
-      property bool longPressActive: false
-
       property var timer: Timer {
           property var firstClickPoint
           interval: mouseDoubleClickInterval
@@ -91,7 +91,6 @@ Item {
           if (tapCount == 1) {
               timer.firstClickPoint = point.position
               timer.restart()
-              immediateClicked(point.position)
           }
           else if (tapCount == 2) {
               timer.stop()
@@ -99,40 +98,61 @@ Item {
           }
       }
 
+    }
+
+    // stylus clicked
+    TapHandler {
+      acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
+      property bool longPressActive: false
+
+      onSingleTapped: {
+        mapArea.clicked(point.position, "stylus")
+      }
+
       onLongPressed: {
-          mapArea.longPressed(point)
+          mapArea.longPressed(point.position, "stylus")
           longPressActive = true
       }
 
       onPressedChanged: {
           if (longPressActive)
-              mapArea.longPressReleased()
+              mapArea.longPressReleased("stylus")
           longPressActive = false
       }
     }
 
-
+    // touch clicked
     TapHandler {
-        // zoom out on 2-fingers single tap
+      acceptedDevices: PointerDevice.TouchScreen
+      property bool longPressActive: false
+
+      onSingleTapped: {
+        mapArea.clicked(point.position, "touch")
+      }
+
+      onLongPressed: {
+          mapArea.longPressed(point.position, "touch")
+          longPressActive = true
+      }
+
+      onPressedChanged: {
+          if (longPressActive)
+              mapArea.longPressReleased("touch")
+          longPressActive = false
+      }
+    }
+
+    // zoom in/out on finger tap
+    TapHandler {
         grabPermissions: PointerHandler.CanTakeOverFromItems
         acceptedDevices: PointerDevice.TouchScreen
         acceptedButtons: Qt.RightButton
 
         onSingleTapped: {
-            mapCanvasWrapper.zoom(point.position, 1.2)
+            var factor = point.modifiers === Qt.RightButton ? 1.25 : 0.8
+            mapCanvasWrapper.zoom(point.position, factor)
         }
     }
-
-    TapHandler {
-        // zoom in on double tap
-        grabPermissions: PointerHandler.CanTakeOverFromItems
-        acceptedDevices: PointerDevice.TouchScreen
-
-        onDoubleTapped: {
-            mapCanvasWrapper.zoom(point.position, 0.8)
-        }
-    }
-
 
     DragHandler {
         target: null

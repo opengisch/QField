@@ -189,14 +189,14 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      onImmediateClicked: {
+      onClicked:  {
           if (locatorItem.searching) {
               locatorItem.searching = false
           }
           else if (geometryEditorsToolbar.canvasClicked(point)) {
             // for instance, the vertex editor will select a vertex if possible
           }
-          else if ( stateMachine.state === "digitize" && hoverHandler.hovered && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
+          else if ( type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
@@ -213,24 +213,32 @@ ApplicationWindow {
       }
 
       onLongPressed: {
-          if ( stateMachine.state === "digitize" && hoverHandler.hovered && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-              if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
-                 || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
-                  currentRubberband.model.addVertex()
-                  // The onLongPressed event is triggered while the button is down.
-                  // When it's released, it will normally cause a release event to close the attribute form.
-                  // We get around this by temporarily switching the closePolicy.
-                  overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
-                  digitizingToolbar.confirm()
-                  coordinateLocator.flash()
-              }
+        if ( type === "stylus" ){
+          if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
+            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
+               || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
+                currentRubberband.model.addVertex()
+                // The onLongPressed event is triggered while the button is down.
+                // When it's released, it will normally cause a release event to close the attribute form.
+                // We get around this by temporarily switching the closePolicy.
+                overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
+                digitizingToolbar.confirm()
+                coordinateLocator.flash()
+                return
+            }
           }
+          else if( !overlayFeatureFormDrawer.visible ) {
+            identifyTool.identify(point)
+          }
+        }
       }
 
       onLongPressReleased: {
+        if ( type === "stylus" ){
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        }
       }
 
       onPanned: {
