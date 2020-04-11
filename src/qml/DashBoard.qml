@@ -169,15 +169,15 @@ Drawer {
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
-            layerTree.updateCurrentMapTheme()
-            mapThemeComboBox.currentIndex = layerTree.mapTheme != '' ? mapThemeComboBox.find( layerTree.mapTheme ) : -1
+            flatLayerTree.updateCurrentMapTheme()
+            mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
             mapThemeContainer.isLoading = false
           }
         }
 
         onCurrentTextChanged: {
           if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
-            layerTree.mapTheme = mapThemeComboBox.currentText
+            flatLayerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
 

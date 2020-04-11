@@ -25,7 +25,7 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgslayertreemodel.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
+LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
   , mRoot( model->layerTree() )
   , mModel( model )
@@ -38,7 +38,7 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQu
   , mHasLayersLoaded( !mRoot->findLayers().isEmpty() )
 {
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
-  connect( model, &LayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
+  connect( model, &FlatLayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
 
   connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
 

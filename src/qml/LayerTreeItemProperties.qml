@@ -16,24 +16,24 @@ LayerTreeItemProperties {
   y: (parent.height - height) / 2
 
   onIndexChanged: {
-    itemVisible = layerTree.data(index, LayerTreeModel.Visible)
+    itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
-    trackingButtonVisible = layerTree.data(index, LayerTreeModel.Type) === 'layer' && layerTree.data(index, LayerTreeModel.Trackable) && positionSource.active ? true : false
-    trackingButtonBgColor = trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? '#F6A564' : '#64B5F6'
-    trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
+    trackingButtonVisible = layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.Trackable) && positionSource.active ? true : false
+    trackingButtonBgColor = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? '#F6A564' : '#64B5F6'
+    trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
 
   onItemVisibleChanged: {
-    layerTree.setData(index, itemVisible, LayerTreeModel.Visible);
+    layerTree.setData(index, itemVisible, FlatLayerTreeModel.Visible);
   }
 
   onTrackingButtonClicked: {
       //start track
-      if( trackingModel.layerInTracking( layerTree.data(index, LayerTreeModel.VectorLayer) ) ) {
-          trackingModel.stopTracker(layerTree.data(index, LayerTreeModel.VectorLayer));
-          displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, LayerTreeModel.VectorLayer).name  ) )
+      if( trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ) {
+          trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
+          displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
       }else{
-          trackingModel.createTracker(layerTree.data(index, LayerTreeModel.VectorLayer), itemVisible);
+          trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
       }
       close()
   }
