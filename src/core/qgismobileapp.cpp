@@ -136,7 +136,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mProject = QgsProject::instance();
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
-  mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
@@ -272,7 +271,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
-  qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
@@ -292,7 +290,6 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
-  rootContext()->setContextProperty( "layerTree", mLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
