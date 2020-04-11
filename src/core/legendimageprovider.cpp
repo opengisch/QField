@@ -29,6 +29,7 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
 
 }
 
+#include <QDebug>
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
   Q_UNUSED( size )
@@ -42,8 +43,17 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
     for ( int i = 0; i < legendCount; ++i )
     {
       QModelIndex legendIndex = mLayerTreeModel->index( i, 0, layerIndex );
-      if ( idParts.value( 2 ) == mLayerTreeModel->data( legendIndex ) )
-        return mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QPixmap>();
+      if ( idParts.value( 2 ) == mLayerTreeModel->data( legendIndex ).toString() )
+      {
+        QPixmap pixmap = mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QPixmap>();
+        if ( pixmap.isNull() )
+        {
+         QIcon icon = mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QIcon>();
+         if ( !icon.isNull() )
+           pixmap = icon.pixmap( 24, 24 );
+        }
+        return pixmap;
+      }
     }
   }
   if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
