@@ -52,6 +52,11 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
          if ( !icon.isNull() )
            pixmap = icon.pixmap( 24, 24 );
         }
+        if ( pixmap.isNull() )
+        {
+          pixmap = QPixmap( 24, 24 );
+          pixmap.fill( QColor( 255, 255, 255 ) );
+        }
         return pixmap;
       }
     }
@@ -64,7 +69,27 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
     {
       QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->legendNodeEmbeddedInParent( layerNode );
       if ( legendNode )
-        return legendNode->data( Qt::DecorationRole ).value<QPixmap>();
+      {
+        QPixmap pixmap = legendNode->data( Qt::DecorationRole ).value<QPixmap>();
+        if ( pixmap.isNull() )
+        {
+         QIcon icon = legendNode->data( Qt::DecorationRole ).value<QIcon>();
+         if ( !icon.isNull() )
+           pixmap = icon.pixmap( 24, 24 );
+        }
+        if ( pixmap.isNull() )
+        {
+          pixmap = QPixmap( 24, 24 );
+          pixmap.fill( QColor( 255, 255, 255 ) );
+        }
+        return pixmap;
+      }
+      else
+      {
+        QPixmap pixmap( 24, 24 );
+        pixmap.fill( QColor( 255, 255, 255 ) );
+        return pixmap;
+      }
     }
   }
 
