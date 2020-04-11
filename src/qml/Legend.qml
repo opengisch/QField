@@ -38,6 +38,7 @@ ListView {
 
       Image {
         visible: LegendImage != ''
+        cache: false
         source: {
             if ( LegendImage )
               return "image://legend/" + LegendImage
