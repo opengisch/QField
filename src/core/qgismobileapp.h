@@ -134,7 +134,6 @@ class QgisMobileapp : public QQmlApplicationEngine
     QgsOfflineEditing *mOfflineEditing = nullptr;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
     FlatLayerTreeModel *mFlatLayerTree = nullptr;
-    LayerTreeModel *mLayerTree = nullptr;
     QgsMapLayerProxyModel *mLayerList = nullptr;
     AppInterface *mIface = nullptr;
     Settings mSettings;
