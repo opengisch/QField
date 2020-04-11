@@ -234,6 +234,9 @@ bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &valu
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       node->setItemVisibilityCheckedRecursive( value.toBool() );
     }
+    QVector<int> rolesChanged;
+    rolesChanged << role;
+    emit dataChanged( index, index, rolesChanged );
     return true;
   }
   return false;
