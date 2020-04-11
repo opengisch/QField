@@ -23,6 +23,73 @@ class QgsLayerTree;
 class QgsLayerTreeModel;
 class QgsProject;
 
+class FlatLayerTreeModel : public QAbstractProxyModel
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+
+  public:
+    enum Roles
+    {
+      VectorLayerPointer = Qt::UserRole + 1,
+      LegendImage,
+      Type,
+      Name,
+      Visible,
+      Trackable,
+      InTracking
+    };
+    Q_ENUM( Roles )
+
+    explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+
+    int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0 );
+
+    void setSourceModel( QgsLayerTreeModel *sourceModel );
+    QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
+    QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const override;
+
+    QModelIndex parent( const QModelIndex &child ) const override;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+
+    Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
+    Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+
+    QHash<int, QByteArray> roleNames() const override;
+
+    QgsProject *project() const;
+
+    QgsLayerTreeModel *layerTreeModel() const;
+
+    QgsLayerTree *layerTree() const;
+
+    QString mapTheme() const;
+    void setMapTheme( const QString &mapTheme );
+
+    //! Update map theme as currently used by the model
+    //! This should be triggered after a project has been loaded
+    Q_INVOKABLE void updateCurrentMapTheme();
+
+    //! Sets the information if the \a nodeLayer is currently in \a tracking state
+    void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
+
+  signals:
+    void mapThemeChanged();
+
+  private:
+    QMap<QModelIndex, int> mRowMap;
+    QMap<int, QModelIndex> mIndexMap;
+
+    QgsLayerTreeModel *mLayerTreeModel = nullptr;
+    QString mMapTheme;
+    QgsProject *mProject = nullptr;
+    QList<QgsLayerTreeLayer *> mLayersInTracking;
+};
+
 class LayerTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT

@@ -1,8 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.12
 
-import QtQuick.Controls 1.4 as Controls
 import QtGraphicalEffects 1.12
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.1
 import org.qgis 1.0
 import org.qfield 1.0
@@ -12,140 +11,98 @@ import QtQuick.Controls.Styles 1.4
 import Theme 1.0
 import "."
 
-TreeView {
-  id: listView
-  model: layerTree
 
-  style: TreeViewStyle{
-    indentation: 24 * dp
-    branchDelegate: Item {
-        width: 24 * dp
-        height: 24 * dp
-        Rectangle{
-            anchors.fill: parent
-            color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer && currentLayer != null ? "#999" : "#fff"
-            Image {
-              anchors.fill: parent
-              source:  styleData.isExpanded ? Theme.getThemeIcon("ic_arrow_drop_down_black_24dp") : Theme.getThemeIcon("ic_arrow_right_black_24dp")
-            }
-        }
-    }
-  }
-
-  headerVisible: false
-
-  QtObject {
-    id: properties
-
-    property var previousIndex
-  }
-
+ListView {
   property VectorLayer currentLayer
 
-  Controls.TableViewColumn {
-    role: "display"
-  }
+  id: table
+  model: flatLayerTree
+  flickableDirection: Flickable.VerticalFlick
+  boundsBehavior: Flickable.StopAtBounds
+  clip: true
+  spacing: 0
 
-  rowDelegate: Rectangle {
-    height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
-    color: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.VectorLayer) === currentLayer && currentLayer != null ? "#999" : "#fff"
-    //small hack: since the image of a root item should be aligned to the expand triangles of branches, it needs to be printed here
-    Image {
-      visible: styleData.row !== undefined && layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'layer'
-      source: {
-          var legendNode = layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.LegendImage)
-          if ( legendNode )
-            return "image://legend/" + legendNode
-          else
-            return ''
-      }
-      width: delegatedItem.height
-      height: delegatedItem.height
-      x: ( 24 * dp - width )/2
-      anchors.verticalCenter: parent.verticalCenter
-    }
-  }
+  delegate: Rectangle {
+    property VectorLayer vectorLayer: VectorLayerPointer
+    property var itemRow: index
+    property string itemType: Type
 
-  itemDelegate: Item {
-    id: delegatedItem
-    height: Math.max(16, label.implicitHeight)
-    property int implicitWidth: label.implicitWidth + 20
+    id: rectangle
+    width: parent.width
+    height: line.height
+    color: itemType === "group" ? Theme.mainColor : "#ffffff"
 
-    RowLayout {
-      height: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend' ? 36 * dp : 48 * dp
+    Row {
+      id: line
+      spacing: 5 * dp
+
       Image {
-        visible: layerTree.data(listView.__model.mapRowToModelIndex(styleData.row), LayerTreeModel.Type) === 'legend'
-        source: "image://legend/" + layerTree.data(styleData.index, LayerTreeModel.LegendImage)
+        visible: LegendImage != ''
+        source: {
+            if ( LegendImage )
+              return "image://legend/" + LegendImage
+            else
+              return ''
+        }
         width: 24 * dp
         height: 24 * dp
-        Layout.alignment: Qt.AlignVCenter
+        anchors.verticalCenter: parent.verticalCenter
+        opacity: Visible ? 1 : 0.25
       }
+
       Text {
-        id: label
-        horizontalAlignment: styleData.textAlignment
-        Layout.alignment: Qt.AlignVCenter
-        elide: styleData.elideMode
-        text: styleData.value !== undefined ? styleData.value : ""
-        renderType: Settings.isMobile ? Text.QtRendering : Text.NativeRendering
-        color: layerTree.data(styleData.index, LayerTreeModel.Visible) ? "black" : "gray"
-      }
-      Rectangle {
-        visible: model.inTracking ? true : false
-        height: 24*dp
-        width: 24*dp
-        radius: height / 2
-        color: '#64B5F6'
-
-        SequentialAnimation on color  {
-          loops: Animation.Infinite
-          ColorAnimation  { from: "#64b5f6"; to: "#2374b5"; duration: 2000; easing.type: Easing.InOutQuad }
-          ColorAnimation  { from: "#2374b5"; to: "#64b5f6"; duration: 1000; easing.type: Easing.InOutQuad }
-        }
-
-        Image {
-          anchors.fill: parent
-          anchors.margins: 4 * dp
-          fillMode: Image.PreserveAspectFit
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
-        }
+        id: layerName
+        width: rectangle.width - ( LegendImage != '' ? 29 * dp : 5 )
+        padding: 5 * dp
+        text: Name
+        font: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? Theme.strongTipFont : Theme.tipFont
+        color: itemType === "group" ? "#ffffff" : itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
+        elide: Text.ElideRight
+        opacity: Visible ? 1 : 0.25
       }
     }
   }
-
-  /**
-   * User clicked an item
-   *
-   * @param index : QModelIndex
-   */
-  onClicked: {
-    var nodeType = layerTree.data(index, LayerTreeModel.Type)
-    if (nodeType !== 'layer') {
-      if (listView.isExpanded(index))
-          listView.collapse(index)
-      else
-          listView.expand(index)
-    }
-    else
-      currentLayer = layerTree.data(index, LayerTreeModel.VectorLayer)
-  }
-
-  onPressAndHold: {
-    itemProperties.index = index
-    itemProperties.open()
-  }
-
-  onDoubleClicked: {
-    if (listView.isExpanded(index))
-        listView.collapse(index)
-    else
-        listView.expand(index)
+  MouseArea {
+      property Item pressedItem
+      anchors.fill: parent
+      onClicked: {
+          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          if (item) {
+              if (item.vectorLayer) {
+                currentLayer = item.vectorLayer
+              }
+          }
+      }
+      onPressed: {
+          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          if (item && item.itemType !== "group") {
+              pressedItem = item;
+              pressedItem.color = "lightgray"
+          }
+      }
+      onPressAndHold: {
+          if (pressedItem) {
+            itemProperties.index = table.model.index(pressedItem.itemRow, 0)
+            itemProperties.open()
+          }
+      }
+      onCanceled: {
+          if (pressedItem) {
+              pressedItem.color = "transparent"
+              pressedItem = null
+          }
+      }
+      onReleased: {
+          if (pressedItem) {
+              pressedItem.color = "transparent"
+              pressedItem = null
+          }
+      }
   }
 
   LayerTreeItemProperties {
       id: itemProperties
-      layerTree: listView.model
+      layerTree: table.model
 
       modal: true
       closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
