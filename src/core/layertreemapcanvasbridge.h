@@ -52,7 +52,7 @@ class LayerTreeMapCanvasBridge : public QObject
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( LayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
+    LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
 
     QgsLayerTree *rootGroup() const { return mRoot; }
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -88,7 +88,7 @@ class LayerTreeMapCanvasBridge : public QObject
     void deferredSetCanvasLayers();
 
     QgsLayerTree *mRoot = nullptr;
-    LayerTreeModel *mModel = nullptr;
+    FlatLayerTreeModel *mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     TrackingModel *mTrackingModel = nullptr;
 
