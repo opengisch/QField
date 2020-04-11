@@ -178,7 +178,14 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
       if ( sym )
       {
-        return sym->data( Qt::CheckStateRole ).toBool();
+        if ( sym->flags() & Qt::ItemIsUserCheckable )
+        {
+          return sym->data( Qt::CheckStateRole ).toBool();
+        }
+        else
+        {
+          return sym->layerNode()->isVisible();
+        }
       }
       else
       {
