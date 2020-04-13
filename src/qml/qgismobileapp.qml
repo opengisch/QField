@@ -202,6 +202,7 @@ ApplicationWindow {
                   digitizingToolbar.confirm()
                 else
                 {
+                    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
                     var mapPoint = mapSettings.screenToCoordinate(point)
                     currentRubberband.model.addVertexFromPoint(mapPoint)
                     coordinateLocator.flash()
