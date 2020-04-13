@@ -103,13 +103,16 @@ VisibilityFadingRow {
   }
 
   onScreenHoveringChanged: {
-    if (!!toolbarRow.item.screenHovering)
+    if (toolbarRow.item && !!toolbarRow.item.screenHovering)
      toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
   }
 
   Connections {
       target: toolbarRow.item
-      onFinished: featureModel.vertexModel.clear()
+      onFinished: {
+        featureModel.vertexModel.clear()
+        toolbarRow.source = ''
+      }
   }
 
   Button {
