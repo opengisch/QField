@@ -86,7 +86,7 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp" : "ic_add_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible:  !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
 
     onClicked: {
@@ -101,7 +101,7 @@ VisibilityFadingRow {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -113,7 +113,7 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: !screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
