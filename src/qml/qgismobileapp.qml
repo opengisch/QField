@@ -218,8 +218,9 @@ ApplicationWindow {
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
             if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
                || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
-                currentRubberband.model.addVertex()
-                // The onLongPressed event is triggered while the button is down.
+                // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
+                var mapPoint = mapSettings.screenToCoordinate(point)
+                currentRubberband.model.addVertexFromPoint(mapPoint)                // The onLongPressed event is triggered while the button is down.
                 // When it's released, it will normally cause a release event to close the attribute form.
                 // We get around this by temporarily switching the closePolicy.
                 overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
@@ -228,7 +229,11 @@ ApplicationWindow {
                 return
             }
           }
-          if( !overlayFeatureFormDrawer.visible ) {
+          // do not use else, as if it was catch it has return before
+          if (geometryEditorsToolbar.canvasLongPressed(point)) {
+            // for instance, the vertex editor will select a vertex if possible
+          }
+          else if( !overlayFeatureFormDrawer.visible ) {
             identifyTool.identify(point)
           }
         }

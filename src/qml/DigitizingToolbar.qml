@@ -117,4 +117,6 @@ VisibilityFadingRow {
   {
     rubberbandModel.reset()
   }
+
+
 }

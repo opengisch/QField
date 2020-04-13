@@ -14,7 +14,11 @@ And contains following functions:
 The following signal:
   * signal finished()
 It can also implement:
-  * blocking (bool) which prevents from swichting tools
+  * blocking (bool) which prevents from switching tools
+It can optionally implement the functions:
+  * canvasClicked(point)
+  * canvasLongPressed(point)
+  These functions must return true if they catch the event
 */
 
 VisibilityFadingRow {
@@ -58,6 +62,14 @@ VisibilityFadingRow {
   function canvasClicked(point) {
     if ( toolbarRow.item )
       return toolbarRow.item.canvasClicked(point)
+    else
+      return false
+  }
+
+  // returns true if handled
+  function canvasLongPressed(point) {
+    if ( toolbarRow.item )
+      return toolbarRow.item.canvasLongPressed(point)
     else
       return false
   }
