@@ -12,6 +12,8 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+
   readonly property bool blocking: featureModel.vertexModel.dirty
 
   spacing: 4 * dp
@@ -123,9 +125,13 @@ VisibilityFadingRow {
     target: vertexModel
     onCurrentVertexIndexChanged:
     {
-      if ( featureModel.vertexModel.currentVertexIndex != -1 && (featureModel.vertexModel.editingMode === VertexModel.EditVertex  ||
-          featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+      if ( featureModel.vertexModel.currentVertexIndex != -1
+          && !screenHovering
+          && (featureModel.vertexModel.editingMode === VertexModel.EditVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+      {
+        console.log(screenHovering)
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+      }
     }
   }
 }
