@@ -227,7 +227,7 @@ ApplicationWindow {
                 return
             }
           }
-          else if( !overlayFeatureFormDrawer.visible ) {
+          if( !overlayFeatureFormDrawer.visible ) {
             identifyTool.identify(point)
           }
         }
