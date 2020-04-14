@@ -1,7 +1,5 @@
-import QtQuick 2.11
-import QtQuick.Controls 1.4 as Controls
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
@@ -39,45 +37,45 @@ Page {
       Layout.maximumHeight: contentHeight
     }
 
-    Controls.TableView {
-      id: table
-      Layout.fillWidth: true
-      Layout.fillHeight: true
+    Rectangle {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        color: "white"
+        border.color: "lightgray"
+        border.width: 1
 
-      Controls.TableViewColumn {
-        role: "LayerName"
-        title: qsTr( "Layer Name" )
-        width: 200 * dp
-      }
+        ListView {
+            id: table
+            flickableDirection: Flickable.VerticalFlick
+            boundsBehavior: Flickable.StopAtBounds
+            clip: true
+            spacing: 2
+            anchors.fill: parent
 
-      Controls.TableViewColumn {
-        role: "DataSource"
-        title: qsTr( "Data Source" )
-        width: table.width - 200 * dp
-      }
+            delegate: Rectangle {
+                id: rectangle
+                width: parent.width
+                height: line.height
+                color: "transparent"
 
-      style: TableViewStyle {
-          headerDelegate: Text {
-              height: 40 * dp
-              font: Theme.strongFont
-              verticalAlignment: Text.AlignVCenter
-              horizontalAlignment: styleData.textAlignment
-              text: styleData.value
-              elide: Text.ElideRight
-          }
-          rowDelegate: Item {
-              height: 40 * dp
-              }
-          itemDelegate: Text {
-              anchors.fill: parent
-              font: Theme.defaultFont
-              verticalAlignment: Text.AlignVCenter
-              horizontalAlignment: styleData.textAlignment
-              text: styleData.value
-              elide: Text.ElideRight
-              renderType: Text.NativeRendering
-              }
-       }
+                Column {
+                    id: line
+                    spacing: 0
+                    Text {
+                        id: name
+                        padding: 5 * dp
+                        text: LayerName
+                        font: Theme.strongTipFont
+                    }
+                    Text {
+                        id: uri
+                        padding: 5 * dp
+                        text: DataSource
+                        font: Theme.tipFont
+                    }
+                }
+            }
+        }
     }
 
     Label {
