@@ -1,6 +1,5 @@
 import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.11
@@ -219,7 +218,7 @@ Page {
         leftMargin: 12 * dp
       }
 
-      Controls.Label {
+      Label {
         id: fieldLabel
         width: parent.width
         text: Name || ''
@@ -228,7 +227,7 @@ Page {
         color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
 
-      Controls.Label {
+      Label {
         id: constraintDescriptionLabel
         anchors {
           left: parent.left
