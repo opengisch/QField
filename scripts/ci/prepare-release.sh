@@ -20,7 +20,7 @@ fi
 travis_to_release_branch
 
 # Get git sha for master branch
-git fetch origin master --depth 1
+git fetch origin master:master --depth 1
 GIT_MASTER_SHA=$(git rev-list -n1 master)
 
 # If the current commit is the latest on master -> we need to create a new release branch
