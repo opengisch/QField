@@ -32,7 +32,6 @@
         <file>geometry_editors/FillRingToolBar.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
-        <file>TreeView.qml</file>
         <file>TransformedPositionSource.qml</file>
         <file>LayerTreeItemProperties.qml</file>
         <file>ui/LayerTreeItemProperties.qml</file>
