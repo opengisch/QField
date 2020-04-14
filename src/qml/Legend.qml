@@ -20,7 +20,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 0
+  spacing: 1
 
   delegate: Rectangle {
     property VectorLayer vectorLayer: VectorLayerPointer
@@ -30,10 +30,11 @@ ListView {
     id: rectangle
     width: parent.width
     height: line.height
-    color: itemType === "group" ? Theme.mainColor : "#ffffff"
+    color: "#ffffff"
 
     Row {
       id: line
+      leftPadding: 5 *dp
       spacing: 5 * dp
 
       Image {
@@ -53,11 +54,12 @@ ListView {
 
       Text {
         id: layerName
-        width: rectangle.width - ( LegendImage != '' ? 29 * dp : 5 )
+        width: rectangle.width - ( LegendImage != '' ? 34 * dp : 10 * dp )
         padding: 5 * dp
         text: Name
+        horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
         font: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? Theme.strongTipFont : Theme.tipFont
-        color: itemType === "group" ? "#ffffff" : itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
+        color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
       }
