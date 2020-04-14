@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick 2.11
+import QtQuick.Controls 2.11
 import QtQml 2.2
 import org.qgis 1.0
 
