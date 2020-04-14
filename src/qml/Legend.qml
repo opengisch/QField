@@ -59,7 +59,7 @@ ListView {
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
-        font.weight: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? Theme.strongTipFont.weight : Theme.tipFont.pointSize.weight
+        font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
         color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
@@ -81,7 +81,7 @@ ListView {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item && item.itemType !== "group") {
               pressedItem = item;
-              pressedItem.color = "lightgray"
+              pressedItem.color = Theme.lightGray
           }
       }
       onPressAndHold: {
