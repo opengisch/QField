@@ -58,7 +58,8 @@ ListView {
         padding: 5 * dp
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
-        font: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? Theme.strongTipFont : Theme.tipFont
+        font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
+        font.weight: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? Theme.strongTipFont.weight : Theme.tipFont.pointSize.weight
         color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
