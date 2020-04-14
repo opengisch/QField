@@ -187,7 +187,7 @@ Drawer {
           height: 36 * dp
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-          font.pointSize: Theme.defaultFont.pointSize
+          font.pointSize: Theme.tipFont.pointSize
           highlighted: mapThemeComboBox.highlightedIndex == index
         }
 
@@ -195,6 +195,7 @@ Drawer {
           height: 36 * dp
           leftPadding: 8 * dp
           text: mapThemeComboBox.displayText
+          font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
           verticalAlignment: Text.AlignVCenter
           elide: Text.ElideRight
