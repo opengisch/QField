@@ -29,10 +29,14 @@ DistanceArea::DistanceArea( QObject *parent )
 void DistanceArea::init()
 {
   if ( mProject )
+  {
     mDistanceArea.setEllipsoid( mProject->ellipsoid() );
+    mDistanceArea.setSourceCrs( mCrs, mProject->transformContext() );
+  }
   else
+  {
     mDistanceArea.setEllipsoid( geoNone() );
-  mDistanceArea.setSourceCrs( mCrs, mProject->transformContext() );
+  }
 
   emit lengthUnitsChanged();
   emit areaUnitsChanged();
