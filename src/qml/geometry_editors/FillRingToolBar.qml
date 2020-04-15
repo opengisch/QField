@@ -16,6 +16,22 @@ VisibilityFadingRow {
 
   spacing: 4 * dp
 
+  function canvasClicked(point)
+  {
+    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
+    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
+    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    return true // handled
+  }
+
+  function canvasLongPressed(point)
+  {
+    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
+    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    drawPolygonToolbar.confirm()
+    return true // handled
+  }
+
   DigitizingToolbar {
     id: drawPolygonToolbar
     showConfirmButton: true
@@ -28,10 +44,11 @@ VisibilityFadingRow {
     EmbeddedFeatureForm {
       id: formPopupLoader
       state: 'Add'
-      currentLayer: featureModel.currentLayer
+      currentLayer: featureModel && featureModel.currentLayer
     }
 
     onConfirm: {
+      rubberbandModel.frozen = true
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
       var result = GeometryUtils.addRingFromRubberBand(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)

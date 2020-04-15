@@ -146,6 +146,8 @@ ApplicationWindow {
         grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
         onPointChanged: {
+//          // after a click, it seems that the position is sent once at 0,0 => weird
+//          if (point.position !== Qt.point(0, 0))
             coordinateLocator.sourceLocation = point.position
         }
 
@@ -157,6 +159,8 @@ ApplicationWindow {
         onHoveredChanged: {
             if ( !hovered )
                 coordinateLocator.sourceLocation = undefined
+            if (hovered)
+              coordinateLocator.sourceLocation = point.position
         }
     }
 
@@ -202,7 +206,8 @@ ApplicationWindow {
                   digitizingToolbar.confirm()
                 else
                 {
-                    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
+                  console.log("click -> add vertex " + currentRubberband.model.pointSequence().length)
+//                    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
                     var mapPoint = mapSettings.screenToCoordinate(point)
                     currentRubberband.model.addVertexFromPoint(mapPoint)
                     coordinateLocator.flash()
@@ -215,12 +220,18 @@ ApplicationWindow {
 
       onLongPressed: {
         if ( type === "stylus" ){
+          if (geometryEditorsToolbar.canvasLongPressed(point)) {
+            // for instance, the vertex editor will select a vertex if possible
+            return
+          }
           if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
             if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
                || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
                 // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
+                console.log("map long pressed " + point)
+            //  currentRubberband.model.addVertex()
                 var mapPoint = mapSettings.screenToCoordinate(point)
-                currentRubberband.model.addVertexFromPoint(mapPoint)                // The onLongPressed event is triggered while the button is down.
+                digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint) // The onLongPressed event is triggered while the button is down.
                 // When it's released, it will normally cause a release event to close the attribute form.
                 // We get around this by temporarily switching the closePolicy.
                 overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
@@ -230,10 +241,7 @@ ApplicationWindow {
             }
           }
           // do not use else, as if it was catch it has return before
-          if (geometryEditorsToolbar.canvasLongPressed(point)) {
-            // for instance, the vertex editor will select a vertex if possible
-          }
-          else if( !overlayFeatureFormDrawer.visible ) {
+          if( !overlayFeatureFormDrawer.visible ) {
             identifyTool.identify(point)
           }
         }
@@ -287,6 +295,9 @@ ApplicationWindow {
           currentCoordinate: coordinateLocator.currentCoordinate
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
+
+          onCurrentCoordinateChanged: { console.log("digit coord changed " + currentCoordinate + pointSequence().length ) }
+          onCurrentCoordinateIndexChanged: { console.log("digit index changed") }
         }
 
         anchors.fill: parent
@@ -343,6 +354,9 @@ ApplicationWindow {
           currentCoordinate: coordinateLocator.currentCoordinate
           crs: mapCanvas.mapSettings.destinationCrs
           geometryType: QgsWkbTypes.LineGeometry
+
+          onCurrentCoordinateChanged: { console.log("geom coord changed " + currentCoordinate + pointSequence().length ) }
+          onCurrentCoordinateIndexChanged: { console.log("geom index changed") }
         }
 
         anchors.fill: parent

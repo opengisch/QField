@@ -237,9 +237,9 @@ void RubberbandModel::addVertex()
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
 }
 
-void RubberbandModel::addVertexFromPoint(const QgsPoint &point)
+void RubberbandModel::addVertexFromPoint( const QgsPoint &point )
 {
-  setCurrentCoordinate(point);
+  setCurrentCoordinate( point );
   addVertex();
 }
 

@@ -134,7 +134,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
     {
       allVertices = mRubberbandModel->flatVertices();
       geomType = mRubberbandModel->geometryType();
-      if ( frozen )
+      if ( !frozen )
         allButCurrentVertices = mRubberbandModel->flatVertices( true );
     }
     else if ( mVertexModel && mVertexModel->vertexCount() > 0 )
@@ -149,7 +149,7 @@ QSGNode *Rubberband::updatePaintNode( QSGNode *n, QQuickItem::UpdatePaintNodeDat
       rb->setFlag( QSGNode::OwnedByParent );
       n->appendChildNode( rb );
 
-      if ( frozen )
+      if ( !frozen )
       {
         SGRubberband *rbCurrentPoint = new SGRubberband( allButCurrentVertices, geomType, mColorCurrentPoint, mWidthCurrentPoint );
         rbCurrentPoint->setFlag( QSGNode::OwnedByParent );
