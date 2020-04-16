@@ -18,6 +18,11 @@ source ${DIR}/version_number.sh
 
 set -e
 
+if [[ -z $APP_VERSION ]] && [[ -z $APP_VERSION_CODE ]]; then
+  echo "*** ERROR MISSING APP_VERSION OR APP_VERSION_CODE ENVIRONMENT VARIABLE"
+  exit 2
+fi
+
 apt update && apt install -y zip bc
 
 SOURCE_DIR=/usr/src/qfield
