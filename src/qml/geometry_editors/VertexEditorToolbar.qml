@@ -32,6 +32,8 @@ VisibilityFadingRow {
     if ( apply && featureModel.vertexModel.dirty ){
       featureModel.applyVertexModelToGeometry()
       featureModel.save()
+      //set the vertexModel original geometry to the one of the updated feature
+      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
     }
   }
 
@@ -100,6 +102,7 @@ VisibilityFadingRow {
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.previous()
     }
   }
