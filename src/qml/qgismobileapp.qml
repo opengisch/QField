@@ -787,14 +787,10 @@ ApplicationWindow {
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     digitizingFeature.resetAttributes();
-                    if( overlayFeatureForm.model.constraintsHardValid ){
+                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
                       //when the constrainst are fulfilled
                       digitizingFeature.create()
                       overlayFeatureFormDrawer.featureForm.featureCreated = true
-                    }
-                    else
-                    {
-                      console.log( "constraints not valid - do nothing")
                     }
                 } else {
                     digitizingFeature.save()
@@ -832,7 +828,11 @@ ApplicationWindow {
         }
         else
         {
-          digitizingFeature.create()
+          if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+              digitizingFeature.create()
+          } else {
+              digitizingFeature.save()
+          }
           digitizingRubberband.model.reset()
         }
       }
