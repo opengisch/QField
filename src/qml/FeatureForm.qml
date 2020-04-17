@@ -297,7 +297,7 @@ Page {
         Connections {
           target: attributeEditorLoader.item
           onValueChanged: {
-            if( AttributeValue !== value && !( AttributeValue === undefined && isNull ) )
+            if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
             {
               AttributeValue = isNull ? undefined : value
               if ( qfieldSettings.autoSave && !dontSave ) {
@@ -329,7 +329,6 @@ Page {
   }
 
   function confirm() {
-
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if ( !model.constraintsHardValid )
     {
