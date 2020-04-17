@@ -300,7 +300,7 @@ Page {
             if( AttributeValue !== value && !( AttributeValue === undefined && isNull ) )
             {
               AttributeValue = isNull ? undefined : value
-              if ( qfieldSettings.autoSave ) {
+              if ( qfieldSettings.autoSave && !dontSave ) {
                 save()
               }
             }
@@ -343,6 +343,11 @@ Page {
     }
 
     parent.focus = true
+
+    if( dontSave ) {
+      temporaryStored()
+      return
+    }
 
     save()
 
@@ -413,7 +418,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' ) && !qfieldSettings.autoSave
+        visible: ( form.state === 'Add' || form.state === 'Edit' ) && ( !qfieldSettings.autoSave || dontSave )
         width: 48*dp
         height: 48*dp
         clip: true
@@ -426,11 +431,7 @@ Page {
             if ( !model.constraintsSoftValid ) {
               displayToast( qsTr('Note: soft constraints were not met') )
             }
-            if( dontSave ) {
-                temporaryStored()
-            }else{
-                confirm()
-            }
+            confirm()
           } else {
             displayToast( qsTr('Constraints not valid') )
           }
@@ -472,7 +473,7 @@ Page {
         height: 48*dp
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
-        visible: !qfieldSettings.autoSave
+        visible: !qfieldSettings.autoSave || dontSave
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 

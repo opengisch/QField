@@ -107,6 +107,7 @@ Item{
         closePolicy: Popup.CloseOnEscape
 
         FeatureForm {
+            id: form
             model: embeddedAttributeFormModel
 
             focus: true
@@ -125,11 +126,14 @@ Item{
             }
 
             onCancelled: {
-                //displayToast( qsTr( 'No track on layer %1 started' ).arg( model.vectorLayer.name  ) )
                 embeddedFeatureForm.active = false
                 embeddedFeatureForm.focus = false
                 trackingModel.stopTracker( mainModel.vectorLayer )
             }
+        }
+
+        onClosed: {
+          form.confirm()
         }
       }
     }
