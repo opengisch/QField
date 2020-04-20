@@ -186,6 +186,12 @@ QgsPoint RubberbandModel::currentCoordinate() const
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
+  // play safe, avoid crash
+  if (mPointList.count() == 0)
+    return;
+  // but try to find out
+  Q_ASSERT(mPointList.count() != 0);
+
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
 
@@ -239,6 +245,7 @@ void RubberbandModel::addVertex()
 
 void RubberbandModel::addVertexFromPoint( const QgsPoint &point )
 {
+  qDebug() << "add point " << point.x() << point.y();
   setCurrentCoordinate( point );
   addVertex();
 }

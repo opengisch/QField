@@ -16,14 +16,14 @@
  ***************************************************************************/
 
 import QtQuick 2.12
-import QtQuick.Controls 2.4
+import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.2
 import org.qgis 1.0
 import org.qfield 1.0
-import QtPositioning 5.11
+import QtPositioning 5.12
 import Theme 1.0
 
 import '.'
@@ -145,22 +145,37 @@ ApplicationWindow {
         id: hoverHandler
         grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
+        onCanceled: {console.log("XXX CANCELED")}
+        onTargetChanged:  {console.log("XXX TARGET CHANGED")}
+       // onDestroyed: {console.log("XXX DESTROYED")}
+        onEnabledChanged: {console.log("RRRRRRRRR")}
+        onGrabChanged: {console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" + transition)}
+
+
         onPointChanged: {
 //          // after a click, it seems that the position is sent once at 0,0 => weird
 //          if (point.position !== Qt.point(0, 0))
+            //console.log("hovered point changed " + point.position)
+         if (point.position !== Qt.point(0, 0))
             coordinateLocator.sourceLocation = point.position
         }
 
         onActiveChanged: {
+          console.log("active changed: " + active)
+
             if ( !active )
                 coordinateLocator.sourceLocation = undefined
+//            else
+//              coordinateLocator.sourceLocation = point.position
+
         }
 
         onHoveredChanged: {
+          console.log("hovered changed: " + hovered)
             if ( !hovered )
                 coordinateLocator.sourceLocation = undefined
-            if (hovered)
-              coordinateLocator.sourceLocation = point.position
+//            if (hovered)
+//              coordinateLocator.sourceLocation = point.position
         }
     }
 
@@ -206,7 +221,7 @@ ApplicationWindow {
                   digitizingToolbar.confirm()
                 else
                 {
-                  console.log("click -> add vertex " + currentRubberband.model.pointSequence().length)
+                  console.log("click -> add vertex " + point + " " + hoverHandler.active )
 //                    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
                     var mapPoint = mapSettings.screenToCoordinate(point)
                     currentRubberband.model.addVertexFromPoint(mapPoint)
@@ -296,8 +311,9 @@ ApplicationWindow {
           vectorLayer: dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
 
-          onCurrentCoordinateChanged: { console.log("digit coord changed " + currentCoordinate + pointSequence().length ) }
-          onCurrentCoordinateIndexChanged: { console.log("digit index changed") }
+          onVertexCountChanged: {console.log("digit vertex count: " + vertexCount)}
+          onCurrentCoordinateChanged: { console.log("digit coord changed " + currentCoordinate + " " + vertexCount) }
+          onCurrentCoordinateIndexChanged: { console.log("digit index changed"  + currentCoordinateIndex) }
         }
 
         anchors.fill: parent
@@ -355,8 +371,8 @@ ApplicationWindow {
           crs: mapCanvas.mapSettings.destinationCrs
           geometryType: QgsWkbTypes.LineGeometry
 
-          onCurrentCoordinateChanged: { console.log("geom coord changed " + currentCoordinate + pointSequence().length ) }
-          onCurrentCoordinateIndexChanged: { console.log("geom index changed") }
+//          onCurrentCoordinateChanged: { console.log("geom coord changed " + currentCoordinate + pointSequence().length ) }
+//          onCurrentCoordinateIndexChanged: { console.log("geom index changed") }
         }
 
         anchors.fill: parent
@@ -815,6 +831,15 @@ ApplicationWindow {
       screenHovering: hoverHandler.hovered
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
+
+      onEditorChanged: {
+        console.log(hoverHandler)
+        console.log(hoverHandler.hovered)
+        console.log(hoverHandler.point.position)
+        console.log(coordinateLocator)
+        console.log(coordinateLocator.sourceLocation)
+        console.log("POPOPOPOP")
+      }
     }
   }
 

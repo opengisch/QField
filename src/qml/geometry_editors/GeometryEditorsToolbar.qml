@@ -31,6 +31,8 @@ VisibilityFadingRow {
 
   spacing: 4 * dp
 
+  signal editorChanged()
+
   GeometryEditorsModel {
     id: editors
   }
@@ -111,6 +113,10 @@ VisibilityFadingRow {
         toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
       toolbarRow.item.stateVisible = true
       displayToast(name)
+    }
+
+    onSourceChanged: {
+      editorChanged()
     }
   }
 
