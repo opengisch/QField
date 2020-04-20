@@ -34,7 +34,7 @@ Item {
   //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
   signal confirmedClicked(var point)
 
-  signal doubleClicked(var point)
+  // signal doubleClicked(var point)
 
   signal longPressed(var point, var type)
 
@@ -74,31 +74,30 @@ Item {
     freeze: false
   }
 
-    TapHandler {
-      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+//    TapHandler {
+//      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
-      property var timer: Timer {
-          property var firstClickPoint
-          interval: mouseDoubleClickInterval
-          repeat: false
+//      property var timer: Timer {
+//          property var firstClickPoint
+//          interval: mouseDoubleClickInterval
+//          repeat: false
 
-          onTriggered: {
-              confirmedClicked(firstClickPoint)
-          }
-      }
+//          onTriggered: {
+//              confirmedClicked(firstClickPoint)
+//          }
+//      }
 
-      onTapCountChanged: {
-          if (tapCount == 1) {
-              timer.firstClickPoint = point.position
-              timer.restart()
-          }
-          else if (tapCount == 2) {
-              timer.stop()
-              doubleClicked(point)
-          }
-      }
-
-    }
+//      onTapCountChanged: {
+//          if (tapCount == 1) {
+//              timer.firstClickPoint = point.position
+//              timer.restart()
+//          }
+//          else if (tapCount == 2) {
+//              timer.stop()
+//              doubleClicked(point)
+//          }
+//      }
+//    }
 
     // stylus clicked
     TapHandler {
@@ -183,6 +182,7 @@ Item {
 
     DragHandler {
         target: null
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
         acceptedButtons: Qt.MiddleButton | Qt.RightButton
 
@@ -204,7 +204,9 @@ Item {
 
         onTranslationChanged: {
             if (active)
-                mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+            {
+              mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+            }
 
             oldTranslationY = translation.y
         }
@@ -213,6 +215,7 @@ Item {
     PinchHandler {
         id: pinch
         target: null
+        acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
         grabPermissions: PointerHandler.TakeOverForbidden
 
         property var oldPos
