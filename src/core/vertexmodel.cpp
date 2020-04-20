@@ -343,7 +343,7 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   std::sort( indexes.begin(), indexes.end() );
 
   if ( indexes[1] - indexes[0] > 1 )
-    indexes[0] = indexes[1] - 1;    
+    indexes[0] = indexes[1] - 1;
 
   if ( indexes[0] < 0 )
   {
