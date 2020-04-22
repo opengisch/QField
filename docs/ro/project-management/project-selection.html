@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Simboluri și setări SVG personalizate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Căutarea în straturi</a></li>
@@ -194,6 +194,9 @@
 <div class="section" id="external-sd-card">
 <h2>Card SD extern<a class="headerlink" href="#external-sd-card" title="Link permanent la acest titlu">¶</a></h2>
 <p>Selectorul de fișiere prezintă rădăcina cardului SD marcată „numai pentru citire” și directorul specific aplicației separat de restul cardului SD, deoarece este singurul director în care aplicația are acces la scriere. Directorul este următorul:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Notă</p>
 <p class="last">Din punct de vedere tehnic, aceasta se datorează faptului că Android oferă drepturi de citire, scriere, ACTION_OPEN_DOCUMENT și ACTION_OPEN_DOCUMENT_TREE numai pentru conținutul adresei returnate, nu și pentru fișierul legat real. Această limitare, care are sens pentru modul în care este structurat Android, în prezent este inutilizabilă pentru QField, întrucât acesta trebuie să acceseze fișierul real folosind o cale reală.</p>

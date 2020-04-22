@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fa">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add 1:n pictures &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -96,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add 1:n pictures</a><ul>
+<li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
 <li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
 <li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
 <li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
@@ -104,7 +104,7 @@
 </li>
 <li><a class="reference internal" href="#relations">Relations</a></li>
 <li><a class="reference internal" href="#widgets">Widgets</a><ul>
-<li><a class="reference internal" href="#id1">apiary</a></li>
+<li><a class="reference internal" href="#id3">apiary</a></li>
 <li><a class="reference internal" href="#picture">picture</a></li>
 </ul>
 </li>
@@ -155,7 +155,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">مفاهیم</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Add 1:n pictures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Custom SVG symbols and settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
@@ -184,25 +184,27 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="add-1-n-pictures">
-<h1>Add 1:n pictures<a class="headerlink" href="#add-1-n-pictures" title="لینک ثابت به این سر مقاله">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an exemple how to proceed.</p>
+  <div class="section" id="add-a-series-of-pictures-to-a-feature">
+<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="لینک ثابت به این سر مقاله">¶</a></h1>
+<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
 <div class="section" id="creating-two-tables">
 <h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="لینک ثابت به این سر مقاله">¶</a></h2>
+<p>We will need two tables. One table where the features are stored
+and one with a list of pictures.</p>
 <div class="section" id="apiary">
 <h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="لینک ثابت به این سر مقاله">¶</a></h3>
 <ul class="simple">
-<li>id (UUID)</li>
-<li>geometry</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> (UUID)</li>
+<li><code class="docutils literal"><span class="pre">geometry</span></code></li>
 <li>...</li>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
 <h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="لینک ثابت به این سر مقاله">¶</a></h3>
 <ul class="simple">
-<li>id</li>
-<li>apiary_id (UUID)</li>
-<li>path (TEXT)</li>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>id</li>
+<li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
+<li><code class="docutils literal"><span class="pre">path</span></code> (TEXT)</li>
 <li>...</li>
 </ul>
 </div>
@@ -215,6 +217,7 @@
 <li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
 <li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
+<li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-relations.png"><img alt="Relations" src="../_images/add-1-n-pictures-relations.png" style="width: 600px;" /></a>
@@ -222,20 +225,20 @@
 </div>
 <div class="section" id="widgets">
 <h2>Widgets<a class="headerlink" href="#widgets" title="لینک ثابت به این سر مقاله">¶</a></h2>
-<div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="لینک ثابت به این سر مقاله">¶</a></h3>
-<p>Set the default value of id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<div class="section" id="id3">
+<h3>apiary<a class="headerlink" href="#id3" title="لینک ثابت به این سر مقاله">¶</a></h3>
+<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code></p>
+<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code> and add the relation to the form</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive2.png"><img alt="widgets2" src="../_images/add-1-n-pictures-widgets_hive2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
 <h3>picture<a class="headerlink" href="#picture" title="لینک ثابت به این سر مقاله">¶</a></h3>
-<p>Set the widget type of path to <code class="docutils literal"><span class="pre">attachment</span></code></p>
+<p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>

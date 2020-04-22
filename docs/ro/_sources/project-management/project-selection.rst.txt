@@ -20,7 +20,7 @@ External SD card
 ----------------
 The file selector shows the root of the SD card labeled as "read-only" and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:
 
-.. code-block::
+.. code-block:: bash
 
     /Android/data/ch.opengis.qfield/files
 

@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guía de Instalación de QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceptos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Añadir 1:n imágenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Permitir ocultar nodos de la leyenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Símbolos SVG personalizados y ajustes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Búsqueda en capas</a></li>
@@ -194,6 +194,9 @@
 <div class="section" id="external-sd-card">
 <h2>Tarjeta SD externa<a class="headerlink" href="#external-sd-card" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El selector de archivos muestra la raíz de la tarjeta SD etiquetada como «solo lectura» y el directorio específico de la aplicación separado del resto de la tarjeta SD, ya que es el único directorio para el que la aplicación tiene permiso de escritura. El directorio es el siguiente:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">Técnicamente esto se debe al hecho de que Android intenta que ACTION_OPEN_DOCUMENT y ACTION_OPEN_DOCUMENT_TREE trabajen y permitan acceso de lectura-escritura sobre el contenido de la URI devuelta, no sobre el archivo realmente enlazado. Esta limitación, que tiene sentido para como está estructurado Android, hace que no se pueda usar con QField, ya que QField necesita acceder al archivo real con una ruta real.</p>

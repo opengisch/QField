@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QField User Guide &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>QField用户指南 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -25,7 +25,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="next" title="改变当前地图主题" href="map-themes.html" />
     <link rel="prev" title="项目选择" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -95,27 +95,27 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField User Guide</a><ul>
-<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
-<li><a class="reference internal" href="#map-legend">Map legend</a></li>
-<li><a class="reference internal" href="#identify-features">Identify features</a><ul>
-<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions to identified layers</a></li>
+<li><a class="reference internal" href="#">QField用户指南</a><ul>
+<li><a class="reference internal" href="#opening-a-project">打开项目</a></li>
+<li><a class="reference internal" href="#map-legend">图例</a></li>
+<li><a class="reference internal" href="#identify-features">识别要素</a><ul>
+<li><a class="reference internal" href="#exceptions-to-identified-layers">识别图层时的例外情况</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">Searching</a></li>
-<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
-<li><a class="reference internal" href="#gps">GPS</a><ul>
-<li><a class="reference internal" href="#using-external-gnss-reciever">Using external GNSS-Reciever</a></li>
+<li><a class="reference internal" href="#searching">搜索</a></li>
+<li><a class="reference internal" href="#switching-map-theme">切换地图主题</a></li>
+<li><a class="reference internal" href="#gps">GPS定位</a><ul>
+<li><a class="reference internal" href="#using-external-gnss-reciever">使用外部GNSS接收器</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
-<li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
-<li><a class="reference internal" href="#attribute-form">Attribute form</a></li>
+<li><a class="reference internal" href="#digitizing">绘制</a><ul>
+<li><a class="reference internal" href="#points">绘制点</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">绘制线和面</a></li>
+<li><a class="reference internal" href="#attribute-form">属性表单</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
+<li><a class="reference internal" href="#delete-features">删除要素</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">编辑已存在的要素的几何对象</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +131,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: 改变当前地图主题"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">改变当前地图主题 &raquo;</span>
     </a>
   </li>
             
@@ -161,9 +161,9 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField 安装手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">概念</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">设计理念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">自定义SVG符号和设置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">在图层中搜索</a></li>
@@ -175,12 +175,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">项目选择</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">矢量图层设置</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html">Global variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">改变当前地图主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">追踪线和面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">全局变量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">开发与支持</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QField同步插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync 插件</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -193,109 +193,102 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="永久链接至标题">¶</a></h1>
+<h1>QField用户指南<a class="headerlink" href="#qfield-user-guide" title="永久链接至标题">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="永久链接至标题">¶</a></h2>
-<p>To open a project, tap on <strong>Menu button --&gt; Option button --&gt; Open Project</strong>.</p>
-<p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
+<h2>打开项目<a class="headerlink" href="#opening-a-project" title="永久链接至标题">¶</a></h2>
+<p>打开项目的操作为依次点击**菜单按钮” –&gt; 选项按钮 –&gt;打开项目**。</p>
+<p>浏览并选择要打开的项目，或者使用**最近的项目**和**收藏夹**这两种快捷方式打开项目。</p>
 <blockquote>
 <div><img alt="../_images/user-guide_open-project.png" src="../_images/user-guide_open-project.png" />
 <img alt="../_images/user-guide_open-project-menu.png" src="../_images/user-guide_open-project-menu.png" />
 </div></blockquote>
 </div>
 <div class="section" id="map-legend">
-<h2>Map legend<a class="headerlink" href="#map-legend" title="永久链接至标题">¶</a></h2>
-<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<h2>图例<a class="headerlink" href="#map-legend" title="永久链接至标题">¶</a></h2>
+<p>打开**主菜单**，展开图层列表以显示地图图例。</p>
 <img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h2>Identify features<a class="headerlink" href="#identify-features" title="永久链接至标题">¶</a></h2>
-<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<h2>识别要素<a class="headerlink" href="#identify-features" title="永久链接至标题">¶</a></h2>
+<p>在地图上点击某要素可以识别它。 如果点击的位置上有多个要素（要么因为有多个要素确实彼此离的很近，要么因为地图中叠加有多个图层），它们都将显示在屏幕右侧的菜单列表中。</p>
 <img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
-<p>Tap on one of the listed feature to access its attributes.</p>
+<p>点击列表中的某个要素以访问其属性。</p>
 <ol class="arabic simple">
-<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
-<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
-<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
-<li>Scrool through the <strong>sub-menus</strong> to access all the attributes.</li>
+<li>点击**左右箭头**滚动显示识别出的所有要素。</li>
+<li>点击**居中按钮**使得选中的要素在地图上居中显示。</li>
+<li>点击**编辑按钮**可以编辑选中要素的属性。</li>
+<li>通过**子菜单**可以滚动访问所有的属性。</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h3>Exceptions to identified layers<a class="headerlink" href="#exceptions-to-identified-layers" title="永久链接至标题">¶</a></h3>
-<p>Often it is not required to be able to query every layer. Some layers are only present as basemap and their attributes are not of interest.</p>
-<p>You can manage this layerlist in QGIS desktop in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> and uncheck the base layers.</p>
+<h3>识别图层时的例外情况<a class="headerlink" href="#exceptions-to-identified-layers" title="永久链接至标题">¶</a></h3>
+<p>通常情况下，不需要对所有的图层都进行查询。有些图层仅仅作为底图显示，这些图层的属性也不是关注的重点。</p>
+<p>可以在QGIS桌面中管理图层列表，通过`项目 ‣ 项目属性 ‣ 识别图层`找到图层，取消其底图图层选项即可。</p>
 </div>
 </div>
 <div class="section" id="searching">
-<h2>Searching<a class="headerlink" href="#searching" title="永久链接至标题">¶</a></h2>
-<p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
+<h2>搜索<a class="headerlink" href="#searching" title="永久链接至标题">¶</a></h2>
+<p>点击屏幕右上角的**搜索按钮**可以对图层进行搜索。</p>
 <ol class="arabic simple">
-<li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
-<li>Tap on the <strong>attributes button</strong> to open its attributes.</li>
+<li>点击查询结果中的**名称**，可以将地图平移至要素所在位置（要素将以黄色高亮显示）。</li>
+<li>点击**属性按钮**打开要素的属性信息。</li>
 </ol>
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="永久链接至标题">¶</a></h2>
-<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
+<h2>切换地图主题<a class="headerlink" href="#switching-map-theme" title="永久链接至标题">¶</a></h2>
+<p>如果在QGIS中为项目定义了多个地图主题，可以通过**主菜单**中的第一个下拉列表项切换主题。</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
-<h2>GPS<a class="headerlink" href="#gps" title="永久链接至标题">¶</a></h2>
-<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
-<p>A long press on the GPS button will show the positioning menu.</p>
-<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
+<h2>GPS定位<a class="headerlink" href="#gps" title="永久链接至标题">¶</a></h2>
+<p>短按GPS按钮将打开GPS，获得位置信息后即将当前位置在地图上居中显示。</p>
+<p>长按GPS按钮将显示“定位”菜单。</p>
+<p>在定位菜单中，可以打开定位信息显示开关，显示当前坐标信息以及定位精度信息，坐标信息被自动转换为项目CRS。</p>
 <img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
+<p class="last">如果你看到的是WGS 84的经纬度坐标，而不是项目使用的CRS坐标值，很可能是因为还没有GPS信号。</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h3>Using external GNSS-Reciever<a class="headerlink" href="#using-external-gnss-reciever" title="永久链接至标题">¶</a></h3>
-<p>It is possible to provide a mock location a separate android app to qfield.
-There are several options for this, one of them is <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
-<p>To use this you have to <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">enable mock locations on your Android device</a>.</p>
+<h3>使用外部GNSS接收器<a class="headerlink" href="#using-external-gnss-reciever" title="永久链接至标题">¶</a></h3>
+<p>可以使用独立的安卓应用程序为QField提供模拟位置信息。有很多的选择，其中之一是可以使用 <a href="#id1"><span class="problematic" id="id2">`安卓NTRIP客户端&lt;https://play.google.com/store/apps/details?id=com.lefebure.ntripclient&gt;`_</span></a>。</p>
+<p>要使用此功能，您必须在Android设备上启用模拟位置 &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;。</p>
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>Digitizing<a class="headerlink" href="#digitizing" title="永久链接至标题">¶</a></h2>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<h2>绘制<a class="headerlink" href="#digitizing" title="永久链接至标题">¶</a></h2>
+<p>如果要绘制新的要素，请在主菜单中将模式切换为 <a href="#id1"><span class="problematic" id="id2">**</span></a>编辑模式 <a href="#id3"><span class="problematic" id="id4">**</span></a>（<a href="#id5"><span class="problematic" id="id6">*</span></a>铅笔*按钮），选择需要添加新要素的图层（选中的图层将以灰色高亮显示）。</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h3>Points<a class="headerlink" href="#points" title="永久链接至标题">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
-new point feature.</p>
-<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<h3>绘制点<a class="headerlink" href="#points" title="永久链接至标题">¶</a></h3>
+<p>将屏幕中心的十字瞄准线移动到目标位置，点击屏幕右下方的 <strong>加号按钮</strong>，创建一个新的点要素。</p>
+<p>如果已经成功启用GPS，可以使用**保持居中**按钮使十字瞄准线保持居中状态。</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h3>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="永久链接至标题">¶</a></h3>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
-<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
-<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
-<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
-<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<h3>绘制线和面<a class="headerlink" href="#lines-and-polygons" title="永久链接至标题">¶</a></h3>
+<p>将屏幕中心的十字瞄准线移动待绘制线或面的起点，然后单击屏幕右下方的**加号(+)按钮**以添加第一个节点。</p>
+<p>每点击一次**加号 (+)按钮 <a href="#id1"><span class="problematic" id="id2">**</span></a>就会添加一个新节点，通过连续添加节点构成线或面。</p>
+<p>点击**减号(-)按钮**将删除最后一个添加的节点。</p>
+<p>点击**关闭 (X)按钮**取消要素绘制。</p>
+<p>当绘制了线要素的2个节点或面要素的3个节点后，将出现**保存按钮**，点击该按钮将完成绘制操作。</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h3>Attribute form<a class="headerlink" href="#attribute-form" title="永久链接至标题">¶</a></h3>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.
-The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<h3>属性表单<a class="headerlink" href="#attribute-form" title="永久链接至标题">¶</a></h3>
+<p>几何对象绘制完成后，将显示属性表单，除非它被取消的了，提示用户录入新要素的属性信息。每个属性的右侧都有一个复选框，如果选中，系统会自动记住输入的属性值。当该图层再次添加新要素的时候，这些属性值将会被自动填充。</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>Delete Features<a class="headerlink" href="#delete-features" title="永久链接至标题">¶</a></h2>
-<p>Deleting features is only possible in digitize mode.</p>
-<p>To delete a feature, identify it first and tap the trash icon.</p>
+<h2>删除要素<a class="headerlink" href="#delete-features" title="永久链接至标题">¶</a></h2>
+<p>删除要素只能在编辑模式下使用。</p>
+<p>删除要素时，必须先选中它，然后点击垃圾桶图标。</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="永久链接至标题">¶</a></h2>
-<p>To complete.</p>
+<h2>编辑已存在的要素的几何对象<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="永久链接至标题">¶</a></h2>
+<p>待完成。</p>
 </div>
 </div>
 

@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField asennusopas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Salli selitevalintojen piilottaminen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Räätälöidyt SVG symbolit ja asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Haku tasoilta</a></li>
@@ -194,6 +194,9 @@
 <div class="section" id="external-sd-card">
 <h2>Ulkoinen SD kortti<a class="headerlink" href="#external-sd-card" title="Permalink to this headline">¶</a></h2>
 <p>Tiedostonvalitsin näyttää SD-kortin juuren, joka on merkitty ”vain luku” -tilaksi, ja sovelluskohtainen hakemisto erotetaan muusta SD-kortista, koska se on ainoa hakemisto, johon sovelluksella on kirjoitusoikeus. Hakemisto on seuraava:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Muista</p>
 <p class="last">Teknisesti tämä johtuu siitä, että Android tarkoituksena ACTION_OPEN_DOCUMENT ja ACTION_OPEN_DOCUMENT_TREE, tehdä ja myöntää luku- ja kirjoitusoikeus palautettavan URI: n sisällölle, ei oikeassa linkitetyssä tiedostossa. Tämä rajoitus, joka on järkevää Androidin rakenteelle, mutta tällä hetkellä se on käyttökelvoton QFieldin kanssa, koska QField tarvitsee pääsyn todelliseen tiedostoon todellisella polulla.</p>

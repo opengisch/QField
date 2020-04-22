@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guide d’installation QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Ajouter 1:n images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Symboles SVG personnalisés et configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Rechercher dans les couches</a></li>
@@ -194,6 +194,9 @@
 <div class="section" id="external-sd-card">
 <h2>Carte SD externe<a class="headerlink" href="#external-sd-card" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le sélecteur de fichiers affiche la racine de la carte SD étiquetée «&nbsp;lecture seule&nbsp;» et le répertoire spécifique à l’application séparé du reste de la carte SD, car c’est le seul répertoire pour lequel l’application a accès en écriture. Le répertoire est le suivant :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Techniquement, cela est dû au fait qu’Android utilise ACTION_OPEN_DOCUMENT et ACTION_OPEN_DOCUMENT_TREE, travaille et accorde un accès en lecture-écriture sur le contenu de l’URI renvoyée, pas sur le fichier lié réel. Cette limitation a du sens pour la structure d’Android mais est actuellement inutilisable avec QField car QField a besoin d’accéder au fichier réel avec un chemin réel.</p>

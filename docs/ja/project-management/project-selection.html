@@ -148,7 +148,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">凡例のノードを非表示にするのを許可する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">レイヤーの検索</a></li>
@@ -194,6 +194,9 @@
 <div class="section" id="external-sd-card">
 <h2>外付けSDカード<a class="headerlink" href="#external-sd-card" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ファイル選択には、「読み取り専用」というラベルの付いたSDカードのルートと、アプリが書き込み権限を持っているSDカードの残容量から分けれたアプリケーション固有のディレクトリが表示されます。それらディレクトリは次の通りです。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">技術的には、これはAndroidがACTION_OPEN_DOCUMENTおよびACTION_OPEN_DOCUMENT_TREEを意図しているためで、実際のリンクファイルではなく、返されるURIのコンテンツで読み取り/書き込みアクセスを許可するという事実によっています。 この制限は、Androidがどのように構造化されているかについて説明していますが、QFieldは実際のパスによりファイルにアクセスする必要があるため、今現在はQFieldでは使用できません。</p>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QField同步插件 &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>QFieldSync 插件 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,17 +95,17 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField同步插件</a><ul>
-<li><a class="reference internal" href="#workflow">工作流</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">QFieldSync 插件</a><ul>
+<li><a class="reference internal" href="#workflow">工作流程</a></li>
+<li><a class="reference internal" href="#installation">安装</a></li>
+<li><a class="reference internal" href="#configuration">配置</a><ul>
+<li><a class="reference internal" href="#layer-configuration">图层配置</a></li>
+<li><a class="reference internal" href="#base-map-configuration">底图配置</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">离线编辑配置</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
-<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
+<li><a class="reference internal" href="#package-for-qfield">为QField打包</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">从QField同步</a></li>
 </ul>
 </li>
 </ul>
@@ -151,9 +151,9 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField 安装手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">概念</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add 1:n pictures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">设计理念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">自定义SVG符号和设置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">在图层中搜索</a></li>
@@ -165,12 +165,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">项目选择</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">矢量图层设置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Global variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">改变当前地图主题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">追踪线和面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">全局变量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">开发与支持</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QField同步插件</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldSync 插件</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/ecological-surveying.html">Improving Efficiencies in Ecological Surveying using QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mapping-breeding-birds-in-the-Wadden-Sea.html">Use of QField for mapping breeding birds in the Wadden Sea</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/mosquito-malario-ground-truth-data-collection.html">Use of Qfield in the context of ground-truth data collection work of malaria transmitting mosquitoes</a></li>
@@ -183,101 +183,78 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<h1>QField同步插件<a class="headerlink" href="#qfieldsync-plugin" title="永久链接至标题">¶</a></h1>
-<p>QFieldSync plugin（QField同步插件）将协助将QGIS项目打包为QField使用。</p>
-<p>QFieldSync支持您的项目，并自动执行以下操作：</p>
+<h1>QFieldSync 插件<a class="headerlink" href="#qfieldsync-plugin" title="永久链接至标题">¶</a></h1>
+<p>QFieldSync插件用于为QField准备和打包QGIS项目。</p>
+<p>QFieldSync通过自动化以下操作达成项目准备工作：</p>
 <ul class="simple">
-<li>项目设置所需的步骤（例如：<a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">可移植项目</span></a>）</li>
-<li>从单个光栅图层或从地图主题中定义的样式创建基础地图。</li>
-<li>配置脱机编辑功能并重新同步更改。</li>
+<li>项目设置所需的步骤（例如：<span class="xref std std-ref">便携式项目</span>）</li>
+<li>从单个栅格图层或地图主题中定义的样式创建底图。</li>
+<li>配置离线编辑功能，并将修改同步回来。</li>
 </ul>
 <div class="section" id="workflow">
-<h2>工作流<a class="headerlink" href="#workflow" title="永久链接至标题">¶</a></h2>
-<p>快速了解流程，以下是典型步骤的列表：</p>
+<h2>工作流程<a class="headerlink" href="#workflow" title="永久链接至标题">¶</a></h2>
+<p>快速浏览一下工作流程，主要包含以下典型步骤：</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li>创建一个QField包。包是一个独立文件夹中的工作副本。</li>
+<li>将QField包复制到目标设备。</li>
+<li>到外业采集数据。</li>
+<li>将修改的数据拷回计算机。</li>
+<li>将修改的数据与数据库或文件同步。</li>
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
-<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<h2>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>在QGIS插件管理器中，搜索 <a href="#id1"><span class="problematic" id="id2">**</span></a>qfield sync <a href="#id3"><span class="problematic" id="id4">**</span></a>插件，在结果列表中选择该插件并点击 <a href="#id5"><span class="problematic" id="id6">**</span></a>安装插件**按钮。</p>
 <img alt="../_images/qfield-sync_install.png" src="../_images/qfield-sync_install.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>配置<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h2>
+<p>项目配置信息保存在.qgs主文件中。可以预先配置项目文件并重复使用。</p>
 <img alt="../_images/qfield-sync_configmenu.png" src="../_images/qfield-sync_configmenu.png" />
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="永久链接至标题">¶</a></h3>
+<h3>图层配置<a class="headerlink" href="#layer-configuration" title="永久链接至标题">¶</a></h3>
 <img alt="../_images/qfield-sync_config.png" src="../_images/qfield-sync_config.png" />
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<p>在项目配置对话框中，可以为每个图层单独定义一个 <a href="#id1"><span class="problematic" id="id2">*</span></a>动作 <a href="#id3"><span class="problematic" id="id4">*</span></a>。 不同的图层类型，可以使用不同类型的动作。</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis...</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>复制</dt>
+<dd>图层将被复制到包文件夹中。这仅适用于基于文件的图层。</dd>
+<dt>什么也不做</dt>
+<dd>图层的数据源保持不动。这仅仅适用于非基于文件的图层如WMS、WFS、Postgis等。</dd>
+<dt>离线编辑</dt>
+<dd>图层副本将被拷贝到包文件夹中。外业工作中对包的所有修改都将记录在更新日志里。后期进行数据同步的时候，日志中记录的操作将被重新执行，所有的更新都将被同步到主数据中。</dd>
+<dt>移除</dt>
+<dd>图层将从包中移除。适用于底图中某个图层不会用于工作包的情况。</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="永久链接至标题">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>底图配置<a class="headerlink" href="#base-map-configuration" title="永久链接至标题">¶</a></h3>
+<p>底图是栅格图层，作为最底层的图层添加到打包的项目文件中。</p>
+<p>如果开启了底图选项，每次打包项目的时候，底图都会被渲染。 感兴趣的区域 - 渲染范围 - 将在打包时选定。</p>
+<p>底图有两种可能的来源：</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>图层</dt>
+<dd>栅格图层。这对于获取在线图层例如WMS的离线拷贝或不支持的数据格式如ECW或MrSID的工作副本很有帮助。</dd>
+<dt>地图主题</dt>
+<dd>地图主题。这对于创建通过几个设定了样式的图层组合而成的底图很有帮助。这些图层可以从工作包中移除从而无须在设备上渲染。这样可以节省磁盘空间和设备电池消耗。</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>瓦片大小定义了空间分辨率。瓦片决定了每个像素对应的地图单位数量。如果地图画布CRS的单位是米，当瓦片大小设为1的时候，每个栅格像素的对应的空间范围是1米乘1米，如果瓦片大小设置为1000，每个栅格像素对应的空间范围则是1平方公里。</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="永久链接至标题">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>离线编辑配置<a class="headerlink" href="#offline-editing-configuration" title="永久链接至标题">¶</a></h3>
+<p>如果选择了*只同步兴趣范围内的要素*选项，只有地图画布范围内的要素在打包时会被拷贝到离线编辑工作副本中。</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="永久链接至标题">¶</a></h2>
-<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<h2>为QField打包<a class="headerlink" href="#package-for-qfield" title="永久链接至标题">¶</a></h2>
+<p>项目配置完成后，将其打包到一个文件夹中。该文件夹会包含.qgs文件及其中使用的数据。</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
-<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you'll have to re-open it later when you want to synchronize the changes.</p>
+<p>将文件夹复制到设备中。启动QField，打开项目就可以开始采集数据了。</p>
+<p>同时要记得使用QGIS的“定期另存为”功能保存QGIS项目，因为后期同步修改的时候需要重新打开该项目。</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="永久链接至标题">¶</a></h2>
-<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
-<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<h2>从QField同步<a class="headerlink" href="#synchronize-from-qfield" title="永久链接至标题">¶</a></h2>
+<p>当你需要同步采集的数据时，在QGIS中重新打开该项目（“定期另存为”的项目）。</p>
+<p>将项目文件夹从设备复制到计算机中，使用QFieldSync插件中的菜单项**从QField同步**，将修改的数据同步到主项目中。</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
 </div>
