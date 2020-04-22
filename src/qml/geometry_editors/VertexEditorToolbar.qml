@@ -52,12 +52,13 @@ VisibilityFadingRow {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
-    visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
-    bgcolor: Theme.mainColor
+    visible: featureModel.vertexModel.dirty
+    bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
       applyChanges( true )
-      finished()
+      if( !qfieldSettings.autoSave )
+        finished()
     }
   }
 

@@ -240,8 +240,7 @@ void VertexModel::updateGeometry( const QgsGeometry &geometry )
   int preservedIndex = mCurrentIndex;
   setGeometry( geometry );
   //since the index is shifted after reload, we decrement
-  mCurrentIndex = preservedIndex - 1;
-  setCurrentVertex( mCurrentIndex );
+  setCurrentVertex( preservedIndex - 1 );
 }
 
 VertexModel::EditingMode VertexModel::editingMode() const
