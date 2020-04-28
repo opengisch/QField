@@ -6,6 +6,7 @@ QtObject {
     readonly property color darkRed: "#900000"
     readonly property color darkGray: "#212121"
     readonly property color darkGraySemiOpaque: "#88212121"
+    readonly property color gray: "#888888"
     readonly property color lightGray: "#dddddd"
     readonly property color light: "#ffffff"
 
