@@ -1,7 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.11
+import QtQuick.Controls 2.11
 import QtMultimedia 5.8
 import Theme 1.0
-import QtQuick.Controls 1.4 as Controls
 
 Item{
   id : cameraItem
