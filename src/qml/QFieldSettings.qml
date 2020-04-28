@@ -12,22 +12,21 @@ import "."
 Page {
   signal finished
 
-  id: settings
-  property bool showScaleBar
-  property bool fullScreenIdentifyView
-  property bool locatorKeepScale
-  property bool incrementalRendering
-  property bool numericalDigitizingInformation
-  property bool nativeCamera
+  property alias showScaleBar: registry.showScaleBar
+  property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
+  property alias locatorKeepScale: registry.locatorKeepScale
+  property alias incrementalRendering: registry.incrementalRendering
+  property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
+  property alias nativeCamera: registry.nativeCamera
 
   Settings {
     id: registry
-    property alias showScaleBar: settings.showScaleBar
-    property alias fullScreenIdentifyView: settings.fullScreenIdentifyView
-    property alias locatorKeepScale: settings.locatorKeepScale
-    property alias incrementalRendering: settings.incrementalRendering
-    property alias numericalDigitizingInformation: settings.numericalDigitizingInformation
-    property alias nativeCamera: settings.nativeCamera
+    property bool showScaleBar
+    property bool fullScreenIdentifyView
+    property bool locatorKeepScale
+    property bool incrementalRendering
+    property bool numericalDigitizingInformation
+    property bool nativeCamera
   }
 
   ListModel {
