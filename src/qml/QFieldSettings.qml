@@ -79,13 +79,13 @@ Page {
 
       TabButton {
         height: 48*dp
-        text: qsTr("Layout")
+        text: qsTr("General")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
         height: 48*dp
-        text: qsTr("Global Variables")
+        text: qsTr("Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
