@@ -7,8 +7,6 @@ import Theme 1.0
 import ".." as QField
 import QtQuick.Window 2.2
 
-import org.qfield 1.0
-
 Item {
   signal valueChanged(var value, bool isNull)
 
