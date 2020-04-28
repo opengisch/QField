@@ -126,7 +126,7 @@ ColumnLayout {
     QfButton {
         id: addCustomVariableButton
         Layout.fillWidth: true
-        text: qsTr( "Add a new global variable" )
+        text: qsTr( "Add a new variable" )
 
         onClicked: {
             table.model.addCustomVariable( "new_variable" , "" );
