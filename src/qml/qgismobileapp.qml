@@ -148,6 +148,7 @@ ApplicationWindow {
 
     HoverHandler {
         id: hoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
         grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
         onPointChanged: {

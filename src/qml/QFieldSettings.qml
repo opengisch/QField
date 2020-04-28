@@ -18,6 +18,7 @@ Page {
   property alias incrementalRendering: registry.incrementalRendering
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias nativeCamera: registry.nativeCamera
+  property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
 
   Settings {
     id: registry
@@ -27,6 +28,7 @@ Page {
     property bool incrementalRendering
     property bool numericalDigitizingInformation
     property bool nativeCamera
+    property bool mouseAsTouchScreen
   }
 
   ListModel {
@@ -58,6 +60,11 @@ Page {
           title: QT_TR_NOOP( "Use native camera" )
           description: QT_TR_NOOP( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
           settingAlias: "nativeCamera"
+      }
+      ListElement {
+          title: QT_TR_NOOP( "Consider mouse as a touchscreen device" )
+          description: QT_TR_NOOP( "If disabled, the mouse will act as a stylus pen." )
+          settingAlias: "mouseAsTouchScreen"
       }
   }
 

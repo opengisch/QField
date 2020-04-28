@@ -26,6 +26,8 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
+  property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+
   // for signals, type can be "stylus" for any device click or "touch"
 
   //! This signal is emitted independently of an upcoming doubleClicked
@@ -101,6 +103,7 @@ Item {
 
     // stylus clicked
     TapHandler {
+      enabled: !mouseAsTouchScreen
       acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
       property bool longPressActive: false
 
@@ -122,7 +125,7 @@ Item {
 
     // touch clicked
     TapHandler {
-      acceptedDevices: PointerDevice.TouchScreen
+      acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
       property bool longPressActive: false
 
       onSingleTapped: {
@@ -144,7 +147,7 @@ Item {
     // zoom in/out on finger tap
     TapHandler {
         grabPermissions: PointerHandler.CanTakeOverFromItems
-        acceptedDevices: PointerDevice.TouchScreen
+        acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
 
         onSingleTapped: {
             if( point.modifiers === Qt.RightButton)
