@@ -167,6 +167,8 @@ Page {
       Item {
         VariableEditor {
           id: variableEditor
+          anchors.fill: parent
+          anchors.margins: 4 * dp
         }
       }
     }
