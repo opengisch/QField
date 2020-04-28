@@ -129,7 +129,7 @@ void RubberbandModel::insertVertices( int index, int count )
 
 void RubberbandModel::removeVertices( int index, int count )
 {
-  if ( mPointList.size() == 1 )
+  if ( mPointList.size() <= 1 )
     return;
 
   mPointList.remove( index, count );

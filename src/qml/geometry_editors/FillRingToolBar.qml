@@ -18,7 +18,6 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
     var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
     drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
     return true // handled
@@ -36,10 +35,6 @@ VisibilityFadingRow {
     id: drawPolygonToolbar
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
-
-    QuestionDialog{
-      id: questionDialog
-    }
 
     EmbeddedFeatureForm {
       id: formPopupLoader

@@ -31,7 +31,7 @@ VisibilityFadingRow {
 
   spacing: 4 * dp
 
-  signal editorChanged()
+  signal editorChanged
 
   GeometryEditorsModel {
     id: editors
@@ -109,14 +109,14 @@ VisibilityFadingRow {
     function load(qmlSource, iconPath, name){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
-      if (toolbarRow.item.screenHovering !== undefined)
-        toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
-      toolbarRow.item.stateVisible = true
+        if (toolbarRow.item.screenHovering !== undefined)
+          toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
+        toolbarRow.item.stateVisible = true
       displayToast(name)
     }
 
     onSourceChanged: {
-      editorChanged()
+      geometryEditorsToolbar.editorChanged()
     }
   }
 

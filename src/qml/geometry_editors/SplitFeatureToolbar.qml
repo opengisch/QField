@@ -20,7 +20,6 @@ VisibilityFadingRow {
 
   function canvasClicked(point)
   {
-    // TODO: is the snapping correctly handled (loss of precision by goinf through screen coords?)
     var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
     drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
     return true // handled
