@@ -1,139 +1,138 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls 1.4 as Controls
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.3
 
 import org.qfield 1.0
 import Theme 1.0
 
-Controls.TableView {
-  id: variableEditor
-  anchors.fill: parent
+ColumnLayout {
+    anchors.fill: parent
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    spacing: 4
 
-  function reset() {
-    Qt.inputMethod.hide()
-    variableEditor.model.reloadVariables()
-  }
+    Rectangle {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        color: "white"
+        border.color: "lightgray"
+        border.width: 1
 
-  function apply() {
-    variableEditor.model.save()
-  }
+        ListView {
+            id: table
+            model: ExpressionVariableModel {}
+            flickableDirection: Flickable.VerticalFlick
+            boundsBehavior: Flickable.StopAtBounds
+            clip: true
+            spacing: 1
 
-  model: ExpressionVariableModel {}
+            anchors.fill: parent
+            anchors.margins: 3 * dp
 
-  /* The column for the variable name */
-  Controls.TableViewColumn {
-    id : variableNameColumn
-    role: "VariableName"
-    title: "Name"
-    width: 200 * dp
+            function reset() {
+                Qt.inputMethod.hide()
+                table.model.reloadVariables()
+            }
 
-    delegate: Item {
-      anchors.fill: parent
-      anchors.leftMargin: 8 * dp
+            function apply() {
+                table.model.save()
+            }
 
-      TextField {
-        id: nameEditor
-        anchors.fill: parent
-        anchors.margins: 4*dp
-        text: styleData.value
-        visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font: Theme.defaultFont
+            delegate: Rectangle {
+                property var itemRow: index
+                property bool canDelete: table.model.isEditable( index )
 
-        onTextChanged: {
-          variableEditor.model.setName( styleData.row, text )
+                id: rectangle
+                width: parent.width
+                height: line.height
+                color: "#ffffff"
+
+                Row {
+                    id: line
+                    leftPadding: 4 * dp
+                    spacing: 5 * dp
+
+                    TextField {
+                        id: variableNameText
+                        width: 0.35 * table.width - 10 * dp
+                        topPadding: 10 * dp
+                        bottomPadding: 10 * dp
+                        leftPadding: 5 * dp
+                        rightPadding: 5 * dp
+                        text: VariableName
+                        enabled: table.model.isEditable(index)
+                        font: Theme.tipFont
+                        horizontalAlignment: TextInput.AlignLeft
+                        placeholderText: qsTr( "Enter name" )
+
+                        background: Rectangle {
+                            y: variableNameText.height - height - variableNameText.bottomPadding / 2
+                            implicitWidth: 120 * dp
+                            height: variableNameText.activeFocus ? 2 * dp : variableNameText.enabled ? 1 * dp : 0
+                            color: variableNameText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                        }
+
+                        onTextChanged: {
+                            table.model.setName( index, text )
+                        }
+                    }
+
+                    TextField {
+                        id: variableValueText
+                        width: 0.65 * table.width - 10 * dp - (canDelete ? 48 * dp : 0)
+                        topPadding: 10 * dp
+                        bottomPadding: 10 * dp
+                        leftPadding: 5 * dp
+                        rightPadding: 5 * dp
+                        text: VariableValue
+                        enabled: table.model.isEditable(index)
+                        font: Theme.tipFont
+                        horizontalAlignment: TextInput.AlignLeft
+                        placeholderText: qsTr( "Enter value" )
+
+                        background: Rectangle {
+                            y: variableValueText.height - height - variableValueText.bottomPadding / 2
+                            implicitWidth: 120 * dp
+                            height: variableValueText.activeFocus ? 2 * dp : variableNameText.enabled ? 1 * dp : 0
+                            color: variableValueText.activeFocus ? "#4CAF50" : "#C8E6C9"
+                        }
+
+                        onTextChanged: {
+                            table.model.setValue( index, text )
+                        }
+                    }
+
+                    Button {
+                        id: deleteVariableButton
+                        width: 48 * dp
+                        height: 48 * dp
+                        contentItem: Image {
+                            fillMode: Image.Pad
+                            horizontalAlignment: Image.AlignHCenter
+                            verticalAlignment: Image.AlignVCenter
+                            source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                        }
+                        visible: canDelete
+
+                        onClicked: {
+                            table.model.removeCustomVariable( index );
+                        }
+                    }
+                }
+            }
         }
-      }
-
-      Text {
-        anchors.fill: parent
-        text: qsTr( "[New variable name]" )
-        visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
-        color: "#7f8c8d"
-        font.italic: true
-        font.pointSize: Theme.defaultFont.pointSize
-      }
-
-      Text {
-        anchors.fill: parent
-        text: styleData.value
-        visible: !nameEditor.visible
-        color: variableEditor.model.isEditable( styleData.row ) ? "black" : "#7f8c8d"
-      }
     }
-  }
 
-  /* The column for the variable value */
-
-  Controls.TableViewColumn {
-    id : variableValueColumn
-    role: "VariableValue"
-    title: "Value"
-
-    width: variableEditor.width - variableNameColumn.width
-
-    delegate: Item {
-      anchors.fill: parent
-      anchors.leftMargin: 8 * dp
-
-      TextField {
-        id: varEditor
-        anchors.fill: parent
-        anchors.margins: 4*dp
-        text: styleData.value
-        visible: variableEditor.model.isEditable( styleData.row ) && styleData.selected
-        font: Theme.defaultFont
-
-        onTextChanged: {
-          variableEditor.model.setValue( styleData.row, text )
-        }
-      }
-
-      Text {
-        anchors.fill: parent
-        text: qsTr( "[New variable value]" )
-        visible: styleData.value === '' && variableEditor.model.isEditable( styleData.row ) && !styleData.selected
-        color: "#7f8c8d"
-        font.italic: true
-        font.pointSize: Theme.defaultFont.pointSize
-      }
-
-      Text {
-        anchors.fill: parent
-        text: styleData.value
-        visible: !varEditor.visible
-        color: variableEditor.model.isEditable( styleData.row ) ? "black" : "#7f8c8d"
-      }
-
-      Button {
-        width: 48 * dp
-        height: 48 * dp
-        contentItem: Image {
-          fillMode: Image.Pad
-          horizontalAlignment: Image.AlignHCenter
-          verticalAlignment: Image.AlignVCenter
-          source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-        }
-        anchors.right: parent.right
-        visible: styleData.value !== '' && variableEditor.model.isEditable( styleData.row )
+    QfButton {
+        id: addCustomVariableButton
+        Layout.fillWidth: true
+        text: qsTr( "Add a new global variable" )
 
         onClicked: {
-          variableEditor.model.removeCustomVariable( styleData.row );
+            table.model.addCustomVariable( "new_variable" , "" );
+            table.positionViewAtIndex( table.count - 1, ListView.visible );
+            // TODO: Use Qt 5.13 itemAtIndex( index )
+            table.children[0].children[table.count].children[0].children[0].forceActiveFocus();
         }
-      }
     }
-  }
-
-  rowDelegate: Rectangle {
-     height: 48 * dp
-     SystemPalette {
-        id: myPalette;
-        colorGroup: SystemPalette.Active
-     }
-     color: {
-       var baseColor = styleData.alternate ? myPalette.alternateBase : myPalette.base
-       // Using the selection color renders the text input almost unusable
-       // return styleData.selected ? myPalette.highlight : baseColor
-       return baseColor
-     }
-  }
 }

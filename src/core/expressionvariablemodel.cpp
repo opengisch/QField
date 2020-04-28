@@ -95,7 +95,6 @@ void ExpressionVariableModel::reloadVariables()
       addCustomVariable( varName, scope->variable( varName ).toString() );
     }
   }
-  addCustomVariable( QString(), QString() );
 }
 
 bool ExpressionVariableModel::isEditable( int row )
@@ -132,6 +131,4 @@ void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const Q
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
-  if ( topLeft.row() == rowCount() - 1 )
-    addCustomVariable( QString(), QString() );
 }
