@@ -343,4 +343,9 @@ Item {
       calendar.resetDate()
     }
   }
+
+  FontMetrics {
+    id: fontMetrics
+    font: label.font
+  }
 }

@@ -38,8 +38,10 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( QgsPoint currentPoint READ currentPoint WRITE setCurrentPoint NOTIFY currentPointChanged )
     //! Map settings is used to define the map canvas CRS and detect any extent change
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    //! number of points in the model
+    //! number of vertices in the model
     Q_PROPERTY( int vertexCount READ vertexCount NOTIFY vertexCountChanged )
+    //! number of rings in the model
+    Q_PROPERTY( int ringCount READ ringCount NOTIFY ringCountChanged )
     //! determines if the model has changes
     Q_PROPERTY( bool dirty READ dirty NOTIFY dirtyChanged )
     //! determines if the model allows editing the geometry
@@ -69,6 +71,8 @@ class VertexModel : public QStandardItemModel
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
       SegmentVertexRole,
+      OriginalPointRole,
+      RingIdRole,
     };
 
     enum EditingMode
@@ -136,6 +140,8 @@ class VertexModel : public QStandardItemModel
 
     //! \copydoc vertexCount
     int vertexCount() const;
+    //! \copyddoc ringCount
+    int ringCount() const;
 
     //! \copydoc dirty
     bool dirty() const;
@@ -152,8 +158,15 @@ class VertexModel : public QStandardItemModel
     //! Returns the geometry type
     QgsWkbTypes::GeometryType geometryType() const;
 
-    //! list of points. Segment vertex, if any, will be skipped.
-    QVector<QgsPoint> flatVertices() const;
+    //! Returns a list of point (segment vertex, if any, will be skipped)
+    //! For a polygon, if ringId is not given the current ring will be returned
+    QVector<QgsPoint> flatVertices( int ringId = -1) const;
+
+    //! Returns a list of moved vertices found in linked geometry
+    QVector<QPair<QgsPoint,QgsPoint>> verticesMoved() const;
+
+    //! Returns a list of added vertices not found in linked geometry
+    QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -166,6 +179,8 @@ class VertexModel : public QStandardItemModel
     void mapSettingsChanged();
     //! \copydoc vertexCount
     void vertexCountChanged();
+    //! \copydoc ringCount
+    void ringCountChanged();
     //! \copydoc dirty
     void dirtyChanged();
     //! \copydoc canRemoveVertex
@@ -201,6 +216,9 @@ class VertexModel : public QStandardItemModel
     QgsCoordinateTransform mTransform = QgsCoordinateTransform();
     bool mIsMulti = false;
     bool mDirty = false;
+
+    QVector<QgsPoint> mVerticesDeleted;
+
     /**
      * @brief setCurrentVertex set the current vertex viewed/edited in the model
      * @param newVertex the new vertex index
@@ -212,13 +230,15 @@ class VertexModel : public QStandardItemModel
     {
       QgsPoint point;
       int index;
+      int ringId;
     };
-    Centroid segmentCentroid( int leftIndex, int rightIndex,
-                              bool isExtending = false );
+    Centroid segmentCentroid(int leftIndex, int rightIndex,
+                              bool isExtending = false, bool goingForward = true);
 
     EditingMode mMode = NoEditing;
     //!
     int mCurrentIndex = -1;
+    int mRingCount = 0;
     QgsWkbTypes::GeometryType mGeometryType = QgsWkbTypes::LineGeometry;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mCanRemoveVertex = false;

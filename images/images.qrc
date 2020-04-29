@@ -172,6 +172,16 @@
         <file>themes/qfield/xhdpi/ic_settings_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_settings_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_settings_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_topology_green_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_topology_green_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_topology_green_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_topology_green_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_topology_green_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_topology_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_topology_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/mdpi/ic_clear_black_18dp.png</file>
         <file>themes/qfield/xhdpi/ic_clear_black_18dp.png</file>
@@ -268,16 +278,26 @@
         <file>themes/qfield/xhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxxhdpi/baseline_photo_library_black_48.png</file>
+        <file>themes/qfield/hdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_vertex_tool_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_vertex_tool_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_vertex_tool_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_vertex_tool_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_vertex_tool_white_24dp.png</file>
         <file>themes/qfield/hdpi/content-cut.png</file>
         <file>themes/qfield/mdpi/content-cut.png</file>
         <file>themes/qfield/xhdpi/content-cut.png</file>
         <file>themes/qfield/xxhdpi/content-cut.png</file>
         <file>themes/qfield/xxxhdpi/content-cut.png</file>
-        <file>themes/qfield/hdpi/ray-vertex.png</file>
-        <file>themes/qfield/mdpi/ray-vertex.png</file>
-        <file>themes/qfield/xhdpi/ray-vertex.png</file>
-        <file>themes/qfield/xxhdpi/ray-vertex.png</file>
-        <file>themes/qfield/xxxhdpi/ray-vertex.png</file>
         <file>themes/qfield/hdpi/picture_in_picture.png</file>
         <file>themes/qfield/mdpi/picture_in_picture.png</file>
         <file>themes/qfield/xhdpi/picture_in_picture.png</file>

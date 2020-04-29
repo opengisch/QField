@@ -32,9 +32,9 @@ VisibilityFadingRow {
     id: editors
   }
   Component.onCompleted: {
-    editors.addEditor(qsTr("Vertex Tool"), "ray-vertex", "VertexEditorToolbar.qml")
-    editors.addEditor(qsTr("Split Tool"), "content-cut", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
-    editors.addEditor(qsTr("Fill Ring Tool"), "picture_in_picture", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "VertexEditorToolbar.qml")
+    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
   function init() {
@@ -105,6 +105,7 @@ VisibilityFadingRow {
     visible: !selectorRow.stateVisible && !( toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking )
     bgcolor: Theme.mainColor
     onClicked: {
+      toolbarRow.item.cancel()
       toolbarRow.source = ''
       selectorRow.stateVisible = true
     }

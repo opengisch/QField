@@ -36,7 +36,7 @@ QgsGeometry Geometry::asQgsGeometry() const
     {
       QgsPolygon *polygon = new QgsPolygon();
       QgsLineString *ring = new QgsLineString();
-      ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType() ) );
+      ring->setPoints( mRubberbandModel->pointSequence( mVectorLayer->crs(), mVectorLayer->wkbType(), true ) );
       polygon->setExteriorRing( ring );
       geom = polygon;
       break;
@@ -72,6 +72,14 @@ void Geometry::setRubberbandModel( RubberbandModel *rubberbandModel )
 void Geometry::applyRubberband()
 {
   // TODO: Will need to be implemented for multipart features or polygons with holes.
+}
+
+void Geometry::updateRubberband( const QgsGeometry &geometry )
+{
+  if ( !mRubberbandModel )
+    return;
+
+  mRubberbandModel->setDataFromGeometry( geometry );
 }
 
 QgsVectorLayer *Geometry::vectorLayer() const

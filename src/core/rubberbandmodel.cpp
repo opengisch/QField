@@ -250,6 +250,36 @@ void RubberbandModel::reset()
   emit frozenChanged();
 }
 
+void RubberbandModel::setDataFromGeometry( const QgsGeometry &geometry )
+{
+  if ( geometry.type() != mGeometryType )
+    return;
+
+  mPointList.clear();
+  const QgsAbstractGeometry *abstractGeom = geometry.constGet();
+  if ( !abstractGeom )
+    return;
+
+  QgsVertexId vertexId;
+  QgsPoint pt;
+  while ( abstractGeom->nextVertex( vertexId, pt ) )
+  {
+    if ( vertexId.part > 1 || vertexId.ring > 0 )
+      break;
+
+    // skip first vertex on polygon, as it's duplicate of the last one
+    if ( geometry.type() == QgsWkbTypes::PolygonGeometry && vertexId.vertex == 0 )
+      continue;
+
+    mPointList << pt;
+  }
+
+  mCurrentCoordinateIndex = mPointList.size() - 1;
+
+  emit verticesInserted( 0, mPointList.size() );
+  emit vertexCountChanged();
+}
+
 QgsWkbTypes::GeometryType RubberbandModel::geometryType() const
 {
   return mGeometryType;

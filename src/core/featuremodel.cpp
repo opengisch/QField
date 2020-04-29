@@ -25,7 +25,6 @@
 #include <QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 
-
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
 {
@@ -234,6 +233,13 @@ bool FeatureModel::save()
   QgsFeature feat = mFeature;
   if ( !mLayer->updateFeature( feat ) )
     QgsMessageLog::logMessage( tr( "Cannot update feature" ), "QField", Qgis::Warning );
+
+  if ( QgsProject::instance()->topologicalEditing() )
+  {
+    applyVertexModelToLayerTopography();
+    mLayer->addTopologicalPoints( feat.geometry() );
+  }
+
   rv = commit();
 
   if ( rv )
@@ -313,7 +319,26 @@ void FeatureModel::resetAttributes()
 
 void FeatureModel::applyGeometry()
 {
-  mFeature.setGeometry( mGeometry->asQgsGeometry() );
+  QgsGeometry geometry = mGeometry->asQgsGeometry();
+
+  QList<QgsVectorLayer *> intersectionLayers;
+  switch ( QgsProject::instance()->avoidIntersectionsMode() )
+  {
+    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+      intersectionLayers.append( mLayer );
+      break;
+    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+      intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+      break;
+    case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+      break;
+  }
+  if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
+  {
+    geometry.avoidIntersections( intersectionLayers );
+  }
+
+  mFeature.setGeometry( geometry  );
 }
 
 void FeatureModel::removeLayer( QObject *layer )
@@ -332,11 +357,15 @@ void FeatureModel::create()
     return;
 
   startEditing();
+
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
   if ( !mLayer->addFeature( mFeature ) )
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
   }
+
+  if ( QgsProject::instance()->topologicalEditing() )
+    mLayer->addTopologicalPoints( mFeature.geometry() );
 
   if ( commit() )
   {
@@ -439,7 +468,94 @@ void FeatureModel::applyVertexModelToGeometry()
   mFeature.setGeometry( mVertexModel->geometry() );
 }
 
+// a filter to gather all matches at the same place
+// taken from QGIS' qgsvectortool.cpp
+class MatchCollectingFilter : public QgsPointLocator::MatchFilter
+{
+  public:
+    QList<QgsPointLocator::Match> matches;
+
+    MatchCollectingFilter() {}
+
+    bool acceptMatch( const QgsPointLocator::Match &match ) override
+    {
+      if ( match.distance() > 0 )
+        return false;
+
+      // there may be multiple points at the same location, but we get only one
+      // result... the locator API needs a new method verticesInRect()
+      QgsFeature f;
+      match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
+      QgsGeometry matchGeom  = f.geometry();
+      bool isPolygon = matchGeom.type() == QgsWkbTypes::PolygonGeometry;
+      QgsVertexId polygonRingVid;
+      QgsVertexId vid;
+      QgsPoint pt;
+      while ( matchGeom.constGet()->nextVertex( vid, pt ) )
+      {
+        int vindex = matchGeom.vertexNrFromVertexId( vid );
+        if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
+        {
+          if ( isPolygon )
+          {
+            // for polygons we need to handle the case where the first vertex is matching because the
+            // last point will have the same coordinates and we would have a duplicate match which
+            // would make subsequent code behave incorrectly (topology editing mode would add a single
+            // vertex twice)
+            if ( vid.vertex == 0 )
+            {
+              polygonRingVid = vid;
+            }
+            else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
+            {
+              continue;
+            }
+          }
+
+          QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
+                                              0, match.point(), vindex );
+          matches.append( extra_match );
+        }
+      }
+      return true;
+    }
+};
+
+void FeatureModel::applyVertexModelToLayerTopography()
+{
+  if ( !mVertexModel )
+    return;
+
+  QgsPointLocator *loc = new QgsPointLocator( mLayer );
+  const QVector<QPair<QgsPoint,QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
+  for ( const auto &point : pointsMoved )
+  {
+    MatchCollectingFilter filter;
+    loc->nearestVertex( point.first, 0, &filter );
+    for ( int i = 0; i < filter.matches.size(); i++ )
+    {
+      mLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+    }
+  }
+
+  const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
+  for ( const auto &point : pointsDeleted )
+  {
+    MatchCollectingFilter filter;
+    loc->nearestVertex( point, 0, &filter );
+    for ( int i = 0; i < filter.matches.size(); i++ )
+    {
+      mLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+    }
+  }
+}
+
 QVector<bool> FeatureModel::rememberedAttributes() const
 {
   return mRememberings[mLayer].rememberedAttributes;
+}
+
+void FeatureModel::updateRubberband() const
+{
+  mGeometry->updateRubberband( mFeature.geometry() );
 }

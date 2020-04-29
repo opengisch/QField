@@ -23,6 +23,7 @@
 #include <qgis.h>
 #include <qgspoint.h>
 #include <qgsabstractgeometry.h>
+#include <qgsgeometry.h>
 
 class QgsVectorLayer;
 
@@ -113,6 +114,12 @@ class RubberbandModel : public QObject
     void setFrozen( const bool &frozen );
 
     void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
+
+    /**
+     * Sets the model data to match a given \a geometry
+     * \note rings and multiparts are discarded
+     */
+    void setDataFromGeometry( const QgsGeometry &geometry );
 
   signals:
     void vertexChanged( int index );

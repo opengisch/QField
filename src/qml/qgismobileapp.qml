@@ -509,7 +509,51 @@ ApplicationWindow {
   }
 
   Column {
-    id: mainToolBar
+    id: mainToolbar
+    anchors.left: mainMenuBar.left
+    anchors.top: mainMenuBar.bottom
+    anchors.leftMargin: 4 * dp
+    spacing: 4 * dp
+
+    Button {
+      id: topologyButton
+      round: true
+      visible: stateMachine.state === "digitize" && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
+      state: qgisProject.topologicalEditing ? "On" : "Off"
+      iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      states: [
+        State {
+
+          name: "Off"
+          PropertyChanges {
+            target: topologyButton
+            iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
+            bgcolor: "#88212121"
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: topologyButton
+            iconSource: Theme.getThemeIcon( "ic_topology_green_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
+        displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+      }
+    }
+  }
+
+  Column {
+    id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4 * dp
     anchors.bottom: mapCanvas.bottom
@@ -660,6 +704,7 @@ ApplicationWindow {
           digitizingFeature.geometry.applyRubberband()
           digitizingFeature.applyGeometry()
           digitizingRubberband.model.frozen = true
+          digitizingFeature.updateRubberband()
         }
 
         if ( !digitizingFeature.suppressFeatureForm() )
@@ -1001,6 +1046,12 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onEditGeometry: {
+      // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
+      // important for snapping settings to make sense when set to current layer
+      if ( dashBoard.currentLayer != featureForm.selection.selectedLayer ) {
+        dashBoard.currentLayer = featureForm.selection.selectedLayer
+        displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
+      }
       vertexModel.geometry = featureForm.selection.selectedGeometry
       vertexModel.crs = featureForm.selection.selectedLayer.crs
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
@@ -1365,7 +1416,7 @@ ApplicationWindow {
           toast.open()
           toastContent.visible = true
           toast.opacity = 1
-          toastTimer.start()
+          toastTimer.restart()
       }
 
       Behavior on opacity {
