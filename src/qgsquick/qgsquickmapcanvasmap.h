@@ -196,6 +196,8 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QList<QMetaObject::Connection> mLayerConnections;
     QTimer mMapUpdateTimer;
     bool mIncrementalRendering = false;
+
+    QSizeF mOutputSize;
 };
 
 #endif // QGSQUICKMAPCANVASMAP_H

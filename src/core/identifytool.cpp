@@ -58,7 +58,7 @@ void IdentifyTool::identify( const QPointF &point ) const
 
   mModel->clear();
 
-  QgsPointXY mapPoint = mMapSettings->mapSettings().mapToPixel().toMapCoordinates( point.toPoint() );
+  QgsPointXY mapPoint = mMapSettings->screenToCoordinate( point );
 
   const QList<QgsMapLayer *> layers { mMapSettings->mapSettings().layers() };
   for ( QgsMapLayer *layer : layers )
