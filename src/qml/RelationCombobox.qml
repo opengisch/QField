@@ -2,11 +2,11 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.12
-import "." as QField
-import Theme 1.0
 
 import org.qfield 1.0
 import org.qgis 1.0
+import Theme 1.0
+import "." as QField
 
 Item {
   id: relationCombobox
