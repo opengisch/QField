@@ -102,7 +102,7 @@
 <li><a class="reference internal" href="#forms-and-fields">Formulários e Campos</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir Formulário de Elemento</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de Campo</a><ul>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a></li>
+<li><a class="reference internal" href="#relation-widget">Widget de Relação</a></li>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
@@ -290,7 +290,7 @@
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td>Widget de Relação</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -301,17 +301,17 @@
 </tbody>
 </table>
 <div class="section" id="relation-widget">
-<h4>Relation Widget<a class="headerlink" href="#relation-widget" title="Link permanente para este título">¶</a></h4>
-<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<h4>Widget de Relação<a class="headerlink" href="#relation-widget" title="Link permanente para este título">¶</a></h4>
+<p>Para obter mais informações, consulte o capítulo de relações da <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">documentação oficial QGIS</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It’s possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
-<p><strong>Key handling</strong></p>
-<p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
+<p>O widget de relação mostra todos as feições filhas de referência em uma lista. É possível adicionar, excluir e abri-las.</p>
+<p>A identificação visual das entradas da lista é feita com uma Expressão de exibição na camada filha.</p>
+<p><strong>Manuseio de chaves</strong></p>
+<p>Como as chaves primárias dos pais são usadas como chaves estrangeiras nos elementos filhos de referência, essas chaves primárias devem ser salvas para uso mesmo após a sincronização com os dados originais. Portanto, recomendamos o uso de valores estáveis, como UUIDs, para chaves primárias.</p>
 <p>Child features can be added before the parent is finaly saved - means while adding a parent. But it’s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
 <p><strong>Many-To-Many relations</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
