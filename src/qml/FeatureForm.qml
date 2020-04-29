@@ -229,6 +229,7 @@ Page {
         width: parent.width
         text: Name || ''
         wrapMode: Text.WordWrap
+        font.pointSize: 12
         font.bold: true
         color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
@@ -241,7 +242,7 @@ Page {
           top: fieldLabel.bottom
         }
 
-        font.pixelSize: fieldLabel.font.pixelSize/3*2
+        font.pointSize: fieldLabel.font.pointSize/3*2
         text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
         height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
