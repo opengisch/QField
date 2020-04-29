@@ -70,7 +70,8 @@ Item {
   MapCanvasMap {
     id: mapCanvasWrapper
 
-    anchors.fill: parent
+    width: mapArea.width
+    height: mapArea.height
 
     property var __freezecount: ({})
 
