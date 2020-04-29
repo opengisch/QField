@@ -278,7 +278,7 @@ void QgisMobileapp::initDeclarative()
   int dpiX = QApplication::desktop()->physicalDpiX();
   int dpiY = QApplication::desktop()->physicalDpiY();
   int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
-  float dp = dpi * 0.00768443;
+  float dp = 1;
 
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );

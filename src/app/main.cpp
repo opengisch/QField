@@ -88,7 +88,7 @@ int main( int argc, char **argv )
   delete dummyApp;
 #endif
 
-
+  QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
 #ifdef ANDROID
   QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
   qInstallMessageHandler( qfMessageHandler );
