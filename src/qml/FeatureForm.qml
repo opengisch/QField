@@ -1,6 +1,7 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.11
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.11
 import QtQml 2.3
@@ -8,7 +9,6 @@ import QtQml 2.3
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import QtQuick.Controls.Styles 1.4
 import "."
 
 Page {

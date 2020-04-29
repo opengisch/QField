@@ -15,15 +15,16 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.2
+import QtPositioning 5.11
+
 import org.qgis 1.0
 import org.qfield 1.0
-import QtPositioning 5.11
 import Theme 1.0
 
 import '.'
