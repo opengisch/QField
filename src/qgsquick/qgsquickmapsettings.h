@@ -180,7 +180,7 @@ class QgsQuickMapSettings : public QObject
     QSize outputSize() const;
 
     //! \copydoc QgsMapSettings::setOutputSize()
-    void setOutputSize( const QSize &outputSize );
+    void setOutputSize( QSize outputSize );
 
     //! \copydoc QgsMapSettings::outputDpi()
     double outputDpi() const;
@@ -199,6 +199,10 @@ class QgsQuickMapSettings : public QObject
 
     //! \copydoc QgsMapSettings::setLayers()
     void setLayers( const QList<QgsMapLayer *> &layers );
+
+    qreal devicePixelRatio() const { return mDevicePixelRatio; }
+
+    void setDevicePixelRatio( const qreal ratio ) { mDevicePixelRatio = ratio; }
 
   signals:
     //! \copydoc QgsQuickMapSettings::project
@@ -243,6 +247,7 @@ class QgsQuickMapSettings : public QObject
   private:
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
+    qreal mDevicePixelRatio = 1.0;
 
 };
 
