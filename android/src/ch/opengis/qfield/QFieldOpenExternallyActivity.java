@@ -22,9 +22,8 @@ import java.text.SimpleDateFormat;
 
 public class QFieldOpenExternallyActivity extends Activity{
     private static final String TAG = "QField Open (file) Externally Activity";
-    private String filePath;
-    private String mimeType;
-    private String tempFileName;
+    private File file;
+    private File cacheFile;
     private String errorMessage;
 
     @Override
@@ -32,12 +31,12 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
-        filePath = getIntent().getExtras().getString("filepath");
-        mimeType = getIntent().getExtras().getString("filetype");
+        String filePath = getIntent().getExtras().getString("filepath");
+        String mimeType = getIntent().getExtras().getString("filetype");
         Log.d(TAG, "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
-        File file = new File(filePath);
-        File cacheFile = new File(getCacheDir(), file.getName());
+        file = new File(filePath);
+        cacheFile = new File(getCacheDir(), file.getName());
 
         //copy file to a temporary file
         try{
@@ -54,6 +53,7 @@ public class QFieldOpenExternallyActivity extends Activity{
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_EDIT);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
         try{
             startActivityForResult(intent, 102);
@@ -66,12 +66,14 @@ public class QFieldOpenExternallyActivity extends Activity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) 
     {
-      //on ACTION_EDIT back key pressed it returns RESULT_CANCEL - on error as well
-      if (resultCode == RESULT_OK) {
+      // copy temporary file back
+      try{
+          copyFile( cacheFile, file );
           Intent intent = this.getIntent();
           setResult(RESULT_OK, intent);
-      } else {
+      }catch(IOException e){
           Intent intent = this.getIntent();
+          Log.d(TAG, e.getMessage());
           intent.putExtra("ERROR_MESSAGE", errorMessage);
           setResult(RESULT_CANCELED, intent);
       }
