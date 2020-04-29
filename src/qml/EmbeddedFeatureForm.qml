@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+
 import org.qfield 1.0
 
 Popup {
