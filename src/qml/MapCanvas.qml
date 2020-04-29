@@ -54,7 +54,8 @@ Item {
   MapCanvasMap {
     id: mapCanvasWrapper
 
-    anchors.fill: parent
+    width: mapArea.width
+    height: mapArea.height
 
     property var __freezecount: ({})
 
@@ -64,7 +65,8 @@ Item {
   PinchArea {
     id: pinchArea
 
-    anchors.fill: parent
+    width: mapArea.width
+    height: mapArea.height
 
     onPinchStarted: {
       freeze('pinch')
@@ -87,7 +89,8 @@ Item {
       property point __initialPosition
       property point __lastPosition
 
-      anchors.fill : parent
+      width: mapArea.width
+      height: mapArea.height
 
       onDoubleClicked: {
         clickedTimer.stop()
