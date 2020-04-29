@@ -50,9 +50,9 @@ public class QFieldOpenExternallyActivity extends Activity{
         Uri contentUri =  Build.VERSION.SDK_INT < 24 ? Uri.fromFile(file) : FileProvider.getUriForFile( this, BuildConfig.APPLICATION_ID+".fileprovider", cacheFile );
 
         Log.d(TAG, "content URI: " + contentUri);
-        Log.d(TAG, "call ACTION_VIEW intent");
+        Log.d(TAG, "call ACTION_EDIT intent");
         Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
+        intent.setAction(Intent.ACTION_EDIT);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(contentUri, mimeType);
         try{
@@ -66,7 +66,7 @@ public class QFieldOpenExternallyActivity extends Activity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) 
     {
-      //on ACTION_VIEW back key pressed it returns RESULT_CANCEL - on error as well
+      //on ACTION_EDIT back key pressed it returns RESULT_CANCEL - on error as well
       if (resultCode == RESULT_OK) {
           Intent intent = this.getIntent();
           setResult(RESULT_OK, intent);
