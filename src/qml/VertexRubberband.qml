@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQml 2.2
+import QtQml 2.3
 
 import org.qgis 1.0
 import org.qfield 1.0
