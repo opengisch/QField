@@ -1,11 +1,12 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
+import QtQuick.Layouts 1.12
+import QtPositioning 5.3
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import QtQuick.Layouts 1.3
-import QtPositioning 5.3
 
 import '.'
 

@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.11
 
 import org.qgis 1.0
 import Theme 1.0

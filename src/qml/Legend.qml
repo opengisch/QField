@@ -2,12 +2,12 @@ import QtQuick 2.12
 
 import QtGraphicalEffects 1.12
 import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.1
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Layouts 1.12
+import QtQml.Models 2.2
+
 import org.qgis 1.0
 import org.qfield 1.0
-import QtQml.Models 2.2
-import QtQuick.Controls.Styles 1.4
-
 import Theme 1.0
 import "."
 
