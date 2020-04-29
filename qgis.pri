@@ -23,8 +23,8 @@ include( paths.pri )
 android {
   QGIS_INSTALL_PATH = $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/files
   INCLUDEPATH += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/include/qgis
-  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core.so
-  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_analysis.so
+  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_core_$${ANDROID_TARGET_ARCH}.so
+  LIBS += $${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib/libqgis_analysis_$${ANDROID_TARGET_ARCH}.so
 }
 
 macx {
