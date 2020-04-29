@@ -1,8 +1,9 @@
-import QtQuick 2.4
-import "ui"
+import QtQuick 2.12
 
 import org.qgis 1.0
 import org.qfield 1.0
+
+import "ui"
 
 LayerTreeItemProperties {
   property var layerTree

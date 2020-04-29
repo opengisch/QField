@@ -1,9 +1,10 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4 as Controls
-import Theme 1.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
-
+import Theme 1.0
+import "."
 
 Item {
   id: locatorItem
@@ -27,7 +28,7 @@ Item {
     }
   }
 
-  Controls.TextField {
+  TextField {
     id: searchField
     placeholderText: qsTr("Search…")
     onTextEdited: locator.performSearch(searchField.text)
@@ -53,7 +54,7 @@ Item {
     }
   }
 
-  Controls.BusyIndicator {
+  BusyIndicator {
     id: busyIndicator
     running: locator.isRunning
     anchors.right: searchField.right

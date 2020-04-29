@@ -1,11 +1,12 @@
-import QtQuick 2.5
-import QtQuick.Controls 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
+import QtQuick.Window 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 import ".." as QField
-import QtQuick.Window 2.2
 
 Item {
   signal valueChanged(var value, bool isNull)
