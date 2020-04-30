@@ -21,9 +21,9 @@
 #include "qgspostgresstringutils.h"
 #endif
 
-FeatureCheckListModel::FeatureCheckListModel()
+FeatureCheckListModel::FeatureCheckListModel(QObject *parent)
+    : FeatureListModel(parent)
 {
-
 }
 
 QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
@@ -33,6 +33,7 @@ QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   }
   else
+    qDebug() << index.row() << role << FeatureListModel::data( index, role );
     return FeatureListModel::data( index, role );
 }
 

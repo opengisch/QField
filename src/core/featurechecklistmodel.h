@@ -35,11 +35,11 @@ class FeatureCheckListModel : public FeatureListModel
     Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
 
   public:
-    FeatureCheckListModel();
+    FeatureCheckListModel(QObject* parent = nullptr);
 
     enum FeatureListRoles
     {
-      CheckedRole
+      CheckedRole = Qt::UserRole + 100 // do not overlap with the roles of the base model
     };
 
     virtual QVariant data( const QModelIndex &index, int role ) const override;
