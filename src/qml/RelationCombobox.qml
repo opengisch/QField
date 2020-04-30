@@ -26,6 +26,7 @@ Item {
 
   property var currentKeyValue: value
   onCurrentKeyValueChanged: {
+    comboBox._cachedCurrentValue = currentKeyValue
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
@@ -53,12 +54,8 @@ Item {
       Connections {
         target: featureListModel
 
-        onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = relationCombobox.currentKeyValue
-        }
-
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(relationCombobox.currentKeyValue)
+          comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue)
         }
       }
 
@@ -140,7 +137,13 @@ Item {
 
       onFeatureSaved: {
           var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          comboBox.currentIndex = featureListModel.findKey(referencedValue)
+          var index = featureListModel.findKey(referencedValue)
+          if ( index < 0 ) {
+            // model not yet reloaded - keep the value and set it onModelReset
+            comboBox._cachedCurrentValue = referencedValue
+          } else {
+            comboBox.currentIndex = index
+          }
       }
   }
 }
