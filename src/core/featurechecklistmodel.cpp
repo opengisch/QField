@@ -15,23 +15,21 @@
  ***************************************************************************/
 
 #include "featurechecklistmodel.h"
-#include "qgsvaluerelationfieldformatter.h"
 #include "qgsmessagelog.h"
+#include "qgsvaluerelationfieldformatter.h"
 #if VERSION_INT >= 30600
 #include "qgspostgresstringutils.h"
 #endif
 
-FeatureCheckListModel::FeatureCheckListModel()
+FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
+  : FeatureListModel( parent )
 {
-
 }
 
 QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == CheckedRole )
-  {
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
-  }
   else
     return FeatureListModel::data( index, role );
 }
@@ -73,7 +71,7 @@ QVariant FeatureCheckListModel::attributeValue() const
   for ( const QString &s : qgis::as_const( mCheckedEntries ) )
   {
     // Convert to proper type
-    const QVariant::Type type { fkType() };
+    const QVariant::Type type {fkType()};
     switch ( type )
     {
       case QVariant::Type::Int:
@@ -88,8 +86,7 @@ QVariant FeatureCheckListModel::attributeValue() const
     }
   }
 
-  if ( mAttributeField.type() == QVariant::Map ||
-       mAttributeField.type() == QVariant::List )
+  if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
   {
     value = vl;
   }
@@ -168,7 +165,7 @@ QVariant::Type FeatureCheckListModel::fkType() const
   if ( currentLayer() )
   {
     QgsFields fields = currentLayer()->fields();
-    int idx { fields.indexOf( keyField() ) };
+    int idx {fields.indexOf( keyField() )};
     if ( idx >= 0 )
     {
       return fields.at( idx ).type();

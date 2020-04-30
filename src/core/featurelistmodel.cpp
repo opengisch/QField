@@ -14,12 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 #include "featurelistmodel.h"
-
 #include "qgsvectorlayer.h"
+
 #include <qgsproject.h>
 
-FeatureListModel::FeatureListModel()
-  : mCurrentLayer( nullptr )
+FeatureListModel::FeatureListModel( QObject *parent )
+  : QAbstractItemModel( parent )
+  , mCurrentLayer( nullptr )
 {
   mReloadTimer.setInterval( 100 );
   mReloadTimer.setSingleShot( true );
@@ -178,6 +179,8 @@ void FeatureListModel::processReloadLayer()
   if ( !keyField().isNull() )
     referencedColumns << mKeyField;
 
+  referencedColumns << mDisplayValueField;
+
   QgsFields fields = mCurrentLayer->fields();
 
   request.setSubsetOfAttributes( referencedColumns, fields );
@@ -205,8 +208,7 @@ void FeatureListModel::processReloadLayer()
 
   if ( mOrderByValue )
   {
-    qSort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
+    qSort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() )
         return true;
 

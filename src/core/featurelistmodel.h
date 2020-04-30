@@ -29,128 +29,128 @@ class QgsVectorLayer;
  */
 class FeatureListModel : public QAbstractItemModel
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    /**
+  /**
      * The vector layer to list
      */
-    Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
-    /**
+  Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
+  /**
      * The primary key field
      */
-    Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
-    /**
+  Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
+  /**
      * The display value field
      */
-    Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
+  Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
-    Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
+  Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
-    Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
+  Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
-  public:
-    enum FeatureListRoles
-    {
-      KeyFieldRole = Qt::UserRole + 1,
-      DisplayStringRole
-    };
+public:
+  enum FeatureListRoles
+  {
+    KeyFieldRole = Qt::UserRole + 1,
+    DisplayStringRole
+  };
 
-    Q_ENUM( FeatureListRoles )
+  Q_ENUM( FeatureListRoles )
 
-    FeatureListModel();
+  FeatureListModel( QObject *parent = nullptr );
 
-    virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
-    virtual QModelIndex parent( const QModelIndex &child ) const override;
-    virtual int rowCount( const QModelIndex &parent ) const override;
-    virtual int columnCount( const QModelIndex &parent ) const override;
-    virtual QVariant data( const QModelIndex &index, int role ) const override;
+  virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+  virtual QModelIndex parent( const QModelIndex &child ) const override;
+  virtual int rowCount( const QModelIndex &parent ) const override;
+  virtual int columnCount( const QModelIndex &parent ) const override;
+  virtual QVariant data( const QModelIndex &index, int role ) const override;
 
-    Q_INVOKABLE QVariant dataFromRowIndex( int row, int role ){ return data( index( row, 0, QModelIndex() ), role ); }
+  Q_INVOKABLE QVariant dataFromRowIndex( int row, int role ) { return data( index( row, 0, QModelIndex() ), role ); }
 
-    virtual QHash<int, QByteArray> roleNames() const override;
+  virtual QHash<int, QByteArray> roleNames() const override;
 
-    QgsVectorLayer *currentLayer() const;
-    void setCurrentLayer( QgsVectorLayer *currentLayer );
+  QgsVectorLayer *currentLayer() const;
+  void setCurrentLayer( QgsVectorLayer *currentLayer );
 
-    QString keyField() const;
-    void setKeyField( const QString &keyField );
+  QString keyField() const;
+  void setKeyField( const QString &keyField );
 
-    QString displayValueField() const;
-    void setDisplayValueField( const QString &displayValueField );
+  QString displayValueField() const;
+  void setDisplayValueField( const QString &displayValueField );
 
-    /**
+  /**
      * Get the row for a given key value.
      */
-    Q_INVOKABLE int findKey( const QVariant &key ) const;
+  Q_INVOKABLE int findKey( const QVariant &key ) const;
 
-    /**
+  /**
      * Orders all the values alphabethically by their displayString.
      */
-    bool orderByValue() const;
+  bool orderByValue() const;
 
-    /**
+  /**
      * Orders all the values alphabethically by their displayString.
      */
-    void setOrderByValue( bool orderByValue );
+  void setOrderByValue( bool orderByValue );
 
-    /**
+  /**
      * Add a NULL value as the first entry.
      */
-    bool addNull() const;
+  bool addNull() const;
 
-    /**
+  /**
      * Add a NULL value as the first entry.
      */
-    void setAddNull( bool addNull );
+  void setAddNull( bool addNull );
 
-  signals:
-    void currentLayerChanged();
-    void keyFieldChanged();
-    void displayValueFieldChanged();
-    void addNullChanged();
-    void orderByValueChanged();
+signals:
+  void currentLayerChanged();
+  void keyFieldChanged();
+  void displayValueFieldChanged();
+  void addNullChanged();
+  void orderByValueChanged();
 
-  private slots:
-    void onFeatureAdded();
-    void onFeatureDeleted();
-    /**
+private slots:
+  void onFeatureAdded();
+  void onFeatureDeleted();
+  /**
      * Reloads a layer. This will normally be triggered
      * by \see reloadLayer and should not be called directly.
      */
-    void processReloadLayer();
+  void processReloadLayer();
 
-  private:
-    struct Entry
-    {
-      Entry( const QString &displayString, const QVariant &key )
-        : displayString( displayString )
-        , key( key )
-      {}
+private:
+  struct Entry
+  {
+    Entry( const QString &displayString, const QVariant &key )
+      : displayString( displayString )
+      , key( key )
+    {}
 
-      Entry() = default;
+    Entry() = default;
 
-      QString displayString;
-      QVariant key;
-    };
+    QString displayString;
+    QVariant key;
+  };
 
-    /**
+  /**
      * Triggers a reload of the values from the layer.
      * To avoid having the (expensive) reload operation happening for
      * every property change, it will only execute this after a very short delay.
      * This allows changing multiple properties at once and have a single reload
      * in the end.
      */
-    void reloadLayer();
+  void reloadLayer();
 
-    QgsVectorLayer *mCurrentLayer = nullptr;
+  QgsVectorLayer *mCurrentLayer = nullptr;
 
-    QList<Entry> mEntries;
-    QString mKeyField;
-    QString mDisplayValueField;
-    bool mOrderByValue = false;
-    bool mAddNull = false;
+  QList<Entry> mEntries;
+  QString mKeyField;
+  QString mDisplayValueField;
+  bool mOrderByValue = false;
+  bool mAddNull = false;
 
-    QTimer mReloadTimer;
+  QTimer mReloadTimer;
 };
 
 #endif // FEATURELISTMODEL_H

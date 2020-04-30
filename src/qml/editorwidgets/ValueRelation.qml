@@ -59,7 +59,7 @@ Item {
         addNull: config['AllowNull']
         orderByValue: config['OrderByValue']
         onListUpdated: {
-          valueChanged( attributeValue, false )
+          valueRelation.valueChanged( attributeValue, false )
         }
     }
 
