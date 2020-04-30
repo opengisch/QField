@@ -6,7 +6,7 @@ import Theme 1.0
 
 Popup {
     id: questionDialog
-    //parent: Overlay.overlay
+    parent: Overlay.overlay
 
     property alias questionText: label.text
     property alias button1Text: button1.text
