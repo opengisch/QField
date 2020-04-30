@@ -29,12 +29,9 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
 QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == CheckedRole )
-  {
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
-  }
   else
-    qDebug() << index.row() << role << FeatureListModel::data( index, role );
-  return FeatureListModel::data( index, role );
+    return FeatureListModel::data( index, role );
 }
 
 bool FeatureCheckListModel::setData( const QModelIndex &index, const QVariant &value, int role )
