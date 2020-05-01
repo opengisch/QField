@@ -275,13 +275,12 @@ void QgisMobileapp::initDeclarative()
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels
-  int dpiX = QApplication::desktop()->physicalDpiX();
-  int dpiY = QApplication::desktop()->physicalDpiY();
-  int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
-  float dp = 1;
+  qreal dpi = std::max( QApplication::desktop()->logicalDpiY(), QApplication::desktop()->logicalDpiY() );
+  dpi *= QApplication::desktop()->devicePixelRatioF();
 
   // Register some globally available variables
-  rootContext()->setContextProperty( "dp", dp );
+  rootContext()->setContextProperty( "dp", 1 );
+  rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
