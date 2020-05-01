@@ -35,23 +35,21 @@ QtObject {
     titleFont.pointSize: 20
 
     function getThemeIcon(name) {
-      var ppi = dp / 0.00768443;
-
-      var ppiRange
+      var ppiName
       if ( ppi >= 360 )
-        ppi = "xxxhdpi";
+        ppiName = "xxxhdpi";
        else if ( ppi >= 270 )
-        ppi = "xxhdpi";
+        ppiName = "xxhdpi";
        else if ( ppi >= 180 )
-        ppi = "xhdpi";
+        ppiName = "xhdpi";
        else if ( ppi >= 135 )
-        ppi = "hdpi";
+        ppiName = "hdpi";
        else
-        ppi = "mdpi";
+        ppiName = "mdpi";
 
       var theme = 'qfield';
 
-      var path = '/themes/' + theme + '/' + ppi + '/' + name + '.png';
+      var path = '/themes/' + theme + '/' + ppiName + '/' + name + '.png';
       return path;
     }
 
