@@ -33,7 +33,8 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
   Q_UNUSED( size )
-  QStringList idParts = id.split( '/' );
+  QStringList idParts = id.split( '/' ).mid( 0, 2 );
+  idParts << id.section( '/', 2 );
 
   if ( idParts.value( 0 ) == QStringLiteral( "legend" ) )
   {
@@ -45,6 +46,7 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
       QModelIndex legendIndex = mLayerTreeModel->index( i, 0, layerIndex );
       if ( idParts.value( 2 ) == mLayerTreeModel->data( legendIndex ).toString() )
       {
+
         QPixmap pixmap = mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QPixmap>();
         if ( pixmap.isNull() )
         {
