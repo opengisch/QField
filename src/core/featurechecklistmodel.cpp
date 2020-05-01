@@ -33,7 +33,6 @@ QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   }
   else
-    qDebug() << index.row() << role << FeatureListModel::data( index, role );
     return FeatureListModel::data( index, role );
 }
 
