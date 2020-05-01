@@ -21,9 +21,9 @@
 #include "qgspostgresstringutils.h"
 #endif
 
-FeatureCheckListModel::FeatureCheckListModel()
+FeatureCheckListModel::FeatureCheckListModel(QObject *parent)
+    : FeatureListModel(parent)
 {
-
 }
 
 QVariant FeatureCheckListModel::data( const QModelIndex &index, int role ) const
