@@ -30,18 +30,21 @@ Item {
 
   TextField {
     id: searchField
+    height: fontMetrics.height + 20 * dp
     placeholderText: qsTr("Search…")
     onTextEdited: locator.performSearch(searchField.text)
     width: parent.width
-    height: 40*dp
+    anchors.top: parent.top
     anchors.right: parent.right
     visible: locatorItem.searching
     padding: 5*dp
-    inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
+    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font: Theme.secondaryTitleFont
     selectByMouse: true
+    verticalAlignment: TextInput.AlignBottom
 
     background: Rectangle {
+      height: searchField.height - 5 * dp
       radius: 2*dp
       border.color: "#333"
       border.width: 1*dp
@@ -54,13 +57,18 @@ Item {
     }
   }
 
+  FontMetrics {
+    id: fontMetrics
+    font: searchField.font
+  }
+
   BusyIndicator {
     id: busyIndicator
     running: locator.isRunning
     anchors.right: searchField.right
-    anchors.top: searchField.top
+    anchors.verticalCenter: searchField.verticalCenter
     anchors.margins: 4 * dp
-    height: searchField.height - 8 * dp
+    height: searchField.height - 10 * dp
   }
 
   Button {
