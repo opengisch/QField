@@ -322,7 +322,7 @@ void QgisMobileapp::loadProjectQuirks()
 void QgisMobileapp::removeRecentProject( const QString &path )
 {
   QList<QPair<QString, QString>> projects = recentProjects();
-  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  for ( int idx = 0; idx < projects.count(); idx++ )
   {
     if ( projects.at( idx ).second == path )
     {
