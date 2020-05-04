@@ -98,13 +98,13 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
 <li><a class="reference internal" href="#creating-two-tables">Két tábla létrehozása</a><ul>
-<li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
-<li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
+<li><a class="reference internal" href="#apiary"><strong>Méhészet</strong></a></li>
+<li><a class="reference internal" href="#apiary-pictures"><strong>Méhészet_képek</strong></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#relations">Kapcsolatok</a></li>
 <li><a class="reference internal" href="#widgets">Vezérlők</a><ul>
-<li><a class="reference internal" href="#id3">apiary</a></li>
+<li><a class="reference internal" href="#id3">méhészet</a></li>
 <li><a class="reference internal" href="#picture">kép</a></li>
 </ul>
 </li>
@@ -186,25 +186,24 @@
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
 <h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
+<p>Egy vagy több képet adhat egy elemhez. Lentebb talál egy példát hogyan csinálja.</p>
 <div class="section" id="creating-two-tables">
 <h2>Két tábla létrehozása<a class="headerlink" href="#creating-two-tables" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>We will need two tables. One table where the features are stored
-and one with a list of pictures.</p>
+<p>Két táblára lesz szükségünk. Egy tábla, ahol az elemeket tároljuk és egy a képek listájával.</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet</strong><a class="headerlink" href="#apiary" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">geometry</span></code></li>
+<li><code class="docutils literal"><span class="pre">geometria</span></code></li>
 <li>…</li>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet_képek</strong><a class="headerlink" href="#apiary-pictures" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <ul class="simple">
 <li><a href="#id1"><span class="problematic" id="id2">``</span></a>id</li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">path</span></code> (TEXT)</li>
+<li><code class="docutils literal"><span class="pre">útvonal</span></code> (TEXT)</li>
 <li>…</li>
 </ul>
 </div>
@@ -213,10 +212,10 @@ and one with a list of pictures.</p>
 <h2>Kapcsolatok<a class="headerlink" href="#relations" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Kapcsolat létrehozása ezzel:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
+<li><code class="docutils literal"><span class="pre">méhészet</span></code> hivatkozott réteg</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> hivatkozott mező</li>
+<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> hivatkozó réteg</li>
+<li><code class="docutils literal"><span class="pre">apiary_id</span></code> hivatkozó mező</li>
 <li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
 </ul>
 <div class="clearer text-center docutils container">
@@ -226,8 +225,8 @@ and one with a list of pictures.</p>
 <div class="section" id="widgets">
 <h2>Vezérlők<a class="headerlink" href="#widgets" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <div class="section" id="id3">
-<h3>apiary<a class="headerlink" href="#id3" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<h3>méhészet<a class="headerlink" href="#id3" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A mező alapértelmezett értéknek <cite>uuid()</cite>-re állítása`. Nem szükséges az űrlapon megjeleníteni.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
