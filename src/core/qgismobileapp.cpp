@@ -362,7 +362,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
 
   QList<QPair<QString, QString>> projects = recentProjects();
   QFileInfo fi( mProject->fileName() );
-  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.baseName() : mProject->title(), mProject->fileName() );
+  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.completeBaseName() : mProject->title(), mProject->fileName() );
   if ( projects.contains( project ) )
     projects.removeAt( projects.indexOf( project ) );
   projects.insert( 0, project );
