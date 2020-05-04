@@ -255,6 +255,37 @@ Page {
                 pressedItem = null
               }
             }
+            onPressAndHold: {
+                var item = table.itemAt(mouse.x, mouse.y)
+                if (item) {
+                    recentProjectActions.recentProjectPath = item.path;
+                    recentProjectActions.popup(mouse.x, mouse.y)
+                }
+            }
+          }
+
+          Menu {
+            id: recentProjectActions
+
+            property string recentProjectPath: ''
+
+            title: 'Recent Project Actions'
+            width: Math.max(320*dp, mainWindow.width/2)
+
+            MenuItem {
+              id: removeProject
+
+              font: Theme.defaultFont
+              width: parent.width
+              height: visible ? 48 * dp : 0
+              leftPadding: 10 * dp
+
+              text: qsTr( "Remove Recent Project" )
+              onTriggered: {
+                  iface.removeRecentProject( recentProjectActions.recentProjectPath );
+                  model.reloadModel();
+              }
+            }
           }
         }
         }

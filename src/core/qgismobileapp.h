@@ -75,6 +75,11 @@ class QgisMobileapp : public QQmlApplicationEngine
     void saveRecentProjects( QList<QPair<QString, QString>> &projects );
 
     /**
+     * Removes the project with a given \a path from the list of recent projects
+     */
+    void removeRecentProject( const QString &path );
+
+    /**
      * When called loads the last project
      */
     void loadLastProject();
