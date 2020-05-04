@@ -319,6 +319,20 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
+void QgisMobileapp::removeRecentProject( const QString &path )
+{
+  QList<QPair<QString, QString>> projects = recentProjects();
+  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  {
+    if ( projects.at( idx ).second == path )
+    {
+      projects.removeAt( idx );
+      break;
+    }
+  }
+  saveRecentProjects( projects );
+}
+
 QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
 {
   QSettings settings;
