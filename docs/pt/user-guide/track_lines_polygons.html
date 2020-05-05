@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tracking of lines and polygons &#8212; Documentação QField Documentation 1.0 - M...</title>
+    <title>Rastreamento de linhas e polígonos &#8212; Documentação QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,7 +95,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Tracking of lines and polygons</a></li>
+<li><a class="reference internal" href="#">Rastreamento de linhas e polígonos</a></li>
 </ul>
 </ul>
 </li>
@@ -141,7 +141,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Adicione uma série de fotos a uma feição</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Permitir ocultar nós de legenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Pesquisa nas camadas</a></li>
@@ -155,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Alterar o Tema do Mapa activo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tracking of lines and polygons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rastreamento de linhas e polígonos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
@@ -171,29 +171,26 @@
     <div class="col-md-9 content">
       
   <div class="section" id="tracking-of-lines-and-polygons">
-<span id="track-linges-polygons"></span><h1>Tracking of lines and polygons<a class="headerlink" href="#tracking-of-lines-and-polygons" title="Link permanente para este título">¶</a></h1>
-<p>You have the possibility to do tracking on lines and polygons.</p>
-<p>It’s available when GPS is enabled.
-A tracking session can be started over the legend - long press on the layer.</p>
+<span id="track-linges-polygons"></span><h1>Rastreamento de linhas e polígonos<a class="headerlink" href="#tracking-of-lines-and-polygons" title="Link permanente para este título">¶</a></h1>
+<p>Você tem a possibilidade de rastrear linhas e polígonos.</p>
+<p>Está disponível quando o GPS está ativado. Uma sessão de rastreamento pode ser iniciada sobre a legenda - pressione e segure a camada.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_started.jpeg"><img alt="track_lines_started" src="../_images/track_lines_started.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.</p>
+<p>O intervalo de tempo e a distância mínima podem ser inseridos individualmente para definir quando um vértice precisa ser definido.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracker_settings.jpeg"><img alt="tracker_settings" src="../_images/track_lines_tracker_settings.jpeg" style="width: 640px;" /></a>
 </div>
-<p>There can be several trackings session active on several layers.
-But only one tracking session per layer can be active at the time.</p>
+<p>Pode haver várias sessões de rastreamento ativas em várias camadas. Mas apenas uma sessão de rastreamento por camada pode estar ativa no momento.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers1.jpeg"><img alt="tracking_layers1" src="../_images/track_lines_tracking_layers1.jpeg" style="width: 640px;" /></a>
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers2.jpeg"><img alt="tracking_layers2" src="../_images/track_lines_tracking_layers2.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The tracked feature is saved on every vertex.
-While the tracking session is active the layer is still editable, but the tracked feature can’t be edited or deleted until the tracking session is stopped over the legend again.</p>
+<p>O recurso rastreado é salvo em todos os vértices. Enquanto a sessão de rastreamento está ativa, a camada ainda é editável, mas o recurso rastreado não pode ser editado ou excluído até que a sessão de rastreamento seja interrompida novamente sobre a legenda.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_stop_tracking_delete.jpeg"><img alt="stop_tracking_delete" src="../_images/track_lines_stop_tracking_delete.jpeg" style="width: 640px;" /></a>
 </div>
-<p>If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking session has been recorded.</p>
+<p>Se a geometria da camada suportar o valor m, o tempo será armazenado no valor m, passado desde o primeiro vértice desta sessão de rastreamento.</p>
 </div>
 
 

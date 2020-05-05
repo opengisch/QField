@@ -103,7 +103,7 @@
 <li><a class="reference internal" href="#suppress-feature-form">Suprimir Formulário de Elemento</a></li>
 <li><a class="reference internal" href="#field-widget">Widget de Campo</a><ul>
 <li><a class="reference internal" href="#relation-widget">Widget de Relação</a></li>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#external-resource-photo-settings">Recurso externo (configurações da foto)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Design de formulários arrastar e largar</a></li>
@@ -175,7 +175,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Adicione uma série de fotos a uma feição</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Permitir ocultar nós de legenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Pesquisa nas camadas</a></li>
@@ -189,7 +189,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Rastreamento de linhas e polígonos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
@@ -312,33 +312,33 @@
 <p>A identificação visual das entradas da lista é feita com uma Expressão de exibição na camada filha.</p>
 <p><strong>Manuseio de chaves</strong></p>
 <p>Como as chaves primárias dos pais são usadas como chaves estrangeiras nos elementos filhos de referência, essas chaves primárias devem ser salvas para uso mesmo após a sincronização com os dados originais. Portanto, recomendamos o uso de valores estáveis, como UUIDs, para chaves primárias.</p>
-<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it’s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
-<p><strong>Many-To-Many relations</strong></p>
-<p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
-<p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
+<p>As feições filhas podem ser adicionados antes que os pais sejam salvos finalmente - significa ao adicionar um pai. Mas será bloqueado se não houver chave primária válida no pai ou se as restrições forem violadas. Caso a adição do recurso pai seja cancelada após a adição de alguns filhos, os filhos serão excluídos em cascata.</p>
+<p><strong>Relações muitos-para-muitos</strong></p>
+<p>Em relacionamentos muitos para muitos, de acordo com a configuração de cardinalidade nas Propriedades da camada vetorial QGIS, a adição, exclusão ou abertura de uma entrada na lista afeta diretamente a camada filho (na cardinalidade direta) ou a tabela de vinculação (em muitas para uma cardinalidade).</p>
+<p>O segundo caso é geralmente usado quando há informações adicionais de relação (por exemplo, porcentagem) na tabela de vinculação.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
+<p>No caso da cardinalidade muitos-para-um nas relações muitos-para-muitos, a Expressão de exibição precisa ser definida na tabela de vinculação.</p>
 </div>
 <div class="section" id="external-resource-photo-settings">
-<h4>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="Link permanente para este título">¶</a></h4>
-<p>The widget type «Attachement» is used to store the path to collected photos.</p>
+<h4>Recurso externo (configurações da foto)<a class="headerlink" href="#external-resource-photo-settings" title="Link permanente para este título">¶</a></h4>
+<p>O tipo de widget «Anexo» é usado para armazenar o caminho para coletar fotos.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. Means the pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
-<p>In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.</p>
+<p>O caminho deve ser definido como relativo. Significa que as imagens são armazenadas em um subdiretório do projeto, para onde o link armazenado no campo de texto está apontando.</p>
+<p>No QField, a imagem é exibida. Ao clicar no símbolo da câmera, a câmera é iniciada para atualizar a imagem com uma nova foto.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures has to be copied as well.</p>
+<p>Na sincronização, o subdiretório com as imagens também deve ser copiado.</p>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">

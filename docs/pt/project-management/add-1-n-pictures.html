@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add a series of pictures to a feature &#8212; Documentação QField Documentation 1.0 - M...</title>
+    <title>Adicione uma série de fotos a uma feição &#8212; Documentação QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,16 +95,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
+<li><a class="reference internal" href="#">Adicione uma série de fotos a uma feição</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">Criando duas tabelas</a><ul>
 <li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
 <li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
+<li><a class="reference internal" href="#relations">Relações</a></li>
 <li><a class="reference internal" href="#widgets">Widgets</a><ul>
 <li><a class="reference internal" href="#id3">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#picture">Foto</a></li>
 </ul>
 </li>
 </ul>
@@ -154,7 +154,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Add a series of pictures to a feature</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adicione uma série de fotos a uma feição</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Permitir ocultar nós de legenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">Pesquisa nas camadas</a></li>
@@ -168,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Definições da Camada de Vetor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Guia do Utilizador do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Alterar o Tema do Mapa activo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Rastreamento de linhas e polígonos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variáveis Globais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Desenvolvimento e suporte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">Plugin QFieldSync</a></li>
@@ -184,12 +184,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Link permanente para este título">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
+<h1>Adicione uma série de fotos a uma feição<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Link permanente para este título">¶</a></h1>
+<p>Você pode adicionar uma ou mais fotos a uma feição. Abaixo você encontra um exemplo de como proceder.</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Link permanente para este título">¶</a></h2>
-<p>We will need two tables. One table where the features are stored
-and one with a list of pictures.</p>
+<h2>Criando duas tabelas<a class="headerlink" href="#creating-two-tables" title="Link permanente para este título">¶</a></h2>
+<p>Vamos precisar de duas tabelas. Uma tabela onde as feições estão armazenadas e outra com uma lista de fotos.</p>
 <div class="section" id="apiary">
 <h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Link permanente para este título">¶</a></h3>
 <ul class="simple">
@@ -201,22 +200,22 @@ and one with a list of pictures.</p>
 <div class="section" id="apiary-pictures">
 <h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Link permanente para este título">¶</a></h3>
 <ul class="simple">
-<li><a href="#id1"><span class="problematic" id="id2">``</span></a>id</li>
+<li><code class="docutils literal"><span class="pre">id</span></code></li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">path</span></code> (TEXT)</li>
+<li><code class="docutils literal"><span class="pre">path</span></code> (TEXTO)</li>
 <li>…</li>
 </ul>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="Link permanente para este título">¶</a></h2>
-<p>Create a relation with:</p>
+<h2>Relações<a class="headerlink" href="#relations" title="Link permanente para este título">¶</a></h2>
+<p>Crie uma relação com:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
-<li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
+<li>Camada referenciada (pai) <code class="docutils literal"><span class="pre">apiary</span></code></li>
+<li>Campo referenciado <code class="docutils literal"><span class="pre">id</span></code></li>
+<li>Camada referenciada (filha) <code class="docutils literal"><span class="pre">apiary_picture</span></code></li>
+<li>Campo referenciado <code class="docutils literal"><span class="pre">apiary_id</span></code></li>
+<li>Força de relação <code class="docutils literal"><span class="pre">Composição</span></code></li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-relations.png"><img alt="Relations" src="../_images/add-1-n-pictures-relations.png" style="width: 600px;" /></a>
@@ -226,18 +225,18 @@ and one with a list of pictures.</p>
 <h2>Widgets<a class="headerlink" href="#widgets" title="Link permanente para este título">¶</a></h2>
 <div class="section" id="id3">
 <h3>apiary<a class="headerlink" href="#id3" title="Link permanente para este título">¶</a></h3>
-<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<p>Defina o valor padrão do ID do campo como <code class="docutils literal"><span class="pre">uuid()</span></code>. Não é necessário mostrá-lo no formulário.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code> and add the relation to the form</p>
+<p>Defina o widget de relação como <code class="docutils literal"><span class="pre">Muitas</span> <span class="pre">para</span> <span class="pre">uma</span> <span class="pre">relação</span></code> e adicione a relação ao formulário.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive2.png"><img alt="widgets2" src="../_images/add-1-n-pictures-widgets_hive2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="Link permanente para este título">¶</a></h3>
-<p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
+<h3>Foto<a class="headerlink" href="#picture" title="Link permanente para este título">¶</a></h3>
+<p>Defina o tipo de widget do caminho do campo como <code class="docutils literal"><span class="pre">anexo</span></code> e adicione-o ao formulário</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
