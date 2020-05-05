@@ -129,6 +129,7 @@ void VertexModel::refreshGeometry()
   setDirty( false );
 
   emit ringCountChanged();
+  emit currentVertexIndexChanged();
   emit vertexCountChanged();
 
   // for points, enable the editing mode directly
@@ -217,6 +218,32 @@ void VertexModel::next()
   setCurrentVertex( mCurrentIndex == -1 ? 0 : mCurrentIndex + 1 );
 }
 
+void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
+{
+  QgsPoint mapPoint( mapSettings()->mapSettings().mapToPixel().toMapCoordinates( point.x(), point.y() ) );
+  int closestRow = -1;
+  double closestDistance = std::numeric_limits<double>::max();
+
+  int rc = rowCount();
+  for ( int row = 0; row < rc; ++row )
+  {
+    QStandardItem *it = item( row );
+    if ( it )
+    {
+      QgsPoint pt = it->data( PointRole ).value<QgsPoint>();
+      double dist = pt.distance( mapPoint );
+      if ( dist < closestDistance )
+      {
+        closestDistance = dist;
+        closestRow = row;
+      }
+    }
+  }
+
+  if ( closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
+    setCurrentVertex( closestRow );
+}
+
 void VertexModel::removeCurrentVertex()
 {
   if ( !mCanRemoveVertex )
@@ -292,6 +319,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 
   int oldVertex = mCurrentIndex;
   mCurrentIndex = newVertex;
+  emit currentVertexIndexChanged();
 
   if ( mMode == AddVertex && oldVertex >= 0 )
   {
@@ -398,6 +426,20 @@ VertexModel::Centroid VertexModel::segmentCentroid( int leftIndex, int rightInde
   }
 
   return centroid;
+}
+
+void VertexModel::setCurrentVertexIndex( int currentIndex )
+{
+  if ( currentIndex == mCurrentIndex )
+    return;
+
+  mCurrentIndex = currentIndex;
+  emit currentVertexIndexChanged();
+}
+
+int VertexModel::currentVertexIndex() const
+{
+  return mCurrentIndex;
 }
 
 int VertexModel::vertexCount() const

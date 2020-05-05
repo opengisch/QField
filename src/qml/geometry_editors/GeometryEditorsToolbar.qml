@@ -14,19 +14,24 @@ And contains following functions:
 The following signal:
   * signal finished()
 It can also implement:
-  * blocking (bool) which prevents from swichting tools
+  * blocking (bool) which prevents from switching tools
+It can optionally implement the functions:
+  * canvasClicked(point)
+  * canvasLongPressed(point)
+  These functions must return true if they catch the event
 */
 
 VisibilityFadingRow {
   id: geometryEditorsToolbar
 
-  // the feature which has its geometry being edited
-  property FeatureModel featureModel
+  property FeatureModel featureModel //<! the feature which has its geometry being edited
   property MapSettings mapSettings
-  // an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
-  property RubberbandModel editorRubberbandModel
+  property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   spacing: 4 * dp
+
+  signal editorChanged
 
   GeometryEditorsModel {
     id: editors
@@ -53,6 +58,22 @@ VisibilityFadingRow {
     if (toolbarRow.item)
       toolbarRow.item.cancel()
     featureModel.vertexModel.clear()
+  }
+
+  // returns true if handled
+  function canvasClicked(point) {
+    if ( toolbarRow.item )
+      return toolbarRow.item.canvasClicked(point)
+    else
+      return false
+  }
+
+  // returns true if handled
+  function canvasLongPressed(point) {
+    if ( toolbarRow.item )
+      return toolbarRow.item.canvasLongPressed(point)
+    else
+      return false
   }
 
   VisibilityFadingRow {
@@ -88,14 +109,28 @@ VisibilityFadingRow {
     function load(qmlSource, iconPath, name){
       source = qmlSource
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
-      toolbarRow.item.stateVisible = true
+        if (toolbarRow.item.screenHovering !== undefined)
+          toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
+        toolbarRow.item.stateVisible = true
       displayToast(name)
     }
+
+    onSourceChanged: {
+      geometryEditorsToolbar.editorChanged()
+    }
+  }
+
+  onScreenHoveringChanged: {
+    if (toolbarRow.item && toolbarRow.item.screenHovering !== undefined)
+     toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
   }
 
   Connections {
       target: toolbarRow.item
-      onFinished: featureModel.vertexModel.clear()
+      onFinished: {
+        featureModel.vertexModel.clear()
+        toolbarRow.source = ''
+      }
   }
 
   Button {

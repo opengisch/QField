@@ -1,4 +1,4 @@
-import QtQuick 2.5
+import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -21,6 +21,10 @@ Item {
    */
   property variant overrideLocation: undefined // QgsPoint
 
+  //! Source location for snapping. If this is set to undefined, the center of the screen will be used.
+  //! Overwritten by stylus / hoverHandler.
+  property variant sourceLocation: undefined // Screen coordinate
+
   readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
@@ -35,7 +39,7 @@ Item {
     id: snappingUtils
 
     mapSettings: locator.mapSettings
-    inputCoordinate: Qt.point( locator.width / 2, locator.height / 2 ) // In screen coordinates
+    inputCoordinate: sourceLocation === undefined ? Qt.point( locator.width / 2, locator.height / 2 ) : sourceLocation // In screen coordinates
     config: qgisProject.snappingConfig
 
     property variant snappedCoordinate
@@ -83,12 +87,12 @@ Item {
     radius: width / 2
 
     Behavior on x {
-      enabled: !overrideLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
+      enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
       NumberAnimation { duration: 100 }
     }
 
     Behavior on y {
-      enabled: !overrideLocation
+      enabled: !overrideLocation && !sourceLocation
       NumberAnimation { duration: 100 }
     }
 

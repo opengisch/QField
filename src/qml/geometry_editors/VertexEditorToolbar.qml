@@ -12,6 +12,8 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel
   property MapSettings mapSettings
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+
   readonly property bool blocking: featureModel.vertexModel.dirty
 
   spacing: 4 * dp
@@ -26,6 +28,18 @@ VisibilityFadingRow {
   {
     featureModel.vertexModel.editingMode = VertexModel.NoEditing
     featureModel.vertexModel.reset()
+  }
+
+  function canvasClicked(point)
+  {
+    if ( featureModel.vertexModel.currentVertexIndex == -1 )
+      featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+    else
+    {
+      featureModel.vertexModel.currentVertexIndex = -1
+    }
+
+    return true // handled
   }
 
   Button {
@@ -72,7 +86,7 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp" : "ic_add_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible:  !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
 
     onClicked: {
@@ -87,7 +101,7 @@ VisibilityFadingRow {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -99,7 +113,7 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: !screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -109,11 +123,14 @@ VisibilityFadingRow {
 
   Connections {
     target: vertexModel
-    onCurrentPointChanged:
+    onCurrentVertexIndexChanged:
     {
-      if (featureModel.vertexModel.editingMode === VertexModel.EditVertex  ||
-          featureModel.vertexModel.editingMode === VertexModel.AddVertex)
+      if ( featureModel.vertexModel.currentVertexIndex != -1
+          && !screenHovering
+          && (featureModel.vertexModel.editingMode === VertexModel.EditVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+      {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
+      }
     }
   }
 }

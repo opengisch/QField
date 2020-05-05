@@ -33,6 +33,7 @@
 #include <QTemporaryFile>
 #include <QFileInfo>
 #include <QFontDatabase>
+#include <QStyleHints>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -282,6 +283,7 @@ void QgisMobileapp::initDeclarative()
 
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
+  rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );

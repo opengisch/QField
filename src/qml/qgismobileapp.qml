@@ -15,15 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Dialogs 1.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Dialogs 1.3
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
-import QtQml 2.2
+import QtQml 2.12
 import org.qgis 1.0
 import org.qfield 1.0
-import QtPositioning 5.11
+import QtPositioning 5.12
 import Theme 1.0
 
 import '.'
@@ -42,6 +42,11 @@ ApplicationWindow {
 
   FocusStack{
       id: focusstack
+  }
+
+  QuestionDialog{
+    id: questionDialog
+    parent: ApplicationWindow.overlay
   }
 
   //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
@@ -141,6 +146,29 @@ ApplicationWindow {
     id: mapCanvas
     clip: true
 
+    HoverHandler {
+        id: hoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
+        grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+
+        onPointChanged: {
+          // after a click, it seems that the position is sent once at 0,0 => weird
+          if (point.position !== Qt.point(0, 0))
+            coordinateLocator.sourceLocation = point.position
+        }
+
+        onActiveChanged: {
+          if ( !active )
+            coordinateLocator.sourceLocation = undefined
+
+        }
+
+        onHoveredChanged: {
+          if ( !hovered )
+            coordinateLocator.sourceLocation = undefined
+        }
+    }
+
     /* Initialize a MapSettings object. This will contain information about
      * the current canvas extent. It is shared between the base map and all
      * map canvas items and is used to transform map coordinates to pixel
@@ -170,12 +198,61 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      onClicked: {
+      onClicked:  {
           if (locatorItem.searching) {
               locatorItem.searching = false
-          } else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify( Qt.point( mouse.x, mouse.y ) )
           }
+          else if (geometryEditorsToolbar.canvasClicked(point)) {
+            // for instance, the vertex editor will select a vertex if possible
+          }
+          else if ( type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer ) {
+                if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
+                     Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+                  digitizingToolbar.confirm()
+                else
+                {
+                    var mapPoint = mapSettings.screenToCoordinate(point)
+                    currentRubberband.model.addVertexFromPoint(mapPoint)
+                    coordinateLocator.flash()
+                }
+          }
+          else if( !overlayFeatureFormDrawer.visible ) {
+              identifyTool.identify(point)
+          }
+      }
+
+      onLongPressed: {
+        if ( type === "stylus" ){
+          if (geometryEditorsToolbar.canvasLongPressed(point)) {
+            // for instance, the vertex editor will select a vertex if possible
+            return
+          }
+          if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
+            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
+               || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
+                var mapPoint = mapSettings.screenToCoordinate(point)
+                digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint) // The onLongPressed event is triggered while the button is down.
+                // When it's released, it will normally cause a release event to close the attribute form.
+                // We get around this by temporarily switching the closePolicy.
+                overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
+                digitizingToolbar.confirm()
+                coordinateLocator.flash()
+                return
+            }
+          }
+          // do not use else, as if it was catch it has return before
+          if( !overlayFeatureFormDrawer.visible ) {
+            identifyTool.identify(point)
+          }
+        }
+      }
+
+      onLongPressReleased: {
+        if ( type === "stylus" ){
+          // The user has released the long press. We can re-enable the default close behavior for the feature form.
+          // The next press will be intentional to close the form.
+          overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        }
       }
 
       onPanned: {
@@ -674,11 +751,12 @@ ApplicationWindow {
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
-                     && !geometryEditorsToolbar.stateVisible ) || stateMachine.state === 'measure'
+                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
       rubberbandModel: currentRubberband.model
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
+      screenHovering: hoverHandler.hovered
 
       FeatureModel {
         id: digitizingFeature
@@ -728,6 +806,7 @@ ApplicationWindow {
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
       editorRubberbandModel: geometryEditorsRubberband.model
+      screenHovering: hoverHandler.hovered
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
     }
