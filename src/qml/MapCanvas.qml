@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 1.2
 import QtQml 2.2
 import org.qgis 1.0
@@ -26,7 +26,23 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
-  signal clicked(var mouse)
+  property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+
+  // for signals, type can be "stylus" for any device click or "touch"
+
+  //! This signal is emitted independently of an upcoming doubleClicked
+  signal clicked(var point, var type)
+
+  //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
+  signal confirmedClicked(var point)
+
+  // signal doubleClicked(var point)
+
+  signal longPressed(var point, var type)
+
+  //! Emitted when a release happens after a long press
+  signal longPressReleased(var type)
+
   signal panned
 
   /**
@@ -60,106 +76,178 @@ Item {
     freeze: false
   }
 
-  PinchArea {
-    id: pinchArea
+//    TapHandler {
+//      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
 
-    anchors.fill: parent
+//      property var timer: Timer {
+//          property var firstClickPoint
+//          interval: mouseDoubleClickInterval
+//          repeat: false
 
-    onPinchStarted: {
-      freeze('pinch')
-    }
+//          onTriggered: {
+//              confirmedClicked(firstClickPoint)
+//          }
+//      }
 
-    onPinchUpdated: {
-      mapCanvasWrapper.zoom( pinch.center, pinch.previousScale / pinch.scale )
-      mapCanvasWrapper.pan( pinch.center, pinch.previousCenter )
-      mapArea.panned()
-    }
+//      onTapCountChanged: {
+//          if (tapCount == 1) {
+//              timer.firstClickPoint = point.position
+//              timer.restart()
+//          }
+//          else if (tapCount == 2) {
+//              timer.stop()
+//              doubleClicked(point)
+//          }
+//      }
+//    }
 
-    onPinchFinished: {
-      unfreeze('pinch')
-      mapCanvasWrapper.refresh()
-    }
+    // stylus clicked
+    TapHandler {
+      enabled: !mouseAsTouchScreen
+      acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
+      property bool longPressActive: false
 
-    MouseArea {
-      id: mouseArea
-
-      property point __initialPosition
-      property point __lastPosition
-
-      anchors.fill : parent
-
-      onDoubleClicked: {
-        clickedTimer.stop()
-        var center = Qt.point( mouse.x, mouse.y )
-        mapCanvasWrapper.zoom( center, 0.8 )
+      onSingleTapped: {
+        mapArea.clicked(point.position, "stylus")
       }
 
-      onClicked: {
-        if ( mouse.button === Qt.RightButton )
-        {
-          var center = Qt.point( mouse.x, mouse.y )
-          mapCanvasWrapper.zoom( center, 1.2 )
-        }
-        else
-        {
-          var distance = Math.abs( mouse.x - __initialPosition.x ) + Math.abs( mouse.y - __initialPosition.y )
+      onLongPressed: {
+          mapArea.longPressed(point.position, "stylus")
+          longPressActive = true
+      }
 
-          if ( distance < 5 * dp)
-          {
-            if (!clickedTimer.running) {
-              props.mouse = mouse
-              clickedTimer.restart()
+      onPressedChanged: {
+          if (longPressActive)
+              mapArea.longPressReleased("stylus")
+          longPressActive = false
+      }
+    }
+
+    // touch clicked
+    TapHandler {
+      acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
+      property bool longPressActive: false
+
+      onSingleTapped: {
+        mapArea.clicked(point.position, "touch")
+      }
+
+      onLongPressed: {
+          mapArea.longPressed(point.position, "touch")
+          longPressActive = true
+      }
+
+      onPressedChanged: {
+          if (longPressActive)
+              mapArea.longPressReleased("touch")
+          longPressActive = false
+      }
+    }
+
+    // zoom in/out on finger tap
+    TapHandler {
+        grabPermissions: PointerHandler.CanTakeOverFromItems
+        acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
+
+        onSingleTapped: {
+            if( point.modifiers === Qt.RightButton)
+              mapCanvasWrapper.zoom(point.position, 1.25)
+        }
+
+        onDoubleTapped: {
+          mapCanvasWrapper.zoom(point.position, 0.8)
+        }
+    }
+
+    DragHandler {
+        target: null
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        property var oldPos
+
+        onActiveChanged: {
+            if ( active )
+                freeze('pan')
+            else
+                unfreeze('pan')
+        }
+
+        onCentroidChanged: {
+            var oldPos1 = oldPos
+            oldPos = centroid.position
+            if ( active )
+            {
+                mapCanvasWrapper.pan(centroid.position, oldPos1)
+                panned()
             }
-          }
-          else
-          {
-            mapArea.panned()
-          }
         }
-      }
-
-      onPressed: {
-        __lastPosition = Qt.point( mouse.x, mouse.y)
-        __initialPosition = __lastPosition
-        freeze('pan')
-      }
-
-      onReleased: {
-        unfreeze('pan')
-      }
-
-      onPositionChanged: {
-        var currentPosition = Qt.point( mouse.x, mouse.y )
-        mapCanvasWrapper.pan( currentPosition, __lastPosition )
-        __lastPosition = currentPosition
-      }
-
-      onCanceled: {
-        unfreezePanTimer.start()
-      }
-
-      onWheel: {
-        mapCanvasWrapper.zoom( Qt.point( wheel.x, wheel.y ), Math.pow( 0.8, wheel.angleDelta.y / 60 ) )
-      }
-
-      Timer {
-        id: clickedTimer
-        interval: 250
-        onTriggered: mapArea.clicked( props.mouse )
-      }
-
-      Timer {
-        id: unfreezePanTimer
-        interval: 500;
-        running: false;
-        repeat: false
-        onTriggered: unfreeze('pan')
-      }
-
-      QtObject {
-        id: props
-        property var mouse
-      }
     }
-  }
+
+    DragHandler {
+        target: null
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
+        acceptedButtons: Qt.MiddleButton | Qt.RightButton
+
+        property real oldTranslationY
+        property point zoomCenter
+
+        onActiveChanged: {
+            if (active)
+            {
+                oldTranslationY = 0
+                zoomCenter = centroid.position
+            }
+
+            if ( active )
+                freeze('zoom')
+            else
+                unfreeze('zoom')
+        }
+
+        onTranslationChanged: {
+            if (active)
+            {
+              mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+            }
+
+            oldTranslationY = translation.y
+        }
+    }
+
+    PinchHandler {
+        id: pinch
+        target: null
+        acceptedDevices: PointerDevice.TouchScreen | PointerDevice.TouchPad
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        property var oldPos
+        property real oldScale: 1.0
+
+        onActiveChanged: {
+            if ( active )
+                freeze('pinch')
+            else
+                unfreeze('pinch')
+        }
+
+        onCentroidChanged: {
+            var oldPos1 = oldPos
+            oldPos = centroid.position
+            if ( active )
+            {
+                mapCanvasWrapper.pan(centroid.position, oldPos1)
+                panned()
+            }
+        }
+
+        onActiveScaleChanged: {
+            mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
+            mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
+            mapArea.panned()
+            oldScale = pinch.activeScale
+        }
+    }
+
+    // TODO add WheelHandler once we can expect Qt 5.14 on all platforms
 }

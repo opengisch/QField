@@ -114,6 +114,18 @@ class TestVertexModel: public QObject
       delete mapSettings;
     }
 
+    void selectClosestVertexTest()
+    {
+      QgsQuickMapSettings mapSettings;
+      mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
+      mModel->setMapSettings( &mapSettings );
+      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
+      mModel->setGeometry( mPoint2056Geometry );
+      mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
+      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
+      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
+    }
+
     void returnGeometryTest()
     {
       // TODO, also test when adding vertex mode

@@ -10,25 +10,40 @@ VisibilityFadingRow {
   signal finished()
 
   property FeatureModel featureModel
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
 
   spacing: 4 * dp
 
+  function canvasClicked(point)
+  {
+    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
+    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    return true // handled
+  }
+
+  function canvasLongPressed(point)
+  {
+    var mapPoint = drawPolygonToolbar.mapSettings.screenToCoordinate(point)
+    drawPolygonToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    drawPolygonToolbar.confirm()
+    return true // handled
+  }
+
   DigitizingToolbar {
     id: drawPolygonToolbar
     showConfirmButton: true
-
-    QuestionDialog{
-      id: questionDialog
-    }
+    screenHovering: fillRingToolbar.screenHovering
 
     EmbeddedFeatureForm {
       id: formPopupLoader
       state: 'Add'
-      currentLayer: featureModel.currentLayer
+      currentLayer: featureModel && featureModel.currentLayer
     }
 
     onConfirm: {
+      rubberbandModel.frozen = true
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
       var result = GeometryUtils.addRingFromRubberBand(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)

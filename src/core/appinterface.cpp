@@ -23,6 +23,11 @@ AppInterface::AppInterface( QgisMobileapp *app )
 {
 }
 
+void AppInterface::removeRecentProject( const QString &path )
+{
+  return mApp->removeRecentProject( path );
+}
+
 void AppInterface::loadLastProject()
 {
   return mApp->loadLastProject();

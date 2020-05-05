@@ -129,7 +129,7 @@ void RubberbandModel::insertVertices( int index, int count )
 
 void RubberbandModel::removeVertices( int index, int count )
 {
-  if ( mPointList.size() == 1 )
+  if ( mPointList.size() <= 1 )
     return;
 
   mPointList.remove( index, count );
@@ -186,6 +186,11 @@ QgsPoint RubberbandModel::currentCoordinate() const
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
+  // play safe, but try to find out
+  Q_ASSERT(mPointList.count() != 0);
+  if (mPointList.count() == 0)
+    return;
+
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
 
@@ -235,6 +240,12 @@ void RubberbandModel::addVertex()
 
   insertVertices( mCurrentCoordinateIndex + 1, 1 );
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
+}
+
+void RubberbandModel::addVertexFromPoint( const QgsPoint &point )
+{
+  setCurrentCoordinate( point );
+  addVertex();
 }
 
 void RubberbandModel::removeVertex()

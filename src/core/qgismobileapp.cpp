@@ -33,6 +33,7 @@
 #include <QTemporaryFile>
 #include <QFileInfo>
 #include <QFontDatabase>
+#include <QStyleHints>
 
 #include <qgslayertreemodel.h>
 #include <qgsproject.h>
@@ -282,6 +283,7 @@ void QgisMobileapp::initDeclarative()
 
   // Register some globally available variables
   rootContext()->setContextProperty( "dp", dp );
+  rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
@@ -317,6 +319,20 @@ void QgisMobileapp::loadProjectQuirks()
 
   if ( autoSetupOnFirstLayer )
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
+}
+
+void QgisMobileapp::removeRecentProject( const QString &path )
+{
+  QList<QPair<QString, QString>> projects = recentProjects();
+  for ( int idx = 0; idx < projects.count(); idx++ )
+  {
+    if ( projects.at( idx ).second == path )
+    {
+      projects.removeAt( idx );
+      break;
+    }
+  }
+  saveRecentProjects( projects );
 }
 
 QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
@@ -362,7 +378,7 @@ void QgisMobileapp::onReadProject( const QDomDocument &doc )
 
   QList<QPair<QString, QString>> projects = recentProjects();
   QFileInfo fi( mProject->fileName() );
-  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.baseName() : mProject->title(), mProject->fileName() );
+  QPair<QString, QString> project = qMakePair( mProject->title().isEmpty() ? fi.completeBaseName() : mProject->title(), mProject->fileName() );
   if ( projects.contains( project ) )
     projects.removeAt( projects.indexOf( project ) );
   projects.insert( 0, project );

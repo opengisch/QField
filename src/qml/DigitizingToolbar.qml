@@ -8,8 +8,9 @@ VisibilityFadingRow {
   property CoordinateLocator coordinateLocator // optional coordinateLocator to flash
   property MapSettings mapSettings
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
+  readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   property bool geometryValid: false
 
@@ -97,6 +98,7 @@ VisibilityFadingRow {
         Theme.getThemeIcon( "ic_add_white_24dp" )
     }
     round: true
+    visible: !screenHovering
     bgcolor: {
         if (!showConfirmButton)
           Theme.darkGray

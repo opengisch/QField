@@ -42,7 +42,7 @@ Popup {
                 font: Theme.defaultFont
                 onClicked: {
                     button1Clicked();
-                    close();
+                    questionDialog.close();
                 }
             }
             Button{
@@ -51,7 +51,7 @@ Popup {
                 font: Theme.defaultFont
                 onClicked: {
                     button2Clicked();
-                    close();
+                    questionDialog.close();
                 }
             }
             Button{
@@ -60,7 +60,7 @@ Popup {
                 font: Theme.defaultFont
                 onClicked: {
                     button3Clicked();
-                    close();
+                    questionDialog.close();
                 }
             }
         }

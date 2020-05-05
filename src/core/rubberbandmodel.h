@@ -95,7 +95,12 @@ class RubberbandModel : public QObject
     //! \copydoc measureValue
     void setMeasureValue( const double measureValue );
 
+    //! Add vertex from the current position
     Q_INVOKABLE void addVertex();
+
+    //! Add vertex with a given point
+    Q_INVOKABLE void addVertexFromPoint(const QgsPoint &point );
+
     Q_INVOKABLE void removeVertex();
 
     Q_INVOKABLE void reset();

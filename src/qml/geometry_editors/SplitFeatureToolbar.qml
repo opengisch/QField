@@ -12,13 +12,31 @@ VisibilityFadingRow {
   signal finished()
 
   property FeatureModel featureModel
+  property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   readonly property bool blocking: drawLineToolbar.isDigitizing
 
   spacing: 4 * dp
 
+
+  function canvasClicked(point)
+  {
+    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
+    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    return true // handled
+  }
+
+  function canvasLongPressed(point)
+  {
+    var mapPoint = drawLineToolbar.mapSettings.screenToCoordinate(point)
+    drawLineToolbar.rubberbandModel.addVertexFromPoint(mapPoint)
+    drawLineToolbar.confirm()
+    return true // handled
+  }
+
   DigitizingToolbar {
     id: drawLineToolbar
     showConfirmButton: true
+    screenHovering: splitFeatureToolbar.screenHovering
 
     onConfirm: {
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
