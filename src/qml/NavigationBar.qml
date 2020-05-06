@@ -77,7 +77,7 @@ Rectangle {
           ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
         }
         else {
-          'Features'
+          qsTr('Features')
         }
       }
     }
