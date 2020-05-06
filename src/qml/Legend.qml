@@ -84,6 +84,13 @@ ListView {
               pressedItem.color = Theme.lightGray
           }
       }
+      onDoubleClicked: {
+          var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
+          if (item) {
+            itemProperties.index = table.model.index(item.itemRow, 0)
+            itemProperties.open()
+          }
+      }
       onPressAndHold: {
           if (pressedItem) {
             itemProperties.index = table.model.index(pressedItem.itemRow, 0)
