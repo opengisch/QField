@@ -139,6 +139,7 @@ class VertexModel : public QStandardItemModel
     /**
      * sets the geometry to the given \a geometry but preserves the index of the current vertex
      * this is used to update the original geometry while still editing the model
+     * \see `geometry` property
      */
     Q_INVOKABLE void updateGeometry( const QgsGeometry &geometry );
 
