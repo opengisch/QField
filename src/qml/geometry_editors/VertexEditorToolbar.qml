@@ -17,7 +17,7 @@ VisibilityFadingRow {
 
   readonly property bool blocking: featureModel.vertexModel.dirty
 
-  spacing: 4 * dp
+  spacing: 4
 
   function init(featureModel, mapSettings, editorRubberbandModel)
   {
@@ -34,7 +34,7 @@ VisibilityFadingRow {
   function canvasClicked(point)
   {
     if ( featureModel.vertexModel.currentVertexIndex == -1 )
-      featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+      featureModel.vertexModel.selectVertexAtPosition(point, 10)
     else
     {
       featureModel.vertexModel.currentVertexIndex = -1

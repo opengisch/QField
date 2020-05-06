@@ -17,9 +17,9 @@ Item {
 
   TextField {
     id: textField
-    height: fontMetrics.height + 20 * dp
-    topPadding: 10 * dp
-    bottomPadding: 10 * dp
+    height: fontMetrics.height + 20
+    topPadding: 10
+    bottomPadding: 10
     visible: widgetStyle != "Slider"
     anchors.left: parent.left
     anchors.right: parent.right
@@ -43,8 +43,8 @@ Item {
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
-      implicitWidth: 120 * dp
-      height: textField.activeFocus ? 2 * dp : 1 * dp
+      implicitWidth: 120
+      height: textField.activeFocus ? 2: 1
       color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
     }
 
@@ -61,7 +61,7 @@ Item {
     Text {
       id: valueLabel
       width: sliderRow.width / 4
-      height: fontMetrics.height + 20 * dp
+      height: fontMetrics.height + 20
       elide: Text.ElideRight
       text: value !== undefined && value != '' ? Number( slider.value ).toFixed( rangeItem.precision ).toLocaleString() + rangeItem.suffix : ''
       verticalAlignment: Text.AlignVCenter
@@ -74,7 +74,7 @@ Item {
       id: slider
       value: rangeItem.parent.value
       width: sliderRow.width - valueLabel.width
-      height: fontMetrics.height + 20 * dp
+      height: fontMetrics.height + 20
       implicitWidth: width
       from: rangeItem.from
       to: rangeItem.to
@@ -93,16 +93,16 @@ Item {
         implicitHeight: slider.height * 0.1
         width: slider.availableWidth
         height: implicitHeight
-        radius: 4 * dp
+        radius: 4
         color:  Theme.lightGray
       }
 
       handle: Rectangle {
         x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
         y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitWidth: 26 * dp
-        implicitHeight: 26 * dp
-        radius: 13 * dp
+        implicitWidth: 26
+        implicitHeight: 26
+        radius: 13
         color: slider.enabled ? Theme.mainColor : Theme.lightGray
         border.color: Theme.lightGray
       }
@@ -113,8 +113,8 @@ Item {
     y: textField.height - height - textField.bottomPadding / 2
     visible: widgetStyle === "Slider"
     width: sliderRow.width
-    implicitWidth: 120 * dp
-    height: slider.activeFocus ? 2 * dp : 1 * dp
+    implicitWidth: 120
+    height: slider.activeFocus ? 2: 1
     color: slider.activeFocus ? "#4CAF50" : "#C8E6C9"
   }
 

@@ -36,13 +36,13 @@ Page {
 
     spacing: 2
     anchors {
-        margins: 4 * dp
-        topMargin: 52 * dp // Leave space for the toolbar
+        margins: 4
+        topMargin: 52// Leave space for the toolbar
     }
 
     Text {
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-      Layout.preferredHeight: font.height + 20 * dp
+      Layout.preferredHeight: font.height + 20
       text: realm
       font: Theme.strongFont
     }
@@ -62,15 +62,15 @@ Page {
 
       background: Rectangle {
         y: username.height - height - username.bottomPadding / 2
-        implicitWidth: 120 * dp
-        height: username.activeFocus ? 2 * dp : 1 * dp
+        implicitWidth: 120
+        height: username.activeFocus ? 2: 1
         color: username.activeFocus ? "#4CAF50" : "#C8E6C9"
       }
     }
 
     Item {
         // spacer item
-        height: 35 * dp
+        height: 35
     }
 
     Text {
@@ -85,14 +85,14 @@ Page {
       echoMode: TextInput.Password
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      Layout.preferredHeight: font.height + 20 * dp
-      height: font.height + 20 * dp
+      Layout.preferredHeight: font.height + 20
+      height: font.height + 20
       font: Theme.defaultFont
 
       background: Rectangle {
         y: password.height - height - password.bottomPadding / 2
-        implicitWidth: 120 * dp
-        height: password.activeFocus ? 2 * dp : 1 * dp
+        implicitWidth: 120
+        height: password.activeFocus ? 2: 1
         color: password.activeFocus ? "#4CAF50" : "#C8E6C9"
       }
     }

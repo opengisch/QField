@@ -14,8 +14,8 @@ ToolButton {
 
   signal closedTool()
 
-  height: 48 * dp
-  width: height + buttonText.width + 32 * dp
+  height: 48
+  width: height + buttonText.width + 32
 
   contentItem: Rectangle {
     anchors.fill: parent
@@ -23,10 +23,10 @@ ToolButton {
     radius: height / 2
 
     Row {
-      spacing: 8 * dp
+      spacing: 8
       Rectangle {
-        height: 48 * dp
-        width: 48 * dp
+        height: 48
+        width: 48
         radius: height / 2
         color: Theme.darkGray
         Image {

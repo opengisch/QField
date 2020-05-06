@@ -11,7 +11,7 @@ Item {
   anchors {
     left: parent.left
     right: parent.right
-    rightMargin: 10 * dp
+    rightMargin: 10
   }
 
   property var currentKeyValue: value
@@ -20,7 +20,7 @@ Item {
     comboBox.currentIndex = comboBox.model.keyToIndex(currentKeyValue)
   }
 
-  height: childrenRect.height + 10 * dp
+  height: childrenRect.height + 10
 
 
   ComboBox {
@@ -65,7 +65,7 @@ Item {
     // [hidpi fixes]
     delegate: ItemDelegate {
       width: comboBox.width
-      height: fontMetrics.height + 20 * dp
+      height: fontMetrics.height + 20
       text: model.value
       font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
       font.pointSize: Theme.defaultFont.pointSize
@@ -74,7 +74,7 @@ Item {
 
     contentItem: Text {
       id: textLabel
-      height: fontMetrics.height + 20 * dp
+      height: fontMetrics.height + 20
       text: comboBox.displayText
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignLeft
@@ -84,13 +84,13 @@ Item {
     }
 
     background: Item {
-      implicitWidth: 120 * dp
-      implicitHeight: 36 * dp
+      implicitWidth: 120
+      implicitHeight: 36
 
       Rectangle {
-        y: textLabel.height - 8 * dp
+        y: textLabel.height - 8
         width: comboBox.width
-        height: comboBox.activeFocus ? 2 * dp : 1 * dp
+        height: comboBox.activeFocus ? 2: 1
         color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
       }
 

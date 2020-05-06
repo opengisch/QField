@@ -10,7 +10,7 @@ ToolBar {
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
 
-  height: 48 * dp
+  height: 48
 
   signal cancel
   signal apply
@@ -36,8 +36,8 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-      width: 48*dp
-      height: 48*dp
+      width: 48
+      height: 48
       clip: true
       bgcolor: Theme.darkGray
 
@@ -52,8 +52,8 @@ ToolBar {
 
     Label {
       id: titleLabel
-      leftPadding: !showApplyButton && showCancelButton ? 48 * dp : 0
-      rightPadding: showApplyButton && !showCancelButton ? 48 * dp : 0
+      leftPadding: !showApplyButton && showCancelButton ? 48: 0
+      rightPadding: showApplyButton && !showCancelButton ? 48: 0
       font: Theme.strongFont
       color: Theme.light
       elide: Label.ElideRight
@@ -67,8 +67,8 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-      width: 48*dp
-      height: 48*dp
+      width: 48
+      height: 48
       clip: true
       bgcolor: Theme.darkGray
 

@@ -21,7 +21,7 @@ Item {
   anchors {
     left: parent.left
     right: parent.right
-    rightMargin: 10 * dp
+    rightMargin: 10
   }
 
   property var currentKeyValue: value
@@ -30,7 +30,7 @@ Item {
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
-  height: childrenRect.height + 10 * dp
+  height: childrenRect.height + 10
 
   RowLayout {
     anchors { left: parent.left; right: parent.right }
@@ -74,7 +74,7 @@ Item {
       // [hidpi fixes]
       delegate: ItemDelegate {
         width: comboBox.width
-        height: 36 * dp
+        height: 36
         text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
         font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
         font.pointSize: Theme.defaultFont.pointSize
@@ -82,7 +82,7 @@ Item {
       }
 
       contentItem: Text {
-        height: 36 * dp
+        height: 36
         text: comboBox.displayText
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -90,8 +90,8 @@ Item {
       }
 
       background: Item {
-        implicitWidth: 120 * dp
-        implicitHeight: 36 * dp
+        implicitWidth: 120
+        implicitHeight: 36
 
         Rectangle {
           anchors.fill: parent
@@ -106,13 +106,13 @@ Item {
     }
 
     Image {
-      Layout.margins: 4 * dp
-      Layout.preferredWidth: 18 * dp
-      Layout.preferredHeight: 18 * dp
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
       id: addButton
       source: Theme.getThemeIcon("ic_add_black_48dp")
-      width: 18 * dp
-      height: 18 * dp
+      width: 18
+      height: 18
 
       MouseArea {
         anchors.fill: parent

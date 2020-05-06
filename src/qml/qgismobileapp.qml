@@ -287,7 +287,7 @@ ApplicationWindow {
       /** A rubberband for ditizing **/
       Rubberband {
         id: digitizingRubberband
-        width: 2 * dp
+        width: 2
 
         mapSettings: mapCanvas.mapSettings
 
@@ -306,7 +306,7 @@ ApplicationWindow {
       /** A rubberband for measuring **/
       Rubberband {
         id: measuringRubberband
-        width: 2 * dp
+        width: 2
         color: '#80000000'
 
         mapSettings: mapCanvas.mapSettings
@@ -342,7 +342,7 @@ ApplicationWindow {
       /** A rubberband for the different geometry editors **/
       Rubberband {
         id: geometryEditorsRubberband
-        width: 2 * dp
+        width: 2
         color: '#80000000'
 
         mapSettings: mapCanvas.mapSettings
@@ -408,7 +408,7 @@ ApplicationWindow {
         id: editingRubberBand
         vertexModel: vertexModel
         mapSettings: mapCanvas.mapSettings
-        width: 2 * dp
+        width: 2
 
         transform: MapTransform {
           mapSettings: mapCanvas.mapSettings
@@ -419,7 +419,7 @@ ApplicationWindow {
     /* Locator Highlight */
     GeometryHighlighter {
       id: locatorHighlightItem
-      //width: 10 * dp
+      //width: 10
       //color: "yellow"
     }
 
@@ -433,7 +433,7 @@ ApplicationWindow {
 
       color: "yellow"
       selectionColor: "#ff7777"
-      width: 5 * dp
+      width: 5
     }
   }
 
@@ -457,8 +457,8 @@ ApplicationWindow {
   DropShadow {
     anchors.fill: positionInformationView
     visible: positionInformationView.visible
-    verticalOffset: -2 * dp
-    radius: 6.0 * dp
+    verticalOffset: -2
+    radius: 6.0
     samples: 17
     color: "#30000000"
     source: positionInformationView
@@ -481,8 +481,8 @@ ApplicationWindow {
       crs: qgisProject.crs
     }
 
-    x: mapCanvas.width / 2 + 10 * dp
-    y: mapCanvas.height / 2 + 22 * dp
+    x: mapCanvas.width / 2 + 10
+    y: mapCanvas.height / 2 + 22
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
@@ -523,14 +523,14 @@ ApplicationWindow {
 
     anchors.left: mapCanvas.left
     anchors.bottom: mapCanvas.bottom
-    anchors.margins: 10 * dp
+    anchors.margins: 10
   }
 
   DropShadow {
     anchors.fill: featureForm
-    horizontalOffset: mainWindow.width >= mainWindow.height ? -2 * dp : 0
-    verticalOffset: mainWindow.width < mainWindow.height ? -2 * dp : 0
-    radius: 6.0 * dp
+    horizontalOffset: mainWindow.width >= mainWindow.height ? -2: 0
+    verticalOffset: mainWindow.width < mainWindow.height ? -2: 0
+    radius: 6.0
     samples: 17
     color: "#80000000"
     source: featureForm
@@ -539,10 +539,10 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: Math.max( 200 * dp, mainWindow.width / 3 )
+    width: Math.max( 200, mainWindow.width / 3 )
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: 4 * dp
+    anchors.margins: 4
 
     visible: stateMachine.state !== 'measure'
   }
@@ -557,11 +557,11 @@ ApplicationWindow {
   /* The main menu */
   Row {
     id: mainMenuBar
-    width: childrenRect.width + 8 * dp
-    height: childrenRect.height + 8 * dp
-    topPadding: 4 * dp
-    leftPadding: 4 * dp
-    spacing: 4 * dp
+    width: childrenRect.width + 8
+    height: childrenRect.height + 8
+    topPadding: 4
+    leftPadding: 4
+    spacing: 4
 
     Button {
       id: menuButton
@@ -590,8 +590,8 @@ ApplicationWindow {
     id: mainToolbar
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
-    anchors.leftMargin: 4 * dp
-    spacing: 4 * dp
+    anchors.leftMargin: 4
+    spacing: 4
 
     Button {
       id: topologyButton
@@ -633,10 +633,10 @@ ApplicationWindow {
   Column {
     id: locationToolbar
     anchors.right: mapCanvas.right
-    anchors.rightMargin: 4 * dp
+    anchors.rightMargin: 4
     anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: 4 * dp
-    spacing: 4 * dp
+    anchors.bottomMargin: 4
+    spacing: 4
 
     Button {
       id: gpsLinkButton
@@ -856,15 +856,15 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    width: Math.max(200*dp, mainWindow.width/4)
+    width: Math.max(200, mainWindow.width/4)
 
     MenuItem {
       id: openProjectMenuItem
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       text: qsTr( "Open Project" )
       onTriggered: {
@@ -882,8 +882,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       onTriggered: {
         dashBoard.close()
@@ -897,8 +897,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       onTriggered: {
         dashBoard.close()
@@ -912,8 +912,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       onTriggered: {
         dashBoard.close()
@@ -929,8 +929,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       onTriggered: {
         dashBoard.close()
@@ -945,11 +945,11 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       width: parent.width
-      height: 48 * dp
-      leftPadding: 10 * dp
+      height: 48
+      leftPadding: 10
 
       onTriggered: {
-        printMenu.popup( mainMenu.x, 2 * dp )
+        printMenu.popup( mainMenu.x, 2)
         highlighted = false
       }
     }
@@ -987,7 +987,7 @@ ApplicationWindow {
 
     signal enablePrintItem( int rows )
 
-    width: Math.max(200*dp, mainWindow.width/4)
+    width: Math.max(200, mainWindow.width/4)
     font: Theme.defaultFont
 
     Instantiator {
@@ -1001,9 +1001,9 @@ ApplicationWindow {
         text: Title
 
         width: parent.width
-        height: 48 * dp
+        height: 48
         font: Theme.defaultFont
-        leftPadding: 10 * dp
+        leftPadding: 10
 
         onTriggered: {
           iface.print( Index )
@@ -1052,21 +1052,21 @@ ApplicationWindow {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
-    width: Math.max(200*dp, mainWindow.width/1.5)
+    width: Math.max(200, mainWindow.width/1.5)
 
     MenuItem {
       id: positioningItem
       text: qsTr( "Enable Positioning" )
 
-      height: 48 * dp
+      height: 48
       font: Theme.defaultFont
       width: parent.width
       checkable: true
       checked: positioningSettings.positioningActivated
-      indicator.height: 20 * dp
-      indicator.width: 20 * dp
-      indicator.implicitHeight: 24 * dp
-      indicator.implicitWidth: 24 * dp
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
 
       onCheckedChanged: {
         if ( checked ) {
@@ -1082,7 +1082,7 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Center to Current Location" )
 
-      height: 48 * dp
+      height: 48
       font: Theme.defaultFont
       width: parent.width
       onTriggered: {
@@ -1095,16 +1095,16 @@ ApplicationWindow {
     MenuItem {
       text: qsTr( "Show Position Information" )
 
-      height: 48 * dp
+      height: 48
       font: Theme.defaultFont
       width: parent.width
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
 
-      indicator.height: 20 * dp
-      indicator.width: 20 * dp
-      indicator.implicitHeight: 24 * dp
-      indicator.implicitWidth: 24 * dp
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
       onCheckedChanged:
       {
         settings.setValue( "/QField/Positioning/ShowInformationView", checked )
@@ -1114,7 +1114,7 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
-      height: 48 * dp
+      height: 48
       font: Theme.defaultFont
       width: parent.width
 
@@ -1134,7 +1134,7 @@ ApplicationWindow {
 
     anchors.right: locatorItem.right
     anchors.top: locatorItem.bottom
-    anchors.topMargin: 5 * dp
+    anchors.topMargin: 5
 
     onClicked: messageLog.visible = true
   }
@@ -1226,8 +1226,8 @@ ApplicationWindow {
       id: busyMessageIndicator
       anchors.centerIn: parent
       running: true
-      width: 100 * dp
-      height: 100 * dp
+      width: 100
+      height: 100
     }
 
     Text {
@@ -1257,7 +1257,7 @@ ApplicationWindow {
     id: busyIndicator
     anchors.left: mainMenuBar.left
     anchors.top: mainMenuBar.bottom
-    padding: 5 * dp
+    padding: 5
     width: mainMenuBar.height
     height: mainMenuBar.height
     running: mapCanvasMap.isRendering
@@ -1348,10 +1348,10 @@ ApplicationWindow {
 
       property var realm
 
-      x: 24 * dp
-      y: 24 * dp
-      width: parent.width - 48 * dp
-      height: parent.height - 48 * dp
+      x: 24
+      y: 24
+      width: parent.width - 48
+      height: parent.height - 48
       padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
@@ -1406,10 +1406,10 @@ ApplicationWindow {
     id: positioningSettingsPopup
     visible: false
 
-    x: 24 * dp
-    y: 24 * dp
-    width: parent.width - 48 * dp
-    height: parent.height - 48 * dp
+    x: 24
+    y: 24
+    width: parent.width - 48
+    height: parent.height - 48
   }
 
   QFieldSettings {
@@ -1490,10 +1490,10 @@ ApplicationWindow {
     visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
                && expireDate > new Date()
 
-    x: 24 * dp
-    y: 24 * dp
-    width: parent.width - 48 * dp
-    height: parent.height - 48 * dp
+    x: 24
+    y: 24
+    width: parent.width - 48
+    height: parent.height - 48
     padding: 0
     modal: true
     closePolicy: Popup.CloseOnEscape
@@ -1521,9 +1521,9 @@ ApplicationWindow {
   Popup {
       id: toast
       opacity: 0
-      height: 40 * dp;
+      height: 40;
       width: parent.width
-      y: parent.height - 112 * dp
+      y: parent.height - 112
       margins: 0
       closePolicy: Popup.NoAutoClose
 
@@ -1546,11 +1546,11 @@ ApplicationWindow {
         color: Theme.darkGray
 
         height: toastMessage.height
-        width: toastMessage.text.length * 16 * dp <= 192 * dp ? 192 * dp : ( toastMessage.text.length * 16 * dp ) - 16 * dp > mainWindow.width ? mainWindow.width - 16 * dp : toastMessage.text.length * 16 * dp
+        width: toastMessage.text.length * 16<= 192? 192: ( toastMessage.text.length * 16) - 16> mainWindow.width ? mainWindow.width - 16: toastMessage.text.length * 16
 
         anchors.centerIn: parent
 
-        radius: 16 * dp
+        radius: 16
 
         z: 1
 

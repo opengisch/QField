@@ -12,17 +12,17 @@ Drawer {
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   width: {
-      if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
+      if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
           parent.width
       } else {
-          Math.min(Math.max( 200 * dp, parent.width / 3), parent.width)
+          Math.min(Math.max( 200, parent.width / 3), parent.width)
       }
   }
   height: {
      if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
          parent.height
      } else {
-         Math.min(Math.max( 200 * dp, parent.height / 2 ), parent.height)
+         Math.min(Math.max( 200, parent.height / 2 ), parent.height)
      }
   }
 

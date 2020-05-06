@@ -2,14 +2,14 @@ import QtQuick.Controls 2.12
 import QtQuick 2.12
 
 Button {
-  padding: 8 * dp
-  topInset: 2 * dp
-  bottomInset: 2 * dp
+  padding: 8
+  topInset: 2
+  bottomInset: 2
 
   background: Rectangle {
       anchors.fill: parent
       color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-      radius: 12 * dp
+      radius: 12
       Behavior on color {
         PropertyAnimation {
           duration: 25

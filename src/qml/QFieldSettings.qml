@@ -89,16 +89,16 @@ Page {
     TabBar {
       id: bar
       Layout.fillWidth: true
-      Layout.preferredHeight: 48*dp
+      Layout.preferredHeight: 48
 
       TabButton {
-        height: 48*dp
+        height: 48
         text: qsTr("General")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 48*dp
+        height: 48
         text: qsTr("Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
@@ -117,7 +117,7 @@ Page {
         boundsBehavior: Flickable.StopAtBounds
         width: mainWindow.width
         clip: true
-        //rowSpacing: 10 * dp
+        //rowSpacing: 10
         ScrollBar.vertical: ScrollBar {}
 
         model: settingsModel
@@ -129,8 +129,8 @@ Page {
             width: parent.width - toggle.width
             Label {
               width: parent.width
-              padding: 8 * dp
-              leftPadding: 22 * dp
+              padding: 8
+              leftPadding: 22
               text: title
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
@@ -143,9 +143,9 @@ Page {
             Label {
               width: parent.width
               visible: !!description
-              padding: !!description ? 8 * dp : 0
+              padding: !!description ? 8: 0
               topPadding: 0
-              leftPadding: 22 * dp
+              leftPadding: 22
               text: description
               font: Theme.tipFont
               color: Theme.gray
@@ -167,7 +167,7 @@ Page {
         VariableEditor {
           id: variableEditor
           anchors.fill: parent
-          anchors.margins: 4 * dp
+          anchors.margins: 4
         }
       }
     }

@@ -16,10 +16,10 @@ Drawer {
 
   property color mainColor: Theme.mainColor
 
-  width: Math.min( 300 * dp, mainWindow.width)
+  width: Math.min( 300, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
-  dragMargin: 10 * dp
+  dragMargin: 10
   padding: 0
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
@@ -29,7 +29,7 @@ Drawer {
   clip: true
 
   /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
-  onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
+  onShowMenu: mainMenu.popup(settingsButton.x + 2, 2)
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
@@ -47,11 +47,11 @@ Drawer {
 
       Row {
         height: childrenRect.height
-        spacing: 1 * dp
+        spacing: 1
 
         ToolButton {
-          height: 56 * dp
-          width: 56 * dp
+          height: 56
+          width: 56
 
           contentItem: Rectangle {
             anchors.fill: parent
@@ -71,8 +71,8 @@ Drawer {
 
         ToolButton {
           id: settingsButton
-          height: 56 * dp
-          width: 56 * dp
+          height: 56
+          width: 56
 
           contentItem: Rectangle {
             anchors.fill: parent
@@ -93,14 +93,14 @@ Drawer {
 
       Switch {
         id: modeswitch
-        height: 56 * dp
-        width: ( 56 + 36 )  * dp
+        height: 56
+        width: ( 56 + 36 ) 
         anchors.right: parent.right
         indicator: Rectangle {
-          implicitHeight: 36 * dp
-          implicitWidth: 36 * 2 * dp
+          implicitHeight: 36
+          implicitWidth: 36 * 2
           x: modeswitch.leftPadding
-          radius: 4 * dp
+          radius: 4
           color:  "#66212121"
           border.color: "#44FFFFFF"
           anchors.verticalCenter: parent.verticalCenter
@@ -122,9 +122,9 @@ Drawer {
           }
           Rectangle {
             x: modeswitch.checked ? parent.width - width : 0
-            width: 36 * dp
-            height: 36 * dp
-            radius: 4 * dp
+            width: 36
+            height: 36
+            radius: 4
             color:  Theme.mainColor
             border.color: "white"
             Image {
@@ -185,7 +185,7 @@ Drawer {
         // [hidpi fixes]
         delegate: ItemDelegate {
           width: mapThemeComboBox.width
-          height: 36 * dp
+          height: 36
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
           font.pointSize: Theme.tipFont.pointSize
@@ -193,8 +193,8 @@ Drawer {
         }
 
         contentItem: Text {
-          height: 36 * dp
-          leftPadding: 8 * dp
+          height: 36
+          leftPadding: 8
           text: mapThemeComboBox.displayText
           font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
@@ -203,8 +203,8 @@ Drawer {
         }
 
         background: Item {
-          implicitWidth: 120 * dp
-          implicitHeight: 36 * dp
+          implicitWidth: 120
+          implicitHeight: 36
 
           Rectangle {
             anchors.fill: parent
