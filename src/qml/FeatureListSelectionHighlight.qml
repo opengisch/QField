@@ -1,23 +1,22 @@
 import QtQuick 2.12
-
-import org.qgis 1.0
 import org.qfield 1.0
+import org.qgis 1.0
 
 Repeater {
-  id: featureListSelectionHighlight
-  property FeatureListModelSelection selectionModel
-  property MapSettings mapSettings
-  property color color: "yellow"
-  property color selectionColor: "red"
+    id: featureListSelectionHighlight
 
-  model: selectionModel.model
+    property FeatureListModelSelection selectionModel
+    property MapSettings mapSettings
+    property color color: "yellow"
+    property color selectionColor: "red"
 
-  delegate: GeometryRenderer {
-    mapSettings: featureListSelectionHighlight.mapSettings
-    geometryWrapper.qgsGeometry: model.geometry
-    geometryWrapper.crs: model.crs
+    model: selectionModel.model
 
-    color: selectionModel && model.index === selectionModel.selection ? "red" : "yellow"
-  }
+    delegate: GeometryRenderer {
+        mapSettings: featureListSelectionHighlight.mapSettings
+        geometryWrapper.qgsGeometry: model.geometry
+        geometryWrapper.crs: model.crs
+        color: selectionModel && model.index === selectionModel.selection ? "red" : "yellow"
+    }
 
 }

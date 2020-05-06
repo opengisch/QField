@@ -1,13 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-
 import Theme 1.0
-
 
 Popup {
     id: questionDialog
-    parent: Overlay.overlay
 
     property alias questionText: label.text
     property alias button1Text: button1.text
@@ -19,35 +16,43 @@ Popup {
     signal button2Clicked()
     signal button3Clicked()
 
+    parent: Overlay.overlay
     modal: true
     closePolicy: Popup.NoAutoClose
-
     width: parent.width
     anchors.centerIn: parent
 
     ColumnLayout {
         id: column
+
         width: parent.width
+
         Label {
             id: label
+
             width: parent.width
             Layout.columnSpan: 1
             Layout.fillWidth: true
             font: Theme.secondaryTitleFont
             wrapMode: Text.Wrap
         }
+
         RowLayout {
             Layout.alignment: Qt.AlignRight
-            Button{
+
+            Button {
                 id: button1
+
                 font: Theme.defaultFont
                 onClicked: {
                     button1Clicked();
                     questionDialog.close();
                 }
             }
-            Button{
+
+            Button {
                 id: button2
+
                 visible: nButtons >= 2
                 font: Theme.defaultFont
                 onClicked: {
@@ -55,8 +60,10 @@ Popup {
                     questionDialog.close();
                 }
             }
-            Button{
+
+            Button {
                 id: button3
+
                 visible: nButtons >= 3
                 font: Theme.defaultFont
                 onClicked: {
@@ -64,6 +71,9 @@ Popup {
                     questionDialog.close();
                 }
             }
+
         }
+
     }
+
 }

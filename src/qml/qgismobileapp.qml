@@ -5,7 +5,6 @@
               copyright            : (C) 2014 by Matthias Kuhn
               email                : matthias (at) opengis.ch
  ***************************************************************************/
-
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -15,260 +14,186 @@
  *                                                                         *
  ***************************************************************************/
 
+import "."
+import Qt.labs.settings 1.0 as LabSettings
+import QtGraphicalEffects 1.0
+import QtPositioning 5.12
+import QtQml 2.12
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.3
-import QtGraphicalEffects 1.0
-import Qt.labs.settings 1.0 as LabSettings
-import QtQml 2.12
-import QtPositioning 5.12
-
-import org.qgis 1.0
-import org.qfield 1.0
 import Theme 1.0
-
-import '.'
-import 'geometry_editors'
+import "geometry_editors"
+import org.qfield 1.0
+import org.qgis 1.0
 
 ApplicationWindow {
-  id: mainWindow
-  visible: true
-
-  LabSettings.Settings {
-      property alias x: mainWindow.x
-      property alias y: mainWindow.y
-      property alias width: mainWindow.width
-      property alias height: mainWindow.height
-  }
-
-  FocusStack{
-      id: focusstack
-  }
-
-  QuestionDialog{
-    id: questionDialog
-    parent: ApplicationWindow.overlay
-  }
-
-  //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
-
-  Item {
-    id: keyHandler
-    objectName: "keyHandler"
-
-    visible: true
-    focus: true
-
-    Keys.onReleased: {
-      if ( event.key === Qt.Key_Back ||
-        event.key === Qt.Key_Escape ) {
-        if ( stateMachine.state === 'measure' ) {
-          mainWindow.closeMeasureTool()
-        } else {
-          mainWindow.close();
-        }
-        event.accepted = true
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
-  }
-
-  //currentRubberband provides the rubberband depending on the current state (digitize or measure)
-  property Rubberband currentRubberband
-
-  signal closeMeasureTool()
-  signal changeMode( string mode )
-
-  Item {
-    id: stateMachine
-
-    property string lastState
-
-    states: [
-      State {
-        name: "browse"
-        PropertyChanges { target: identifyTool; deactivated: false }
-      },
-
-      State {
-        name: "digitize"
-        PropertyChanges { target: identifyTool; deactivated: false }
-        PropertyChanges { target: mainWindow; currentRubberband: digitizingRubberband }
-      },
-
-      State {
-        name: 'measure'
-        PropertyChanges { target: identifyTool; deactivated: true }
-        PropertyChanges { target: mainWindow; currentRubberband: measuringRubberband }
-        PropertyChanges { target: featureForm; state: "Hidden" }
-      }
-    ]
-    state: "browse"
-  }
-
-  onChangeMode: {
-    stateMachine.lastState = stateMachine.state
-    stateMachine.state = mode
-    switch ( stateMachine.state )
-    {
-      case 'browse':
-        displayToast( qsTr( 'You are now in browse mode' ) );
-        break;
-      case 'digitize':
-        displayToast( qsTr( 'You are now in digitize mode' ) );
-        break;
-      case 'measure':
-        displayToast( qsTr( 'You are now in measure mode' ) );
-        break;
-    }
-  }
-
-  onCloseMeasureTool: {
-    overlayFeatureFormDrawer.close()
-    changeMode( stateMachine.lastState)
-  }
-
-  /**
+    //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
+    /**
    * The position source to access the GPS
    */
-  TransformedPositionSource {
-    id: positionSource
-    destinationCrs: mapCanvas.mapSettings.destinationCrs
-    deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
-    skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
-  }
+    /**************************************************
+   * Map Canvas Decorations like
+   * - Position Information View
+   * - Scale Bar
+   **************************************************/
 
-  Item {
-    /*
+    id: mainWindow
+
+    //currentRubberband provides the rubberband depending on the current state (digitize or measure)
+    property Rubberband currentRubberband
+    property bool alreadyCloseRequested: false
+
+    signal closeMeasureTool()
+    signal changeMode(string mode)
+
+    function displayToast(message) {
+        //toastMessage.text = message
+        if (!welcomeScreen.visible)
+            toast.show(message);
+
+    }
+
+    visible: true
+    onChangeMode: {
+        stateMachine.lastState = stateMachine.state;
+        stateMachine.state = mode;
+        switch (stateMachine.state) {
+        case "browse":
+            displayToast(qsTr("You are now in browse mode"));
+            break;
+        case "digitize":
+            displayToast(qsTr("You are now in digitize mode"));
+            break;
+        case "measure":
+            displayToast(qsTr("You are now in measure mode"));
+            break;
+        }
+    }
+    onCloseMeasureTool: {
+        overlayFeatureFormDrawer.close();
+        changeMode(stateMachine.lastState);
+    }
+    onClosing: {
+        if (!alreadyCloseRequested) {
+            close.accepted = false;
+            alreadyCloseRequested = true;
+            displayToast(qsTr("Press back again to close project and app"));
+            closingTimer.start();
+        } else {
+            close.accepted = true;
+        }
+    }
+
+    LabSettings.Settings {
+        property alias x: mainWindow.x
+        property alias y: mainWindow.y
+        property alias width: mainWindow.width
+        property alias height: mainWindow.height
+    }
+
+    FocusStack {
+        id: focusstack
+    }
+
+    QuestionDialog {
+        id: questionDialog
+
+        parent: ApplicationWindow.overlay
+    }
+
+    Item {
+        id: keyHandler
+
+        objectName: "keyHandler"
+        visible: true
+        focus: true
+        Keys.onReleased: {
+            if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+                if (stateMachine.state === "measure")
+                    mainWindow.closeMeasureTool();
+                else
+                    mainWindow.close();
+
+                event.accepted = true;
+            }
+        }
+        Component.onCompleted: focusstack.addFocusTaker(this)
+    }
+
+    Item {
+        id: stateMachine
+
+        property string lastState
+
+        state: "browse"
+        states: [
+            State {
+                name: "browse"
+
+                PropertyChanges {
+                    target: identifyTool
+                    deactivated: false
+                }
+
+            },
+            State {
+                name: "digitize"
+
+                PropertyChanges {
+                    target: identifyTool
+                    deactivated: false
+                }
+
+                PropertyChanges {
+                    target: mainWindow
+                    currentRubberband: digitizingRubberband
+                }
+
+            },
+            State {
+                name: "measure"
+
+                PropertyChanges {
+                    target: identifyTool
+                    deactivated: true
+                }
+
+                PropertyChanges {
+                    target: mainWindow
+                    currentRubberband: measuringRubberband
+                }
+
+                PropertyChanges {
+                    target: featureForm
+                    state: "Hidden"
+                }
+
+            }
+        ]
+    }
+
+    TransformedPositionSource {
+        id: positionSource
+
+        destinationCrs: mapCanvas.mapSettings.destinationCrs
+        deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
+        skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
+    }
+
+    Item {
+        /*
      * This is the map canvas
      * On top of it are the base map and other items like GPS icon...
      */
-    id: mapCanvas
-    clip: true
-
-    HoverHandler {
-        id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen
-        grabPermissions: PointerHandler.ApprovesTakeOverByAnything
-
-        onPointChanged: {
-          // after a click, it seems that the position is sent once at 0,0 => weird
-          if (point.position !== Qt.point(0, 0))
-            coordinateLocator.sourceLocation = point.position
-        }
-
-        onActiveChanged: {
-          if ( !active )
-            coordinateLocator.sourceLocation = undefined
-
-        }
-
-        onHoveredChanged: {
-          if ( !hovered )
-            coordinateLocator.sourceLocation = undefined
-        }
-    }
-
-    /* Initialize a MapSettings object. This will contain information about
+        /* Initialize a MapSettings object. This will contain information about
      * the current canvas extent. It is shared between the base map and all
      * map canvas items and is used to transform map coordinates to pixel
      * coordinates.
      * It may change any time and items that hold a reference to this property
      * are responsible to handle this properly.
      */
-    property MapSettings mapSettings: mapCanvasMap.mapSettings
-
-    /* Placement and size. Share right anchor with featureForm */
-    anchors.top: parent.top
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
-
-    Rectangle {
-      id: mapCanvasBackground
-      anchors.fill: parent
-      color: mapCanvas.mapSettings.backgroundColor
-    }
-
-    /* The base map */
-    MapCanvas {
-
-      id: mapCanvasMap
-      incrementalRendering: qfieldSettings.incrementalRendering
-
-      anchors.fill: parent
-
-      onClicked:  {
-          if (locatorItem.searching) {
-              locatorItem.searching = false
-          }
-          else if (geometryEditorsToolbar.canvasClicked(point)) {
-            // for instance, the vertex editor will select a vertex if possible
-          }
-          else if ( type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer ) {
-                if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-                     Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
-                  digitizingToolbar.confirm()
-                else
-                {
-                    var mapPoint = mapSettings.screenToCoordinate(point)
-                    currentRubberband.model.addVertexFromPoint(mapPoint)
-                    coordinateLocator.flash()
-                }
-          }
-          else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify(point)
-          }
-      }
-
-      onLongPressed: {
-        if ( type === "stylus" ){
-          if (geometryEditorsToolbar.canvasLongPressed(point)) {
-            // for instance, the vertex editor will select a vertex if possible
-            return
-          }
-          if ( stateMachine.state === "digitize" && dashBoard.currentLayer ) { // the sourceLocation test checks if a (stylus) hover is active
-            if ( ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1 )
-               || ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2 ) ) {
-                var mapPoint = mapSettings.screenToCoordinate(point)
-                digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint) // The onLongPressed event is triggered while the button is down.
-                // When it's released, it will normally cause a release event to close the attribute form.
-                // We get around this by temporarily switching the closePolicy.
-                overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape
-                digitizingToolbar.confirm()
-                coordinateLocator.flash()
-                return
-            }
-          }
-          // do not use else, as if it was catch it has return before
-          if( !overlayFeatureFormDrawer.visible ) {
-            identifyTool.identify(point)
-          }
-        }
-      }
-
-      onLongPressReleased: {
-        if ( type === "stylus" ){
-          // The user has released the long press. We can re-enable the default close behavior for the feature form.
-          // The next press will be intentional to close the form.
-          overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside
-        }
-      }
-
-      onPanned: {
-          if ( gpsButton.followActive )
-          {
-            gpsButton.followActive = false
-            displayToast( qsTr( "Canvas stopped following location" ) )
-          }
-      }
-
-      Component.onCompleted: platformUtilities.showRateThisApp()
-    }
-
-
-  /**************************************************
+        /**************************************************
    * Position markers
    * - Coordinate Locator
    * - GPS Marker
@@ -276,698 +201,662 @@ ApplicationWindow {
    * - Digitizing Rubberband
    **************************************************/
 
-    /* A transformation node for overlays in map coordinates */
+        id: mapCanvas
+
+        property MapSettings mapSettings: mapCanvasMap.mapSettings
+
+        clip: true
+        // Placement and size. Share right anchor with featureForm
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: positionInformationView.visible ? positionInformationView.top : parent.bottom
+
+        HoverHandler {
+            id: hoverHandler
+
+            enabled: !qfieldSettings.mouseAsTouchScreen
+            grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+            onPointChanged: {
+                // after a click, it seems that the position is sent once at 0,0 => weird
+                if (point.position !== Qt.point(0, 0))
+                    coordinateLocator.sourceLocation = point.position;
+
+            }
+            onActiveChanged: {
+                if (!active)
+                    coordinateLocator.sourceLocation = undefined;
+
+            }
+            onHoveredChanged: {
+                if (!hovered)
+                    coordinateLocator.sourceLocation = undefined;
+
+            }
+        }
+
+        Rectangle {
+            id: mapCanvasBackground
+
+            anchors.fill: parent
+            color: mapCanvas.mapSettings.backgroundColor
+        }
+
+        // The base map
+        MapCanvas {
+            id: mapCanvasMap
+
+            incrementalRendering: qfieldSettings.incrementalRendering
+            anchors.fill: parent
+            onClicked: {
+                // for instance, the vertex editor will select a vertex if possible
+
+                if (locatorItem.searching) {
+                    locatorItem.searching = false;
+                } else if (geometryEditorsToolbar.canvasClicked(point)) {
+                    /***************************************************************************
+                            qgismobileapp.qml
+                              -------------------
+              begin                : 10.12.2014
+              copyright            : (C) 2014 by Matthias Kuhn
+              email                : matthias (at) opengis.ch
+ ***************************************************************************/
+                    /***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+                } else if (type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer) {
+                    if (Number(currentRubberband.model.geometryType) === QgsWkbTypes.PointGeometry || Number(currentRubberband.model.geometryType) === QgsWkbTypes.NullGeometry) {
+                        digitizingToolbar.confirm();
+                    } else {
+                        var mapPoint = mapSettings.screenToCoordinate(point);
+                        currentRubberband.model.addVertexFromPoint(mapPoint);
+                        coordinateLocator.flash();
+                    }
+                } else if (!overlayFeatureFormDrawer.visible) {
+                    identifyTool.identify(point);
+                }
+            }
+            onLongPressed: {
+                if (type === "stylus") {
+                    if (geometryEditorsToolbar.canvasLongPressed(point))
+                        // for instance, the vertex editor will select a vertex if possible
+                        return ;
+
+                    if (stateMachine.state === "digitize" && dashBoard.currentLayer) {
+                        // the sourceLocation test checks if a (stylus) hover is active
+                        if ((Number(currentRubberband.model.geometryType) === QgsWkbTypes.LineGeometry && currentRubberband.model.vertexCount >= 1) || (Number(currentRubberband.model.geometryType) === QgsWkbTypes.PolygonGeometry && currentRubberband.model.vertexCount >= 2)) {
+                            var mapPoint = mapSettings.screenToCoordinate(point);
+                            digitizingToolbar.rubberbandModel.addVertexFromPoint(mapPoint); // The onLongPressed event is triggered while the button is down.
+                            // When it's released, it will normally cause a release event to close the attribute form.
+                            // We get around this by temporarily switching the closePolicy.
+                            overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape;
+                            digitizingToolbar.confirm();
+                            coordinateLocator.flash();
+                            return ;
+                        }
+                    }
+                    // do not use else, as if it was catch it has return before
+                    if (!overlayFeatureFormDrawer.visible)
+                        identifyTool.identify(point);
+
+                }
+            }
+            onLongPressReleased: {
+                if (type === "stylus")
+                    // The user has released the long press. We can re-enable the default close behavior for the feature form.
+                    // The next press will be intentional to close the form.
+                    overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside;
+
+            }
+            onPanned: {
+                if (gpsButton.followActive) {
+                    gpsButton.followActive = false;
+                    displayToast(qsTr("Canvas stopped following location"));
+                }
+            }
+            Component.onCompleted: platformUtilities.showRateThisApp()
+        }
+
+        // A transformation node for overlays in map coordinates
+        Item {
+            anchors.fill: parent
+
+            //* A rubberband for ditizing *
+            Rubberband {
+                id: digitizingRubberband
+
+                width: 2
+                mapSettings: mapCanvas.mapSettings
+                anchors.fill: parent
+                visible: stateMachine.state === "digitize"
+
+                model: RubberbandModel {
+                    frozen: false
+                    currentCoordinate: coordinateLocator.currentCoordinate
+                    vectorLayer: dashBoard.currentLayer
+                    crs: mapCanvas.mapSettings.destinationCrs
+                }
+
+            }
+
+            //* A rubberband for measuring *
+            Rubberband {
+                id: measuringRubberband
+
+                width: 2
+                color: "#80000000"
+                mapSettings: mapCanvas.mapSettings
+                anchors.fill: parent
+                visible: stateMachine.state === "measure"
+
+                model: RubberbandModel {
+                    frozen: false
+                    currentCoordinate: coordinateLocator.currentCoordinate
+                    geometryType: QgsWkbTypes.PolygonGeometry
+                    crs: mapCanvas.mapSettings.destinationCrs
+                }
+
+            }
+
+            //* Tracking sessions *
+            Repeater {
+                id: trackings
+
+                model: trackingModel
+
+                Tracking {
+                }
+
+            }
+
+            //* The identify tool *
+            IdentifyTool {
+                id: identifyTool
+
+                mapSettings: mapCanvas.mapSettings
+                model: featureForm.model
+            }
+
+            //* A rubberband for the different geometry editors *
+            Rubberband {
+                id: geometryEditorsRubberband
+
+                width: 2
+                color: "#80000000"
+                mapSettings: mapCanvas.mapSettings
+                anchors.fill: parent
+
+                model: RubberbandModel {
+                    frozen: false
+                    currentCoordinate: coordinateLocator.currentCoordinate
+                    crs: mapCanvas.mapSettings.destinationCrs
+                    geometryType: QgsWkbTypes.LineGeometry
+                }
+
+            }
+
+            transform: MapTransform {
+                mapSettings: mapCanvas.mapSettings
+            }
+
+        }
+
+        //* A coordinate locator for digitizing *
+        CoordinateLocator {
+            id: coordinateLocator
+
+            anchors.fill: parent
+            visible: stateMachine.state === "digitize" || stateMachine.state === "measure"
+            highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
+            mapSettings: mapCanvas.mapSettings
+            currentLayer: dashBoard.currentLayer
+            overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
+        }
+
+        // GPS marker
+        LocationMarker {
+            id: locationMarker
+
+            mapSettings: mapCanvas.mapSettings
+            anchors.fill: parent
+            visible: positionSource.active && positionSource.position.latitudeValid
+            location: positionSource.projectedPosition
+            accuracy: positionSource.projectedHorizontalAccuracy
+            direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+            onLocationChanged: {
+                if (gpsButton.followActive) {
+                    var screenLocation = mapSettings.coordinateToScreen(location);
+                    var screenFraction = settings.value("/QField/Positioning/FollowScreenFraction", 5);
+                    var threshold = Math.min(mainWindow.width, mainWindow.height) / screenFraction;
+                    if (screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold || screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold)
+                        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+
+                }
+            }
+        }
+
+        // Rubberband for vertices
+        Item {
+            // highlighting vertices
+            VertexRubberband {
+                id: vertexRubberband
+
+                model: vertexModel
+                mapSettings: mapCanvas.mapSettings
+            }
+
+            // highlighting geometry (point, line, surface)
+            Rubberband {
+                id: editingRubberBand
+
+                vertexModel: vertexModel
+                mapSettings: mapCanvas.mapSettings
+                width: 2
+
+                transform: MapTransform {
+                    mapSettings: mapCanvas.mapSettings
+                }
+
+            }
+
+        }
+
+        // Locator Highlight
+        GeometryHighlighter {
+            //width: 10
+            //color: "yellow"
+
+            id: locatorHighlightItem
+        }
+
+        // Highlight the currently selected item on the feature list
+        FeatureListSelectionHighlight {
+            //model: featureForm.model
+            //selection: featureForm.selection
+
+            selectionModel: featureForm.selection
+            mapSettings: mapCanvas.mapSettings
+            color: "yellow"
+            selectionColor: "#ff7777"
+            width: 5
+        }
+
+    }
+
     Item {
-      anchors.fill: parent
+        id: positionInformationView
 
-      transform: MapTransform {
-        mapSettings: mapCanvas.mapSettings
-      }
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        visible: settings.valueBool("/QField/Positioning/ShowInformationView", false)
+        height: childrenRect.height
+        width: parent.width
 
-      /** A rubberband for ditizing **/
-      Rubberband {
-        id: digitizingRubberband
-        width: 2
+        PositionInformationView {
+            id: p
 
-        mapSettings: mapCanvas.mapSettings
-
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          vectorLayer: dashBoard.currentLayer
-          crs: mapCanvas.mapSettings.destinationCrs
+            positionSource: positionSource
+            antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
         }
 
-        anchors.fill: parent
+    }
 
-        visible: stateMachine.state === "digitize"
-      }
+    DropShadow {
+        anchors.fill: positionInformationView
+        visible: positionInformationView.visible
+        verticalOffset: -2
+        radius: 6
+        samples: 17
+        color: "#30000000"
+        source: positionInformationView
+    }
 
-      /** A rubberband for measuring **/
-      Rubberband {
-        id: measuringRubberband
-        width: 2
-        color: '#80000000'
+    Text {
+        x: mapCanvas.width / 2 + 10
+        y: mapCanvas.height / 2 + 22
+        text: (qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize") || stateMachine.state === "measure" ? "%1%2%3%4".arg(stateMachine.state === "digitize" || !digitizingToolbar.isDigitizing ? "<p>%1: %2<br>%3: %4</p>".arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr("Lon") : "X").arg(coordinateLocator.currentCoordinate.x.toFixed(coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2)).arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr("Lat") : "Y").arg(coordinateLocator.currentCoordinate.y.toFixed(coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2)) : "").arg(digitizingGeometryMeasure.lengthValid ? "<p>%1: %2%3</p>".arg(digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr("Segment") : qsTr("Length")).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits)).arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? "<br>%1: %2".arg(qsTr("Length")).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits)) : "") : "").arg(digitizingGeometryMeasure.areaValid ? "<p>%1: %2</p>".arg(qsTr("Area")).arg(UnitTypes.formatArea(digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits)) : "").arg(stateMachine.state === "measure" && digitizingToolbar.isDigitizing ? "<p>%1: %2<br>%3: %4</p>".arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr("Lon") : "X").arg(coordinateLocator.currentCoordinate.x.toFixed(coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2)).arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr("Lat") : "Y").arg(coordinateLocator.currentCoordinate.y.toFixed(coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2)) : "") : ""
+        font: Theme.strongTipFont
+        style: Text.Outline
+        styleColor: Theme.light
 
-        mapSettings: mapCanvas.mapSettings
+        DistanceArea {
+            id: digitizingGeometryMeasure
 
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          geometryType: QgsWkbTypes.PolygonGeometry
-          crs: mapCanvas.mapSettings.destinationCrs
+            property VectorLayer currentLayer: dashBoard.currentLayer
+
+            rubberbandModel: measuringRubberband.model
+            project: qgisProject
+            crs: qgisProject.crs
         }
 
-        anchors.fill: parent
+    }
 
-        visible: stateMachine.state === 'measure'
-      }
-
-      /** Tracking sessions **/
-      Repeater {
-          id: trackings
-          model: trackingModel
-          Tracking {
-          }
-      }
-
-      /** The identify tool **/
-      IdentifyTool {
-        id: identifyTool
-
+    ScaleBar {
+        visible: qfieldSettings.showScaleBar
         mapSettings: mapCanvas.mapSettings
-        model: featureForm.model
-      }
+        anchors.left: mapCanvas.left
+        anchors.bottom: mapCanvas.bottom
+        anchors.margins: 10
+    }
 
-      /** A rubberband for the different geometry editors **/
-      Rubberband {
-        id: geometryEditorsRubberband
-        width: 2
-        color: '#80000000'
+    DropShadow {
+        anchors.fill: featureForm
+        horizontalOffset: mainWindow.width >= mainWindow.height ? -2 : 0
+        verticalOffset: mainWindow.width < mainWindow.height ? -2 : 0
+        radius: 6
+        samples: 17
+        color: "#80000000"
+        source: featureForm
+    }
 
+    LocatorItem {
+        id: locatorItem
+
+        width: Math.max(200, mainWindow.width / 3)
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: 4
+        visible: stateMachine.state !== "measure"
+    }
+
+    DashBoard {
+        id: dashBoard
+
+        allowLayerChange: !digitizingToolbar.isDigitizing
         mapSettings: mapCanvas.mapSettings
+        interactive: !welcomeScreen.visible
+    }
 
-        model: RubberbandModel {
-          frozen: false
-          currentCoordinate: coordinateLocator.currentCoordinate
-          crs: mapCanvas.mapSettings.destinationCrs
-          geometryType: QgsWkbTypes.LineGeometry
+    // The main menu
+    Row {
+        id: mainMenuBar
+
+        width: childrenRect.width + 8
+        height: childrenRect.height + 8
+        topPadding: 4
+        leftPadding: 4
+        spacing: 4
+
+        Button {
+            id: menuButton
+
+            round: true
+            iconSource: Theme.getThemeIcon("ic_menu_white_24dp")
+            onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
+            bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
         }
 
-        anchors.fill: parent
-      }
-    }
+        CloseTool {
+            id: closeMeasureTool
 
-
-    /** A coordinate locator for digitizing **/
-    CoordinateLocator {
-      id: coordinateLocator
-      anchors.fill: parent
-      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
-      highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
-      mapSettings: mapCanvas.mapSettings
-      currentLayer: dashBoard.currentLayer
-      overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
-    }
-
-    /* GPS marker  */
-    LocationMarker {
-      id: locationMarker
-      mapSettings: mapCanvas.mapSettings
-      anchors.fill: parent
-      visible: positionSource.active && positionSource.position.latitudeValid
-      location: positionSource.projectedPosition
-      accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.position.directionValid ? positionSource.position.direction : -1
-
-      onLocationChanged: {
-        if ( gpsButton.followActive ) {
-          var screenLocation = mapSettings.coordinateToScreen( location );
-          var screenFraction = settings.value( "/QField/Positioning/FollowScreenFraction", 5 );
-          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
-          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
-               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
-          {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-          }
+            visible: stateMachine.state === "measure"
+            toolText: qsTr("Close measure tool")
+            onClosedTool: mainWindow.closeMeasureTool()
         }
-      }
-    }
 
-    /* Rubberband for vertices  */
-    Item {
-      // highlighting vertices
-      VertexRubberband {
-        id: vertexRubberband
-        model: vertexModel
-        mapSettings: mapCanvas.mapSettings
-      }
+        CloseTool {
+            id: closeGeometryEditorsTool
 
-      // highlighting geometry (point, line, surface)
-      Rubberband {
-        id: editingRubberBand
-        vertexModel: vertexModel
-        mapSettings: mapCanvas.mapSettings
-        width: 2
-
-        transform: MapTransform {
-          mapSettings: mapCanvas.mapSettings
+            visible: (stateMachine.state === "digitize" && vertexModel.vertexCount > 0)
+            toolText: qsTr("Stop editing")
+            onClosedTool: geometryEditorsToolbar.cancelEditors()
         }
-      }
+
     }
 
-    /* Locator Highlight */
-    GeometryHighlighter {
-      id: locatorHighlightItem
-      //width: 10
-      //color: "yellow"
-    }
+    Column {
+        id: mainToolbar
 
-    /* Highlight the currently selected item on the feature list */
-    FeatureListSelectionHighlight {
-      selectionModel: featureForm.selection
-      mapSettings: mapCanvas.mapSettings
+        anchors.left: mainMenuBar.left
+        anchors.top: mainMenuBar.bottom
+        anchors.leftMargin: 4
+        spacing: 4
 
-      //model: featureForm.model
-      //selection: featureForm.selection
+        Button {
+            id: topologyButton
 
-      color: "yellow"
-      selectionColor: "#ff7777"
-      width: 5
-    }
-  }
-
-  Item {
-    id: positionInformationView
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
-    height: childrenRect.height
-    width: parent.width
-
-    PositionInformationView {
-      id: p
-      positionSource: positionSource
-      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : NaN
-    }
-  }
-
-  DropShadow {
-    anchors.fill: positionInformationView
-    visible: positionInformationView.visible
-    verticalOffset: -2
-    radius: 6.0
-    samples: 17
-    color: "#30000000"
-    source: positionInformationView
-  }
-
-  /**************************************************
-   * Map Canvas Decorations like
-   * - Position Information View
-   * - Scale Bar
-   **************************************************/
-
-  Text {
-    DistanceArea {
-      id: digitizingGeometryMeasure
-
-      property VectorLayer currentLayer: dashBoard.currentLayer
-
-      rubberbandModel: measuringRubberband.model
-      project: qgisProject
-      crs: qgisProject.crs
-    }
-
-    x: mapCanvas.width / 2 + 10
-    y: mapCanvas.height / 2 + 22
-
-    text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
-              '%1%2%3%4'
-                .arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
-
-                .arg(digitizingGeometryMeasure.lengthValid ? '<p>%1: %2%3</p>'
-                  .arg( digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr( 'Segment') : qsTr( 'Length') )
-                  .arg(UnitTypes.formatDistance( digitizingGeometryMeasure.segmentLength, 3, digitizingGeometryMeasure.lengthUnits ) )
-                  .arg(digitizingGeometryMeasure.length !== -1 && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '<br>%1: %2'.arg( qsTr( 'Length') ).arg(UnitTypes.formatDistance( digitizingGeometryMeasure.length, 3, digitizingGeometryMeasure.lengthUnits ) ) : '' )
-                  : '' )
-
-                .arg(digitizingGeometryMeasure.areaValid ? '<p>%1: %2</p>'
-                  .arg( qsTr( 'Area') )
-                  .arg(UnitTypes.formatArea( digitizingGeometryMeasure.area, 3, digitizingGeometryMeasure.areaUnits ) )
-                  : '' )
-
-                .arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing? '<p>%1: %2<br>%3: %4</p>'
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lon' ) : 'X')
-                  .arg(coordinateLocator.currentCoordinate.x.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  .arg(coordinateLocator.mapSettings.destinationCrs.isGeographic ? qsTr( 'Lat' ) : 'Y')
-                  .arg(coordinateLocator.currentCoordinate.y.toFixed( coordinateLocator.mapSettings.destinationCrs.isGeographic ? 5 : 2 ))
-                  : '' )
-              : ''
-
-    font: Theme.strongTipFont
-    style: Text.Outline
-    styleColor: Theme.light
-  }
-
-  ScaleBar {
-    visible: qfieldSettings.showScaleBar
-    mapSettings: mapCanvas.mapSettings
-
-    anchors.left: mapCanvas.left
-    anchors.bottom: mapCanvas.bottom
-    anchors.margins: 10
-  }
-
-  DropShadow {
-    anchors.fill: featureForm
-    horizontalOffset: mainWindow.width >= mainWindow.height ? -2: 0
-    verticalOffset: mainWindow.width < mainWindow.height ? -2: 0
-    radius: 6.0
-    samples: 17
-    color: "#80000000"
-    source: featureForm
-  }
-
-  LocatorItem {
-    id: locatorItem
-
-    width: Math.max( 200, mainWindow.width / 3 )
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.margins: 4
-
-    visible: stateMachine.state !== 'measure'
-  }
-
-  DashBoard {
-    id: dashBoard
-    allowLayerChange: !digitizingToolbar.isDigitizing
-    mapSettings: mapCanvas.mapSettings
-    interactive: !welcomeScreen.visible
-  }
-
-  /* The main menu */
-  Row {
-    id: mainMenuBar
-    width: childrenRect.width + 8
-    height: childrenRect.height + 8
-    topPadding: 4
-    leftPadding: 4
-    spacing: 4
-
-    Button {
-      id: menuButton
-      round: true
-      iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
-      onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
-      bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
-    }
-
-    CloseTool {
-      id: closeMeasureTool
-      visible: stateMachine.state === 'measure'
-      toolText: qsTr( 'Close measure tool' )
-      onClosedTool: mainWindow.closeMeasureTool()
-    }
-
-    CloseTool {
-      id: closeGeometryEditorsTool
-      visible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
-      toolText: qsTr( 'Stop editing' )
-      onClosedTool: geometryEditorsToolbar.cancelEditors()
-    }
-  }
-
-  Column {
-    id: mainToolbar
-    anchors.left: mainMenuBar.left
-    anchors.top: mainMenuBar.bottom
-    anchors.leftMargin: 4
-    spacing: 4
-
-    Button {
-      id: topologyButton
-      round: true
-      visible: stateMachine.state === "digitize" && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
-      state: qgisProject.topologicalEditing ? "On" : "Off"
-      iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
-
-      bgcolor: Theme.darkGray
-
-      states: [
-        State {
-
-          name: "Off"
-          PropertyChanges {
-            target: topologyButton
-            iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
-            bgcolor: "#88212121"
-          }
-        },
-
-        State {
-          name: "On"
-          PropertyChanges {
-            target: topologyButton
-            iconSource: Theme.getThemeIcon( "ic_topology_green_24dp" )
+            round: true
+            visible: stateMachine.state === "digitize" && (dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry)
+            state: qgisProject.topologicalEditing ? "On" : "Off"
+            iconSource: Theme.getThemeIcon("ic_topology_white_24dp")
             bgcolor: Theme.darkGray
-          }
-        }
-      ]
-
-      onClicked: {
-        qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
-        displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
-      }
-    }
-  }
-
-  Column {
-    id: locationToolbar
-    anchors.right: mapCanvas.right
-    anchors.rightMargin: 4
-    anchors.bottom: mapCanvas.bottom
-    anchors.bottomMargin: 4
-    spacing: 4
-
-    Button {
-      id: gpsLinkButton
-      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
-      round: true
-      checkable: true
-      anchors.right: parent.right
-
-      bgcolor: Theme.darkGray
-      iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
-
-      readonly property bool linkActive: gpsButton.state == "On" && checked
-
-      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
-    }
-
-    Button {
-      id: gpsButton
-      state: positionSource.active ? "On" : "Off"
-      visible: positionSource.valid
-      round: true
-      anchors.right: parent.right
-
-      bgcolor: "#64B5F6"
-
-      onIconSourceChanged: {
-        if( state === "On" ){
-          if( positionSource.position.latitudeValid ) {
-            displayToast( qsTr( "Received position" ) )
-          } else {
-            displayToast( qsTr( "Searching for position" ) )
-          }
-        }
-      }
-
-      property bool followActive: false
-
-      states: [
-        State {
-
-          name: "Off"
-          PropertyChanges {
-            target: gpsButton
-            iconSource: Theme.getThemeIcon( "ic_location_disabled_white_24dp" )
-            bgcolor: "#88212121"
-          }
-        },
-
-        State {
-          name: "On"
-          PropertyChanges {
-            target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
-            bgcolor: followActive ? "#64B5F6" : Theme.darkGray
-            opacity:1
-          }
-        }
-      ]
-
-      onClicked: {
-        followActive = true
-        if ( positionSource.projectedPosition.x )
-        {
-          if ( !positionSource.active )
-          {
-            positioningSettings.positioningActivated = true
-          }
-          else
-          {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-            displayToast( qsTr( "Canvas follows location" ) )
-          }
-        }
-        else
-        {
-          if ( positionSource.valid )
-          {
-            if ( positionSource.active )
-            {
-              displayToast( qsTr( "Waiting for location" ) )
+            onClicked: {
+                qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
+                displayToast(qgisProject.topologicalEditing ? qsTr("Topological editing turned on") : qsTr("Topological editing turned off"));
             }
-            else
-            {
-              positioningSettings.positioningActivated = true
-            }
-          }
+            states: [
+                State {
+                    name: "Off"
+
+                    PropertyChanges {
+                        target: topologyButton
+                        iconSource: Theme.getThemeIcon("ic_topology_white_24dp")
+                        bgcolor: "#88212121"
+                    }
+
+                },
+                State {
+                    name: "On"
+
+                    PropertyChanges {
+                        target: topologyButton
+                        iconSource: Theme.getThemeIcon("ic_topology_green_24dp")
+                        bgcolor: Theme.darkGray
+                    }
+
+                }
+            ]
         }
-      }
 
-      onPressAndHold: {
-        gpsMenu.popup()
-      }
-
-      function toggleGps() {
-        switch ( gpsButton.state )
-        {
-          case "Off":
-            gpsButton.state = "On"
-            displayToast( qsTr( "Positioning activated" ) )
-            break;
-
-          case "On":
-            gpsButton.state = "Off"
-            displayToast( qsTr( "Positioning turned off" ) )
-            break;
-        }
-      }
     }
 
-    DigitizingToolbar {
-      id: digitizingToolbar
+    Column {
+        id: locationToolbar
 
-      stateVisible: (stateMachine.state === "digitize"
-                     && dashBoard.currentLayer
-                     && !dashBoard.currentLayer.readOnly
-                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
-      rubberbandModel: currentRubberband.model
-      coordinateLocator: coordinateLocator
-      mapSettings: mapCanvas.mapSettings
-      showConfirmButton: stateMachine.state === "digitize"
-      screenHovering: hoverHandler.hovered
+        anchors.right: mapCanvas.right
+        anchors.rightMargin: 4
+        anchors.bottom: mapCanvas.bottom
+        anchors.bottomMargin: 4
+        spacing: 4
 
-      FeatureModel {
-        id: digitizingFeature
-        currentLayer: dashBoard.currentLayer
-        positionSourceName: positionSource.name
-        topSnappingResult: coordinateLocator.topSnappingResult
-        geometry: Geometry {
-          id: digitizingGeometry
-          rubberbandModel: digitizingRubberband.model
-          vectorLayer: dashBoard.currentLayer
+        Button {
+            id: gpsLinkButton
+
+            readonly property bool linkActive: gpsButton.state == "On" && checked
+
+            visible: gpsButton.state == "On" && (stateMachine.state === "digitize" || stateMachine.state === "measure")
+            round: true
+            checkable: true
+            anchors.right: parent.right
+            bgcolor: Theme.darkGray
+            iconSource: linkActive ? Theme.getThemeIcon("ic_gps_link_activated_white_24dp") : Theme.getThemeIcon("ic_gps_link_white_24dp")
+            onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
         }
-      }
 
-      onVertexCountChanged: {
-        if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
-            if( digitizingToolbar.geometryValid )
-            {
-                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-                {
-                  digitizingRubberband.model.reset()
-                }
-                else
-                {
-                  digitizingFeature.geometry.applyRubberband()
-                  digitizingFeature.applyGeometry()
-                }
+        Button {
+            id: gpsButton
 
-                if( !overlayFeatureFormDrawer.featureForm.featureCreated )
-                {
-                    digitizingFeature.resetAttributes();
-                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
-                      //when the constrainst are fulfilled
-                      digitizingFeature.create()
-                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+            property bool followActive: false
+
+            function toggleGps() {
+                switch (gpsButton.state) {
+                case "Off":
+                    gpsButton.state = "On";
+                    displayToast(qsTr("Positioning activated"));
+                    break;
+                case "On":
+                    gpsButton.state = "Off";
+                    displayToast(qsTr("Positioning turned off"));
+                    break;
+                }
+            }
+
+            state: positionSource.active ? "On" : "Off"
+            visible: positionSource.valid
+            round: true
+            anchors.right: parent.right
+            bgcolor: "#64B5F6"
+            onIconSourceChanged: {
+                if (state === "On")
+                    if (positionSource.position.latitudeValid)
+                        displayToast(qsTr("Received position"));
+                    else
+                        displayToast(qsTr("Searching for position"));
+
+
+            }
+            onClicked: {
+                followActive = true;
+                if (positionSource.projectedPosition.x) {
+                    if (!positionSource.active) {
+                        positioningSettings.positioningActivated = true;
+                    } else {
+                        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+                        displayToast(qsTr("Canvas follows location"));
                     }
                 } else {
-                    digitizingFeature.save()
-                }
-            } else {
-                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                  //delete the feature when the geometry gets invalid again
-                  digitizingFeature.deleteFeature()
-                  overlayFeatureFormDrawer.featureForm.featureCreated = false
+                    if (positionSource.valid)
+                        if (positionSource.active)
+                            displayToast(qsTr("Waiting for location"));
+                        else
+                            positioningSettings.positioningActivated = true;
+
+
                 }
             }
+            onPressAndHold: {
+                gpsMenu.popup();
+            }
+            states: [
+                State {
+                    name: "Off"
+
+                    PropertyChanges {
+                        target: gpsButton
+                        iconSource: Theme.getThemeIcon("ic_location_disabled_white_24dp")
+                        bgcolor: "#88212121"
+                    }
+
+                },
+                State {
+                    name: "On"
+
+                    PropertyChanges {
+                        target: gpsButton
+                        iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon("ic_my_location_" + (followActive ? "white" : "blue") + "_24dp") : Theme.getThemeIcon("ic_gps_not_fixed_white_24dp")
+                        bgcolor: followActive ? "#64B5F6" : Theme.darkGray
+                        opacity: 1
+                    }
+
+                }
+            ]
         }
-      }
 
-      onConfirm: {
-        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
-        {
-          digitizingRubberband.model.reset()
+        DigitizingToolbar {
+            id: digitizingToolbar
+
+            stateVisible: (stateMachine.state === "digitize" && dashBoard.currentLayer && !dashBoard.currentLayer.readOnly && !geometryEditorsToolbar.stateVisible) || stateMachine.state === "measure"
+            rubberbandModel: currentRubberband.model
+            coordinateLocator: coordinateLocator
+            mapSettings: mapCanvas.mapSettings
+            showConfirmButton: stateMachine.state === "digitize"
+            screenHovering: hoverHandler.hovered
+            onVertexCountChanged: {
+                if (qfieldSettings.autoSave && stateMachine.state === "digitize") {
+                    if (digitizingToolbar.geometryValid) {
+                        if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry) {
+                            digitizingRubberband.model.reset();
+                        } else {
+                            digitizingFeature.geometry.applyRubberband();
+                            digitizingFeature.applyGeometry();
+                        }
+                        if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
+                            digitizingFeature.resetAttributes();
+                            if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid) {
+                                //when the constrainst are fulfilled
+                                digitizingFeature.create();
+                                overlayFeatureFormDrawer.featureForm.featureCreated = true;
+                            }
+                        } else {
+                            digitizingFeature.save();
+                        }
+                    } else {
+                        if (overlayFeatureFormDrawer.featureForm.featureCreated) {
+                            //delete the feature when the geometry gets invalid again
+                            digitizingFeature.deleteFeature();
+                            overlayFeatureFormDrawer.featureForm.featureCreated = false;
+                        }
+                    }
+                }
+            }
+            onConfirm: {
+                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry) {
+                    digitizingRubberband.model.reset();
+                } else {
+                    coordinateLocator.flash();
+                    digitizingFeature.geometry.applyRubberband();
+                    digitizingFeature.applyGeometry();
+                    digitizingRubberband.model.frozen = true;
+                    digitizingFeature.updateRubberband();
+                }
+                if (!digitizingFeature.suppressFeatureForm()) {
+                    digitizingFeature.resetAttributes();
+                    overlayFeatureFormDrawer.open();
+                    overlayFeatureFormDrawer.state = "Add";
+                    overlayFeatureFormDrawer.featureForm.reset();
+                } else {
+                    if (!overlayFeatureFormDrawer.featureForm.featureCreated)
+                        digitizingFeature.create();
+                    else
+                        digitizingFeature.save();
+
+                    digitizingRubberband.model.reset();
+                }
+            }
+
+            FeatureModel {
+                id: digitizingFeature
+
+                currentLayer: dashBoard.currentLayer
+                positionSourceName: positionSource.name
+                topSnappingResult: coordinateLocator.topSnappingResult
+
+                geometry: Geometry {
+                    id: digitizingGeometry
+
+                    rubberbandModel: digitizingRubberband.model
+                    vectorLayer: dashBoard.currentLayer
+                }
+
+            }
+
         }
-        else
-        {
-          coordinateLocator.flash()
-          digitizingFeature.geometry.applyRubberband()
-          digitizingFeature.applyGeometry()
-          digitizingRubberband.model.frozen = true
-          digitizingFeature.updateRubberband()
+
+        GeometryEditorsToolbar {
+            id: geometryEditorsToolbar
+
+            featureModel: geometryEditingFeature
+            mapSettings: mapCanvas.mapSettings
+            editorRubberbandModel: geometryEditorsRubberband.model
+            screenHovering: hoverHandler.hovered
+            stateVisible: (stateMachine.state === "digitize" && vertexModel.vertexCount > 0)
         }
 
-        if ( !digitizingFeature.suppressFeatureForm() )
-        {
-          digitizingFeature.resetAttributes();
-          overlayFeatureFormDrawer.open()
-          overlayFeatureFormDrawer.state = "Add"
-          overlayFeatureFormDrawer.featureForm.reset()
-        }
-        else
-        {
-          if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
-              digitizingFeature.create()
-          } else {
-              digitizingFeature.save()
-          }
-          digitizingRubberband.model.reset()
-        }
-      }
     }
 
-    GeometryEditorsToolbar {
-      id: geometryEditorsToolbar
-
-      featureModel: geometryEditingFeature
-      mapSettings: mapCanvas.mapSettings
-      editorRubberbandModel: geometryEditorsRubberband.model
-      screenHovering: hoverHandler.hovered
-
-      stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
-    }
-  }
-
-
-  Menu {
-    id: mainMenu
-    title: qsTr( "Main Menu" )
-
-    width: Math.max(200, mainWindow.width/4)
-
-    MenuItem {
-      id: openProjectMenuItem
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      text: qsTr( "Open Project" )
-      onTriggered: {
-        dashBoard.close()
-        welcomeScreen.visible = true
-        welcomeScreen.focus = true
-        highlighted = false
-      }
-    }
-
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
-      text: qsTr( "Settings" )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        qfieldSettings.visible = true
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      text: qsTr( "About" )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        aboutDialog.visible = true
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      text: qsTr( "Log" )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        messageLog.visible = true
-        highlighted = false
-      }
-    }
-
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
-      text: qsTr( 'Measure Tool' )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        changeMode( 'measure' )
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      id: printItem
-      text: qsTr( "Print to PDF" )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        printMenu.popup( mainMenu.x, 2)
-        highlighted = false
-      }
-    }
-
-    Connections {
-        target: printMenu
-
-        onEnablePrintItem: {
-          printItem.enabled = rows
-        }
-    }
-
-    /*
+    Menu {
+        /*
     We removed this MenuItem part, because usually a mobile app has not the functionality to quit.
     But we keep the code in case, the concept changes or we need to close the app completely (remove from background)
     */
-
-    /*
+        /*
     Controls.MenuSeparator {}
 
     Controls.MenuItem {
@@ -978,694 +867,766 @@ ApplicationWindow {
       }
     }
     */
-  }
 
-  Menu {
-    id: printMenu
+        id: mainMenu
 
-    title: qsTr( "Print to PDF" )
+        title: qsTr("Main Menu")
+        width: Math.max(200, mainWindow.width / 4)
 
-    signal enablePrintItem( int rows )
+        MenuItem {
+            id: openProjectMenuItem
 
-    width: Math.max(200, mainWindow.width/4)
-    font: Theme.defaultFont
-
-    Instantiator {
-
-      id: layoutListInstantiator
-
-      model: PrintLayoutListModel {
-      }
-
-      MenuItem {
-        text: Title
-
-        width: parent.width
-        height: 48
-        font: Theme.defaultFont
-        leftPadding: 10
-
-        onTriggered: {
-          iface.print( Index )
-          highlighted = false
-        }
-      }
-      onObjectAdded: printMenu.insertItem(index, object)
-      onObjectRemoved: printMenu.removeItem(object)
-    }
-
-    Connections {
-      target: iface
-
-      onLoadProjectEnded: {
-        layoutListInstantiator.model.project = qgisProject
-        layoutListInstantiator.model.reloadModel()
-        printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
-        welcomeScreen.visible = false
-        welcomeScreen.focus = false
-        recentProjectListModel.reloadModel()
-        settings.setValue( "/QField/FirstRunFlag", false )
-      }
-    }
-  }
-
-  PositioningSettings {
-      id: positioningSettings
-
-      onPositioningActivatedChanged: {
-          if( positioningActivated ){
-            if( platformUtilities.checkPositioningPermissions() ) {
-              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
-              displayToast( qsTr( "Activating positioning service" ) )
-              positionSource.active = true
-            }else{
-              displayToast( qsTr( "QField has no permissions to use positioning." ) )
-              positioningSettings.positioningActivated = false
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            text: qsTr("Open Project")
+            onTriggered: {
+                dashBoard.close();
+                welcomeScreen.visible = true;
+                welcomeScreen.focus = true;
+                highlighted = false;
             }
-          }else{
-              positionSource.active = false
-          }
-      }
-  }
-
-  Menu {
-    id: gpsMenu
-    title: qsTr( "Positioning Options" )
-    font: Theme.defaultFont
-    width: Math.max(200, mainWindow.width/1.5)
-
-    MenuItem {
-      id: positioningItem
-      text: qsTr( "Enable Positioning" )
-
-      height: 48
-      font: Theme.defaultFont
-      width: parent.width
-      checkable: true
-      checked: positioningSettings.positioningActivated
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-
-      onCheckedChanged: {
-        if ( checked ) {
-            positioningSettings.positioningActivated = true
-        } else {
-            positioningSettings.positioningActivated = false
         }
-      }
+
+        MenuSeparator {
+            width: parent.width
+        }
+
+        MenuItem {
+            text: qsTr("Settings")
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            onTriggered: {
+                dashBoard.close();
+                qfieldSettings.visible = true;
+                highlighted = false;
+            }
+        }
+
+        MenuItem {
+            text: qsTr("About")
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            onTriggered: {
+                dashBoard.close();
+                aboutDialog.visible = true;
+                highlighted = false;
+            }
+        }
+
+        MenuItem {
+            text: qsTr("Log")
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            onTriggered: {
+                dashBoard.close();
+                messageLog.visible = true;
+                highlighted = false;
+            }
+        }
+
+        MenuSeparator {
+            width: parent.width
+        }
+
+        MenuItem {
+            text: qsTr("Measure Tool")
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            onTriggered: {
+                dashBoard.close();
+                changeMode("measure");
+                highlighted = false;
+            }
+        }
+
+        MenuItem {
+            id: printItem
+
+            text: qsTr("Print to PDF")
+            font: Theme.defaultFont
+            width: parent.width
+            height: 48
+            leftPadding: 10
+            onTriggered: {
+                printMenu.popup(mainMenu.x, 2);
+                highlighted = false;
+            }
+        }
+
+        Connections {
+            target: printMenu
+            onEnablePrintItem: {
+                printItem.enabled = rows;
+            }
+        }
+
     }
 
-    MenuSeparator { width: parent.width }
+    Menu {
+        id: printMenu
 
-    MenuItem {
-      text: qsTr( "Center to Current Location" )
+        signal enablePrintItem(int rows)
 
-      height: 48
-      font: Theme.defaultFont
-      width: parent.width
-      onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-      }
+        title: qsTr("Print to PDF")
+        width: Math.max(200, mainWindow.width / 4)
+        font: Theme.defaultFont
+
+        Instantiator {
+            id: layoutListInstantiator
+
+            onObjectAdded: printMenu.insertItem(index, object)
+            onObjectRemoved: printMenu.removeItem(object)
+
+            MenuItem {
+                text: Title
+                width: parent.width
+                height: 48
+                font: Theme.defaultFont
+                leftPadding: 10
+                onTriggered: {
+                    iface.print(Index);
+                    highlighted = false;
+                }
+            }
+
+            model: PrintLayoutListModel {
+            }
+
+        }
+
+        Connections {
+            target: iface
+            onLoadProjectEnded: {
+                layoutListInstantiator.model.project = qgisProject;
+                layoutListInstantiator.model.reloadModel();
+                printMenu.enablePrintItem(layoutListInstantiator.model.rowCount());
+                welcomeScreen.visible = false;
+                welcomeScreen.focus = false;
+                recentProjectListModel.reloadModel();
+                settings.setValue("/QField/FirstRunFlag", false);
+            }
+        }
+
     }
 
-    MenuSeparator { width: parent.width }
+    PositioningSettings {
+        id: positioningSettings
 
-    MenuItem {
-      text: qsTr( "Show Position Information" )
-
-      height: 48
-      font: Theme.defaultFont
-      width: parent.width
-      checkable: true
-      checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-      onCheckedChanged:
-      {
-        settings.setValue( "/QField/Positioning/ShowInformationView", checked )
-        positionInformationView.visible = checked
-      }
+        onPositioningActivatedChanged: {
+            if (positioningActivated) {
+                if (platformUtilities.checkPositioningPermissions()) {
+                    positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods;
+                    displayToast(qsTr("Activating positioning service"));
+                    positionSource.active = true;
+                } else {
+                    displayToast(qsTr("QField has no permissions to use positioning."));
+                    positioningSettings.positioningActivated = false;
+                }
+            } else {
+                positionSource.active = false;
+            }
+        }
     }
 
-    MenuItem {
-      text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
-      height: 48
-      font: Theme.defaultFont
-      width: parent.width
+    Menu {
+        id: gpsMenu
 
-      onTriggered: {
-        positioningSettingsPopup.visible = true
-      }
+        title: qsTr("Positioning Options")
+        font: Theme.defaultFont
+        width: Math.max(200, mainWindow.width / 1.5)
+
+        MenuItem {
+            id: positioningItem
+
+            text: qsTr("Enable Positioning")
+            height: 48
+            font: Theme.defaultFont
+            width: parent.width
+            checkable: true
+            checked: positioningSettings.positioningActivated
+            indicator.height: 20
+            indicator.width: 20
+            indicator.implicitHeight: 24
+            indicator.implicitWidth: 24
+            onCheckedChanged: {
+                if (checked)
+                    positioningSettings.positioningActivated = true;
+                else
+                    positioningSettings.positioningActivated = false;
+
+            }
+        }
+
+        MenuSeparator {
+            width: parent.width
+        }
+
+        MenuItem {
+            text: qsTr("Center to Current Location")
+            height: 48
+            font: Theme.defaultFont
+            width: parent.width
+            onTriggered: {
+                mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+            }
+        }
+
+        MenuSeparator {
+            width: parent.width
+        }
+
+        MenuItem {
+            text: qsTr("Show Position Information")
+            height: 48
+            font: Theme.defaultFont
+            width: parent.width
+            checkable: true
+            checked: settings.valueBool("/QField/Positioning/ShowInformationView", false)
+            indicator.height: 20
+            indicator.width: 20
+            indicator.implicitHeight: 24
+            indicator.implicitWidth: 24
+            onCheckedChanged: {
+                settings.setValue("/QField/Positioning/ShowInformationView", checked);
+                positionInformationView.visible = checked;
+            }
+        }
+
+        MenuItem {
+            text: qsTr("Configure Antenna Height") // Todo: rename to "Positioning Configuration" when there is more to configure
+            height: 48
+            font: Theme.defaultFont
+            width: parent.width
+            onTriggered: {
+                positioningSettingsPopup.visible = true;
+            }
+        }
+
     }
-  }
 
-  Button {
-    id: alertIcon
-    iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
-    round: true
-    bgcolor: "transparent"
+    Button {
+        id: alertIcon
 
-    visible: messageLog.unreadMessages
-
-    anchors.right: locatorItem.right
-    anchors.top: locatorItem.bottom
-    anchors.topMargin: 5
-
-    onClicked: messageLog.visible = true
-  }
-
-  /* The feature form */
-  FeatureListForm {
-    id: featureForm
-    objectName: "featureForm"
-    mapSettings: mapCanvas.mapSettings
-
-    visible: state != "Hidden"
-    focus: visible
-
-    anchors { right: parent.right; bottom: parent.bottom }
-    border { color: "lightGray"; width: 1 }
-    allowEdit: stateMachine.state === "digitize"
-
-    model: MultiFeatureListModel {}
-
-    selection: FeatureListModelSelection {
-      id: featureListModelSelection
-      model: featureForm.model
+        iconSource: Theme.getThemeIcon("ic_alert_black_24dp")
+        round: true
+        bgcolor: "transparent"
+        visible: messageLog.unreadMessages
+        anchors.right: locatorItem.right
+        anchors.top: locatorItem.bottom
+        anchors.topMargin: 5
+        onClicked: messageLog.visible = true
     }
 
-    selectionColor: "#ff7777"
+    // The feature form
+    FeatureListForm {
+        id: featureForm
 
-    onShowMessage: displayToast(message)
+        objectName: "featureForm"
+        mapSettings: mapCanvas.mapSettings
+        visible: state != "Hidden"
+        focus: visible
+        allowEdit: stateMachine.state === "digitize"
+        selectionColor: "#ff7777"
+        onShowMessage: displayToast(message)
+        onEditGeometry: {
+            // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
+            // important for snapping settings to make sense when set to current layer
+            if (dashBoard.currentLayer != featureForm.selection.selectedLayer) {
+                dashBoard.currentLayer = featureForm.selection.selectedLayer;
+                displayToast(qsTr("Current layer switched to the one holding the selected geometry."));
+            }
+            vertexModel.geometry = featureForm.selection.selectedGeometry;
+            vertexModel.crs = featureForm.selection.selectedLayer.crs;
+            geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer;
+            geometryEditingFeature.feature = featureForm.selection.selectedFeature;
+            if (!vertexModel.editingAllowed) {
+                displayToast(qsTr("Editing of multi geometry layer is not supported yet."));
+                vertexModel.clear();
+            } else {
+                featureForm.state = "Hidden";
+            }
+            geometryEditorsToolbar.init();
+        }
+        Component.onCompleted: focusstack.addFocusTaker(this)
 
-    onEditGeometry: {
-      // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
-      // important for snapping settings to make sense when set to current layer
-      if ( dashBoard.currentLayer != featureForm.selection.selectedLayer ) {
-        dashBoard.currentLayer = featureForm.selection.selectedLayer
-        displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
-      }
-      vertexModel.geometry = featureForm.selection.selectedGeometry
-      vertexModel.crs = featureForm.selection.selectedLayer.crs
-      geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
-      geometryEditingFeature.feature = featureForm.selection.selectedFeature
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+        }
 
-      if (!vertexModel.editingAllowed)
-      {
-        displayToast( qsTr( "Editing of multi geometry layer is not supported yet." ) )
-        vertexModel.clear()
-      }
-      else
-      {
-        featureForm.state = "Hidden"
-      }
+        border {
+            color: "lightGray"
+            width: 1
+        }
 
-      geometryEditorsToolbar.init()
+        //that the focus is set by selecting the empty space
+        MouseArea {
+            anchors.fill: parent
+            propagateComposedEvents: true
+            enabled: !parent.activeFocus
+            //onPressed because onClicked shall be handled in underlying MouseArea
+            onPressed: {
+                parent.focus = true;
+                mouse.accepted = false;
+            }
+        }
+
+        model: MultiFeatureListModel {
+        }
+
+        selection: FeatureListModelSelection {
+            id: featureListModelSelection
+
+            model: featureForm.model
+        }
+
     }
 
-    Component.onCompleted: focusstack.addFocusTaker( this )
+    OverlayFeatureFormDrawer {
+        id: overlayFeatureFormDrawer
 
-    //that the focus is set by selecting the empty space
-    MouseArea {
-      anchors.fill: parent
-      propagateComposedEvents: true
-      enabled: !parent.activeFocus
-
-      //onPressed because onClicked shall be handled in underlying MouseArea
-      onPressed: {
-        parent.focus=true
-        mouse.accepted=false
-      }
+        featureModel: digitizingFeature
     }
-  }
 
-  OverlayFeatureFormDrawer {
-    id: overlayFeatureFormDrawer
-    featureModel: digitizingFeature
-  }
+    Rectangle {
+        id: busyMessage
 
-  function displayToast( message ) {
-    //toastMessage.text = message
-    if( !welcomeScreen.visible )
-      toast.show(message)
-  }
+        anchors.fill: parent
+        color: Theme.darkGray
+        opacity: 0.5
+        visible: false
 
-  Rectangle {
-    id: busyMessage
-    anchors.fill: parent
-    color: Theme.darkGray
-    opacity: 0.5
-    visible: false
+        BusyIndicator {
+            id: busyMessageIndicator
+
+            anchors.centerIn: parent
+            running: true
+            width: 100
+            height: 100
+        }
+
+        Text {
+            id: busyMessageText
+
+            anchors.top: busyMessageIndicator.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("Loading Project")
+        }
+
+        Connections {
+            target: iface
+            onLoadProjectStarted: {
+                busyMessageText.text = qsTr("Loading Project: %1").arg(path);
+                busyMessage.visible = true;
+            }
+            onLoadProjectEnded: {
+                busyMessage.visible = false;
+                openProjectDialog.folder = qgisProject.homePath;
+                mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
+            }
+        }
+
+    }
 
     BusyIndicator {
-      id: busyMessageIndicator
-      anchors.centerIn: parent
-      running: true
-      width: 100
-      height: 100
+        id: busyIndicator
+
+        anchors.left: mainMenuBar.left
+        anchors.top: mainMenuBar.bottom
+        padding: 5
+        width: mainMenuBar.height
+        height: mainMenuBar.height
+        running: mapCanvasMap.isRendering
     }
 
-    Text {
-      id: busyMessageText
-      anchors.top: busyMessageIndicator.bottom
-      anchors.horizontalCenter: parent.horizontalCenter
-      text: qsTr( "Loading Project" )
-    }
+    MessageLog {
+        id: messageLog
 
-    Connections {
-      target: iface
-
-      onLoadProjectStarted: {
-        busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
-        busyMessage.visible = true
-      }
-
-      onLoadProjectEnded: {
-        busyMessage.visible = false
-        openProjectDialog.folder = qgisProject.homePath
-        mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
-      }
-    }
-  }
-
-  BusyIndicator {
-    id: busyIndicator
-    anchors.left: mainMenuBar.left
-    anchors.top: mainMenuBar.bottom
-    padding: 5
-    width: mainMenuBar.height
-    height: mainMenuBar.height
-    running: mapCanvasMap.isRendering
-  }
-
-  MessageLog {
-    id: messageLog
-    anchors.fill: parent
-    focus: visible
-
-    model: MessageLogModel {
-      id: messageLogModel
-    }
-
-    visible: false
-
-    onFinished: {
-      visible = false
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
-  }
-
-  BadLayerItem {
-    id: badLayersView
-
-    anchors.fill: parent
-    model: BadLayerHandler {
-      project: qgisProject
-
-      onBadLayersFound: {
-        badLayersView.visible = true
-      }
-    }
-
-    visible: false
-
-    onFinished: {
-      visible = false
-    }
-  }
-
-  Item {
-    id: layerLogin
-
-    Connections {
-      target: iface
-      onLoadProjectEnded: {
-        if( !qfieldAuthRequestHandler.handleLayerLogins() )
-        {
-          //project loaded without more layer handling needed
-          messageLogModel.unsuppressTags(["WFS","WMS"])
+        anchors.fill: parent
+        focus: visible
+        visible: false
+        onFinished: {
+            visible = false;
         }
-      }
-    }
-    Connections {
-        target: iface
-
-        onLoadProjectStarted: {
-          messageLogModel.suppressTags(["WFS","WMS"])
+        Keys.onReleased: {
+            if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+                event.accepted = true;
+                visible = false;
+            }
         }
+        Component.onCompleted: focusstack.addFocusTaker(this)
+
+        model: MessageLogModel {
+            id: messageLogModel
+        }
+
     }
 
-    Connections {
-      target: qfieldAuthRequestHandler
+    BadLayerItem {
+        id: badLayersView
 
-      onShowLoginDialog: {
-        loginDialogPopup.realm = realm
-        badLayersView.visible = false
-        loginDialogPopup.open()
-      }
+        anchors.fill: parent
+        visible: false
+        onFinished: {
+            visible = false;
+        }
 
-      onReloadEverything: {
-        iface.reloadProject( qgisProject.fileName )
-      }
+        model: BadLayerHandler {
+            project: qgisProject
+            onBadLayersFound: {
+                badLayersView.visible = true;
+            }
+        }
+
+    }
+
+    Item {
+        id: layerLogin
+
+        Connections {
+            target: iface
+            onLoadProjectEnded: {
+                if (!qfieldAuthRequestHandler.handleLayerLogins())
+                    //project loaded without more layer handling needed
+                    messageLogModel.unsuppressTags(["WFS", "WMS"]);
+
+            }
+        }
+
+        Connections {
+            target: iface
+            onLoadProjectStarted: {
+                messageLogModel.suppressTags(["WFS", "WMS"]);
+            }
+        }
+
+        Connections {
+            target: qfieldAuthRequestHandler
+            onShowLoginDialog: {
+                loginDialogPopup.realm = realm;
+                badLayersView.visible = false;
+                loginDialogPopup.open();
+            }
+            onReloadEverything: {
+                iface.reloadProject(qgisProject.fileName);
+            }
+        }
+
+        Popup {
+            id: loginDialogPopup
+
+            property var realm
+
+            parent: ApplicationWindow.overlay
+            x: 24
+            y: 24
+            width: parent.width - 48
+            height: parent.height - 48
+            padding: 0
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            onClosed: {
+                //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
+                qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation);
+            }
+
+            LayerLoginDialog {
+                id: loginDialog
+
+                anchors.fill: parent
+                visible: true
+                realm: loginDialogPopup.realm
+                inCancelation: false
+                onEnter: {
+                    qfieldAuthRequestHandler.enterCredentials(realm, usr, pw);
+                    inCancelation = false;
+                    loginDialogPopup.close();
+                }
+                onCancel: {
+                    inCancelation = true;
+                    loginDialogPopup.close(true);
+                }
+            }
+
+        }
+
+    }
+
+    About {
+        id: aboutDialog
+
+        anchors.fill: parent
+        focus: visible
+        visible: false
+        Keys.onReleased: {
+            if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+                event.accepted = true;
+                visible = false;
+            }
+        }
+        Component.onCompleted: focusstack.addFocusTaker(this)
+    }
+
+    PositioningSettingsPopup {
+        id: positioningSettingsPopup
+
+        visible: false
+        x: 24
+        y: 24
+        width: parent.width - 48
+        height: parent.height - 48
+    }
+
+    QFieldSettings {
+        id: qfieldSettings
+
+        anchors.fill: parent
+        visible: false
+        focus: visible
+        onFinished: {
+            visible = false;
+        }
+        Keys.onReleased: {
+            if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+                event.accepted = true;
+                finished();
+            }
+        }
+        Component.onCompleted: focusstack.addFocusTaker(this)
+    }
+
+    WelcomeScreen {
+        id: welcomeScreen
+
+        property ProjectSource __projectSource
+
+        anchors.fill: parent
+        focus: true
+        visible: true
+        onShowOpenProjectDialog: {
+            __projectSource = platformUtilities.openProject();
+        }
+        Keys.onReleased: {
+            if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+                if (qgisProject.fileName != "") {
+                    event.accepted = true;
+                    visible = false;
+                    focus = false;
+                } else {
+                    event.accepted = false;
+                    mainWindow.close();
+                }
+            }
+        }
+        Component.onCompleted: {
+            focusstack.addFocusTaker(this);
+        }
+
+        model: RecentProjectListModel {
+            id: recentProjectListModel
+        }
+
+    }
+
+    FileDialog {
+        id: openProjectDialog
+
+        title: qsTr("Open project")
+        visible: false
+        nameFilters: [qsTr("QGIS projects (*.qgs *.qgz)"), qsTr("All files (*)")]
+        width: mainWindow.width
+        height: mainWindow.height
+        onAccepted: {
+            iface.loadProject(openProjectDialog.fileUrl.toString().slice(7));
+            mainWindow.keyHandler.focus = true;
+        }
     }
 
     Popup {
-      id: loginDialogPopup
-      parent: ApplicationWindow.overlay
+        id: changelogPopup
 
-      property var realm
+        property var expireDate: new Date(2019, 9, 16)
 
-      x: 24
-      y: 24
-      width: parent.width - 48
-      height: parent.height - 48
-      padding: 0
-      modal: true
-      closePolicy: Popup.CloseOnEscape
+        parent: ApplicationWindow.overlay
+        visible: settings.value("/QField/CurrentVersion", "") !== versionCode && expireDate > new Date()
+        x: 24
+        y: 24
+        width: parent.width - 48
+        height: parent.height - 48
+        padding: 0
+        modal: true
+        closePolicy: Popup.CloseOnEscape
 
-      LayerLoginDialog {
-        id: loginDialog
+        Flickable {
+            id: changelogFlickable
+
+            anchors.fill: parent
+            flickableDirection: Flickable.VerticalFlick
+            interactive: true
+            contentWidth: changelog.width
+            contentHeight: changelog.height
+            clip: true
+
+            Changelog {
+                id: changelog
+
+                width: changelogFlickable.width
+                onClose: {
+                    changelogPopup.close();
+                }
+            }
+
+        }
+
+    }
+
+    // Toast
+    Popup {
+        id: toast
+
+        function show(text) {
+            toastMessage.text = text;
+            toast.open();
+            toastContent.visible = true;
+            toast.opacity = 1;
+            toastTimer.restart();
+        }
+
+        opacity: 0
+        height: 40
+        width: parent.width
+        y: parent.height - 112
+        margins: 0
+        closePolicy: Popup.NoAutoClose
+        onOpacityChanged: {
+            if (opacity == 0) {
+                toastContent.visible = false;
+                toast.close();
+            }
+        }
+
+        Rectangle {
+            id: toastContent
+
+            color: Theme.darkGray
+            height: toastMessage.height
+            width: toastMessage.text.length * 16 <= 192 ? 192 : (toastMessage.text.length * 16) - 16 > mainWindow.width ? mainWindow.width - 16 : toastMessage.text.length * 16
+            anchors.centerIn: parent
+            radius: 16
+            z: 1
+
+            Text {
+                id: toastMessage
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                wrapMode: Text.Wrap
+                font: Theme.secondaryTitleFont
+                horizontalAlignment: Text.AlignHCenter
+                color: Theme.light
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                propagateComposedEvents: true
+                onClicked: {
+                    mouse.accepted = false;
+                }
+            }
+
+        }
+
+        // Visible only for 3 seconds
+        Timer {
+            id: toastTimer
+
+            interval: 3000
+            onTriggered: {
+                toast.opacity = 0;
+            }
+        }
+
+        background: Rectangle {
+            color: "transparent"
+        }
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 500
+            }
+
+        }
+
+    }
+
+    DropArea {
+        id: dropArea
+
+        function validateFileExtension(filePath) {
+            return filePath.split(".").pop() === "qgs" || filePath.split(".").pop() === "qgz";
+        }
 
         anchors.fill: parent
-
-        visible: true
-
-        realm: loginDialogPopup.realm
-        inCancelation: false
-
-        onEnter: {
-          qfieldAuthRequestHandler.enterCredentials( realm, usr, pw)
-          inCancelation = false;
-          loginDialogPopup.close()
+        onEntered: {
+            if (drag.urls.length !== 1 || !validateFileExtension(drag.urls[0])) {
+                drag.accepted = false;
+            } else {
+                drag.accept(Qt.CopyAction);
+                drag.accepted = true;
+            }
         }
-        onCancel: {
-          inCancelation = true;
-          loginDialogPopup.close(true)
+        onDropped: {
+            iface.loadProject(drop.urls[0]);
         }
-      }
-
-      onClosed: {
-        //it's handeled here with parameter inCancelation because the loginDialog needs to be closed before the signal is fired
-        qfieldAuthRequestHandler.loginDialogClosed(loginDialog.realm, loginDialog.inCancelation )
-      }
     }
 
-  }
+    Timer {
+        id: closingTimer
 
-  About {
-    id: aboutDialog
-    anchors.fill: parent
-    focus: visible
-
-    visible: false
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
-  }
-
-  PositioningSettingsPopup {
-    id: positioningSettingsPopup
-    visible: false
-
-    x: 24
-    y: 24
-    width: parent.width - 48
-    height: parent.height - 48
-  }
-
-  QFieldSettings {
-    id: qfieldSettings
-
-    anchors.fill: parent
-    visible: false
-    focus: visible
-
-    onFinished: {
-      visible = false
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        finished()
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker( this )
-  }
-
-  WelcomeScreen {
-    id: welcomeScreen
-    model: RecentProjectListModel {
-      id: recentProjectListModel
-    }
-    property ProjectSource __projectSource
-
-    anchors.fill: parent
-    focus: true
-
-    visible: true
-
-    onShowOpenProjectDialog: {
-      __projectSource = platformUtilities.openProject()
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if ( qgisProject.fileName != '') {
-          event.accepted = true
-          visible = false
-          focus = false
-        } else {
-          event.accepted = false
-          mainWindow.close()
+        interval: 2000
+        onTriggered: {
+            alreadyCloseRequested = false;
         }
-      }
     }
 
-    Component.onCompleted: {
-        focusstack.addFocusTaker( this )
-    }
-  }
-
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
-    visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
-
-    width: mainWindow.width
-    height: mainWindow.height
-
-    onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      mainWindow.keyHandler.focus=true
-    }
-  }
-
-  Popup {
-    id: changelogPopup
-    parent: ApplicationWindow.overlay
-
-    property var expireDate: new Date(2019,9,16)
-    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
-               && expireDate > new Date()
-
-    x: 24
-    y: 24
-    width: parent.width - 48
-    height: parent.height - 48
-    padding: 0
-    modal: true
-    closePolicy: Popup.CloseOnEscape
-
-    Flickable {
-      id: changelogFlickable
-      anchors.fill: parent
-      flickableDirection: Flickable.VerticalFlick
-      interactive: true
-      contentWidth: changelog.width; contentHeight: changelog.height
-      clip: true
-
-      Changelog {
-        id: changelog
-        width: changelogFlickable.width
-
-        onClose: {
-          changelogPopup.close()
+    Connections {
+        target: openProjectMenuItem.__projectSource
+        onProjectOpened: {
+            iface.loadProject(path);
         }
-      }
     }
-  }
 
-  // Toast
-  Popup {
-      id: toast
-      opacity: 0
-      height: 40;
-      width: parent.width
-      y: parent.height - 112
-      margins: 0
-      closePolicy: Popup.NoAutoClose
-
-      background: Rectangle { color: "transparent" }
-
-      function show(text) {
-          toastMessage.text = text
-          toast.open()
-          toastContent.visible = true
-          toast.opacity = 1
-          toastTimer.restart()
-      }
-
-      Behavior on opacity {
-        NumberAnimation { duration: 500 }
-      }
-
-      Rectangle {
-        id: toastContent
-        color: Theme.darkGray
-
-        height: toastMessage.height
-        width: toastMessage.text.length * 16<= 192? 192: ( toastMessage.text.length * 16) - 16> mainWindow.width ? mainWindow.width - 16: toastMessage.text.length * 16
-
-        anchors.centerIn: parent
-
-        radius: 16
-
-        z: 1
-
-        Text {
-          id: toastMessage
-          anchors.left: parent.left
-          anchors.right: parent.right
-          wrapMode: Text.Wrap
-
-          font: Theme.secondaryTitleFont
-          horizontalAlignment: Text.AlignHCenter
-          color: Theme.light
+    Connections {
+        target: welcomeScreen.__projectSource
+        onProjectOpened: {
+            iface.loadProject(path);
         }
-
-        MouseArea {
-          anchors.fill: parent
-          propagateComposedEvents: true
-          onClicked: {
-              mouse.accepted = false
-          }
-        }
-      }
-
-      // Visible only for 3 seconds
-      Timer {
-          id: toastTimer
-          interval: 3000
-          onTriggered: {
-              toast.opacity = 0
-          }
-      }
-
-      onOpacityChanged: {
-
-          if ( opacity == 0 ) {
-              toastContent.visible = false
-              toast.close()
-          }
-      }
-  }
-
-  DropArea {
-    id: dropArea
-    anchors.fill: parent
-    onEntered: {
-      if ( drag.urls.length !== 1
-         || !validateFileExtension( drag.urls[0] ) ) {
-          drag.accepted = false
-      }
-      else {
-        drag.accept (Qt.CopyAction)
-        drag.accepted = true
-      }
-    }
-    onDropped: {
-      iface.loadProject( drop.urls[0] )
     }
 
-    function validateFileExtension(filePath) {
-      return filePath.split('.').pop() === "qgs" || filePath.split('.').pop() === "qgz"
+    // ! MODELS !
+    FeatureModel {
+        id: geometryEditingFeature
+
+        currentLayer: null
+        positionSourceName: positionSource.name
+        vertexModel: vertexModel
     }
-  }
 
-  property bool alreadyCloseRequested: false
+    VertexModel {
+        id: vertexModel
 
-  onClosing: {
-      if( !alreadyCloseRequested )
-      {
-        close.accepted = false
-        alreadyCloseRequested = true
-        displayToast( qsTr( "Press back again to close project and app" ) )
-        closingTimer.start()
-      }
-      else
-      {
-        close.accepted = true
-      }
-  }
-
-  Timer {
-    id: closingTimer
-    interval: 2000
-    onTriggered: {
-        alreadyCloseRequested = false
+        currentPoint: coordinateLocator.currentCoordinate
+        mapSettings: mapCanvas.mapSettings
     }
-  }
 
-  Connections {
-    target: openProjectMenuItem.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
-    }
-  }
-
-  Connections {
-    target: welcomeScreen.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
-    }
-  }
-
-  // ! MODELS !
-  FeatureModel {
-    id: geometryEditingFeature
-    currentLayer: null
-    positionSourceName: positionSource.name
-    vertexModel: vertexModel
-  }
-
-  VertexModel {
-      id: vertexModel
-      currentPoint: coordinateLocator.currentCoordinate
-      mapSettings: mapCanvas.mapSettings
-  }
 }
-
