@@ -22,8 +22,6 @@
 #include <qgsmapthemecollection.h>
 #include <qgsvectorlayer.h>
 
-#include <QDebug>
-
 FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QAbstractProxyModel( parent )
   , mProject( project )
