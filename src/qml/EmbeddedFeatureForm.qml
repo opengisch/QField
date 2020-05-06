@@ -26,11 +26,11 @@ Popup {
 
     parent: ApplicationWindow.overlay
 
-    x: 24 * dp
-    y: 24 * dp
+    x: 24
+    y: 24
     padding: 0
-    width: parent.width - 48 * dp
-    height: parent.height - 48 * dp
+    width: parent.width - 48
+    height: parent.height - 48
     modal: true
     closePolicy: Popup.CloseOnEscape
 

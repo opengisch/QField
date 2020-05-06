@@ -12,11 +12,11 @@ Popup {
     padding: 0
 
     Page {
-        padding: 10 * dp
+        padding: 10
         header: Label {
-            padding: 10 * dp
-            topPadding: 20 * dp
-            bottomPadding: 5 * dp
+            padding: 10
+            topPadding: 20
+            bottomPadding: 5
             anchors.left:parent.left
             anchors.right:parent.right
             text: title
@@ -24,17 +24,17 @@ Popup {
         }
 
         ColumnLayout{
-            spacing: 4 * dp
+            spacing: 4
 
             CheckBox {
                 id: itemVisibleCheckBox
                 text: qsTr("Show on map canvas")
                 font: Theme.defaultFont
 
-                indicator.height: 16 * dp
-                indicator.width: 16 * dp
-                indicator.implicitHeight: 24 * dp
-                indicator.implicitWidth: 24 * dp
+                indicator.height: 16
+                indicator.width: 16
+                indicator.implicitHeight: 24
+                indicator.implicitWidth: 24
             }
 
             Button {

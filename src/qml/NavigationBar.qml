@@ -39,7 +39,7 @@ Rectangle {
   anchors.top:parent.top
   anchors.left: parent.left
   anchors.right: parent.right
-  height: 48*dp
+  height: 48
 
   clip: true
 
@@ -60,7 +60,7 @@ Rectangle {
   Rectangle {
     id: navigationStatusIndicator
     anchors.fill: parent
-    height: 48*dp
+    height: 48
 
     color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || parent.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
@@ -97,8 +97,8 @@ Rectangle {
 
     anchors.right: parent.right
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
@@ -119,8 +119,8 @@ Rectangle {
   Button {
     id: saveButton
     anchors.left: parent.left
-    width: ( parent.state == "Edit" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Edit" ? 48: 0 )
+    height: 48
     clip: true
     visible: !qfieldSettings.autoSave
 
@@ -145,8 +145,8 @@ Rectangle {
 
     anchors.right: parent.right
 
-    width: ( parent.state == "Edit" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Edit" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
@@ -174,8 +174,8 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    height: 48
     clip: true
 
     onClicked: {
@@ -206,8 +206,8 @@ Rectangle {
 
     anchors.right: nextButton.left
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
@@ -239,8 +239,8 @@ Rectangle {
 
     anchors.left: previousButton.right
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
     checkable: true
     checked: extentController.autoZoom
@@ -271,8 +271,8 @@ Rectangle {
 
     anchors.left: parent.left
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )

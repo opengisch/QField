@@ -20,7 +20,7 @@ Item {
   ColumnLayout {
     id: informations
     anchors.fill: parent
-    anchors.margins: 20 * dp
+    anchors.margins: 20
 
     Label {
       Layout.alignment: Qt.AlignCenter
@@ -52,7 +52,7 @@ Item {
       text: qsTr( "QField Shared items folder: %1" ).arg( '<br><font color="%1">'.arg(Theme.lightGray) + platformUtilities.shareDir + '</font>' )
     }
     Item{
-      Layout.minimumHeight: 20 * dp
+      Layout.minimumHeight: 20
     }
 
     Label {

@@ -15,7 +15,7 @@ VisibilityFadingRow {
 
   property bool geometryValid: false
 
-  spacing: 4 * dp
+  spacing: 4
 
   signal confirm
   signal vertexCountChanged

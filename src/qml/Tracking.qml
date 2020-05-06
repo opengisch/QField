@@ -52,7 +52,7 @@ Item{
 
     Rubberband {
         id: rubberband
-        width: 4 * dp
+        width: 4
         color: Qt.rgba(Math.random(),Math.random(),Math.random(),0.6);
 
         mapSettings: mapCanvas.mapSettings
@@ -98,11 +98,11 @@ Item{
         id: embeddedFeatureFormPopup
         parent: ApplicationWindow.overlay
 
-        x: 24 * dp
-        y: 24 * dp
+        x: 24
+        y: 24
         padding: 0
-        width: parent.width - 48 * dp
-        height: parent.height - 48 * dp
+        width: parent.width - 48
+        height: parent.height - 48
         modal: true
         closePolicy: Popup.CloseOnEscape
 
@@ -157,11 +157,11 @@ Item{
         id: trackInformationPopup
         parent: ApplicationWindow.overlay
 
-        x: 24 * dp
-        y: 24 * dp
+        x: 24
+        y: 24
         padding: 0
-        width: parent.width - 48 * dp
-        height: parent.height - 48 * dp
+        width: parent.width - 48
+        height: parent.height - 48
         modal: true
         closePolicy: Popup.CloseOnEscape
 
@@ -206,8 +206,8 @@ Item{
 
                 spacing: 2
                 anchors {
-                    margins: 4 * dp
-                    topMargin: 35 * dp // Leave space for the toolbar
+                    margins: 4
+                    topMargin: 35// Leave space for the toolbar
                 }
 
                 CheckBox {
@@ -216,18 +216,18 @@ Item{
                     font: Theme.defaultFont
 
                     Layout.fillWidth: true
-                    indicator.height: 16 * dp
-                    indicator.width: 16 * dp
-                    indicator.implicitHeight: 24 * dp
-                    indicator.implicitWidth: 24 * dp
+                    indicator.height: 16
+                    indicator.width: 16
+                    indicator.implicitHeight: 24
+                    indicator.implicitWidth: 24
                 }
 
                 TextField {
                     id: timeIntervalText
                     enabled: timeIntervalCheck.checked
-                    height: fontMetrics.height + 20 * dp
-                    topPadding: 10 * dp
-                    bottomPadding: 10 * dp
+                    height: fontMetrics.height + 20
+                    topPadding: 10
+                    bottomPadding: 10
                     Layout.fillWidth: true
                     font: Theme.defaultFont
                     text: '30'
@@ -239,8 +239,8 @@ Item{
 
                     background: Rectangle {
                     y: timeIntervalText.height - height - timeIntervalText.bottomPadding / 2
-                    implicitWidth: 120 * dp
-                    height: timeIntervalText.activeFocus ? 2 * dp : 1 * dp
+                    implicitWidth: 120
+                    height: timeIntervalText.activeFocus ? 2: 1
                     color: timeIntervalText.activeFocus ? "#4CAF50" : "#C8E6C9"
                     }
                 }
@@ -259,18 +259,18 @@ Item{
                     font: Theme.defaultFont
 
                     Layout.fillWidth: true
-                    indicator.height: 16 * dp
-                    indicator.width: 16 * dp
-                    indicator.implicitHeight: 24 * dp
-                    indicator.implicitWidth: 24 * dp
+                    indicator.height: 16
+                    indicator.width: 16
+                    indicator.implicitHeight: 24
+                    indicator.implicitWidth: 24
                 }
 
                 TextField {
                     id: distanceText
                     enabled: distanceCheck.checked
-                    height: fontMetrics.height + 20 * dp
-                    topPadding: 10 * dp
-                    bottomPadding: 10 * dp
+                    height: fontMetrics.height + 20
+                    topPadding: 10
+                    bottomPadding: 10
                     Layout.fillWidth: true
                     font: Theme.defaultFont
                     text: '50'
@@ -282,15 +282,15 @@ Item{
 
                     background: Rectangle {
                     y: distanceText.height - height - distanceText.bottomPadding / 2
-                    implicitWidth: 120 * dp
-                    height: distanceText.activeFocus ? 2 * dp : 1 * dp
+                    implicitWidth: 120
+                    height: distanceText.activeFocus ? 2: 1
                     color: distanceText.activeFocus ? "#4CAF50" : "#C8E6C9"
                     }
                 }
 
                 Item {
                     // spacer item
-                    height: 12 * dp
+                    height: 12
                 }
 
                 CheckBox {
@@ -301,10 +301,10 @@ Item{
                     enabled: timeIntervalCheck.checked && distanceCheck.checked
 
                     Layout.fillWidth: true
-                    indicator.height: 16 * dp
-                    indicator.width: 16 * dp
-                    indicator.implicitHeight: 24 * dp
-                    indicator.implicitWidth: 24 * dp
+                    indicator.height: 16
+                    indicator.width: 16
+                    indicator.implicitHeight: 24
+                    indicator.implicitWidth: 24
                 }
 
                 Item {

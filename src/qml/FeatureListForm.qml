@@ -40,10 +40,10 @@ Rectangle {
 
   width: {
       if (props.isVisible) {
-          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
+          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
               parent.width
           } else {
-              Math.min(Math.max( 200 * dp, parent.width / 2.6), parent.width)
+              Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
       } else { 0 }
   }
@@ -52,7 +52,7 @@ Rectangle {
          if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
              parent.height
          } else {
-             Math.min(Math.max( 200 * dp, parent.height / 2 ), parent.height)
+             Math.min(Math.max( 200, parent.height / 2 ), parent.height)
          }
      } else { 0 }
   }
@@ -152,7 +152,7 @@ Rectangle {
       /* section header: layer name */
       Rectangle {
         width: parent.width
-        height: 30*dp
+        height: 30
         color: "lightGray"
 
         Text {
@@ -168,7 +168,7 @@ Rectangle {
 
       focus: true
 
-      height: Math.max( 48*dp, featureText.height )
+      height: Math.max( 48, featureText.height )
 
       Text {
         id: featureText
@@ -212,8 +212,8 @@ Rectangle {
         Button {
           id: deleteButton
 
-          width: 48*dp
-          height: 48*dp
+          width: 48
+          height: 48
 
           visible: deleteFeatureCapability && allowEdit
 

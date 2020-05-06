@@ -30,7 +30,7 @@ VisibilityFadingRow {
   property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  spacing: 4 * dp
+  spacing: 4
 
   signal editorChanged
 
@@ -81,7 +81,7 @@ VisibilityFadingRow {
     id: selectorRow
     stateVisible: true
 
-    spacing: 4 * dp
+    spacing: 4
 
     Repeater {
       model: editors

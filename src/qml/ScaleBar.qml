@@ -5,8 +5,8 @@ import Theme 1.0
 
 Item {
   property MapSettings mapSettings
-  property int referenceWidth: 300 * dp
-  property double lineWidth: 2*dp
+  property int referenceWidth: 300
+  property double lineWidth: 2
 
   QtObject {
     id: vars
@@ -21,22 +21,22 @@ Item {
 
   Rectangle {
     id: mainLineBackground
-    width: ( vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel ) + 2 * dp
-    height: lineWidth + 2 * dp
+    width: ( vars.adjustedMagnitude / mapSettings.mapUnitsPerPixel ) + 2
+    height: lineWidth + 2
     color: "#AAFFFFFF"
   }
 
   Rectangle {
-    width: lineWidth + 2 * dp
-    height: ( 3 * lineWidth ) + 1 * dp
+    width: lineWidth + 2
+    height: ( 3 * lineWidth ) + 1
     color: "#AAFFFFFF"
     anchors.left: mainLineBackground.left
     anchors.bottom: mainLineBackground.top
   }
 
   Rectangle {
-    width: lineWidth + 2 * dp
-    height: ( 3*lineWidth ) + 1 * dp
+    width: lineWidth + 2
+    height: ( 3*lineWidth ) + 1
     color: "#AAFFFFFF"
     anchors.right: mainLineBackground.right
     anchors.bottom: mainLineBackground.top
@@ -71,7 +71,7 @@ Item {
 
   Text {
     id: label
-    anchors.bottomMargin: 7 * dp
+    anchors.bottomMargin: 7
     anchors.bottom: mainLine.top
     anchors.horizontalCenter: mainLine.horizontalCenter
     anchors.left: undefined // The value will be set to mainLine.left is the label is wider than the mainLine

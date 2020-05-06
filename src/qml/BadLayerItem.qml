@@ -21,10 +21,10 @@ Page {
     }
 
   ColumnLayout {
-    anchors.margins: 8 * dp
+    anchors.margins: 8
     anchors.fill: parent
     Layout.margins: 0
-    spacing: 10 * dp
+    spacing: 10
 
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
@@ -63,13 +63,13 @@ Page {
                     spacing: 0
                     Text {
                         id: name
-                        padding: 5 * dp
+                        padding: 5
                         text: LayerName
                         font: Theme.strongTipFont
                     }
                     Text {
                         id: uri
-                        padding: 5 * dp
+                        padding: 5
                         text: DataSource
                         font: Theme.tipFont
                     }

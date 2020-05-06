@@ -12,10 +12,10 @@ import org.qgis 1.0
 
 Rectangle{
     height: !readOnly ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly
-    property int itemHeight: 32 * dp
+    property int itemHeight: 32
 
     border.color: 'lightgray'
-    border.width: 1 * dp
+    border.width: 1
 
     ReferencingFeatureListModel {
         //containing the current (parent) feature, the relation to the children
@@ -79,7 +79,7 @@ Rectangle{
                     color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4 * dp
+                      anchors.margins: 4
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -122,7 +122,7 @@ Rectangle{
 
           Text {
             id: featureText
-            anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
+            anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
             text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
@@ -158,7 +158,7 @@ Rectangle{
                     color: nmRelationId ? 'blue' : '#900000'
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4 * dp
+                      anchors.margins: 4
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -218,8 +218,8 @@ Rectangle{
     BusyIndicator {
       id: busyIndicator
       anchors.centerIn: parent
-      width: 36 * dp
-      height: 36 * dp
+      width: 36
+      height: 36
       running: relationEditorModel.isLoading
     }
 

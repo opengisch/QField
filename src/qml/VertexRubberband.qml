@@ -18,12 +18,12 @@ Repeater {
       x: mapToScreen.screenPoint.x - width/2
       y: mapToScreen.screenPoint.y - width/2
 
-      width: 20*dp
-      height: 20*dp
+      width: 20
+      height: 20
       radius: SegmentVertex ? width / 2 : 0
 
       border.color: if (CurrentVertex) {'red'} else {'blue'}
-      border.width: 2*dp
+      border.width: 2
     }
 }
 

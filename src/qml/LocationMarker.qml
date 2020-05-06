@@ -27,7 +27,7 @@ Item {
 
     color: "#3364b5f6"
     border.color: "#992374b5"
-    border.width: 0.7 * dp
+    border.width: 0.7
   }
 
   Image {
@@ -35,8 +35,8 @@ Item {
     property point location
     property real direction
     visible: direction >= 0
-    width: 48 * dp
-    height: 48 * dp
+    width: 48
+    height: 48
 
     x: location.x - width/2
     y: location.y - height
@@ -61,8 +61,8 @@ Item {
   Rectangle {
     id: marker
     property point location
-    width: 12*dp
-    height: 12*dp
+    width: 12
+    height: 12
 
     x: location.x - width/2
     y: location.y - height/2
@@ -71,7 +71,7 @@ Item {
 
     color: "#64b5f6"
     border.color: "#FFFFFF"
-    border.width: 3 * dp
+    border.width: 3
 
     SequentialAnimation on color  {
       loops: Animation.Infinite

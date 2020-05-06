@@ -83,7 +83,7 @@ Page {
       TabBar {
         id: tabRow
         visible: model.hasTabs
-        height: 48 * dp
+        height: 48
 
         Connections {
           target: master
@@ -103,11 +103,11 @@ Page {
             text: Name
             topPadding: 0
             bottomPadding: 0
-            leftPadding: 8 * dp
-            rightPadding: 8 * dp
+            leftPadding: 8
+            rightPadding: 8
 
             width: contentItem.width + leftPadding + rightPadding
-            height: 48 * dp
+            height: 48
 
             background: Rectangle {
               implicitWidth: parent.width
@@ -170,7 +170,7 @@ Page {
               // section header: group box name
               Rectangle {
                 width: parent.width
-                height: section === "" ? 0 : 30 * dp
+                height: section === "" ? 0 : 30
                 color: 'lightGray'
 
                 Text {
@@ -215,7 +215,7 @@ Page {
       anchors {
         left: parent.left
         right: parent.right
-        leftMargin: 12 * dp
+        leftMargin: 12
       }
 
       Label {
@@ -247,7 +247,7 @@ Page {
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp; }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
 
         Loader {
           id: attributeEditorLoader
@@ -320,10 +320,10 @@ Page {
           RememberValue = checked
         }
 
-        indicator.height: 16 * dp
-        indicator.width: 16 * dp
-        icon.height: 16 * dp
-        icon.width: 16 * dp
+        indicator.height: 16
+        indicator.width: 16
+        icon.height: 16
+        icon.width: 16
       }
     }
   }
@@ -395,7 +395,7 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
-    height: visible ? 48 * dp : 0
+    height: visible ? 48: 0
     visible: form.state === 'Add'
 
     anchors {
@@ -418,8 +418,8 @@ Page {
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
         visible: ( form.state === 'Add' || form.state === 'Edit' ) && ( !qfieldSettings.autoSave || dontSave )
-        width: 48*dp
-        height: 48*dp
+        width: 48
+        height: 48
         clip: true
         bgcolor: Theme.darkGray
 
@@ -439,7 +439,7 @@ Page {
 
       Label {
         id: titleLabel
-        leftPadding: model.constraintsHardValid ? 0 : 48 * dp
+        leftPadding: model.constraintsHardValid ? 0 : 48
 
         text:
         {
@@ -468,8 +468,8 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 49*dp
-        height: 48*dp
+        width: 49
+        height: 48
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
         visible: !qfieldSettings.autoSave || dontSave
