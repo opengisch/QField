@@ -25,9 +25,11 @@ Popup {
 
         ColumnLayout{
             spacing: 4
+            width: Math.min(mainWindow.width - 20, parent.width)
 
             CheckBox {
                 id: itemVisibleCheckBox
+                Layout.fillWidth: true
                 text: qsTr("Show on map canvas")
                 font: Theme.defaultFont
 
@@ -37,16 +39,12 @@ Popup {
                 indicator.implicitWidth: 24
             }
 
-            Button {
+            QfButton {
                 id: trackingButton
-                Layout.fillHeight: true
                 Layout.fillWidth: true
                 font: Theme.defaultFont
                 text: trackingButtonText
                 visible: trackingButtonVisible
-                background: Rectangle {
-                    color: trackingButtonBgColor
-                }
 
                 onClicked: {
                     trackingButtonClicked()
