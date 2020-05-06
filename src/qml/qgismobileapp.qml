@@ -475,7 +475,7 @@ ApplicationWindow {
 
       property VectorLayer currentLayer: dashBoard.currentLayer
 
-      rubberbandModel: currentRubberband.model
+      rubberbandModel: measuringRubberband.model
       project: qgisProject
       crs: qgisProject.crs
     }
@@ -763,11 +763,45 @@ ApplicationWindow {
         currentLayer: dashBoard.currentLayer
         positionSourceName: positionSource.name
         topSnappingResult: coordinateLocator.topSnappingResult
-
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
           vectorLayer: dashBoard.currentLayer
+        }
+      }
+
+      onVertexCountChanged: {
+        if( qfieldSettings.autoSave && stateMachine.state === "digitize" ) {
+            if( digitizingToolbar.geometryValid )
+            {
+                if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
+                {
+                  digitizingRubberband.model.reset()
+                }
+                else
+                {
+                  digitizingFeature.geometry.applyRubberband()
+                  digitizingFeature.applyGeometry()
+                }
+
+                if( !overlayFeatureFormDrawer.featureForm.featureCreated )
+                {
+                    digitizingFeature.resetAttributes();
+                    if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
+                      //when the constrainst are fulfilled
+                      digitizingFeature.create()
+                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+                    }
+                } else {
+                    digitizingFeature.save()
+                }
+            } else {
+                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                  //delete the feature when the geometry gets invalid again
+                  digitizingFeature.deleteFeature()
+                  overlayFeatureFormDrawer.featureForm.featureCreated = false
+                }
+            }
         }
       }
 
@@ -794,7 +828,11 @@ ApplicationWindow {
         }
         else
         {
-          digitizingFeature.create()
+          if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+              digitizingFeature.create()
+          } else {
+              digitizingFeature.save()
+          }
           digitizingRubberband.model.reset()
         }
       }

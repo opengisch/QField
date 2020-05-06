@@ -26,6 +26,7 @@ Item {
 
   property var currentKeyValue: value
   onCurrentKeyValueChanged: {
+    comboBox._cachedCurrentValue = currentKeyValue
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
@@ -53,12 +54,8 @@ Item {
       Connections {
         target: featureListModel
 
-        onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = relationCombobox.currentKeyValue
-        }
-
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(relationCombobox.currentKeyValue)
+          comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue)
         }
       }
 
@@ -120,8 +117,9 @@ Item {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-            attributeFormModel.featureModel.resetAttributes()
-            addFeatureForm.active = true
+            addFeaturePopup.state = 'Add'
+            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            addFeaturePopup.open()
         }
       }
     }
@@ -134,59 +132,18 @@ Item {
     }
   }
 
-  AttributeFormModel {
-   id: attributeFormModel
-   featureModel: FeatureModel {
-       currentLayer: relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
-     }
-  }
+  EmbeddedFeatureForm{
+      id: addFeaturePopup
 
-  Loader {
-    id: addFeatureForm
-    sourceComponent: addFeatureFormComponent
-    active: false
-    onLoaded: {
-      item.open()
-    }
-  }
-
-  Component {
-    id: addFeatureFormComponent
-    Popup {
-      id: popup
-      parent: ApplicationWindow.overlay
-
-      x: 24 * dp
-      y: 24 * dp
-      width: parent.width - 48 * dp
-      height: parent.height - 48 * dp
-      padding: 0
-      modal: true
-      focus: true
-      closePolicy: Popup.CloseOnEscape
-
-      FeatureForm {
-        model: attributeFormModel
-
-        anchors.fill: parent
-
-        state: "Add"
-        embedded: true
-
-        onSaved: {
-          var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          comboBox.currentIndex = featureListModel.findKey(referencedValue)
-          popup.close()
-        }
-
-        onCancelled: {
-          popup.close()
-        }
+      onFeatureSaved: {
+          var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+          var index = featureListModel.findKey(referencedValue)
+          if ( index < 0 ) {
+            // model not yet reloaded - keep the value and set it onModelReset
+            comboBox._cachedCurrentValue = referencedValue
+          } else {
+            comboBox.currentIndex = index
+          }
       }
-
-      onClosed: {
-        addFeatureForm.active = false
-      }
-    }
   }
 }

@@ -121,6 +121,7 @@ Rectangle {
     width: ( parent.state == "Edit" ? 48*dp : 0 )
     height: 48*dp
     clip: true
+    visible: !qfieldSettings.autoSave
 
     iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
     onClicked: {
@@ -139,6 +140,7 @@ Rectangle {
 
   Button {
     id: cancelButton
+    visible: !qfieldSettings.autoSave
 
     anchors.right: parent.right
 
