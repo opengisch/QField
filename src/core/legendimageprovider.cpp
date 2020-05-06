@@ -29,7 +29,6 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
 
 }
 
-#include <QDebug>
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
   Q_UNUSED( size )
