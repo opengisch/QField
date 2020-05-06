@@ -79,8 +79,12 @@ void ExpressionVariableModel::reloadVariables()
     if ( scope->isReadOnly( varName ) )
     {
       QStandardItem *nameItem = new QStandardItem( varName );
+      QVariant varValue = scope->variable( varName );
+      if ( varValue == QStringLiteral( "Not availble" ) )
+        varValue = QVariant( QT_TR_NOOP( "Not available" ) );
+
       nameItem->setData( varName, VariableName );
-      nameItem->setData( scope->variable( varName ), VariableValue );
+      nameItem->setData( varValue, VariableValue );
       nameItem->setEditable( false );
 
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
