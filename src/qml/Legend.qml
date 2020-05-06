@@ -33,8 +33,8 @@ ListView {
 
     Row {
       id: line
-      leftPadding: 5 *dp
-      spacing: 5 * dp
+      leftPadding: 5
+      spacing: 5
 
       Image {
         visible: LegendImage != ''
@@ -45,16 +45,16 @@ ListView {
             else
               return ''
         }
-        width: 24 * dp
-        height: 24 * dp
+        width: 24
+        height: 24
         anchors.verticalCenter: parent.verticalCenter
         opacity: Visible ? 1 : 0.25
       }
 
       Text {
         id: layerName
-        width: rectangle.width - ( LegendImage != '' ? 34 * dp : 10 * dp )
-        padding: 5 * dp
+        width: rectangle.width - ( LegendImage != '' ? 34 : 10 )
+        padding: 5
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize

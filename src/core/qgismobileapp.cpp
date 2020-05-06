@@ -280,7 +280,6 @@ void QgisMobileapp::initDeclarative()
   dpi *= QApplication::desktop()->devicePixelRatioF();
 
   // Register some globally available variables
-  rootContext()->setContextProperty( "dp", 1 );
   rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );

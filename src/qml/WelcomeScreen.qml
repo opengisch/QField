@@ -25,7 +25,7 @@ Page {
   }
 
   ScrollView {
-    padding: 0 * dp
+    padding: 0
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AsNeeded
     contentItem: welcomeGrid
@@ -37,28 +37,28 @@ Page {
   GridLayout {
     id: welcomeGrid
     columns: 1
-    rowSpacing: 4 * dp
+    rowSpacing: 4
 
     width: mainWindow.width
 
     Image {
-      Layout.margins: 6 * dp
-      Layout.topMargin: 14 * dp
+      Layout.margins: 6
+      Layout.topMargin: 14
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.preferredWidth: Math.min( 138 * dp, mainWindow.height / 4 )
-      Layout.preferredHeight: Math.min( 138 * dp, mainWindow.height / 4 )
+      Layout.preferredWidth: Math.min( 138, mainWindow.height / 4 )
+      Layout.preferredHeight: Math.min( 138, mainWindow.height / 4 )
       fillMode: Image.PreserveAspectFit
       smooth: true
       source: "qrc:/images/qfield_logo.svg"
-      sourceSize.width: 200 * dp
-      sourceSize.height: 200 * dp
+      sourceSize.width: 200
+      sourceSize.height: 200
     }
 
     Text {
-      Layout.leftMargin: 6 * dp
-      Layout.rightMargin: 6 * dp
-      Layout.topMargin: 2 * dp
-      Layout.bottomMargin: 2 * dp
+      Layout.leftMargin: 6
+      Layout.rightMargin: 6
+      Layout.topMargin: 2
+      Layout.bottomMargin: 2
       id: welcomeText
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       text: ""
@@ -69,12 +69,12 @@ Page {
     }
 
     Rectangle {
-      Layout.leftMargin: 6 * dp
-      Layout.rightMargin: 6 * dp
-      Layout.topMargin: 2 * dp
-      Layout.bottomMargin: 2 * dp
+      Layout.leftMargin: 6
+      Layout.rightMargin: 6
+      Layout.topMargin: 2
+      Layout.bottomMargin: 2
       Layout.fillWidth: true
-      Layout.maximumWidth: 410 * dp
+      Layout.maximumWidth: 410
       Layout.minimumHeight: welcomeActions.height
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       color: "transparent"
@@ -82,19 +82,19 @@ Page {
       ColumnLayout {
         id: welcomeActions
         width: parent.width
-        spacing: 12 * dp
+        spacing: 12
 
         Button {
           id: localProjectButton
-          padding: 8 * dp
-          topInset: 2 * dp
-          bottomInset: 2 * dp
+          padding: 8
+          topInset: 2
+          bottomInset: 2
           Layout.fillWidth: true
           text: qsTr( "Open local project" )
           background: Rectangle {
               anchors.fill: parent
               color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-              radius: 12 * dp
+              radius: 12
               Behavior on color {
                 PropertyAnimation {
                   duration: 25
@@ -116,16 +116,16 @@ Page {
         }
         Button {
           id: cloudProjectButton
-          padding: 8 * dp
-          topInset: 2 * dp
-          bottomInset: 2 * dp
+          padding: 8
+          topInset: 2
+          bottomInset: 2
           Layout.fillWidth: true
           text: qsTr( "QField Cloud projects, coming soon" )
           enabled: false
           background: Rectangle {
               anchors.fill: parent
               color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-              radius: 12 * dp
+              radius: 12
               Behavior on color {
                 PropertyAnimation {
                   duration: 25
@@ -167,7 +167,7 @@ Page {
           boundsBehavior: Flickable.StopAtBounds
           clip: true
           width: parent.width
-          height: table.model.rowCount() * ( 80 * dp )
+          height: table.model.rowCount() * ( 80)
 
           delegate: Rectangle {
             id: rectangle
@@ -179,27 +179,27 @@ Page {
             Row {
               id: line
               Layout.fillWidth: true
-              leftPadding: 6 * dp
-              rightPadding: 10 * dp
-              topPadding: 9 * dp
-              bottomPadding: 3 * dp
+              leftPadding: 6
+              rightPadding: 10
+              topPadding: 9
+              bottomPadding: 3
               spacing: 0
               Image {
                 id: type
                 anchors.verticalCenter: inner.verticalCenter
                 source: ProjectType == 0 ? Theme.getThemeIcon('ic_map_green_48dp') : ''
-                sourceSize.width: 80 * dp
-                sourceSize.height: 80 * dp
-                width: 40 * dp
-                height: 40 * dp
+                sourceSize.width: 80
+                sourceSize.height: 80
+                width: 40
+                height: 40
               }
               ColumnLayout {
                 id: inner
-                width: rectangle.width - type.width - 10 * dp
+                width: rectangle.width - type.width - 10
                 Text {
                   id: projectTitle
-                  topPadding: 5 * dp
-                  leftPadding: 3 * dp
+                  topPadding: 5
+                  leftPadding: 3
                   text: ProjectTitle
                   font.pointSize: Theme.tipFont.pointSize
                   font.underline: true
@@ -209,7 +209,7 @@ Page {
                 }
                 Text {
                   id: projectNote
-                  leftPadding: 3 * dp
+                  leftPadding: 3
                   text: {
                     if (index == 0) {
                         var firstRun = !settings.value( "/QField/FirstRunFlag", false )
@@ -271,15 +271,15 @@ Page {
             property string recentProjectPath: ''
 
             title: 'Recent Project Actions'
-            width: Math.max(320*dp, mainWindow.width/2)
+            width: Math.max(320, mainWindow.width/2)
 
             MenuItem {
               id: removeProject
 
               font: Theme.defaultFont
               width: parent.width
-              height: visible ? 48 * dp : 0
-              leftPadding: 10 * dp
+              height: visible ? 48: 0
+              leftPadding: 10
 
               text: qsTr( "Remove Recent Project" )
               onTriggered: {
@@ -297,8 +297,8 @@ Page {
 
   ToolButton {
     id: currentProjectButton
-    height: 56 * dp
-    width: 56 * dp
+    height: 56
+    width: 56
     visible: false
     anchors {
       top: parent.top

@@ -15,7 +15,7 @@ VisibilityFadingRow {
 
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
 
-  spacing: 4 * dp
+  spacing: 4
 
   function canvasClicked(point)
   {

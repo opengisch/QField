@@ -16,7 +16,7 @@ VisibilityFadingRow {
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   readonly property bool blocking: drawLineToolbar.isDigitizing
 
-  spacing: 4 * dp
+  spacing: 4
 
 
   function canvasClicked(point)

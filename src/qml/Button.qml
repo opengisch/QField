@@ -20,8 +20,8 @@ Item {
   signal pressAndHold
   signal clicked
 
-  height: 48 * dp
-  width: 48 * dp
+  height: 48
+  width: 48
 
   RoundButton {
     id: button
@@ -33,8 +33,8 @@ Item {
     padding:0
 
     icon.color: "white"
-    icon.height: 24 * dp
-    icon.width: 24 * dp
+    icon.height: 24
+    icon.width: 24
 
     MouseArea {
         anchors.fill: parent

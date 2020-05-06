@@ -36,7 +36,7 @@ Item {
 
     Item {
       Layout.fillWidth: true
-      Layout.minimumHeight: 48 * dp
+      Layout.minimumHeight: 48
 
       Rectangle {
         id: backgroundRect
@@ -58,9 +58,9 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
-        height: fontMetrics.height + 20 * dp
-        topPadding: 10 * dp
-        bottomPadding: 10 * dp
+        height: fontMetrics.height + 20
+        topPadding: 10
+        bottomPadding: 10
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -105,8 +105,8 @@ Item {
         background: Rectangle {
           visible: !enabled
           y: label.height - height - label.bottomPadding / 2
-          implicitWidth: 120 * dp
-          height: label.activeFocus ? 2 * dp : 1 * dp
+          implicitWidth: 120
+          height: label.activeFocus ? 2: 1
           color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
         }
 
@@ -161,9 +161,9 @@ Item {
           id: todayButton
           source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
           anchors.right: parent.right
-          anchors.rightMargin: 4 * dp
+          anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -2 * dp
+          anchors.verticalCenterOffset: -2
           visible: enabled
 
           MouseArea {
@@ -189,9 +189,9 @@ Item {
           id: clearButton
           source: Theme.getThemeIcon("ic_clear_black_18dp")
           anchors.right: todayButton.left
-          anchors.rightMargin: 4 * dp
+          anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -2 * dp
+          anchors.verticalCenterOffset: -2
           visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
@@ -223,13 +223,13 @@ Item {
           style: CalendarStyle {
               gridVisible: false
               weekNumberDelegate: Rectangle {
-                  implicitWidth: 24 * dp
+                  implicitWidth: 24
                   color: "white"
 
                   Label {
                       text: styleData.weekNumber
                       anchors.centerIn: parent
-                      font.pixelSize: 14 * dp
+                      font.pixelSize: 14
                       color: "lightgrey"
                   }
               }
@@ -240,13 +240,13 @@ Item {
                   Label {
                       text: styleData.date.getDate()
                       anchors.centerIn: parent
-                      font.pixelSize: 14 * dp
+                      font.pixelSize: 14
                       color: styleData.visibleMonth ? "black" : "lightgrey"
                   }
               }
 
               navigationBar: Rectangle {
-                  height: 42 * dp
+                  height: 42
                   color: "transparent"
 
                   ToolButton {
@@ -257,7 +257,7 @@ Item {
                       anchors.left: parent.left
                       contentItem: Rectangle {
                         anchors.fill: parent
-                        anchors.margins: 10*dp
+                        anchors.margins: 10
                         color: "transparent"
                         Image {
                           anchors.fill: parent
@@ -274,7 +274,7 @@ Item {
                       text: styleData.title
                       elide: Text.ElideRight
                       horizontalAlignment: Text.AlignHCenter
-                      font.pixelSize: 18 * dp
+                      font.pixelSize: 18
                       anchors.verticalCenter: parent.verticalCenter
                       anchors.left: previousMonth.right
                       anchors.leftMargin: 2
@@ -289,7 +289,7 @@ Item {
                       anchors.right: parent.right
                       contentItem: Rectangle {
                         anchors.fill: parent
-                        anchors.margins: 10*dp
+                        anchors.margins: 10
                         color: "transparent"
                         Image {
                           anchors.fill: parent

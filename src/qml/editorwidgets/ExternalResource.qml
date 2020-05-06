@@ -51,9 +51,9 @@ Item {
 
   Label {
     id: linkField
-    height: fontMetrics.height + 20 * dp
-    topPadding: 10 * dp
-    bottomPadding: 10 * dp
+    height: fontMetrics.height + 20
+    topPadding: 10
+    bottomPadding: 10
     visible: !isImage
     enabled: !isImage
     anchors.left: parent.left
@@ -65,8 +65,8 @@ Item {
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
-      implicitWidth: 120 * dp
-      height: 1 * dp
+      implicitWidth: 120
+      height: 1
       color: "#C8E6C9"
     }
 
@@ -90,7 +90,7 @@ Item {
     id: image
     visible: isImage
     enabled: isImage
-    width: 200 * dp
+    width: 200
     autoTransform: true
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
@@ -113,7 +113,7 @@ Item {
     visible: false
     anchors.bottom: image.bottom
     anchors.right: image.right
-    anchors.margins: 4 * dp
+    anchors.margins: 4
     source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
   }
 
@@ -122,7 +122,7 @@ Item {
     visible: geoTagBadge.visible
     horizontalOffset: 0
     verticalOffset: 0
-    radius: 6.0 * dp
+    radius: 6.0
     samples: 17
     color: "#DD000000"
     source: geoTagBadge
@@ -130,8 +130,8 @@ Item {
 
   QField.Button {
     id: button_camera
-    width: 36 * dp
-    height: 36 * dp
+    width: 36
+    height: 36
 
     anchors.right: button_gallery.left
     anchors.bottom: parent.bottom
@@ -155,8 +155,8 @@ Item {
 
   QField.Button {
     id: button_gallery
-    width: 36 * dp
-    height: 36 * dp
+    width: 36
+    height: 36
 
     anchors.right: parent.right
     anchors.bottom: parent.bottom

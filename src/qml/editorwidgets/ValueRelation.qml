@@ -42,10 +42,10 @@ Item {
 
     width: parent.width
 
-    property int itemHeight: 32 * dp
+    property int itemHeight: 32
 
     border.color: 'lightgray'
-    border.width: 1 * dp
+    border.width: 1
 
     FeatureCheckListModel {
       id: listModel
@@ -110,16 +110,16 @@ Item {
               model.checked = checked
             }
 
-            indicator.height: 16 * dp
-            indicator.width: 16 * dp
-            indicator.implicitHeight: 24 * dp
-            indicator.implicitWidth: 24 * dp
+            indicator.height: 16
+            indicator.width: 16
+            indicator.implicitHeight: 24
+            indicator.implicitWidth: 24
           }
         }
 
         Text {
           id: valueText
-          anchors { leftMargin: 10 * dp ; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
+          anchors { leftMargin: 10; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
           font.bold: true
           color: readOnly ? 'grey' : 'black'
           text: { text: model.displayString }

@@ -27,7 +27,7 @@ ColumnLayout {
             spacing: 1
 
             anchors.fill: parent
-            anchors.margins: 3 * dp
+            anchors.margins: 3
 
             function reset() {
                 Qt.inputMethod.hide()
@@ -49,16 +49,16 @@ ColumnLayout {
 
                 Row {
                     id: line
-                    leftPadding: 4 * dp
-                    spacing: 5 * dp
+                    leftPadding: 4
+                    spacing: 5
 
                     TextField {
                         id: variableNameText
-                        width: 0.35 * table.width - 10 * dp
-                        topPadding: 10 * dp
-                        bottomPadding: 10 * dp
-                        leftPadding: 5 * dp
-                        rightPadding: 5 * dp
+                        width: 0.35 * table.width - 10
+                        topPadding: 10
+                        bottomPadding: 10
+                        leftPadding: 5
+                        rightPadding: 5
                         text: VariableName
                         enabled: table.model.isEditable(index)
                         font: Theme.tipFont
@@ -67,8 +67,8 @@ ColumnLayout {
 
                         background: Rectangle {
                             y: variableNameText.height - height - variableNameText.bottomPadding / 2
-                            implicitWidth: 120 * dp
-                            height: variableNameText.activeFocus ? 2 * dp : variableNameText.enabled ? 1 * dp : 0
+                            implicitWidth: 120
+                            height: variableNameText.activeFocus ? 2: variableNameText.enabled ? 1: 0
                             color: variableNameText.activeFocus ? "#4CAF50" : "#C8E6C9"
                         }
 
@@ -79,11 +79,11 @@ ColumnLayout {
 
                     TextField {
                         id: variableValueText
-                        width: 0.65 * table.width - 10 * dp - (canDelete ? 48 * dp : 0)
-                        topPadding: 10 * dp
-                        bottomPadding: 10 * dp
-                        leftPadding: 5 * dp
-                        rightPadding: 5 * dp
+                        width: 0.65 * table.width - 10- (canDelete ? 48: 0)
+                        topPadding: 10
+                        bottomPadding: 10
+                        leftPadding: 5
+                        rightPadding: 5
                         text: VariableValue
                         enabled: table.model.isEditable(index)
                         font: Theme.tipFont
@@ -92,8 +92,8 @@ ColumnLayout {
 
                         background: Rectangle {
                             y: variableValueText.height - height - variableValueText.bottomPadding / 2
-                            implicitWidth: 120 * dp
-                            height: variableValueText.activeFocus ? 2 * dp : variableNameText.enabled ? 1 * dp : 0
+                            implicitWidth: 120
+                            height: variableValueText.activeFocus ? 2: variableNameText.enabled ? 1: 0
                             color: variableValueText.activeFocus ? "#4CAF50" : "#C8E6C9"
                         }
 
@@ -104,8 +104,8 @@ ColumnLayout {
 
                     Button {
                         id: deleteVariableButton
-                        width: 48 * dp
-                        height: 48 * dp
+                        width: 48
+                        height: 48
                         contentItem: Image {
                             fillMode: Image.Pad
                             horizontalAlignment: Image.AlignHCenter
