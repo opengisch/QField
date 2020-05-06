@@ -80,8 +80,8 @@ void ExpressionVariableModel::reloadVariables()
     {
       QStandardItem *nameItem = new QStandardItem( varName );
       QVariant varValue = scope->variable( varName );
-      if ( varValue == QStringLiteral( "Not availble" ) )
-        varValue = QVariant( QT_TR_NOOP( "Not available" ) );
+      if ( QString::compare( varValue.toString(), QStringLiteral( "Not available" ) ) == 0 )
+        varValue = QVariant( QT_TR_NOOP( "Not Available" ) );
 
       nameItem->setData( varName, VariableName );
       nameItem->setData( varValue, VariableValue );
