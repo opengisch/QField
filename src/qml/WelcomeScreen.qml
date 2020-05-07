@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.12
 
 import Theme 1.0
 
-import "."
-
 Page {
   property alias model: table.model
   signal showOpenProjectDialog
@@ -253,7 +251,7 @@ Page {
   }
   }
 
-  Button {
+  QfToolButton {
     id: currentProjectButton
     visible: false
     anchors {

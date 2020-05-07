@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 
 import Theme 1.0
-import "." as QField
 
 Item {
   signal close()

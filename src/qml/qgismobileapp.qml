@@ -563,7 +563,7 @@ ApplicationWindow {
     leftPadding: 4
     spacing: 4
 
-    Button {
+    QfToolButton {
       id: menuButton
       round: true
       iconSource: Theme.getThemeIcon( "ic_menu_white_24dp" )
@@ -593,7 +593,7 @@ ApplicationWindow {
     anchors.leftMargin: 4
     spacing: 4
 
-    Button {
+    QfToolButton {
       id: topologyButton
       round: true
       visible: stateMachine.state === "digitize" && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
@@ -638,7 +638,7 @@ ApplicationWindow {
     anchors.bottomMargin: 4
     spacing: 4
 
-    Button {
+    QfToolButton {
       id: gpsLinkButton
       visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
@@ -653,7 +653,7 @@ ApplicationWindow {
       onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
 
-    Button {
+    QfToolButton {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
@@ -1124,7 +1124,7 @@ ApplicationWindow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: alertIcon
     iconSource: Theme.getThemeIcon( "ic_alert_black_24dp" )
     round: true

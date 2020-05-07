@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.12
 
 import org.qfield 1.0
 import Theme 1.0
-import "."
 
 Page {
   signal enter( string usr, string pw )
@@ -110,8 +109,3 @@ Page {
       }
   }
 }
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
