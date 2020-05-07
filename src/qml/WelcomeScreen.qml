@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 
 import Theme 1.0
 
+import "."
+
 Page {
   property alias model: table.model
   signal showOpenProjectDialog
@@ -84,63 +86,18 @@ Page {
         width: parent.width
         spacing: 12
 
-        Button {
+        QfButton {
           id: localProjectButton
-          padding: 8
-          topInset: 2
-          bottomInset: 2
           Layout.fillWidth: true
           text: qsTr( "Open local project" )
-          background: Rectangle {
-              anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-              radius: 12
-              Behavior on color {
-                PropertyAnimation {
-                  duration: 25
-                  easing.type: Easing.InQuart
-                }
-              }
-          }
-          contentItem: Text {
-              text: parent.text
-              font: Theme.tipFont
-              color: "white"
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-              elide: Text.ElideRight
-          }
           onClicked: {
             showOpenProjectDialog()
           }
         }
-        Button {
+        QfButton {
           id: cloudProjectButton
-          padding: 8
-          topInset: 2
-          bottomInset: 2
           Layout.fillWidth: true
           text: qsTr( "QField Cloud projects, coming soon" )
-          enabled: false
-          background: Rectangle {
-              anchors.fill: parent
-              color: !parent.enabled ? Theme.lightGray : parent.down ? "#5a8725" : Theme.mainColor
-              radius: 12
-              Behavior on color {
-                PropertyAnimation {
-                  duration: 25
-                  easing.type: Easing.InQuart
-                }
-              }
-          }
-          contentItem: Text {
-              text: parent.text
-              font: Theme.tipFont
-              color: "white"
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-              elide: Text.ElideRight
-          }
         }
 
         Text {
@@ -295,26 +252,15 @@ Page {
   }
   }
 
-  ToolButton {
+  Button {
     id: currentProjectButton
-    height: 56
-    width: 56
     visible: false
     anchors {
       top: parent.top
       left: parent.left
     }
-    contentItem: Rectangle {
-      anchors.fill: parent
-      color: "transparent"
-      Image {
-        anchors.fill: parent
-        fillMode: Image.Pad
-        horizontalAlignment: Image.AlignHCenter
-        verticalAlignment: Image.AlignVCenter
-        source: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
-      }
-    }
+    iconSource: Theme.getThemeIcon( 'ic_chevron_left_black_24dp' )
+    bgcolor: "transparent"
 
     onClicked: {
       welcomeScreen.visible = false;
