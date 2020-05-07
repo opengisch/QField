@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 import org.qgis 1.0
 import Theme 1.0
 
+import "."
+
 Drawer {
   objectName: "dashBoard"
 
@@ -46,46 +48,22 @@ Drawer {
       color: mainColor
 
       Row {
-        height: childrenRect.height
+        height: 56
         spacing: 1
 
-        ToolButton {
-          height: 56
-          width: 56
-
-          contentItem: Rectangle {
-            anchors.fill: parent
-            color: mainColor
-            enabled: welcomeScreen.visible
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
-            }
-          }
-
+        Button {
+          id: closeButton
+          anchors.verticalCenter: parent.verticalCenter
+          iconSource: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
+          bgcolor: "transparent"
           onClicked: close()
         }
 
-        ToolButton {
+        Button {
           id: settingsButton
-          height: 56
-          width: 56
-
-          contentItem: Rectangle {
-            anchors.fill: parent
-            color: mainColor
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_settings_white_24dp' )
-            }
-          }
-
+          anchors.verticalCenter: parent.verticalCenter
+          iconSource: Theme.getThemeIcon( 'ic_settings_white_24dp' )
+          bgcolor: "transparent"
           onClicked: showMenu()
         }
       }
