@@ -64,8 +64,8 @@ class QgsQuickMapSettings : public QObject
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
     //! \copydoc QgsMapSettings::visibleExtent()
     Q_PROPERTY( QgsRectangle visibleExtent READ visibleExtent NOTIFY visibleExtentChanged )
-    //! \copydoc QgsMapSettings::mapUnitsPerPixel()
-    Q_PROPERTY( double mapUnitsPerPixel READ mapUnitsPerPixel NOTIFY mapUnitsPerPixelChanged )
+    //! Returns the distance in geographical coordinates that equals to one point unit in the map
+    Q_PROPERTY( double mapUnitsPerPoint READ mapUnitsPerPoint NOTIFY mapUnitsPerPointChanged )
 
     /**
      * The rotation of the resulting map image, in degrees clockwise.
@@ -134,8 +134,8 @@ class QgsQuickMapSettings : public QObject
     //! Move current map extent to have center point defined by \a center
     Q_INVOKABLE void setCenter( const QgsPoint &center );
 
-    //! \copydoc QgsMapSettings::mapUnitsPerPixel()
-    double mapUnitsPerPixel() const;
+    //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
+    double mapUnitsPerPoint() const;
 
     //! \copydoc QgsMapSettings::visibleExtent()
     QgsRectangle visibleExtent() const;
@@ -214,8 +214,8 @@ class QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::destinationCrs
     void destinationCrsChanged();
 
-    //! \copydoc QgsQuickMapSettings::mapUnitsPerPixel
-    void mapUnitsPerPixelChanged();
+    //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
+    void mapUnitsPerPointChanged();
 
     //! \copydoc QgsQuickMapSettings::rotation
     void rotationChanged();
