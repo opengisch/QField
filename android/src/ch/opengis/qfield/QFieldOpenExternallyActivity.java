@@ -36,7 +36,7 @@ public class QFieldOpenExternallyActivity extends Activity{
         Log.d(TAG, "Received filepath: " + filePath + " and mimeType: " + mimeType);
 
         file = new File(filePath);
-        cacheFile = new File(getCacheDir(), file.getName());
+        cacheFile = new File(getExternalCacheDir(), file.getName());
 
         //copy file to a temporary file
         try{
