@@ -2,7 +2,6 @@
     <qresource prefix="/qml">
         <file>About.qml</file>
         <file>BadLayerItem.qml</file>
-        <file>Button.qml</file>
         <file>CoordinateLocator.qml</file>
         <file>DashBoard.qml</file>
         <file>DigitizingToolbar.qml</file>
@@ -49,6 +48,7 @@
         <file>LayerLoginDialog.qml</file>
         <file>CloseTool.qml</file>
         <file>imports/Theme/Theme.qml</file>
+        <file>imports/Theme/QfToolButton.qml</file>
         <file>imports/Theme/QfButton.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/qmldir</file>

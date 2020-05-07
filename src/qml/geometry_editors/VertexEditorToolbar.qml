@@ -3,7 +3,6 @@ import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import ".."
 
 
 VisibilityFadingRow {
@@ -52,7 +51,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
@@ -63,7 +62,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
@@ -77,7 +76,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     round: true
@@ -93,7 +92,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: addVertexButton
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp" : "ic_add_white_24dp" )
@@ -110,7 +109,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
@@ -123,7 +122,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true

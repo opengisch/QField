@@ -85,7 +85,7 @@ VisibilityFadingRow {
 
     Repeater {
       model: editors
-      delegate: Button {
+      delegate: QfToolButton {
         round: true
         bgcolor: Theme.mainColor
         iconSource: Theme.getThemeIcon(iconPath)
@@ -134,7 +134,7 @@ VisibilityFadingRow {
       }
   }
 
-  Button {
+  QfToolButton {
     id: activeToolButton
     iconSource: Theme.getThemeIcon("more_horiz")
     round: true
@@ -146,5 +146,4 @@ VisibilityFadingRow {
       selectorRow.stateVisible = true
     }
   }
-
 }

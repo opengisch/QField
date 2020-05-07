@@ -3,7 +3,6 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
 import Theme 1.0
-import "."
 
 ToolBar {
   property alias title: titleLabel.text
@@ -31,7 +30,7 @@ ToolBar {
 
     Layout.margins: 0
 
-    Button {
+    QfToolButton {
       id: applyButton
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
@@ -62,7 +61,7 @@ ToolBar {
       Layout.fillWidth: true
     }
 
-    Button {
+    QfToolButton {
       id: cancelButton
 
       Layout.alignment: Qt.AlignTop | Qt.AlignRight

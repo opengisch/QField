@@ -4,7 +4,6 @@ import QtQuick.Controls 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import "."
 
 Item {
   id: locatorItem
@@ -71,7 +70,7 @@ Item {
     height: searchField.height - 10
   }
 
-  Button {
+  QfToolButton {
     id: searchButton
     anchors { right: parent.right; top: parent.top; }
     visible: !locatorItem.searching
@@ -138,7 +137,7 @@ Item {
 
         Repeater {
           model: locator.contextMenuActionsModel( index )
-          Button {
+          QfToolButton {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height
             width:  36

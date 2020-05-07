@@ -44,7 +44,7 @@ VisibilityFadingRow {
       }
   }
 
-  Button {
+  QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
@@ -56,7 +56,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: confirmButton
     iconSource: {
       Theme.getThemeIcon( "ic_check_white_48dp" )
@@ -81,7 +81,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
@@ -93,7 +93,7 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: addVertexButton
     iconSource: {
         Theme.getThemeIcon( "ic_add_white_24dp" )

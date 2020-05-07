@@ -92,7 +92,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: nextButton
 
     anchors.right: parent.right
@@ -116,7 +116,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: saveButton
     anchors.left: parent.left
     width: ( parent.state == "Edit" ? 48: 0 )
@@ -139,7 +139,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: cancelButton
     visible: !qfieldSettings.autoSave
 
@@ -163,7 +163,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: editGeomButton
 
     property bool readOnly: false
@@ -199,7 +199,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: editButton
 
     property bool readOnly: false
@@ -232,7 +232,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: followCurrentButton
     
     visible: !selection.selectedGeometry.isNull
@@ -266,7 +266,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: previousButton
 
     anchors.left: parent.left

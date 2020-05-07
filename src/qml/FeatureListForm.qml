@@ -23,7 +23,6 @@ import QtQuick.Dialogs 1.2
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import "."
 
 Rectangle {
   id: featureForm
@@ -209,7 +208,7 @@ Rectangle {
         id: editRow
         anchors { top: parent.top; right: parent.right }
 
-        Button {
+        QfToolButton {
           id: deleteButton
 
           width: 48

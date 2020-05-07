@@ -9,7 +9,6 @@ import QtQml 2.3
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import "."
 
 Page {
   signal confirmed
@@ -412,7 +411,7 @@ Page {
       anchors.fill: parent
       Layout.margins: 0
 
-      Button {
+      QfToolButton {
         id: saveButton
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
@@ -463,7 +462,7 @@ Page {
         Layout.fillWidth: true
       }
 
-      Button {
+      QfToolButton {
         id: closeButton
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight

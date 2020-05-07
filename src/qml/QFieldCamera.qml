@@ -4,8 +4,6 @@ import QtMultimedia 5.8
 
 import Theme 1.0
 
-import "."
-
 Item{
   id : cameraItem
   signal finished(string path)
@@ -69,7 +67,7 @@ Item{
     }
 
 
-    Button {
+    QfToolButton {
       id: video_button_click
       visible: true
 
@@ -96,7 +94,7 @@ Item{
     smooth: true
     focus: visible
 
-    Button {
+    QfToolButton {
       id: buttonok
       visible: true
 
@@ -110,7 +108,7 @@ Item{
       onClicked: cameraItem.finished( currentPath )
     }
 
-    Button {
+    QfToolButton {
       id: buttonnok
       visible: true
 
