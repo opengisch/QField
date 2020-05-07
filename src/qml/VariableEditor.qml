@@ -79,7 +79,7 @@ ColumnLayout {
 
                     TextField {
                         id: variableValueText
-                        width: 0.65 * table.width - 10- (canDelete ? 48: 0)
+                        width: 0.65 * table.width - 10- (canDelete ? deleteVariableButton.width: 0)
                         topPadding: 10
                         bottomPadding: 10
                         leftPadding: 5
@@ -102,18 +102,25 @@ ColumnLayout {
                         }
                     }
 
-                    Button {
+                    ToolButton {
                         id: deleteVariableButton
-                        width: 48
-                        height: 48
-                        contentItem: Image {
-                            fillMode: Image.Pad
-                            horizontalAlignment: Image.AlignHCenter
-                            verticalAlignment: Image.AlignVCenter
-                            source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
-                        }
+                        width: 36
+                        height: 36
+                        anchors.verticalCenter: parent.verticalCenter
                         visible: canDelete
 
+                        contentItem: Rectangle {
+                            anchors.fill: parent
+                            color: Theme.darkGray
+                            Image {
+                                anchors.fill: parent
+                                anchors.margins: 4
+                                fillMode: Image.PreserveAspectFit
+                                horizontalAlignment: Image.AlignHCenter
+                                verticalAlignment: Image.AlignVCenter
+                                source: Theme.getThemeIcon( 'ic_delete_forever_white_24dp' )
+                            }
+                        }
                         onClicked: {
                             table.model.removeCustomVariable( index );
                         }

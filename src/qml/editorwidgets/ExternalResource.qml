@@ -128,7 +128,7 @@ Item {
     source: geoTagBadge
   }
 
-  QField.Button {
+  QfToolButton {
     id: button_camera
     width: 36
     height: 36
@@ -153,7 +153,7 @@ Item {
     iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
   }
 
-  QField.Button {
+  QfToolButton {
     id: button_gallery
     width: 36
     height: 36
@@ -241,5 +241,4 @@ Item {
       }
     }
   }
-
 }

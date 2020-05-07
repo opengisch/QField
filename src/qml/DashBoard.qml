@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.12
 import org.qgis 1.0
 import Theme 1.0
 
-import "."
-
 Drawer {
   objectName: "dashBoard"
 
@@ -51,7 +49,7 @@ Drawer {
         height: 56
         spacing: 1
 
-        Button {
+        QfToolButton {
           id: closeButton
           anchors.verticalCenter: parent.verticalCenter
           iconSource: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
@@ -59,7 +57,7 @@ Drawer {
           onClicked: close()
         }
 
-        Button {
+        QfToolButton {
           id: settingsButton
           anchors.verticalCenter: parent.verticalCenter
           iconSource: Theme.getThemeIcon( 'ic_settings_white_24dp' )
