@@ -97,7 +97,7 @@ Item {
       directionMarker.location = mapSettings.coordinateToScreen( location )
       directionMarker.direction = direction
       accuracyMarker.location = mapSettings.coordinateToScreen( location )
-      accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPixel
+      accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
     }
   }
 
@@ -106,6 +106,6 @@ Item {
     directionMarker.location = mapSettings.coordinateToScreen( location )
     directionMarker.direction = direction
     accuracyMarker.location = mapSettings.coordinateToScreen( location )
-    accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPixel
+    accuracyMarker.accuracy = accuracy / mapSettings.mapUnitsPerPoint
   }
 }
