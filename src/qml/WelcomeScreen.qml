@@ -98,6 +98,7 @@ Page {
           id: cloudProjectButton
           Layout.fillWidth: true
           text: qsTr( "QField Cloud projects, coming soon" )
+          enabled: false
         }
 
         Text {
