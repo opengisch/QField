@@ -26,9 +26,9 @@ QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
   : QObject( parent )
 {
   // Connect signals for derived values
-  connect( this, &QgsQuickMapSettings::destinationCrsChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
-  connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
-  connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
+  connect( this, &QgsQuickMapSettings::destinationCrsChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
   connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
   connect( this, &QgsQuickMapSettings::rotationChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
   connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
@@ -99,9 +99,9 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center )
   setExtent( e );
 }
 
-double QgsQuickMapSettings::mapUnitsPerPixel() const
+double QgsQuickMapSettings::mapUnitsPerPoint() const
 {
-  return mMapSettings.mapUnitsPerPixel();
+  return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();
 }
 
 QgsRectangle QgsQuickMapSettings::visibleExtent() const
