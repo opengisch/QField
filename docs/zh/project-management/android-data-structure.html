@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>自定义SVG符号和设置 &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>自定义SVG符号与设置 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="在图层中搜索" href="configure-search.html" />
-    <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="prev" title="允许隐藏图例节点" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -95,7 +95,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">自定义SVG符号和设置</a></li>
+<li><a class="reference internal" href="#">自定义SVG符号与设置</a></li>
 </ul>
 </ul>
 </li>
@@ -105,7 +105,7 @@
             
               
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Allow hiding ...</span>
+    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: 允许隐藏图例节点"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 允许隐藏图例节点</span>
     </a>
   </li>
   <li>
@@ -141,9 +141,9 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField安装指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">设计理念</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">自定义SVG符号和设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">为要素添加多张图片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">允许隐藏图例节点</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">自定义SVG符号与设置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">在图层中搜索</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">支持的数据格式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">栅格数据</a></li>
@@ -171,12 +171,12 @@
     <div class="col-md-9 content">
       
   <div class="section" id="custom-svg-symbols-and-settings">
-<h1>自定义SVG符号和设置<a class="headerlink" href="#custom-svg-symbols-and-settings" title="永久链接至标题">¶</a></h1>
-<p>从QGIS 3.6 Noosa 版本开始，SVG符号可能将会嵌入到QGIS项目中</p>
+<h1>自定义SVG符号与设置<a class="headerlink" href="#custom-svg-symbols-and-settings" title="永久链接至标题">¶</a></h1>
+<p>从QGIS 3.6 Noosa版开始支持在QGIS项目中嵌入SVG符号。</p>
 <ol class="arabic simple">
-<li>选择支持SVG符号的图层，并打开其属性对话框</li>
-<li>Open the section Symbology in  :menuselection: <cite>Properties --&gt; Symbology</cite>.</li>
-<li>In the <strong>Symbol Layer Panel</strong> choose Simple marker.</li>
+<li>选择进行SVG符号化的图层并打开其属性对话框。</li>
+<li>通过 <a href="#id1"><span class="problematic" id="id2">`</span></a>属性 --&gt; 符号化`打开符号化栏目.</li>
+<li>在**符号化图层面板**中选择单一符号。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -184,7 +184,7 @@
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li>Change the Symbol layer type in :menuselection: <cite>Symbol layer type --&gt; SVG marker</cite>.</li>
+<li>通过下拉菜单`符号图层类型 --&gt; SVG填充`修改符号图层类型。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -193,7 +193,7 @@
 </div>
 <ol class="arabic simple" start="5">
 <li>向下滚动到面板底部。</li>
-<li>Click on the right side of the file selection button to open the drop down menu.</li>
+<li>点击右侧的文件选择按钮打开下拉菜单。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -201,8 +201,8 @@
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li>Select Embed File and choose the SVG file in the file selection dialog.</li>
-<li>应用改变并点击OK按钮。</li>
+<li>选择嵌入文件菜单并通过文件选择对话框选择SVG文件。</li>
+<li>应用做出的修改并点击确定按钮。</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">

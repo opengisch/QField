@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>为要素添加多张图片 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -25,7 +25,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="next" title="允许隐藏图例节点" href="allow-hiding-legend-nodes.html" />
     <link rel="prev" title="设计理念" href="../concepts/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -95,16 +95,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
+<li><a class="reference internal" href="#">为要素添加多张图片</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">创建两张表</a><ul>
 <li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
 <li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
-<li><a class="reference internal" href="#widgets">Widgets</a><ul>
+<li><a class="reference internal" href="#relations">关系</a></li>
+<li><a class="reference internal" href="#widgets">部件</a><ul>
 <li><a class="reference internal" href="#id3">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#picture">图片</a></li>
 </ul>
 </li>
 </ul>
@@ -122,7 +122,7 @@
     </a>
   </li>
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Allow hiding ... &raquo;</span>
+    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: 允许隐藏图例节点"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">允许隐藏图例节点 &raquo;</span>
     </a>
   </li>
             
@@ -154,9 +154,9 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField安装指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">设计理念</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Add a series of pictures to a feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">自定义SVG符号和设置</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">为要素添加多张图片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">允许隐藏图例节点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">自定义SVG符号与设置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure-search.html">在图层中搜索</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html">支持的数据格式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">栅格数据</a></li>
@@ -184,12 +184,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="永久链接至标题">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
+<h1>为要素添加多张图片<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="永久链接至标题">¶</a></h1>
+<p>可以为要素增加一张或多张图片。以下为操作示范。</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="永久链接至标题">¶</a></h2>
-<p>We will need two tables. One table where the features are stored
-and one with a list of pictures.</p>
+<h2>创建两张表<a class="headerlink" href="#creating-two-tables" title="永久链接至标题">¶</a></h2>
+<p>需要两张表。一张表存储要素，另一张表存储图片列表。</p>
 <div class="section" id="apiary">
 <h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
@@ -209,35 +208,35 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="永久链接至标题">¶</a></h2>
-<p>Create a relation with:</p>
+<h2>关系<a class="headerlink" href="#relations" title="永久链接至标题">¶</a></h2>
+<p>创建关系如下：</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
-<li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
+<li><code class="docutils literal"><span class="pre">apiary</span></code> 被参考图层</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> 被参考字段</li>
+<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> 参考图层</li>
+<li><code class="docutils literal"><span class="pre">apiary_id</span></code> 参考字段</li>
+<li><code class="docutils literal"><span class="pre">strength</span></code> 复合</li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-relations.png"><img alt="Relations" src="../_images/add-1-n-pictures-relations.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="永久链接至标题">¶</a></h2>
+<h2>部件<a class="headerlink" href="#widgets" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id3">
 <h3>apiary<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<p>将id字段的缺省值设为 <code class="docutils literal"><span class="pre">uuid()</span></code>。该字段不需要在表单中显示。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code> and add the relation to the form</p>
+<p>将关系部件设置为``Many to one relation`` 并将该关系添加到表单中。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive2.png"><img alt="widgets2" src="../_images/add-1-n-pictures-widgets_hive2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="永久链接至标题">¶</a></h3>
-<p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
+<h3>图片<a class="headerlink" href="#picture" title="永久链接至标题">¶</a></h3>
+<p>将path字段的部件类型设为`attachment``并将其添加到表单中。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
