@@ -23,9 +23,8 @@
 #include <QDebug>
 
 AndroidPictureSource::AndroidPictureSource( const QString &prefix )
-  : PictureSource( nullptr )
+  : PictureSource( nullptr, prefix )
   , QAndroidActivityResultReceiver()
-  , mPrefix( prefix )
 {
 
 }
@@ -54,5 +53,10 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
       emit pictureReceived( QString() );
     }
   }
+
+}
+
+void AndroidPictureSource::init()
+{
 
 }
