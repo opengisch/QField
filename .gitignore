@@ -21,6 +21,6 @@ android/res/values-*_*/strings.xml
 android/.idea
 android/.build
 android/.gradle
-.idea
+.vscode
 *~
 keystore.p12
