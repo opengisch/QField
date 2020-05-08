@@ -31,6 +31,8 @@ class AndroidPictureSource : public PictureSource, public QAndroidActivityResult
     //! QAndroidActivityResultReceiver
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;
 
+    void init() override;
+
   private:
     QString mPrefix;
 };

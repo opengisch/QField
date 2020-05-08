@@ -26,15 +26,20 @@ class PictureSource : public QObject
 {
     Q_OBJECT
   public:
-    explicit PictureSource( QObject *parent = nullptr );
+    explicit PictureSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &pictureFilePath = QString() );
 
     virtual ~PictureSource();
+
+    Q_INVOKABLE void init();
 
   signals:
     /**
      * Emit this signal when a picture really has been received.
      */
     void pictureReceived( const QString &path );
+  protected:
+    QString mPrefix;
+    QString mPictureFilePath;
 };
 
 #endif // PICTURESOURCE_H

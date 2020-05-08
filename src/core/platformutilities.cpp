@@ -77,9 +77,8 @@ PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const
 
 PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
 {
-  Q_UNUSED( prefix )
   Q_UNUSED( pictureFilePath )
-  return nullptr;
+  return new PictureSource( nullptr, prefix, pictureFilePath );
 }
 
 ViewStatus *PlatformUtilities::open( const QString &uri )
