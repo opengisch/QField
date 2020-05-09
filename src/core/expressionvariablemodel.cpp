@@ -68,7 +68,7 @@ void ExpressionVariableModel::reloadVariables()
 {
   clear();
 
-  QScopedPointer<QgsExpressionContextScope> scope( QgsExpressionContextUtils::globalScope() );
+  std::unique_ptr<QgsExpressionContextScope> scope( QgsExpressionContextUtils::globalScope() );
 
   QStringList variableNames = scope->variableNames();
   variableNames.sort();
