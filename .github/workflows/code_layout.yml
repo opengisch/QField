@@ -1,0 +1,47 @@
+name: Static Tests
+
+on: [push, pull_request]
+
+jobs:
+  license_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Requirements
+        run: |
+          sudo apt install -y \
+              cpanminus
+            cpanm --notest App::Licensecheck
+
+      - name: Run License Check
+        run: ./scripts/test_licenses.sh
+
+  shell_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Requirements
+        run: |
+            sudo apt install -y \
+              shellcheck
+
+      - name: Run Shellcheck
+        run: ./scripts/test_shellcheck.sh
+
+  banned_keywords_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Banned Keywords Test
+        run: ./scripts/test_banned_keywords.sh
+
+  spell_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Indentation Test
+        run: ./scripts/spell_check/spell_test.sh
