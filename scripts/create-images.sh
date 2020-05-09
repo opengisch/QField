@@ -4,7 +4,7 @@ SKIP_EXISTING=FALSE
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 if [[ -z $1 ]]; then
-  FILES=${DIR}/../images/themes/qfield/nodpi/$1*.svg
+  FILES="${DIR}/../images/themes/qfield/nodpi/$1*.svg"
 else
   FILES=$1
 fi
@@ -40,7 +40,7 @@ do
         ;;
     esac
     DEST_FILE=${DESTINATION_PATH}/${PREFIX}${size}/$filename.png
-    if ( [[ ! -f ${DEST_FILE} ]] || [[ ${SKIP_EXISTING} != TRUE ]] ); then
+    if [[ ! -f ${DEST_FILE} ]] || [[ ${SKIP_EXISTING} != TRUE ]]; then
       inkscape -z -o ${DEST_FILE} -w $res -h $res $f
     else
       echo "  skipping"
