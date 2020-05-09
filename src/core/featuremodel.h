@@ -126,7 +126,9 @@ class FeatureModel : public QAbstractListModel
      */
     Q_INVOKABLE void reset();
 
-    // TODO: write documentation
+    /**
+     * Will create this feature as a new feature on the data source
+     */
     Q_INVOKABLE void create();
 
     /**
