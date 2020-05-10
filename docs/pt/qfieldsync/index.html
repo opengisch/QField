@@ -100,11 +100,11 @@
 <li><a class="reference internal" href="#installation">Instalação</a></li>
 <li><a class="reference internal" href="#configuration">Configuração</a><ul>
 <li><a class="reference internal" href="#layer-configuration">Configuração das camadas</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Configuração do mapa de base</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Configuração do mapa base</a></li>
 <li><a class="reference internal" href="#offline-editing-configuration">Configuração da edição offline</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#package-for-qfield">Pacote para o QField</a></li>
+<li><a class="reference internal" href="#package-for-qfield">Conjunto de dados para o QField</a></li>
 <li><a class="reference internal" href="#synchronize-from-qfield">Sincronizar a partir do Qfield</a></li>
 </ul>
 </li>
@@ -151,9 +151,9 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField - Guia do Utilizador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Guia de Instalação do QField</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Conceitos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Adicione uma série de fotos a uma feição</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Adicione uma série de fotos a um elemento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Permitir ocultar nós de legenda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Definições e símbolos SVG personalizados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Pesquisa nas camadas</a></li>
@@ -184,12 +184,12 @@
       
   <div class="section" id="qfieldsync-plugin">
 <h1>Plugin QFieldSync<a class="headerlink" href="#qfieldsync-plugin" title="Link permanente para este título">¶</a></h1>
-<p>O plugin QFieldSync ajuda a preparar e a empacotar projectos QGIS para o QField.</p>
-<p>O QFieldSync suporta a preparação do seu projecto automatizando o seguinte:</p>
+<p>O plugin QFieldSync ajuda a preparar e a comprimir projetos QGIS para o QField.</p>
+<p>O QFieldSync suporta a preparação do seu projeto automatizando o seguinte:</p>
 <ul class="simple">
 <li>Passos necessários para a configuração do projeto (por exemplo <a class="reference internal" href="../project-management/portable-project.html#portable-project"><span class="std std-ref">Projecto Portátil</span></a>)</li>
 <li>Criando mapas base de uma única camada raster ou de um estilo definido num tema do mapa.</li>
-<li>Configurando a funcionalidade de edição off-line e sincronizando as alterações de volta ao projecto desktop.</li>
+<li>Configurando a funcionalidade de edição offline e sincronizando as alterações de volta ao projeto desktop.</li>
 </ul>
 <div class="section" id="workflow">
 <h2>Fluxo de trabalho<a class="headerlink" href="#workflow" title="Link permanente para este título">¶</a></h2>
@@ -219,7 +219,7 @@
 <dt>Copiar</dt>
 <dd>A camada será copiada para a pasta do pacote. Só está disponível para camadas baseadas em ficheiros.</dd>
 <dt>Nenhuma acção</dt>
-<dd>A fonte da camada será deixada intacta. Só está disponível para camadas não baseadas em ficheiros, tais como WMS, WFS, Postgis…</dd>
+<dd>A fonte da camada será deixada intata. Só está disponível para camadas não baseadas em ficheiros, tais como WMS, WFS, Postgis…</dd>
 <dt>Edição offline</dt>
 <dd>Uma cópia de trabalho da camada é copiada para a pasta do pacote. Toda as alterações feitas no projecto empacotado durante o trabalho são registadas num log de alterações. Ao sincronizar as alterações mais tarde, esse log será repetido e todas as alterações também serão aplicadas à base de dados principal. Não está implementado um tratamento de conflitos.</dd>
 <dt>Remover</dt>
@@ -227,33 +227,33 @@
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Configuração do mapa de base<a class="headerlink" href="#base-map-configuration" title="Link permanente para este título">¶</a></h3>
+<h3>Configuração do mapa base<a class="headerlink" href="#base-map-configuration" title="Link permanente para este título">¶</a></h3>
 <p>Um mapa de base é uma camada raster que é adicionada como a camada mais inferior ao ficheiro de projecto empacotado.</p>
 <p>Se a opção do mapa de base estiver activada, um mapa de base será renderizado, sempre que o projeto for empacotado. A área de interesse - a extensão que será renderizada - será escolhida no momento do empacotamento.</p>
-<p>Existem duas fontes possíveis para um mapa de base:</p>
+<p>Existem duas fontes possíveis para um mapa base:</p>
 <dl class="docutils">
 <dt>Camada</dt>
-<dd>Uma camada raster. É útil para obter uma cópia offline de uma camada on-line tal como uma fonte WMS ou para obter uma cópia de trabalho de um formato não suportado, tal como uma camada ECW ou MrSID.</dd>
+<dd>Uma camada raster. É útil para obter uma cópia offline de uma camada online tal como uma fonte WMS ou para obter uma cópia de trabalho de um formato não suportado, tal como uma camada ECW ou MrSID.</dd>
 <dt>Tema do mapa</dt>
 <dd>Um tema do mapa. É útil para criar um mapa de base com base numa combinação de várias camadas com estilo. Essas camadas podem ser removidas do pacote de trabalho e não precisam ser renderizadas no dispositivo. Isso pode economizar algum espaço em disco e bateria no dispositivo.</dd>
 </dl>
-<p>O tamanho de mosaico define a resolução espacial. Determina o número de unidades de mapa por pixel. Se o sistema de coordenadas de referência da tela do mapa tiver metros como unidades e o tamanho de mosaico for definido como 1, cada pixel raster terá uma extensão espacial de 1m x 1m; se for definido como 1000, cada pixel raster terá uma extensão espacial de 1 quilómetro quadrado.</p>
+<p>O tamanho de mosaico define a resolução espacial. Determina o número de unidades de mapa por pixel. Se o sistema de coordenadas de referência do ecrã do mapa tiver metros como unidades e o tamanho de mosaico for definido como 1, cada pixel raster terá uma extensão espacial de 1m x 1m; se for definido como 1000, cada pixel raster terá uma extensão espacial de 1 quilómetro quadrado.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
 <h3>Configuração da edição offline<a class="headerlink" href="#offline-editing-configuration" title="Link permanente para este título">¶</a></h3>
-<p>Se a opção <em>apenas sincronizar recursos na área de interesse</em> estiver seleccionada, somente os objectos que estiverem dentro da extensão da tela do mapa, no momento do empacotamento, serão copiados para a cópia de trabalho de edição offline.</p>
+<p>Se a opção <em>apenas sincronizar recursos na área de interesse</em> estiver selecionada, somente os objectos que estiverem dentro da extensão do ecrã do mapa, no momento da compressão de camadas, serão copiados para a cópia de trabalho de edição offline.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Pacote para o QField<a class="headerlink" href="#package-for-qfield" title="Link permanente para este título">¶</a></h2>
-<p>Depois que o projeto estiver configurado, empacote-o em uma pasta. Esta pasta conterá o .qgs e os dados usados nela.</p>
+<h2>Conjunto de dados para o QField<a class="headerlink" href="#package-for-qfield" title="Link permanente para este título">¶</a></h2>
+<p>Depois que o projeto estiver configurado, comprima-o numa pasta. Esta pasta conterá o .qgs e os dados usados nela.</p>
 <img alt="../_images/qfield-sync_package.png" src="../_images/qfield-sync_package.png" />
-<p>Copie a pasta no seu dispositivo. Abra o Qfield, abra o projeto e comece a coletar dados.</p>
-<p>Certifique-se também de salvar o projeto QGIS usando o Salvar Como no QGIS normal, pois você deverá reabri-lo mais tarde quando desejar sincronizar as alterações.</p>
+<p>Copie a pasta no seu dispositivo. Abra o Qfield, abra o projeto e comece a recolher dados.</p>
+<p>Certifique-se também de guardar o projeto QGIS usando o Guardar Como no QGIS normal, pois você deverá reabri-lo mais tarde quando desejar sincronizar as alterações.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
 <h2>Sincronizar a partir do Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Link permanente para este título">¶</a></h2>
-<p>Quando você deseja sincronizar o que você coletou, reabra o projeto no QGIS (aquele que você salvou com um Salvar Como normal).</p>
+<p>Quando você deseja sincronizar o que você recolheu, reabra o projeto no QGIS (aquele que você guardou com um Guardar Como normal).</p>
 <p>Copie a pasta do projeto do seu dispositivo para o seu computador e use o menu <strong>Sincronizar do Qfield</strong> para sincronizar suas alterações do projeto portátil para o projeto principal.</p>
 <img alt="../_images/qfield-sync_sync.png" src="../_images/qfield-sync_sync.png" />
 </div>
