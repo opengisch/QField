@@ -47,6 +47,7 @@ ListView {
         }
         width: 24
         height: 24
+        fillMode: Image.PreserveAspectFit
         anchors.verticalCenter: parent.verticalCenter
         opacity: Visible ? 1 : 0.25
       }
