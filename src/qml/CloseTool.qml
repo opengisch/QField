@@ -25,16 +25,20 @@ ToolButton {
     Row {
       spacing: 8
       Rectangle {
-        height: 48
         width: 48
+        height: 48
         radius: height / 2
         color: Theme.darkGray
         Image {
-          anchors.fill: parent
-          fillMode: Image.Pad
+          anchors.centerIn: parent
+          width: 24
+          height: 24
+          fillMode: Image.PreserveAspectFit
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
           source: Theme.getThemeIcon( "ic_close_white_24dp" )
+          sourceSize.width: 24 * Screen.devicePixelRatio
+          sourceSize.height: 24 * Screen.devicePixelRatio
         }
       }
 
