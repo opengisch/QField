@@ -206,7 +206,7 @@ ApplicationWindow {
           else if (geometryEditorsToolbar.canvasClicked(point)) {
             // for instance, the vertex editor will select a vertex if possible
           }
-          else if ( type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer ) {
+          else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
