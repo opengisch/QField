@@ -220,7 +220,7 @@ void VertexModel::next()
 
 void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold )
 {
-  QgsPoint mapPoint( mapSettings()->mapSettings().mapToPixel().toMapCoordinates( point.x(), point.y() ) );
+  QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
   int closestRow = -1;
   double closestDistance = std::numeric_limits<double>::max();
 
