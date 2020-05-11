@@ -37,8 +37,8 @@ ToolButton {
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
           source: Theme.getThemeIcon( "ic_close_white_24dp" )
-          sourceSize.width: 24 * Screen.devicePixelRatio
-          sourceSize.height: 24 * Screen.devicePixelRatio
+          sourceSize.width: 24 * screen.devicePixelRatio
+          sourceSize.height: 24 * screen.devicePixelRatio
         }
       }
 
