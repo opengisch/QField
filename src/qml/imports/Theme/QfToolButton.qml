@@ -62,8 +62,8 @@ Item {
                 horizontalAlignment: Image.AlignHCenter
                 verticalAlignment: Image.AlignVCenter
                 source: iconSource
-                sourceSize.width: 24 * Screen.devicePixelRatio
-                sourceSize.height: 24 * Screen.devicePixelRatio
+                sourceSize.width: 24 * screen.devicePixelRatio
+                sourceSize.height: 24 * screen.devicePixelRatio
             }
         }
         transform: Rotation {
