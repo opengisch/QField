@@ -44,6 +44,7 @@ class FlatLayerTreeModel : public QAbstractProxyModel
 
     explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
+    void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
     int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0 );
 
     void setSourceModel( QgsLayerTreeModel *sourceModel );

@@ -29,6 +29,17 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   setSourceModel ( mLayerTreeModel );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
+  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
+}
+
+void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
+{
+  Q_UNUSED( bottomRight )
+  QModelIndex modifiedIndex = mapFromSource( topLeft );
+  if ( modifiedIndex.isValid() )
+  {
+    emit dataChanged( modifiedIndex, modifiedIndex, roles );
+  }
 }
 
 int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row )
