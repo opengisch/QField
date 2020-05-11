@@ -1256,8 +1256,7 @@ ApplicationWindow {
   BusyIndicator {
     id: busyIndicator
     anchors.left: mainMenuBar.left
-    anchors.top: mainMenuBar.bottom
-    padding: 5
+    anchors.top: mainToolbar.bottom
     width: mainMenuBar.height
     height: mainMenuBar.height
     running: mapCanvasMap.isRendering
