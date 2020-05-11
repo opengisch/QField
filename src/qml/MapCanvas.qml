@@ -227,10 +227,13 @@ Item {
         property real oldScale: 1.0
 
         onActiveChanged: {
-            if ( active )
+            if ( active ) {
                 freeze('pinch')
-            else
+                oldScale = 1.0
+                oldPos = centroid.position
+            } else {
                 unfreeze('pinch')
+            }
         }
 
         onCentroidChanged: {
@@ -246,7 +249,7 @@ Item {
         onActiveScaleChanged: {
             mapCanvasWrapper.zoom( pinch.centroid.position, oldScale / pinch.activeScale )
             mapCanvasWrapper.pan( pinch.centroid.position, oldPos )
-            mapArea.panned()
+            panned()
             oldScale = pinch.activeScale
         }
     }
