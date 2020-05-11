@@ -110,19 +110,16 @@ Page {
 
 
       ListView {
-//        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-//        ScrollBar.vertical.policy: ScrollBar.AsNeeded
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
         width: mainWindow.width
         clip: true
-        //rowSpacing: 10
         ScrollBar.vertical: ScrollBar {}
 
         model: settingsModel
 
         delegate: Row {
-          width: parent.width
+          width: parent.width - 16
 
           Column {
             width: parent.width - toggle.width
