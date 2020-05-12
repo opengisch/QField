@@ -266,6 +266,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
   roleNames[Name] = "Name";
+  roleNames[InTracking] = "InTracking";
   return roleNames;
 }
 
