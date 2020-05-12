@@ -108,8 +108,8 @@ class TestVertexModel: public QObject
       QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
       mModel->setGeometry( mPoint2056Geometry );
       mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
-      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
-      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
+      QVERIFY( std::abs( mModel->vertex( 0 ).point.y() - 200000 ) < .1 );
+      QVERIFY( std::abs( mModel->vertex( 0 ).point.x() - 500000 ) < .1 );
 
       delete mapSettings;
     }
@@ -122,8 +122,8 @@ class TestVertexModel: public QObject
       QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
       mModel->setGeometry( mPoint2056Geometry );
       mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
-      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().y() - 200000 ) < .1 );
-      QVERIFY( std::abs( mModel->item( 0 )->data( VertexModel::PointRole ).value<QgsPoint>().x() - 500000 ) < .1 );
+      QVERIFY( std::abs( mModel->vertex( 0 ).point.y() - 200000 ) < .1 );
+      QVERIFY( std::abs( mModel->vertex( 0 ).point.x() - 500000 ) < .1 );
     }
 
     void returnGeometryTest()

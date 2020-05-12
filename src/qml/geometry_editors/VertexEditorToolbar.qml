@@ -36,7 +36,7 @@ VisibilityFadingRow {
       featureModel.applyVertexModelToGeometry()
       featureModel.save()
       //set the vertexModel original geometry to the one of the updated feature
-      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
+      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry )
     }
   }
   
@@ -98,7 +98,8 @@ VisibilityFadingRow {
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp" : "ic_add_white_24dp" )
     round: true
-    visible:  !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    // for points, the + is not shown when hovering with stylus
+    visible:  ( !screenHovering || Number( rubberbandModel.geometryType ) !== QgsWkbTypes.PointGeometry)  && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
 
     onClicked: {
@@ -114,7 +115,7 @@ VisibilityFadingRow {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -127,7 +128,7 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
