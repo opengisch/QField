@@ -64,9 +64,9 @@ void AttributeFormModel::save()
   mSourceModel->save();
 }
 
-void AttributeFormModel::create()
+bool AttributeFormModel::create()
 {
-  mSourceModel->create();
+  return mSourceModel->create();
 }
 
 void AttributeFormModel::deleteFeature()

@@ -810,14 +810,16 @@ ApplicationWindow {
                   digitizingFeature.geometry.applyRubberband()
                   digitizingFeature.applyGeometry()
                 }
-
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     digitizingFeature.resetAttributes();
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
                       //when the constrainst are fulfilled
-                      digitizingFeature.create()
-                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+                      overlayFeatureFormDrawer.featureForm.featureCreated = digitizingFeature.create()
+
+                      if ( ! overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                        displayToast( qsTr( "Failed to autosave feature!" ) );
+                      }
                     }
                 } else {
                     digitizingFeature.save()
@@ -856,7 +858,9 @@ ApplicationWindow {
         else
         {
           if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
-              digitizingFeature.create()
+              if ( ! digitizingFeature.create() ) {
+                displayToast( qsTr( "Failed to create feature!" ) )
+              }
           } else {
               digitizingFeature.save()
           }

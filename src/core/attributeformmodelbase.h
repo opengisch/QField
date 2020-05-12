@@ -49,7 +49,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void save();
 
-    void create();
+    bool create();
 
     void deleteFeature();
 

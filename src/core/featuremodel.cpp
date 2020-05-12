@@ -351,31 +351,52 @@ void FeatureModel::featureAdded( QgsFeatureId fid )
   setFeature( mLayer->getFeature( fid ) );
 }
 
-void FeatureModel::create()
+bool FeatureModel::create()
 {
   if ( !mLayer )
-    return;
+    return false;
 
-  startEditing();
+  if ( ! startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
 
+  bool isSuccess = true;
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
-  if ( !mLayer->addFeature( mFeature ) )
+
+  if ( mLayer->addFeature( mFeature ) )
+  {
+    if ( QgsProject::instance()->topologicalEditing() )
+      mLayer->addTopologicalPoints( mFeature.geometry() );
+
+    if ( commit() )
+    {
+      QgsFeature feat;
+      if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      {
+        setFeature( feat );
+      }
+      else
+      {
+        QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+        isSuccess = false;
+      }
+    }
+    else
+    {
+      QgsMessageLog::logMessage( tr( "Feature %1 could not be committed" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+      isSuccess = false;
+    }
+  }
+  else
   {
     QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
+    isSuccess = false;
   }
 
-  if ( QgsProject::instance()->topologicalEditing() )
-    mLayer->addTopologicalPoints( mFeature.geometry() );
-
-  if ( commit() )
-  {
-    QgsFeature feat;
-    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
-      setFeature( feat );
-    else
-      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
-  }
   disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+  return isSuccess;
 }
 
 void FeatureModel::deleteFeature()
