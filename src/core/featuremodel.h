@@ -129,7 +129,7 @@ class FeatureModel : public QAbstractListModel
     /**
      * Will create this feature as a new feature on the data source
      */
-    Q_INVOKABLE void create();
+    Q_INVOKABLE bool create();
 
     /**
      * Deletes the current feature from the data source

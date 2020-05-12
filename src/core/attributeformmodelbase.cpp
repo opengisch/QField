@@ -522,9 +522,9 @@ void AttributeFormModelBase::save()
   mFeatureModel->save();
 }
 
-void AttributeFormModelBase::create()
+bool AttributeFormModelBase::create()
 {
-  mFeatureModel->create();
+  return mFeatureModel->create();
 }
 
 void AttributeFormModelBase::deleteFeature()

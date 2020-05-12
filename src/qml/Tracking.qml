@@ -39,7 +39,9 @@ Item{
               if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3 ) ||
                   ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
               {
-                  featureModel.create()
+                  if ( ! featureModel.create() ) {
+                      displayToast( qsTr( "Failed to create feature!" ) )
+                  }
                   mainModel.feature = featureModel.feature
               }
               else

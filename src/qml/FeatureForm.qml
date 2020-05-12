@@ -347,7 +347,10 @@ Page {
       return
     }
 
-    save()
+    if ( ! save() ) {
+      displayToast( qsTr( 'Unable to save changes') )
+      return
+    }
 
     state = 'Edit'
 
@@ -361,18 +364,18 @@ Page {
     }
 
     aboutToSave()
+    
+    var isSuccess = false;
 
-    if( form.state === 'Add' && !featureCreated )
-    {
-      model.create()
-      featureCreated = true
-    }
-    else
-    {
+    if( form.state === 'Add' && !featureCreated ) {
+      isSuccess = model.create()
+      featureCreated = isSuccess
+    } else {
       model.save()
+      isSuccess = true
     }
 
-    return true
+    return isSuccess
   }
 
   function cancel() {
