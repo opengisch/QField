@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>qfield_af.qm</file>
+        <file>qfield_bg.qm</file>
         <file>qfield_ca.qm</file>
         <file>qfield_de.qm</file>
         <file>qfield_el.qm</file>
