@@ -146,11 +146,13 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
+    property bool hasBeenTouched: false
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen
-        grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
@@ -159,14 +161,38 @@ ApplicationWindow {
         }
 
         onActiveChanged: {
-          if ( !active )
-            coordinateLocator.sourceLocation = undefined
+            if ( !active )
+              coordinateLocator.sourceLocation = undefined
 
         }
 
         onHoveredChanged: {
-          if ( !hovered )
-            coordinateLocator.sourceLocation = undefined
+            if ( !hovered )
+              coordinateLocator.sourceLocation = undefined
+        }
+    }
+
+    /* The second hover handler is a workaround what appears to be an issue with
+     * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
+     * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
+     */
+    HoverHandler {
+        id: dummyHoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
+        acceptedDevices: PointerDevice.TouchScreen
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        onPointChanged: {
+            parent.hasBeenTouched = true
+        }
+
+        onActiveChanged: {
+            parent.hasBeenTouched = true
+
+        }
+
+        onHoveredChanged: {
+            parent.hasBeenTouched = true
         }
     }
 
