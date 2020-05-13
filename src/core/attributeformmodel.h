@@ -77,7 +77,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     /**
      * Delete the current feature
      */
-    Q_INVOKABLE void deleteFeature();
+    Q_INVOKABLE bool deleteFeature();
     /**
      * Get the attribute of the current feature by name
      * \param name the name of the attribute

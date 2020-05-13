@@ -206,7 +206,10 @@ Rectangle{
                qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
-        referencingFeatureListView.model.deleteFeature( referencingFeatureId )
+        if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
+          displayToast( qsTr( "Failed to delete referencing feature" ) )
+        }
+        
         visible = false
       }
       onRejected: {

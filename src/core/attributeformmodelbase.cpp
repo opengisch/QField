@@ -527,7 +527,7 @@ bool AttributeFormModelBase::create()
   return mFeatureModel->create();
 }
 
-void AttributeFormModelBase::deleteFeature()
+bool AttributeFormModelBase::deleteFeature()
 {
-  mFeatureModel->deleteFeature();
+  return mFeatureModel->deleteFeature();
 }

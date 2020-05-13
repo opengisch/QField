@@ -399,31 +399,99 @@ bool FeatureModel::create()
   return isSuccess;
 }
 
-void FeatureModel::deleteFeature()
+bool FeatureModel::deleteFeature()
 {
-  startEditing();
+  if ( ! startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
+    return false;
+  }
 
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  QList<QgsVectorLayer *> childLayersEdited;
+  bool isSuccess = true;
   for ( const QgsRelation &referencingRelation : referencingRelations )
   {
     if ( referencingRelation.strength() == QgsRelation::Composition )
     {
       QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
-      childLayer->startEditing();
-      QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
-      QgsFeature childFeature;
-      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      
+      if ( childLayer->startEditing() )
       {
-        childLayer->deleteFeature( childFeature.id() );
+        QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
+        QgsFeature childFeature;
+        while ( relatedFeaturesIt.nextFeature( childFeature ) )
+        {
+          if ( ! childLayer->deleteFeature( childFeature.id() ) )
+          {
+            QgsMessageLog::logMessage( tr( "Cannot delete feature from child layer" ), "QField", Qgis::Critical );
+            isSuccess = false;
+          }
+        }
       }
-      childLayer->commitChanges();
+      else
+      {
+        QgsMessageLog::logMessage( tr( "Cannot start editing child layer" ), "QField", Qgis::Critical );
+        isSuccess = false;
+        break;
+      }
+
+      if ( isSuccess ) 
+        childLayersEdited.append( childLayer );
+      else
+        break;
     }
   }
 
-  //delete parent
-  mLayer->deleteFeature( mFeature.id() );
-  commit();
+  // we need to either commit or rollback the child layers that have experienced any modification
+  for ( QgsVectorLayer *childLayer : qgis::as_const( childLayersEdited ) )
+  {
+    if ( isSuccess )
+    {
+      if ( ! childLayer->commitChanges() )
+      {
+        const QString msgs = childLayer->commitErrors().join( QStringLiteral( "\n" ) );
+        QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1. Reason:\n%2" ).arg( childLayer->name(), msgs ), "QField", Qgis::Critical );
+        isSuccess = false;
+      }
+    }
+
+    if ( ! isSuccess )
+    {
+      if ( ! childLayer->rollBack() )
+        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( childLayer->name() ), "QField", Qgis::Critical );
+    }
+  }
+
+  if ( isSuccess )
+  {
+    //delete parent
+    if ( mLayer->deleteFeature( mFeature.id() ) )
+    {
+      // commit parent changes
+      if ( ! mLayer->commitChanges() )
+      {
+        const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
+        QgsMessageLog::logMessage( tr( "Cannot commit feature %1. Reason:\n%2" ).arg( mFeature.id() ).arg( msgs ), "QField", Qgis::Warning );
+        isSuccess = false;
+      }
+    }
+    else
+    {
+      QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  
+      isSuccess = false;
+    }
+  }
+
+  if ( ! isSuccess )
+  {
+    if ( ! mLayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( mLayer->name() ), "QField", Qgis::Critical );
+  }
+
+  return isSuccess;
 }
 
 bool FeatureModel::commit()

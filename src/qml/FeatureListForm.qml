@@ -221,13 +221,11 @@ Rectangle {
           onClicked: {
             if( trackingModel.featureInTracking(currentLayer, featureId) )
             {
-                displayToast( qsTr( "Stop tracking this feature to delete it" ) )
+              displayToast( qsTr( "Stop tracking this feature to delete it" ) )
             }
             else
             {
-                deleteDialog.currentLayer = currentLayer
-                deleteDialog.featureId = featureId
-                deleteDialog.visible = true
+              deleteDialog.show( currentLayer, featureId )
             }
           }
         }
@@ -431,6 +429,7 @@ Rectangle {
 
     property int featureId
     property VectorLayer currentLayer
+    property bool isDeleted
 
     visible: false
 
@@ -438,11 +437,29 @@ Rectangle {
     text: qsTr( "Should this feature really be deleted?" )
     standardButtons: StandardButton.Ok | StandardButton.Cancel
     onAccepted: {
-      featureForm.model.deleteFeature( currentLayer, featureId )
+      if ( isDeleted ) {
+        return;
+      }
+
+      isDeleted = featureForm.model.deleteFeature( currentLayer, featureId )
+
+      if ( isDeleted ) {
+        displayToast( qsTr( "Successfully deleted feature %1" ).arg( featureId ) )
+      } else {
+        displayToast( qsTr( "Failed to delete feature %1" ).arg( featureId ) )
+      }
+
       visible = false
     }
     onRejected: {
       visible = false
+    }
+
+    function show( currentLayer, featureId ) {
+        this.currentLayer = currentLayer
+        this.featureId = featureId
+        this.isDeleted = false
+        this.open()
     }
   }
 
