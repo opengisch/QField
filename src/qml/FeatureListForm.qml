@@ -479,4 +479,14 @@ Rectangle {
         state = "Hidden"
     }
   }
+
+  Connections {
+    target: globalFeaturesList.model
+
+    onCountChanged: {
+      if ( globalFeaturesList.model.count == 0 ) {
+        hide()
+      }
+    }
+  }
 }

@@ -73,6 +73,10 @@ void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyRe
 
 void MultiFeatureListModel::clear()
 {
+  // the model is already empty, no need to trigger "resetModel"
+  if ( mFeatures.count() == 0 )
+    return;
+
   beginResetModel();
   mFeatures.clear();
   endResetModel();
