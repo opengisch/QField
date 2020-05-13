@@ -46,7 +46,9 @@ Item{
               }
               else
               {
-                  featureModel.save()
+                  if ( ! featureModel.save() ) {
+                      displayToast( qsTr( "Failed to save feature!" ) )
+                  }
               }
           }
         }
