@@ -72,6 +72,10 @@ void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyRe
 
 void MultiFeatureListModel::clear()
 {
+  // the model is already empty, no need to trigger "resetModel"
+  if ( mFeatures.count() == 0 )
+    return;
+
   beginResetModel();
   mFeatures.clear();
   endResetModel();
@@ -204,6 +208,8 @@ int MultiFeatureListModel::count() const
 
 void MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
 {
+  beginResetModel();
+
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
   for ( const QgsRelation &referencingRelation : referencingRelations )
@@ -226,6 +232,7 @@ void MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
   layer->startEditing();
   layer->deleteFeature( fid );
   layer->commitChanges();
+  endResetModel();
 }
 
 void MultiFeatureListModel::layerDeleted( QObject *object )
