@@ -145,7 +145,13 @@ QVariant MultiFeatureListModel::data( const QModelIndex &index, int role ) const
                                      << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
                                      << QgsExpressionContextUtils::layerScope( feature->first );
       context.setFeature( feature->second );
-      return QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
+      
+      const QString displayString = QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
+
+      if ( displayString.isEmpty() )
+        return feature->second.id();
+
+      return displayString;
     }
 
     case LayerNameRole:
