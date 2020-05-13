@@ -69,9 +69,9 @@ bool AttributeFormModel::create()
   return mSourceModel->create();
 }
 
-void AttributeFormModel::deleteFeature()
+bool AttributeFormModel::deleteFeature()
 {
-  mSourceModel->deleteFeature();
+  return mSourceModel->deleteFeature();
 }
 
 QVariant AttributeFormModel::attribute( const QString &name )

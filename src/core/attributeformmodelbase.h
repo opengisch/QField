@@ -51,7 +51,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     bool create();
 
-    void deleteFeature();
+    bool deleteFeature();
 
     bool constraintsHardValid() const;
 

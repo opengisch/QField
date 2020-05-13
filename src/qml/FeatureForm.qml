@@ -379,9 +379,10 @@ Page {
   }
 
   function cancel() {
-    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave )
-    {
-      model.deleteFeature()
+    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave ) {
+      if ( ! model.deleteFeature() ) {
+        displayToast( qsTr( "Failed to reset feature" ) )
+      }
     }
     cancelled()
     featureCreated = false

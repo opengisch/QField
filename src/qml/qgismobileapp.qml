@@ -822,12 +822,14 @@ ApplicationWindow {
                       }
                     }
                 } else {
-                    digitizingFeature.save()
+                  digitizingFeature.save()
                 }
             } else {
-                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                  //delete the feature when the geometry gets invalid again
-                  digitizingFeature.deleteFeature()
+              if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                //delete the feature when the geometry gets invalid again
+                  if ( ! digitizingFeature.deleteFeature() ) {
+                    displayToast( qsTr( "Failed to delete feature!" ) )
+                  }
                   overlayFeatureFormDrawer.featureForm.featureCreated = false
                 }
             }

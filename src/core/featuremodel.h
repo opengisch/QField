@@ -130,7 +130,7 @@ class FeatureModel : public QAbstractListModel
     /**
      * Deletes the current feature from the data source
      */
-    Q_INVOKABLE void deleteFeature();
+    Q_INVOKABLE bool deleteFeature();
 
     Q_INVOKABLE bool suppressFeatureForm() const;
 
