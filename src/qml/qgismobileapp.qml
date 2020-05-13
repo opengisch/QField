@@ -822,7 +822,9 @@ ApplicationWindow {
                       }
                     }
                 } else {
-                  digitizingFeature.save()
+                  if ( ! digitizingFeature.save() ) {
+                    displayToast( qsTr( "Failed to autosave feature!" ) );
+                  }
                 }
             } else {
               if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
@@ -864,7 +866,9 @@ ApplicationWindow {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
           } else {
-              digitizingFeature.save()
+              if ( ! digitizingFeature.save() ) {
+                displayToast( qsTr( "Failed to save feature!" ) )
+              }
           }
           digitizingRubberband.model.reset()
         }

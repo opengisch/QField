@@ -69,7 +69,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     /**
      * Save the current (already existing) feature
      */
-    Q_INVOKABLE void save();
+    Q_INVOKABLE bool save();
     /**
      * Create the current (not existing yet) feature
      */

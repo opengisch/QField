@@ -31,6 +31,19 @@ VisibilityFadingRow {
     featureModel.vertexModel.reset()
   }
 
+  function applyChanges( apply ) {
+    if ( apply && featureModel.vertexModel.dirty ){
+      featureModel.applyVertexModelToGeometry()
+
+      if ( ! featureModel.save() ) {
+        displayToast( qsTr( "Failed to save feature!" ) );
+      }
+      
+      //set the vertexModel original geometry to the one of the updated feature
+      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
+    }
+  }
+  
   function canvasClicked(point)
   {
     if ( featureModel.vertexModel.currentVertexIndex == -1 )
@@ -41,15 +54,6 @@ VisibilityFadingRow {
     }
 
     return true // handled
-  }
-
-  function applyChanges( apply ) {
-    if ( apply && featureModel.vertexModel.dirty ){
-      featureModel.applyVertexModelToGeometry()
-      featureModel.save()
-      //set the vertexModel original geometry to the one of the updated feature
-      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
-    }
   }
 
   QfToolButton {

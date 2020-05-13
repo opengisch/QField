@@ -59,9 +59,9 @@ bool AttributeFormModel::constraintsSoftValid() const
   return mSourceModel->constraintsSoftValid();
 }
 
-void AttributeFormModel::save()
+bool AttributeFormModel::save()
 {
-  mSourceModel->save();
+  return mSourceModel->save();
 }
 
 bool AttributeFormModel::create()

@@ -517,9 +517,9 @@ void AttributeFormModelBase::setHasTabs( bool hasTabs )
   emit hasTabsChanged();
 }
 
-void AttributeFormModelBase::save()
+bool AttributeFormModelBase::save()
 {
-  mFeatureModel->save();
+  return mFeatureModel->save();
 }
 
 bool AttributeFormModelBase::create()

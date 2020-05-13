@@ -300,7 +300,9 @@ Page {
             {
               AttributeValue = isNull ? undefined : value
               if ( qfieldSettings.autoSave && !dontSave ) {
-                save()
+                if ( ! save() ) {
+                  displayToast( qsTr( 'Unable to save changes') )
+                }
               }
             }
           }
@@ -371,8 +373,7 @@ Page {
       isSuccess = model.create()
       featureCreated = isSuccess
     } else {
-      model.save()
-      isSuccess = true
+      isSuccess = model.save()
     }
 
     return isSuccess
