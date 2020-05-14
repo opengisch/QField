@@ -30,8 +30,6 @@ class PictureSource : public QObject
 
     virtual ~PictureSource();
 
-    Q_INVOKABLE void init();
-
   signals:
     /**
      * Emit this signal when a picture really has been received.

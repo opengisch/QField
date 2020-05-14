@@ -55,8 +55,3 @@ void AndroidPictureSource::handleActivityResult( int receiverRequestCode, int re
   }
 
 }
-
-void AndroidPictureSource::init()
-{
-
-}

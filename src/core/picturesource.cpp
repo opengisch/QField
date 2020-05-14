@@ -15,24 +15,19 @@
  ***************************************************************************/
 #include "picturesource.h"
 
-#include <QFileDialog>
+#include <QTimer>
 
 PictureSource::PictureSource( QObject *parent, const QString &prefix, const QString &pictureFilePath )
   : QObject( parent )
   , mPrefix( prefix )
   , mPictureFilePath( pictureFilePath )
 {
+  if ( mPictureFilePath.startsWith( mPrefix ) )
+    mPictureFilePath = mPictureFilePath.remove( mPrefix );
 
-}
-
-void PictureSource::init()
-{
-  QString path { QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), mPrefix, tr( "JPEG images (*.jpg *.jpeg)" ) ) };
-
-  if ( path.startsWith( mPrefix ) )
-    path = path.remove( mPrefix );
-
-  emit pictureReceived( path );
+  QTimer::singleShot(0, this, [ = ] () {
+    emit pictureReceived( mPictureFilePath );
+  });
 }
 
 PictureSource::~PictureSource()
