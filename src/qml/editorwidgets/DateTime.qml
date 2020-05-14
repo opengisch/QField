@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.0
 import Qt.labs.calendar 1.0
 
 import Theme 1.0
@@ -114,6 +115,15 @@ Item {
           enabled: config['calendar_popup']
           anchors.fill: parent
           onClicked: {
+            var usedDate = new Date();
+            if (value !== undefined && value != '') {
+                usedDate = value;
+            }
+
+            calendar.selectedDate = usedDate
+            calendar.year = usedDate.getFullYear()
+            calendar.month = usedDate.getMonth()
+
             popup.open()
           }
         }
@@ -213,140 +223,129 @@ Item {
       x: (parent.width - width) / 2
       y: (parent.height - height) / 2
 
+
       // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
-        Calendar {
-          id: calendar
-          weekNumbersVisible: true
-          focus: false
+          // Calendar overlay for selecting the date ranges
+          Rectangle {
+              id: calendarOverlay
+              width: 350
+              height: 240
+              color: "transparent"
 
-          style: CalendarStyle {
-              gridVisible: false
-              weekNumberDelegate: Rectangle {
-                  implicitWidth: 24
-                  color: "white"
-
-                  Label {
-                      text: styleData.weekNumber
-                      anchors.centerIn: parent
-                      font.pixelSize: 14
-                      color: "lightgrey"
-                  }
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: mouse.accepted = true
+                  onWheel: wheel.accepted = true
               }
 
-              dayDelegate: Rectangle {
-                  color: styleData.selected ? Theme.mainColor : "white"
-
-                  Label {
-                      text: styleData.date.getDate()
-                      anchors.centerIn: parent
-                      font.pixelSize: 14
-                      color: styleData.visibleMonth ? "black" : "lightgrey"
-                  }
-              }
-
-              navigationBar: Rectangle {
-                  height: 42
-                  color: "transparent"
-
-                  ToolButton {
-                      id: previousMonth
-                      width: parent.height
-                      height: width
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.left: parent.left
-                      contentItem: Rectangle {
-                        anchors.fill: parent
-                        anchors.margins: 10
-                        color: "transparent"
-                        Image {
-                          anchors.fill: parent
-                          fillMode: Image.Pad
-                          horizontalAlignment: Image.AlignHCenter
-                          verticalAlignment: Image.AlignVCenter
-                          source: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
-                        }
+              GridLayout {
+                  id: calendarGrid
+                  anchors.centerIn: parent
+                  columns: 3
+                  Button {
+                      text: "<"
+                      onClicked: {
+                          calendar.month -= 1;
                       }
-                      onClicked: calendar.showPreviousMonth()
+                      enabled: true
+                      Layout.column: 0
+                      Layout.row: 0
                   }
-                  Label {
-                      id: dateText
-                      text: styleData.title
-                      elide: Text.ElideRight
+
+                  Text {
+                      text: calendar.title
                       horizontalAlignment: Text.AlignHCenter
-                      font.pixelSize: 18
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.left: previousMonth.right
-                      anchors.leftMargin: 2
-                      anchors.right: nextMonth.left
-                      anchors.rightMargin: 2
+                      Layout.column: 1
+                      Layout.row: 0
+                      Layout.fillWidth: true
                   }
-                  ToolButton {
-                      id: nextMonth
-                      width: parent.height
-                      height: width
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.right: parent.right
-                      contentItem: Rectangle {
-                        anchors.fill: parent
-                        anchors.margins: 10
-                        color: "transparent"
-                        Image {
-                          anchors.fill: parent
-                          fillMode: Image.Pad
-                          horizontalAlignment: Image.AlignHCenter
-                          verticalAlignment: Image.AlignVCenter
-                          source: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
-                        }
+
+                  Button {
+                      text: ">"
+                      onClicked: {
+                          calendar.month += 1;
                       }
-                      onClicked: calendar.showNextMonth()
+                      enabled: true
+                      Layout.column: 2
+                      Layout.row: 0
+                  }
+
+                  DayOfWeekRow {
+                      locale: calendar.locale
+
+                      Layout.column: 1
+                      Layout.row: 1
+                      Layout.fillWidth: true
+                  }
+
+                  MonthGrid {
+                      id: calendar
+                      month: Calendar.January
+                      year: 2020
+                      Layout.row: 2
+                      Layout.column: 1
+                      Layout.fillWidth: true
+                      Layout.fillHeight: true
+
+                      property date selectedDate: new Date()
+
+                      delegate: Text {
+                          horizontalAlignment: Text.AlignHCenter
+                          verticalAlignment: Text.AlignVCenter
+                          opacity: model.month !== calendar.month ? 0 : 1
+                          text: model.day
+                          font.bold: calendar.selectedDate.getDate() === model.date.getDate()
+                      }
+
+                      onClicked: {
+                          selectedDate = date;
+                      }
+
+                      function resetDate() {
+                        selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
+                      }
                   }
               }
           }
 
-          function resetDate() {
-            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
-          }
-        }
+          RowLayout {
+              QfButton {
+                  text: qsTr( "OK" )
+                  font: Theme.tipFont
+                  Layout.fillWidth: true
 
-        RowLayout {
-          Button {
-            text: qsTr( "OK" )
-            font: Theme.tipFont
-            Layout.fillWidth: true
+                  onClicked: {
+                      var newDate = calendar.selectedDate
 
-            onClicked: {
-              // weird, selectedDate seems to be set at time 12:00:00
-              var newDate = calendar.selectedDate
+                      if ( main.isDateTimeType )
+                      {
+                          valueChanged(newDate, newDate === undefined)
+                      }
+                      else
+                      {
+                          var textDate = Qt.formatDateTime(newDate, config['field_format'])
+                          valueChanged(textDate, textDate === undefined)
+                      }
 
-              if ( main.isDateTimeType )
-              {
-                valueChanged(newDate, newDate === undefined)
+                      popup.close()
+                  }
               }
-              else
-              {
-                var textDate = Qt.formatDateTime(newDate, config['field_format'])
-                valueChanged(textDate, textDate === undefined)
-              }
-
-              popup.close()
-            }
           }
-        }
       }
     }
 
     onIsDateTimeTypeChanged: {
-      calendar.resetDate()
+        calendar.resetDate()
     }
 
     onCurrentValueChanged: {
-      calendar.resetDate()
+        calendar.resetDate()
     }
   }
 
   FontMetrics {
-    id: fontMetrics
-    font: label.font
+      id: fontMetrics
+      font: label.font
   }
 }
