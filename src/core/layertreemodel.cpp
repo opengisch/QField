@@ -131,6 +131,27 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       }
     }
 
+    case MapLayerPointer:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+
+        return QVariant::fromValue<QgsMapLayer *>( layer );
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
+        return QVariant::fromValue<QgsMapLayer *>( layer );
+      }
+      else
+      {
+        return QVariant();
+      }
+    }
+
     case LegendImage:
     {
       QString id;
@@ -262,6 +283,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
   roleNames[VectorLayerPointer] = "VectorLayerPointer";
+  roleNames[MapLayerPointer] = "MapLayerPointer";
   roleNames[LegendImage] = "LegendImage";
   roleNames[Visible] = "Visible";
   roleNames[Type] = "Type";
