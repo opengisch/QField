@@ -20,7 +20,14 @@ Item {
   property ViewStatus __viewStatus
 
   //on all mimetypes image/... and on empty values it should appear as an image widget
-  property bool isImage: value === undefined || FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+  property bool isImage: value === undefined
+    || (
+      ! config.UseLink
+      && ( 
+        FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") 
+        || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+      )
+    )
 
   //to not break any binding of image.source
   property var currentValue: value
