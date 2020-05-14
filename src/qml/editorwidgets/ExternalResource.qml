@@ -174,7 +174,6 @@ Item {
         var evaluated_filepath = expressionEvaluator.evaluate()
         var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
-        __pictureSource.init()
     }
 
     iconSource: Theme.getThemeIcon("baseline_photo_library_black_24")
