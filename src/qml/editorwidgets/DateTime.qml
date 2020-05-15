@@ -243,14 +243,18 @@ Item {
                   id: calendarGrid
                   anchors.centerIn: parent
                   columns: 3
-                  Button {
+                  QfToolButton {
                       text: "<"
-                      onClicked: {
-                          calendar.month -= 1;
-                      }
                       enabled: true
                       Layout.column: 0
                       Layout.row: 0
+                      iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                      bgcolor: "transparent"
+                      roundborder: true
+
+                      onClicked: {
+                          calendar.month -= 1;
+                      }
                   }
 
                   Text {
@@ -261,14 +265,18 @@ Item {
                       Layout.fillWidth: true
                   }
 
-                  Button {
-                      text: ">"
-                      onClicked: {
-                          calendar.month += 1;
-                      }
+                  QfToolButton {
+                      text: "<"
                       enabled: true
                       Layout.column: 2
                       Layout.row: 0
+                      iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                      bgcolor: "transparent"
+                      roundborder: true
+
+                      onClicked: {
+                          calendar.month += 1;
+                      }
                   }
 
                   DayOfWeekRow {
@@ -290,12 +298,21 @@ Item {
 
                       property date selectedDate: new Date()
 
-                      delegate: Text {
-                          horizontalAlignment: Text.AlignHCenter
-                          verticalAlignment: Text.AlignVCenter
-                          opacity: model.month !== calendar.month ? 0 : 1
-                          text: model.day
-                          font.bold: calendar.selectedDate.getDate() === model.date.getDate()
+                      delegate: Rectangle {
+                          property bool isDate: calendar.selectedDate.getYear() === model.date.getYear() && calendar.selectedDate.getMonth() === model.date.getMonth() && calendar.selectedDate.getDate() === model.date.getDate()
+                          color:  isDate ? Theme.mainColor : "transparent"
+                          width: 18
+                          height: 18
+
+                          Text {
+                              anchors.centerIn: parent
+                              horizontalAlignment: Text.AlignHCenter
+                              verticalAlignment: Text.AlignVCenter
+                              opacity: model.month !== calendar.month ? 0.5 : 1
+                              text: model.day
+                              font.bold: parent.isDate
+                              color: parent.isDate ? "white" : "black"
+                          }
                       }
 
                       onClicked: {
