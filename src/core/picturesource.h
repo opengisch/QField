@@ -35,7 +35,7 @@ class PictureSource : public QObject
      * Emit this signal when a picture really has been received.
      */
     void pictureReceived( const QString &path );
-  protected:
+  private:
     QString mPrefix;
     QString mPictureFilePath;
 };

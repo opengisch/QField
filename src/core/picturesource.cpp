@@ -22,6 +22,10 @@ PictureSource::PictureSource( QObject *parent, const QString &prefix, const QStr
   , mPrefix( prefix )
   , mPictureFilePath( pictureFilePath )
 {
+  // prevent emit signal if the pictureFilePath is empty ( e.g. when AndroidPictureSource )
+  if ( mPictureFilePath.isEmpty() )
+    return;
+
   if ( mPictureFilePath.startsWith( mPrefix ) )
     mPictureFilePath = mPictureFilePath.remove( mPrefix );
 
