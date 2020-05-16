@@ -241,19 +241,39 @@ Item {
 
               GridLayout {
                   id: calendarGrid
-                  anchors.centerIn: parent
+                  anchors.left: parent.left
+                  anchors.right: parent.right
                   columns: 3
-                  QfToolButton {
-                      text: "<"
-                      enabled: true
+
+                  Row {
                       Layout.column: 0
                       Layout.row: 0
-                      iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
-                      bgcolor: "transparent"
-                      roundborder: true
 
-                      onClicked: {
-                          calendar.month -= 1;
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_doublearrow_left_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              calendar.year -= 1;
+                          }
+                      }
+
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              if (calendar.month !== Calendar.January) {
+                                  calendar.month -= 1;
+                              } else {
+                                  calendar.year -= 1;
+                                  calendar.month = Calendar.December;
+                              }
+                          }
                       }
                   }
 
@@ -265,24 +285,42 @@ Item {
                       Layout.fillWidth: true
                   }
 
-                  QfToolButton {
-                      text: "<"
-                      enabled: true
+                  Row {
                       Layout.column: 2
                       Layout.row: 0
-                      iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
-                      bgcolor: "transparent"
-                      roundborder: true
 
-                      onClicked: {
-                          calendar.month += 1;
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              if (calendar.month != Calendar.December) {
+                                  calendar.month += 1;
+                              } else {
+                                  calendar.month = Calendar.January
+                                  calendar.year += 1;
+                              }
+                          }
+                      }
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_doublearrow_right_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              calendar.year += 1;
+                          }
                       }
                   }
 
                   DayOfWeekRow {
                       locale: calendar.locale
 
-                      Layout.column: 1
+                      Layout.column: 0
+                      Layout.columnSpan: 3
                       Layout.row: 1
                       Layout.fillWidth: true
                   }
@@ -292,7 +330,8 @@ Item {
                       month: Calendar.January
                       year: 2020
                       Layout.row: 2
-                      Layout.column: 1
+                      Layout.column: 0
+                      Layout.columnSpan: 3
                       Layout.fillWidth: true
                       Layout.fillHeight: true
 
