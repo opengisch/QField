@@ -285,6 +285,7 @@ Item {
                       Layout.column: 1
                       Layout.row: 0
                       Layout.fillWidth: true
+                      font: Theme.tipFont
                   }
 
                   Row {
@@ -351,7 +352,7 @@ Item {
                               verticalAlignment: Text.AlignVCenter
                               opacity: model.month !== calendar.month ? 0.5 : 1
                               text: model.day
-                              font.bold: parent.isDate
+                              font: parent.isDate ? Theme.strongTipFont : Theme.tipFont
                               color: parent.isDate ? "white" : "black"
                           }
                       }
@@ -381,6 +382,7 @@ Item {
                       Layout.row: 0
                       Layout.column: 0
                       text: qsTr( "Hours" )
+                      font: Theme.tipFont
                   }
                   SpinBox {
                       id: hoursSpinBox
@@ -391,12 +393,14 @@ Item {
                       to: 23
                       value: 12
                       inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
                   }
                   Label {
                       Layout.alignment: Qt.AlignRight
                       Layout.row: 1
                       Layout.column: 0
                       text: qsTr( "Minutes" )
+                      font: Theme.tipFont
                   }
                   SpinBox {
                       id: minutesSpinBox
@@ -407,12 +411,14 @@ Item {
                       to: 59
                       value: 30
                       inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
                   }
                   Label {
                       Layout.alignment: Qt.AlignRight
                       Layout.row: 2
                       Layout.column: 0
                       text: qsTr( "Seconds" )
+                      font: Theme.tipFont
                   }
                   SpinBox {
                       id: secondsSpinBox
@@ -423,6 +429,7 @@ Item {
                       to: 59
                       value: 30
                       inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
                   }
               }
           }
