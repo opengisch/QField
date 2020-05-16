@@ -243,6 +243,16 @@
         <file>themes/qfield/mdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/xhdpi/ic_baseline_search_white.png</file>
         <file>themes/qfield/xxhdpi/ic_baseline_search_white.png</file>
+        <file>themes/qfield/hdpi/ic_doublearrow_left_black_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_doublearrow_left_black_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_doublearrow_left_black_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_doublearrow_left_black_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_doublearrow_left_black_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_doublearrow_right_black_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_doublearrow_right_black_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_doublearrow_right_black_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_doublearrow_right_black_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_doublearrow_right_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_arrow_drop_down_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_arrow_left_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_arrow_right_black_24dp.png</file>
