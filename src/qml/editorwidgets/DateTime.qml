@@ -124,6 +124,10 @@ Item {
             calendar.year = usedDate.getFullYear()
             calendar.month = usedDate.getMonth()
 
+            hoursSpinBox.value = usedDate.getHours()
+            minutesSpinBox.value = usedDate.getMinutes()
+            secondsSpinBox.value = usedDate.getSeconds()
+
             popup.open()
           }
         }
@@ -224,9 +228,7 @@ Item {
       y: (parent.height - height) / 2
 
 
-      // TODO: fixme no signal when date is clicked on current
       ColumnLayout {
-          // Calendar overlay for selecting the date ranges
           Rectangle {
               id: calendarOverlay
               width: 350
@@ -366,6 +368,66 @@ Item {
           }
 
           RowLayout {
+              GridLayout {
+                  id: timeGrid
+                  visible: !main.fieldIsDate
+                  Layout.alignment: Qt.AlignHCenter
+                  Layout.leftMargin: 20
+                  rows: 3
+                  columns: 2
+
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 0
+                      Layout.column: 0
+                      text: qsTr( "Hours" )
+                  }
+                  SpinBox {
+                      id: hoursSpinBox
+                      Layout.row: 0
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 23
+                      value: 12
+                      inputMethodHints: Qt.ImhTime
+                  }
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 1
+                      Layout.column: 0
+                      text: qsTr( "Minutes" )
+                  }
+                  SpinBox {
+                      id: minutesSpinBox
+                      Layout.row: 1
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 59
+                      value: 30
+                      inputMethodHints: Qt.ImhTime
+                  }
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 2
+                      Layout.column: 0
+                      text: qsTr( "Seconds" )
+                  }
+                  SpinBox {
+                      id: secondsSpinBox
+                      Layout.row: 2
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 59
+                      value: 30
+                      inputMethodHints: Qt.ImhTime
+                  }
+              }
+          }
+
+          RowLayout {
               QfButton {
                   text: qsTr( "OK" )
                   font: Theme.tipFont
@@ -373,7 +435,9 @@ Item {
 
                   onClicked: {
                       var newDate = calendar.selectedDate
-
+                      newDate.setHours(hoursSpinBox.value);
+                      newDate.setMinutes(minutesSpinBox.value);
+                      newDate.setSeconds(secondsSpinBox.value);
                       if ( main.isDateTimeType )
                       {
                           valueChanged(newDate, newDate === undefined)
