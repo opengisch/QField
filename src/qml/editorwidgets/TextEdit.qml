@@ -19,7 +19,22 @@ Item {
 
     text: value !== undefined ? value : ''
 
-    inputMethodHints: Qt.ImhNone
+    validator: {
+      if (field.isNumeric)
+          if ( platformUtilities.fieldType( field ) === 'double')
+          {
+            doubleValidator;
+          }
+          else
+          {
+            intValidator;
+          }
+      else {
+        null;
+      }
+    }
+
+    inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
