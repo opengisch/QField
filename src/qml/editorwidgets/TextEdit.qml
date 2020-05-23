@@ -19,7 +19,7 @@ Item {
 
     text: value !== undefined ? value : ''
 
-    inputMethodHints: Qt.ImhNone
+    inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
