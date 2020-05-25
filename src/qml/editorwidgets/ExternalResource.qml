@@ -59,7 +59,23 @@ Item {
     id: expressionEvaluator
     feature: currentFeature
     layer: currentLayer
-    expressionText: currentLayer ? currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : '' : ''
+    expressionText: {
+      if ( currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined ) {
+        return JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] 
+      } else {
+        return ''
+      }
+    }
+  }
+
+  function getPictureFilePath() {
+    var evaluatedFilepath = expressionEvaluator.evaluate()
+    
+    if ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' ) {
+      return evaluatedFilepath
+    } else {
+      return 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg'
+    }
   }
 
   Label {
@@ -160,8 +176,7 @@ Item {
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
-            var evaluated_filepath = expressionEvaluator.evaluate()
-            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            var filepath = getPictureFilePath()
             __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
@@ -184,8 +199,7 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        var evaluated_filepath = expressionEvaluator.evaluate()
-        var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+          var filepath = getPictureFilePath()
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
 
@@ -226,8 +240,7 @@ Item {
         visible: true
 
         onFinished: {
-            var evaluated_filepath = expressionEvaluator.evaluate()
-            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            var filepath = getPictureFilePath()
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
             valueChanged(filepath, false)
             campopup.close()
