@@ -114,6 +114,7 @@ FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Ne
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
+  /usr/local/opt/qt/include # macos fix
 )
 
 INCLUDE_DIRECTORIES(
@@ -123,7 +124,8 @@ INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
 
-ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFILED_CORE_HDRS})
+ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+
 TARGET_LINK_LIBRARIES(qfield_core
   tess
   qfield_qgsquick
