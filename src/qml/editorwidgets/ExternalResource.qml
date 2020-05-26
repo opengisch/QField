@@ -19,7 +19,7 @@ Item {
   property PictureSource __pictureSource
   property ViewStatus __viewStatus
 
-  //on all mimetypes image/... and on empty values it should appear as an image widget
+  //on all mimetypes "image/..." and on empty values it should appear as an image widget except when it's configured as a link
   property bool isImage: {
     if ( value == undefined ) {
       return true
