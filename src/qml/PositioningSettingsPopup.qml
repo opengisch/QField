@@ -80,7 +80,9 @@ Popup {
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator {}
           onTextChanged: {
-            if( !isNaN( parseFloat( text ) ) || !isNaN( positioningSettings.antennaHeight ) ){
+            if( text.length === 0 ) {
+              positioningSettings.antennaHeight = NaN
+            } else {
               positioningSettings.antennaHeight = parseFloat( text )
             }
           }
