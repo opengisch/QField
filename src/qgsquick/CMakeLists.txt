@@ -20,7 +20,6 @@ FIND_PACKAGE(Qt5 COMPONENTS Core Gui Xml Widgets Quick Positioning REQUIRED)
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
-  /usr/local/opt/qt/include # macos fix
 )
 
 ADD_LIBRARY(qfield_qgsquick SHARED ${QFIELD_QGSQUICK_SRCS})

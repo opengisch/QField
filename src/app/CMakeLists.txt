@@ -10,7 +10,6 @@ ADD_EXECUTABLE(qfield
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
-  /usr/local/opt/qt/include # macos fix
 )
 
 INCLUDE_DIRECTORIES(

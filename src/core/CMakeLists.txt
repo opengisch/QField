@@ -114,7 +114,6 @@ FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Ne
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
-  /usr/local/opt/qt/include # macos fix
 )
 
 INCLUDE_DIRECTORIES(
