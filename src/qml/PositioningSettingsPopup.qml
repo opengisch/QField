@@ -71,7 +71,6 @@ Popup {
         TextField {
           id: antennaHeightInput
           enabled: antennaHeightActivated.checked
-          text: isNaN( positioningSettings.antennaHeight ) ? '' : positioningSettings.antennaHeight
           width: 60
           font: Theme.defaultFont
           Layout.preferredWidth: 60
@@ -79,8 +78,13 @@ Popup {
 
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator {}
+
+          Component.onCompleted: {
+              text = isNaN( positioningSettings.antennaHeight ) ? '' : positioningSettings.antennaHeight
+          }
+
           onTextChanged: {
-            if( text.length === 0 ) {
+            if( text.length === 0 || isNaN(text) ) {
               positioningSettings.antennaHeight = NaN
             } else {
               positioningSettings.antennaHeight = parseFloat( text )
