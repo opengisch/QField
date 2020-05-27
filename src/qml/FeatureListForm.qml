@@ -407,6 +407,8 @@ Rectangle {
     onModelReset: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
+      } else {
+        state = "Hidden"
       }
     }
   }
@@ -480,13 +482,4 @@ Rectangle {
     }
   }
 
-  Connections {
-    target: globalFeaturesList.model
-
-    onCountChanged: {
-      if ( globalFeaturesList.model.count == 0 ) {
-        hide()
-      }
-    }
-  }
 }
