@@ -123,7 +123,8 @@ INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
 
-ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFILED_CORE_HDRS})
+ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+
 TARGET_LINK_LIBRARIES(qfield_core
   tess
   qfield_qgsquick
