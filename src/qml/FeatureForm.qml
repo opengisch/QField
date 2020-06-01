@@ -300,9 +300,8 @@ Page {
             {
               AttributeValue = isNull ? undefined : value
               if ( qfieldSettings.autoSave && !dontSave ) {
-                if ( ! save() ) {
-                  displayToast( qsTr( 'Unable to save changes') )
-                }
+                // indirect action, no need to check for success and display a toast, the log is enough
+                save()
               }
             }
           }
@@ -351,6 +350,7 @@ Page {
 
     if ( ! save() ) {
       displayToast( qsTr( 'Unable to save changes') )
+      state = 'Edit'
       return
     }
 
@@ -381,9 +381,8 @@ Page {
 
   function cancel() {
     if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave ) {
-      if ( ! model.deleteFeature() ) {
-        displayToast( qsTr( "Failed to reset feature" ) )
-      }
+      // indirect action, no need to check for success and display a toast, the log is enough
+      model.deleteFeature()
     }
     cancelled()
     featureCreated = false

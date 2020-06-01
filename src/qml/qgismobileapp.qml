@@ -814,26 +814,21 @@ ApplicationWindow {
                 {
                     digitizingFeature.resetAttributes();
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
-                      //when the constrainst are fulfilled
+                      // when the constrainst are fulfilled
+                      // indirect action, no need to check for success and display a toast, the log is enough
                       overlayFeatureFormDrawer.featureForm.featureCreated = digitizingFeature.create()
-
-                      if ( ! overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                        displayToast( qsTr( "Failed to autosave feature!" ) );
-                      }
                     }
                 } else {
-                  if ( ! digitizingFeature.save() ) {
-                    displayToast( qsTr( "Failed to autosave feature!" ) );
-                  }
+                  // indirect action, no need to check for success and display a toast, the log is enough
+                  digitizingFeature.save()
                 }
             } else {
               if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                //delete the feature when the geometry gets invalid again
-                  if ( ! digitizingFeature.deleteFeature() ) {
-                    displayToast( qsTr( "Failed to delete feature!" ) )
-                  }
-                  overlayFeatureFormDrawer.featureForm.featureCreated = false
-                }
+                // delete the feature when the geometry gets invalid again
+                // indirect action, no need to check for success and display a toast, the log is enough
+                digitizingFeature.deleteFeature()
+                overlayFeatureFormDrawer.featureForm.featureCreated = false
+              }
             }
         }
       }
