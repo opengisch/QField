@@ -26,7 +26,7 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   , mLayerTreeModel( layerTreeModel )
   , mRootNode( layerTreeModel->rootGroup() )
 {
-
+  mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
 }
 
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
@@ -39,19 +39,19 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
   {
     QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
     QModelIndex layerIndex = mLayerTreeModel->node2index( layerNode );
-    int legendCount = mLayerTreeModel->rowCount( layerIndex );
-    for ( int i = 0; i < legendCount; ++i )
+    QModelIndex index = mLayerTreeModel->index( 0, 0, layerIndex );
+    QStringList legendParts;
+    while( index.isValid() )
     {
-      QModelIndex legendIndex = mLayerTreeModel->index( i, 0, layerIndex );
-      if ( idParts.value( 2 ) == mLayerTreeModel->data( legendIndex ).toString() )
+      legendParts << mLayerTreeModel->data( index ).toString();
+      if ( idParts.value( 2 ) == legendParts.join( QStringLiteral( "~__~" ) ) )
       {
-
-        QPixmap pixmap = mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QPixmap>();
+        QPixmap pixmap = mLayerTreeModel->data( index, Qt::DecorationRole ).value<QPixmap>();
         if ( pixmap.isNull() )
         {
-         QIcon icon = mLayerTreeModel->data( legendIndex, Qt::DecorationRole ).value<QIcon>();
-         if ( !icon.isNull() )
-           pixmap = icon.pixmap( 24, 24 );
+          QIcon icon = mLayerTreeModel->data( index, Qt::DecorationRole ).value<QIcon>();
+          if ( !icon.isNull() )
+            pixmap = icon.pixmap( 24, 24 );
         }
         if ( pixmap.isNull() )
         {
@@ -60,8 +60,28 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
         }
         return pixmap;
       }
+      else
+      {
+        if ( mLayerTreeModel->hasChildren( index ) )
+        {
+          index = mLayerTreeModel->index( 0, 0, index );
+        }
+        else
+        {
+          legendParts.removeLast();
+
+          QModelIndex nextIndex = mLayerTreeModel->sibling( index.row() + 1, 0, index );
+          if ( !nextIndex.isValid() && index.parent() != layerIndex )
+          {
+            legendParts.removeLast();
+            nextIndex = mLayerTreeModel->sibling( index.parent().row() + 1, 0, index.parent() );
+          }
+          index = nextIndex;
+        }
+      }
     }
   }
+
   if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
   {
     QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
