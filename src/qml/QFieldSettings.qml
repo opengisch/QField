@@ -139,10 +139,10 @@ Page {
             Label {
               width: parent.width
               visible: !!description
-              padding: !!description ? 8: 0
+              padding: !!description ? 8 : 0
               topPadding: 0
               leftPadding: 22
-              text: description
+              text: description || ''
               font: Theme.tipFont
               color: Theme.gray
               wrapMode: Text.WordWrap
