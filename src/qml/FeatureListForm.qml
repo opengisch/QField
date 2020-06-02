@@ -171,7 +171,7 @@ Rectangle {
 
       Text {
         id: featureText
-        anchors { leftMargin: 10; left: parent.left; right: deleteButton.left; verticalCenter: parent.verticalCenter }
+        anchors { leftMargin: 10; left: parent.left; right: editRow.left; verticalCenter: parent.verticalCenter }
         font.bold: true
         text: display
       }
