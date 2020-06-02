@@ -425,7 +425,7 @@ ApplicationWindow {
       // highlighting vertices
       VertexRubberband {
         id: vertexRubberband
-        model: vertexModel
+        model: geometryEditingFeature.vertexModel
         mapSettings: mapCanvas.mapSettings
       }
 
@@ -1200,8 +1200,8 @@ ApplicationWindow {
         dashBoard.currentLayer = featureForm.selection.selectedLayer
         displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
       }
-      vertexModel.geometry = featureForm.selection.selectedGeometry
-      vertexModel.crs = featureForm.selection.selectedLayer.crs
+      geometryEditingFeature.vertexModel.geometry = featureForm.selection.selectedGeometry
+      geometryEditingFeature.vertexModel.crs = featureForm.selection.selectedLayer.crs
       geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
       geometryEditingFeature.feature = featureForm.selection.selectedFeature
 

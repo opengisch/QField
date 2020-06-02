@@ -74,13 +74,13 @@ QgsCoordinateReferenceSystem VertexModel::crs() const
 
 void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
-  clear();
+  beginResetModel();
   mVerticesDeleted.clear();
   mOriginalGeometry = geometry;
   mGeometryType = geometry.type();
   mRingCount = 0;
-
   refreshGeometry();
+  endResetModel();
   emit geometryChanged();
 }
 
@@ -148,7 +148,6 @@ void VertexModel::refreshGeometry()
 
 void VertexModel::createCandidates()
 {
-
   // remove non existing vertices
   mVertices.erase(std::remove_if(mVertices.begin(),
                                mVertices.end(),
@@ -243,7 +242,7 @@ void VertexModel::createCandidates()
   }
 }
 
-QModelIndex VertexModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex VertexModel::index( int row, int column, const QModelIndex &parent ) const
 {
   if ( !hasIndex( row, column, parent ) )
     return QModelIndex();
@@ -256,54 +255,54 @@ QModelIndex VertexModel::index(int row, int column, const QModelIndex &parent) c
   return QModelIndex();
 }
 
-QModelIndex VertexModel::parent(const QModelIndex &child) const
+QModelIndex VertexModel::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
   return QModelIndex();
 }
 
-int VertexModel::rowCount(const QModelIndex &parent) const
+int VertexModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED(parent)
   return mVertices.count();
 }
 
-int VertexModel::columnCount(const QModelIndex &parent) const
+int VertexModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED(parent)
   return 1;
 }
 
-VertexModel::Vertex VertexModel::vertex(int row) const
+VertexModel::Vertex VertexModel::vertex( int row ) const
 {
 return data(index(row, 0, QModelIndex()), Qt::UserRole).value<Vertex>();
 }
 
-QVariant VertexModel::data(const QModelIndex &index, int role) const
+QVariant VertexModel::data( const QModelIndex &index, int role ) const
 {
-  if (index.row() < 0 || index.row() > vertexCount())
+  if ( index.row() < 0 || index.row() > vertexCount() )
   return QVariant();
 
-  Vertex vertex = mVertices.at(index.row());
+  Vertex vertex = mVertices.at( index.row() );
 
-  switch(role)
+  switch( role )
   {
     case Qt::UserRole:
-       return QVariant::fromValue(vertex);
+       return QVariant::fromValue( vertex );
     case PointRole:
-      return QVariant::fromValue(vertex.point);
+      return QVariant::fromValue( vertex.point );
 
     case CurrentVertexRole:
-      return QVariant::fromValue(vertex.currentVertex);
+      return QVariant::fromValue( vertex.currentVertex );
 
     case OriginalPointRole:
-      return QVariant::fromValue(vertex.originalPoint);
+      return QVariant::fromValue( vertex.originalPoint );
 
     case PointTypeRole:
-      return QVariant::fromValue(vertex.type);
+      return QVariant::fromValue( vertex.type );
 
     case RingIdRole:
-      return QVariant::fromValue(vertex.ring);
+      return QVariant::fromValue( vertex.ring );
   }
 
   return QVariant();
@@ -362,6 +361,7 @@ void VertexModel::clear()
   beginResetModel();
   setEditingMode( NoEditing );
   mVertices.clear();
+  mVerticesDeleted.clear();
   updateCanRemoveVertex();
   updateCanAddVertex();
   emit vertexCountChanged();
@@ -549,8 +549,14 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 {
-  if ( mMode == NoEditing && newVertex > 0 && mVertices.count() > 0 )
-    setEditingMode(EditVertex);
+  if (mCurrentIndex >= 0 && mCurrentIndex < mVertices.count())
+  {
+    mVertices[mCurrentIndex].currentVertex = false;
+    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+  }
+
+  if ( mMode == NoEditing && newVertex >= 0 && mVertices.count() > 0 )
+    setEditingMode( EditVertex );
 
   if ( newVertex < 0 )
   {
@@ -558,11 +564,11 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
     {
       if ( mMode == AddVertex )
       {
-        newVertex = mVertices.count()-2;
+        newVertex = mVertices.count() - 2;
       }
       else if ( mMode == EditVertex )
       {
-        newVertex = mVertices.count()-1;
+        newVertex = mVertices.count() - 1;
       }
     }
     else
@@ -570,7 +576,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
       // line
       if ( mMode == AddVertex )
       {
-        newVertex = mVertices.count()-1;
+        newVertex = mVertices.count() - 1;
       }
       else if ( mMode == EditVertex )
       {
@@ -617,6 +623,9 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 
   mCurrentIndex = newVertex;
   emit currentVertexIndexChanged();
+
+  mVertices[mCurrentIndex].currentVertex = false;
+  emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
 }
 
 void VertexModel::setCurrentVertexIndex( int currentIndex )
@@ -859,7 +868,7 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       }
       case QgsWkbTypes::LineGeometry:
       {
-        if (mCurrentIndex == -1)
+        if ( mCurrentIndex == -1 )
         {
           setCurrentVertex( 0 );
         }
@@ -871,7 +880,7 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       }
       case QgsWkbTypes::PolygonGeometry:
       {
-        if (mCurrentIndex == -1)
+        if ( mCurrentIndex == -1 )
         {
           setCurrentVertex( 1 );
         }
@@ -888,6 +897,5 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   }
 
   mMode = mode;
-
   emit editingModeChanged();
 }
