@@ -27,6 +27,7 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   , mProject( project )
 {
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
+  mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel ( mLayerTreeModel );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
@@ -156,15 +157,24 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
     {
       QString id;
 
-      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         id += QStringLiteral( "legend" );
         id += '/' + sym->layerNode()->layerId();
-        id += '/' + sym->data( Qt::DisplayRole ).toString();
+        QStringList legendParts;
+        while ( sym )
+        {
+          legendParts << sym->data( Qt::DisplayRole ).toString();
+          sourceIndex = sourceIndex.parent();
+          sym = mLayerTreeModel->index2legendNode( sourceIndex );
+        }
+        std::reverse( legendParts.begin(), legendParts.end() );
+        id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
       }
       else
       {
-        QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
         if ( QgsLayerTree::isLayer( node ) )
         {
