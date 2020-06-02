@@ -10,7 +10,7 @@ LayerTreeItemProperties {
   property var index
   property var panToLayerButtonText
 
-    property var trackingButtonVisible
+    property var trackingButtonVisible: isTrackingButtonVisible()
     property var trackingButtonBgColor
     property var trackingButtonText
 
@@ -20,8 +20,8 @@ LayerTreeItemProperties {
   onIndexChanged: {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
-    trackingButtonVisible = layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.Trackable) && positionSource.active ? true : false
     panToLayerButtonText = qsTr( "Zoom to layer" )
+    trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
 
@@ -42,5 +42,11 @@ LayerTreeItemProperties {
           trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
       }
       close()
+  }
+
+  function isTrackingButtonVisible() {
+    return layerTree.data(index, FlatLayerTreeModel.Type) === 'layer'
+        && layerTree.data(index, FlatLayerTreeModel.Trackable)
+        && positionSource.active
   }
 }
