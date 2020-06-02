@@ -20,7 +20,7 @@ Repeater {
 
       width: 20
       height: 20
-      radius: SegmentVertex ? width / 2 : 0
+      radius: PointType === VertexModel.ExistingVertex ? width / 2 : 0
 
       border.color: if (CurrentVertex) {'red'} else {'blue'}
       border.width: 2

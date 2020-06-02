@@ -288,15 +288,6 @@ signals:
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
 
-    struct Centroid
-    {
-      QgsPoint point;
-      int index;
-      int ringId;
-    };
-    Centroid segmentCentroid(int leftIndex, int rightIndex,
-                              bool isExtending = false, bool goingForward = true);
-
     EditingMode mMode = NoEditing;
     //!
     int mCurrentIndex = -1;
