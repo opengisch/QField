@@ -826,8 +826,7 @@ ApplicationWindow {
               if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
                 // delete the feature when the geometry gets invalid again
                 // indirect action, no need to check for success and display a toast, the log is enough
-                digitizingFeature.deleteFeature()
-                overlayFeatureFormDrawer.featureForm.featureCreated = false
+                overlayFeatureFormDrawer.featureForm.featureCreated = !digitizingFeature.deleteFeature()
               }
             }
         }
