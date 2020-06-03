@@ -458,17 +458,15 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
   double closestDistance = std::numeric_limits<double>::max();
   Vertex closestVertex;
   int closestRow = -1;
-  int row = 0;
 
-  for ( const Vertex &vertex : qgis::as_const( mVertices ) )
+  for ( int r = 0; r < mVertices.count(); r++ )
   {
-      double dist = vertex.point.distance( mapPoint );
+      double dist = mVertices.at( r ).point.distance( mapPoint );
       if ( dist < closestDistance )
       {
         closestDistance = dist;
-        closestRow = row;
+        closestRow = r;
       }
-      row++;
   }
 
   if ( closestRow >= 0 && closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
@@ -478,11 +476,14 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
         // makes a new vertex as an existing vertex
         beginResetModel();
         mVertices[closestRow].type = ExistingVertex;
+        setCurrentVertex( closestRow );
         createCandidates();
         endResetModel();
-        setEditingMode( EditVertex );
       }
-    setCurrentVertex( closestRow );
+      else
+      {
+        setCurrentVertex( closestRow );
+      }
   }
 }
 
@@ -821,37 +822,6 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
     return;
 
   mMode = mode;
-
-  if ( mode != NoEditing )
-  {
-    switch ( mGeometryType )
-    {
-      case QgsWkbTypes::PointGeometry:
-      {
-        // should not happen for now
-        break;
-      }
-      case QgsWkbTypes::LineGeometry:
-      case QgsWkbTypes::PolygonGeometry:
-      {
-        if ( mCurrentIndex == -1 )
-        {
-          setCurrentVertex( mode == AddVertex ? 0 : 1  );
-        }
-        else
-        {
-          bool vertexMatchesMode = ( mVertices.at( mCurrentIndex ).type == ExistingVertex && mode == EditVertex )
-                                || ( mVertices.at( mCurrentIndex ).type != ExistingVertex && mode == AddVertex );
-          int direction = mCurrentIndex < vertexCount() - 2 ? 1 : -1;
-          setCurrentVertex( mCurrentIndex + direction * ( vertexMatchesMode ? 0 : 1 ), true );
-        }
-        break;
-      }
-      case QgsWkbTypes::NullGeometry:
-      case QgsWkbTypes::UnknownGeometry:
-        break;
-    }
-  }
 
   emit editingModeChanged();
 }
