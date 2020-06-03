@@ -73,6 +73,10 @@ void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyRe
 
 void MultiFeatureListModel::clear()
 {
+  // the model is already empty, no need to trigger "resetModel"
+  if ( mFeatures.isEmpty() )
+    return;
+
   beginResetModel();
   mFeatures.clear();
   endResetModel();
@@ -146,7 +150,13 @@ QVariant MultiFeatureListModel::data( const QModelIndex &index, int role ) const
                                      << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
                                      << QgsExpressionContextUtils::layerScope( feature->first );
       context.setFeature( feature->second );
-      return QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
+      
+      const QString displayString = QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
+
+      if ( displayString.isEmpty() )
+        return feature->second.id();
+
+      return displayString;
     }
 
     case LayerNameRole:
@@ -216,6 +226,8 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
   }
+
+  beginResetModel();
 
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
@@ -298,6 +310,12 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
   }
 
+  //delete parent
+  layer->startEditing();
+  layer->deleteFeature( fid );
+  layer->commitChanges();
+  endResetModel();
+  
   return isSuccess;
 }
 

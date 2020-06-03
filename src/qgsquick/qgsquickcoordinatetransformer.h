@@ -152,18 +152,19 @@ class QgsQuickCoordinateTransformer : public QObject
      */
     void skipAltitudeTransformationChanged();
 
+  protected:
+    /**
+     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
+     * This can be used to correct the altitude with the antenna height for example.
+     */
+    qreal mDeltaZ = 0;
+
   private:
     void updatePosition();
 
     QgsPoint mProjectedPosition;
     QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
-
-    /**
-     * The altitude value of captured coordinates is corrected by the amount of deltaZ.
-     * This can be used to correct the altitude with the antenna height for example.
-     */
-    qreal mDeltaZ = 0;
 
     bool mSkipAltitudeTransformation = true;
 };

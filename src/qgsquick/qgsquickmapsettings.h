@@ -22,6 +22,7 @@
 #include <qgsmapsettings.h>
 #include <qgsmapthemecollection.h>
 #include <qgspoint.h>
+#include <qgsmaplayer.h>
 #include <qgsrectangle.h>
 
 
@@ -133,6 +134,9 @@ class QgsQuickMapSettings : public QObject
 
     //! Move current map extent to have center point defined by \a center
     Q_INVOKABLE void setCenter( const QgsPoint &center );
+
+    //! Move current map extent to have center point defined by \a layer. Optionally only pan to the layer if \a shouldZoom is false.
+    Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
 
     //! \copydoc QgsQuickMapSettings::mapUnitsPerPoint
     double mapUnitsPerPoint() const;

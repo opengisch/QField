@@ -7,6 +7,7 @@ import Theme 1.0
 Popup {
     property alias itemVisible: itemVisibleCheckBox.checked
 
+    signal panToLayerButtonClicked
     signal trackingButtonClicked
 
     padding: 0
@@ -37,6 +38,17 @@ Popup {
                 indicator.width: 16
                 indicator.implicitHeight: 24
                 indicator.implicitWidth: 24
+            }
+
+            QfButton {
+                id: panToLayerButton
+                Layout.fillWidth: true
+                font: Theme.defaultFont
+                text: panToLayerButtonText
+
+                onClicked: {
+                    panToLayerButtonClicked()
+                }
             }
 
             QfButton {
