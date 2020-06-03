@@ -33,6 +33,7 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     enum Roles
     {
       VectorLayerPointer = Qt::UserRole + 1,
+      MapLayerPointer,
       LegendImage,
       Type,
       Name,
