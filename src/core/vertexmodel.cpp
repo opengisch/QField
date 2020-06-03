@@ -240,6 +240,16 @@ void VertexModel::createCandidates()
     newVertex.ring = mVertices.at( r ).ring;
     mVertices.insert( r + 1, newVertex );
   }
+
+  // re-calculate the current index
+  for ( int i = 0; i < mVertices.count(); i++ )
+  {
+    if ( mVertices.at(i).currentVertex )
+    {
+      setCurrentVertex( i, true );
+      break;
+    }
+  }
 }
 
 QModelIndex VertexModel::index( int row, int column, const QModelIndex &parent ) const
@@ -293,13 +303,13 @@ QVariant VertexModel::data( const QModelIndex &index, int role ) const
       return QVariant::fromValue( vertex.point );
 
     case CurrentVertexRole:
-      return QVariant::fromValue( vertex.currentVertex );
+      return vertex.currentVertex;
 
     case OriginalPointRole:
       return QVariant::fromValue( vertex.originalPoint );
 
-    case PointTypeRole:
-      return QVariant::fromValue( vertex.type );
+    case ExistingVertexRole:
+      return vertex.type == ExistingVertex;
 
     case RingIdRole:
       return QVariant::fromValue( vertex.ring );
@@ -379,7 +389,7 @@ void VertexModel::previous()
   if ( !mCanPreviousVertex )
     return;
 
-  if ( mCurrentIndex == -1 )
+  if ( mCurrentIndex < 2 )
   {
     if ( mGeometryType == QgsWkbTypes::PointGeometry )
     {
@@ -419,7 +429,7 @@ void VertexModel::next()
   if ( !mCanNextVertex )
     return;
 
-  if (mCurrentIndex == -1 )
+  if ( mCurrentIndex == -1 )
   {
     if ( mMode == AddVertex )
     {
@@ -530,92 +540,45 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   if ( vertex.point == point )
     return;
 
-    setDirty( true );
-    vertex.point = point;
-    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
-    emit currentPointChanged();
+  setDirty( true );
+  beginResetModel();
+
+  vertex.point = point;
 
   if ( mMode == AddVertex )
   {
     // we move a candidate, make it an existing vertex
     Q_ASSERT( vertex.type != ExistingVertex );
-    beginResetModel();
     vertex.type = ExistingVertex;
-    createCandidates();
-    endResetModel();
     setEditingMode( EditVertex );
   }
+
+  createCandidates();
+  endResetModel();
+
+  emit geometryChanged();
 }
 
 void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
 {
-  if (mCurrentIndex >= 0 && mCurrentIndex < mVertices.count())
+  if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = false;
     emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
-  }
-
-  if ( mMode == NoEditing && newVertex >= 0 && mVertices.count() > 0 )
-    setEditingMode( EditVertex );
-
-  if ( newVertex < 0 )
-  {
-    if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
-    {
-      if ( mMode == AddVertex )
-      {
-        newVertex = mVertices.count() - 2;
-      }
-      else if ( mMode == EditVertex )
-      {
-        newVertex = mVertices.count() - 1;
-      }
-    }
-    else
-    {
-      // line
-      if ( mMode == AddVertex )
-      {
-        newVertex = mVertices.count() - 1;
-      }
-      else if ( mMode == EditVertex )
-      {
-        newVertex = mVertices.count()-2;
-      }
-    }
-  }
-
-  if ( newVertex >= mVertices.count() )
-  {
-    if ( mGeometryType == QgsWkbTypes::PolygonGeometry )
-    {
-      if ( mMode == AddVertex )
-      {
-        newVertex = 1;
-      }
-      else if ( mMode == EditVertex )
-      {
-        newVertex = 0;
-      }
-    }
-    else
-    {
-      // line
-      if ( mMode == AddVertex )
-      {
-        newVertex = 0;
-      }
-      else if ( mMode == EditVertex )
-      {
-        newVertex = 1;
-      }
-    }
   }
 
   if ( mVertices.count() == 0 )
   {
     setEditingMode( NoEditing );
     newVertex = -1;
+  }
+  else if ( newVertex < 0 )
+  {
+    setEditingMode( NoEditing );
+  }
+  else if ( mMode == NoEditing )
+  {
+    setEditingMode( EditVertex );
   }
 
   if ( !forceUpdate && mCurrentIndex == newVertex )
@@ -624,7 +587,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   mCurrentIndex = newVertex;
   emit currentVertexIndexChanged();
 
-  mVertices[mCurrentIndex].currentVertex = false;
+  mVertices[mCurrentIndex].currentVertex = true;
   emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
 }
 
@@ -636,8 +599,7 @@ void VertexModel::setCurrentVertexIndex( int currentIndex )
   if ( currentIndex < 0 || currentIndex >= mVertices.count() )
     currentIndex = -1;
 
-  mCurrentIndex = currentIndex;
-  emit currentVertexIndexChanged();
+  setCurrentVertex( currentIndex );
 }
 
 int VertexModel::currentVertexIndex() const
@@ -723,7 +685,7 @@ QHash<int, QByteArray> VertexModel::roleNames() const
   roles[PointRole] = "Point";
   roles[CurrentVertexRole] = "CurrentVertex";
   roles[OriginalPointRole] = "OriginalPoint";
-  roles[PointTypeRole] = "PointType";
+  roles[ExistingVertexRole] = "ExistingVertex";
   roles[RingIdRole] = "RingId";
   return roles;
 }
