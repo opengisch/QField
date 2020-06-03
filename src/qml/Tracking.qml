@@ -39,11 +39,13 @@ Item{
               if( ( geometryType === QgsWkbTypes.LineGeometry && vertexCount == 3 ) ||
                   ( geometryType === QgsWkbTypes.PolygonGeometry && vertexCount == 4 ) )
               {
+                  // indirect action, no need to check for success and display a toast, the log is enough
                   featureModel.create()
                   mainModel.feature = featureModel.feature
               }
               else
               {
+                  // indirect action, no need to check for success and display a toast, the log is enough
                   featureModel.save()
               }
           }

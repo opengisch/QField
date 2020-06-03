@@ -300,6 +300,7 @@ Page {
             {
               AttributeValue = isNull ? undefined : value
               if ( qfieldSettings.autoSave && !dontSave ) {
+                // indirect action, no need to check for success and display a toast, the log is enough
                 save()
               }
             }
@@ -347,7 +348,11 @@ Page {
       return
     }
 
-    save()
+    if ( ! save() ) {
+      displayToast( qsTr( 'Unable to save changes') )
+      state = 'Edit'
+      return
+    }
 
     state = 'Edit'
 
@@ -361,23 +366,22 @@ Page {
     }
 
     aboutToSave()
+    
+    var isSuccess = false;
 
-    if( form.state === 'Add' && !featureCreated )
-    {
-      model.create()
-      featureCreated = true
-    }
-    else
-    {
-      model.save()
+    if( form.state === 'Add' && !featureCreated ) {
+      isSuccess = model.create()
+      featureCreated = isSuccess
+    } else {
+      isSuccess = model.save()
     }
 
-    return true
+    return isSuccess
   }
 
   function cancel() {
-    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave )
-    {
+    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave ) {
+      // indirect action, no need to check for success and display a toast, the log is enough
       model.deleteFeature()
     }
     cancelled()

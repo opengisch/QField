@@ -810,24 +810,24 @@ ApplicationWindow {
                   digitizingFeature.geometry.applyRubberband()
                   digitizingFeature.applyGeometry()
                 }
-
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     digitizingFeature.resetAttributes();
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
-                      //when the constrainst are fulfilled
-                      digitizingFeature.create()
-                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+                      // when the constrainst are fulfilled
+                      // indirect action, no need to check for success and display a toast, the log is enough
+                      overlayFeatureFormDrawer.featureForm.featureCreated = digitizingFeature.create()
                     }
                 } else {
-                    digitizingFeature.save()
+                  // indirect action, no need to check for success and display a toast, the log is enough
+                  digitizingFeature.save()
                 }
             } else {
-                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                  //delete the feature when the geometry gets invalid again
-                  digitizingFeature.deleteFeature()
-                  overlayFeatureFormDrawer.featureForm.featureCreated = false
-                }
+              if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                // delete the feature when the geometry gets invalid again
+                // indirect action, no need to check for success and display a toast, the log is enough
+                overlayFeatureFormDrawer.featureForm.featureCreated = !digitizingFeature.deleteFeature()
+              }
             }
         }
       }
@@ -856,9 +856,13 @@ ApplicationWindow {
         else
         {
           if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
-              digitizingFeature.create()
+              if ( ! digitizingFeature.create() ) {
+                displayToast( qsTr( "Failed to create feature!" ) )
+              }
           } else {
-              digitizingFeature.save()
+              if ( ! digitizingFeature.save() ) {
+                displayToast( qsTr( "Failed to save feature!" ) )
+              }
           }
           digitizingRubberband.model.reset()
         }
