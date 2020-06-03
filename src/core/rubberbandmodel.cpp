@@ -187,7 +187,7 @@ QgsPoint RubberbandModel::currentCoordinate() const
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   // play safe, but try to find out
-  Q_ASSERT(mPointList.count() != 0);
+  // Q_ASSERT( mPointList.count() != 0 );
   if (mPointList.count() == 0)
     return;
 

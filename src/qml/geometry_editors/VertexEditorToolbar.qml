@@ -147,7 +147,7 @@ VisibilityFadingRow {
     {
       if ( featureModel.vertexModel.currentVertexIndex != -1
           && !screenHovering
-          && (featureModel.vertexModel.editingMode === VertexModel.EditVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+          && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
       }
