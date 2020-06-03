@@ -587,8 +587,11 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   mCurrentIndex = newVertex;
   emit currentVertexIndexChanged();
 
-  mVertices[mCurrentIndex].currentVertex = true;
-  emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+  if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
+  {
+    mVertices[mCurrentIndex].currentVertex = true;
+    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+  }
 }
 
 void VertexModel::setCurrentVertexIndex( int currentIndex )
