@@ -79,6 +79,8 @@ void Rubberband::setVertexModel( VertexModel *model )
   if ( mVertexModel )
   {
     disconnect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
+    disconnect( mVertexModel, &VertexModel::vertexCountChanged, this, &Rubberband::markDirty );
+    disconnect( mVertexModel, &VertexModel::geometryChanged, this, &Rubberband::markDirty );
   }
 
   mVertexModel = model;
@@ -87,6 +89,7 @@ void Rubberband::setVertexModel( VertexModel *model )
   {
     connect( mVertexModel, &VertexModel::dataChanged, this, &Rubberband::markDirty );
     connect( mVertexModel, &VertexModel::vertexCountChanged, this, &Rubberband::markDirty );
+    connect( mVertexModel, &VertexModel::geometryChanged, this, &Rubberband::markDirty );
   }
 
   markDirty();

@@ -434,7 +434,7 @@ ApplicationWindow {
         id: editingRubberBand
         vertexModel: vertexModel
         mapSettings: mapCanvas.mapSettings
-        width: 2
+        width: 4
 
         transform: MapTransform {
           mapSettings: mapCanvas.mapSettings

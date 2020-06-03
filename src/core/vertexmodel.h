@@ -89,7 +89,7 @@ class VertexModel : public QAbstractListModel
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
       OriginalPointRole,
-      PointTypeRole,
+      ExistingVertexRole,
       RingIdRole,
     };
     Q_ENUM( ColumnRole )
