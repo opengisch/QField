@@ -23,7 +23,7 @@
 #include <QDebug>
 
 AndroidPictureSource::AndroidPictureSource( const QString &prefix )
-  : PictureSource( nullptr )
+  : PictureSource( nullptr, prefix )
   , QAndroidActivityResultReceiver()
   , mPrefix( prefix )
 {
