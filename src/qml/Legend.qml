@@ -47,13 +47,14 @@ ListView {
         }
         width: 24
         height: 24
+        fillMode: Image.PreserveAspectFit
         anchors.verticalCenter: parent.verticalCenter
         opacity: Visible ? 1 : 0.25
       }
 
       Text {
         id: layerName
-        width: rectangle.width - ( LegendImage != '' ? 34 : 10 )
+        width: rectangle.width - ( LegendImage != '' ? 34 : 10 ) - ( InTracking ? 34 : 0 )
         padding: 5
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
@@ -62,6 +63,30 @@ ListView {
         color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
+      }
+
+      Rectangle {
+          visible: InTracking ? true : false
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
+          radius: height / 2
+          color: Theme.mainColor
+
+          SequentialAnimation on color  {
+              loops: Animation.Infinite
+              ColorAnimation  { from: Theme.mainColor; to: "#5a8725"; duration: 2000; easing.type: Easing.InOutQuad }
+              ColorAnimation  { from: "#5a8725"; to: Theme.mainColor; duration: 1000; easing.type: Easing.InOutQuad }
+          }
+
+          Image {
+              anchors.fill: parent
+              anchors.margins: 4
+              fillMode: Image.PreserveAspectFit
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
+          }
       }
     }
   }

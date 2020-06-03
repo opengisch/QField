@@ -99,6 +99,16 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center )
   setExtent( e );
 }
 
+void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom )
+{
+  Q_ASSERT( layer );
+
+  if ( shouldZoom )
+    setExtent( layer->extent() );
+  else
+    setCenter( QgsPoint( layer->extent().center() ) );
+}
+
 double QgsQuickMapSettings::mapUnitsPerPoint() const
 {
   return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();

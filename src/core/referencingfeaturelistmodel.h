@@ -122,7 +122,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
      * Deletes a feature regarding the referencing layer and the feature id of the selected child
      * \param referencingFeatureId id of the selected child
      */
-    Q_INVOKABLE void deleteFeature( QgsFeatureId referencingFeatureId );
+    Q_INVOKABLE bool deleteFeature( QgsFeatureId referencingFeatureId );
 
     /**
      * Indicator if the model is currently performing any feature iteration in the background.

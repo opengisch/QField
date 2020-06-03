@@ -146,11 +146,13 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
+    property bool hasBeenTouched: false
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen
-        grabPermissions: PointerHandler.ApprovesTakeOverByAnything
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
@@ -159,14 +161,38 @@ ApplicationWindow {
         }
 
         onActiveChanged: {
-          if ( !active )
-            coordinateLocator.sourceLocation = undefined
+            if ( !active )
+              coordinateLocator.sourceLocation = undefined
 
         }
 
         onHoveredChanged: {
-          if ( !hovered )
-            coordinateLocator.sourceLocation = undefined
+            if ( !hovered )
+              coordinateLocator.sourceLocation = undefined
+        }
+    }
+
+    /* The second hover handler is a workaround what appears to be an issue with
+     * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
+     * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
+     */
+    HoverHandler {
+        id: dummyHoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
+        acceptedDevices: PointerDevice.TouchScreen
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        onPointChanged: {
+            parent.hasBeenTouched = true
+        }
+
+        onActiveChanged: {
+            parent.hasBeenTouched = true
+
+        }
+
+        onHoveredChanged: {
+            parent.hasBeenTouched = true
         }
     }
 
@@ -206,7 +232,7 @@ ApplicationWindow {
           else if (geometryEditorsToolbar.canvasClicked(point)) {
             // for instance, the vertex editor will select a vertex if possible
           }
-          else if ( type === "stylus" && stateMachine.state === "digitize" && dashBoard.currentLayer ) {
+          else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
                   digitizingToolbar.confirm()
@@ -784,24 +810,24 @@ ApplicationWindow {
                   digitizingFeature.geometry.applyRubberband()
                   digitizingFeature.applyGeometry()
                 }
-
                 if( !overlayFeatureFormDrawer.featureForm.featureCreated )
                 {
                     digitizingFeature.resetAttributes();
                     if( overlayFeatureFormDrawer.featureForm.model.constraintsHardValid ){
-                      //when the constrainst are fulfilled
-                      digitizingFeature.create()
-                      overlayFeatureFormDrawer.featureForm.featureCreated = true
+                      // when the constrainst are fulfilled
+                      // indirect action, no need to check for success and display a toast, the log is enough
+                      overlayFeatureFormDrawer.featureForm.featureCreated = digitizingFeature.create()
                     }
                 } else {
-                    digitizingFeature.save()
+                  // indirect action, no need to check for success and display a toast, the log is enough
+                  digitizingFeature.save()
                 }
             } else {
-                if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
-                  //delete the feature when the geometry gets invalid again
-                  digitizingFeature.deleteFeature()
-                  overlayFeatureFormDrawer.featureForm.featureCreated = false
-                }
+              if( overlayFeatureFormDrawer.featureForm.featureCreated ) {
+                // delete the feature when the geometry gets invalid again
+                // indirect action, no need to check for success and display a toast, the log is enough
+                overlayFeatureFormDrawer.featureForm.featureCreated = !digitizingFeature.deleteFeature()
+              }
             }
         }
       }
@@ -830,9 +856,13 @@ ApplicationWindow {
         else
         {
           if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
-              digitizingFeature.create()
+              if ( ! digitizingFeature.create() ) {
+                displayToast( qsTr( "Failed to create feature!" ) )
+              }
           } else {
-              digitizingFeature.save()
+              if ( ! digitizingFeature.save() ) {
+                displayToast( qsTr( "Failed to save feature!" ) )
+              }
           }
           digitizingRubberband.model.reset()
         }
@@ -1256,8 +1286,7 @@ ApplicationWindow {
   BusyIndicator {
     id: busyIndicator
     anchors.left: mainMenuBar.left
-    anchors.top: mainMenuBar.bottom
-    padding: 5
+    anchors.top: mainToolbar.bottom
     width: mainMenuBar.height
     height: mainMenuBar.height
     running: mapCanvasMap.isRendering

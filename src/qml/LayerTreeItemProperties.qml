@@ -8,6 +8,7 @@ import "ui"
 LayerTreeItemProperties {
   property var layerTree
   property var index
+  property var panToLayerButtonText
 
     property var trackingButtonVisible
     property var trackingButtonBgColor
@@ -20,11 +21,16 @@ LayerTreeItemProperties {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
     trackingButtonVisible = layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.Trackable) && positionSource.active ? true : false
+    panToLayerButtonText = qsTr( "Zoom to layer" )
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
 
   onItemVisibleChanged: {
     layerTree.setData(index, itemVisible, FlatLayerTreeModel.Visible);
+  }
+
+  onPanToLayerButtonClicked: {
+    mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
   }
 
   onTrackingButtonClicked: {

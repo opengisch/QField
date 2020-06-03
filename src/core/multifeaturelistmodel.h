@@ -74,7 +74,7 @@ class MultiFeatureListModel : public QAbstractItemModel
 
     int count() const;
 
-    Q_INVOKABLE void deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
+    Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
   signals:
     void countChanged();

@@ -16,6 +16,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qgsmessagelog.h"
+
 #include "platformutilities.h"
 #include "projectsource.h"
 #include <QDebug>
@@ -77,9 +79,21 @@ PictureSource *PlatformUtilities::getCameraPicture( const QString &prefix, const
 
 PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath )
 {
-  Q_UNUSED( prefix )
-  Q_UNUSED( pictureFilePath )
-  return nullptr;
+  QString destinationFile = QStringLiteral( "%1/%2" ).arg( prefix, pictureFilePath );
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Media File" ), prefix, tr( "JPEG images (*.jpg *.jpeg)" ) );
+
+  if ( QFileInfo::exists( fileName ) )
+  {
+    // if the file is already in the prefixed path, no need to copy
+    if ( fileName.startsWith( prefix ) )
+      return new PictureSource( nullptr, prefix, fileName );
+    else if ( QFile::copy( fileName, destinationFile ) )
+      return new PictureSource( nullptr, prefix, destinationFile );
+
+    QgsMessageLog::logMessage( tr( "Failed to save gallery picture." ), "QField", Qgis::Critical );
+  }
+
+  return new PictureSource( nullptr, prefix, QString() );
 }
 
 ViewStatus *PlatformUtilities::open( const QString &uri )

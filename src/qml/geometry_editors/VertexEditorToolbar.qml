@@ -3,6 +3,7 @@ import QtQuick 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
+import '..'
 
 
 VisibilityFadingRow {
@@ -33,7 +34,11 @@ VisibilityFadingRow {
   function applyChanges( apply ) {
     if ( apply && featureModel.vertexModel.dirty ){
       featureModel.applyVertexModelToGeometry()
-      featureModel.save()
+
+      if ( ! featureModel.save() ) {
+        displayToast( qsTr( "Failed to save feature!" ) );
+      }
+      
       //set the vertexModel original geometry to the one of the updated feature
       featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
     }

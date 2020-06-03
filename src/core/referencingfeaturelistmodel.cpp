@@ -14,6 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <qgsmessagelog.h>
+
 #include "referencingfeaturelistmodel.h"
 
 ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
@@ -179,12 +181,35 @@ void ReferencingFeatureListModel::reload()
   setParentPrimariesAvailable( checkParentPrimaries() );
 }
 
-void ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
+bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
 {
-  mRelation.referencingLayer()->startEditing();
-  mRelation.referencingLayer()->deleteFeature( referencingFeatureId );
-  mRelation.referencingLayer()->commitChanges();
+  QgsVectorLayer *vl = mRelation.referencingLayer();
+  
+  if ( ! vl->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
+    return false;
+  }
+
+  if ( ! vl->deleteFeature( referencingFeatureId ) )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
+    return false;
+  }
+
+  if ( ! vl->commitChanges() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( vl->name() ), "QField", Qgis::Critical );
+
+    if ( ! vl->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+
+    return false;
+  }
+
   reload();
+
+  return true;
 }
 
 bool ReferencingFeatureListModel::isLoading() const
