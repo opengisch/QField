@@ -80,6 +80,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   mGeometryType = geometry.type();
   mRingCount = 0;
   refreshGeometry();
+  setCurrentVertex( -1 );
   endResetModel();
   emit geometryChanged();
 }
@@ -244,7 +245,7 @@ void VertexModel::createCandidates()
   // re-calculate the current index
   for ( int i = 0; i < mVertices.count(); i++ )
   {
-    if ( mVertices.at(i).currentVertex )
+    if ( mVertices.at( i ).currentVertex )
     {
       setCurrentVertex( i, true );
       break;
@@ -429,7 +430,7 @@ void VertexModel::next()
   if ( !mCanNextVertex )
     return;
 
-  if ( mCurrentIndex == -1 )
+  if ( mCurrentIndex == -1 || mCurrentIndex >= mVertices.count() - 2 )
   {
     if ( mMode == AddVertex )
     {
@@ -534,7 +535,6 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   if ( mMode == NoEditing )
     return;
 
-
   Vertex &vertex = mVertices[mCurrentIndex];
 
   if ( vertex.point == point )
@@ -585,13 +585,14 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
     return;
 
   mCurrentIndex = newVertex;
-  emit currentVertexIndexChanged();
 
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = true;
     emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
   }
+
+  emit currentVertexIndexChanged();
 }
 
 void VertexModel::setCurrentVertexIndex( int currentIndex )
@@ -793,18 +794,18 @@ void VertexModel::updateCanPreviousNextVertex()
   }
 }
 
-void VertexModel::setGeometryType(const QgsWkbTypes::GeometryType &geometryType)
+void VertexModel::setGeometryType( const QgsWkbTypes::GeometryType &geometryType )
 {
-    if (mGeometryType == geometryType)
-        return;
+  if ( mGeometryType == geometryType )
+    return;
 
-    mGeometryType = geometryType;
-    emit geometryTypeChanged();
+  mGeometryType = geometryType;
+  emit geometryTypeChanged();
 }
 
 QgsWkbTypes::GeometryType VertexModel::geometryType() const
 {
-    return mGeometryType;
+  return mGeometryType;
 }
 
 void VertexModel::setEditingMode( VertexModel::EditingMode mode )
@@ -819,10 +820,9 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
   if ( mMode == mode )
     return;
 
-  bool isEven = mCurrentIndex % 2 == 0;
-  int direction = mCurrentIndex < vertexCount()-1 ? 1 : -1;
+  mMode = mode;
 
-  if ( mode == AddVertex )
+  if ( mode != NoEditing )
   {
     switch ( mGeometryType )
     {
@@ -832,26 +832,18 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
         break;
       }
       case QgsWkbTypes::LineGeometry:
-      {
-        if ( mCurrentIndex == -1 )
-        {
-          setCurrentVertex( 0 );
-        }
-        else
-        {
-          setCurrentVertex( mCurrentIndex + direction * (isEven ? 0 : 1) );
-        }
-        break;
-      }
       case QgsWkbTypes::PolygonGeometry:
       {
         if ( mCurrentIndex == -1 )
         {
-          setCurrentVertex( 1 );
+          setCurrentVertex( mode == AddVertex ? 0 : 1  );
         }
         else
         {
-          setCurrentVertex( mCurrentIndex + direction * (isEven ? 1 : 0) );
+          bool vertexMatchesMode = ( mVertices.at( mCurrentIndex ).type == ExistingVertex && mode == EditVertex )
+                                || ( mVertices.at( mCurrentIndex ).type != ExistingVertex && mode == AddVertex );
+          int direction = mCurrentIndex < vertexCount() - 2 ? 1 : -1;
+          setCurrentVertex( mCurrentIndex + direction * ( vertexMatchesMode ? 0 : 1 ), true );
         }
         break;
       }
@@ -861,6 +853,5 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
     }
   }
 
-  mMode = mode;
   emit editingModeChanged();
 }
