@@ -64,7 +64,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
     else
     {
       QgsRectangle featureExtent = geom.boundingBox();
-      QgsRectangle bufferedExtent = featureExtent.buffered( qMax( featureExtent.width(), featureExtent.height() ) );
+      QgsRectangle bufferedExtent = featureExtent.buffered( std::max( featureExtent.width(), featureExtent.height() ) );
 
       if ( !skipIfIntersects || !mMapSettings->extent().intersects( bufferedExtent ) )
         mMapSettings->setExtent( bufferedExtent );
