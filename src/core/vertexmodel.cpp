@@ -150,10 +150,10 @@ void VertexModel::refreshGeometry()
 void VertexModel::createCandidates()
 {
   // remove non existing vertices
-  mVertices.erase(std::remove_if(mVertices.begin(),
-                               mVertices.end(),
-                               [](const Vertex &vertex){ return vertex.type != ExistingVertex; }),
-                mVertices.end());
+  mVertices.erase( std::remove_if( mVertices.begin(),
+                                   mVertices.end(),
+  []( const Vertex & vertex ) { return vertex.type != ExistingVertex; } ),
+  mVertices.end() );
 
   int r = 0;
 
@@ -161,7 +161,7 @@ void VertexModel::createCandidates()
   {
     Vertex vertex = mVertices.at( r );
     int verticesAdded = 0;
-    Q_ASSERT(vertex.type == ExistingVertex );
+    Q_ASSERT( vertex.type == ExistingVertex );
 
     // adding new vertices
     if ( r < mVertices.count() - 1 && mVertices.at( r + 1 ).ring == vertex.ring && mGeometryType != QgsWkbTypes::PointGeometry )
@@ -200,15 +200,15 @@ void VertexModel::createCandidates()
     }
 
     // if polygon, create candidate to the last vertex of the ring
-    if ( ( r == 0 || mVertices.at( r -1 ).ring != vertex.ring ) && mGeometryType == QgsWkbTypes::PolygonGeometry )
+    if ( ( r == 0 || mVertices.at( r - 1 ).ring != vertex.ring ) && mGeometryType == QgsWkbTypes::PolygonGeometry )
     {
       Vertex lastVertex;
-      for ( int i = r+1; i < mVertices.count(); i++ )
+      for ( int i = r + 1; i < mVertices.count(); i++ )
       {
-        if ( mVertices.at(i).ring != vertex.ring )
+        if ( mVertices.at( i ).ring != vertex.ring )
           break;
         // TODO multipart
-        lastVertex = mVertices.at(i);
+        lastVertex = mVertices.at( i );
       }
       QVector<QgsPoint> points = {lastVertex.point, vertex.point};
       QgsPoint centroid = QgsLineString( points ).centroid();
@@ -274,32 +274,32 @@ QModelIndex VertexModel::parent( const QModelIndex &child ) const
 
 int VertexModel::rowCount( const QModelIndex &parent ) const
 {
-  Q_UNUSED(parent)
+  Q_UNUSED( parent )
   return mVertices.count();
 }
 
 int VertexModel::columnCount( const QModelIndex &parent ) const
 {
-  Q_UNUSED(parent)
+  Q_UNUSED( parent )
   return 1;
 }
 
 VertexModel::Vertex VertexModel::vertex( int row ) const
 {
-return data(index(row, 0, QModelIndex()), Qt::UserRole).value<Vertex>();
+  return data( index( row, 0, QModelIndex() ), Qt::UserRole ).value<Vertex>();
 }
 
 QVariant VertexModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() > vertexCount() )
-  return QVariant();
+    return QVariant();
 
   Vertex vertex = mVertices.at( index.row() );
 
-  switch( role )
+  switch ( role )
   {
     case Qt::UserRole:
-       return QVariant::fromValue( vertex );
+      return QVariant::fromValue( vertex );
     case PointRole:
       return QVariant::fromValue( vertex.point );
 
@@ -348,7 +348,7 @@ QgsGeometry VertexModel::geometry() const
       std::unique_ptr<QgsLineString> ls( qgis::make_unique<QgsLineString>( vertices ) );
       std::unique_ptr<QgsPolygon> polygon( qgis::make_unique<QgsPolygon>() );
       polygon->setExteriorRing( ls.release() );
-      for( int r=1; r<=ringCount(); r++ )
+      for ( int r = 1; r <= ringCount(); r++ )
       {
         std::unique_ptr<QgsLineString> ring( qgis::make_unique<QgsLineString>( flatVertices( r ) ) );
         polygon->addInteriorRing( ring.release() );
@@ -461,29 +461,29 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
 
   for ( int r = 0; r < mVertices.count(); r++ )
   {
-      double dist = mVertices.at( r ).point.distance( mapPoint );
-      if ( dist < closestDistance )
-      {
-        closestDistance = dist;
-        closestRow = r;
-      }
+    double dist = mVertices.at( r ).point.distance( mapPoint );
+    if ( dist < closestDistance )
+    {
+      closestDistance = dist;
+      closestRow = r;
+    }
   }
 
   if ( closestRow >= 0 && closestDistance / mapSettings()->mapSettings().mapUnitsPerPixel() < threshold )
   {
-      if ( mVertices.at( closestRow ).type != ExistingVertex )
-      {
-        // makes a new vertex as an existing vertex
-        beginResetModel();
-        mVertices[closestRow].type = ExistingVertex;
-        setCurrentVertex( closestRow );
-        createCandidates();
-        endResetModel();
-      }
-      else
-      {
-        setCurrentVertex( closestRow );
-      }
+    if ( mVertices.at( closestRow ).type != ExistingVertex )
+    {
+      // makes a new vertex as an existing vertex
+      beginResetModel();
+      mVertices[closestRow].type = ExistingVertex;
+      setCurrentVertex( closestRow );
+      createCandidates();
+      endResetModel();
+    }
+    else
+    {
+      setCurrentVertex( closestRow );
+    }
   }
 }
 
@@ -649,13 +649,13 @@ bool VertexModel::canNextVertex()
 
 QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
 {
-  if (ringId == -1)
+  if ( ringId == -1 )
   {
     ringId = mVertices.value( mCurrentIndex ).ring;
   }
 
   QVector<QgsPoint> vertices = QVector<QgsPoint>();
-  for ( const Vertex &vertex : qgis::as_const( mVertices ))
+  for ( const Vertex &vertex : qgis::as_const( mVertices ) )
   {
     if ( vertex.type != ExistingVertex || vertex.ring != ringId )
       continue;
@@ -672,7 +672,7 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
 QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
 {
   QVector<QPair<QgsPoint, QgsPoint>> vertices;
-  for ( const Vertex &vertex : qgis::as_const(mVertices))
+  for ( const Vertex &vertex : qgis::as_const( mVertices ) )
   {
     if ( vertex.type != ExistingVertex )
       continue;
@@ -772,8 +772,8 @@ void VertexModel::updateCanPreviousNextVertex()
           canPrevious = mCurrentIndex >= 2;
           canNext = mCurrentIndex < mVertices.count() - 3;
           break;
-        }
-        break;
+      }
+      break;
     case QgsWkbTypes::PolygonGeometry:
       canPrevious = true;
       canNext = true;
