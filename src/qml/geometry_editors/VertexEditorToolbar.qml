@@ -40,7 +40,7 @@ VisibilityFadingRow {
       }
       
       //set the vertexModel original geometry to the one of the updated feature
-      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry)
+      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry )
     }
   }
   
@@ -118,7 +118,7 @@ VisibilityFadingRow {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -131,7 +131,7 @@ VisibilityFadingRow {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
@@ -146,7 +146,7 @@ VisibilityFadingRow {
     {
       if ( featureModel.vertexModel.currentVertexIndex != -1
           && !screenHovering
-          && (featureModel.vertexModel.editingMode === VertexModel.EditVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+          && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
       }
