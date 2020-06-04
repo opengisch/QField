@@ -24,8 +24,8 @@ git fetch origin master:master --depth 1
 GIT_MASTER_SHA=$(git rev-list -n1 master)
 
 # If the current commit is the latest on master -> we need to create a new release branch
-if [[ ${TRAVIS_COMMIT} = ${GIT_MASTER_SHA} ]]; then
-  if [[ ! ${RELEASE_BRANCH} =~ ^release ]]; then
+if [[ "${TRAVIS_COMMIT}" = "${GIT_MASTER_SHA}" ]]; then
+  if [[ ! "${RELEASE_BRANCH}" =~ ^release ]]; then
     echo "Something wrong happened"
     exit 1
   fi
