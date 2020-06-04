@@ -478,6 +478,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
       mVertices[closestRow].type = ExistingVertex;
       setCurrentVertex( closestRow );
       createCandidates();
+      setEditingMode( EditVertex );
       endResetModel();
     }
     else
