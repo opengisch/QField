@@ -1693,7 +1693,6 @@ ApplicationWindow {
 
   VertexModel {
       id: vertexModel
-      // do not move new vertex
       currentPoint: coordinateLocator.currentCoordinate
       mapSettings: mapCanvas.mapSettings
       isHovering: hoverHandler.hovered
