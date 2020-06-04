@@ -823,5 +823,38 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
 
   mMode = mode;
 
+  if ( mode == AddVertex )
+  {
+    switch ( mGeometryType )
+    {
+      case QgsWkbTypes::PointGeometry:
+      {
+        // should not happen for now
+        break;
+      }
+      case QgsWkbTypes::LineGeometry:
+      case QgsWkbTypes::PolygonGeometry:
+      {
+        if ( mCurrentIndex == -1 )
+        {
+          setCurrentVertex( mode == AddVertex ? 0 : 1 );
+        }
+        else
+        {
+          bool vertexMatchesMode = ( mVertices.at( mCurrentIndex ).type == ExistingVertex && mode == EditVertex )
+                                   || ( mVertices.at( mCurrentIndex ).type != ExistingVertex && mode == AddVertex );
+          int direction = mCurrentIndex < vertexCount() - 2 ? 1 : -1;
+          setCurrentVertex( mCurrentIndex + direction * ( vertexMatchesMode ? 0 : 1 ), true );
+        }
+        break;
+      }
+      case QgsWkbTypes::NullGeometry:
+      case QgsWkbTypes::UnknownGeometry:
+        break;
+    }
+  }
+
+
+
   emit editingModeChanged();
 }
