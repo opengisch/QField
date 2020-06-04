@@ -34,6 +34,14 @@ Item {
       }
     }
 
+    IntValidator {
+      id: intValidator
+    }
+
+    DoubleValidator {
+      id: doubleValidator
+    }
+
     inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
