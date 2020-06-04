@@ -77,7 +77,8 @@ class VertexModel : public QAbstractListModel
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
-    enum PointType {
+    enum PointType
+    {
       ExistingVertex,
       NewVertexSegment,
       NewVertexExtending,
@@ -102,7 +103,8 @@ class VertexModel : public QAbstractListModel
     };
     Q_ENUM( EditingMode )
 
-    struct Vertex {
+    struct Vertex
+    {
       QgsPoint point;
       QgsPoint originalPoint;
       bool currentVertex;
@@ -141,11 +143,11 @@ class VertexModel : public QAbstractListModel
      */
     QgsGeometry geometry() const;
 
-    QModelIndex index(int row, int column, const QModelIndex &parent) const override;
-    QModelIndex parent(const QModelIndex &child) const override;
-    int rowCount(const QModelIndex &parent) const override;
-    int columnCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    QModelIndex parent( const QModelIndex &child ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    int columnCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
 
     //! This will clear the data
     Q_INVOKABLE void clear();
@@ -203,7 +205,7 @@ class VertexModel : public QAbstractListModel
 
     //! Returns a list of point (segment vertex, if any, will be skipped)
     //! For a polygon, if ringId is not given the current ring will be returned
-    QVector<QgsPoint> flatVertices( int ringId = -1) const;
+    QVector<QgsPoint> flatVertices( int ringId = -1 ) const;
 
     //! Returns a list of moved vertices found in linked geometry
     QVector<QPair<QgsPoint, QgsPoint>> verticesMoved() const;
@@ -217,9 +219,9 @@ class VertexModel : public QAbstractListModel
 
     void setCurrentVertexIndex( int currentIndex );
 
-    Vertex vertex(int row) const;
+    Vertex vertex( int row ) const;
 
-signals:
+  signals:
     //! \copydoc editingMode
     void editingModeChanged();
     //! \copydoc currentPoint
@@ -266,7 +268,7 @@ signals:
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
     void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
-    void selectVertexAtPosition(const QgsPoint &mapPoint, double threshold );
+    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
 
     QList<Vertex> mVertices;
 
