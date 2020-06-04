@@ -539,7 +539,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 
   Vertex &vertex = mVertices[mCurrentIndex];
 
-  if ( vertex.point.distance( point ) / mapSettings()->mapSettings().mapUnitsPerPixel() < 1 )
+  if ( mMapSettings && vertex.point.distance( point ) / mMapSettings->mapSettings().mapUnitsPerPixel() < 1 )
     return;
 
   setDirty( true );
