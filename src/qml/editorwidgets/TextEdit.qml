@@ -38,8 +38,9 @@ Item {
       id: intValidator
     }
 
-    DoubleValidator {
+    RegExpValidator {
       id: doubleValidator
+      regExp: /[-]?(\d*)([.,]\d*)?$/
     }
 
     inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone

@@ -130,10 +130,12 @@ Item {
     top: to
   }
 
-  DoubleValidator {
+  RegExpValidator {
     id: doubleValidator
-
+    regExp: /[-]?(\d*)([.,]\d*)?$/
+    /*
     bottom: from
     top: to
+    */
   }
 }
