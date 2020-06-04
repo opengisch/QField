@@ -838,12 +838,11 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
       {
         if ( mCurrentIndex == -1 )
         {
-          setCurrentVertex( mode == AddVertex ? 0 : 1 );
+          setCurrentVertex( 0 );
         }
         else
         {
-          bool vertexMatchesMode = ( mVertices.at( mCurrentIndex ).type == ExistingVertex && mode == EditVertex )
-                                   || ( mVertices.at( mCurrentIndex ).type != ExistingVertex && mode == AddVertex );
+          bool vertexMatchesMode = mVertices.at( mCurrentIndex ).type != ExistingVertex;
           int direction = mCurrentIndex < vertexCount() - 2 ? 1 : -1;
           setCurrentVertex( mCurrentIndex + direction * ( vertexMatchesMode ? 0 : 1 ), true );
         }
@@ -854,8 +853,6 @@ void VertexModel::setEditingMode( VertexModel::EditingMode mode )
         break;
     }
   }
-
-
 
   emit editingModeChanged();
 }

@@ -56,6 +56,8 @@ class TestVertexModel: public QObject
 
 
       mPoint2056Geometry = QgsGeometry::fromPointXY( QgsPointXY( 2500000, 1200000 ) );
+
+      mLine2056Geometry = QgsGeometry::fromPolylineXY( {QgsPointXY( 2500001, 1200001 ), QgsPointXY( 2500002, 1200002 ), QgsPointXY( 2500004, 1200004 )} );
     }
 
     void testCandidates()
@@ -197,10 +199,11 @@ class TestVertexModel: public QObject
       mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
       mModel->setMapSettings( &mapSettings );
 
-      mModel->setGeometry( mLineGeometry );
+      mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
+      mModel->setGeometry( mLine2056Geometry );
       QCOMPARE( mModel->mCurrentIndex, -1 );
 
-      mModel->selectVertexAtPosition( QgsPoint( 0.1, 0.1 ), 10 );
+      mModel->selectVertexAtPosition( QgsPoint( 500001.1, 200001.1 ), 10 );
       QCOMPARE( mModel->mCurrentIndex, 1 );
 
       QCOMPARE( mModel->editingMode(), VertexModel::EditVertex );
@@ -210,7 +213,7 @@ class TestVertexModel: public QObject
 
       // selecting a candidate will make it a vertex
       QCOMPARE( mModel->mVertices.count(), 7 );
-      mModel->selectVertexAtPosition( QgsPoint( -.6, -.6 ), 10 );
+      mModel->selectVertexAtPosition( QgsPoint( 500001.5, 200001.5 ), 10 );
       QCOMPARE( mModel->editingMode(), VertexModel::EditVertex );
       QCOMPARE( mModel->mVertices.count(), 9 );
     }
@@ -226,6 +229,7 @@ class TestVertexModel: public QObject
     QgsGeometry mPolygonGeometry;
     QgsGeometry mRingPolygonGeometry;
     QgsGeometry mPoint2056Geometry;
+    QgsGeometry mLine2056Geometry;
 };
 
 QFIELDTEST_MAIN( TestVertexModel )
