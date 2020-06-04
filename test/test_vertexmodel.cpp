@@ -62,40 +62,40 @@ class TestVertexModel: public QObject
     {
       mModel->setGeometry( mLineGeometry );
       QCOMPARE( mModel->vertexCount(), 7 );
-      QCOMPARE( mModel->mVertices.at(0).point, QgsPoint( -.5, -.5 ) );
-      QCOMPARE( mModel->mVertices.at(2).point, QgsPoint( 1, 1 ) );
-      QCOMPARE( mModel->mVertices.at(4).point, QgsPoint( 3, 3 ) );
-      QCOMPARE( mModel->mVertices.at(6).point, QgsPoint( 4.5, 4.5 ) );
+      QCOMPARE( mModel->mVertices.at( 0 ).point, QgsPoint( -.5, -.5 ) );
+      QCOMPARE( mModel->mVertices.at( 2 ).point, QgsPoint( 1, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 4 ).point, QgsPoint( 3, 3 ) );
+      QCOMPARE( mModel->mVertices.at( 6 ).point, QgsPoint( 4.5, 4.5 ) );
 
       mModel->setGeometry( mPolygonGeometry );
       QCOMPARE( mModel->vertexCount(), 8 );
-      QCOMPARE( mModel->mVertices.at(0).point, QgsPoint( 1, 0 ) );
-      QCOMPARE( mModel->mVertices.at(1).point, QgsPoint( 2, 0 ) );
-      QCOMPARE( mModel->mVertices.at(2).point, QgsPoint( 2, 1 ) );
-      QCOMPARE( mModel->mVertices.at(3).point, QgsPoint( 2, 2 ) );
-      QCOMPARE( mModel->mVertices.at(4).point, QgsPoint( 1, 2 ) );
-      QCOMPARE( mModel->mVertices.at(5).point, QgsPoint( 0, 2 ) );
-      QCOMPARE( mModel->mVertices.at(6).point, QgsPoint( 0, 1 ) );
-      QCOMPARE( mModel->mVertices.at(7).point, QgsPoint( 0, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 0 ).point, QgsPoint( 1, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 1 ).point, QgsPoint( 2, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 2 ).point, QgsPoint( 2, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 3 ).point, QgsPoint( 2, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 4 ).point, QgsPoint( 1, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 5 ).point, QgsPoint( 0, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 6 ).point, QgsPoint( 0, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 7 ).point, QgsPoint( 0, 0 ) );
 
       mModel->setGeometry( mRingPolygonGeometry );
       QCOMPARE( mModel->vertexCount(), 16 );
-      QCOMPARE( mModel->mVertices.at(0).point, QgsPoint( 2, 0 ) );
-      QCOMPARE( mModel->mVertices.at(1).point, QgsPoint( 4, 0 ) );
-      QCOMPARE( mModel->mVertices.at(2).point, QgsPoint( 4, 2 ) );
-      QCOMPARE( mModel->mVertices.at(3).point, QgsPoint( 4, 4 ) );
-      QCOMPARE( mModel->mVertices.at(4).point, QgsPoint( 2, 4 ) );
-      QCOMPARE( mModel->mVertices.at(5).point, QgsPoint( 0, 4 ) );
-      QCOMPARE( mModel->mVertices.at(6).point, QgsPoint( 0, 2 ) );
-      QCOMPARE( mModel->mVertices.at(7).point, QgsPoint( 0, 0 ) );
-      QCOMPARE( mModel->mVertices.at(8).point, QgsPoint( 2, 1 ) );
-      QCOMPARE( mModel->mVertices.at(9).point, QgsPoint( 3, 1 ) );
-      QCOMPARE( mModel->mVertices.at(10).point, QgsPoint( 3, 2 ) );
-      QCOMPARE( mModel->mVertices.at(11).point, QgsPoint( 3, 3 ) );
-      QCOMPARE( mModel->mVertices.at(12).point, QgsPoint( 2, 3 ) );
-      QCOMPARE( mModel->mVertices.at(13).point, QgsPoint( 1, 3 ) );
-      QCOMPARE( mModel->mVertices.at(14).point, QgsPoint( 1, 2 ) );
-      QCOMPARE( mModel->mVertices.at(15).point, QgsPoint( 1, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 0 ).point, QgsPoint( 2, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 1 ).point, QgsPoint( 4, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 2 ).point, QgsPoint( 4, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 3 ).point, QgsPoint( 4, 4 ) );
+      QCOMPARE( mModel->mVertices.at( 4 ).point, QgsPoint( 2, 4 ) );
+      QCOMPARE( mModel->mVertices.at( 5 ).point, QgsPoint( 0, 4 ) );
+      QCOMPARE( mModel->mVertices.at( 6 ).point, QgsPoint( 0, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 7 ).point, QgsPoint( 0, 0 ) );
+      QCOMPARE( mModel->mVertices.at( 8 ).point, QgsPoint( 2, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 9 ).point, QgsPoint( 3, 1 ) );
+      QCOMPARE( mModel->mVertices.at( 10 ).point, QgsPoint( 3, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 11 ).point, QgsPoint( 3, 3 ) );
+      QCOMPARE( mModel->mVertices.at( 12 ).point, QgsPoint( 2, 3 ) );
+      QCOMPARE( mModel->mVertices.at( 13 ).point, QgsPoint( 1, 3 ) );
+      QCOMPARE( mModel->mVertices.at( 14 ).point, QgsPoint( 1, 2 ) );
+      QCOMPARE( mModel->mVertices.at( 15 ).point, QgsPoint( 1, 1 ) );
     }
 
     void canRemoveVertexTest()
@@ -177,7 +177,6 @@ class TestVertexModel: public QObject
       QCOMPARE( mModel->currentVertexIndex(), 1 );
       QCOMPARE( mModel->currentPoint(), QgsPoint( 1, 0 ) );
       QCOMPARE( mModel->mVertices.at( 1 ).point, QgsPoint( 1, 0 ) );
-
     }
 
     void transformTest()
