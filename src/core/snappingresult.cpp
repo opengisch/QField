@@ -15,6 +15,11 @@
  ***************************************************************************/
 #include "snappingresult.h"
 
+SnappingResult::Type matchTypeToSnappingResultType( QgsPointLocator::Type type )
+{
+  return static_cast<SnappingResult::Type>( type );
+}
+
 SnappingResult::SnappingResult()
   : mType( Invalid )
   , mDist( 0 )
@@ -110,7 +115,3 @@ void SnappingResult::edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const
   pt2 = mEdgePoints[1];
 }
 
-SnappingResult::Type SnappingResult::matchTypeToSnappingResultType( QgsPointLocator::Type type )
-{
-  return static_cast<Type>( type );
-}

@@ -30,17 +30,15 @@ class RecentProjectListModel : public QAbstractListModel
 
     struct RecentProject
     {
-      RecentProject()
-      {}
+      RecentProject() = default;
 
       RecentProject( ProjectType type, const QString &title, const QString &path )
-      {
-        this->type = type;
-        this->title = title;
-        this->path = path;
-      }
+          : type( type )
+          , title( title )
+          , path( path )
+      {}
 
-      ProjectType type;
+      ProjectType type = ProjectType::LocalProject;
       QString title;
       QString path;
     };

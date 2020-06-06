@@ -197,6 +197,8 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QTimer mMapUpdateTimer;
     bool mIncrementalRendering = false;
 
+    QQuickWindow *mWindow = nullptr;
+
     QSizeF mOutputSize;
 };
 
