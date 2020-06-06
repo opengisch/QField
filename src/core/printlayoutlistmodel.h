@@ -45,7 +45,7 @@ class PrintLayoutListModel : public QAbstractListModel
     */
     struct PrintLayout
     {
-      PrintLayout( const QString &title )
+      explicit PrintLayout( const QString &title )
         : title( title )
       {}
 
@@ -53,7 +53,7 @@ class PrintLayoutListModel : public QAbstractListModel
     };
 
   public:
-    PrintLayoutListModel( QObject *parent = nullptr );
+    explicit PrintLayoutListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

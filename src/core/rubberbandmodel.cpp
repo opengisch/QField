@@ -324,12 +324,12 @@ QgsVectorLayer *RubberbandModel::vectorLayer() const
   return mLayer;
 }
 
-void RubberbandModel::setVectorLayer( QgsVectorLayer *layer )
+void RubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
-  if ( layer == mLayer )
+  if ( vectorLayer == mLayer )
     return;
 
-  mLayer = layer;
+  mLayer = vectorLayer;
 
   if ( mLayer )
     setGeometryType( mLayer->geometryType() );

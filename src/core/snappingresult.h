@@ -46,7 +46,7 @@ class SnappingResult
 
     SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, QgsPoint *edgePoints = nullptr );
 
-    SnappingResult( const QgsPointLocator::Match &match );
+    explicit SnappingResult( const QgsPointLocator::Match &match );
 
     Type type() const;
 
@@ -84,8 +84,6 @@ class SnappingResult
     void edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const;
 
   private:
-    Type matchTypeToSnappingResultType( QgsPointLocator::Type type );
-
     Type mType;
     double mDist;
     QgsPoint mPoint;

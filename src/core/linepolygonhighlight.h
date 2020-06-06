@@ -67,8 +67,8 @@ class LinePolygonHighlight : public QQuickItem
     virtual QSGNode *updatePaintNode( QSGNode *n, UpdatePaintNodeData * ) override;
 
     QColor mColor;
-    float mWidth;
-    bool mDirty;
+    float mWidth = 0;
+    bool mDirty = false;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsGeometryWrapper *mGeometry = nullptr;
 };

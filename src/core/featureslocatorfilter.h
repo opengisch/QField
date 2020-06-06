@@ -57,14 +57,14 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
         QIcon layerIcon;
     } ;
 
-    FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
     QString displayName() const override { return tr( "Features In All Layers" ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "af" ); }
 
-    void prepare( const QString &string, const QgsLocatorContext &context ) override;
+    void prepare( const QString &string, const QgsLocatorContext &locatorContext ) override;
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
     void triggerResult( const QgsLocatorResult &result ) override;
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;

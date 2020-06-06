@@ -43,9 +43,9 @@ FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
   return new FeaturesLocatorFilter( mLocatorBridge );
 }
 
-void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &context )
+void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
 {
-  Q_UNUSED( context );
+  Q_UNUSED( locatorContext );
 
   if ( string.length() < 3 )
     return;
@@ -59,9 +59,9 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
       continue;
 
     QgsExpression expression( layer->displayExpression() );
-    QgsExpressionContext context;
-    context.appendScopes( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) );
-    expression.prepare( &context );
+    QgsExpressionContext expressionContext;
+    expressionContext.appendScopes( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) );
+    expression.prepare( &expressionContext );
 
     QgsFeatureRequest req;
     req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).toList() );
@@ -76,7 +76,7 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
 
     std::shared_ptr<PreparedLayer> preparedLayer( new PreparedLayer() );
     preparedLayer->expression = expression;
-    preparedLayer->context = context;
+    preparedLayer->context = expressionContext;
     preparedLayer->layerId = layer->id();
     preparedLayer->layerName = layer->name();
     preparedLayer->featureSource.reset( new QgsVectorLayerFeatureSource( layer ) );
@@ -89,14 +89,13 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
 
 void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
-  int foundInCurrentLayer;
   int foundInTotal = 0;
   QgsFeature f;
 
   // we cannot used const loop since iterator::nextFeature is not const
   for ( auto preparedLayer : qgis::as_const( mPreparedLayers ) )
   {
-    foundInCurrentLayer = 0;
+    int foundInCurrentLayer = 0;
     QgsFeatureIterator it = preparedLayer->featureSource->getFeatures( preparedLayer->request );
     while ( it.nextFeature( f ) )
     {
@@ -141,22 +140,22 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   if ( !layer )
     return;
 
-  QgsFeature f;
-  QgsFeatureRequest req = QgsFeatureRequest().setFilterFid( fid );
+  QgsFeature feature;
+  QgsFeatureRequest featureRequest = QgsFeatureRequest().setFilterFid( fid );
 
   if ( actionId == OpenForm )
   {
     QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
-    requests.insert( layer, req );
+    requests.insert( layer, featureRequest );
     mLocatorBridge->featureListController()->model()->setFeatures( requests );
     mLocatorBridge->featureListController()->selection()->setSelection( 0 );
     mLocatorBridge->featureListController()->requestFeatureFormState();
   }
   else
   {
-    QgsFeatureIterator it = layer->getFeatures( req.setNoAttributes() );
-    it.nextFeature( f );
-    QgsGeometry geom = f.geometry();
+    QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
+    it.nextFeature( feature );
+    QgsGeometry geom = feature.geometry();
     if ( geom.isNull() || geom.constGet()->isEmpty() )
     {
       mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
@@ -173,15 +172,15 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
         int scaleFactor = 5;
         QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
         QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
-        QgsFeatureRequest req = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
-        QgsFeatureIterator fit = layer->getFeatures( req );
-        QgsFeature f;
+        QgsFeatureRequest pointRequest = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
+        QgsFeatureIterator fit = layer->getFeatures( pointRequest );
+        QgsFeature pointFeature;
         QgsPointXY closestPoint;
         double closestSquaredDistance = pow( extentRect.width() + extentRect.height(), 2.0 );
         bool pointFound = false;
-        while ( fit.nextFeature( f ) )
+        while ( fit.nextFeature( pointFeature ) )
         {
-          QgsPointXY point = f.geometry().asPoint();
+          QgsPointXY point = pointFeature.geometry().asPoint();
           double sqrDist = point.sqrDist( center );
           if ( sqrDist > closestSquaredDistance || sqrDist < 4 * std::numeric_limits<double>::epsilon() )
             continue;

@@ -28,6 +28,7 @@ cppcheck --library=qt.cfg --inline-suppr \
          -DSIP_TRANSFERTHIS= \
          -DSIP_INOUT= \
          -DSIP_OUT= \
+         -DQ_FLAG= \
          -j $(nproc) \
          ${SCRIPT_DIR}/../src \
          >>${LOG_FILE} 2>&1 &
@@ -45,15 +46,7 @@ fi
 
 ret_code=0
 
-for category in "error" "style" "performance" "portability"; do
-    if grep "${category}," ${LOG_FILE} >/dev/null; then
-        echo "INFO: Issues in '${category}' category found, but not considered as making script to fail:"
-        grep "${category}," ${LOG_FILE} | grep -v "clarifyCalculation,"
-        echo ""
-    fi
-done
-
-for category in "warning" "clarifyCalculation"; do
+for category in "error" "style" "performance" "warning" "clarifyCalculation" "portability"; do
     if grep "${category}," ${LOG_FILE}  >/dev/null; then
         echo "ERROR: Issues in '${category}' category found:"
         grep "${category}," ${LOG_FILE}

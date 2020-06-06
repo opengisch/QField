@@ -62,7 +62,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 {
     Q_OBJECT
   public:
-    QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
+    explicit QgisMobileapp( QgsApplication *app, QObject *parent = nullptr );
     ~QgisMobileapp() override;
 
     /**

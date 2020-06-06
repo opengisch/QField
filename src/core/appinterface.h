@@ -30,7 +30,7 @@ class AppInterface : public QObject
     Q_OBJECT
 
   public:
-    AppInterface( QgisMobileapp *app );
+    explicit AppInterface( QgisMobileapp *app );
     AppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type

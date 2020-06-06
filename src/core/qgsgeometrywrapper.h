@@ -44,9 +44,9 @@ class QgsGeometryWrapper : public QObject
       , mCrs( QgsCoordinateReferenceSystem( other.mCrs ) )
     {}
 
-    QgsGeometryWrapper( QgsGeometry geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
+    QgsGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
       : QObject( parent )
-      , mQgsGeometry( QgsGeometry( geometry ) )
+      , mQgsGeometry( geometry )
       , mCrs( crs )
     {}
 

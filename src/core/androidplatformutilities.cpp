@@ -29,8 +29,8 @@
 #include <QMimeDatabase>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
+    : mActivity( QtAndroid::androidActivity() )
 {
-  mActivity = QtAndroid::androidActivity();
 }
 
 QString AndroidPlatformUtilities::configDir() const
@@ -73,8 +73,6 @@ QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroid
 
 QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
-  QAndroidJniObject activity = QtAndroid::androidActivity();
-
   if ( mActivity.isValid() )
   {
     QAndroidJniObject intent = mActivity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );

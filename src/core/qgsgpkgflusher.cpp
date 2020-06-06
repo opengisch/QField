@@ -53,7 +53,7 @@ QgsGpkgFlusher::~QgsGpkgFlusher()
   mFlusherThread.wait();
 }
 
-void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
+void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *>& layers )
 {
   for ( QgsMapLayer *layer : layers )
   {
@@ -66,9 +66,10 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> layers )
       if ( dataSourceUri.contains( QStringLiteral( ".sqlite" ), Qt::CaseInsensitive ) )
       {
         //sqlite source
-        QRegExp rx( ".*dbname='([^']*).*" );
-        rx.indexIn( dataSourceUri );
-        filePath = rx.capturedTexts()[1];
+        QRegularExpression re( ".*dbname='(?<filepath>[^']*).*" );
+        QRegularExpressionMatch match = re.match( dataSourceUri );
+        if ( match.hasMatch() )
+          filePath = match.captured( QStringLiteral( "filepath" ) );
       }
       else if ( dataSourceUri.contains( QStringLiteral( ".gpkg" ), Qt::CaseInsensitive ) )
       {

@@ -25,8 +25,6 @@
 
 LinePolygonHighlight::LinePolygonHighlight( QQuickItem *parent )
   : QQuickItem( parent )
-  , mDirty( false )
-  , mMapSettings( nullptr )
 {
   setFlags( QQuickItem::ItemHasContents );
   setAntialiasing( true );
