@@ -148,9 +148,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     QList<QPair<QString, QString>> projects;
     QString path = mPlatformUtils.packagePath();
     path.chop( 6 ); // remove /share/ from the path
-    projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
+    projects << qMakePair( tr( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
+             << qMakePair( tr( "Advanced Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
+             << qMakePair( tr( "Live QField Users Survey Demo" ), path  + QStringLiteral( "/resources/demo_projects/live_qfield_users_survey.qgs" ) );
     saveRecentProjects( projects );
   }
 
