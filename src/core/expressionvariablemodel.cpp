@@ -112,15 +112,27 @@ bool ExpressionVariableModel::isEditable( int row )
 void ExpressionVariableModel::setName( int row, const QString &name )
 {
   QStandardItem *rowItem = item( row );
-  if ( rowItem )
-    rowItem->setData( name, VariableName );
+
+  if ( ! rowItem )
+    return;
+
+  if ( rowItem->data( VariableName ).toString() == name )
+    return;
+
+  rowItem->setData( name, VariableName );
 }
 
 void ExpressionVariableModel::setValue( int row, const QString &value )
 {
   QStandardItem *rowItem = item( row );
-  if ( rowItem )
-    rowItem->setData( value, VariableValue );
+
+  if ( ! rowItem )
+    return;
+
+  if ( rowItem->data( VariableValue ).toString() == value )
+    return;
+
+  rowItem->setData( value, VariableValue );
 }
 
 QHash<int, QByteArray> ExpressionVariableModel::roleNames() const

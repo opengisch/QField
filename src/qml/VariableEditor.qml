@@ -6,6 +6,15 @@ import org.qfield 1.0
 import Theme 1.0
 
 ColumnLayout {
+    function reset() {
+        Qt.inputMethod.hide()
+        table.model.reloadVariables()
+    }
+
+    function apply() {
+        table.model.save()
+    }
+
     anchors.fill: parent
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -28,15 +37,6 @@ ColumnLayout {
 
             anchors.fill: parent
             anchors.margins: 3
-
-            function reset() {
-                Qt.inputMethod.hide()
-                table.model.reloadVariables()
-            }
-
-            function apply() {
-                table.model.save()
-            }
 
             delegate: Rectangle {
                 property var itemRow: index

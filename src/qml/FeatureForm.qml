@@ -95,7 +95,7 @@ Page {
         }
 
         Repeater {
-          model: form.model && form.model.hasTabs ? form.model : 0
+          model: form.model.hasTabs ? form.model : 0
 
           TabButton {
             id: tabButton
@@ -190,7 +190,9 @@ Page {
             model: SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model && form.model.hasTabs ? form.model.index(currentIndex, 0) : null
+              rootIndex: form.model.hasTabs
+                         ? form.model.index(currentIndex, 0)
+                         : form.model.index(0, 0)
             }
 
             delegate: fieldItem
