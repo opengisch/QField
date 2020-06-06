@@ -227,6 +227,8 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
     return false;
   }
 
+  beginResetModel();
+
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
   QList<QgsVectorLayer *> childLayersEdited;
@@ -307,6 +309,12 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
     if ( ! layer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
   }
+
+  //delete parent
+  layer->startEditing();
+  layer->deleteFeature( fid );
+  layer->commitChanges();
+  endResetModel();
 
   return isSuccess;
 }

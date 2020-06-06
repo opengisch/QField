@@ -15,8 +15,8 @@ Page {
   property alias incrementalRendering: registry.incrementalRendering
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias nativeCamera: registry.nativeCamera
-  property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias autoSave: registry.autoSave
+  property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
 
   Settings {
     id: registry
@@ -26,8 +26,8 @@ Page {
     property bool incrementalRendering
     property bool numericalDigitizingInformation
     property bool nativeCamera
-    property bool mouseAsTouchScreen
     property bool autoSave
+    property bool mouseAsTouchScreen
   }
 
   ListModel {
@@ -61,14 +61,14 @@ Page {
           settingAlias: "nativeCamera"
       }
       ListElement {
-          title: QT_TR_NOOP( "Consider mouse as a touchscreen device" )
-          description: QT_TR_NOOP( "If disabled, the mouse will act as a stylus pen." )
-          settingAlias: "mouseAsTouchScreen"
-      }
-      ListElement {
           title: QT_TR_NOOP( "Fast editing mode" )
           description: QT_TR_NOOP( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
           settingAlias: "autoSave"
+      }
+      ListElement {
+          title: QT_TR_NOOP( "Consider mouse as a touchscreen device" )
+          description: QT_TR_NOOP( "If disabled, the mouse will act as a stylus pen." )
+          settingAlias: "mouseAsTouchScreen"
       }
   }
 
@@ -139,10 +139,10 @@ Page {
             Label {
               width: parent.width
               visible: !!description
-              padding: !!description ? 8: 0
+              padding: !!description ? 8 : 0
               topPadding: 0
               leftPadding: 22
-              text: description
+              text: description || ''
               font: Theme.tipFont
               color: Theme.gray
               wrapMode: Text.WordWrap
