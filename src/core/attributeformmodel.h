@@ -55,7 +55,7 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_ENUM( FeatureRoles )
 
-    AttributeFormModel( QObject *parent = nullptr );
+    explicit AttributeFormModel( QObject *parent = nullptr );
 
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );

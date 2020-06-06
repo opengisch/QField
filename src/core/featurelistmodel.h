@@ -57,7 +57,7 @@ public:
 
   Q_ENUM( FeatureListRoles )
 
-  FeatureListModel( QObject *parent = nullptr );
+  explicit FeatureListModel( QObject *parent = nullptr );
 
   virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
   virtual QModelIndex parent( const QModelIndex &child ) const override;
