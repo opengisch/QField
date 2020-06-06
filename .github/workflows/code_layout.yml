@@ -54,8 +54,8 @@ jobs:
       - name: Indentation Test
         run: ./scripts/spell_check/spell_test.sh
 
-  cppcheck_16_04:
-    runs-on: ubuntu-16.04
+  cppcheck-1_8:
+    runs-on: ubuntu-18.04 # cppcheck 1.8 shows some errors 1.9 does not show
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -66,8 +66,8 @@ jobs:
       - name: Run cppcheck test
         run: ./scripts/cppcheck.sh
 
-  cppcheck_18_04:
-    runs-on: ubuntu-18.04
+  cppcheck-1_9:
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
