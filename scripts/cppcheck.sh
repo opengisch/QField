@@ -30,6 +30,7 @@ cppcheck --library=qt.cfg --inline-suppr \
          -DSIP_OUT= \
          -DQ_FLAG= \
          -j $(nproc) \
+	 -isrc/qml \
          ${SCRIPT_DIR}/../src \
          >>${LOG_FILE} 2>&1 &
 
