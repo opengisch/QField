@@ -139,6 +139,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
+  // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 
   QSettings settings;
