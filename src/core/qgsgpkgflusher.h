@@ -46,7 +46,7 @@ class QgsGpkgFlusher : public QObject
     void requestFlush( const QString &filename );
 
   private slots:
-    void onLayersAdded(const QList<QgsMapLayer *> &layers );
+    void onLayersAdded( const QList<QgsMapLayer *> &layers );
 
   private:
     QgsProject *mProject = nullptr;

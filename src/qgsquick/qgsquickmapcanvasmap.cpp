@@ -173,8 +173,8 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
 void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow *window )
 {
-    if ( mWindow == window )
-        return;
+  if ( mWindow == window )
+    return;
 
   if ( mWindow )
     disconnect( mWindow, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );

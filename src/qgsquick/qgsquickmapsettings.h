@@ -76,7 +76,7 @@ class QgsQuickMapSettings : public QObject
 
     /**
      * The background color used to render the map
-     * 
+     *
      * The value is set to the project's bacckground color setting on QgsProject::readProject
      */
     Q_PROPERTY( QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged )

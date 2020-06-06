@@ -29,7 +29,7 @@
 #include <QMimeDatabase>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
-    : mActivity( QtAndroid::androidActivity() )
+  : mActivity( QtAndroid::androidActivity() )
 {
 }
 

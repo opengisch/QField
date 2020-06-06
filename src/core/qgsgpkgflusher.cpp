@@ -53,7 +53,7 @@ QgsGpkgFlusher::~QgsGpkgFlusher()
   mFlusherThread.wait();
 }
 
-void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *>& layers )
+void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> &layers )
 {
   for ( QgsMapLayer *layer : layers )
   {

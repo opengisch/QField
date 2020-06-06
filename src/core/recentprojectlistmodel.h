@@ -33,16 +33,16 @@ class RecentProjectListModel : public QAbstractListModel
       RecentProject() = default;
 
       RecentProject( ProjectType type, const QString &title, const QString &path )
-          : type( type )
-          , title( title )
-          , path( path )
+        : type( type )
+        , title( title )
+        , path( path )
       {}
 
       ProjectType type = ProjectType::LocalProject;
       QString title;
       QString path;
     };
-    
+
     /*!
      * Roles to get the data of the model.
     */

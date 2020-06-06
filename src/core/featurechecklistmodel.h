@@ -23,63 +23,63 @@
 
 class FeatureCheckListModel : public FeatureListModel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  /**
-     * The attribute value to generate checklist
-     */
-  Q_PROPERTY( QVariant attributeValue READ attributeValue WRITE setAttributeValue NOTIFY attributeValueChanged )
+    /**
+       * The attribute value to generate checklist
+       */
+    Q_PROPERTY( QVariant attributeValue READ attributeValue WRITE setAttributeValue NOTIFY attributeValueChanged )
 
-  /**
-     * The attribute field to have information about type (JSON/HSTORE) etc.
-     */
-  Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
+    /**
+       * The attribute field to have information about type (JSON/HSTORE) etc.
+       */
+    Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
 
-public:
-  explicit FeatureCheckListModel( QObject *parent = nullptr );
+  public:
+    explicit FeatureCheckListModel( QObject *parent = nullptr );
 
-  enum FeatureListRoles
-  {
-    CheckedRole = Qt::UserRole + 100 // do not overlap with the roles of the base model
-  };
+    enum FeatureListRoles
+    {
+      CheckedRole = Qt::UserRole + 100 // do not overlap with the roles of the base model
+    };
 
-  virtual QVariant data( const QModelIndex &index, int role ) const override;
-  virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+    virtual QVariant data( const QModelIndex &index, int role ) const override;
+    virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
-  QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
-  /**
-     * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
-     */
-  QVariant attributeValue() const;
+    /**
+       * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
+       */
+    QVariant attributeValue() const;
 
-  /**
-     * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
-     */
-  void setAttributeValue( const QVariant &attributeValue );
+    /**
+       * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
+       */
+    void setAttributeValue( const QVariant &attributeValue );
 
-  /**
-     * the current attribute field
-     */
-  QgsField attributeField() const;
+    /**
+       * the current attribute field
+       */
+    QgsField attributeField() const;
 
-  /**
-     * the current attribute field
-     */
-  void setAttributeField( const QgsField &field );
+    /**
+       * the current attribute field
+       */
+    void setAttributeField( const QgsField &field );
 
-signals:
-  void attributeValueChanged();
-  void attributeFieldChanged();
-  void listUpdated();
+  signals:
+    void attributeValueChanged();
+    void attributeFieldChanged();
+    void listUpdated();
 
-private:
-  void setChecked( const QModelIndex &index );
-  void setUnchecked( const QModelIndex &index );
-  QVariant::Type fkType() const;
+  private:
+    void setChecked( const QModelIndex &index );
+    void setUnchecked( const QModelIndex &index );
+    QVariant::Type fkType() const;
 
-  QgsField mAttributeField;
-  QStringList mCheckedEntries;
+    QgsField mAttributeField;
+    QStringList mCheckedEntries;
 };
 
 #endif // FEATURECHECKLISTMODEL_H

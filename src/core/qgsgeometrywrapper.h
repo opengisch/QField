@@ -69,6 +69,6 @@ class QgsGeometryWrapper : public QObject
 
 
 
-Q_DECLARE_METATYPE( QgsGeometryWrapper* )
+Q_DECLARE_METATYPE( QgsGeometryWrapper * )
 
 #endif // QGSGEOMETRYWRAPPER_H

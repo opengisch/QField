@@ -115,10 +115,10 @@ QVariant ValueMapModel::keyForValue( const QString &value ) const
 {
   QVariant result;
 
-  auto match = std::find_if( mMap.begin(), mMap.end(), [&value](const QPair<QVariant, QString>& x) { return x.second == value; } );
+  auto match = std::find_if( mMap.begin(), mMap.end(), [&value]( const QPair<QVariant, QString> &x ) { return x.second == value; } );
 
   if ( match != mMap.end() )
-      result = match->first;
+    result = match->first;
 
   return result;
 }
