@@ -54,7 +54,7 @@ class RecentProjectListModel : public QAbstractListModel
     };
 
   public:
-    RecentProjectListModel( QObject *parent = nullptr );
+    explicit RecentProjectListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

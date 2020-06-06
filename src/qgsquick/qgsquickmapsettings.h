@@ -114,7 +114,7 @@ class QgsQuickMapSettings : public QObject
 
   public:
     //! Create new map settings
-    QgsQuickMapSettings( QObject *parent = nullptr );
+    explicit QgsQuickMapSettings( QObject *parent = nullptr );
     ~QgsQuickMapSettings() = default;
 
     //! Clone map settings

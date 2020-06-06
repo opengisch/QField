@@ -40,7 +40,7 @@ class QgsGeometryWrapper : public QObject
 
     QgsGeometryWrapper( const QgsGeometryWrapper &other )
       : QObject( other.parent() )
-      , mQgsGeometry( QgsGeometry( other.mQgsGeometry ) )
+      , mQgsGeometry( other.mQgsGeometry )
       , mCrs( QgsCoordinateReferenceSystem( other.mCrs ) )
     {}
 

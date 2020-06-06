@@ -321,6 +321,7 @@ void FeatureModel::applyGeometry()
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
   QList<QgsVectorLayer *> intersectionLayers;
+
   switch ( QgsProject::instance()->avoidIntersectionsMode() )
   {
     case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:

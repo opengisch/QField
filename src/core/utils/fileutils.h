@@ -24,7 +24,7 @@ class FileUtils : public QObject
     Q_OBJECT
 
   public:
-    FileUtils( QObject *parent = nullptr );
+    explicit FileUtils( QObject *parent = nullptr );
     //! Destructor
     ~FileUtils() = default;
 

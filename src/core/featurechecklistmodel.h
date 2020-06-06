@@ -36,7 +36,7 @@ class FeatureCheckListModel : public FeatureListModel
   Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
 
 public:
-  FeatureCheckListModel( QObject *parent = nullptr );
+  explicit FeatureCheckListModel( QObject *parent = nullptr );
 
   enum FeatureListRoles
   {

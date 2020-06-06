@@ -64,7 +64,7 @@ class QgsQuickUtils: public QObject
 
   public:
     //! Create new utilities
-    QgsQuickUtils( QObject *parent = nullptr );
+    explicit QgsQuickUtils( QObject *parent = nullptr );
     //! Destructor
     ~QgsQuickUtils() = default;
 

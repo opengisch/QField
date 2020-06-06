@@ -53,7 +53,7 @@ class ValueMapModel : public QAbstractListModel
     /**
      * Create a new value map model
      */
-    ValueMapModel( QObject *parent = nullptr );
+    explicit ValueMapModel( QObject *parent = nullptr );
 
     /**
      * The map, see the property description

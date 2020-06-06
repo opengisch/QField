@@ -44,7 +44,7 @@ class Rubberband : public QQuickItem
     Q_PROPERTY( qreal widthCurrentPoint READ widthCurrentPoint WRITE setWidthCurrentPoint NOTIFY widthCurrentPointChanged )
 
   public:
-    Rubberband( QQuickItem *parent = nullptr );
+    explicit Rubberband( QQuickItem *parent = nullptr );
 
     RubberbandModel *model() const;
     void setModel( RubberbandModel *model );

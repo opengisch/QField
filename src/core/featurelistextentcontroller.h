@@ -32,7 +32,7 @@ class FeatureListExtentController : public QObject
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    FeatureListExtentController( QObject *parent = nullptr );
+    explicit FeatureListExtentController( QObject *parent = nullptr );
     ~FeatureListExtentController();
 
     //! Returns the selection of the feature list model
