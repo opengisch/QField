@@ -98,7 +98,15 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libwmsprovider_${ANDROID_ABI}.so
   )
   FIND_PACKAGE(Qt5 COMPONENTS AndroidExtras REQUIRED)
+
+  INCLUDE(GetGitRevisionDescription)
+  GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
   CONFIGURE_FILE(cmake/version.properties.in android-build/version.properties @ONLY)
+  CONFIGURE_FILE(cmake/generated.xml.in android-build/res/values/generated.xml @ONLY)
+
+  #  INCLUDE(CreateZip)
+  #  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets.zip" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/resources/ ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/svg/" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/")
+  #  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets.zip")
 ENDIF (ANDROID)
 
 FIND_PACKAGE(Qt5 COMPONENTS Test Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors REQUIRED)
