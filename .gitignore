@@ -17,7 +17,6 @@ QField.pro.user.*
 android/gradle.properties
 android/local.properties
 android/res/values/generated.xml
-android/res/values/libs.xml
 android/res/values-*_*/strings.xml
 android/.idea
 android/.build
