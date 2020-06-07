@@ -95,7 +95,7 @@ else
     echo "Error: Please report issue to enable support for arch (${ARCH})."
     exit 1
 fi
-export STAGE_PATH=/home/osgeo4a/${ANDROIC_ARCH}
+export STAGE_PATH=/home/osgeo4a/${ANDROID_ARCH}
 
 export ANDROID_CMAKE_LINKER_FLAGS=""
 if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
