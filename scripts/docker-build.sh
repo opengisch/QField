@@ -112,6 +112,7 @@ cmake \
 	-DQGIS_ANALYSIS_LIBRARY=/home/osgeo4a/arm64-v8a/lib/libqgis_analysis_arm64-v8a.so \
 	-DQGIS_INCLUDE_DIR=/home/osgeo4a/arm64-v8a/include/qgis/ \
 	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/arm64-v8a/include/ \
+	-DOSGEO4A_STAGE_DIR:PATH=/home/osgeo4a/ \
 	-DANDROID_SDK=/opt/android-sdk/ \
 	-DANDROID_NDK=/opt/android-ndk/ \
 	-DANDROID_STL:STRING=c++_shared \
