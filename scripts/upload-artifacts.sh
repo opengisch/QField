@@ -9,7 +9,7 @@ set -e
 if [[ "${TRAVIS_SECURE_ENV_VARS}" = "true" ]];
 then
   echo -e "\e[31mAbout to upload build artifacts\e[0m"
-  sudo mv build-${ARCH}/out/build/outputs/apk/release/out-release-signed.apk /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
+  sudo mv build-${ARCH}/android-build//build/outputs/apk/release/android-build-release-signed.apk /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk
   openssl aes-256-cbc -K $encrypted_dev_upload_key -iv $encrypted_dev_upload_iv -in .ci/id_rsa.enc -out .ci/id_rsa -d
   chmod 400 .ci/id_rsa
   scp -i .ci/id_rsa -o "StrictHostKeyChecking no" /tmp/qfield-dev-${UPLOAD_ARTIFACT_ID}-${TRAVIS_COMMIT}-${ARCH}.apk ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST}:~/download.opengis.ch/qfield/ci-builds
