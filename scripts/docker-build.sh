@@ -38,7 +38,7 @@ fi
 [[ -z ${PKG_NAME} ]] && PKG_NAME="qfield"
 
 INSTALL_DIR=${BUILD_DIR}/out
-QT_ANDROID=${QT_ANDROID_BASE}/android_${ARCH}
+QT_ANDROID=${QT_ANDROID_BASE}/android
 
 echo "Package name ${PKG_NAME}"
 
@@ -81,22 +81,31 @@ ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
 
-export STAGE_PATH=/home/osgeo4a/arm64-v8a
-export QT_ANDROID=/opt/Qt/5.14.2/android
+export STAGE_PATH=/home/osgeo4a/${ARCH}
 export ANDROIDNDK=/opt/android-ndk
 export ANDROIDAPI=21
-export QT_ARCH_PREFIX=arm64
-export ARCH=arm64-v8a
+if [ "X${ARCH}" == "Xx86" ]; then
+    export QT_ARCH_PREFIX=x86
+elif [ "X${ARCH}" == "Xarmeabi-v7a" ]; then
+    export QT_ARCH_PREFIX=armv7
+elif [ "X${ARCH}" == "Xarm64-v8a" ]; then
+    export QT_ARCH_PREFIX=arm64 # watch out when changing this, openssl depends on it
+elif [ "X${ARCH}" == "Xx86_64" ]; then
+    export QT_ARCH_PREFIX=x86_64 # watch out when changing this, openssl depends on it
+else
+    echo "Error: Please report issue to enable support for arch (${ARCH})."
+    exit 1
+fi
 
 export ANDROID_CMAKE_LINKER_FLAGS=""
 if [ "X${ARCH}" == "Xarm64-v8a" ] || [ "X${ARCH}" == "Xx86_64" ]; then
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$STAGE_PATH/lib"
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$QT_ANDROID/lib"
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$QT_ARCH_PREFIX/usr/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/sources/cxx-stl/llvm-libc++/libs/$ARCH"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS -landroid -llog"
+#  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/sources/cxx-stl/llvm-libc++/libs/$ARCH"
   export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
 fi
+ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS -landroid -llog"
 
 cmake \
 	-G Ninja \
@@ -104,14 +113,14 @@ cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \
 	-DANDROID_DEPLOY_QT=/opt/Qt/5.14.2/android/bin/androiddeployqt \
-	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;/opt/Qt/5.14.2/android/\;/home/osgeo4a/arm64-v8a \
+	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;/opt/Qt/5.14.2/android/\;/home/osgeo4a/${ARCH} \
 	-DANDROID_LINKER_FLAGS="${ANDROID_CMAKE_LINKER_FLAGS}" \
-	-DANDROID_ABI=arm64-v8a \
-	-DANDROID_BUILD_ABI_arm64-v8a=ON \
-	-DQGIS_CORE_LIBRARY=/home/osgeo4a/arm64-v8a/lib/libqgis_core_arm64-v8a.so \
-	-DQGIS_ANALYSIS_LIBRARY=/home/osgeo4a/arm64-v8a/lib/libqgis_analysis_arm64-v8a.so \
-	-DQGIS_INCLUDE_DIR=/home/osgeo4a/arm64-v8a/include/qgis/ \
-	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/arm64-v8a/include/ \
+	-DANDROID_ABI=${ARCH} \
+	-DANDROID_BUILD_ABI_${ARCH}=ON \
+	-DQGIS_CORE_LIBRARY=/home/osgeo4a/${ARCH}/lib/libqgis_core_${ARCH}.so \
+	-DQGIS_ANALYSIS_LIBRARY=/home/osgeo4a/${ARCH}/lib/libqgis_analysis_${ARCH}.so \
+	-DQGIS_INCLUDE_DIR=/home/osgeo4a/${ARCH}/include/qgis/ \
+	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/${ARCH}/include/ \
 	-DOSGEO4A_STAGE_DIR:PATH=/home/osgeo4a/ \
 	-DANDROID_SDK=/opt/android-sdk/ \
 	-DANDROID_NDK=/opt/android-ndk/ \
