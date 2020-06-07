@@ -179,6 +179,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 void QgisMobileapp::initDeclarative()
 {
+
+#if defined(Q_OS_ANDROID) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+  QResource::registerResource(QStringLiteral("assets:/android_rcc_bundle.rcc"));
+#endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
   // Register QGIS QML types
