@@ -23,7 +23,7 @@ if [[ -z $APP_VERSION ]] && [[ -z $APP_VERSION_CODE ]]; then
   exit 2
 fi
 
-apt update && apt install -y zip bc cmake ninja-build
+apt update && apt install -y zip bc cmake ninja-build jq
 
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
@@ -134,20 +134,25 @@ cmake \
 
 ninja
 
+# Patch the input file for androiddeployqt with the build tools revision
+# See https://forum.qt.io/topic/112578/unable-to-sign-android-app-wrong-path-for-zipalign
+# Temporary workaround (fingers crossed)
+cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"28.0.3\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
+
 if [ -n "${KEYNAME}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
       --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
       --storepass "${STOREPASS}" \
       --keypass "${KEYPASS}" \
-      --input ${BUILD_DIR}/android_deployment_settings.json \
-      --output ${BUILD_DIR}/android-build
+      --input ${BUILD_DIR}/android_deployment_settings_patched.json \
+      --output ${BUILD_DIR}/android-build \
       --deployment bundled \
       --android-platform ${ANDROID_NDK_PLATFORM} \
       --gradle
 else
     ${QT_ANDROID}/bin/androiddeployqt \
-      --input ${BUILD_DIR}/android_deployment_settings.json \
-      --output ${BUILD_DIR}/android-build
+      --input ${BUILD_DIR}/android_deployment_settings_patched.json \
+      --output ${BUILD_DIR}/android-build \
       --deployment bundled \
       --android-platform ${ANDROID_NDK_PLATFORM} \
       --gradle
