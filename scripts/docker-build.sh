@@ -134,21 +134,24 @@ cmake \
 
 ninja
 
-
-export ANDROIDDEPLOYQT="${QT_ANDROID}/bin/androiddeployqt
-      --input ${BUILD_DIR}/android_deployment_settings.json
-      --output ${BUILD_DIR}/android-build
-      --deployment bundled
-      --android-platform ${ANDROID_NDK_PLATFORM}
-      --gradle"
 if [ -n "${KEYNAME}" ]; then
-      ANDROIDDEPLOYQT="${ANDROIDDEPLOYQT}
-      --release
-      --sign ${SOURCE_DIR}/keystore.p12 \"${KEYNAME}\"
-      --storepass \"${STOREPASS}\"
-      --keypass \"${KEYPASS}\"
-      --verbose"
+    ${QT_ANDROID}/bin/androiddeployqt \
+      --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
+      --storepass "${STOREPASS}" \
+      --keypass "${KEYPASS}" \
+      --input ${BUILD_DIR}/android_deployment_settings.json \
+      --output ${BUILD_DIR}/android-build
+      --deployment bundled \
+      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --gradle
+else
+    ${QT_ANDROID}/bin/androiddeployqt \
+      --input ${BUILD_DIR}/android_deployment_settings.json \
+      --output ${BUILD_DIR}/android-build
+      --deployment bundled \
+      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --gradle
 fi
-${ANDROIDDEPLOYQT}
+
 chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
 popd
