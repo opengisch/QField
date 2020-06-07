@@ -146,7 +146,8 @@ if [ -n "${KEYNAME}" ]; then
       --release
       --sign ${SOURCE_DIR}/keystore.p12 \"${KEYNAME}\"
       --storepass \"${STOREPASS}\"
-      --keypass \"${KEYPASS}\""
+      --keypass \"${KEYPASS}\"
+      --verbose"
 fi
 ${ANDROIDDEPLOYQT}
 chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
