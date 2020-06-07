@@ -104,9 +104,10 @@ IF (ANDROID)
   CONFIGURE_FILE(cmake/version.properties.in android-build/version.properties @ONLY)
   CONFIGURE_FILE(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
 
-  #  INCLUDE(CreateZip)
-  #  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets.zip" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/resources/ ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/svg/" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/")
-  #  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets.zip")
+  INCLUDE(CreateZip)
+  file(GLOB ZIP_FILES "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/* ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*")
+  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${ZIP_FILES}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
+  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
 ENDIF (ANDROID)
 
 FIND_PACKAGE(Qt5 COMPONENTS Test Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors REQUIRED)
