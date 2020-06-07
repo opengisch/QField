@@ -103,6 +103,7 @@ IF (ANDROID)
   GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
   CONFIGURE_FILE(cmake/version.properties.in android-build/version.properties @ONLY)
   CONFIGURE_FILE(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
+  CONFIGURE_FILE(cmake/libs.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/libs.xml @ONLY)
 
   INCLUDE(CreateZip)
   file(GLOB ZIP_FILES "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/* ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*")

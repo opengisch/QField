@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <array name="qt_sources">
+        <item>https://download.qt-project.org/ministro/android/qt5/qt-5.14</item>
+    </array>
+
+    <array name="bundled_libs">
+      <item>@ANDROID_ABI@;expat</item>
+      <item>@ANDROID_ABI@;geos</item>
+      <item>@ANDROID_ABI@;geos_c</item>
+      <item>@ANDROID_ABI@;gslcblas</item>
+      <item>@ANDROID_ABI@;sqlite3</item>
+      <item>@ANDROID_ABI@;charset</item>
+      <item>@ANDROID_ABI@;iconv</item>
+      <item>@ANDROID_ABI@;freexl</item>
+      <item>@ANDROID_ABI@;tiff</item>
+      <item>@ANDROID_ABI@;gdal</item>
+      <item>@ANDROID_ABI@;proj</item>
+      <item>@ANDROID_ABI@;spatialindex</item>
+      <item>@ANDROID_ABI@;pq</item>
+      <item>@ANDROID_ABI@;spatialite</item>
+      <item>@ANDROID_ABI@;qca-qt5</item>
+      <item>@ANDROID_ABI@;qgis_core</item>
+      <item>@ANDROID_ABI@;zip</item>
+    </array>
+
+    <!-- The following is handled automatically by the deployment tool. It should
+         not be edited manually. -->
+
+     <array name="qt_libs">
+        <!-- %%INSERT_QT_LIBS%% -->
+        <item>@ANDROID_ABI@;Qt5Sql_@ANDROID_ABI@</item>
+        <item>@ANDROID_ABI@;Qt5Svg_@ANDROID_ABI@</item>
+        <item>@ANDROID_ABI@;Qt5Sensors_@ANDROID_ABI@</item>
+        <item>@ANDROID_ABI@;Qt5Positioning_@ANDROID_ABI@</item>
+        <item>@ANDROID_ABI@;Qt5OpenGL_@ANDROID_ABI@</item>
+     </array>
+
+    <array name="bundled_in_lib">
+        <!-- %%INSERT_BUNDLED_IN_LIB%% -->
+    </array>
+    <array name="bundled_in_assets">
+        <!-- %%INSERT_BUNDLED_IN_ASSETS%% -->
+    </array>
+
+</resources>
