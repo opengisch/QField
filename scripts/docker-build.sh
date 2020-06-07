@@ -23,7 +23,7 @@ if [[ -z $APP_VERSION ]] && [[ -z $APP_VERSION_CODE ]]; then
   exit 2
 fi
 
-apt update && apt install -y zip bc
+apt update && apt install -y zip bc cmake ninja-build
 
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
@@ -80,24 +80,60 @@ mkdir -p ${BUILD_DIR}/.gradle
 ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
 
 pushd ${BUILD_DIR}
-cp ${SOURCE_DIR}/scripts/ci/config.pri ${SOURCE_DIR}/config.pri
-${QT_ANDROID}/bin/qmake ${SOURCE_DIR}/QField.pro "APP_NAME=${APP_NAME}"
-make
-make install INSTALL_ROOT=${INSTALL_DIR}
+
+export STAGE_PATH=/home/osgeo4a/arm64-v8a
+export QT_ANDROID=/opt/Qt/5.14.2/android
+export ANDROIDNDK=/opt/android-ndk
+export ANDROIDAPI=21
+export QT_ARCH_PREFIX=arm64
+export ARCH=arm64-v8a
+
+export ANDROID_CMAKE_LINKER_FLAGS=""
+if [ "X${ARCH}" == "Xarm64-v8a" ] || [ "X${ARCH}" == "Xx86_64" ]; then
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$STAGE_PATH/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$QT_ANDROID/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$QT_ARCH_PREFIX/usr/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/sources/cxx-stl/llvm-libc++/libs/$ARCH"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS -landroid -llog"
+  export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
+fi
+
+cmake \
+	-G Ninja \
+	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
+	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
+	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \
+	-DANDROID_DEPLOY_QT=/opt/Qt/5.14.2/android/bin/androiddeployqt \
+	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;/opt/Qt/5.14.2/android/\;/home/osgeo4a/arm64-v8a \
+	-DANDROID_LINKER_FLAGS="${ANDROID_CMAKE_LINKER_FLAGS}" \
+	-DANDROID_ABI=arm64-v8a \
+	-DANDROID_BUILD_ABI_arm64-v8a=ON \
+	-DQGIS_CORE_LIBRARY=/home/osgeo4a/arm64-v8a/lib/libqgis_core_arm64-v8a.so \
+	-DQGIS_ANALYSIS_LIBRARY=/home/osgeo4a/arm64-v8a/lib/libqgis_analysis_arm64-v8a.so \
+	-DQGIS_INCLUDE_DIR=/home/osgeo4a/arm64-v8a/include/qgis/ \
+	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/arm64-v8a/include/ \
+	-DANDROID_SDK=/opt/android-sdk/ \
+	-DANDROID_NDK=/opt/android-ndk/ \
+	-DANDROID_STL:STRING=c++_shared \
+	ANDROID_NATIVE_API_LEVEL=21 \
+	..
+
+ninja
+
 if [ -n "${KEYNAME}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
       --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
       --storepass "${STOREPASS}" \
       --keypass "${KEYPASS}" \
-      --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
+      --input ${BUILD_DIR}/android_deployment_settings.json \
       --output ${INSTALL_DIR} \
       --deployment bundled \
       --android-platform ${ANDROID_NDK_PLATFORM} \
       --gradle
 else
     ${QT_ANDROID}/bin/androiddeployqt \
-      --input ${BUILD_DIR}/src/app/android-libqfield.so-deployment-settings.json \
-      --output ${INSTALL_DIR} \
+      --input ${BUILD_DIR}/android_deployment_settings.json \
+      --output ${BUILD_DIR}/android-build \
       --deployment bundled \
       --android-platform ${ANDROID_NDK_PLATFORM} \
       --gradle
