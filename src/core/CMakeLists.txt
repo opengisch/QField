@@ -152,6 +152,11 @@ TARGET_LINK_LIBRARIES(qfield_core
   Qt5::PrintSupport
   Qt5::Network
   Qt5::Quick
+  Qt5::Svg
+  Qt5::OpenGL
+  Qt5::Sensors
+  Qt5::Positioning
+  Qt5::Sql
   ${QGIS_CORE_LIBRARY}
   ${QGIS_ANALYSIS_LIBRARY}
 )
