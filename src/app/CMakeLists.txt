@@ -6,6 +6,9 @@ IF (ANDROID)
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
   )
+#  ADD_DEPENDENCIES(qfield
+#    assets
+#  )
 ELSE ()
   ADD_EXECUTABLE(qfield
     main.cpp
