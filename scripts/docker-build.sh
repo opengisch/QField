@@ -87,10 +87,10 @@ if [ "X${ARCH}" == "Xx86" ]; then
     export ANDROID_ARCH=x86
 elif [ "X${ARCH}" == "Xarmv7" ]; then
     export ANDROID_ARCH=armeabi-v7a
-elif [ "X${ARCH}" == "Xarm64" ]; then
-    export ANDROID_ARCH=arm64-v8a # watch out when changing this, openssl depends on it
+elif [ "X${ARCH}" == "Xarm64_v8a" ]; then
+    export ANDROID_ARCH=arm64-v8a
 elif [ "X${ARCH}" == "Xx86_64" ]; then
-    export ANDROID_ARCH=x86_64 # watch out when changing this, openssl depends on it
+    export ANDROID_ARCH=x86_64
 else
     echo "Error: Please report issue to enable support for arch (${ARCH})."
     exit 1
