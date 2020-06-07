@@ -106,8 +106,8 @@ IF (ANDROID)
   CONFIGURE_FILE(cmake/libs.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/libs.xml @ONLY)
 
   INCLUDE(CreateZip)
-  file(GLOB ZIP_FILES "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/* ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*")
-  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${ZIP_FILES}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
+  SET(asset_files ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/ ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/)
+  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${asset_files}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
   ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
 ENDIF (ANDROID)
 
