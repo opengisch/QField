@@ -24,7 +24,7 @@ class QgsLayerTree;
 class LegendImageProvider : public QQuickImageProvider
 {
   public:
-    LegendImageProvider( QgsLayerTreeModel *layerTreeRoot );
+    explicit LegendImageProvider( QgsLayerTreeModel *layerTreeModel );
 
     QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize );
 

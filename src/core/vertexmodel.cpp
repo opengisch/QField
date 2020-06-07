@@ -184,7 +184,7 @@ void VertexModel::createCandidates()
     if ( r == 0 && mGeometryType == QgsWkbTypes::LineGeometry )
     {
       // last point is an existing vertex, the next one is a candidate (created just before)
-      QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( r + 1 ).point - mVertices.at( r ).point ) / 2;
+      QgsPoint extendingPoint = mVertices.at( r ).point - ( mVertices.at( 1 ).point - mVertices.at( r ).point ) / 2;
 
       Vertex newVertex;
       newVertex.point = extendingPoint;
@@ -456,7 +456,7 @@ void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold
 void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold )
 {
   double closestDistance = std::numeric_limits<double>::max();
-  Vertex closestVertex;
+
   int closestRow = -1;
 
   for ( int r = 0; r < mVertices.count(); r++ )

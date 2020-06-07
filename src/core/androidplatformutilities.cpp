@@ -29,8 +29,8 @@
 #include <QMimeDatabase>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
+  : mActivity( QtAndroid::androidActivity() )
 {
-  mActivity = QtAndroid::androidActivity();
 }
 
 QString AndroidPlatformUtilities::configDir() const
@@ -73,8 +73,6 @@ QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroid
 
 QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
-  QAndroidJniObject activity = QtAndroid::androidActivity();
-
   if ( mActivity.isValid() )
   {
     QAndroidJniObject intent = mActivity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
@@ -128,8 +126,7 @@ PictureSource *AndroidPlatformUtilities::getCameraPicture( const QString &prefix
                            suffix_label.object<jstring>(),
                            suffix_value.object<jstring>() );
 
-  AndroidPictureSource *pictureSource = nullptr;
-  pictureSource = new AndroidPictureSource( prefix );
+  AndroidPictureSource *pictureSource = new AndroidPictureSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
@@ -160,8 +157,7 @@ PictureSource *AndroidPlatformUtilities::getGalleryPicture( const QString &prefi
                            prefix_label.object<jstring>(),
                            prefix_value.object<jstring>() );
 
-  AndroidPictureSource *pictureSource = nullptr;
-  pictureSource = new AndroidPictureSource( prefix );
+  AndroidPictureSource *pictureSource = new AndroidPictureSource( prefix );
 
   QtAndroid::startActivity( intent.object<jobject>(), 171, pictureSource );
 
@@ -187,8 +183,7 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &uri )
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filepath_label.object<jstring>(), filepath.object<jstring>() );
   intent.callObjectMethod( "putExtra", "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;", filetype_label.object<jstring>(), filetype.object<jstring>() );
 
-  AndroidViewStatus *viewStatus = nullptr;
-  viewStatus = new AndroidViewStatus();
+  AndroidViewStatus *viewStatus = new AndroidViewStatus();
   QtAndroid::startActivity( intent.object<jobject>(), 102, viewStatus );
 
   return viewStatus;

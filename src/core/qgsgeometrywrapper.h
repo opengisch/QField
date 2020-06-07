@@ -38,15 +38,9 @@ class QgsGeometryWrapper : public QObject
       : QObject( parent )
     {}
 
-    QgsGeometryWrapper( const QgsGeometryWrapper &other )
-      : QObject( other.parent() )
-      , mQgsGeometry( QgsGeometry( other.mQgsGeometry ) )
-      , mCrs( QgsCoordinateReferenceSystem( other.mCrs ) )
-    {}
-
-    QgsGeometryWrapper( QgsGeometry geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
+    QgsGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
       : QObject( parent )
-      , mQgsGeometry( QgsGeometry( geometry ) )
+      , mQgsGeometry( geometry )
       , mCrs( crs )
     {}
 
@@ -75,6 +69,6 @@ class QgsGeometryWrapper : public QObject
 
 
 
-Q_DECLARE_METATYPE( QgsGeometryWrapper )
+Q_DECLARE_METATYPE( QgsGeometryWrapper * )
 
 #endif // QGSGEOMETRYWRAPPER_H

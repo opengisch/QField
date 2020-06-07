@@ -33,7 +33,7 @@ class SnappingUtils : public QgsSnappingUtils
     Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
 
   public:
-    SnappingUtils( QObject *parent = nullptr );
+    explicit SnappingUtils( QObject *parent = nullptr );
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *settings );

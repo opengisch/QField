@@ -123,14 +123,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Bold.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-BoldItalic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Condensed.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Italic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Regular.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/Cadastra-Semibolditalic.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Mask.ttf");
-  QFontDatabase::addApplicationFont(":/fonts/CadastraSymbol-Regular.ttf");
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-BoldItalic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Condensed.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Italic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Regular.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
+  QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
 
 
   mProject = QgsProject::instance();
@@ -139,6 +139,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
+  // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 
   QSettings settings;
@@ -455,7 +456,7 @@ void QgisMobileapp::reloadProjectFile( const QString &path )
     if ( id < 0 )
       QgsMessageLog::logMessage( tr( "Could not load font %1" ).arg( fontFile ) );
     else
-      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ));
+      QgsMessageLog::logMessage( tr( "Loading font %1" ).arg( fontFile ) );
   }
 
   loadProjectQuirks();

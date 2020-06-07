@@ -68,12 +68,12 @@ VertexModel *Rubberband::vertexModel() const
   return mVertexModel;
 }
 
-void Rubberband::setVertexModel( VertexModel *model )
+void Rubberband::setVertexModel( VertexModel *vertexModel )
 {
-  if ( model )
+  if ( vertexModel )
     setModel( nullptr );
 
-  if ( mVertexModel == model )
+  if ( mVertexModel == vertexModel )
     return;
 
   if ( mVertexModel )
@@ -83,7 +83,7 @@ void Rubberband::setVertexModel( VertexModel *model )
     disconnect( mVertexModel, &VertexModel::geometryChanged, this, &Rubberband::markDirty );
   }
 
-  mVertexModel = model;
+  mVertexModel = vertexModel;
 
   if ( mVertexModel )
   {

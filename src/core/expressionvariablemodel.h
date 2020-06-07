@@ -29,7 +29,7 @@ class ExpressionVariableModel : public QStandardItemModel
       VariableValue
     };
 
-    ExpressionVariableModel( QObject *parent = nullptr );
+    explicit ExpressionVariableModel( QObject *parent = nullptr );
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 

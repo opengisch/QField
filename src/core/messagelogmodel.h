@@ -56,7 +56,7 @@ class MessageLogModel : public QAbstractListModel
     };
 
   public:
-    MessageLogModel( QObject *parent = nullptr );
+    explicit MessageLogModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

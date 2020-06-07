@@ -87,8 +87,8 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 
   if ( mCurrentLayer )
   {
-    disconnect( currentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
-    disconnect( currentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+    disconnect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    disconnect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
   }
 
   mCurrentLayer = currentLayer;
@@ -208,7 +208,8 @@ void FeatureListModel::processReloadLayer()
 
   if ( mOrderByValue )
   {
-	  std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
+    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
+    {
       if ( entry1.key.isNull() )
         return true;
 

@@ -97,12 +97,12 @@ QHash<int, QByteArray> ValueMapModel::roleNames() const
   return roles;
 }
 
-int ValueMapModel::keyToIndex( const QVariant &value ) const
+int ValueMapModel::keyToIndex( const QVariant &key ) const
 {
   int i = 0;
   for ( const auto &item : mMap )
   {
-    if ( item.first.toString() == value.toString() )
+    if ( item.first.toString() == key.toString() )
     {
       return i;
     }
@@ -114,10 +114,11 @@ int ValueMapModel::keyToIndex( const QVariant &value ) const
 QVariant ValueMapModel::keyForValue( const QString &value ) const
 {
   QVariant result;
-  for ( const auto &item : mMap )
-  {
-    if ( item.second == value )
-      result = item.first;
-  }
+
+  auto match = std::find_if( mMap.begin(), mMap.end(), [&value]( const QPair<QVariant, QString> &x ) { return x.second == value; } );
+
+  if ( match != mMap.end() )
+    result = match->first;
+
   return result;
 }

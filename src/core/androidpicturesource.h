@@ -28,10 +28,10 @@ class AndroidPictureSource : public PictureSource, public QAndroidActivityResult
   public:
     /**
      * Construct a new Android Picture Source object
-     * 
+     *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    AndroidPictureSource( const QString &prefix );
+    explicit AndroidPictureSource( const QString &prefix );
 
     //! QAndroidActivityResultReceiver
     void handleActivityResult( int receiverRequestCode, int resultCode, const QAndroidJniObject &data ) override;

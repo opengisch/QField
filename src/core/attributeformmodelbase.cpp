@@ -26,9 +26,6 @@
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
-  , mFeatureModel( nullptr )
-  , mLayer( nullptr )
-  , mTemporaryContainer( nullptr )
 {
 }
 
@@ -251,17 +248,17 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       case QgsAttributeEditorElement::AeTypeContainer:
       {
         QString visibilityExpression = parentVisibilityExpressions;
-        QgsAttributeEditorContainer *container = static_cast<QgsAttributeEditorContainer *>( element );
-        if ( container->visibilityExpression().enabled() )
+        QgsAttributeEditorContainer *innerContainer = static_cast<QgsAttributeEditorContainer *>( element );
+        if ( innerContainer->visibilityExpression().enabled() )
         {
           if ( visibilityExpression.isNull() )
-            visibilityExpression = container->visibilityExpression().data().expression();
+            visibilityExpression = innerContainer->visibilityExpression().data().expression();
           else
-            visibilityExpression += " AND " + container->visibilityExpression().data().expression();
+            visibilityExpression += " AND " + innerContainer->visibilityExpression().data().expression();
         }
 
         QVector<QStandardItem *> newItems;
-        flatten( container, parent, visibilityExpression, newItems );
+        flatten( innerContainer, parent, visibilityExpression, newItems );
         if ( !visibilityExpression.isEmpty() )
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), newItems ) );
         break;
@@ -455,30 +452,30 @@ void AttributeFormModelBase::setConstraintsSoftValid( bool constraintsSoftValid 
   emit constraintsSoftValidChanged();
 }
 
-QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
+QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
 {
   QgsFields fields = mLayer->fields();
 
   //make the default one
   QgsEditorWidgetSetup setup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 
-  if ( index >= 0 && index < fields.count() )
+  if ( fieldIndex >= 0 && fieldIndex < fields.count() )
   {
     //when field has a configured setup, take it
-    setup = mLayer->editorWidgetSetup( index );
+    setup = mLayer->editorWidgetSetup( fieldIndex );
     if ( !setup.isNull() )
       return setup;
 
     //when it's a provider field with default value clause, take Textedit
-    if ( fields.fieldOrigin( index ) == QgsFields::OriginProvider )
+    if ( fields.fieldOrigin( fieldIndex ) == QgsFields::OriginProvider )
     {
-      int providerOrigin = fields.fieldOriginIndex( index );
+      int providerOrigin = fields.fieldOriginIndex( fieldIndex );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
         return setup;
     }
 
     //find the best one
-    const QgsField field = fields.at( index );
+    const QgsField field = fields.at( fieldIndex );
     //on a boolean type take "CheckBox"
     if ( field.type() == QVariant::Bool )
       setup = QgsEditorWidgetSetup( QStringLiteral( "CheckBox" ), QVariantMap() );
@@ -496,7 +493,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int index )
     if ( field.type() == QVariant::Int || field.type() == QVariant::Double || field.isNumeric() )
       setup = QgsEditorWidgetSetup( QStringLiteral( "Range" ), QVariantMap() );
     //if it's a foreign key configured in a relation take "RelationReference"
-    if ( !mLayer->referencingRelations( index ).isEmpty() )
+    if ( !mLayer->referencingRelations( fieldIndex ).isEmpty() )
       setup = QgsEditorWidgetSetup( QStringLiteral( "RelationReference" ), QVariantMap() );
   }
 

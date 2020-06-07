@@ -30,21 +30,19 @@ class RecentProjectListModel : public QAbstractListModel
 
     struct RecentProject
     {
-      RecentProject()
-      {}
+      RecentProject() = default;
 
       RecentProject( ProjectType type, const QString &title, const QString &path )
-      {
-        this->type = type;
-        this->title = title;
-        this->path = path;
-      }
+        : type( type )
+        , title( title )
+        , path( path )
+      {}
 
-      ProjectType type;
+      ProjectType type = ProjectType::LocalProject;
       QString title;
       QString path;
     };
-    
+
     /*!
      * Roles to get the data of the model.
     */
@@ -56,7 +54,7 @@ class RecentProjectListModel : public QAbstractListModel
     };
 
   public:
-    RecentProjectListModel( QObject *parent = nullptr );
+    explicit RecentProjectListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

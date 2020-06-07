@@ -173,12 +173,19 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
 void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow *window )
 {
-  disconnect( window, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );
+  if ( mWindow == window )
+    return;
+
+  if ( mWindow )
+    disconnect( mWindow, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );
+
   if ( window )
   {
     connect( window, &QQuickWindow::screenChanged, this, &QgsQuickMapCanvasMap::onScreenChanged );
     onScreenChanged( window->screen() );
   }
+
+  mWindow = window;
 }
 
 void QgsQuickMapCanvasMap::onScreenChanged( QScreen *screen )
@@ -273,12 +280,11 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     mDirty = false;
   }
 
-  QSGTexture *texture;
   QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
   if ( !node )
   {
     node = new QSGSimpleTextureNode();
-    texture = window()->createTextureFromImage( mImage );
+    QSGTexture *texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
     node->setOwnsTexture( true );
   }

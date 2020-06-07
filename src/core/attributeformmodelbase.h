@@ -35,7 +35,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
   public:
     explicit AttributeFormModelBase( QObject *parent = nullptr );
-    ~AttributeFormModelBase();
+    ~AttributeFormModelBase() override ;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -99,7 +99,7 @@ class AttributeFormModelBase : public QStandardItemModel
     FeatureModel *mFeatureModel = nullptr;
     QgsVectorLayer *mLayer = nullptr;
     QgsAttributeEditorContainer *mTemporaryContainer = nullptr;
-    bool mHasTabs;
+    bool mHasTabs = false;
 
     typedef QPair<QgsExpression, QVector<QStandardItem *> > VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;

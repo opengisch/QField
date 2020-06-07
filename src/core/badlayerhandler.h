@@ -34,7 +34,7 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
       LayerNameRole
     };
 
-    BadLayerHandler( QObject *parent = nullptr );
+    explicit BadLayerHandler( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

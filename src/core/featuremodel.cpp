@@ -52,10 +52,10 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 
   mLayer = layer;
 
-  connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
-
   if ( mLayer )
   {
+    connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
+
     //load remember values or create new entry
     if ( mRememberings.contains( mLayer ) )
     {
@@ -204,7 +204,6 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
       if ( success )
         emit dataChanged( index, index, QVector<int>() << role );
       return success;
-      break;
     }
 
     case RememberAttribute:
@@ -240,13 +239,13 @@ bool FeatureModel::save()
     mLayer->addTopologicalPoints( feat.geometry() );
   }
 
-  rv = commit();
+  rv &= commit();
 
   if ( rv )
   {
-    QgsFeature feat;
-    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
-      setFeature( feat );
+    QgsFeature modifiedFeature;
+    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
+      setFeature( modifiedFeature );
     else
       QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
   }
@@ -322,6 +321,7 @@ void FeatureModel::applyGeometry()
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
   QList<QgsVectorLayer *> intersectionLayers;
+
   switch ( QgsProject::instance()->avoidIntersectionsMode() )
   {
     case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
@@ -338,7 +338,7 @@ void FeatureModel::applyGeometry()
     geometry.avoidIntersections( intersectionLayers );
   }
 
-  mFeature.setGeometry( geometry  );
+  mFeature.setGeometry( geometry );
 }
 
 void FeatureModel::removeLayer( QObject *layer )
@@ -417,7 +417,7 @@ bool FeatureModel::deleteFeature()
     if ( referencingRelation.strength() == QgsRelation::Composition )
     {
       QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
-      
+
       if ( childLayer->startEditing() )
       {
         QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
@@ -438,7 +438,7 @@ bool FeatureModel::deleteFeature()
         break;
       }
 
-      if ( isSuccess ) 
+      if ( isSuccess )
         childLayersEdited.append( childLayer );
       else
         break;
@@ -481,7 +481,7 @@ bool FeatureModel::deleteFeature()
     else
     {
       QgsMessageLog::logMessage( tr( "Cannot delete feature %2 in layer %1" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Warning );
-  
+
       isSuccess = false;
     }
   }
@@ -619,7 +619,7 @@ void FeatureModel::applyVertexModelToLayerTopography()
     return;
 
   QgsPointLocator *loc = new QgsPointLocator( mLayer );
-  const QVector<QPair<QgsPoint,QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
+  const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   for ( const auto &point : pointsMoved )
   {
     MatchCollectingFilter filter;

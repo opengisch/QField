@@ -85,9 +85,9 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     sequence.append( p2 );
   }
 
-  if (closeLine && sequence.count() > 1)
+  if ( closeLine && sequence.count() > 1 )
   {
-    sequence.append(sequence.at(0));
+    sequence.append( sequence.at( 0 ) );
   }
 
   return sequence;
@@ -188,7 +188,7 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   // play safe, but try to find out
   // Q_ASSERT( mPointList.count() != 0 );
-  if (mPointList.count() == 0)
+  if ( mPointList.count() == 0 )
     return;
 
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
@@ -217,11 +217,11 @@ double RubberbandModel::measureValue() const
   return QgsWkbTypes::hasM( mPointList.at( mCurrentCoordinateIndex ).wkbType() ) ? mPointList.at( mCurrentCoordinateIndex ).m() : 0;
 }
 
-void RubberbandModel::setMeasureValue(const double measureValue)
+void RubberbandModel::setMeasureValue( const double measureValue )
 {
   if ( mLayer && QgsWkbTypes::hasM( mLayer->wkbType() ) )
   {
-    if( !std::isnan(measureValue) )
+    if ( !std::isnan( measureValue ) )
     {
       double mValue = measureValue;
 
@@ -324,12 +324,12 @@ QgsVectorLayer *RubberbandModel::vectorLayer() const
   return mLayer;
 }
 
-void RubberbandModel::setVectorLayer( QgsVectorLayer *layer )
+void RubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
-  if ( layer == mLayer )
+  if ( vectorLayer == mLayer )
     return;
 
-  mLayer = layer;
+  mLayer = vectorLayer;
 
   if ( mLayer )
     setGeometryType( mLayer->geometryType() );
