@@ -85,12 +85,16 @@ export ANDROIDNDK=/opt/android-ndk
 export ANDROIDAPI=21
 if [ "X${ARCH}" == "Xx86" ]; then
     export ANDROID_ARCH=x86
+    export SHORTARCH=x86
 elif [ "X${ARCH}" == "Xarmv7" ]; then
     export ANDROID_ARCH=armeabi-v7a
+    export SHORTARCH=arm
 elif [ "X${ARCH}" == "Xarm64_v8a" ]; then
     export ANDROID_ARCH=arm64-v8a
+    export SHORTARCH=arm64
 elif [ "X${ARCH}" == "Xx86_64" ]; then
     export ANDROID_ARCH=x86_64
+    export SHORTARCH=x86_64
 else
     echo "Error: Please report issue to enable support for arch (${ARCH})."
     exit 1
@@ -101,7 +105,7 @@ export ANDROID_CMAKE_LINKER_FLAGS=""
 if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$STAGE_PATH/lib"
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$QT_ANDROID/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$ARCH/usr/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$SHORTARCH/usr/lib"
 #  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/sources/cxx-stl/llvm-libc++/libs/$ANDROID_ARCH"
   export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
 fi
