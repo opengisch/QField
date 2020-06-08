@@ -60,7 +60,10 @@ IF (ANDROID)
   SET (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
   SET (OSGEO4A_STAGE_DIR NONE CACHE DIRECTORY "OSGEO4A stage path (base path without architecture)")
   SET (OSGEO4A_LIB_DIR ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/lib)
-  SET(ANDROID_EXTRA_LIBS
+  FILE(GLOB ANDROID_EXTRA_LIBS
+    ${OSGEO4A_LIB_DIR}/*provider*.so
+  )
+  LIST(APPEND ANDROID_EXTRA_LIBS
     ${OSGEO4A_LIB_DIR}/libssl_1_1.so
     ${OSGEO4A_LIB_DIR}/libcrypto_1_1.so
     ${OSGEO4A_LIB_DIR}/libexpat.so
@@ -85,17 +88,6 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libqgis_native_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqt5keychain_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libzip.so
-    ${OSGEO4A_LIB_DIR}/libspatialiteprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libdelimitedtextprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libgpxprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libmssqlprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libowsprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libpostgresprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libspatialiteprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libvirtuallayerprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libwcsprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libwfsprovider_${ANDROID_ABI}.so
-    ${OSGEO4A_LIB_DIR}/libwmsprovider_${ANDROID_ABI}.so
   )
   FIND_PACKAGE(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
