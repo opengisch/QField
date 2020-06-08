@@ -157,6 +157,7 @@ TARGET_LINK_LIBRARIES(qfield_core
   Qt5::Sensors
   Qt5::Positioning
   Qt5::Sql
+  Qt5::Concurrent
   ${QGIS_CORE_LIBRARY}
   ${QGIS_ANALYSIS_LIBRARY}
 )
