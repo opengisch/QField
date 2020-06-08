@@ -57,17 +57,13 @@ if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
   sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
 fi
 
-# Replace the version number in version.pri with the one from the APP_VERSION which is being built (e.g. v1.2.3-rc4, v1.2.3)
+# Current APP_VERSION which is being built (e.g. v1.2.3-rc4, v1.2.3)
 if [[ -n ${APP_VERSION} ]];
 then
   echo "Building release version APP_VERSION: ${APP_VERSION}"
   APP_VERSION_CODE=$(app_version_code "${APP_VERSION}" "${ARCH}")
   echo "Generated version code APP_VERSION_CODE: ${APP_VERSION_CODE}"
 fi
-sed -i "s/^VERSIONCODE\s*= .*/VERSIONCODE = ${APP_VERSION_CODE}/" ${SOURCE_DIR}/version.pri
-sed -i "s/^VERSTR\s*= .*/VERSTR = '${APP_VERSION_STR:-${APP_VERSION_CODE}}'/" ${SOURCE_DIR}/version.pri
-echo "Showing content of version.pri with APP_VERSION_CODE and APP_VERSION_STR:"
-echo "$(cat ${SOURCE_DIR}/version.pri | grep -E '^VERS(IONCODE|TR)\s*=')"
 
 if [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   echo "*** ERROR TOO BIG VERSION CODE"
