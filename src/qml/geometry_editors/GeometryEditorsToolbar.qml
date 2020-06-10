@@ -14,8 +14,11 @@ And contains following functions:
   * function cancel()
 The following signal:
   * signal finished()
-It can also implement:
+It can optionally implement properties:
   * blocking (bool) which prevents from switching tools
+  * vertexRubberbandVisible (bool) to show the vertex rubberband (false by default)
+It can optionally implement properties which will be bind:
+  * screenHovering determines if a pen is currently hovering the screen
 It can optionally implement the functions:
   * canvasClicked(point)
   * canvasLongPressed(point)
@@ -112,6 +115,11 @@ VisibilityFadingRow {
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel)
         if (toolbarRow.item.screenHovering !== undefined)
           toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering
+        if (toolbarRow.item.vertexRubberbandVisible !== undefined)
+          vertexRubberband.isVisible = toolbarRow.item.vertexRubberbandVisible
+        else
+          vertexRubberband.isVisible = false
+
         toolbarRow.item.stateVisible = true
       displayToast(name)
     }

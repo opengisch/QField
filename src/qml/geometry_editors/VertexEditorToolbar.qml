@@ -14,6 +14,7 @@ VisibilityFadingRow {
   property FeatureModel featureModel
   property MapSettings mapSettings
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
+  property bool vertexRubberbandVisible: true
 
   readonly property bool blocking: featureModel.vertexModel.dirty
 
