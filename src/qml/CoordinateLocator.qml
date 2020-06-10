@@ -29,7 +29,13 @@ Item {
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
-  readonly property point displayPosition: !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
+  readonly property point displayPosition: {
+    // this property gets initially evaluated before the `currentCoordinate`
+    if ( ! currentCoordinate )
+      currentCoordinate = !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
+
+    return !!mapSettings.visibleExtent || true ? mapSettings.coordinateToScreen(currentCoordinate) : 0
+  }
 
   readonly property alias snappedCoordinate: snappingUtils.snappedCoordinate // In map coordinates, derived from snappinResult
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
