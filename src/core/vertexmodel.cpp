@@ -499,6 +499,9 @@ void VertexModel::removeCurrentVertex()
   if ( mVertices.at( mCurrentIndex ).type != ExistingVertex )
     return;
 
+  if ( !mVertices.at( mCurrentIndex ).originalPoint.isEmpty() )
+    mVerticesDeleted << mVertices.at( mCurrentIndex ).originalPoint;
+
   beginResetModel();
   mVertices.removeAt( mCurrentIndex );
   createCandidates();

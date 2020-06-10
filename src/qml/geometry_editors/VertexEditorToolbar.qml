@@ -92,6 +92,8 @@ VisibilityFadingRow {
     onClicked: {
       if (featureModel.vertexModel.canRemoveVertex){
         featureModel.vertexModel.removeCurrentVertex()
+        if (screenHovering)
+          featureModel.vertexModel.currentVertexIndex = -1
       }
       //on remove we have to apply directly after the action
       applyChanges( qfieldSettings.autoSave )

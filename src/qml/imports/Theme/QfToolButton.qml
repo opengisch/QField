@@ -45,11 +45,9 @@ Item {
 
             }
         }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: item.clicked()
-            onPressAndHold: item.pressAndHold()
-        }
+
+        onClicked: item.clicked()
+        onPressAndHold: item.pressAndHold()
 
         contentItem: Rectangle {
             implicitWidth: 100
