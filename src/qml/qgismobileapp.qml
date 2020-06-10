@@ -1361,7 +1361,7 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       onShowLoginDialog: {
-        loginDialogPopup.realm = realm
+        loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
@@ -1375,7 +1375,7 @@ ApplicationWindow {
       id: loginDialogPopup
       parent: ApplicationWindow.overlay
 
-      property var realm
+      property var realm: ""
 
       x: 24
       y: 24
