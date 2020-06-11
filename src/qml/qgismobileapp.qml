@@ -1668,14 +1668,6 @@ ApplicationWindow {
   }
 
   Connections {
-    target: openProjectMenuItem.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
-    }
-  }
-
-  Connections {
     target: welcomeScreen.__projectSource
 
     onProjectOpened: {
