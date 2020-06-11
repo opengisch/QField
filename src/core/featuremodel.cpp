@@ -489,7 +489,7 @@ bool FeatureModel::deleteFeature()
   if ( ! isSuccess )
   {
     if ( mLayer->rollBack() )
-      QgsMessageLog::logMessage( tr( "Successfully rollbacked changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+      QgsMessageLog::logMessage( tr( "Successfully rolled back changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
     else
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
   }
