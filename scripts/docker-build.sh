@@ -108,6 +108,9 @@ ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS -landroid -llog"
 
 cmake \
 	-G Ninja \
+	-DAPP_VERSION=${APP_VERSION} \
+	-DAPK_VERSION_CODE=${APP_VERSION_CODE} \
+	-DAPP_VERSION_NAME=${APP_VERSION_STR:-${APP_VERSION_CODE}} \
 	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \
