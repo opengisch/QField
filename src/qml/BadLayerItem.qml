@@ -21,7 +21,8 @@ Page {
 
   ColumnLayout {
     anchors.margins: 8
-    anchors.fill: parent
+    width: parent.width
+    height: parent.height
     Layout.margins: 0
     spacing: 10
 
