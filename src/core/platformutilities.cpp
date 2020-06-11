@@ -90,7 +90,7 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, cons
     else if ( QFile::copy( fileName, destinationFile ) )
       return new PictureSource( nullptr, prefix, destinationFile );
 
-    QgsMessageLog::logMessage( tr( "Failed to save gallery picture." ), "QField", Qgis::Critical );
+    QgsMessageLog::logMessage( tr( "Failed to save gallery picture" ), "QField", Qgis::Critical );
   }
 
   return new PictureSource( nullptr, prefix, QString() );
