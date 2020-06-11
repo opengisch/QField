@@ -4,7 +4,7 @@
 #
 #     docker run -v $(pwd):/usr/src/qfield opengisch/qfield-sdk /usr/src/qfield/scripts/docker-build.sh
 #
-# The result will be put into `build-docker/out/build/outputs/apk/out-debug.apk`
+# The result will be put into `build-docker/android-build/build/outputs/apk/out-debug.apk`
 #
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
