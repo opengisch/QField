@@ -779,7 +779,7 @@ ApplicationWindow {
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
-      rubberbandModel: currentRubberband.model
+      rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
