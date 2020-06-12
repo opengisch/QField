@@ -130,7 +130,7 @@ QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &point ) const
 
 QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio() , point.y() * devicePixelRatio() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio(), point.y() * devicePixelRatio() );
   return QgsPoint( pp );
 }
 
@@ -210,10 +210,9 @@ void MapSettings::setMapTheme( QgsProject *project, const QString &mapThemeName 
 
     layerIds << layerId;
   }
-}
 
-mMapSettings.setLayers( layerIds );
-emit layersChanged();
+  mMapSettings.setLayers( layerIds );
+  emit layersChanged();
 }
 #endif
 
