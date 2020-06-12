@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">S-a încheiat despachetarea, start QGIS.</string>
-    <string name="unpacking_msg">Sr despachetează datele post instalare. Acest lucru poate dura ceva timp.</string>
     <string name="use_internal_storage">Folosește Stocarea Internă</string>
     <string name="external_storage_unavailable">Sr despachetează datele post instalare. Acest lucru poate dura ceva timp.</string>
     <string name="noexternalstorage_dialog">Se pare că mediul de stocare extern (/sdcard) nu este disponibil. Acest lucru se întâmplă atunci când vă conectați dispozitivul la un PC prin USB.n\QGIS poate rula de pe mediul de stocare intern, deși nu este recomandabil deoarece acesta ar putea fi prea mic. n\Mai bine apăsați pe CANCEL, deconectați cablul USB și reporniți QGIS.</string>

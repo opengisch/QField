@@ -1,10 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Išpakavimas baigtas, paleisti QGIS.</string>
-    <string name="unpacking_msg">Išpakuojami poįdiegiminiai duomenys. Tai gali užtrukti.</string>
+    <string name="unpacking_title">QField ruošiamas</string>
+    <string name="unpacking_msg">Šis veiksmas netrukus bus baigtas</string>
+    <string name="unpacking_msg_following">Jau nedaug liko. Laikykis!</string>
     <string name="use_internal_storage">Naudoti vidinę atmintį</string>
     <string name="external_storage_unavailable">Išpakuojami poįdiegiminiai duomenys. Tai gali užtrukti.</string>
     <string name="noexternalstorage_dialog">Panašu, jog išorinė atmintis (/sdcard) nepasiekiama. Tai nutinka kai įrenginį prijungiate prie kompiuterio per USB.\nQGIS gali veikti ir vidinėje atmintyje, tačiau tai nerekomenduotina, kadangi ji gali būti per maža.\nRekomenduojama pasirinkti ATŠAUKTI, atjungti USB laidą ir išnaujo paleisti QGIS.</string>
+    <string name="primary_storage">Vidinė atmintis</string>
+    <string name="secondary_storage">QField aplankas išorinėje atmntyje</string>
+    <string name="secondary_storage_read_only">Išorinė atmintis (tik peržiūrai)</string>
     <string name="inaccessible">nepasiekiama</string>
     <string name="loading">Įkeliama</string>
     <string name="select_project">Pasirinkite QGIS projektą</string>
@@ -18,4 +23,7 @@ Ačiū už Jūsų palaikymą!</string>
     <string name="favorite_directories">Populiarūs katalogai</string>
     <string name="added_to_favorites">Pridėta į populiarius</string>
     <string name="removed_from_favorites">Pašalinta iš populiarių</string>
-    </resources>
+    <string name="alert_sd_card_title">Įspėjimas</string>
+    <string name="alert_sd_card_message">Šis aplankas kartu su visais duomenimis bus negrįžtamai ištrintas iš sistemos atminties jei pašalinsite QField iš šio Android prietaiso!</string>
+    <string name="alert_sd_card_ok">Gerai</string>
+</resources>

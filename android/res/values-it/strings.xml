@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Scompattamento eseguito, avvio QGIS.</string>
-    <string name="unpacking_msg">Scompattamento dati post installazione. Può richiedere un po\' di tempo.</string>
+    <string name="unpacking_title">QField si sta preparando</string>
+    <string name="unpacking_msg">Questa operazione puntuale durerà pochi secondi</string>
+    <string name="unpacking_msg_following">Ci siamo quasi, tieniti forte!</string>
     <string name="use_internal_storage">Usa memoria interna</string>
     <string name="external_storage_unavailable">Scompattamento dati post installazione. Può richiedere un po\' di tempo.</string>
     <string name="noexternalstorage_dialog">Sembra che la tua memoria esterna (/sdcard) non sia disponibile. Questo succede quando connetti il dispositivo al PC via USB.\nQGIS può venir eseguito dalla memoria interna, ma non è raccomandato in quanto potrebbe essere troppo piccola.\nSuggeriamo di scegliere CANCELLA, disconnettere ogni cavo USB e riavviare QGIS.</string>

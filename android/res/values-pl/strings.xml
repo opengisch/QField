@@ -1,10 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Rozpakowywanie zakończone, uruchamianie QGIS.</string>
-    <string name="unpacking_msg">Rozpakowywanie danych poinstalacyjnych. Może to trochę potrwać.</string>
+    <string name="unpacking_title">QField za chwilę będzie gotowy</string>
+    <string name="unpacking_msg">To jest jednokrotna operacja, za chwilę wszystko będzie gotowe</string>
+    <string name="unpacking_msg_following">Już prawie gotowe, wytrzymaj jeszcze chwilę!</string>
     <string name="use_internal_storage">Użyj pamięci wewnętrznej</string>
     <string name="external_storage_unavailable">Rozpakowywanie danych poinstalacyjnych. Może to trochę potrwać.</string>
     <string name="noexternalstorage_dialog">Wygląda na to, że twoja pamięć zewnętrzna (/sdcard) nie jest dostępna. Może tak być, kiedy podłączysz swoje urządzenie do komputera przez USB.\nQGIS może zostać uruchomiony z pamięci wewnętrznej, ale nie jest to zalecane, ponieważ zasoby pamięci wewnętrznej mogą okazać się za małe dla programu.\nZaleca się wybranie ANULUJ, odłączenie kabla USB i ponowne uruchomienie QGIS.</string>
+    <string name="primary_storage">Pamięć wewnętrzna</string>
+    <string name="secondary_storage">Katalog QField na pamięci zewnętrznej</string>
+    <string name="secondary_storage_read_only">Pamięć zewnętrzna (tylko do odczytu)</string>
     <string name="inaccessible">niedostępna</string>
     <string name="loading">Wczytywanie</string>
     <string name="select_project">Wybierz projekt QGIS</string>

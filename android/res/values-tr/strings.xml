@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">İşlem tamamlandı, QGIS\'i başlatın.</string>
-    <string name="unpacking_msg">İndirme sonrası veri işleniyor. Bu biraz vakit alabilir.</string>
     <string name="use_internal_storage">Dahili Hafızayı Kullanın</string>
     <string name="external_storage_unavailable">İndirme sonrası veri işleniyor. Bu biraz vakit alabilir.</string>
     <string name="noexternalstorage_dialog">Harici diskiniz (/sdcard) görünmüyor. Bu sorun genellikle mobil cihazınızı PC\'nize USB ile bağladığınızda oluşur. 

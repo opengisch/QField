@@ -1,9 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">データの解凍をし、QGISを起動します。</string>
-    <string name="unpacking_msg">ポストインストールデータを解凍します。しばらくお待ちください。</string>
+    <string name="unpacking_title">QFieldはまもなく使用できるようになります</string>
+    <string name="unpacking_msg">最初のこの操作には少し時間がかかります</string>
+    <string name="unpacking_msg_following">もう少しです、しばらくお待ちください！</string>
     <string name="use_internal_storage">内部ストレージを使う</string>
-    <string name="external_storage_unavailable">ポストインストールデータを解凍します。しばらくお待ちください。</string>
+    <string name="external_storage_unavailable">インストール後のデータを解凍しています。しばらくお待ちください。</string>
     <string name="noexternalstorage_dialog">外部ストレージ (/sdcard) が見つかりません. USB経由でデバイスに接続した場合にこのエラーが起きることがあります。\nQGISは内部ストレージから起動できますが、ストレージ容量が少ない可能性があるため推奨されません。\nキャンセルボタンを押下後、一度USBケーブルを外してQGISを再起動してください。</string>
     <string name="primary_storage">内部ストレージ</string>
     <string name="secondary_storage">外部ストレージ上のQFieldディレクトリ</string>

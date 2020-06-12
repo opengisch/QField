@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Entpacken abgeschlossen. QGIS wird gestartet.</string>
-    <string name="unpacking_msg">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
+    <string name="unpacking_title">QField startet</string>
+    <string name="unpacking_msg">Diese einmalige Aktion dauert einen Moment</string>
+    <string name="unpacking_msg_following">Fast fertig, dranbleiben!</string>
     <string name="use_internal_storage">Internen Speicher verwenden</string>
     <string name="external_storage_unavailable">Zusätzliche Daten werden entpackt. Dies kann einige Sekunden dauern.</string>
     <string name="noexternalstorage_dialog">Es sieht so aus, als sei der externe Speicher (/sdcard) nicht verfügbar. Dies kann geschehen wenn das Gerät via USB mit einem PC verbunden ist.\nQGIS kann vom internen Speicher gestartet werden, aber es ist nicht empfohlen, da er zu klein sein kann.\nEs wird empfohlen, abzubrechen, das Kabel zu entfernen und QGIS neu zu starten.</string>

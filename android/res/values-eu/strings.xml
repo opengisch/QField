@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Despaketatzea amaitu da, abiarazi QGIS.</string>
-    <string name="unpacking_msg">Instalazio ondoko datuak despaketatzen. Horrek tartetxo bat beharko du.</string>
     <string name="use_internal_storage">Erabili barneko biltegiratzea</string>
     <string name="external_storage_unavailable">Instalazio ondoko datuak despaketatzen. Horrek tartetxo bat beharko du.</string>
     <string name="noexternalstorage_dialog">Badirudi kanpoko biltegiratzea (/sdcard) ez dagoela erabilgarri. Hori gertatzen da zure gailua PCra USB bidez konektatu duzulako.\nQGIS barneko biltegiratzetik exekutatu daiteke, baina ez da gomendagarria hori egitea, txikiegia izan baitaiteke.\nHobe da UTZI aukeratzen baduzu, USB kablea deskonektatzen baduzu eta QGIS berrabiarazten baduzu.</string>
