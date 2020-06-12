@@ -26,26 +26,26 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField Version: %1 (%2)</source>
-        <translation>QField versio: %1 (%2)</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation>Hakemistoa %1 ei voitu luoda</translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>Kuvaa %1 ei voitu kopioida projektin hakemistoon %2 .</translation>
+        <source>QField Version: %1 (code: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>Tiedostoa %1 ei ole olemassa</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AttributeFormModelBase</name>
+    <message>
+        <source>Not NULL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -70,7 +70,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Seuraavia tasoja ei  voitu ladata, ole hyvä ja tarkista ne sekä uudelleen konfiguroi QGIS projekti.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
@@ -81,11 +81,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in the latest QField</source>
-        <translation>Mitä uutta viimeisimmässä QFieldissä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changelog %1</source>
-        <translation>Muutosloki %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Value relation widget with multiple selection support</source>
@@ -97,19 +97,19 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Authentication dialog for layers</source>
-        <translation>Sisäänkirjoituksen dialogi tasoille</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fix checkbox widget</source>
-        <translation>Korjattu valintalaatikko työkalu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Other fixes (printing, locator)</source>
-        <translation>Muita korjauksia (tulostus, sijainti)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Improved log</source>
-        <translation>Parannettu loki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
@@ -117,7 +117,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>www.opengis.ch/projects/qfield-love/</source>
-        <translation>www.opengis.ch/projects/qfield-love/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Let&apos;s give love</source>
@@ -129,7 +129,14 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>No</source>
-        <translation>Ei</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>CloseTool</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -140,7 +147,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Taso %1 on ainoastaan luettavissa.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -154,15 +161,26 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>(ei päiväystä)</translation>
     </message>
     <message>
+        <source>Date value set to today.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ExternalResource</name>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureCheckListModel</name>
     <message>
         <source>Storing of value relation widget checklists not available for Android 5</source>
-        <translation>Arvotarkistusluettelon tallentaminen ei ole käytettävissä Android 5: llä</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -181,19 +199,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Constraints not valid - cancel editing</source>
-        <translation>Rajoitukset eivät kelpaa - peruuta muokkaus</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note: soft constraints were not met</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid - cannot buffer</source>
-        <translation>Rajoitukset eivät kelpaa - ei voida puskuroida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Rajoitukset eivät kelpaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Lisää ominaisuus %1 :teen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on %1</source>
@@ -226,59 +248,75 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <source>Should this feature really be deleted?</source>
         <translation>Haluatko todella poistaa tämän ominaisuuden?</translation>
     </message>
+    <message>
+        <source>Stop tracking this feature to delete it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Arvoa &quot;%1&quot; %4 ei voitu muuntaa yhteensopivaksi arvoksi tiedolle %2(%3).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Ominaisuutta ei voi päivittää</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Ominaisuutta %1 ei voida hakea commit komennon jälkeen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>%1:%2 :n oletus arvolausekkeessa on jäsentäjän virhe: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>%1:%2 :n oletus arvolausekkeessa on evaluointivirhe: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation>Ominaisuutta ei voi lisätä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Muutoksia ei voitu tallentaa. Palautetaan alkuperäiseen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ei voida aloittaa muokkausta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Avaa lomake</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Ominaisuudella ei ole geometriaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation>Ominaisuudet Kaikki tasoissa</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
+    <message>
+        <source>Login information</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Username</source>
         <translation type="unfinished"/>
@@ -292,7 +330,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation>%1 : Ominaisuutta</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 : Properties and Functions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -306,29 +360,47 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Etsi...</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Muutokset tallennettu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Muutokset hävitetty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Rajoitukset eivät ole voimassa</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PlatformUtilities</name>
+    <message>
+        <source>Open QGIS Project File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QGIS Project Files (*.qgs *.qgz)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation>Korkeus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
@@ -348,27 +420,58 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Lat.</source>
-        <translation>Lat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon.</source>
-        <translation>Lon.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude: %1 m</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H. Tarkkuus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V. Tarkkuus</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningSettingsPopup</name>
+    <message>
+        <source>Positioning Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate antenna height compensation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna Height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 m for each recorded value. The value shown in the position information view is already corrected by this value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -442,7 +545,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: native camera function is unstable on recent Android versions.</source>
+        <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -450,11 +553,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>QObject</name>
     <message>
         <source>Position</source>
-        <translation>Sijainti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation>Karttatyökalu kuvankaappaus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication required</source>
@@ -470,17 +573,28 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
 </context>
 <context>
+    <name>QgisMobileapp</name>
+    <message>
+        <source>Could not load font %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading font %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>Piirtäminen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Karttapohjan rotaatiota ei tuettu. Palautetaan arvosta %1 arvoon 0.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -488,24 +602,21 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <source>screen resolution: %1x%2 px
 </source>
-        <translation>näytön resolutio: %1x%2 px
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen DPI: %1x%2
 </source>
-        <translation>näytön DPI: %1x%2
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen size: %1x%2 mm
 </source>
-        <translation>näytön koko: %1x%2 mm
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen density: %1</source>
-        <translation>näytön tiheys: %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -519,27 +630,54 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>RelationEditor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Varmista rajoitukset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child. Parent primary keys are not available.</source>
-        <translation>Ei voida lisätä seuraajaa. Isäntien ensisijaiset avaimet eivät ole käytettävissä.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Poista linkki %3:n ominaisuuteen %1 (%2) </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Poista %3:n ominaisuus %1 (%2) </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Tuleeko ominaisuuden &lt;b&gt;%1 (%2)&lt;/b&gt; tasolla &lt;b&gt;%3&lt;/b&gt; linkki poistaa?&lt;br&gt;&lt;i&gt;(Yhteys poistetaan tasoon &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Tuleeko ominaisuus &lt;b&gt;%1 (%2)&lt;/b&gt; tasolla &lt;b&gt;%3&lt;/b&gt; poistaa?</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Tracking</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time interval (s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitize vertex only when both conditions are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -556,16 +694,28 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <source>QField for QGIS</source>
-        <translation>QField 4 QGIS</translation>
+        <source>Open local project</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Aloittaaksesi voit käyttää joko demoprojektia tai tehdä oman QGIS projektin. On helppoa luoda oma projekti PC työasemassa ja sitten siirtää se tälle laitteelle.</translation>
+        <source>QField Cloud projects, coming soon</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>Kun Sinulla on projekti tällä laitteella, tai käytät demoprojektia, käytä näppäintä alla löytääksesi sen, avaa se ja aloita työskentely.</translation>
+        <source>Recent Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to QField.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -576,19 +726,19 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation>Odotetaan sijaintipalvelua...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation>Odotetaan sijaintitietoa...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation>Sijaintiosoitus aktivoitu</translation>
+        <translation>Paikannus päällä</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation>Sijainninosoitus poistettu</translation>
+        <translation>Paikannus pois päältä</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -636,11 +786,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Center current location</source>
-        <translation>Keskitä nykyiseen sijaintiin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Näytä sijainnin tiedot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes saved</source>
@@ -675,8 +825,20 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>Paina takaisin uudestaan sulkeaksesi projektin ja sovellutuksen</translation>
     </message>
     <message>
-        <source>You are now in %1 mode </source>
-        <translation>Olet nyt %1 tilassa</translation>
+        <source>You are now in browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas stopped following location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
@@ -700,27 +862,63 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Sulje mittaustyökalu</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Mittaustyökalu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning Options</source>
-        <translation>Paikantamisen asetukset</translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation>Ota paikantaminen käyttöön</translation>
+        <source>Activating positioning service</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QFieldillä ei ole oikeuksia käyttää paikantamista.</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center to Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure Antenna Height</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Monigeometrisen tason muokkausta ei tuota vielä.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QGIS projects (*.qgs *.qgz)</source>

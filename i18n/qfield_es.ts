@@ -26,26 +26,26 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField Version: %1 (%2)</source>
-        <translation>QField Versión: %1 (%2)</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation>No se pudo crear la carpeta %1</translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>La imagen %1 no se pudo copiar en la carpeta del proyecto %2.</translation>
+        <source>QField Version: %1 (code: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>El archivo %1 no existe</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AttributeFormModelBase</name>
+    <message>
+        <source>Not NULL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -70,66 +70,73 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Las siguientes capas no se pudieron cargar. Por favor, revíselas y reconfigure el proyecto de QGIS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>Puede mirar la sección Proyecto portátil en la documentación de QField para más información.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in the latest QField</source>
-        <translation>¿Qué hay de nuevo en la última versión de QField?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changelog %1</source>
-        <translation>Registro de cambios %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Value relation widget with multiple selection support</source>
-        <translation>Control de relación de valores con soporte para selección múltiple</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full snapping support providing snapping results and Z values of snapped feature</source>
-        <translation>Soporte completo para autoensamblado que proporciona resultados del ensamblado y valores Z del objeto ensamblado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication dialog for layers</source>
-        <translation>Diálogo de autenticación para capas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fix checkbox widget</source>
-        <translation>Arreglado control de casilla de verificación</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Other fixes (printing, locator)</source>
-        <translation>Otras correcciones (impresión, localizador)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Improved log</source>
-        <translation>Registro mejorado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
-        <translation>¿Te gusta QField? Muestra algo de cariño y apoya la campaña de crowdfounding. Antes del 16 de octubre.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>www.opengis.ch/projects/qfield-love/</source>
-        <translation>www.opengis.ch/projects/qfield-love/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Let&apos;s give love</source>
-        <translation>Demos cariño</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Maybe later</source>
-        <translation>Puede que más tarde</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No</source>
-        <translation>No</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>CloseTool</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -140,7 +147,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>La capa %1 es sólo de lectura.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -154,15 +161,26 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>(Sin fecha)</translation>
     </message>
     <message>
+        <source>Date value set to today.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ExternalResource</name>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureCheckListModel</name>
     <message>
         <source>Storing of value relation widget checklists not available for Android 5</source>
-        <translation>Guardar listas de comprobación de controles de relación de valores no está disponible en Android 5</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -181,27 +199,31 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Constraints not valid - cancel editing</source>
-        <translation>Restricciones no válidas - edición cancelada</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note: soft constraints were not met</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid - cannot buffer</source>
-        <translation>Restricciones no válidas - búffer cancelado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricciones no válidas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Añadir objeto en %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Editar objeto en %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Ver objeto en %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -226,73 +248,105 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <source>Should this feature really be deleted?</source>
         <translation>¿Debería eliminarse realmente este objeto espacial?</translation>
     </message>
+    <message>
+        <source>Stop tracking this feature to delete it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>El valor &quot;%1&quot; %4 no se pudo convertir a un valor compatible para el campo %2(%3).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>No puedo actualizar el objeto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>El objeto %1 no se pudo recuperar después de la confirmación</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>La expresión de valor predeterminado para %1:%2 tiene error de analizador: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>La expresión de valor predeterminado para %1:%2 tiene error de evaluación: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation>El objeto no pudo ser añadido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>No se pudieron guardar los cambios. Se vuelve atrás.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>No se puede empezar a editar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Abrir formulario</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>El objeto no tiene geometría</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation>Objetos de todas las capas</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
     <message>
+        <source>Login information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Username</source>
-        <translation>Nombre de usuario</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contraseña</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation>%1 : Propiedades</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 : Properties and Functions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -306,29 +360,47 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Buscando...</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Cambios guardados</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Cambios descartados</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricciones no válidas</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PlatformUtilities</name>
+    <message>
+        <source>Open QGIS Project File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QGIS Project Files (*.qgs *.qgz)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation>Altitud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
@@ -348,27 +420,58 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Lat.</source>
-        <translation>Lat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon.</source>
-        <translation>Lon.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude: %1 m</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>Precisión horizontal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>Precisión vertical</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningSettingsPopup</name>
+    <message>
+        <source>Positioning Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate antenna height compensation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna Height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 m for each recorded value. The value shown in the position information view is already corrected by this value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -407,80 +510,91 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Show scale bar</source>
-        <translation>Mostrar barra de escala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Formulario de atributos maximizado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navegación a escala fija</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Cuando la navegación a escala fija está activa, enfocar el resultado de una búsqueda desplazará al objeto. Con la navegación a escala fija desactivada desplazará y hará zoom al objeto.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Progressive rendering</source>
-        <translation>Renderizado progresivo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
-        <translation>Cuando el renderizado progresivo está activo, el mapa se dibujará cada 250 milisegundos al renderizar.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Mostrar información de digitalización</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
-        <translation>Cuando se activa, la información de coordenadas, tal como latitud y longitud, se superpone sobre el lienzo al digitalizar nuevos objetos o al usar la herramienta de medida.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Usar cámara nativa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: native camera function is unstable on recent Android versions.</source>
-        <translation>Advertencia: la función de cámara nativa es inestable en las versiones recientes de Android.</translation>
+        <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Position</source>
-        <translation>Posición</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation>Captura de herramienta de mapa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>Autenticación requerida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation>Hubo un error al abrir la base de datos %1: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation>No se pudo limpiar la base de datos %1 (%3)</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QgisMobileapp</name>
+    <message>
+        <source>Could not load font %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading font %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>Renderizando</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>La rotación del lienzo del mapa no está soportada. Se restablece de %1 a 0.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -488,58 +602,82 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <source>screen resolution: %1x%2 px
 </source>
-        <translation>Resolución de pantalla: %1x%2 px
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen DPI: %1x%2
 </source>
-        <translation>DPI de pantalla: %1x%2
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen size: %1x%2 mm
 </source>
-        <translation>Tamaño de pantalla: %1x%2 mm
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen density: %1</source>
-        <translation>Densidad de pantalla: %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
-        <translation>Relación no válida</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Asegurar restricciones</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child. Parent primary keys are not available.</source>
-        <translation>No se puede añadir el hijo. Las claves primarias padre no están disponibles.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Desenlazar objeto %1 (%2) de %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Borrar objeto %1 (%2) en %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Tracking</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time interval (s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitize vertex only when both conditions are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -556,16 +694,28 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <source>QField for QGIS</source>
-        <translation>QField para QGIS</translation>
+        <source>Open local project</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Para empezar puede usar un proyecto de demostración o su propio proyecto de QGIS. Es muy fácil crear uno en su PC de sobremesa y luego transferirlo a este dispositivo.</translation>
+        <source>QField Cloud projects, coming soon</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>Una vez que tenga un proyecto en este dispositivo o para usar un proyecto de demostración, use el botón de abajo para localizarlo, abrirlo y comenzar a trabajar.</translation>
+        <source>Recent Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to QField.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -576,11 +726,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation>Activando el servicio de posicionamiento...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation>Esperando la localización...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -636,11 +786,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Center current location</source>
-        <translation>Centrar la posición actual</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar información de la posición</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes saved</source>
@@ -675,56 +825,104 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>Apretar atrás otra vez para cerrar el proyecto y la aplicación</translation>
     </message>
     <message>
-        <source>You are now in %1 mode </source>
-        <translation>Ahora está en modo %1</translation>
+        <source>You are now in browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas stopped following location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segmento</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Length</source>
-        <translation>Longitud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Cerrar herramienta de medida</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Herramienta de medida</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning Options</source>
-        <translation>Opciones de posicionamiento</translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation>Habilitar posicionamiento</translation>
+        <source>Activating positioning service</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField no tiene permiso para usar el posicionamiento.</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center to Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure Antenna Height</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>La edición de geometrías múltiples aún no está soportada.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QGIS projects (*.qgs *.qgz)</source>
-        <translation>Proyectos de QGIS (*.qgs *.qgz)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">解包完成，启动 QGIS</string>
-    <string name="unpacking_msg">正在解压安装数据。这可能需要一些时间。</string>
     <string name="use_internal_storage">使用内部储存</string>
     <string name="external_storage_unavailable">正在解压安装数据。这可能需要一些时间。</string>
     <string name="noexternalstorage_dialog">看起来您的外部存储(/sdcard)不可用。当你通过USB将你的设备连接到PC上时，就会发生这种情况。\nQGIS可以从内部存储运行，但不建议这样做，因为它的容量可能太小。建议选择取消，断开USB电缆并重启QGIS。</string>

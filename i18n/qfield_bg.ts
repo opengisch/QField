@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -7,19 +7,19 @@
     </message>
     <message>
         <source>QField Settings folder: %1</source>
-        <translation>QField Iestatījumu mape: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Shared items folder: %1</source>
-        <translation>QField šārēto objektu mape: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developed by</source>
-        <translation>Izstrādāts</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Support the development</source>
-        <translation>Atbalsti izstrādi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Buy the Karma edition</source>
@@ -52,11 +52,11 @@
     <name>BadLayerItem</name>
     <message>
         <source>Layer Name</source>
-        <translation>Slāņa nosaukums</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Data Source</source>
-        <translation>Datu avots</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The following layers could not be loaded.
@@ -66,7 +66,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Dažus slāņus nebija iespējams ielādēt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
@@ -158,7 +158,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>(no date)</source>
-        <translation>(nav datuma)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Date value set to today.</source>
@@ -230,23 +230,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>FeatureListForm</name>
     <message>
         <source>Changes saved</source>
-        <translation>Izmaiņas saglabātas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Izmaiņas atceltas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Šajā vietā nav objektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete feature</source>
-        <translation>Dzēst objektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should this feature really be deleted?</source>
-        <translation>Vai tiešām dzēst šo objektu?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stop tracking this feature to delete it</source>
@@ -404,7 +404,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Accuracy</source>
@@ -416,7 +416,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Speed</source>
-        <translation>Ātrums</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat.</source>
@@ -478,11 +478,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>QFieldSettings</name>
     <message>
         <source>Layout</source>
-        <translation>Izkārtojums</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Global Variables</source>
-        <translation>Globālie mainīgie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show scalebar</source>
@@ -506,7 +506,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField iestatījumi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show scale bar</source>
@@ -684,11 +684,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>VariableEditor</name>
     <message>
         <source>[New variable name]</source>
-        <translation>[Jauns mainīgā nosaukums]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>[New variable value]</source>
-        <translation>[Jauna mainīgā vērtība]</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -734,15 +734,15 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation>Pozicionēšana ieslēgta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation>Pozicionēšana izslēgta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Galvenā izvēlne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
@@ -758,23 +758,23 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Atvērt projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Iestatījumi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>About</source>
-        <translation>Par</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Log</source>
-        <translation>Žurnāls</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Drukāt PDF</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>GPS Options</source>
@@ -802,15 +802,15 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Loading Project</source>
-        <translation>Projekta ielāde</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading Project: %1</source>
-        <translation>Ielādē projektu: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open project</source>
-        <translation>Atvērt projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QGIS projects (*.qgs)</source>
@@ -818,11 +818,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Visi faili (*)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Nospied atpakaļ vēlreiz, lai aizvērtu projektu un aplikāciju</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are now in browse mode</source>

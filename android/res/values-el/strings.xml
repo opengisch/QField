@@ -1,3 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    </resources>
+    <string name="done_unpacking_msg">Η αποσυμπίεση ολοκληρώθηκε, εκκίνηση QGIS</string>
+    <string name="unpacking_title">Το QField ετοιμάζεται</string>
+    <string name="unpacking_msg">Αυτή η διαδικασία θα πάρει λίγο χρόνο</string>
+    <string name="unpacking_msg_following">Σχεδόν ολοκληρώθηκε, ετοιμαστείτε!</string>
+    <string name="use_internal_storage">Χρήση εσωτερικής μνήμης</string>
+    <string name="external_storage_unavailable">Αποσυμπίεση των αρχικών δεδομένων εγκατάστασης. Αυτό μπορεί να πάρει λίγο χρόνο.</string>
+    <string name="noexternalstorage_dialog">Φαίνεται ότι η εξωτερική μονάδα αποθήκευσης (/sdcard) δεν είναι διαθέσιμη. Αυτό συμβαίνει όταν συνδέετε την συσκευή στον υπολογιστή μέσω USB.To \nQGIS μπορεί να εκτελεστεί από την εσωτερική μνήμη αλλά δεν συνιστάτε επειδή η μνήμη μπορεί να είναι ανεπαρκείς σε χώρο.\nIt προτείνεται να επιλέξετε ΑΚΎΡΩΣΗ, αποσυνδέσετε κάθε καλώδιο USB cable και επανεκκινήστε το QGIS.</string>
+    <string name="primary_storage">Εσωτερική μνήμη</string>
+    <string name="secondary_storage">Φάκελος QField σε εξωτερική μονάδα αποθήκευσης</string>
+    <string name="secondary_storage_read_only">Εξωτερική μονάδα αποθήκευσης (μόνο ανάγνωση)</string>
+    <string name="inaccessible">Μη προσβάσιμο</string>
+    <string name="loading">Φόρτωση</string>
+    <string name="select_project">Επιλέξτε μία εργασία QGIS</string>
+    <string name="recent_projects">Πρόσφατες εργασίες</string>
+    <string name="rate_title">Αξιολόγηση QField</string>
+    <string name="rate_message">Αν σας αρέσει η χρήση του QFIeld, παρακαλούμε όπως το αξιολογήσετε. Ευχαριστούμε για την υποστήριξη</string>
+    <string name="rate_now">Αξιολόγηση</string>
+    <string name="remind_later">Ενημέρωση αργότερα</string>
+    <string name="no_thanks">Όχι, ευχαριστώ!</string>
+    <string name="favorite_directories">Αγαπημένοι φάκελοι</string>
+    <string name="added_to_favorites">Προσθήκη στα αγαπημένα</string>
+    <string name="removed_from_favorites">Αφαίρεση από τα αγαπημένα</string>
+    <string name="alert_sd_card_title">Προειδοποίηση</string>
+    <string name="alert_sd_card_message">Αυτός ο φάκελος με τα αρχεία του, θα διαγραφεί από το σύστημα αν απεγκαταστήσετε το QField από την συσκευή Android!</string>
+    <string name="alert_sd_card_ok">ΟΚ</string>
+</resources>

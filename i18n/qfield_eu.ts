@@ -26,26 +26,26 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField Version: %1 (%2)</source>
-        <translation>QField bertsioa: %1 (%2)</translation>
-    </message>
-</context>
-<context>
-    <name>AndroidPictureSource</name>
-    <message>
-        <source>Could not create folder %1</source>
-        <translation>Ezin da %1 karpeta sortu</translation>
-    </message>
-    <message>
-        <source>Image %1 could not be copied to project folder %2.</source>
-        <translation>%1 irudia ezin izan da kopiatu %2 proiektu-karpetara.</translation>
+        <source>QField Version: %1 (code: %2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>%1 fitxategia ez da existitzen</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AttributeFormModelBase</name>
+    <message>
+        <source>Not NULL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -70,34 +70,34 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Zenbait geruza ezin izan dira kargatu, berrikusi itzazu eta berriro konfiguratu QGIS proiektua.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation>QField dokumentazioko proiektu eramangarrien atala begiratu dezakezu laguntza gehiagorako.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in the latest QField</source>
-        <translation>Azken QField bertsioaren berritasunak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changelog %1</source>
-        <translation>Aldaketen %1 egunkaria</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Value relation widget with multiple selection support</source>
-        <translation>Balio-erlazioko widgeta hautaketa anitzen euskarriarekin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full snapping support providing snapping results and Z values of snapped feature</source>
-        <translation>Atxikitzearen euskarri osoa, atxikitze-emaitzak eta atxikitako elementuaren Z balioak ematen dituena</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication dialog for layers</source>
-        <translation>Autentifikazio-koadroa geruzetarako</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fix checkbox widget</source>
@@ -105,31 +105,38 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Other fixes (printing, locator)</source>
-        <translation>Beste konponketa batzuk (inprimatzea, lokalizatzailea)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Improved log</source>
-        <translation>Egunkari hobetua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16.</source>
-        <translation>Gustura aritu zara QField aplikazioarekin? Adierazi zure atsegina eta lagundu diru-bilketa herrikoian. Urriaren 16a baino lehen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>www.opengis.ch/projects/qfield-love/</source>
-        <translation>www.opengis.ch/projects/qfield-love/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Let&apos;s give love</source>
-        <translation>Maita gaitzazu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Maybe later</source>
-        <translation>Beharbada geroag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No</source>
-        <translation>Ez</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>CloseTool</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -140,7 +147,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>%1 geruza irakurtzeko soilik da.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -154,15 +161,26 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>(datarik ez)</translation>
     </message>
     <message>
+        <source>Date value set to today.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>OK</source>
-        <translation>Ados</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ExternalResource</name>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureCheckListModel</name>
     <message>
         <source>Storing of value relation widget checklists not available for Android 5</source>
-        <translation>Balio-erlazioko widgetaren egiaztatze-zerrendaren biltegiratzea ez dago erabilgarri Android 5 bertsioan.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -181,27 +199,31 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Constraints not valid - cancel editing</source>
-        <translation>Murriztapenak ez dira baliozkoak - utzi edizioa</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note: soft constraints were not met</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid - cannot buffer</source>
-        <translation>Murriztapenak ez dira baliozkoak - ezin da bufferreratu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Murriztapenak ez dira baliozkoak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Gehin elementua hemen: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Editatu hemengo elementua: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Ikusi hemengo elementua: %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -226,20 +248,32 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <source>Should this feature really be deleted?</source>
         <translation>Benetan ezabatu behar da elementu hori?</translation>
     </message>
+    <message>
+        <source>Stop tracking this feature to delete it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>&quot;%1&quot; %4 balioa ezin izan da bihurtu %2(%3) eremurako balio bateragarri.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Ezin da elementua eguneratu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>%1 elementua ezin izan da atzitu egikaritzearekin ondoren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
@@ -251,48 +285,68 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Feature could not be added</source>
-        <translation>Ezin izan da elementua gehitu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Ezin izan dira aldaketak gorde. Atzera itzultzen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ezin da edizioa abiarazi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Ireki inprimakia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Elementuak ez du geometriarik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features In All Layers</source>
-        <translation>Geruza guztietako elementua</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
     <message>
+        <source>Login information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Username</source>
-        <translation>Erabiltzaile-izena</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Pasahitza</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>%1 : Properties</source>
-        <translation>%1 : Propietateak</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 : Properties and Functions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -306,29 +360,47 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation>Bilatu…</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Aldaketak gorde dira</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Aldaketak baztertu dira</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Murriztapenak ez dira baliozkoak</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PlatformUtilities</name>
+    <message>
+        <source>Open QGIS Project File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QGIS Project Files (*.qgs *.qgz)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Altitude</source>
-        <translation>Garaiera</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
@@ -348,27 +420,58 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Lat.</source>
-        <translation>Lat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon.</source>
-        <translation>Lon.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude: %1 m</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>Doitasun horizontala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>Doitasun bertikala</translation>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PositioningSettingsPopup</name>
+    <message>
+        <source>Positioning Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate antenna height compensation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna Height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 m for each recorded value. The value shown in the position information view is already corrected by this value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -407,15 +510,15 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Show scale bar</source>
-        <translation>Erakutsi eskala-barra</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Atributu-inprimaki maximizatua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Eskala finkoko nabigazioa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
@@ -423,34 +526,34 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Progressive rendering</source>
-        <translation>Errendatze progresiboa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering.</source>
-        <translation>Errendatze progresiboa gaituta badago, mapa 250 milisegundotik behin marraztuko da errendatzean.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Erakutsi digitalizazio-informazioa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool.</source>
-        <translation>Aktibatuta dagoenean, koordenatuen informazioa, adibidez latitudea eta longitudea, oihalaren gainean gainjarriko da neurketen tresnarekin elementu berriak digitalizatzean.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Erabili kamera integratua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: native camera function is unstable on recent Android versions.</source>
-        <translation>Abisua: jatorrizko kameraren funtzioa ezegonkorra da Android bertsio berrietan.</translation>
+        <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Position</source>
-        <translation>Posizioa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map Tool Capture</source>
@@ -458,11 +561,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>Autentifikazioa behar da</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation>Errorea gertatu da &lt;b&gt;%1&lt;/b&gt; datu-basea irekitzean: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
@@ -470,17 +573,28 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
 </context>
 <context>
+    <name>QgisMobileapp</name>
+    <message>
+        <source>Could not load font %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading font %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>Errendatzea</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation>Mapa-oihalaren biraketa ez da onartzen. %1 baliotik 0 baliora berrezartzen.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -488,50 +602,47 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     <message>
         <source>screen resolution: %1x%2 px
 </source>
-        <translation>pantaila-bereizmena: %1x%2 px
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen DPI: %1x%2
 </source>
-        <translation>pantailaren DPIak: %1x%2
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen size: %1x%2 mm
 </source>
-        <translation>pantailaren tamaina: %1x%2 mm
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen density: %1</source>
-        <translation>pantaila-dentsitatea: %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationCombobox</name>
     <message>
         <source>Invalid relation</source>
-        <translation>Erlazio baliogabea</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation>Ziurtatu murrizketak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child. Parent primary keys are not available.</source>
-        <translation>Ezin da haurra gehitu. Gako nagusi gurasoak ez daude erabilgarri.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Askatu %1 elementuaren esteka (%2) %3 geruzatik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Ezabatu %1  elementua (%2) %3 geruzatik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
@@ -539,6 +650,33 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Tracking</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracker Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot start track with empty values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time interval (s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitize vertex only when both conditions are met</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -556,16 +694,28 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <source>QField for QGIS</source>
-        <translation>QField aplikazioa QGISerako</translation>
+        <source>Open local project</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started you can use a demo project or your own QGIS project. It is very easy to create one on your desktop PC and then transfer it to this device.</source>
-        <translation>Lanean hasteko, probako proiektu bat edo zure QGIS proiektu propioa erabili dezakezu. Erraza da bat sortzea zure mahaigaineko PCan eta hura gailu honetara ekartzea.</translation>
+        <source>QField Cloud projects, coming soon</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Once you have a project on this device, or to use a demo project, use the button below to locate it, open it and start working.</source>
-        <translation>Gailu honetan proiektu bat badaukazu, edo probako proiektu bat erabili nahi baduzu, erabili beheko botoia proiektu hori aurkitzeko, irekitzeko eta lanean hasteko.</translation>
+        <source>Recent Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to QField. First time using this application? Try out a few demos listed in the recent projects below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to QField.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -576,11 +726,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Activating positioning service...</source>
-        <translation>Lokalizazio-zerbitzua aktibatzen...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Waiting for location...</source>
-        <translation>Lokalizazioaren zain...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -636,11 +786,11 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
     <message>
         <source>Center current location</source>
-        <translation>Zentratu uneko kokapena</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Erakutsi kokapenaren informazioa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes saved</source>
@@ -675,56 +825,104 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
         <translation>Sakatu &apos;Atzera&apos; berriro, proiektua eta aplikazio ixteko</translation>
     </message>
     <message>
-        <source>You are now in %1 mode </source>
-        <translation>Orain %1 moduan zaude</translation>
+        <source>You are now in browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas stopped following location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segmentua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Length</source>
-        <translation>Luzera</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Area</source>
-        <translation>Area</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Itxi neurketen tresna</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for position</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation>Neurketen tresna</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning Options</source>
-        <translation>Lokalizazio-aukerak</translation>
-    </message>
-    <message>
-        <source>Enable Positioning</source>
-        <translation>Gaitu lokalizazioa</translation>
+        <source>Activating positioning service</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation>QField-ek ez du baimenik lokalizazioa erabiltzeko.</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center to Current Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure Antenna Height</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Geometria anitzeko geruzak editatzea ez da onartzen oraindik.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QGIS projects (*.qgs *.qgz)</source>
-        <translation>QGIS proiektuak (*.qgs *.qgz)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
