@@ -1,9 +1,9 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4 as Controls
-import Theme 1.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
-
+import Theme 1.0
 
 Item {
   id: locatorItem
@@ -27,23 +27,26 @@ Item {
     }
   }
 
-  Controls.TextField {
+  TextField {
     id: searchField
+    height: fontMetrics.height + 20
     placeholderText: qsTr("Search…")
     onTextEdited: locator.performSearch(searchField.text)
     width: parent.width
-    height: 40*dp
+    anchors.top: parent.top
     anchors.right: parent.right
     visible: locatorItem.searching
-    padding: 5*dp
-    inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
+    padding: 5
+    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font: Theme.secondaryTitleFont
     selectByMouse: true
+    verticalAlignment: TextInput.AlignBottom
 
     background: Rectangle {
-      radius: 2*dp
+      height: searchField.height - 5
+      radius: 2
       border.color: "#333"
-      border.width: 1*dp
+      border.width: 1
     }
 
     Keys.onReleased: {
@@ -53,16 +56,21 @@ Item {
     }
   }
 
-  Controls.BusyIndicator {
+  FontMetrics {
+    id: fontMetrics
+    font: searchField.font
+  }
+
+  BusyIndicator {
     id: busyIndicator
     running: locator.isRunning
     anchors.right: searchField.right
-    anchors.top: searchField.top
-    anchors.margins: 4 * dp
-    height: searchField.height - 8 * dp
+    anchors.verticalCenter: searchField.verticalCenter
+    anchors.margins: 4
+    height: searchField.height - 10
   }
 
-  Button {
+  QfToolButton {
     id: searchButton
     anchors { right: parent.right; top: parent.top; }
     visible: !locatorItem.searching
@@ -81,8 +89,8 @@ Item {
     width: parent.width
     height: childrenRect.height+2*border.width
     border.color: "darkslategray"
-    border.width: resultsList.count ? 1*dp : 0
-    radius: 2*dp
+    border.width: resultsList.count ? 1: 0
+    radius: 2
     anchors.top: searchField.bottom
     color: "white"
     visible: locatorItem.searching
@@ -92,20 +100,20 @@ Item {
     anchors.centerIn: parent
     model: locator.proxyModel()
     width: parent.width-2*resultsBox.border.width
-    height: Math.min( childrenRect.height, 200*dp, mainWindow.height - searchField.height )
+    height: Math.min( childrenRect.height, 200, mainWindow.height - searchField.height )
     clip: true
 
     delegate: Rectangle {
       id: delegateRect
-      anchors.margins: 10*dp
-      height: if (visible) { if(isGroup){ 25*dp } else { Math.max(childrenRect.height+8*dp, 40*dp) }} else { 0 }
+      anchors.margins: 10
+      height: if (visible) { if(isGroup){ 25} else { Math.max(childrenRect.height+8, 40) }} else { 0 }
       width: parent.width
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
       property int resultIndex: index
       color: isGroup ? "#eee" : "#fff"
       opacity: 0.95
-      border.width: 1*dp
+      border.width: 1
       border.color: "#bbb"
 
       Text {
@@ -114,7 +122,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.right: actionsRow.left
-        leftPadding: 5*dp
+        leftPadding: 5
         font.italic: delegateRect.isGroup ? true : false
         font.pointSize: Theme.secondaryTitleFont.pointSize
         wrapMode: Text.Wrap
@@ -125,14 +133,14 @@ Item {
         anchors.right: parent.right
         anchors.top: parent.top
         height: parent.height
-        anchors.rightMargin: 1*dp
+        anchors.rightMargin: 1
 
         Repeater {
           model: locator.contextMenuActionsModel( index )
-          Button {
+          QfToolButton {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height
-            width:  36*dp
+            width:  36
             bgcolor: Theme.mainColor
             Image {
               anchors.fill: parent

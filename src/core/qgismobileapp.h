@@ -48,6 +48,7 @@ class AppInterface;
 class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
+class FlatLayerTreeModel;
 class LayerTreeModel;
 class LegendImageProvider;
 class TrackingModel;
@@ -132,7 +133,7 @@ class QgisMobileapp : public QQmlApplicationEngine
 
     QgsOfflineEditing *mOfflineEditing = nullptr;
     LayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
-    LayerTreeModel *mLayerTree = nullptr;
+    FlatLayerTreeModel *mFlatLayerTree = nullptr;
     QgsMapLayerProxyModel *mLayerList = nullptr;
     AppInterface *mIface = nullptr;
     Settings mSettings;

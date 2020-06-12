@@ -1,8 +1,8 @@
 import QtQuick 2.12
+import QtPositioning 5.3
+
 import org.qgis 1.0
 import org.qfield 1.0
-
-import QtPositioning 5.3
 
 Item {
   id: locator
@@ -63,11 +63,11 @@ Item {
     id: crosshairCircleInnerBuffer
     anchors.centerIn: crosshairCircle
 
-    width: crosshairCircle.width - dp
-    height: crosshairCircle.height - dp
+    width: crosshairCircle.width
+    height: crosshairCircle.height
 
     border.color: highlightColor
-    border.width: 2 * dp
+    border.width: 2
     color: "transparent"
     radius: width / 2
   }
@@ -78,11 +78,11 @@ Item {
     x: displayPosition.x - radius
     y: displayPosition.y - radius
 
-    border.width: 1.2 * dp
+    border.width: 1.2
     color: "transparent"
     antialiasing: true
 
-    width: 48 * dp
+    width: 48
     height: width
     radius: width / 2
 
@@ -112,7 +112,7 @@ Item {
       target: snappingUtils
       onSnappingResultChanged: {
         crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.color ) : "#AD1457"
-        crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32 * dp : 48 * dp
+        crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
       }
     }
 
@@ -138,7 +138,7 @@ Item {
 
       color: parent.border.color
       border.color: parent.color
-      border.width: 1.2 * dp
+      border.width: 1.2
 
       width: 1
       height: parent.height * 4 / 6

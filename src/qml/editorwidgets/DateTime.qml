@@ -1,8 +1,10 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Controls 1.4 as Controls
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.0
+import Qt.labs.calendar 1.0
+
 import Theme 1.0
 
 
@@ -35,7 +37,7 @@ Item {
 
     Item {
       Layout.fillWidth: true
-      Layout.minimumHeight: 48 * dp
+      Layout.minimumHeight: 48
 
       Rectangle {
         id: backgroundRect
@@ -57,9 +59,9 @@ Item {
         anchors.right: parent.right
         verticalAlignment: Text.AlignVCenter
         font: Theme.defaultFont
-        height: fontMetrics.height + 20 * dp
-        topPadding: 10 * dp
-        bottomPadding: 10 * dp
+        height: fontMetrics.height + 20
+        topPadding: 10
+        bottomPadding: 10
 
         inputMethodHints: Qt.ImhDigitsOnly
 
@@ -104,8 +106,8 @@ Item {
         background: Rectangle {
           visible: !enabled
           y: label.height - height - label.bottomPadding / 2
-          implicitWidth: 120 * dp
-          height: label.activeFocus ? 2 * dp : 1 * dp
+          implicitWidth: 120
+          height: label.activeFocus ? 2: 1
           color: label.activeFocus ? "#4CAF50" : "#C8E6C9"
         }
 
@@ -113,6 +115,19 @@ Item {
           enabled: config['calendar_popup']
           anchors.fill: parent
           onClicked: {
+            var usedDate = new Date();
+            if (value !== undefined && value != '') {
+                usedDate = value;
+            }
+
+            calendar.selectedDate = usedDate
+            calendar.year = usedDate.getFullYear()
+            calendar.month = usedDate.getMonth()
+
+            hoursSpinBox.value = usedDate.getHours()
+            minutesSpinBox.value = usedDate.getMinutes()
+            secondsSpinBox.value = usedDate.getSeconds()
+
             popup.open()
           }
         }
@@ -160,9 +175,9 @@ Item {
           id: todayButton
           source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
           anchors.right: parent.right
-          anchors.rightMargin: 4 * dp
+          anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -2 * dp
+          anchors.verticalCenterOffset: -2
           visible: enabled
 
           MouseArea {
@@ -188,9 +203,9 @@ Item {
           id: clearButton
           source: Theme.getThemeIcon("ic_clear_black_18dp")
           anchors.right: todayButton.left
-          anchors.rightMargin: 4 * dp
+          anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
-          anchors.verticalCenterOffset: -2 * dp
+          anchors.verticalCenterOffset: -2
           visible: ( value !== undefined ) && config['allow_null'] && enabled
 
           MouseArea {
@@ -212,140 +227,252 @@ Item {
       x: (parent.width - width) / 2
       y: (parent.height - height) / 2
 
-      // TODO: fixme no signal when date is clicked on current
+
       ColumnLayout {
-        Controls.Calendar {
-          id: calendar
-          weekNumbersVisible: true
-          focus: false
+          Rectangle {
+              id: calendarOverlay
+              width: 350
+              height: 240
+              color: "transparent"
 
-          style: CalendarStyle {
-              gridVisible: false
-              weekNumberDelegate: Rectangle {
-                  implicitWidth: 24 * dp
-                  color: "white"
-
-                  Label {
-                      text: styleData.weekNumber
-                      anchors.centerIn: parent
-                      font.pixelSize: 14 * dp
-                      color: "lightgrey"
-                  }
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: mouse.accepted = true
+                  onWheel: wheel.accepted = true
               }
 
-              dayDelegate: Rectangle {
-                  color: styleData.selected ? Theme.mainColor : "white"
+              GridLayout {
+                  id: calendarGrid
+                  anchors.left: parent.left
+                  anchors.right: parent.right
+                  columns: 3
 
-                  Label {
-                      text: styleData.date.getDate()
-                      anchors.centerIn: parent
-                      font.pixelSize: 14 * dp
-                      color: styleData.visibleMonth ? "black" : "lightgrey"
-                  }
-              }
+                  Row {
+                      Layout.column: 0
+                      Layout.row: 0
 
-              navigationBar: Rectangle {
-                  height: 42 * dp
-                  color: "transparent"
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_doublearrow_left_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
 
-                  ToolButton {
-                      id: previousMonth
-                      width: parent.height
-                      height: width
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.left: parent.left
-                      contentItem: Rectangle {
-                        anchors.fill: parent
-                        anchors.margins: 10*dp
-                        color: "transparent"
-                        Image {
-                          anchors.fill: parent
-                          fillMode: Image.Pad
-                          horizontalAlignment: Image.AlignHCenter
-                          verticalAlignment: Image.AlignVCenter
-                          source: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
-                        }
+                          onClicked: {
+                              calendar.year -= 1;
+                          }
                       }
-                      onClicked: calendar.showPreviousMonth()
+
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_arrow_left_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              if (calendar.month !== Calendar.January) {
+                                  calendar.month -= 1;
+                              } else {
+                                  calendar.year -= 1;
+                                  calendar.month = Calendar.December;
+                              }
+                          }
+                      }
                   }
-                  Label {
-                      id: dateText
-                      text: styleData.title
-                      elide: Text.ElideRight
+
+                  Text {
+                      text: calendar.title
                       horizontalAlignment: Text.AlignHCenter
-                      font.pixelSize: 18 * dp
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.left: previousMonth.right
-                      anchors.leftMargin: 2
-                      anchors.right: nextMonth.left
-                      anchors.rightMargin: 2
+                      Layout.column: 1
+                      Layout.row: 0
+                      Layout.fillWidth: true
+                      font: Theme.tipFont
                   }
-                  ToolButton {
-                      id: nextMonth
-                      width: parent.height
-                      height: width
-                      anchors.verticalCenter: parent.verticalCenter
-                      anchors.right: parent.right
-                      contentItem: Rectangle {
-                        anchors.fill: parent
-                        anchors.margins: 10*dp
-                        color: "transparent"
-                        Image {
-                          anchors.fill: parent
-                          fillMode: Image.Pad
-                          horizontalAlignment: Image.AlignHCenter
-                          verticalAlignment: Image.AlignVCenter
-                          source: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
-                        }
+
+                  Row {
+                      Layout.column: 2
+                      Layout.row: 0
+
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_arrow_right_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              if (calendar.month != Calendar.December) {
+                                  calendar.month += 1;
+                              } else {
+                                  calendar.month = Calendar.January
+                                  calendar.year += 1;
+                              }
+                          }
                       }
-                      onClicked: calendar.showNextMonth()
+                      QfToolButton {
+                          enabled: true
+                          iconSource: Theme.getThemeIcon( 'ic_doublearrow_right_black_24dp' )
+                          bgcolor: "transparent"
+                          roundborder: true
+
+                          onClicked: {
+                              calendar.year += 1;
+                          }
+                      }
+                  }
+
+                  DayOfWeekRow {
+                      locale: calendar.locale
+
+                      Layout.column: 0
+                      Layout.columnSpan: 3
+                      Layout.row: 1
+                      Layout.fillWidth: true
+                  }
+
+                  MonthGrid {
+                      id: calendar
+                      month: Calendar.January
+                      year: 2020
+                      Layout.row: 2
+                      Layout.column: 0
+                      Layout.columnSpan: 3
+                      Layout.fillWidth: true
+                      Layout.fillHeight: true
+
+                      property date selectedDate: new Date()
+
+                      delegate: Rectangle {
+                          property bool isDate: calendar.selectedDate.getYear() === model.date.getYear() && calendar.selectedDate.getMonth() === model.date.getMonth() && calendar.selectedDate.getDate() === model.date.getDate()
+                          color:  isDate ? Theme.mainColor : "transparent"
+                          width: 18
+                          height: 18
+
+                          Text {
+                              anchors.centerIn: parent
+                              horizontalAlignment: Text.AlignHCenter
+                              verticalAlignment: Text.AlignVCenter
+                              opacity: model.month !== calendar.month ? 0.5 : 1
+                              text: model.day
+                              font: parent.isDate ? Theme.strongTipFont : Theme.tipFont
+                              color: parent.isDate ? "white" : "black"
+                          }
+                      }
+
+                      onClicked: {
+                          selectedDate = date;
+                      }
+
+                      function resetDate() {
+                        selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
+                      }
                   }
               }
           }
 
-          function resetDate() {
-            selectedDate = main.currentValue ? main.isDateTimeType ? main.currentValue : Date.fromLocaleString(Qt.locale(), main.currentValue, config['field_format']) : new Date()
-          }
-        }
+          RowLayout {
+              GridLayout {
+                  id: timeGrid
+                  visible: !main.fieldIsDate
+                  Layout.alignment: Qt.AlignHCenter
+                  Layout.leftMargin: 20
+                  rows: 3
+                  columns: 2
 
-        RowLayout {
-          Button {
-            text: qsTr( "OK" )
-            font: Theme.tipFont
-            Layout.fillWidth: true
-
-            onClicked: {
-              // weird, selectedDate seems to be set at time 12:00:00
-              var newDate = calendar.selectedDate
-
-              if ( main.isDateTimeType )
-              {
-                valueChanged(newDate, newDate === undefined)
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 0
+                      Layout.column: 0
+                      text: qsTr( "Hours" )
+                      font: Theme.tipFont
+                  }
+                  SpinBox {
+                      id: hoursSpinBox
+                      Layout.row: 0
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 23
+                      value: 12
+                      inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
+                  }
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 1
+                      Layout.column: 0
+                      text: qsTr( "Minutes" )
+                      font: Theme.tipFont
+                  }
+                  SpinBox {
+                      id: minutesSpinBox
+                      Layout.row: 1
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 59
+                      value: 30
+                      inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
+                  }
+                  Label {
+                      Layout.alignment: Qt.AlignRight
+                      Layout.row: 2
+                      Layout.column: 0
+                      text: qsTr( "Seconds" )
+                      font: Theme.tipFont
+                  }
+                  SpinBox {
+                      id: secondsSpinBox
+                      Layout.row: 2
+                      Layout.column: 1
+                      editable: true
+                      from: 0
+                      to: 59
+                      value: 30
+                      inputMethodHints: Qt.ImhTime
+                      font: Theme.tipFont
+                  }
               }
-              else
-              {
-                var textDate = Qt.formatDateTime(newDate, config['field_format'])
-                valueChanged(textDate, textDate === undefined)
-              }
-
-              popup.close()
-            }
           }
-        }
+
+          RowLayout {
+              QfButton {
+                  text: qsTr( "OK" )
+                  font: Theme.tipFont
+                  Layout.fillWidth: true
+
+                  onClicked: {
+                      var newDate = calendar.selectedDate
+                      newDate.setHours(hoursSpinBox.value);
+                      newDate.setMinutes(minutesSpinBox.value);
+                      newDate.setSeconds(secondsSpinBox.value);
+                      if ( main.isDateTimeType )
+                      {
+                          valueChanged(newDate, newDate === undefined)
+                      }
+                      else
+                      {
+                          var textDate = Qt.formatDateTime(newDate, config['field_format'])
+                          valueChanged(textDate, textDate === undefined)
+                      }
+
+                      popup.close()
+                  }
+              }
+          }
       }
     }
 
     onIsDateTimeTypeChanged: {
-      calendar.resetDate()
+        calendar.resetDate()
     }
 
     onCurrentValueChanged: {
-      calendar.resetDate()
+        calendar.resetDate()
     }
   }
 
   FontMetrics {
-    id: fontMetrics
-    font: label.font
+      id: fontMetrics
+      font: label.font
   }
 }

@@ -1,7 +1,8 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Window 2.12
+
 import org.qfield 1.0
-import QtQuick.Window 2.11
 
 Drawer {
   id: overlayFeatureFormDrawer
@@ -11,21 +12,21 @@ Drawer {
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   width: {
-      if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
+      if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
           parent.width
       } else {
-          Math.min(Math.max( 200 * dp, parent.width / 3), parent.width)
+          Math.min(Math.max( 200, parent.width / 3), parent.width)
       }
   }
   height: {
      if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
          parent.height
      } else {
-         Math.min(Math.max( 200 * dp, parent.height / 2 ), parent.height)
+         Math.min(Math.max( 200, parent.height / 2 ), parent.height)
      }
   }
 
-  interactive: overlayFeatureForm.model.constraintsHardValid
+  interactive: overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ? true : false
   dragMargin: 0
   Keys.enabled: true
 
@@ -37,7 +38,7 @@ Drawer {
 
   onClosed: {
       if( !overlayFeatureForm.isSaved ) {
-        overlayFeatureForm.save()
+        overlayFeatureForm.confirm()
       } else {
         overlayFeatureForm.isSaved=false //reset
       }
@@ -56,30 +57,37 @@ Drawer {
     model: AttributeFormModel {id: attributeFormModel}
 
     state: "Add"
-    buffered: false
 
     focus: overlayFeatureFormDrawer.opened
 
-    onSaved: {
+    onConfirmed: {
       displayToast( qsTr( "Changes saved" ) )
       //close drawer if still open
       if( overlayFeatureFormDrawer.position > 0 ) {
         overlayFeatureForm.isSaved=true //because just saved
         overlayFeatureFormDrawer.close()
+      }else{
+        overlayFeatureForm.isSaved=false //reset
       }
     }
 
     onCancelled: {
-      displayToast( qsTr( "Changes discarded" ) )
-      overlayFeatureForm.isSaved=true //because never changed
-      overlayFeatureFormDrawer.close()
+      displayToast( qsTr( "Last changes discarded" ) )
+      //close drawer if still open
+      if( overlayFeatureFormDrawer.position > 0 ) {
+        overlayFeatureForm.isSaved=true //because never changed
+        overlayFeatureFormDrawer.close()
+      } else {
+        overlayFeatureForm.isSaved=false //reset
+      }
     }
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if( overlayFeatureForm.model.constraintsHardValid ) {
+        if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
           overlayFeatureFormDrawer.close()
         } else {
+          //block closing to fix constraints or cancel with button
           displayToast( qsTr( "Constraints not valid" ) )
         }
         event.accepted = true
@@ -96,9 +104,10 @@ Drawer {
 
   Keys.onReleased: {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      if( overlayFeatureForm.model.constraintsHardValid ) {
+      if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
         overlayFeatureFormDrawer.close()
       } else {
+        //block closing to fix constraints or cancel with button
         displayToast( qsTr( "Constraints not valid" ) )
       }
       event.accepted = true

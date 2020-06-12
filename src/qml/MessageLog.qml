@@ -1,6 +1,6 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 
 import org.qfield 1.0
 import Theme 1.0
@@ -21,10 +21,10 @@ Page {
     }
 
   ColumnLayout {
-    anchors.margins: 8 * dp
+    anchors.margins: 8
     anchors.fill: parent
     Layout.margins: 0
-    spacing: 10 * dp
+    spacing: 10
 
     Rectangle {
         Layout.fillWidth: true
@@ -49,25 +49,25 @@ Page {
 
           Row {
             id: line
-            spacing: 5 * dp
+            spacing: 5
             Text {
               id: datetext
-              padding: 5 * dp
+              padding: 5
               text: MessageDateTime.replace(' ','\n')
             }
             Rectangle {
               id: separator
-              width: 0 * dp
+              width: 0
             }
             Text {
               id: tagtext
-              padding: MessageTag ? 5 * dp : 0
+              padding: MessageTag ? 5: 0
               text: MessageTag
               font.bold: true
             }
             Text {
               id: messagetext
-              padding: 5 * dp
+              padding: 5
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
               text: Message
               wrapMode: Text.WordWrap

@@ -60,6 +60,7 @@ void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
   QgsRectangle extent = mMapSettings->extent();
   QgsPoint oldCenter( extent.center() );
   QgsPoint mousePos( mMapSettings->screenToCoordinate( center ) );
+
   QgsPointXY newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
                         mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
 
@@ -183,7 +184,13 @@ void QgsQuickMapCanvasMap::onWindowChanged( QQuickWindow *window )
 void QgsQuickMapCanvasMap::onScreenChanged( QScreen *screen )
 {
   if ( screen )
+  {
+    if ( screen->devicePixelRatio() > 0 )
+    {
+      mMapSettings->setDevicePixelRatio( screen->devicePixelRatio() );
+    }
     mMapSettings->setOutputDpi( screen->physicalDotsPerInch() );
+  }
 }
 
 void QgsQuickMapCanvasMap::onExtentChanged()
@@ -196,14 +203,11 @@ void QgsQuickMapCanvasMap::onExtentChanged()
 
 void QgsQuickMapCanvasMap::updateTransform()
 {
-  QgsMapSettings currentMapSettings = mMapSettings->mapSettings();
-  QgsMapToPixel mtp = currentMapSettings.mapToPixel();
-
   QgsRectangle imageExtent = mImageMapSettings.visibleExtent();
-  QgsRectangle newExtent = currentMapSettings.visibleExtent();
-  QgsPointXY pixelPt = mtp.transform( imageExtent.xMinimum(), imageExtent.yMaximum() );
+  QgsRectangle newExtent = mMapSettings->mapSettings().visibleExtent();
   setScale( imageExtent.width() / newExtent.width() );
 
+  QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( imageExtent.xMinimum(), imageExtent.yMaximum() ) );
   setX( pixelPt.x() );
   setY( pixelPt.y() );
 }
@@ -269,29 +273,33 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     mDirty = false;
   }
 
+  QSGTexture *texture;
   QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
   if ( !node )
   {
     node = new QSGSimpleTextureNode();
-    QSGTexture *texture = window()->createTextureFromImage( mImage );
+    texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
     node->setOwnsTexture( true );
   }
 
   QRectF rect( boundingRect() );
+  QSizeF size = mImage.size();
+  if ( !size.isEmpty() )
+    size /= mMapSettings->devicePixelRatio();
 
   // Check for resizes that change the w/h ratio
   if ( !rect.isEmpty() &&
-       !mImage.size().isEmpty() &&
-       !qgsDoubleNear( rect.width() / rect.height(), mImage.width() / mImage.height() ) )
+       !size.isEmpty() &&
+       !qgsDoubleNear( rect.width() / rect.height(), ( size.width() ) / static_cast<double>( size.height() ), 3 ) )
   {
     if ( qgsDoubleNear( rect.height(), mImage.height() ) )
     {
-      rect.setHeight( rect.width() / mImage.width() * mImage.height() );
+      rect.setHeight( rect.width() / size.width() * size.height() );
     }
     else
     {
-      rect.setWidth( rect.height() / mImage.height() * mImage.width() );
+      rect.setWidth( rect.height() / size.height() * size.width() );
     }
   }
 
@@ -302,15 +310,12 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
 
 void QgsQuickMapCanvasMap::geometryChanged( const QRectF &newGeometry, const QRectF &oldGeometry )
 {
-  Q_UNUSED( oldGeometry )
-  // The Qt documentation advices to call the base method here.
-  // However, this introduces instabilities and heavy performance impacts on Android.
-  // It seems on desktop disabling it prevents us from downsizing the window...
-  // Be careful when re-enabling it.
-  // QQuickItem::geometryChanged( newGeometry, oldGeometry );
-
-  mMapSettings->setOutputSize( newGeometry.size().toSize() );
-  refresh();
+  QQuickItem::geometryChanged( newGeometry, oldGeometry );
+  if ( newGeometry.size() != oldGeometry.size() )
+  {
+    mMapSettings->setOutputSize( newGeometry.size().toSize() );
+    refresh();
+  }
 }
 
 void QgsQuickMapCanvasMap::onLayersChanged()

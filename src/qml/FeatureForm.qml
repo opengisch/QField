@@ -1,7 +1,7 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Controls 1.4 as Controls
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.11
 import QtQml 2.3
@@ -9,11 +9,9 @@ import QtQml 2.3
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import QtQuick.Controls.Styles 1.4
-import "."
 
 Page {
-  signal saved
+  signal confirmed
   signal cancelled
   signal temporaryStored
   signal aboutToSave
@@ -24,6 +22,7 @@ Page {
   property bool embedded: false
   //dontSave means data would be neither saved nor cleared (so feature data is handled elsewhere like e.g. in the tracking)
   property bool dontSave: false
+  property bool featureCreated: false
 
   function reset() {
     master.reset()
@@ -42,13 +41,6 @@ Page {
       name: 'Add'
     }
   ]
-
-  /**
-   * a substate used under 'Add' (not yet under 'Edit' but possibly in future)
-   * in case that the feature needs to be stored "meanwhile"
-   * e.g. on relation editor widget when adding childs to a not yet stored parent
-   */
-  property bool buffered: false
 
   /**
    * This is a relay to forward private signals to internal components.
@@ -90,7 +82,7 @@ Page {
       TabBar {
         id: tabRow
         visible: model.hasTabs
-        height: 48 * dp
+        height: 48
 
         Connections {
           target: master
@@ -110,11 +102,11 @@ Page {
             text: Name
             topPadding: 0
             bottomPadding: 0
-            leftPadding: 8 * dp
-            rightPadding: 8 * dp
+            leftPadding: 8
+            rightPadding: 8
 
             width: contentItem.width + leftPadding + rightPadding
-            height: 48 * dp
+            height: 48
 
             background: Rectangle {
               implicitWidth: parent.width
@@ -177,7 +169,7 @@ Page {
               // section header: group box name
               Rectangle {
                 width: parent.width
-                height: section === "" ? 0 : 30 * dp
+                height: section === "" ? 0 : 30
                 color: 'lightGray'
 
                 Text {
@@ -222,19 +214,20 @@ Page {
       anchors {
         left: parent.left
         right: parent.right
-        leftMargin: 12 * dp
+        leftMargin: 12
       }
 
-      Controls.Label {
+      Label {
         id: fieldLabel
         width: parent.width
         text: Name || ''
         wrapMode: Text.WordWrap
+        font.pointSize: 12
         font.bold: true
         color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
       }
 
-      Controls.Label {
+      Label {
         id: constraintDescriptionLabel
         anchors {
           left: parent.left
@@ -242,7 +235,7 @@ Page {
           top: fieldLabel.bottom
         }
 
-        font.pixelSize: fieldLabel.font.pixelSize/3*2
+        font.pointSize: fieldLabel.font.pointSize/3*2
         text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
         height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
@@ -253,7 +246,7 @@ Page {
       Item {
         id: placeholder
         height: childrenRect.height
-        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10 * dp; }
+        anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
 
         Loader {
           id: attributeEditorLoader
@@ -276,6 +269,7 @@ Page {
           property bool constraintsSoftValid: form.model.constraintsSoftValid
           property var currentFeature: form.model.featureModel.feature
           property var currentLayer: form.model.featureModel.currentLayer
+          property bool autoSave: qfieldSettings.autoSave
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
@@ -302,7 +296,14 @@ Page {
         Connections {
           target: attributeEditorLoader.item
           onValueChanged: {
-            AttributeValue = isNull ? undefined : value
+            if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
+            {
+              AttributeValue = isNull ? undefined : value
+              if ( qfieldSettings.autoSave && !dontSave ) {
+                // indirect action, no need to check for success and display a toast, the log is enough
+                save()
+              }
+            }
           }
         }
       }
@@ -319,80 +320,72 @@ Page {
           RememberValue = checked
         }
 
-        indicator.height: 16 * dp
-        indicator.width: 16 * dp
-        icon.height: 16 * dp
-        icon.width: 16 * dp
+        indicator.height: 16
+        indicator.width: 16
+        icon.height: 16
+        icon.width: 16
       }
     }
   }
 
-  function save() {
-    //if this is for some reason not handled before (like when tiping on a map while editing)
+  function confirm() {
+    //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if ( !model.constraintsHardValid )
     {
-        displayToast( qsTr( 'Constraints not valid - cancel editing') )
-        cancel()
-        return
+      displayToast( qsTr( 'Constraints not valid') )
+      cancel()
+      return
     }
     else if ( !model.constraintsSoftValid )
     {
-        displayToast( qsTr( 'Note: soft constraints were not met') )
+      displayToast( qsTr( 'Note: soft constraints were not met') )
     }
 
     parent.focus = true
-    aboutToSave()
 
-    if ( form.state === 'Add' ) {
-      if( !buffered )
-      {
-        model.create()
-      }
-      else
-      {
-        model.save()
-        buffered = false
-      }
+    if( dontSave ) {
+      temporaryStored()
+      return
+    }
+
+    if ( ! save() ) {
+      displayToast( qsTr( 'Unable to save changes') )
       state = 'Edit'
+      return
     }
-    else
-    {
-      model.save()
-    }
-    saved()
+
+    state = 'Edit'
+
+    confirmed()
+    featureCreated = false
   }
 
-  function buffer() {
-      if( !model.constraintsHardValid ) {
-          displayToast( qsTr('Constraints not valid - cannot buffer') )
-          return false
-      }
+  function save() {
+    if( !model.constraintsHardValid ) {
+      return false
+    }
 
-      aboutToSave() //used the same way like on save
+    aboutToSave()
+    
+    var isSuccess = false;
 
-      if ( form.state === 'Add' ) {
-        if( !buffered )
-        {
-          model.create()
-          buffered = true
-        }
-        else
-        {
-          model.save()
-        }
-      }
-      else{
-        model.save()
-      }
+    if( form.state === 'Add' && !featureCreated ) {
+      isSuccess = model.create()
+      featureCreated = isSuccess
+    } else {
+      isSuccess = model.save()
+    }
 
-      return true
+    return isSuccess
   }
 
   function cancel() {
-    if( buffered )
+    if( form.state === 'Add' && featureCreated && !qfieldSettings.autoSave ) {
+      // indirect action, no need to check for success and display a toast, the log is enough
       model.deleteFeature()
-    buffered = false
+    }
     cancelled()
+    featureCreated = false
   }
 
   Connections {
@@ -405,7 +398,7 @@ Page {
   /** The title toolbar **/
   ToolBar {
     id: toolbar
-    height: visible ? 48 * dp : 0
+    height: visible ? 48: 0
     visible: form.state === 'Add'
 
     anchors {
@@ -422,14 +415,14 @@ Page {
       anchors.fill: parent
       Layout.margins: 0
 
-      Button {
+      QfToolButton {
         id: saveButton
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
-        visible: ( form.state === 'Add' || form.state === 'Edit' )
-        width: 48*dp
-        height: 48*dp
+        visible: ( form.state === 'Add' || form.state === 'Edit' ) && ( !qfieldSettings.autoSave || dontSave )
+        width: 48
+        height: 48
         clip: true
         bgcolor: Theme.darkGray
 
@@ -440,11 +433,7 @@ Page {
             if ( !model.constraintsSoftValid ) {
               displayToast( qsTr('Note: soft constraints were not met') )
             }
-            if( dontSave ) {
-                temporaryStored()
-            }else{
-                save()
-            }
+            confirm()
           } else {
             displayToast( qsTr('Constraints not valid') )
           }
@@ -453,7 +442,7 @@ Page {
 
       Label {
         id: titleLabel
-        leftPadding: model.constraintsHardValid ? 0 : 48 * dp
+        leftPadding: model.constraintsHardValid ? 0 : 48
 
         text:
         {
@@ -477,15 +466,16 @@ Page {
         Layout.fillWidth: true
       }
 
-      Button {
+      QfToolButton {
         id: closeButton
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 49*dp
-        height: 48*dp
+        width: 49
+        height: 48
         clip: true
         bgcolor: form.state === 'Add' ? "#900000" : Theme.darkGray
+        visible: !qfieldSettings.autoSave || dontSave
 
         iconSource: form.state === 'Add' ? Theme.getThemeIcon( 'ic_delete_forever_white_24dp' ) : Theme.getThemeIcon( 'ic_close_white_24dp' )
 

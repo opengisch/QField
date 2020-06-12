@@ -1,12 +1,9 @@
-import QtQuick 2.11
-import QtQuick.Controls 1.4 as Controls
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 
 import org.qfield 1.0
 import Theme 1.0
-import "."
 
 Page {
   property alias model: table.model
@@ -23,10 +20,10 @@ Page {
     }
 
   ColumnLayout {
-    anchors.margins: 8 * dp
+    anchors.margins: 8
     anchors.fill: parent
     Layout.margins: 0
-    spacing: 10 * dp
+    spacing: 10
 
     Label {
       text: qsTr( "The following layers could not be loaded, please review those and reconfigure the QGIS project." )
@@ -39,45 +36,45 @@ Page {
       Layout.maximumHeight: contentHeight
     }
 
-    Controls.TableView {
-      id: table
-      Layout.fillWidth: true
-      Layout.fillHeight: true
+    Rectangle {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        color: "white"
+        border.color: "lightgray"
+        border.width: 1
 
-      Controls.TableViewColumn {
-        role: "LayerName"
-        title: qsTr( "Layer Name" )
-        width: 200 * dp
-      }
+        ListView {
+            id: table
+            flickableDirection: Flickable.VerticalFlick
+            boundsBehavior: Flickable.StopAtBounds
+            clip: true
+            spacing: 2
+            anchors.fill: parent
 
-      Controls.TableViewColumn {
-        role: "DataSource"
-        title: qsTr( "Data Source" )
-        width: table.width - 200 * dp
-      }
+            delegate: Rectangle {
+                id: rectangle
+                width: parent.width
+                height: line.height
+                color: "transparent"
 
-      style: TableViewStyle {
-          headerDelegate: Text {
-              height: 40 * dp
-              font: Theme.strongFont
-              verticalAlignment: Text.AlignVCenter
-              horizontalAlignment: styleData.textAlignment
-              text: styleData.value
-              elide: Text.ElideRight
-          }
-          rowDelegate: Item {
-              height: 40 * dp
-              }
-          itemDelegate: Text {
-              anchors.fill: parent
-              font: Theme.defaultFont
-              verticalAlignment: Text.AlignVCenter
-              horizontalAlignment: styleData.textAlignment
-              text: styleData.value
-              elide: Text.ElideRight
-              renderType: Text.NativeRendering
-              }
-       }
+                Column {
+                    id: line
+                    spacing: 0
+                    Text {
+                        id: name
+                        padding: 5
+                        text: LayerName
+                        font: Theme.strongTipFont
+                    }
+                    Text {
+                        id: uri
+                        padding: 5
+                        text: DataSource
+                        font: Theme.tipFont
+                    }
+                }
+            }
+        }
     }
 
     Label {

@@ -1,13 +1,10 @@
-import QtQuick 2.12
+import QtQuick 2.11
 
 import Qt.labs.settings 1.0
-import QtQuick.Controls 2.12
-import QtQuick.Controls 1.4 as Controls
+import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.4
 
 import Theme 1.0
-
-import "."
 
 Page {
   signal finished
@@ -18,6 +15,7 @@ Page {
   property alias incrementalRendering: registry.incrementalRendering
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias nativeCamera: registry.nativeCamera
+  property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
 
   Settings {
@@ -28,6 +26,7 @@ Page {
     property bool incrementalRendering
     property bool numericalDigitizingInformation
     property bool nativeCamera
+    property bool autoSave
     property bool mouseAsTouchScreen
   }
 
@@ -62,6 +61,11 @@ Page {
           settingAlias: "nativeCamera"
       }
       ListElement {
+          title: QT_TR_NOOP( "Fast editing mode" )
+          description: QT_TR_NOOP( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
+          settingAlias: "autoSave"
+      }
+      ListElement {
           title: QT_TR_NOOP( "Consider mouse as a touchscreen device" )
           description: QT_TR_NOOP( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
@@ -84,17 +88,17 @@ Page {
     TabBar {
       id: bar
       Layout.fillWidth: true
-      Layout.preferredHeight: 48*dp
+      Layout.preferredHeight: 48
 
       TabButton {
-        height: 48*dp
-        text: qsTr("Layout")
+        height: 48
+        text: qsTr("General")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 48*dp
-        text: qsTr("Global Variables")
+        height: 48
+        text: qsTr("Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
@@ -106,26 +110,23 @@ Page {
 
 
       ListView {
-//        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-//        ScrollBar.vertical.policy: ScrollBar.AsNeeded
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
         width: mainWindow.width
         clip: true
-        //rowSpacing: 10 * dp
         ScrollBar.vertical: ScrollBar {}
 
         model: settingsModel
 
         delegate: Row {
-          width: parent.width
+          width: parent.width - 16
 
           Column {
             width: parent.width - toggle.width
             Label {
               width: parent.width
-              padding: 8 * dp
-              leftPadding: 22 * dp
+              padding: 8
+              leftPadding: 22
               text: title
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
@@ -134,13 +135,14 @@ Page {
                   onClicked: toggle.toggle()
               }
             }
+
             Label {
               width: parent.width
               visible: !!description
-              padding: !!description ? 8 * dp : 0
+              padding: !!description ? 8 : 0
               topPadding: 0
-              leftPadding: 22 * dp
-              text: description
+              leftPadding: 22
+              text: description || ''
               font: Theme.tipFont
               color: Theme.gray
               wrapMode: Text.WordWrap
@@ -160,6 +162,8 @@ Page {
       Item {
         VariableEditor {
           id: variableEditor
+          anchors.fill: parent
+          anchors.margins: 4
         }
       }
     }

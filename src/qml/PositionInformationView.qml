@@ -1,7 +1,8 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.11
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtPositioning 5.8
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Utils 1.0
@@ -10,7 +11,7 @@ import Theme 1.0
 Rectangle {
   id: positionInformationView
   property TransformedPositionSource positionSource
-  property double rowHeight: 30*dp
+  property double rowHeight: 30
   property double antennaHeight: NaN
   color: "yellow"
 
@@ -21,7 +22,7 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: parent.width > 1000*dp ? 1 : parent.width > 620*dp ? 2 : 3
+    rows: parent.width > 1000? 1 : parent.width > 620? 2 : 3
     width: parent.width
     property double cellWidth: grid.width / ( 6 / grid.rows )
 
@@ -32,7 +33,7 @@ Rectangle {
       color: "#e6f2fd"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -48,7 +49,7 @@ Rectangle {
       color: "white"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -65,7 +66,7 @@ Rectangle {
       color: grid.rows === 2 ? "white" : "#e6f2fd"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -74,7 +75,7 @@ Rectangle {
           if ( positionSource.position.altitudeValid ) {
             altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 )
             if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-              altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
+              altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "-") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
             }
           }
           else
@@ -93,7 +94,7 @@ Rectangle {
       color: grid.rows === 2 ? "#e6f2fd" : "white"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -107,7 +108,7 @@ Rectangle {
       color: "#e6f2fd"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont
@@ -121,7 +122,7 @@ Rectangle {
       color: "white"
 
       Text {
-        anchors.margins:  10*dp
+        anchors.margins:  10
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         font: Theme.tipFont

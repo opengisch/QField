@@ -47,11 +47,11 @@ class AttributeFormModelBase : public QStandardItemModel
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
-    void save();
+    bool save();
 
-    void create();
+    bool create();
 
-    void deleteFeature();
+    bool deleteFeature();
 
     bool constraintsHardValid() const;
 

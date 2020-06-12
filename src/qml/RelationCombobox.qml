@@ -1,12 +1,11 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
-import QtQuick.Layouts 1.0
-import "." as QField
-import Theme 1.0
+import QtQuick.Layouts 1.12
 
 import org.qfield 1.0
 import org.qgis 1.0
+import Theme 1.0
 
 Item {
   id: relationCombobox
@@ -21,15 +20,16 @@ Item {
   anchors {
     left: parent.left
     right: parent.right
-    rightMargin: 10 * dp
+    rightMargin: 10
   }
 
   property var currentKeyValue: value
   onCurrentKeyValueChanged: {
+    comboBox._cachedCurrentValue = currentKeyValue
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
-  height: childrenRect.height + 10 * dp
+  height: childrenRect.height + 10
 
   RowLayout {
     anchors { left: parent.left; right: parent.right }
@@ -53,12 +53,8 @@ Item {
       Connections {
         target: featureListModel
 
-        onModelAboutToBeReset: {
-          comboBox._cachedCurrentValue = relationCombobox.currentKeyValue
-        }
-
         onModelReset: {
-          comboBox.currentIndex = featureListModel.findKey(relationCombobox.currentKeyValue)
+          comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue)
         }
       }
 
@@ -77,7 +73,7 @@ Item {
       // [hidpi fixes]
       delegate: ItemDelegate {
         width: comboBox.width
-        height: 36 * dp
+        height: 36
         text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
         font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
         font.pointSize: Theme.defaultFont.pointSize
@@ -85,7 +81,7 @@ Item {
       }
 
       contentItem: Text {
-        height: 36 * dp
+        height: 36
         text: comboBox.displayText
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -93,8 +89,8 @@ Item {
       }
 
       background: Item {
-        implicitWidth: 120 * dp
-        implicitHeight: 36 * dp
+        implicitWidth: 120
+        implicitHeight: 36
 
         Rectangle {
           anchors.fill: parent
@@ -109,19 +105,20 @@ Item {
     }
 
     Image {
-      Layout.margins: 4 * dp
-      Layout.preferredWidth: 18 * dp
-      Layout.preferredHeight: 18 * dp
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
       id: addButton
       source: Theme.getThemeIcon("ic_add_black_48dp")
-      width: 18 * dp
-      height: 18 * dp
+      width: 18
+      height: 18
 
       MouseArea {
         anchors.fill: parent
         onClicked: {
-            attributeFormModel.featureModel.resetAttributes()
-            addFeatureForm.active = true
+            addFeaturePopup.state = 'Add'
+            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            addFeaturePopup.open()
         }
       }
     }
@@ -134,59 +131,18 @@ Item {
     }
   }
 
-  AttributeFormModel {
-   id: attributeFormModel
-   featureModel: FeatureModel {
-       currentLayer: relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
-     }
-  }
+  EmbeddedFeatureForm{
+      id: addFeaturePopup
 
-  Loader {
-    id: addFeatureForm
-    sourceComponent: addFeatureFormComponent
-    active: false
-    onLoaded: {
-      item.open()
-    }
-  }
-
-  Component {
-    id: addFeatureFormComponent
-    Popup {
-      id: popup
-      parent: ApplicationWindow.overlay
-
-      x: 24 * dp
-      y: 24 * dp
-      width: parent.width - 48 * dp
-      height: parent.height - 48 * dp
-      padding: 0
-      modal: true
-      focus: true
-      closePolicy: Popup.CloseOnEscape
-
-      FeatureForm {
-        model: attributeFormModel
-
-        anchors.fill: parent
-
-        state: "Add"
-        embedded: true
-
-        onSaved: {
-          var referencedValue = attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          comboBox.currentIndex = featureListModel.findKey(referencedValue)
-          popup.close()
-        }
-
-        onCancelled: {
-          popup.close()
-        }
+      onFeatureSaved: {
+          var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+          var index = featureListModel.findKey(referencedValue)
+          if ( index < 0 ) {
+            // model not yet reloaded - keep the value and set it onModelReset
+            comboBox._cachedCurrentValue = referencedValue
+          } else {
+            comboBox.currentIndex = index
+          }
       }
-
-      onClosed: {
-        addFeatureForm.active = false
-      }
-    }
   }
 }

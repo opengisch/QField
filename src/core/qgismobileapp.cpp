@@ -135,8 +135,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mProject = QgsProject::instance();
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );
-  mLayerTree = new LayerTreeModel( mProject->layerTreeRoot(), mProject, this );
-  mLegendImageProvider = new LegendImageProvider( mLayerTree->layerTreeModel() );
+  mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
+  mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
   initDeclarative();
@@ -167,7 +167,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   connect( mProject, &QgsProject::readProject, this, &QgisMobileapp::onReadProject );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
   connect( this, &QgisMobileapp::loadProjectStarted, mIface, &AppInterface::loadProjectStarted );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
@@ -270,26 +270,24 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
-  qmlRegisterUncreatableType<LayerTreeModel>( "org.qfield", 1, 0, "LayerTreeModel", "The LayerTreeModel is available as context property `layerTree`." );
+  qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
   // Calculate device pixels
-  int dpiX = QApplication::desktop()->physicalDpiX();
-  int dpiY = QApplication::desktop()->physicalDpiY();
-  int dpi = dpiX < dpiY ? dpiX : dpiY; // In case of asymetrical DPI. Improbable
-  float dp = dpi * 0.00768443;
+  qreal dpi = std::max( QApplication::desktop()->logicalDpiY(), QApplication::desktop()->logicalDpiY() );
+  dpi *= QApplication::desktop()->devicePixelRatioF();
 
   // Register some globally available variables
-  rootContext()->setContextProperty( "dp", dp );
+  rootContext()->setContextProperty( "ppi", dpi );
   rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
-  rootContext()->setContextProperty( "layerTree", mLayerTree );
+  rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
   rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );

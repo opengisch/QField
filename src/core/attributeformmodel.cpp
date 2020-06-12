@@ -59,19 +59,19 @@ bool AttributeFormModel::constraintsSoftValid() const
   return mSourceModel->constraintsSoftValid();
 }
 
-void AttributeFormModel::save()
+bool AttributeFormModel::save()
 {
-  mSourceModel->save();
+  return mSourceModel->save();
 }
 
-void AttributeFormModel::create()
+bool AttributeFormModel::create()
 {
-  mSourceModel->create();
+  return mSourceModel->create();
 }
 
-void AttributeFormModel::deleteFeature()
+bool AttributeFormModel::deleteFeature()
 {
-  mSourceModel->deleteFeature();
+  return mSourceModel->deleteFeature();
 }
 
 QVariant AttributeFormModel::attribute( const QString &name )

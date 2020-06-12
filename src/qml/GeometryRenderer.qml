@@ -1,4 +1,5 @@
-import QtQuick 2.11
+import QtQuick 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -7,11 +8,11 @@ Item {
   id: geometryRenderer
   property MapSettings mapSettings
   property alias geometryWrapper: geometryWrapper
-  property double lineWidth: 8 * dp
+  property double lineWidth: 8
   property color color: "yellow"
-  property double pointSize: 20 * dp
+  property double pointSize: 20
   property color borderColor: "blue"
-  property double borderSize: 2 * dp
+  property double borderSize: 2
 
   QgsGeometryWrapper {
     id: geometryWrapper

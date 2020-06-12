@@ -1,10 +1,10 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.2
+import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
+
 import Theme 1.0
-import "." as QField
 
 Item {
   signal close()
@@ -17,13 +17,13 @@ Item {
 
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.margins: 20 * dp
+    anchors.margins: 20
 
     columns: 1
 
     Item {
         // top margin
-        height: 20 * dp
+        height: 20
     }
 
     Text {
@@ -59,10 +59,10 @@ Item {
       id: changelogBox
 
       Layout.fillWidth: true
-      Layout.fillHeight: true //preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20 * dp
-      Layout.minimumHeight: changesListView.count * 24 * dp
+      Layout.fillHeight: true //preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20
+      Layout.minimumHeight: changesListView.count * 24
       border.color: '#30000000'
-      border.width: 1 * dp
+      border.width: 1
 
       //the model
       ListModel {
@@ -97,14 +97,14 @@ Item {
       ListView {
         id: changesListView
         model: changesListModel
-        width: parent.width - 20 * dp
+        width: parent.width - 20
         anchors.verticalCenter: parent.verticalCenter
-        height: parent.height - 20 * dp //Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
+        height: parent.height - 20//Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
         delegate: Rectangle{
             id: item
-            x: 1 * dp
-            width: parent.width - 2 * dp
-            height: text.height + 10 * dp
+            x: 1
+            width: parent.width - 2
+            height: text.height + 10
 
             Text {
                 id: dash
@@ -121,8 +121,8 @@ Item {
                 font: Theme.defaultFont
                 Layout.minimumHeight: contentHeight
                 Layout.maximumHeight: contentHeight
-                width: parent.width - 20 * dp
-                x: dash.width + 10 * dp
+                width: parent.width - 20
+                x: dash.width + 10
                 fontSizeMode: Text.VerticalFit
                 wrapMode: Text.WordWrap
                 color: '#95000000'
@@ -174,9 +174,9 @@ Item {
       id: buttons
       columns: 1
 
-      Layout.maximumHeight: 96 * dp
-      Layout.preferredHeight: 96 * dp
-      Layout.minimumHeight: 72 * dp
+      Layout.maximumHeight: 96
+      Layout.preferredHeight: 96
+      Layout.minimumHeight: 72
       Layout.fillWidth: true
 
       Button {
@@ -270,7 +270,7 @@ Item {
 
     Item {
         // bottom
-        height: 20 * dp
+        height: 20
     }
   }
 }

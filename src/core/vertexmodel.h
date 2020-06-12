@@ -16,7 +16,7 @@
 #ifndef VERTEXMODEL_H
 #define VERTEXMODEL_H
 
-#include <QStandardItemModel>
+#include <QAbstractListModel>
 
 class QgsQuickMapSettings;
 
@@ -25,11 +25,13 @@ class QgsQuickMapSettings;
 #include "qgscoordinatetransform.h"
 
 /**
- * @brief The VertexModel class is a model to highlight and edit vertices.
+ * The VertexModel class is a model to highlight and edit vertices.
  * The model is used in map coordinates.
  * There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)
+ *
+ * The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use flatVertices().
  */
-class VertexModel : public QStandardItemModel
+class VertexModel : public QAbstractListModel
 {
     Q_OBJECT
     //! The current mode
@@ -54,6 +56,10 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( bool canPreviousVertex READ canPreviousVertex NOTIFY canPreviousVertexChanged )
     //! determines if one can go to next vertex
     Q_PROPERTY( bool canNextVertex READ canNextVertex NOTIFY canNextVertexChanged )
+    //! geometry type
+    Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType NOTIFY geometryTypeChanged )
+    //! determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)
+    Q_PROPERTY( bool isHovering MEMBER mIsHovering )
 
     /**
      * The index of the currently active vertex. If no vertex is selected, this is -1.
@@ -71,14 +77,23 @@ class VertexModel : public QStandardItemModel
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
+    enum PointType
+    {
+      ExistingVertex,
+      NewVertexSegment,
+      NewVertexExtending,
+    };
+    Q_ENUM( PointType )
+
     enum ColumnRole
     {
       PointRole = Qt::UserRole + 1,
       CurrentVertexRole,
-      SegmentVertexRole,
       OriginalPointRole,
+      ExistingVertexRole,
       RingIdRole,
     };
+    Q_ENUM( ColumnRole )
 
     enum EditingMode
     {
@@ -87,6 +102,15 @@ class VertexModel : public QStandardItemModel
       AddVertex
     };
     Q_ENUM( EditingMode )
+
+    struct Vertex
+    {
+      QgsPoint point;
+      QgsPoint originalPoint;
+      bool currentVertex;
+      PointType type;
+      int ring;
+    };
 
     explicit VertexModel( QObject *parent = nullptr );
     ~VertexModel() override = default;
@@ -119,6 +143,12 @@ class VertexModel : public QStandardItemModel
      */
     QgsGeometry geometry() const;
 
+    QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
+    QModelIndex parent( const QModelIndex &child ) const override;
+    int rowCount( const QModelIndex &parent ) const override;
+    int columnCount( const QModelIndex &parent ) const override;
+    QVariant data( const QModelIndex &index, int role ) const override;
+
     //! This will clear the data
     Q_INVOKABLE void clear();
 
@@ -134,6 +164,14 @@ class VertexModel : public QStandardItemModel
     Q_INVOKABLE void selectVertexAtPosition( const QPointF &point, double threshold );
 
     Q_INVOKABLE void removeCurrentVertex();
+
+
+    /**
+     * sets the geometry to the given \a geometry but preserves the index of the current vertex
+     * this is used to update the original geometry while still editing the model
+     * \see `geometry` property
+     */
+    Q_INVOKABLE void updateGeometry( const QgsGeometry &geometry );
 
     //! \copydoc editingMode
     EditingMode editingMode() const;
@@ -167,10 +205,10 @@ class VertexModel : public QStandardItemModel
 
     //! Returns a list of point (segment vertex, if any, will be skipped)
     //! For a polygon, if ringId is not given the current ring will be returned
-    QVector<QgsPoint> flatVertices( int ringId = -1) const;
+    QVector<QgsPoint> flatVertices( int ringId = -1 ) const;
 
     //! Returns a list of moved vertices found in linked geometry
-    QVector<QPair<QgsPoint,QgsPoint>> verticesMoved() const;
+    QVector<QPair<QgsPoint, QgsPoint>> verticesMoved() const;
 
     //! Returns a list of added vertices not found in linked geometry
     QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
@@ -180,6 +218,8 @@ class VertexModel : public QStandardItemModel
     int currentVertexIndex() const;
 
     void setCurrentVertexIndex( int currentIndex );
+
+    Vertex vertex( int row ) const;
 
   signals:
     //! \copydoc editingMode
@@ -215,12 +255,23 @@ class VertexModel : public QStandardItemModel
      */
     void geometryChanged();
 
+    //! \copydoc geometryType
+    void geometryTypeChanged();
+
   private:
     void refreshGeometry();
+    //! Add the candidates of new vertices (extending or segment)
+    //! This will not emit the reset signals, it's up to the caller to do so
+    void createCandidates();
     void setDirty( bool dirty );
     void updateCanRemoveVertex();
     void updateCanAddVertex();
     void updateCanPreviousNextVertex();
+    void setGeometryType( const QgsWkbTypes::GeometryType &geometryType );
+    void selectVertexAtPosition( const QgsPoint &mapPoint, double threshold );
+
+    QList<Vertex> mVertices;
+
     //! copy of the initial geometry, in destination (layer) CRS
     QgsGeometry mOriginalGeometry;
     QgsCoordinateReferenceSystem mCrs;
@@ -239,15 +290,6 @@ class VertexModel : public QStandardItemModel
      */
     void setCurrentVertex( int newVertex, bool forceUpdate = false );
 
-    struct Centroid
-    {
-      QgsPoint point;
-      int index;
-      int ringId;
-    };
-    Centroid segmentCentroid(int leftIndex, int rightIndex,
-                              bool isExtending = false, bool goingForward = true);
-
     EditingMode mMode = NoEditing;
     //!
     int mCurrentIndex = -1;
@@ -258,8 +300,12 @@ class VertexModel : public QStandardItemModel
     bool mCanAddVertex = false;
     bool mCanPreviousVertex = false;
     bool mCanNextVertex = false;
+    bool mIsHovering = false;
 
     friend class TestVertexModel;
 };
+
+Q_DECLARE_METATYPE( VertexModel::Vertex );
+
 
 #endif // VERTEXMODEL_H

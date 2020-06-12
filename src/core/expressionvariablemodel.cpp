@@ -68,7 +68,7 @@ void ExpressionVariableModel::reloadVariables()
 {
   clear();
 
-  QScopedPointer<QgsExpressionContextScope> scope( QgsExpressionContextUtils::globalScope() );
+  std::unique_ptr<QgsExpressionContextScope> scope( QgsExpressionContextUtils::globalScope() );
 
   QStringList variableNames = scope->variableNames();
   variableNames.sort();
@@ -79,8 +79,12 @@ void ExpressionVariableModel::reloadVariables()
     if ( scope->isReadOnly( varName ) )
     {
       QStandardItem *nameItem = new QStandardItem( varName );
+      QVariant varValue = scope->variable( varName );
+      if ( QString::compare( varValue.toString(), QStringLiteral( "Not available" ) ) == 0 )
+        varValue = QVariant( QT_TR_NOOP( "Not Available" ) );
+
       nameItem->setData( varName, VariableName );
-      nameItem->setData( scope->variable( varName ), VariableValue );
+      nameItem->setData( varValue, VariableValue );
       nameItem->setEditable( false );
 
       insertRow( rowCount(), QList<QStandardItem *>() << nameItem );
@@ -95,7 +99,6 @@ void ExpressionVariableModel::reloadVariables()
       addCustomVariable( varName, scope->variable( varName ).toString() );
     }
   }
-  addCustomVariable( QString(), QString() );
 }
 
 bool ExpressionVariableModel::isEditable( int row )
@@ -132,6 +135,4 @@ void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const Q
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
-  if ( topLeft.row() == rowCount() - 1 )
-    addCustomVariable( QString(), QString() );
 }

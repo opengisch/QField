@@ -517,17 +517,17 @@ void AttributeFormModelBase::setHasTabs( bool hasTabs )
   emit hasTabsChanged();
 }
 
-void AttributeFormModelBase::save()
+bool AttributeFormModelBase::save()
 {
-  mFeatureModel->save();
+  return mFeatureModel->save();
 }
 
-void AttributeFormModelBase::create()
+bool AttributeFormModelBase::create()
 {
-  mFeatureModel->create();
+  return mFeatureModel->create();
 }
 
-void AttributeFormModelBase::deleteFeature()
+bool AttributeFormModelBase::deleteFeature()
 {
-  mFeatureModel->deleteFeature();
+  return mFeatureModel->deleteFeature();
 }

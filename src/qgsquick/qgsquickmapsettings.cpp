@@ -26,9 +26,9 @@ QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
   : QObject( parent )
 {
   // Connect signals for derived values
-  connect( this, &QgsQuickMapSettings::destinationCrsChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
-  connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
-  connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::mapUnitsPerPixelChanged );
+  connect( this, &QgsQuickMapSettings::destinationCrsChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::mapUnitsPerPointChanged );
   connect( this, &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
   connect( this, &QgsQuickMapSettings::rotationChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
   connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
@@ -99,9 +99,19 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center )
   setExtent( e );
 }
 
-double QgsQuickMapSettings::mapUnitsPerPixel() const
+void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom )
 {
-  return mMapSettings.mapUnitsPerPixel();
+  Q_ASSERT( layer );
+
+  if ( shouldZoom )
+    setExtent( layer->extent() );
+  else
+    setCenter( QgsPoint( layer->extent().center() ) );
+}
+
+double QgsQuickMapSettings::mapUnitsPerPoint() const
+{
+  return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();
 }
 
 QgsRectangle QgsQuickMapSettings::visibleExtent() const
@@ -113,12 +123,14 @@ QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &point ) const
 {
   QgsPointXY pt( point.x(), point.y() );
   QgsPointXY pp = mMapSettings.mapToPixel().transform( pt );
+  pp.setX( pp.x() / devicePixelRatio() );
+  pp.setY( pp.y() / devicePixelRatio() );
   return pp.toQPointF();
 }
 
 QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x(), point.y() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio() , point.y() * devicePixelRatio() );
   return QgsPoint( pp );
 }
 
@@ -132,8 +144,10 @@ QSize QgsQuickMapSettings::outputSize() const
   return mMapSettings.outputSize();
 }
 
-void QgsQuickMapSettings::setOutputSize( const QSize &outputSize )
+void QgsQuickMapSettings::setOutputSize( QSize outputSize )
 {
+  outputSize.setWidth( outputSize.width() * devicePixelRatio() );
+  outputSize.setHeight( outputSize.height() * devicePixelRatio() );
   if ( mMapSettings.outputSize() == outputSize )
     return;
 
@@ -148,6 +162,7 @@ double QgsQuickMapSettings::outputDpi() const
 
 void QgsQuickMapSettings::setOutputDpi( double outputDpi )
 {
+  outputDpi *= devicePixelRatio();
   if ( qgsDoubleNear( mMapSettings.outputDpi(), outputDpi ) )
     return;
 

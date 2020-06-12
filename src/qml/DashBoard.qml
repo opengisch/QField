@@ -1,7 +1,8 @@
-import QtQuick 2.11
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+
 import org.qgis 1.0
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.1
 import Theme 1.0
 
 Drawer {
@@ -15,10 +16,10 @@ Drawer {
 
   property color mainColor: Theme.mainColor
 
-  width: Math.min( 300 * dp, mainWindow.width)
+  width: Math.min( 300, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
-  dragMargin: 10 * dp
+  dragMargin: 10
   padding: 0
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
@@ -28,7 +29,7 @@ Drawer {
   clip: true
 
   /* Workaround for menu position, will need to be adjusted when updating menu to Quick2 */
-  onShowMenu: mainMenu.popup(settingsButton.x + 2 * dp, 2 * dp)
+  onShowMenu: mainMenu.popup(settingsButton.x + 2, 2)
 
   onCurrentLayerChanged: {
     if ( currentLayer && currentLayer.readOnly && stateMachine.state == "digitize" )
@@ -45,46 +46,22 @@ Drawer {
       color: mainColor
 
       Row {
-        height: childrenRect.height
-        spacing: 1 * dp
+        height: 56
+        spacing: 1
 
-        ToolButton {
-          height: 56 * dp
-          width: 56 * dp
-
-          contentItem: Rectangle {
-            anchors.fill: parent
-            color: mainColor
-            enabled: welcomeScreen.visible
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
-            }
-          }
-
+        QfToolButton {
+          id: closeButton
+          anchors.verticalCenter: parent.verticalCenter
+          iconSource: Theme.getThemeIcon( 'ic_chevron_left_white_24dp' )
+          bgcolor: "transparent"
           onClicked: close()
         }
 
-        ToolButton {
+        QfToolButton {
           id: settingsButton
-          height: 56 * dp
-          width: 56 * dp
-
-          contentItem: Rectangle {
-            anchors.fill: parent
-            color: mainColor
-            Image {
-              anchors.fill: parent
-              fillMode: Image.Pad
-              horizontalAlignment: Image.AlignHCenter
-              verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_settings_white_24dp' )
-            }
-          }
-
+          anchors.verticalCenter: parent.verticalCenter
+          iconSource: Theme.getThemeIcon( 'ic_settings_white_24dp' )
+          bgcolor: "transparent"
           onClicked: showMenu()
         }
       }
@@ -92,14 +69,14 @@ Drawer {
 
       Switch {
         id: modeswitch
-        height: 56 * dp
-        width: ( 56 + 36 )  * dp
+        height: 56
+        width: ( 56 + 36 ) 
         anchors.right: parent.right
         indicator: Rectangle {
-          implicitHeight: 36 * dp
-          implicitWidth: 36 * 2 * dp
+          implicitHeight: 36
+          implicitWidth: 36 * 2
           x: modeswitch.leftPadding
-          radius: 4 * dp
+          radius: 4
           color:  "#66212121"
           border.color: "#44FFFFFF"
           anchors.verticalCenter: parent.verticalCenter
@@ -121,9 +98,9 @@ Drawer {
           }
           Rectangle {
             x: modeswitch.checked ? parent.width - width : 0
-            width: 36 * dp
-            height: 36 * dp
-            radius: 4 * dp
+            width: 36
+            height: 36
+            radius: 4
             color:  Theme.mainColor
             border.color: "white"
             Image {
@@ -169,40 +146,41 @@ Drawer {
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes
             mapThemeContainer.visible = themes.length > 1
-            layerTree.updateCurrentMapTheme()
-            mapThemeComboBox.currentIndex = layerTree.mapTheme != '' ? mapThemeComboBox.find( layerTree.mapTheme ) : -1
+            flatLayerTree.updateCurrentMapTheme()
+            mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find( flatLayerTree.mapTheme ) : -1
             mapThemeContainer.isLoading = false
           }
         }
 
         onCurrentTextChanged: {
           if ( !mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 ) {
-            layerTree.mapTheme = mapThemeComboBox.currentText
+            flatLayerTree.mapTheme = mapThemeComboBox.currentText
           }
         }
 
         // [hidpi fixes]
         delegate: ItemDelegate {
           width: mapThemeComboBox.width
-          height: 36 * dp
+          height: 36
           text: modelData
           font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-          font.pointSize: Theme.defaultFont.pointSize
+          font.pointSize: Theme.tipFont.pointSize
           highlighted: mapThemeComboBox.highlightedIndex == index
         }
 
         contentItem: Text {
-          height: 36 * dp
-          leftPadding: 8 * dp
+          height: 36
+          leftPadding: 8
           text: mapThemeComboBox.displayText
+          font: Theme.tipFont
           horizontalAlignment: Text.AlignLeft
           verticalAlignment: Text.AlignVCenter
           elide: Text.ElideRight
         }
 
         background: Item {
-          implicitWidth: 120 * dp
-          implicitHeight: 36 * dp
+          implicitWidth: 120
+          implicitHeight: 36
 
           Rectangle {
             anchors.fill: parent

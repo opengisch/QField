@@ -1,5 +1,5 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import Theme 1.0
 
 Item {
@@ -8,9 +8,9 @@ Item {
 
   TextField {
     id: textField
-    height: textArea.height == 0 ? fontMetrics.height + 20 * dp : 0
-    topPadding: 10 * dp
-    bottomPadding: 10 * dp
+    height: textArea.height == 0 ? fontMetrics.height + 20: 0
+    topPadding: 10
+    bottomPadding: 10
     visible: height !== 0
     anchors.left: parent.left
     anchors.right: parent.right
@@ -19,12 +19,35 @@ Item {
 
     text: value !== undefined ? value : ''
 
-    inputMethodHints: Qt.ImhNone
+    validator: {
+      if (field.isNumeric)
+          if ( platformUtilities.fieldType( field ) === 'double')
+          {
+            doubleValidator;
+          }
+          else
+          {
+            intValidator;
+          }
+      else {
+        null;
+      }
+    }
+
+    IntValidator {
+      id: intValidator
+    }
+
+    DoubleValidator {
+      id: doubleValidator
+    }
+
+    inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
-      implicitWidth: 120 * dp
-      height: textField.activeFocus ? 2 * dp : 1 * dp
+      implicitWidth: 120
+      height: textField.activeFocus ? 2: 1
       color: textField.activeFocus ? "#4CAF50" : "#C8E6C9"
     }
 

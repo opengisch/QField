@@ -1,11 +1,12 @@
-import QtQuick 2.5
-import QtQuick.Controls 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
+import QtQuick.Window 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
 import ".." as QField
-import QtQuick.Window 2.2
 
 Item {
   signal valueChanged(var value, bool isNull)
@@ -18,8 +19,21 @@ Item {
   property PictureSource __pictureSource
   property ViewStatus __viewStatus
 
-  //on all mimetypes image/... and on empty values it should appear as an image widget
-  property bool isImage: value === undefined || FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+  //on all mimetypes "image/..." and on empty values it should appear as an image widget except when it's configured as a link
+  property bool isImage: {
+    if ( value == undefined ) {
+      return true
+    } else if ( config.UseLink ) {
+      return false
+    } else if ( 
+        FileUtils.mimeTypeName( qgisProject.homePath + '/' + value ).startsWith("image/") 
+        || FileUtils.fileName( qgisProject.homePath + '/' + value ) === ''
+    ) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   //to not break any binding of image.source
   property var currentValue: value
@@ -45,14 +59,30 @@ Item {
     id: expressionEvaluator
     feature: currentFeature
     layer: currentLayer
-    expressionText: currentLayer ? currentLayer.customProperty('QFieldSync/photo_naming')!==undefined ? JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] : '' : ''
+    expressionText: {
+      if ( currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined ) {
+        return JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name] 
+      } else {
+        return ''
+      }
+    }
+  }
+
+  function getPictureFilePath() {
+    var evaluatedFilepath = expressionEvaluator.evaluate()
+    
+    if ( evaluatedFilepath && FileUtils.fileSuffix(evaluatedFilepath) !== '' ) {
+      return evaluatedFilepath
+    } else {
+      return 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.jpg'
+    }
   }
 
   Label {
     id: linkField
-    height: fontMetrics.height + 20 * dp
-    topPadding: 10 * dp
-    bottomPadding: 10 * dp
+    height: fontMetrics.height + 20
+    topPadding: 10
+    bottomPadding: 10
     visible: !isImage
     enabled: !isImage
     anchors.left: parent.left
@@ -64,8 +94,8 @@ Item {
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
-      implicitWidth: 120 * dp
-      height: 1 * dp
+      implicitWidth: 120
+      height: 1
       color: "#C8E6C9"
     }
 
@@ -89,7 +119,7 @@ Item {
     id: image
     visible: isImage
     enabled: isImage
-    width: 200 * dp
+    width: 200
     autoTransform: true
     fillMode: Image.PreserveAspectFit
     horizontalAlignment: Image.AlignLeft
@@ -112,8 +142,14 @@ Item {
     visible: false
     anchors.bottom: image.bottom
     anchors.right: image.right
-    anchors.margins: 4 * dp
+    anchors.margins: 4
+    fillMode: Image.PreserveAspectFit
+    width: 24
+    height: 24
     source: hasGeoTag ? Theme.getThemeIcon("ic_geotag_24dp") : Theme.getThemeIcon("ic_geotag_missing_24dp")
+    sourceSize.width: 24 * Screen.devicePixelRatio
+    sourceSize.height: 24 * Screen.devicePixelRatio
+
   }
 
   DropShadow {
@@ -121,16 +157,16 @@ Item {
     visible: geoTagBadge.visible
     horizontalOffset: 0
     verticalOffset: 0
-    radius: 6.0 * dp
+    radius: 6.0
     samples: 17
     color: "#DD000000"
     source: geoTagBadge
   }
 
-  QField.Button {
+  QfToolButton {
     id: button_camera
-    width: 36 * dp
-    height: 36 * dp
+    width: 36
+    height: 36
 
     anchors.right: button_gallery.left
     anchors.bottom: parent.bottom
@@ -140,8 +176,7 @@ Item {
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
-            var evaluated_filepath = expressionEvaluator.evaluate()
-            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            var filepath = getPictureFilePath()
             __pictureSource = platformUtilities.getCameraPicture(qgisProject.homePath+'/', filepath, FileUtils.fileSuffix(filepath) )
         } else {
             platformUtilities.createDir( qgisProject.homePath, 'DCIM' )
@@ -152,10 +187,10 @@ Item {
     iconSource: Theme.getThemeIcon("ic_camera_alt_border_24dp")
   }
 
-  QField.Button {
+  QfToolButton {
     id: button_gallery
-    width: 36 * dp
-    height: 36 * dp
+    width: 36
+    height: 36
 
     anchors.right: parent.right
     anchors.bottom: parent.bottom
@@ -164,8 +199,7 @@ Item {
     visible: !readOnly && isImage
 
     onClicked: {
-        var evaluated_filepath = expressionEvaluator.evaluate()
-        var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+          var filepath = getPictureFilePath()
         __pictureSource = platformUtilities.getGalleryPicture(qgisProject.homePath+'/', filepath)
     }
 
@@ -206,8 +240,7 @@ Item {
         visible: true
 
         onFinished: {
-            var evaluated_filepath = expressionEvaluator.evaluate()
-            var filepath = !evaluated_filepath || FileUtils.fileSuffix(evaluated_filepath) === '' ? 'DCIM/JPEG_'+(new Date()).toISOString().replace(/[^0-9]/g, "")+'.jpg' : evaluated_filepath
+            var filepath = getPictureFilePath()
             platformUtilities.renameFile( path, qgisProject.homePath +'/' + filepath)
             valueChanged(filepath, false)
             campopup.close()
@@ -240,5 +273,4 @@ Item {
       }
     }
   }
-
 }

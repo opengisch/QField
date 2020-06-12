@@ -15,10 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.3
-import QtQuick.Controls 1.4 as Controls
-import QtQuick.Layouts 1.1
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Dialogs 1.2
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -38,10 +39,10 @@ Rectangle {
 
   width: {
       if (props.isVisible) {
-          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300 * dp) {
+          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
               parent.width
           } else {
-              Math.min(Math.max( 200 * dp, parent.width / 2.6), parent.width)
+              Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
       } else { 0 }
   }
@@ -50,7 +51,7 @@ Rectangle {
          if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
              parent.height
          } else {
-             Math.min(Math.max( 200 * dp, parent.height / 2 ), parent.height)
+             Math.min(Math.max( 200, parent.height / 2 ), parent.height)
          }
      } else { 0 }
   }
@@ -63,7 +64,7 @@ Rectangle {
           hide()
           if( featureFormList.state === "Edit" ){
             //e.g. tip on the canvas during an edit
-            featureFormList.save()
+            featureFormList.confirm()
           }
         }
       }
@@ -86,7 +87,7 @@ Rectangle {
           locatorItem.searching = false
           if( featureFormList.state === "Edit" ){
             ///e.g. tip on the canvas during an edit
-            featureFormList.save()
+            featureFormList.confirm()
           }
         }
       }
@@ -150,7 +151,7 @@ Rectangle {
       /* section header: layer name */
       Rectangle {
         width: parent.width
-        height: 30*dp
+        height: 30
         color: "lightGray"
 
         Text {
@@ -166,7 +167,7 @@ Rectangle {
 
       focus: true
 
-      height: Math.max( 48*dp, featureText.height )
+      height: Math.max( 48, featureText.height )
 
       Text {
         id: featureText
@@ -207,11 +208,11 @@ Rectangle {
         id: editRow
         anchors { top: parent.top; right: parent.right }
 
-        Button {
+        QfToolButton {
           id: deleteButton
 
-          width: 48*dp
-          height: 48*dp
+          width: 48
+          height: 48
 
           visible: deleteFeatureCapability && allowEdit
 
@@ -220,13 +221,11 @@ Rectangle {
           onClicked: {
             if( trackingModel.featureInTracking(currentLayer, featureId) )
             {
-                displayToast( qsTr( "Stop tracking this feature to delete it" ) )
+              displayToast( qsTr( "Stop tracking this feature to delete it" ) )
             }
             else
             {
-                deleteDialog.currentLayer = currentLayer
-                deleteDialog.featureId = featureId
-                deleteDialog.visible = true
+              deleteDialog.show( currentLayer, featureId )
             }
           }
         }
@@ -330,7 +329,7 @@ Rectangle {
     }
 
     onSave: {
-      featureFormList.save()
+      featureFormList.confirm()
       featureForm.state = "FeatureForm"
       displayToast( qsTr( "Changes saved" ) )
     }
@@ -338,7 +337,7 @@ Rectangle {
     onCancel: {
       featureFormList.model.featureModel.reset()
       featureForm.state = "FeatureForm"
-      displayToast( qsTr( "Changes discarded" ) )
+      displayToast( qsTr( "Last changes discarded" ) )
     }
   }
 
@@ -351,6 +350,9 @@ Rectangle {
             featureListToolBar.save()
           } else {
             displayToast( "Constraints not valid" )
+            if( qfieldSettings.autoSave ){
+               featureListToolBar.cancel()
+            }
           }
         }else{
           state = "FeatureList"
@@ -405,6 +407,8 @@ Rectangle {
     onModelReset: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
+      } else {
+        state = "Hidden"
       }
     }
   }
@@ -427,6 +431,7 @@ Rectangle {
 
     property int featureId
     property VectorLayer currentLayer
+    property bool isDeleted
 
     visible: false
 
@@ -434,11 +439,29 @@ Rectangle {
     text: qsTr( "Should this feature really be deleted?" )
     standardButtons: StandardButton.Ok | StandardButton.Cancel
     onAccepted: {
-      featureForm.model.deleteFeature( currentLayer, featureId )
+      if ( isDeleted ) {
+        return;
+      }
+
+      isDeleted = featureForm.model.deleteFeature( currentLayer, featureId )
+
+      if ( isDeleted ) {
+        displayToast( qsTr( "Successfully deleted feature %1" ).arg( featureId ) )
+      } else {
+        displayToast( qsTr( "Failed to delete feature %1" ).arg( featureId ) )
+      }
+
       visible = false
     }
     onRejected: {
       visible = false
+    }
+
+    function show( currentLayer, featureId ) {
+        this.currentLayer = currentLayer
+        this.featureId = featureId
+        this.isDeleted = false
+        this.open()
     }
   }
 
@@ -458,4 +481,5 @@ Rectangle {
         state = "Hidden"
     }
   }
+
 }

@@ -15,6 +15,7 @@ SET(QFIELD_QGSQUICK_HDRS
   qgsquickmaptransform.h
   qgsquickutils.h
 )
+
 FIND_PACKAGE(Qt5 COMPONENTS Core Gui Xml Widgets Quick Positioning REQUIRED)
 
 INCLUDE_DIRECTORIES(SYSTEM
@@ -22,6 +23,7 @@ INCLUDE_DIRECTORIES(SYSTEM
 )
 
 ADD_LIBRARY(qfield_qgsquick SHARED ${QFIELD_QGSQUICK_SRCS})
+
 TARGET_LINK_LIBRARIES(qfield_qgsquick
   Qt5::Core
   Qt5::Gui

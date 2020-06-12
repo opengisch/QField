@@ -15,10 +15,23 @@
  ***************************************************************************/
 #include "picturesource.h"
 
-PictureSource::PictureSource( QObject *parent )
-  : QObject( parent )
-{
+#include <QTimer>
 
+PictureSource::PictureSource( QObject *parent, const QString &prefix, const QString &pictureFilePath )
+  : QObject( parent )
+  , mPrefix( prefix )
+  , mPictureFilePath( pictureFilePath )
+{
+  // prevent emit signal if the pictureFilePath is empty ( e.g. when AndroidPictureSource )
+  if ( mPictureFilePath.isEmpty() )
+    return;
+
+  if ( mPictureFilePath.startsWith( mPrefix ) )
+    mPictureFilePath = mPictureFilePath.remove( mPrefix );
+
+  QTimer::singleShot(0, this, [ = ] () {
+    emit pictureReceived( mPictureFilePath );
+  });
 }
 
 PictureSource::~PictureSource()

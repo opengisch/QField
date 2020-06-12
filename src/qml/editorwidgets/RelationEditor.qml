@@ -1,21 +1,21 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
-
 import QtGraphicalEffects 1.0
-import QtQuick.Layouts 1.0
-import ".."
+import QtQuick.Layouts 1.12
+
 import Theme 1.0
+import ".."
 
 import org.qfield 1.0
 import org.qgis 1.0
 
 Rectangle{
     height: !readOnly ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly
-    property int itemHeight: 32 * dp
+    property int itemHeight: 32
 
     border.color: 'lightgray'
-    border.width: 1 * dp
+    border.width: 1
 
     ReferencingFeatureListModel {
         //containing the current (parent) feature, the relation to the children
@@ -79,7 +79,7 @@ Rectangle{
                     color: parent.enabled ? nmRelationId ? 'blue' : 'black' : 'grey'
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4 * dp
+                      anchors.margins: 4
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -88,7 +88,7 @@ Rectangle{
                 }
 
                 onClicked: {
-                  if( buffer() ) {
+                  if( save() ) {
                       //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                       if( relationEditorModel.parentPrimariesAvailable ) {
                           embeddedPopup.state = 'Add'
@@ -122,7 +122,7 @@ Rectangle{
 
           Text {
             id: featureText
-            anchors { leftMargin: 10 * dp ; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
+            anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
             color: readOnly ? 'grey' : 'black'
             text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
@@ -158,7 +158,7 @@ Rectangle{
                     color: nmRelationId ? 'blue' : '#900000'
                     Image {
                       anchors.fill: parent
-                      anchors.margins: 4 * dp
+                      anchors.margins: 4
                       fillMode: Image.PreserveAspectFit
                       horizontalAlignment: Image.AlignHCenter
                       verticalAlignment: Image.AlignVCenter
@@ -206,7 +206,10 @@ Rectangle{
                qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
       standardButtons: StandardButton.Ok | StandardButton.Cancel
       onAccepted: {
-        referencingFeatureListView.model.deleteFeature( referencingFeatureId )
+        if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
+          displayToast( qsTr( "Failed to delete referencing feature" ) )
+        }
+        
         visible = false
       }
       onRejected: {
@@ -218,13 +221,18 @@ Rectangle{
     BusyIndicator {
       id: busyIndicator
       anchors.centerIn: parent
-      width: 36 * dp
-      height: 36 * dp
+      width: 36
+      height: 36
       running: relationEditorModel.isLoading
     }
 
     EmbeddedFeatureForm{
         id: embeddedPopup
+
+        onFeatureCancelled: {
+            if( autoSave )
+                relationEditorModel.reload()
+        }
 
         onFeatureSaved: {
             relationEditorModel.reload()

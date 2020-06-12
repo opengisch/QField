@@ -1,8 +1,9 @@
 import QtQuick 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
-import ".."
+import '..'
 
 
 VisibilityFadingRow {
@@ -16,7 +17,7 @@ VisibilityFadingRow {
 
   readonly property bool blocking: featureModel.vertexModel.dirty
 
-  spacing: 4 * dp
+  spacing: 4
 
   function init(featureModel, mapSettings, editorRubberbandModel)
   {
@@ -30,10 +31,23 @@ VisibilityFadingRow {
     featureModel.vertexModel.reset()
   }
 
+  function applyChanges( apply ) {
+    if ( apply && featureModel.vertexModel.dirty ){
+      featureModel.applyVertexModelToGeometry()
+
+      if ( ! featureModel.save() ) {
+        displayToast( qsTr( "Failed to save feature!" ) );
+      }
+      
+      //set the vertexModel original geometry to the one of the updated feature
+      featureModel.vertexModel.updateGeometry( featureModel.feature.geometry )
+    }
+  }
+  
   function canvasClicked(point)
   {
     if ( featureModel.vertexModel.currentVertexIndex == -1 )
-      featureModel.vertexModel.selectVertexAtPosition(point, 10*dp)
+      featureModel.vertexModel.selectVertexAtPosition(point, 10)
     else
     {
       featureModel.vertexModel.currentVertexIndex = -1
@@ -42,32 +56,32 @@ VisibilityFadingRow {
     return true // handled
   }
 
-  Button {
+  QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
     round: true
-    visible: featureModel.vertexModel.dirty
-    bgcolor: featureModel.vertexModel.dirty ? Theme.darkRed : Theme.darkGray
+    visible: featureModel.vertexModel.dirty && !qfieldSettings.autoSave
+    bgcolor: "#900000"
     onClicked: {
       cancel()
     }
   }
 
-  Button {
+  QfToolButton {
     id: applyButton
     iconSource: Theme.getThemeIcon( "ic_check_white_48dp" )
     round: true
     visible: featureModel.vertexModel.dirty
-    bgcolor: Theme.mainColor
+    bgcolor: !qfieldSettings.autoSave ? Theme.mainColor : Theme.darkGray
 
     onClicked: {
-      featureModel.applyVertexModelToGeometry()
-      featureModel.save()
-      finished()
+      applyChanges( true )
+      if( !qfieldSettings.autoSave )
+        finished()
     }
   }
 
-  Button {
+  QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
     round: true
@@ -78,10 +92,12 @@ VisibilityFadingRow {
       if (featureModel.vertexModel.canRemoveVertex){
         featureModel.vertexModel.removeCurrentVertex()
       }
+      //on remove we have to apply directly after the action
+      applyChanges( qfieldSettings.autoSave )
     }
   }
 
-  Button {
+  QfToolButton {
     id: addVertexButton
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
                                      "ic_my_location_white_24dp" : "ic_add_white_24dp" )
@@ -90,6 +106,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkGray
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       if (featureModel.vertexModel.editingMode === VertexModel.AddVertex)
         featureModel.vertexModel.editingMode = VertexModel.EditVertex
       else
@@ -97,26 +114,28 @@ VisibilityFadingRow {
     }
   }
 
-  Button {
+  QfToolButton {
     id: previousVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel.canPreviousVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.previous()
     }
   }
 
-  Button {
+  QfToolButton {
     id: nextVertexButton
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
     round: true
-    visible: !screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
+    visible: (!screenHovering && featureModel.vertexModel && featureModel.vertexModel.canAddVertex) || featureModel.vertexModel.editingMode === VertexModel.AddVertex
     bgcolor: featureModel.vertexModel && featureModel.vertexModel.canNextVertex ? Theme.darkGray : Theme.darkGraySemiOpaque
 
     onClicked: {
+      applyChanges( qfieldSettings.autoSave )
       featureModel.vertexModel.next()
     }
   }
@@ -127,7 +146,7 @@ VisibilityFadingRow {
     {
       if ( featureModel.vertexModel.currentVertexIndex != -1
           && !screenHovering
-          && (featureModel.vertexModel.editingMode === VertexModel.EditVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex))
+          && featureModel.vertexModel.editingMode !== VertexModel.NoEditing )
       {
         mapSettings.setCenter(featureModel.vertexModel.currentPoint)
       }

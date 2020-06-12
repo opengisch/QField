@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQml.Models 2.12
+
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
@@ -29,7 +30,7 @@ VisibilityFadingRow {
   property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  spacing: 4 * dp
+  spacing: 4
 
   signal editorChanged
 
@@ -80,11 +81,11 @@ VisibilityFadingRow {
     id: selectorRow
     stateVisible: true
 
-    spacing: 4 * dp
+    spacing: 4
 
     Repeater {
       model: editors
-      delegate: Button {
+      delegate: QfToolButton {
         round: true
         bgcolor: Theme.mainColor
         iconSource: Theme.getThemeIcon(iconPath)
@@ -133,7 +134,7 @@ VisibilityFadingRow {
       }
   }
 
-  Button {
+  QfToolButton {
     id: activeToolButton
     iconSource: Theme.getThemeIcon("more_horiz")
     round: true
@@ -145,5 +146,4 @@ VisibilityFadingRow {
       selectorRow.stateVisible = true
     }
   }
-
 }

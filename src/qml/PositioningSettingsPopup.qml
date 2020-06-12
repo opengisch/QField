@@ -1,7 +1,8 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import Qt.labs.settings 1.0
+
 import Theme 1.0
 
 Popup {
@@ -23,7 +24,7 @@ Popup {
 
 
     ScrollView {
-      padding: 20 * dp
+      padding: 20
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical.policy: ScrollBar.AsNeeded
       contentWidth: positioningGrid.width
@@ -36,8 +37,8 @@ Popup {
         width: parent.parent.width
 
         columns: 2
-        columnSpacing: 2 * dp
-        rowSpacing: 10 * dp
+        columnSpacing: 2
+        rowSpacing: 10
 
         Label {
           text: qsTr("Activate antenna height compensation")
@@ -62,7 +63,7 @@ Popup {
 
         Label {
           text: qsTr("Antenna Height")
-          leftPadding: 22 * dp
+          leftPadding: 22
           enabled: antennaHeightActivated.checked
           font: Theme.defaultFont
         }
@@ -70,21 +71,29 @@ Popup {
         TextField {
           id: antennaHeightInput
           enabled: antennaHeightActivated.checked
-          text: parseFloat( positioningSettings.antennaHeight )
-          width: 60 * dp
+          width: 60
           font: Theme.defaultFont
-          Layout.preferredWidth: 60 * dp
-          Layout.preferredHeight: font.height + 20 * dp
+          Layout.preferredWidth: 60
+          Layout.preferredHeight: font.height + 20
 
           inputMethodHints: Qt.ImhFormattedNumbersOnly
           validator: DoubleValidator {}
+
+          Component.onCompleted: {
+              text = isNaN( positioningSettings.antennaHeight ) ? '' : positioningSettings.antennaHeight
+          }
+
           onTextChanged: {
-              positioningSettings.antennaHeight = text
+            if( text.length === 0 || isNaN(text) ) {
+              positioningSettings.antennaHeight = NaN
+            } else {
+              positioningSettings.antennaHeight = parseFloat( text )
+            }
           }
         }
 
         Label {
-          leftPadding: 22 * dp
+          leftPadding: 22
           enabled: antennaHeightActivated.checked
           text: qsTr( "Z values which are recorded from a positioning receiver will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6\u00A0m for each recorded value. The value shown in the position information view is already corrected by this value." )
           font: Theme.tipFont
@@ -120,9 +129,9 @@ Popup {
         }
 
         Label {
-          padding: 8 * dp
+          padding: 8
           topPadding: 0
-          leftPadding: 22 * dp
+          leftPadding: 22
           text: qsTr( "Use the altitude as reported by the positioning interface. Skip any altitude correction that may be implied by the coordinate system transformation." )
           font: Theme.tipFont
 

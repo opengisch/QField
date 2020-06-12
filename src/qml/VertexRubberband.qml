@@ -1,5 +1,6 @@
-import QtQuick 2.0
-import QtQml 2.2
+import QtQuick 2.12
+import QtQml 2.3
+
 import org.qgis 1.0
 import org.qfield 1.0
 
@@ -17,12 +18,12 @@ Repeater {
       x: mapToScreen.screenPoint.x - width/2
       y: mapToScreen.screenPoint.y - width/2
 
-      width: 20*dp
-      height: 20*dp
-      radius: SegmentVertex ? width / 2 : 0
+      width: ExistingVertex ? 20 : 10
+      height: ExistingVertex ? 20 : 10
+      radius: ExistingVertex ? width / 2 : 0
 
       border.color: if (CurrentVertex) {'red'} else {'blue'}
-      border.width: 2*dp
+      border.width: VertexModel.ExistingVertex ? 2 : 1
     }
 }
 

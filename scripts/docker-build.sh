@@ -69,7 +69,7 @@ sed -i "s/^VERSTR\s*= .*/VERSTR = '${APP_VERSION_STR:-${APP_VERSION_CODE}}'/" ${
 echo "Showing content of version.pri with APP_VERSION_CODE and APP_VERSION_STR:"
 echo "$(cat ${SOURCE_DIR}/version.pri | grep -E '^VERS(IONCODE|TR)\s*=')"
 
-if ( [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]] ); then
+if [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   echo "*** ERROR TOO BIG VERSION CODE"
   echo "Remove this check if QField is now 2.x"
   exit 1

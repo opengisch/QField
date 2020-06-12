@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import Theme 1.0
 
+import Theme 1.0
 
 /**
   A swapable like close button tool
@@ -14,8 +14,8 @@ ToolButton {
 
   signal closedTool()
 
-  height: 48 * dp
-  width: height + buttonText.width + 32 * dp
+  height: 48
+  width: height + buttonText.width + 32
 
   contentItem: Rectangle {
     anchors.fill: parent
@@ -23,18 +23,22 @@ ToolButton {
     radius: height / 2
 
     Row {
-      spacing: 8 * dp
+      spacing: 8
       Rectangle {
-        height: 48 * dp
-        width: 48 * dp
+        width: 48
+        height: 48
         radius: height / 2
         color: Theme.darkGray
         Image {
-          anchors.fill: parent
-          fillMode: Image.Pad
+          anchors.centerIn: parent
+          width: 24
+          height: 24
+          fillMode: Image.PreserveAspectFit
           horizontalAlignment: Image.AlignHCenter
           verticalAlignment: Image.AlignVCenter
           source: Theme.getThemeIcon( "ic_close_white_24dp" )
+          sourceSize.width: 24 * screen.devicePixelRatio
+          sourceSize.height: 24 * screen.devicePixelRatio
         }
       }
 

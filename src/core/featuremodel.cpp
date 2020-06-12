@@ -351,58 +351,150 @@ void FeatureModel::featureAdded( QgsFeatureId fid )
   setFeature( mLayer->getFeature( fid ) );
 }
 
-void FeatureModel::create()
+bool FeatureModel::create()
 {
   if ( !mLayer )
-    return;
+    return false;
 
-  startEditing();
+  if ( ! startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to create feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+    return false;
+  }
 
+  bool isSuccess = true;
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
-  if ( !mLayer->addFeature( mFeature ) )
-  {
-    QgsMessageLog::logMessage( tr( "Feature could not be added" ), "QField", Qgis::Critical );
-  }
 
-  if ( QgsProject::instance()->topologicalEditing() )
-    mLayer->addTopologicalPoints( mFeature.geometry() );
-
-  if ( commit() )
+  if ( mLayer->addFeature( mFeature ) )
   {
-    QgsFeature feat;
-    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
-      setFeature( feat );
+    if ( QgsProject::instance()->topologicalEditing() )
+      mLayer->addTopologicalPoints( mFeature.geometry() );
+
+    if ( commit() )
+    {
+      QgsFeature feat;
+      if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+      {
+        setFeature( feat );
+      }
+      else
+      {
+        QgsMessageLog::logMessage( tr( "Layer \"%1\" has been commited but the newly created feature %2 could not be fetched" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+        isSuccess = false;
+      }
+    }
     else
-      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), "QField", Qgis::Warning );
+    {
+      const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
+      QgsMessageLog::logMessage( tr( "Layer \"%1\" cannot be commited with the newly created feature %2. Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), "QField", Qgis::Critical );
+      isSuccess = false;
+    }
   }
+  else
+  {
+    QgsMessageLog::logMessage( tr( "Feature %2 could not be added in layer \"%1\"" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+    isSuccess = false;
+  }
+
   disconnect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
+  return isSuccess;
 }
 
-void FeatureModel::deleteFeature()
+bool FeatureModel::deleteFeature()
 {
-  startEditing();
+  if ( ! startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing on layer \"%1\" to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+    return false;
+  }
 
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( mLayer );
+  QList<QgsVectorLayer *> childLayersEdited;
+  bool isSuccess = true;
   for ( const QgsRelation &referencingRelation : referencingRelations )
   {
     if ( referencingRelation.strength() == QgsRelation::Composition )
     {
       QgsVectorLayer *childLayer = referencingRelation.referencingLayer();
-      childLayer->startEditing();
-      QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
-      QgsFeature childFeature;
-      while ( relatedFeaturesIt.nextFeature( childFeature ) )
+      
+      if ( childLayer->startEditing() )
       {
-        childLayer->deleteFeature( childFeature.id() );
+        QgsFeatureIterator relatedFeaturesIt = referencingRelation.getRelatedFeatures( mFeature );
+        QgsFeature childFeature;
+        while ( relatedFeaturesIt.nextFeature( childFeature ) )
+        {
+          if ( ! childLayer->deleteFeature( childFeature.id() ) )
+          {
+            QgsMessageLog::logMessage( tr( "Cannot delete feature %2 from child layer \"%1\"" ).arg( childLayer->name() ).arg( childFeature.id() ), "QField", Qgis::Critical );
+            isSuccess = false;
+          }
+        }
       }
-      childLayer->commitChanges();
+      else
+      {
+        QgsMessageLog::logMessage( tr( "Cannot start editing on child layer \"%1\" to delete child features" ).arg( childLayer->name() ), "QField", Qgis::Critical );
+        isSuccess = false;
+        break;
+      }
+
+      if ( isSuccess ) 
+        childLayersEdited.append( childLayer );
+      else
+        break;
     }
   }
 
-  //delete parent
-  mLayer->deleteFeature( mFeature.id() );
-  commit();
+  // we need to either commit or rollback the child layers that have experienced any modification
+  for ( QgsVectorLayer *childLayer : qgis::as_const( childLayersEdited ) )
+  {
+    if ( isSuccess )
+    {
+      if ( ! childLayer->commitChanges() )
+      {
+        const QString msgs = childLayer->commitErrors().join( QStringLiteral( "\n" ) );
+        QgsMessageLog::logMessage( tr( "Cannot commit child layer deletions in layer \"%1\". Reason:\n%2" ).arg( childLayer->name(), msgs ), "QField", Qgis::Critical );
+        isSuccess = false;
+      }
+    }
+
+    if ( ! isSuccess )
+    {
+      if ( ! childLayer->rollBack() )
+        QgsMessageLog::logMessage( tr( "Cannot rollback layer deletions in layer \"%1\"" ).arg( childLayer->name() ), "QField", Qgis::Critical );
+    }
+  }
+
+  if ( isSuccess )
+  {
+    //delete parent
+    if ( mLayer->deleteFeature( mFeature.id() ) )
+    {
+      // commit parent changes
+      if ( ! mLayer->commitChanges() )
+      {
+        const QString msgs = mLayer->commitErrors().join( QStringLiteral( "\n" ) );
+        QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( mLayer->name() ).arg( mFeature.id() ).arg( msgs ), "QField", Qgis::Warning );
+        isSuccess = false;
+      }
+    }
+    else
+    {
+      QgsMessageLog::logMessage( tr( "Cannot delete feature %2 in layer %1" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Warning );
+  
+      isSuccess = false;
+    }
+  }
+
+  if ( ! isSuccess )
+  {
+    if ( mLayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Successfully rollbacked changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+    else
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer \"%1\" while attempting to delete feature %2" ).arg( mLayer->name() ).arg( mFeature.id() ), "QField", Qgis::Critical );
+  }
+
+  return isSuccess;
 }
 
 bool FeatureModel::commit()

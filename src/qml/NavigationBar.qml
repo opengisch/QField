@@ -16,7 +16,8 @@
  ***************************************************************************/
 
 
-import QtQuick 2.0
+import QtQuick 2.12
+
 import org.qgis 1.0
 import Theme 1.0
 
@@ -38,7 +39,7 @@ Rectangle {
   anchors.top:parent.top
   anchors.left: parent.left
   anchors.right: parent.right
-  height: 48*dp
+  height: 48
 
   clip: true
 
@@ -59,7 +60,7 @@ Rectangle {
   Rectangle {
     id: navigationStatusIndicator
     anchors.fill: parent
-    height: 48*dp
+    height: 48
 
     color: ( featureFormList.model.constraintsHardValid && featureFormList.model.constraintsSoftValid ) || parent.state !== "Edit" ? Theme.mainColor : !featureFormList.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
@@ -77,7 +78,7 @@ Rectangle {
           ( selection.selection + 1 ) + '/' + model.count + ': ' + currentName
         }
         else {
-          'Features'
+          qsTr('Features')
         }
       }
     }
@@ -91,13 +92,13 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: nextButton
 
     anchors.right: parent.right
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
@@ -115,12 +116,13 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: saveButton
     anchors.left: parent.left
-    width: ( parent.state == "Edit" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Edit" ? 48: 0 )
+    height: 48
     clip: true
+    visible: !qfieldSettings.autoSave
 
     iconSource: featureFormList.model.constraintsHardValid ? Theme.getThemeIcon( "ic_check_white_48dp" ) : Theme.getThemeIcon( "ic_check_gray_48dp" )
     onClicked: {
@@ -137,13 +139,14 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: cancelButton
+    visible: !qfieldSettings.autoSave
 
     anchors.right: parent.right
 
-    width: ( parent.state == "Edit" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Edit" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
@@ -160,7 +163,7 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: editGeomButton
 
     property bool readOnly: false
@@ -171,8 +174,8 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_edit_geometry_white" )
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    height: 48
     clip: true
 
     onClicked: {
@@ -196,15 +199,15 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: editButton
 
     property bool readOnly: false
 
     anchors.right: nextButton.left
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
@@ -229,15 +232,15 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: followCurrentButton
     
     visible: !selection.selectedGeometry.isNull
 
     anchors.left: previousButton.right
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
     checkable: true
     checked: extentController.autoZoom
@@ -263,13 +266,13 @@ Rectangle {
     }
   }
 
-  Button {
+  QfToolButton {
     id: previousButton
 
     anchors.left: parent.left
 
-    width: ( parent.state == "Navigation" ? 48*dp : 0 )
-    height: 48*dp
+    width: ( parent.state == "Navigation" ? 48: 0 )
+    height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )

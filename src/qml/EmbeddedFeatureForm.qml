@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+
 import org.qfield 1.0
 
 Popup {
@@ -11,10 +12,13 @@ Popup {
     property alias linkedRelation: formFeatureModel.linkedRelation
     property alias linkedParentFeature: formFeatureModel.linkedParentFeature
     property alias feature: formFeatureModel.feature
+    property alias attributeFormModel: formAttributeFormModel
 
     onAboutToShow: {
-        if( state === 'Add' )
+        if( state === 'Add' ) {
+           form.featureCreated = false
            formFeatureModel.resetAttributes()
+        }
     }
 
     signal featureSaved
@@ -22,17 +26,20 @@ Popup {
 
     parent: ApplicationWindow.overlay
 
-    x: 24 * dp
-    y: 24 * dp
+    x: 24
+    y: 24
     padding: 0
-    width: parent.width - 48 * dp
-    height: parent.height - 48 * dp
+    width: parent.width - 48
+    height: parent.height - 48
     modal: true
     closePolicy: Popup.CloseOnEscape
 
     FeatureForm {
         id: form
+        property bool isSaved: false
+
         model: AttributeFormModel {
+            id: formAttributeFormModel
             featureModel: FeatureModel {
                 id: formFeatureModel
             }
@@ -45,14 +52,31 @@ Popup {
 
         anchors.fill: parent
 
-        onSaved: {
+        onConfirmed: {
             formPopup.featureSaved()
-            formPopup.close()
+            closePopup()
         }
 
         onCancelled: {
             formPopup.featureCancelled()
-            formPopup.close()
+            closePopup()
         }
+
+        function closePopup(){
+            if( formPopup.opened ){
+                isSaved = true
+                formPopup.close()
+            }else{
+                isSaved = false
+            }
+        }
+    }
+
+    onClosed: {
+      if( !form.isSaved ){
+          form.confirm()
+      }else{
+          form.isSaved = false
+      }
     }
 }
