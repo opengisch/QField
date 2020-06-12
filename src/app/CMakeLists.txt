@@ -1,12 +1,23 @@
-FIND_PACKAGE(Qt5 COMPONENTS Core REQUIRED)
-
-ADD_EXECUTABLE(qfield
-  main.cpp
-  ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
-  ${CMAKE_SOURCE_DIR}/images/images.qrc
-  ${CMAKE_SOURCE_DIR}/resources/resources.qrc
-  ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
-)
+IF (ANDROID)
+  ADD_LIBRARY(qfield SHARED
+    main.cpp
+    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
+    ${CMAKE_SOURCE_DIR}/images/images.qrc
+    ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+    ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
+  )
+#  ADD_DEPENDENCIES(qfield
+#    assets
+#  )
+ELSE ()
+  ADD_EXECUTABLE(qfield
+    main.cpp
+    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
+    ${CMAKE_SOURCE_DIR}/images/images.qrc
+    ${CMAKE_SOURCE_DIR}/resources/resources.qrc
+    ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
+  )
+ENDIF ()
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
