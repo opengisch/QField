@@ -23,6 +23,8 @@
 
 class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
 {
+    Q_OBJECT
+
   public:
     AndroidProjectSource();
 
