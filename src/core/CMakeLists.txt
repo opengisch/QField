@@ -110,10 +110,26 @@ SET(QFIELD_CORE_HDRS
   expressionevaluator.h
 )
 
-FIND_PACKAGE(Qt5 COMPONENTS Qml Core Gui Xml Positioning Widgets PrintSupport Network Quick REQUIRED)
+IF (ANDROID)
+  SET(QFIELD_CORE_HDRS ${QFIELD_CORE_HDRS}
+    androidplatformutilities.h
+    androidpicturesource.h
+    androidviewstatus.h
+    androidprojectsource.h
+  )
+  SET(QFIELD_CORE_SRCS ${QFIELD_CORE_SRCS}
+    androidplatformutilities.cpp
+    androidpicturesource.cpp
+    androidviewstatus.cpp
+    androidprojectsource.cpp
+  )
+ENDIF (ANDROID)
+
+FIND_PACKAGE(Sqlite3)
 
 INCLUDE_DIRECTORIES(SYSTEM
   ${QGIS_INCLUDE_DIR}
+  ${SQLITE3_INCLUDE_DIR}
 )
 
 INCLUDE_DIRECTORIES(
@@ -136,9 +152,21 @@ TARGET_LINK_LIBRARIES(qfield_core
   Qt5::PrintSupport
   Qt5::Network
   Qt5::Quick
+  Qt5::Svg
+  Qt5::OpenGL
+  Qt5::Sensors
+  Qt5::Positioning
+  Qt5::Sql
+  Qt5::Concurrent
   ${QGIS_CORE_LIBRARY}
   ${QGIS_ANALYSIS_LIBRARY}
 )
+
+IF (ANDROID)
+  TARGET_LINK_LIBRARIES(qfield_core
+    Qt5::AndroidExtras
+  )
+ENDIF (ANDROID)
 
 INSTALL(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
 INSTALL(TARGETS qfield_core
