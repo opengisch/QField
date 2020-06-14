@@ -54,7 +54,7 @@ ListView {
 
       Text {
         id: layerName
-        width: rectangle.width - ( LegendImage != '' ? 34 : 10 ) - ( InTracking ? 34 : 0 )
+        width: rectangle.width - ( LegendImage != '' ? 34 : 10 ) - ( InTracking ? 34 : 0 ) - ( IsGeometryLocked  ? 34 : 0 )
         padding: 5
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
@@ -86,6 +86,24 @@ ListView {
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
               source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
+          }
+      }
+
+      Rectangle {
+          visible: IsGeometryLocked
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
+          radius: height / 2
+          color: 'transparent'
+
+          Image {
+              anchors.fill: parent
+              anchors.margins: 4
+              fillMode: Image.PreserveAspectFit
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
           }
       }
     }

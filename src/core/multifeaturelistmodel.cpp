@@ -172,10 +172,14 @@ QVariant MultiFeatureListModel::data( const QModelIndex &index, int role ) const
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
 
     case DeleteFeatureRole:
-      return !feature->first->readOnly() && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures );
+      return ! feature->first->readOnly()
+             && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures )
+             && ! feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 
     case EditGeometryRole:
-      return !feature->first->readOnly() && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries );
+      return ! feature->first->readOnly()
+             && ( feature->first->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeGeometries )
+             && ! feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   }
 
   return QVariant();
@@ -259,7 +263,7 @@ bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId f
         break;
       }
 
-      if ( isSuccess ) 
+      if ( isSuccess )
         childLayersEdited.append( childLayer );
       else
         break;
