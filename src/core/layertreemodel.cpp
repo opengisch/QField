@@ -261,6 +261,22 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return false;
     }
 
+    case IsGeometryLocked:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+
+        if ( layer )
+          return layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      }
+
+      return false;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -299,6 +315,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[Type] = "Type";
   roleNames[Name] = "Name";
   roleNames[InTracking] = "InTracking";
+  roleNames[IsGeometryLocked] = "IsGeometryLocked";
   return roleNames;
 }
 
