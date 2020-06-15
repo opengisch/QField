@@ -139,13 +139,19 @@ void LinePolygonHighlight::setGeometry( QgsGeometryWrapper *geometry )
   if ( mGeometry == geometry )
     return;
 
-  disconnect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonHighlight::makeDirty );
-  disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
+  if ( mGeometry )
+  {
+    disconnect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonHighlight::makeDirty );
+    disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
+  }
 
   mGeometry = geometry;
 
-  connect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonHighlight::makeDirty );
-  connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
+  if ( mGeometry )
+  {
+    connect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonHighlight::makeDirty );
+    connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonHighlight::makeDirty );
+  }
 
   mDirty = true;
   emit qgsGeometryChanged();
