@@ -54,7 +54,7 @@ ListView {
 
       Text {
         id: layerName
-        width: rectangle.width - ( LegendImage != '' ? 34 : 10 ) - ( InTracking ? 34 : 0 ) - ( IsGeometryLocked  ? 34 : 0 )
+        width: rectangle.width - ( LegendImage != '' ? 34 : 10 ) - ( InTracking ? 34 : 0 ) - ( GeometryLocked  ? 34 : 0 )
         padding: 5
         text: Name
         horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
@@ -90,7 +90,7 @@ ListView {
       }
 
       Rectangle {
-          visible: IsGeometryLocked
+          visible: GeometryLocked
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
