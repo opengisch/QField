@@ -261,7 +261,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return false;
     }
 
-    case IsGeometryLocked:
+    case GeometryLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
 
@@ -315,7 +315,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[Type] = "Type";
   roleNames[Name] = "Name";
   roleNames[InTracking] = "InTracking";
-  roleNames[IsGeometryLocked] = "IsGeometryLocked";
+  roleNames[GeometryLocked] = "GeometryLocked";
   return roleNames;
 }
 
