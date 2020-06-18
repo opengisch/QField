@@ -64,7 +64,7 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
     expression.prepare( &expressionContext );
 
     QgsFeatureRequest req;
-    req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).toList() );
+    req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).values() );
     if ( !expression.needsGeometry() )
       req.setFlags( QgsFeatureRequest::NoGeometry );
     QString enhancedSearch = string;
