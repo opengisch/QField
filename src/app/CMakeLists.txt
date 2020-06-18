@@ -1,11 +1,15 @@
-FIND_PACKAGE(Qt5QuickCompiler)
-QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+FIND_PACKAGE(Qt5QuickCompiler QUIET)
+IF(Qt5QuickCompiler_FOUND)
+  QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+ELSE(Qt5QuickCompiler_FOUND)
+  MESSAGE(STATUS "QtQuickCompiler not found. QML files will not be compiled.")
+  SET(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
+ENDIF(Qt5QuickCompilerx_FOUND)
 
 IF (ANDROID)
   ADD_LIBRARY(qfield SHARED
     main.cpp
     ${RESOURCES}
-    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
     ${CMAKE_SOURCE_DIR}/images/images.qrc
     ${CMAKE_SOURCE_DIR}/resources/resources.qrc
     ${CMAKE_SOURCE_DIR}/i18n/translations.qrc
