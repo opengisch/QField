@@ -779,7 +779,7 @@ ApplicationWindow {
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
-      rubberbandModel: currentRubberband.model
+      rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
@@ -1361,7 +1361,7 @@ ApplicationWindow {
       target: qfieldAuthRequestHandler
 
       onShowLoginDialog: {
-        loginDialogPopup.realm = realm
+        loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
@@ -1375,7 +1375,7 @@ ApplicationWindow {
       id: loginDialogPopup
       parent: ApplicationWindow.overlay
 
-      property var realm
+      property var realm: ""
 
       x: 24
       y: 24
@@ -1664,14 +1664,6 @@ ApplicationWindow {
     interval: 2000
     onTriggered: {
         alreadyCloseRequested = false
-    }
-  }
-
-  Connections {
-    target: openProjectMenuItem.__projectSource
-
-    onProjectOpened: {
-      iface.loadProject( path )
     }
   }
 

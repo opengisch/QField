@@ -28,7 +28,6 @@ Drawer {
 
   interactive: overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ? true : false
   dragMargin: 0
-  Keys.enabled: true
 
   /**
    * If the save/cancel was initiated by button, the drawer needs to be closed in the end
@@ -98,19 +97,8 @@ Drawer {
         focusstack.addFocusTaker( this )
     }
   }
+
   Component.onCompleted: {
       close()
-  }
-
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      if( overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ) {
-        overlayFeatureFormDrawer.close()
-      } else {
-        //block closing to fix constraints or cancel with button
-        displayToast( qsTr( "Constraints not valid" ) )
-      }
-      event.accepted = true
-    }
   }
 }

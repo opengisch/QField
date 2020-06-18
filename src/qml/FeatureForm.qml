@@ -238,7 +238,12 @@ Page {
         }
 
         font.pointSize: fieldLabel.font.pointSize/3*2
-        text: !ConstraintHardValid ? ConstraintDescription : !ConstraintSoftValid ? ConstraintDescription : ''
+        text: {
+          if ( ConstraintHardValid && ConstraintSoftValid )
+            return '';
+
+          return ConstraintDescription || '';
+        }
         height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
