@@ -17,6 +17,8 @@
  ***************************************************************************/
 
 #include "qgsmessagelog.h"
+#include "qgsstringutils.h"
+
 
 #include "platformutilities.h"
 #include "projectsource.h"
@@ -133,3 +135,7 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
   return true;
 }
 
+QString PlatformUtilities::insertLinks( const QString &string )
+{
+  return QgsStringUtils::insertLinks( string );
+}
