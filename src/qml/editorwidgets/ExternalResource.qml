@@ -15,6 +15,7 @@ Item {
   anchors.right: parent.right
 
   height: Math.max(isImage? image.height : linkField.height, button_camera.height, button_gallery.height)
+  enabled: isEnabled
 
   property PictureSource __pictureSource
   property ViewStatus __viewStatus

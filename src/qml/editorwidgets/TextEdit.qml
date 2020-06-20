@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import Theme 1.0
 
 Item {
+  id: topItem
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
 
@@ -12,7 +13,7 @@ Item {
     height: textArea.height == 0 ? fontMetrics.height + 20: 0
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && ! enabled
+    visible: height !== 0 && ! isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -28,7 +29,7 @@ Item {
     height: textArea.height == 0 ? fontMetrics.height + 20: 0
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && enabled
+    visible: height !== 0 && isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -76,7 +77,7 @@ Item {
   TextArea {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
-    visible: height !== 0
+    visible: height !== 0 && isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap

@@ -26,6 +26,7 @@ Item {
   signal valueChanged(var value, bool isNull)
 
   height: childrenRect.height
+  enabled: isEnabled
 
   ColumnLayout {
     id: main

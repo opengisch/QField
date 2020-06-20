@@ -5,6 +5,7 @@ Item {
   signal valueChanged( var value, bool isNull )
 
   height: childrenRect.height
+  enabled: isEnabled
 
   anchors {
     right: parent.right
