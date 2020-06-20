@@ -25,25 +25,23 @@ FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
 {
 }
 
-int FeatureListModelSelection::selection()
+int FeatureListModelSelection::focusedItem()
 {
-  if ( mSelection  && mSelection->selectedIndexes().count() )
-  {
-    return mSelection->selectedIndexes().first().row();
-  }
-  return -1;
+  return mFocusedItem;
 }
 
-void FeatureListModelSelection::setSelection( int selection )
+void FeatureListModelSelection::setFocusedItem( int item )
 {
-  if ( mSelection )
-  {
-    if ( !mSelection->selectedIndexes().count() || mSelection->selectedIndexes().first().row() != selection )
-    {
-      mSelection->select( mModel->index( selection, 0 ), QItemSelectionModel::ClearAndSelect );
-      emit selectionChanged();
-    }
-  }
+  if ( mFocusedItem == item )
+    return;
+
+  mFocusedItem = item;
+  emit focusedItemChanged();
+}
+
+void FeatureListModelSelection::toggleSelectedItem( int item )
+{
+  mModel->toggleSelectedItem( item );
 }
 
 MultiFeatureListModel *FeatureListModelSelection::model() const
@@ -55,6 +53,7 @@ void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
 {
   if ( mModel != model )
   {
+    mFocusedItem = -1;
     delete mSelection;
     mSelection = new QItemSelectionModel( model );
     mModel = model;
@@ -62,26 +61,26 @@ void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
   }
 }
 
-QgsVectorLayer *FeatureListModelSelection::selectedLayer() const
+QgsVectorLayer *FeatureListModelSelection::focusedLayer() const
 {
-  if ( mSelection->selectedIndexes().count() )
+  if ( mFocusedItem > -1 )
   {
-    return mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    return mModel->data( mModel->index( mFocusedItem, 0 ), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
   }
   return nullptr;
 }
 
-QgsFeature FeatureListModelSelection::selectedFeature() const
+QgsFeature FeatureListModelSelection::focusedFeature() const
 {
-  if ( mSelection->selectedIndexes().count() )
+  if ( mFocusedItem > -1 )
   {
-    QgsFeature feature = mModel->data( mSelection->selectedIndexes().first(), MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+    QgsFeature feature = mModel->data( mModel->index( mFocusedItem, 0 ), MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
     return feature;
   }
   return QgsFeature();
 }
 
-QgsGeometry FeatureListModelSelection::selectedGeometry() const
+QgsGeometry FeatureListModelSelection::focusedGeometry() const
 {
-  return selectedFeature().geometry();
+  return focusedFeature().geometry();
 }

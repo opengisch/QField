@@ -27,32 +27,35 @@ class FeatureListModelSelection : public QObject
 {
     Q_OBJECT
     Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( int selection READ selection WRITE setSelection NOTIFY selectionChanged )
-    Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectionChanged )
-    Q_PROPERTY( QgsFeature selectedFeature READ selectedFeature NOTIFY selectionChanged )
-    Q_PROPERTY( QgsGeometry selectedGeometry READ selectedGeometry NOTIFY selectionChanged )
+    Q_PROPERTY( int focusedItem READ focusedItem WRITE setFocusedItem NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsVectorLayer *focusedLayer READ focusedLayer NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsFeature focusedFeature READ focusedFeature NOTIFY focusedItemChanged )
+    Q_PROPERTY( QgsGeometry focusedGeometry READ focusedGeometry NOTIFY focusedItemChanged )
 
   public:
     explicit FeatureListModelSelection( QObject *parent = nullptr );
 
-    int selection();
-    void setSelection( int selection );
+    int focusedItem();
+
+    void setFocusedItem( int item );
+
+    Q_INVOKABLE void toggleSelectedItem( int item );
 
     MultiFeatureListModel *model() const;
     void setModel( MultiFeatureListModel *model );
 
-    QgsVectorLayer *selectedLayer() const;
-    QgsFeature selectedFeature() const;
-
-    QgsGeometry selectedGeometry() const;
+    QgsVectorLayer *focusedLayer() const;
+    QgsFeature focusedFeature() const;
+    QgsGeometry focusedGeometry() const;
 
   signals:
     void modelChanged();
-    void selectionChanged();
+    void focusedItemChanged();
 
   private:
     MultiFeatureListModel *mModel = nullptr;
     QItemSelectionModel *mSelection = nullptr;
+    int mFocusedItem = -1;
 };
 
 #endif // FEATURELISTMODELSELECTION_H

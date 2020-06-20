@@ -23,17 +23,20 @@
 #include <qgsfeaturerequest.h>
 
 #include "identifytool.h"
+#include "multifeaturelistmodelbase.h"
 
-class MultiFeatureListModel : public QAbstractItemModel
+class MultiFeatureListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
 
   public:
     enum FeatureListRoles
     {
       FeatureIdRole = Qt::UserRole + 1,
+      FeatureSelectedRole,
       FeatureRole,
       LayerNameRole,
       LayerRole,
@@ -53,47 +56,31 @@ class MultiFeatureListModel : public QAbstractItemModel
 
     void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
 
-    Q_INVOKABLE void clear();
-
-    QHash<int, QByteArray> roleNames() const override;
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
-    QModelIndex parent( const QModelIndex &child ) const override;
-    int rowCount( const QModelIndex &parent ) const override;
-    int columnCount( const QModelIndex &parent ) const override;
-    QVariant data( const QModelIndex &index, int role ) const override;
-
-    /**
-     * Removes a defined number of rows starting from a given position. The parent index is not
-     * used as we have a list only.
-     *
-     * @param row   The first row to remove
-     * @param count The numbe rof rows to remove
-     * @param parent Can savely be omitted as it is unused and defaults to an invalid index
-     */
-    virtual bool removeRows( int row, int count, const QModelIndex &parent ) override;
+    Q_INVOKABLE void clear( const bool keepSelected = false );
 
     int count() const;
 
+    int selectedCount() const;
+
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
+    void toggleSelectedItem( int item );
+
   signals:
+
     void countChanged();
 
-  private slots:
-    void layerDeleted( QObject *object );
+    void selectedCountChanged();
 
-    void featureDeleted( QgsFeatureId fid );
+  protected:
 
-    void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
-
-  private:
-    inline QPair< QgsVectorLayer *, QgsFeature > *toFeature( const QModelIndex &index ) const
-    {
-      return static_cast<QPair< QgsVectorLayer *, QgsFeature >*>( index.internalPointer() );
-    }
+    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-    QList< QPair< QgsVectorLayer *, QgsFeature > > mFeatures;
+
+    MultiFeatureListModelBase *mSourceModel = nullptr;
+
+    QgsVectorLayer *mFilterLayer = nullptr;
 };
 
 #endif // MULTIFEATURELISTMODEL_H

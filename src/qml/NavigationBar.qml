@@ -103,10 +103,10 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_right_white_24dp" )
 
-    enabled: ( toolBar.model && ( selection.selection + 1 ) < toolBar.model.count )
+    enabled: ( toolBar.model && ( selection.focusedItem + 1 ) < toolBar.model.count )
 
     onClicked: {
-      selection.selection = selection.selection + 1
+      selection.focusedItem = selection.focusedItem + 1
     }
 
     Behavior on width {
@@ -169,7 +169,7 @@ Rectangle {
     property bool readOnly: false
 
     visible: stateMachine.state === "digitize"
-             && ! selection.selectedGeometry.isNull
+             && ! selection.focusedGeometry.isNull
              && ! selection.selectedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
 
     anchors.right: editButton.left
@@ -194,9 +194,9 @@ Rectangle {
     Connections {
       target: selection
 
-      onSelectionChanged:
+      onFocusedItemChanged:
       {
-        editGeomButton.readOnly = selection.selectedLayer.readOnly
+        editGeomButton.readOnly = selection.focusedLayer.readOnly
       }
     }
   }
@@ -227,9 +227,9 @@ Rectangle {
     Connections {
       target: selection
 
-      onSelectionChanged:
+      onFocusedItemChanged:
       {
-        editButton.readOnly = selection.selectedLayer.readOnly
+        editButton.readOnly = selection.focusedLayer.readOnly
       }
     }
   }
@@ -237,7 +237,7 @@ Rectangle {
   QfToolButton {
     id: followCurrentButton
     
-    visible: !selection.selectedGeometry.isNull
+    visible: !selection.focusedGeometry.isNull
 
     anchors.left: previousButton.right
 
@@ -279,10 +279,10 @@ Rectangle {
 
     iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
 
-    enabled: ( selection.selection > 0 )
+    enabled: ( selection.focusedItem > 0 )
 
     onClicked: {
-      selection.selection = selection.selection - 1
+      selection.focusedItem = selection.focusedItem - 1
     }
 
     Behavior on width {
