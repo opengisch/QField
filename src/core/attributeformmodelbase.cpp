@@ -404,11 +404,11 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
   {
     QStandardItem *item = constraintIterator.key();
 
-    int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+    int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
     if ( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ) == true )
     {
       QStringList errors;
-      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fieldIndex, errors, QgsFieldConstraints::ConstraintStrengthHard );
+      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
       if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
       {
         item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
@@ -419,7 +419,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
       }
 
       QStringList softErrors;
-      bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+      bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
       if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
       {
         item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
