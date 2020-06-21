@@ -10,9 +10,9 @@ Item {
 
   id: rangeItem
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
-  property int precision: config["Precision"]
-  property real from: config["Min"]
-  property real to: config["Max"]
+  property int precision: config["Precision"] ? config["Precision"] : 0
+  property real from: config["Min"] ? config["Min"] : 0
+  property real to: config["Max"] ? config["Max"] : 0
   property real step: config["Step"] ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
 

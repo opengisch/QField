@@ -197,7 +197,7 @@ Rectangle {
 
       onFocusedItemChanged:
       {
-        editGeomButton.readOnly = selection.focusedLayer.readOnly
+        editGeomButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
     }
   }
@@ -230,7 +230,7 @@ Rectangle {
 
       onFocusedItemChanged:
       {
-        editButton.readOnly = selection.focusedLayer.readOnly
+        editButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
     }
   }
@@ -296,9 +296,11 @@ Rectangle {
   QfToolButton {
     id: multiEditButton
 
+    property bool readOnly: false
+
     anchors.right: parent.right
 
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 1 ? 48: 0 )
+    width: ( !readOnly && parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
     clip: true
 
@@ -313,6 +315,15 @@ Rectangle {
     Behavior on width {
       PropertyAnimation {
         easing.type: Easing.InQuart
+      }
+    }
+
+    Connections {
+      target: selection
+
+      onFocusedItemChanged:
+      {
+        multiEditButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
     }
   }
