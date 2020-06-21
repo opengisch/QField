@@ -35,6 +35,7 @@ Rectangle {
   signal editGeometryButtonClicked
   signal save
   signal cancel
+  signal multiEditClicked
 
   anchors.top:parent.top
   anchors.left: parent.left
@@ -152,7 +153,7 @@ Rectangle {
     iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
     onClicked: {
-      selection.selectionChanged()
+      selection.focusedItemChanged()
       toolBar.cancel()
     }
 
@@ -283,6 +284,30 @@ Rectangle {
 
     onClicked: {
       selection.focusedItem = selection.focusedItem - 1
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  QfToolButton {
+    id: multiEditButton
+
+    anchors.right: parent.right
+
+    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 1 ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
+
+    enabled: ( toolBar.model && toolBar.model.selectedCount )
+
+    onClicked: {
+      multiEditClicked();
     }
 
     Behavior on width {

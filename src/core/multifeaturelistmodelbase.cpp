@@ -116,7 +116,7 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
 QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
 {
   QList<QgsFeature> features;
-  for ( const QPair< QgsVectorLayer *, QgsFeature > &pair : mFeatures )
+  for ( const QPair< QgsVectorLayer *, QgsFeature > &pair : mSelectedFeatures )
   {
     features << pair.second;
   }
@@ -403,6 +403,9 @@ void MultiFeatureListModelBase::layerDeleted( QObject *object )
   }
 
   removeRows( firstRowToRemove, count );
+
+  mSelectedFeatures.clear();
+  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
@@ -420,6 +423,9 @@ void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
     }
     ++i;
   }
+
+  mSelectedFeatures.clear();
+  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
@@ -427,14 +433,21 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
 
-  int i = 0;
-  for ( auto it = mFeatures.begin(); it != mFeatures.end(); it++ )
+  for ( auto &pair : mFeatures )
   {
-    if ( it->first == l && it->second.id() == fid )
+    if ( pair.first == l && pair.second.id() == fid )
     {
-      it->second.setAttribute( idx, value );
+      pair.second.setAttribute( idx, value );
       break;
     }
-    ++i;
+  }
+
+  for ( auto &pair : mSelectedFeatures )
+  {
+    if ( pair.first == l && pair.second.id() == fid )
+    {
+      pair.second.setAttribute( idx, value );
+      break;
+    }
   }
 }

@@ -31,7 +31,6 @@ class FeatureListModelSelection : public QObject
     Q_PROPERTY( QgsVectorLayer *focusedLayer READ focusedLayer NOTIFY focusedItemChanged )
     Q_PROPERTY( QgsFeature focusedFeature READ focusedFeature NOTIFY focusedItemChanged )
     Q_PROPERTY( QgsGeometry focusedGeometry READ focusedGeometry NOTIFY focusedItemChanged )
-    Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedFeaturesChanged )
 
   public:
     explicit FeatureListModelSelection( QObject *parent = nullptr );
@@ -39,8 +38,6 @@ class FeatureListModelSelection : public QObject
     int focusedItem() const;
 
     void setFocusedItem( int item );
-
-    QList<QgsFeature> selectedFeatures() const;
 
     Q_INVOKABLE void toggleSelectedItem( int item );
 

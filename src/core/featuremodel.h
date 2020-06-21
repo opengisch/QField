@@ -65,7 +65,8 @@ class FeatureModel : public QAbstractListModel
       AttributeValue,
       Field,
       RememberAttribute,
-      LinkedAttribute  //! value of this attribute is given by the parent feature and does not to be available for editing in the form
+      LinkedAttribute,  //! value of this attribute is given by the parent feature and does not to be available for editing in the form
+      AttributeAllowEdit, //! value of this attribute is equal across features being edited
     };
     Q_ENUM( FeatureRoles )
 
@@ -222,7 +223,7 @@ class FeatureModel : public QAbstractListModel
     QgsVectorLayer *mLayer = nullptr;
     QgsFeature mFeature;
     QList<QgsFeature> mFeatures;
-    QList<bool> mAttributesEqualValue;
+    QList<bool> mAttributesAllowEdit;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
     QList<int> mLinkedAttributeIndexes;

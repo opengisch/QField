@@ -201,15 +201,19 @@ Rectangle {
 
         onClicked: {
           if ( featureForm.selection.model.selectedCount == 0 ) {
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
             featureForm.selection.focusedItem = index
             featureForm.state = "FeatureForm"
           } else {
             featureForm.selection.toggleSelectedItem( index );
+            featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
           }
         }
 
         onPressAndHold:
         {
+          featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
+          featureForm.selection.focusedItem = index
           featureForm.selection.toggleSelectedItem( index );
         }
       }
@@ -262,6 +266,7 @@ Rectangle {
     onShownChanged: {
       if ( shown )
       {
+        featureForm.selection.focusedItem = -1
         height = parent.height - featureListToolBar.height
       }
       else
@@ -289,7 +294,8 @@ Rectangle {
     model: AttributeFormModel {
       featureModel: FeatureModel {
         currentLayer: featureForm.selection.focusedLayer
-        features: featureForm.selection.features
+        feature: featureForm.selection.focusedFeature
+        features: featureForm.selection.model.selectedFeatures
       }
     }
 
@@ -341,14 +347,22 @@ Rectangle {
 
     onSave: {
       featureFormList.confirm()
-      featureForm.state = "FeatureForm"
+      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
       featureFormList.model.featureModel.reset()
-      featureForm.state = "FeatureForm"
+      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onMultiEditClicked: {
+        if (featureForm.selection.focusedItem == -1) {
+          // focus on the first selected item to grab its layer
+          featureForm.selection.focusedItem = 0;
+        }
+        featureForm.state = "FeatureFormEdit"
     }
   }
 

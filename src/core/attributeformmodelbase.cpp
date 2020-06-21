@@ -52,6 +52,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::ConstraintHardValid] = "ConstraintHardValid";
   roles[AttributeFormModel::ConstraintSoftValid] = "ConstraintSoftValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
+  roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
 
   return roles;
 }
@@ -62,6 +63,16 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
   {
     switch ( role )
     {
+      case AttributeFormModel::AttributeAllowEdit:
+      {
+        QStandardItem *item = itemFromIndex( index );
+        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeAllowEdit );
+        item->setData( value, AttributeFormModel::AttributeAllowEdit );
+        updateVisibility( fieldIndex );
+        break;
+      }
+
       case AttributeFormModel::RememberValue:
       {
         QStandardItem *item = itemFromIndex( index );
@@ -110,6 +121,8 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::featuresChanged, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::modelMode, this, &AttributeFormModelBase::onFeatureChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
@@ -224,8 +237,9 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "field" ) )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
-    QVariant attributeValue = mFeatureModel->feature().attribute( fieldIndex );
+    QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
     item->setData( attributeValue, AttributeFormModel::AttributeValue );
+    item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit);
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
@@ -292,6 +306,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
+        item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
 
         // create constraint description
         QStringList descriptions;
@@ -383,31 +398,41 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
 
   bool allConstraintsHardValid = true;
   bool allConstraintsSoftValid = true;
+
   QMap<QStandardItem *, QgsFieldConstraints>::ConstIterator constraintIterator( mConstraints.constBegin() );
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
 
-    QStringList errors;
-    bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), errors, QgsFieldConstraints::ConstraintStrengthHard );
-    if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+    int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+    if ( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ) == true )
     {
-      item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
-    }
-    if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
-    {
-      allConstraintsHardValid = false;
-    }
+      QStringList errors;
+      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fieldIndex, errors, QgsFieldConstraints::ConstraintStrengthHard );
+      if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      {
+        item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
+      }
+      if ( !item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      {
+        allConstraintsHardValid = false;
+      }
 
-    QStringList softErrors;
-    bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
-    if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
-    {
-      item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+      QStringList softErrors;
+      bool softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), item->data( AttributeFormModel::FieldIndex ).toInt(), softErrors, QgsFieldConstraints::ConstraintStrengthSoft );
+      if ( softConstraintSatisfied != item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        item->setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+      }
+      if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        allConstraintsSoftValid = false;
+      }
     }
-    if ( !item->data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+    else
     {
-      allConstraintsSoftValid = false;
+      item->setData( true, AttributeFormModel::ConstraintHardValid );
+      item->setData( true, AttributeFormModel::ConstraintSoftValid );
     }
   }
 
@@ -431,7 +456,7 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
     return QVariant();
 
   int idx = mLayer->fields().indexOf( name );
-  return mFeatureModel->feature().attribute( idx );
+  return mFeatureModel->data( mFeatureModel->index( idx ), FeatureModel::AttributeValue );
 }
 
 void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )

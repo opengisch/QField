@@ -63,6 +63,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     int selectedCount() const;
 
+    void checkSelectedCount();
+
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
     void toggleSelectedItem( int item );

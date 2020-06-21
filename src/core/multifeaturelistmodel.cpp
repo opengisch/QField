@@ -35,7 +35,7 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   setSourceModel( mSourceModel );
   connect( mSourceModel, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModel::countChanged );
   connect( mSourceModel, &MultiFeatureListModelBase::countChanged, this, &MultiFeatureListModel::countChanged );
-  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::selectedCountChanged );
+  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::checkSelectedCount);
 }
 
 
@@ -87,6 +87,16 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
     mFilterLayer = nullptr;
     invalidateFilter();
   }
+}
+
+void MultiFeatureListModel::checkSelectedCount()
+{
+  if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
+  {
+    mFilterLayer = nullptr;
+    invalidateFilter();
+  }
+  emit selectedCountChanged();
 }
 
 QList<QgsFeature> MultiFeatureListModel::selectedFeatures()

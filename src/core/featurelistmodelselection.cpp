@@ -39,11 +39,6 @@ void FeatureListModelSelection::setFocusedItem( int item )
   emit focusedItemChanged();
 }
 
-QList<QgsFeature> FeatureListModelSelection::selectedFeatures() const
-{
-  return mModel->selectedFeatures();
-}
-
 void FeatureListModelSelection::toggleSelectedItem( int item )
 {
   mModel->toggleSelectedItem( item );
