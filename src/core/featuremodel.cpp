@@ -343,7 +343,6 @@ bool FeatureModel::save()
           feature.setAttribute( i, mFeature.attributes().at( i ) );
         }
 
-        qDebug() << QString( "feat id %1" ).arg( feature.id() );
         if ( !mLayer->updateFeature( feature ) )
         {
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
