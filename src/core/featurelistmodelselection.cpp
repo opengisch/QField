@@ -25,7 +25,7 @@ FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
 {
 }
 
-int FeatureListModelSelection::focusedItem()
+int FeatureListModelSelection::focusedItem() const
 {
   return mFocusedItem;
 }
@@ -39,9 +39,15 @@ void FeatureListModelSelection::setFocusedItem( int item )
   emit focusedItemChanged();
 }
 
+QList<QgsFeature> FeatureListModelSelection::selectedFeatures() const
+{
+  return mModel->selectedFeatures();
+}
+
 void FeatureListModelSelection::toggleSelectedItem( int item )
 {
   mModel->toggleSelectedItem( item );
+  emit selectedFeaturesChanged();
 }
 
 MultiFeatureListModel *FeatureListModelSelection::model() const

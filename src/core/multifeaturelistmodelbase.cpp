@@ -113,6 +113,16 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
   emit selectedCountChanged();
 }
 
+QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures()
+{
+  QList<QgsFeature> features;
+  for ( const QPair< QgsVectorLayer *, QgsFeature > &pair : mFeatures )
+  {
+    features << pair.second;
+  }
+  return features;
+}
+
 QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
 {
   QHash<int, QByteArray> roleNames;

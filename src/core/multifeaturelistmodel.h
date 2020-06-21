@@ -30,6 +30,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedCountChanged )
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
 
   public:
@@ -65,6 +66,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
     void toggleSelectedItem( int item );
+
+    QList<QgsFeature> selectedFeatures();
 
   signals:
 

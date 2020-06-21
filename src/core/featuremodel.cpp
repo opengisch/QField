@@ -31,12 +31,58 @@ FeatureModel::FeatureModel( QObject *parent )
   connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
 }
 
+void FeatureModel::setModelMode( const ModelModes mode )
+{
+  if ( mModelMode == mode )
+    return;
+
+  mModelMode = mode;
+  emit modelModeChanged();
+}
+
+FeatureModel::ModelModes FeatureModel::modelMode() const
+{
+  return mModelMode;
+}
+
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
   beginResetModel();
   mFeature = feature;
+  mFeatures.clear();
   endResetModel();
   emit featureChanged();
+}
+
+void FeatureModel::setFeatures( const QList<QgsFeature> &features )
+{
+  beginResetModel();
+  if ( !features.isEmpty() )
+  {
+    mFeatures = features;
+    mAttributesEqualValue.reserve( mFeatures.count() );
+    mFeature = mFeatures.at( 0 );
+    for ( int i = 0; i < mFeature.attributes().count(); i++ )
+    {
+      bool equalValue = true;
+      for ( const QgsFeature &feature : mFeatures )
+      {
+        if ( feature.attributes().at( i ) != mFeature.attributes().at( i ) )
+        {
+          equalValue = false;
+          break;
+        }
+      }
+      mAttributesEqualValue << equalValue;
+    }
+  }
+  else
+  {
+      mFeatures.clear();
+      mAttributesEqualValue.clear();
+  }
+  endResetModel();
+  emit featuresChanged();
 }
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
@@ -92,6 +138,11 @@ void FeatureModel::setVertexModel( VertexModel *model )
 QgsFeature FeatureModel::feature() const
 {
   return mFeature;
+}
+
+QList<QgsFeature> FeatureModel::features() const
+{
+  return mFeatures;
 }
 
 void FeatureModel::setLinkedFeatureValues()
@@ -155,8 +206,17 @@ int FeatureModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
     return 0;
-  else
-    return mFeature.attributes().count();
+
+  switch ( mModelMode )
+  {
+    case SingleFeatureModel:
+      return mFeature.attributes().count();
+
+    case MultiFeatureModel:
+      return mLayer->fields().count();
+  }
+
+  return 0;
 }
 
 QVariant FeatureModel::data( const QModelIndex &index, int role ) const
@@ -167,7 +227,15 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
       return mLayer->attributeDisplayName( index.row() );
 
     case AttributeValue:
-      return mFeature.attribute( index.row() );
+      switch ( mModelMode )
+      {
+        case SingleFeatureModel:
+          return mFeature.attribute( index.row() );
+
+        case MultiFeatureModel:
+          return mAttributesEqualValue.at( index.row() ) ? mFeature.attribute( index.row() ) : QVariant();
+      }
+      return QVariant();
 
     case Field:
       return mLayer->fields().at( index.row() );
@@ -177,7 +245,6 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 
     case LinkedAttribute:
       return mLinkedAttributeIndexes.contains( index.row() );
-
   }
 
   return QVariant();
@@ -193,17 +260,41 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     case AttributeValue:
     {
       QVariant val( value );
-      QgsField fld = mFeature.fields().at( index.row() );
+      QgsField fld = mLayer->fields().at( index.row() );
 
       if ( !fld.convertCompatible( val ) )
       {
         QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
         return false;
       }
-      bool success = mFeature.setAttribute( index.row(), val );
-      if ( success )
-        emit dataChanged( index, index, QVector<int>() << role );
-      return success;
+
+      switch ( mModelMode )
+      {
+        case SingleFeatureModel:
+        {
+          bool success = mFeature.setAttribute( index.row(), val );
+          if ( success )
+            emit dataChanged( index, index, QVector<int>() << role );
+          return success;
+        }
+        case MultiFeatureModel:
+        {
+          bool success = false;
+          if ( !mFeatures.isEmpty() )
+          {
+            success = mFeatures[0].setAttribute( index.row(), val );
+            if ( success )
+            {
+              for ( int i = 1; i < mFeatures.count(); i++ )
+              {
+                mFeatures[i].setAttribute( index.row(), val );
+              }
+            }
+          }
+          return success;
+        }
+      }
+      return false;
     }
 
     case RememberAttribute:

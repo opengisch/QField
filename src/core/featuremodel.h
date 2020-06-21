@@ -32,7 +32,9 @@ class VertexModel;
 class FeatureModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY( FeatureModel::ModelModes modelMode READ modelMode WRITE setModelMode NOTIFY modelModeChanged )
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
+    Q_PROPERTY( QList<QgsFeature> features READ features WRITE setFeatures NOTIFY featuresChanged )
     Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
     Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
     //! the vertex model is used to highlight vertices on the map
@@ -50,6 +52,13 @@ class FeatureModel : public QAbstractListModel
     };
 
   public:
+    enum ModelModes
+    {
+      SingleFeatureModel = 1,
+      MultiFeatureModel,
+    };
+    Q_ENUM( ModelModes )
+
     enum FeatureRoles
     {
       AttributeName = Qt::UserRole + 1,
@@ -61,7 +70,9 @@ class FeatureModel : public QAbstractListModel
     Q_ENUM( FeatureRoles )
 
     explicit FeatureModel( QObject *parent = nullptr );
-    explicit FeatureModel( const QgsFeature &feat, QObject *parent = nullptr );
+
+    void setModelMode( const ModelModes mode );
+    ModelModes modelMode() const;
 
     void setFeature( const QgsFeature &feature );
 
@@ -69,6 +80,13 @@ class FeatureModel : public QAbstractListModel
      * Return the feature wrapped in a QVariant for passing it around in QML
      */
     QgsFeature feature() const;
+
+    void setFeatures( const QList<QgsFeature> &features );
+
+    /**
+     * Return the features list for passing it around in QML
+     */
+    QList<QgsFeature> features() const;
 
     /**
      * A linked feature is a parent feature of a relation passing it's pk(s) to the created child features fk(s)
@@ -179,7 +197,9 @@ class FeatureModel : public QAbstractListModel
     void removeLayer( QObject *layer );
 
   signals:
+    void modelModeChanged();
     void featureChanged();
+    void featuresChanged();
     void linkedParentFeatureChanged();
     void linkedRelationChanged();
     void vertexModelChanged();
@@ -198,8 +218,11 @@ class FeatureModel : public QAbstractListModel
     bool startEditing();
     void setLinkedFeatureValues();
 
+    ModelModes mModelMode = SingleFeatureModel;
     QgsVectorLayer *mLayer = nullptr;
     QgsFeature mFeature;
+    QList<QgsFeature> mFeatures;
+    QList<bool> mAttributesEqualValue;
     QgsFeature mLinkedParentFeature;
     QgsRelation mLinkedRelation;
     QList<int> mLinkedAttributeIndexes;

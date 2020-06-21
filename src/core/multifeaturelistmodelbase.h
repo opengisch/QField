@@ -67,6 +67,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     void toggleSelectedItem( int item );
 
+    QList<QgsFeature> selectedFeatures();
+
   signals:
 
     void countChanged();

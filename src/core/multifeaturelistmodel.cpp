@@ -89,6 +89,11 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   }
 }
 
+QList<QgsFeature> MultiFeatureListModel::selectedFeatures()
+{
+  return mSourceModel->selectedFeatures();
+}
+
 bool MultiFeatureListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   if ( mFilterLayer != nullptr )
