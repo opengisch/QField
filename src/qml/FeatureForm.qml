@@ -247,7 +247,7 @@ Page {
         height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
         visible: !ConstraintHardValid || !ConstraintSoftValid
 
-        color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+        color: !ConstraintHardValid ? Theme.errorColor : Theme.darkGray
       }
 
       Item {
