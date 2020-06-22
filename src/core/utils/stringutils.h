@@ -31,9 +31,15 @@ class StringUtils : public QObject
     explicit StringUtils( QObject *parent = nullptr );
 
 
+    /**
+     * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
+     */
     static Q_INVOKABLE bool isRelativeUrl( const QString &url );
 
 
+    /**
+     * Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links.
+     */
     static Q_INVOKABLE QString insertLinks( const QString &string );
 };
 
