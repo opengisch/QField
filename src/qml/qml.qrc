@@ -33,7 +33,6 @@
         <file>Legend.qml</file>
         <file>TransformedPositionSource.qml</file>
         <file>LayerTreeItemProperties.qml</file>
-        <file>ui/LayerTreeItemProperties.qml</file>
         <file>QFieldCamera.qml</file>
         <file>VertexRubberband.qml</file>
         <file>VisibilityFadingRow.qml</file>

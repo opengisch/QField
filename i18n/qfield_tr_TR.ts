@@ -187,7 +187,7 @@ You may check the &lt;i&gt;Portable Project&lt;/i&gt; section in the QField docu
     </message>
 </context>
 <context>
-    <name>LayerTreeItemProperties.ui</name>
+    <name>LayerTreeItemProperties</name>
     <message>
         <source>Show on map canvas</source>
         <translation type="unfinished"/>
