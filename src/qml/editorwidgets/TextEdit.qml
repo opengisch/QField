@@ -33,7 +33,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: value == null || !enabled ? 'gray' : 'black'
+    color: (value == null || ! isEnabled) ? 'gray' : 'black'
 
     text: value == null ? '' : value
 
