@@ -73,6 +73,7 @@ HEADERS += \
     utils/featureutils.h \
     utils/geometryutils.h \
     utils/fileutils.h \
+    utils/stringutils.h \
     expressionevaluator.h
 
 SOURCES += \
@@ -128,6 +129,7 @@ SOURCES += \
     utils/featureutils.cpp \
     utils/geometryutils.cpp \
     utils/fileutils.cpp \
+    utils/stringutils.cpp \
     expressionevaluator.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \
