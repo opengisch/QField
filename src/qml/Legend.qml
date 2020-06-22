@@ -97,7 +97,6 @@ ListView {
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
-          radius: height / 2
           color: 'transparent'
           opacity: 0.25
 
