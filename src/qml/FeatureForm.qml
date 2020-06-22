@@ -282,6 +282,8 @@ Page {
           property var currentFeature: form.model.featureModel.feature
           property var currentLayer: form.model.featureModel.currentLayer
           property bool autoSave: qfieldSettings.autoSave
+          // TODO investigate why StringUtils are not available in ./editorwidget/*.qml files
+          property var stringUtilities: StringUtils
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'

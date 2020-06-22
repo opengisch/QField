@@ -116,7 +116,5 @@ class PlatformUtilities : public QObject
     */
     Q_INVOKABLE virtual void showRateThisApp() const {};
 
-
-    Q_INVOKABLE QString insertLinks( const QString &string );
 };
 #endif // PLATFORMUTILITIES_H

@@ -21,7 +21,7 @@ Item {
 
   //on all mimetypes "image/..." and on empty values it should appear as an image widget except when it's configured as a link
   property bool isImage: {
-    if ( value == undefined ) {
+    if ( value == null ) {
       return true
     } else if ( config.UseLink ) {
       return false
@@ -110,12 +110,8 @@ Item {
         if ( ! value )
           return
 
-        // we assume a `http://...` or `file://...` paths that exist
+        // matches `http://...` but not `file://...` paths
         if ( ! StringUtils.isRelativeUrl(value))
-          __viewStatus = platformUtilities.open( value )
-
-        // absolute paths `/path/to/image.jpg`
-        if (FileUtils.fileExists(value) )
           __viewStatus = platformUtilities.open(value)
 
         // relative paths `./path/to/image.jpg` or 'path/to/image.jpg`

@@ -17,11 +17,11 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: value == null || !enabled ? 'gray' : 'black'
+    color: value == null || (! enabled ? 'gray' : 'black')
 
-    text: value == null ? '' : platformUtilities.insertLinks( value )
+    text: value == null ? '' : stringUtilities.insertLinks(value)
 
-    onLinkActivated: Qt.openUrlExternally(link)
+    onLinkActivated: platformUtilities.open(link)
   }
 
   TextField {

@@ -134,8 +134,3 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
 }
-
-QString PlatformUtilities::insertLinks( const QString &string )
-{
-  return QgsStringUtils::insertLinks( string );
-}
