@@ -17,8 +17,6 @@
  ***************************************************************************/
 
 #include "qgsmessagelog.h"
-#include "qgsstringutils.h"
-
 
 #include "platformutilities.h"
 #include "projectsource.h"
@@ -134,3 +132,4 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
 }
+
