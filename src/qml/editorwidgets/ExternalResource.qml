@@ -111,8 +111,10 @@ Item {
           return
 
         // matches `http://...` but not `file://...` paths
-        if ( ! StringUtils.isRelativeUrl(value))
-          __viewStatus = platformUtilities.open(value)
+        if ( ! StringUtils.isRelativeUrl(value)) {
+          __viewStatus = Qt.openUrlExternally(value)
+          return
+        }
 
         // relative paths `./path/to/image.jpg` or 'path/to/image.jpg`
         if (FileUtils.fileExists(qgisProject.homePath + '/' + value) )

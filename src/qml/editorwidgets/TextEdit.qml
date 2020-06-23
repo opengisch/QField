@@ -21,7 +21,7 @@ Item {
 
     text: value == null ? '' : stringUtilities.insertLinks(value)
 
-    onLinkActivated: platformUtilities.open(link)
+    onLinkActivated: Qt.openUrlExternally(link)
   }
 
   TextField {
