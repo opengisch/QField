@@ -53,7 +53,7 @@ void ExpressionVariableModel::removeCustomVariable( int row )
 void ExpressionVariableModel::save()
 {
   QVariantMap variables;
-  for ( int i = 0; i < rowCount() - 1; ++i )
+  for ( int i = 0; i < rowCount(); ++i )
   {
     if ( item( i )->isEditable() )
     {
