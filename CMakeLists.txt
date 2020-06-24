@@ -77,6 +77,7 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libopenjp2.so
     ${OSGEO4A_LIB_DIR}/libfreexl.so
     ${OSGEO4A_LIB_DIR}/libtiff.so
+    ${OSGEO4A_LIB_DIR}/libpng.so
     ${OSGEO4A_LIB_DIR}/libgdal.so
     ${OSGEO4A_LIB_DIR}/libproj.so
     ${OSGEO4A_LIB_DIR}/libspatialindex.so
