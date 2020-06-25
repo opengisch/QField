@@ -987,7 +987,7 @@ ApplicationWindow {
     Connections {
         target: printMenu
 
-        onEnablePrintItem: {
+        function onEnablePrintItem() {
           printItem.enabled = rows
         }
     }
@@ -1047,7 +1047,7 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
@@ -1270,12 +1270,12 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectStarted: {
+      function onLoadProjectStarted() {
         busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
         busyMessage.visible = true
       }
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
@@ -1341,7 +1341,7 @@ ApplicationWindow {
 
     Connections {
       target: iface
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
@@ -1352,7 +1352,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        onLoadProjectStarted: {
+        function onLoadProjectStarted() {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1360,13 +1360,13 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      onShowLoginDialog: {
+      function onShowLoginDialog() {
         loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
 
-      onReloadEverything: {
+      function onReloadEverything() {
         iface.reloadProject( qgisProject.fileName )
       }
     }
@@ -1670,7 +1670,7 @@ ApplicationWindow {
   Connections {
     target: welcomeScreen.__projectSource
 
-    onProjectOpened: {
+    function onProjectOpened() {
       iface.loadProject( path )
     }
   }

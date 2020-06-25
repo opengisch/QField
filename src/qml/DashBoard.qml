@@ -141,7 +141,7 @@ Drawer {
         Connections {
           target: iface
 
-          onLoadProjectEnded: {
+          function onLoadProjectEnded() {
             mapThemeContainer.isLoading = true
             var themes = qgisProject.mapThemeCollection.mapThemes
             mapThemeComboBox.model = themes

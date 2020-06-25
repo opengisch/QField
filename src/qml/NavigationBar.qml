@@ -192,7 +192,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onSelectionChanged:
+      function onSelectionChanged()
       {
         editGeomButton.readOnly = selection.selectedLayer.readOnly
       }
@@ -225,7 +225,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onSelectionChanged:
+      function onSelectionChanged()
       {
         editButton.readOnly = selection.selectedLayer.readOnly
       }

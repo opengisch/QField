@@ -395,7 +395,7 @@ Rectangle {
   Connections {
     target: globalFeaturesList.model
 
-    onRowsInserted: {
+    function onRowsInserted() {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
       } else {
@@ -404,7 +404,7 @@ Rectangle {
       }
     }
 
-    onModelReset: {
+    function onModelReset() {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
       } else {
@@ -470,7 +470,7 @@ Rectangle {
   Connections {
     target: qgisProject
 
-    onLayersWillBeRemoved: {
+    function onLayersWillBeRemoved() {
         if( state != "FeatureList" ) {
           if( featureListToolBar.state === "Edit"){
               featureForm.state = "FeatureForm"
