@@ -291,7 +291,7 @@ Page {
 
         Connections {
           target: form
-          onAboutToSave: {
+          function onAboutToSave() {
             try {
               attributeEditorLoader.item.pushChanges()
             }
@@ -302,7 +302,7 @@ Page {
 
         Connections {
           target: attributeEditorLoader.item
-          onValueChanged: {
+          function onValueChanged() {
             if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
             {
               AttributeValue = isNull ? undefined : value
