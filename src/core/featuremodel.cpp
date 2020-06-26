@@ -55,8 +55,9 @@ void FeatureModel::setFeature( const QgsFeature &feature )
   beginResetModel();
   mFeature = feature;
   mFeatures.clear();
-  endResetModel();
+  mAttributesAllowEdit.clear();
   emit featureChanged();
+  endResetModel();
 }
 
 void FeatureModel::setFeatures( const QList<QgsFeature> &features )
@@ -80,6 +81,7 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
         {
           mFeature.setAttribute( i, QVariant() );
           equalValue = false;
+          break;
         }
       }
       mAttributesAllowEdit << equalValue;
@@ -87,13 +89,13 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
   }
   else
   {
-      mFeatures.clear();
-      mAttributesAllowEdit.clear();
+    mFeatures.clear();
+    mAttributesAllowEdit.clear();
 
-      mFeature = QgsFeature();
+    mFeature = QgsFeature();
   }
-  endResetModel();
   emit featuresChanged();
+  endResetModel();
 }
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
@@ -224,6 +226,9 @@ int FeatureModel::rowCount( const QModelIndex &parent ) const
 
 QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 {
+  if ( index.row() < 0 )
+    return QVariant();
+
   switch ( role )
   {
     case AttributeName:
@@ -242,7 +247,11 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
       return mLinkedAttributeIndexes.contains( index.row() );
 
     case AttributeAllowEdit:
-      return mModelMode == MultiFeatureModel ? mAttributesAllowEdit.at( index.row() ) : true;
+      if ( mModelMode == MultiFeatureModel )
+      {
+        return index.row() < mAttributesAllowEdit.count() ? mAttributesAllowEdit.at( index.row() ) : false;
+      }
+      return true;
   }
 
   return QVariant();
@@ -250,6 +259,9 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 
 bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
+  if ( index.row() < 0 )
+    return false;
+
   if ( data( index, role ) == value )
     return true;
 

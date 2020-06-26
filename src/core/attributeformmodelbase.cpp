@@ -113,16 +113,12 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
   if ( mFeatureModel )
   {
     disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
-    disconnect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
   }
 
   mFeatureModel = featureModel;
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
-  connect( mFeatureModel, &FeatureModel::featureChanged, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::featuresChanged, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::modelMode, this, &AttributeFormModelBase::onFeatureChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
@@ -405,7 +401,7 @@ void AttributeFormModelBase::updateVisibility( int fieldIndex )
     QStandardItem *item = constraintIterator.key();
 
     int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
-    if ( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ) == true )
+    if ( mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
     {
       QStringList errors;
       bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
