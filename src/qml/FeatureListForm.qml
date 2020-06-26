@@ -33,6 +33,7 @@ Rectangle {
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
+  property bool allowDelete
 
   signal showMessage(string message)
   signal editGeometry
@@ -214,7 +215,7 @@ Rectangle {
           width: 48
           height: 48
 
-          visible: deleteFeatureCapability && allowEdit
+          visible: deleteFeatureCapability && allowEdit && allowDelete
 
           iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
 

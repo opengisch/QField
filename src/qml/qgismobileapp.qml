@@ -778,6 +778,8 @@ ApplicationWindow {
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
+                     // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
+                     && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
@@ -1181,6 +1183,7 @@ ApplicationWindow {
     anchors { right: parent.right; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
+    allowDelete: stateMachine.state === "digitize"
 
     model: MultiFeatureListModel {}
 

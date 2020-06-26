@@ -39,7 +39,9 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       Name,
       Visible,
       Trackable,
-      InTracking
+      InTracking,
+      ReadOnly,
+      GeometryLocked
     };
     Q_ENUM( Roles )
 

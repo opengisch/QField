@@ -168,7 +168,9 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.selectedGeometry.isNull
+    visible: stateMachine.state === "digitize"
+             && ! selection.selectedGeometry.isNull
+             && ! selection.selectedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
 
     anchors.right: editButton.left
 
