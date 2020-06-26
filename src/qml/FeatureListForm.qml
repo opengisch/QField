@@ -266,7 +266,6 @@ Rectangle {
     onShownChanged: {
       if ( shown )
       {
-        featureForm.selection.focusedItem = -1
         height = parent.height - featureListToolBar.height
       }
       else
