@@ -235,11 +235,12 @@ ApplicationWindow {
           else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+                {
                   digitizingToolbar.confirm()
+                }
                 else
                 {
-                    var mapPoint = mapSettings.screenToCoordinate(point)
-                    currentRubberband.model.addVertexFromPoint(mapPoint)
+                    currentRubberband.model.addVertex()
                     coordinateLocator.flash()
                 }
           }
