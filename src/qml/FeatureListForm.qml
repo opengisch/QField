@@ -447,6 +447,9 @@ Rectangle {
   {
     props.isVisible = false
     focus = false
+
+    featureForm.selection.clear()
+
     model.clear()
   }
 

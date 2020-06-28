@@ -45,6 +45,12 @@ void FeatureListModelSelection::toggleSelectedItem( int item )
   emit selectedFeaturesChanged();
 }
 
+void FeatureListModelSelection::clear()
+{
+  mFocusedItem = -1;
+  emit focusedItemChanged();
+}
+
 MultiFeatureListModel *FeatureListModelSelection::model() const
 {
   return mModel;

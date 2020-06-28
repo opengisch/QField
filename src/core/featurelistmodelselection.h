@@ -40,6 +40,8 @@ class FeatureListModelSelection : public QObject
 
     Q_INVOKABLE void toggleSelectedItem( int item );
 
+    Q_INVOKABLE void clear();
+
     MultiFeatureListModel *model() const;
     void setModel( MultiFeatureListModel *model );
 
