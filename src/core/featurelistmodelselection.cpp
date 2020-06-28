@@ -55,8 +55,6 @@ void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
   if ( mModel != model )
   {
     mFocusedItem = -1;
-    delete mSelection;
-    mSelection = new QItemSelectionModel( model );
     mModel = model;
     emit modelChanged();
   }

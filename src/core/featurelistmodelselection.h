@@ -19,7 +19,6 @@
 #define FEATURELISTMODELSELECTION_H
 
 #include <QObject>
-#include <QItemSelectionModel>
 
 #include "multifeaturelistmodel.h"
 
@@ -55,7 +54,6 @@ class FeatureListModelSelection : public QObject
 
   private:
     MultiFeatureListModel *mModel = nullptr;
-    QItemSelectionModel *mSelection = nullptr;
     int mFocusedItem = -1;
 };
 
