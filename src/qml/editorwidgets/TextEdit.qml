@@ -8,7 +8,7 @@ Item {
 
   TextField {
     id: textField
-    height: textArea.height == 0 ? fontMetrics.height + 20: 0
+    height: textArea.height == 0 ? Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 20: 0
     topPadding: 10
     bottomPadding: 10
     visible: height !== 0
