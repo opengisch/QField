@@ -1,5 +1,5 @@
 /***************************************************************************
-                        stringutils.h
+                        urlutils.h
                         ---------------
   begin                : Jun 2020
   copyright            : (C) 2020 by Ivan Ivanov
@@ -15,26 +15,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef STRINGUTILS_H
-#define STRINGUTILS_H
+#ifndef URLUTILS_H
+#define URLUTILS_H
 
 #include <QObject>
 
 
-class StringUtils : public QObject
+class UrlUtils : public QObject
 {
     Q_OBJECT
 
   public:
 
 
-    explicit StringUtils( QObject *parent = nullptr );
+    explicit UrlUtils( QObject *parent = nullptr );
 
 
     /**
-     * Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links.
+     * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
      */
-    static Q_INVOKABLE QString insertLinks( const QString &string );
+    static Q_INVOKABLE bool isRelativeUrl( const QString &url );
 };
 
-#endif // STRINGUTILS_H
+#endif // URLUTILS_H

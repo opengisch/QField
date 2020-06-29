@@ -20,19 +20,10 @@
 #include "qgsstringutils.h"
 
 
-#include <QUrl>
-
-
 StringUtils::StringUtils( QObject *parent )
   : QObject( parent )
 {
 
-}
-
-
-bool StringUtils::isRelativeUrl( const QString &url )
-{
-  return QUrl( url ).isRelative();
 }
 
 

@@ -90,7 +90,7 @@ Item {
     color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? '#0000EE' : 'black'
 
     text: {
-      if(StringUtils.isRelativeUrl(value))
+      if(UrlUtils.isRelativeUrl(value))
         return config.FullUrl ? value : FileUtils.fileName(value)
 
       return StringUtils.insertLinks(value)
@@ -111,7 +111,7 @@ Item {
           return
 
         // matches `http://...` but not `file://...` paths
-        if ( ! StringUtils.isRelativeUrl(value)) {
+        if ( ! UrlUtils.isRelativeUrl(value)) {
           __viewStatus = Qt.openUrlExternally(value)
           return
         }
