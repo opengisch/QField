@@ -112,13 +112,15 @@ Item {
 
         // matches `http://...` but not `file://...` paths
         if ( ! UrlUtils.isRelativeUrl(value)) {
-          __viewStatus = Qt.openUrlExternally(value)
+          Qt.openUrlExternally(value)
           return
         }
 
         // relative paths `./path/to/image.jpg` or 'path/to/image.jpg`
-        if (FileUtils.fileExists(qgisProject.homePath + '/' + value) )
+        if (FileUtils.fileExists(qgisProject.homePath + '/' + value) ) {
           __viewStatus = platformUtilities.open(qgisProject.homePath + '/' + value)
+          return
+        }
       }
     }
 
