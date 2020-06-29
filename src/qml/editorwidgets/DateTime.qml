@@ -174,6 +174,9 @@ Item {
         Image {
           id: todayButton
           source: Theme.getThemeIcon("ic_calendar_today_black_18dp")
+          sourceSize.width: 18 * screen.devicePixelRatio
+          sourceSize.height: 18 * screen.devicePixelRatio
+          fillMode: Image.PreserveAspectFit
           anchors.right: parent.right
           anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
@@ -202,6 +205,9 @@ Item {
         Image {
           id: clearButton
           source: Theme.getThemeIcon("ic_clear_black_18dp")
+          sourceSize.width: 18 * screen.devicePixelRatio
+          sourceSize.height: 18 * screen.devicePixelRatio
+          fillMode: Image.PreserveAspectFit
           anchors.right: todayButton.left
           anchors.rightMargin: 4
           anchors.verticalCenter: parent.verticalCenter
