@@ -43,10 +43,8 @@ jobs:
     - stage: test
       name: "🍳 Testing"
       script:
-        - ./test/test_version_number.sh
-        - echo "travis_fold:start:build\n$(tput bold)Build QField $(tput sgr0)"
-        - ./scripts/ci/pull_translations.sh
-        - docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
+        - lupdate -version
+        - lupdate QField.pro
 
     - stage: test
       name: "📱 Build armv7"
@@ -64,6 +62,7 @@ jobs:
       name: "📱 Build x86_64"
       env:
         - ARCH=x86_64
+
 
     - stage: deploy
       name: "🍺 Deploy"
@@ -85,4 +84,5 @@ jobs:
       install:
         - pip install pygithub transifex-client
       script: ./scripts/ci/update-translations.sh
+
 
