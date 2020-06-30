@@ -34,7 +34,7 @@ class UrlUtils : public QObject
     /**
      * Checks whether the provided string is a relative url (has no protocol or starts with `file://`).
      */
-    static Q_INVOKABLE bool isRelativeUrl( const QString &url );
+    static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
 };
 
 #endif // URLUTILS_H

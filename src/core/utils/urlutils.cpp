@@ -27,7 +27,10 @@ UrlUtils::UrlUtils( QObject *parent )
 }
 
 
-bool UrlUtils::isRelativeUrl( const QString &url )
+bool UrlUtils::isRelativeOrFileUrl( const QString &url )
 {
+  if ( url.startsWith( QStringLiteral( "file:///" ) ) )
+    return true;
+
   return QUrl( url ).isRelative();
 }
