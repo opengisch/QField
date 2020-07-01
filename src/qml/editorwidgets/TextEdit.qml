@@ -3,21 +3,39 @@ import QtQuick.Controls 2.12
 import Theme 1.0
 
 Item {
+  id: topItem
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
+
+  // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
+  Label {
+    id: textReadonlyValue
+    height: textArea.height == 0 ? fontMetrics.height + 20: 0
+    topPadding: 10
+    bottomPadding: 10
+    visible: height !== 0 && ! isEnabled
+    anchors.left: parent.left
+    anchors.right: parent.right
+    font: Theme.defaultFont
+    color: value == null || (! enabled ? 'gray' : 'black')
+
+    text: value == null ? '' : stringUtilities.insertLinks(value)
+
+    onLinkActivated: Qt.openUrlExternally(link)
+  }
 
   TextField {
     id: textField
     height: textArea.height == 0 ? Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 20: 0
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0
+    visible: height !== 0 && isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: value === undefined || !enabled ? 'gray' : 'black'
+    color: (value == null || ! isEnabled) ? 'gray' : 'black'
 
-    text: value !== undefined ? value : ''
+    text: value == null ? '' : value
 
     validator: {
       if (field.isNumeric)
@@ -59,7 +77,7 @@ Item {
   TextArea {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
-    visible: height !== 0
+    visible: height !== 0 && isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap

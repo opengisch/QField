@@ -6,6 +6,7 @@ import Theme 1.0
 Item {
   signal valueChanged(var value, bool isNull)
   height: childrenRect.height
+  enabled: isEnabled
 
   id: rangeItem
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"

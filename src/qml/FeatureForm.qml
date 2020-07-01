@@ -262,7 +262,12 @@ Page {
           anchors { left: parent.left; right: parent.right }
 
           //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
-          enabled: (form.state !== 'ReadOnly' || EditorWidget === 'RelationEditor' || EditorWidget === 'ValueRelation' || EditorWidget === 'ExternalResource' ) && !!AttributeEditable
+          property bool isEnabled: !!AttributeEditable && (
+                                     form.state !== 'ReadOnly'
+                                     || EditorWidget === 'RelationEditor'
+                                     || EditorWidget === 'ValueRelation'
+                                     || EditorWidget === 'ExternalResource'
+                                     )
           property bool readOnly: form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor'
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
@@ -277,6 +282,8 @@ Page {
           property var currentFeature: form.model.featureModel.feature
           property var currentLayer: form.model.featureModel.currentLayer
           property bool autoSave: qfieldSettings.autoSave
+          // TODO investigate why StringUtils are not available in ./editorwidget/*.qml files
+          property var stringUtilities: StringUtils
 
           active: widget !== 'Hidden'
           source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
