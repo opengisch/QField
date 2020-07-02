@@ -676,8 +676,6 @@ ApplicationWindow {
       iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
-
-      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
 
     QfToolButton {
