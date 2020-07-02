@@ -342,7 +342,7 @@ Page {
 
       Label {
         id: multiEditAttributeLabel
-        text: (AttributeAllowEdit ? "Value applied" : "Value skipped") + " (click to toggle)"
+        text: (AttributeAllowEdit ? qsTr( "Value applied" ) : qsTr( "Value skipped" ) ) + qsTr( " (click to toggle)" )
         visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel
         height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
         bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
