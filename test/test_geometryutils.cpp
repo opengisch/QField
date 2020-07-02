@@ -51,7 +51,7 @@ class TestGeometryUtils: public QObject
     }
 
 
-    void testPolygonFromRubberBand()
+    void testPolygonFromRubberband()
     {
       const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
 
@@ -65,31 +65,31 @@ class TestGeometryUtils: public QObject
     }
 
 
-    void testAddRingFromRubberBand()
+    void testAddRingFromRubberband()
     {
       QVERIFY( mLayer->startEditing() );
-      QCOMPARE( GeometryUtils::addRingFromRubberBand( mLayer.get(), 100, mModel.get() ), QgsGeometry::AddRingNotInExistingFeature );
+      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, mModel.get() ), QgsGeometry::AddRingNotInExistingFeature );
 
       mModel->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
       mModel->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
       mModel->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
       mLayer->select( 1 );
 
-      QCOMPARE( GeometryUtils::addRingFromRubberBand( mLayer.get(), 1, mModel.get() ), QgsGeometry::Success );
+      QCOMPARE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, mModel.get() ), QgsGeometry::Success );
       QVERIFY( mLayer->rollBack() );
     }
 
 
-    void testSplitFeatureFromRubberBand()
+    void testSplitFeatureFromRubberband()
     {
       QVERIFY( mLayer->startEditing() );
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberBand( mLayer.get(), mModel.get() ), QgsGeometry::NothingHappened );
+      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::NothingHappened );
 
       mModel->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
       mModel->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
       mLayer->select( 1 );
 
-      QCOMPARE( GeometryUtils::splitFeatureFromRubberBand( mLayer.get(), mModel.get() ), QgsGeometry::Success );
+      QCOMPARE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), mModel.get() ), QgsGeometry::Success );
       QVERIFY( mLayer->rollBack() );
     }
 

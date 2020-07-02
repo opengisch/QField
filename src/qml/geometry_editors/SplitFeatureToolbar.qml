@@ -45,7 +45,7 @@ VisibilityFadingRow {
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
 
-      var result = GeometryUtils.splitFeatureFromRubberBand(featureModel.currentLayer, drawLineToolbar.rubberbandModel)
+      var result = GeometryUtils.splitFeatureFromRubberband(featureModel.currentLayer, drawLineToolbar.rubberbandModel)
       if ( result !== QgsGeometryStatic.Success )
       {
         displayToast( qsTr( 'Feature could not be split' ) );

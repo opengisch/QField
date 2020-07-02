@@ -432,7 +432,7 @@ ApplicationWindow {
 
       // highlighting geometry (point, line, surface)
       Rubberband {
-        id: editingRubberBand
+        id: editingRubberband
         vertexModel: vertexModel
         mapSettings: mapCanvas.mapSettings
         width: 4

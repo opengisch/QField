@@ -79,8 +79,7 @@ Popup {
 
         visible: index && (
                    layerTree.data(index, FlatLayerTreeModel.ReadOnly)
-                   || layerTree.data(index, FlatLayerTreeModel.GeometryLocked)
-                   )
+                   || layerTree.data(index, FlatLayerTreeModel.GeometryLocked))
         Layout.fillWidth: true
         Layout.maximumWidth: parent.width - 20
 

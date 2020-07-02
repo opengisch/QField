@@ -35,10 +35,10 @@ class GeometryUtils : public QObject
     static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
 
     //! Add a ring to a polyon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE QgsGeometry::OperationResult addRingFromRubberBand( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE QgsGeometry::OperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
     //! This will perform a split using the line in the rubberband model. It works with the layer selection if some features are selected.
-    static Q_INVOKABLE QgsGeometry::OperationResult splitFeatureFromRubberBand( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE QgsGeometry::OperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
 
 };
 
