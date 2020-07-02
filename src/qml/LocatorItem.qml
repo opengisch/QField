@@ -118,7 +118,7 @@ Item {
 
       Text {
         id: textCell
-        text: model.Text
+        text: model.Text.trim()
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.right: actionsRow.left
