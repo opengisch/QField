@@ -127,7 +127,7 @@ Page {
               width: parent.width
               padding: 8
               leftPadding: 22
-              text: qsTr(settingsModel.get(0).title)
+              text: qsTr(settingsModel.get(index).title)
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               MouseArea {
@@ -142,7 +142,7 @@ Page {
               padding: !!description ? 8 : 0
               topPadding: 0
               leftPadding: 22
-              text: qsTr(settingsModel.get(0).description) || ''
+              text: qsTr(settingsModel.get(index).description) || ''
               font: Theme.tipFont
               color: Theme.gray
               wrapMode: Text.WordWrap
