@@ -75,14 +75,18 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
     for ( int i = 0; i < mFeature.attributes().count(); i++ )
     {
       bool equalValue = true;
-      for ( const QgsFeature &feature : mFeatures )
+      struct AttributeNotEqual
       {
-        if ( feature.attributes().at( i ) != mFeature.attributes().at( i ) )
-        {
-          mFeature.setAttribute( i, QVariant() );
-          equalValue = false;
-          break;
-        }
+        const int attributeIndex;
+        const QgsFeature &feature;
+        AttributeNotEqual( const QgsFeature &feature, int attributeIndex ) : attributeIndex( attributeIndex ), feature( feature ) {}
+        bool operator()( const QgsFeature &f) const { return feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
+      };
+
+      if ( std::any_of( mFeatures.begin(), mFeatures.end(), AttributeNotEqual( mFeature, i ) ) )
+      {
+        mFeature.setAttribute( i, QVariant() );
+        equalValue = false;
       }
       mAttributesAllowEdit << equalValue;
     }
