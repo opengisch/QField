@@ -345,6 +345,7 @@ bool FeatureModel::save()
         else
           QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
       }
+      break;
     }
 
     case MultiFeatureModel:
