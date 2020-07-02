@@ -147,11 +147,12 @@ ApplicationWindow {
     id: mapCanvas
     clip: true
     property bool hasBeenTouched: false
+    property bool hovered: false
 
     HoverHandler {
-        id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
-        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        id: stylusHoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
+        acceptedDevices: PointerDevice.Stylus
         grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
@@ -161,18 +162,46 @@ ApplicationWindow {
         }
 
         onActiveChanged: {
+            parent.hovered = active && hovered
             if ( !active )
               coordinateLocator.sourceLocation = undefined
 
         }
 
         onHoveredChanged: {
+            parent.hovered = active && hovered
             if ( !hovered )
               coordinateLocator.sourceLocation = undefined
         }
     }
 
-    /* The second hover handler is a workaround what appears to be an issue with
+    HoverHandler {
+        id: mouseHoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        acceptedDevices: PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        onPointChanged: {
+          // after a click, it seems that the position is sent once at 0,0 => weird
+          if (point.position !== Qt.point(0, 0))
+            coordinateLocator.sourceLocation = point.position
+        }
+
+        onActiveChanged: {
+            parent.hovered = active && hovered
+            if ( !active )
+              coordinateLocator.sourceLocation = undefined
+
+        }
+
+        onHoveredChanged: {
+            parent.hovered = active && hovered
+            if ( !hovered )
+              coordinateLocator.sourceLocation = undefined
+        }
+    }
+
+    /* This hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
      */
@@ -785,7 +814,7 @@ ApplicationWindow {
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
       showConfirmButton: stateMachine.state === "digitize"
-      screenHovering: hoverHandler.hovered
+      screenHovering: mapCanvas.hovered
 
       FeatureModel {
         id: digitizingFeature
@@ -878,7 +907,7 @@ ApplicationWindow {
       featureModel: geometryEditingFeature
       mapSettings: mapCanvas.mapSettings
       editorRubberbandModel: geometryEditorsRubberband.model
-      screenHovering: hoverHandler.hovered
+      screenHovering: mapCanvas.hovered
 
       stateVisible: ( stateMachine.state === "digitize" && vertexModel.vertexCount > 0 )
     }
@@ -1691,7 +1720,7 @@ ApplicationWindow {
       id: vertexModel
       currentPoint: coordinateLocator.currentCoordinate
       mapSettings: mapCanvas.mapSettings
-      isHovering: hoverHandler.hovered
+      isHovering: mapCanvas.hovered
   }
 }
 
