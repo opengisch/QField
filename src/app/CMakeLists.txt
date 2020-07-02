@@ -4,7 +4,9 @@ IF(Qt5QuickCompiler_FOUND)
 ELSE(Qt5QuickCompiler_FOUND)
   MESSAGE(STATUS "QtQuickCompiler not found. QML files will not be compiled.")
   SET(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-ENDIF(Qt5QuickCompilerx_FOUND)
+ENDIF(Qt5QuickCompiler_FOUND)
+
+SET(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE STRING "Extra QML import paths")
 
 IF (ANDROID)
   ADD_LIBRARY(qfield SHARED
