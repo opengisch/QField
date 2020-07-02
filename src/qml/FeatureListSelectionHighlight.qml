@@ -18,7 +18,7 @@ Repeater {
     geometryWrapper.qgsGeometry: model.geometry
     geometryWrapper.crs: model.crs
 
-    color: model.featureSelected ? featureListSelectionHighlight.selectedColor : model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
+    color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
     borderColor: "white"
   }
 
