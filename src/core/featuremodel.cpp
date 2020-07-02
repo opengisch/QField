@@ -265,7 +265,7 @@ bool FeatureModel::suppressFeatureForm() const
   if ( !mLayer )
     return false;
 
-  return mLayer->editFormConfig().suppress();
+  return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
 }
 
 void FeatureModel::resetAttributes()
