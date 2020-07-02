@@ -857,6 +857,7 @@ ApplicationWindow {
         else
         {
           if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+              digitizingFeature.resetAttributes();
               if ( ! digitizingFeature.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
