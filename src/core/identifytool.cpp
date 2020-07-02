@@ -56,7 +56,7 @@ void IdentifyTool::identify( const QPointF &point ) const
     return;
   }
 
-  mModel->clear();
+  mModel->clear( true );
 
   QgsPointXY mapPoint = mMapSettings->screenToCoordinate( point );
 

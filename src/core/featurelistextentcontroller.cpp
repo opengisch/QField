@@ -49,8 +49,8 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
   if ( mModel && mSelection && mMapSettings )
   {
-    QgsFeature feat = mSelection->selectedFeature();
-    QgsVectorLayer *layer = mSelection->selectedLayer();
+    QgsFeature feat = mSelection->focusedFeature();
+    QgsVectorLayer *layer = mSelection->focusedLayer();
 
     QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feat.geometry() );
@@ -76,7 +76,7 @@ void FeatureListExtentController::onModelChanged()
 {
   if ( mModel && mSelection )
   {
-    connect( mSelection, &FeatureListModelSelection::selectionChanged, this, &FeatureListExtentController::onCurrentSelectionChanged );
+    connect( mSelection, &FeatureListModelSelection::focusedItemChanged, this, &FeatureListExtentController::onCurrentSelectionChanged );
   }
 }
 

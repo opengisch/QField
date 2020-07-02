@@ -50,7 +50,8 @@ class AttributeFormModel : public QSortFilterProxyModel
       CurrentlyVisible,
       ConstraintHardValid,
       ConstraintSoftValid,
-      ConstraintDescription
+      ConstraintDescription,
+      AttributeAllowEdit
     };
 
     Q_ENUM( FeatureRoles )

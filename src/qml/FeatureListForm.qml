@@ -170,9 +170,15 @@ Rectangle {
 
       height: Math.max( 48, featureText.height )
 
+      CheckBox {
+          anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
+          checked: featureSelected
+          visible: featureForm.selection.model.selectedCount > 0
+      }
+
       Text {
         id: featureText
-        anchors { leftMargin: 10; left: parent.left; right: editRow.left; verticalCenter: parent.verticalCenter }
+        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: editRow.left; verticalCenter: parent.verticalCenter }
         font.bold: true
         text: display
       }
@@ -182,7 +188,7 @@ Rectangle {
         height: parent.height
         width: 6
         color: featureForm.selectionColor
-        opacity: ( index == featureForm.selection.selection )
+        opacity: index == featureForm.selection.focusedItem ? 1 : 0
         Behavior on opacity {
           PropertyAnimation {
             easing.type: Easing.InQuart
@@ -194,13 +200,21 @@ Rectangle {
         anchors.fill: parent
 
         onClicked: {
-          featureForm.selection.selection = index
-          featureForm.state = "FeatureForm"
+          if ( featureForm.selection.model.selectedCount == 0 ) {
+            featureFormList.model.featureModel.modelMode = FeatureModel.SingleFeatureModel
+            featureForm.selection.focusedItem = index
+            featureForm.state = "FeatureForm"
+          } else {
+            featureForm.selection.toggleSelectedItem( index );
+            featureForm.selection.focusedItem = featureForm.selection.model.selectedCount > 0 ? index : -1;
+          }
         }
 
         onPressAndHold:
         {
-          featureForm.selection.selection = index
+          featureFormList.model.featureModel.modelMode = FeatureModel.MultiFeatureModel
+          featureForm.selection.focusedItem = index
+          featureForm.selection.toggleSelectedItem( index );
         }
       }
 
@@ -278,8 +292,9 @@ Rectangle {
 
     model: AttributeFormModel {
       featureModel: FeatureModel {
-        currentLayer: featureForm.selection.selectedLayer
-        feature: featureForm.selection.selectedFeature
+        currentLayer: featureForm.selection.focusedLayer
+        feature: featureForm.selection.focusedFeature
+        features: featureForm.selection.model.selectedFeatures
       }
     }
 
@@ -308,7 +323,7 @@ Rectangle {
     }
 
     onEditAttributesButtonClicked: {
-        if( trackingModel.featureInTracking(selection.selectedLayer, selection.selectedFeature.id) )
+        if( trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id) )
         {
             displayToast( qsTr( "Stop tracking this feature to edit attributes" ) )
         }
@@ -319,7 +334,7 @@ Rectangle {
     }
 
     onEditGeometryButtonClicked: {
-        if( trackingModel.featureInTracking(selection.selectedLayer, selection.selectedFeature.id) )
+        if( trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id) )
         {
             displayToast( qsTr( "Stop tracking this feature to edit geometry" ) )
         }
@@ -331,14 +346,22 @@ Rectangle {
 
     onSave: {
       featureFormList.confirm()
-      featureForm.state = "FeatureForm"
+      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Changes saved" ) )
     }
 
     onCancel: {
       featureFormList.model.featureModel.reset()
-      featureForm.state = "FeatureForm"
+      featureForm.state = featureForm.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm"
       displayToast( qsTr( "Last changes discarded" ) )
+    }
+
+    onMultiEditClicked: {
+        if (featureForm.selection.focusedItem == -1) {
+          // focus on the first selected item to grab its layer
+          featureForm.selection.focusedItem = 0;
+        }
+        featureForm.state = "FeatureFormEdit"
     }
   }
 
@@ -424,6 +447,9 @@ Rectangle {
   {
     props.isVisible = false
     focus = false
+
+    featureForm.selection.clear()
+
     model.clear()
   }
 
