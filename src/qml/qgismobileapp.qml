@@ -146,11 +146,11 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
-    property bool hasBeenTouched: false
+    property bool isBeingTouched: false
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -172,6 +172,16 @@ ApplicationWindow {
         }
     }
 
+
+    Timer {
+        id: resetIsBeingTouchedTimer
+        interval: 100
+        repeat: false
+
+        onTriggered: {
+            parent.isBeingTouched = false
+        }
+    }
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
@@ -182,17 +192,15 @@ ApplicationWindow {
         acceptedDevices: PointerDevice.TouchScreen
         grabPermissions: PointerHandler.TakeOverForbidden
 
-        onPointChanged: {
-            parent.hasBeenTouched = true
-        }
-
-        onActiveChanged: {
-            parent.hasBeenTouched = true
-
-        }
-
         onHoveredChanged: {
-            parent.hasBeenTouched = true
+            if ( hovered ) {
+                parent.isBeingTouched = true
+                resetIsBeingTouchedTimer.stop()
+            }
+            else {
+                resetIsBeingTouchedTimer.restart()
+            }
+
         }
     }
 
