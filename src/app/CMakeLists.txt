@@ -1,10 +1,9 @@
 FIND_PACKAGE(Qt5QuickCompiler QUIET)
-IF(Qt5QuickCompiler_FOUND)
+IF(Qt5QuickCompiler_FOUND AND NOT CMAKE_BUILD_TYPE MATCHES Debug AND NOT CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
   QTQUICK_COMPILER_ADD_RESOURCES(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-ELSE(Qt5QuickCompiler_FOUND)
-  MESSAGE(STATUS "QtQuickCompiler not found. QML files will not be compiled.")
+ELSE()
   SET(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
-ENDIF(Qt5QuickCompiler_FOUND)
+ENDIF()
 
 SET(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE STRING "Extra QML import paths")
 
