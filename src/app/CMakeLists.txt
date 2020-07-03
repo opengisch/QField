@@ -5,7 +5,7 @@ ELSE()
   SET(RESOURCES ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
 ENDIF()
 
-SET(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE STRING "Extra QML import paths")
+SET(QML_IMPORT_PATH "${CMAKE_SOURCE_DIR}/src/qml/imports")
 
 IF (ANDROID)
   ADD_LIBRARY(qfield SHARED
