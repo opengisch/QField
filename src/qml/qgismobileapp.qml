@@ -155,7 +155,7 @@ ApplicationWindow {
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
-          if (!dummyHoverHandler.hovered && !dummyHoverHandler.active  && point.position !== Qt.point(0, 0))
+          if (dummyHoverHandler.point.position === Qt.point(0,0) && point.position !== Qt.point(0, 0))
             coordinateLocator.sourceLocation = point.position
         }
 
@@ -179,14 +179,6 @@ ApplicationWindow {
         enabled: !qfieldSettings.mouseAsTouchScreen
         acceptedDevices: PointerDevice.TouchScreen
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType
-
-        onActiveChanged: {
-            console.log(active)
-        }
-
-        onHoveredChanged: {
-            console.log(hovered)
-        }
     }
 
     /* Initialize a MapSettings object. This will contain information about
