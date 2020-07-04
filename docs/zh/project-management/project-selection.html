@@ -178,47 +178,46 @@
       
   <div class="section" id="project-selection">
 <h1>项目选择<a class="headerlink" href="#project-selection" title="永久链接至标题">¶</a></h1>
-<p>QField opens QGIS projects in the &quot;.qgs&quot; format. Currently it is not possible to open &quot;.qgz&quot; files.</p>
-<p>QField uses a customized file selector to open the projects. On choosing &quot;Open project&quot; from the QField menu, the file selector will be opened showing the following locations:</p>
+<p>QField可以打开“.qgs”格式的QGIS项目。目前，无法打开“<a href="#id1"><span class="problematic" id="id2">*</span></a>.qgz”文件。</p>
+<p>QField使用定制化的文件选择器来打开项目。在QField菜单中选择“打开项目”，文件选择器将打开并显示以下位置：</p>
 <ul class="simple">
 <li>The primary media/shared storage directory.</li>
 <li>The application-specific directories on all shared/external storage devices where the application can place persistent files it owns if they are not already included in the primary storage directory.</li>
 </ul>
-<p>Inside these directories, only subdirectories and files with the &quot;.qgs&quot; extension are shown.</p>
-<p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
+<p>在这些目录中，只显示子目录和后缀为“.qgs”的文件。</p>
+<p>QField要求项目文件必须在设备上，因此无法使用操控远程文件（如Google Drive）的数据提供程序。与此同时，您可以使用类似 <a class="reference external" href="https://syncthing.net/">syncthing</a> 、<a class="reference external" href="https://nextcloud.com/">nextcloud</a> （dropbox或者其他）等支持将文件同步到设备上的app。</p>
 <div class="section" id="favorite-directories">
 <h2>首先目录<a class="headerlink" href="#favorite-directories" title="永久链接至标题">¶</a></h2>
-<p>In the first screen of the file selector, there is a section showing the favorite directories. To add a directory to the favorites, long click in the file selector on the directory name. To remove an entry from the favorites, long click on the entry in the favorites list.</p>
+<p>在文件选择器的第一屏中，有一块收藏夹区域。若要将目录添加到收藏夹，请在文件选择器中长按目录名。要从收藏夹中删除条目，请长按收藏夹列表中的相应条目。</p>
 </div>
 <div class="section" id="external-sd-card">
 <h2>外部SD存储卡<a class="headerlink" href="#external-sd-card" title="永久链接至标题">¶</a></h2>
-<p>The file selector shows the root of the SD card labeled as &quot;read-only&quot; and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
+<p>文件选择器显示SD卡的根目录为“只读”，应用程序的专用目录与SD卡的其余部分是隔离的，因为它是应用程序唯一具有写入权限的目录。目录如下:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">Technically, this is due to the fact that Android intents ACTION_OPEN_DOCUMENT and ACTION_OPEN_DOCUMENT_TREE, work and grant read-write access on the content of the returning URI, not on the real linked file. This limitation which makes sense for how Android is structured but currently it is unusable with QField as QField needs to access the real file with a real path.</p>
+<p class="last">从技术的角度来说，这是由于安卓意在ACTION_OPEN_DOCUMENT和ACTION_OPEN_DOCUMENT_TREE起作用，并允许读写返回的统一资源标识符内容，而不是读写链接指向的文件。这个限制对于安卓系统架构是有意义的，但目前无法为QField所用，因为QField需要访问实际路径下的实际文件。</p>
 </div>
 </div>
 <div class="section" id="warning">
 <h2>警告！<a class="headerlink" href="#warning" title="永久链接至标题">¶</a></h2>
-<p>By storing data in this folder, you risk losing data.
-The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
+<p>在此文件夹中存储数据，可能会丢失数据。如果您从安卓设备上卸载QField，系统将删除应用程序的专用目录（/Android/data/ch.opengis.qfield/）。这一点很重要，如果您将数据保存在外部SD卡中。</p>
 </div>
 <div class="section" id="how-to-turn-external-sd-card-into-internal-storage">
 <h2>如何将外部储存卡转为内部存储<a class="headerlink" href="#how-to-turn-external-sd-card-into-internal-storage" title="永久链接至标题">¶</a></h2>
-<p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
-<p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to &quot;Internal&quot; storage, it will be formatted (wiped).</strong></p>
+<p>从安卓6.0开始，您可以将SD卡用作安卓手机的内部存储。一个被称为可接纳存储的特性允许安卓操作系统将外部存储介质格式化为永久的内部存储。被接纳的SD卡上的数据是加密的，不能挂载在其他设备上。</p>
+<p><strong>请确保使用一张空的SD卡。之所以如此，是因为当该卡被转换成“内部”存储时将被格式化（擦除）。</strong></p>
 <ol class="arabic simple">
 <li>进入设备的“设置”，然后选择“存储”。</li>
-<li>Select your &quot;SD Card&quot;, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
-<li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
+<li>选择“SD卡”，然后点击“三点菜单”（右上方），在那选择“设置”。</li>
+<li>选择“格式化为内部”，然后选择“擦除&amp;格式化”。</li>
 <li>你的SD存储卡现已被格式化为内部存储。</li>
 <li>重启你的手机。</li>
 </ol>
 <p>如果不重启手机，很多事情可能不会正常工作，请确认你将重启手机。</p>
-<p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
+<p>即使您的设备运行的是安卓6.0或更高版本，设备也有可能没有可接纳存储功能。设备制造商可能禁用了该功能。不过，可以通过命令行强制设备接纳存储。</p>
 </div>
 </div>
 

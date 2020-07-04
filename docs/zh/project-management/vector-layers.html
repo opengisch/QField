@@ -102,7 +102,7 @@
 <li><a class="reference internal" href="#forms-and-fields">表单和字段</a><ul>
 <li><a class="reference internal" href="#suppress-feature-form">不弹出要素表单</a></li>
 <li><a class="reference internal" href="#field-widget">字段小部件</a><ul>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a></li>
+<li><a class="reference internal" href="#relation-widget">关系控件</a></li>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
@@ -292,7 +292,7 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td>关系控件</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -303,15 +303,15 @@ Only images can be viewed so far.
 </tbody>
 </table>
 <div class="section" id="relation-widget">
-<h4>Relation Widget<a class="headerlink" href="#relation-widget" title="永久链接至标题">¶</a></h4>
+<h4>关系控件<a class="headerlink" href="#relation-widget" title="永久链接至标题">¶</a></h4>
 <p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It's possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done a Display Expression on the child layer.</p>
+<p>关系控件将所有参照子要素显示在一个列表中，可以添加、删除、打开它们。</p>
+<p>列表中条目的视觉标识是通过子图层上的显示表达式完成的。</p>
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>Child features can be added before the parent is finaly saved - means while adding a parent. But it's blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
@@ -482,8 +482,7 @@ experiences with a tolerance value of 20.</p>
 </div>
 <div class="section" id="d-coordinates">
 <h2>3D 坐标<a class="headerlink" href="#d-coordinates" title="永久链接至标题">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<p>GPS设备能够测量地球表面2维位置处的高程信息。这些信息可以保存下来。</p>
 </div>
 </div>
 
