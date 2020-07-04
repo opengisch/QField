@@ -155,17 +155,17 @@ ApplicationWindow {
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
-          if (!dummyHoverHandler.hovered && point.position !== Qt.point(0, 0))
+          if (!dummyHoverHandler.hovered && !dummyHoverHandler.active  && point.position !== Qt.point(0, 0))
             coordinateLocator.sourceLocation = point.position
         }
 
         onActiveChanged: {
-            if (!dummyHoverHandler.hovered && !active )
+            if (!active )
               coordinateLocator.sourceLocation = undefined
         }
 
         onHoveredChanged: {
-            if (!dummyHoverHandler.hovered && !hovered )
+            if (!hovered )
               coordinateLocator.sourceLocation = undefined
         }
     }
