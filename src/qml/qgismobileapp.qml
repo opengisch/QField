@@ -151,7 +151,7 @@ ApplicationWindow {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
@@ -178,7 +178,7 @@ ApplicationWindow {
         id: dummyHoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
         acceptedDevices: PointerDevice.TouchScreen
-        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType
 
         onActiveChanged: {
             console.log(active)
