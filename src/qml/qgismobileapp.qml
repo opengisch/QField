@@ -146,28 +146,26 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
-    property bool hasBeenTouched: false
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        enabled: !qfieldSettings.mouseAsTouchScreen
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
-          if (point.position !== Qt.point(0, 0))
+          if (!dummyHoverHandler.hovered && point.position !== Qt.point(0, 0))
             coordinateLocator.sourceLocation = point.position
         }
 
         onActiveChanged: {
-            if ( !active )
+            if (!dummyHoverHandler.hovered && !active )
               coordinateLocator.sourceLocation = undefined
-
         }
 
         onHoveredChanged: {
-            if ( !hovered )
+            if (!dummyHoverHandler.hovered && !hovered )
               coordinateLocator.sourceLocation = undefined
         }
     }
@@ -183,12 +181,11 @@ ApplicationWindow {
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType
 
         onActiveChanged: {
-            parent.hasBeenTouched = active ? true : false
-
+            console.log(active)
         }
 
         onHoveredChanged: {
-            parent.hasBeenTouched = hovered ? true : false
+            console.log(hovered)
         }
     }
 
