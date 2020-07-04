@@ -150,7 +150,7 @@ ApplicationWindow {
     HoverHandler {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen
-        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchScreen
         grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
         onPointChanged: {
