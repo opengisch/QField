@@ -38,13 +38,13 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   return g;
 }
 
-QgsGeometry::OperationResult GeometryUtils::addRingFromRubberBand( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QgsGeometry::OperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
   return layer->addRing( ring, &fid );
 }
 
-QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberBand( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
+QgsGeometry::OperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   return layer->splitFeatures( line, true );

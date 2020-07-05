@@ -47,7 +47,7 @@ VisibilityFadingRow {
       rubberbandModel.frozen = true
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
-      var result = GeometryUtils.addRingFromRubberBand(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
+      var result = GeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
       if ( result !== QgsGeometryStatic.Success )
       {
         if ( result === QgsGeometryStatic.AddRingNotClosed )
