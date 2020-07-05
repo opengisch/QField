@@ -6,9 +6,12 @@ SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 SET (APP_VERSION "1.0.0" CACHE STRING "Application Version (Example: 1.0.0)")
 SET (APP_VERSION_NAME "1.0.0 - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+
+STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
+
 PROJECT(${APP_NAME}
   LANGUAGES CXX
-  VERSION ${APP_VERSION}
+  VERSION ${CLEAN_APP_VERSION}
 )
 
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
@@ -77,6 +80,7 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libopenjp2.so
     ${OSGEO4A_LIB_DIR}/libfreexl.so
     ${OSGEO4A_LIB_DIR}/libtiff.so
+    ${OSGEO4A_LIB_DIR}/libpng16.so
     ${OSGEO4A_LIB_DIR}/libgdal.so
     ${OSGEO4A_LIB_DIR}/libproj.so
     ${OSGEO4A_LIB_DIR}/libspatialindex.so

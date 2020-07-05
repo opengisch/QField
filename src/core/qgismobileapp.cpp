@@ -100,6 +100,8 @@
 #include "fileutils.h"
 #include "featureutils.h"
 #include "expressionevaluator.h"
+#include "stringutils.h"
+#include "urlutils.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -271,6 +273,8 @@ void QgisMobileapp::initDeclarative()
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
   REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
+  REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
+  REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
 
   qmlRegisterUncreatableType<AppInterface>( "org.qgis", 1, 0, "QgisInterface", "QgisInterface is only provided by the environment and cannot be created ad-hoc" );
   qmlRegisterUncreatableType<Settings>( "org.qgis", 1, 0, "Settings", "" );

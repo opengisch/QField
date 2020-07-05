@@ -100,7 +100,7 @@ Item {
     anchors.centerIn: parent
     model: locator.proxyModel()
     width: parent.width-2*resultsBox.border.width
-    height: Math.min( childrenRect.height, 200, mainWindow.height - searchField.height )
+    height: resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - searchField.height - 10 ) : 0
     clip: true
 
     delegate: Rectangle {
@@ -111,20 +111,20 @@ Item {
       visible: model.ResultType !== 0 // remove filter name
       property bool isGroup: model.ResultFilterGroupSorting === 0
       property int resultIndex: index
-      color: isGroup ? "#eee" : "#fff"
+      color: isGroup ? Theme.lightGray : "transparent"
       opacity: 0.95
       border.width: 1
       border.color: "#bbb"
 
       Text {
         id: textCell
-        text: model.Text
+        text: model.Text.trim()
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.right: actionsRow.left
         leftPadding: 5
-        font.italic: delegateRect.isGroup ? true : false
-        font.pointSize: Theme.secondaryTitleFont.pointSize
+        font.bold: delegateRect.isGroup ? true : false
+        font.pointSize: Theme.tipFont.pointSize
         wrapMode: Text.Wrap
       }
 
@@ -142,16 +142,11 @@ Item {
             height: parent.height
             width:  36
             bgcolor: Theme.mainColor
-            Image {
-              anchors.fill: parent
-              source: Theme.getThemeIcon( model.iconPath )
-              fillMode: Image.Pad
-            }
-            MouseArea {
-              anchors.fill: parent
-              onClicked: {
-                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
-              }
+
+            iconSource: Theme.getThemeIcon( model.iconPath )
+
+            onClicked: {
+              locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
             }
           }
         }

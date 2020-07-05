@@ -24,6 +24,7 @@ HEADERS += \
     appinterface.h \
     featurelistextentcontroller.h \
     geometryeditorsmodel.h \
+    multifeaturelistmodelbase.h \
     multifeaturelistmodel.h \
     featurelistmodelselection.h \
     featuremodel.h \
@@ -73,12 +74,15 @@ HEADERS += \
     utils/featureutils.h \
     utils/geometryutils.h \
     utils/fileutils.h \
+    utils/stringutils.h \
+    utils/urlutils.h \
     expressionevaluator.h
 
 SOURCES += \
     appinterface.cpp \
     featurelistextentcontroller.cpp \
     geometryeditorsmodel.cpp \
+    multifeaturelistmodelbase.cpp \
     multifeaturelistmodel.cpp \
     featurelistmodelselection.cpp \
     featuremodel.cpp \
@@ -128,6 +132,8 @@ SOURCES += \
     utils/featureutils.cpp \
     utils/geometryutils.cpp \
     utils/fileutils.cpp \
+    utils/stringutils.cpp \
+    utils/urlutils.cpp \
     expressionevaluator.cpp
 
 INCLUDEPATH += ../../3rdparty/tessellate \

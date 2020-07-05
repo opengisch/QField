@@ -8,7 +8,8 @@ Repeater {
   property FeatureListModelSelection selectionModel
   property MapSettings mapSettings
   property color color: "yellow"
-  property color selectionColor: "red"
+  property color focusedColor: "red"
+  property color selectedColor: "green"
 
   model: selectionModel.model
 
@@ -17,7 +18,8 @@ Repeater {
     geometryWrapper.qgsGeometry: model.geometry
     geometryWrapper.crs: model.crs
 
-    color: selectionModel && model.index === selectionModel.selection ? "red" : "yellow"
+    color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
+    borderColor: "white"
   }
 
 }

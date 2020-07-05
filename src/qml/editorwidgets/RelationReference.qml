@@ -11,6 +11,7 @@ import ".."
 
 RelationCombobox {
   id: relationReference
+  enabled: isEnabled
 
   signal valueChanged(var value, bool isNull)
 

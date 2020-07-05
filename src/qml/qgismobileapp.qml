@@ -146,11 +146,11 @@ ApplicationWindow {
      */
     id: mapCanvas
     clip: true
-    property bool hasBeenTouched: false
+    property bool isBeingTouched: false
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.hasBeenTouched
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -172,6 +172,16 @@ ApplicationWindow {
         }
     }
 
+
+    Timer {
+        id: resetIsBeingTouchedTimer
+        interval: 100
+        repeat: false
+
+        onTriggered: {
+            parent.isBeingTouched = false
+        }
+    }
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
@@ -182,17 +192,15 @@ ApplicationWindow {
         acceptedDevices: PointerDevice.TouchScreen
         grabPermissions: PointerHandler.TakeOverForbidden
 
-        onPointChanged: {
-            parent.hasBeenTouched = true
-        }
-
-        onActiveChanged: {
-            parent.hasBeenTouched = true
-
-        }
-
         onHoveredChanged: {
-            parent.hasBeenTouched = true
+            if ( hovered ) {
+                parent.isBeingTouched = true
+                resetIsBeingTouchedTimer.stop()
+            }
+            else {
+                resetIsBeingTouchedTimer.restart()
+            }
+
         }
     }
 
@@ -235,11 +243,12 @@ ApplicationWindow {
           else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
                 if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                      Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+                {
                   digitizingToolbar.confirm()
+                }
                 else
                 {
-                    var mapPoint = mapSettings.screenToCoordinate(point)
-                    currentRubberband.model.addVertexFromPoint(mapPoint)
+                    currentRubberband.model.addVertex()
                     coordinateLocator.flash()
                 }
           }
@@ -431,7 +440,7 @@ ApplicationWindow {
 
       // highlighting geometry (point, line, surface)
       Rubberband {
-        id: editingRubberBand
+        id: editingRubberband
         vertexModel: vertexModel
         mapSettings: mapCanvas.mapSettings
         width: 4
@@ -458,7 +467,8 @@ ApplicationWindow {
       //selection: featureForm.selection
 
       color: "yellow"
-      selectionColor: "#ff7777"
+      focusedColor: "#ff7777"
+      selectedColor: Theme.mainColor
       width: 5
     }
   }
@@ -675,8 +685,6 @@ ApplicationWindow {
       iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
-
-      onClicked: gpsLinkButton.checked = !gpsLinkButton.checked
     }
 
     QfToolButton {
@@ -778,6 +786,8 @@ ApplicationWindow {
       stateVisible: (stateMachine.state === "digitize"
                      && dashBoard.currentLayer
                      && !dashBoard.currentLayer.readOnly
+                     // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
+                     && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
                      && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
@@ -856,6 +866,7 @@ ApplicationWindow {
         else
         {
           if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+              digitizingFeature.resetAttributes();
               if ( ! digitizingFeature.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
@@ -1181,6 +1192,7 @@ ApplicationWindow {
     anchors { right: parent.right; bottom: parent.bottom }
     border { color: "lightGray"; width: 1 }
     allowEdit: stateMachine.state === "digitize"
+    allowDelete: stateMachine.state === "digitize"
 
     model: MultiFeatureListModel {}
 
@@ -1196,14 +1208,14 @@ ApplicationWindow {
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
-      if ( dashBoard.currentLayer != featureForm.selection.selectedLayer ) {
-        dashBoard.currentLayer = featureForm.selection.selectedLayer
+      if ( dashBoard.currentLayer != featureForm.selection.focusedLayer ) {
+        dashBoard.currentLayer = featureForm.selection.focusedLayer
         displayToast( qsTr( "Current layer switched to the one holding the selected geometry." ) );
       }
-      geometryEditingFeature.vertexModel.geometry = featureForm.selection.selectedGeometry
-      geometryEditingFeature.vertexModel.crs = featureForm.selection.selectedLayer.crs
-      geometryEditingFeature.currentLayer = featureForm.selection.selectedLayer
-      geometryEditingFeature.feature = featureForm.selection.selectedFeature
+      geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry
+      geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs
+      geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer
+      geometryEditingFeature.feature = featureForm.selection.focusedFeature
 
       if (!vertexModel.editingAllowed)
       {

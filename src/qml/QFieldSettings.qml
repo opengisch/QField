@@ -33,41 +33,41 @@ Page {
   ListModel {
       id: settingsModel
       ListElement {
-          title: QT_TR_NOOP( "Show scale bar" )
+          title: qsTr( "Show scale bar" )
           settingAlias: "showScaleBar"
       }
       ListElement {
-          title: QT_TR_NOOP( "Maximized attribute form" )
+          title: qsTr( "Maximized attribute form" )
           settingAlias: "fullScreenIdentifyView"
       }
       ListElement {
-          title: QT_TR_NOOP( "Fixed scale navigation" )
-          description: QT_TR_NOOP( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
+          title: qsTr( "Fixed scale navigation" )
+          description: qsTr( "When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature." )
           settingAlias: "locatorKeepScale"
       }
       ListElement {
-          title: QT_TR_NOOP( "Progressive rendering" )
-          description: QT_TR_NOOP( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering." )
+          title: qsTr( "Progressive rendering" )
+          description: qsTr( "When progressive rendering is enabled, the map will be drawn every 250 milliseconds while rendering." )
           settingAlias: "incrementalRendering"
       }
       ListElement {
-          title: QT_TR_NOOP( "Show digitizing information" )
-          description: QT_TR_NOOP( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
+          title: qsTr( "Show digitizing information" )
+          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
           settingAlias: "numericalDigitizingInformation"
       }
       ListElement {
-          title: QT_TR_NOOP( "Use native camera" )
-          description: QT_TR_NOOP( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
+          title: qsTr( "Use native camera" )
+          description: qsTr( "If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos." )
           settingAlias: "nativeCamera"
       }
       ListElement {
-          title: QT_TR_NOOP( "Fast editing mode" )
-          description: QT_TR_NOOP( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
+          title: qsTr( "Fast editing mode" )
+          description: qsTr( "If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately." )
           settingAlias: "autoSave"
       }
       ListElement {
-          title: QT_TR_NOOP( "Consider mouse as a touchscreen device" )
-          description: QT_TR_NOOP( "If disabled, the mouse will act as a stylus pen." )
+          title: qsTr( "Consider mouse as a touchscreen device" )
+          description: qsTr( "If disabled, the mouse will act as a stylus pen." )
           settingAlias: "mouseAsTouchScreen"
       }
   }

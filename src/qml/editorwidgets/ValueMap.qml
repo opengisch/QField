@@ -21,6 +21,7 @@ Item {
   }
 
   height: childrenRect.height + 10
+  enabled: isEnabled
 
 
   ComboBox {

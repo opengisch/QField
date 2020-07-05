@@ -31,12 +31,75 @@ FeatureModel::FeatureModel( QObject *parent )
   connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
 }
 
+void FeatureModel::setModelMode( const ModelModes mode )
+{
+  if ( mModelMode == mode )
+    return;
+
+  beginResetModel();
+  mModelMode = mode;
+  emit modelModeChanged();
+  endResetModel();
+}
+
+FeatureModel::ModelModes FeatureModel::modelMode() const
+{
+  return mModelMode;
+}
+
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
+  if ( mModelMode != SingleFeatureModel || mFeature == feature )
+    return;
+
   beginResetModel();
   mFeature = feature;
-  endResetModel();
+  mFeatures.clear();
+  mAttributesAllowEdit.clear();
   emit featureChanged();
+  endResetModel();
+}
+
+void FeatureModel::setFeatures( const QList<QgsFeature> &features )
+{
+  if ( mModelMode != MultiFeatureModel )
+    return;
+
+  beginResetModel();
+  if ( !features.isEmpty() )
+  {
+    mFeatures = features;
+    mAttributesAllowEdit.clear();
+
+    mFeature = mFeatures.at( 0 );
+    for ( int i = 0; i < mFeature.attributes().count(); i++ )
+    {
+      bool equalValue = true;
+      struct AttributeNotEqual
+      {
+        const int attributeIndex;
+        const QgsFeature &feature;
+        AttributeNotEqual( const QgsFeature &feature, int attributeIndex ) : attributeIndex( attributeIndex ), feature( feature ) {}
+        bool operator()( const QgsFeature &f) const { return feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
+      };
+
+      if ( std::any_of( mFeatures.begin(), mFeatures.end(), AttributeNotEqual( mFeature, i ) ) )
+      {
+        mFeature.setAttribute( i, QVariant() );
+        equalValue = false;
+      }
+      mAttributesAllowEdit << equalValue;
+    }
+  }
+  else
+  {
+    mFeatures.clear();
+    mAttributesAllowEdit.clear();
+
+    mFeature = QgsFeature();
+  }
+  emit featuresChanged();
+  endResetModel();
 }
 
 void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
@@ -94,6 +157,11 @@ QgsFeature FeatureModel::feature() const
   return mFeature;
 }
 
+QList<QgsFeature> FeatureModel::features() const
+{
+  return mFeatures;
+}
+
 void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
@@ -146,6 +214,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
   roles[Field] = "Field";
   roles[RememberAttribute] = "RememberAttribute";
   roles[LinkedAttribute] = "LinkedAttribute";
+  roles[AttributeAllowEdit] = "AttributeAllowEdit";
 
   return roles;
 }
@@ -155,12 +224,15 @@ int FeatureModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
     return 0;
-  else
-    return mFeature.attributes().count();
+
+  return mFeature.attributes().count();
 }
 
 QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 {
+  if ( index.row() < 0 )
+    return QVariant();
+
   switch ( role )
   {
     case AttributeName:
@@ -178,6 +250,12 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
     case LinkedAttribute:
       return mLinkedAttributeIndexes.contains( index.row() );
 
+    case AttributeAllowEdit:
+      if ( mModelMode == MultiFeatureModel )
+      {
+        return index.row() < mAttributesAllowEdit.count() ? mAttributesAllowEdit.at( index.row() ) : false;
+      }
+      return true;
   }
 
   return QVariant();
@@ -185,6 +263,9 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
 
 bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
+  if ( index.row() < 0 )
+    return false;
+
   if ( data( index, role ) == value )
     return true;
 
@@ -193,13 +274,14 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     case AttributeValue:
     {
       QVariant val( value );
-      QgsField fld = mFeature.fields().at( index.row() );
+      QgsField fld = mLayer->fields().at( index.row() );
 
       if ( !fld.convertCompatible( val ) )
       {
         QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
         return false;
       }
+
       bool success = mFeature.setAttribute( index.row(), val );
       if ( success )
         emit dataChanged( index, index, QVector<int>() << role );
@@ -210,6 +292,16 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     {
       mRememberings[mLayer].rememberedAttributes[ index.row() ] = value.toBool();
       emit dataChanged( index, index, QVector<int>() << role );
+      break;
+    }
+
+    case AttributeAllowEdit:
+    {
+      if ( mModelMode == MultiFeatureModel )
+      {
+        mAttributesAllowEdit[index.row()] = value.toBool();
+        emit dataChanged( index, index, QVector<int>() << role );
+      }
       break;
     }
   }
@@ -229,26 +321,54 @@ bool FeatureModel::save()
     rv = false;
   }
 
-  QgsFeature feat = mFeature;
-  if ( !mLayer->updateFeature( feat ) )
-    QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
-
-  if ( QgsProject::instance()->topologicalEditing() )
+  switch ( mModelMode )
   {
-    applyVertexModelToLayerTopography();
-    mLayer->addTopologicalPoints( feat.geometry() );
+    case SingleFeatureModel:
+    {
+      QgsFeature feat = mFeature;
+      if ( !mLayer->updateFeature( feat ) )
+        QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+
+      if ( QgsProject::instance()->topologicalEditing() )
+      {
+        applyVertexModelToLayerTopography();
+        mLayer->addTopologicalPoints( feat.geometry() );
+      }
+
+      rv &= commit();
+
+      if ( rv )
+      {
+        QgsFeature modifiedFeature;
+        if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
+          setFeature( modifiedFeature );
+        else
+          QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
+      }
+      break;
+    }
+
+    case MultiFeatureModel:
+    {
+      for ( QgsFeature &feature : mFeatures )
+      {
+        for ( int i = 0; i < mFeature.attributes().count(); i++ )
+        {
+          if ( !mAttributesAllowEdit[i] )
+            continue;
+
+          feature.setAttribute( i, mFeature.attributes().at( i ) );
+        }
+
+        if ( !mLayer->updateFeature( feature ) )
+        {
+          QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+        }
+      }
+      rv &= commit();
+    }
   }
 
-  rv &= commit();
-
-  if ( rv )
-  {
-    QgsFeature modifiedFeature;
-    if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
-      setFeature( modifiedFeature );
-    else
-      QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
-  }
   return rv;
 }
 
@@ -265,7 +385,7 @@ bool FeatureModel::suppressFeatureForm() const
   if ( !mLayer )
     return false;
 
-  return mLayer->editFormConfig().suppress();
+  return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
 }
 
 void FeatureModel::resetAttributes()

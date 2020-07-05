@@ -21,7 +21,7 @@ Item {
 
   //on all mimetypes "image/..." and on empty values it should appear as an image widget except when it's configured as a link
   property bool isImage: {
-    if ( value == undefined ) {
+    if ( value == null ) {
       return true
     } else if ( config.UseLink ) {
       return false
@@ -84,13 +84,17 @@ Item {
     topPadding: 10
     bottomPadding: 10
     visible: !isImage
-    enabled: !isImage
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
     color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? '#0000EE' : 'black'
 
-    text: FileUtils.fileName( qgisProject.homePath + '/' + value )
+    text: {
+      if(UrlUtils.isRelativeOrFileUrl(value))
+        return config.FullUrl ? value : FileUtils.fileName(value)
+
+      return StringUtils.insertLinks(value)
+    }
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
@@ -103,8 +107,20 @@ Item {
       anchors.fill: parent
 
       onClicked: {
-        if (value && FileUtils.fileExists(qgisProject.homePath + '/' + value) )
-          __viewStatus = platformUtilities.open( qgisProject.homePath + '/' + value );
+        if ( ! value )
+          return
+
+        // matches `http://...` but not `file://...` paths
+        if ( ! UrlUtils.isRelativeOrFileUrl(value)) {
+          Qt.openUrlExternally(value)
+          return
+        }
+
+        // relative paths `./path/to/image.jpg` or 'path/to/image.jpg`
+        if (FileUtils.fileExists(qgisProject.homePath + '/' + value) ) {
+          __viewStatus = platformUtilities.open(qgisProject.homePath + '/' + value)
+          return
+        }
       }
     }
 
@@ -118,7 +134,7 @@ Item {
   Image {
     id: image
     visible: isImage
-    enabled: isImage
+    enabled: isImage && isEnabled
     width: 200
     autoTransform: true
     fillMode: Image.PreserveAspectFit
@@ -172,7 +188,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly && isImage
+    visible: !readOnly && isImage && isEnabled
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
@@ -196,7 +212,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly && isImage
+    visible: !readOnly && isImage && isEnabled
 
     onClicked: {
           var filepath = getPictureFilePath()

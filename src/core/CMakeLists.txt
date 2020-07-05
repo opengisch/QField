@@ -24,6 +24,7 @@ SET(QFIELD_CORE_SRCS
   maptoscreen.cpp
   messagelogmodel.cpp
   modelhelper.cpp
+  multifeaturelistmodelbase.cpp
   multifeaturelistmodel.cpp
   picturesource.cpp
   platformutilities.cpp
@@ -51,6 +52,8 @@ SET(QFIELD_CORE_SRCS
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
+  utils/stringutils.cpp
+  utils/urlutils.cpp
   expressionevaluator.cpp
 )
 
@@ -80,6 +83,7 @@ SET(QFIELD_CORE_HDRS
   maptoscreen.h
   messagelogmodel.h
   modelhelper.h
+  multifeaturelistmodelbase.h
   multifeaturelistmodel.h
   picturesource.h
   platformutilities.h
@@ -107,6 +111,8 @@ SET(QFIELD_CORE_HDRS
   utils/fileutils.h
   utils/geometryutils.h
   utils/featureutils.h
+  utils/stringutils.h
+  utils/urlutils.h
   expressionevaluator.h
 )
 

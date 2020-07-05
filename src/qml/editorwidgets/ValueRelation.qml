@@ -15,6 +15,7 @@ Item {
   signal valueChanged(var value, bool isNull)
 
   height: !config['AllowMulti'] ? valueRelationCombobox.height : valueRelationList.height
+  enabled: isEnabled
 
   RelationCombobox {
     id: valueRelationCombobox
