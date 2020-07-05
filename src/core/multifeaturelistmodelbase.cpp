@@ -195,7 +195,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
                                      << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
                                      << QgsExpressionContextUtils::layerScope( feature->first );
       context.setFeature( feature->second );
-      
+
       const QString displayString = QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
 
       if ( displayString.isEmpty() )
@@ -271,8 +271,8 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
 {
   if ( !layer )
   {
-      QgsMessageLog::logMessage( tr( "Cannot start editing, no layer" ), "QField", Qgis::Warning );
-      return false;
+    QgsMessageLog::logMessage( tr( "Cannot start editing, no layer" ), "QField", Qgis::Warning );
+    return false;
   }
 
   if ( ! layer->startEditing() )
@@ -353,7 +353,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     else
     {
       QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( fid ), "QField", Qgis::Warning );
-  
+
       isSuccess = false;
     }
   }
