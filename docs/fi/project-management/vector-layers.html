@@ -190,7 +190,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Vektoritason asetukset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField käyttäjän opas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Viivojen ja monikulmioiden seuranta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globaalit muuttujat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Kehittäminen ja tuki</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync laajennus</a></li>
@@ -312,17 +312,17 @@
 <p>Relaatiotyökalu näyttöö kaikki liittyvät alemmat ominaisuudet listana. On mahdollista lisätä, poistaa tai avata ne.</p>
 <p>Listan jäsenten visuaalinen tunnistaminen tehdään käyttäen Display Expression alatasolla.</p>
 <p><strong>Avainten käsittely</strong></p>
-<p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
-<p>Child features can be added before the parent is finaly saved - means while adding a parent. But it’s blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after there have been some childs added already, the childs are deleted by cascade.</p>
+<p>Koska ylemmän tason ensisijaisia avaimia käytetään vierasavaimina viitattavissa alemmissatoiminnoissa, nämä ensisijaiset avaimet on tallennettava käytettäväksi myös synkronoinnin jälkeen alkuperäiseen tietoon. Siksi suosittelemme käyttämään vakaita arvoja, kuten UUID-tunnuksia pääavaimille.</p>
+<p>Alemmat ominaisuudetnot voidaan lisätä ennen ylempien lopullista tallentamista - tarkoittaa samalla kun ylempi lisätään. Mutta se estetään, jos ylemmällä ei ole kelvollista ensisijaista avainta tai rajoituksia rikotaan. Jos ylemmän ominaisuuden lisääminen peruutetaan sen jälkeen, kun joitain alempia on jo lisätty, alemmat poistetaan.</p>
 <p><strong>Moni-Moneen relaatiot</strong></p>
-<p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
-<p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
+<p>Moni-moneen relaatioissa QGIS-vektorikerrosominaisuuksien kardinaaliasetusten mukaisesti, lisäämällä, poistamalla tai avaamalla merkintä listassa, vaikuttaa suoraan alatasoon (suorassa kardinaalisuudessa) tai linkitystaulukkoon (moni- yhteen kardinaliteetti).</p>
+<p>Toista tapausta käytetään yleensä, kun linkitystaulussa on lisätietoja relaatiotiedoista (esim. prosenttiosuus).</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
+<p>Tapauksessa jossa on moni-yhteen  kardinaliteetti moni-moneen relaatiossa, näyttölauseke tulee asetaa linkkaavaan tauluun.</p>
 </div>
 <div class="section" id="external-resource-photo-settings">
 <h4>Ulkoiset resurssit (kuva-asetukset)<a class="headerlink" href="#external-resource-photo-settings" title="Permalink to this headline">¶</a></h4>

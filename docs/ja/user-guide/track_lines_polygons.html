@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tracking of lines and polygons &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>ラインとポリゴンの追跡 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -96,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Tracking of lines and polygons</a></li>
+<li><a class="reference internal" href="#">ラインとポリゴンの追跡</a></li>
 </ul>
 </ul>
 </li>
@@ -142,7 +142,7 @@
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">フィーチャに一連の写真を追加する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">凡例のノードを非表示にするのを許可する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">レイヤーの検索</a></li>
@@ -156,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">ベクターレイヤの設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">QFieldユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">アクティブなマップテーマを変更する</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tracking of lines and polygons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ラインとポリゴンの追跡</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">グローバル変数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">開発とサポート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSyncプラグイン</a></li>
@@ -172,29 +172,26 @@
     <div class="col-md-9 content">
       
   <div class="section" id="tracking-of-lines-and-polygons">
-<span id="track-linges-polygons"></span><h1>Tracking of lines and polygons<a class="headerlink" href="#tracking-of-lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>You have the possibility to do tracking on lines and polygons.</p>
-<p>It's available when GPS is enabled.
-A tracking session can be started over the legend - long press on the layer.</p>
+<span id="track-linges-polygons"></span><h1>ラインとポリゴンの追跡<a class="headerlink" href="#tracking-of-lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>もしかしたらラインとポリゴンの追跡をすることがあるかもしれません。</p>
+<p>それはGPSが有効な場合に使用できます。 追跡セッションは、凡例の上で開始できます。レイヤーを長押しします。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_started.jpeg"><img alt="track_lines_started" src="../_images/track_lines_started.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.</p>
+<p>追跡時間の間隔と最小距離をそれぞれ入力して、どのタイミングで頂点を設定する必要があるかを設定できます。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracker_settings.jpeg"><img alt="tracker_settings" src="../_images/track_lines_tracker_settings.jpeg" style="width: 640px;" /></a>
 </div>
-<p>There can be several trackings session active on several layers.
-But only one tracking session per layer can be active at the time.</p>
+<p>複数のレイヤーで複数の追跡セッションをアクティブにする設定ができます。 ただし、一度にアクティブにできるのは、レイヤーごとに1つの追跡セッションのみです。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers1.jpeg"><img alt="tracking_layers1" src="../_images/track_lines_tracking_layers1.jpeg" style="width: 640px;" /></a>
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers2.jpeg"><img alt="tracking_layers2" src="../_images/track_lines_tracking_layers2.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The tracked feature is saved on every vertex.
-While the tracking session is active the layer is still editable, but the tracked feature can't be edited or deleted until the tracking session is stopped over the legend again.</p>
+<p>追跡されたフィーチャは頂点ごとに保存されます。追跡セッションがアクティブな間はそのレイヤは編集可能です。しかし凡例上で追跡セッションが停止されると追跡されたフィーチャの編集や削除は行えなくなります。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_stop_tracking_delete.jpeg"><img alt="stop_tracking_delete" src="../_images/track_lines_stop_tracking_delete.jpeg" style="width: 640px;" /></a>
 </div>
-<p>If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking session has been recorded.</p>
+<p>レイヤのジオメトリはM値のサポートをしている場合は、追跡セッションの最初の頂点が保存された時を始点として経過した時間がM値に保存されます。</p>
 </div>
 
 
