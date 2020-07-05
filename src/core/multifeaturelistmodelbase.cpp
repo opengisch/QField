@@ -364,10 +364,6 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
   }
 
-  //delete parent
-  layer->startEditing();
-  layer->deleteFeature( fid );
-  layer->commitChanges();
   endResetModel();
 
   return isSuccess;
