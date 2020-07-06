@@ -58,6 +58,10 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
   for ( int i = 0; i < nbRows; i++ )
   {
     QModelIndex index = model->index( i, 0, parent );
+    QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
+    if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
+      continue;
+
     mRowMap[index] = row;
     mIndexMap[row] = index;
     row++;
@@ -363,6 +367,8 @@ void FlatLayerTreeModel::setMapTheme( const QString &mapTheme )
 
   mMapTheme = mapTheme;
   emit mapThemeChanged();
+
+  buildMap( mLayerTreeModel );
 }
 
 void FlatLayerTreeModel::updateCurrentMapTheme()
