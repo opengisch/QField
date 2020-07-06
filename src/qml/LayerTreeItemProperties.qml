@@ -90,7 +90,7 @@ Popup {
         Layout.maximumWidth: parent.width - 20
         font: Theme.defaultFont
         text: qsTr('Zoom to layer')
-        visible: trackingButtonVisible
+        visible: zoomToLayerButtonVisible
 
         onClicked: {
           mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
