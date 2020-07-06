@@ -261,9 +261,15 @@ Page {
           height: childrenRect.height
           anchors { left: parent.left; right: parent.right }
 
-          //disable widget if the form is in ReadOnly mode, or if it's an RelationEditor widget in an embedded form
-          property bool isEnabled: AttributeAllowEdit && !!AttributeEditable &&
-                                   form.state !== 'ReadOnly' && !( embedded && EditorWidget === 'RelationEditor' )
+          //disable widget if it's:
+          // - not activated in multi edit mode
+          // - not set to editable in the widget configuration
+          // - not in edit mode (ReadOnly)
+          // - a relation in an embedded form or in multi edit mode
+          property bool isEnabled: AttributeAllowEdit
+                                   && !!AttributeEditable
+                                   && form.state !== 'ReadOnly'
+                                   && !( Type === 'relation' && ( embedded || form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) )
           property var value: AttributeValue
           property var config: ( EditorWidgetConfig || {} )
           property var widget: EditorWidget
@@ -338,7 +344,7 @@ Page {
       Label {
         id: multiEditAttributeLabel
         text: (AttributeAllowEdit ? qsTr( "Value applied" ) : qsTr( "Value skipped" ) ) + qsTr( " (click to toggle)" )
-        visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel
+        visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel && Type !== 'relation'
         height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
         bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
         anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
