@@ -11,9 +11,9 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Rectangle{
-    height: !readOnly ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly
+    height: isEnabled ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly (isEnabled false)
     property int itemHeight: 32
-    enabled: isEnabled
+    enabled: true
 
     border.color: 'lightgray'
     border.width: 1
@@ -52,12 +52,12 @@ Rectangle{
       Rectangle{
           anchors.fill: parent
           color: 'lightgrey'
-          visible: !readOnly
+          visible: isEnabled
 
           Text {
-              visible: !readOnly
+              visible: isEnabled
               color: 'grey'
-              text: !readOnly && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
+              text: isEnabled && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
               anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
@@ -125,7 +125,7 @@ Rectangle{
             id: featureText
             anchors { leftMargin: 10; left: parent.left; right: deleteButtonRow.left; verticalCenter: parent.verticalCenter }
             font.bold: true
-            color: readOnly ? 'grey' : 'black'
+            color: !isEnabled ? 'grey' : 'black'
             text: { text: nmRelationId ? model.nmDisplayString : model.displayString }
           }
 
@@ -133,7 +133,7 @@ Rectangle{
             anchors.fill: parent
 
             onClicked: {
-                embeddedPopup.state = !readOnly ? 'Edit' : 'ReadOnly'
+                embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly'
                 embeddedPopup.currentLayer = nmRelationId ?  relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer
                 embeddedPopup.linkedRelation = relationEditorModel.relation
                 embeddedPopup.linkedParentFeature = relationEditorModel.feature
@@ -152,7 +152,7 @@ Rectangle{
                 id: deleteButton
                 width: parent.height
                 height: parent.height
-                visible: !readOnly
+                visible: isEnabled
 
                 contentItem: Rectangle {
                     anchors.fill: parent
