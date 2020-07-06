@@ -224,7 +224,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         if ( sym->flags() & Qt::ItemIsUserCheckable )
         {
-          return sym->data( Qt::CheckStateRole ).toBool();
+          return sym->data( Qt::CheckStateRole ).toBool() && sym->layerNode()->isVisible();
         }
         else
         {

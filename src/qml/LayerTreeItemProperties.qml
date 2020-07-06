@@ -12,7 +12,10 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
+
   property bool trackingButtonVisible: false
+  property var trackingButtonText
+
   property alias itemVisible: itemVisibleCheckBox.checked
 
   padding: 0
@@ -117,7 +120,6 @@ Popup {
       }
     }
   }
-
 
   function isTrackingButtonVisible() {
     if ( !index )
