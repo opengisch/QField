@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Controls 2.12
 
 import Theme 1.0
@@ -130,12 +130,12 @@ Item {
     top: to
   }
 
-  RegExpValidator {
+  DoubleValidator {
     id: doubleValidator
-    regExp: /[-]?(\d*)([.,]\d*)?$/
-    /*
+
+    locale: Qt.locale('C')
+
     bottom: from
     top: to
-    */
   }
 }

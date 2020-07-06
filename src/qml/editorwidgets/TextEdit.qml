@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Controls 2.12
 import Theme 1.0
 
@@ -38,9 +38,10 @@ Item {
       id: intValidator
     }
 
-    RegExpValidator {
+    DoubleValidator {
       id: doubleValidator
-      regExp: /[-]?(\d*)([.,]\d*)?$/
+
+      locale: Qt.locale('C')
     }
 
     inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
