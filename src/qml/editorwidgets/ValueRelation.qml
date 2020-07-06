@@ -15,7 +15,7 @@ Item {
   signal valueChanged(var value, bool isNull)
 
   height: !config['AllowMulti'] ? valueRelationCombobox.height : valueRelationList.height
-  enabled: isEnabled
+  enabled: true
 
   RelationCombobox {
     id: valueRelationCombobox
@@ -103,7 +103,7 @@ Item {
             id: checkBox
             width: parent.height
             height: parent.height
-            enabled: !readOnly
+            enabled: isEnabled
 
             checked: model.checked
 
@@ -122,7 +122,7 @@ Item {
           id: valueText
           anchors { leftMargin: 10; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
           font.bold: true
-          color: readOnly ? 'grey' : 'black'
+          color: !isEnabled ? 'grey' : 'black'
           text: { text: model.displayString }
         }
 
@@ -130,7 +130,7 @@ Item {
           anchors.fill: parent
 
           onClicked: {
-            if( !readOnly ){
+            if( isEnabled ){
               checkBox.checked = !checkBox.checked
             }
           }

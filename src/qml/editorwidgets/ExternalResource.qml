@@ -134,7 +134,7 @@ Item {
   Image {
     id: image
     visible: isImage
-    enabled: isImage && isEnabled
+    enabled: isImage
     width: 200
     autoTransform: true
     fillMode: Image.PreserveAspectFit
@@ -188,7 +188,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly && isImage && isEnabled
+    visible: isImage && isEnabled
 
     onClicked: {
         if ( settings.valueBool("nativeCamera", true) ) {
@@ -212,7 +212,7 @@ Item {
     anchors.bottom: parent.bottom
 
     bgcolor: "transparent"
-    visible: !readOnly && isImage && isEnabled
+    visible: isImage && isEnabled
 
     onClicked: {
           var filepath = getPictureFilePath()
