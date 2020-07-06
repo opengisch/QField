@@ -124,7 +124,7 @@ ListView {
       }
       onPressed: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
-          if (item && item.itemType !== "group") {
+          if (item && item.itemType) {
               pressedItem = item;
               pressedItem.color = Theme.lightGray
           }
