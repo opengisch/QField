@@ -10,16 +10,10 @@ import Theme 1.0
 Popup {
   property var layerTree
   property var index
-  property var panToLayerButtonText
 
-    property var trackingButtonVisible: isTrackingButtonVisible()
-    property var trackingButtonBgColor
-    property var trackingButtonText
-
+  property bool zoomToLayerButtonVisible: false
+  property bool trackingButtonVisible: false
   property alias itemVisible: itemVisibleCheckBox.checked
-
-  signal panToLayerButtonClicked
-  signal trackingButtonClicked
 
   padding: 0
 
@@ -29,6 +23,7 @@ Popup {
   onIndexChanged: {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
+    zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
   }
@@ -36,22 +31,6 @@ Popup {
   onItemVisibleChanged: {
     layerTree.setData(index, itemVisible, FlatLayerTreeModel.Visible);
   }
-
-  onPanToLayerButtonClicked: {
-    mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
-  }
-
-  onTrackingButtonClicked: {
-      //start track
-      if( trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ) {
-          trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
-          displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
-      }else{
-          trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
-      }
-      close()
-  }
-
 
   Page {
     padding: 10
@@ -105,14 +84,15 @@ Popup {
       }
 
       QfButton {
-        id: panToLayerButton
+        id: zoomToLayerButton
         Layout.fillWidth: true
         Layout.maximumWidth: parent.width - 20
         font: Theme.defaultFont
         text: qsTr('Zoom to layer')
+        visible: trackingButtonVisible
 
         onClicked: {
-          panToLayerButtonClicked()
+          mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
         }
       }
 
@@ -125,7 +105,14 @@ Popup {
         visible: trackingButtonVisible
 
         onClicked: {
-          trackingButtonClicked()
+            //start track
+            if ( trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ) {
+                 trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
+                 displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
+            } else {
+                trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
+            }
+            close()
         }
       }
     }
@@ -133,11 +120,18 @@ Popup {
 
 
   function isTrackingButtonVisible() {
-    if ( ! index )
+    if ( !index )
       return false
 
-    return layerTree.data(index, FlatLayerTreeModel.Type) === 'layer'
-        && layerTree.data(index, FlatLayerTreeModel.Trackable)
+    return layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer'
+        && layerTree.data( index, FlatLayerTreeModel.Trackable )
         && positionSource.active
+  }
+
+  function isZoomToLayerButtonVisible() {
+      if ( !index )
+        return false
+
+      return ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' )
   }
 }
