@@ -41,7 +41,7 @@ Item {
     DoubleValidator {
       id: doubleValidator
 
-      locale: Qt.locale('C')
+      locale: 'C'
     }
 
     inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone

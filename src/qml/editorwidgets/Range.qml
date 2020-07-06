@@ -133,7 +133,7 @@ Item {
   DoubleValidator {
     id: doubleValidator
 
-    locale: Qt.locale('C')
+    locale: 'C'
 
     bottom: from
     top: to
