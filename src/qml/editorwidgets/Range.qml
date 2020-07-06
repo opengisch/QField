@@ -133,8 +133,6 @@ Item {
   DoubleValidator {
     id: doubleValidator
 
-    locale: 'C'
-
     bottom: from
     top: to
   }
