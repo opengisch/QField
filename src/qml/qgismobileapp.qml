@@ -998,7 +998,7 @@ ApplicationWindow {
     Connections {
         target: printMenu
 
-        function onEnablePrintItem() {
+        function onEnablePrintItem(rows) {
           printItem.enabled = rows
         }
     }
@@ -1282,7 +1282,7 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      function onLoadProjectStarted() {
+      function onLoadProjectStarted(path) {
         busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
         busyMessage.visible = true
       }
@@ -1364,7 +1364,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        function onLoadProjectStarted() {
+        function onLoadProjectStarted(path) {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1372,7 +1372,7 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      function onShowLoginDialog() {
+      function onShowLoginDialog(realm) {
         loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
@@ -1682,7 +1682,7 @@ ApplicationWindow {
   Connections {
     target: welcomeScreen.__projectSource
 
-    function onProjectOpened() {
+    function onProjectOpened(path) {
       iface.loadProject( path )
     }
   }
@@ -1702,4 +1702,3 @@ ApplicationWindow {
       isHovering: hoverHandler.hovered
   }
 }
-
