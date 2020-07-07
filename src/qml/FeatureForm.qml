@@ -309,7 +309,7 @@ Page {
 
         Connections {
           target: attributeEditorLoader.item
-          function onValueChanged() {
+          function onValueChanged(value) {
             if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
             {
               AttributeValue = isNull ? undefined : value
