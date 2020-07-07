@@ -195,7 +195,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onFocusedItemChanged:
+      function onFocusedItemChanged()
       {
         editGeomButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
@@ -228,7 +228,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onFocusedItemChanged:
+      function onFocusedItemChanged()
       {
         editButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
