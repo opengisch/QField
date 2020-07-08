@@ -68,7 +68,7 @@ VisibilityFadingRow {
       }
       else
       {
-        geometryValid
+        !screenHovering && geometryValid
       }
     }
     round: true
