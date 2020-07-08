@@ -171,7 +171,7 @@ Rectangle {
 
     visible: stateMachine.state === "digitize"
              && ! selection.focusedGeometry.isNull
-             && ! selection.selectedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
+             && ! selection.focusedLayer.customProperty( "QFieldSync/is_geometry_locked", false )
 
     anchors.right: editButton.left
 
