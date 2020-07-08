@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.14
 import QtQuick.Controls 2.12
 
 import Theme 1.0
@@ -133,6 +133,8 @@ Item {
 
   DoubleValidator {
     id: doubleValidator
+
+    locale: 'C'
 
     bottom: from
     top: to
