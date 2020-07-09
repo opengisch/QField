@@ -28,6 +28,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+  property bool isBeingTouched: false
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -163,6 +164,7 @@ Item {
 
     DragHandler {
         target: null
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
         property var oldPos
@@ -172,6 +174,33 @@ Item {
                 freeze('pan')
             else
                 unfreeze('pan')
+        }
+
+        onCentroidChanged: {
+            var oldPos1 = oldPos
+            oldPos = centroid.position
+            if ( active )
+            {
+                mapCanvasWrapper.pan(centroid.position, oldPos1)
+                panned()
+            }
+        }
+    }
+
+    DragHandler {
+        target: null
+        acceptedDevices: PointerDevice.TouchScreen
+        grabPermissions: PointerHandler.TakeOverForbidden
+
+        property var oldPos
+
+        onActiveChanged: {
+            mapArea.isBeingTouched = active
+            if ( active ) {
+                freeze('pan')
+            } else {
+                unfreeze('pan')
+            }
         }
 
         onCentroidChanged: {
