@@ -151,7 +151,7 @@ ApplicationWindow {
         id: hoverHandler
         enabled: !qfieldSettings.mouseAsTouchScreen && !mapCanvasMap.isBeingTouched
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-        grabPermissions: PointerHandler.TakeOverForbidden
+        grabPermissions: PointerHandler.ApprovesTakeOverByItems
 
         onPointChanged: {
           // after a click, it seems that the position is sent once at 0,0 => weird
