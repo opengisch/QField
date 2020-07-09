@@ -132,6 +132,7 @@ Item {
       property bool longPressActive: false
 
       onSingleTapped: {
+        mapArea.isBeingTouched = false
         mapArea.clicked(point.position, "touch")
       }
 
@@ -141,8 +142,11 @@ Item {
       }
 
       onPressedChanged: {
-          if (longPressActive)
+          if (pressed) mapArea.isBeingTouched = true
+          if (longPressActive) {
+              mapArea.isBeingTouched = false
               mapArea.longPressReleased("touch")
+          }
           longPressActive = false
       }
     }
