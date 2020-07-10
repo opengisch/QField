@@ -81,7 +81,7 @@ Page {
   Connections {
     target: model
 
-    function onRowsInserted(parent, first, last) {
+    onRowsInserted: {
       if ( !visible )
         unreadMessages = true
     }

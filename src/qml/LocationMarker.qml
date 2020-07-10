@@ -92,7 +92,7 @@ Item {
 
   Connections {
     target: mapSettings
-    function onExtentChanged() {
+    onExtentChanged: {
       marker.location = mapSettings.coordinateToScreen( location )
       directionMarker.location = mapSettings.coordinateToScreen( location )
       directionMarker.direction = direction

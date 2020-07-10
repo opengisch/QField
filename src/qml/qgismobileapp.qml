@@ -998,7 +998,7 @@ ApplicationWindow {
     Connections {
         target: printMenu
 
-        function onEnablePrintItem(rows) {
+        onEnablePrintItem: {
           printItem.enabled = rows
         }
     }
@@ -1058,7 +1058,7 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      function onLoadProjectEnded() {
+      onLoadProjectEnded: {
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
@@ -1282,12 +1282,12 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      function onLoadProjectStarted(path) {
+      onLoadProjectStarted: {
         busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
         busyMessage.visible = true
       }
 
-      function onLoadProjectEnded() {
+      onLoadProjectEnded: {
         busyMessage.visible = false
         openProjectDialog.folder = qgisProject.homePath
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
@@ -1353,7 +1353,7 @@ ApplicationWindow {
 
     Connections {
       target: iface
-      function onLoadProjectEnded() {
+      onLoadProjectEnded: {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
@@ -1364,7 +1364,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        function onLoadProjectStarted(path) {
+        onLoadProjectStarted: {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1372,13 +1372,13 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      function onShowLoginDialog(realm) {
+      onShowLoginDialog: {
         loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
 
-      function onReloadEverything() {
+      onReloadEverything: {
         iface.reloadProject( qgisProject.fileName )
       }
     }
@@ -1682,7 +1682,7 @@ ApplicationWindow {
   Connections {
     target: welcomeScreen.__projectSource
 
-    function onProjectOpened(path) {
+    onProjectOpened: {
       iface.loadProject( path )
     }
   }
@@ -1702,3 +1702,4 @@ ApplicationWindow {
       isHovering: hoverHandler.hovered
   }
 }
+
