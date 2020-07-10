@@ -9,7 +9,7 @@ Item {
 
   Connections {
     target: geometryRenderer.geometryWrapper
-    function onQgsGeometryChanged() {
+    onQgsGeometryChanged: {
       timer.restart()
     }
   }

@@ -86,12 +86,12 @@ Page {
 
         Connections {
           target: master
-          function onReset(){ tabRow.currentIndex = 0 }
+          onReset: tabRow.currentIndex = 0
         }
 
         Connections {
           target: swipeView
-          function onCurrentIndexChanged(){ tabRow.currentIndex = swipeView.currentIndex }
+          onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
         }
 
         Repeater {
@@ -184,7 +184,7 @@ Page {
 
             Connections {
               target: master
-              function onReset(){ content.contentY = 0 }
+              onReset: content.contentY = 0
             }
 
             model: SubModel {
@@ -299,7 +299,7 @@ Page {
 
         Connections {
           target: form
-          function onAboutToSave() {
+          onAboutToSave: {
             try {
               attributeEditorLoader.item.pushChanges()
             }
@@ -310,7 +310,7 @@ Page {
 
         Connections {
           target: attributeEditorLoader.item
-          function onValueChanged(value) {
+          onValueChanged: {
             if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
             {
               AttributeValue = isNull ? undefined : value
@@ -423,7 +423,7 @@ Page {
 
   Connections {
     target: Qt.inputMethod
-    function onVisibleChanged() {
+    onVisibleChanged: {
       Qt.inputMethod.commit()
     }
   }

@@ -22,7 +22,7 @@ VisibilityFadingRow {
 
   Connections {
       target: rubberbandModel
-      function onVertexCountChanged() {
+      onVertexCountChanged: {
           // set geometry valid
           if ( Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === 0 )
           {
