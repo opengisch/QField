@@ -104,7 +104,6 @@ if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$SHORTARCH/usr/lib"
   export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
 fi
-ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS -landroid -llog"
 
 cmake \
 	-G Ninja \
