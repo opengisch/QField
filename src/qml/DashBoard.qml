@@ -130,9 +130,33 @@ Drawer {
     }
 
     GroupBox {
-      id: mapThemeContainer
       Layout.fillWidth: true
+
+      id: mapThemeContainer
+      title: qsTr("Map Theme")
+      leftPadding: 10
+      rightPadding: 10
+      topPadding: label.height + 5
+      bottomPadding: 5
+
       property bool isLoading: false
+
+      label: Label {
+          x: parent.leftPadding
+          y: 2
+          width: parent.availableWidth
+          text: parent.title
+          color: Theme.mainColor
+          font: Theme.strongTipFont
+          elide: Text.ElideRight
+      }
+
+      background: Rectangle {
+          y: parent.height - 1
+          width: parent.width
+          height: 1
+          color: Theme.mainColor
+      }
 
       ComboBox {
         id: mapThemeComboBox
@@ -158,7 +182,6 @@ Drawer {
           }
         }
 
-        // [hidpi fixes]
         delegate: ItemDelegate {
           width: mapThemeComboBox.width
           height: 36
@@ -185,13 +208,12 @@ Drawer {
           Rectangle {
             anchors.fill: parent
             id: backgroundRect
-            border.color: mapThemeComboBox.pressed ? "#17a81a" : "#21be2b"
+            border.color: mapThemeComboBox.pressed ? "#17a81a" : Theme.mainColor
             border.width: mapThemeComboBox.visualFocus ? 2 : 1
             //color: Theme.lightGray
             radius: 2
           }
         }
-        // [/hidpi fixes]
       }
     }
 
