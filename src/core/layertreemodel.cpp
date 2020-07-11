@@ -361,9 +361,16 @@ bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &valu
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
       node->setItemVisibilityCheckedRecursive( value.toBool() );
     }
+
+    //visibility of the node's children is also impacted, use the tree level value to identify those
+    int treeLevel = mTreeLevelMap[index.row()];
+    int endRow = index.row();
+    while(mTreeLevelMap.contains(endRow + 1) && mTreeLevelMap[endRow + 1] > treeLevel)
+      endRow++;
+
     QVector<int> rolesChanged;
     rolesChanged << role;
-    emit dataChanged( index, index, rolesChanged );
+    emit dataChanged( index, createIndex( endRow, 0 ), rolesChanged );
     return true;
   }
   return false;
