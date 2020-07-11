@@ -84,7 +84,7 @@ ListView {
       Text {
         id: layerName
         width: rectangle.width
-               - ( LegendImage != '' ? 34 : 10 )
+               - ( layerImage.source != '' ? 34 : 10 )
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
                - itemPadding
@@ -148,7 +148,6 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
-              console.log(item.children[0].children[0].children[0].source)
               if (item.vectorLayer) {
                 currentLayer = item.vectorLayer
               }
