@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="ic_vectortilelayer_18dp.svg"
+   id="svg44"
+   version="1.1"
+   width="16"
+   height="16">
+  <metadata
+     id="metadata50">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs48" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg44"
+     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-x="50"
+     inkscape:cy="-10.443315"
+     inkscape:cx="16.026179"
+     inkscape:zoom="3.3867188"
+     showgrid="false"
+     id="namedview46"
+     inkscape:window-height="1016"
+     inkscape:window-width="1870"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <linearGradient
+     id="a">
+    <stop
+       id="stop2"
+       stop-color="#6e97c4"
+       offset="0" />
+    <stop
+       id="stop4"
+       stop-color="#aec7e2"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     y2="15"
+     y1="10"
+     xlink:href="#a"
+     x2="7.449"
+     x1="7.373"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="matrix(.65196 0 0 .6516 1.174 -6.025)"
+     id="b" />
+  <linearGradient
+     y2="15.458"
+     y1="15.458"
+     xlink:href="#a"
+     x2="7"
+     x1="1.729"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="matrix(.65196 0 0 .6516 1.174 -6.025)"
+     id="c" />
+  <linearGradient
+     y2="25.133"
+     y1="22.364"
+     x2="4.458"
+     x1="4.53"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="matrix(3.8476185 0 0 3.28136 -4.436498 -70.386576)"
+     id="d">
+    <stop
+       id="stop9"
+       stop-color="#eee"
+       offset="0" />
+    <stop
+       style="stop-color:#cfcfcf;stop-opacity:1"
+       id="stop11"
+       stop-color="#aec7e2"
+       offset="1" />
+  </linearGradient>
+  <path
+     id="path14"
+     fill="url(#b)"
+     d="m2.478.49c-.87 9.558-.435 4.779 0 0z" />
+  <g
+     id="g42"
+     transform="translate(.557729 .336538)">
+    <path
+       id="path16"
+       stroke-width="1.698926"
+       fill="url(#d)"
+       d="m.75027119.96742373v13.38400027h13.38399981v-13.38400027z" />
+    <path
+       id="path18"
+       fill="url(#c)"
+       d="m2.478 7.658c-.87 4.778-.435 2.39 0 0z" />
+    <path
+       id="path20"
+       fill="url(#c)"
+       d="m2.3 7.658c-.75 4.778-.376 2.39 0 0z" />
+    <g
+       id="g40"
+       stroke-width=".833"
+       stroke-linecap="round"
+       stroke="#2b3b4d"
+       fill="none">
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path22"
+         d="m1.174 1.442h4.167v4.167h-4.168z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path24"
+         d="m5.342 1.442h4.1669999v4.167h-4.1679999z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path26"
+         d="m9.5089999 1.442h4.1669991v4.167h-4.1679991z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path28"
+         d="m1.1739999 5.609h4.1670001v4.1670001h-4.1680001z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path30"
+         d="m1.174 9.7760001h4.167v4.1669999h-4.168z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path32"
+         d="m5.341 5.609h4.1669996v4.1669995h-4.1679996z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path34"
+         d="m9.5089999 5.609h4.1670001v4.167h-4.1680001z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path36"
+         d="m5.341 9.7760001h4.167v4.1669999h-4.168z" />
+      <path
+         style="stroke:#888a85;stroke-opacity:1"
+         id="path38"
+         d="m9.508 9.7760001h4.167v4.1669999h-4.168z" />
+    </g>
+  </g>
+</svg>

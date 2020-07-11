@@ -24,8 +24,9 @@ ListView {
   delegate: Rectangle {
     property VectorLayer vectorLayer: VectorLayerPointer
     property var itemRow: index
+    property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
     property string itemType: Type
-    property int treePadding: 5 + ( 8 + 24 ) * TreeLevel
+    property string layerType: LayerType
 
     id: rectangle
     width: parent.width
@@ -34,24 +35,50 @@ ListView {
 
     Row {
       id: line
-      leftPadding: treePadding
+      leftPadding: itemPadding
       spacing: 5
 
-      Image {
-        id: layerImage
-        visible: LegendImage != ''
-        cache: false
-        source: {
-            if ( LegendImage )
-              return "image://legend/" + LegendImage
-            else
-              return ''
-        }
-        width: 24
-        height: 24
-        fillMode: Image.PreserveAspectFit
-        anchors.verticalCenter: parent.verticalCenter
-        opacity: Visible ? 1 : 0.25
+      Rectangle {
+          visible: Type != "group"
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
+
+          Image {
+              id: layerImage
+              anchors.fill: parent
+              anchors.margins: 4
+              cache: false
+              source: {
+                  if ( LegendImage != '' ) {
+                      return "image://legend/" + LegendImage
+                  } else if ( LayerType == "vectorlayer" ) {
+                      switch( VectorLayerPointer.geometryType() ) {
+                      case QgsWkbTypes.PointGeometry:
+                          return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                      case QgsWkbTypes.LineGeometry:
+                          return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                      case QgsWkbTypes.PolygonGeometry:
+                          return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                      case QgsWkbTypes.UnknownGeometry:
+                      case QgsWkbTypes.NullGeometry:
+                          return '';
+                      }
+                  } else if ( LayerType == "rasterlayer" ) {
+                      return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
+                  } else if ( LayerType == "meshlayer" ) {
+                      return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
+                  } else {
+                      return '';
+                  }
+              }
+              width: 16
+              height: 16
+              sourceSize.width: LegendImage == '' ? 16 : undefined
+              sourceSize.height: LegendImage == '' ? 16 : undefined
+              fillMode: Image.PreserveAspectFit
+              opacity: Visible ? 1 : 0.25
+          }
       }
 
       Text {
@@ -60,8 +87,9 @@ ListView {
                - ( LegendImage != '' ? 34 : 10 )
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-               - treeMargin
-        padding: Type == "group" ? 0 : 3
+               - itemPadding
+        padding: 3
+        leftPadding: 0
         text: Name
         horizontalAlignment: Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
@@ -120,7 +148,7 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
-              console.log(item.treeMargin)
+              console.log(item.vectorLayer.geometryType() === QgsWkbTypes.PolygonGeometry ? "y" : "n")
               if (item.vectorLayer) {
                 currentLayer = item.vectorLayer
               }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="ic_rasterlayer_18dp.svg"
+   id="svg20"
+   version="1.1"
+   width="16"
+   viewBox="0 0 16 16"
+   height="16"
+   enable-background="new 0 0 16 16">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs24" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg20"
+     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-x="50"
+     inkscape:cy="35.964928"
+     inkscape:cx="76.489169"
+     inkscape:zoom="6.7734375"
+     showgrid="false"
+     id="namedview22"
+     inkscape:window-height="1016"
+     inkscape:window-width="1870"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <g
+     id="g18"
+     transform="translate(-20.5 -3.5)">
+    <path
+       id="path2"
+       fill="#969696"
+       d="m20.5 14.167h5.333v5.333h-5.333z" />
+    <path
+       id="path4"
+       fill="#c9c9c9"
+       d="m20.5 8.833h5.333v5.333h-5.333z" />
+    <path
+       id="path6"
+       fill="#969696"
+       d="m20.5 3.5h5.333v5.333h-5.333z" />
+    <path
+       id="path8"
+       fill="#c9c9c9"
+       d="m25.833 3.5h5.333v5.333h-5.333z" />
+    <path
+       id="path10"
+       fill="#969696"
+       d="m25.833 8.833h5.333v5.333h-5.333z" />
+    <path
+       id="path12"
+       fill="#969696"
+       d="m31.167 3.5h5.333v5.333h-5.333z" />
+    <path
+       style="fill:#c9c9c9;fill-opacity:1"
+       id="path14"
+       fill="#969696"
+       d="m25.833 14.167h5.333v5.333h-5.333z" />
+    <path
+       id="path16"
+       fill="#c9c9c9"
+       d="m31.167 8.833h5.333v5.333h-5.333z" />
+  </g>
+</svg>
