@@ -42,7 +42,8 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       InTracking,
       ReadOnly,
       GeometryLocked,
-      TreeLevel
+      TreeLevel,
+      LayerType
     };
     Q_ENUM( Roles )
 

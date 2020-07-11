@@ -181,7 +181,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
-        if ( QgsLayerTree::isLayer( node ) )
+        if ( QgsLayerTree::isLayer( node ) && !mLayerTreeModel->hasChildren( sourceIndex ) )
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
           id += QStringLiteral( "layer" );
@@ -200,6 +200,44 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
         return QStringLiteral( "group" );
       else
         return QStringLiteral( "legend" );
+    }
+
+    case LayerType:
+    {
+      QgsMapLayer *layer = nullptr;
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
+      }
+
+      QString layerType;
+      if ( layer ) {
+        switch ( layer->type() )
+        {
+          case QgsMapLayerType::VectorLayer:
+            layerType = QStringLiteral( "vectorlayer" );
+            break;
+          case QgsMapLayerType::RasterLayer:
+            layerType = QStringLiteral( "rasterlayer" );
+            break;
+          case QgsMapLayerType::PluginLayer:
+            layerType = QStringLiteral( "pluginlayer" );
+            break;
+          case QgsMapLayerType::MeshLayer:
+            layerType = QStringLiteral( "meshlayer" );
+            break;
+          case QgsMapLayerType::VectorTileLayer:
+            layerType = QStringLiteral( "vectortilelayer" );
+            break;
+        }
+      }
+      return layerType;
     }
 
     case Name:
@@ -344,6 +382,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[ReadOnly] = "ReadOnly";
   roleNames[GeometryLocked] = "GeometryLocked";
   roleNames[TreeLevel] = "TreeLevel";
+  roleNames[LayerType] = "LayerType";
   return roleNames;
 }
 
