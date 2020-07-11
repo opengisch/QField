@@ -74,8 +74,8 @@ ListView {
               }
               width: 16
               height: 16
-              sourceSize.width: LegendImage == '' ? 16 : undefined
-              sourceSize.height: LegendImage == '' ? 16 : undefined
+              sourceSize.width: 16 * screen.devicePixelRatio
+              sourceSize.height: 16 * screen.devicePixelRatio
               fillMode: Image.PreserveAspectFit
               opacity: Visible ? 1 : 0.25
           }

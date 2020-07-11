@@ -32,8 +32,11 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
   Q_UNUSED( size )
-  QStringList idParts = id.split( '/' ).mid( 0, 2 );
-  idParts << id.section( '/', 2 );
+
+  // the id is passed on as an encoded URL string which needs decoding
+  const QString decodedId = QUrl::fromPercentEncoding( id.toUtf8() );
+  QStringList idParts = decodedId.split( '/' ).mid( 0, 2 );
+  idParts << decodedId.section( '/', 2 );
 
   if ( idParts.value( 0 ) == QStringLiteral( "legend" ) )
   {
