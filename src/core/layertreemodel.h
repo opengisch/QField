@@ -41,14 +41,15 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       Trackable,
       InTracking,
       ReadOnly,
-      GeometryLocked
+      GeometryLocked,
+      TreeLevel
     };
     Q_ENUM( Roles )
 
     explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
     void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
-    int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0 );
+    int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
 
     void setSourceModel( QgsLayerTreeModel *sourceModel );
     QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
@@ -87,6 +88,7 @@ class FlatLayerTreeModel : public QAbstractProxyModel
   private:
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;
+    QMap<int, int> mTreeLevelMap;
 
     QgsLayerTreeModel *mLayerTreeModel = nullptr;
     QString mMapTheme;

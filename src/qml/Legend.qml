@@ -25,6 +25,7 @@ ListView {
     property VectorLayer vectorLayer: VectorLayerPointer
     property var itemRow: index
     property string itemType: Type
+    property int treePadding: 5 + ( 8 + 24 ) * TreeLevel
 
     id: rectangle
     width: parent.width
@@ -33,10 +34,11 @@ ListView {
 
     Row {
       id: line
-      leftPadding: 5
+      leftPadding: treePadding
       spacing: 5
 
       Image {
+        id: layerImage
         visible: LegendImage != ''
         cache: false
         source: {
@@ -58,9 +60,10 @@ ListView {
                - ( LegendImage != '' ? 34 : 10 )
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-        padding: 5
+               - treeMargin
+        padding: Type == "group" ? 0 : 3
         text: Name
-        horizontalAlignment: itemType == "group" ? Text.AlignHCenter : Text.AlignLeft
+        horizontalAlignment: Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
         font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
         color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
@@ -117,6 +120,7 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
+              console.log(item.treeMargin)
               if (item.vectorLayer) {
                 currentLayer = item.vectorLayer
               }
