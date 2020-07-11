@@ -181,11 +181,18 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
-        if ( QgsLayerTree::isLayer( node ) && !mLayerTreeModel->hasChildren( sourceIndex ) )
+        if ( QgsLayerTree::isLayer( node ) )
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-          id += QStringLiteral( "layer" );
-          id += '/' +  nodeLayer->layerId();
+          if ( !mLayerTreeModel->hasChildren( sourceIndex ) )
+          {
+            QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+            if ( !vectorLayer || ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry ) )
+            {
+              id += QStringLiteral( "layer" );
+              id += '/' +  nodeLayer->layerId();
+            }
+          }
         }
       }
       return id;
