@@ -43,7 +43,7 @@ void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelInde
   }
 }
 
-int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row )
+int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
   bool reset = false;
   if ( row == 0 )
@@ -64,9 +64,10 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
 
     mRowMap[index] = row;
     mIndexMap[row] = index;
+    mTreeLevelMap[row] = treeLevel;
     row++;
     if ( model->hasChildren( index ) )
-      row = buildMap( model, index, row );
+      row = buildMap( model, index, row, treeLevel + 1 );
   }
   if ( reset )
     endResetModel();
@@ -297,6 +298,11 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return false;
     }
 
+    case TreeLevel:
+    {
+      return mTreeLevelMap.contains( index.row() ) ? mTreeLevelMap[index.row()] : 0;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -337,6 +343,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[InTracking] = "InTracking";
   roleNames[ReadOnly] = "ReadOnly";
   roleNames[GeometryLocked] = "GeometryLocked";
+  roleNames[TreeLevel] = "TreeLevel";
   return roleNames;
 }
 
