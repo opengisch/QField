@@ -60,9 +60,9 @@ ListView {
                           return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
                       case QgsWkbTypes.PolygonGeometry:
                           return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-                      case QgsWkbTypes.UnknownGeometry:
                       case QgsWkbTypes.NullGeometry:
-                          return '';
+                      case QgsWkbTypes.UnknownGeometry:
+                          return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
                       }
                   } else if ( LayerType == "rasterlayer" ) {
                       return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
@@ -148,7 +148,7 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
-              console.log(item.vectorLayer.geometryType() === QgsWkbTypes.PolygonGeometry ? "y" : "n")
+              console.log(item.children[0].children[0].children[0].source)
               if (item.vectorLayer) {
                 currentLayer = item.vectorLayer
               }
