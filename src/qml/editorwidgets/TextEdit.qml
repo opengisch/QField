@@ -13,11 +13,11 @@ Item {
     height: textArea.height == 0 ? fontMetrics.height + 20: 0
     topPadding: 10
     bottomPadding: 10
-    visible: height !== 0 && ! isEnabled
+    visible: height !== 0 && !isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: value == null || (! enabled ? 'gray' : 'black')
+    color: 'gray'
 
     text: value == null ? '' : stringUtilities.insertLinks(value)
 
@@ -33,7 +33,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (value == null || ! isEnabled) ? 'gray' : 'black'
+    color: 'black'
 
     text: value == null ? '' : value
 

@@ -350,6 +350,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
+        item->setData( true, AttributeFormModel::AttributeAllowEdit );
 
         items.append( item );
 
