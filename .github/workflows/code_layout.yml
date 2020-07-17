@@ -77,3 +77,19 @@ jobs:
           sudo apt install -y cppcheck
       - name: Run cppcheck test
         run: ./scripts/cppcheck.sh
+
+  translations:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Requirements
+        run: |
+          sudo apt update && sudo apt install qttools5-dev-tools
+          pip install wheel
+          pip install pygithub transifex-client
+
+      - name: "🌍 Push Translations"
+        if: ${{ github.event_name == 'push' }}
+        run: ./scripts/ci/update-translations.sh

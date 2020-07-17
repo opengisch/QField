@@ -11,20 +11,20 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/../version_number.sh
 
 
-if [[ -z ${TRAVIS_TAG} ]]; then
-  echo "we should not be here without a TRAVIS_TAG"
+if [[ -z ${CI_TAG} ]]; then
+  echo "we should not be here without a CI_TAG"
   exit 1
 fi
 
 # define RELEASE_BRANCH
-travis_to_release_branch
+ci_to_release_branch
 
 # Get git sha for master branch
 git fetch origin master:master --depth 1
 GIT_MASTER_SHA=$(git rev-list -n1 master)
 
 # If the current commit is the latest on master -> we need to create a new release branch
-if [[ "${TRAVIS_COMMIT}" = "${GIT_MASTER_SHA}" ]]; then
+if [[ "${CI_COMMIT}" = "${GIT_MASTER_SHA}" ]]; then
   if [[ ! "${RELEASE_BRANCH}" =~ ^release ]]; then
     echo "Something wrong happened"
     exit 1
@@ -32,7 +32,7 @@ if [[ "${TRAVIS_COMMIT}" = "${GIT_MASTER_SHA}" ]]; then
   echo "Sorry, something has gone wrong. The latest release commit is identical to the latest master commit."
   echo "This is not supported"
   echo ""
-  echo " 0. Delete the tag you just created 'git push origin :${TRAVIS_TAG}'. No worries, the changelog will not be deleted."
+  echo " 0. Delete the tag you just created 'git push origin :${CI_TAG}'. No worries, the changelog will not be deleted."
   echo " 1. Create a new release branch 'git checkout -b ${RELEASE_BRANCH}'"
   echo " 2. Edit the file VERSION_NAME"
   echo " 3. Push this new branch 'git push -u origin ${RELEASE_BRANCH}'"

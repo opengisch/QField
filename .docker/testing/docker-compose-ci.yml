@@ -6,4 +6,4 @@ services:
       dockerfile: ./.docker/testing/Dockerfile
     tty: true
     volumes:
-      - ${TRAVIS_BUILD_DIR}:/usr/src
+      - ${CI_BUILD_DIR}:/usr/src

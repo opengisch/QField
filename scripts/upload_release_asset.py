@@ -5,7 +5,7 @@ import argparse
 import os
 
 GH_TOKEN_ENV_VAR_NAME = 'GH_TOKEN'
-GH_REPO_SLUG = os.environ['TRAVIS_REPO_SLUG']
+GH_REPO_SLUG = os.environ['CI_REPO_SLUG']
 
 
 class UploadReleaseAssetError(Exception):
