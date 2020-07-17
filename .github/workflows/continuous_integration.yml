@@ -1,0 +1,62 @@
+name: Continuous integration
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Before Install
+        run: |
+          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+          git submodule update --init --recursive
+          ./scripts/ci/setup_signing_key.sh
+      - name: Test
+        run: |
+          ./test/test_version_number.sh
+          ./scripts/ci/pull_translations.sh
+          echo START
+          echo STARTEND
+          echo "::group::build\n$(tput bold)Build QField $(tput sgr0)"
+          docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
+          echo "::endgroup::"
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [armv7, arm64_v8a, x86, x86_64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Before Install
+        run: |
+          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+          git submodule update --init --recursive
+          ./scripts/ci/setup_signing_key.sh
+      - name: Branch name
+        id: branch_name
+        run: |
+          if [[ $GITHUB_REF == *"refs/heads"* ]]; then echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}; fi
+          if [[ $GITHUB_REF == *"refs/tags"* ]]; then echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}; fi
+      - name: Install
+        env:
+          ARCH: ${{ matrix.arch }}
+          TRAVIS_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
+          TRAVIS_COMMIT: ${{ github.sha }}
+          TRAVIS_PULL_REQUEST: ${{ github.event.number }} 
+          TRAVIS_SECURE_ENV_VARS: ''
+          TRAVIS_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
+        run: |
+          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+          ./scripts/ci/docker_pull.sh
+          pip install wheel
+          pip install transifex-client
+          ./scripts/ci/pull_translations.sh
+          ./scripts/ci/travis_build.sh
+      - name: 🍺 Deploy
+        uses: actions/upload-artifact@master
+        with:
+          name: sdk-${{ matrix.arch }}
+          path: /home/runner/work/QField/QField/build-${{ matrix.arch }}/android-build/build/outputs/apk/debug/android-build-debug.apk

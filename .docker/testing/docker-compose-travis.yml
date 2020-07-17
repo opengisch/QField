@@ -6,4 +6,4 @@ services:
       dockerfile: ./.docker/testing/Dockerfile
     tty: true
     volumes:
-      - ${TRAVIS_BUILD_DIR}:/usr/src
+      - /home/runner/work/QField/QField:/usr/src

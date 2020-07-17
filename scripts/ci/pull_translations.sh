@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "travis_fold:start:tx-pull"
+echo "::group::tx-pull"
 
 if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
@@ -18,5 +18,5 @@ if [[ ${TRAVIS_SECURE_ENV_VARS} = true ]]; then
   lrelease QField.pro
 fi
 
-echo "travis_fold:end:tx-pull"
+echo "::endgroup::"
 
