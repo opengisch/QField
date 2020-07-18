@@ -334,7 +334,6 @@ Rectangle {
     enabled: ( stateMachine.state === "digitize" && toolBar.model && toolBar.model.canDeleteSelection )
 
     onClicked: {
-      console.log('ddd');
       multiDeleteClicked();
     }
 
