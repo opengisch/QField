@@ -117,7 +117,7 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
   return true;
 }
 
-bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId featureId )
+bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId &featureId )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
@@ -128,7 +128,7 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
   return false;
 }
 
-bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> features )
+bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {

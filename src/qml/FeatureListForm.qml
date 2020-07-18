@@ -446,7 +446,7 @@ Rectangle {
     visible: false
 
     title: qsTr( "Delete feature(s)" )
-    text: qsTr( "Should the %1 selected feature(s) really be deleted?" ).arg( selectedCount )
+    text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", selectedCount )
     standardButtons: StandardButton.Ok | StandardButton.Cancel
     onAccepted: {
       if ( isDeleted ) {
@@ -456,9 +456,9 @@ Rectangle {
       isDeleted = featureForm.model.deleteSelection()
 
       if ( isDeleted ) {
-        displayToast( qsTr( "Successfully deleted %1 selected feature(s)" ) ).arg( selectedCount )
+        displayToast( qsTr( "Successfully deleted %n feature(s)", "", selectedCount ) );
       } else {
-        displayToast( qsTr( "Failed to delete %1 selected featur(s)" ) ).arg( selectedCount )
+        displayToast( qsTr( "Failed to delete %n feature(s)", "", selectedCount ) );
       }
 
       visible = false
