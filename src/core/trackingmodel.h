@@ -61,8 +61,10 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
     //! sets the information that this \a layer is \a visible or not, means the tracking component should be as well
     Q_INVOKABLE void setLayerVisible( QgsVectorLayer *layer, bool visible );
-    //! if the \a feature is in a tracking session
+    //! if the \a feature id is in a tracking session
     Q_INVOKABLE bool featureInTracking( QgsVectorLayer *layer,  const QgsFeatureId featureId );
+    //! if any of the \a features are in a tracking session
+    Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer,  const QList<QgsFeature> features );
     //! if the \a layer is in a tracking session
     Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer );
 

@@ -63,7 +63,13 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     int selectedCount() const;
 
-    bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
+    bool canEditAttributesSelection();
+
+    bool canDeleteSelection();
+
+    bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionDelete = false );
+
+    bool deleteSelection();
 
     void toggleSelectedItem( int item );
 

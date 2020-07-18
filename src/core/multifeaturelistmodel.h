@@ -32,6 +32,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( int count READ count NOTIFY countChanged )
     Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedCountChanged )
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
+    Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged  )
+    Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged  )
 
   public:
     enum FeatureListRoles
@@ -65,7 +67,13 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     void checkSelectedCount();
 
+    bool canEditAttributesSelection();
+
+    bool canDeleteSelection();
+
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
+
+    Q_INVOKABLE bool deleteSelection();
 
     void toggleSelectedItem( int item );
 
