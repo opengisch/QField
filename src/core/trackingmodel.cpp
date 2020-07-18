@@ -128,6 +128,21 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
   return false;
 }
 
+bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> features )
+{
+  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  {
+    int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+    QgsFeatureId fid = mTrackers[ listIndex ]->feature().id();
+    for ( auto feature : features )
+    {
+      if ( feature.id() == fid )
+        return true;
+    }
+  }
+  return false;
+}
+
 bool TrackingModel::layerInTracking( QgsVectorLayer *layer )
 {
   return trackerIterator( layer ) != mTrackers.constEnd();

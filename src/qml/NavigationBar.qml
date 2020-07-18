@@ -25,7 +25,7 @@ Rectangle {
   id: toolBar
 
   property string currentName: ''
-  property bool showEditButtons
+  property bool allowDelete
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
   property FeaturelistExtentController extentController
@@ -36,6 +36,7 @@ Rectangle {
   signal save
   signal cancel
   signal multiEditClicked
+  signal multiDeleteClicked
 
   anchors.top:parent.top
   anchors.left: parent.left
@@ -296,17 +297,15 @@ Rectangle {
   QfToolButton {
     id: multiEditButton
 
-    property bool readOnly: false
+    anchors.right: multiDeleteButton.left
 
-    anchors.right: parent.right
-
-    width: ( !readOnly && parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 1 ? 48: 0 )
+    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_edit_attributes_white" )
 
-    enabled: ( toolBar.model && toolBar.model.selectedCount )
+    enabled: ( toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 )
 
     onClicked: {
       multiEditClicked();
@@ -317,13 +316,31 @@ Rectangle {
         easing.type: Easing.InQuart
       }
     }
+  }
 
-    Connections {
-      target: selection
+  QfToolButton {
+    id: multiDeleteButton
 
-      onFocusedItemChanged:
-      {
-        multiEditButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
+    property bool readOnly: false
+
+    anchors.right: parent.right
+
+    width: ( stateMachine.state === "digitize" && parent.state == "Indication" && toolBar.model && toolBar.model.canDeleteSelection ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
+
+    enabled: ( stateMachine.state === "digitize" && toolBar.model && toolBar.model.canDeleteSelection )
+
+    onClicked: {
+      console.log('ddd');
+      multiDeleteClicked();
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
       }
     }
   }

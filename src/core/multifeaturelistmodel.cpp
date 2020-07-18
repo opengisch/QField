@@ -68,9 +68,24 @@ int MultiFeatureListModel::selectedCount() const
   return mSourceModel->selectedCount();
 }
 
+bool MultiFeatureListModel::canEditAttributesSelection()
+{
+  return mSourceModel->canEditAttributesSelection();
+}
+
+bool MultiFeatureListModel::canDeleteSelection()
+{
+  return mSourceModel->canDeleteSelection();
+}
+
 bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
 {
   return mSourceModel->deleteFeature( layer, fid );
+}
+
+bool MultiFeatureListModel::deleteSelection()
+{
+  return mSourceModel->deleteSelection();
 }
 
 void MultiFeatureListModel::toggleSelectedItem( int item )

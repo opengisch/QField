@@ -218,34 +218,6 @@ Rectangle {
         }
       }
 
-      Row
-      {
-        id: editRow
-        anchors { top: parent.top; right: parent.right }
-
-        QfToolButton {
-          id: deleteButton
-
-          width: 48
-          height: 48
-
-          visible: deleteFeatureCapability && allowEdit && allowDelete
-
-          iconSource: Theme.getThemeIcon( "ic_delete_forever_white_24dp" )
-
-          onClicked: {
-            if( trackingModel.featureInTracking(currentLayer, featureId) )
-            {
-              displayToast( qsTr( "Stop tracking this feature to delete it" ) )
-            }
-            else
-            {
-              deleteDialog.show( currentLayer, featureId )
-            }
-          }
-        }
-      }
-
       /* bottom border */
       Rectangle {
         anchors.bottom: parent.bottom
@@ -306,6 +278,7 @@ Rectangle {
 
   NavigationBar {
     id: featureListToolBar
+    allowDelete: allowDelete
     model: globalFeaturesList.model
     selection: featureForm.selection
     extentController: FeaturelistExtentController {
@@ -362,6 +335,17 @@ Rectangle {
           featureForm.selection.focusedItem = 0;
         }
         featureForm.state = "FeatureFormEdit"
+    }
+
+    onMultiDeleteClicked: {
+        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        {
+          displayToast( qsTr( "A number of features are being tracked, stop tracking to delete those" ) )
+        }
+        else
+        {
+          deleteDialog.show()
+        }
     }
   }
 
@@ -456,26 +440,25 @@ Rectangle {
   MessageDialog {
     id: deleteDialog
 
-    property int featureId
-    property VectorLayer currentLayer
+    property int selectedCount
     property bool isDeleted
 
     visible: false
 
-    title: qsTr( "Delete feature" )
-    text: qsTr( "Should this feature really be deleted?" )
+    title: qsTr( "Delete feature(s)" )
+    text: qsTr( "Should the %1 selected feature(s) really be deleted?" ).arg( selectedCount )
     standardButtons: StandardButton.Ok | StandardButton.Cancel
     onAccepted: {
       if ( isDeleted ) {
         return;
       }
 
-      isDeleted = featureForm.model.deleteFeature( currentLayer, featureId )
+      isDeleted = featureForm.model.deleteSelection()
 
       if ( isDeleted ) {
-        displayToast( qsTr( "Successfully deleted feature %1" ).arg( featureId ) )
+        displayToast( qsTr( "Successfully deleted %1 selected feature(s)" ) ).arg( selectedCount )
       } else {
-        displayToast( qsTr( "Failed to delete feature %1" ).arg( featureId ) )
+        displayToast( qsTr( "Failed to delete %1 selected featur(s)" ) ).arg( selectedCount )
       }
 
       visible = false
@@ -484,11 +467,10 @@ Rectangle {
       visible = false
     }
 
-    function show( currentLayer, featureId ) {
-        this.currentLayer = currentLayer
-        this.featureId = featureId
-        this.isDeleted = false
-        this.open()
+    function show() {
+        this.isDeleted = false;
+        this.selectedCount = featureForm.model.selectedCount;
+        this.open();
     }
   }
 

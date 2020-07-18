@@ -153,7 +153,7 @@ QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelI
 
 QModelIndex MultiFeatureListModelBase::parent( const QModelIndex &child ) const
 {
-  Q_UNUSED( child );
+  Q_UNUSED( child )
   return QModelIndex();
 }
 
@@ -267,7 +267,28 @@ int MultiFeatureListModelBase::selectedCount() const
   return mSelectedFeatures.size();
 }
 
-bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
+bool MultiFeatureListModelBase::canEditAttributesSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() &&
+         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues );
+}
+
+bool MultiFeatureListModelBase::canDeleteSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  return !vlayer->readOnly() &&
+         ( vlayer->dataProvider()->capabilities() & QgsVectorDataProvider::DeleteFeatures ) &&
+         !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+}
+
+bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionDelete )
 {
   if ( !layer )
   {
@@ -275,13 +296,15 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     return false;
   }
 
-  if ( ! layer->startEditing() )
+  if ( !selectionDelete )
   {
-    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
-    return false;
+    if ( ! layer->startEditing() )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+      return false;
+    }
+    beginResetModel();
   }
-
-  beginResetModel();
 
   //delete child features in case of compositions
   const QList<QgsRelation> referencingRelations = QgsProject::instance()->relationManager()->referencedRelations( layer );
@@ -346,9 +369,12 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     //delete parent
     if ( layer->deleteFeature( fid ) )
     {
-      // commit parent changes
-      if ( ! layer->commitChanges() )
-        isSuccess = false;
+      if ( !selectionDelete )
+      {
+        // commit parent changes
+        if ( ! layer->commitChanges() )
+          isSuccess = false;
+      }
     }
     else
     {
@@ -358,10 +384,52 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     }
   }
 
-  if ( ! isSuccess )
+  if ( !selectionDelete )
   {
-    if ( ! layer->rollBack() )
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
+    if ( ! isSuccess )
+    {
+      if ( ! layer->rollBack() )
+        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
+    }
+    endResetModel();
+  }
+
+  return isSuccess;
+}
+
+bool MultiFeatureListModelBase::deleteSelection()
+{
+  if ( !canDeleteSelection() )
+    return false;
+
+  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  if ( !vlayer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  beginResetModel();
+
+  const QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
+  bool isSuccess = false;
+  for ( auto pair : selectedFeatures )
+  {
+    isSuccess = deleteFeature( pair.first, pair.second.id(), true );
+    if ( !isSuccess )
+      break;
+  }
+
+  if ( isSuccess )
+  {
+    // commit parent changes
+    isSuccess = vlayer->commitChanges();
+  }
+
+  if ( !isSuccess )
+  {
+    if ( !vlayer->rollBack() )
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
   }
 
   endResetModel();
