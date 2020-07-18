@@ -372,6 +372,7 @@ ApplicationWindow {
 
         mapSettings: mapCanvas.mapSettings
         model: featureForm.model
+        searchRadiusMm: 3
       }
 
       /** A rubberband for the different geometry editors **/
