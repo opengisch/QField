@@ -33,6 +33,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedCountChanged )
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged  )
+    Q_PROPERTY( bool canMergeSelection READ canMergeSelection NOTIFY selectedCountChanged  )
     Q_PROPERTY( bool canDeleteSelection READ canDeleteSelection NOTIFY selectedCountChanged  )
 
   public:
@@ -72,6 +73,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE void clearSelection();
 
+    Q_INVOKABLE QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
+
     /**
      * Returns the number of features in the model.
      */
@@ -87,6 +90,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Returns TRUE if the selected features can have their attributes value changed
     bool canEditAttributesSelection();
 
+    bool canMergeSelection();
+
     //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
 
@@ -96,6 +101,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      * \param layer The layer from which a feature will be removed
      * \param fid The id of the feature to remove
      */
+
+    Q_INVOKABLE bool mergeSelection();
+
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
     //! Deletes selected features

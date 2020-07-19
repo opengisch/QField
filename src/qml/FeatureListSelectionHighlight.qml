@@ -21,5 +21,4 @@ Repeater {
     color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color
     borderColor: "white"
   }
-
 }

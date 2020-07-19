@@ -53,6 +53,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     void clearSelection();
 
+    QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
+
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
     QModelIndex parent( const QModelIndex &child ) const override;
@@ -82,9 +84,13 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     bool canEditAttributesSelection();
 
+    bool canMergeSelection();
+
     bool canDeleteSelection();
 
-    bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionDelete = false );
+    bool mergeSelection();
+
+    bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction = false );
 
     bool deleteSelection();
 
