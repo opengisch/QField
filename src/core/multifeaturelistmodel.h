@@ -90,10 +90,20 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Returns TRUE if the selected features can have their attributes value changed
     bool canEditAttributesSelection();
 
+    //! Returns TRUE if the selected features can be merged
     bool canMergeSelection();
 
     //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
+
+    /**
+     * Merges selected features by updating the first seleted feature's geometry
+     * to a combinasion (i.e. union) of geometries of all selected features.
+     *
+     * All but the first feature will then be removed from the vector layer containing
+     * the selected features.
+     */
+    Q_INVOKABLE bool mergeSelection();
 
     /**
      * Deletes a feature from a vector layer
@@ -101,9 +111,6 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      * \param layer The layer from which a feature will be removed
      * \param fid The id of the feature to remove
      */
-
-    Q_INVOKABLE bool mergeSelection();
-
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
     //! Deletes selected features
