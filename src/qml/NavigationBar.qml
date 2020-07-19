@@ -36,6 +36,7 @@ Rectangle {
   signal save
   signal cancel
   signal multiEditClicked
+  signal multiMergeClicked
   signal multiDeleteClicked
 
   anchors.top:parent.top
@@ -321,7 +322,7 @@ Rectangle {
   QfToolButton {
     id: multiEditButton
 
-    anchors.right: multiDeleteButton.left
+    anchors.right: multiMergeButton.left
 
     width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
@@ -333,6 +334,30 @@ Rectangle {
 
     onClicked: {
       multiEditClicked();
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  QfToolButton {
+    id: multiMergeButton
+
+    anchors.right: multiDeleteButton.left
+
+    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
+
+    enabled: ( toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 )
+
+    onClicked: {
+      multiMergeClicked();
     }
 
     Behavior on width {

@@ -38,6 +38,10 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::checkSelectedCount);
 }
 
+QString MultiFeatureListModel::featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature )
+{
+  return mSourceModel->featureDisplayName( vlayer, feature );
+}
 
 void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
 {
@@ -79,9 +83,19 @@ bool MultiFeatureListModel::canEditAttributesSelection()
   return mSourceModel->canEditAttributesSelection();
 }
 
+bool MultiFeatureListModel::canMergeSelection()
+{
+  return mSourceModel->canMergeSelection();
+}
+
 bool MultiFeatureListModel::canDeleteSelection()
 {
   return mSourceModel->canDeleteSelection();
+}
+
+bool MultiFeatureListModel::mergeSelection()
+{
+  return mSourceModel->mergeSelection();
 }
 
 bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )

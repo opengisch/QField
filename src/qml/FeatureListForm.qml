@@ -340,6 +340,17 @@ Rectangle {
         featureForm.state = "FeatureFormEdit"
     }
 
+    onMultiMergeClicked: {
+        if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
+        {
+          displayToast( qsTr( "A number of features are being tracked, stop tracking to merge those" ) )
+        }
+        else
+        {
+          mergeDialog.show()
+        }
+    }
+
     onMultiDeleteClicked: {
         if( trackingModel.featureInTracking(featureForm.selection.focusedLayer, featureForm.selection.model.selectedFeatures) )
         {
@@ -441,6 +452,45 @@ Rectangle {
   }
 
   MessageDialog {
+    id: mergeDialog
+
+    property int selectedCount
+    property string featureDisplayName
+    property bool isMerged
+
+    visible: false
+
+    title: qsTr( "Merge feature(s)" )
+    text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", selectedCount ).arg( featureDisplayName )
+    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    onAccepted: {
+      if ( isMerged ) {
+        return;
+      }
+
+      isMerged = featureForm.model.mergeSelection()
+
+      if ( isMerged ) {
+        displayToast( qsTr( "Successfully merged %n feature(s)", "", selectedCount ) );
+      } else {
+        displayToast( qsTr( "Failed to merge %n feature(s)", "", selectedCount ) );
+      }
+
+      visible = false
+    }
+    onRejected: {
+      visible = false
+    }
+
+    function show() {
+        this.isMerged = false;
+        this.selectedCount = featureForm.model.selectedCount;
+        this.featureDisplayName = featureForm.model.featureDisplayName(featureForm.selection.focusedLayer,featureForm.model.selectedFeatures[0])
+        this.open();
+    }
+  }
+
+  MessageDialog {
     id: deleteDialog
 
     property int selectedCount
@@ -493,5 +543,4 @@ Rectangle {
         state = "Hidden"
     }
   }
-
 }
