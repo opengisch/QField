@@ -409,6 +409,9 @@ bool MultiFeatureListModelBase::mergeSelection()
     }
   }
 
+  mSelectedFeatures.clear();
+  emit selectedCountChanged();
+
   return isSuccess;
 }
 
@@ -615,6 +618,7 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
 
+  int i = 0;
   for ( auto &pair : mFeatures )
   {
     if ( pair.first == l && pair.second.id() == fid )
@@ -622,7 +626,11 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
       pair.second.setAttribute( idx, value );
       break;
     }
+    i++;
   }
+
+  QModelIndex indexChanged = createIndex( i, 1 );
+  emit dataChanged( indexChanged, indexChanged );
 
   for ( auto &pair : mSelectedFeatures )
   {
@@ -639,6 +647,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
 
+  int i = 0;
   for ( auto &pair : mFeatures )
   {
     if ( pair.first == l && pair.second.id() == fid )
@@ -646,7 +655,11 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
       pair.second.setGeometry( geometry );
       break;
     }
+    i++;
   }
+
+  QModelIndex indexChanged = createIndex( i, 1 );
+  emit dataChanged( indexChanged, indexChanged, QVector<int>() << MultiFeatureListModel::GeometryRole << MultiFeatureListModel::FeatureSelectedRole );
 
   for ( auto &pair : mSelectedFeatures )
   {
