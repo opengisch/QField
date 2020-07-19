@@ -191,7 +191,7 @@ Rectangle {
         height: parent.height
         width: 6
         color: featureForm.selectionColor
-        opacity: index == featureForm.selection.focusedItem ? 1 : 0
+        opacity: index == featureForm.selection.focusedItem && featureForm.selection.model.selectedCount == 0 ? 1 : 0
         Behavior on opacity {
           PropertyAnimation {
             easing.type: Easing.InQuart

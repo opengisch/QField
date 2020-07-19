@@ -348,13 +348,13 @@ Rectangle {
 
     anchors.right: multiDeleteButton.left
 
-    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
+    width: ( stateMachine.state === "digitize" && parent.state == "Indication" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 ? 48: 0 )
     height: 48
     clip: true
 
     iconSource: Theme.getThemeIcon( "ic_merge_features_white_24dp" )
 
-    enabled: ( toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 )
+    enabled: ( stateMachine.state === "digitize" && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 )
 
     onClicked: {
       multiMergeClicked();
