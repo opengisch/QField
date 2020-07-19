@@ -52,6 +52,7 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
       connect( it.key(), &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( it.key(), &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( it.key(), &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+      connect( it.key(), &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
     }
   }
 
@@ -72,6 +73,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       connect( layer, &QObject::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+      connect( layer, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
 
       if ( !mSelectedFeatures.isEmpty() )
       {
@@ -636,6 +638,30 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
     if ( pair.first == l && pair.second.id() == fid )
     {
       pair.second.setAttribute( idx, value );
+      break;
+    }
+  }
+}
+
+void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
+{
+  QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
+  Q_ASSERT( l );
+
+  for ( auto &pair : mFeatures )
+  {
+    if ( pair.first == l && pair.second.id() == fid )
+    {
+      pair.second.setGeometry( geometry );
+      break;
+    }
+  }
+
+  for ( auto &pair : mSelectedFeatures )
+  {
+    if ( pair.first == l && pair.second.id() == fid )
+    {
+      pair.second.setGeometry( geometry );
       break;
     }
   }
