@@ -378,7 +378,6 @@ bool MultiFeatureListModelBase::mergeSelection()
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
     }
-    beginResetModel();
 
     QgsFeature mergedFeature = selectedFeatures[0].second;
     mergedFeature.setGeometry( combinedGeometry );
@@ -408,8 +407,6 @@ bool MultiFeatureListModelBase::mergeSelection()
       if ( !vlayer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
     }
-
-    endResetModel();
   }
 
   return isSuccess;
@@ -430,7 +427,6 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
     }
-    beginResetModel();
   }
 
   //delete child features in case of compositions
@@ -518,7 +514,6 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
       if ( ! layer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
     }
-    endResetModel();
   }
 
   return isSuccess;
@@ -535,8 +530,6 @@ bool MultiFeatureListModelBase::deleteSelection()
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
   }
-
-  beginResetModel();
 
   const QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
   bool isSuccess = false;
@@ -558,8 +551,6 @@ bool MultiFeatureListModelBase::deleteSelection()
     if ( !vlayer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
   }
-
-  endResetModel();
 
   return isSuccess;
 }
