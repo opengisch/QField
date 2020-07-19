@@ -67,12 +67,21 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     void checkSelectedCount();
 
+    //! Returns TRUE if the selected features can have their attributes value changed
     bool canEditAttributesSelection();
 
+    //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
 
+    /**
+     * Deletes a feature from a vector layer
+     *
+     * \param layer The layer from which a feature will be removed
+     * \param fid The id of the feature to remove
+     */
     Q_INVOKABLE bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid );
 
+    //! Deletes selected features
     Q_INVOKABLE bool deleteSelection();
 
     void toggleSelectedItem( int item );

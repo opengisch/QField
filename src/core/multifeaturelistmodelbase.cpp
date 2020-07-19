@@ -413,7 +413,7 @@ bool MultiFeatureListModelBase::deleteSelection()
 
   const QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
   bool isSuccess = false;
-  for ( auto pair : selectedFeatures )
+  for ( const auto pair : selectedFeatures )
   {
     isSuccess = deleteFeature( pair.first, pair.second.id(), true );
     if ( !isSuccess )
