@@ -112,6 +112,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     void attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
 
+    void geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
+
   private:
 
     inline QPair< QgsVectorLayer *, QgsFeature > *toFeature( const QModelIndex &index ) const
