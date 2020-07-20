@@ -349,9 +349,8 @@ bool MultiFeatureListModelBase::mergeSelection()
   QgsVectorLayer *vlayer = selectedFeatures[0].first;
   bool isSuccess = true;
   QgsGeometry combinedGeometry;
-  for ( auto pair : selectedFeatures )
+  for ( const auto &pair : selectedFeatures )
   {
-    qDebug() << combinedGeometry.asWkt();
     if ( combinedGeometry.isEmpty() )
     {
       combinedGeometry = pair.second.geometry();
@@ -386,7 +385,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     if ( isSuccess )
     {
       selectedFeatures.removeFirst();
-      for ( auto pair : selectedFeatures )
+      for ( const auto &pair : selectedFeatures )
       {
         isSuccess = deleteFeature( pair.first, pair.second.id(), true );
         if ( !isSuccess )
@@ -536,7 +535,7 @@ bool MultiFeatureListModelBase::deleteSelection()
 
   const QList< QPair< QgsVectorLayer *, QgsFeature > > selectedFeatures = mSelectedFeatures;
   bool isSuccess = false;
-  for ( const auto pair : selectedFeatures )
+  for ( const auto &pair : selectedFeatures )
   {
     isSuccess = deleteFeature( pair.first, pair.second.id(), true );
     if ( !isSuccess )
