@@ -34,7 +34,7 @@ if [[ "${TRAVIS_COMMIT}" = "${GIT_MASTER_SHA}" ]]; then
   echo ""
   echo " 0. Delete the tag you just created 'git push origin :${TRAVIS_TAG}'. No worries, the changelog will not be deleted."
   echo " 1. Create a new release branch 'git checkout -b ${RELEASE_BRANCH}'"
-  echo " 2. Edit the file VERSION_NAME"
+  echo " 2. Edit the file RELEASE_NAME"
   echo " 3. Push this new branch 'git push -u origin ${RELEASE_BRANCH}'"
   echo " 4. Recreate the release"
 
