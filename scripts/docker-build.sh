@@ -66,7 +66,7 @@ then
 fi
 
 if [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
-  echo "*** ERROR TOO BIG VERSION CODE"
+  echo "*** ERROR TOO BIG VERSION CODE ${APP_VERSION_CODE}"
   echo "Remove this check if QField is now 2.x"
   exit 1
 fi
