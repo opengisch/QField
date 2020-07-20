@@ -175,7 +175,7 @@ ApplicationWindow {
 
     Timer {
         id: resetIsBeingTouchedTimer
-        interval: 100
+        interval: 750
         repeat: false
 
         onTriggered: {
