@@ -21,17 +21,17 @@ if [[ -n ${CI_TAG} ]]; then
 
 elif [[ ${CI_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
-  # DATE as YYYY DDD HH MM (without spaces)
-  CUR_DATE=$(date +%Y%j%H%M)
+  # get numbers of masters commits
+  NUMBER_OF_COMMITS=$(curl -I -k "https://api.github.com/repos/opengisch/QField/commits?per_page=1&sha=${CURRENT_COMMIT}" | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p')
   echo "Building dev (nightly)"
   export APP_NAME="QField Dev"
   export PKG_NAME="qfield_dev"
   export APP_ICON="qfield_logo_beta"
   export APP_VERSION=""
-  # remove first 3 digits of the year (so YDDDHHMM) + arch
-  #        YDDDHHMMA
+  # take 0193 + number of masters commits + arch
+  # 0193 has no meaning - it's just where we had to start
   # max = 2100000000
-  export APP_VERSION_CODE=${CUR_DATE:3:8}${ARCH_NUMBER}
+  export APP_VERSION_CODE=0193${NUMBER_OF_COMMITS}${ARCH_NUMBER}
   export APP_VERSION_STR="${LAST_TAG}-dev (commit ${CURRENT_COMMIT})"
 
 else
