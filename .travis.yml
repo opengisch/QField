@@ -15,16 +15,18 @@ services:
   - docker
 
 before_install:
+  - source ./scripts/ci/env_travis.sh
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
   - ./scripts/ci/setup_signing_key.sh
 
 script:
+  - source ./scripts/ci/env_travis.sh
   - export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
   - ./scripts/ci/docker_pull.sh
   - pip install transifex-client
   - ./scripts/ci/pull_translations.sh
-  - ./scripts/ci/travis_build.sh
+  - ./scripts/ci/build.sh
   - ./scripts/upload-artifacts.sh
 
 jobs:

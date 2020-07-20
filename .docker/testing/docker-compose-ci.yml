@@ -6,4 +6,4 @@ services:
       dockerfile: ./.docker/testing/Dockerfile
     tty: true
     volumes:
-      - /home/runner/work/QField/QField:/usr/src
+      - ${CI_BUILD_DIR}:/usr/src

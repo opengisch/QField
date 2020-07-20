@@ -12,15 +12,18 @@ jobs:
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
+          echo "::group::Github Event"
+          cat "$GITHUB_EVENT_PATH"
+          echo "" # NOTE missing newline from the GitHub event file
+          echo "::endgroup::"
+          ./scripts/ci/env_gh.sh
           ./scripts/ci/setup_signing_key.sh
       - name: Test
         run: |
           ./test/test_version_number.sh
           ./scripts/ci/pull_translations.sh
-          echo START
-          echo STARTEND
-          echo "::group::build\n$(tput bold)Build QField $(tput sgr0)"
-          docker-compose -f .docker/testing/docker-compose-travis.yml run qgis /usr/src/.docker/testing/build-test.sh
+          echo "::group::Build QField"
+          docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
   build:
     runs-on: ubuntu-latest
@@ -34,27 +37,18 @@ jobs:
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
+          ./scripts/ci/env_gh.sh
           ./scripts/ci/setup_signing_key.sh
-      - name: Branch name
-        id: branch_name
-        run: |
-          if [[ $GITHUB_REF == *"refs/heads"* ]]; then echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}; fi
-          if [[ $GITHUB_REF == *"refs/tags"* ]]; then echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}; fi
       - name: Install
         env:
           ARCH: ${{ matrix.arch }}
-          TRAVIS_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
-          TRAVIS_COMMIT: ${{ github.sha }}
-          TRAVIS_PULL_REQUEST: ${{ github.event.number }} 
-          TRAVIS_SECURE_ENV_VARS: ''
-          TRAVIS_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           ./scripts/ci/docker_pull.sh
           pip install wheel
           pip install transifex-client
           ./scripts/ci/pull_translations.sh
-          ./scripts/ci/travis_build.sh
+          ./scripts/ci/build.sh
       - name: 🍺 Deploy
         uses: actions/upload-artifact@master
         with:

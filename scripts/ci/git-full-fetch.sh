@@ -9,5 +9,5 @@ git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 git fetch --tags
 
 # checkout the tagged commit
-git checkout -qf ${TRAVIS_TAG}
+git checkout -qf ${CI_TAG}
 
