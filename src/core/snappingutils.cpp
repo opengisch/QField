@@ -74,7 +74,8 @@ QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const QgsWkbType
 
 void SnappingUtils::snap()
 {
-  QgsPointLocator::Match match = snapToMap( QPoint( static_cast<int>( mInputCoordinate.x() ), static_cast<int>( mInputCoordinate.y() ) ) );
+  QgsPointXY point = mapSettings()->screenToCoordinate( mInputCoordinate );
+  QgsPointLocator::Match match = snapToMap( point );
   mSnappingResult = SnappingResult( match );
 
   //set point containing ZM if existing
