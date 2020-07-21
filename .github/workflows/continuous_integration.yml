@@ -3,12 +3,13 @@ name: Continuous integration
 on: [push, pull_request]
 
 jobs:
+  # Run unit tests
   test:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Before Install
+      - name: Setup build environment
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
@@ -25,6 +26,7 @@ jobs:
           echo "::group::Build QField"
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
+  # Build Android packages
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -33,20 +35,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Before Install
+      - name: Setup build environment
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
           ./scripts/ci/setup_signing_key.sh
-      - name: Install
+          pip install wheel
+          pip install transifex-client
+      - name: Build
         env:
           ARCH: ${{ matrix.arch }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           ./scripts/ci/docker_pull.sh
-          pip install wheel
-          pip install transifex-client
           ./scripts/ci/pull_translations.sh
           ./scripts/ci/build.sh
       - name: 🍺 Deploy
