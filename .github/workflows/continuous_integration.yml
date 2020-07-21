@@ -1,0 +1,58 @@
+name: Continuous integration
+
+on: [push, pull_request]
+
+jobs:
+  # Run unit tests
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup build environment
+        run: |
+          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+          git submodule update --init --recursive
+          echo "::group::GitHub Event"
+          cat "$GITHUB_EVENT_PATH"
+          echo "" # NOTE missing newline from the GitHub event file
+          echo "::endgroup::"
+          ./scripts/ci/env_gh.sh
+          ./scripts/ci/setup_signing_key.sh
+      - name: Test
+        run: |
+          ./test/test_version_number.sh
+          ./scripts/ci/pull_translations.sh
+          echo "::group::Build QField"
+          docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
+          echo "::endgroup::"
+  # Build Android packages
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [armv7, arm64_v8a, x86, x86_64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup build environment
+        run: |
+          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+          git submodule update --init --recursive
+          ./scripts/ci/env_gh.sh
+          ./scripts/ci/setup_signing_key.sh
+          pip install wheel
+          pip install transifex-client
+      - name: Build
+        env:
+          ARCH: ${{ matrix.arch }}
+        run: |
+          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+          ./scripts/ci/docker_pull.sh
+          ./scripts/ci/pull_translations.sh
+          ./scripts/ci/build.sh
+      - name: 🍺 Deploy
+        uses: actions/upload-artifact@master
+        with:
+          name: sdk-${{ matrix.arch }}
+          path: /home/runner/work/QField/QField/build-${{ matrix.arch }}/android-build/build/outputs/apk/debug/android-build-debug.apk

@@ -6,11 +6,11 @@ if [[ "$OSTYPE" =~ darwin* ]]; then
   GP=g
 fi
 
-travis_to_release_branch() {
-  if [[ -n ${TRAVIS_TAG} ]]; then
-    RELEASE_BRANCH=$(${GP}sed -r 's/v([0-9])\.([0-9])(\.[0-9])?/release-\1_\2/' <<< ${TRAVIS_TAG})
+ci_to_release_branch() {
+  if [[ -n ${CI_TAG} ]]; then
+    RELEASE_BRANCH=$(${GP}sed -r 's/v([0-9])\.([0-9])(\.[0-9])?/release-\1_\2/' <<< ${CI_TAG})
   else
-    RELEASE_BRANCH=${TRAVIS_BRANCH}
+    RELEASE_BRANCH=${CI_BRANCH}
   fi
   echo "RELEASE_BRANCH is: ${RELEASE_BRANCH}"
 }

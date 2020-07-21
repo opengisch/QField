@@ -7,19 +7,19 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/../version_number.sh
 
 
-if [[ -n ${TRAVIS_TAG} ]]; then
+if [[ -n ${CI_TAG} ]]; then
   echo "Building release from tag"
   export APP_NAME="QField"
   export PKG_NAME="qfield"
   export APP_ICON="qfield_logo"
-  export APP_VERSION="${TRAVIS_TAG}" #  (v1.2.3 or v1.2.3-rc4)
+  export APP_VERSION="${CI_TAG}" #  (v1.2.3 or v1.2.3-rc4)
 
   # adding the code name to the version string
   CURRENT_CODENAME=$(cat ${DIR}/../../RELEASE_NAME)
-  APP_VERSION_STR="$( app_version_str ${TRAVIS_TAG} ) - ${CURRENT_CODENAME}"
+  APP_VERSION_STR="$( app_version_str ${CI_TAG} ) - ${CURRENT_CODENAME}"
   export APP_VERSION_STR
 
-elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
+elif [[ ${CI_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
   # DATE as YYYY DDD HH MM (without spaces)
   CUR_DATE=$(date +%Y%j%H%M)
@@ -36,12 +36,12 @@ elif [[ ${TRAVIS_PULL_REQUEST} = false ]]; then
 
 else
   echo "Building pull request beta"
-  export APP_NAME="QField Beta ${TRAVIS_PULL_REQUEST}"
+  export APP_NAME="QField Beta ${CI_PULL_REQUEST}"
   export PKG_NAME="qfield_beta"
   export APP_ICON="qfield_logo_pr"
   export APP_VERSION=""
   export APP_VERSION_CODE="1"
-  export APP_VERSION_STR="PR${TRAVIS_PULL_REQUEST}"
+  export APP_VERSION_STR="PR${CI_PULL_REQUEST}"
 fi
 
 echo "Arch number: ${ARCH_NUMBER}"
