@@ -1,0 +1,22 @@
+name: Translations
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  translations:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Requirements
+        run: |
+          sudo apt update && sudo apt install qttools5-dev-tools
+          pip install wheel
+          pip install pygithub transifex-client
+
+      - name: "🌍 Push Translations"
+        run: ./scripts/ci/update-translations.sh
