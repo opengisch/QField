@@ -15,14 +15,6 @@ jobs:
           sudo pip install wheel
           sudo pip install pygithub transifex-client
           ./scripts/ci/env_gh.sh
-          echo "TX0"
-          which lupdate
-          echo "TX1"
-          which tx
-          echo "TX2"
-          source
-          which tx
-          echo "TX3"
 
       - name: "🌍 Push Translations"
         run: ./scripts/ci/update-translations.sh
