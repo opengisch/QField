@@ -15,8 +15,9 @@ jobs:
       - name: Install Requirements
         run: |
           sudo apt update && sudo apt install qttools5-dev-tools
-          pip install wheel
-          pip install pygithub transifex-client
+          sudo pip install wheel
+          sudo pip install pygithub transifex-client
+          ./scripts/ci/env_gh.sh
 
       - name: "🌍 Push Translations"
         run: ./scripts/ci/update-translations.sh
