@@ -78,15 +78,15 @@ jobs:
         - ./scripts/deploy.sh # Upload pull request apk artifacts if possible
 
     # TRANSLATIONS
-    - stage: deploy
-      name: "🌍 Push Translations"
-      if: branch =~ /^(master|release-[0-9_]+)$/ AND type != pull_request
-      addons:
-        apt:
-          packages:
-          - qttools5-dev-tools
-      install:
-        - pip install pygithub transifex-client
-      script: ./scripts/ci/update-translations.sh
+    # - stage: deploy
+    #   name: "🌍 Push Translations"
+    #   if: branch =~ /^(master|release-[0-9_]+)$/ AND type != pull_request
+    #   addons:
+    #     apt:
+    #       packages:
+    #       - qttools5-dev-tools
+    #   install:
+    #     - pip install pygithub transifex-client
+    #   script: ./scripts/ci/update-translations.sh
 
 
