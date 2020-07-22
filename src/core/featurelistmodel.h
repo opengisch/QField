@@ -45,8 +45,14 @@ class FeatureListModel : public QAbstractItemModel
        */
     Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
+    /**
+      * Whether the features should be ordered by value
+      */
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
+    /**
+      * Whether a null values is allowed in the list
+      */
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
     /**
@@ -123,8 +129,8 @@ class FeatureListModel : public QAbstractItemModel
     void currentLayerChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
-    void addNullChanged();
     void orderByValueChanged();
+    void addNullChanged();
     void filterExpressionChanged();
 
   private slots:
