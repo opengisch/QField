@@ -148,5 +148,9 @@ Item {
       }
     }
   }
+
+  function siblingValueChanged(field, feature) {
+    featureListModel.currentFormFeature = feature
+  }
 }
 

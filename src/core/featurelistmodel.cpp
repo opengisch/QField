@@ -17,6 +17,8 @@
 #include "qgsvectorlayer.h"
 
 #include <qgsproject.h>
+#include <qgsexpressioncontextutils.h>
+#include <qgsvaluerelationfieldformatter.h>
 
 FeatureListModel::FeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
@@ -185,8 +187,20 @@ void FeatureListModel::processReloadLayer()
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
-  if ( ! mFilterExpression.isEmpty() )
+  if ( ! mFilterExpression.isEmpty()
+       && ( ! QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression )
+            || QgsValueRelationFieldFormatter::expressionIsUsable( mFilterExpression, mCurrentFormFeature )
+          ) )
+  {
+    QgsExpression exp( mFilterExpression );
+    QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
+
+    if ( mCurrentFormFeature.isValid( ) && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+      filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
+
+    request.setExpressionContext( filterContext );
     request.setFilterExpression( mFilterExpression );
+  }
 
   int keyIndex = fields.indexOf( mKeyField );
   int displayValueIndex = fields.indexOf( mDisplayValueField );
@@ -276,4 +290,19 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   mFilterExpression = filterExpression;
   reloadLayer();
   emit filterExpressionChanged();
+}
+
+QgsFeature FeatureListModel::currentFormFeature() const
+{
+  return mCurrentFormFeature;
+}
+
+void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
+{
+  if ( mCurrentFormFeature == feature )
+    return;
+
+  mCurrentFormFeature = feature;
+  reloadLayer();
+  emit currentFormFeatureChanged();
 }

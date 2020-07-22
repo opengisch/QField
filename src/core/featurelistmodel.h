@@ -19,8 +19,9 @@
 #include <QAbstractItemModel>
 #include <QTimer>
 
+#include <qgsfeature.h>
+
 class QgsVectorLayer;
-class QgsFeature;
 
 /**
  * Provides access to a list of features from a layer.
@@ -59,6 +60,11 @@ class FeatureListModel : public QAbstractItemModel
       * Expression to filter features with. Empty string if no filter is applied.
       */
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
+
+    /**
+      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
+      **/
+    Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
 
   public:
     enum FeatureListRoles
@@ -125,6 +131,16 @@ class FeatureListModel : public QAbstractItemModel
      */
     void setFilterExpression( const QString &filterExpression );
 
+    /**
+     * The current form feature, used to evaluate expressions such as `current_value('attr1')`
+     */
+    QgsFeature currentFormFeature() const;
+
+    /**
+     * Sets the current form feature, used to evaluate expressions such as `current_value('attr1')`
+     */
+    void setCurrentFormFeature( const QgsFeature &feature );
+
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
@@ -132,6 +148,7 @@ class FeatureListModel : public QAbstractItemModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
+    void currentFormFeatureChanged();
 
   private slots:
     void onFeatureAdded();
@@ -173,6 +190,7 @@ class FeatureListModel : public QAbstractItemModel
     bool mOrderByValue = false;
     bool mAddNull = false;
     QString mFilterExpression;
+    QgsFeature mCurrentFormFeature;
 
     QTimer mReloadTimer;
 };
