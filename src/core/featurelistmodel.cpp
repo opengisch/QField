@@ -185,6 +185,9 @@ void FeatureListModel::processReloadLayer()
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
+  if ( ! mFilterExpression.isEmpty() )
+    request.setFilterExpression( mFilterExpression );
+
   int keyIndex = fields.indexOf( mKeyField );
   int displayValueIndex = fields.indexOf( mDisplayValueField );
 
@@ -258,4 +261,19 @@ void FeatureListModel::setOrderByValue( bool orderByValue )
   mOrderByValue = orderByValue;
   reloadLayer();
   emit orderByValueChanged();
+}
+
+QString FeatureListModel::filterExpression() const
+{
+  return mFilterExpression;
+}
+
+void FeatureListModel::setFilterExpression( const QString &filterExpression )
+{
+  if ( mFilterExpression == filterExpression )
+    return;
+
+  mFilterExpression = filterExpression;
+  reloadLayer();
+  emit filterExpressionChanged();
 }

@@ -20,6 +20,7 @@
 #include <QTimer>
 
 class QgsVectorLayer;
+class QgsFeature;
 
 /**
  * Provides access to a list of features from a layer.
@@ -47,6 +48,11 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
+
+    /**
+      * Expression to filter features with. Empty string if no filter is applied.
+      */
+    Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
   public:
     enum FeatureListRoles
@@ -103,12 +109,23 @@ class FeatureListModel : public QAbstractItemModel
        */
     void setAddNull( bool addNull );
 
+    /**
+     * Expression to filter features with. Empty string if no filter is applied.
+     */
+    QString filterExpression() const;
+
+    /**
+     * Sets an expression to filter features with. Empty string if no filter is applied.
+     */
+    void setFilterExpression( const QString &filterExpression );
+
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
     void addNullChanged();
     void orderByValueChanged();
+    void filterExpressionChanged();
 
   private slots:
     void onFeatureAdded();
@@ -149,6 +166,7 @@ class FeatureListModel : public QAbstractItemModel
     QString mDisplayValueField;
     bool mOrderByValue = false;
     bool mAddNull = false;
+    QString mFilterExpression;
 
     QTimer mReloadTimer;
 };

@@ -30,6 +30,7 @@ Item {
       displayValueField: config['Value']
       addNull: config['AllowNull']
       orderByValue: config['OrderByValue']
+      filterExpression: config['FilterExpression']
     }
   }
 
@@ -58,6 +59,7 @@ Item {
         displayValueField: config['Value']
         addNull: config['AllowNull']
         orderByValue: config['OrderByValue']
+        filterExpression: config['FilterExpression']
         onListUpdated: {
           valueRelation.valueChanged( attributeValue, false )
         }
