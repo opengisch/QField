@@ -31,7 +31,7 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
   # take 0 + (1930000 + number of masters commits) + arch
   # 01930000 has no meaning - it's just where we had to start
   # max = 2100000000
-  export APP_VERSION_CODE=0$((1930000+${NUMBER_OF_COMMITS}))${ARCH_NUMBER}
+  export APP_VERSION_CODE=0$((1930000+NUMBER_OF_COMMITS))${ARCH_NUMBER}
   export APP_VERSION_STR="${LAST_TAG}-dev (commit ${CURRENT_COMMIT})"
 
 else
