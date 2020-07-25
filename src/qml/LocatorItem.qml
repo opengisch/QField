@@ -31,6 +31,7 @@ Item {
     id: searchField
     z: 10
     placeholderText: qsTr("Search…")
+    placeholderTextColor: Theme.mainColor
     onTextEdited: locator.performSearch(searchField.text)
     width: locatorItem.searching ? mainWindow.width - 58 : 48
     height: 48
@@ -42,7 +43,7 @@ Item {
     rightPadding: 24
     bottomPadding: 0
     //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
-    font: Theme.secondaryTitleFont
+    font: Theme.defaultFont
     selectByMouse: true
     verticalAlignment: TextInput.AlignVCenter
 
@@ -151,7 +152,7 @@ Item {
           anchors.right: actionsRow.left
           leftPadding: 5
           font.bold: delegateRect.isGroup ? true : false
-          font.pointSize: Theme.tipFont.pointSize
+          font.pointSize: Theme.resultFont.pointSize
           wrapMode: Text.Wrap
           horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
         }
