@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -33,7 +34,7 @@ Item {
     placeholderText: qsTr("Search…")
     placeholderTextColor: Theme.mainColor
     onTextEdited: locator.performSearch(searchField.text)
-    width: locatorItem.searching ? mainWindow.width - 58 : 48
+    width: locatorItem.searching ? mainWindow.width - 62 : 48
     height: 48
     anchors.top: parent.top
     anchors.right: parent.right
@@ -61,6 +62,16 @@ Item {
         locatorItem.searching = false
       }
     }
+  }
+
+  DropShadow {
+    anchors.fill: searchField
+    visible: searchField.visible
+    verticalOffset: 2
+    radius: 10
+    samples: 17
+    color: "#66212121"
+    source: searchField
   }
 
   BusyIndicator {
