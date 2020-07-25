@@ -163,11 +163,14 @@ Rectangle {
       }
     }
 
-    delegate: Item {
+    add: Transition {
+        ColorAnimation { property: "color"; to: "#00FFFFFF"; duration: 400 }
+        PropertyAction { property: "color"; value: Theme.mainColor }
+    }
+
+    delegate: Rectangle {
       anchors { left: parent.left; right: parent.right }
-
       focus: true
-
       height: Math.max( 48, featureText.height )
 
       CheckBox {
