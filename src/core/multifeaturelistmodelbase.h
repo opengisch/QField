@@ -42,6 +42,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     void clear( const bool keepSelected = false );
 
+    void clearSelection();
+
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
     QModelIndex parent( const QModelIndex &child ) const override;

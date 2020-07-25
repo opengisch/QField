@@ -61,6 +61,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void clear( const bool keepSelected = false );
 
+    Q_INVOKABLE void clearSelection();
+
     int count() const;
 
     int selectedCount() const;

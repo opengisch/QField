@@ -79,8 +79,12 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       }
     }
   }
-
   endInsertRows();
+
+  if ( !mSelectedFeatures.isEmpty() )
+  {
+    emit selectedCountChanged();
+  }
 }
 
 void MultiFeatureListModelBase::clear( const bool keepSelected )
@@ -100,6 +104,17 @@ void MultiFeatureListModelBase::clear( const bool keepSelected )
     mSelectedFeatures.clear();
   }
   endResetModel();
+}
+
+void MultiFeatureListModelBase::clearSelection()
+{
+  if ( mSelectedFeatures.isEmpty() )
+  {
+    return;
+  }
+
+  mSelectedFeatures.clear();
+  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::toggleSelectedItem( int item )
