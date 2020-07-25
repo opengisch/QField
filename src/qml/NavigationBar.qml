@@ -303,7 +303,7 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_clear_white_24dp" )
 
     enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
 
