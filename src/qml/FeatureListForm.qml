@@ -164,7 +164,7 @@ Rectangle {
     }
 
     add: Transition {
-        ColorAnimation { property: "color"; to: "#00FFFFFF"; duration: 400 }
+        ColorAnimation { property: "color"; to: "#00FFFFFF"; duration: 250 }
         PropertyAction { property: "color"; value: Theme.mainColor }
     }
 

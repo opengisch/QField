@@ -295,6 +295,30 @@ Rectangle {
   }
 
   QfToolButton {
+    id: multiClearButton
+
+    anchors.left: parent.left
+
+    width: ( parent.state == "Indication" && toolBar.model && toolBar.model.selectedCount > 0  ? 48: 0 )
+    height: 48
+    clip: true
+
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+
+    enabled: ( toolBar.model && toolBar.model.selectedCount > 0 )
+
+    onClicked: {
+      toolBar.model.clearSelection();
+    }
+
+    Behavior on width {
+      PropertyAnimation {
+        easing.type: Easing.InQuart
+      }
+    }
+  }
+
+  QfToolButton {
     id: multiEditButton
 
     anchors.right: multiDeleteButton.left

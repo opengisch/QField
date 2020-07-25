@@ -58,6 +58,12 @@ void MultiFeatureListModel::clear( const bool keepSelected )
   mSourceModel->clear( keepSelected );
 }
 
+void MultiFeatureListModel::clearSelection()
+{
+  mFilterLayer = nullptr;
+  mSourceModel->clearSelection();
+}
+
 int MultiFeatureListModel::count() const
 {
   return mSourceModel->count();
