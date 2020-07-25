@@ -72,6 +72,11 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       connect( layer, &QObject::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+
+      if ( !mSelectedFeatures.isEmpty() )
+      {
+        mSelectedFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( layer, result.feature ) );
+      }
     }
   }
 
