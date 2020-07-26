@@ -73,6 +73,11 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      */
     Q_INVOKABLE void clearSelection();
 
+    /**
+     * Returns the display name of a given feature.
+     * \param vlayer the vector layer containing the feature
+     * \param feature the display name feature
+     */
     Q_INVOKABLE QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
 
     /**
@@ -84,8 +89,6 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      * Returns the number of selected features in the model.
      */
     int selectedCount() const;
-
-    void checkSelectedCount();
 
     //! Returns TRUE if the selected features can have their attributes value changed
     bool canEditAttributesSelection();
@@ -116,8 +119,15 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     //! Deletes selected features
     Q_INVOKABLE bool deleteSelection();
 
+    /**
+     * Toggles the selection state of a given item.
+     * \param item the item's row number
+     */
     void toggleSelectedItem( int item );
 
+    /**
+     * Returns the list of currently selected features.
+     */
     QList<QgsFeature> selectedFeatures();
 
   signals:
@@ -129,6 +139,8 @@ class MultiFeatureListModel : public QSortFilterProxyModel
   protected:
 
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+
+    void adjustFilterToSelectedCount();
 
   private:
 
