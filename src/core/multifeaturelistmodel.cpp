@@ -38,11 +38,6 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount);
 }
 
-QString MultiFeatureListModel::featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature )
-{
-  return mSourceModel->featureDisplayName( vlayer, feature );
-}
-
 void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
 {
   mSourceModel->setFeatures( requests );

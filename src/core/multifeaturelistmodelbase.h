@@ -53,13 +53,6 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     void clearSelection();
 
-    /**
-     * Returns the display name of a given feature.
-     * \param vlayer the vector layer containing the feature
-     * \param feature the display name feature
-     */
-    QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
-
     QHash<int, QByteArray> roleNames() const override;
     QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
     QModelIndex parent( const QModelIndex &child ) const override;
@@ -98,7 +91,7 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     /**
      * Merges selected features by updating the first seleted feature's geometry
-     * to a combinasion (i.e. union) of geometries of all selected features.
+     * to a combination (i.e. union) of geometries of all selected features.
      *
      * All but the first feature will then be removed from the vector layer containing
      * the selected features.

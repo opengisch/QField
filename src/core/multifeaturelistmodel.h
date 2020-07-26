@@ -74,13 +74,6 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_INVOKABLE void clearSelection();
 
     /**
-     * Returns the display name of a given feature.
-     * \param vlayer the vector layer containing the feature
-     * \param feature the display name feature
-     */
-    Q_INVOKABLE QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
-
-    /**
      * Returns the number of features in the model.
      */
     int count() const;
@@ -101,7 +94,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
 
     /**
      * Merges selected features by updating the first seleted feature's geometry
-     * to a combinasion (i.e. union) of geometries of all selected features.
+     * to a combination (i.e. union) of geometries of all selected features.
      *
      * All but the first feature will then be removed from the vector layer containing
      * the selected features.
