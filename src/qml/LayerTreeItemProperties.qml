@@ -26,7 +26,7 @@ Popup {
 
   onIndexChanged: {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
-    title = qsTr("%1 : Properties and Functions").arg(layerTree.data(index, 0))
+    title = layerTree.data(index, Qt.DisplayName)
     zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
@@ -41,13 +41,12 @@ Popup {
     padding: 10
     header: Label {
       padding: 10
-      topPadding: 20
-      bottomPadding: 5
+      topPadding: 15
+      bottomPadding: 0
       width: parent.width - 20
-      anchors.left:parent.left
-      anchors.right:parent.right
       text: title
       font: Theme.strongFont
+      horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
     }
 
