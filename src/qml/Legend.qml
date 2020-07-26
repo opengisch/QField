@@ -22,7 +22,7 @@ ListView {
   spacing: 1
 
   delegate: Rectangle {
-    property VectorLayer vectorLayer: VectorLayerPointer
+    property VectorLayer vectorLayer: VectorLayerPointer ? VectorLayerPointer : null
     property var itemRow: index
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
     property string itemType: Type
