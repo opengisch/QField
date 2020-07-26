@@ -53,6 +53,11 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     void clearSelection();
 
+    /**
+     * Returns the display name of a given feature.
+     * \param vlayer the vector layer containing the feature
+     * \param feature the display name feature
+     */
     QString featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature );
 
     QHash<int, QByteArray> roleNames() const override;
@@ -82,20 +87,44 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     int selectedCount() const;
 
+    //! Returns TRUE if the selected features can have their attributes value changed
     bool canEditAttributesSelection();
 
+    //! Returns TRUE if the selected features can be merged
     bool canMergeSelection();
 
+    //! Returns TRUE if the selected features can be deleted
     bool canDeleteSelection();
 
+    /**
+     * Merges selected features by updating the first seleted feature's geometry
+     * to a combinasion (i.e. union) of geometries of all selected features.
+     *
+     * All but the first feature will then be removed from the vector layer containing
+     * the selected features.
+     */
     bool mergeSelection();
 
+    /**
+     * Deletes a feature from a vector layer
+     *
+     * \param layer The layer from which a feature will be removed
+     * \param fid The id of the feature to remove
+     */
     bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction = false );
 
+    //! Deletes selected features
     bool deleteSelection();
 
+    /**
+     * Toggles the selection state of a given item.
+     * \param item the item's row number
+     */
     void toggleSelectedItem( int item );
 
+    /**
+     * Returns the list of currently selected features.
+     */
     QList<QgsFeature> selectedFeatures();
 
   signals:

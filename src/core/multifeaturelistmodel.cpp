@@ -35,7 +35,7 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   setSourceModel( mSourceModel );
   connect( mSourceModel, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModel::countChanged );
   connect( mSourceModel, &MultiFeatureListModelBase::countChanged, this, &MultiFeatureListModel::countChanged );
-  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::checkSelectedCount);
+  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount);
 }
 
 QString MultiFeatureListModel::featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature )
@@ -124,7 +124,7 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   }
 }
 
-void MultiFeatureListModel::checkSelectedCount()
+void MultiFeatureListModel::adjustFilterToSelectedCount()
 {
   if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
