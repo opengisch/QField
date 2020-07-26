@@ -20,12 +20,12 @@
 #include <qgsproject.h>
 #include <qgsgeometry.h>
 #include <qgscoordinatereferencesystem.h>
-#include <qgsexpressioncontextutils.h>
 #include <qgsrelationmanager.h>
 #include <qgsmessagelog.h>
 
 #include "multifeaturelistmodel.h"
 #include "multifeaturelistmodelbase.h"
+#include "featureutils.h"
 
 #include <QDebug>
 
@@ -171,16 +171,6 @@ QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
   return roleNames;
 }
 
-QString MultiFeatureListModelBase::featureDisplayName( QgsVectorLayer *vlayer, QgsFeature feature )
-{
-  const QPair< QgsVectorLayer *, QgsFeature > pair( vlayer, feature );
-  if ( mFeatures.contains( pair ) )
-  {
-    return data( index( mFeatures.indexOf( pair ), 0 ), Qt::DisplayRole ).toString();
-  }
-  return QString();
-}
-
 QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
@@ -230,18 +220,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
 
     case Qt::DisplayRole:
     {
-      QgsExpressionContext context = QgsExpressionContext()
-                                     << QgsExpressionContextUtils::globalScope()
-                                     << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
-                                     << QgsExpressionContextUtils::layerScope( feature->first );
-      context.setFeature( feature->second );
-
-      const QString displayString = QgsExpression( feature->first->displayExpression() ).evaluate( &context ).toString();
-
-      if ( displayString.isEmpty() )
-        return feature->second.id();
-
-      return displayString;
+      return FeatureUtils::displayName( feature->first, feature->second );
     }
 
     case MultiFeatureListModel::LayerNameRole:
@@ -367,7 +346,6 @@ bool MultiFeatureListModelBase::mergeSelection()
       isSuccess = false;
       break;
     }
-    qDebug() << combinedGeometry.asWkt();
   }
 
   if ( isSuccess )
@@ -385,7 +363,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     if ( isSuccess )
     {
       selectedFeatures.removeFirst();
-      for ( const auto &pair : selectedFeatures )
+      for ( const auto &pair : qgis::as_const( selectedFeatures ) )
       {
         isSuccess = deleteFeature( pair.first, pair.second.id(), true );
         if ( !isSuccess )

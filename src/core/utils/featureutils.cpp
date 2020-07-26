@@ -16,6 +16,8 @@
 
 #include "featureutils.h"
 
+#include <qgsexpressioncontextutils.h>
+#include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
 
@@ -29,4 +31,22 @@ QgsFeature FeatureUtils::initFeature(QgsVectorLayer *layer, QgsGeometry geometry
   QgsFeature f(layer->fields());
   f.setGeometry(geometry);
   return f;
+}
+
+QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
+{
+  if ( !layer )
+    return QString();
+
+  QgsExpressionContext context = QgsExpressionContext()
+                                 << QgsExpressionContextUtils::globalScope()
+                                 << QgsExpressionContextUtils::projectScope( QgsProject::instance() )
+                                 << QgsExpressionContextUtils::layerScope( layer );
+  context.setFeature( feature );
+
+  QString name = QgsExpression( layer->displayExpression() ).evaluate( &context ).toString();
+  if ( name.isEmpty() )
+    name = QString::number( feature.id() );
+
+  return name;
 }

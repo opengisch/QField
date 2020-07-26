@@ -485,7 +485,7 @@ Rectangle {
     function show() {
         this.isMerged = false;
         this.selectedCount = featureForm.model.selectedCount;
-        this.featureDisplayName = featureForm.model.featureDisplayName(featureForm.selection.focusedLayer,featureForm.model.selectedFeatures[0])
+        this.featureDisplayName = FeatureUtils.displayName(featureForm.selection.focusedLayer,featureForm.model.selectedFeatures[0])
         this.open();
     }
   }
