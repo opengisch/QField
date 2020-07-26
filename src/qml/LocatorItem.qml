@@ -65,6 +65,7 @@ Item {
   }
 
   DropShadow {
+    z: 9
     anchors.fill: searchField
     visible: searchField.visible
     verticalOffset: 2
