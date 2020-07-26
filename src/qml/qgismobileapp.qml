@@ -1029,7 +1029,7 @@ ApplicationWindow {
 
     signal enablePrintItem( int rows )
 
-    width: Math.max(200, mainWindow.width/4)
+    width: Math.max(200, mainWindow.width/3)
     font: Theme.defaultFont
 
     Instantiator {
@@ -1042,8 +1042,6 @@ ApplicationWindow {
       MenuItem {
         text: Title
 
-        width: parent.width
-        height: 48
         font: Theme.defaultFont
         leftPadding: 10
 
