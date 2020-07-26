@@ -52,19 +52,34 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     explicit MultiFeatureListModel( QObject *parent = nullptr );
 
     /**
-     * @brief setFeatures
-     * @param requests
+     * Resets the model to contain features found from a list of \a requests.
      */
     void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
 
+    /**
+     * Appends features from a list of \a results.
+     */
     void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
 
+    /**
+     * Resets the model to either an empty feature list or one that contains only the selected features.
+     * \param keepSelected if set to TRUE, selected features will be kept when resetting the model.
+     */
     Q_INVOKABLE void clear( const bool keepSelected = false );
 
+    /**
+     * Empties the list of selected features.
+     */
     Q_INVOKABLE void clearSelection();
 
+    /**
+     * Returns the number of features in the model.
+     */
     int count() const;
 
+    /**
+     * Returns the number of selected features in the model.
+     */
     int selectedCount() const;
 
     void checkSelectedCount();
