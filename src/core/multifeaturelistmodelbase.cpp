@@ -68,15 +68,23 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
     QPair<QgsVectorLayer *, QgsFeature> item( layer, result.feature );
     if ( !mFeatures.contains( item ) )
     {
-      mFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( layer, result.feature ) );
+      mFeatures.append( item );
       connect( layer, &QObject::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
 
       if ( !mSelectedFeatures.isEmpty() )
       {
-        mSelectedFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( layer, result.feature ) );
+        mSelectedFeatures.append( item );
       }
+    }
+    else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
+    {
+      int row = mFeatures.indexOf( item );
+      mSelectedFeatures.removeAll( item );
+
+      QModelIndex index = createIndex( row, 0 );
+      emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
     }
   }
   endInsertRows();
