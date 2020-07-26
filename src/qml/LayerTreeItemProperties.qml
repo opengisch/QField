@@ -9,11 +9,11 @@ import Theme 1.0
 
 Popup {
   id: popup
+
   property var layerTree
   property var index
 
   property bool zoomToLayerButtonVisible: false
-
   property bool trackingButtonVisible: false
   property var trackingButtonText
 
@@ -57,9 +57,11 @@ Popup {
 
       FontMetrics {
         id: fontMetrics
+        font: lockText.font
       }
 
       Text {
+        id: lockText
         property var padlockIcon: Theme.getThemeIcon('ic_lock_black_24dp')
         property var padlockSize: fontMetrics.height - 5
 
@@ -72,6 +74,7 @@ Popup {
               + (layerTree.data(index, FlatLayerTreeModel.ReadOnly)
                   ? qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.')
                   : qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
+        font: Theme.tipFont
       }
 
       CheckBox {
