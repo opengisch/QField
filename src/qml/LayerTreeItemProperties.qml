@@ -8,6 +8,7 @@ import org.qfield 1.0
 import Theme 1.0
 
 Popup {
+  id: popup
   property var layerTree
   property var index
 
@@ -18,10 +19,10 @@ Popup {
 
   property alias itemVisible: itemVisibleCheckBox.checked
 
-  padding: 0
-
+  width: mainWindow.width - 20
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
+  padding: 0
 
   onIndexChanged: {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
@@ -36,20 +37,23 @@ Popup {
   }
 
   Page {
+    width: parent.width
     padding: 10
     header: Label {
       padding: 10
       topPadding: 20
       bottomPadding: 5
+      width: parent.width - 20
       anchors.left:parent.left
       anchors.right:parent.right
       text: title
       font: Theme.strongFont
+      wrapMode: Text.WordWrap
     }
 
-    ColumnLayout{
+    ColumnLayout {
       spacing: 4
-      width: Math.min(mainWindow.width - 20, parent.width)
+      width: parent.width
 
       FontMetrics {
         id: fontMetrics
@@ -63,7 +67,6 @@ Popup {
                    layerTree.data(index, FlatLayerTreeModel.ReadOnly)
                    || layerTree.data(index, FlatLayerTreeModel.GeometryLocked))
         Layout.fillWidth: true
-        Layout.maximumWidth: parent.width - 20
 
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
@@ -76,7 +79,6 @@ Popup {
       CheckBox {
           id: itemVisibleCheckBox
           Layout.fillWidth: true
-          Layout.maximumWidth: parent.width - 20
           text: qsTr('Show on map canvas')
           font: Theme.defaultFont
 
@@ -89,7 +91,6 @@ Popup {
       QfButton {
         id: zoomToLayerButton
         Layout.fillWidth: true
-        Layout.maximumWidth: parent.width - 20
         font: Theme.defaultFont
         text: qsTr('Zoom to layer')
         visible: zoomToLayerButtonVisible
@@ -102,7 +103,6 @@ Popup {
       QfButton {
         id: trackingButton
         Layout.fillWidth: true
-        Layout.maximumWidth: parent.width - 20
         font: Theme.defaultFont
         text: trackingButtonText
         visible: trackingButtonVisible
