@@ -64,15 +64,14 @@ Popup {
         property var padlockIcon: Theme.getThemeIcon('ic_lock_black_24dp')
         property var padlockSize: fontMetrics.height - 5
 
-        visible: index && (
-                   layerTree.data(index, FlatLayerTreeModel.ReadOnly)
-                   || layerTree.data(index, FlatLayerTreeModel.GeometryLocked))
+        visible: index !== undefined && (layerTree.data(index, FlatLayerTreeModel.ReadOnly) ||
+                                        layerTree.data(index, FlatLayerTreeModel.GeometryLocked))
         Layout.fillWidth: true
 
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         text: '<img src="' + padlockIcon + '" width="' + padlockSize + '" height="' + padlockSize + '"> '
-              + (index && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
+              + (index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
                   ? qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.')
                   : qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
         font: Theme.tipFont
