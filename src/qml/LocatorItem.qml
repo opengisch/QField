@@ -158,7 +158,7 @@ Item {
           leftPadding: 5
           font.bold: delegateRect.isGroup ? true : false
           font.pointSize: Theme.resultFont.pointSize
-          wrapMode: Text.Wrap
+          elide: Text.ElideRight
           horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
         }
 
