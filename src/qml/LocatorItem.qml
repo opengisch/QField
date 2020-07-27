@@ -50,7 +50,7 @@ Item {
     verticalAlignment: TextInput.AlignVCenter
 
     Behavior on width {
-      NumberAnimation { duration: 150 }
+      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
     }
 
     background: Rectangle {
@@ -124,7 +124,7 @@ Item {
     visible: locatorItem.searching && resultsList.count > 0
 
     Behavior on height {
-      NumberAnimation { duration: 150 }
+      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
     }
 
     ListView {
