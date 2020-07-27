@@ -58,8 +58,8 @@ Item {
       radius: 24
     }
 
-    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
-    onTextEdited: locator.performSearch(searchField.text)
+    inputMethodHints: Qt.ImhNoPredictiveText
+    onTextChanged: locator.performSearch(searchField.text)
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
@@ -175,7 +175,7 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               height: parent.height
               width:  36
-              bgcolor: Theme.mainColor
+              bgcolor: "transparent"
 
               iconSource: Theme.getThemeIcon( model.iconPath )
 
