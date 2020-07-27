@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -7,11 +8,14 @@ import Theme 1.0
 
 Item {
   id: locatorItem
+
   property bool searching: false
+
+  width: searchField.width
   height: childrenRect.height
 
   onSearchingChanged: {
-      searchField.focus = searching
+    searchField.focus = searching
   }
 
   LocatorModelSuperBridge {
@@ -29,25 +33,33 @@ Item {
 
   TextField {
     id: searchField
-    height: fontMetrics.height + 20
+    z: 10
     placeholderText: qsTr("Search…")
-    onTextEdited: locator.performSearch(searchField.text)
-    width: parent.width
+    placeholderTextColor: Theme.mainColor
+    width: locatorItem.searching ? mainWindow.width - 62 : 48
+    height: 48
     anchors.top: parent.top
     anchors.right: parent.right
     visible: locatorItem.searching
-    padding: 5
-    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
-    font: Theme.secondaryTitleFont
+    topPadding: 0
+    leftPadding: 24
+    rightPadding: 24
+    bottomPadding: 0
+    font: Theme.defaultFont
     selectByMouse: true
-    verticalAlignment: TextInput.AlignBottom
+    verticalAlignment: TextInput.AlignVCenter
+
+    Behavior on width {
+      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
+    }
 
     background: Rectangle {
-      height: searchField.height - 5
-      radius: 2
-      border.color: "#333"
-      border.width: 1
+      height: 48
+      radius: 24
     }
+
+    inputMethodHints: Qt.ImhNoPredictiveText
+    onTextChanged: locator.performSearch(searchField.text)
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
@@ -56,24 +68,40 @@ Item {
     }
   }
 
-  FontMetrics {
-    id: fontMetrics
-    font: searchField.font
-  }
-
   BusyIndicator {
     id: busyIndicator
+    z: 11
     running: locator.isRunning
-    anchors.right: searchField.right
+    anchors.right: searchButton.left
     anchors.verticalCenter: searchField.verticalCenter
-    anchors.margins: 4
     height: searchField.height - 10
+  }
+
+  Image {
+    id: clearButton
+    z: 12
+    width: 20
+    height: 20
+    source: Theme.getThemeIcon("ic_clear_black_18dp")
+    sourceSize.width: 20 * screen.devicePixelRatio
+    sourceSize.height: 20 * screen.devicePixelRatio
+    fillMode: Image.PreserveAspectFit
+    anchors.centerIn: busyIndicator
+    visible: locatorItem.searching
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        locatorItem.searching = false
+        searchField.text = '';
+      }
+    }
   }
 
   QfToolButton {
     id: searchButton
+    z:20
     anchors { right: parent.right; top: parent.top; }
-    visible: !locatorItem.searching
 
     iconSource: Theme.getThemeIcon( "ic_baseline_search_white" )
     round: true
@@ -86,84 +114,98 @@ Item {
 
   Rectangle {
     id: resultsBox
-    width: parent.width
-    height: childrenRect.height+2*border.width
-    border.color: "darkslategray"
-    border.width: resultsList.count ? 1: 0
-    radius: 2
-    anchors.top: searchField.bottom
+    z: 1
+    width: searchField.width - 24
+    height: resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - 48) : 0
+    anchors.top: searchField.top
+    anchors.left: searchField.left
+    anchors.topMargin: 24
     color: "white"
-    visible: locatorItem.searching
+    visible: locatorItem.searching && resultsList.count > 0
 
-  ListView {
-    id: resultsList
-    anchors.centerIn: parent
-    model: locator.proxyModel()
-    width: parent.width-2*resultsBox.border.width
-    height: resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - searchField.height - 10 ) : 0
-    clip: true
+    Behavior on height {
+      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
+    }
 
-    delegate: Rectangle {
-      id: delegateRect
-      anchors.margins: 10
-      height: if (visible) { if(isGroup){ 25} else { Math.max(childrenRect.height+8, 40) }} else { 0 }
+    ListView {
+      id: resultsList
+      z: 2
+      anchors.top: resultsBox.top
+      model: locator.proxyModel()
       width: parent.width
-      visible: model.ResultType !== 0 // remove filter name
-      property bool isGroup: model.ResultFilterGroupSorting === 0
-      property int resultIndex: index
-      color: isGroup ? Theme.lightGray : "transparent"
-      opacity: 0.95
-      border.width: 1
-      border.color: "#bbb"
+      height: parent.height
+      clip: true
 
-      Text {
-        id: textCell
-        text: model.Text.trim()
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.right: actionsRow.left
-        leftPadding: 5
-        font.bold: delegateRect.isGroup ? true : false
-        font.pointSize: Theme.tipFont.pointSize
-        wrapMode: Text.Wrap
-      }
+      delegate: Rectangle {
+        id: delegateRect
 
-      Row {
-        id: actionsRow
-        anchors.right: parent.right
-        anchors.top: parent.top
-        height: parent.height
-        anchors.rightMargin: 1
+        property bool isGroup: model.ResultFilterGroupSorting === 0
+        property int resultIndex: index
 
-        Repeater {
-          model: locator.contextMenuActionsModel( index )
-          QfToolButton {
-            anchors.verticalCenter: parent.verticalCenter
-            height: parent.height
-            width:  36
-            bgcolor: Theme.mainColor
+        anchors.margins: 10
+        height: isGroup ? 25 : 40
+        width: parent.width
+        visible: model.ResultType !== 0 // remove filter name
+        color: isGroup ? Theme.lightGray : "white"
+        opacity: 0.95
 
-            iconSource: Theme.getThemeIcon( model.iconPath )
+        Text {
+          id: textCell
+          text: model.Text.trim()
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.left: parent.left
+          anchors.right: actionsRow.left
+          leftPadding: 5
+          font.bold: delegateRect.isGroup ? true : false
+          font.pointSize: Theme.resultFont.pointSize
+          elide: Text.ElideRight
+          horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+        }
 
-            onClicked: {
-              locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
+        Row {
+          id: actionsRow
+          anchors.right: parent.right
+          anchors.top: parent.top
+          height: parent.height
+          anchors.rightMargin: 1
+
+          Repeater {
+            model: locator.contextMenuActionsModel( index )
+            QfToolButton {
+              anchors.verticalCenter: parent.verticalCenter
+              height: parent.height
+              width:  36
+              bgcolor: "transparent"
+
+              iconSource: Theme.getThemeIcon( model.iconPath )
+
+              onClicked: {
+                locator.triggerResultAtRow(delegateRect.resultIndex, model.id)
+              }
             }
           }
         }
-      }
 
-      MouseArea {
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: actionsRow.left
+        /* bottom border */
+        Rectangle {
+          anchors.bottom: parent.bottom
+          height: isGroup ? 0 : 1
+          color: "lightGray"
+          width: parent.width
+        }
 
-        onClicked: {
-          locator.triggerResultAtRow(index)
+        MouseArea {
+          anchors.left: parent.left
+          anchors.top: parent.top
+          anchors.bottom: parent.bottom
+          anchors.right: actionsRow.left
+
+          onClicked: {
+            locator.triggerResultAtRow(index)
+            locatorItem.searching = false
+          }
         }
       }
     }
   }
-  }
 }
-
