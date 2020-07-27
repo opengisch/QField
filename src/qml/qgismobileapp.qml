@@ -576,12 +576,21 @@ ApplicationWindow {
   LocatorItem {
     id: locatorItem
 
-    width: Math.max( 200, mainWindow.width / 3 )
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.margins: 4
 
     visible: stateMachine.state !== 'measure'
+  }
+
+  DropShadow {
+    anchors.fill: locatorItem
+    visible: locatorItem.searching
+    verticalOffset: 2
+    radius: 10
+    samples: 17
+    color: "#66212121"
+    source: locatorItem
   }
 
   DashBoard {

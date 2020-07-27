@@ -8,7 +8,10 @@ import Theme 1.0
 
 Item {
   id: locatorItem
+
   property bool searching: false
+
+  width: searchField.width
   height: childrenRect.height
 
   onSearchingChanged: {
@@ -33,7 +36,6 @@ Item {
     z: 10
     placeholderText: qsTr("Search…")
     placeholderTextColor: Theme.mainColor
-    onTextEdited: locator.performSearch(searchField.text)
     width: locatorItem.searching ? mainWindow.width - 62 : 48
     height: 48
     anchors.top: parent.top
@@ -43,7 +45,6 @@ Item {
     leftPadding: 24
     rightPadding: 24
     bottomPadding: 0
-    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font: Theme.defaultFont
     selectByMouse: true
     verticalAlignment: TextInput.AlignVCenter
@@ -57,22 +58,14 @@ Item {
       radius: 24
     }
 
+    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
+    onTextEdited: locator.performSearch(searchField.text)
+
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         locatorItem.searching = false
       }
     }
-  }
-
-  DropShadow {
-    z: 9
-    anchors.fill: searchField
-    visible: searchField.visible
-    verticalOffset: 2
-    radius: 10
-    samples: 17
-    color: "#66212121"
-    source: searchField
   }
 
   BusyIndicator {
