@@ -202,6 +202,7 @@ Item {
 
           onClicked: {
             locator.triggerResultAtRow(index)
+            locatorItem.searching = false
           }
         }
       }
