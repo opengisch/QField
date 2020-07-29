@@ -72,7 +72,7 @@ public class QFieldCameraPictureActivity extends Activity{
         File path = result.getParentFile();
         path.mkdirs();
 
-        // Let the android scan new media folers/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible through MTP
         path.setExecutable(true);
         path.setReadable(true);
         path.setWritable(true);
@@ -97,7 +97,7 @@ public class QFieldCameraPictureActivity extends Activity{
             setResult(RESULT_CANCELED, intent);
         }
 
-        // Let the android scan new media folers/files to make them visible through MTP
+        // Let the android scan new media folders/files to make them visible through MTP
         result.setReadable(true);
         result.setWritable(true);
         MediaScannerConnection.scanFile(this, new String[] {result.toString()}, null, null);
