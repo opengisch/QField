@@ -53,7 +53,8 @@ public class QFieldGalleryPictureActivity extends Activity{
         Log.d(TAG, "resultCode: "+resultCode);
 
         File result = new File(prefix+pictureFilePath);
-        result.getParentFile().mkdirs();
+        File path = result.getParentFile();
+        path.mkdirs();
 
         if (resultCode == RESULT_OK) {
 
@@ -73,9 +74,14 @@ public class QFieldGalleryPictureActivity extends Activity{
             setResult(RESULT_CANCELED, intent);
         }
 
+        // Fix
+        path.setExecutable(true);
+        path.setReadable(true);
+        path.setWritable(true);
+
         // Initiate a media scan and put the new things into the path array to
         // make the scanner aware of the location and the files you want to see
-        MediaScannerConnection.scanFile(this, new String[] {result.getParentFile().toString()}, null, null);
+        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
 
         finish();
     }
