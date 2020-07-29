@@ -72,6 +72,12 @@ public class QFieldCameraPictureActivity extends Activity{
         File path = result.getParentFile();
         path.mkdirs();
 
+        // Let the android scan new media folers/files to make them visible through MTP
+        path.setExecutable(true);
+        path.setReadable(true);
+        path.setWritable(true);
+        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
+
         if (resultCode == RESULT_OK) {
 
             File pictureFile = new File(getCacheDir(), pictureTempFileName);
@@ -91,14 +97,10 @@ public class QFieldCameraPictureActivity extends Activity{
             setResult(RESULT_CANCELED, intent);
         }
 
-        // Fix
-        path.setExecutable(true);
-        path.setReadable(true);
-        path.setWritable(true);
-
-        // Initiate a media scan and put the new things into the path array to
-        // make the scanner aware of the location and the files you want to see
-        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
+        // Let the android scan new media folers/files to make them visible through MTP
+        result.setReadable(true);
+        result.setWritable(true);
+        MediaScannerConnection.scanFile(this, new String[] {result.toString()}, null, null);
 
         finish();
     }
