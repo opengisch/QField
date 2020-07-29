@@ -18,6 +18,7 @@ import android.util.Log;
 import android.provider.MediaStore;
 import android.graphics.Bitmap;
 import android.support.v4.content.FileProvider;
+import android.media.MediaScannerConnection;
 
 public class QFieldCameraPictureActivity extends Activity{
     private static final String TAG = "QField Camera Picture Activity";
@@ -68,7 +69,14 @@ public class QFieldCameraPictureActivity extends Activity{
         Log.d(TAG, "resultCode: "+resultCode);
 
         File result = new File(prefix+pictureFilePath);
-        result.getParentFile().mkdirs();
+        File path = result.getParentFile();
+        path.mkdirs();
+
+        // Let the android scan new media folders/files to make them visible through MTP
+        path.setExecutable(true);
+        path.setReadable(true);
+        path.setWritable(true);
+        MediaScannerConnection.scanFile(this, new String[] {path.toString()}, null, null);
 
         if (resultCode == RESULT_OK) {
 
@@ -88,6 +96,11 @@ public class QFieldCameraPictureActivity extends Activity{
             intent.putExtra("PICTURE_IMAGE_FILENAME", "");
             setResult(RESULT_CANCELED, intent);
         }
+
+        // Let the android scan new media folders/files to make them visible through MTP
+        result.setReadable(true);
+        result.setWritable(true);
+        MediaScannerConnection.scanFile(this, new String[] {result.toString()}, null, null);
 
         finish();
     }
