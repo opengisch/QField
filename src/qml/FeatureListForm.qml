@@ -479,9 +479,11 @@ Rectangle {
       }
 
       visible = false
+      featureForm.focus = true;
     }
     onRejected: {
       visible = false
+      featureForm.focus = true;
     }
 
     function show() {
@@ -517,9 +519,11 @@ Rectangle {
       }
 
       visible = false
+      featureForm.focus = true;
     }
     onRejected: {
       visible = false
+      featureForm.focus = true;
     }
 
     function show() {
