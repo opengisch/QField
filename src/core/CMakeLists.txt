@@ -58,6 +58,7 @@ SET(QFIELD_CORE_SRCS
 )
 
 SET(QFIELD_CORE_HDRS
+  qfield.h
   appinterface.h
   attributeformmodelbase.h
   attributeformmodel.h

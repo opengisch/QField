@@ -11,7 +11,7 @@ defined(APP_NAME, var) {
   DEFINES += "APP_NAME=\"\\\"QField\\\"\""
 }
 
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++17
 
 android {
   LIBS += -L$${OSGEO4A_STAGE_DIR}/$$ANDROID_TARGET_ARCH$$/lib
