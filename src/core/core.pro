@@ -28,6 +28,7 @@ HEADERS += \
     multifeaturelistmodel.h \
     featurelistmodelselection.h \
     featuremodel.h \
+    qfield.h \
     qgismobileapp.h \
     qgsgpkgflusher.h \
     qgssggeometry.h \
