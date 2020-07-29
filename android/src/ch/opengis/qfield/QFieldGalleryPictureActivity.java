@@ -18,6 +18,7 @@ import android.util.Log;
 import android.provider.MediaStore;
 import android.graphics.Bitmap;
 import android.support.v4.content.FileProvider;
+import android.media.MediaScannerConnection;
 
 public class QFieldGalleryPictureActivity extends Activity{
     private static final String TAG = "QField Gallery Picture Activity";
@@ -71,6 +72,10 @@ public class QFieldGalleryPictureActivity extends Activity{
             intent.putExtra("PICTURE_IMAGE_FILENAME", "");
             setResult(RESULT_CANCELED, intent);
         }
+
+        // Initiate a media scan and put the new things into the path array to
+        // make the scanner aware of the location and the files you want to see
+        MediaScannerConnection.scanFile(this, new String[] {result.getParentFile().toString()}, null, null);
 
         finish();
     }
