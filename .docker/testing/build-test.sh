@@ -4,9 +4,9 @@ set -e
 
 mkdir /usr/src/build
 cd /usr/src/build
-cmake /usr/src
-make -j2
-echo "travis_fold:end:build"
-cd test
+
+cmake -GNinja /usr/src
+ninja -j2
+
 xvfb-run ctest --output-on-failure
 

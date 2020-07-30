@@ -1,11 +1,8 @@
-FROM qgis/qgis:latest
+ARG qfield_test_docker_version
+FROM opengisch/qfield-test-docker:${qfield_test_docker_version}
 MAINTAINER Matthias Kuhn <matthias@opengis.ch>
 
-RUN apt-get update && \
-    apt-get -y install \
-      libqt5sensors5-dev \
-      qtquickcontrols2-5-dev && \
-    rm -rf /var/lib/apt/lists/*
+RUN dnf install -y xorg-x11-server-Xvfb
 
 WORKDIR /
 
