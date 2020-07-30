@@ -2,8 +2,10 @@ version: '3'
 services:
   qgis:
     build:
-      context: ../..
-      dockerfile: ./.docker/testing/Dockerfile
+      dockerfile: Dockerfile
+      context: .
+      args:
+        from: ${QFIELD_SDK_VERSION}
     tty: true
     volumes:
       - ${CI_BUILD_DIR}:/usr/src
