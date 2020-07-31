@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       context: .
       args:
-        from: ${QFIELD_SDK_VERSION}
+        qfield_test_docker_version: ${QFIELD_SDK_VERSION}
     tty: true
     volumes:
       - ${CI_BUILD_DIR}:/usr/src
