@@ -5,6 +5,7 @@
 #include <qgsgeometry.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
+#include <qgsmessagelog.h>
 
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
@@ -27,6 +28,10 @@ class TestVertexModel: public QObject
   private slots:
     void initTestCase()
     {
+        connect( QgsApplication::messageLog(), qOverload<const QString&, const QString&, Qgis::MessageLevel>(&QgsMessageLog::messageReceived), this, [] (const QString &message, const QString &tag, Qgis::MessageLevel level)
+        {
+            qWarning() << message;
+        } );
       mModel = new VertexModel();
 
       QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 0 ) << QgsPoint( 2, 2 ) << QgsPoint( 4, 4 ) );
@@ -189,8 +194,9 @@ class TestVertexModel: public QObject
       QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
       mModel->setGeometry( mPoint2056Geometry );
       mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
-      QVERIFY( std::abs( mModel->vertex( 0 ).point.y() - 200000 ) < .1 );
-      QVERIFY( std::abs( mModel->vertex( 0 ).point.x() - 500000 ) < .1 );
+      const auto &point = mModel->vertex( 0 ).point;
+      QVERIFY2( std::abs( point.y() - 200000 ) < .1, QStringLiteral( "Difference between %1 and %2 is larger than .1" ).arg(QString::number(point.y()), QString::number(200000.)).toUtf8().constData() );
+      QVERIFY2( std::abs( point.x() - 500000 ) < .1, QStringLiteral( "Difference between %1 and %2 is larger than .1" ).arg(QString::number(point.y()), QString::number(200000.)).toUtf8().constData() );
     }
 
     void selectVertexAtPositionTest()
