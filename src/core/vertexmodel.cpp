@@ -20,6 +20,7 @@
 #include <qgswkbtypes.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
+#include <qgsmessagelog.h>
 
 #include "vertexmodel.h"
 #include "qgsquickmapsettings.h"
@@ -92,9 +93,17 @@ void VertexModel::refreshGeometry()
 
   if ( mMapSettings )
   {
-    mTransform = QgsCoordinateTransform( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
-    if ( mTransform.isValid() )
-      geom.transform( mTransform );
+    try
+    {
+      mTransform = QgsCoordinateTransform( mCrs, mMapSettings->destinationCrs(), mMapSettings->transformContext() );
+      mTransform.setAllowFallbackTransforms( true );
+      if ( mTransform.isValid() )
+        geom.transform( mTransform );
+    }
+    catch ( QgsCsException &cs )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Transformation error occurred: %1" ).arg( cs.what() ) );
+    }
   }
 
   const QgsAbstractGeometry *abstractGeom = geom.constGet();
