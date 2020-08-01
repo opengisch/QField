@@ -61,6 +61,7 @@ HEADERS += \
     maptoscreen.h \
     projectsource.h \
     featureslocatorfilter.h \
+    gotolocatorfilter.h \
     locatormodelsuperbridge.h \
     linepolygonhighlight.h \
     qgsgeometrywrapper.h \
@@ -119,6 +120,7 @@ SOURCES += \
     maptoscreen.cpp \
     projectsource.cpp \
     featureslocatorfilter.cpp \
+    gotolocatorfilter.cpp \
     locatormodelsuperbridge.cpp \
     linepolygonhighlight.cpp \
     qgsgeometrywrapper.cpp \

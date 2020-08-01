@@ -20,9 +20,9 @@
 
 #include <QObject>
 
-#include "qgslocatorfilter.h"
-#include "qgsexpressioncontext.h"
-#include "qgsvectorlayerfeatureiterator.h"
+#include <qgslocatorfilter.h>
+#include <qgsexpressioncontext.h>
+#include <qgsvectorlayerfeatureiterator.h>
 
 
 class LocatorModelSuperBridge;

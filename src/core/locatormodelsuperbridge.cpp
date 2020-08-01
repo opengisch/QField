@@ -15,21 +15,23 @@
  ***************************************************************************/
 
 
+#include "locatormodelsuperbridge.h"
+
 #include <QStandardItem>
 
 #include <qgslocatormodel.h>
+#include <qgslocator.h>
 
-#include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
-#include "featureslocatorfilter.h"
-#include "qgslocator.h"
 #include "featurelistextentcontroller.h"
+#include "featureslocatorfilter.h"
+#include "gotolocatorfilter.h"
 
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
-  FeaturesLocatorFilter *filter = new FeaturesLocatorFilter( this );
-  locator()->registerFilter( filter );
+  locator()->registerFilter( new FeaturesLocatorFilter( this ) );
+  locator()->registerFilter( new GotoLocatorFilter( this ) );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
