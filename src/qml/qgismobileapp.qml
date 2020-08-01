@@ -1592,14 +1592,14 @@ ApplicationWindow {
 
       Rectangle {
         id: toastContent
-        color: Theme.darkGray
+        color: "#66212121"
 
         height: toastMessage.height
-        width: toastMessage.text.length * 16<= 192? 192: ( toastMessage.text.length * 16) - 16> mainWindow.width ? mainWindow.width - 16: toastMessage.text.length * 16
+        width: 8 + toastMessage.text.length * 14 > mainWindow.width ? mainWindow.width - 16 : 8 + toastMessage.text.length * 14
 
         anchors.centerIn: parent
 
-        radius: 16
+        radius: 4
 
         z: 1
 
@@ -1608,6 +1608,10 @@ ApplicationWindow {
           anchors.left: parent.left
           anchors.right: parent.right
           wrapMode: Text.Wrap
+          leftPadding: 16
+          rightPadding: 16
+          topPadding: 3
+          bottomPadding: 3
 
           font: Theme.secondaryTitleFont
           horizontalAlignment: Text.AlignHCenter
