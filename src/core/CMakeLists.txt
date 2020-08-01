@@ -15,6 +15,7 @@ SET(QFIELD_CORE_SRCS
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
+  gotolocatorfilter.cpp
   identifytool.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
@@ -75,6 +76,7 @@ SET(QFIELD_CORE_HDRS
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
+  gotolocatorfilter.h
   identifytool.h
   layertreemapcanvasbridge.h
   layertreemodel.h
