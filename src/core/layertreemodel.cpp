@@ -28,7 +28,7 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
 {
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
-  setSourceModel ( mLayerTreeModel );
+  setSourceModel( mLayerTreeModel );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
 }
@@ -103,7 +103,7 @@ int FlatLayerTreeModel::columnCount( const QModelIndex &parent ) const
 {
   return sourceModel()->columnCount( mapToSource( parent ) );
 }
-int FlatLayerTreeModel::rowCount( const QModelIndex &parent) const
+int FlatLayerTreeModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? mRowMap.size() : 0;
 }
@@ -224,7 +224,8 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       }
 
       QString layerType;
-      if ( layer ) {
+      if ( layer )
+      {
         switch ( layer->type() )
         {
           case QgsMapLayerType::VectorLayer:
@@ -372,7 +373,7 @@ bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &valu
     //visibility of the node's children is also impacted, use the tree level value to identify those
     int treeLevel = mTreeLevelMap[index.row()];
     int endRow = index.row();
-    while(mTreeLevelMap.contains(endRow + 1) && mTreeLevelMap[endRow + 1] > treeLevel)
+    while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
       endRow++;
 
     QVector<int> rolesChanged;
