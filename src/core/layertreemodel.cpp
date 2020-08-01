@@ -292,7 +292,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
-        if ( layer )
+        if ( layer && layer->isValid() )
         {
           return ( layer->geometryType() == QgsWkbTypes::LineGeometry || layer->geometryType() == QgsWkbTypes::PolygonGeometry );
         }
