@@ -428,6 +428,12 @@ Rectangle {
       }
     }
 
+    onCountChanged: {
+      if ( model.rowCount() === 0 ) {
+        state = "Hidden"
+      }
+    }
+
     onModelReset: {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
