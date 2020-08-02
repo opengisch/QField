@@ -85,7 +85,7 @@ Rectangle {
       StateChangeScript {
         script: {
           show()
-          locatorItem.searching = false
+          locatorItem.state = "off"
           if( featureFormList.state === "Edit" ){
             ///e.g. tip on the canvas during an edit
             featureFormList.confirm()
