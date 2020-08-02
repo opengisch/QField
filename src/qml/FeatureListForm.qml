@@ -449,6 +449,8 @@ Rectangle {
     focus = false
 
     featureForm.selection.clear()
+    if ( featureForm.selection.model )
+      featureForm.selection.model.clearSelection()
 
     model.clear()
   }
