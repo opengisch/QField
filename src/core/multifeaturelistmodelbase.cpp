@@ -272,6 +272,7 @@ bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelInde
     i++;
   }
   endRemoveRows();
+  emit countChanged();
 
   return true;
 }
@@ -575,6 +576,9 @@ void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
 
+  mSelectedFeatures.clear();
+  emit selectedCountChanged();
+
   int i = 0;
   for ( auto it = mFeatures.constBegin(); it != mFeatures.constEnd(); it++ )
   {
@@ -585,9 +589,6 @@ void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
     }
     ++i;
   }
-
-  mSelectedFeatures.clear();
-  emit selectedCountChanged();
 }
 
 void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
