@@ -234,8 +234,8 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-          if (locatorItem.searching) {
-              locatorItem.searching = false
+          if (locatorItem.state == "on") {
+              locatorItem.state = "off"
           }
           else if (geometryEditorsToolbar.canvasClicked(point)) {
             // for instance, the vertex editor will select a vertex if possible
@@ -585,7 +585,7 @@ ApplicationWindow {
 
   DropShadow {
     anchors.fill: locatorItem
-    visible: locatorItem.searching
+    visible: locatorItem.searchFieldVisible
     verticalOffset: 2
     radius: 10
     samples: 17
