@@ -87,13 +87,17 @@ Item {
     sourceSize.height: 20 * screen.devicePixelRatio
     fillMode: Image.PreserveAspectFit
     anchors.centerIn: busyIndicator
+    opacity: searchField.text.length > 0 ? 1 : 0.25
     visible: locatorItem.searching
 
     MouseArea {
       anchors.fill: parent
       onClicked: {
-        locatorItem.searching = false
-        searchField.text = '';
+        if (searchField.text.length > 0) {
+          searchField.text = '';
+        } else {
+          locatorItem.searching = false
+        }
       }
     }
   }
