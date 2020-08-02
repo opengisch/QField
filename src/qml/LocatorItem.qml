@@ -9,14 +9,52 @@ import Theme 1.0
 Item {
   id: locatorItem
 
-  property bool searching: false
+  property bool searchFieldVisible: searchField.visible
+
+  state: "off"
 
   width: searchField.width
   height: childrenRect.height
 
-  onSearchingChanged: {
-    searchField.focus = searching
+  onStateChanged: {
+    searchField.focus = locatorItem.state == "on" ? true : false
   }
+
+  states: [
+      State {
+          name: "on"
+          PropertyChanges { target: searchField; visible: true; }
+          PropertyChanges { target: searchField; width: mainWindow.width - 62 }
+          PropertyChanges { target: clearButton; visible: true; }
+      },
+      State {
+        name: "off"
+        PropertyChanges { target: clearButton; visible: false; }
+        PropertyChanges { target: searchField; width: 48 }
+        PropertyChanges { target: searchField; visible: false; }
+      }
+  ]
+
+  transitions: [
+      Transition {
+        from: "off"
+        to: "on"
+        SequentialAnimation {
+          PropertyAnimation { target: searchField; property: "visible"; duration: 0 }
+          NumberAnimation { target: searchField; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
+          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
+        }
+      },
+      Transition {
+        from: "on"
+        to: "off"
+        SequentialAnimation {
+          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
+          NumberAnimation { target: searchField; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
+          PropertyAnimation { target: searchField; property: "visible"; duration: 0 }
+        }
+      }
+  ]
 
   LocatorModelSuperBridge {
     id: locator
@@ -36,11 +74,11 @@ Item {
     z: 10
     placeholderText: qsTr("Search…")
     placeholderTextColor: Theme.mainColor
-    width: locatorItem.searching ? mainWindow.width - 62 : 48
+    width: 48
     height: 48
     anchors.top: parent.top
     anchors.right: parent.right
-    visible: locatorItem.searching
+    visible: false
     topPadding: 0
     leftPadding: 24
     rightPadding: 24
@@ -48,10 +86,6 @@ Item {
     font: Theme.defaultFont
     selectByMouse: true
     verticalAlignment: TextInput.AlignVCenter
-
-    Behavior on width {
-      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
-    }
 
     background: Rectangle {
       height: 48
@@ -63,7 +97,7 @@ Item {
 
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        locatorItem.searching = false
+        locatorItem.state = "off"
       }
     }
   }
@@ -88,7 +122,7 @@ Item {
     fillMode: Image.PreserveAspectFit
     anchors.centerIn: busyIndicator
     opacity: searchField.text.length > 0 ? 1 : 0.25
-    visible: locatorItem.searching
+    visible: false
 
     MouseArea {
       anchors.fill: parent
@@ -96,7 +130,7 @@ Item {
         if (searchField.text.length > 0) {
           searchField.text = '';
         } else {
-          locatorItem.searching = false
+          locatorItem.state = "off"
         }
       }
     }
@@ -112,7 +146,7 @@ Item {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      locatorItem.searching = true
+      locatorItem.state = "on"
     }
   }
 
@@ -120,15 +154,15 @@ Item {
     id: resultsBox
     z: 1
     width: searchField.width - 24
-    height: resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - 48) : 0
+    height: searchField.visible && resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - 48) : 0
     anchors.top: searchField.top
     anchors.left: searchField.left
     anchors.topMargin: 24
     color: "white"
-    visible: locatorItem.searching && resultsList.count > 0
+    visible: searchField.visible && resultsList.count > 0
 
     Behavior on height {
-      NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
+      NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
     }
 
     ListView {
@@ -206,7 +240,7 @@ Item {
 
           onClicked: {
             locator.triggerResultAtRow(index)
-            locatorItem.searching = false
+            locatorItem.state = "off"
           }
         }
       }
