@@ -95,7 +95,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
     QgsPointXY point( posX, posY );
     data.insert( QStringLiteral( "point" ), point );
 
-    bool withinWgs84 = wgs84Crs.bounds().contains( point );
+    bool withinWgs84 = QgsRectangle( -180, -90, 180, 90 ).contains( point );
     if ( !posIsDms && currentCrs != wgs84Crs )
     {
       QgsLocatorResult result;
