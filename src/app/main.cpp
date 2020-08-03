@@ -89,7 +89,7 @@ int main( int argc, char **argv )
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
 #ifdef ANDROID
-  QString projPath = AndroidPlatformUtilities().packagePath() + QStringLiteral( "/share/proj" );
+  QString projPath = AndroidPlatformUtilities().packagePath() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
   QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
   qInstallMessageHandler( qfMessageHandler );
