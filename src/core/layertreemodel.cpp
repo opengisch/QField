@@ -349,6 +349,26 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return mTreeLevelMap.contains( index.row() ) ? mTreeLevelMap[index.row()] : 0;
     }
 
+    case IsValid:
+    {
+      QgsMapLayer *layer = nullptr;
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
+      }
+      
+      if ( !layer ) // Group
+        return true;
+
+      return layer->isValid();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -398,6 +418,7 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[GeometryLocked] = "GeometryLocked";
   roleNames[TreeLevel] = "TreeLevel";
   roleNames[LayerType] = "LayerType";
+  roleNames[IsValid] = "IsValid";
   return roleNames;
 }
 

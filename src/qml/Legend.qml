@@ -94,7 +94,14 @@ ListView {
         horizontalAlignment: Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
         font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
-        color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
+        color: {
+            if ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
+                return Theme.mainColor;
+            else if ( IsValid )
+                return Theme.darkGray;
+            else
+                return Theme.lightGray;
+        }
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
       }
