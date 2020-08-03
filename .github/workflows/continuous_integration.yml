@@ -24,8 +24,10 @@ jobs:
           ./test/test_version_number.sh
           ./scripts/ci/pull_translations.sh
           echo "::group::Build QField"
+          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
+
   # Build Android packages
   build:
     runs-on: ubuntu-latest

@@ -148,7 +148,7 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
-              if (item.vectorLayer) {
+              if (item.vectorLayer && item.vectorLayer.isValid()) {
                 currentLayer = item.vectorLayer
               }
           }

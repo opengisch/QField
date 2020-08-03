@@ -6,11 +6,11 @@ mkdir /usr/src/build
 cd /usr/src/build
 
 echo ::group::cmake
-cmake /usr/src
+cmake -GNinja /usr/src
 echo ::endgroup::
 
 echo ::group::make
-make -j2
+ninja -j2
 echo ::endgroup::
 
 xvfb-run ctest --output-on-failure

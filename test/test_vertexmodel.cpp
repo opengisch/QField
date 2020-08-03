@@ -5,10 +5,16 @@
 #include <qgsgeometry.h>
 #include <qgspoint.h>
 #include <qgspointxy.h>
+#include <qgsmessagelog.h>
 
 #include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 #include "qfield_testbase.h"
+
+
+#define VERIFYNEAR(value,expected,epsilon) { \
+    QVERIFY2( qgsDoubleNear( value, expected, epsilon ), QStringLiteral("Expecting %1 got %2 (diff %3 > %4)").arg(expected).arg(value).arg(std::fabs( static_cast< double >( expected ) - value )).arg(epsilon).toUtf8().constData() ); \
+  }(void)(0)
 
 namespace QTest
 {
@@ -27,6 +33,10 @@ class TestVertexModel: public QObject
   private slots:
     void initTestCase()
     {
+      connect( QgsApplication::messageLog(), qOverload<const QString &, const QString &, Qgis::MessageLevel>( &QgsMessageLog::messageReceived ), this, []( const QString & message, const QString & tag, Qgis::MessageLevel level )
+      {
+        qWarning() << message;
+      } );
       mModel = new VertexModel();
 
       QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 0 ) << QgsPoint( 2, 2 ) << QgsPoint( 4, 4 ) );
@@ -184,26 +194,29 @@ class TestVertexModel: public QObject
     void transformTest()
     {
       QgsQuickMapSettings mapSettings;
-      mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
+      mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
       mModel->setMapSettings( &mapSettings );
-      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:21781" ) );
+      QCOMPARE( mModel->mapSettings()->destinationCrs().authid(), QStringLiteral( "EPSG:4326" ) );
       mModel->setGeometry( mPoint2056Geometry );
       mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
-      QVERIFY( std::abs( mModel->vertex( 0 ).point.y() - 200000 ) < .1 );
-      QVERIFY( std::abs( mModel->vertex( 0 ).point.x() - 500000 ) < .1 );
+      const auto &point = mModel->vertex( 0 ).point;
+
+      VERIFYNEAR( point.y(), 46.9435, 0.001 );
+      VERIFYNEAR( point.x(), 6.12514, 0.001 );
     }
 
     void selectVertexAtPositionTest()
     {
       QgsQuickMapSettings mapSettings;
-      mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 21781 ) );
+      mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
+      // mapSettings.setExtent(  );
       mModel->setMapSettings( &mapSettings );
 
       mModel->setCrs( QgsCoordinateReferenceSystem::fromEpsgId( 2056 ) );
       mModel->setGeometry( mLine2056Geometry );
       QCOMPARE( mModel->mCurrentIndex, -1 );
 
-      mModel->selectVertexAtPosition( QgsPoint( 500001.1, 200001.1 ), 10 );
+      mModel->selectVertexAtPosition( QgsPoint( 6.12515656, 46.943546146 ), 10 );
       QCOMPARE( mModel->mCurrentIndex, 1 );
 
       QCOMPARE( mModel->editingMode(), VertexModel::EditVertex );
@@ -213,7 +226,7 @@ class TestVertexModel: public QObject
 
       // selecting a candidate will make it a vertex
       QCOMPARE( mModel->mVertices.count(), 7 );
-      mModel->selectVertexAtPosition( QgsPoint( 500001.5, 200001.5 ), 10 );
+      mModel->selectVertexAtPosition( QgsPoint( 6.12515333, 46.94354385 ), 10 );
       QCOMPARE( mModel->editingMode(), VertexModel::EditVertex );
       QCOMPARE( mModel->mVertices.count(), 9 );
     }
