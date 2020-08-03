@@ -26,10 +26,9 @@
 #include <QLabel>
 #include <QDialog>
 #include <QApplication>
+
 #include "qgsapplication.h"
 #include "qgslogger.h"
-#include <qmainwindow.h>
-#include <QApplication>
 
 #ifdef ANDROID
 #include <android/log.h>
@@ -90,6 +89,8 @@ int main( int argc, char **argv )
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
 #ifdef ANDROID
+  QString projPath = AndroidPlatformUtilities().packagePath() + QStringLiteral( "/share/proj" );
+  qputenv( "PROJ_LIB", projPath.toUtf8() );
   QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
   qInstallMessageHandler( qfMessageHandler );
 
