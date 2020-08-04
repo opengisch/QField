@@ -6,15 +6,6 @@ if [[ "$OSTYPE" =~ darwin* ]]; then
   GP=g
 fi
 
-ci_to_release_branch() {
-  if [[ -n ${CI_TAG} ]]; then
-    RELEASE_BRANCH=$(${GP}sed -r 's/v([0-9])\.([0-9])(\.[0-9])?/release-\1_\2/' <<< ${CI_TAG})
-  else
-    RELEASE_BRANCH=${CI_BRANCH}
-  fi
-  echo "RELEASE_BRANCH is: ${RELEASE_BRANCH}"
-}
-
 # give the ARCH name and it returns an integer as build number increment
 # arg1: ARCH
 arch_to_build_number() {
