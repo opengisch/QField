@@ -88,7 +88,7 @@ Popup {
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         text: '<img src="' + invalidIcon + '" width="' + invalidSize + '" height="' + invalidSize + '"> '
-              + qsTr('This layer is invalid. This might be due to a network issue, a missing file or other misconfiguration of the project.')
+              + qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
         font: Theme.tipFont
       }
 
