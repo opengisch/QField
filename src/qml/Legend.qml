@@ -38,6 +38,7 @@ ListView {
       leftPadding: itemPadding
       spacing: 5
 
+      // Legend image / layer icon
       Rectangle {
           visible: Type != "group"
           height: 24
@@ -88,6 +89,7 @@ ListView {
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
                - itemPadding
+               - ( !IsValid ? 34 : 0 )
         padding: 3
         leftPadding: 0
         text: Name
@@ -147,6 +149,24 @@ ListView {
               source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
           }
       }
+
+      Rectangle {
+          visible: !IsValid
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
+          color: 'transparent'
+          Image {
+              anchors.fill: parent
+              anchors.margins: 4
+              fillMode: Image.PreserveAspectFit
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+          }
+      }
+
+
     }
   }
   MouseArea {
