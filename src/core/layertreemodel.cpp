@@ -352,7 +352,10 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
     case IsValid:
     {
       QgsMapLayer *layer = nullptr;
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+          return QVariant();
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
         QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
