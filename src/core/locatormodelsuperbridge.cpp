@@ -30,8 +30,8 @@
 LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
-  locator()->registerFilter( new FeaturesLocatorFilter( this ) );
   locator()->registerFilter( new GotoLocatorFilter( this ) );
+  locator()->registerFilter( new FeaturesLocatorFilter( this ) );
 }
 
 QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
