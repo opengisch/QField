@@ -14,6 +14,7 @@ Page {
   signal confirmed
   signal cancelled
   signal temporaryStored
+  signal valueChanged(var field, var oldValue, var newValue)
   signal aboutToSave
 
   property AttributeFormModel model
@@ -300,11 +301,15 @@ Page {
         Connections {
           target: form
           onAboutToSave: {
-            try {
-              attributeEditorLoader.item.pushChanges()
+            // it may not be implemented
+            if ( attributeEditorLoader.item.pushChanges ) {
+              attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
             }
-            catch ( err )
-            {}
+          }
+          onValueChanged: (field, oldValue, newValue) => {
+            // it may not be implemented
+            if ( attributeEditorLoader.item.siblingValueChanged )
+              attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
           }
         }
 
@@ -313,7 +318,11 @@ Page {
           onValueChanged: {
             if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
             {
+              var oldValue = AttributeValue
               AttributeValue = isNull ? undefined : value
+
+              valueChanged(Field, oldValue, AttributeValue)
+
               if ( qfieldSettings.autoSave && !dontSave ) {
                 // indirect action, no need to check for success and display a toast, the log is enough
                 save()

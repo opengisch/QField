@@ -19,6 +19,8 @@
 #include <QAbstractItemModel>
 #include <QTimer>
 
+#include <qgsfeature.h>
+
 class QgsVectorLayer;
 
 /**
@@ -44,9 +46,25 @@ class FeatureListModel : public QAbstractItemModel
        */
     Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
+    /**
+      * Whether the features should be ordered by value
+      */
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
+    /**
+      * Whether a null values is allowed in the list
+      */
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
+
+    /**
+      * Expression to filter features with. Empty string if no filter is applied.
+      */
+    Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
+
+    /**
+      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
+      **/
+    Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
 
   public:
     enum FeatureListRoles
@@ -103,12 +121,34 @@ class FeatureListModel : public QAbstractItemModel
        */
     void setAddNull( bool addNull );
 
+    /**
+     * Expression to filter features with. Empty string if no filter is applied.
+     */
+    QString filterExpression() const;
+
+    /**
+     * Sets an expression to filter features with. Empty string if no filter is applied.
+     */
+    void setFilterExpression( const QString &filterExpression );
+
+    /**
+     * The current form feature, used to evaluate expressions such as `current_value('attr1')`
+     */
+    QgsFeature currentFormFeature() const;
+
+    /**
+     * Sets the current form feature, used to evaluate expressions such as `current_value('attr1')`
+     */
+    void setCurrentFormFeature( const QgsFeature &feature );
+
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
-    void addNullChanged();
     void orderByValueChanged();
+    void addNullChanged();
+    void filterExpressionChanged();
+    void currentFormFeatureChanged();
 
   private slots:
     void onFeatureAdded();
@@ -149,6 +189,8 @@ class FeatureListModel : public QAbstractItemModel
     QString mDisplayValueField;
     bool mOrderByValue = false;
     bool mAddNull = false;
+    QString mFilterExpression;
+    QgsFeature mCurrentFormFeature;
 
     QTimer mReloadTimer;
 };
