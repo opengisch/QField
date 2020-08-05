@@ -16,10 +16,6 @@ Item {
   width: searchField.width
   height: childrenRect.height
 
-  onStateChanged: {
-    searchField.focus = locatorItem.state == "on" ? true : false
-  }
-
   states: [
       State {
           name: "on"
@@ -72,6 +68,7 @@ Item {
   TextField {
     id: searchField
     z: 10
+    focus: locatorItem.state == "on" ? true : false
     placeholderText: qsTr("Search…")
     placeholderTextColor: Theme.mainColor
     width: 48
@@ -94,12 +91,6 @@ Item {
 
     inputMethodHints: Qt.ImhNoPredictiveText
     onTextChanged: locator.performSearch(searchField.text)
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        locatorItem.state = "off"
-      }
-    }
   }
 
   BusyIndicator {

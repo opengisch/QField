@@ -581,6 +581,24 @@ ApplicationWindow {
     anchors.margins: 4
 
     visible: stateMachine.state !== 'measure'
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        state = "off"
+      }
+    }
+
+    onStateChanged: {
+      if ( state == "off" ) {
+        focus = false
+        if ( featureForm.visible ) {
+          featureForm.focus = true
+        } else {
+          keyHandler.focus = true
+        }
+      }
+    }
   }
 
   DropShadow {
