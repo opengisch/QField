@@ -77,6 +77,21 @@ Popup {
         font: Theme.tipFont
       }
 
+      Text {
+        id: invalidText
+        property var invalidIcon: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+        property var invalidSize: fontMetrics.height - 5
+
+        visible: index !== undefined && !layerTree.data(index, FlatLayerTreeModel.IsValid)
+        Layout.fillWidth: true
+
+        wrapMode: Text.WordWrap
+        textFormat: Text.RichText
+        text: '<img src="' + invalidIcon + '" width="' + invalidSize + '" height="' + invalidSize + '"> '
+              + qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
+        font: Theme.tipFont
+      }
+
       CheckBox {
           id: itemVisibleCheckBox
           Layout.fillWidth: true

@@ -43,7 +43,8 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       ReadOnly,
       GeometryLocked,
       TreeLevel,
-      LayerType
+      LayerType,
+      IsValid
     };
     Q_ENUM( Roles )
 

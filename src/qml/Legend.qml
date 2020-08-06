@@ -38,6 +38,7 @@ ListView {
       leftPadding: itemPadding
       spacing: 5
 
+      // Legend image / layer icon
       Rectangle {
           visible: Type != "group"
           height: 24
@@ -88,13 +89,21 @@ ListView {
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
                - itemPadding
+               - ( !IsValid ? 34 : 0 )
         padding: 3
         leftPadding: 0
         text: Name
         horizontalAlignment: Text.AlignLeft
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
         font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
-        color: itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer ? Theme.mainColor : Theme.darkGray
+        color: {
+            if ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
+                return Theme.mainColor;
+            else if ( IsValid )
+                return Theme.darkGray;
+            else
+                return Theme.lightGray;
+        }
         elide: Text.ElideRight
         opacity: Visible ? 1 : 0.25
       }
@@ -140,6 +149,24 @@ ListView {
               source: Theme.getThemeIcon( 'ic_lock_black_24dp' )
           }
       }
+
+      Rectangle {
+          visible: !IsValid
+          height: 24
+          width: 24
+          anchors.verticalCenter: parent.verticalCenter
+          color: 'transparent'
+          Image {
+              anchors.fill: parent
+              anchors.margins: 4
+              fillMode: Image.PreserveAspectFit
+              horizontalAlignment: Image.AlignHCenter
+              verticalAlignment: Image.AlignVCenter
+              source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+          }
+      }
+
+
     }
   }
   MouseArea {
