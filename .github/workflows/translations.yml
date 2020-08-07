@@ -20,4 +20,6 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: "🌍 Push Translations"
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: ./scripts/ci/update-translations.sh
