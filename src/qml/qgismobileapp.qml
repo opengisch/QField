@@ -414,7 +414,7 @@ ApplicationWindow {
       visible: positionSource.active && positionSource.position.latitudeValid
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+      direction: positionSource.position.magneticVariationValid ? positionSource.position.magneticVariation : -1
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
