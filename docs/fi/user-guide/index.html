@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QField käyttäjän opas &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>QField User Guide &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,8 +26,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
     <link rel="search" title="Etsi" href="../search.html" />
-    <link rel="next" title="Vaihda aktiivisen kartan teemaa." href="map-themes.html" />
-    <link rel="prev" title="Projektin valinta" href="../project-management/project-selection.html" />
+    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Project selection" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,27 +96,27 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField käyttäjän opas</a><ul>
-<li><a class="reference internal" href="#opening-a-project">Projektin avaaminen</a></li>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
 <li><a class="reference internal" href="#map-legend">Karttaselite</a></li>
 <li><a class="reference internal" href="#identify-features">Ominaisuuksien tunnistaminen</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Tunnistettujen tasojen poikkeukset</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">Hakeminen</a></li>
-<li><a class="reference internal" href="#switching-map-theme">Karttateeman vaihtaminen</a></li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Ulkoisen GNSS-vastaanottimen käyttö</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">Digitointi</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Pisteet</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Viivat ja monikulmiot</a></li>
 <li><a class="reference internal" href="#attribute-form">Attribuuttilomake</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Poista ominaisuuksia</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Muokkaa olemassa olevan ominaisuuden geometriaa</a></li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -128,11 +128,11 @@
             
               
   <li>
-    <a href="../project-management/project-selection.html" title="Previous Chapter: Projektin valinta"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Projektin valinta</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Vaihda aktiivisen kartan teemaa."><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Vaihda aktiiv... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
     </a>
   </li>
             
@@ -162,23 +162,23 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField asennusopas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Lisää joukko kuvia ominaisuuteen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Salli selitevalintojen piilottaminen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Räätälöidyt SVG symbolit ja asetukset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Haku tasoilta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Tuetut dataformaatit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Rasteridata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Projektihallinta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Konfiguroi karttateemat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Siirrettävä projekti</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Tulosta PDF tiedostoksi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Projektin valinta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vektoritason asetukset</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QField käyttäjän opas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Viivojen ja monikulmioiden seuranta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Globaalit muuttujat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Kehittäminen ja tuki</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync laajennus</a></li>
@@ -194,9 +194,9 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>QField käyttäjän opas<a class="headerlink" href="#qfield-user-guide" title="Permalink to this headline">¶</a></h1>
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>Projektin avaaminen<a class="headerlink" href="#opening-a-project" title="Permalink to this headline">¶</a></h2>
+<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="Permalink to this headline">¶</a></h2>
 <p>Avataksesi projektin,, paina <strong>Valikkonäppäin -&gt; Optiot näppäin -&gt; Avaa projekti</strong>.</p>
 <p>Valitse haluamasi projekti siirtymällä siihen, tai käytä <strong>Viimeiset projektit</strong> tai <strong>Suosituimmat hakemistot</strong> pikavalintoja.</p>
 <blockquote>
@@ -228,7 +228,7 @@
 </div>
 </div>
 <div class="section" id="searching">
-<h2>Hakeminen<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h2>
+<h2>Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h2>
 <p>Näpäytä <strong>Haku näppäintä</strong> oikeassa yläkulmassa etsiäksesi tasoilta.</p>
 <ol class="arabic simple">
 <li>Napauta <strong>nimeä</strong> tuloksessa saadaksesi ominaisuuden näkymään kartalla (ominaisuus korostetaan keltaisella).</li>
@@ -237,8 +237,8 @@
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>Karttateeman vaihtaminen<a class="headerlink" href="#switching-map-theme" title="Permalink to this headline">¶</a></h2>
-<p>Jos määrittelit kartalle teemoja QGIS projektillesi voit vaihtaa niiden välillä käyttäen ensimmäistä alasvetoa <strong>Päävalikossa</strong>.</p>
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Permalink to this headline">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
@@ -258,7 +258,7 @@
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>Digitointi<a class="headerlink" href="#digitizing" title="Permalink to this headline">¶</a></h2>
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Permalink to this headline">¶</a></h2>
 <p>Aloittaaksesi uuden ominaisuuden digitoinnin, ota käyttöön <strong>Editointi tila</strong> päävalikosta (<em>kynä näppäin</em>) ja valitse taso jolle haluat lisätä uuden ominaisuuden (taso korostetaan harmaaksi).</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
@@ -283,13 +283,13 @@
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>Poista ominaisuuksia<a class="headerlink" href="#delete-features" title="Permalink to this headline">¶</a></h2>
+<h2>Delete Features<a class="headerlink" href="#delete-features" title="Permalink to this headline">¶</a></h2>
 <p>Ominaisuuksien poistaminen on mahdollista vain digitointitilassa.</p>
 <p>Poistaaksesi ominaisuuden, tunnista se ensin ja sitten näpsäytä roskakori-ikonia.</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>Muokkaa olemassa olevan ominaisuuden geometriaa<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Permalink to this headline">¶</a></h2>
-<p>Saata valmiiksi.</p>
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Permalink to this headline">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

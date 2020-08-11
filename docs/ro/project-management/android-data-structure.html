@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Simboluri și setări SVG personalizate &#8212; QField Documentation 1.0 - M... documentație</title>
+    <title>Custom SVG symbols and settings &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Căutare" href="../search.html" />
-    <link rel="next" title="Căutarea în straturi" href="configure-search.html" />
+    <link rel="next" title="Search in layers" href="configure-search.html" />
     <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -96,7 +96,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Simboluri și setări SVG personalizate</a></li>
+<li><a class="reference internal" href="#">Custom SVG symbols and settings</a></li>
 </ul>
 </ul>
 </li>
@@ -110,7 +110,7 @@
     </a>
   </li>
   <li>
-    <a href="configure-search.html" title="Next Chapter: Căutarea în straturi"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Căutarea în straturi &raquo;</span>
+    <a href="configure-search.html" title="Next Chapter: Search in layers"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Search in layers &raquo;</span>
     </a>
   </li>
             
@@ -140,22 +140,22 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
 <li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Simboluri și setări SVG personalizate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Căutarea în straturi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Formatele de date acceptate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Datele raster</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Managementul Proiectelor în QField</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Configurarea Temelor Hărții</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Proiect Portabil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Selectarea proiectului</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Setările Straturilor Vectoriale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">Ghidul de Utilizare a QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Schimbă Tema de Hartă activă</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Variabile globale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
@@ -172,11 +172,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="custom-svg-symbols-and-settings">
-<h1>Simboluri și setări SVG personalizate<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanent la acest titlu">¶</a></h1>
-<p>QGIS 3.6 Noosa este prima versiune care permite încapsularea simbolurilor SVG în interiorul proiectelor.</p>
+<h1>Custom SVG symbols and settings<a class="headerlink" href="#custom-svg-symbols-and-settings" title="Link permanent la acest titlu">¶</a></h1>
+<p>From QGIS 3.6 Noosa it is possible to embed SVG symbols within QGIS projects.</p>
 <ol class="arabic simple">
-<li>Alegeți stratul care va suporta simbologia SVG, apoi deschideți fereastra proprietăților.</li>
-<li>Deschideți secțiunea Simbolologie din :menuselection: <cite>Proprietăți –&gt; Simbologie</cite>.</li>
+<li>Choose the layer which will support SVG symbology and open its properties dialog.</li>
+<li>Open the section Symbology in  :menuselection: <cite>Properties –&gt; Symbology</cite>.</li>
 <li>In the <strong>Symbol Layer Panel</strong> choose Simple marker.</li>
 </ol>
 <div class="clearer text-center docutils container">
@@ -203,7 +203,7 @@
 </div>
 <ol class="arabic simple" start="7">
 <li>Select Embed File and choose the SVG file in the file selection dialog.</li>
-<li>Aplicați modificările, apoi efectuați clic pe OK.</li>
+<li>Apply the changes and click OK.</li>
 </ol>
 <div class="clearer text-center docutils container">
 <div class="figure">

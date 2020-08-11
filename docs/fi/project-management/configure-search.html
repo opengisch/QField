@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Haku tasoilta &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>Search in layers &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,8 +26,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Sisällysluettelo" href="../genindex.html" />
     <link rel="search" title="Etsi" href="../search.html" />
-    <link rel="next" title="Tuetut dataformaatit" href="dataformat.html" />
-    <link rel="prev" title="Räätälöidyt SVG symbolit ja asetukset" href="android-data-structure.html" />
+    <link rel="next" title="Supported data formats" href="dataformat.html" />
+    <link rel="prev" title="Custom SVG symbols and settings" href="android-data-structure.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,8 +96,8 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Haku tasoilta</a><ul>
-<li><a class="reference internal" href="#configure-search-in-qgis">Konfiguroi haku QGISissä</a></li>
+<li><a class="reference internal" href="#">Search in layers</a><ul>
+<li><a class="reference internal" href="#configure-search-in-qgis">Configure search in QGIS</a></li>
 </ul>
 </li>
 </ul>
@@ -109,11 +109,11 @@
             
               
   <li>
-    <a href="android-data-structure.html" title="Previous Chapter: Räätälöidyt SVG symbolit ja asetukset"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Räätälöidyt S...</span>
+    <a href="android-data-structure.html" title="Previous Chapter: Custom SVG symbols and settings"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Custom SVG sy...</span>
     </a>
   </li>
   <li>
-    <a href="dataformat.html" title="Next Chapter: Tuetut dataformaatit"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Tuetut dataformaatit &raquo;</span>
+    <a href="dataformat.html" title="Next Chapter: Supported data formats"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Supported dat... &raquo;</span>
     </a>
   </li>
             
@@ -143,23 +143,23 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField asennusopas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Yleiset periaatteet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="add-1-n-pictures.html">Lisää joukko kuvia ominaisuuteen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allow-hiding-legend-nodes.html">Salli selitevalintojen piilottaminen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Räätälöidyt SVG symbolit ja asetukset</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Haku tasoilta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Tuetut dataformaatit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Rasteridata</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Projektihallinta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="map-themes.html">Konfiguroi karttateemat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Siirrettävä projekti</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print-to-pdf.html">Tulosta PDF tiedostoksi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Projektin valinta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vektoritason asetukset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField käyttäjän opas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Vaihda aktiivisen kartan teemaa.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Viivojen ja monikulmioiden seuranta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/variables.html">Globaalit muuttujat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Kehittäminen ja tuki</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync laajennus</a></li>
@@ -175,13 +175,15 @@
     <div class="col-md-9 content">
       
   <div class="section" id="search-in-layers">
-<span id="configure-search"></span><h1>Haku tasoilta<a class="headerlink" href="#search-in-layers" title="Permalink to this headline">¶</a></h1>
-<p>Voit etsiä ominaisuuksia vektoritasoilta. Haku suorittaa nykyisin saman kuin  <em>kaikkien tasojen paikannussuodatin</em>  QGISissä (käytettävissä QGIS paikannuspalkissa käyttäen  <em>af</em> etuliitettä).</p>
+<span id="configure-search"></span><h1>Search in layers<a class="headerlink" href="#search-in-layers" title="Permalink to this headline">¶</a></h1>
+<p>You can search for features in vector layers.
+The search is currently performing the same as the <em>all layers locator filter</em> in QGIS
+(accessible in QGIS locator bar using <em>af</em> prefix).</p>
 <div class="section" id="configure-search-in-qgis">
-<h2>Konfiguroi haku QGISissä<a class="headerlink" href="#configure-search-in-qgis" title="Permalink to this headline">¶</a></h2>
+<h2>Configure search in QGIS<a class="headerlink" href="#configure-search-in-qgis" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Valitse tasot joissa on haku valiikossa <span class="menuselection">Projekti ‣ Projektin ominaisuudet ‣ Tunnista tasot</span></li>
-<li>Määritä <em>näyttölauseke</em> kyseessä oleville tasoille, tätä käytetään haettaessa ominaisuuksia. Tämä konfiguroidaan valikossa <span class="menuselection">Vektoritason ominaisuudet ‣ Näyttö</span> sivulle</li>
+<li>Choose the layers which are searchable in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span></li>
+<li>Define the <em>display expression</em> for the concerned layers, this will be used for searching for features. This is configured under <span class="menuselection">Vector Layer Properties ‣ Display</span> page</li>
 </ol>
 </div>
 </div>

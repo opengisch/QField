@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QField Felhasználói Útmutató &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>QField User Guide &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,8 +26,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Tárgymutató" href="../genindex.html" />
     <link rel="search" title="Keresés" href="../search.html" />
-    <link rel="next" title="Aktív térkép téma módosítása" href="map-themes.html" />
-    <link rel="prev" title="Projekt kiválasztás" href="../project-management/project-selection.html" />
+    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Project selection" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,27 +96,27 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField Felhasználói Útmutató</a><ul>
-<li><a class="reference internal" href="#opening-a-project">Projekt megnyitása</a></li>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
 <li><a class="reference internal" href="#map-legend">Térkép jelmagyarázat</a></li>
 <li><a class="reference internal" href="#identify-features">Funkciók azonosítása</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Kivételek az azonosított rétegekre</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">Keresés</a></li>
-<li><a class="reference internal" href="#switching-map-theme">Térkép téma váltás</a></li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Külső GNSS vevő használata</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">Digitalizálás</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">Pontok</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">Vonalak és felületek</a></li>
 <li><a class="reference internal" href="#attribute-form">Attribútum űrlap</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Elemek törlése</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Létező elem geometriájának szerkesztése</a></li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -128,11 +128,11 @@
             
               
   <li>
-    <a href="../project-management/project-selection.html" title="Previous Chapter: Projekt kiválasztás"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Projekt kiválasztás</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Aktív térkép téma módosítása"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Aktív térkép ... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
     </a>
   </li>
             
@@ -162,23 +162,23 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Telepítési Útmutató</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Vezérelvek</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Képsorozat hozzáadása egy elemhez</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Jelmagyarázat elrejtésének engedélyezése</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Egyéni SVG szimbólumok és beállítások</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Keresés a rétegekben</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Támogatott adatformátumok</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raszter adatok</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Projektmenedzsment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Térkép témák konfigurálása</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Hordozható Projekt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Nyomtatás PDF-be</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Projekt kiválasztás</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vektor Réteg Beállítások</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QField Felhasználói Útmutató</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Aktív térkép téma módosítása</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Vonalak és felületek követése</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Globális változók</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Fejlesztés és támogatás</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync modul</a></li>
@@ -194,9 +194,9 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>QField Felhasználói Útmutató<a class="headerlink" href="#qfield-user-guide" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>Projekt megnyitása<a class="headerlink" href="#opening-a-project" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Egy projekt megnyitásához érintse meg <strong>Menu button –&gt; Option button –&gt; Open Project</strong>  <strong>Menu button –&gt; Option button –&gt; Open Project</strong>.</p>
 <p>Navigáljoni a megnyitandó projektre és válassza ki vagy használja a <strong>Legutóbbi projektek</strong> és <strong>Kedvenc könyvtárak</strong> lehetőséget.</p>
 <blockquote>
@@ -228,7 +228,7 @@
 </div>
 </div>
 <div class="section" id="searching">
-<h2>Keresés<a class="headerlink" href="#searching" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Searching<a class="headerlink" href="#searching" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Koppintson a <strong>Keresés gombra</strong> jobb felső sarokban a rétegekben kereséshez.</p>
 <ol class="arabic simple">
 <li>Koppintson a <strong>névre</strong> az eredményben, hogy eltoljuk a térképet az elemre (az elem sárgával kiemelten jelenik meg).</li>
@@ -237,8 +237,8 @@
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>Térkép téma váltás<a class="headerlink" href="#switching-map-theme" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Ha a QGIS-ben a projektjéhez térkép témákat definiált, akkor a <strong>fő menü</strong> első legördülő elemében válthat közöttük.</p>
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
@@ -258,7 +258,7 @@
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>Digitalizálás<a class="headerlink" href="#digitizing" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Új elemek digitalizálásának megkezdéséhez engedélyezze a <strong>Szerkesztés módot</strong> a fő menüben (<em>ceruza gomb</em>) és válassza ki a réteget, melyhez az új elemet hozzá akarja adni (a réteg szürke kiemelést kap).</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
@@ -283,12 +283,12 @@
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>Elemek törlése<a class="headerlink" href="#delete-features" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Delete Features<a class="headerlink" href="#delete-features" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>Az elem törlése csak digitalizáló módban lehetséges.</p>
 <p>Az elem törléshez először azonosítsa azt és nyomja meg a szemétláda ikont.</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>Létező elem geometriájának szerkesztése<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>To complete.</p>
 </div>
 </div>

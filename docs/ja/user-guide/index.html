@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QFieldユーザーガイド &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>QField User Guide &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,8 +26,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="アクティブなマップテーマを変更する" href="map-themes.html" />
-    <link rel="prev" title="プロジェクトの選択" href="../project-management/project-selection.html" />
+    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Project selection" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,27 +96,27 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldユーザーガイド</a><ul>
-<li><a class="reference internal" href="#opening-a-project">プロジェクトを開く</a></li>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
 <li><a class="reference internal" href="#map-legend">地図の凡例</a></li>
 <li><a class="reference internal" href="#identify-features">属性情報の表示</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">特定レイヤーを属性情報表示から除外する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">検索</a></li>
-<li><a class="reference internal" href="#switching-map-theme">マップテーマの切替え</a></li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">外付けのGNSS受信機を使用する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">デジタイジング</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">ポイント</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">ラインとポリゴン</a></li>
 <li><a class="reference internal" href="#attribute-form">属性情報フォーム</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">フィーチャの削除</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">既存のフィーチャの図形を編集する。</a></li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -128,11 +128,11 @@
             
               
   <li>
-    <a href="../project-management/project-selection.html" title="Previous Chapter: プロジェクトの選択"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; プロジェクトの選択</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: アクティブなマップテーマを変更する"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">アクティブなマップテーマを変更する &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
     </a>
   </li>
             
@@ -162,23 +162,23 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QFieldインストールガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">コンセプト</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">フィーチャに一連の写真を追加する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">凡例のノードを非表示にするのを許可する</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">SVGシンボルのカスタマイズと設定</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">レイヤーの検索</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">サポート対象のデータフォーマット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">ラスターデータ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QFieldプロジェクトの管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">マップテーマの設定</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">ポータブルなプロジェクト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">PDFに印刷する</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">プロジェクトの選択</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">ベクターレイヤの設定</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QFieldユーザーガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">アクティブなマップテーマを変更する</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">ラインとポリゴンの追跡</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">グローバル変数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">開発とサポート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSyncプラグイン</a></li>
@@ -194,9 +194,9 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>QFieldユーザーガイド<a class="headerlink" href="#qfield-user-guide" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>プロジェクトを開く<a class="headerlink" href="#opening-a-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>プロジェクトを開くには、 <strong>メニューボタン --&gt; オプションボタン --&gt; プロジェクトを開く</strong> のようにタップしてください。</p>
 <p>開きたいプロジェクトを選択するか、  <strong>最近のプロジェクト</strong> や <strong>お気に入りのフォルダ</strong> ショートカットを使用してください。</p>
 <blockquote>
@@ -228,7 +228,7 @@
 </div>
 </div>
 <div class="section" id="searching">
-<h2>検索<a class="headerlink" href="#searching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Searching<a class="headerlink" href="#searching" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>右上の <strong>検索ボタン</strong> をタップするとレイヤを検索できます。</p>
 <ol class="arabic simple">
 <li>検索結果の <strong>名前</strong> をタップするとそのフィーチャを表示できます（検索結果のフィーチャは黄色でハイライトされます）。</li>
@@ -237,8 +237,8 @@
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>マップテーマの切替え<a class="headerlink" href="#switching-map-theme" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>もしQGISでこのプロジェクトに対してマップテーマを設定していた場合、 <strong>メインメニュー</strong> 上の一番上のドロップダウンリストからマップテーマを切り替えることができます。</p>
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
@@ -258,7 +258,7 @@
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>デジタイジング<a class="headerlink" href="#digitizing" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>新しいフィーチャのデジタイジングをするには、メインメニュー（<em>鉛筆ボタン</em>）から <strong>編集モード</strong> を有効にし、新しくフィーチャを追加したいレイヤを選択してください（選択したレイヤーはグレイでハイライトされます）。</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
@@ -283,13 +283,13 @@
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>フィーチャの削除<a class="headerlink" href="#delete-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Delete Features<a class="headerlink" href="#delete-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>フィーチャの削除は編集モード時のみ利用可能です。</p>
 <p>フィーチャを削除するには、まず属性情報を表示し、ゴミ箱アイコンをタップします。</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>既存のフィーチャの図形を編集する。<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>未完</p>
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

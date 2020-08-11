@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QField用户指南 &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>QField User Guide &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="改变当前地图主题" href="map-themes.html" />
-    <link rel="prev" title="项目选择" href="../project-management/project-selection.html" />
+    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Project selection" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -95,27 +95,27 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QField用户指南</a><ul>
-<li><a class="reference internal" href="#opening-a-project">打开项目</a></li>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
 <li><a class="reference internal" href="#map-legend">图例</a></li>
 <li><a class="reference internal" href="#identify-features">识别要素</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">识别图层时的例外情况</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">搜索</a></li>
-<li><a class="reference internal" href="#switching-map-theme">切换地图主题</a></li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS定位</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">使用外部GNSS接收器</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#digitizing">绘制</a><ul>
+<li><a class="reference internal" href="#digitizing">Digitizing</a><ul>
 <li><a class="reference internal" href="#points">绘制点</a></li>
 <li><a class="reference internal" href="#lines-and-polygons">绘制线和面</a></li>
 <li><a class="reference internal" href="#attribute-form">属性表单</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">删除要素</a></li>
-<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">编辑已存在的要素的几何对象</a></li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
+<li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
 </ul>
@@ -127,11 +127,11 @@
             
               
   <li>
-    <a href="../project-management/project-selection.html" title="Previous Chapter: 项目选择"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 项目选择</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: 改变当前地图主题"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">改变当前地图主题 &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
     </a>
   </li>
             
@@ -161,23 +161,23 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">设计理念</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">为要素添加多张图片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">允许隐藏图例节点</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">自定义SVG符号与设置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">在图层中搜索</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">支持的数据格式</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">栅格数据</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField 项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">配置地图主题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">可移植项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">打印成PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">项目选择</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">矢量图层设置</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QField用户指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">改变当前地图主题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">追踪线和面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">全局变量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">开发与支持</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../qfieldsync/index.html">QFieldSync 插件</a></li>
@@ -193,9 +193,9 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>QField用户指南<a class="headerlink" href="#qfield-user-guide" title="永久链接至标题">¶</a></h1>
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="永久链接至标题">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>打开项目<a class="headerlink" href="#opening-a-project" title="永久链接至标题">¶</a></h2>
+<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="永久链接至标题">¶</a></h2>
 <p>打开项目的操作为依次点击**菜单按钮” –&gt; 选项按钮 –&gt;打开项目**。</p>
 <p>浏览并选择要打开的项目，或者使用**最近的项目**和**收藏夹**这两种快捷方式打开项目。</p>
 <blockquote>
@@ -227,7 +227,7 @@
 </div>
 </div>
 <div class="section" id="searching">
-<h2>搜索<a class="headerlink" href="#searching" title="永久链接至标题">¶</a></h2>
+<h2>Searching<a class="headerlink" href="#searching" title="永久链接至标题">¶</a></h2>
 <p>点击屏幕右上角的**搜索按钮**可以对图层进行搜索。</p>
 <ol class="arabic simple">
 <li>点击查询结果中的**名称**，可以将地图平移至要素所在位置（要素将以黄色高亮显示）。</li>
@@ -236,8 +236,8 @@
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>切换地图主题<a class="headerlink" href="#switching-map-theme" title="永久链接至标题">¶</a></h2>
-<p>如果在QGIS中为项目定义了多个地图主题，可以通过**主菜单**中的第一个下拉列表项切换主题。</p>
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="永久链接至标题">¶</a></h2>
+<p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
 <div class="section" id="gps">
@@ -257,7 +257,7 @@
 </div>
 </div>
 <div class="section" id="digitizing">
-<h2>绘制<a class="headerlink" href="#digitizing" title="永久链接至标题">¶</a></h2>
+<h2>Digitizing<a class="headerlink" href="#digitizing" title="永久链接至标题">¶</a></h2>
 <p>如果要绘制新的要素，请在主菜单中将模式切换为 <a href="#id1"><span class="problematic" id="id2">**</span></a>编辑模式 <a href="#id3"><span class="problematic" id="id4">**</span></a>（<a href="#id5"><span class="problematic" id="id6">*</span></a>铅笔*按钮），选择需要添加新要素的图层（选中的图层将以灰色高亮显示）。</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
@@ -282,13 +282,13 @@
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>删除要素<a class="headerlink" href="#delete-features" title="永久链接至标题">¶</a></h2>
+<h2>Delete Features<a class="headerlink" href="#delete-features" title="永久链接至标题">¶</a></h2>
 <p>删除要素只能在编辑模式下使用。</p>
 <p>删除要素时，必须先选中它，然后点击垃圾桶图标。</p>
 </div>
 <div class="section" id="edit-the-geometry-of-an-existing-feature">
-<h2>编辑已存在的要素的几何对象<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="永久链接至标题">¶</a></h2>
-<p>待完成。</p>
+<h2>Edit the geometry of an existing feature<a class="headerlink" href="#edit-the-geometry-of-an-existing-feature" title="永久链接至标题">¶</a></h2>
+<p>To complete.</p>
 </div>
 </div>
 

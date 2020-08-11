@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ro">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ghidul de Utilizare a QField &#8212; QField Documentation 1.0 - M... documentație</title>
+    <title>QField User Guide &#8212; QField Documentation 1.0 - M... documentație</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,8 +26,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Căutare" href="../search.html" />
-    <link rel="next" title="Schimbă Tema de Hartă activă" href="map-themes.html" />
-    <link rel="prev" title="Selectarea proiectului" href="../project-management/project-selection.html" />
+    <link rel="next" title="Change the active Map Theme" href="map-themes.html" />
+    <link rel="prev" title="Project selection" href="../project-management/project-selection.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,15 +96,15 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Ghidul de Utilizare a QField</a><ul>
-<li><a class="reference internal" href="#opening-a-project">Deschiderea unui proiect</a></li>
+<li><a class="reference internal" href="#">QField User Guide</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening a project</a></li>
 <li><a class="reference internal" href="#map-legend">Legenda hărții</a></li>
 <li><a class="reference internal" href="#identify-features">Identificarea entităților</a><ul>
 <li><a class="reference internal" href="#exceptions-to-identified-layers">Straturi exceptate de la identificare</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#searching">Căutarea</a></li>
-<li><a class="reference internal" href="#switching-map-theme">Schimbarea Temei de Hartă</a></li>
+<li><a class="reference internal" href="#searching">Searching</a></li>
+<li><a class="reference internal" href="#switching-map-theme">Switching Map Theme</a></li>
 <li><a class="reference internal" href="#gps">GPS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">Se utilizează Receptorul GNSS extern</a></li>
 </ul>
@@ -115,7 +115,7 @@
 <li><a class="reference internal" href="#attribute-form">Formularul de atribute</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#delete-features">Ștergerea entităților</a></li>
+<li><a class="reference internal" href="#delete-features">Delete Features</a></li>
 <li><a class="reference internal" href="#edit-the-geometry-of-an-existing-feature">Edit the geometry of an existing feature</a></li>
 </ul>
 </li>
@@ -128,11 +128,11 @@
             
               
   <li>
-    <a href="../project-management/project-selection.html" title="Previous Chapter: Selectarea proiectului"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Selectarea pr...</span>
+    <a href="../project-management/project-selection.html" title="Previous Chapter: Project selection"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project selection</span>
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Schimbă Tema de Hartă activă"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Schimbă Tema ... &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Change the active Map Theme"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Change the ac... &raquo;</span>
     </a>
   </li>
             
@@ -162,22 +162,22 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">Ghidul de instalare a QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation-guide/index.html">QField Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepte de bază</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/add-1-n-pictures.html">Add a series of pictures to a feature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/allow-hiding-legend-nodes.html">Allow hiding legend nodes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Simboluri și setări SVG personalizate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Căutarea în straturi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Formatele de date acceptate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Datele raster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">Managementul Proiectelor în QField</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/android-data-structure.html">Custom SVG symbols and settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/configure-search.html">Search in layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html">Supported data formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/dataformat.html#raster-data">Raster data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/index.html">QField Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/map-themes.html">Configurarea Temelor Hărții</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Proiect Portabil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/portable-project.html">Portable Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project-management/print-to-pdf.html">Print to PDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Selectarea proiectului</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Setările Straturilor Vectoriale</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghidul de Utilizare a QField</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Schimbă Tema de Hartă activă</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/project-selection.html">Project selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-management/vector-layers.html">Vector Layer Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QField User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map-themes.html">Change the active Map Theme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="track_lines_polygons.html">Tracking of lines and polygons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variabile globale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Dezvoltare și suport</a></li>
@@ -194,9 +194,9 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfield-user-guide">
-<h1>Ghidul de Utilizare a QField<a class="headerlink" href="#qfield-user-guide" title="Link permanent la acest titlu">¶</a></h1>
+<h1>QField User Guide<a class="headerlink" href="#qfield-user-guide" title="Link permanent la acest titlu">¶</a></h1>
 <div class="section" id="opening-a-project">
-<h2>Deschiderea unui proiect<a class="headerlink" href="#opening-a-project" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Opening a project<a class="headerlink" href="#opening-a-project" title="Link permanent la acest titlu">¶</a></h2>
 <p>Pentru a deschide un proiect, apăsați pe <strong>butonul Meniu –&gt; butonul Opțiuni –&gt; Deschidere Proiect</strong>.</p>
 <p>Select the project you want to open by navigating to it, or use the <strong>Recent projects</strong> and <strong>Favorites directories</strong> shortcuts.</p>
 <blockquote>
@@ -228,7 +228,7 @@
 </div>
 </div>
 <div class="section" id="searching">
-<h2>Căutarea<a class="headerlink" href="#searching" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Searching<a class="headerlink" href="#searching" title="Link permanent la acest titlu">¶</a></h2>
 <p>Tap on the <strong>Search button</strong> on the top-right corner to search in the layers.</p>
 <ol class="arabic simple">
 <li>Tap on the <strong>name</strong> in the result to pan the map on the feature (the feature will be highlighted in yellow).</li>
@@ -237,7 +237,7 @@
 <img alt="../_images/user-guide_search.png" src="../_images/user-guide_search.png" />
 </div>
 <div class="section" id="switching-map-theme">
-<h2>Schimbarea Temei de Hartă<a class="headerlink" href="#switching-map-theme" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Switching Map Theme<a class="headerlink" href="#switching-map-theme" title="Link permanent la acest titlu">¶</a></h2>
 <p>If you defined map themes for your project in QGIS, you can switch between them using the first drop-down in the <strong>Main menu</strong>.</p>
 <img alt="../_images/user-guide_maptheme.png" src="../_images/user-guide_maptheme.png" />
 </div>
@@ -289,7 +289,7 @@ The next time you will add a feature on the same layer, these attributes will be
 </div>
 </div>
 <div class="section" id="delete-features">
-<h2>Ștergerea entităților<a class="headerlink" href="#delete-features" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Delete Features<a class="headerlink" href="#delete-features" title="Link permanent la acest titlu">¶</a></h2>
 <p>Ștergerea entităților este posibilă doar în modul de digitizare.</p>
 <p>Pentru a șterge o entitate, identificați mai întâi și atingeți pictograma coșului de gunoi.</p>
 </div>
