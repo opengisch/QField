@@ -2,57 +2,71 @@ QField - your mobile [Q]GIS solution
 ====================================
 QField allows you to efficiently work on your GIS data outdoor.
 
-QField's optimized user interface for Android devices hides the full power of `QGIS <https://qgis.org>`_ under the hood.
+QField's optimized user interface for hides the full power of `QGIS <https://qgis.org>`_ under the hood.
 
 
 .. container::
 
   .. vimeo:: 376372805
 
-Prepare once - Deploy everywhere
---------------------------------
-- Uses QGIS projects (including symbology and edit widgets)
-- Supports most QGIS supported formats (ideal with PostGIS)
-- Automatic syncronization capabilities (Cable, WiFi, Cloud)
-- Extends seamlessly your GDI
+Concepts
+--------
 
-Made for touch - Field-work friendly
-------------------------------------
-- Lean UI with few and large buttons
-- GPS centric
-- Fully working offline and online using live and cached* DB connections
-- Switchable working modes (display, inspection, digitizing, measuring)*
-- Cross mode tools (Pan, zoom, identify, GPS coordinates, scalebar, central crosshair with snapping)
+QField was designed with a few key concepts in mind.
 
-Make it grow - Make it yours
-----------------------------
-- Paid feature development
-- Customizable to your needs
-- Donations and sponsoring (qfield.opengis.ch/donate)
-- Hire us for development, consulting and training for QField, C++, Python, Web, QGIS, Android, ...
+Keep it simple
+..............
+
+The requirements on the field are not the same as on a desktop. The screen is
+smaller, the input devices are different and the tasks are different.
+
+QField aims to help the user to perform the tasks he needs to do without
+cluttering the user interface. This means, that only tasks which need to be
+done on the field are availble from the interface. Everything else is not.
+
+This means that everything like layer styling, form definitions and other
+project setup steps should be done on a computer with QGIS installed first.
+
+Be compatible with QGIS
+........................
+
+QField is based on QGIS. It is not a rebuild of QGIS it really *does* use QGIS
+libraries. The rendering engine is exactly the same as in QGIS for desktop and
+your project will therefore look exactly the same on your mobile device as it
+does on your computer.
+
+If something is already available as a configuration option in a QGIS project,
+it should not be re-invented. QField therefore uses the same edit widgets as
+QGIS desktop does. If a project is already configured for the desktop, it
+should just run on mobile as well.
+
+Remember, this is just the *concept*. This is what we have in mind when we
+develop QField. It does not mean that it is already completely there yet.
+
+Mode based
+..........
+
+QField is built around *modes*. Modes are similar to a *map tool* in QGIS
+desktop. A mode defines the task which a user is currently doing. Either a user
+is *browsing* through the data or he is *digitizing* something new.
 
 
-.. This document can also be downloaded as a single PDF document: `QField.pdf <./QField.pdf>`__ |image|.
-  .. |image| image:: ../_static/pdf.png
-   :height: 15
-   :width: 15
-   :alt: PDF icon
-   :target: QField.pdf
 
 Contents
-========
+---------
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   installation-guide/index
-   concepts/index
-   project-management/*
-   user-guide/*
-   development/index
-   qfieldsync/index
-   case-studies/*
+   install/index
+   prepare/index
+   synchronise/index
+   fieldwork/index
+   getting-started/index
+   data-formats/index
+   case-studies/index
+   support/index
+   old-doc/index
 
 Translations
 ============
@@ -97,7 +111,7 @@ If there is an error with a translation, please `help to improve it <https://www
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`search`
