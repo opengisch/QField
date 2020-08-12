@@ -26,7 +26,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
-    <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="prev" title="允许隐藏图例节点" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -97,24 +97,24 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
 <li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
+<li><a class="reference internal" href="#field-widget">字段小部件</a></li>
+<li><a class="reference internal" href="#relation-widget">关系控件</a><ul>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">拖放设计器器窗体</a></li>
+<li><a class="reference internal" href="#conditional-visibility">有条件显示</a></li>
 <li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#common-use-cases">常规用例</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">默认值</a><ul>
+<li><a class="reference internal" href="#additional-variables">其他变量</a></li>
+<li><a class="reference internal" href="#id1">常规用例</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">可编辑</a></li>
+<li><a class="reference internal" href="#remember-last-values">记住之前的值</a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +126,7 @@
             
               
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Allow hiding ...</span>
+    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: 允许隐藏图例节点"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 允许隐藏图例节点</span>
     </a>
   </li>
   <li>
@@ -178,14 +178,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="永久链接至标题">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QField 创建表单，与QGIS相似但不等同。</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="永久链接至标题">¶</a></h2>
 <p>The setting &quot;suppress attribute form&quot; is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="永久链接至标题">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>字段小部件<a class="headerlink" href="#field-widget" title="永久链接至标题">¶</a></h2>
+<p>尽最大努力支持QGIS中的字段控件。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -193,60 +193,59 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">字段类型</th>
+<th class="head">支持</th>
+<th class="head">便条</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td>文本编辑</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>不支持THML文本</li>
+<li>数字输入框被要求基于类型</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>复选框</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>值图</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>隐藏</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>外部资源</td>
 <td><span class="moreorless">~</span></td>
 <td>This field is combined with camera integration.
 Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">基金</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>日期时间</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td>关系参照</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td>关系控件</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>其他</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">基金</span></a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="relation-widget">
-<h2>Relation Widget<a class="headerlink" href="#relation-widget" title="永久链接至标题">¶</a></h2>
+<h2>关系控件<a class="headerlink" href="#relation-widget" title="永久链接至标题">¶</a></h2>
 <p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -286,11 +285,11 @@ Only images can be viewed so far.
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="永久链接至标题">¶</a></h2>
+<h2>拖放设计器器窗体<a class="headerlink" href="#drag-and-drop-designer-forms" title="永久链接至标题">¶</a></h2>
 <p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="永久链接至标题">¶</a></h2>
+<h2>有条件显示<a class="headerlink" href="#conditional-visibility" title="永久链接至标题">¶</a></h2>
 <p>Groups can be hidden based on an expression. This is useful when certain attributes are
 only required under certain conditions. As an example imagine mapping trees. Some of them
 might have a disease and you have a list of possible deseases. To not clutter the form with
@@ -317,7 +316,7 @@ user if a constraint is not satisfied.</p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="永久链接至标题">¶</a></h3>
+<h3>常规用例<a class="headerlink" href="#common-use-cases" title="永久链接至标题">¶</a></h3>
 <p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
@@ -329,7 +328,7 @@ user if a constraint is not satisfied.</p>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="永久链接至标题">¶</a></h2>
+<h2>默认值<a class="headerlink" href="#default-values" title="永久链接至标题">¶</a></h2>
 <p>Fields can have default values configured. Default values are inserted into the
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
@@ -341,7 +340,7 @@ expression variables.</p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="永久链接至标题">¶</a></h3>
+<h3>其他变量<a class="headerlink" href="#additional-variables" title="永久链接至标题">¶</a></h3>
 <p>In QField, there are some additional variables available regarding the current
 positioning information.</p>
 <ul class="simple">
@@ -363,16 +362,16 @@ per second.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>常规用例<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>作为变量插入位置信息</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>插入当前日期和时间</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>插入数字化线的长度</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
@@ -388,11 +387,11 @@ inserted, you can do so by using an aggregate expression:</p>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="永久链接至标题">¶</a></h2>
+<h2>可编辑<a class="headerlink" href="#editable" title="永久链接至标题">¶</a></h2>
 <p>The editable flag of fields is respected.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="永久链接至标题">¶</a></h2>
+<h2>记住之前的值<a class="headerlink" href="#remember-last-values" title="永久链接至标题">¶</a></h2>
 <p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
 </div>
 </div>

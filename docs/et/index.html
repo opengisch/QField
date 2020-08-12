@@ -96,10 +96,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField- mobiilne [Q]GIS lahendus</a><ul>
-<li><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Mode based</a></li>
+<li><a class="reference internal" href="#concepts">Kontseptsioon</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">Lihtsus ennekõike</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">Ole ühilduv QGIS’iga</a></li>
+<li><a class="reference internal" href="#mode-based">Laadidel põhinev</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">Sisukord</a></li>
@@ -172,36 +172,23 @@
 <iframe src="https://player.vimeo.com/video/376372805" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 <div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>QField was designed with a few key concepts in mind.</p>
+<h2>Kontseptsioon<a class="headerlink" href="#concepts" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>QFieldi arendamisel peeti silmas mõnda olulist aspekti.</p>
 <div class="section" id="keep-it-simple">
-<h3>Keep it simple<a class="headerlink" href="#keep-it-simple" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h3>Lihtsus ennekõike<a class="headerlink" href="#keep-it-simple" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Nõudmised väljas ei ole samad mis kontoris. Ekraan on väiksem, sisendseaded on erinevad ja ka ülesanded on erinevad.</p>
+<p>QField püüab aidata kasutajal teostada peamisi ülesandeid ilma kasutajaliidest killustamata. See tähendab, liides võimaldab täita ainult ülesandeid, mis tuleb täita välitööl. Ja mitte midagi enamat.</p>
+<p>See tähendab, et kihtide kujundamine, vormide koostamine ja ülejäänud projekti seadistamise sammud tuleb enne ära teha QGIS’iga arvutis.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h3>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<h3>Ole ühilduv QGIS’iga<a class="headerlink" href="#be-compatible-with-qgis" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>QField põhineb QGIS’il. See ei ole täielikult ümber ehitatud QGIS, aga kasutab QGIS teeke. Renderdusmootor on täpselt sama mis QGIS’il laua-arvutis, nii et su kaardiprojekt näeb mobiilseadmes välja täpselt samasugune nagu arvutis.</p>
+<p>Kui miski on juba seadistusena olemas QGIS projektis, siis pole seda vaja uuesti leiutada. QField kasutab seega samu editeerimise vidinaid mis QGIS desktop. Kui projektifail on juba seadistatud lauaarvutis, peaks see sama hästi jooksma ka mobiilseadmes.</p>
+<p>Pea meeles, et see on ainult <em>kontseptsioon</em>. See on see, mida me silmas peame, kui arendame QField’i. See ei tähenda, et kõik on juba lõpuni valmis.</p>
 </div>
 <div class="section" id="mode-based">
-<h3>Mode based<a class="headerlink" href="#mode-based" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h3>Laadidel põhinev<a class="headerlink" href="#mode-based" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>QField on ehitatud <em>laadide</em> peal. Laadid on midagi nagu <em>kaardi tööriistad</em> QGIS desktop’is. Laad määrab ülesande, mida kasutaja parasjagu täidab. Ta kas <em>sirvib</em> andmeid või <em>digiteerib</em> midagi uut.</p>
 </div>
 </div>
 <div class="section" id="contents">

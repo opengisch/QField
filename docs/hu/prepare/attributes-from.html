@@ -27,7 +27,7 @@
     <link rel="index" title="Tárgymutató" href="../genindex.html" />
     <link rel="search" title="Keresés" href="../search.html" />
     <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
-    <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="prev" title="Jelmagyarázat elrejtésének engedélyezése" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -98,24 +98,24 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
 <li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#field-widget">Mező vezérlő</a></li>
+<li><a class="reference internal" href="#relation-widget">Kapcsolat vezérlő</a><ul>
+<li><a class="reference internal" href="#external-resource-photo-settings">Külső források (fotó beállítások)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Húzd és ejtsd tervező űrlapok</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Feltételes láthatóság</a></li>
+<li><a class="reference internal" href="#constraints">Korlátozások</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Általános felhasználási esetek</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Alapértelmezett értékek</a><ul>
+<li><a class="reference internal" href="#additional-variables">További változók</a></li>
+<li><a class="reference internal" href="#id1">Általános felhasználási esetek</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">Szerkeszthető</a></li>
+<li><a class="reference internal" href="#remember-last-values">Utolsó értékek megjegyzése</a></li>
 </ul>
 </li>
 </ul>
@@ -127,7 +127,7 @@
             
               
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Allow hiding ...</span>
+    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Jelmagyarázat elrejtésének engedélyezése"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Jelmagyarázat...</span>
     </a>
   </li>
   <li>
@@ -179,14 +179,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>A QField által létrehozott űrlapok hasonlóak, de nem azonosak a QGIS űrlapokkal.</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <p>The setting „suppress attribute form” is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>Mező vezérlő<a class="headerlink" href="#field-widget" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QGIS mező vezérlőket a legnagyobb gondosság elve alapján támogatjuk.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -194,61 +194,58 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">Mező típus</th>
+<th class="head">Támogatás</th>
+<th class="head">Megjegyzés</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td>Szövegszerkesztés</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>A HTML nem támogatott</li>
+<li>A numerikus adatbevitel a típusnak megfelelően ellenőrizzük.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>Jelölőnégyzet</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>Érték térkép</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>Rejtett</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>Külső forrás</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td>Ezt a mező a fényképezőgép integrációhoz kapcsolódik. Még csak képek jeleníthetők meg. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanszírozás</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>Dátum idő</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td>Reláció hivatkozás</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td>Kapcsolat vezérlő</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>Továbbiak</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanszírozás</span></a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="relation-widget">
-<h2>Relation Widget<a class="headerlink" href="#relation-widget" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<h2>Kapcsolat vezérlő<a class="headerlink" href="#relation-widget" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>További információért forduljon a kapcsolatok fejezethez a hivatalos <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Dokumentációban</a>.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
@@ -256,10 +253,10 @@ Only images can be viewed so far.
 </div>
 <p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
 <p>The visual identification of the list entries are done via the „Display Expression” of the child layer.</p>
-<p><strong>Key handling</strong></p>
+<p><strong>Kulcs kezelés</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
-<p><strong>Many-To-Many relations</strong></p>
+<p><strong>Több a többhöz kapcsolatok</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
 <p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
 <div class="clearer text-center docutils container">
@@ -269,7 +266,7 @@ Only images can be viewed so far.
 </div>
 <p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
 <div class="section" id="external-resource-photo-settings">
-<h3>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3>Külső források (fotó beállítások)<a class="headerlink" href="#external-resource-photo-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <p>The widget type „Attachement” is used to store the path to collected photos.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -277,27 +274,22 @@ Only images can be viewed so far.
 </div>
 </div>
 <p>The path should be set to relative. The pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
-<p>In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.</p>
+<p>A QField-ben a kép megjelenik. A kamara szimbólumra kattintva a kamara frissíti a képet egy új fotóval.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures has to be copied as well.</p>
+<p>A szinkronizáláskor a képeket tartalmazó alkönyvtárat szintén át kell másolni.</p>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h2>Húzd és ejtsd tervező űrlapok<a class="headerlink" href="#drag-and-drop-designer-forms" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A csoportokat és a füleket támogatjuk a Húzd és ejtsd tervező űrlapokról.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group „diseases”. Add
-a field „desease” with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h2>Feltételes láthatóság<a class="headerlink" href="#conditional-visibility" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Egy kifejezés alapján a csoportok elrejthetők. Ez akkor hasznos, ha bizonyos körülmények között csak bizonyos attribútumokra van szükség. Példaként képzeljük el, hogy fákat térképezünk. Néhány közülük beteg lehet és van egy lehetséges betegségek listánk. Hogy ne zsúfoljuk tele mezőkkel az űrlapot, készítsünk egy csoportot és állítsuk be a láthatósági kifejezést a „betegségekre”. Adjon hozzá egy betegség jelölőnégyzetet. A betegségek listája csak akkor jelenik meg a felhasználónak, ha a jelölőnégyzetet kiválasztotta.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
@@ -306,95 +298,80 @@ will be available to the user.</p>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<h2>Korlátozások<a class="headerlink" href="#constraints" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Az attribútum mezőkhöz korlatozásokat rendelhetünk. A korlátozások kifejezések melyeknek <code class="code docutils literal"><span class="pre">True</span></code> (vagy <code class="code docutils literal"><span class="pre">1</span></code>) értéket kell adniuk, hogy az űrlapot el tudjuk menteni. A korlátozásokat mezőnként állíthatjuk be és egy leírást adhatunk meg mellé, melyet a felhasználó akkor lát, ha a korlátozó feltétel nem teljesül.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Tartományon belüli korlátozás beállítása</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>Általános felhasználási esetek<a class="headerlink" href="#common-use-cases" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Nem adhat meg az ország legmagasabb hegyénél nagyobb magasságot.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Egy azonosító kitöltése kötelező.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<h2>Alapértelmezett értékek<a class="headerlink" href="#default-values" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A mezőkre alapértelmezett értéket állíthatunk be. Az alapértelmezett értékek az új elem digitalizálásánál jelennek meg az attribútum űrlapban. A felhasználó látja azokat és módosíthatja, ha szerkeszthető a mező. Az alapértelmezett értékek geometria vagy kifejezés változóktól függhetnek.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Formázott dátum beállítása alapértelmezettként</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h3>További változók<a class="headerlink" href="#additional-variables" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A QField-ben további változók beállítására van lehetőség az aktuális pozíciót illetően.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Hosszúság, szélesség, magasság ahogy a szenzorból érkezik. Akkor is elérhető, ha a szálkereszt nem mutat a szenzorra.</li>
+<li><cite>position_timestamp</cite> (DateTime) : A pozíció adat időbélyege</li>
+<li><cite>position_direction</cite> (float) : Az irány fokokban az igazi északtól.</li>
+<li><cite>position_ground_speed</cite> (float) : Földfeletti sebesség méter/szekundum.</li>
+<li><cite>position_magnetic_variation</cite> (float) : A mágneses tér vízszintes komponense és a valódi észak közötti szög fokokban. Mint mágneses deklináció is ismert. Egy pozitív érték óramutató járása szerinti irány a valódi északtól, a negatív érték óramutató járásával ellentétes irányt jelent.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : A koordináta vízszintes pontossága (meterben).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : A koordináta függőleges  pontossága (imeterben).</li>
+<li><cite>position_vertical_speed</cite> (float) : A függőleges sebesség értéke méter/szekundumban.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>Általános felhasználási esetek<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Pozíció adatok beillesztése változóként:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Adja meg az aktuális dátumot és időt:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Adja meg a digitalizált vonal hosszát:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Konfigurálja a globális változókat az eszközön és szúrja be őket.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Ha a hely alapján egy terület kódot akar rendelni az új beszúrt elemhez, akkor használhatja az aggregátor kifejezést:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>Szerkeszthető<a class="headerlink" href="#editable" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A mezők szerkeszthetőségének beállítását figyelembe vesszük.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<h2>Utolsó értékek megjegyzése<a class="headerlink" href="#remember-last-values" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QField sokkal részletesebb felügyeletet biztosít az utoljára használt értékek kezelésében és figyelmen kívül hagyja a QGIS beállításokat.</p>
 </div>
 </div>
 

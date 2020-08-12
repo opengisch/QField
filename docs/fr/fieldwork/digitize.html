@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="GPS" href="gps.html" />
+    <link rel="next" title="Géolocalisation" href="gps.html" />
     <link rel="prev" title="Fieldwork" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -98,8 +98,8 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Collect features</a><ul>
 <li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
-<li><a class="reference internal" href="#attribute-form">Attribute form</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">Lignes et polygones</a></li>
+<li><a class="reference internal" href="#attribute-form">Formulaire d’attributs</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Delete features</a></li>
@@ -121,7 +121,7 @@
     </a>
   </li>
   <li>
-    <a href="gps.html" title="Next Chapter: GPS"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">GPS &raquo;</span>
+    <a href="gps.html" title="Next Chapter: Géolocalisation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Géolocalisation &raquo;</span>
     </a>
   </li>
             
@@ -169,38 +169,33 @@
       
   <div class="section" id="collect-features">
 <h1>Collect features<a class="headerlink" href="#collect-features" title="Lien permanent vers ce titre">¶</a></h1>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<p>Pour commencer la vectorisation de nouvelles entités, il faut activer le mode <strong>Édition</strong> dans le volet de gauche (<em>bouton crayon</em>) et sélectionner la couche sur laquelle vous souhaitez ajouter de nouvelles entités (la couche sera surinée en gris).</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
 <h2>Points<a class="headerlink" href="#points" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
-new point feature.</p>
-<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<p>Déplacer la carte de sorte que la position désirée se trouve sous le réticule situé au centre de l’écran et cliquer sur sur le bouton <strong>+</strong> dans le coin inférieur droit pour confirmer la création de cette nouvelle entité.</p>
+<p>Si vous avez activé la localisation, vous pouvez utiliser le bouton <strong>Centrer</strong> pour forcer le centrage de votre position sous le réticule.</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h2>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
-<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
-<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
-<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
-<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<h2>Lignes et polygones<a class="headerlink" href="#lines-and-polygons" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Déplacer la carte de sorte que le point de départ désiré de la ligne ou du polygone se trouve sous le réticule situé au centre de l’écran. Cliquer ensuite sur le bouton <strong>(+)</strong> dans le coin inférieur droit pour ajouter le premier nœud.</p>
+<p>Procéder de la même manière et répéter l’opération pour former votre ligne ou votre polygone en cliquant sur le bouton <strong>(+)</strong> chaque fois que vous souhaitez ajouter un nouveau nœud.</p>
+<p>Cliquer sur le bouton <strong>(-)</strong> pour supprimer le dernier nœud ajouté.</p>
+<p>Cliquer sur le bouton <strong>(X)</strong> pour annuler complètement la création de l’entité.</p>
+<p>Quand vous avez ajouté au moins 2 nœuds pour une ligne ou 3 nœuds pour un polygone, un bouton <strong>Sauvegarder</strong> apparaît. Cliquer dessus pour terminer votre dessin et enregistrer l’entité.</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h2>Attribute form<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h2>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.
-The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<h2>Formulaire d’attributs<a class="headerlink" href="#attribute-form" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Après l’ajout d’une géométrie et s’il existe, le formulaire d’attributs s’affiche et l’utilisateur est invité à saisir les attributs de la nouvelle entité.
+Le formulaire qui apparaît permet d’entrer les valeurs des attributs de la nouvelle entité. Les cases à cocher à droite de chaque attribut permettent de mémoriser chaque attribut individuellement. La prochaine fois que vous ajouterez une entité sur la même couche, ces attributs seront déjà pré-remplis.</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
 <h1>Delete features<a class="headerlink" href="#delete-features" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Deleting features is only possible in digitize mode.</p>
+<p>La suppression d’entités est uniquement possible en mode <strong>Édition</strong>.</p>
 <p>To delete a feature, identify it first by a short tap on it. Then select it with a long press
 in the identification list, select further features to delete if you want and click the
 trash button to confirm the deletion.</p>

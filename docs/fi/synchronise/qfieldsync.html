@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QFieldSync plugin &#8212; QField Documentation 1.0 - M... documentation</title>
+    <title>QFieldSync laajennus &#8212; QField Documentation 1.0 - M... documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -96,17 +96,17 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">QFieldSync plugin</a><ul>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#layer-configuration">Layer configuration</a></li>
-<li><a class="reference internal" href="#base-map-configuration">Base map configuration</a></li>
-<li><a class="reference internal" href="#offline-editing-configuration">Offline editing configuration</a></li>
+<li><a class="reference internal" href="#">QFieldSync laajennus</a><ul>
+<li><a class="reference internal" href="#workflow">Työnkulku</a></li>
+<li><a class="reference internal" href="#installation">Asentaminen</a></li>
+<li><a class="reference internal" href="#configuration">Konfigurointi</a><ul>
+<li><a class="reference internal" href="#layer-configuration">Tason konfigurointi</a></li>
+<li><a class="reference internal" href="#base-map-configuration">Peruskartan konfigurointi</a></li>
+<li><a class="reference internal" href="#offline-editing-configuration">Offline muokkauksen konfigurointi</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#package-for-qfield">Package for Qfield</a></li>
-<li><a class="reference internal" href="#synchronize-from-qfield">Synchronize from Qfield</a></li>
+<li><a class="reference internal" href="#package-for-qfield">Paketti QFieldiin</a></li>
+<li><a class="reference internal" href="#synchronize-from-qfield">Synkronointi QFieldistä</a></li>
 </ul>
 </li>
 </ul>
@@ -169,101 +169,78 @@
     <div class="col-md-9 content">
       
   <div class="section" id="qfieldsync-plugin">
-<span id="qfieldsync"></span><h1>QFieldSync plugin<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
-<p>The QFieldSync plugin helps preparing and packaging QGIS projects for QField.</p>
-<p>QFieldSync supports your project preparation with automating the following:</p>
+<span id="qfieldsync"></span><h1>QFieldSync laajennus<a class="headerlink" href="#qfieldsync-plugin" title="Permalink to this headline">¶</a></h1>
+<p>QFieldSync laajennus helpottaa QGIS projektin valmistelua ja pakkaamista  QField käyttöä varten.</p>
+<p>QFieldSync tukee projektisi valmistelua automatisoimalla seuraavat:</p>
 <ul class="simple">
-<li>Required steps for project setup (e.g. <a class="reference internal" href="movable-project.html#portable-project"><span class="std std-ref">Movable project</span></a>)</li>
-<li>Creating basemaps from a single raster layer or from a style defined in a map theme.</li>
-<li>Configuring the offline editing functionality and synchronizing changes back.</li>
+<li>Pakolliset vaiheet projektin asetuksissa  (esim. <a class="reference internal" href="movable-project.html#portable-project"><span class="std std-ref">Movable project</span></a>)</li>
+<li>Peruskartan luominen yksittäisestä rasterista tai karttateemassa määritetystä tyylistä.</li>
+<li>Offline muokkauksen toiminnallisuuden konfigurointi ja muutosten takaisin synkronointi.</li>
 </ul>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>To get a quick overview of the process, here is a list of typical steps:</p>
+<h2>Työnkulku<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>Nopea yleiskatsaus luettelona tyypillisistä vaiheista:</p>
 <ol class="arabic simple">
-<li>Create a QField package. This is a working copy in a separate folder.</li>
-<li>Copy the QField package to the target device.</li>
-<li>Go out and collect data.</li>
-<li>Copy the modified data back to your desktop computer.</li>
-<li>Synchronize the modified data with your database or files.</li>
+<li>Luo QField paketti. Tämä on työkopio erillisessä hakemistossa.</li>
+<li>Kopio QField paketti kohdelaitteeseen.</li>
+<li>Mene ulos ja kerää datat.</li>
+<li>Kopioi muokatut tiedot takaisin työasemallesi.</li>
+<li>Synkronoi muokatut tiedot tietokantaasi tai tiedostoihisi.</li>
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>In QGIS, open the plugin library and search for <strong>qfield sync</strong>. Select the plugin in the list and click on <strong>Install</strong>.</p>
+<h2>Asentaminen<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>QGISissä, avaa lisäosien kirjasto ja etsi termillä <strong>qfield sync</strong>. Valitse lisäosa listalta ja klikkaa <strong>Asenna</strong>.</p>
 <img alt="../_images/qfield-sync_install1.png" src="../_images/qfield-sync_install1.png" />
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The project configuration is saved in the master .qgs project file.
-This way it is possible to pre-configure a project once and use it repeatedly.</p>
+<h2>Konfigurointi<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Projektin konfiguratio on talletettu projektin pää .qgs tiedostossa. Näin on mahdollista esikonfiguroida projekti kerran ja käyttää sitä toistuvasti.</p>
 <img alt="../_images/qfield-sync_configmenu1.png" src="../_images/qfield-sync_configmenu1.png" />
 <div class="section" id="layer-configuration">
-<h3>Layer configuration<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>Tason konfigurointi<a class="headerlink" href="#layer-configuration" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/qfield-sync_config1.png" src="../_images/qfield-sync_config1.png" />
-<p>In the project configuration dialog, an <em>action</em> can be defined for each layer
-individually. Depending on the layer type, different types of actions are
-available.</p>
+<p>Projektin konfigurointi-ikkunassa voidaan <em>toiminto</em> määritellä jokaiselle tasolle erikseen.  Riippuen tason tyypistä erilaisia toimintoja on käytettävissä.</p>
 <dl class="docutils">
-<dt>Copy</dt>
-<dd>The layer will be copied to the package folder. This is only available for
-file-based layers.</dd>
-<dt>No action</dt>
-<dd>The layer source will be left untouched. This is only available for
-non-file-based layers like WMS, WFS, Postgis…</dd>
-<dt>Offline editing</dt>
-<dd>A working copy of the layer is copied into the package folder. Every change
-which is done in the packaged project during work is recorded in a changelog.
-When synchronizing the changes back later on, this log will be replayed and
-all changes also be applied to the main data base. There is no conflict
-handling in place.</dd>
-<dt>Remove</dt>
-<dd>The layer will be removed from the working copy. This is useful if a layer is
-used in the basemap and will not be available in the packaged project.</dd>
+<dt>Kopionti</dt>
+<dd>Taso kopioidaan pakettihakemistoon. Tämä on käytettävissä ainoastaan tiedostopohjaisille tasoille.</dd>
+<dt>Ei toimintoa</dt>
+<dd>Lähetvä taso jätetään koskematta, Tämä on käytettävissä ainoastaan tasoille joissa ei ole tiedostoja kuten WMS, WFS, Postgis ….</dd>
+<dt>Offline muokkaus</dt>
+<dd>Tason työkopio kopioidaan paketin hakemistoon. Jokainen muutos joka on tehty paketoituun projektiin työn aikana tallennetaan muutoslokiin. Synkronoitaessa muutokset takaisin tämä loki suoritetaan uudestaan ja kaikki muutokset suoritetaan myös varsinaisen päätietokantaan. Konfliktien hallintaa ei ole käytettävissä.</dd>
+<dt>Poista</dt>
+<dd>Taso poistetaan työkopiosta. Tämä on käytännöllistä jos tasoa käytetään peruskartassa ja se ei ole käytettävissä paketoidussa projektissa.</dd>
 </dl>
 </div>
 <div class="section" id="base-map-configuration">
-<h3>Base map configuration<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
-<p>A base map is a raster layer which is added as the bottommost layer to the
-packaged project file.</p>
-<p>If the base map option is enabled, a base map will be rendered, whenever the
-project is packaged. The area of interest - the extent which will be rendered -
-will be chosen at packaging time.</p>
-<p>There are two possible sources for a base map:</p>
+<h3>Peruskartan konfigurointi<a class="headerlink" href="#base-map-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Peruskartta on rasteritaso joka on lisätty alimmaiseksi tasoksi pakatussa projektitiedostossa.</p>
+<p>Jos peruskartta valinta on voimassa, peruskartta hahmotetaan aina kun projekti paketoidaan. Kiinnostuksen alue - alue joka hahmotetaan - valitaan paketoinnin aikana.</p>
+<p>Peruskartalle on kaksi mahdollista lähdettä:</p>
 <dl class="docutils">
-<dt>Layer</dt>
-<dd>A raster layer. This is useful to take an offline copy of an online layer like
-a WMS or to take a working copy of an unsupported format like an ECW or MrSID
-layer.</dd>
-<dt>Map Theme</dt>
-<dd>A map theme. This is useful to create a base map based on a combination of
-several layers with styling. These layers can then be removed from the working
-package and do not need to be rendered on the device. This can save some disk
-space and battery on the device.</dd>
+<dt>Taso</dt>
+<dd>Rasteritaso. On hyödyllistä tehdä offline kopio tasosta  kuten WMS tai tehddä työkopio tukemattomasta formaatista kuten ECW tai MrSID tasosta.</dd>
+<dt>Karttateema</dt>
+<dd>Karttateema. Tämä on hyödyllistä luoda jos peruskartta perustuu usean tyylitellyn taason yhdistelmästä. Sen jälkenne nämä tasot voidaan poistaa työpaketista eikä niitä tarvitse hahmottaa laitteessa. Tämä säästää levytilaa ja pattereita laitteessa.</dd>
 </dl>
-<p>The tile size defines the spatial resolution. It determines the number of map
-units per pixel. If the map canvas CRS has meters as units and tile size is set
-to 1, each raster pixel will have a spatial extent of 1x1 m, if it is set to
-1000, each raster pixel will have a spatial extent of 1 square kilometer.</p>
+<p>Kuvakkeen koko määrittelee spatiaalisen resoluution. Se määrittelee karttayksiköiden lukumäärän pikselissä. Jos karttapohjan koordinaattijärjestelmässä on metri yksikkönä ja koko asetetaan 1:ksi, jokainen rasterin pikseli vastaa silloin laajuutta 1x1m. jos se asetetaan 1000:ksi jokainen rasterin pikseli vastaa silloin 1 neliökilometrin aluetta.</p>
 </div>
 <div class="section" id="offline-editing-configuration">
-<h3>Offline editing configuration<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
-<p>If <em>only synchronize features in area of interest</em> is checked, only features
-which are within the extent of the map canvas as packaging time will be copied
-to the offline editing working copy.</p>
+<h3>Offline muokkauksen konfigurointi<a class="headerlink" href="#offline-editing-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Jos <em>synkronoi ainoastaan ominaisuudet kiinnostuksen alueella</em> on merkattu, ainoastaan ominaisuudet jotka ovat karttatpohjan alalla pakkaushetkellä, kopioidaan offline muokkauksen työkopioon.</p>
 </div>
 </div>
 <div class="section" id="package-for-qfield">
-<h2>Package for Qfield<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
-<p>Once the project is configured, package it in a folder. This folder will contain the .qgs and the data used in it.</p>
+<h2>Paketti QFieldiin<a class="headerlink" href="#package-for-qfield" title="Permalink to this headline">¶</a></h2>
+<p>Kun projekti on konfiguroitu pakkaa se hakemistoon. Tämä hakemisto sisältää käytettävä .qgs ja data tiedostot.</p>
 <img alt="../_images/qfield-sync_package3.png" src="../_images/qfield-sync_package3.png" />
-<p>Copy the folder on your device. Open Qfield, open the project and start collecting data.</p>
-<p>Make also sure to save the QGIS project using the regular Save As of QGIS as you’ll have to re-open it later when you want to synchronize the changes.</p>
+<p>Kopioi hakemisto laitteeseesi. Avaa QField, avaa projekti ja aloita tietojen kerääminen.</p>
+<p>Varmista myös tallentaessasi QGIS projektia että käytät tavanomaista QGIS Tallenna nimellä komentoa koska sinun on avattava se uudelleen myöhemmin jos haluat synkronoida muutokset.</p>
 </div>
 <div class="section" id="synchronize-from-qfield">
-<h2>Synchronize from Qfield<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
-<p>When you want to synchronize what you have collected, re-open the project in QGIS (the one you saved with a regular Save As).</p>
-<p>Copy the project folder from your device to your computer and use the <strong>Synchronize from Qfield</strong> menu to synchronize your changes from the protable project to the main project.</p>
+<h2>Synkronointi QFieldistä<a class="headerlink" href="#synchronize-from-qfield" title="Permalink to this headline">¶</a></h2>
+<p>Kun haluat synkrodoida mitä olet kerännyt, avaa projekti uudelleen QGISissä (sen jonka tallensit tavanomaisella Tallenna nimellä komennolla).</p>
+<p>Kopioi projekti hakemisto laitteestasi tietokoneellesi ja käytä <strong>Synchronize from Qfield</strong> valikkoa sykronoidaksesi muutokset liikuteltavasta projektista varsinaiseen projektiin.</p>
 <img alt="../_images/qfield-sync_sync1.png" src="../_images/qfield-sync_sync1.png" />
 </div>
 </div>

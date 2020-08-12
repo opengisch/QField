@@ -27,7 +27,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
-    <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="prev" title="凡例のノードを非表示にするのを許可する" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -98,24 +98,24 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
 <li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
-<li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#field-widget">フィールドウィジェット</a></li>
+<li><a class="reference internal" href="#relation-widget">リレーションウィジェット</a><ul>
+<li><a class="reference internal" href="#external-resource-photo-settings">外部リソース（写真設定）</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">ドラッグアンドドロップデザイナーフォーム</a></li>
+<li><a class="reference internal" href="#conditional-visibility">条件付き表示</a></li>
+<li><a class="reference internal" href="#constraints">制約</a><ul>
+<li><a class="reference internal" href="#common-use-cases">一般的な使用例</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">初期値</a><ul>
+<li><a class="reference internal" href="#additional-variables">追加の変数</a></li>
+<li><a class="reference internal" href="#id1">一般的な使用例</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">編集可否</a></li>
+<li><a class="reference internal" href="#remember-last-values">最後の値を記憶する</a></li>
 </ul>
 </li>
 </ul>
@@ -127,7 +127,7 @@
             
               
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Allow hiding ...</span>
+    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: 凡例のノードを非表示にするのを許可する"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 凡例のノードを非表示にするのを許可する</span>
     </a>
   </li>
   <li>
@@ -179,14 +179,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QFieldはQGISと似たようなフォームを作成できますが、完全に同じではありません。</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The setting &quot;suppress attribute form&quot; is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>フィールドウィジェット<a class="headerlink" href="#field-widget" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>QGISでのフィールドウィジェットはできる限りサポートできるように努めています。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -194,61 +194,58 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">フィールドタイプ</th>
+<th class="head">サポートの可否</th>
+<th class="head">備考</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td>テキスト編集</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>HTMLはサポートされていません。</li>
+<li>数値入力はデータ型に基づいて設定されます。</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>チェックボックス</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>バリューマップ</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>非表示</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>アタッチメント</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td>このフィールドはカメラ機能と統合されています。画像のみ表示できます。<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">支援</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>日付/時刻</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td>リレーションの参照</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Relation Widget</td>
+<tr class="row-odd"><td>リレーションウィジェット</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>その他</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">支援</span></a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="relation-widget">
-<h2>Relation Widget<a class="headerlink" href="#relation-widget" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For more information refer to the relations chapter of the official <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<h2>リレーションウィジェット<a class="headerlink" href="#relation-widget" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>詳細については、オフィシャルサイト <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a> の該当ページを参照してください。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
@@ -256,145 +253,125 @@ Only images can be viewed so far.
 </div>
 <p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
 <p>The visual identification of the list entries are done via the &quot;Display Expression&quot; of the child layer.</p>
-<p><strong>Key handling</strong></p>
-<p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
+<p><strong>キーの処理</strong></p>
+<p>親の主キーは、参照する子フィーチャの外部キーとして使用されるため、これらの主キーは、オリジナルのデータに同期した後でも使用するために保持されなければいけません。 したがって、主キーにはUUIDなどの安定した値を使用することをお勧めします。</p>
 <p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
-<p><strong>Many-To-Many relations</strong></p>
-<p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
-<p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
+<p><strong>多対多のリレーション</strong></p>
+<p>多対多の関係では、QGISのベクターレイヤープロパティでのカーディナリティーカラムに格納されているデータの種類がどのくらいあるかの設定に従って、追加、削除、もしくはリストのエントリを開いたりする際に子レイヤー（直接的なカーディナリティ）またはリンクされたテーブル（多対1のカーディナリティ）に直接的に影響します。</p>
+<p>通常、2番目のケースは、リンクしているテーブルに追加の関係情報（パーセンテージなど）がある場合に使用されます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
+<p>多対多のリレーションにおける多対1のカーディナリティのケースの場合、表示名の式をリンクしているテーブルに設定する必要があります。</p>
 <div class="section" id="external-resource-photo-settings">
-<h3>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The widget type &quot;Attachement&quot; is used to store the path to collected photos.</p>
+<h3>外部リソース（写真設定）<a class="headerlink" href="#external-resource-photo-settings" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ウィジェットタイプの「アタッチメント」は収取した写真のファイルパスを保存する際に使用されます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
 <p>The path should be set to relative. The pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
-<p>In QField the picture is displayed. By clicking the camera symbol the camera is started to update the picture with a new photo.</p>
+<p>QFieldで写真が表示されます。カメラのアイコンをクリックするとカメラが起動し新しく写真を撮影し更新できます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures has to be copied as well.</p>
+<p>同期をする際にはサブディレクトリも写真と一緒にコピーをする必要があります。</p>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h2>ドラッグアンドドロップデザイナーフォーム<a class="headerlink" href="#drag-and-drop-designer-forms" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ドラッグアンドドロップデザイナーフォームでのグループとタブの設定はサポートされます。</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group &quot;diseases&quot;. Add
-a field &quot;desease&quot; with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h2>条件付き表示<a class="headerlink" href="#conditional-visibility" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>グループは式に基づいて非表示にすることができます。 これは、ある属性が特定の条件下でのみ必要な場合に役立ちます。 例として、木のマッピングを挙げてみましょう。いくつかの木は病気にかかっている可能性があり、あなたは想定される病気のリストを持っています。 入力フォームを多数のフィールドで分かりづらくさせないために、グループを作成し、グループ「病気」の表示設定をします。 チェックボックス付きのフィールド「病気」を追加します。 チェックボックスがチェックされている場合にのみ、病気のリストがユーザーに利用可能になります。</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox &quot;measures_taken&quot; is checked.</span></p>
+<p class="caption"><span class="caption-text">チェックボックス「measures_taken」がチェックされている場合にのみ表示されるグループボックスの構成。</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<h2>制約<a class="headerlink" href="#constraints" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>属性フィールドには制約を追加できます。制約はフォームを保存することができるように  <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) に評価する必要がある式です。制約はフィールドごとに構成され、制約が満たされない場合にユーザーに表示される説明を追加できます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">範囲内の制約の構成</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>一般的な使用例<a class="headerlink" href="#common-use-cases" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>この国で最も標高が高い山よりも大きな標高値を入力することはできません。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>identifier は入力必須の項目です。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<h2>初期値<a class="headerlink" href="#default-values" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>フィールドには初期値を設定できます。 新しいフィーチャをデジタイズするときに、初期値が属性フォームに入力されます。 これらはユーザーに表示され、フィールドが編集可能な限り変更できます。 それらは、ジオメトリ変数または式変数に基づくことができます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">初期値として書式設定された日付の構成</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h3>追加の変数<a class="headerlink" href="#additional-variables" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>QFieldには、現在の位置情報に関する追加の変数がいくつかあります。</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : 経度、緯度、高度はセンサーによって配信されます。 十字線がセンサーにスナップされていない場合にも使用できます。</li>
+<li><cite>position_timestamp</cite> (DateTime) : 位置情報のタイムスタンプ</li>
+<li><cite>position_direction</cite> (float) : 真北からの度単位で示す方向</li>
+<li><cite>position_ground_speed</cite> (float) : メートル/秒で示される対地速度</li>
+<li><cite>position_magnetic_variation</cite> (float) : 磁場の水平成分と真北の間の度単位の角度。 磁気偏角とも呼ばれます。 正の値は真北から時計回りの方向を示し、負の値は反時計回りの方向を示します。</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : 座標の水平精度（メートル単位）。</li>
+<li><cite>position_vertical_accuracy</cite> (float) : 座標の垂直精度（メートル単位）。</li>
+<li><cite>position_vertical_speed</cite> (float) : メートル/秒で示される垂直速度の値。</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>一般的な使用例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>位置情報を変数として挿入します。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>現在の日付と時間を挿入します。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>デジタイズした線分の長さを挿入します。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>デバイス上のグローバル変数を構成し挿入します。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>新しいフィーチャが挿入される場所に基づいて地域コードを割り当てる場合は、集計式を使用して割り当てることができます。</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>編集可否<a class="headerlink" href="#editable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>フィールドの編集可能フラグが優先されます。</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<h2>最後の値を記憶する<a class="headerlink" href="#remember-last-values" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>QFieldは、最後に使用した値をよりきめ細かく制御することでQGIS設定を無視します。</p>
 </div>
 </div>
 

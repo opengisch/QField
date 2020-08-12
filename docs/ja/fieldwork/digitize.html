@@ -97,9 +97,9 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Collect features</a><ul>
-<li><a class="reference internal" href="#points">Points</a></li>
-<li><a class="reference internal" href="#lines-and-polygons">Lines and polygons</a></li>
-<li><a class="reference internal" href="#attribute-form">Attribute form</a></li>
+<li><a class="reference internal" href="#points">ポイント</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">ラインとポリゴン</a></li>
+<li><a class="reference internal" href="#attribute-form">属性情報フォーム</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#delete-features">Delete features</a></li>
@@ -169,38 +169,32 @@
       
   <div class="section" id="collect-features">
 <h1>Collect features<a class="headerlink" href="#collect-features" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>To start digitizing new features, enable the <strong>Edit mode</strong> in the main menu (<em>pencil button</em>) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).</p>
+<p>新しいフィーチャのデジタイジングをするには、メインメニュー（<em>鉛筆ボタン</em>）から <strong>編集モード</strong> を有効にし、新しくフィーチャを追加したいレイヤを選択してください（選択したレイヤーはグレイでハイライトされます）。</p>
 <img alt="../_images/user-guide_digit1.png" src="../_images/user-guide_digit1.png" />
 <div class="section" id="points">
-<h2>Points<a class="headerlink" href="#points" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Navigate the crosshair in the center of the screen to the desired location and
-click the <strong>+ button</strong> at the lower right of the screen to confirm the creation of a
-new point feature.</p>
-<p>You can use the <strong>keep centered</strong> button to force the crosshair to center on your location if you have enabled the GPS.</p>
+<h2>ポイント<a class="headerlink" href="#points" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>画面の中央にある十字線を目的の場所に移動し、画面の右下にある <strong>+ボタン</strong> をクリックして、新しいポイントフィーチャの作成を確認します。</p>
+<p>GPSを有効にしている場合は、 <strong>中央に維持</strong> ボタンを使用して、十字線を現在地の中央に自動的に移動できます。</p>
 <img alt="../_images/user-guide_digit2.png" src="../_images/user-guide_digit2.png" />
 </div>
 <div class="section" id="lines-and-polygons">
-<h2>Lines and polygons<a class="headerlink" href="#lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Navigate the crosshair in the center of the screen to the desired start of the line or polygon and click the <strong>Plus (+) button</strong> at the lower right of the screen to add the first node.</p>
-<p>Proceed with adding points to form you line or polygon by clicking the <strong>Plus (+) button</strong> each time you want to add a new node.</p>
-<p>Click the <strong>Minus (-) button</strong> to remove the last added node.</p>
-<p>Click the <strong>Close (X) button</strong> to cancel the feature creation completely.</p>
-<p>When you have added a least 2 nodes for a line or 3 nodes for a polygon, a <strong>Save button</strong> will appear. Click on it to finish your sketch.</p>
+<h2>ラインとポリゴン<a class="headerlink" href="#lines-and-polygons" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>画面の中央にある十字線を目的のラインまたはポリゴンの開始点に移動し、画面の右下にある <strong>プラス（+）ボタン</strong> をクリックして最初のノードを追加します。</p>
+<p>新しいノードごとに <strong>プラス（+）ボタン</strong> をクリックして、ポイントを追加してラインまたはポリゴンを形成します。</p>
+<p><strong>マイナス（-）ボタン</strong> をクリックして、最後に追加したノードを削除します。</p>
+<p><strong>閉じる (X) ボタン</strong> をクリックして、フィーチャの作成を完全にキャンセルします。</p>
+<p>少なくとも2つのノードをラインに追加するか、3つのノードをポリゴンに追加すると、 <strong>保存ボタン</strong> が表示されます。 クリックしてスケッチを完成させます。</p>
 <img alt="../_images/user-guide_digit3.png" src="../_images/user-guide_digit3.png" />
 </div>
 <div class="section" id="attribute-form">
-<h2>Attribute form<a class="headerlink" href="#attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>After digitizing a geometry, the attribute form will be displayed if it is not suppressed
-and the user will be asked to enter the attributes for the new feature.
-The form which appears allows entering attribute values for the new feature. The checkboxes
-at the right of every attribute allow for remembering each attribute individually.
-The next time you will add a feature on the same layer, these attributes will be already pre-filled.</p>
+<h2>属性情報フォーム<a class="headerlink" href="#attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>図形を作成した後、属性フォームが表示され、ユーザーは新しいフィーチャの属性を入力するよう求められます。 表示されるフォームでは、新しいフィーチャの属性値を入力できます。 すべての属性の右側にあるチェックボックスを使用すると、各属性をデフォルト値として記憶できます。 次回同じレイヤーにフィーチャを追加するとき、これらの属性は最初から入力されています。</p>
 <img alt="../_images/user-guide_digit4.png" src="../_images/user-guide_digit4.png" />
 </div>
 </div>
 <div class="section" id="delete-features">
 <h1>Delete features<a class="headerlink" href="#delete-features" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Deleting features is only possible in digitize mode.</p>
+<p>フィーチャの削除は編集モード時のみ利用可能です。</p>
 <p>To delete a feature, identify it first by a short tap on it. Then select it with a long press
 in the identification list, select further features to delete if you want and click the
 trash button to confirm the deletion.</p>

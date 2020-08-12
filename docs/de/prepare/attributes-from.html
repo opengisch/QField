@@ -98,24 +98,24 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
 <li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#field-widget">Feldwidget</a></li>
 <li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and Drop Designer Formulare</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Bedingte Sichtbarkeit</a></li>
+<li><a class="reference internal" href="#constraints">Bedingungen</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Übliche Anwendungsfälle</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Standardwerte</a><ul>
+<li><a class="reference internal" href="#additional-variables">Zusätzliche Variablen</a></li>
+<li><a class="reference internal" href="#id1">Übliche Anwendungsfälle</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">Editierbar</a></li>
+<li><a class="reference internal" href="#remember-last-values">Letzte Werte erinnern</a></li>
 </ul>
 </li>
 </ul>
@@ -179,14 +179,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Link zu dieser Überschrift">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QField erzeugt Formulare ähnlich wie, aber nicht komplett gleich wie QGIS</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Link zu dieser Überschrift">¶</a></h2>
 <p>The setting „suppress attribute form“ is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>Feldwidget<a class="headerlink" href="#field-widget" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Feldwidgets von QGIS werden nach besten Möglichkeiten unterstützt</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -194,44 +194,41 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">Feldtyp</th>
+<th class="head">Unterstützung</th>
+<th class="head">Notiz</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Text Edit</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>HTML wird nicht unterstützt</li>
+<li>Numerische Eingabe wird automatisch eingeschaltet, wenn der Feldtyp dies erfordert</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>Kontrollkästchen</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>Werteabbildung</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>Versteckt</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>Externe Resource</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td>Dieses Feld ist kombiniert mit der Kameraintegration. Bis jetzt könenn nur Bilder angeschaut werden. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanzierung</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>Datum Zeit</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td>Beziehungen</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -239,9 +236,9 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>Andere</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanzierung</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -287,114 +284,94 @@ Only images can be viewed so far.
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h2>Drag and Drop Designer Formulare<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Gruppen und Reiter von Drag and Drop Designer Formularen werden unterstützt.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group „diseases“. Add
-a field „desease“ with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h2>Bedingte Sichtbarkeit<a class="headerlink" href="#conditional-visibility" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Gruppen können dynamisch versteckt und angezeigt werden. Dies ist oft nützlich wenn einige Attribute nur unter bestimmten Bedingungen benötigt werden. Ein Beispiel ist die Kartierung von Bäumen. Einige können eine Krankheit haben, die genauer definiert werden kann. Damit das Formular übersichtlich bleibt, kann eine neue Gruppe mit den Feldern, die die Krankheit genauer definieren erstellt werden. Auf dieser Gruppe kann nun ein Sichtbarkeitsausdruck konfiguriert werden, der auf einem separaten Feld „Krankeit“ mit einem Kreuzkästchen basiert. Nur wenn dieses angekreuzt ist, stehen die zusätzlichen Felder zur Verfügung.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox „measures_taken“ is checked.</span></p>
+<p class="caption"><span class="caption-text">Konfiguration einer Widget-Gruppe, die nur sichtbar ist, wenn das Auswahl-Kästchen „measure_taken“ angekreut ist.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<h2>Bedingungen<a class="headerlink" href="#constraints" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Attributfelder können Bedingungen haben. Bedingungen sind Ausdrücke, die entweder zu <code class="code docutils literal"><span class="pre">True</span></code> (oder <code class="code docutils literal"><span class="pre">1</span></code>) aufgelöst werden müssen, damit das Formular gespeichert werden kann. Bedingungen werden auf Feldebene konfiguriert und eine Beschreibung kann hinzugefügt werden, die dem Nutzer angezeigt wird, wenn eine Bedingung nicht erfüllt ist.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Konfiguration einer Bedingung innerhalb eines Bereichs.</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>Übliche Anwendungsfälle<a class="headerlink" href="#common-use-cases" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Es kann keine Höhe eingegeben werden, die höher ist als der höchste Berg in diesem Land.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Es ist nötig, eine Bezeichnung einzugeben.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<h2>Standardwerte<a class="headerlink" href="#default-values" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Felder können Standardwerte haben. Standardwerte werden automatisch in das Formular eingefügt, wenn ein neues Objekt erzeugt wird. Sie sind für den Nutzer sichtbar und können bearbeitet werden, sofern das Feld editierbar ist. Sie können auch auf der Geometrie oder Ausdrucksvariablen basieren.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Konfiguration eines formattierten Datums als Standardwert.</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="Link zu dieser Überschrift">¶</a></h3>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h3>Zusätzliche Variablen<a class="headerlink" href="#additional-variables" title="Link zu dieser Überschrift">¶</a></h3>
+<p>In QField stehen einige zusätzliche Variablen bezüglich der aktuellen Positionierungsinformationen zur Verfügung.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><cite>position_coordinate</cite> (Geometrie in WGS84!) : Lon, Lat, Altitude wie vom Sensor geliefert. Ist auch verfügbar, wenn das Fadenkreuz nicht am Sensor eingerastet ist.</li>
+<li><cite>position_timestamp</cite> (DateTime) : Zeitstempel der Positionsinformation</li>
+<li><cite>position_direction</cite> (float) : Richtung in Grad vom wahren Norden.</li>
+<li><cite>position_ground_speed</cite> (float) : Geschwindigkeit in Meter / Sekunde.</li>
+<li><cite>position_magnetic_variation</cite> (float) : Der Winkel zwischen der horizontalen Komponente des Magnetfeldes und dem wahren Norden, in Grad. Auch bekannt als magnetische Deklination. Ein positiver Wert zeigt im Uhrzeigersinn eine Richtung vom wahren Norden aus gesehen an, ein negativer Wert zeigt eine Richtung gegen den Uhrzeigersinn an.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : Die horizontale Genauigkeit der Koordinate (in Metern).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : Die vertikale Genauigkeit der Koordinate (in Metern).</li>
+<li><cite>position_vertical_speed</cite> (float) : Der Wert der vertikalen Geschwindigkeit in Metern pro Sekunde.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>Übliche Anwendungsfälle<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Positionsinformationen als Variable einbinden:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Aktuelles Datum und Zeit einfüllen.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Die Länge der digitalisierten Linie einfügen:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Globale Variablen auf dem Gerät konfigurieren und verwenden.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Falls ein neues Objekt ein Code entsprechend der Region, in der es digitalisiert wurde erhalten soll, kann dies mit einem aggregierten Ausdruck gemacht werden:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>Editierbar<a class="headerlink" href="#editable" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Das Flag für Editierbarkeit eines Felds wird berücksichtigt</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="Link zu dieser Überschrift">¶</a></h2>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<h2>Letzte Werte erinnern<a class="headerlink" href="#remember-last-values" title="Link zu dieser Überschrift">¶</a></h2>
+<p>QField bietet eine viel finkörnigere Kontrolle über das Erinnern von Attributen als QGIS und ignoriert die entsprechende QGIS Einstellung.</p>
 </div>
 </div>
 

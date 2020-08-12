@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Change map themes" href="map-themes.html" />
-    <link rel="prev" title="GPS" href="gps.html" />
+    <link rel="prev" title="Géolocalisation" href="gps.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -97,9 +97,9 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Interact with the map</a><ul>
-<li><a class="reference internal" href="#map-legend">Map legend</a></li>
-<li><a class="reference internal" href="#identify-features">Identify features</a><ul>
-<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions to identified layers</a></li>
+<li><a class="reference internal" href="#map-legend">Légende de carte</a></li>
+<li><a class="reference internal" href="#identify-features">Sélectionner des entités</a><ul>
+<li><a class="reference internal" href="#exceptions-to-identified-layers">Exceptions couches interrogeables</a></li>
 </ul>
 </li>
 </ul>
@@ -113,7 +113,7 @@
             
               
   <li>
-    <a href="gps.html" title="Previous Chapter: GPS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; GPS</span>
+    <a href="gps.html" title="Previous Chapter: Géolocalisation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Géolocalisation</span>
     </a>
   </li>
   <li>
@@ -166,26 +166,26 @@
   <div class="section" id="interact-with-the-map">
 <h1>Interact with the map<a class="headerlink" href="#interact-with-the-map" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="map-legend">
-<h2>Map legend<a class="headerlink" href="#map-legend" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Open the <strong>Main menu</strong> and expend the layers list to display the legend of the map.</p>
+<h2>Légende de carte<a class="headerlink" href="#map-legend" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ouvrir le <strong>menu</strong> et dérouler la liste des couches pour afficher la légende de la carte.</p>
 <img alt="../_images/user-guide_legend.png" src="../_images/user-guide_legend.png" />
 </div>
 <div class="section" id="identify-features">
-<h2>Identify features<a class="headerlink" href="#identify-features" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.</p>
+<h2>Sélectionner des entités<a class="headerlink" href="#identify-features" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cliquer sur une entité de la carte pour la sélectionner. Si d’autres entités sont proches de cette dernière (soit parce qu’il y a plusieurs entités très proches les unes des autres ou parce que plusieurs couches se chevauchent), elles seront toutes sélectionnées et listées dans le volet à droite de l’écran.</p>
 <img alt="../_images/user-guide_identify-feature.png" src="../_images/user-guide_identify-feature.png" />
-<p>Tap on one of the listed feature to access its attributes.</p>
+<p>Cliquer sur l’une d’entre elles dans la liste pour accéder à ses attributs.</p>
 <ol class="arabic simple">
-<li>Tap the <strong>arrows</strong> to scroll through all the identified features.</li>
-<li>Tap the <strong>centre button</strong> to center the map on the selected feature.</li>
-<li>Tap  the <strong>edit button</strong> to edit the attributes of the selected feature.</li>
+<li>Utiliser les <strong>flèches</strong> pour faire défiler les entités sélectionnées.</li>
+<li>Cliquer sur le bouton <strong>centrer</strong> pour centrer la carte sur l’entité sélectionnée.</li>
+<li>Cliquer sur le bouton <strong>éditer</strong> pour modifier les attributs de l’entité sélectionnée.</li>
 <li>Scroll through the <strong>sub-menus</strong> to access all the attributes.</li>
 </ol>
 <img alt="../_images/user-guide_identify-feature-attributes.png" src="../_images/user-guide_identify-feature-attributes.png" />
 <div class="section" id="exceptions-to-identified-layers">
-<h3>Exceptions to identified layers<a class="headerlink" href="#exceptions-to-identified-layers" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Often it is not required to be able to query every layer. Some layers are only present as basemap and their attributes are not of interest.</p>
-<p>You can manage this layerlist in QGIS desktop in <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span> and uncheck the base layers.</p>
+<h3>Exceptions couches interrogeables<a class="headerlink" href="#exceptions-to-identified-layers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il n’est souvent pas nécessaire de pouvoir interroger chacune des couches du projet. Certaines couches sont uniquement utiles comme fond de plan et leurs attributs n’ont pas d’intérêt.</p>
+<p>Il est possible de gérer la liste des couches interrogeables dans QGIS desktop <span class="menuselection">Projet ‣ Propriétés du projet ‣ Identifier les couches</span> . Décocher à cet endroit les couches qui ne doivent pas être interrogeables.</p>
 </div>
 </div>
 </div>

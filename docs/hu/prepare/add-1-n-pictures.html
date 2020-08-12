@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="hu">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... dokumentáció</title>
+    <title>Képsorozat hozzáadása egy elemhez &#8212; QField Documentation 1.0 - M... dokumentáció</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Tárgymutató" href="../genindex.html" />
     <link rel="search" title="Keresés" href="../search.html" />
-    <link rel="next" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="next" title="Jelmagyarázat elrejtésének engedélyezése" href="allow-hiding-legend-nodes.html" />
     <link rel="prev" title="Prepare for Work" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -96,16 +96,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
-<li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
-<li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
+<li><a class="reference internal" href="#">Képsorozat hozzáadása egy elemhez</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">Két tábla létrehozása</a><ul>
+<li><a class="reference internal" href="#apiary"><strong>Méhészet</strong></a></li>
+<li><a class="reference internal" href="#apiary-pictures"><strong>Méhészet_képek</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
-<li><a class="reference internal" href="#widgets">Widgets</a><ul>
-<li><a class="reference internal" href="#id1">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#relations">Kapcsolatok</a></li>
+<li><a class="reference internal" href="#widgets">Vezérlők</a><ul>
+<li><a class="reference internal" href="#id1">méhészet</a></li>
+<li><a class="reference internal" href="#picture">kép</a></li>
 </ul>
 </li>
 </ul>
@@ -123,7 +123,7 @@
     </a>
   </li>
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Allow hiding ... &raquo;</span>
+    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: Jelmagyarázat elrejtésének engedélyezése"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Jelmagyarázat... &raquo;</span>
     </a>
   </li>
             
@@ -170,38 +170,37 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
+<h1>Képsorozat hozzáadása egy elemhez<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
+<p>Egy vagy több képet adhat egy elemhez. Lentebb talál egy példát hogyan csinálja.</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>We will need two tables. One table where the features are stored
-and one with a list of pictures.</p>
+<h2>Két tábla létrehozása<a class="headerlink" href="#creating-two-tables" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Két táblára lesz szükségünk. Egy tábla, ahol az elemeket tároljuk és egy a képek listájával.</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet</strong><a class="headerlink" href="#apiary" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">geometry</span></code></li>
+<li><code class="docutils literal"><span class="pre">geometria</span></code></li>
 <li>…</li>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<h3><strong>Méhészet_képek</strong><a class="headerlink" href="#apiary-pictures" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code></li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">path</span></code> (TEXT)</li>
+<li><code class="docutils literal"><span class="pre">útvonal</span></code> (TEXT)</li>
 <li>…</li>
 </ul>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>Create a relation with:</p>
+<h2>Kapcsolatok<a class="headerlink" href="#relations" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>Kapcsolat létrehozása ezzel:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
+<li><code class="docutils literal"><span class="pre">méhészet</span></code> hivatkozott réteg</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> hivatkozott mező</li>
+<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> hivatkozó réteg</li>
+<li><code class="docutils literal"><span class="pre">apiary_id</span></code> hivatkozó mező</li>
 <li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
 </ul>
 <div class="clearer text-center docutils container">
@@ -209,21 +208,21 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<h2>Vezérlők<a class="headerlink" href="#widgets" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<h3>méhészet<a class="headerlink" href="#id1" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A mező alapértelmezett értéknek <cite>uuid()</cite>-re állítása`. Nem szükséges az űrlapon megjeleníteni.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code> and add the relation to the form</p>
+<p>Állítsa be a kapcsolat vezérlőt „Több az egyhez kapcsolat”-ra és adjon egy kapcsolatot az űrlaphoz</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive2.png"><img alt="widgets2" src="../_images/add-1-n-pictures-widgets_hive2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
+<h3>kép<a class="headerlink" href="#picture" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>Állítsa be a mező útvonal típusát <code class="docutils literal"><span class="pre">hozzárendelés</span></code>-re és adja az űrlaphoz</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>

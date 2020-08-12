@@ -104,18 +104,18 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Visibilità condizionata</a></li>
+<li><a class="reference internal" href="#constraints">Vincoli</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Casi di uso comune</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
+<li><a class="reference internal" href="#default-values">Valori di default</a><ul>
 <li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#id1">Casi di uso comune</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">Editabile</a></li>
+<li><a class="reference internal" href="#remember-last-values">Ricorda l’ultimo valore</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +179,7 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Link a questa intestazione">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QField crea un form simile ma non uguale a quello di QGIS.</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Link a questa intestazione">¶</a></h2>
 <p>The setting «suppress attribute form» is directly applied to the QField form.</p>
@@ -195,21 +195,21 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<th class="head">Supporto</th>
+<th class="head">Note</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Text Edit</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
+<li>HTML non è supportato</li>
 <li>Numerical input is enforced based on the
 type.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>casella di controllo</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -217,17 +217,17 @@ type.</li>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>Nascosto</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>Risorsa externa</td>
 <td><span class="moreorless">~</span></td>
 <td>This field is combined with camera integration.
 Only images can be viewed so far.
 <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>Data</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -239,7 +239,7 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>Altri</td>
 <td><span class="nay">✘</span></td>
 <td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
 </tr>
@@ -291,7 +291,7 @@ Only images can be viewed so far.
 <p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Link a questa intestazione">¶</a></h2>
+<h2>Visibilità condizionata<a class="headerlink" href="#conditional-visibility" title="Link a questa intestazione">¶</a></h2>
 <p>Groups can be hidden based on an expression. This is useful when certain attributes are
 only required under certain conditions. As an example imagine mapping trees. Some of them
 might have a disease and you have a list of possible deseases. To not clutter the form with
@@ -306,7 +306,7 @@ will be available to the user.</p>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Link a questa intestazione">¶</a></h2>
+<h2>Vincoli<a class="headerlink" href="#constraints" title="Link a questa intestazione">¶</a></h2>
 <p>Attribute fields can have constraints attached. Constraints are expressions that needs to
 evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
 are configured on a per-field basis and a description can be added that will be shown to the
@@ -314,23 +314,23 @@ user if a constraint is not satisfied.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configurazione di un vincolo in un intervallo</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Link a questa intestazione">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>Casi di uso comune<a class="headerlink" href="#common-use-cases" title="Link a questa intestazione">¶</a></h3>
+<p>Non puoi inserire un valore di quota più alto della più alta montagna in questa nazione.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>è chiesto di inserire un idenfificatore.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Link a questa intestazione">¶</a></h2>
+<h2>Valori di default<a class="headerlink" href="#default-values" title="Link a questa intestazione">¶</a></h2>
 <p>Fields can have default values configured. Default values are inserted into the
 attribute form when digitizing a new feature. They are visible to the user and can
 be modified as long as the field is editable. They can be based on the geometry or
@@ -364,36 +364,35 @@ per second.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<h3>Casi di uso comune<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <p>Insert positioning information as variable:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Inserisci l’ora e la data corrente:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Inserisci la lunghezza della linea digitalizzata:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configura le variabili globali sul dispositivo e inseriscili.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Se vuoi assegnare un codice di regione basato sulla zona dove la nuova feature è inserita, puoi farlo utilizzando una espressione di aggregazione:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="Link a questa intestazione">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>Editabile<a class="headerlink" href="#editable" title="Link a questa intestazione">¶</a></h2>
+<p>La spunta editabile sui campi è rispettata.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="Link a questa intestazione">¶</a></h2>
+<h2>Ricorda l’ultimo valore<a class="headerlink" href="#remember-last-values" title="Link a questa intestazione">¶</a></h2>
 <p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
 </div>
 </div>

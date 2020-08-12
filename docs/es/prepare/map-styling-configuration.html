@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Configure Map Themes" href="map-themes.html" />
+    <link rel="next" title="Configuración de temas de mapas" href="map-themes.html" />
     <link rel="prev" title="Custom SVG symbols" href="custom-svg.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -97,16 +97,16 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Map styling and configuration</a><ul>
-<li><a class="reference internal" href="#style">Style</a></li>
-<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
-<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
-<li><a class="reference internal" href="#snapping">Snapping</a><ul>
-<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
-<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
-<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+<li><a class="reference internal" href="#style">Estilo</a></li>
+<li><a class="reference internal" href="#display-expression">Expresión de visualización</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Capas de solo lectura, no-identificables y consultables</a></li>
+<li><a class="reference internal" href="#snapping">Autoensamblado</a><ul>
+<li><a class="reference internal" href="#snapping-types">Tipos de autoensamblado</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Ajustar a capas</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Tolerancia de autoensamblado</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+<li><a class="reference internal" href="#d-coordinates">Coordenadas 3D</a></li>
 </ul>
 </li>
 </ul>
@@ -122,7 +122,7 @@
     </a>
   </li>
   <li>
-    <a href="map-themes.html" title="Next Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configure Map Themes &raquo;</span>
+    <a href="map-themes.html" title="Next Chapter: Configuración de temas de mapas"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configuración... &raquo;</span>
     </a>
   </li>
             
@@ -170,75 +170,61 @@
       
   <div class="section" id="map-styling-and-configuration">
 <h1>Map styling and configuration<a class="headerlink" href="#map-styling-and-configuration" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Most of the settings which QGIS offers are directly supported by QField without any extra effort.</p>
+<p>La mayoría de los ajustes que ofrece QGIS son soportados directamente por QField sin ningún esfuerzo extra.</p>
 <div class="section" id="style">
-<h2>Style<a class="headerlink" href="#style" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>All style settings from QGIS are directly supported by QField.
-This includes all renderer types like graduated, categorized,
-rule based, 2.5D as well as data defined symbology.</p>
+<h2>Estilo<a class="headerlink" href="#style" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Todos los ajustes de estilo de QGIS son soportados directamente por QField. Esto incluye todos los tipos de renderizado como graduado, categorizado, basado en reglas, 2.5D así como simbología definida por datos.</p>
 </div>
 <div class="section" id="display-expression">
-<h2>Display Expression<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>In QField, objects are identified with a name. The expression to generate this name can be defined
-by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
-field or an expression in the list there. Starting from QGIS 3, this can be done directly from
-the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
-<p>The display expression is also used to search in layers.</p>
+<h2>Expresión de visualización<a class="headerlink" href="#display-expression" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En QField, los objetos son identificados con un nombre. La expresión para generar este nombre se puede definir abriendo la tabla de atributos en QGIS y cambiando a la vista de formulario. Elija el campo apropiado o una expresión de la lista. A partir de QGIS 3, esto se puede hacer directamente desde la página <span class="menuselection">Propiedades de capa vectorial ‣ Visualización</span> .</p>
+<p>La expresión de visualización se utiliza también para buscar en las capas.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id1">
 <a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+<p class="caption"><span class="caption-text">La expresión de visualización se usará para representar los objetos con una cadena de identificación a través de QField.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="read-only-non-identifiable-and-searchable-layers">
-<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Some layers in a project are just there for pure visual purpose. Such
-layers should not show up when a user taps somewhere to identify objects.</p>
-<p>Some other layers serve as source of information and shouldn’t be modified
-by the user. It is possible to protect layers from editing attributes or
-adding and deleting features.</p>
-<p>It is also possible to configure which layers are searchable.</p>
-<p>To configure identify, readonly and searchable behavior,
-go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
-page and activate the checkboxes to match your desired behavior.</p>
+<h2>Capas de solo lectura, no-identificables y consultables<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Algunas capas de un proyecto sólo están ahí motivos puramente visuales. Estas capas no deben aparecer cuando un usuario pulsa en algún lugar para identificar objetos.</p>
+<p>Otras capas sirven como fuente de información y no deben ser modificadas por el usuario. Es posible proteger las capas para que no se puedan editar atributos o añadir y eliminar objetos.</p>
+<p>También es posible configurar cuáles capas son consultables.</p>
+<p>Para configurar la identificación, el comportamiento de sólo lectura y la capacidad de ser consultable, vaya a la opción de menú <span class="menuselection">Proyecto -&gt; Propiedades del proyecto -&gt; Identificar capas (Fuentes de datos)</span> y active las casillas para que coincidan con el comportamiento deseado.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
+<p class="caption"><span class="caption-text">Configuración de capas que no serán identificables, no serán modificables y/o no serán consultables.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="snapping">
-<h2>Snapping<a class="headerlink" href="#snapping" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>While digitizing new features, new points can be snapped to existing
-geometries.</p>
-<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
-(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<h2>Autoensamblado<a class="headerlink" href="#snapping" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Cuando se digitalizan objetos nuevos, se pueden autoensamblar los puntos nuevos a geometrías existentes.</p>
+<p>Toda la configuración puede hacerse en <span class="menuselection">Proyecto ‣ Opciones de autoensamblado</span> (<span class="menuselection">Configuración ‣ Opciones de autoensamblado</span> en QGIS 2.x).</p>
 <div class="section" id="snapping-types">
-<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>It is possible to snap new points</p>
+<h3>Tipos de autoensamblado<a class="headerlink" href="#snapping-types" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Es posible autoajustar nuevos puntos</p>
 <ul class="simple">
-<li>only to nodes of existing geomtries</li>
-<li>only to segments of existing geomtries</li>
-<li>to nodes and segments of existing geomtries</li>
+<li>sólo a nodos de geometrías existentes</li>
+<li>sólo a segmentos de geometrías existentes</li>
+<li>a nodos y segmentos de geometrías existentes.</li>
 </ul>
 </div>
 <div class="section" id="snapping-to-layers">
-<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>It is also possible to only snap to one or a few layers.</p>
+<h3>Ajustar a capas<a class="headerlink" href="#snapping-to-layers" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>También es posible autoajustar sólo a una o varias capas.</p>
 </div>
 <div class="section" id="snapping-tolerance">
-<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The snapping tolerance can be specified in map units or pixels.</p>
-<p>In almost any case, the units should be set to pixels. We made good
-experiences with a tolerance value of 20.</p>
+<h3>Tolerancia de autoensamblado<a class="headerlink" href="#snapping-tolerance" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La tolerancia de autoensamblado se puede especificar en unidades de mapa o pixeles.</p>
+<p>En la mayoría de los casos, las unidades deberían establecerse a píxeles. Hemos tenido buenas experiencias con un valor de tolerancia de 20.</p>
 </div>
 </div>
 <div class="section" id="d-coordinates">
-<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>GPS devices are capable of measuring the altitude next to the current 2D
-position on the earth surface. This information can be saved</p>
+<h2>Coordenadas 3D<a class="headerlink" href="#d-coordinates" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los aparatos GPS son capaces de medir la altitud junto a la posición 2D actual sobre la superficie terrestre. Esta información se puede guardar.</p>
 </div>
 </div>
 

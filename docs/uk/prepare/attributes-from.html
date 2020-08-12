@@ -97,24 +97,24 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
 <li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#field-widget">Віджет поля</a></li>
 <li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
 <li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Інтерактивний редактор форм</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Умовна видимість</a></li>
+<li><a class="reference internal" href="#constraints">Обмеження</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Приклади використання</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Типові значення</a><ul>
+<li><a class="reference internal" href="#additional-variables">Додаткові змінні</a></li>
+<li><a class="reference internal" href="#id1">Приклади використання</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">Редагування</a></li>
+<li><a class="reference internal" href="#remember-last-values">Запам’ятовувати останні значення</a></li>
 </ul>
 </li>
 </ul>
@@ -178,14 +178,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QField створює форми, схожі на форми QGIS, але не однакові з ними.</p>
 <div class="section" id="suppress-attribute-form">
 <h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>The setting «suppress attribute form» is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>Віджет поля<a class="headerlink" href="#field-widget" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Ми докладаємо всіх зусиль, щоб підтримувати всі віджети поля QGIS.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -193,40 +193,37 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">Тип поля</th>
+<th class="head">Підтримка</th>
+<th class="head">Примітки</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td>Текстове поле</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>HTML не підтримується</li>
+<li>Введення чисел забезпечується на основі типу даних.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>Перемикач</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>Карта значень</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>Приховане</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>Зовнішній ресурс</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td>Це поле інтегрується з камерою. Станом на сьогодні переглядати можна лише зображення. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Фінансування</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>Дата і час</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -238,9 +235,9 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>Інші</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Фінансування</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -286,114 +283,94 @@ Only images can be viewed so far.
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h2>Інтерактивний редактор форм<a class="headerlink" href="#drag-and-drop-designer-forms" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Повна підтримка груп та вкладок інтерактивного редактора форм QGIS.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group «diseases». Add
-a field «desease» with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h2>Умовна видимість<a class="headerlink" href="#conditional-visibility" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Групи можуть бути приховані в залежності від результатів виразу. Це може бути корисним, коли певні атрибути необхідні лише в певних умовах. Наприклад, під час картографування дерев. Деякі з них можуть мати захворювання і у вас є список можливих захворювань. Щоб не перевантажувати форму багатьма полями, зробіть групу та налаштуйте вираз видимості для групи «diseases». Додайте поле-перемикач «desease». Список захворювань буде видимий лише коли перемикач активний.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox «measures_taken» is checked.</span></p>
+<p class="caption"><span class="caption-text">Настройки групи, яка буде відображатися лише коли прапорець «виміри зроблено» активовано.</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<h2>Обмеження<a class="headerlink" href="#constraints" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>На атрибути можна накладати обмеження. Обмеження — це вирази, які повинні повертати <code class="code docutils literal"><span class="pre">True</span></code> (або <code class="code docutils literal"><span class="pre">1</span></code>) щоб вміст форми можна було зберегти. Обмеження налаштовуються дл кожного поля окремо, також можна вказати текст, який буде показаний користувачу, якщо обмеження не виконується.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Настройка обмежень діапазону</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>Приклади використання<a class="headerlink" href="#common-use-cases" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Ви не можете ввести висоту більшу за найвищу вершину країни.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Необхідно заповнити ідентифікатор.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<h2>Типові значення<a class="headerlink" href="#default-values" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Поля можуть мати типові значення. Типові значення вставляються у форму атрибутів під час оцифровки об’єкта. Користувач їх бачить та може змінити, якщо поле може редагуватися. Типові значення можуть базуватися на значеннях геометрії чи виразів.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Настройка дати як величини за замовчуванням</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h3>Додаткові змінні<a class="headerlink" href="#additional-variables" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>У QField доступні додаткові змінні, які стосуються інформації про поточне місцерозташування.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Довгота, широта, висота отримані від сенсора. Доступні також коли перехрестя на карті не прив’язане до сенсора.</li>
+<li><cite>position_timestamp</cite> (DateTime) : Час отримання інформації про місцезнаходження</li>
+<li><cite>position_direction</cite> (float) : Напрям у градусах від істинної півночі.</li>
+<li><cite>position_ground_speed</cite> (float) : Швидкість у метрах за секунду.</li>
+<li><cite>position_magnetic_variation</cite> (float) : Кут між горизонтальною компонентою магнітного поля та істинною північчю у градусах. Також відомий як магнітне відхилення. Додатнє значення вказує на напрямок за годинниковою стрілкою від справжньої півночі, а від’ємне значення вказує напрямок проти годинникової стрілки.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : Горизонтальна точність для координат (у метрах).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : Вертикальна точність для координат (у метрах).</li>
+<li><cite>position_vertical_speed</cite> (float) : Значення вертикальної швидкості у метрах на секунду.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>Приклади використання<a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Введіть інформацію позиціонування як змінну:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Вставити поточну дату та час:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Вставити довжину оцифрованої лінії:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Налаштувати глобальні змінні на пристрої та вставити їх.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>Якщо ви хочете призначити об’єктам код регіону в залежності від того, де сами вони були додані, використовуйте агрегатну функцію:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>Редагування<a class="headerlink" href="#editable" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Атрибут редагування поля має значення.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="Постійне посилання на цей заголовок">¶</a></h2>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<h2>Запам’ятовувати останні значення<a class="headerlink" href="#remember-last-values" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>QField пропонує більш гнучке налаштування використання останніх внесених значень та ігнорує настройку QGIS.</p>
 </div>
 </div>
 

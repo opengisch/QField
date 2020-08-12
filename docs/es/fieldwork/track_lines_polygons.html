@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Global variables" href="variables.html" />
+    <link rel="next" title="Variables globales" href="variables.html" />
     <link rel="prev" title="Search" href="search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -110,7 +110,7 @@
     </a>
   </li>
   <li>
-    <a href="variables.html" title="Next Chapter: Global variables"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Global variables &raquo;</span>
+    <a href="variables.html" title="Next Chapter: Variables globales"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Variables globales &raquo;</span>
     </a>
   </li>
             
@@ -158,28 +158,25 @@
       
   <div class="section" id="track-lines-and-polygons">
 <span id="track-linges-polygons"></span><h1>Track lines and polygons<a class="headerlink" href="#track-lines-and-polygons" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>You have the possibility to do tracking on lines and polygons.</p>
-<p>It’s available when GPS is enabled.
-A tracking session can be started over the legend - long press on the layer.</p>
+<p>Tiene la posibilidad de hacer el seguimiento de líneas y polígonos.</p>
+<p>Está disponible cuando el GPS está actvado. Una sesión de seguimiento se puede comenzar con una pulsación larga sobre la capa en la leyenda.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_started.jpeg"><img alt="track_lines_started" src="../_images/track_lines_started.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.</p>
+<p>El intervalo de tiempo y la distancia mínima se pueden introducir individualmente para definir cuándo hay que establecer un vértice.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracker_settings.jpeg"><img alt="tracker_settings" src="../_images/track_lines_tracker_settings.jpeg" style="width: 640px;" /></a>
 </div>
-<p>There can be several trackings session active on several layers.
-But only one tracking session per layer can be active at the time.</p>
+<p>Puede haber varias sesiones de seguimiento activas sobre varias capas. Pero solo puede haber una sesión de seguimiento activa por capa al mismo tiempo.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers1.jpeg"><img alt="tracking_layers1" src="../_images/track_lines_tracking_layers1.jpeg" style="width: 640px;" /></a>
 <a class="reference internal image-reference" href="../_images/track_lines_tracking_layers2.jpeg"><img alt="tracking_layers2" src="../_images/track_lines_tracking_layers2.jpeg" style="width: 640px;" /></a>
 </div>
-<p>The tracked feature is saved on every vertex.
-While the tracking session is active the layer is still editable, but the tracked feature can’t be edited or deleted until the tracking session is stopped over the legend again.</p>
+<p>El objeto seguido se guarda en cada vértice. La capa sigue siendo editable mientras la sesión de seguimiento está activa, pero el objeto seguido no se puede editar o borrar hasta que la sesión de seguimiento se detiene de nuevo sobre la leyenda.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/track_lines_stop_tracking_delete.jpeg"><img alt="stop_tracking_delete" src="../_images/track_lines_stop_tracking_delete.jpeg" style="width: 640px;" /></a>
 </div>
-<p>If the layer geometry supports m value, the time is stored in the m value, that passed since the first vertex of this tracking session has been recorded.</p>
+<p>Si la geometría de la capa admite valores M, el tiempo transcurrido desde que se registró el primer vértice de la sesión de seguimiento se guarda en el valor M.</p>
 </div>
 
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GPS &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>GPS定位 &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -95,8 +95,8 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">GPS</a><ul>
-<li><a class="reference internal" href="#using-external-gnss-reciever">Using external GNSS-Reciever</a></li>
+<li><a class="reference internal" href="#">GPS定位</a><ul>
+<li><a class="reference internal" href="#using-external-gnss-reciever">使用外部GNSS接收器</a></li>
 </ul>
 </li>
 </ul>
@@ -159,20 +159,20 @@
     <div class="col-md-9 content">
       
   <div class="section" id="gps">
-<h1>GPS<a class="headerlink" href="#gps" title="永久链接至标题">¶</a></h1>
-<p>A short press on the GPS button will turn on the GPS and center to the current location once positioning information is available.</p>
-<p>A long press on the GPS button will show the positioning menu.</p>
-<p>Inside the positioning menu you can turn on the positioning display which will show the current coordinates which are reprojected into the project CRS along with precision information.</p>
+<h1>GPS定位<a class="headerlink" href="#gps" title="永久链接至标题">¶</a></h1>
+<p>短按GPS按钮将打开GPS，获得位置信息后即将当前位置在地图上居中显示。</p>
+<p>长按GPS按钮将显示“定位”菜单。</p>
+<p>在定位菜单中，可以打开定位信息显示开关，显示当前坐标信息以及定位精度信息，坐标信息被自动转换为项目CRS。</p>
 <img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">If you see WGS 84 lat/lon information instead of information in your project CRS, you probably have no signal yet.</p>
+<p class="last">如果你看到的是WGS 84的经纬度坐标，而不是项目使用的CRS坐标值，很可能是因为还没有GPS信号。</p>
 </div>
 <div class="section" id="using-external-gnss-reciever">
-<h2>Using external GNSS-Reciever<a class="headerlink" href="#using-external-gnss-reciever" title="永久链接至标题">¶</a></h2>
+<h2>使用外部GNSS接收器<a class="headerlink" href="#using-external-gnss-reciever" title="永久链接至标题">¶</a></h2>
 <p>It is possible to provide a mock location via a separate android app to QField.
 There are several options for this, one of them is <a class="reference external" href="https://play.google.com/store/apps/details?id=com.lefebure.ntripclient">Android NTRIP Client</a>.</p>
-<p>To use this you have to <a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">enable mock locations on your Android device</a>.</p>
+<p>要使用此功能，您必须在Android设备上启用模拟位置 &lt;<a class="reference external" href="https://www.youtube.com/watch?v=v1eRHmMiRJQ">https://www.youtube.com/watch?v=v1eRHmMiRJQ</a>&gt;。</p>
 </div>
 </div>
 

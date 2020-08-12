@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Add a series of pictures to a feature &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>フィーチャに一連の写真を追加する &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
+    <link rel="next" title="凡例のノードを非表示にするのを許可する" href="allow-hiding-legend-nodes.html" />
     <link rel="prev" title="Prepare for Work" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -96,16 +96,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
-<li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
-<li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
+<li><a class="reference internal" href="#">フィーチャに一連の写真を追加する</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">２つのテーブルを作成する</a><ul>
+<li><a class="reference internal" href="#apiary"><strong>Apiary（養蜂場）</strong></a></li>
+<li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures（養蜂場の写真）</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
-<li><a class="reference internal" href="#widgets">Widgets</a><ul>
-<li><a class="reference internal" href="#id1">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#relations">リレーション</a></li>
+<li><a class="reference internal" href="#widgets">ウィジェット</a><ul>
+<li><a class="reference internal" href="#id1">apiary（養蜂場）</a></li>
+<li><a class="reference internal" href="#picture">picture（養蜂場の写真）</a></li>
 </ul>
 </li>
 </ul>
@@ -123,7 +123,7 @@
     </a>
   </li>
   <li>
-    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: Allow hiding legend nodes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Allow hiding ... &raquo;</span>
+    <a href="allow-hiding-legend-nodes.html" title="Next Chapter: 凡例のノードを非表示にするのを許可する"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">凡例のノードを非表示にするのを許可する &raquo;</span>
     </a>
   </li>
             
@@ -170,14 +170,13 @@
     <div class="col-md-9 content">
       
   <div class="section" id="add-a-series-of-pictures-to-a-feature">
-<h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
+<h1>フィーチャに一連の写真を追加する<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>フィーチャに１枚以上の写真を追加できます。次に示す例のようにして行います。</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We will need two tables. One table where the features are stored
-and one with a list of pictures.</p>
+<h2>２つのテーブルを作成する<a class="headerlink" href="#creating-two-tables" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この設定をするにはテーブルが２つ必要です。一つはフィーチャそれ自体を保存するテーブル、もう一つは写真のリストを保存するテーブルです。</p>
 <div class="section" id="apiary">
-<h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><strong>Apiary（養蜂場）</strong><a class="headerlink" href="#apiary" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code> (UUID)</li>
 <li><code class="docutils literal"><span class="pre">geometry</span></code></li>
@@ -185,7 +184,7 @@ and one with a list of pictures.</p>
 </ul>
 </div>
 <div class="section" id="apiary-pictures">
-<h3><strong>Apiary_pictures</strong><a class="headerlink" href="#apiary-pictures" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><strong>Apiary_pictures（養蜂場の写真）</strong><a class="headerlink" href="#apiary-pictures" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code></li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
@@ -195,35 +194,35 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Create a relation with:</p>
+<h2>リレーション<a class="headerlink" href="#relations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>リレーションを以下のように作成します：</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
-<li><code class="docutils literal"><span class="pre">id</span></code> Referenced field</li>
-<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> Referencing layer</li>
-<li><code class="docutils literal"><span class="pre">apiary_id</span></code> Referencing field</li>
-<li><code class="docutils literal"><span class="pre">strength</span></code> Composition</li>
+<li><code class="docutils literal"><span class="pre">apiary</span></code> 被参照レイヤ</li>
+<li><code class="docutils literal"><span class="pre">id</span></code> 被参照フィールド</li>
+<li><code class="docutils literal"><span class="pre">apiary_picture</span></code> 参照元レイヤ</li>
+<li><code class="docutils literal"><span class="pre">apiary_id</span></code> 参照元フィールド</li>
+<li><code class="docutils literal"><span class="pre">リレーションの強度</span></code> Composition</li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-relations.png"><img alt="Relations" src="../_images/add-1-n-pictures-relations.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ウィジェット<a class="headerlink" href="#widgets" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id1">
-<h3>apiary<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
+<h3>apiary（養蜂場）<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>フィールドIDのデフォルト値を <code class="docutils literal"><span class="pre">uuid()</span></code> に設定します。 フォーム上にこのIDを表示する必要はありません。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive.png"><img alt="widgets" src="../_images/add-1-n-pictures-widgets_hive.png" style="width: 600px;" /></a>
 </div>
-<p>Set the relation widget to <code class="docutils literal"><span class="pre">Many</span> <span class="pre">to</span> <span class="pre">one</span> <span class="pre">relation</span></code> and add the relation to the form</p>
+<p>関係ウィジェットを <code class="docutils literal"><span class="pre">多対１リレーション</span></code> に設定し、このリレーションをフォームに追加します。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_hive2.png"><img alt="widgets2" src="../_images/add-1-n-pictures-widgets_hive2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
+<h3>picture（養蜂場の写真）<a class="headerlink" href="#picture" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ウィジェットタイプを <code class="docutils literal"><span class="pre">アタッチメント</span></code> に設定し、フォームに追加します。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
 </div>
