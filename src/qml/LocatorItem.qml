@@ -89,8 +89,8 @@ Item {
       radius: 24
     }
 
-    inputMethodHints: Qt.ImhNoPredictiveText
-    onTextChanged: locator.performSearch(searchField.text)
+    inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+    onDisplayTextChanged: locator.performSearch(searchField.displayText)
   }
 
   BusyIndicator {
@@ -145,12 +145,13 @@ Item {
     id: resultsBox
     z: 1
     width: searchField.width - 24
-    height: searchField.visible && resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - 48) : 0
+    height: searchField.visible && resultsList.count > 0 ? resultsList.height : 0
     anchors.top: searchField.top
     anchors.left: searchField.left
     anchors.topMargin: 24
     color: "white"
     visible: searchField.visible && resultsList.count > 0
+    clip: true
 
     Behavior on height {
       NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
@@ -162,7 +163,7 @@ Item {
       anchors.top: resultsBox.top
       model: locator.proxyModel()
       width: parent.width
-      height: parent.height
+      height: resultsList.count > 0 ? Math.min( childrenRect.height, mainWindow.height / 2 - searchField.height - 10 ) : 0
       clip: true
 
       delegate: Rectangle {
