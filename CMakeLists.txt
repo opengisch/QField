@@ -104,9 +104,11 @@ IF (ANDROID)
 
   FILE(COPY resources DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/") # should we rather INSTALL everything and create the package from the installation instead?
   FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/") # should we rather INSTALL everything and create the package from the installation instead?
+  FILE(COPY resources/CHENyx06a.gsb DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/")
 
   FILE(GLOB_RECURSE asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/*")
   LIST(REMOVE_ITEM asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/data/world_map.gpkg")
+  LIST(REMOVE_ITEM asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/CHENyx06a.gsb")
 
   CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${asset_files}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
   ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
