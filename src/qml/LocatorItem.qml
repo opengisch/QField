@@ -31,13 +31,13 @@ Item {
     id: searchField
     height: fontMetrics.height + 20
     placeholderText: qsTr("Search…")
-    onTextEdited: locator.performSearch(searchField.text)
+    onDisplayTextChanged: locator.performSearch(searchField.displayText)
     width: parent.width
     anchors.top: parent.top
     anchors.right: parent.right
     visible: locatorItem.searching
     padding: 5
-    //inputMethodHints: Qt.ImhNoPredictiveText  // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
+    inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase // see https://forum.qt.io/topic/12147/solved-textfield-textinput-do-not-emit-textchanged-signal
     font: Theme.secondaryTitleFont
     selectByMouse: true
     verticalAlignment: TextInput.AlignBottom
@@ -100,7 +100,7 @@ Item {
     anchors.centerIn: parent
     model: locator.proxyModel()
     width: parent.width-2*resultsBox.border.width
-    height: resultsList.count > 0 ? Math.max( 200, mainWindow.height / 2 - searchField.height - 10 ) : 0
+    height: resultsList.count > 0 ? Math.min( childrenRect.height, mainWindow.height / 2 - searchField.height - 10 ) : 0
     clip: true
 
     delegate: Rectangle {
