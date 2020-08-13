@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Tárgymutató" href="genindex.html" />
     <link rel="search" title="Keresés" href="search.html" />
-    <link rel="next" title="Installation" href="install/index.html" />
+    <link rel="next" title="Telepítés" href="install/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -96,10 +96,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField - az ön mobil [Q]GIS megoldása</a><ul>
-<li><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Mode based</a></li>
+<li><a class="reference internal" href="#concepts">Vezérelvek</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">Maradjon egyszerű</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">QGIS kompatibilitás</a></li>
+<li><a class="reference internal" href="#mode-based">Üzemmód alapú rendszer</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">Tartalom</a></li>
@@ -118,7 +118,7 @@
             
               
   <li>
-    <a href="install/index.html" title="Next Chapter: Installation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Installation &raquo;</span>
+    <a href="install/index.html" title="Next Chapter: Telepítés"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Telepítés &raquo;</span>
     </a>
   </li>
             
@@ -148,14 +148,14 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/index.html">Telepítés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Szinkronizálás</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Kezdő oktatóanyag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Támogatott adatformátumok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Esettanulmányok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support/index.html">Támogatás és fejlesztés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 
@@ -167,55 +167,42 @@
   <div class="section" id="qfield-your-mobile-q-gis-solution">
 <h1>QField - az ön mobil [Q]GIS megoldása<a class="headerlink" href="#qfield-your-mobile-q-gis-solution" title="Hivatkozás erre a fejezetcímre">¶</a></h1>
 <p>A QField hatékony munkát tesz lehetővé a GIS adatain a terepen.</p>
-<p>QField’s optimized user interface for hides the full power of <a class="reference external" href="https://qgis.org">QGIS</a> under the hood.</p>
+<p>A QField optimalizált felhasználói felülete a motorház tető alá rejti a <a class="reference external" href="https://qgis.org">QGIS</a> teljes funkcionalitását.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/376372805" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 <div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
-<p>QField was designed with a few key concepts in mind.</p>
+<h2>Vezérelvek<a class="headerlink" href="#concepts" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
+<p>A QField-et néhány különösen lényeges alapelv szem előtt tartása mellett fejlesztettük.</p>
 <div class="section" id="keep-it-simple">
-<h3>Keep it simple<a class="headerlink" href="#keep-it-simple" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h3>Maradjon egyszerű<a class="headerlink" href="#keep-it-simple" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A terepi munkához kapcsolódó feltételek eltérnek azoktól, melyek az asztali számítógépek használatát jellemzik. Kisebb a kijelző, továbbá különböznek a beviteli eszközök és a feladatok jellege is.</p>
+<p>A QField a felhasználói felület túlzsúfolása nélkül kívánja segíteni a felhasználók tevékenységét. Ennek megfelelően csak a terepi munka során elvégzendő műveleteket foglalja magában, mást azonban nem.</p>
+<p>Mindez azt jelenti, hogy mindent, mint például a rétegstílusok kialakítását, űrlap definíciókat és más projekt beállításokat egy olyan számítógépen állíthatunk be, melyre előzőleg a QGIS-t telepítették.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h3>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<h3>QGIS kompatibilitás<a class="headerlink" href="#be-compatible-with-qgis" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A QField alapját a QGIS képezi, ugyanakkor nem egyszerűen a QGIS egy újrafordított változata, valójában a QGIS program könyvtárait használja. Mivel ugyanakkor a QField megjelenítő motorja megegyezik a QGIS-ben levővel, ezért a projektek pontosan ugyanúgy jelennek meg a mobil eszközökön, mint ahogyan a számítógépén láthatja.</p>
+<p>Ha már egyszer a QGIS-ben rendelkezésre áll egy konfigurációs beállítás, akkor nem kell ezeket „újra feltalálni”. Éppen ezért a QField ugyanazokat a szerkesztési vezérlőket alkalmazza, mint a QGIS. Amennyiben egy projektet összeállítunk az asztali számítógépen, akkor annak mobil eszközökön is működnie kell.</p>
+<p>Ne feledje, hogy mindez csak a „koncepciónk”. A fentebb vázolt elképzelések vezetnek bennünket a QField fejlesztése során, ám még nem jelenthetjük ki, hogy termékünk minden tekintetben készen volna.</p>
 </div>
 <div class="section" id="mode-based">
-<h3>Mode based<a class="headerlink" href="#mode-based" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h3>Üzemmód alapú rendszer<a class="headerlink" href="#mode-based" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
+<p>A QField működése „üzemmódokra” épül, melyek hasonlóak a QGIS-ben alkalmazott „térkép eszköz” funkciókhoz. A megfelelő üzemmód kiválasztása teszi lehetővé a felhasználó által célzott műveletek elvégzését, legyen szó az adatállományok közötti „böngészésről” vagy új adatok „digitalizálásáról”.</p>
 </div>
 </div>
 <div class="section" id="contents">
 <h2>Tartalom<a class="headerlink" href="#contents" title="Hivatkozás erre a fejezetcímre">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/index.html">Telepítés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Szinkronizálás</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Kezdő oktatóanyag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Támogatott adatformátumok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Esettanulmányok</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support/index.html">Támogatás és fejlesztés</a></li>
 <li class="toctree-l1"><a class="reference internal" href="old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 </div>
