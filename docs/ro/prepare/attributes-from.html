@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Căutare" href="../search.html" />
-    <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
+    <link rel="next" title="Simboluri SVG personalizate" href="custom-svg.html" />
     <link rel="prev" title="Allow hiding legend nodes" href="allow-hiding-legend-nodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -97,25 +97,25 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
-<li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
-<li><a class="reference internal" href="#field-widget">Field widget</a></li>
+<li><a class="reference internal" href="#suppress-attribute-form">Suprimare Formular Entitate</a></li>
+<li><a class="reference internal" href="#field-widget">Controalele grafice de tip câmp</a></li>
 <li><a class="reference internal" href="#relation-widget">Relation Widget</a><ul>
-<li><a class="reference internal" href="#external-resource-photo-settings">External Resource (photo settings)</a></li>
+<li><a class="reference internal" href="#external-resource-photo-settings">Resursă Externă (setări foto)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drag-and-drop-designer-forms">Drag and drop designer forms</a></li>
-<li><a class="reference internal" href="#conditional-visibility">Conditional visibility</a></li>
-<li><a class="reference internal" href="#constraints">Constraints</a><ul>
-<li><a class="reference internal" href="#common-use-cases">Common use cases</a></li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Proiectare de tip drag and drop pentru formulare</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Vizibilitate condiționată</a></li>
+<li><a class="reference internal" href="#constraints">Constrângeri</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Cazuri obișnuite de utilizare</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#default-values">Default values</a><ul>
-<li><a class="reference internal" href="#additional-variables">Additional variables</a></li>
-<li><a class="reference internal" href="#id1">Common use cases</a></li>
+<li><a class="reference internal" href="#default-values">Valori implicite</a><ul>
+<li><a class="reference internal" href="#additional-variables">Variabile adiționale</a></li>
+<li><a class="reference internal" href="#id1">Cazuri obișnuite de utilizare</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#editable">Editable</a></li>
-<li><a class="reference internal" href="#remember-last-values">Remember last values</a></li>
+<li><a class="reference internal" href="#editable">Editabil</a></li>
+<li><a class="reference internal" href="#remember-last-values">Memorarea ultimelor valori</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +131,7 @@
     </a>
   </li>
   <li>
-    <a href="custom-svg.html" title="Next Chapter: Custom SVG symbols"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Custom SVG symbols &raquo;</span>
+    <a href="custom-svg.html" title="Next Chapter: Simboluri SVG personalizate"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Simboluri SVG... &raquo;</span>
     </a>
   </li>
             
@@ -161,13 +161,13 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalare</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronizare</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Muncă de teren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formatele de Date Acceptate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Studii de Caz</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
@@ -179,14 +179,14 @@
       
   <div class="section" id="attribute-form-configuration">
 <h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Link permanent la acest titlu">¶</a></h1>
-<p>QField creates forms similar to, but not equal to QGIS.</p>
+<p>QField creează formulare similare, dar nu identice cu cele din QGIS.</p>
 <div class="section" id="suppress-attribute-form">
-<h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Suprimare Formular Entitate<a class="headerlink" href="#suppress-attribute-form" title="Link permanent la acest titlu">¶</a></h2>
 <p>The setting „suppress attribute form” is directly applied to the QField form.</p>
 </div>
 <div class="section" id="field-widget">
-<span id="edit-field-widgets"></span><h2>Field widget<a class="headerlink" href="#field-widget" title="Link permanent la acest titlu">¶</a></h2>
-<p>The field widgets from QGIS are supported on a best effort basis.</p>
+<span id="edit-field-widgets"></span><h2>Controalele grafice de tip câmp<a class="headerlink" href="#field-widget" title="Link permanent la acest titlu">¶</a></h2>
+<p>Controalele grafice de tip câmp din QGIS sunt permise, datorită unui efort susținut.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -194,44 +194,41 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Field type</th>
+<tr class="row-odd"><th class="head">Tipul câmpului</th>
 <th class="head">Support</th>
-<th class="head">Notes</th>
+<th class="head">Observații</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Text Edit</td>
+<tr class="row-even"><td>Editare Text</td>
 <td><span class="yay">✔</span></td>
 <td><ul class="first last simple">
-<li>HTML is not supported</li>
-<li>Numerical input is enforced based on the
-type.</li>
+<li>Codul HTML nu este acceptat</li>
+<li>Introducerea valorilor numerice are loc în funcție de tip.</li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Check Box</td>
+<tr class="row-odd"><td>Casetă de Bifare</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Map</td>
+<tr class="row-even"><td>Hartă de Valori</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>Hidden</td>
+<tr class="row-odd"><td>Ascuns</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>External Resource</td>
+<tr class="row-even"><td>Resursă Externă</td>
 <td><span class="moreorless">~</span></td>
-<td>This field is combined with camera integration.
-Only images can be viewed so far.
-<a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td>Acest câmp este combinat cu camera integrată. Numai imaginile pot fi vizualizate până în prezent. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanțare</span></a></td>
 </tr>
-<tr class="row-odd"><td>Date Time</td>
+<tr class="row-odd"><td>Data și Ora</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Relation Reference</td>
+<tr class="row-even"><td>Referința Relației</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -239,9 +236,9 @@ Only images can be viewed so far.
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Others</td>
+<tr class="row-even"><td>Altele</td>
 <td><span class="nay">✘</span></td>
-<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Funding</span></a></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Finanțare</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -259,7 +256,7 @@ Only images can be viewed so far.
 <p><strong>Key handling</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
 <p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
-<p><strong>Many-To-Many relations</strong></p>
+<p><strong>Relații Many-To-Many</strong></p>
 <p>On many-to-many relationships, according to the cardinality setting in the QGIS Vector Layer Properties, on adding, deleting or opening an entry in the list effects directly the child layer (on direct cardinality) or the linking table (on many-to-one cardinality).</p>
 <p>The second case is usually used when there are additional relation information (e.g. percentage) in the linking table.</p>
 <div class="clearer text-center docutils container">
@@ -269,7 +266,7 @@ Only images can be viewed so far.
 </div>
 <p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
 <div class="section" id="external-resource-photo-settings">
-<h3>External Resource (photo settings)<a class="headerlink" href="#external-resource-photo-settings" title="Link permanent la acest titlu">¶</a></h3>
+<h3>Resursă Externă (setări foto)<a class="headerlink" href="#external-resource-photo-settings" title="Link permanent la acest titlu">¶</a></h3>
 <p>The widget type „Attachement” is used to store the path to collected photos.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
@@ -287,114 +284,94 @@ Only images can be viewed so far.
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
-<h2>Drag and drop designer forms<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link permanent la acest titlu">¶</a></h2>
-<p>Groups and Tabs from Drag and Drop designer forms are supported.</p>
+<h2>Proiectare de tip drag and drop pentru formulare<a class="headerlink" href="#drag-and-drop-designer-forms" title="Link permanent la acest titlu">¶</a></h2>
+<p>Designerul Drag and Drop al formularelor permite crearea de Grupuri și File.</p>
 </div>
 <div class="section" id="conditional-visibility">
-<h2>Conditional visibility<a class="headerlink" href="#conditional-visibility" title="Link permanent la acest titlu">¶</a></h2>
-<p>Groups can be hidden based on an expression. This is useful when certain attributes are
-only required under certain conditions. As an example imagine mapping trees. Some of them
-might have a disease and you have a list of possible deseases. To not clutter the form with
-many fields, make a group and configure a visibility expression for a group „diseases”. Add
-a field „desease” with a checkbox. Only when the checkbox is checked, the list of diseases
-will be available to the user.</p>
+<h2>Vizibilitate condiționată<a class="headerlink" href="#conditional-visibility" title="Link permanent la acest titlu">¶</a></h2>
+<p>Grupurile pot fi ascunse în baza unei expresii. Acest lucru este util atunci când unele atribute sunt cerute doar în anumite condiții. Un astfel de exemplu o reprezintă cartografierea copacilor. Unii dintre ei s-ar putea să fie atacați de o anumită boală, iar dvs. aveți o listă cu posibile afecțiuni. Pentru a nu aglomera cu multe câmpuri formularul, creați un grup și stabiliți o expresie de vizibilitate pentru grupul „boli”. Adăugați câmpul „boli” și o casetă de bifare. Numai atunci când este bifată caseta de selectare, lista bolilor va fi disponibilă utilizatorului.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a group box that will only be shown if the checkbox „measures_taken” is checked.</span></p>
+<p class="caption"><span class="caption-text">Configurarea unui grup de casete, care va fi afișat numai dacă este bifată opțiunea «measures_taken».</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Link permanent la acest titlu">¶</a></h2>
-<p>Attribute fields can have constraints attached. Constraints are expressions that needs to
-evaluate to <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) in order to be able to save the form. Constraints
-are configured on a per-field basis and a description can be added that will be shown to the
-user if a constraint is not satisfied.</p>
+<h2>Constrângeri<a class="headerlink" href="#constraints" title="Link permanent la acest titlu">¶</a></h2>
+<p>Câmpurilor atributelor li se pot atașa constrângeri. Constrângerile reprezintă expresii care, pentru a se putea salva formularul, trebuie evaluate la <code class="code docutils literal"><span class="pre">True</span></code> (sau <code class="code docutils literal"><span class="pre">1</span></code>). Constrângerile sunt configurate per câmp, putându-se adăuga o descriere, care va indica utilizatorului cazul în care o constrângere nu este îndeplinită.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a constraint within a range</span></p>
+<p class="caption"><span class="caption-text">Configurarea unei constrângeri în cadrul unui interval</span></p>
 </div>
 </div>
 <div class="section" id="common-use-cases">
-<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Link permanent la acest titlu">¶</a></h3>
-<p>You cannot enter an elevation value higher than the highest mountain in this country.</p>
+<h3>Cazuri obișnuite de utilizare<a class="headerlink" href="#common-use-cases" title="Link permanent la acest titlu">¶</a></h3>
+<p>Nu puteți introduce o valoare cu o altitudine mai mare decât a celui mai înalt munte din această țară.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
-<p>It is required to fill in an identifier.</p>
+<p>Este necesar să introduceți un identificator.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Link permanent la acest titlu">¶</a></h2>
-<p>Fields can have default values configured. Default values are inserted into the
-attribute form when digitizing a new feature. They are visible to the user and can
-be modified as long as the field is editable. They can be based on the geometry or
-expression variables.</p>
+<h2>Valori implicite<a class="headerlink" href="#default-values" title="Link permanent la acest titlu">¶</a></h2>
+<p>Pentru câmpuri se pot configura valori implicite. Acestea vor fi automat inserate în formularul cu atribute la digitizarea unei noi entități. Ele sunt vizibile pentru utilizator și pot fi modificate atât timp cât este posibilă editarea în câmpul respectiv. De asemenea, pot fi construite pe baza unor variabile sau expresii geometrice.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id4">
 <a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Configuration of a formatted date as default value</span></p>
+<p class="caption"><span class="caption-text">Configurarea ca valoare implicită a unei date formatate</span></p>
 </div>
 </div>
 <div class="section" id="additional-variables">
-<h3>Additional variables<a class="headerlink" href="#additional-variables" title="Link permanent la acest titlu">¶</a></h3>
-<p>In QField, there are some additional variables available regarding the current
-positioning information.</p>
+<h3>Variabile adiționale<a class="headerlink" href="#additional-variables" title="Link permanent la acest titlu">¶</a></h3>
+<p>În QField sunt disponibile câteva variabile care privesc informațiile curente de poziționare.</p>
 <ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
+<li><cite>position_coordinate</cite> (Geometria în WGS84!) : Lon, Lat și Altitudinea transmise de senzor. Sunt disponibile chiar și atunci când cruciulița nu este acroșată senzorului.</li>
+<li><cite>position_timestamp</cite> (DateTime) : Amprenta temporală a informațiilor de poziționare</li>
+<li><cite>position_direction</cite> (float) : Direcția față de nordul real, în grade.</li>
+<li><cite>position_ground_speed</cite> (float) : Viteza la sol, în metri / secundă.</li>
+<li><cite>position_magnetic_variation</cite> (float) : Unghiul dintre componenta orizontală a câmpului magnetic și nordul real, în grade. Cunoscut, de asemenea, sub denumirea de declinație magnetică. O valoare pozitivă indică o direcție, față de nordul real, în sensul acelor de ceasornic, iar o valoare negativă indică o direcție în sens invers.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : Acuratețea orizontală a coordonatelor (în metri).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : Acuratețea verticală a coordonatelor (în metri).</li>
+<li><cite>position_vertical_speed</cite> (float) : Valoarea vitezei verticale, în metri pe secundă.</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>Common use cases<a class="headerlink" href="#id1" title="Link permanent la acest titlu">¶</a></h3>
-<p>Insert positioning information as variable:</p>
+<h3>Cazuri obișnuite de utilizare<a class="headerlink" href="#id1" title="Link permanent la acest titlu">¶</a></h3>
+<p>Introduceți ca variabile informațiile de poziționare:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
-<p>Insert the current date and time:</p>
+<p>Introduceți data și ora curente:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Insert the length of the digitized line:</p>
+<p>Inserați lungimea liniei digitizate:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
-<p>Configure global variables on the device and insert them.</p>
+<p>Configurați variabilele globale ale dispozitivului și introduceți-le.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
-<p>If you want to assign a region code based on the location where a new feature is
-inserted, you can do so by using an aggregate expression:</p>
+<p>În cazul în care doriți să alocați un cod de regiune, în funcție de locația din care se introduce o entitate nouă, puteți face acest lucru prin utilizarea unei expresii de agregare:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="editable">
-<h2>Editable<a class="headerlink" href="#editable" title="Link permanent la acest titlu">¶</a></h2>
-<p>The editable flag of fields is respected.</p>
+<h2>Editabil<a class="headerlink" href="#editable" title="Link permanent la acest titlu">¶</a></h2>
+<p>Se respectă fanionul editabil al câmpurilor.</p>
 </div>
 <div class="section" id="remember-last-values">
-<h2>Remember last values<a class="headerlink" href="#remember-last-values" title="Link permanent la acest titlu">¶</a></h2>
-<p>QField offers a much more fine-grained control over the last used values and ignores the QGIS setting.</p>
+<h2>Memorarea ultimelor valori<a class="headerlink" href="#remember-last-values" title="Link permanent la acest titlu">¶</a></h2>
+<p>QField oferă un control mult mai fin asupra ultimei valori utilizate, ignorând setarea din QGIS.</p>
 </div>
 </div>
 

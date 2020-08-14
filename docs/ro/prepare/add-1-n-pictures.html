@@ -97,15 +97,15 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Add a series of pictures to a feature</a><ul>
-<li><a class="reference internal" href="#creating-two-tables">Creating two tables</a><ul>
+<li><a class="reference internal" href="#creating-two-tables">Crearea a două tabele</a><ul>
 <li><a class="reference internal" href="#apiary"><strong>Apiary</strong></a></li>
 <li><a class="reference internal" href="#apiary-pictures"><strong>Apiary_pictures</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#relations">Relations</a></li>
-<li><a class="reference internal" href="#widgets">Widgets</a><ul>
+<li><a class="reference internal" href="#relations">Relații</a></li>
+<li><a class="reference internal" href="#widgets">Controale grafice</a><ul>
 <li><a class="reference internal" href="#id1">apiary</a></li>
-<li><a class="reference internal" href="#picture">picture</a></li>
+<li><a class="reference internal" href="#picture">imagine</a></li>
 </ul>
 </li>
 </ul>
@@ -153,13 +153,13 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalare</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronizare</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Muncă de teren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formatele de Date Acceptate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Studii de Caz</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
@@ -173,14 +173,14 @@
 <h1>Add a series of pictures to a feature<a class="headerlink" href="#add-a-series-of-pictures-to-a-feature" title="Link permanent la acest titlu">¶</a></h1>
 <p>You can add one or more pictures to a feature. Below you find an example how to proceed.</p>
 <div class="section" id="creating-two-tables">
-<h2>Creating two tables<a class="headerlink" href="#creating-two-tables" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Crearea a două tabele<a class="headerlink" href="#creating-two-tables" title="Link permanent la acest titlu">¶</a></h2>
 <p>We will need two tables. One table where the features are stored
 and one with a list of pictures.</p>
 <div class="section" id="apiary">
 <h3><strong>Apiary</strong><a class="headerlink" href="#apiary" title="Link permanent la acest titlu">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">geometry</span></code></li>
+<li><code class="docutils literal"><span class="pre">geometrie</span></code></li>
 <li>…</li>
 </ul>
 </div>
@@ -189,13 +189,13 @@ and one with a list of pictures.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">id</span></code></li>
 <li><code class="docutils literal"><span class="pre">apiary_id</span></code> (UUID)</li>
-<li><code class="docutils literal"><span class="pre">path</span></code> (TEXT)</li>
+<li><code class="docutils literal"><span class="pre">cale</span></code> (TEXT)</li>
 <li>…</li>
 </ul>
 </div>
 </div>
 <div class="section" id="relations">
-<h2>Relations<a class="headerlink" href="#relations" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Relații<a class="headerlink" href="#relations" title="Link permanent la acest titlu">¶</a></h2>
 <p>Create a relation with:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">apiary</span></code> Referenced layer</li>
@@ -209,7 +209,7 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="widgets">
-<h2>Widgets<a class="headerlink" href="#widgets" title="Link permanent la acest titlu">¶</a></h2>
+<h2>Controale grafice<a class="headerlink" href="#widgets" title="Link permanent la acest titlu">¶</a></h2>
 <div class="section" id="id1">
 <h3>apiary<a class="headerlink" href="#id1" title="Link permanent la acest titlu">¶</a></h3>
 <p>Set the default value of the field id to <code class="docutils literal"><span class="pre">uuid()</span></code>. No need to show it in the form.</p>
@@ -222,7 +222,7 @@ and one with a list of pictures.</p>
 </div>
 </div>
 <div class="section" id="picture">
-<h3>picture<a class="headerlink" href="#picture" title="Link permanent la acest titlu">¶</a></h3>
+<h3>imagine<a class="headerlink" href="#picture" title="Link permanent la acest titlu">¶</a></h3>
 <p>Set the widget type of the field path to <code class="docutils literal"><span class="pre">attachment</span></code> and add it to the form</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/add-1-n-pictures-widgets_picture.png"><img alt="widget picture" src="../_images/add-1-n-pictures-widgets_picture.png" style="width: 600px;" /></a>
