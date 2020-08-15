@@ -5,7 +5,7 @@ Attribute Form Configuration
 QField creates forms similar to, but not equal to QGIS.
 
 Suppress Attribute Form
----------------------
+-----------------------
 
 The setting "suppress attribute form" is directly applied to the QField form.
 
