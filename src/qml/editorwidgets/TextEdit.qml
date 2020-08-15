@@ -79,7 +79,8 @@ Item {
   TextArea {
     id: textArea
     height: config['IsMultiline'] === true ? undefined : 0
-    visible: height !== 0 && isEnabled
+    visible: height !== 0
+    enabled: isEnabled
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
