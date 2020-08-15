@@ -50,3 +50,7 @@ a, a:hover {
 .bs-sidenav .nav > li > a:hover, .bs-sidenav .nav > li > a:focus {
     background-color: #80cc28;
 }
+
+.navbar-version {
+    visibility: hidden;
+}
