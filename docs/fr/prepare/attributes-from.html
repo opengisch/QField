@@ -3,24 +3,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Attribute Form Configuration &#8212; documentation QField Documentation 1.0 - M...</title>
+    <title>Attribute Form Configuration &#8212; Documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0 - M...',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield-new.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/qfield.js"></script>
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
@@ -37,8 +31,7 @@
 <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
-  </head>
-  <body>
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -273,7 +266,7 @@
 </div>
 <div class="section" id="constraints">
 <h2>Contraintes<a class="headerlink" href="#constraints" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les champs attributaires peuvent avoir des contraintes rattachées. Les contraintes sont des expressions qui doivent correspondre à <code class="code docutils literal"><span class="pre">True</span></code> (or <code class="code docutils literal"><span class="pre">1</span></code>) pour être en mesure d’enregistrer le formulaire. Les contraintes sont configurables champ par champ et une description peut être ajoutée pour être montrée à l’utilisateur si une contrainte n’est pas satisfaite.</p>
+<p>Les champs attributaires peuvent avoir des contraintes rattachées. Les contraintes sont des expressions qui doivent correspondre à <code class="code docutils literal notranslate"><span class="pre">True</span></code> (or <code class="code docutils literal notranslate"><span class="pre">1</span></code>) pour être en mesure d’enregistrer le formulaire. Les contraintes sont configurables champ par champ et une description peut être ajoutée pour être montrée à l’utilisateur si une contrainte n’est pas satisfaite.</p>
 <div class="clearer text-center docutils container">
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
@@ -283,11 +276,11 @@
 <div class="section" id="common-use-cases">
 <h3>Cas d’utilisation courante<a class="headerlink" href="#common-use-cases" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Vous ne pouvez saisir une altitude supérieure au plus haut sommet de ce pays.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
 </pre></div>
 </div>
 <p>Un identifiant est requis dans ce champ.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -318,23 +311,23 @@
 <div class="section" id="id1">
 <h3>Cas d’utilisation courante<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Insérer l’information de positionnement comme variable :</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
 </pre></div>
 </div>
 <p>Insérer la date et l’heure actuelle :</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Insérer la longueur de la ligne numérisée :</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span>length($geometry)
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>length($geometry)
 </pre></div>
 </div>
 <p>Configurer les variables générales sur l’appareil et les insérer.</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
 </pre></div>
 </div>
 <p>Si vous souhaitez assigner à une région un code basé sur le lieu quand une entité est insérée, vous pouvez le faire à l’aide d’expressions d’agrégation :</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
 </pre></div>
 </div>
 </div>
@@ -374,7 +367,7 @@
     </p>
     <p>
         &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
     </p>
   </div>
 </footer>
