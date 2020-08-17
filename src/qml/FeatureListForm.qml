@@ -182,7 +182,7 @@ Rectangle {
 
       Text {
         id: featureText
-        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: editRow.left; verticalCenter: parent.verticalCenter }
+        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         text: display
