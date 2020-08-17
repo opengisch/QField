@@ -199,6 +199,7 @@ class FeatureModel : public QAbstractListModel
 
   signals:
     void modelModeChanged();
+    void featureUpdated();
     void featureChanged();
     void featuresChanged();
     void linkedParentFeatureChanged();
