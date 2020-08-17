@@ -49,7 +49,7 @@ FeatureModel::ModelModes FeatureModel::modelMode() const
 
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
-  if ( mModelMode != SingleFeatureModel || mFeature == feature )
+  if ( mModelMode != SingleFeatureModel || feature == mFeature )
     return;
 
   beginResetModel();
@@ -341,9 +341,20 @@ bool FeatureModel::save()
       {
         QgsFeature modifiedFeature;
         if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( modifiedFeature ) )
-          setFeature( modifiedFeature );
+        {
+          if ( modifiedFeature != mFeature )
+          {
+            setFeature( modifiedFeature );
+          }
+          else
+          {
+            emit featureUpdated();
+          }
+        }
         else
+        {
           QgsMessageLog::logMessage( tr( "Feature %1 could not be fetched after commit" ).arg( mFeature.id() ), QStringLiteral( "QField" ), Qgis::Warning );
+        }
       }
       break;
     }

@@ -53,6 +53,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::ConstraintSoftValid] = "ConstraintSoftValid";
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
   roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
+  roles[AttributeFormModel::EditorWidgetCode] = "EditorWidgetCode";
 
   return roles;
 }
@@ -120,6 +121,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::onFeatureChanged );
 
   emit featureModelChanged();
 }
@@ -238,6 +240,46 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit);
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
+  }
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) )
+  {
+    QString qmlCode = mEditorWidgetCodes[item];
+
+    QRegularExpression re( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)" );
+    QRegularExpressionMatch match = re.match( qmlCode );
+    while( match.hasMatch() )
+    {
+      QString expression = match.captured( 1 );
+      expression = expression.replace( QStringLiteral( "\\\"" ), QStringLiteral( "\"" ) );
+
+      QgsExpressionContext expressionContext = mLayer->createExpressionContext();
+      expressionContext.setFeature( mFeatureModel->feature() );
+
+      QgsExpression exp = QgsExpression( expression );
+      exp.prepare( &expressionContext );
+      QVariant result = exp.evaluate( &expressionContext );
+
+      QString resultString;
+      switch( result.type() )
+      {
+        case QMetaType::Int:
+        case QMetaType::UInt:
+        case QMetaType::Double:
+        case QMetaType::LongLong:
+        case QMetaType::ULongLong:
+          resultString = result.toString();
+          break;
+        case QMetaType::Bool:
+          resultString = result.toBool() ? QStringLiteral( "true" ) : QStringLiteral( "false" );
+          break;
+        default:
+          resultString = QStringLiteral( "'%1'" ).arg( result.toString() );
+          break;
+      }
+      qmlCode = qmlCode.mid( 0, match.capturedStart( 0 ) ) + resultString + qmlCode.mid( match.capturedEnd( 0 ) );
+      match = re.match( qmlCode );
+    }
+    item->setData( qmlCode, AttributeFormModel::EditorWidgetCode );
   }
   else
   {
@@ -358,11 +400,31 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         break;
       }
 
-      case QgsAttributeEditorElement::AeTypeInvalid:
+      case QgsAttributeEditorElement::AeTypeQmlElement:
+      {
+        QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
+        QStandardItem *item = new QStandardItem();
+
+        item->setData( "qml", AttributeFormModel::ElementType );
+        item->setData( qmlElement->name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
+
+        mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
+
+        updateAttributeValue( item );
+
+        items.append( item );
+        parent->appendRow( item );
+        break;
+      }
+
+      case QgsAttributeEditorElement::AeTypeHtmlElement:
         // todo
         break;
 
-      case QgsAttributeEditorElement::AeTypeQmlElement:
+      case QgsAttributeEditorElement::AeTypeInvalid:
         // todo
         break;
     }
