@@ -21,7 +21,7 @@ The field widgets from QGIS are supported on a best effort basis.
 .. role:: moreorless
 
 +-------------------+-----------------+-------------------------------------------------+
-| Field type        | Support         | Notes                                           |
+| Widget type       | Support         | Notes                                           |
 +===================+=================+=================================================+
 | Text Edit         | :yay:`✔`        | - HTML is not supported                         |
 |                   |                 | - Numerical input is enforced based on the      |
