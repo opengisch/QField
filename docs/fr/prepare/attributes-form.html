@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Attribute Form Configuration &#8212; Documentation QField Documentation 1.0 - M...</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Custom SVG symbols" href="custom-svg.html" />
+    <link rel="prev" title="Autoriser le masquage des nœuds de légende" href="allow-hiding-legend-nodes.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Attribute Form Configuration</a><ul>
+<li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
+<li><a class="reference internal" href="#field-widget">Outil d’édition de champ</a></li>
+<li><a class="reference internal" href="#relation-widget">Outil Relation</a><ul>
+<li><a class="reference internal" href="#external-resource-photo-settings">Ressource externe (paramétrage photo)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#drag-and-drop-designer-forms">Glisser-déposer les formulaires du designer</a></li>
+<li><a class="reference internal" href="#conditional-visibility">Visibilité conditionnelle</a></li>
+<li><a class="reference internal" href="#constraints">Contraintes</a><ul>
+<li><a class="reference internal" href="#common-use-cases">Cas d’utilisation courante</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#default-values">Valeurs par défaut</a><ul>
+<li><a class="reference internal" href="#additional-variables">Variables supplémentaires</a></li>
+<li><a class="reference internal" href="#id1">Cas d’utilisation courante</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#editable">Modifiable</a></li>
+<li><a class="reference internal" href="#remember-last-values">Se souvenir des dernières valeurs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="allow-hiding-legend-nodes.html" title="Previous Chapter: Autoriser le masquage des nœuds de légende"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Autoriser le ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="custom-svg.html" title="Next Chapter: Custom SVG symbols"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Custom SVG symbols &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Tutoriels de mise en route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="attribute-form-configuration">
+<h1>Attribute Form Configuration<a class="headerlink" href="#attribute-form-configuration" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les formulaires QField sont similaires à ceux de QGIS, mais pas identiques.</p>
+<div class="section" id="suppress-attribute-form">
+<h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="Lien permanent vers ce titre">¶</a></h2>
+<p>The setting «&nbsp;suppress attribute form&nbsp;» is directly applied to the QField form.</p>
+</div>
+<div class="section" id="field-widget">
+<span id="edit-field-widgets"></span><h2>Outil d’édition de champ<a class="headerlink" href="#field-widget" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les outils d’édition de champ de QGIS sont supportés du mieux possible.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Widget type</th>
+<th class="head">Support</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Edition de texte</td>
+<td><span class="yay">✔</span></td>
+<td><ul class="first last simple">
+<li>HTML n’est pas supporté</li>
+<li>La saisie numérique est obligatoire en fonction du type.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Case à cocher</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Value Map</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Caché</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Ressource externe</td>
+<td><span class="moreorless">~</span></td>
+<td>Cet attribut est combiné avec un appareil photo. Seulement des images peuvent être vues jusqu’à présent. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Financement</span></a></td>
+</tr>
+<tr class="row-odd"><td>Date Heure</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Référence de relation</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Outil Relation</td>
+<td><span class="yay">✔</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Autres</td>
+<td><span class="nay">✘</span></td>
+<td><a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Financement</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="relation-widget">
+<h2>Outil Relation<a class="headerlink" href="#relation-widget" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour plus d’informations, referez-vous à la documentation officielle : <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/attribute_table.html#creating-one-or-many-to-many-relations">QGIS Documentation</a>.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
+</div>
+</div>
+<p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
+<p>The visual identification of the list entries are done via the «&nbsp;Display Expression&nbsp;» of the child layer.</p>
+<p><strong>Manipulation des clés</strong></p>
+<p>Étant donné que les clés primaires des parents sont utilisées en tant que clés étrangères sur les entités enfant de référence, ces clés primaires doivent être enregistrées pour être utilisées même après la synchronisation avec les données d’origine. Par conséquent, nous vous recommandons d’utiliser des valeurs stables telles que les UUID pour les clés primaires.</p>
+<p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
+<p><strong>Relations de plusieurs-à-plusieurs</strong></p>
+<p>Sur les relations plusieurs-à-plusieurs, selon le paramètre de cardinalité dans les propriétés de la couche vectorielle QGIS, l’ajout, la suppression ou l’ouverture d’une entrée dans la liste affecte directement la couche enfant (sur la cardinalité directe) ou la table de liaison (sur une à plusieurs cardinalités).</p>
+<p>Le deuxième cas est généralement utilisé lorsqu’il existe des informations de relation supplémentaires (par exemple, un pourcentage) dans la table de liaison.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/relation_widget_cardinality.png"><img alt="../_images/relation_widget_cardinality.png" src="../_images/relation_widget_cardinality.png" style="width: 500px;" /></a>
+</div>
+</div>
+<p>En cas de cardinalité un à plusieurs sur les relations plusieurs-à-plusieurs, l’expression d’affichage doit être définie sur la table de liaison.</p>
+<div class="section" id="external-resource-photo-settings">
+<h3>Ressource externe (paramétrage photo)<a class="headerlink" href="#external-resource-photo-settings" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le type de widget «&nbsp;Pièce jointe&nbsp;» est utilisé pour stocker le chemin d’accès aux photos collectées.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
+</div>
+</div>
+<p>The path should be set to relative. The pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
+<p>Dans QField, l’image s’affiche. En cliquant sur le symbole de l’appareil photo, l’appareil photo démarre pour mettre à jour l’image avec une nouvelle photo.</p>
+<div class="clearer text-center docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
+</div>
+</div>
+<p>Lors de la synchronisation, le sous-répertoire avec les images doit également être copié.</p>
+</div>
+</div>
+<div class="section" id="drag-and-drop-designer-forms">
+<h2>Glisser-déposer les formulaires du designer<a class="headerlink" href="#drag-and-drop-designer-forms" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les groupes et onglets venant des formulaires du designer par glisser-déposer sont supportés.</p>
+</div>
+<div class="section" id="conditional-visibility">
+<h2>Visibilité conditionnelle<a class="headerlink" href="#conditional-visibility" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les groupes peuvent être masqués à partir d’une expression. Cela est utile lorsque certains attributs ne sont requis que sous certaines conditions. Imaginons par exemple une cartographie d’arbres. Certains d’entre eux peuvent avoir une maladie et vous avez une liste des maladies possibles. Pour ne pas encombrer le formulaire avec trop de champs, faites un groupe et paramétrez la visibilité pour un groupe «&nbsp;maladies&nbsp;». Ajouter un champ «&nbsp;maladies&nbsp;» avec une case à cocher. La liste des maladies sera disponible pour l’utilisateur seulement si la case à cocher est activée.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../_images/conditional_visibility_configuration.png"><img alt="Conditional visibility configuration" src="../_images/conditional_visibility_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration d’une boîte de groupe qui ne sera montrée que si la case à cocher  «&nbsp;measures_taken&nbsp;» est activée.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="constraints">
+<h2>Contraintes<a class="headerlink" href="#constraints" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les champs attributaires peuvent avoir des contraintes rattachées. Les contraintes sont des expressions qui doivent correspondre à <code class="code docutils literal notranslate"><span class="pre">True</span></code> (or <code class="code docutils literal notranslate"><span class="pre">1</span></code>) pour être en mesure d’enregistrer le formulaire. Les contraintes sont configurables champ par champ et une description peut être ajoutée pour être montrée à l’utilisateur si une contrainte n’est pas satisfaite.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../_images/constraint_configuration.png"><img alt="Constraint configuration" src="../_images/constraint_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration de la plage de valeurs d’une contrainte</span></p>
+</div>
+</div>
+<div class="section" id="common-use-cases">
+<h3>Cas d’utilisation courante<a class="headerlink" href="#common-use-cases" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous ne pouvez saisir une altitude supérieure au plus haut sommet de ce pays.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;elevation&quot;</span> <span class="o">&lt;</span> <span class="mi">5000</span>
+</pre></div>
+</div>
+<p>Un identifiant est requis dans ce champ.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;identifier&quot;</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="default-values">
+<h2>Valeurs par défaut<a class="headerlink" href="#default-values" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les champs peuvent avoir des valeurs par défaut configurées. Les valeurs par défaut peuvent être insérées dans le formulaire lors de la numérisation d’une entité. Elles sont visibles pour l’utilisateur et peuvent être modifiées tant que le champ est en mode «&nbsp;édition&nbsp;». Elles peuvent être basées sur la géométrie ou des combinaison de variables.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../_images/default_value_configuration.png"><img alt="Default value configuration" src="../_images/default_value_configuration.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Configuration d’une date en valeur par défaut</span></p>
+</div>
+</div>
+<div class="section" id="additional-variables">
+<h3>Variables supplémentaires<a class="headerlink" href="#additional-variables" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans QField il existe des variables supplémentaires pour les informations relatives à la localisation en cours.</p>
+<ul class="simple">
+<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude fidèle au GPS. Est également disponible quand la croix n’est pas accrochée au point géolocalisé.</li>
+<li>“position_timestamp” (DateTime) : Horodatage de l’information de position</li>
+<li><cite>position_direction</cite> (float) : Ecart en degrés avec le Nord géographique.</li>
+<li><cite>position_ground_speed</cite> (float) : Vitesse en mètres par seconde.</li>
+<li><cite>position_magnetic_variation</cite> (float) : Angle entre le composant horizontal du champ magnétique et le Nord géographique, en degrés. Aussi connu sous le nom de déclinaison magnétique. Une valeur positive indique une direction dans le sens des aiguilles d’une montre par rapport au Nord géographique et une valeur négative indique une direction inverse.</li>
+<li><cite>position_horizontal_accuracy</cite> (float) : Précision horizontale (en mètres).</li>
+<li><cite>position_vertical_accuracy</cite> (float) : Précision verticale (en mètres).</li>
+<li><cite>position_vertical_speed</cite> (float) : vitesse verticale en mètres par seconde.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Cas d’utilisation courante<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Insérer l’information de positionnement comme variable :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">position_horizontal_accuracy</span>
+</pre></div>
+</div>
+<p>Insérer la date et l’heure actuelle :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Insérer la longueur de la ligne numérisée :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>length($geometry)
+</pre></div>
+</div>
+<p>Configurer les variables générales sur l’appareil et les insérer.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="n">operator_name</span>
+</pre></div>
+</div>
+<p>Si vous souhaitez assigner à une région un code basé sur le lieu quand une entité est insérée, vous pouvez le faire à l’aide d’expressions d’agrégation :</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>aggregate( layer:=&#39;regions&#39;, aggregate:=&#39;max&#39;, expression:=&quot;code&quot;, filter:=intersects( $geometry, geometry( @parent ) ) )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="editable">
+<h2>Modifiable<a class="headerlink" href="#editable" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le flag éditable des attributs est respecté.</p>
+</div>
+<div class="section" id="remember-last-values">
+<h2>Se souvenir des dernières valeurs<a class="headerlink" href="#remember-last-values" title="Lien permanent vers ce titre">¶</a></h2>
+<p>QField offre un contrôle fin des dernières valeurs utilisées et ignore la configuration de QGIS.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/prepare/attributes-form.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
