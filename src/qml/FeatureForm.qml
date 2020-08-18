@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.11
 import QtQml 2.3
+import QtWebView 1.14
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -217,7 +218,7 @@ Page {
       }
 
       Item {
-        property string qmlCode: EditorWidgetCode
+        property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
         id: qmlContainer
         visible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
@@ -250,7 +251,50 @@ Page {
         }
 
         onQmlCodeChanged: {
-          var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent')
+          if ( visible )
+            var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent');
+        }
+      }
+
+      Item {
+        property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
+
+        id: htmlContainer
+        visible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+        height: visible ? childrenRect.height : 0
+        anchors {
+          left: parent.left
+          right: parent.right
+        }
+
+        Label {
+          id: htmlLabel
+          width: parent.width
+          text: Name || ''
+          wrapMode: Text.WordWrap
+          font.pointSize: 12
+          font.bold: true
+          bottomPadding: 5
+          color: 'grey'
+        }
+
+        WebView {
+          id: htmlItem
+          anchors {
+            left: parent.left
+            rightMargin: 12
+            right: parent.right
+            top: htmlLabel.bottom
+          }
+          onLoadingChanged: {
+            if ( !loading )
+              runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) * screen.devicePixelRatio; } );
+          }
+        }
+
+        onHtmlCodeChanged: {
+          if ( visible )
+            htmlItem.loadHtml(htmlContainer.htmlCode);
         }
       }
 
