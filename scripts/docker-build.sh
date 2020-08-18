@@ -47,7 +47,6 @@ if [[ -n ${APP_ICON} ]]; then
   echo "Replacing icon with ${APP_ICON}"
   sed -i "s|<file alias=\"qfield_logo.svg\">icons/qfield_logo.svg</file>|<file alias=\"qfield_logo.svg\">icons/${APP_ICON}.svg</file>|" ${SOURCE_DIR}/images/images.qrc
   sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/res/layout/unpacking_dialog.xml
-  sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/AndroidManifest.xml
   sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/src/ch/opengis/qfield/QFieldProjectActivity.java
 fi
 if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
@@ -110,6 +109,7 @@ cmake \
 	-DAPP_VERSION=${APP_VERSION} \
 	-DAPK_VERSION_CODE=${APP_VERSION_CODE} \
 	-DAPP_VERSION_NAME=${APP_VERSION_STR:-${APP_VERSION_CODE}} \
+	-DAPP_PACKAGE_NAME=${APP_PKG_NAME} \
 	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \

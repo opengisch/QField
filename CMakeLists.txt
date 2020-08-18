@@ -6,6 +6,7 @@ SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 SET (APP_VERSION "1.0.0" CACHE STRING "Application Version (Example: 1.0.0)")
 SET (APP_VERSION_NAME "1.0.0 - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+SET (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
 STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
