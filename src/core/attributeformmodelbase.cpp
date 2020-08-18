@@ -241,12 +241,13 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     //set item visibility to false in case it's a linked attribute
     item->setData( !mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool(), AttributeFormModel::CurrentlyVisible );
   }
-  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) )
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) ||
+            item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
   {
-    QString qmlCode = mEditorWidgetCodes[item];
+    QString code = mEditorWidgetCodes[item];
 
     QRegularExpression re( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)" );
-    QRegularExpressionMatch match = re.match( qmlCode );
+    QRegularExpressionMatch match = re.match( code );
     while( match.hasMatch() )
     {
       QString expression = match.captured( 1 );
@@ -276,10 +277,10 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
           resultString = QStringLiteral( "'%1'" ).arg( result.toString() );
           break;
       }
-      qmlCode = qmlCode.mid( 0, match.capturedStart( 0 ) ) + resultString + qmlCode.mid( match.capturedEnd( 0 ) );
-      match = re.match( qmlCode );
+      code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
+      match = re.match( code );
     }
-    item->setData( qmlCode, AttributeFormModel::EditorWidgetCode );
+    item->setData( code, AttributeFormModel::EditorWidgetCode );
   }
   else
   {
@@ -409,6 +410,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( qmlElement->name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
         item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
 
         mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
@@ -421,8 +423,25 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
       }
 
       case QgsAttributeEditorElement::AeTypeHtmlElement:
-        // todo
+      {
+        QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
+        QStandardItem *item = new QStandardItem();
+
+        item->setData( "html", AttributeFormModel::ElementType );
+        item->setData( htmlElement->name(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+        item->setData( container->isGroupBox() ? container->name() : QString(), AttributeFormModel::Group );
+
+        mEditorWidgetCodes.insert( item, htmlElement->htmlCode() );
+
+        updateAttributeValue( item );
+
+        items.append( item );
+        parent->appendRow( item );
         break;
+      }
 
       case QgsAttributeEditorElement::AeTypeInvalid:
         // todo
