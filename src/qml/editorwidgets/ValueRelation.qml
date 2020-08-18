@@ -21,6 +21,7 @@ Item {
     id: valueRelationCombobox
     visible: !config['AllowMulti']
     property var _relation: undefined
+    enabled: isEnabled
 
     FeatureListModel {
       id: featureListModel
