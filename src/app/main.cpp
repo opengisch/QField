@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QDialog>
 #include <QApplication>
+#include <QtWebView/QtWebView>
 
 #include "qgsapplication.h"
 #include "qgslogger.h"
@@ -101,9 +102,10 @@ int main( int argc, char **argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
+  QtWebView::initialize();
   QgsApplication app( argc, argv, true );
-  QSettings settings;
 
+  QSettings settings;
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( CMAKE_INSTALL_PREFIX, true );
 #endif
