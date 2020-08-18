@@ -288,7 +288,7 @@ Page {
           }
           onLoadingChanged: {
             if ( !loading )
-              runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) * screen.devicePixelRatio; } );
+              runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) } );
           }
         }
 

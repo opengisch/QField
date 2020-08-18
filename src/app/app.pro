@@ -7,7 +7,7 @@ include( ../../qgis.pri )
 include( ../../version.pri )
 include( ../../assets.pri )
 
-QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2 qml
+QT += widgets concurrent xml positioning printsupport svg sql opengl sensors quick quickcontrols2 qml webview
 
 android {
     QT += androidextras
