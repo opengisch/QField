@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest package="ch.opengis.qfield" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="%%VERSION_NAME%%" android:versionCode="%%VERSION_CODE%%" android:installLocation="auto">
+<manifest package="ch.opengis.qfield" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="@APK_VERSION_CODE@" android:versionCode="@VERSION_CODE@" android:installLocation="auto">
   <application
     android:hardwareAccelerated="true"
     android:name="org.qtproject.qt5.android.bindings.QtApplication"

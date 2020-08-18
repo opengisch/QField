@@ -97,8 +97,8 @@ IF (ANDROID)
 
   INCLUDE(GetGitRevisionDescription)
   GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
-  CONFIGURE_FILE(cmake/version.properties.in android-build/version.properties @ONLY)
   CONFIGURE_FILE(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
+  CONFIGURE_FILE(cmake/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/android/AndroidManifest.xml @ONLY)
 
   INCLUDE(CreateZip)
 

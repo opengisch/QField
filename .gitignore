@@ -14,6 +14,7 @@ astyle.*.diff
 /config.pri
 /build*
 /scripts/astyle
+/android/AndroidManifest.xml
 /android/gradle.properties
 /android/local.properties
 /android/res/values/generated.xml
