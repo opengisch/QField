@@ -82,6 +82,7 @@ public class QFieldActivity extends Activity {
     private boolean mExternalStorageWriteable = false;
     private String mDotQgis2Dir;
     private String mShareDir;
+    private String mLocalizedDataPathsDir;
     private ProgressBar progressBar;
     private TextView unpackingTitle;
     private TextView unpackingMessage;
@@ -139,6 +140,11 @@ public class QFieldActivity extends Activity {
             mExternalStorageWriteable = false;
         } else {
             mExternalStorageAvailable = mExternalStorageWriteable = false;
+        }
+
+        if (mExternalStorageAvailable) {
+            String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            mLocalizedDataPathsDir = storagePath + "/QField/basemaps/";
         }
 
         if (mExternalStorageWriteable) {
@@ -218,6 +224,7 @@ public class QFieldActivity extends Activity {
         intent.putExtra("DOTQGIS2_DIR", mDotQgis2Dir);
         intent.putExtra("SHARE_DIR", mShareDir);
         intent.putExtra("PACKAGE_PATH", getFilesDir().toString() + "/share");
+        intent.putExtra("LOCALIZED_DATA_PATHS", mLocalizedDataPathsDir);
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
@@ -305,7 +312,10 @@ public class QFieldActivity extends Activity {
                 .getAbsolutePath();
 
             if (mExternalStorageAvailable) {
+                mLocalizedDataPathsDir = storagePath + "/QField/basemaps/";
                 if (mExternalStorageWriteable) {
+                    new File(mLocalizedDataPathsDir).mkdir();
+
                     String pathAlias;
                     String externalFilesDir = getExternalFilesDir(null).getAbsolutePath();
                     String filesDir = getFilesDir().getAbsolutePath();
