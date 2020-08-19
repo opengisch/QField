@@ -53,6 +53,11 @@ QString AndroidPlatformUtilities::qgsProject() const
   return getIntentExtra( "QGS_PROJECT" );
 }
 
+QString AndroidPlatformUtilities::localizedDataPaths() const
+{
+  return getIntentExtra( "LOCALIZED_DATA_PATHS" );
+}
+
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
 {
   if ( extras == nullptr )
