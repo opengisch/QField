@@ -34,8 +34,6 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int )
   {
-    // TODO: whenever QField has layers removed other than upon project closing, it'll
-    // be worth implementing a proper row removal handling.
     buildMap( mLayerTreeModel );
   } );
 }
@@ -52,7 +50,6 @@ void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelInde
 
 int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
-  qDebug() << "building...";
   bool reset = false;
   if ( row == 0 )
   {
