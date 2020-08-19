@@ -29,20 +29,14 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel( mLayerTreeModel );
+  connect( mProject, &QgsProject::cleared, this, [ = ] { buildMap( nullptr ); } );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex & sourceParent, int first, int last )
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int )
   {
-    QModelIndex parent;
-    for ( int sourceRow = first; sourceRow <= last; sourceRow++ )
-    {
-      QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
-      int row = mRowMap[index];
-      beginRemoveRows( parent, row, row );
-      mRowMap.remove( index );
-      mIndexMap.remove( row );
-      endRemoveRows();
-    }
+    // TODO: whenever QField has layers removed other than upon project closing, it'll
+    // be worth implementing a proper row removal handling.
+    buildMap( mLayerTreeModel );
   } );
 }
 
@@ -58,6 +52,7 @@ void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelInde
 
 int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
+  qDebug() << "building...";
   bool reset = false;
   if ( row == 0 )
   {
@@ -67,21 +62,25 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     mIndexMap.clear();
   }
 
-  int nbRows = model->rowCount( parent );
-  for ( int i = 0; i < nbRows; i++ )
+  if ( model )
   {
-    QModelIndex index = model->index( i, 0, parent );
-    QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
-    if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
-      continue;
+    int nbRows = model->rowCount( parent );
+    for ( int i = 0; i < nbRows; i++ )
+    {
+      QModelIndex index = model->index( i, 0, parent );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
+      if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
+        continue;
 
-    mRowMap[index] = row;
-    mIndexMap[row] = index;
-    mTreeLevelMap[row] = treeLevel;
-    row++;
-    if ( model->hasChildren( index ) )
-      row = buildMap( model, index, row, treeLevel + 1 );
+      mRowMap[index] = row;
+      mIndexMap[row] = index;
+      mTreeLevelMap[row] = treeLevel;
+      row++;
+      if ( model->hasChildren( index ) )
+        row = buildMap( model, index, row, treeLevel + 1 );
+    }
   }
+
   if ( reset )
     endResetModel();
   return row;
