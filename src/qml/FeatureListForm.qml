@@ -18,7 +18,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Dialogs 1.2
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -461,18 +460,28 @@ Rectangle {
     model.clear()
   }
 
-  MessageDialog {
+  Dialog {
     id: mergeDialog
+    parent: mainWindow.contentItem
 
-    property int selectedCount
-    property string featureDisplayName
-    property bool isMerged
+    property int selectedCount: 0
+    property string featureDisplayName: ''
+    property bool isMerged: false
 
     visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
 
     title: qsTr( "Merge feature(s)" )
-    text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", selectedCount ).arg( featureDisplayName )
-    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount ).arg( mergeDialog.featureDisplayName )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if ( isMerged ) {
         return;
@@ -502,17 +511,27 @@ Rectangle {
     }
   }
 
-  MessageDialog {
+  Dialog {
     id: deleteDialog
+    parent: mainWindow.contentItem
 
-    property int selectedCount
-    property bool isDeleted
+    property int selectedCount: 0
+    property bool isDeleted: false
 
     visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
 
     title: qsTr( "Delete feature(s)" )
-    text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", selectedCount )
-    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if ( isDeleted ) {
         return;
