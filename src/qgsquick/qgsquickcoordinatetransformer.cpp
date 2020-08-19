@@ -118,6 +118,11 @@ void QgsQuickCoordinateTransformer::updatePosition()
   {
     QgsDebugMsg( exp.what() );
   }
+  catch(...)
+  {
+    // catch any other errors
+    QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
+  }
 
   if ( mSkipAltitudeTransformation )
     z = mSourcePosition.z();
