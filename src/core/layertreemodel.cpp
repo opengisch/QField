@@ -31,6 +31,19 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   setSourceModel( mLayerTreeModel );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex & sourceParent, int first, int last )
+  {
+    QModelIndex parent;
+    for ( int sourceRow = first; sourceRow <= last; sourceRow++ )
+    {
+      QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
+      int row = mRowMap[index];
+      beginRemoveRows( parent, row, row );
+      mRowMap.remove( index );
+      mIndexMap.remove( row );
+      endRemoveRows();
+    }
+  } );
 }
 
 void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
@@ -354,7 +367,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       QgsMapLayer *layer = nullptr;
       QModelIndex sourceIndex = mapToSource( index );
       if ( !sourceIndex.isValid() )
-          return QVariant();
+        return QVariant();
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
@@ -365,7 +378,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
       }
-      
+
       if ( !layer ) // Group
         return true;
 
