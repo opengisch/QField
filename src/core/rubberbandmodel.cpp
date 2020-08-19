@@ -15,8 +15,10 @@
  ***************************************************************************/
 #include "rubberbandmodel.h"
 #include "snappingutils.h"
+
 #include <qgsvectorlayer.h>
 #include <qgsproject.h>
+#include <qgslogger.h>
 
 RubberbandModel::RubberbandModel( QObject *parent )
   : QObject( parent )
@@ -168,7 +170,19 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   double z = QgsWkbTypes::hasZ( currentPt.wkbType() ) ? currentPt.z() : 0;
   double m = QgsWkbTypes::hasM( currentPt.wkbType() ) ? currentPt.m() : 0;
 
-  ct.transformInPlace( x, y, z );
+  try
+  {
+    ct.transformInPlace( x, y, z );
+  }
+  catch ( const QgsCsException &exp )
+  {
+    QgsDebugMsg( exp.what() );
+  }
+  catch(...)
+  {
+    // catch any other errors
+    QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
+  }
 
   QgsPoint resultPt( x, y );
   if ( QgsWkbTypes::hasZ( currentPt.wkbType() ) && QgsWkbTypes::hasZ( wkbType ) )
