@@ -275,7 +275,7 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
       return false;
   }
 
-  if ( ! layer->startEditing() )
+  if ( !layer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -347,27 +347,21 @@ bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeature
     if ( layer->deleteFeature( fid ) )
     {
       // commit parent changes
-      if ( ! layer->commitChanges() )
+      if ( !layer->commitChanges() )
         isSuccess = false;
     }
     else
     {
       QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( fid ), "QField", Qgis::Warning );
-  
       isSuccess = false;
     }
   }
 
-  if ( ! isSuccess )
+  if ( !isSuccess )
   {
-    if ( ! layer->rollBack() )
+    if ( !layer->rollBack() )
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
   }
-
-  //delete parent
-  layer->startEditing();
-  layer->deleteFeature( fid );
-  layer->commitChanges();
   endResetModel();
 
   return isSuccess;
