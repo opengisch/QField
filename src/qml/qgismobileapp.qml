@@ -17,7 +17,6 @@
 
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Dialogs 1.3
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
@@ -1315,7 +1314,6 @@ ApplicationWindow {
 
       onLoadProjectEnded: {
         busyMessage.visible = false
-        openProjectDialog.folder = qgisProject.homePath
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
     }
@@ -1531,21 +1529,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
         focusstack.addFocusTaker( this )
-    }
-  }
-
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
-    visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
-
-    width: mainWindow.width
-    height: mainWindow.height
-
-    onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      mainWindow.keyHandler.focus=true
     }
   }
 
