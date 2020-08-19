@@ -98,6 +98,8 @@ Popup {
 
         onClicked: {
           mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
+          close()
+          dashBoard.visible = false
         }
       }
 
