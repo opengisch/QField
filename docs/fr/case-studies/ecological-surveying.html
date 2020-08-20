@@ -20,8 +20,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Use of QField for mapping breeding birds in the Wadden Sea" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
-    <link rel="prev" title="Case Studies" href="index.html" />
+    <link rel="next" title="Utilisation de QField pour la cartographie des oiseaux nicheurs dans la mer des Wadden" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
+    <link rel="prev" title="Etudes de cas" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -66,7 +66,7 @@
 <li><a class="reference internal" href="#">Améliorer l’efficacité dans les sondages écologiques avec QField</a><ul>
 <li><a class="reference internal" href="#goal">But</a></li>
 <li><a class="reference internal" href="#project-requirements">Prérequis du projet</a></li>
-<li><a class="reference internal" href="#result">Result</a></li>
+<li><a class="reference internal" href="#result">Résultat</a></li>
 </ul>
 </li>
 </ul>
@@ -78,11 +78,11 @@
             
               
   <li>
-    <a href="index.html" title="Previous Chapter: Case Studies"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Case Studies</span>
+    <a href="index.html" title="Previous Chapter: Etudes de cas"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Etudes de cas</span>
     </a>
   </li>
   <li>
-    <a href="mapping-breeding-birds-in-the-Wadden-Sea.html" title="Next Chapter: Use of QField for mapping breeding birds in the Wadden Sea"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Use of QField... &raquo;</span>
+    <a href="mapping-breeding-birds-in-the-Wadden-Sea.html" title="Next Chapter: Utilisation de QField pour la cartographie des oiseaux nicheurs dans la mer des Wadden"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Utilisation d... &raquo;</span>
     </a>
   </li>
             
@@ -113,13 +113,13 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Se préparer au travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Travail sur le terrain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Tutoriels de mise en route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Etudes de cas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support et développement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 
@@ -137,39 +137,33 @@
 </div>
 <div class="section" id="project-requirements">
 <h2>Prérequis du projet<a class="headerlink" href="#project-requirements" title="Lien permanent vers ce titre">¶</a></h2>
-<p>To facilitate effective field work, regular consultation with the Ecology team is required
-to ensure that QField projects are prepared appropriately. Firstly, basemaps comprising
-aerial imagery and proposed development plans are prepared by georeferencing  and constructing
-pyramids in QGIS. Point, line and polygon vector layers are then created to support digitisation
-and associated data collection. Using a range of widgets, attribute fields are customised to
-meet the requirements of the Ecology team. These include:</p>
+<p>Pour faciliter un travail de terrain efficace, une consultation régulière avec l’équipe Ecologie est nécessaire pour s’assurer que les projets QField sont préparés de manière appropriée. Tout d’abord, des cartes de base comprenant des images aériennes et des propositions de plans de développement sont préparées en géoréférençant et en construisant des pyramides dans QGIS. Des couches vectorielles de points, de lignes et de polygones sont ensuite créées pour soutenir la numérisation et la collecte de données associées. À l’aide d’une série de widgets, les champs sont personnalisés pour répondre aux besoins de l’équipe d’écologie. Parmi ceux-ci, on peut citer</p>
 <dl class="docutils">
 <dt>Style</dt>
-<dd>drop-down list of selectable styles tailored for conducting ecological surveys</dd>
-<dt>Scale</dt>
-<dd>drop-down list of selectable scales for point and line feature</dd>
+<dd>liste déroulante des styles sélectionnables adaptés à la réalisation d’études écologiques</dd>
+<dt>Échelle</dt>
+<dd>liste déroulante des échelles sélectionnables pour les entites de type point et ligne</dd>
 <dt>Info</dt>
-<dd>space for inserting a feature description</dd>
+<dd>espace pour l’insertion d’une description de l’élément</dd>
 <dt>Image</dt>
-<dd>location for images to be captured and stored</dd>
-<dt>Geometry</dt>
-<dd>contains self-populated geometry values, e.g. area, perimeter, length</dd>
+<dd>l’emplacement des images à capturer et à stocker</dd>
+<dt>Géométrie</dt>
+<dd>contient des valeurs de géométrie auto-alimentées, par exemple la surface, le périmètre, la longueur</dd>
 <dt>Timestamp</dt>
-<dd>records the time and date that a feature was created/last modified</dd>
+<dd>enregistre l’heure et la date de création/dernière modification d’un élément</dd>
 </dl>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/eco-survey.png"><img alt="Figure 1 - Overview of the traditional workflow in ecological surveying at Delta-Simons compared with the workflow created using QField. Single-headed arrows indicate the direction of one-way communication, whereas double-headed arrows indicate two-way conversation." src="../_images/eco-survey.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="result">
-<h2>Result<a class="headerlink" href="#result" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Delta-Simons are saving approximately 40% of the time previously consumed by traditional ecological
-field data collection. QField has significantly improved the ecological surveying workflow by:</p>
+<h2>Résultat<a class="headerlink" href="#result" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Delta-Simons permet d’économiser environ 40 % du temps auparavant consacré à la collecte de données écologiques traditionnelles sur le terrain. QField a considérablement amélioré le déroulement des enquêtes écologiques en</p>
 <ul class="simple">
-<li>Removing the need to recreate GIS outputs from physical drawings</li>
-<li>Reducing the overall amendments required for GIS outputs</li>
-<li>Improving communication channels (see Figure 1.)</li>
-<li>Improving the accuracy and quality of data</li>
+<li>Supprimant la nécessité de recréer les sorties SIG à partir de dessins physiques</li>
+<li>Réduisant les modifications globales requises pour les sorties SIG</li>
+<li>Améliorant les canaux de communication (voir figure 1.)</li>
+<li>Améliorant la précision et la qualité des données</li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference external image-reference" href="https://www.deltasimons.com/"><img alt="Delta Simons" src="../_images/delta-simons.png" style="width: 400px;" /></a>
