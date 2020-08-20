@@ -32,10 +32,8 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   connect( mProject, &QgsProject::cleared, this, [ = ] { buildMap( nullptr ); } );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int )
-  {
-    buildMap( mLayerTreeModel );
-  } );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
 }
 
 void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
