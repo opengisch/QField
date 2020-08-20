@@ -2,7 +2,6 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
-
 import Theme 1.0
 
 Item {
@@ -42,11 +41,74 @@ Item {
     }
 
     Text {
+      id: changelogBody
       color: '#95000000'
-      text: qsTr( "Changelog %1" ).arg( version )
-      font: Theme.strongFont
+      text: {
+        var RELEASES_URL = 'https://api.github.com/repos/opengisch/qfield/releases'
+        var xhr = new XMLHttpRequest()
+        var parseVersion = function(str) {
+          str = str.replace(/^[a-z]*/, '')
+
+          var parts = str.split('.')
+
+          if (parts[0] >= 0 && parts[1] >= 0 && parts[2] >= 0)
+            return [parts[0], parts[1], parts[2]]
+
+          return []
+        }
+
+        xhr.open('GET', RELEASES_URL)
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            var resp = xhr.responseText
+            var changelog = ''
+
+            try {
+              var releases = JSON.parse(resp)
+              var qfieldVersion = parseVersion(version)
+
+              for (var i = 0, l = releases.length; i < l; i++) {
+                var release = releases[i]
+                var releaseVersion = parseVersion(release['tag_name'])
+
+                if (releaseVersion.length === 0)
+                  continue
+
+                var releaseChangelog = '\n#\n# ' + release['name'] + '\n\n' + release['body'] + '\n'
+
+                // most probably developer version with no proper version set
+                if (qfieldVersion.length === 0)
+                  qfieldVersion = releaseVersion
+
+                if (qfieldVersion[0] !== releaseVersion[0] || qfieldVersion[1] !== releaseVersion[1])
+                  continue
+
+                // prepend the current release
+                changelog = releaseChangelog + changelog
+              }
+
+              if ( changelog.length === 0 )
+                throw new Error('Empty changelog!')
+
+              changelog += '\n' + '[' + qsTr('Previous releases on GitHub') + '](https://github.com/opengisch/qfield/releases)'
+              changelog = changelog.replace(/^##(.+)$/gm, function(full) {
+                return '\n###\n' + full + '\n\n\n'
+              })
+
+              changelogBody.text = changelog
+            } catch (err) {
+              changelogBody.text = qsTr('Temporarily cannot retrieve the changelog. Please check your internet connection.')
+            }
+          }
+        }
+        xhr.send()
+
+        return qsTr('Loading…')
+      }
+      font: Theme.tipFont
 
       fontSizeMode: Text.VerticalFit
+      textFormat: Text.MarkdownText
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
       Layout.fillHeight: true
@@ -54,216 +116,31 @@ Item {
       Layout.maximumHeight: contentHeight
     }
 
-    Rectangle{
-      id: changelogBox
-
-      Layout.fillWidth: true
-      Layout.fillHeight: true //preferredHeight: Math.min( 3 * itemHeight, changesListView.count * itemHeight ) + 20
-      Layout.minimumHeight: changesListView.count * 24
-      border.color: '#30000000'
-      border.width: 1
-
-      //the model
-      ListModel {
-          id: changesListModel
-          ListElement {
-            type: "New Feature"
-            description: qsTr("Value relation widget with multiple selection support")
-          }
-          ListElement {
-            type: "New Feature"
-            description: qsTr("Full snapping support providing snapping results and Z values of snapped feature")
-          }
-          ListElement {
-            type: "New Feature"
-            description: qsTr("Authentication dialog for layers")
-          }
-          ListElement {
-            type: "Fix"
-            description: qsTr("Fix checkbox widget")
-          }
-          ListElement {
-            type: "Fix"
-            description: qsTr("Other fixes (printing, locator)")
-          }
-          ListElement {
-            type: "Fix"
-            description: qsTr("Improved log")
-          }
-      }
-
-      //the list
-      ListView {
-        id: changesListView
-        model: changesListModel
-        width: parent.width - 20
-        anchors.verticalCenter: parent.verticalCenter
-        height: parent.height - 20//Math.min( 3 * changelogBox.itemHeight, changesListView.count * changelogBox.itemHeight )
-        delegate: Rectangle{
-            id: item
-            x: 1
-            width: parent.width - 2
-            height: text.height + 10
-
-            Text {
-                id: dash
-                text: " -"
-                font: Theme.defaultFont
-                Layout.minimumWidth: contentWidth
-                fontSizeMode: Text.VerticalFit
-                wrapMode: Text.WordWrap
-                color: '#95000000'
-            }
-            Text {
-                id: text
-                text: description
-                font: Theme.defaultFont
-                Layout.minimumHeight: contentHeight
-                Layout.maximumHeight: contentHeight
-                width: parent.width - 20
-                x: dash.width + 10
-                fontSizeMode: Text.VerticalFit
-                wrapMode: Text.WordWrap
-                color: '#95000000'
-            }
-        }
-        focus: true
-        clip: true
-        highlightRangeMode: ListView.StrictlyEnforceRange
-      }
-    }
-
-    Text {
-      color: '#90000000'
-      text: qsTr( "Do you enjoy QField? Show some love and support the crowdfunding campaign. Before October 16." )
-      font: Theme.strongFont
-
-      fontSizeMode: Text.VerticalFit
-      wrapMode: Text.WordWrap
+    Button {
+      id: closeButton
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.minimumHeight: contentHeight
-      Layout.maximumHeight: contentHeight
-    }
 
-    Image {
-      id: image
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.maximumHeight:  width / 3
-      fillMode: Image.PreserveAspectFit
-      source: 'qrc:/pictures/qfield-love.png'
-    }
+      text: qsTr( 'OK' )
 
+      font: Theme.defaultFont
 
-    Text {
-      color: '#90000000'
-      text: qsTr( "www.opengis.ch/projects/qfield-love/" )
-      font: Theme.strongFont
-
-      fontSizeMode: Text.VerticalFit
-      wrapMode: Text.WordWrap
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.minimumHeight: contentHeight
-      Layout.maximumHeight: contentHeight
-    }
-
-    GridLayout{
-      id: buttons
-      columns: 1
-
-      Layout.maximumHeight: 96
-      Layout.preferredHeight: 96
-      Layout.minimumHeight: 72
-      Layout.fillWidth: true
-
-      Button {
-        id: closeButton
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
-        text: qsTr( "Let's give love" )
-
-        font: Theme.defaultFont
-
-        contentItem: Text {
-          text: closeButton.text
-          font: closeButton.font
-          color: 'white'
-          horizontalAlignment: Text.AlignHCenter
-          verticalAlignment: Text.AlignVCenter
-          elide: Text.ElideRight
-        }
-
-        background: Rectangle {
-          color: laterButton.down ? '#8080CC28' : Theme.mainColor
-        }
-
-        onClicked: {
-            Qt.openUrlExternally("https://www.opengis.ch/projects/qfield-love/")
-            settings.setValue( "/QField/CurrentVersion", versionCode )
-            close()
-        }
+      contentItem: Text {
+        text: closeButton.text
+        font: closeButton.font
+        color: 'white'
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
       }
 
-      GridLayout{
-          Button {
-            id: laterButton
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+      background: Rectangle {
+        color: Theme.mainColor
+      }
 
-            text: qsTr( "Maybe later" )
-
-            font: Theme.defaultFont
-
-            contentItem: Text {
-                text: laterButton.text
-                font: laterButton.font
-                color: 'white'
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
-            }
-
-            background: Rectangle {
-                height: parent.height
-                color: laterButton.down ? '#40000000' : '#60000000'
-            }
-
-
-            onClicked: {
-              close()
-            }
-          }
-
-          Button {
-            id: noButton
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            text: qsTr( "No" )
-
-            font: Theme.defaultFont
-
-            contentItem: Text {
-                text: noButton.text
-                font: noButton.font
-                color: 'white'
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
-            }
-
-            background: Rectangle {
-                color: laterButton.down ? '#40000000' : '#60000000'
-            }
-
-            onClicked: {
-              settings.setValue( "/QField/CurrentVersion", versionCode )
-              close()
-            }
-          }
+      onClicked: {
+        settings.setValue( '/QField/ChangelogVersion', versionCode )
+        close()
       }
     }
 
