@@ -199,9 +199,14 @@ class FeatureModel : public QAbstractListModel
 
   signals:
     void modelModeChanged();
+
+    //! Emitted when the model's feature has been saved (i.e. updated) but not changed as a result
     void featureUpdated();
+    //! Emitted when the model's single feature has been changed
     void featureChanged();
+    //! Emitted when the model's multi features list has been changed
     void featuresChanged();
+
     void linkedParentFeatureChanged();
     void linkedRelationChanged();
     void vertexModelChanged();
