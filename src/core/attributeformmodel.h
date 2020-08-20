@@ -52,7 +52,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       ConstraintSoftValid,
       ConstraintDescription,
       AttributeAllowEdit,
-      EditorWidgetCode
+      EditorWidgetCode //<! Returns a QML or HTML code string used by the relevant widgets
     };
 
     Q_ENUM( FeatureRoles )
