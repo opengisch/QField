@@ -340,6 +340,7 @@
         <file>themes/qfield/nodpi/ic_rasterlayer_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_meshlayer_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectortilelayer_18dp.svg</file>
+        <file>themes/qfield/nodpi/ic_annotationlayer_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_error_outline_24dp.svg</file>
     </qresource>
 </RCC>

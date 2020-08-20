@@ -196,7 +196,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
           if ( !mLayerTreeModel->hasChildren( sourceIndex ) )
           {
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
-            if ( !vectorLayer || vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
+            if ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
             {
               id += QStringLiteral( "layer" );
               id += '/' +  nodeLayer->layerId();
@@ -251,6 +251,9 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
             break;
           case QgsMapLayerType::VectorTileLayer:
             layerType = QStringLiteral( "vectortilelayer" );
+            break;
+          case QgsMapLayerType::AnnotationLayer:
+            layerType = QStringLiteral( "annotationlayer" );
             break;
         }
       }
