@@ -20,13 +20,13 @@ travis_to_release_branch() {
 arch_to_build_number() {
   ARCH=$1
   if [[ $ARCH == armv7 ]]; then
-    echo 1
+    echo 5
   elif [[ $ARCH == arm64_v8a ]]; then
-    echo 2
+    echo 6
   elif [[ $ARCH == x86 ]]; then
-    echo 3
+    echo 7
   elif [[ $ARCH == x86_64 ]]; then
-    echo 4
+    echo 8
   else
     echo 0
   fi
