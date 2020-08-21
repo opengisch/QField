@@ -35,12 +35,12 @@ fi
 # Set default values if missing
 [[ -z ${ARCH} ]] && ARCH=armv7
 [[ -z ${APP_NAME} ]] && APP_NAME="QField"
-[[ -z ${PKG_NAME} ]] && PKG_NAME="qfield"
+[[ -z ${APP_PACKAGE_NAME} ]] && APP_PACKAGE_NAME="qfield"
 
 INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android
 
-echo "Package name ${PKG_NAME}"
+echo "Package name ${APP_PACKAGE_NAME}"
 
 if [[ -n ${APP_ICON} ]]; then
   # replace icon
@@ -49,10 +49,10 @@ if [[ -n ${APP_ICON} ]]; then
   sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/res/layout/unpacking_dialog.xml
   sed -i "s|@drawable/qfield_logo|@drawable/${APP_ICON}|g" ${SOURCE_DIR}/android/src/ch/opengis/qfield/QFieldProjectActivity.java
 fi
-if [[ "X${PKG_NAME}" != "Xqfield" ]]; then
-  grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
-  grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${PKG_NAME}/g"
-  mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${PKG_NAME}
+if [[ "X${APP_PACKAGE_NAME}" != "Xqfield" ]]; then
+  grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/android/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${APP_PACKAGE_NAME}/g"
+  grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${APP_PACKAGE_NAME}/g"
+  mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${APP_PACKAGE_NAME}
   sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
 fi
 
@@ -109,7 +109,7 @@ cmake \
 	-DAPP_VERSION=${APP_VERSION} \
 	-DAPK_VERSION_CODE=${APP_VERSION_CODE} \
 	-DAPP_VERSION_NAME=${APP_VERSION_STR:-${APP_VERSION_CODE}} \
-	-DAPP_PACKAGE_NAME=${PKG_NAME} \
+	-DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
 	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \
