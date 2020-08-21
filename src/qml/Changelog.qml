@@ -116,6 +116,8 @@ Item {
       Layout.fillHeight: true
       Layout.minimumHeight: contentHeight
       Layout.maximumHeight: contentHeight
+
+      onLinkActivated: Qt.openUrlExternally(link)
     }
 
     QfButton {
