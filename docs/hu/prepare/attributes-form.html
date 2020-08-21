@@ -161,7 +161,7 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Widget type</th>
+<tr class="row-odd"><th class="head">Vezérlő típus</th>
 <th class="head">Támogatás</th>
 <th class="head">Megjegyzés</th>
 </tr>
@@ -218,7 +218,7 @@
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
+<p>A kapcsolat vezérlőben egy listában megjelenik az összes hivatkozott gyermek elem.  Hozzáadhat, törölhet és megnyithatja őket.</p>
 <p>The visual identification of the list entries are done via the „Display Expression” of the child layer.</p>
 <p><strong>Kulcs kezelés</strong></p>
 <p>Since the parents primary keys are used as foreign keys on the referencing child features, these primary keys must be save to use even after the synchronization back to the original data. Therefore we recommend to use stable values such as UUIDs for primary keys.</p>
@@ -234,13 +234,13 @@
 <p>In case of the many-to-one cardinality on many-to-many relations the Display Expression needs to be set on the linking table.</p>
 <div class="section" id="external-resource-photo-settings">
 <h3>Külső források (fotó beállítások)<a class="headerlink" href="#external-resource-photo-settings" title="Hivatkozás erre a fejezetcímre">¶</a></h3>
-<p>The widget type „Attachement” is used to store the path to collected photos.</p>
+<p>A <em>Hozzárendelés</em> vezérlőt használjuk az összegyűjtött fotók elérési útjának tárolásához.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. The pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
+<p>Az elérési út legyen relatív. A képeket a projekt egy alkönyvtárában tároljuk, ahová a szöveg mezőben lévő link mutat.</p>
 <p>A QField-ben a kép megjelenik. A kamara szimbólumra kattintva a kamara frissíti a képet egy új fotóval.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
