@@ -63,10 +63,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField - die mobile [Q]GIS Lösung</a><ul>
-<li><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Mode based</a></li>
+<li><a class="reference internal" href="#concepts">Konzepte</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">Halte es einfach</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">Sei Kompatibel mit QGIS</a></li>
+<li><a class="reference internal" href="#mode-based">Modusbasiert</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">Inhalt</a></li>
@@ -119,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Erste Schritte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Supported Data Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support/index.html">Support and Development</a></li>
@@ -134,41 +134,28 @@
   <div class="section" id="qfield-your-mobile-q-gis-solution">
 <h1>QField - die mobile [Q]GIS Lösung<a class="headerlink" href="#qfield-your-mobile-q-gis-solution" title="Link zu dieser Überschrift">¶</a></h1>
 <p>QField hilft mit, GIS Daten im Gelände effizient zu bearbeiten.</p>
-<p>QField’s optimized user interface for hides the full power of <a class="reference external" href="https://qgis.org">QGIS</a> under the hood.</p>
+<p>Das optimierte Nutzerinterface von QField versteckt die gesamte Leistung von <a class="reference external" href="https://qgis.org">QGIS</a> unter der Oberfläche.</p>
 <div class="docutils container">
 <iframe src="https://player.vimeo.com/video/376372805" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 <div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Link zu dieser Überschrift">¶</a></h2>
-<p>QField was designed with a few key concepts in mind.</p>
+<h2>Konzepte<a class="headerlink" href="#concepts" title="Link zu dieser Überschrift">¶</a></h2>
+<p>QField wurde mit einigen Konzepten entworfen.</p>
 <div class="section" id="keep-it-simple">
-<h3>Keep it simple<a class="headerlink" href="#keep-it-simple" title="Link zu dieser Überschrift">¶</a></h3>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h3>Halte es einfach<a class="headerlink" href="#keep-it-simple" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Die Anforderungen im Feld sind nicht die selben wie im Büro. Meist sind die Bildschirme kleiner, die Eingabegeräte sind anders und die Aufgaben sind unterschiedlich.</p>
+<p>QField hilft dem Anwender, seine Aufgaben zu erledigen ohne den Bildschirm zu überladen. Dafür sind lediglich Bedienelemente für Aufgaben die im Feld gemacht werden müssen sichtbar. Alles andere nicht.</p>
+<p>Das heisst, dass Konfigurationsaufgaben wie die Symbolisierung von Ebenen, Formulardefinitionen und andere Vorbereitungen am Computer mit einem QGIS gemacht werden.</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h3>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Link zu dieser Überschrift">¶</a></h3>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<h3>Sei Kompatibel mit QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="Link zu dieser Überschrift">¶</a></h3>
+<p>QField basiert auf QGIS. Es ist nicht eine Kopie davon, es benutzt QGIS Bibliotheken unter der Oberfläche. Die Zeichenmaschine ist genau die gleiche wie im normalen QGIS und Projekte sehen daher in QField genau gleich aus wie in QGIS.</p>
+<p>Wenn etwas bereits als Konfigurationsoption verfügbar ist in einem QGIS Projekt soll es nicht neu erfunden werden. QField benutzt daher die gleichen Widgets für das Editieren von Attributen wie QGIS. Wenn ein Projekt bereits für den Desktop konfiguriert ist sollte es auf QField ebenfalls funktionieren.</p>
+<p>Zur Erinnerung, dies ist lediglich das Konzept. Manchmal ist es nicht möglich und die Konfiguration ist speziell. Manchmal ist es auch einfach noch nicht umgesetzt.</p>
 </div>
 <div class="section" id="mode-based">
-<h3>Mode based<a class="headerlink" href="#mode-based" title="Link zu dieser Überschrift">¶</a></h3>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h3>Modusbasiert<a class="headerlink" href="#mode-based" title="Link zu dieser Überschrift">¶</a></h3>
+<p>QField wurde um <em>Modi</em> herum entworfen. Modi sind ähnlich einem <em>Kartenwerkzeug</em> in QGIS. Ein Modus definiert eine Aufgabe, die ein Anwender gerade durchführt. Beispielsweise durch die Daten <em>navigieren</em> oder etwas neues <em>digitalisiseren</em>.</p>
 </div>
 </div>
 <div class="section" id="contents">
@@ -179,7 +166,7 @@ is <em>browsing</em> through the data or he is <em>digitizing</em> something new
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/index.html">Erste Schritte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-formats/index.html">Supported Data Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="case-studies/index.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support/index.html">Support and Development</a></li>

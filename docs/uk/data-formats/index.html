@@ -63,11 +63,11 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Supported Data Formats</a><ul>
-<li><a class="reference internal" href="#table">Table</a><ul>
-<li><a class="reference internal" href="#raster-data">Raster data</a></li>
+<li><a class="reference internal" href="#table">Таблиці</a><ul>
+<li><a class="reference internal" href="#raster-data">Растрові дані</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#use-geopackage">Use GeoPackage</a></li>
+<li><a class="reference internal" href="#use-geopackage">Використання GeoPackage</a></li>
 </ul>
 </li>
 </ul>
@@ -131,10 +131,9 @@
       
   <div class="section" id="supported-data-formats">
 <h1>Supported Data Formats<a class="headerlink" href="#supported-data-formats" title="Постійне посилання на цей заголовок">¶</a></h1>
-<p>QField supports a wide variety of formats via QGIS data providers and GDAL.
-This page offers a non-exhaustive list of supported data formats.</p>
+<p>QField підтримує велику кількість фоматів даних завдяки постачальникам даних QGIS та GDAL. На цій сторінці знаходиться неповний список підтримуваних форматів даних.</p>
 <div class="section" id="table">
-<h2>Table<a class="headerlink" href="#table" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Таблиці<a class="headerlink" href="#table" title="Постійне посилання на цей заголовок">¶</a></h2>
 <blockquote>
 <div></div></blockquote>
 <table border="1" class="docutils">
@@ -144,9 +143,9 @@ This page offers a non-exhaustive list of supported data formats.</p>
 <col width="53%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Data Format</th>
-<th class="head">Support</th>
-<th class="head">Notes</th>
+<tr class="row-odd"><th class="head">Формат даних</th>
+<th class="head">Підтримка</th>
+<th class="head">Примітки</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -196,25 +195,22 @@ This page offers a non-exhaustive list of supported data formats.</p>
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td>Використання обмежене ліцензією.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td>Використання обмежене ліцензією.</td>
 </tr>
 </tbody>
 </table>
-<p>If you don’t find your favorite data format on this table, please check if it
-works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
-please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
-happy to help you with the implementation.</p>
+<p>Якщо ви не знайшли свій улюблений формат даних у цій таблиці, будь-ласка, перевірте чи він працює та відповідним чином <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">відредагуйте вищенаведений список</a>. Якщо підтримка формату відсутня, будь ласка <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">повідомте нам</a>. Ми з задоволенням допоможемо вам з реалізацією.</p>
 <div class="section" id="raster-data">
-<h3>Raster data<a class="headerlink" href="#raster-data" title="Постійне посилання на цей заголовок">¶</a></h3>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it’s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<h3>Растрові дані<a class="headerlink" href="#raster-data" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Растрові дані дуже швидко збільшуються в об’ємі, це гігабайти даних, якщо працювати з нестисненими файлами TIFF. Це не ефективно, особливо на мобільних пристроях.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Постійне посилання на цей заголовок">¶</a></h2>
+<h2>Використання GeoPackage<a class="headerlink" href="#use-geopackage" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> to your desired CRS.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>

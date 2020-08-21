@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Installation" href="install/index.html" />
+    <link rel="next" title="安装" href="install/index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -62,10 +62,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">QField - 您的移动[Q]GIS解决方案</a><ul>
-<li><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li><a class="reference internal" href="#keep-it-simple">Keep it simple</a></li>
-<li><a class="reference internal" href="#be-compatible-with-qgis">Be compatible with QGIS</a></li>
-<li><a class="reference internal" href="#mode-based">Mode based</a></li>
+<li><a class="reference internal" href="#concepts">设计理念</a><ul>
+<li><a class="reference internal" href="#keep-it-simple">简单化</a></li>
+<li><a class="reference internal" href="#be-compatible-with-qgis">与QGIS兼容</a></li>
+<li><a class="reference internal" href="#mode-based">基于模式</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">目录</a></li>
@@ -84,7 +84,7 @@
             
               
   <li>
-    <a href="install/index.html" title="Next Chapter: Installation"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Installation &raquo;</span>
+    <a href="install/index.html" title="Next Chapter: 安装"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">安装 &raquo;</span>
     </a>
   </li>
             
@@ -114,7 +114,7 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/index.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>
@@ -138,43 +138,30 @@
 <iframe src="https://player.vimeo.com/video/376372805" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
 <div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="永久链接至标题">¶</a></h2>
-<p>QField was designed with a few key concepts in mind.</p>
+<h2>设计理念<a class="headerlink" href="#concepts" title="永久链接至标题">¶</a></h2>
+<p>QField的设计秉持几个核心理念。</p>
 <div class="section" id="keep-it-simple">
-<h3>Keep it simple<a class="headerlink" href="#keep-it-simple" title="永久链接至标题">¶</a></h3>
-<p>The requirements on the field are not the same as on a desktop. The screen is
-smaller, the input devices are different and the tasks are different.</p>
-<p>QField aims to help the user to perform the tasks he needs to do without
-cluttering the user interface. This means, that only tasks which need to be
-done on the field are availble from the interface. Everything else is not.</p>
-<p>This means that everything like layer styling, form definitions and other
-project setup steps should be done on a computer with QGIS installed first.</p>
+<h3>简单化<a class="headerlink" href="#keep-it-simple" title="永久链接至标题">¶</a></h3>
+<p>外业软件需求不同于桌面软件。屏幕更小，输入设备和作业任务也都存在差异。</p>
+<p>QField旨在不干扰用户界面的前提下帮助用户完成作业任务。这意味着，用户界面中只包含需要在外业中完成的任务，别无其他。</p>
+<p>这意味着所有事情都应该首先在一台安装了QGIS的计算机上完成，例如图层样式设置、表单定义以及其他与项目有关的设置。</p>
 </div>
 <div class="section" id="be-compatible-with-qgis">
-<h3>Be compatible with QGIS<a class="headerlink" href="#be-compatible-with-qgis" title="永久链接至标题">¶</a></h3>
-<p>QField is based on QGIS. It is not a rebuild of QGIS it really <em>does</em> use QGIS
-libraries. The rendering engine is exactly the same as in QGIS for desktop and
-your project will therefore look exactly the same on your mobile device as it
-does on your computer.</p>
-<p>If something is already available as a configuration option in a QGIS project,
-it should not be re-invented. QField therefore uses the same edit widgets as
-QGIS desktop does. If a project is already configured for the desktop, it
-should just run on mobile as well.</p>
-<p>Remember, this is just the <em>concept</em>. This is what we have in mind when we
-develop QField. It does not mean that it is already completely there yet.</p>
+<h3>与QGIS兼容<a class="headerlink" href="#be-compatible-with-qgis" title="永久链接至标题">¶</a></h3>
+<p>QField建立在QGIS的基础上。它不是QGIS的重新构建，虽然它的确使用了QGIS库。QField的渲染引擎与QGIS桌面完全相同，因此您的项目在移动设备上与在计算机上看起来别无二致。</p>
+<p>在QField中，不应对QGIS项目中已经支持的配置选项进行重新定义。QField使用与QGIS桌面相同的编辑组件。在QGIS桌面中配置好的项目在移动设备上同样可以运行。</p>
+<p>请记住，这些只是我们在开发QField时所秉持的“理念”，并不意味着它们已经完全实现了。</p>
 </div>
 <div class="section" id="mode-based">
-<h3>Mode based<a class="headerlink" href="#mode-based" title="永久链接至标题">¶</a></h3>
-<p>QField is built around <em>modes</em>. Modes are similar to a <em>map tool</em> in QGIS
-desktop. A mode defines the task which a user is currently doing. Either a user
-is <em>browsing</em> through the data or he is <em>digitizing</em> something new.</p>
+<h3>基于模式<a class="headerlink" href="#mode-based" title="永久链接至标题">¶</a></h3>
+<p>QField是围绕“模式”构建的，模式类似于QGIS桌面中的“地图工具”。模式定义了用户当前正在执行的任务。用户要么正在“浏览”数据，要么正在“数字化”新内容。</p>
 </div>
 </div>
 <div class="section" id="contents">
 <h2>目录<a class="headerlink" href="#contents" title="永久链接至标题">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install/index.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prepare/index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronise/index.html">Synchronisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fieldwork/index.html">Fieldwork</a></li>

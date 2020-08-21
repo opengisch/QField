@@ -65,10 +65,10 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Supported Data Formats</a><ul>
 <li><a class="reference internal" href="#table">Table</a><ul>
-<li><a class="reference internal" href="#raster-data">Raster data</a></li>
+<li><a class="reference internal" href="#raster-data">Données raster</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#use-geopackage">Use GeoPackage</a></li>
+<li><a class="reference internal" href="#use-geopackage">Utiliser GeoPackage</a></li>
 </ul>
 </li>
 </ul>
@@ -196,25 +196,22 @@
 </tr>
 <tr class="row-odd"><td>ECW</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td>Restrictions d’utilisation liées à la licence.</td>
 </tr>
 <tr class="row-even"><td>MrSID</td>
 <td><span class="nay">✘</span></td>
-<td>License restricts usage.</td>
+<td>Restrictions d’utilisation liées à la licence.</td>
 </tr>
 </tbody>
 </table>
-<p>If you don’t find your favorite data format on this table, please check if it
-works and <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">adapt the list above</a> to share your findings. If it does not work,
-please <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">open an issue</a>. We will be
-happy to help you with the implementation.</p>
+<p>Si vous ne trouvez pas votre format favoris dans cette table, merci de tester s’il fonctionne et <a class="reference external" href="https://github.com/opengisch/QField-docs/edit/master/en/project-management/dataformat.rst">d’adapter la liste ci-dessous</a> pour partager votre expérience. Si cela ne fonctionne pas, merci <a class="reference external" href="https://github.com/opengisch/OSGeo4A/issues">d’ouvrir une issue</a>. Nous serons heureux de vous aider dans l’implémentation.</p>
 <div class="section" id="raster-data">
-<h3>Raster data<a class="headerlink" href="#raster-data" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Raster data can become quite big quickly, when working with uncompressed tiff files it’s often several Gb of data. Especially on mobile devices, this is inefficient.</p>
+<h3>Données raster<a class="headerlink" href="#raster-data" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les données raster peuvent vite devenir très lourdes si l’on travaille avec du tiff sans compression, jusqu’à plusieurs Go de données. Spécialement sur des appareils mobiles, ce n’est pas efficace.</p>
 </div>
 </div>
 <div class="section" id="use-geopackage">
-<h2>Use GeoPackage<a class="headerlink" href="#use-geopackage" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Utiliser GeoPackage<a class="headerlink" href="#use-geopackage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>We recommend to us the geopackage format to deal with raster data. The following commands will convert a file called <code class="code docutils literal notranslate"><span class="pre">raster.tif</span></code> to a file <code class="code docutils literal notranslate"><span class="pre">raster.gpkg</span></code> with pyramids. Make sure you adjust <code class="docutils literal notranslate"><span class="pre">EPSG:21781</span></code> to your desired CRS.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdal_translate</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">co</span>  <span class="n">APPEND_SUBDATASET</span><span class="o">=</span><span class="n">YES</span> <span class="o">-</span><span class="n">co</span> <span class="n">TILE_FORMAT</span><span class="o">=</span><span class="n">WEBP</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">21781</span> <span class="o">-</span><span class="n">of</span> <span class="n">GPKG</span> <span class="n">raster</span><span class="o">.</span><span class="n">tif</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span>
 <span class="n">gdaladdo</span> <span class="o">--</span><span class="n">config</span> <span class="n">OGR_SQLITE_SYNCHRONOUS</span> <span class="n">OFF</span> <span class="o">-</span><span class="n">r</span> <span class="n">AVERAGE</span> <span class="n">raster</span><span class="o">.</span><span class="n">gpkg</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span>

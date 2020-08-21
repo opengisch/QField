@@ -66,8 +66,8 @@
 <li><a class="reference internal" href="#">Open a project</a><ul>
 <li><a class="reference internal" href="#favorite-directories">Favorite directories</a></li>
 <li><a class="reference internal" href="#advanced-project-selection">Advanced project selection</a><ul>
-<li><a class="reference internal" href="#external-sd-card">External SD card</a></li>
-<li><a class="reference internal" href="#warning">Warning!</a></li>
+<li><a class="reference internal" href="#external-sd-card">Externe SD Karte</a></li>
+<li><a class="reference internal" href="#warning">Warnung!</a></li>
 <li><a class="reference internal" href="#how-to-turn-external-sd-card-into-internal-storage">How to turn external SD card into internal storage</a></li>
 </ul>
 </li>
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Fieldwork</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Erste Schritte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
@@ -155,7 +155,7 @@
 <p>Inside these directories, only subdirectories and files with the „.qgs“ or „.qgz“ extension are shown.</p>
 <p>QField requires the project file to be physically on the device, so it is not possible to use providers that work with remote files (e.g. Google Drive). On the other hand you can use apps like <a class="reference external" href="https://syncthing.net/">syncthing</a> or <a class="reference external" href="https://nextcloud.com/">nextcloud</a> (or dropbox and probably many others) that allow you tho physically sync the file to your device.</p>
 <div class="section" id="external-sd-card">
-<h3>External SD card<a class="headerlink" href="#external-sd-card" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Externe SD Karte<a class="headerlink" href="#external-sd-card" title="Link zu dieser Überschrift">¶</a></h3>
 <p>The file selector shows the root of the SD card labeled as „read-only“ and the application-specific directory separated from the rest of the SD card, as it is the only directory for which the app has write access. The directory is the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Android/data/ch.opengis.qfield/files
 </pre></div>
@@ -166,7 +166,7 @@
 </div>
 </div>
 <div class="section" id="warning">
-<h3>Warning!<a class="headerlink" href="#warning" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Warnung!<a class="headerlink" href="#warning" title="Link zu dieser Überschrift">¶</a></h3>
 <p>By storing data in this folder, you risk losing data.
 The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite>) will be deleted by the system if you uninstall QField from your Android device. This is important if you keep the data in the External sd card.</p>
 </div>
@@ -175,11 +175,11 @@ The application-specific directory (<cite>/Android/data/ch.opengis.qfield/</cite
 <p>Starting from Android 6.0, you can use the SD card as internal storage for your Android phone. A feature called Adoptable Storage allows the Android OS to format an external storage media as a permanent internal storage. The data on the adopted SD card is encrypted and it can’t be mounted on another device.</p>
 <p><strong>Please be sure you start with an empty SD card. It needs to be empty because when the card is converted to „Internal“ storage, it will be formatted (wiped).</strong></p>
 <ol class="arabic simple">
-<li>Go to device “Settings”, then select “Storage”.</li>
-<li>Select your „SD Card“, then tap the “three-dot menu“ (top-right), now select “Settings” from in there.</li>
-<li>Now select “Format as internal”, and then “Erase &amp; Format”.</li>
-<li>Your SD Card will now be formatted as internal storage.</li>
-<li>Reboot your phone.</li>
+<li>Gehen Sie auf „Einstellungen“ ihres Gerätes, dann wählen Sie „Speicher“.</li>
+<li>Wählen Sie Ihre „SD-Karte“, tippen Sie dann auf das „Drei-Punkte-Menü“ (oben rechts) und wählen Sie dort „Einstellungen“ aus.</li>
+<li>Wählen Sie zunächst „Formatieren“ aus und dann „Löschen und Formatieren“.</li>
+<li>Ihre SD-Karte wird nun als interner Speicher formatiert.</li>
+<li>Starten dein Telefon neu.</li>
 </ol>
 <p>If you don’t reboot the phone, many things may not work correctly, so make sure you do.</p>
 <p>It might be possible that the Adoptable Storage feature is not present on your device even if it is running Android 6.0 and above. The device manufacturer may have disabled the feature. However, command-line methods exist which allow you to force a device to adopt a storage.</p>
