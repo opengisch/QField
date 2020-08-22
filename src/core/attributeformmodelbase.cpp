@@ -261,7 +261,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       QVariant result = exp.evaluate( &expressionContext );
 
       QString resultString;
-      switch( result.type() )
+      switch( static_cast<QMetaType::Type>( result.type() ) )
       {
         case QMetaType::Int:
         case QMetaType::UInt:
