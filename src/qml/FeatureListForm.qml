@@ -18,6 +18,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.Material.impl 2.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -169,9 +171,20 @@ Rectangle {
     }
 
     delegate: Rectangle {
+      id: itemBackground
       anchors { left: parent.left; right: parent.right }
       focus: true
       height: Math.max( 48, featureText.height )
+
+      Ripple {
+          clip: true
+          width: parent.width
+          height: parent.height
+          pressed: mouseArea.pressed
+          anchor: itemBackground
+          active: mouseArea.pressed
+          color: Material.rippleColor
+      }
 
       CheckBox {
           anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
@@ -201,6 +214,7 @@ Rectangle {
       }
 
       MouseArea {
+        id: mouseArea
         anchors.fill: parent
 
         onClicked: {
