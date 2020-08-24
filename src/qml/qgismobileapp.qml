@@ -1547,6 +1547,7 @@ ApplicationWindow {
     padding: 0
     modal: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    focus: visible
 
     Flickable {
       id: changelogFlickable
@@ -1568,6 +1569,13 @@ ApplicationWindow {
 
     onClosed: {
       changelogFlickable.contentY = 0
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
+      }
     }
   }
 
