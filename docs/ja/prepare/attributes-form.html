@@ -64,7 +64,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">属性フォームの設定</a><ul>
-<li><a class="reference internal" href="#suppress-attribute-form">Suppress Attribute Form</a></li>
+<li><a class="reference internal" href="#suppress-attribute-form">属性フォームの抑制</a></li>
 <li><a class="reference internal" href="#field-widget">フィールドウィジェット</a></li>
 <li><a class="reference internal" href="#relation-widget">リレーションウィジェット</a><ul>
 <li><a class="reference internal" href="#external-resource-photo-settings">外部リソース（写真設定）</a></li>
@@ -148,8 +148,8 @@
 <h1>属性フォームの設定<a class="headerlink" href="#attribute-form-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>QFieldはQGISと似たようなフォームを作成できますが、完全に同じではありません。</p>
 <div class="section" id="suppress-attribute-form">
-<h2>Suppress Attribute Form<a class="headerlink" href="#suppress-attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The setting &quot;suppress attribute form&quot; is directly applied to the QField form.</p>
+<h2>属性フォームの抑制<a class="headerlink" href="#suppress-attribute-form" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「属性フォームの抑制」設定は、QFieldフォームに直接適用されます。</p>
 </div>
 <div class="section" id="field-widget">
 <span id="edit-field-widgets"></span><h2>フィールドウィジェット<a class="headerlink" href="#field-widget" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -161,7 +161,7 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Widget type</th>
+<tr class="row-odd"><th class="head">ウィジェットタイプ</th>
 <th class="head">サポートの可否</th>
 <th class="head">備考</th>
 </tr>
@@ -218,11 +218,11 @@
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>The relation widget shows all the referencing child features in a list. It is possible to add, delete and open them.</p>
-<p>The visual identification of the list entries are done via the &quot;Display Expression&quot; of the child layer.</p>
+<p>リレーションウィジェットは全ての参照する子フィーチャをリスト形式で表示します。それらを追加、削除したり、開いたりすることが可能です。</p>
+<p>リストエントリの視覚的な識別は、子レイヤーの「表示式」を介して行われます。</p>
 <p><strong>キーの処理</strong></p>
 <p>親の主キーは、参照する子フィーチャの外部キーとして使用されるため、これらの主キーは、オリジナルのデータに同期した後でも使用するために保持されなければいけません。 したがって、主キーにはUUIDなどの安定した値を使用することをお勧めします。</p>
-<p>It is possible to already add children from a parent that is about to be added. This possibility will be blocked if there is no valid primary key on the parent or the constraints are violated. In case the adding of the parent feature is canceled after some children have been added already, the children are deleted as well.</p>
+<p>追加しようとしている親フィーチャから既に存在している子フィーチャを追加することは可能です。 親に有効な主キーがないか、制約に違反している場合、これはブロックされる可能性があります。 いくつかの子フィーチャがすでに追加された後で親フィーチャの追加がキャンセルされた場合、子フィーチャも削除されます。</p>
 <p><strong>多対多のリレーション</strong></p>
 <p>多対多の関係では、QGISのベクターレイヤープロパティでのカーディナリティーカラムに格納されているデータの種類がどのくらいあるかの設定に従って、追加、削除、もしくはリストのエントリを開いたりする際に子レイヤー（直接的なカーディナリティ）またはリンクされたテーブル（多対1のカーディナリティ）に直接的に影響します。</p>
 <p>通常、2番目のケースは、リンクしているテーブルに追加の関係情報（パーセンテージなど）がある場合に使用されます。</p>
@@ -240,7 +240,7 @@
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. The pictures are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
+<p>ファイルパスは相対パスで設定する必要があります。次に、画像はプロジェクトのサブディレクトリに保存されます。ここでは、テキストフィールドに保存されているリンクがそれを指し示しています。</p>
 <p>QFieldで写真が表示されます。カメラのアイコンをクリックするとカメラが起動し新しく写真を撮影し更新できます。</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
