@@ -88,12 +88,18 @@ Page {
 
         Connections {
           target: master
-          onReset: tabRow.currentIndex = 0
+
+          function onReset() {
+            tabRow.currentIndex = 0
+          }
         }
 
         Connections {
           target: swipeView
-          onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+
+          function onCurrentIndexChanged(currentIndex) {
+            tabRow.currentIndex = swipeView.currentIndex
+          }
         }
 
         Repeater {
@@ -186,7 +192,10 @@ Page {
 
             Connections {
               target: master
-              onReset: content.contentY = 0
+
+              function onReset() {
+                content.contentY = 0
+              }
             }
 
             model: SubModel {
@@ -522,7 +531,8 @@ Page {
 
   Connections {
     target: Qt.inputMethod
-    onVisibleChanged: {
+
+    function onVisibleChanged() {
       Qt.inputMethod.commit()
     }
   }

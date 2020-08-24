@@ -432,7 +432,7 @@ Rectangle {
   Connections {
     target: globalFeaturesList.model
 
-    onRowsInserted: {
+    function onRowsInserted(parent, first, VectorLayerStatic) {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
       } else {
@@ -441,13 +441,13 @@ Rectangle {
       }
     }
 
-    onCountChanged: {
+    function onCountChanged() {
       if ( model.rowCount() === 0 ) {
         state = "Hidden"
       }
     }
 
-    onModelReset: {
+    function onModelReset() {
       if ( model.rowCount() > 0 ) {
         state = "FeatureList"
       } else {
@@ -579,7 +579,7 @@ Rectangle {
   Connections {
     target: qgisProject
 
-    onLayersWillBeRemoved: {
+    function onLayersWillBeRemoved(layerIds) {
         if( state != "FeatureList" ) {
           if( featureListToolBar.state === "Edit"){
               featureForm.state = "FeatureForm"
