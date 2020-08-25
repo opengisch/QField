@@ -1,5 +1,6 @@
 [main]
 host = https://www.transifex.com
+lang_map = zh-Hant: zh_TW
 
 [qfield-for-qgis.qfield]
 file_filter = i18n/qfield_<lang>.ts
