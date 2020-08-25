@@ -20,8 +20,8 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Use of QField for mapping breeding birds in the Wadden Sea" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
-    <link rel="prev" title="Case Studies" href="index.html" />
+    <link rel="next" title="Uso de QField para mapear aves reproductoras en el Mar de Wadden" href="mapping-breeding-birds-in-the-Wadden-Sea.html" />
+    <link rel="prev" title="Casos de estudio" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -65,8 +65,8 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Mejorar la eficiencia en estudios ecológicos usando QField</a><ul>
 <li><a class="reference internal" href="#goal">Objetivo</a></li>
-<li><a class="reference internal" href="#project-requirements">Project Requirements</a></li>
-<li><a class="reference internal" href="#result">Result</a></li>
+<li><a class="reference internal" href="#project-requirements">Requerimientos del proyecto</a></li>
+<li><a class="reference internal" href="#result">Resultado</a></li>
 </ul>
 </li>
 </ul>
@@ -78,11 +78,11 @@
             
               
   <li>
-    <a href="index.html" title="Previous Chapter: Case Studies"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Case Studies</span>
+    <a href="index.html" title="Previous Chapter: Casos de estudio"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Casos de estudio</span>
     </a>
   </li>
   <li>
-    <a href="mapping-breeding-birds-in-the-Wadden-Sea.html" title="Next Chapter: Use of QField for mapping breeding birds in the Wadden Sea"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Use of QField... &raquo;</span>
+    <a href="mapping-breeding-birds-in-the-Wadden-Sea.html" title="Next Chapter: Uso de QField para mapear aves reproductoras en el Mar de Wadden"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Uso de QField... &raquo;</span>
     </a>
   </li>
             
@@ -113,13 +113,13 @@
     role="menu"
     aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install/index.html">Instalación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepárate para trabajar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Sincronización</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Trabajo de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Manuales para comenzar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formatos de datos soportados</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Casos de estudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Soporte y desarrollo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
 
@@ -133,45 +133,37 @@
 <p>Por Ryan Bell, consultor SIG, Consultora Delta-Simons Environmental</p>
 <div class="section" id="goal">
 <h2>Objetivo<a class="headerlink" href="#goal" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>To conduct ecological surveying more efficiently than has been previously achieved through
-traditional non-digital techniques, using QField as a medium for standardised and flexible
-field data collection.</p>
+<p>Llevar a cabo levantamientos ecológicos de manera más eficiente de lo que se había logrado anteriormente mediante técnicas tradicionales no digitales, utilizando QField como medio para la recopilación de datos de campo estandarizada y flexible.</p>
 </div>
 <div class="section" id="project-requirements">
-<h2>Project Requirements<a class="headerlink" href="#project-requirements" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>To facilitate effective field work, regular consultation with the Ecology team is required
-to ensure that QField projects are prepared appropriately. Firstly, basemaps comprising
-aerial imagery and proposed development plans are prepared by georeferencing  and constructing
-pyramids in QGIS. Point, line and polygon vector layers are then created to support digitisation
-and associated data collection. Using a range of widgets, attribute fields are customised to
-meet the requirements of the Ecology team. These include:</p>
+<h2>Requerimientos del proyecto<a class="headerlink" href="#project-requirements" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para facilitar un trabajo de campo eficaz, se requiere una consulta regular con el equipo de Ecología para garantizar que los proyectos de QField se preparen de manera adecuada. En primer lugar, se preparan mapas base que comprenden imágenes aéreas y planes de desarrollo propuestos mediante georreferenciación y construcción de pirámides en QGIS. Luego, se crean capas vectoriales de puntos, líneas y polígonos para respaldar la digitalización y la recopilación de datos asociados. Usando una variedad de widgets, los campos de atributos se personalizan para cumplir con los requisitos del equipo de Ecología. Éstos incluyen:</p>
 <dl class="docutils">
 <dt>Estilo</dt>
-<dd>drop-down list of selectable styles tailored for conducting ecological surveys</dd>
-<dt>Scale</dt>
-<dd>drop-down list of selectable scales for point and line feature</dd>
-<dt>Info</dt>
-<dd>space for inserting a feature description</dd>
-<dt>Image</dt>
-<dd>location for images to be captured and stored</dd>
-<dt>Geometry</dt>
-<dd>contains self-populated geometry values, e.g. area, perimeter, length</dd>
-<dt>Timestamp</dt>
-<dd>records the time and date that a feature was created/last modified</dd>
+<dd>lista desplegable de estilos seleccionables diseñados para realizar estudios ecológicos</dd>
+<dt>Escala</dt>
+<dd>lista desplegable de escalas seleccionables para la característica de punto y línea</dd>
+<dt>Información</dt>
+<dd>espacio para insertar una descripción de función</dd>
+<dt>Imagen</dt>
+<dd>ubicación para capturar y almacenar imágenes</dd>
+<dt>Geometría</dt>
+<dd>contiene valores de geometría predeterminados,por ejemplo: área, perímetro, longitud</dd>
+<dt>Registro de tiempo</dt>
+<dd>registra la hora y la fecha en que se creó / modificó por última vez una característica</dd>
 </dl>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/eco-survey.png"><img alt="Figure 1 - Overview of the traditional workflow in ecological surveying at Delta-Simons compared with the workflow created using QField. Single-headed arrows indicate the direction of one-way communication, whereas double-headed arrows indicate two-way conversation." src="../_images/eco-survey.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="result">
-<h2>Result<a class="headerlink" href="#result" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Delta-Simons are saving approximately 40% of the time previously consumed by traditional ecological
-field data collection. QField has significantly improved the ecological surveying workflow by:</p>
+<h2>Resultado<a class="headerlink" href="#result" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Delta-Simons ahorra aproximadamente el 40% del tiempo que antes consumía la recopilación de datos de campo ecológicos tradicionales. QField ha mejorado significativamente el flujo de trabajo de topografía ecológica al:</p>
 <ul class="simple">
-<li>Removing the need to recreate GIS outputs from physical drawings</li>
-<li>Reducing the overall amendments required for GIS outputs</li>
-<li>Improving communication channels (see Figure 1.)</li>
-<li>Improving the accuracy and quality of data</li>
+<li>Eliminando la necesidad de recrear salidas GIS a partir de dibujos físicos</li>
+<li>Reducir las modificaciones generales necesarias para los productos de SIG</li>
+<li>Mejorar los canales de comunicación (ver Figura 1.)</li>
+<li>Mejora de la precisión y calidad de los datos.</li>
 </ul>
 <div class="clearer text-center docutils container">
 <a class="reference external image-reference" href="https://www.deltasimons.com/"><img alt="Delta Simons" src="../_images/delta-simons.png" style="width: 400px;" /></a>
