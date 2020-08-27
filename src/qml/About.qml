@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
 import Theme 1.0
+import org.qfield 1.0
 
 Item {
   Rectangle {
@@ -86,6 +87,30 @@ Item {
         source: "qrc:/images/karma-logo.svg"
       }
       onClicked: Qt.openUrlExternally("https://www.opengis.ch/android-gis/qfield/donate-and-sponsor/")
+    }
+    QfButton {
+      id: changelogButton
+      Layout.fillWidth: true
+      Layout.fillHeight: false
+
+      text: qsTr( 'Changelog' )
+
+      font: Theme.defaultFont
+
+      contentItem: Text {
+        text: changelogButton.text
+        font: changelogButton.font
+        color: 'white'
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+      }
+
+      background: Rectangle {
+        color: Theme.mainColor
+      }
+
+      onClicked: changelogPopup.open()
     }
   }
 }

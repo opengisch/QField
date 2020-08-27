@@ -1536,8 +1536,8 @@ ApplicationWindow {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    property var expireDate: new Date(2019,9,16)
-    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+    property var expireDate: new Date(2038,1,19)
+    visible: settings.value( "/QField/ChangelogVersion", "" ) !== versionCode
                && expireDate > new Date()
 
     x: 24
@@ -1546,7 +1546,8 @@ ApplicationWindow {
     height: parent.height - 48
     padding: 0
     modal: true
-    closePolicy: Popup.CloseOnEscape
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    focus: visible
 
     Flickable {
       id: changelogFlickable
@@ -1563,6 +1564,17 @@ ApplicationWindow {
         onClose: {
           changelogPopup.close()
         }
+      }
+    }
+
+    onClosed: {
+      changelogFlickable.contentY = 0
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
       }
     }
   }
