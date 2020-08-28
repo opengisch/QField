@@ -28,6 +28,10 @@ Page {
     property bool nativeCamera
     property bool autoSave
     property bool mouseAsTouchScreen
+
+    Component.onCompleted: {
+        nativeCamera=true
+    }
   }
 
   ListModel {
