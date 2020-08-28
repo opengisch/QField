@@ -43,11 +43,11 @@ android {
      *                   on Android.
      *
      * are defined in gradle.properties file. This file is
-     * updated by QtCreator and androiddeployqt tools.
+     * updated by QtCredftor and androiddeployqt tools.
      * Changing them manually might break the compilation!
      *******************************************************/
 
-    compileSdkVersion androidCompileSdkVersion.toInteger()
+    compileSdkVersion 29
 
 
     /*
