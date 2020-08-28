@@ -10,8 +10,7 @@ if [[ ${CI_SECURE_ENV_VARS} = true ]]; then
   
   for x in android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
   
-  lrelease QField.pro
+  find ${DIR}/i18n -type f -name "*.ts" -exec lrelease "{}" \;
 fi
 
 echo "::endgroup::"
-
