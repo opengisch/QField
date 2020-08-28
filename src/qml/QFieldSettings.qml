@@ -25,7 +25,7 @@ Page {
     property bool locatorKeepScale
     property bool incrementalRendering
     property bool numericalDigitizingInformation
-    property bool nativeCamera
+    property bool nativeCamera: true
     property bool autoSave
     property bool mouseAsTouchScreen
   }
