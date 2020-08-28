@@ -143,7 +143,7 @@ public class QFieldActivity extends Activity {
         }
 
         if (mExternalStorageAvailable) {
-            String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            String storagePath = Context.getExternalFilesDirs(null).getAbsolutePath();
             mLocalizedDataPathsDir = storagePath + "/QField/basemaps/";
         }
 
@@ -308,7 +308,7 @@ public class QFieldActivity extends Activity {
             // create symlink
             // alias paths for storage dir (/sdcard or similar)
             String storagePathAlias = getFilesDir() + "/storage";
-            String storagePath = Environment.getExternalStorageDirectory()
+            String storagePath = Context.getExternalFilesDirs(null)
                 .getAbsolutePath();
 
             if (mExternalStorageAvailable) {

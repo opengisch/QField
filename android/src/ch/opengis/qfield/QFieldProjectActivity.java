@@ -57,7 +57,7 @@ public class QFieldProjectActivity extends Activity {
         // Roots
         if (!getIntent().hasExtra("path")) {
 
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            File externalStorageDirectory = Context.getExternalFilesDirs(null);
             Log.d(TAG, "externalStorageDirectory: " + externalStorageDirectory);
             if (externalStorageDirectory != null){
                 values.add(new QFieldProjectListItem(externalStorageDirectory, getString(R.string.primary_storage),
