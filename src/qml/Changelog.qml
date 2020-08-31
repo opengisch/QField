@@ -62,25 +62,8 @@ Item {
     QfButton {
       id: closeButton
       Layout.fillWidth: true
-      Layout.fillHeight: true
 
       text: qsTr( 'OK' )
-
-      font: Theme.defaultFont
-
-      contentItem: Text {
-        text: closeButton.text
-        font: closeButton.font
-        color: 'white'
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-      }
-
-      background: Rectangle {
-        color: Theme.mainColor
-      }
-
       onClicked: close()
     }
 
