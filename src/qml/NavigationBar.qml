@@ -25,7 +25,6 @@ import org.qfield 1.0
 Rectangle {
   id: toolBar
 
-  property string currentName: ''
   property bool allowDelete
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
