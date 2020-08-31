@@ -1568,6 +1568,7 @@ ApplicationWindow {
     }
 
     onClosed: {
+      settings.setValue( "/QField/ChangelogVersion", versionCode )
       changelogFlickable.contentY = 0
     }
 

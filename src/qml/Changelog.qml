@@ -142,10 +142,7 @@ Item {
         color: Theme.mainColor
       }
 
-      onClicked: {
-        settings.setValue( '/QField/ChangelogVersion', versionCode )
-        close()
-      }
+      onClicked: close()
     }
 
     Item {
