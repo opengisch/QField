@@ -1572,6 +1572,10 @@ ApplicationWindow {
       changelogFlickable.contentY = 0
     }
 
+    onOpened: {
+      changelog.refreshChangelog()
+    }
+
     Keys.onReleased: {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         event.accepted = true
