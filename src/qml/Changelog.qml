@@ -44,69 +44,8 @@ Item {
 
     Text {
       id: changelogBody
+      property bool isSuccess: false
       color: '#95000000'
-      text: {
-        var RELEASES_URL = 'https://api.github.com/repos/opengisch/qfield/releases'
-        var xhr = new XMLHttpRequest()
-        var parseVersion = function(str) {
-          str = str.replace(/^[a-z]*/, '')
-
-          var parts = str.split('.')
-
-          if (parts[0] >= 0 && parts[1] >= 0 && parts[2] >= 0)
-            return [parts[0], parts[1], parts[2]]
-
-          return []
-        }
-
-        xhr.open('GET', RELEASES_URL)
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-            var resp = xhr.responseText
-            var changelog = ''
-
-            try {
-              var releases = JSON.parse(resp)
-              var qfieldVersion = parseVersion(version)
-
-              for (var i = 0, l = releases.length; i < l; i++) {
-                var release = releases[i]
-                var releaseVersion = parseVersion(release['tag_name'])
-
-                if (releaseVersion.length === 0)
-                  continue
-
-                var releaseChangelog = '\n#\n# ' + release['name'] + '\n\n' + release['body'] + '\n'
-
-                // most probably developer version with no proper version set
-                if (qfieldVersion.length === 0)
-                  qfieldVersion = releaseVersion
-
-                if (qfieldVersion[0] !== releaseVersion[0] || qfieldVersion[1] !== releaseVersion[1])
-                  continue
-
-                // prepend the current release
-                changelog = releaseChangelog + changelog
-              }
-
-              if ( changelog.length === 0 )
-                throw new Error('Empty changelog!')
-
-              changelog += '\n' + '[' + qsTr('Previous releases on GitHub') + '](https://github.com/opengisch/qfield/releases)'
-              changelog = changelog.replace(/^##(.+)$/gm, function(full) {
-                return '\n###\n' + full + '\n\n\n'
-              })
-
-              changelogBody.text = changelog
-            } catch (err) {
-              changelogBody.text = qsTr('Temporarily cannot retrieve the changelog. Please check your internet connection.')
-            }
-          }
-        }
-        xhr.send()
-
-        return qsTr('Loading…')
-      }
       font: Theme.tipFont
 
       fontSizeMode: Text.VerticalFit
@@ -123,34 +62,81 @@ Item {
     QfButton {
       id: closeButton
       Layout.fillWidth: true
-      Layout.fillHeight: true
 
       text: qsTr( 'OK' )
-
-      font: Theme.defaultFont
-
-      contentItem: Text {
-        text: closeButton.text
-        font: closeButton.font
-        color: 'white'
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-      }
-
-      background: Rectangle {
-        color: Theme.mainColor
-      }
-
-      onClicked: {
-        settings.setValue( '/QField/ChangelogVersion', versionCode )
-        close()
-      }
+      onClicked: close()
     }
 
     Item {
         // bottom
         height: 20
     }
+  }
+
+  function refreshChangelog() {
+    if ( changelogBody.isSuccess )
+      return
+
+    var RELEASES_URL = 'https://api.github.com/repos/opengisch/qfield/releases'
+    var xhr = new XMLHttpRequest()
+    var parseVersion = function(str) {
+      str = str.replace(/^[a-z]*/, '')
+
+      var parts = str.split('.')
+
+      if (parts[0] >= 0 && parts[1] >= 0 && parts[2] >= 0)
+        return [parts[0], parts[1], parts[2]]
+
+      return []
+    }
+
+    xhr.open('GET', RELEASES_URL)
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        var resp = xhr.responseText
+        var changelog = ''
+
+        try {
+          var releases = JSON.parse(resp)
+          var qfieldVersion = parseVersion(version)
+
+          for (var i = 0, l = releases.length; i < l; i++) {
+            var release = releases[i]
+            var releaseVersion = parseVersion(release['tag_name'])
+
+            if (releaseVersion.length === 0)
+              continue
+
+            var releaseChangelog = '\n#\n# ' + release['name'] + '\n\n' + release['body'] + '\n'
+
+            // most probably developer version with no proper version set
+            if (qfieldVersion.length === 0)
+              qfieldVersion = releaseVersion
+
+            if (qfieldVersion[0] !== releaseVersion[0] || qfieldVersion[1] !== releaseVersion[1])
+              continue
+
+            // prepend the current release
+            changelog = releaseChangelog + changelog
+          }
+
+          if ( changelog.length === 0 )
+            throw new Error('Empty changelog!')
+
+          changelog += '\n' + '[' + qsTr('Previous releases on GitHub') + '](https://github.com/opengisch/qfield/releases)'
+          changelog = changelog.replace(/^##(.+)$/gm, function(full) {
+            return '\n###\n' + full + '\n\n\n'
+          })
+
+          changelogBody.text = changelog
+          changelogBody.isSuccess = true
+        } catch (err) {
+          changelogBody.text = qsTr('Temporarily cannot retrieve the changelog. Please check your internet connection.')
+        }
+      }
+    }
+    xhr.send()
+
+    changelogBody.text = qsTr('Loading…')
   }
 }
