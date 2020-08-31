@@ -154,7 +154,7 @@ ListView {
       }
 
       Rectangle {
-          visible: !IsValid
+          visible: Type == 'layer' && !IsValid
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
