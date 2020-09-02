@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda &#8212; QField Documentation 1.0 - M... Dokumentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Support and Development" href="../support/index.html" />
+    <link rel="prev" title="River State Survey Using QField" href="river-state-survey.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda</a><ul>
+<li><a class="reference internal" href="#goal">Goal</a></li>
+<li><a class="reference internal" href="#project-preparation">Project preparation</a></li>
+<li><a class="reference internal" href="#data-collection">Data collection</a></li>
+<li><a class="reference internal" href="#data-distribution-and-updating">Data distribution and updating</a></li>
+<li><a class="reference internal" href="#data-sharing-via-vectortiles">Data sharing via vectortiles</a></li>
+<li><a class="reference internal" href="#acknowledgement">Acknowledgement</a></li>
+<li><a class="reference internal" href="#about-wasac">About WASAC</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="river-state-survey.html" title="Previous Chapter: River State Survey Using QField"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; River State S...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../support/index.html" title="Next Chapter: Support and Development"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Support and D... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Erste Schritte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Unterstützte Datenformate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda">
+<h1>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda<a class="headerlink" href="#data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda" title="Link zu dieser Überschrift">¶</a></h1>
+<p>By Rural Water and Sanitation Services Department(RWSS), Water and Sanitation Corporation (<a class="reference external" href="https://wasac.rw">WASAC</a>), Rwanda</p>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Link zu dieser Überschrift">¶</a></h2>
+<p>To conduct data collection of all rural water supply network in Rwanda,
+and keep updating the data continuously in order to improve operation &amp;
+maintenance of waterworks.</p>
+</div>
+<div class="section" id="project-preparation">
+<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="docutils">
+<dt>Before starting our data collection, we conducted the following things.</dt>
+<dd><ul class="first last simple">
+<li>Develop our own PostGIS database</li>
+<li>Develop QGIS project template with Geopackage. The Geopackage table design is equal to PostGIS to be able to copy and paste to PostGIS.</li>
+</ul>
+</dd>
+</dl>
+<p>Apart from preparing Android devices, we purchased GPS devices for higher positioning accuracy. In WASAC, we bought Garmin GPSMAP 64S.
+Sometimes, GPS of smartphone and tablet is not very accurate, so we normally capture the same location by using Garmin GPS, then correct the location of QField’s data after data collection work.</p>
+</div>
+<div class="section" id="data-collection">
+<h2>Data collection<a class="headerlink" href="#data-collection" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Once we prepared Geopackage and QGIS project template,
+we conducted training of QGIS/QField in July 2018 and
+launched our data collection work in 27 districts in the whole country of Rwanda.
+27 engineers sent their Geopackage to the central office in Kigali.
+the MIS (Management Information System) specialist validated and entered their data from Geopackage to PostGIS database.
+We completed our initial data collection works until April 2019.</p>
+<div class="clearer text-center docutils container">
+<a class="reference internal image-reference" href="../_images/rwanda-rural-water-1.png"><img alt="data collection procedure" src="../_images/rwanda-rural-water-1.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="data-distribution-and-updating">
+<h2>Data distribution and updating<a class="headerlink" href="#data-distribution-and-updating" title="Link zu dieser Überschrift">¶</a></h2>
+<p>The most significant thing after data collection is <code class="docutils literal notranslate"><span class="pre">updating</span></code>.
+We have seen many organization in Africa, which failed to keep data up to date.
+Several years later, their data will normally become too old,
+and most of them need to put efforts on data collection again.</p>
+<p>WASAC decided to continuously update all of the data and keeps doing this until now.
+QField has proven to be very well suited for this purpose.</p>
+<p>In order to distribute and updating the data,
+we developed a python script <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a>.
+This <code class="docutils literal notranslate"><span class="pre">postgis2qfield</span></code> tool can extract the data from PostGIS and create Geopackages for each district in Rwanda.
+We upload these 27 geopackage together with QGIS project template to Google Drive storage.
+After that, those engineers in districts download their geopakage to Android device to continue adding and updating the data.
+Once they completed updating, they sent the geopackage to central office again, MIS specialist update PostGIS database and regenerate geopackages for QField.</p>
+<div class="clearer text-center docutils container">
+<a class="reference internal image-reference" href="../_images/rwanda-rural-water-2.png"><img alt="data distribution and updating procedure" src="../_images/rwanda-rural-water-2.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="data-sharing-via-vectortiles">
+<h2>Data sharing via vectortiles<a class="headerlink" href="#data-sharing-via-vectortiles" title="Link zu dieser Überschrift">¶</a></h2>
+<p>First of all, you can see our collected data from <a class="reference external" href="https://rural.water-gis.com">here</a>.</p>
+<p>Since July 2020, we started to distribute our water supply systems‘ data via vectortiles as open data.
+Although Rwanda’s internet situation is being improved, some rural area still have problems of internet.
+In such as poor internet situation, WMS or WFS data distribution will not work well.
+Vectortiles can provide light and fast distribution of map data. We will not talk about our vectortiles here.
+If you are fascinated by how to share the result of data collection, please also see this <a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">instruction</a>.</p>
+</div>
+<div class="section" id="acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Link zu dieser Überschrift">¶</a></h2>
+<p>We thank all of district water and sanitation support engineers to
+conduct their data collection work. Additionally, we want to thank the
+developers of QField and QGIS for offering fantastic open source
+software. It is great that, due to free software, such projects can be
+implemented by an organization of water sector in developing countries.</p>
+</div>
+<div class="section" id="about-wasac">
+<h2>About WASAC<a class="headerlink" href="#about-wasac" title="Link zu dieser Überschrift">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">WASAC</span></code> has 2 main departments for urban water(UWSS) and rural
+water(RWSS). We are using QField in RWSS. The role of RWSS department is
+to support local government to operate and maintain their owned water
+supply systems in rural area. Nowadays, these data collected and
+maintained by RWSS department are being used by more than 30 private
+operators in 27 districts. Total number of water supply systems in the
+database is 1,000+.</p>
+<div class="clearer text-center docutils container">
+<a class="reference internal image-reference" href="../_images/rwanda-rural-water-3.png"><img alt="Organogram of WASAC" src="../_images/rwanda-rural-water-3.png" style="width: 600px;" /></a>
+</div>
+<p>Also, one of our colleagues presented WASAC’s activity in FOSS4G 2019
+Bucharest. Although some of system were little bit changed now, you can
+also see
+<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">video</a>
+if you are interested.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/case-studies/rwanda-rural-water.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
