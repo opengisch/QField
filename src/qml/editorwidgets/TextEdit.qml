@@ -38,7 +38,7 @@ Item {
     text: value == null ? '' : value
 
     validator: {
-      if (field.isNumeric)
+      if (field && field.isNumeric)
           if ( platformUtilities.fieldType( field ) === 'double')
           {
             doubleValidator;
