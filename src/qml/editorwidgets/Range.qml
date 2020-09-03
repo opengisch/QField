@@ -50,6 +50,9 @@ Item {
     }
 
     onTextChanged: {
+      if ( value != undefined && value != text )
+        value = text
+
       valueChanged( text, text == '' )
     }
   }
