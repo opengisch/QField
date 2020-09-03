@@ -398,22 +398,26 @@ Page {
 
           Connections {
             target: form
-            onAboutToSave: {
+
+            function onAboutToSave() {
               // it may not be implemented
               if ( attributeEditorLoader.item.pushChanges ) {
                 attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
               }
             }
-            onValueChanged: (field, oldValue, newValue) => {
-                              // it may not be implemented
-                              if ( attributeEditorLoader.item.siblingValueChanged )
-                              attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
-                            }
+
+            function onValueChanged(field, oldValue, newValue) {
+              // it may not be implemented
+              if ( attributeEditorLoader.item.siblingValueChanged ) {
+                attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
+              }
+            }
           }
 
           Connections {
             target: attributeEditorLoader.item
-            onValueChanged: {
+
+            function onValueChanged(value, isNull) {
               if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
               {
                 var oldValue = AttributeValue
