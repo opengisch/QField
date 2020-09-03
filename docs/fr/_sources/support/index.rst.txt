@@ -73,6 +73,11 @@ We would like to warmly say: Thanks a lot!
        :width: 200px
        :alt: ibW Höhere Fachschule Südostschweiz
        :target: http://www.ibw.ch
+       
+    .. image:: /images/logo_biotope.png
+       :width: 200px
+       :alt: Biotope
+       :target: http://www.biotope.fr
 
 *******
 Credits
