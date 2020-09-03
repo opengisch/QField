@@ -213,8 +213,8 @@ Page {
     Item {
       height: childrenRect.height
       anchors {
-        left: parent.left
-        right: parent.right
+        left: parent ? parent.left : undefined
+        right: parent ? parent.right : undefined
         leftMargin: 12
       }
 
