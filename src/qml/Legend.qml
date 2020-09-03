@@ -28,7 +28,7 @@ ListView {
     property string layerType: LayerType
 
     id: rectangle
-    width: parent.width
+    width: parent ? parent.width : undefined
     height: line.height
     color: "#ffffff"
 
