@@ -67,7 +67,7 @@
 <li><a class="reference internal" href="#suppress-attribute-form">Suprimir el formulario de atributo</a></li>
 <li><a class="reference internal" href="#field-widget">Control de campo</a></li>
 <li><a class="reference internal" href="#relation-widget">Control de relaciones</a><ul>
-<li><a class="reference internal" href="#external-resource-photo-settings">Recurso externo (configuración de fotografía)</a></li>
+<li><a class="reference internal" href="#attachment-photo-settings">Attachment (photo settings)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Formularios del diseñador de arrastrar y soltar</a></li>
@@ -187,9 +187,12 @@
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Recurso externo</td>
-<td><span class="moreorless">~</span></td>
-<td>Este campo se combina con integración de la cámara. Por ahora sólo se pueden ver imágenes. <a class="reference internal" href="../support/index.html#make-it-grow"><span class="std std-ref">Financiación</span></a></td>
+<tr class="row-even"><td>Attachment</td>
+<td><span class="yay">✔</span></td>
+<td>This field is combined with camera integration.
+It is also able to open other files like pdf
+and doc (if the user has an appropriate viewer)
+<a class="reference internal" href="#attachment"><span class="std std-ref">Attachment (photo settings)</span></a></td>
 </tr>
 <tr class="row-odd"><td>Fecha Hora</td>
 <td><span class="yay">✔</span></td>
@@ -232,22 +235,33 @@
 </div>
 </div>
 <p>En caso de cardinalidad muchos a uno en relaciones muchos a muchos, la Expresión de visualización se tiene que establecer en la tabla enlazada.</p>
-<div class="section" id="external-resource-photo-settings">
-<h3>Recurso externo (configuración de fotografía)<a class="headerlink" href="#external-resource-photo-settings" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>El tipo de control «Adjunto» se usa para guardar la ruta a fotografías tomadas.</p>
+<div class="section" id="attachment-photo-settings">
+<span id="attachment"></span><h3>Attachment (photo settings)<a class="headerlink" href="#attachment-photo-settings" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>The widget type «Attachment» is used with fields that store the path to files.</p>
+<p>It can be used to:</p>
+<ul class="simple">
+<li>show and take photos</li>
+<li>show links to external files like pdfs or documents</li>
+</ul>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>La ruta debe establecerse en relativa. Las imágenes se almacenan luego en un subdirectorio del proyecto, donde apunta el enlace almacenado en el campo de texto.</p>
+<p>The path should be set to relative. The pictures, pdf and docs are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
 <p>En QField se muestra la foto. Haciendo clic en el símbolo de la cámara se inicia la cámara para actualizar la imagen con una nueva foto.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>Al sincronizar se tiene que copiar también el subdirectorio con las imágenes.</p>
+<p>On synchronization the sub-directory with the pictures, pdf and docs has to be copied as well.</p>
+<p>The option «hyperlink» on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
+<blockquote>
+<div><div class="figure">
+<img alt="images/hyperlink_option.png" src="images/hyperlink_option.png" />
+</div>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="drag-and-drop-designer-forms">
