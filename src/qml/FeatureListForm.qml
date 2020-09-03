@@ -172,7 +172,10 @@ Rectangle {
 
     delegate: Rectangle {
       id: itemBackground
-      anchors { left: parent.left; right: parent.right }
+      anchors {
+        left: parent ? parent.left : undefined
+        right: parent ? parent.right: undefined
+      }
       focus: true
       height: Math.max( 48, featureText.height )
 
