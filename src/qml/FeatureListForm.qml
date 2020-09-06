@@ -18,7 +18,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Dialogs 1.2
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.Material.impl 2.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -170,9 +171,20 @@ Rectangle {
     }
 
     delegate: Rectangle {
+      id: itemBackground
       anchors { left: parent.left; right: parent.right }
       focus: true
       height: Math.max( 48, featureText.height )
+
+      Ripple {
+          clip: true
+          width: parent.width
+          height: parent.height
+          pressed: mouseArea.pressed
+          anchor: itemBackground
+          active: mouseArea.pressed
+          color: Material.rippleColor
+      }
 
       CheckBox {
           anchors { leftMargin: 5; left: parent.left; verticalCenter: parent.verticalCenter }
@@ -182,7 +194,7 @@ Rectangle {
 
       Text {
         id: featureText
-        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: editRow.left; verticalCenter: parent.verticalCenter }
+        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         text: display
@@ -202,6 +214,7 @@ Rectangle {
       }
 
       MouseArea {
+        id: mouseArea
         anchors.fill: parent
 
         onClicked: {
@@ -461,18 +474,28 @@ Rectangle {
     model.clear()
   }
 
-  MessageDialog {
+  Dialog {
     id: mergeDialog
+    parent: mainWindow.contentItem
 
-    property int selectedCount
-    property string featureDisplayName
-    property bool isMerged
+    property int selectedCount: 0
+    property string featureDisplayName: ''
+    property bool isMerged: false
 
     visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
 
     title: qsTr( "Merge feature(s)" )
-    text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", selectedCount ).arg( featureDisplayName )
-    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Should the %n feature(s) selected really be merge?\n\nThe features geometries will be combined into feature '%1', which will keep its attributes.", "0", mergeDialog.selectedCount ).arg( mergeDialog.featureDisplayName )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if ( isMerged ) {
         return;
@@ -502,17 +525,27 @@ Rectangle {
     }
   }
 
-  MessageDialog {
+  Dialog {
     id: deleteDialog
+    parent: mainWindow.contentItem
 
-    property int selectedCount
-    property bool isDeleted
+    property int selectedCount: 0
+    property bool isDeleted: false
 
     visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
 
     title: qsTr( "Delete feature(s)" )
-    text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", selectedCount )
-    standardButtons: StandardButton.Ok | StandardButton.Cancel
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Should the %n feature(s) selected really be deleted?", "0", deleteDialog.selectedCount )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       if ( isDeleted ) {
         return;

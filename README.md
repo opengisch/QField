@@ -75,7 +75,9 @@ The advantage of this is, you will be able to build and deploy directly from QtC
 
 ### For Desktop
 
-* Get QGIS 2.99 (3.0) development libraries.
+To build QField for a desktop environment:
+
+* Get QGIS development libraries.
 
 ```sh
 cd QField
@@ -86,14 +88,15 @@ cp config.pri.default config.pri
 # Edit config.pri
 ```
 
- * open QField.pro with QtCreator (installed during OSGeo4A installation)
- * hit build
+ * Open CMakeList.txt with QtCreator (installed during OSGeo4A installation).
+ * Hit build.
 
- ### On Mac
+If you make your own QGIS build, use the following variables: `QGIS_ANALYSIS_LIBRARY`, `QGIS_CORE_LIBRARY`, `QGIS_INCLUDE_DIR`, and `QGIS_PLUGIN_DIR`.
 
-#### In `Qt Creator` > `Projects` > `Build` > In Build Environment
+### On OS X
 
-add the following variables:
+In addition to the steps above, in QtCreator's build environment (access via `Projects` > `Build`), add the following variables:
+
   * `QGIS_INSTALL_PATH`: the same value than in the config.pri (could be /usr/local/opt/qgis3/ or the installation folder of a local build)
   * `DYLD_FRAMEWORK_PATH` add `_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks` (replace `_QGIS_INSTALL_PATH_`)
   * `DYLD_LIBRARY_PATH` add `:_QGIS_INSTALL_PATH_/QGIS.app/Contents/Frameworks/qgis_core.framework/Versions/Current` (replace `_QGIS_INSTALL_PATH_`)
@@ -108,6 +111,7 @@ gsed -i "s/version_min_flag = -m\$\${version_identifier}-version-min=\$\$deploym
 ```
 
 #### In `Qt Creator` > `Projects` > `Run` >
+
 * Check `Use debug version of frameworks`
 * Add a custom deployment step: `_QField_SOURCE_DIR_/scripts/mac_deploy.sh` with `${QGIS_INSTALL_PATH}` as argument.
 * In Debugger settings, check `Enable QML`

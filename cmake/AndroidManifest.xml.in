@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<manifest package="ch.opengis.qfield" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="%%VERSION_NAME%%" android:versionCode="%%VERSION_CODE%%" android:installLocation="auto">
+<manifest package="ch.opengis.@APP_PACKAGE_NAME@" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="@APK_VERSION_NAME@" android:versionCode="@APK_VERSION_CODE@" android:installLocation="auto">
   <application
     android:hardwareAccelerated="true"
     android:name="org.qtproject.qt5.android.bindings.QtApplication"
     android:label="@string/app_name"
     android:icon="@drawable/qfield_logo" >
     <activity
-      android:name="ch.opengis.qfield.QFieldActivity"
+      android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"
       android:noHistory="true"
       android:icon="@drawable/qfield_logo"
       android:label="@string/app_name"
@@ -19,7 +19,7 @@
       <meta-data android:name="android.app.git_rev" android:value="@string/git_rev"/>
       <!-- Git Revision -->
     </activity>
-    <activity-alias android:name="ch.opengis.qfield.QgsFileHandlerActivity" android:targetActivity="ch.opengis.qfield.QFieldActivity">
+    <activity-alias android:name="ch.opengis.@APP_PACKAGE_NAME@.QgsFileHandlerActivity" android:targetActivity="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
@@ -84,23 +84,23 @@
     </activity>
 
     <!-- Activity to choose a .qgs file to open -->
-    <activity android:name="ch.opengis.qfield.QFieldProjectActivity" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldProjectActivity" />
 
     <!-- Activity "Rate this app" -->
-    <activity android:name="ch.opengis.qfield.QFieldAppRaterActivity" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldAppRaterActivity" />
 
     <!-- Activity to get picture with the native camera -->
-    <activity android:name="ch.opengis.qfield.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCameraPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to get picture from the gallery -->
-    <activity android:name="ch.opengis.qfield.QFieldGalleryPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldGalleryPictureActivity" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
 
     <!-- Activity to open file externally -->
-    <activity android:name="ch.opengis.qfield.QFieldOpenExternallyActivity" />
+    <activity android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldOpenExternallyActivity" />
 
     <provider
         android:name="android.support.v4.content.FileProvider"
-        android:authorities="ch.opengis.qfield.fileprovider"
+        android:authorities="ch.opengis.@APP_PACKAGE_NAME@.fileprovider"
         android:exported="false"
         android:grantUriPermissions="true">
         <meta-data

@@ -6,6 +6,7 @@ SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 SET (APP_VERSION "1.0.0" CACHE STRING "Application Version (Example: 1.0.0)")
 SET (APP_VERSION_NAME "1.0.0 - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+SET (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
 STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -26,6 +27,8 @@ SET(CMAKE_AUTORCC ON)
 
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+CMAKE_POLICY(SET CMP0071 NEW)
 
 ENABLE_TESTING()
 FIND_PACKAGE(QGIS)
@@ -97,8 +100,8 @@ IF (ANDROID)
 
   INCLUDE(GetGitRevisionDescription)
   GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
-  CONFIGURE_FILE(cmake/version.properties.in android-build/version.properties @ONLY)
   CONFIGURE_FILE(cmake/generated.xml.in ${CMAKE_SOURCE_DIR}/android/res/values/generated.xml @ONLY)
+  CONFIGURE_FILE(cmake/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/android/AndroidManifest.xml @ONLY)
 
   INCLUDE(CreateZip)
 
@@ -112,7 +115,7 @@ IF (ANDROID)
   ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
 ENDIF (ANDROID)
 
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors REQUIRED)
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors WebView REQUIRED)
 
 ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/qgsquick)

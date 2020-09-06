@@ -36,6 +36,7 @@
 #include <QStyleHints>
 
 #include <qgslayertreemodel.h>
+#include <qgslocalizeddatapathregistry.h>
 #include <qgsproject.h>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
@@ -127,6 +128,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
+  //set localized data paths
+  QStringList localizedDataPaths = mPlatformUtils.localizedDataPaths().split( ';' );
+  if ( localizedDataPaths.size() != 0 )
+  {
+    QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
+  }
+
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-BoldItalic.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Condensed.ttf" );
@@ -135,7 +143,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Semibolditalic.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Mask.ttf" );
   QFontDatabase::addApplicationFont( ":/fonts/CadastraSymbol-Regular.ttf" );
-
 
   mProject = QgsProject::instance();
   mGpkgFlusher = qgis::make_unique<QgsGpkgFlusher>( mProject );

@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.12
 import QtQml.Models 2.2
 import QtGraphicalEffects 1.12
@@ -51,27 +50,31 @@ ListView {
               anchors.margins: 4
               cache: false
               source: {
-                  if ( LegendImage != '' ) {
-                      return "image://legend/" + LegendImage
-                  } else if ( LayerType == "vectorlayer" ) {
-                      switch( VectorLayerPointer.geometryType() ) {
-                      case QgsWkbTypes.PointGeometry:
-                          return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
-                      case QgsWkbTypes.LineGeometry:
-                          return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
-                      case QgsWkbTypes.PolygonGeometry:
-                          return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-                      case QgsWkbTypes.NullGeometry:
-                      case QgsWkbTypes.UnknownGeometry:
-                          return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
-                      }
-                  } else if ( LayerType == "rasterlayer" ) {
-                      return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
-                  } else if ( LayerType == "meshlayer" ) {
-                      return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
-                  } else {
-                      return '';
+                if ( LegendImage != '' ) {
+                  return "image://legend/" + LegendImage
+                } else if ( LayerType == "vectorlayer" ) {
+                  switch( VectorLayerPointer.geometryType() ) {
+                  case QgsWkbTypes.PointGeometry:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                  case QgsWkbTypes.LineGeometry:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                  case QgsWkbTypes.PolygonGeometry:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                  case QgsWkbTypes.NullGeometry:
+                  case QgsWkbTypes.UnknownGeometry:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
                   }
+                } else if ( LayerType == "rasterlayer" ) {
+                  return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
+                } else if ( LayerType == "meshlayer" ) {
+                  return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
+                } else if ( LayerType == "vectortilelayer" ) {
+                  return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
+                } else if ( LayerType == "annotationlayer" ) {
+                  return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
+                } else {
+                  return '';
+                }
               }
               width: 16
               height: 16
@@ -151,7 +154,7 @@ ListView {
       }
 
       Rectangle {
-          visible: !IsValid
+          visible: Type == 'layer' && !IsValid
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
@@ -175,7 +178,7 @@ ListView {
       onClicked: {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item) {
-              if (item.vectorLayer && item.vectorLayer.isValid()) {
+              if (item.vectorLayer && item.vectorLayer.isValid) {
                 currentLayer = item.vectorLayer
               }
           }

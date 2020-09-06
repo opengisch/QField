@@ -17,7 +17,6 @@
 
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Dialogs 1.3
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
@@ -1315,7 +1314,6 @@ ApplicationWindow {
 
       onLoadProjectEnded: {
         busyMessage.visible = false
-        openProjectDialog.folder = qgisProject.homePath
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
     }
@@ -1534,27 +1532,12 @@ ApplicationWindow {
     }
   }
 
-  FileDialog {
-    id: openProjectDialog
-    title: qsTr( "Open project" )
-    visible: false
-    nameFilters: [ qsTr( "QGIS projects (*.qgs *.qgz)" ), qsTr( "All files (*)" ) ]
-
-    width: mainWindow.width
-    height: mainWindow.height
-
-    onAccepted: {
-      iface.loadProject( openProjectDialog.fileUrl.toString().slice(7) )
-      mainWindow.keyHandler.focus=true
-    }
-  }
-
   Popup {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
-    property var expireDate: new Date(2019,9,16)
-    visible: settings.value( "/QField/CurrentVersion", "" ) !== versionCode
+    property var expireDate: new Date(2038,1,19)
+    visible: settings.value( "/QField/ChangelogVersion", "" ) !== versionCode
                && expireDate > new Date()
 
     x: 24
@@ -1563,7 +1546,8 @@ ApplicationWindow {
     height: parent.height - 48
     padding: 0
     modal: true
-    closePolicy: Popup.CloseOnEscape
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    focus: visible
 
     Flickable {
       id: changelogFlickable
@@ -1580,6 +1564,22 @@ ApplicationWindow {
         onClose: {
           changelogPopup.close()
         }
+      }
+    }
+
+    onClosed: {
+      settings.setValue( "/QField/ChangelogVersion", versionCode )
+      changelogFlickable.contentY = 0
+    }
+
+    onOpened: {
+      changelog.refreshChangelog()
+    }
+
+    Keys.onReleased: {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true
+        visible = false
       }
     }
   }

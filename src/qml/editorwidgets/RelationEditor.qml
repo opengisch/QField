@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.12
 
@@ -189,8 +188,9 @@ Rectangle{
     }
 
     //the delete entry stuff
-    MessageDialog {
+    Dialog {
       id: deleteDialog
+      parent: mainWindow.contentItem
 
       property int referencingFeatureId
       property string referencingFeatureDisplayMessage
@@ -198,14 +198,20 @@ Rectangle{
       property string nmReferencedFeatureDisplayMessage
 
       visible: false
+      modal: yes
 
       title: nmRelationId ?
                qsTr( 'Unlink feature %1 (%2) of %3' ).arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ) :
                qsTr( 'Delete feature %1 (%2) on %3' ).arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
-      text:  nmRelationId ?
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text:  nmRelationId ?
                qsTr( 'Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ).arg( relationEditorModel.relation.referencingLayer.name ) :
                qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
-      standardButtons: StandardButton.Ok | StandardButton.Cancel
+      }
+
+      standardButtons: Dialog.Ok | Dialog.Cancel
       onAccepted: {
         if ( ! referencingFeatureListView.model.deleteFeature( referencingFeatureId ) ) {
           displayToast( qsTr( "Failed to delete referencing feature" ) )

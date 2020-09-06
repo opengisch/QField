@@ -29,8 +29,11 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   setSourceModel( mLayerTreeModel );
+  connect( mProject, &QgsProject::cleared, this, [ = ] { buildMap( nullptr ); } );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
 }
 
 void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
@@ -54,21 +57,25 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     mIndexMap.clear();
   }
 
-  int nbRows = model->rowCount( parent );
-  for ( int i = 0; i < nbRows; i++ )
+  if ( model )
   {
-    QModelIndex index = model->index( i, 0, parent );
-    QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
-    if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
-      continue;
+    int nbRows = model->rowCount( parent );
+    for ( int i = 0; i < nbRows; i++ )
+    {
+      QModelIndex index = model->index( i, 0, parent );
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
+      if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
+        continue;
 
-    mRowMap[index] = row;
-    mIndexMap[row] = index;
-    mTreeLevelMap[row] = treeLevel;
-    row++;
-    if ( model->hasChildren( index ) )
-      row = buildMap( model, index, row, treeLevel + 1 );
+      mRowMap[index] = row;
+      mIndexMap[row] = index;
+      mTreeLevelMap[row] = treeLevel;
+      row++;
+      if ( model->hasChildren( index ) )
+        row = buildMap( model, index, row, treeLevel + 1 );
+    }
   }
+
   if ( reset )
     endResetModel();
   return row;
@@ -187,7 +194,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
           if ( !mLayerTreeModel->hasChildren( sourceIndex ) )
           {
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
-            if ( !vectorLayer || vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
+            if ( vectorLayer && vectorLayer->geometryType() != QgsWkbTypes::NullGeometry )
             {
               id += QStringLiteral( "layer" );
               id += '/' +  nodeLayer->layerId();
@@ -242,6 +249,9 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
             break;
           case QgsMapLayerType::VectorTileLayer:
             layerType = QStringLiteral( "vectortilelayer" );
+            break;
+          case QgsMapLayerType::AnnotationLayer:
+            layerType = QStringLiteral( "annotationlayer" );
             break;
         }
       }
@@ -354,7 +364,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       QgsMapLayer *layer = nullptr;
       QModelIndex sourceIndex = mapToSource( index );
       if ( !sourceIndex.isValid() )
-          return QVariant();
+        return QVariant();
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
@@ -365,7 +375,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       {
         layer = qobject_cast<QgsMapLayer *>( sym->layerNode()->layer() );
       }
-      
+
       if ( !layer ) // Group
         return true;
 

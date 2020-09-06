@@ -51,6 +51,11 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
+QString PlatformUtilities::localizedDataPaths() const
+{
+  return QString();
+}
+
 bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
 {
   QDir parentDir( path );
