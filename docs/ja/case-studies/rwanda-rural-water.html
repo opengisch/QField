@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda &#8212; QField Documentation 1.0 - M... ドキュメント</title>
+    <title>ルワンダの地方給水システムの運営維持管理のためのQGIS/QFieldを用いたデータ収集 &#8212; QField Documentation 1.0 - M... ドキュメント</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -63,14 +63,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda</a><ul>
+<li><a class="reference internal" href="#">ルワンダの地方給水システムの運営維持管理のためのQGIS/QFieldを用いたデータ収集</a><ul>
 <li><a class="reference internal" href="#goal">目標</a></li>
 <li><a class="reference internal" href="#project-preparation">プロジェクトの準備</a></li>
-<li><a class="reference internal" href="#data-collection">Data collection</a></li>
-<li><a class="reference internal" href="#data-distribution-and-updating">Data distribution and updating</a></li>
-<li><a class="reference internal" href="#data-sharing-via-vectortiles">Data sharing via vectortiles</a></li>
+<li><a class="reference internal" href="#data-collection">データ収集</a></li>
+<li><a class="reference internal" href="#data-distribution-and-updating">データの配布と更新</a></li>
+<li><a class="reference internal" href="#data-sharing-via-vectortiles">ベクタータイルでのデータの共有</a></li>
 <li><a class="reference internal" href="#acknowledgement">謝辞</a></li>
-<li><a class="reference internal" href="#about-wasac">About WASAC</a></li>
+<li><a class="reference internal" href="#about-wasac">WASACについて</a></li>
 </ul>
 </li>
 </ul>
@@ -133,91 +133,56 @@
     <div class="col-md-9 content">
       
   <div class="section" id="data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda">
-<h1>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda<a class="headerlink" href="#data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>By Rural Water and Sanitation Services Department(RWSS), Water and Sanitation Corporation (<a class="reference external" href="https://wasac.rw">WASAC</a>), Rwanda</p>
+<h1>ルワンダの地方給水システムの運営維持管理のためのQGIS/QFieldを用いたデータ収集<a class="headerlink" href="#data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>地方水衛生局(RWSS), 上下水道公社 (<a class="reference external" href="https://wasac.rw">WASAC</a>), ルワンダ</p>
 <div class="section" id="goal">
 <h2>目標<a class="headerlink" href="#goal" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To conduct data collection of all rural water supply network in Rwanda,
-and keep updating the data continuously in order to improve operation &amp;
-maintenance of waterworks.</p>
+<p>ルワンダにおいて全ての地方給水施設のデータ収集を行い、継続的にデータの更新を行うことで、水道施設の運営維持管理に寄与する。</p>
 </div>
 <div class="section" id="project-preparation">
 <h2>プロジェクトの準備<a class="headerlink" href="#project-preparation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="docutils">
-<dt>Before starting our data collection, we conducted the following things.</dt>
+<dt>データ収集を開始する前には、次のことを行いました。</dt>
 <dd><ul class="first last simple">
-<li>Develop our own PostGIS database</li>
-<li>Develop QGIS project template with Geopackage. The Geopackage table design is equal to PostGIS to be able to copy and paste to PostGIS.</li>
+<li>PostGISデータベースの開発</li>
+<li>Geopackageを用いたQGISプロジェクトのテンプレートを開発。Geopackageのテーブルの設計はPostGISと同じにすることで容易にPostGISにコピーアンドペーストできます。</li>
 </ul>
 </dd>
 </dl>
-<p>Apart from preparing Android devices, we purchased GPS devices for higher positioning accuracy. In WASAC, we bought Garmin GPSMAP 64S.
-Sometimes, GPS of smartphone and tablet is not very accurate, so we normally capture the same location by using Garmin GPS, then correct the location of QField's data after data collection work.</p>
+<p>Android端末を準備するのとは別に、より高精度な測位をするためにGPSデバイスを購入しました。WASACでは、Garmin GPSMAP 64Sを調達しました。スマートフォンやタブレットのGPSはたまに精度が良くないことがあるので、通常はGarmin GPSを用いて同じ場所の位置を取得し、データ収集後のQFieldでの位置情報を補完しています。</p>
 </div>
 <div class="section" id="data-collection">
-<h2>Data collection<a class="headerlink" href="#data-collection" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once we prepared Geopackage and QGIS project template,
-we conducted training of QGIS/QField in July 2018 and
-launched our data collection work in 27 districts in the whole country of Rwanda.
-27 engineers sent their Geopackage to the central office in Kigali.
-the MIS (Management Information System) specialist validated and entered their data from Geopackage to PostGIS database.
-We completed our initial data collection works until April 2019.</p>
+<h2>データ収集<a class="headerlink" href="#data-collection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GeopackageとQGISプロジェクトのテンプレートの準備ができたあと、2018年7月にQGIS/QFieldのトレーニングを実施し、ルワンダ全国の27郡でのデータ収集に着手しました。27名のエンジニアが集めたGeopackageをキガリの本部に送り、MIS (Management Information System)スペシャリストが彼らのデータをチェックしGeopackageからPostGISデータベースに入力します。このデータ収集は2019年4月までに完了しました。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-1.png"><img alt="data collection procedure" src="../_images/rwanda-rural-water-1.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="data-distribution-and-updating">
-<h2>Data distribution and updating<a class="headerlink" href="#data-distribution-and-updating" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The most significant thing after data collection is <code class="docutils literal notranslate"><span class="pre">updating</span></code>.
-We have seen many organization in Africa, which failed to keep data up to date.
-Several years later, their data will normally become too old,
-and most of them need to put efforts on data collection again.</p>
-<p>WASAC decided to continuously update all of the data and keeps doing this until now.
-QField has proven to be very well suited for this purpose.</p>
-<p>In order to distribute and updating the data,
-we developed a python script <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a>.
-This <code class="docutils literal notranslate"><span class="pre">postgis2qfield</span></code> tool can extract the data from PostGIS and create Geopackages for each district in Rwanda.
-We upload these 27 geopackage together with QGIS project template to Google Drive storage.
-After that, those engineers in districts download their geopakage to Android device to continue adding and updating the data.
-Once they completed updating, they sent the geopackage to central office again, MIS specialist update PostGIS database and regenerate geopackages for QField.</p>
+<h2>データの配布と更新<a class="headerlink" href="#data-distribution-and-updating" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>データ収集後最も重要なことは``更新``です。アフリカの多くの組織ではデータの継続的に更新がうまくできずに、数年後には彼らのデータが非常に古くなっており、また同じデータ収集に着手せざるを得ないというケースが多いです。</p>
+<p>WASACは全てのデータを継続的に更新していくことを決め、現在に至るまでデータを更新し続けています。QFieldはこの目的のためにとても最適なものであることを保証します。</p>
+<p>データを配布し、更新していくためには、WASACでは`postgis2qfield &lt;<a class="reference external" href="https://github.com/WASAC/postgis2qfield">https://github.com/WASAC/postgis2qfield</a>&gt;`__というPythonスクリプトを開発しました。この``postgis2qfield``ツールはPostGISからデータを取り出し、ルワンダの各郡ごとのGeopackageを生成することができます。それら27個のGeopackageをQGISプロジェクトのテンプレートと一緒にGoogleドライブにアップロードします。それから、各郡のエンジニアがGeopackageを自分たちのアンドロイドのダウンロードしデータの追加更新を継続します。データの更新が終わったら、再度Geopackageを本部に送り、MISスペシャリストがPostGISデータベースを更新し、QField用のGeopackageを再生成します。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-2.png"><img alt="data distribution and updating procedure" src="../_images/rwanda-rural-water-2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="data-sharing-via-vectortiles">
-<h2>Data sharing via vectortiles<a class="headerlink" href="#data-sharing-via-vectortiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>First of all, you can see our collected data from <a class="reference external" href="https://rural.water-gis.com">here</a>.</p>
-<p>Since July 2020, we started to distribute our water supply systems' data via vectortiles as open data.
-Although Rwanda's internet situation is being improved, some rural area still have problems of internet.
-In such as poor internet situation, WMS or WFS data distribution will not work well.
-Vectortiles can provide light and fast distribution of map data. We will not talk about our vectortiles here.
-If you are fascinated by how to share the result of data collection, please also see this <a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">instruction</a>.</p>
+<h2>ベクタータイルでのデータの共有<a class="headerlink" href="#data-sharing-via-vectortiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>まず、<a href="#id1"><span class="problematic" id="id2">`</span></a>こちら &lt;<a class="reference external" href="https://rural.water-gis.com">https://rural.water-gis.com</a>&gt;`__から私たちが収集したデータをご覧いただけます。</p>
+<p>2020年7月から、給水システムのデータをベクタータイルを用いたオープンデータとして配信し始めました。ルワンダのインターネットの環境は改善しつつありますが、いくつかの地方部ではまだインターネットに課題があります。このような脆弱なインターネット環境においては、WMSやWFSのようなデータ配信はうまく機能しません。ベクタータイルを使うことで軽量かつ高速な地図データの配信をできます。ここではこれ以上私たちのベクタータイルの仕組みについては述べません。もしデータ収集結果の共有方法についてご興味がありましたら、こちらの`インストラクション &lt;<a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">https://github.com/watergis/awesome-vector-tiles</a>&gt;`__をご覧ください。</p>
 </div>
 <div class="section" id="acknowledgement">
 <h2>謝辞<a class="headerlink" href="#acknowledgement" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We thank all of district water and sanitation support engineers to
-conduct their data collection work. Additionally, we want to thank the
-developers of QField and QGIS for offering fantastic open source
-software. It is great that, due to free software, such projects can be
-implemented by an organization of water sector in developing countries.</p>
+<p>データ収集作業を行なってくれた全郡の水衛生支援エンジニアに感謝いたします。また、QFieldとQGISの開発者の方にも、このような素晴らしいオープンソースソフトウェアを提供してくれていることに感謝いたします。こういったフリーのソフトウェアがあるおかげで、開発途上国の水セクターの一組織がこのようなプロジェクトを行えるのはとても素晴らしいことです。</p>
 </div>
 <div class="section" id="about-wasac">
-<h2>About WASAC<a class="headerlink" href="#about-wasac" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">WASAC</span></code> has 2 main departments for urban water(UWSS) and rural
-water(RWSS). We are using QField in RWSS. The role of RWSS department is
-to support local government to operate and maintain their owned water
-supply systems in rural area. Nowadays, these data collected and
-maintained by RWSS department are being used by more than 30 private
-operators in 27 districts. Total number of water supply systems in the
-database is 1,000+.</p>
+<h2>WASACについて<a class="headerlink" href="#about-wasac" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>WASAC``は都市給水(UWSS)と地方給水(RWSS)2つの主な部署を有しています。QFieldを使っているのはRWSSになります。RWSSの役割としては地方部で給水施設を所有し運営維持管理を行なっている地方政府を支援することです。今では、RWSSによって収集され維持されているこれらのデータは、27郡の30以上の民間に委託された事業者によって利用されています。データベースにある水道システムは合計して1000以上になります。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-3.png"><img alt="Organogram of WASAC" src="../_images/rwanda-rural-water-3.png" style="width: 600px;" /></a>
 </div>
-<p>Also, one of our colleagues presented WASAC's activity in FOSS4G 2019
-Bucharest. Although some of system were little bit changed now, you can
-also see
-<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">video</a>
-if you are interested.</p>
+<p>また、私たちの同僚の一人がWASACの活動についてFOSS4G 2019 ブカレストで発表を行いました。現在のシステムとは一部変更された点もありますが、ご興味がありましたら、<a href="#id1"><span class="problematic" id="id2">`</span></a>ビデオ &lt;<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda</a>&gt;`__をご覧いただければと思います。</p>
 </div>
 </div>
 
