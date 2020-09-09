@@ -162,15 +162,15 @@
 <h2>データの配布と更新<a class="headerlink" href="#data-distribution-and-updating" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>データ収集後最も重要なことは``更新``です。アフリカの多くの組織ではデータの継続的に更新がうまくできずに、数年後には彼らのデータが非常に古くなっており、また同じデータ収集に着手せざるを得ないというケースが多いです。</p>
 <p>WASACは全てのデータを継続的に更新していくことを決め、現在に至るまでデータを更新し続けています。QFieldはこの目的のためにとても最適なものであることを保証します。</p>
-<p>データを配布し、更新していくためには、WASACでは`postgis2qfield &lt;<a class="reference external" href="https://github.com/WASAC/postgis2qfield">https://github.com/WASAC/postgis2qfield</a>&gt;`__というPythonスクリプトを開発しました。この``postgis2qfield``ツールはPostGISからデータを取り出し、ルワンダの各郡ごとのGeopackageを生成することができます。それら27個のGeopackageをQGISプロジェクトのテンプレートと一緒にGoogleドライブにアップロードします。それから、各郡のエンジニアがGeopackageを自分たちのアンドロイドのダウンロードしデータの追加更新を継続します。データの更新が終わったら、再度Geopackageを本部に送り、MISスペシャリストがPostGISデータベースを更新し、QField用のGeopackageを再生成します。</p>
+<p>データを配布し、更新していくためには、WASACでは <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a> というPythonスクリプトを開発しました。この``postgis2qfield``ツールはPostGISからデータを取り出し、ルワンダの各郡ごとのGeopackageを生成することができます。それら27個のGeopackageをQGISプロジェクトのテンプレートと一緒にGoogleドライブにアップロードします。それから、各郡のエンジニアがGeopackageを自分たちのアンドロイドのダウンロードしデータの追加更新を継続します。データの更新が終わったら、再度Geopackageを本部に送り、MISスペシャリストがPostGISデータベースを更新し、QField用のGeopackageを再生成します。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-2.png"><img alt="data distribution and updating procedure" src="../_images/rwanda-rural-water-2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="data-sharing-via-vectortiles">
 <h2>ベクタータイルでのデータの共有<a class="headerlink" href="#data-sharing-via-vectortiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>まず、<a href="#id1"><span class="problematic" id="id2">`</span></a>こちら &lt;<a class="reference external" href="https://rural.water-gis.com">https://rural.water-gis.com</a>&gt;`__から私たちが収集したデータをご覧いただけます。</p>
-<p>2020年7月から、給水システムのデータをベクタータイルを用いたオープンデータとして配信し始めました。ルワンダのインターネットの環境は改善しつつありますが、いくつかの地方部ではまだインターネットに課題があります。このような脆弱なインターネット環境においては、WMSやWFSのようなデータ配信はうまく機能しません。ベクタータイルを使うことで軽量かつ高速な地図データの配信をできます。ここではこれ以上私たちのベクタータイルの仕組みについては述べません。もしデータ収集結果の共有方法についてご興味がありましたら、こちらの`インストラクション &lt;<a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">https://github.com/watergis/awesome-vector-tiles</a>&gt;`__をご覧ください。</p>
+<p>まず、 <a class="reference external" href="https://rural.water-gis.com">こちら</a> から私たちが収集したデータをご覧いただけます。</p>
+<p>2020年7月から、給水システムのデータをベクタータイルを用いたオープンデータとして配信し始めました。ルワンダのインターネットの環境は改善しつつありますが、いくつかの地方部ではまだインターネットに課題があります。このような脆弱なインターネット環境においては、WMSやWFSのようなデータ配信はうまく機能しません。ベクタータイルを使うことで軽量かつ高速な地図データの配信をできます。ここではこれ以上私たちのベクタータイルの仕組みについては述べません。もしデータ収集結果の共有方法についてご興味がありましたら、こちらの <a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">インストラクション</a> をご覧ください。</p>
 </div>
 <div class="section" id="acknowledgement">
 <h2>謝辞<a class="headerlink" href="#acknowledgement" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -182,7 +182,7 @@
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-3.png"><img alt="Organogram of WASAC" src="../_images/rwanda-rural-water-3.png" style="width: 600px;" /></a>
 </div>
-<p>また、私たちの同僚の一人がWASACの活動についてFOSS4G 2019 ブカレストで発表を行いました。現在のシステムとは一部変更された点もありますが、ご興味がありましたら、<a href="#id1"><span class="problematic" id="id2">`</span></a>ビデオ &lt;<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda</a>&gt;`__をご覧いただければと思います。</p>
+<p>また、私たちの同僚の一人がWASACの活動についてFOSS4G 2019 ブカレストで発表を行いました。現在のシステムとは一部変更された点もありますが、ご興味がありましたら、  <a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">ビデオ</a> をご覧いただければと思います。</p>
 </div>
 </div>
 
