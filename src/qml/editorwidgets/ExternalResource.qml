@@ -87,7 +87,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? '#0000EE' : 'black'
+    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? Theme.hyperlinkBlue : 'gray'
 
     text: {
       var fieldValue = value
@@ -99,11 +99,9 @@ Item {
 
       if ( !fieldValue )
       {
-        font.italic = true
-        return qsTr('No Document Path Value')
+        color = 'gray'
+        return qsTr('No Value')
       }
-
-      font.italic = false
 
       return fieldValue
     }
