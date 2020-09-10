@@ -162,7 +162,7 @@
 <h2>データの配布と更新<a class="headerlink" href="#data-distribution-and-updating" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>データ収集後最も重要なことは``更新``です。アフリカの多くの組織ではデータの継続的に更新がうまくできずに、数年後には彼らのデータが非常に古くなっており、また同じデータ収集に着手せざるを得ないというケースが多いです。</p>
 <p>WASACは全てのデータを継続的に更新していくことを決め、現在に至るまでデータを更新し続けています。QFieldはこの目的のためにとても最適なものであることを保証します。</p>
-<p>データを配布し、更新していくためには、WASACでは <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a> というPythonスクリプトを開発しました。この``postgis2qfield``ツールはPostGISからデータを取り出し、ルワンダの各郡ごとのGeopackageを生成することができます。それら27個のGeopackageをQGISプロジェクトのテンプレートと一緒にGoogleドライブにアップロードします。それから、各郡のエンジニアがGeopackageを自分たちのアンドロイドのダウンロードしデータの追加更新を継続します。データの更新が終わったら、再度Geopackageを本部に送り、MISスペシャリストがPostGISデータベースを更新し、QField用のGeopackageを再生成します。</p>
+<p>データを配布し、更新していくためには、WASACでは <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a> というPythonスクリプトを開発しました。この <code class="docutils literal notranslate"><span class="pre">postgis2qfield</span></code> ツールはPostGISからデータを取り出し、ルワンダの各郡ごとのGeopackageを生成することができます。それら27個のGeopackageをQGISプロジェクトのテンプレートと一緒にGoogleドライブにアップロードします。それから、各郡のエンジニアがGeopackageを自分たちのアンドロイドのダウンロードしデータの追加更新を継続します。データの更新が終わったら、再度Geopackageを本部に送り、MISスペシャリストがPostGISデータベースを更新し、QField用のGeopackageを再生成します。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-2.png"><img alt="data distribution and updating procedure" src="../_images/rwanda-rural-water-2.png" style="width: 600px;" /></a>
 </div>
@@ -178,7 +178,7 @@
 </div>
 <div class="section" id="about-wasac">
 <h2>WASACについて<a class="headerlink" href="#about-wasac" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>WASAC``は都市給水(UWSS)と地方給水(RWSS)2つの主な部署を有しています。QFieldを使っているのはRWSSになります。RWSSの役割としては地方部で給水施設を所有し運営維持管理を行なっている地方政府を支援することです。今では、RWSSによって収集され維持されているこれらのデータは、27郡の30以上の民間に委託された事業者によって利用されています。データベースにある水道システムは合計して1000以上になります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">WASAC</span></code> は都市給水(UWSS)と地方給水(RWSS)2つの主な部署を有しています。QFieldを使っているのはRWSSになります。RWSSの役割としては地方部で給水施設を所有し運営維持管理を行なっている地方政府を支援することです。今では、RWSSによって収集され維持されているこれらのデータは、27郡の30以上の民間に委託された事業者によって利用されています。データベースにある水道システムは合計して1000以上になります。</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-3.png"><img alt="Organogram of WASAC" src="../_images/rwanda-rural-water-3.png" style="width: 600px;" /></a>
 </div>
