@@ -1025,7 +1025,7 @@ ApplicationWindow {
     Connections {
         target: printMenu
 
-        onEnablePrintItem: {
+        function onEnablePrintItem(rows) {
           printItem.enabled = rows
         }
     }
@@ -1083,7 +1083,7 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
@@ -1307,12 +1307,12 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectStarted: {
+      function onLoadProjectStarted(path) {
         busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
         busyMessage.visible = true
       }
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         busyMessage.visible = false
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
@@ -1377,7 +1377,8 @@ ApplicationWindow {
 
     Connections {
       target: iface
-      onLoadProjectEnded: {
+
+      function onLoadProjectEnded() {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
@@ -1388,7 +1389,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        onLoadProjectStarted: {
+        function onLoadProjectStarted(path) {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1396,13 +1397,13 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      onShowLoginDialog: {
+      function onShowLoginDialog(realm) {
         loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
 
-      onReloadEverything: {
+      function onReloadEverything() {
         iface.reloadProject( qgisProject.fileName )
       }
     }
@@ -1712,7 +1713,7 @@ ApplicationWindow {
   Connections {
     target: welcomeScreen.__projectSource
 
-    onProjectOpened: {
+    function onProjectOpened(path) {
       iface.loadProject( path )
     }
   }
