@@ -77,7 +77,11 @@ Rectangle {
 
       text: {
         if ( model && selection && selection.focusedItem > -1 && toolBar.state === 'Navigation' ) {
-          return ( selection.focusedItem + 1 ) + '/' + model.count + ': ' + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature)
+          var featurePosition = model.count > 1
+              ? ( ( selection.focusedItem + 1 ) + '/' + model.count + ': ' )
+              : '';
+
+          return featurePosition + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature)
         }
         else {
           return qsTr('Features')
