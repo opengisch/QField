@@ -21,7 +21,6 @@ import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as LabSettings
 import QtQml 2.12
 import QtPositioning 5.12
-import QtQuick.Particles 2.0
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -1733,72 +1732,5 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       isHovering: hoverHandler.hovered
   }
-
-
-  Rectangle {
-      anchors.fill: parent
-      color: "#00000000"
-
-      MouseArea {
-          anchors.fill: parent
-          acceptedButtons: Qt.LeftButton | Qt.RightButton
-          hoverEnabled: true
-
-          onPositionChanged: {
-
-              emitter.emitRate = 40
-              closingTimer.start()
-
-              console.log("x: " + mouse.x + " y: " + mouse.y)
-
-              if ( emitters.count > 200 )
-                emitters.remove(0, 1)
-
-              emitters.append( { x: mouse.x, y: mouse.y } )
-
-          }
-      }
-
-      ParticleSystem {
-          id: particles
-          running: true
-      }
-
-      ImageParticle {
-          anchors.fill: parent
-          system: particles
-          source: "qrc:///particleresources/star.png"
-          sizeTable: "qrc:///images/sparkleSize.png"
-          alpha: 0
-          colorVariation: 0.3
-      }
-
-      Repeater {
-          model:
-              ListModel {
-                id: emitters
-          }
-
-          Emitter {
-              id: emitter
-              x: model['x']
-              y: model['y']
-              system: particles
-              emitRate: 40
-              lifeSpan: 400
-              size: 70
-              sizeVariation: 10
-          }
-      }
-  }
-
-  Timer {
-    id: emitRateTimer
-    interval: 2000
-    onTriggered: {
-        emitter.emitRate = 0
-    }
-  }
-
 }
 
