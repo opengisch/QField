@@ -1,11 +1,13 @@
 #############################################################
 # CMake settings
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+
+
 SET(CMAKE_COLOR_MAKEFILE ON)
 SET (APP_NAME "QField" CACHE STRING "Application Name")
 SET (APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
-SET (APP_VERSION "" CACHE STRING "Application Version (Example: 1.0.0)")
-SET (APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
+SET (APP_VERSION "1.0.0" CACHE STRING "Application Version (Example: 1.0.0)")
+SET (APP_VERSION_NAME "1.0.0 - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 SET (APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
 
 STRING(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
@@ -17,9 +19,8 @@ PROJECT(${APP_NAME}
 
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
-INCLUDE(GetGitRevisionDescription)
-GET_GIT_HEAD_REVISION(GIT_REFSPEC GIT_REV)
-
+ADD_DEFINITIONS(-DVERSTR="${APP_VERSION_NAME}")
+ADD_DEFINITIONS(-DVERSIONCODE="${APP_VERSION}")
 ADD_DEFINITIONS(-DAPP_NAME="${APP_NAME}")
 ADD_DEFINITIONS(-DAPP_VERSION="${APP_VERSION}")
 ADD_DEFINITIONS(-DAPP_VERSION_STR="${APP_VERSION_STR}")
@@ -28,9 +29,16 @@ ADD_DEFINITIONS(-DGIT_REV="${GIT_REV}")
 CMAKE_POLICY(SET CMP0071 NEW)
 
 ENABLE_TESTING()
-FIND_PACKAGE(QGIS)
-FIND_PACKAGE(Proj)
-FIND_PACKAGE(GDAL)
+
+FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg OpenGL Sql Sensors WebView Charts REQUIRED)
+# PrintSupport isn't required, because it doesn't exist for ios
+# qgis will deal with it an define a public 'QT_NO_PRINTER'
+FIND_PACKAGE(Qt5 COMPONENTS PrintSupport QUIET)
+FIND_PACKAGE(QGIS REQUIRED)
+IF(NOT APPLE)
+  FIND_PACKAGE(Proj)
+  FIND_PACKAGE(GDAL)
+ENDIF()
 
 SET(QT_MIN_VERSION 5.14.0)
 
@@ -56,6 +64,8 @@ IF (ANDROID)
 ELSE ()
   SET (QFIELD_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
 ENDIF ()
+
+ADD_DEFINITIONS(-DQT_NO_PRINTER)
 
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
 SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
@@ -107,17 +117,27 @@ IF (ANDROID)
 
   INCLUDE(CreateZip)
 
-  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
+  FILE(COPY resources DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/") # should we rather INSTALL everything and create the package from the installation instead?
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/") # should we rather INSTALL everything and create the package from the installation instead?
 
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
-  # Remove world map to keep apk size a bit smaller
-  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
-  FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
-ENDIF (ANDROID)
+  FILE(GLOB_RECURSE asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/*")
+  LIST(REMOVE_ITEM asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/data/world_map.gpkg")
 
-FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors WebView Bluetooth REQUIRED)
+  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${asset_files}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
+  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
+
+ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+  # we need to avoid having a folder named resources as iOS signing fails otherwise
+  FILE(COPY ${QGIS_APPLE_RESOURCES_DIR}/resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/qgis_resources)
+
+  set(QFIELD_RESOURCE_FILES
+    ${QFIELD_PROJ_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/resources/demo_projects
+    ${QGIS_APPLE_RESOURCES_DIR}/svg
+    ${CMAKE_CURRENT_BINARY_DIR}/qgis_resources
+    )
+ENDIF()
+
 
 ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/core)

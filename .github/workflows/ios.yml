@@ -1,0 +1,131 @@
+name: 👷 CD iOs
+
+on:
+  push:
+    branches:
+      - master
+      - ios
+  release:
+    types:
+      - created
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  BuildIpa:
+
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        deployment-target: ['12.0']
+        platform: ['OS64']
+        version: ['5.15.1']
+        build-type: ['Release']
+        bitcode: ['FALSE']
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+
+    - name: Download artifact
+      run: |
+        wget -O OSGeo4I-arm64.zip https://www.dropbox.com/s/2rdiy5jft1zn7ps/OSGeo4I-arm64.zip?dl=0
+        unzip OSGeo4I-arm64.zip -d ${{ github.workspace }}
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v2
+      with:
+        path: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.version }}
+        key: ${{ runner.os }}-QtCache-${{ matrix.version }}-ios
+
+    - name: ⬆️ Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: ${{ matrix.version }}
+        target: ios
+        dir: ${{ github.workspace }}/Qt-${{ runner.os }}-${{ matrix.version }}
+        modules: 'qtcharts'
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - name: 🔥 Delete Qt built-in styles (QField use Material)
+      run: |
+        rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/designer
+        rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Fusion
+        rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Imagine
+        rm -rf ${Qt5_Dir}/qml/QtQuick/Controls.2/Universal
+      shell: bash
+
+    - uses: Apple-Actions/import-codesign-certs@v1
+      with:
+        p12-file-base64: ${{ secrets.IOS_CERTIFICATES_FILE_BASE64 }}
+        p12-password: ${{ secrets.IOS_CERTIFICATES_PASSWORD }}
+
+    - uses: Apple-Actions/download-provisioning-profiles@v1
+      with:
+        bundle-id: ch.opengis.qfield
+        issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+
+    - name: 🔧 Configure
+      run: |
+        mkdir -p build
+        cmake \
+          -G "Xcode" \
+          -DCMAKE_PREFIX_PATH=${{ github.workspace }}/OSGeo4I/arm64 \
+          -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/OSGeo4I/cmake/ios.toolchain.cmake \
+          -DCMAKE_CONFIGURATION_TYPES="Release" \
+          -DDEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
+          -DPLATFORM=${{ matrix.platform }} \
+          -DENABLE_VISIBILITY=FALSE \
+          -DENABLE_BITCODE=${{ matrix.bitcode }} \
+          -DENABLE_ARC=TRUE \
+          -DQT_IOS_TEAM_ID=${{ secrets.IOS_TEAM_ID }} \
+          -DQT_IOS_CODE_SIGN_IDENTITY=${{ secrets.IOS_CODE_SIGN_IDENTITY }} \
+          -DQT_IOS_PROVISIONING_PROFILE_SPECIFIER=${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }} \
+          -B ./build/ -S .
+
+    - name: 🔨 Build qfield
+      run: cmake --build build --target qfield --config "${{ matrix.build-type }}"
+
+    - name: 🔨 Build qfield Archive
+      run: cmake --build build --target qfieldArchive --config "${{ matrix.build-type }}"
+
+    - name: 🚀 Deploy qfield Ipa
+      run: cmake --build build --target qfieldIpa --config "${{ matrix.build-type }}"
+
+    - name: 📦 Upload qfield App
+      uses: actions/upload-artifact@v2
+      with:
+        name: qfield-${{ matrix.platform }}-${{ matrix.deployment-target }}.app
+        path: build/output/bin/${{ matrix.build-type }}/qfield.app
+
+    - name: 📦 Upload qfield Ipa
+      uses: actions/upload-artifact@v2
+      with:
+        name: qfield-i${{ matrix.platform }}-${{ matrix.deployment-target }}.ipa
+        path: build/src/app/qfieldIpa/qfield.ipa
+
+    - uses: Apple-Actions/upload-testflight-build@v1
+      if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+      name: 🚀 Release to TestFlight
+      with:
+        app-path: build/src/app/qfieldIpa/qfield.ipa
+        issuer-id: ${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.IOS_APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}
+
+    - name: 🚀 Upload Release Asset
+      if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: build/src/app/qfieldIpa/qfield.ipa
+        asset_name: qfield-i${{ matrix.platform }}-${{ matrix.deployment-target }}.ipa
+        asset_content_type: application/zip
