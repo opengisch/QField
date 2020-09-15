@@ -23,7 +23,7 @@ if [[ -z $APP_VERSION ]] && [[ -z $APP_VERSION_CODE ]]; then
   exit 2
 fi
 
-apt update && apt install -y zip bc cmake ninja-build jq
+apt update && apt install -y zip bc cmake ninja-build jq ; apt install qt5-default
 
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
