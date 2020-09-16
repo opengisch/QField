@@ -19,6 +19,7 @@ Page {
   signal aboutToSave
 
   property AttributeFormModel model
+  property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
@@ -290,6 +291,7 @@ Page {
 
         WebView {
           id: htmlItem
+          visible: TabIndex === form.currentTab
           anchors {
             left: parent.left
             rightMargin: 12
