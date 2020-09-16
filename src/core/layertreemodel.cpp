@@ -88,8 +88,10 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
             QVariantMap uriComponents = QgsProviderRegistry::instance()->decodeUri( rasterLayer->dataProvider()->name(), rasterLayer->source() );
             if ( uriComponents.contains( QStringLiteral( "type" ) ) &&
                  uriComponents.value( QStringLiteral( "type" ) ).toString() == QStringLiteral( "xyz" ) )
+            {
               // XYZ raster layers have no legend items, yet report so, skip those.
               continue;
+            }
           }
         }
         row = buildMap( model, index, row, treeLevel + 1 );
@@ -423,8 +425,7 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
 
     case HasChildren:
     {
-      QModelIndex sourceIndex = mapToSource( index );
-      return mLayerTreeModel->hasChildren( sourceIndex );
+      return mTreeLevelMap.contains( index.row() + 1 ) && mTreeLevelMap[index.row() + 1] > mTreeLevelMap[index.row()];
     }
 
     default:
