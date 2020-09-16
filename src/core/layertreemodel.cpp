@@ -20,7 +20,6 @@
 #include <qgslayertree.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgsmapthemecollection.h>
-#include <qgsproviderregistry.h>
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
 
@@ -83,15 +82,10 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
           QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
-          if ( rasterLayer && rasterLayer->dataProvider() )
+          if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->name() == QStringLiteral( "wms" ) )
           {
-            QVariantMap uriComponents = QgsProviderRegistry::instance()->decodeUri( rasterLayer->dataProvider()->name(), rasterLayer->source() );
-            if ( uriComponents.contains( QStringLiteral( "type" ) ) &&
-                 uriComponents.value( QStringLiteral( "type" ) ).toString() == QStringLiteral( "xyz" ) )
-            {
-              // XYZ raster layers have no legend items, yet report so, skip those.
-              continue;
-            }
+            // WMS layers have no legend items, skip those.
+            continue;
           }
         }
         row = buildMap( model, index, row, treeLevel + 1 );
