@@ -14,8 +14,12 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
+
   property bool trackingButtonVisible: false
   property var trackingButtonText
+
+  property bool collapseButtonVisible: false
+  property bool isCollapsed: false
 
   property alias itemVisible: itemVisibleCheckBox.checked
 
@@ -27,9 +31,14 @@ Popup {
   onIndexChanged: {
     itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = layerTree.data(index, Qt.DisplayName)
+
     zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
+
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
+
+    collapseButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasChildren)
+    isCollapsed = layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
   }
 
   onItemVisibleChanged: {
@@ -134,6 +143,28 @@ Popup {
                 trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
             }
             close()
+        }
+      }
+
+      Rectangle {
+        id: separatorRect
+        Layout.fillWidth: true
+        Layout.margins: 10
+        height: 1
+        color: Theme.lightGray
+      }
+
+      QfButton {
+        id: collapseButton
+        Layout.fillWidth: true
+        font: Theme.defaultFont
+        text: isCollapsed ? qsTr('Expand legend item') : qsTr('Collapse legend item')
+        visible: collapseButtonVisible
+
+        onClicked: {
+          isCollapsed = !isCollapsed;
+          layerTree.setData(index, isCollapsed, FlatLayerTreeModel.IsCollapsed);
+          close()
         }
       }
     }
