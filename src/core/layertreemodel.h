@@ -46,7 +46,8 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       LayerType,
       IsValid,
       IsCollapsed,
-      IsParentCollapsed
+      IsParentCollapsed,
+      HasChildren
     };
     Q_ENUM( Roles )
 
