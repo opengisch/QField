@@ -64,8 +64,11 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     {
       QModelIndex index = model->index( i, 0, parent );
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
-      if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
+      if ( node && node->customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
         continue;
+
+      if ( node && !node->isExpanded() )
+        mCollapsedItems << index;
 
       mRowMap[index] = row;
       mIndexMap[row] = index;
@@ -382,6 +385,24 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return layer->isValid();
     }
 
+    case IsCollapsed:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      return mCollapsedItems.contains( sourceIndex );
+    }
+
+    case IsParentCollapsed:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      while ( sourceIndex.isValid() )
+      {
+        sourceIndex = sourceIndex.parent();
+        if ( sourceIndex.isValid() && mCollapsedItems.contains( sourceIndex ) )
+          return true;
+      }
+      return false;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -432,6 +453,8 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[TreeLevel] = "TreeLevel";
   roleNames[LayerType] = "LayerType";
   roleNames[IsValid] = "IsValid";
+  roleNames[IsCollapsed] = "IsCollapsed";
+  roleNames[IsParentCollapsed] = "IsParentCollapsed";
   return roleNames;
 }
 

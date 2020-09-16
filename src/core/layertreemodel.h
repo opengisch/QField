@@ -44,7 +44,9 @@ class FlatLayerTreeModel : public QAbstractProxyModel
       GeometryLocked,
       TreeLevel,
       LayerType,
-      IsValid
+      IsValid,
+      IsCollapsed,
+      IsParentCollapsed
     };
     Q_ENUM( Roles )
 
@@ -91,6 +93,7 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;
     QMap<int, int> mTreeLevelMap;
+    QList<QModelIndex> mCollapsedItems;
 
     QgsLayerTreeModel *mLayerTreeModel = nullptr;
     QString mMapTheme;
