@@ -40,7 +40,6 @@ ListView {
 
       // Legend image / layer icon
       Rectangle {
-          visible: Type != "group"
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
@@ -73,6 +72,8 @@ ListView {
                   return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
                 } else if ( LayerType == "annotationlayer" ) {
                   return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
+                } else if ( Type == "group" ) {
+                  return Theme.getThemeVectorIcon('ic_group_18dp');
                 } else {
                   return '';
                 }
