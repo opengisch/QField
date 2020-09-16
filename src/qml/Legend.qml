@@ -18,7 +18,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 1
+  spacing: 0
 
   delegate: Rectangle {
     property VectorLayer vectorLayer: VectorLayerPointer ? VectorLayerPointer : null
@@ -28,8 +28,9 @@ ListView {
     property string layerType: LayerType
 
     id: rectangle
+    visible: !IsParentCollapsed
     width: parent.width
-    height: line.height
+    height: IsParentCollapsed ? 0 : line.height + 1
     color: "#ffffff"
 
     Row {
