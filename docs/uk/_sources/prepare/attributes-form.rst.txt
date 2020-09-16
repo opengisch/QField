@@ -44,6 +44,8 @@ The field widgets from QGIS are supported on a best effort basis.
 +-------------------+-----------------+-------------------------------------------------+
 | Relation Widget   | :yay:`✔`        |                                                 |
 +-------------------+-----------------+-------------------------------------------------+
+| Value Relation    | :yay:`✔`        |                                                 |
++-------------------+-----------------+-------------------------------------------------+
 | Others            | :nay:`✘`        | :ref:`make_it_grow`                             |
 +-------------------+-----------------+-------------------------------------------------+
 
@@ -112,7 +114,22 @@ On synchronization the sub-directory with the pictures, pdf and docs has to be c
 
 The option "hyperlink" on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, ...).
 
- .. figure:: /images/hyperlink_option.png
+.. container:: clearer text-center
+
+    .. figure:: /images/hyperlink_option.png
+       :width: 600px
+       :alt: hyperlink_option
+
+Value Relation
+--------------
+
+The widget "Value Relation" offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.
+
+.. container:: clearer text-center
+
+  .. figure:: /images/value_relation_widget.gif
+     :width: 600px
+     :alt: value_relation_widget
 
 Drag and drop designer forms
 ----------------------------
