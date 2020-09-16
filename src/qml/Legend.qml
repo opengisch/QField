@@ -42,6 +42,7 @@ ListView {
       Rectangle {
           height: 24
           width: 12
+          color: "transparent"
           anchors.verticalCenter: parent.verticalCenter
 
           Image {
@@ -60,6 +61,7 @@ ListView {
       Rectangle {
           height: 24
           width: 24
+          color: "transparent"
           anchors.verticalCenter: parent.verticalCenter
 
           Image {
