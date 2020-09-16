@@ -433,7 +433,8 @@ bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &valu
   {
     case Visible:
     {
-      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
+      QModelIndex sourceIndex = mapToSource( index );
+      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( sym )
       {
         QVariant checked = value.toBool() ? Qt::Checked : Qt::Unchecked;
@@ -441,8 +442,8 @@ bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &valu
       }
       else
       {
-        QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
-        node->setItemVisibilityCheckedRecursive( value.toBool() );
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+        node->setItemVisibilityChecked( value.toBool() );
       }
 
       //visibility of the node's children are also impacted, use the tree level value to identify those
