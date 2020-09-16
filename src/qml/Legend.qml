@@ -38,6 +38,24 @@ ListView {
       leftPadding: itemPadding
       spacing: 5
 
+      // Collapsed state visual feedback
+      Rectangle {
+          height: 24
+          width: 12
+          anchors.verticalCenter: parent.verticalCenter
+
+          Image {
+              anchors.fill: parent
+              source: IsCollapsed ? Theme.getThemeVectorIcon('ic_legend_collapsed_14dp') : Theme.getThemeVectorIcon('ic_legend_expanded_14dp')
+              width: 12
+              height: 12
+              sourceSize.width: 12 * screen.devicePixelRatio
+              sourceSize.height: 12 * screen.devicePixelRatio
+              fillMode: Image.PreserveAspectFit
+              visible: HasChildren
+          }
+      }
+
       // Legend image / layer icon
       Rectangle {
           height: 24
@@ -45,7 +63,6 @@ ListView {
           anchors.verticalCenter: parent.verticalCenter
 
           Image {
-              id: layerImage
               anchors.fill: parent
               anchors.margins: 4
               cache: false
@@ -90,10 +107,10 @@ ListView {
       Text {
         id: layerName
         width: rectangle.width
-               - ( layerImage.source != '' ? 34 : 10 )
+               - itemPadding
+               - 46
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-               - itemPadding
                - ( !IsValid ? 34 : 0 )
         padding: 3
         leftPadding: 0
