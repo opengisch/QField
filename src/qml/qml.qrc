@@ -57,6 +57,7 @@
         <file>EmbeddedFeatureForm.qml</file>
         <file>PositioningSettings.qml</file>
         <file>QuestionDialog.qml</file>
+        <file>ImageDial.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
