@@ -20,6 +20,7 @@
 #include <qgslayertree.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgsmapthemecollection.h>
+#include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
 
 FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
@@ -55,6 +56,7 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     beginResetModel();
     mRowMap.clear();
     mIndexMap.clear();
+    mCollapsedItems.clear();
   }
 
   if ( model )
@@ -64,15 +66,30 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     {
       QModelIndex index = model->index( i, 0, parent );
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( index );
-      if ( node && node-> customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
+      if ( node && node->customProperty( QStringLiteral( "nodeHidden" ), QStringLiteral( "false" ) ).toString() == QStringLiteral( "true" ) )
         continue;
+
+      if ( node && !node->isExpanded() )
+        mCollapsedItems << index;
 
       mRowMap[index] = row;
       mIndexMap[row] = index;
       mTreeLevelMap[row] = treeLevel;
       row++;
       if ( model->hasChildren( index ) )
+      {
+        if ( QgsLayerTree::isLayer( node ) )
+        {
+          QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+          QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
+          if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->name() == QStringLiteral( "wms" ) )
+          {
+            // WMS layers have no legend items, skip those.
+            continue;
+          }
+        }
         row = buildMap( model, index, row, treeLevel + 1 );
+      }
     }
   }
 
@@ -382,6 +399,29 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
       return layer->isValid();
     }
 
+    case IsCollapsed:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      return mCollapsedItems.contains( sourceIndex );
+    }
+
+    case IsParentCollapsed:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      while ( sourceIndex.isValid() )
+      {
+        sourceIndex = sourceIndex.parent();
+        if ( sourceIndex.isValid() && mCollapsedItems.contains( sourceIndex ) )
+          return true;
+      }
+      return false;
+    }
+
+    case HasChildren:
+    {
+      return mTreeLevelMap.contains( index.row() + 1 ) && mTreeLevelMap[index.row() + 1] > mTreeLevelMap[index.row()];
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -389,32 +429,59 @@ QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
 
 bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( role == Visible )
+  switch ( role )
   {
-    QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) );
-    if ( sym )
+    case Visible:
     {
-      QVariant checked = value.toBool() ? Qt::Checked : Qt::Unchecked;
-      sym->setData( checked, Qt::CheckStateRole );
-    }
-    else
-    {
-      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
-      node->setItemVisibilityCheckedRecursive( value.toBool() );
+      QModelIndex sourceIndex = mapToSource( index );
+      QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
+      if ( sym )
+      {
+        QVariant checked = value.toBool() ? Qt::Checked : Qt::Unchecked;
+        sym->setData( checked, Qt::CheckStateRole );
+      }
+      else
+      {
+        QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+        node->setItemVisibilityChecked( value.toBool() );
+      }
+
+      //visibility of the node's children are also impacted, use the tree level value to identify those
+      int treeLevel = mTreeLevelMap[index.row()];
+      int endRow = index.row();
+      while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
+        endRow++;
+
+      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << Visible );
+      return true;
     }
 
-    //visibility of the node's children is also impacted, use the tree level value to identify those
-    int treeLevel = mTreeLevelMap[index.row()];
-    int endRow = index.row();
-    while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
-      endRow++;
+    case IsCollapsed:
+    {
+      QModelIndex sourceIndex = mapToSource( index );
+      const bool collapsed = value.toBool();
+      if ( collapsed && !mCollapsedItems.contains( sourceIndex ) )
+      {
+        mCollapsedItems << sourceIndex;
+      }
+      else if  ( !collapsed && mCollapsedItems.contains( sourceIndex ) )
+      {
+        mCollapsedItems.removeAll( sourceIndex );
+      }
 
-    QVector<int> rolesChanged;
-    rolesChanged << role;
-    emit dataChanged( index, createIndex( endRow, 0 ), rolesChanged );
-    return true;
+      //the node's children are also impacted, use the tree level value to identify those
+      int treeLevel = mTreeLevelMap[index.row()];
+      int endRow = index.row();
+      while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
+        endRow++;
+
+      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << IsCollapsed << IsParentCollapsed );
+      return true;
+    }
+
+    default:
+      return false;
   }
-  return false;
 }
 
 QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
@@ -432,6 +499,9 @@ QHash<int, QByteArray> FlatLayerTreeModel::roleNames() const
   roleNames[TreeLevel] = "TreeLevel";
   roleNames[LayerType] = "LayerType";
   roleNames[IsValid] = "IsValid";
+  roleNames[IsCollapsed] = "IsCollapsed";
+  roleNames[IsParentCollapsed] = "IsParentCollapsed";
+  roleNames[HasChildren] = "HasChildren";
   return roleNames;
 }
 
