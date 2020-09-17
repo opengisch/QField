@@ -21,7 +21,7 @@ Popup {
   property bool expandCheckBoxVisible: false
 
 
-  width: mainWindow.width - 20
+  width: Math.min( childrenRect.width, mainWindow.width - 20 )
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
