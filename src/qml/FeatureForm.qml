@@ -291,7 +291,7 @@ Page {
 
         WebView {
           id: htmlItem
-          visible: TabIndex === form.currentTab
+          visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
           anchors {
             left: parent.left
             rightMargin: 12

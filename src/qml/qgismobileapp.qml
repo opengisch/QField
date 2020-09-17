@@ -615,6 +615,11 @@ ApplicationWindow {
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible
+
+    onOpenedChanged: {
+      if ( !opened && featureForm.visible )
+        featureForm.focus = true
+    }
   }
 
   /* The main menu */
