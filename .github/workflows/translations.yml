@@ -14,7 +14,7 @@ jobs:
 
       - name: Install Requirements
         run: |
-          sudo apt update && sudo apt install qttools5-dev-tools
+          sudo apt update && sudo apt install qttools5-dev-tools qt5-default
           sudo pip install wheel
           sudo pip install pygithub transifex-client
           ./scripts/ci/env_gh.sh

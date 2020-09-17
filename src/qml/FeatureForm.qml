@@ -19,6 +19,7 @@ Page {
   signal aboutToSave
 
   property AttributeFormModel model
+  property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
@@ -356,11 +357,11 @@ Page {
             // - not activated in multi edit mode
             // - not set to editable in the widget configuration
             // - not in edit mode (ReadOnly)
-            // - a relation in an embedded form or in multi edit mode
+            // - a relation in multi edit mode
             property bool isEnabled: AttributeAllowEdit
                                      && !!AttributeEditable
                                      && form.state !== 'ReadOnly'
-                                     && !( Type === 'relation' && ( embedded || form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) )
+                                     && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
             property var value: AttributeValue
             property var config: ( EditorWidgetConfig || {} )
             property var widget: EditorWidget
