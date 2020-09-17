@@ -199,13 +199,13 @@ Page {
               }
             }
 
-            model: SubModel {
+            SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model.hasTabs
-                         ? form.model.index(currentIndex, 0)
-                         : form.model.index(0, 0)
+              rootIndex: form.model.index(currentIndex, 0)
             }
+
+            model: form.model.hasTabs ? contentModel : form.model
 
             delegate: fieldItem
           }
