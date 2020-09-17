@@ -18,7 +18,7 @@ ListView {
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
-  spacing: 1
+  spacing: 0
 
   delegate: Rectangle {
     property VectorLayer vectorLayer: VectorLayerPointer ? VectorLayerPointer : null
@@ -28,8 +28,9 @@ ListView {
     property string layerType: LayerType
 
     id: rectangle
+    visible: !IsParentCollapsed
     width: parent.width
-    height: line.height
+    height: IsParentCollapsed ? 0 : line.height + 1
     color: "#ffffff"
 
     Row {
@@ -37,15 +38,34 @@ ListView {
       leftPadding: itemPadding
       spacing: 5
 
-      // Legend image / layer icon
+      // Collapsed state visual feedback
       Rectangle {
-          visible: Type != "group"
           height: 24
-          width: 24
+          width: 10
+          color: "transparent"
           anchors.verticalCenter: parent.verticalCenter
 
           Image {
-              id: layerImage
+              anchors.fill: parent
+              source: Theme.getThemeVectorIcon('ic_legend_collapsed_state_14dp')
+              width: 10
+              height: 10
+              rotation: !IsCollapsed ? 90 : 0
+              sourceSize.width: 12 * screen.devicePixelRatio
+              sourceSize.height: 12 * screen.devicePixelRatio
+              fillMode: Image.PreserveAspectFit
+              visible: HasChildren
+          }
+      }
+
+      // Legend image / layer icon
+      Rectangle {
+          height: 24
+          width: 24
+          color: "transparent"
+          anchors.verticalCenter: parent.verticalCenter
+
+          Image {
               anchors.fill: parent
               anchors.margins: 4
               cache: false
@@ -72,6 +92,8 @@ ListView {
                   return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
                 } else if ( LayerType == "annotationlayer" ) {
                   return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
+                } else if ( Type == "group" ) {
+                  return Theme.getThemeVectorIcon('ic_group_18dp');
                 } else {
                   return '';
                 }
@@ -88,10 +110,10 @@ ListView {
       Text {
         id: layerName
         width: rectangle.width
-               - ( layerImage.source != '' ? 34 : 10 )
+               - itemPadding
+               - 46
                - ( InTracking ? 34 : 0 )
                - ( ( ReadOnly || GeometryLocked ) ? 34 : 0 )
-               - itemPadding
                - ( !IsValid ? 34 : 0 )
         padding: 3
         leftPadding: 0
