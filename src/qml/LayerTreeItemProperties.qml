@@ -32,7 +32,7 @@ Popup {
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
 
     expandCheckBoxVisible = layerTree.data(index, FlatLayerTreeModel.HasChildren)
-    expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Show legend')
+    expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
     zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
@@ -119,7 +119,7 @@ Popup {
       CheckBox {
         id: expandCheckBox
         Layout.fillWidth: true
-        text: qsTr('Expand legend children')
+        text: qsTr('Expand legend item')
         font: Theme.defaultFont
         visible: expandCheckBoxVisible
 
