@@ -41,15 +41,16 @@ ListView {
       // Collapsed state visual feedback
       Rectangle {
           height: 24
-          width: 12
+          width: 10
           color: "transparent"
           anchors.verticalCenter: parent.verticalCenter
 
           Image {
               anchors.fill: parent
-              source: IsCollapsed ? Theme.getThemeVectorIcon('ic_legend_collapsed_14dp') : Theme.getThemeVectorIcon('ic_legend_expanded_14dp')
-              width: 12
-              height: 12
+              source: Theme.getThemeVectorIcon('ic_legend_collapsed_state_14dp')
+              width: 10
+              height: 10
+              rotation: !IsCollapsed ? 90 : 0
               sourceSize.width: 12 * screen.devicePixelRatio
               sourceSize.height: 12 * screen.devicePixelRatio
               fillMode: Image.PreserveAspectFit
