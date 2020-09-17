@@ -54,6 +54,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::ConstraintDescription] = "ConstraintDescription";
   roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
   roles[AttributeFormModel::EditorWidgetCode] = "EditorWidgetCode";
+  roles[AttributeFormModel::TabIndex] = "TabIndex";
 
   return roles;
 }
@@ -160,6 +161,7 @@ void AttributeFormModelBase::onLayerChanged()
     if ( mHasTabs )
     {
       const QList<QgsAttributeEditorElement *> children { root->children() };
+      int currentTab = 0;
       for ( QgsAttributeEditorElement *element : children )
       {
         if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
@@ -178,7 +180,8 @@ void AttributeFormModelBase::onLayerChanged()
           }
 
           QVector<QStandardItem *> dummy;
-          flatten( container, item, QString(), dummy );
+          flatten( container, item, QString(), dummy, currentTab );
+          currentTab++;
         }
       }
     }
@@ -291,7 +294,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items )
+void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
@@ -332,6 +335,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         QStandardItem *item = new QStandardItem();
 
+        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ), AttributeFormModel::AttributeEditable );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
@@ -381,7 +385,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
 
         QStandardItem *item = new QStandardItem();
 
-
+        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( relation.name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
@@ -406,6 +410,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
         QStandardItem *item = new QStandardItem();
 
+        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( "qml", AttributeFormModel::ElementType );
         item->setData( qmlElement->name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
@@ -427,6 +432,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
         QStandardItem *item = new QStandardItem();
 
+        item->setData( currentTabIndex, AttributeFormModel::TabIndex );
         item->setData( "html", AttributeFormModel::ElementType );
         item->setData( htmlElement->name(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
