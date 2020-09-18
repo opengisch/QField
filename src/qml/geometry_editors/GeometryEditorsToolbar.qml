@@ -59,14 +59,14 @@ VisibilityFadingRow {
   }
 
   function cancelEditors() {
-    if (toolbarRow.item)
+    if ( toolbarRow.item )
       toolbarRow.item.cancel()
     featureModel.vertexModel.clear()
   }
 
   // returns true if handled
   function canvasClicked(point) {
-    if ( toolbarRow.item )
+    if ( toolbarRow.item && toolbarRow.visible )
       return toolbarRow.item.canvasClicked(point)
     else
       return false
@@ -74,7 +74,7 @@ VisibilityFadingRow {
 
   // returns true if handled
   function canvasLongPressed(point) {
-    if ( toolbarRow.item )
+    if ( toolbarRow.item && toolbarRow.visible )
       return toolbarRow.item.canvasLongPressed(point)
     else
       return false
