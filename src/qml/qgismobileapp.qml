@@ -233,27 +233,27 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-          if (locatorItem.state == "on") {
-              locatorItem.state = "off"
+        if (locatorItem.state == "on") {
+          locatorItem.state = "off"
+        }
+        else if (geometryEditorsToolbar.canvasClicked(point)) {
+          // for instance, the vertex editor will select a vertex if possible
+        }
+        else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
+          if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
+              Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+          {
+            digitizingToolbar.confirm()
           }
-          else if (geometryEditorsToolbar.canvasClicked(point)) {
-            // for instance, the vertex editor will select a vertex if possible
+          else
+          {
+            currentRubberband.model.addVertex()
+            coordinateLocator.flash()
           }
-          else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
-                if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-                     Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
-                {
-                  digitizingToolbar.confirm()
-                }
-                else
-                {
-                    currentRubberband.model.addVertex()
-                    coordinateLocator.flash()
-                }
-          }
-          else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify(point)
-          }
+        }
+        else if( !overlayFeatureFormDrawer.visible ) {
+          identifyTool.identify(point)
+        }
       }
 
       onLongPressed: {
