@@ -165,11 +165,6 @@ Rectangle {
       }
     }
 
-    add: Transition {
-        ColorAnimation { property: "color"; to: "#00FFFFFF"; duration: 250 }
-        PropertyAction { property: "color"; value: Theme.mainColor }
-    }
-
     delegate: Rectangle {
       id: itemBackground
       anchors { left: parent.left; right: parent.right }
