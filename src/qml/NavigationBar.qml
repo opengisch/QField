@@ -25,7 +25,6 @@ import org.qfield 1.0
 Rectangle {
   id: toolBar
 
-  property string currentName: ''
   property bool allowDelete
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -78,7 +77,11 @@ Rectangle {
 
       text: {
         if ( model && selection && selection.focusedItem > -1 && toolBar.state === 'Navigation' ) {
-          return ( selection.focusedItem + 1 ) + '/' + model.count + ': ' + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature)
+          var featurePosition = model.count > 1
+              ? ( ( selection.focusedItem + 1 ) + '/' + model.count + ': ' )
+              : '';
+
+          return featurePosition + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature)
         }
         else {
           return qsTr('Features')
@@ -197,8 +200,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onFocusedItemChanged:
-      {
+      function onFocusedItemChanged() {
         editGeomButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
     }
@@ -230,8 +232,7 @@ Rectangle {
     Connections {
       target: selection
 
-      onFocusedItemChanged:
-      {
+      function onFocusedItemChanged() {
         editButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
       }
     }

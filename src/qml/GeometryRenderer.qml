@@ -21,7 +21,7 @@ Item {
   Connections {
     target: geometryWrapper
 
-    onQgsGeometryChanged: {
+    function onQgsGeometryChanged() {
       geometryComponent.sourceComponent = undefined
       if (geometryWrapper && geometryWrapper.qgsGeometry.type === QgsWkbTypes.PointGeometry) {
         geometryComponent.sourceComponent = pointHighlight

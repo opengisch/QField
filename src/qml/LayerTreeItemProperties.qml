@@ -14,26 +14,31 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
+
   property bool trackingButtonVisible: false
   property var trackingButtonText
 
-  property alias itemVisible: itemVisibleCheckBox.checked
+  property bool expandCheckBoxVisible: false
 
-  width: mainWindow.width - 20
+
+  width: Math.min( childrenRect.width, mainWindow.width - 20 )
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
 
   onIndexChanged: {
-    itemVisible = layerTree.data(index, FlatLayerTreeModel.Visible)
     title = layerTree.data(index, Qt.DisplayName)
+
+    itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
+
+    expandCheckBoxVisible = layerTree.data(index, FlatLayerTreeModel.HasChildren)
+    expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
+    expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
+
     zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
+
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
-  }
-
-  onItemVisibleChanged: {
-    layerTree.setData(index, itemVisible, FlatLayerTreeModel.Visible);
   }
 
   Page {
@@ -93,20 +98,41 @@ Popup {
       }
 
       CheckBox {
-          id: itemVisibleCheckBox
-          Layout.fillWidth: true
-          text: qsTr('Show on map canvas')
-          font: Theme.defaultFont
+        id: itemVisibleCheckBox
+        Layout.fillWidth: true
+        topPadding: 5
+        bottomPadding: 5
+        text: qsTr('Show on map canvas')
+        font: Theme.defaultFont
 
-          indicator.height: 16
-          indicator.width: 16
-          indicator.implicitHeight: 24
-          indicator.implicitWidth: 24
+        indicator.height: 16
+        indicator.width: 16
+        indicator.implicitHeight: 24
+        indicator.implicitWidth: 24
+
+        onCheckStateChanged: {
+          layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
+          close()
+        }
+      }
+
+      CheckBox {
+        id: expandCheckBox
+        Layout.fillWidth: true
+        text: qsTr('Expand legend item')
+        font: Theme.defaultFont
+        visible: expandCheckBoxVisible
+
+        onCheckStateChanged: {
+          layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
+          close()
+        }
       }
 
       QfButton {
         id: zoomToLayerButton
         Layout.fillWidth: true
+        Layout.topMargin: 5
         font: Theme.defaultFont
         text: qsTr('Zoom to layer')
         visible: zoomToLayerButtonVisible
@@ -121,6 +147,7 @@ Popup {
       QfButton {
         id: trackingButton
         Layout.fillWidth: true
+        Layout.topMargin: 5
         font: Theme.defaultFont
         text: trackingButtonText
         visible: trackingButtonVisible
@@ -131,7 +158,7 @@ Popup {
                  trackingModel.stopTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer));
                  displayToast( qsTr( 'Track on layer %1 stopped' ).arg( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer).name  ) )
             } else {
-                trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisible);
+                trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisibleCheckBox.checked );
             }
             close()
         }

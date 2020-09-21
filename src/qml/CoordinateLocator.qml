@@ -116,7 +116,8 @@ Item {
 
     Connections {
       target: snappingUtils
-      onSnappingResultChanged: {
+
+      function onSnappingResultChanged() {
         crosshairCircle.border.color = overrideLocation == undefined ? ( snappingUtils.snappingResult.isValid ? "#9b59b6" : locator.color ) : "#AD1457"
         crosshairCircle.width = snappingUtils.snappingResult.isValid ? 32: 48
       }

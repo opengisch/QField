@@ -3,6 +3,8 @@
         <file alias="qfield_logo.svg">icons/qfield_logo.svg</file>
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
         <file alias="karma-logo.svg">icons/karma-logo.svg</file>
+        <file alias="sparkleSize.png">icons/sparkleSize.png</file>
+        <file>icons/unicorn.png</file>
     </qresource>
     <qresource prefix="/pictures">
         <file alias="qfield-love.png">pictures/qfield-love.png</file>
@@ -333,6 +335,8 @@
         <file>themes/qfield/xhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_lock_black_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_legend_collapsed_state_14dp.svg</file>
+        <file>themes/qfield/nodpi/ic_group_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_point_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_line_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_polygon_18dp.svg</file>

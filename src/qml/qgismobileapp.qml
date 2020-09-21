@@ -233,27 +233,27 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-          if (locatorItem.state == "on") {
-              locatorItem.state = "off"
+        if (locatorItem.state == "on") {
+          locatorItem.state = "off"
+        }
+        else if (geometryEditorsToolbar.canvasClicked(point)) {
+          // for instance, the vertex editor will select a vertex if possible
+        }
+        else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
+          if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
+              Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+          {
+            digitizingToolbar.confirm()
           }
-          else if (geometryEditorsToolbar.canvasClicked(point)) {
-            // for instance, the vertex editor will select a vertex if possible
+          else
+          {
+            currentRubberband.model.addVertex()
+            coordinateLocator.flash()
           }
-          else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
-                if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-                     Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
-                {
-                  digitizingToolbar.confirm()
-                }
-                else
-                {
-                    currentRubberband.model.addVertex()
-                    coordinateLocator.flash()
-                }
-          }
-          else if( !overlayFeatureFormDrawer.visible ) {
-              identifyTool.identify(point)
-          }
+        }
+        else if( !overlayFeatureFormDrawer.visible ) {
+          identifyTool.identify(point)
+        }
       }
 
       onLongPressed: {
@@ -615,6 +615,11 @@ ApplicationWindow {
     allowLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible
+
+    onOpenedChanged: {
+      if ( !opened && featureForm.visible )
+        featureForm.focus = true
+    }
   }
 
   /* The main menu */
@@ -1029,7 +1034,7 @@ ApplicationWindow {
     Connections {
         target: printMenu
 
-        onEnablePrintItem: {
+        function onEnablePrintItem(rows) {
           printItem.enabled = rows
         }
     }
@@ -1087,7 +1092,7 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         layoutListInstantiator.model.project = qgisProject
         layoutListInstantiator.model.reloadModel()
         printMenu.enablePrintItem(layoutListInstantiator.model.rowCount())
@@ -1311,12 +1316,12 @@ ApplicationWindow {
     Connections {
       target: iface
 
-      onLoadProjectStarted: {
+      function onLoadProjectStarted(path) {
         busyMessageText.text = qsTr( "Loading Project: %1" ).arg( path )
         busyMessage.visible = true
       }
 
-      onLoadProjectEnded: {
+      function onLoadProjectEnded() {
         busyMessage.visible = false
         mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor
       }
@@ -1381,7 +1386,8 @@ ApplicationWindow {
 
     Connections {
       target: iface
-      onLoadProjectEnded: {
+
+      function onLoadProjectEnded() {
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
@@ -1392,7 +1398,7 @@ ApplicationWindow {
     Connections {
         target: iface
 
-        onLoadProjectStarted: {
+        function onLoadProjectStarted(path) {
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
@@ -1400,13 +1406,13 @@ ApplicationWindow {
     Connections {
       target: qfieldAuthRequestHandler
 
-      onShowLoginDialog: {
+      function onShowLoginDialog(realm) {
         loginDialogPopup.realm = realm || ""
         badLayersView.visible = false
         loginDialogPopup.open()
       }
 
-      onReloadEverything: {
+      function onReloadEverything() {
         iface.reloadProject( qgisProject.fileName )
       }
     }
@@ -1572,7 +1578,12 @@ ApplicationWindow {
     }
 
     onClosed: {
+      settings.setValue( "/QField/ChangelogVersion", versionCode )
       changelogFlickable.contentY = 0
+    }
+
+    onOpened: {
+      changelog.refreshChangelog()
     }
 
     Keys.onReleased: {
@@ -1711,7 +1722,7 @@ ApplicationWindow {
   Connections {
     target: welcomeScreen.__projectSource
 
-    onProjectOpened: {
+    function onProjectOpened(path) {
       iface.loadProject( path )
     }
   }

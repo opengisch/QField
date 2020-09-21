@@ -43,12 +43,12 @@ FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
   return new FeaturesLocatorFilter( mLocatorBridge );
 }
 
-void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
+QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
 {
   Q_UNUSED( locatorContext );
 
   if ( string.length() < 3 )
-    return;
+    return QStringList();
 
   mPreparedLayers.clear();
   const QMap<QString, QgsMapLayer *> layers = QgsProject::instance()->mapLayers();
@@ -85,6 +85,8 @@ void FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorCont
 
     mPreparedLayers.append( preparedLayer );
   }
+
+  return QStringList();
 }
 
 void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )

@@ -19,6 +19,7 @@ Page {
   signal aboutToSave
 
   property AttributeFormModel model
+  property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
   property bool embedded: false
@@ -88,12 +89,18 @@ Page {
 
         Connections {
           target: master
-          onReset: tabRow.currentIndex = 0
+
+          function onReset() {
+            tabRow.currentIndex = 0
+          }
         }
 
         Connections {
           target: swipeView
-          onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+
+          function onCurrentIndexChanged(currentIndex) {
+            tabRow.currentIndex = swipeView.currentIndex
+          }
         }
 
         Repeater {
@@ -186,16 +193,19 @@ Page {
 
             Connections {
               target: master
-              onReset: content.contentY = 0
+
+              function onReset() {
+                content.contentY = 0
+              }
             }
 
-            model: SubModel {
+            SubModel {
               id: contentModel
               model: form.model
-              rootIndex: form.model.hasTabs
-                         ? form.model.index(currentIndex, 0)
-                         : form.model.index(0, 0)
+              rootIndex: form.model.index(currentIndex, 0)
             }
+
+            model: form.model.hasTabs ? contentModel : form.model
 
             delegate: fieldItem
           }
@@ -281,6 +291,7 @@ Page {
 
         WebView {
           id: htmlItem
+          visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
           anchors {
             left: parent.left
             rightMargin: 12
@@ -355,11 +366,11 @@ Page {
             // - not activated in multi edit mode
             // - not set to editable in the widget configuration
             // - not in edit mode (ReadOnly)
-            // - a relation in an embedded form or in multi edit mode
+            // - a relation in multi edit mode
             property bool isEnabled: !!AttributeAllowEdit
                                      && !!AttributeEditable
                                      && form.state !== 'ReadOnly'
-                                     && !( Type === 'relation' && ( embedded || form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) )
+                                     && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
             property var value: AttributeValue
             property var config: ( EditorWidgetConfig || {} )
             property var widget: EditorWidget
@@ -389,22 +400,26 @@ Page {
 
           Connections {
             target: form
-            onAboutToSave: {
+
+            function onAboutToSave() {
               // it may not be implemented
               if ( attributeEditorLoader.item.pushChanges ) {
                 attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
               }
             }
-            onValueChanged: (field, oldValue, newValue) => {
-                              // it may not be implemented
-                              if ( attributeEditorLoader.item.siblingValueChanged )
-                              attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
-                            }
+
+            function onValueChanged(field, oldValue, newValue) {
+              // it may not be implemented
+              if ( attributeEditorLoader.item.siblingValueChanged ) {
+                attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
+              }
+            }
           }
 
           Connections {
             target: attributeEditorLoader.item
-            onValueChanged: {
+
+            function onValueChanged(value, isNull) {
               if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
               {
                 var oldValue = AttributeValue
@@ -522,7 +537,8 @@ Page {
 
   Connections {
     target: Qt.inputMethod
-    onVisibleChanged: {
+
+    function onVisibleChanged() {
       Qt.inputMethod.commit()
     }
   }
