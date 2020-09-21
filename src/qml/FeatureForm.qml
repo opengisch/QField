@@ -223,8 +223,8 @@ Page {
     Item {
       height: childrenRect.height
       anchors {
-        left: parent.left
-        right: parent.right
+        left: parent ? parent.left : undefined
+        right: parent ? parent.right : undefined
         leftMargin: 12
       }
 
@@ -367,7 +367,7 @@ Page {
             // - not set to editable in the widget configuration
             // - not in edit mode (ReadOnly)
             // - a relation in multi edit mode
-            property bool isEnabled: AttributeAllowEdit
+            property bool isEnabled: !!AttributeAllowEdit
                                      && !!AttributeEditable
                                      && form.state !== 'ReadOnly'
                                      && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )

@@ -50,6 +50,9 @@ Item {
     }
 
     onTextChanged: {
+      if ( value != undefined && value != text )
+        value = text
+
       valueChanged( text, text == '' )
     }
   }
@@ -73,7 +76,7 @@ Item {
 
     Slider {
       id: slider
-      value: rangeItem.parent.value
+      value: typeof rangeItem.parent.value === 'numeric' ? rangeItem.parent.value : rangeItem.from
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width

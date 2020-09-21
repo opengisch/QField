@@ -167,7 +167,10 @@ Rectangle {
 
     delegate: Rectangle {
       id: itemBackground
-      anchors { left: parent.left; right: parent.right }
+      anchors {
+        left: parent ? parent.left : undefined
+        right: parent ? parent.right: undefined
+      }
       focus: true
       height: Math.max( 48, featureText.height )
 
@@ -189,7 +192,11 @@ Rectangle {
 
       Text {
         id: featureText
-        anchors { leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
+        anchors {
+          leftMargin: featureForm.selection.model.selectedCount > 0 ? 50 : 10
+          left: parent.left
+          verticalCenter: parent.verticalCenter
+        }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         text: display

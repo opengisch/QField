@@ -128,7 +128,7 @@ Page {
           delegate: Rectangle {
             id: rectangle
             property string path: ProjectPath
-            width: parent.width
+            width: parent ? parent.width : undefined
             height: line.height
             color: "transparent"
 

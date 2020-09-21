@@ -29,7 +29,7 @@ ListView {
 
     id: rectangle
     visible: !IsParentCollapsed
-    width: parent.width
+    width: parent ? parent.width : undefined
     height: IsParentCollapsed ? 0 : line.height + 1
     color: "#ffffff"
 

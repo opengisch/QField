@@ -38,7 +38,7 @@ Item {
     text: value == null ? '' : value
 
     validator: {
-      if (field.isNumeric)
+      if (field && field.isNumeric)
           if ( platformUtilities.fieldType( field ) === 'double')
           {
             doubleValidator;
@@ -62,7 +62,7 @@ Item {
       locale: 'C'
     }
 
-    inputMethodHints: field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
+    inputMethodHints: field && field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
