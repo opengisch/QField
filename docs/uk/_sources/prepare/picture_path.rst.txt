@@ -16,3 +16,6 @@ Use expressions to configure the path of the attachments. By default, pictures a
     .. image:: /images/picture_path.png
        :width: 600px
        :alt: picture_path
+       
+.. note::
+    QGIS 3.14 or newer is required for this functionality
