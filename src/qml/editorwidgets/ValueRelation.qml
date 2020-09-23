@@ -27,6 +27,7 @@ Item {
       id: featureListModel
 
       currentLayer: qgisProject.mapLayer(config['Layer'])
+      currentFormFeature: currentFeature
       keyField: config['Key']
       displayValueField: config['Value']
       addNull: config['AllowNull']
@@ -56,6 +57,7 @@ Item {
         //passing "" instead of undefined, so the model is cleared on adding new features
         attributeValue: value !== undefined ? value : ""
         currentLayer: qgisProject.mapLayer(config['Layer'])
+        currentFormFeature: currentFeature
         keyField: config['Key']
         displayValueField: config['Value']
         addNull: config['AllowNull']
