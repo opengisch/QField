@@ -129,9 +129,8 @@
 <h1>Avanzado<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="itinerary">
 <h2>Itinerario<a class="headerlink" href="#itinerary" title="Permalink to this headline">¶</a></h2>
-<p>This feature is used to inspect a list of objects that match a certain criteria. You may then navigate through these features with arrows and verify their status or adjust attributes as required.</p>
-<p>To define an itinerary to review you will need to use the python console for the moment. You can use any QgsExpression to define the review list.
-Select the desired layer in the legend and use the following python code to add the itinerary to the QGIS project.</p>
+<p>Esta funcionalidade utilízase para inspeccionar unha lista de obxectos que coincide con certo criterio. Entón podes navegar por estas entidades coas frechas e verificar o seu estado ou modificar os atributos segundo se precise.</p>
+<p>Polo momento para definir un itinerario a revisar precisarás utilizar a consola de python. Podes utilizar unha QgsExpression para definir a lista a revisar. Selecciona a capa desexada na lenda e utiliza o seguinte códio python para engadir o itinerario ó proxecto de QGIS.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
 <span class="n">l</span><span class="o">.</span><span class="n">setCustomProperty</span><span class="p">(</span><span class="s1">&#39;qgisMobile/itinerary&#39;</span><span class="p">,</span> <span class="s1">&#39;status &lt;&gt; 1&#39;</span><span class="p">)</span>
 </pre></div>
