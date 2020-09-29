@@ -235,15 +235,20 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
 
     if ( !qgsDoubleNear( mMapSettings.rotation(), 0 ) )
       QgsMessageLog::logMessage( tr( "Map Canvas rotation is not supported. Resetting from %1 to 0." ).arg( mMapSettings.rotation() ) );
-
-    mMapSettings.setRotation( 0 );
-
-    emit extentChanged();
-    emit destinationCrsChanged();
-    emit outputSizeChanged();
-    emit outputDpiChanged();
-    emit layersChanged();
   }
+  else
+  {
+    mMapSettings.setDestinationCrs( mProject->crs() );
+    mMapSettings.setExtent( mMapSettings.fullExtent() );
+  }
+
+  mMapSettings.setRotation( 0 );
+
+  emit extentChanged();
+  emit destinationCrsChanged();
+  emit outputSizeChanged();
+  emit outputDpiChanged();
+  emit layersChanged();
 }
 
 double QgsQuickMapSettings::rotation() const
