@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="et">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vanilla Surveys using QField &#8212; QField Documentation 1.0 - M... dokumentatsioon</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Otsing" href="../search.html" />
+    <link rel="next" title="Support and Development" href="../support/index.html" />
+    <link rel="prev" title="Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda" href="rwanda-rural-water.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Vanilla Surveys using QField</a><ul>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="rwanda-rural-water.html" title="Previous Chapter: Data collection by QGIS/QField for O&M work of rural water supply systems in Rwanda"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Data collecti...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../support/index.html" title="Next Chapter: Support and Development"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Support and D... &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="vanilla-surveys-using-qfield">
+<h1>Vanilla Surveys using QField<a class="headerlink" href="#vanilla-surveys-using-qfield" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<div class="line-block">
+<div class="line">By Ahi Saipaia (1), Leody Vainikolo (1), and John Duncan (2 and 3)</div>
+<div class="line">1 Ministry of Agriculture, Forestry, Food, and Fisheries, Government of Tonga</div>
+<div class="line">2 UWA School of Agriculture and Environment, The University of Western Australia</div>
+<div class="line">3 Geography and Planning, The University of Western Australia</div>
+</div>
+<p>A field survey of vanilla plantations on Vava’u, an outer island in the Kingdom of Tonga, using QField
+was conducted in May and June 2020 by the Ministry of Agriculture, Forestry, Food, and Fisheries (MAFF).</p>
+<p>Vanilla is an important commercial crop in Vava’u. The purpose of the survey was to map the extent
+of vanilla plantations and obtain estimates of the numbers of vanilla plants, area under vanilla
+cultivation, and the proportion of plantations that were managed or neglected. This information
+is being used by MAFF on Vava’u for agricultural planning and decision making.</p>
+<p>Extension officers were trained to use QField at MAFF’s trial plantation. Following training,
+a team of seven extension officers conducted the survey of vanilla plantations. In total,
+140 vanilla plantations were surveyed. The survey data was processed and visualised using QGIS
+and a Shiny dashboard application. QField enabled MAFF staff to view reference layers of farm
+boundaries on mobile devices in the field and map the extent of vanilla plantations within each farm.
+Maps of the vanilla plantations and summary statistics reporting the number of vanilla plantations,
+total area surveyed, and the estimated yield for plantations were produced.</p>
+<p>Capturing this information using QField enabled MAFF to identify that large areas under vanilla
+cultivation were in a neglected management condition. This data, and the insights generated from it,
+were used for reporting at the national level and presentations to senior ministry staff at the MAFF
+headquarters on Tongatapu in July 2020. Following the vanilla survey, there are plans to train MAFF
+extension staff based on the main island (Tongatapu) and other island groups to use QField for crop
+and farm surveys. The MAFF team in Vava’u are currently using QField to map areas cultivated by grower
+groups, the different crops under cultivation, and problems farmers are facing with cultivation in all
+districts on the island. The government is using this information as part of a process to monitor and
+evaluate allocated funds that support farming initiatives and the food security program of the Government.</p>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>The project was funded by the Australian Centre for International Agricultural Research
+(ACIAR; ASEM/2016/101).</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/use_study_vanilla1.jpg"><img alt="MAFF Officer, Selimoti Fetokai, doing the vanilla survey using QField" src="../_images/use_study_vanilla1.jpg" style="width: 400px;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/use_study_vanilla2.png"><img alt="vanilla field" src="../_images/use_study_vanilla2.png" style="width: 600px;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/use_study_vanilla3.jpg"><img alt="use_study_vanilla3" src="../_images/use_study_vanilla3.jpg" style="width: 600px;" /></a>
+</div>
+</div></blockquote>
+<p>Extension Officers, Tangaki Aloua and Selimoti Fetokai, looking for the exact location of the vanilla
+plantation before the plot survey.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/use_study_vanilla4.jpg"><img alt="use_study_vanilla4" src="../_images/use_study_vanilla4.jpg" style="width: 600px;" /></a>
+</div>
+</div></blockquote>
+<p>Entering attribute data into QField such as number of vanilla plants and block sheet and lot number
+which identify land parcels.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/use_study_vanilla5.jpg"><img alt="use_study_vanilla5" src="../_images/use_study_vanilla5.jpg" style="width: 400px;" /></a>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/case-studies/vanilla-survey.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Loodud <a href="http://sphinx-doc.org/">Sphinxiga</a> (versioon: 1.8.5).<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
