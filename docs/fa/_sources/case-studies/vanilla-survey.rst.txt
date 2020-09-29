@@ -1,7 +1,3 @@
-.. |br| raw:: html
-
-  <br/>
-
 Vanilla Surveys using QField
 ============================
 
@@ -44,29 +40,28 @@ The project was funded by the Australian Centre for International Agricultural R
 
 
 
-  .. figure:: /images/use_study_vanilla1.jpg
-          :width: 400px
-          :alt: MAFF Officer, Selimoti Fetokai, doing the vanilla survey using QField
+.. figure:: /images/use_study_vanilla1.jpg
+    :width: 400px
+    :alt: MAFF Officer, Selimoti Fetokai, doing the vanilla survey using QField
 
-  .. figure:: /images/use_study_vanilla2.png
-          :width: 600px
-          :alt: vanilla field
+.. figure:: /images/use_study_vanilla2.png
+    :width: 600px
+    :alt: vanilla field
 
-  .. figure:: /images/use_study_vanilla3.jpg
-          :width: 600px
-          :alt: use_study_vanilla3
+.. figure:: /images/use_study_vanilla3.jpg
+    :width: 600px
+    :alt: use_study_vanilla3
 
-Extension Officers, Tangaki Aloua and Selimoti Fetokai, looking for the exact location of the vanilla
-plantation before the plot survey.
+    Extension Officers, Tangaki Aloua and Selimoti Fetokai, looking for the exact location of the vanilla
+    plantation before the plot survey.
 
-    .. figure:: /images/use_study_vanilla4.jpg
-       :width: 600px
-       :alt: use_study_vanilla4
+.. figure:: /images/use_study_vanilla4.jpg
+    :width: 600px
+    :alt: use_study_vanilla4
  
-Entering attribute data into QField such as number of vanilla plants and block sheet and lot number 
-which identify land parcels.
+    Entering attribute data into QField such as number of vanilla plants and block sheet and lot number 
+    which identify land parcels.
 
-    .. figure:: /images/use_study_vanilla5.jpg
-       :width: 400px
-       :alt: use_study_vanilla5
-
+.. figure:: /images/use_study_vanilla5.jpg
+    :width: 400px
+    :alt: use_study_vanilla5
