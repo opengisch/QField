@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Advanced &#8212; Documentation QField Documentation 1.0 - M...</title>
+    <title>Avancé &#8212; Documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -63,8 +63,8 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Advanced</a><ul>
-<li><a class="reference internal" href="#itinerary">Itinerary</a></li>
+<li><a class="reference internal" href="#">Avancé</a><ul>
+<li><a class="reference internal" href="#itinerary">Itinéraire</a></li>
 </ul>
 </li>
 </ul>
@@ -127,12 +127,11 @@
     <div class="col-md-9 content">
       
   <div class="section" id="advanced">
-<h1>Advanced<a class="headerlink" href="#advanced" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>Avancé<a class="headerlink" href="#advanced" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="itinerary">
-<h2>Itinerary<a class="headerlink" href="#itinerary" title="Lien permanent vers ce titre">¶</a></h2>
-<p>This feature is used to inspect a list of objects that match a certain criteria. You may then navigate through these features with arrows and verify their status or adjust attributes as required.</p>
-<p>To define an itinerary to review you will need to use the python console for the moment. You can use any QgsExpression to define the review list.
-Select the desired layer in the legend and use the following python code to add the itinerary to the QGIS project.</p>
+<h2>Itinéraire<a class="headerlink" href="#itinerary" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette fonctionnalité permet d’inspecter une liste d’objets qui correspondent à un critière défini. Vous pouvez ensuite naviguer dans ces objets avec les flêches pour vérifier leurs statut ou ajuster leurs attributs au besoin.</p>
+<p>Pour définir un itinéraire à éxaminer, vous devez pour l’instant utiliser la console Python. Vous pouvez utiliser n’importe quelle QgsExpression pour définir la liste à éxaminer. Sélectionnez la couche voulue dans la légende et utilisez le code Python ci-dessous pour ajouter l’itinéraire au projet QGIS.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
 <span class="n">l</span><span class="o">.</span><span class="n">setCustomProperty</span><span class="p">(</span><span class="s1">&#39;qgisMobile/itinerary&#39;</span><span class="p">,</span> <span class="s1">&#39;status &lt;&gt; 1&#39;</span><span class="p">)</span>
 </pre></div>

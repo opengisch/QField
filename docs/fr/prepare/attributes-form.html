@@ -67,10 +67,10 @@
 <li><a class="reference internal" href="#suppress-attribute-form">Formulaire de suppression d’attribut</a></li>
 <li><a class="reference internal" href="#field-widget">Outil d’édition de champ</a></li>
 <li><a class="reference internal" href="#relation-widget">Outil Relation</a><ul>
-<li><a class="reference internal" href="#attachment-photo-settings">Attachment (photo settings)</a></li>
+<li><a class="reference internal" href="#attachment-photo-settings">Fichier joint (propriétés de la photo)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#value-relation">Value Relation</a></li>
+<li><a class="reference internal" href="#value-relation">Valeur relationnelle</a></li>
 <li><a class="reference internal" href="#drag-and-drop-designer-forms">Glisser-déposer les formulaires du designer</a></li>
 <li><a class="reference internal" href="#conditional-visibility">Visibilité conditionnelle</a></li>
 <li><a class="reference internal" href="#constraints">Contraintes</a><ul>
@@ -188,12 +188,9 @@
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Attachment</td>
+<tr class="row-even"><td>Fichier joint</td>
 <td><span class="yay">✔</span></td>
-<td>This field is combined with camera integration.
-It is also able to open other files like pdf
-and doc (if the user has an appropriate viewer)
-<a class="reference internal" href="#attachment"><span class="std std-ref">Attachment (photo settings)</span></a></td>
+<td>Ce champ est lié à l’appareil photo. Il est toutefois également possible d’ouvrir d’autres types de fichiers comme des .pdf et des .doc (si l’utilisateur possède un visualisateur adapté) <a class="reference internal" href="#attachment"><span class="std std-ref">Fichier joint (propriétés de la photo)</span></a></td>
 </tr>
 <tr class="row-odd"><td>Date Heure</td>
 <td><span class="yay">✔</span></td>
@@ -207,7 +204,7 @@ and doc (if the user has an appropriate viewer)
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Value Relation</td>
+<tr class="row-even"><td>Valeur relationnelle</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -241,27 +238,27 @@ and doc (if the user has an appropriate viewer)
 </div>
 <p>En cas de cardinalité un à plusieurs sur les relations plusieurs-à-plusieurs, l’expression d’affichage doit être définie sur la table de liaison.</p>
 <div class="section" id="attachment-photo-settings">
-<span id="attachment"></span><h3>Attachment (photo settings)<a class="headerlink" href="#attachment-photo-settings" title="Lien permanent vers ce titre">¶</a></h3>
-<p>The widget type «&nbsp;Attachment&nbsp;» is used with fields that store the path to files.</p>
-<p>It can be used to:</p>
+<span id="attachment"></span><h3>Fichier joint (propriétés de la photo)<a class="headerlink" href="#attachment-photo-settings" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le type de widget «&nbsp;Fichier joint&nbsp;» est utilisé avec des champs qui contiennent le chemin vers des fichiers.</p>
+<p>Il peut être utilisé pour :</p>
 <ul class="simple">
-<li>show and take photos</li>
-<li>show links to external files like pdfs or documents</li>
+<li>Visualiser et prendre des photos</li>
+<li>Visualiser des liens vers des fichiers externes comme des PDF ou des documents</li>
 </ul>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/attachement-setting.png"><img alt="Attachement field settings" src="../_images/attachement-setting.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>The path should be set to relative. The pictures, pdf and docs are stored then in a sub-directory of the project, where the link stored in the textfield is pointing to.</p>
+<p>Le chemin doit être configuré de manière relative. Les images, PDF ou documents doivent ainsi être placés dans un sous-dossier du projet vers lequel le lien inscrit dans le champ texte redirige.</p>
 <p>Dans QField, l’image s’affiche. En cliquant sur le symbole de l’appareil photo, l’appareil photo démarre pour mettre à jour l’image avec une nouvelle photo.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures, pdf and docs has to be copied as well.</p>
-<p>The option «&nbsp;hyperlink&nbsp;» on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
+<p>Lors de la synchronisation, le sous-dossier avec les images, PDF ou documents doit également être copié.</p>
+<p>L’option «&nbsp;hyperlien&nbsp;» dans le widget «&nbsp;Fichier joint&nbsp;» désactive la fonctionalité de l’appareil photo et permet d’avoir un hyperlien pour ouvrir un document (PDF, doc etc.)</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/hyperlink_option.png"><img alt="hyperlink_option" src="../_images/hyperlink_option.png" style="width: 600px;" /></a>
@@ -270,8 +267,8 @@ and doc (if the user has an appropriate viewer)
 </div>
 </div>
 <div class="section" id="value-relation">
-<h2>Value Relation<a class="headerlink" href="#value-relation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>The widget «&nbsp;Value Relation&nbsp;» offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.</p>
+<h2>Valeur relationnelle<a class="headerlink" href="#value-relation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le widget «&nbsp;Valeur relationnelle&nbsp;» permet d’avoir dans une liste déroulante les valeurs d’une table liée. Vous pouvez selectionner la couche, la clé de la colonne et la valeur de la colonne. Plusieurs options sont disponibles pour changer les paramêtres par défaut : autoriser les valeurs nulles, trier par valeur et autoriser la selection multiple. Le widget affichera une liste déroulante ou un choix multiple des différentes valeurs liées possibles.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/value_relation_widget.gif"><img alt="value_relation_widget" src="../_images/value_relation_widget.gif" style="width: 600px;" /></a>
