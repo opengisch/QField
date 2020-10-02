@@ -121,6 +121,11 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
           Q_UNUSED( e )
           return;
         }
+        catch(...)
+        {
+          // catch any other errors
+          return;
+        }
         data[QStringLiteral( "point" )] = transformedPoint;
       }
 
