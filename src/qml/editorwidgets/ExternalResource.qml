@@ -99,9 +99,12 @@ Item {
 
       if ( !fieldValue )
       {
+        font.italic = true
         color = 'gray'
         return qsTr('No Value')
       }
+
+      font.italic = false
 
       return fieldValue
     }
