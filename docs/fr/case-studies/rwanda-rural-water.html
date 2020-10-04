@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda &#8212; Documentation QField Documentation 1.0 - M...</title>
+    <title>Collecte de données par QGIS/QField pour le travail d’O&amp;M des systèmes d’approvisionnement en eau en milieu rural au Rwanda &#8212; Documentation QField Documentation 1.0 - M...</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Vanilla Surveys using QField" href="vanilla-survey.html" />
+    <link rel="next" title="Mesures de la vanille à l’aide de QField" href="vanilla-survey.html" />
     <link rel="prev" title="Enquête sur l’état des rivières à l’aide de QField" href="river-state-survey.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -63,14 +63,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda</a><ul>
+<li><a class="reference internal" href="#">Collecte de données par QGIS/QField pour le travail d’O&amp;M des systèmes d’approvisionnement en eau en milieu rural au Rwanda</a><ul>
 <li><a class="reference internal" href="#goal">But</a></li>
 <li><a class="reference internal" href="#project-preparation">Préparation du projet</a></li>
-<li><a class="reference internal" href="#data-collection">Data collection</a></li>
-<li><a class="reference internal" href="#data-distribution-and-updating">Data distribution and updating</a></li>
-<li><a class="reference internal" href="#data-sharing-via-vectortiles">Data sharing via vectortiles</a></li>
+<li><a class="reference internal" href="#data-collection">Collecte de données</a></li>
+<li><a class="reference internal" href="#data-distribution-and-updating">Distribution et mise à jour des données</a></li>
+<li><a class="reference internal" href="#data-sharing-via-vectortiles">Partage de données via des tuiles vectorielles</a></li>
 <li><a class="reference internal" href="#acknowledgement">Remerciements</a></li>
-<li><a class="reference internal" href="#about-wasac">About WASAC</a></li>
+<li><a class="reference internal" href="#about-wasac">A propos de WASAC</a></li>
 </ul>
 </li>
 </ul>
@@ -86,7 +86,7 @@
     </a>
   </li>
   <li>
-    <a href="vanilla-survey.html" title="Next Chapter: Vanilla Surveys using QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Vanilla Surve... &raquo;</span>
+    <a href="vanilla-survey.html" title="Next Chapter: Mesures de la vanille à l’aide de QField"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Mesures de la... &raquo;</span>
     </a>
   </li>
             
@@ -133,91 +133,56 @@
     <div class="col-md-9 content">
       
   <div class="section" id="data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda">
-<h1>Data collection by QGIS/QField for O&amp;M work of rural water supply systems in Rwanda<a class="headerlink" href="#data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda" title="Lien permanent vers ce titre">¶</a></h1>
-<p>By Rural Water and Sanitation Services Department(RWSS), Water and Sanitation Corporation (<a class="reference external" href="https://wasac.rw">WASAC</a>), Rwanda</p>
+<h1>Collecte de données par QGIS/QField pour le travail d’O&amp;M des systèmes d’approvisionnement en eau en milieu rural au Rwanda<a class="headerlink" href="#data-collection-by-qgis-qfield-for-o-m-work-of-rural-water-supply-systems-in-rwanda" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Par le Département des services d’eau et d’assainissement en milieu rural (RWSS), Société de l’eau et de l’assainissement (<a class="reference external" href="https://wasac.rw">WASAC</a>), Rwanda</p>
 <div class="section" id="goal">
 <h2>But<a class="headerlink" href="#goal" title="Lien permanent vers ce titre">¶</a></h2>
-<p>To conduct data collection of all rural water supply network in Rwanda,
-and keep updating the data continuously in order to improve operation &amp;
-maintenance of waterworks.</p>
+<p>Procéder à la collecte de données sur l’ensemble du réseau rural d’approvisionnement en eau au Rwanda, et actualiser continuellement les données afin d’améliorer le fonctionnement et l’entretien des ouvrages hydrauliques.</p>
 </div>
 <div class="section" id="project-preparation">
 <h2>Préparation du projet<a class="headerlink" href="#project-preparation" title="Lien permanent vers ce titre">¶</a></h2>
 <dl class="docutils">
-<dt>Before starting our data collection, we conducted the following things.</dt>
+<dt>Avant de commencer notre collecte de données, nous avons procédé aux opérations suivantes.</dt>
 <dd><ul class="first last simple">
-<li>Develop our own PostGIS database</li>
-<li>Develop QGIS project template with Geopackage. The Geopackage table design is equal to PostGIS to be able to copy and paste to PostGIS.</li>
+<li>Développer notre propre base de données PostGIS</li>
+<li>Développer un modèle de projet QGIS avec un Geopackage. Le modèle de table de Geopackage est égal à celui de PostGIS pour pouvoir le copier et le coller dans PostGIS.</li>
 </ul>
 </dd>
 </dl>
-<p>Apart from preparing Android devices, we purchased GPS devices for higher positioning accuracy. In WASAC, we bought Garmin GPSMAP 64S.
-Sometimes, GPS of smartphone and tablet is not very accurate, so we normally capture the same location by using Garmin GPS, then correct the location of QField’s data after data collection work.</p>
+<p>Outre la préparation des dispositifs Android, nous avons acheté des systèmes GPS pour une plus grande précision de positionnement. Dans le cadre du projet WASAC, nous avons acheté le GPSMAP 64S de Garmin. Parfois, le GPS d’un smartphone et d’une tablette n’est pas très précis, c’est pourquoi nous saisissons normalement la même position en utilisant le GPS Garmin, puis nous corrigeons la position des données de QField après le travail de collecte des données.</p>
 </div>
 <div class="section" id="data-collection">
-<h2>Data collection<a class="headerlink" href="#data-collection" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Once we prepared Geopackage and QGIS project template,
-we conducted training of QGIS/QField in July 2018 and
-launched our data collection work in 27 districts in the whole country of Rwanda.
-27 engineers sent their Geopackage to the central office in Kigali.
-the MIS (Management Information System) specialist validated and entered their data from Geopackage to PostGIS database.
-We completed our initial data collection works until April 2019.</p>
+<h2>Collecte de données<a class="headerlink" href="#data-collection" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois que nous avons préparé le modèle de projet Geopackage et QGIS, nous avons organisé une formation sur les QGIS/QField en juillet 2018 et lancé notre travail de collecte de données dans 27 districts de tout le pays. 27 ingénieurs ont envoyé leur Geopackage au bureau central à Kigali. Le spécialiste MIS (Management Information System) a validé et saisi leurs données du Geopackage dans la base de données PostGIS. Nous avons terminé nos premiers travaux de collecte de données en avril 2019.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-1.png"><img alt="data collection procedure" src="../_images/rwanda-rural-water-1.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="data-distribution-and-updating">
-<h2>Data distribution and updating<a class="headerlink" href="#data-distribution-and-updating" title="Lien permanent vers ce titre">¶</a></h2>
-<p>The most significant thing after data collection is <code class="docutils literal notranslate"><span class="pre">updating</span></code>.
-We have seen many organization in Africa, which failed to keep data up to date.
-Several years later, their data will normally become too old,
-and most of them need to put efforts on data collection again.</p>
-<p>WASAC decided to continuously update all of the data and keeps doing this until now.
-QField has proven to be very well suited for this purpose.</p>
-<p>In order to distribute and updating the data,
-we developed a python script <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a>.
-This <code class="docutils literal notranslate"><span class="pre">postgis2qfield</span></code> tool can extract the data from PostGIS and create Geopackages for each district in Rwanda.
-We upload these 27 geopackage together with QGIS project template to Google Drive storage.
-After that, those engineers in districts download their geopakage to Android device to continue adding and updating the data.
-Once they completed updating, they sent the geopackage to central office again, MIS specialist update PostGIS database and regenerate geopackages for QField.</p>
+<h2>Distribution et mise à jour des données<a class="headerlink" href="#data-distribution-and-updating" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La chose la plus importante après la collecte des données est la «&nbsp;mise à jour&nbsp;». Nous avons vu de nombreuses organisations en Afrique qui n’ont pas réussi à mettre à jour les données. Plusieurs années plus tard, leurs données deviennent généralement trop anciennes, et la plupart d’entre eux doivent à nouveau faire des efforts pour collecter des données.</p>
+<p>WASAC a décidé de mettre à jour continuellement toutes les données et continue à le faire jusqu’à présent. QField s’est avéré très bien adapté à cette fin.</p>
+<p>Afin de distribuer et de mettre à jour les données, nous avons développé un script python <a class="reference external" href="https://github.com/WASAC/postgis2qfield">postgis2qfield</a>. Cet outil <code class="docutils literal notranslate"><span class="pre">postgis2qfield</span></code> peut extraire les données du PostGIS et créer des Geopackages pour chaque district du Rwanda. Nous téléchargeons ces 27 Geopackages avec le modèle du projet QGIS sur le stockage de Google Drive. Ensuite, les ingénieurs des districts téléchargent leur Geopackage sur l’appareil Android pour continuer à ajouter et à mettre à jour les données. Une fois la mise à jour terminée, ils envoient à nouveau le Geopackage au bureau central, le spécialiste SIG met à jour la base de données PostGIS et régénère les Geopackages pour QField.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-2.png"><img alt="data distribution and updating procedure" src="../_images/rwanda-rural-water-2.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="data-sharing-via-vectortiles">
-<h2>Data sharing via vectortiles<a class="headerlink" href="#data-sharing-via-vectortiles" title="Lien permanent vers ce titre">¶</a></h2>
-<p>First of all, you can see our collected data from <a class="reference external" href="https://rural.water-gis.com">here</a>.</p>
-<p>Since July 2020, we started to distribute our water supply systems” data via vectortiles as open data.
-Although Rwanda’s internet situation is being improved, some rural area still have problems of internet.
-In such as poor internet situation, WMS or WFS data distribution will not work well.
-Vectortiles can provide light and fast distribution of map data. We will not talk about our vectortiles here.
-If you are fascinated by how to share the result of data collection, please also see this <a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">instruction</a>.</p>
+<h2>Partage de données via des tuiles vectorielles<a class="headerlink" href="#data-sharing-via-vectortiles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tout d’abord, vous pouvez voir les données que nous avons recueillies <a class="reference external" href="https://rural.water-gis.com">ici</a>.</p>
+<p>Depuis juillet 2020, nous avons commencé à distribuer les données de nos systèmes d’approvisionnement en eau par le biais de tuiles vectorielles en tant que données ouvertes. Bien que la situation de l’internet au Rwanda s’améliore, certaines zones rurales ont encore des problèmes d’internet. Dans ce cas, la distribution des données du WMS ou du WFS ne fonctionnera pas bien. Les tuiles vectorielles peuvent fournir une distribution légère et rapide des données cartographiques. Nous ne parlerons pas de nos tuiles vectorielles ici. Si vous êtes fasciné par la manière de partager le résultat de la collecte de données, veuillez également consulter cette <a class="reference external" href="https://github.com/watergis/awesome-vector-tiles">instruction</a>.</p>
 </div>
 <div class="section" id="acknowledgement">
 <h2>Remerciements<a class="headerlink" href="#acknowledgement" title="Lien permanent vers ce titre">¶</a></h2>
-<p>We thank all of district water and sanitation support engineers to
-conduct their data collection work. Additionally, we want to thank the
-developers of QField and QGIS for offering fantastic open source
-software. It is great that, due to free software, such projects can be
-implemented by an organization of water sector in developing countries.</p>
+<p>Nous remercions tous les ingénieurs de district chargés du soutien à l’eau et à l’assainissement pour leur travail de collecte de données. Nous souhaitons également remercier les développeurs de QField et de QGIS pour avoir proposé un logiciel open source fantastique. Il est formidable que, grâce aux logiciels libres, de tels projets puissent être mis en œuvre par une organisation du secteur de l’eau dans les pays en développement.</p>
 </div>
 <div class="section" id="about-wasac">
-<h2>About WASAC<a class="headerlink" href="#about-wasac" title="Lien permanent vers ce titre">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">WASAC</span></code> has 2 main departments for urban water(UWSS) and rural
-water(RWSS). We are using QField in RWSS. The role of RWSS department is
-to support local government to operate and maintain their owned water
-supply systems in rural area. Nowadays, these data collected and
-maintained by RWSS department are being used by more than 30 private
-operators in 27 districts. Total number of water supply systems in the
-database is 1,000+.</p>
+<h2>A propos de WASAC<a class="headerlink" href="#about-wasac" title="Lien permanent vers ce titre">¶</a></h2>
+<p>«&nbsp;WASAC&nbsp;» a 2 départements principaux pour l’eau urbaine (UWSS) et l’eau rurale (RWSS). Nous utilisons QField dans le RWSS. Le rôle du département RWSS est d’aider les autorités locales à exploiter et à entretenir leurs propres systèmes d’approvisionnement en eau dans les zones rurales. Aujourd’hui, ces données collectées et maintenues par le département RWSS sont utilisées par plus de 30 opérateurs privés dans 27 districts. Le nombre total de systèmes d’approvisionnement en eau figurant dans la base de données est supérieur à 1 000.</p>
 <div class="clearer text-center docutils container">
 <a class="reference internal image-reference" href="../_images/rwanda-rural-water-3.png"><img alt="Organogram of WASAC" src="../_images/rwanda-rural-water-3.png" style="width: 600px;" /></a>
 </div>
-<p>Also, one of our colleagues presented WASAC’s activity in FOSS4G 2019
-Bucharest. Although some of system were little bit changed now, you can
-also see
-<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">video</a>
-if you are interested.</p>
+<p>Par ailleurs, un de nos collègues a présenté l’activité de WASAC dans le cadre de FOSS4G 2019 Bucarest. Bien que certains systèmes aient été légèrement modifiés, vous pouvez également voir la vidéo &lt;<a class="reference external" href="https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda">https://media.ccc.de/v/bucharest-30-case-study-of-data-collection-data-sharing-for-rural-water-supply-management-in-rwanda</a>&gt;`__ si vous êtes intéressé.</p>
 </div>
 </div>
 
