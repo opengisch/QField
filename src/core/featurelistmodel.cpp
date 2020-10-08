@@ -151,7 +151,7 @@ int FeatureListModel::findKey( const QVariant &key ) const
     ++idx;
   }
 
-  if ( addNull() )
+  if ( mAddNull )
     return 0;
 
   return -1;
