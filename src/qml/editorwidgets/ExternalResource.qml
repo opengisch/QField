@@ -100,7 +100,6 @@ Item {
       if ( !fieldValue )
       {
         font.italic = true
-        color = 'gray'
         return qsTr('No Value')
       }
 
