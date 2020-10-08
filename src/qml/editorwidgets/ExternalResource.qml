@@ -87,13 +87,25 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? '#0000EE' : 'black'
+    color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? Theme.hyperlinkBlue : 'gray'
 
     text: {
-      if(UrlUtils.isRelativeOrFileUrl(value))
-        return config.FullUrl ? value : FileUtils.fileName(value)
+      var fieldValue = value
 
-      return StringUtils.insertLinks(value)
+      if(UrlUtils.isRelativeOrFileUrl(fieldValue))
+        fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue)
+
+      fieldValue = StringUtils.insertLinks(fieldValue)
+
+      if ( !fieldValue )
+      {
+        font.italic = true
+        return qsTr('No Value')
+      }
+
+      font.italic = false
+
+      return fieldValue
     }
 
     background: Rectangle {
