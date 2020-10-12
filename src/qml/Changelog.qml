@@ -73,32 +73,34 @@ Item {
     }
   }
 
+  function parseVersion(str) {
+    str = str.replace(/^[a-z]*/, '')
+
+    var parts = str.split('.')
+
+    if (parts[0] >= 0 && parts[1] >= 0 && parts[2] >= 0)
+      return [parts[0], parts[1], parts[2]]
+
+    return []
+  }
+
   function refreshChangelog() {
     if ( changelogBody.isSuccess )
       return
 
     var RELEASES_URL = 'https://api.github.com/repos/opengisch/qfield/releases'
     var xhr = new XMLHttpRequest()
-    var parseVersion = function(str) {
-      str = str.replace(/^[a-z]*/, '')
-
-      var parts = str.split('.')
-
-      if (parts[0] >= 0 && parts[1] >= 0 && parts[2] >= 0)
-        return [parts[0], parts[1], parts[2]]
-
-      return []
-    }
 
     xhr.open('GET', RELEASES_URL)
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         var resp = xhr.responseText
+        var qfieldVersion = parseVersion(version)
+        var versionNumbersOnly = ''
         var changelog = ''
 
         try {
           var releases = JSON.parse(resp)
-          var qfieldVersion = parseVersion(version)
 
           for (var i = 0, l = releases.length; i < l; i++) {
             var release = releases[i]
@@ -107,8 +109,6 @@ Item {
             if (releaseVersion.length === 0)
               continue
 
-            var releaseChangelog = '\n#\n# ' + release['name'] + '\n\n' + release['body'] + '\n'
-
             // most probably developer version with no proper version set
             if (qfieldVersion.length === 0)
               qfieldVersion = releaseVersion
@@ -116,6 +116,10 @@ Item {
             if (qfieldVersion[0] !== releaseVersion[0] || qfieldVersion[1] !== releaseVersion[1])
               continue
 
+            if ( !versionNumbersOnly )
+              versionNumbersOnly = releaseVersion.join('.')
+
+            var releaseChangelog = '\n#\n# ' + release['name'] + '\n\n' + release['body'] + '\n'
             // prepend the current release
             changelog = releaseChangelog + changelog
           }
@@ -128,7 +132,10 @@ Item {
             return '\n###\n' + full + '\n\n\n'
           })
 
-          changelogBody.text = changelog
+          var changelogPeffix = '';
+          changelogPeffix += 'Up to release **' + versionNumbersOnly + '**'
+
+          changelogBody.text = changelogPeffix + changelog
           changelogBody.isSuccess = true
         } catch (err) {
           changelogBody.text = qsTr('Temporarily cannot retrieve the changelog. Please check your internet connection.')
