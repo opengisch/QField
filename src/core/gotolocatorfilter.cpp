@@ -145,7 +145,7 @@ void GotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
   triggerResultFromAction( result, Normal );
 }
 
-void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
   QVariantMap data = result.userData.toMap();
 
