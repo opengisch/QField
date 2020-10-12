@@ -22,8 +22,10 @@
 #include <qgsproject.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
-#include <QGeoPositionInfoSource>
+#include <qgsgeometryoptions.h>
 #include <qgsrelationmanager.h>
+
+#include <QGeoPositionInfoSource>
 
 FeatureModel::FeatureModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -467,6 +469,13 @@ void FeatureModel::applyGeometry()
   if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
   {
     geometry.avoidIntersections( intersectionLayers );
+  }
+
+  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() != 0.0 )
+  {
+    const double precision = mLayer->geometryOptions()->geometryPrecision();
+    QgsGeometry snappedGeometry = geometry.snappedToGrid( precision, precision );
+    geometry = snappedGeometry.makeValid();
   }
 
   mFeature.setGeometry( geometry );
