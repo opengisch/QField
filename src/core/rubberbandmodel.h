@@ -124,7 +124,7 @@ class RubberbandModel : public QObject
      * Sets the model data to match a given \a geometry
      * \note rings and multiparts are discarded
      */
-    void setDataFromGeometry( const QgsGeometry &geometry );
+    void setDataFromGeometry( QgsGeometry geometry, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
 
   signals:
     void vertexChanged( int index );

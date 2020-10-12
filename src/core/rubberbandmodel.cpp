@@ -275,10 +275,13 @@ void RubberbandModel::reset()
   emit frozenChanged();
 }
 
-void RubberbandModel::setDataFromGeometry( const QgsGeometry &geometry )
+void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordinateReferenceSystem &crs )
 {
   if ( geometry.type() != mGeometryType )
     return;
+
+  QgsCoordinateTransform ct( crs, mCrs, QgsProject::instance()->transformContext() );
+  geometry.transform( ct );
 
   mPointList.clear();
   const QgsAbstractGeometry *abstractGeom = geometry.constGet();
