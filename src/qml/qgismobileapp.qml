@@ -665,7 +665,6 @@ ApplicationWindow {
       round: true
       visible: stateMachine.state === "digitize"
           && dashBoard.currentLayer
-          // NOTE: isValid is not a function
           && dashBoard.currentLayer.isValid
           && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
       state: qgisProject.topologicalEditing ? "On" : "Off"
@@ -680,7 +679,7 @@ ApplicationWindow {
           PropertyChanges {
             target: topologyButton
             iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
-            bgcolor: "#88212121"
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)//"#88212121"
           }
         },
 
@@ -697,6 +696,47 @@ ApplicationWindow {
       onClicked: {
         qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
         displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+      }
+    }
+
+    QfToolButton {
+      id: freehandButton
+      round: true
+      visible: stateMachine.state === "digitize"
+          && dashBoard.currentLayer
+          && dashBoard.currentLayer.isValid
+          && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
+      iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      property bool freehandActive: false
+      state: freehandActive ? "On" : "Off"
+
+      states: [
+        State {
+
+          name: "Off"
+          PropertyChanges {
+            target: freehandButton
+            iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)//"#88212121"
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: freehandButton
+            iconSource: Theme.getThemeIcon( "ic_freehand_green_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        freehandActive = !freehandActive;
+        displayToast( freehandActive ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
       }
     }
   }
