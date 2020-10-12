@@ -151,6 +151,9 @@ int FeatureListModel::findKey( const QVariant &key ) const
     ++idx;
   }
 
+  if ( mAddNull )
+    return 0;
+
   return -1;
 }
 
@@ -212,7 +215,7 @@ void FeatureListModel::processReloadLayer()
   QList<Entry> entries;
 
   if ( mAddNull )
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant( QVariant::Int ) ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant() ) );
 
   while ( iterator.nextFeature( feature ) )
   {
