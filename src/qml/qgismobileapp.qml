@@ -153,8 +153,13 @@ ApplicationWindow {
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
 
       onCentroidChanged: {
-        if (active)
-          currentRubberband.model.addVertex()
+        if (active) {
+          if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
+            // needed to handle freehand digitizing of rings
+          } else {
+            currentRubberband.model.addVertex()
+          }
+        }
       }
     }
 
