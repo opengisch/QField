@@ -147,59 +147,70 @@ ApplicationWindow {
     clip: true
     property bool isBeingTouched: false
 
+    DragHandler {
+      id: freehandHandler
+      enabled: freehandButton.freehandDigitizing
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+
+      onCentroidChanged: {
+        if (active)
+          currentRubberband.model.addVertex()
+      }
+    }
+
     HoverHandler {
-        id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
-        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-        grabPermissions: PointerHandler.TakeOverForbidden
+      id: hoverHandler
+      enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
+      acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+      grabPermissions: PointerHandler.TakeOverForbidden
 
-        onPointChanged: {
-          // after a click, it seems that the position is sent once at 0,0 => weird
-          if (point.position !== Qt.point(0, 0))
-            coordinateLocator.sourceLocation = point.position
-        }
+      onPointChanged: {
+        // after a click, it seems that the position is sent once at 0,0 => weird
+        if (point.position !== Qt.point(0, 0))
+          coordinateLocator.sourceLocation = point.position
+      }
 
-        onActiveChanged: {
-            if ( !active )
-              coordinateLocator.sourceLocation = undefined
+      onActiveChanged: {
+        if ( !active )
+          coordinateLocator.sourceLocation = undefined
 
-        }
+      }
 
-        onHoveredChanged: {
-            if ( !hovered )
-              coordinateLocator.sourceLocation = undefined
-        }
+      onHoveredChanged: {
+        if ( !hovered )
+          coordinateLocator.sourceLocation = undefined
+      }
     }
 
 
     Timer {
-        id: resetIsBeingTouchedTimer
-        interval: 750
-        repeat: false
+      id: resetIsBeingTouchedTimer
+      interval: 750
+      repeat: false
 
-        onTriggered: {
-            parent.isBeingTouched = false
-        }
+      onTriggered: {
+        parent.isBeingTouched = false
+      }
     }
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
      */
     HoverHandler {
-        id: dummyHoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen
-        acceptedDevices: PointerDevice.TouchScreen
-        grabPermissions: PointerHandler.TakeOverForbidden
+      id: dummyHoverHandler
+      enabled: !qfieldSettings.mouseAsTouchScreen
+      acceptedDevices: PointerDevice.TouchScreen
+      grabPermissions: PointerHandler.TakeOverForbidden
 
-        onHoveredChanged: {
-            if ( hovered ) {
-                parent.isBeingTouched = true
-                resetIsBeingTouchedTimer.stop()
-            }
-            else {
-                resetIsBeingTouchedTimer.restart()
-            }
+      onHoveredChanged: {
+        if ( hovered ) {
+          parent.isBeingTouched = true
+          resetIsBeingTouchedTimer.stop()
         }
+        else {
+          resetIsBeingTouchedTimer.restart()
+        }
+      }
     }
 
     /* Initialize a MapSettings object. This will contain information about
@@ -228,6 +239,7 @@ ApplicationWindow {
 
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
+      freehandDigitizing: freehandButton.freehandDigitizing
 
       anchors.fill: parent
 
@@ -710,8 +722,8 @@ ApplicationWindow {
 
       bgcolor: Theme.darkGray
 
-      property bool freehandActive: false
-      state: freehandActive ? "On" : "Off"
+      property bool freehandDigitizing: false
+      state: freehandDigitizing ? "On" : "Off"
 
       states: [
         State {
@@ -735,8 +747,8 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        freehandActive = !freehandActive;
-        displayToast( freehandActive ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
+        freehandDigitizing = !freehandDigitizing;
+        displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
       }
     }
   }

@@ -28,6 +28,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+  property bool freehandDigitizing: false
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -162,6 +163,7 @@ Item {
     }
 
     DragHandler {
+        enabled: !freehandDigitizing
         target: null
         grabPermissions: PointerHandler.TakeOverForbidden
 
