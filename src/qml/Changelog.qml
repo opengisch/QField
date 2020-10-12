@@ -133,7 +133,7 @@ Item {
           })
 
           var changelogPeffix = '';
-          changelogPeffix += 'Check the new cool features up to **' + versionNumbersOnly + '** release.'
+          changelogPeffix += 'Up to release **' + versionNumbersOnly + '**'
 
           changelogBody.text = changelogPeffix + changelog
           changelogBody.isSuccess = true
