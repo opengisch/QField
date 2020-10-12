@@ -152,6 +152,19 @@ ApplicationWindow {
       enabled: freehandButton.freehandDigitizing
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
 
+      onActiveChanged: {
+        if (!active) {
+          var screenLocation = centroid.position;
+          var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
+          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+          {
+            mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
+          }
+        }
+      }
+
       onCentroidChanged: {
         if (active) {
           if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
