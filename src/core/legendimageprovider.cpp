@@ -32,6 +32,7 @@ LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
 QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
 {
   Q_UNUSED( size )
+  const int iconSize = mLayerTreeModel->scaleIconSize( 16 );
 
   // the id is passed on as an encoded URL string which needs decoding
   const QString decodedId = QUrl::fromPercentEncoding( id.toUtf8() );
@@ -54,11 +55,11 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
         {
           QIcon icon = mLayerTreeModel->data( index, Qt::DecorationRole ).value<QIcon>();
           if ( !icon.isNull() )
-            pixmap = icon.pixmap( 24, 24 );
+            pixmap = icon.pixmap( iconSize, iconSize );
         }
         if ( pixmap.isNull() )
         {
-          pixmap = QPixmap( 24, 24 );
+          pixmap = QPixmap( iconSize, iconSize );
           pixmap.fill( QColor( 255, 255, 255 ) );
         }
         return pixmap;
@@ -99,18 +100,18 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
         {
          QIcon icon = legendNode->data( Qt::DecorationRole ).value<QIcon>();
          if ( !icon.isNull() )
-           pixmap = icon.pixmap( 24, 24 );
+           pixmap = icon.pixmap( iconSize, iconSize );
         }
         if ( pixmap.isNull() )
         {
-          pixmap = QPixmap( 24, 24 );
+          pixmap = QPixmap( iconSize, iconSize );
           pixmap.fill( QColor( 255, 255, 255 ) );
         }
         return pixmap;
       }
       else
       {
-        QPixmap pixmap( 24, 24 );
+        QPixmap pixmap( iconSize, iconSize );
         pixmap.fill( QColor( 255, 255, 255 ) );
         return pixmap;
       }
