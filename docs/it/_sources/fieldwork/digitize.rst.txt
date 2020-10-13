@@ -76,6 +76,6 @@ It is possible to split an existing geometry by drawing a line where it should b
 
 .. container:: clearer text-left 
 
-  .. figure:: ../images/split_geom_feature.gif 
+  .. figure:: ../images/split_geom_feature.webp
      :width: 300px
      :alt: split_geom_feature
