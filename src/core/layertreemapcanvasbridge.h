@@ -77,6 +77,7 @@ class LayerTreeMapCanvasBridge : public QObject
     Q_INVOKABLE void setCanvasLayers();
 
   private slots:
+    void extentChanged();
     void nodeVisibilityChanged();
     void mapThemeChanged();
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
