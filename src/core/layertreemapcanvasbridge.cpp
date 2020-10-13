@@ -42,7 +42,15 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, Q
 
   connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
 
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &LayerTreeMapCanvasBridge::extentChanged );
   setCanvasLayers();
+}
+
+void LayerTreeMapCanvasBridge::extentChanged()
+{
+  // allow symbols in the legend update their preview if they use map units
+  mModel->layerTreeModel()->setLegendMapViewData( mMapSettings->mapSettings().mapUnitsPerPixel(),
+      static_cast< int >( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
 }
 
 void LayerTreeMapCanvasBridge::setCanvasLayers()
