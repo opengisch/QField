@@ -1,9 +1,13 @@
 Collect features
 ================
 
-To start digitizing new features, enable the **Edit mode** in the main menu (*pencil button*) and select the layer on which you want to add a new feature (the layer will be highlighted in grey).
+To start digitizing new features, enable the **Edit mode** in the main menu (*pencil button*) and select the layer on which you want to add a new feature (the layer will be highlighted in green).
 
-.. image:: ../images/user-guide_digit1.png
+.. container:: clearer text-left
+
+  .. figure:: ../images/collect_features.webp
+     :width: 300px
+     :alt: collect_features
 
 Points
 ------
@@ -14,7 +18,6 @@ new point feature.
 
 You can use the **keep centered** button to force the crosshair to center on your location if you have enabled the GPS.
 
-.. image:: ../images/user-guide_digit2.png
 
 Lines and polygons
 ------------------
@@ -29,8 +32,6 @@ Click the **Close (X) button** to cancel the feature creation completely.
 
 When you have added a least 2 nodes for a line or 3 nodes for a polygon, a **Save button** will appear. Click on it to finish your sketch.
 
-.. image:: ../images/user-guide_digit3.png
-
 Attribute form
 --------------
 
@@ -40,12 +41,17 @@ The form which appears allows entering attribute values for the new feature. The
 at the right of every attribute allow for remembering each attribute individually.
 The next time you will add a feature on the same layer, these attributes will be already pre-filled.
 
-.. image:: ../images/user-guide_digit4.png
-
 Delete features
 ===============
 
 Deleting features is only possible in digitize mode.
+
+.. container:: clearer text-left
+
+  .. figure:: ../images/delete_features.webp
+     :width: 300px
+     :alt: delete_features
+
 
 To delete a feature, identify it first by a short tap on it. Then select it with a long press
 in the identification list, select further features to delete if you want and click the

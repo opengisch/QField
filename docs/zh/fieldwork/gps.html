@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GPS定位 &#8212; QField Documentation 1.0 - M... 文档</title>
+    <title>GNSS &#8212; QField Documentation 1.0 - M... 文档</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
@@ -62,7 +62,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">GPS定位</a><ul>
+<li><a class="reference internal" href="#">GNSS</a><ul>
 <li><a class="reference internal" href="#using-external-gnss-reciever">使用外部GNSS接收器</a></li>
 </ul>
 </li>
@@ -125,12 +125,22 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="gps">
-<h1>GPS定位<a class="headerlink" href="#gps" title="永久链接至标题">¶</a></h1>
-<p>短按GPS按钮将打开GPS，获得位置信息后即将当前位置在地图上居中显示。</p>
-<p>长按GPS按钮将显示“定位”菜单。</p>
+  <div class="section" id="gnss">
+<h1>GNSS<a class="headerlink" href="#gnss" title="永久链接至标题">¶</a></h1>
+<p>A short press on the GNSS button will turn on the GNSS and center to the current location once positioning information is available.</p>
+<p>Activate edit mode and press on the target button, the cross in the center means it is using GNSS positioning.</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/gnss_use.webp"><img alt="gnss_use" src="../_images/gnss_use.webp" style="width: 300px;" /></a>
+</div>
+</div>
+<p>A long press on the GNSS button will show the positioning menu.</p>
 <p>在定位菜单中，可以打开定位信息显示开关，显示当前坐标信息以及定位精度信息，坐标信息被自动转换为项目CRS。</p>
-<img alt="../_images/user-guide_gps.png" src="../_images/user-guide_gps.png" />
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/user-guide_gps.jpg"><img alt="user-guide_gps" src="../_images/user-guide_gps.jpg" style="width: 600px;" /></a>
+</div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">如果你看到的是WGS 84的经纬度坐标，而不是项目使用的CRS坐标值，很可能是因为还没有GPS信号。</p>

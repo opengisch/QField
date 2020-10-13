@@ -5,15 +5,34 @@ Map legend
 ==========
 Open the **Main menu** and expend the layers list to display the legend of the map.
 
-.. image:: ../images/user-guide_legend.png
 
+.. container:: clearer text-left
+
+  .. figure:: ../images/user-guide_legend.png
+     :width: 300px
+     :alt: user-guide_legend
+
+
+Turning on and off layers
+=========================
+:menuselection:`Main menu --> long press on the layer --> check or uncheck show on map canvas`
+
+.. container:: clearer text-left
+
+  .. figure:: ../images/turning_on_off.webp
+     :width: 300px
+     :alt: turning_on_off                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
 
 Identify features
 =================
 Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.
 
-.. image:: ../images/user-guide_identify-feature.png
+.. container:: clearer text-left
+
+  .. figure:: ../images/identify_features.webp
+     :width: 300px
+     :alt: identify_features
      
 
 Tap on one of the listed feature to access its attributes. 
@@ -22,10 +41,7 @@ Tap on one of the listed feature to access its attributes.
 2. Tap the **centre button** to center the map on the selected feature.
 3. Tap  the **edit button** to edit the attributes of the selected feature.
 4. Scroll through the **sub-menus** to access all the attributes.
-
-.. image:: ../images/user-guide_identify-feature-attributes.png
-   
-
+ 
 Exceptions to identified layers
 -------------------------------
 

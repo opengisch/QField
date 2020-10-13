@@ -5,24 +5,15 @@ Track lines and polygons
 
 You have the possibility to do tracking on lines and polygons.
 
-It's available when GPS is enabled. 
-A tracking session can be started over the legend - long press on the layer.
-
 .. container:: clearer text-center
 
-    .. image:: /images/track_lines_started.jpeg
-       :width: 640px
-       :alt: track_lines_started
+    .. image:: /images/tracking.webp
+       :width: 300px
+       :alt: tracking
 
-
+It's available when GNSS is enabled. 
+A tracking session can be started in the legend by long-pressing on the layer.
 The time interval and the minimum distance can be entered individually to define when a vertex needs to be set.
-
-.. container:: clearer text-center
-
-    .. image:: /images/track_lines_tracker_settings.jpeg
-       :width: 640px
-       :alt: tracker_settings
-
 
 There can be several trackings session active on several layers. 
 But only one tracking session per layer can be active at the time. 
@@ -30,11 +21,11 @@ But only one tracking session per layer can be active at the time.
 .. container:: clearer text-center
 
     .. image:: /images/track_lines_tracking_layers1.jpeg
-       :width: 640px
+       :width: 300px
        :alt: tracking_layers1
 
     .. image:: /images/track_lines_tracking_layers2.jpeg
-       :width: 640px
+       :width: 300px
        :alt: tracking_layers2
 
 
