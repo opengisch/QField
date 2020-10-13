@@ -69,13 +69,15 @@ VisibilityFadingRow {
       }
       else
       {
-        !screenHovering && geometryValid
+        geometryValid
       }
     }
     round: true
     bgcolor: Theme.mainColor
 
     onClicked: {
+      // set coordinateLocator source location to undefined to avoid hover interferance
+      coordinateLocator.sourceLocation = undefined
       // remove editing vertex for lines and polygons
       removeVertex()
       confirm()

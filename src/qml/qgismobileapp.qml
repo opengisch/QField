@@ -199,7 +199,6 @@ ApplicationWindow {
             else {
                 resetIsBeingTouchedTimer.restart()
             }
-
         }
     }
 
