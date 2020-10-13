@@ -102,7 +102,7 @@ VisibilityFadingRow {
     enabled: !screenHovering
     bgcolor: {
         if (screenHovering)
-          Qt.hsla(Theme.darkGray.hue,Theme.darkGray.saturation,Theme.darkGray.lightness,0.4)
+          Theme.darkGraySemiOpaque
         else if (!showConfirmButton)
           Theme.darkGray
         else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
