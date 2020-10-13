@@ -97,13 +97,13 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: addVertexButton
-    iconSource: {
-        Theme.getThemeIcon( "ic_add_white_24dp" )
-    }
+    iconSource: !screenHovering ? Theme.getThemeIcon( "ic_add_white_24dp" ) : ''
     round: true
-    visible: !screenHovering
+    enabled: !screenHovering
     bgcolor: {
-        if (!showConfirmButton)
+        if (screenHovering)
+          Qt.hsla(Theme.darkGray.hue,Theme.darkGray.saturation,Theme.darkGray.lightness,0.4)
+        else if (!showConfirmButton)
           Theme.darkGray
         else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
           Theme.mainColor
