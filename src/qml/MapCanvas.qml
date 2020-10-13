@@ -165,11 +165,12 @@ Item {
     DragHandler {
         enabled: !freehandDigitizing
         target: null
-        grabPermissions: PointerHandler.TakeOverForbidden
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
         property var oldPos
 
         onActiveChanged: {
+            console.log('pannn');
             if ( active )
                 freeze('pan')
             else
