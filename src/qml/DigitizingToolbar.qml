@@ -76,10 +76,9 @@ VisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      // set coordinateLocator source location to undefined to avoid hover interferance
-      coordinateLocator.sourceLocation = undefined
       // remove editing vertex for lines and polygons
-      removeVertex()
+      rubberbandModel.frozen = true
+      rubberbandModel.removeVertex()
       confirm()
     }
   }
