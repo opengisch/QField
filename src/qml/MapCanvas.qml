@@ -170,7 +170,6 @@ Item {
         property var oldPos
 
         onActiveChanged: {
-            console.log('pannn');
             if ( active )
                 freeze('pan')
             else

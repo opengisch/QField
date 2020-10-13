@@ -153,7 +153,6 @@ ApplicationWindow {
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
 
       onActiveChanged: {
-        console.log('freeee');
         if (!active) {
           var screenLocation = centroid.position;
           var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
