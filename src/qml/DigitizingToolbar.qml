@@ -97,19 +97,27 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: addVertexButton
-    iconSource: !screenHovering ? Theme.getThemeIcon( "ic_add_white_24dp" ) : ''
+    iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
     round: true
     enabled: !screenHovering
     bgcolor: {
-        if (screenHovering)
-          Theme.darkGraySemiOpaque
-        else if (!showConfirmButton)
+        if (!showConfirmButton)
           Theme.darkGray
         else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
           Theme.mainColor
         else
           Theme.darkGray
     }
+
+    states: [
+        State { when: addVertexButton.enabled;
+            PropertyChanges {   target: addVertexButton; opacity: 1.0    }
+        },
+        State { when: !addVertexButton.enabled;
+            PropertyChanges {   target: addVertexButton; opacity: 0.0    }
+        }
+    ]
+    transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
     onClicked: {
       if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
