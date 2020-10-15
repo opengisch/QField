@@ -591,8 +591,6 @@ Page {
 
       Label {
         id: titleLabel
-        leftPadding: model.constraintsHardValid ? 0 : 48
-
         text:
         {
           var currentLayer = model.featureModel.currentLayer
