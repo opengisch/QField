@@ -108,6 +108,7 @@ Page {
 
           TabButton {
             id: tabButton
+            property bool isCurrentIndex: index == tabRow.currentIndex
             text: Name
             topPadding: 0
             bottomPadding: 0
@@ -131,8 +132,8 @@ Page {
               text: tabButton.text
               // color: tabButton.down ? '#17a81a' : '#21be2b'
               color: !tabButton.enabled ? Theme.darkGray : !ConstraintHardValid ? Theme.errorColor : !ConstraintSoftValid ? Theme.warningColor :
-                                         tabButton.down || tabButton.checked ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
-              font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
+                                         tabButton.down || isCurrentIndex ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
+              font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
               verticalAlignment: Text.AlignVCenter
