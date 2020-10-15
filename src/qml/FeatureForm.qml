@@ -165,14 +165,9 @@ Page {
             id: formPage
             property int currentIndex: index
 
-            Rectangle {
-              anchors.fill: formPage
-              color: "white"
-            }
-
             /**
-           * The main form content area
-           */
+            * The main form content area
+            */
             ListView {
               id: content
               anchors.fill: parent
