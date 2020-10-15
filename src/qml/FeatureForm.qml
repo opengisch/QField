@@ -130,8 +130,8 @@ Page {
               height: parent.height
               text: tabButton.text
               // color: tabButton.down ? '#17a81a' : '#21be2b'
-              color: !tabButton.enabled ? '#999999' : tabButton.down ||
-                                        tabButton.checked ? '#1B5E20' : '#4CAF50'
+              color: !tabButton.enabled ? Theme.darkGray : !ConstraintHardValid ? Theme.errorColor : !ConstraintSoftValid ? Theme.warningColor :
+                                         tabButton.down || tabButton.checked ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
               font.weight: tabButton.checked ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
