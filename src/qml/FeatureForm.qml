@@ -130,9 +130,8 @@ Page {
               width: paintedWidth
               height: parent.height
               text: tabButton.text
-              // color: tabButton.down ? '#17a81a' : '#21be2b'
               color: !tabButton.enabled ? Theme.darkGray : !ConstraintHardValid ? Theme.errorColor : !ConstraintSoftValid ? Theme.warningColor :
-                                         tabButton.down || isCurrentIndex ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
+                                         tabButton.down ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
               font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
