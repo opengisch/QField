@@ -149,11 +149,14 @@ ApplicationWindow {
 
     DragHandler {
       id: freehandHandler
+      property bool isDigitizing: false
       enabled: freehandButton.freehandDigitizing
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
 
       onActiveChanged: {
-        if (!active) {
+        if (active) {
+          isDigitizing = mapCanvasMap.isStylusPressed
+        } else if (isDigitizing) {
           var screenLocation = centroid.position;
           var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
           var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
@@ -166,7 +169,7 @@ ApplicationWindow {
       }
 
       onCentroidChanged: {
-        if (active) {
+        if (active && isDigitizing) {
           if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
             // needed to handle freehand digitizing of rings
           } else {
