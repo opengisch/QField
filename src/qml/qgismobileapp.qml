@@ -743,7 +743,7 @@ ApplicationWindow {
 
       bgcolor: Theme.darkGray
 
-      property bool freehandDigitizing: false
+      property bool freehandDigitizing: settings.value( "/QField/Digitizing/FreehandActive", false )
       state: freehandDigitizing ? "On" : "Off"
 
       states: [
@@ -753,7 +753,7 @@ ApplicationWindow {
           PropertyChanges {
             target: freehandButton
             iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)//"#88212121"
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
 
@@ -768,7 +768,8 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        freehandDigitizing = !freehandDigitizing;
+        freehandDigitizing = !settings.value( "/QField/Digitizing/FreehandActive", false );
+        settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
         displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
       }
     }
