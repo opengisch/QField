@@ -112,7 +112,7 @@ Page {
             text: Name
             topPadding: 0
             bottomPadding: 0
-            leftPadding: 8
+            leftPadding: !ConstraintHardValid || !ConstraintSoftValid ? 22 : 8
             rightPadding: 8
 
             width: contentItem.width + leftPadding + rightPadding
@@ -122,6 +122,17 @@ Page {
               implicitWidth: parent.width
               implicitHeight: parent.height
               color: "transparent"
+
+              Rectangle {
+                anchors.left: parent.left
+                anchors.leftMargin: 8
+                anchors.verticalCenter: parent.verticalCenter
+                width: 10
+                height: 10
+                radius: 5
+                color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+                visible: !ConstraintHardValid || !ConstraintSoftValid
+              }
             }
 
             contentItem: Text {
@@ -130,8 +141,7 @@ Page {
               width: paintedWidth
               height: parent.height
               text: tabButton.text
-              color: !tabButton.enabled ? Theme.darkGray : !ConstraintHardValid ? Theme.errorColor : !ConstraintSoftValid ? Theme.warningColor :
-                                         tabButton.down ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
+              color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor,1.5) : Theme.mainColor
               font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
               horizontalAlignment: Text.AlignHCenter
