@@ -83,6 +83,20 @@ VisibilityFadingRow {
     }
   }
 
+  Timer {
+    id: removeVertexTimer
+    interval: 700
+    repeat: true
+
+    onTriggered: {
+      if ( !rubberbandModel || rubberbandModel.vertexCount == 0)
+        stop();
+
+      removeVertex()
+      if ( interval > 100 ) interval = interval * 0.8;
+    }
+  }
+
   QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
@@ -90,8 +104,16 @@ VisibilityFadingRow {
     round: true
     bgcolor: Theme.darkGray
 
-    onClicked: {
+    onPressed: {
       removeVertex()
+      removeVertexTimer.interval = 700
+      removeVertexTimer.restart()
+    }
+    onReleased: {
+      removeVertexTimer.stop()
+    }
+    onCanceled: {
+      removeVertexTimer.stop()
     }
   }
 

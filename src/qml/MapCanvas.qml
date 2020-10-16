@@ -105,7 +105,7 @@ Item {
 //      }
 //    }
 
-    // stylus clicked
+    // stylus clicks
     Timer {
       id: resetIsStylusPressed
       interval: 150
