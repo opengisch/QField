@@ -34,6 +34,16 @@ QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
   connect( this, &QgsQuickMapSettings::outputSizeChanged, this, &QgsQuickMapSettings::visibleExtentChanged );
 }
 
+void QgsQuickMapSettings::setDevicePixelRatio( const qreal ratio )
+{
+  mMapSettings.setDevicePixelRatio( ratio );
+}
+
+qreal QgsQuickMapSettings::devicePixelRatio() const
+{
+  return mDevicePixelRatio;
+}
+
 void QgsQuickMapSettings::setProject( QgsProject *project )
 {
   if ( project == mProject )
@@ -112,7 +122,7 @@ void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom 
 
 double QgsQuickMapSettings::mapUnitsPerPoint() const
 {
-  return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();
+  return mMapSettings.mapUnitsPerPixel();
 }
 
 QgsRectangle QgsQuickMapSettings::visibleExtent() const
@@ -124,14 +134,14 @@ QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &point ) const
 {
   QgsPointXY pt( point.x(), point.y() );
   QgsPointXY pp = mMapSettings.mapToPixel().transform( pt );
-  pp.setX( pp.x() / devicePixelRatio() );
-  pp.setY( pp.y() / devicePixelRatio() );
+  pp.setX( pp.x() );
+  pp.setY( pp.y() );
   return pp.toQPointF();
 }
 
 QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &point ) const
 {
-  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio(), point.y() * devicePixelRatio() );
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x(), point.y() );
   return QgsPoint( pp );
 }
 
@@ -147,8 +157,8 @@ QSize QgsQuickMapSettings::outputSize() const
 
 void QgsQuickMapSettings::setOutputSize( QSize outputSize )
 {
-  outputSize.setWidth( outputSize.width() * devicePixelRatio() );
-  outputSize.setHeight( outputSize.height() * devicePixelRatio() );
+  outputSize.setWidth( outputSize.width() );
+  outputSize.setHeight( outputSize.height() );
   if ( mMapSettings.outputSize() == outputSize )
     return;
 
@@ -163,7 +173,6 @@ double QgsQuickMapSettings::outputDpi() const
 
 void QgsQuickMapSettings::setOutputDpi( double outputDpi )
 {
-  outputDpi *= devicePixelRatio();
   if ( qgsDoubleNear( mMapSettings.outputDpi(), outputDpi ) )
     return;
 

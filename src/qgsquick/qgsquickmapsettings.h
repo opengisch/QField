@@ -204,9 +204,9 @@ class QgsQuickMapSettings : public QObject
     //! \copydoc QgsMapSettings::setLayers()
     void setLayers( const QList<QgsMapLayer *> &layers );
 
-    qreal devicePixelRatio() const { return mDevicePixelRatio; }
+    qreal devicePixelRatio() const;
 
-    void setDevicePixelRatio( const qreal ratio ) { mDevicePixelRatio = ratio; }
+    void setDevicePixelRatio( const qreal ratio );
 
   signals:
     //! \copydoc QgsQuickMapSettings::project
