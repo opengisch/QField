@@ -76,7 +76,7 @@ Item {
 
     Slider {
       id: slider
-      value: typeof rangeItem.parent.value === 'numeric' ? rangeItem.parent.value : rangeItem.from
+      value: typeof rangeItem.parent.value === 'numeric' ? rangeItem.parent.value : slider.value
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width
