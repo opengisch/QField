@@ -29,7 +29,6 @@ Item {
 
   property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
   property bool freehandDigitizing: false
-  property bool isStylusPressed: false
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -106,16 +105,6 @@ Item {
 //    }
 
     // stylus clicks
-    Timer {
-      id: resetIsStylusPressed
-      interval: 150
-      repeat: false
-
-      onTriggered: {
-        isStylusPressed = false
-      }
-    }
-
     TapHandler {
       enabled: !mouseAsTouchScreen
       acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
@@ -131,13 +120,6 @@ Item {
       }
 
       onPressedChanged: {
-          if (pressed) {
-            resetIsStylusPressed.stop()
-            isStylusPressed = true
-          } else {
-            resetIsStylusPressed.restart()
-          }
-
           if (longPressActive)
               mapArea.longPressReleased("stylus")
           longPressActive = false
