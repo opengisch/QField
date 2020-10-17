@@ -11,6 +11,8 @@ import ".."
 Row {
   anchors { left: parent.left; right: parent.right; }
 
+  signal valueChanged(var value, bool isNull)
+
   RelationCombobox {
     id: relationReference
     anchors { left: parent.left; right: parent.right; rightMargin: 24 }
@@ -28,6 +30,8 @@ Row {
       addNull: config['AllowNULL']
       orderByValue: config['OrderByValue']
     }
+
+    onValueChanged: parent.valueChanged(value,isNull)
   }
 
   Image {
