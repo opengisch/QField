@@ -115,11 +115,11 @@ Item {
 
     Image {
       Layout.margins: 4
-      Layout.preferredWidth: 18
+      Layout.preferredWidth: comboBox.enabled ? 18 : 0
       Layout.preferredHeight: 18
       id: addButton
       source: Theme.getThemeIcon("ic_add_black_48dp")
-      width: 18
+      width: comboBox.enabled ? 18 : 0
       height: 18
 
       MouseArea {
