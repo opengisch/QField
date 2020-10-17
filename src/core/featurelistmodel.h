@@ -157,6 +157,7 @@ class FeatureListModel : public QAbstractItemModel
 
   private slots:
     void onFeatureAdded();
+    void onAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
     void onFeatureDeleted();
     /**
        * Reloads a layer. This will normally be triggered
