@@ -94,6 +94,7 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
   if ( mCurrentLayer )
   {
     disconnect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    disconnect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
     disconnect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
   }
 
@@ -102,6 +103,7 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
   if ( mCurrentLayer )
   {
     connect( currentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
+    connect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
     connect( currentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
   }
 
@@ -164,6 +166,18 @@ int FeatureListModel::findKey( const QVariant &key ) const
 void FeatureListModel::onFeatureAdded()
 {
   reloadLayer();
+}
+
+void FeatureListModel::onAttributeValueChanged( QgsFeatureId, int idx, const QVariant & )
+{
+  QgsExpressionContext context = mCurrentLayer->createExpressionContext();
+  QgsExpression expression( mCurrentLayer->displayExpression() );
+  expression.prepare( &context );
+  QSet<QString> referencedColumns = expression.referencedColumns();
+  referencedColumns << mDisplayValueField;
+
+  if ( referencedColumns.contains( mCurrentLayer->fields().at( idx ).name() ) )
+    reloadLayer();
 }
 
 void FeatureListModel::onFeatureDeleted()
