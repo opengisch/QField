@@ -434,6 +434,7 @@ Page {
             target: attributeEditorLoader.item
 
             function onValueChanged(value, isNull) {
+              console.log('ddd '+value)
               if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
               {
                 var oldValue = AttributeValue
