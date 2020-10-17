@@ -60,9 +60,13 @@ int FeatureListModel::columnCount( const QModelIndex &parent ) const
 QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == Qt::DisplayRole || role == DisplayStringRole )
+  {
     return mEntries.value( index.row() ).displayString;
+  }
   else if ( role == KeyFieldRole )
+  {
     return mEntries.value( index.row() ).key;
+  }
 
   return QVariant();
 }
@@ -167,6 +171,23 @@ void FeatureListModel::onFeatureDeleted()
   reloadLayer();
 }
 
+QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) const
+{
+  if ( !mCurrentLayer )
+    return QgsFeature();
+
+  QgsFeature feature;
+  for ( auto &entry : mEntries )
+  {
+    if ( entry.key == value )
+    {
+      feature = mCurrentLayer->getFeature( entry.fid );
+    }
+  }
+
+  return feature;
+}
+
 void FeatureListModel::processReloadLayer()
 {
   mEntries.clear();
@@ -215,15 +236,15 @@ void FeatureListModel::processReloadLayer()
   QList<Entry> entries;
 
   if ( mAddNull )
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant() ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QgsFeatureId() ) );
 
   while ( iterator.nextFeature( feature ) )
   {
     context.setFeature( feature );
     if ( mDisplayValueField.isEmpty() )
-      entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ) ) );
+      entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ), feature.id() ) );
     else
-      entries.append( Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ) ) );
+      entries.append( Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ), feature.id() ) );
   }
 
   if ( mOrderByValue )
