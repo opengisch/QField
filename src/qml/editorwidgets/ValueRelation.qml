@@ -36,7 +36,6 @@ Item {
     }
   }
 
-
   Rectangle{
     id: valueRelationList
 

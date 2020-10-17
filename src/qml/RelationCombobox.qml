@@ -29,6 +29,8 @@ Item {
     comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
   }
 
+  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
+
   height: childrenRect.height + 10
 
   RowLayout {
@@ -36,13 +38,9 @@ Item {
 
     ComboBox {
       id: comboBox
-
       property var _cachedCurrentValue
-
-      textRole: 'display'
-
       Layout.fillWidth: true
-
+      textRole: 'display'
       model: featureListModel
 
       onCurrentIndexChanged: {
@@ -127,9 +125,9 @@ Item {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-            addFeaturePopup.state = 'Add'
-            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
-            addFeaturePopup.open()
+            embeddedPopup.state = 'Add'
+            embeddedPopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            embeddedPopup.open()
         }
       }
     }
@@ -142,18 +140,18 @@ Item {
     }
   }
 
-  EmbeddedFeatureForm{
-      id: addFeaturePopup
+  EmbeddedFeatureForm {
+    id: embeddedPopup
 
-      onFeatureSaved: {
-          var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
-          var index = featureListModel.findKey(referencedValue)
-          if ( index < 0 ) {
-            // model not yet reloaded - keep the value and set it onModelReset
-            comboBox._cachedCurrentValue = referencedValue
-          } else {
-            comboBox.currentIndex = index
-          }
+    onFeatureSaved: {
+      var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+      var index = featureListModel.findKey(referencedValue)
+      if ( index < 0 ) {
+        // model not yet reloaded - keep the value and set it onModelReset
+        comboBox._cachedCurrentValue = referencedValue
+      } else {
+        comboBox.currentIndex = index
       }
+    }
   }
 }

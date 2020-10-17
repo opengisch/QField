@@ -8,21 +8,45 @@ import org.qgis 1.0
 import Theme 1.0
 import ".."
 
+Row {
+  anchors { left: parent.left; right: parent.right; }
 
-RelationCombobox {
-  id: relationReference
-  enabled: isEnabled
+  RelationCombobox {
+    id: relationReference
+    anchors { left: parent.left; right: parent.right; rightMargin: 24 }
+    enabled: isEnabled
 
-  signal valueChanged(var value, bool isNull)
+    signal valueChanged(var value, bool isNull)
 
-  property var _relation: qgisProject.relationManager.relation(config['Relation'])
+    property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
-  FeatureListModel {
-    id: featureListModel
+    FeatureListModel {
+      id: featureListModel
 
-    currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
-    keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
-    addNull: config['AllowNULL']
-    orderByValue: config['OrderByValue']
+      currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
+      keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+      addNull: config['AllowNULL']
+      orderByValue: config['OrderByValue']
+    }
+  }
+
+  Image {
+    id: viewButton
+    anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
+    source: Theme.getThemeIcon("ic_baseline_list_black_48dp")
+    width: 18
+    height: 18
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        if ( relationReference.currentKeyValue !== undefined ) {
+          relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
+          relationReference.embeddedFeatureForm.currentLayer = featureListModel.currentLayer
+          relationReference.embeddedFeatureForm.feature = featureListModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
+          relationReference.embeddedFeatureForm.open()
+        }
+      }
+    }
   }
 }
