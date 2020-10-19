@@ -37,7 +37,7 @@ Row {
   Image {
     id: viewButton
     anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
-    source: Theme.getThemeIcon("ic_baseline_list_black_48dp")
+    source: Theme.getThemeIcon("ic_form_black_48dp")
     width: 18
     height: 18
 
