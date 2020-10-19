@@ -65,6 +65,11 @@
         <file>themes/qfield/xxxhdpi/ic_menu_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_my_location_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_form_black_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_form_black_48dp.png</file>
+        <file>themes/qfield/xhdpi/ic_form_black_48dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_form_black_48dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_form_black_48dp.png</file>
         <file>themes/qfield/hdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_map_white_24dp.png</file>
