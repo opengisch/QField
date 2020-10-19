@@ -164,7 +164,6 @@ Page {
       SwipeView {
         id: swipeView
         anchors.fill: parent
-        topPadding: 15
         currentIndex: tabRow.currentIndex
 
         Repeater {
@@ -188,12 +187,15 @@ Page {
                 // section header: group box name
                 Rectangle {
                   width: parent.width
-                  height: section === "" ? 0 : 30
+                  height: section === "" ? 0 : childrenRect.height + 10
                   color: 'lightGray'
 
                   Text {
-                    anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                    anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter; }
+                    leftPadding: 10
+                    rightPadding: 10
                     width: parent.width
+                    font.pointSize: 12
                     font.bold: true
                     text: section
                     wrapMode: Text.WordWrap
@@ -337,6 +339,7 @@ Page {
           wrapMode: Text.WordWrap
           font.pointSize: 12
           font.bold: true
+          topPadding: 10
           bottomPadding: 5
           color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
         }
