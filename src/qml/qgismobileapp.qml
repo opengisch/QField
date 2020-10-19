@@ -148,89 +148,87 @@ ApplicationWindow {
     property bool isBeingTouched: false
 
     DragHandler {
-      id: freehandHandler
-      property bool isDigitizing: false
-      enabled: freehandButton.freehandDigitizing
-      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
-      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+        id: freehandHandler
+        property bool isDigitizing: false
+        enabled: freehandButton.freehandDigitizing
+        acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
-      onActiveChanged: {
-        if (!active) {
-          var screenLocation = centroid.position;
-          var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
-          var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
-          if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
-               screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
-          {
-            mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
-          }
+        onActiveChanged: {
+            if (!active) {
+                var screenLocation = centroid.position;
+                var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
+                var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+                if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+                        screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+                {
+                    mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
+                }
+            }
         }
-      }
 
-      onCentroidChanged: {
-        if (active) {
-          if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
-            // needed to handle freehand digitizing of rings
-          } else {
-            currentRubberband.model.addVertex()
-          }
+        onCentroidChanged: {
+            if (active) {
+                if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
+                    // needed to handle freehand digitizing of rings
+                } else {
+                    currentRubberband.model.addVertex()
+                }
+            }
         }
-      }
     }
 
     HoverHandler {
-      id: hoverHandler
-      enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
-      acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
-      grabPermissions: PointerHandler.TakeOverForbidden
+        id: hoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
+        acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
 
-      onPointChanged: {
-        // after a click, it seems that the position is sent once at 0,0 => weird
-        if (point.position !== Qt.point(0, 0))
-          coordinateLocator.sourceLocation = point.position
-      }
+        onPointChanged: {
+            // after a click, it seems that the position is sent once at 0,0 => weird
+            if (point.position !== Qt.point(0, 0))
+                coordinateLocator.sourceLocation = point.position
+        }
 
-      onActiveChanged: {
-        if ( !active )
-          coordinateLocator.sourceLocation = undefined
+        onActiveChanged: {
+            if ( !active )
+                coordinateLocator.sourceLocation = undefined
 
-      }
+        }
 
-      onHoveredChanged: {
-        if ( !hovered )
-          coordinateLocator.sourceLocation = undefined
-      }
+        onHoveredChanged: {
+            if ( !hovered )
+                coordinateLocator.sourceLocation = undefined
+        }
     }
-
-
     Timer {
-      id: resetIsBeingTouchedTimer
-      interval: 750
-      repeat: false
+        id: resetIsBeingTouchedTimer
+        interval: 750
+        repeat: false
 
-      onTriggered: {
-        parent.isBeingTouched = false
-      }
+        onTriggered: {
+            parent.isBeingTouched = false
+        }
     }
     /* The second hover handler is a workaround what appears to be an issue with
      * Qt whereas synthesized mouse event would trigger the first HoverHandler even though
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
      */
     HoverHandler {
-      id: dummyHoverHandler
-      enabled: !qfieldSettings.mouseAsTouchScreen
-      acceptedDevices: PointerDevice.TouchScreen
-      grabPermissions: PointerHandler.TakeOverForbidden
+        id: dummyHoverHandler
+        enabled: !qfieldSettings.mouseAsTouchScreen
+        acceptedDevices: PointerDevice.TouchScreen
+        grabPermissions: PointerHandler.TakeOverForbidden
 
-      onHoveredChanged: {
-        if ( hovered ) {
-          parent.isBeingTouched = true
-          resetIsBeingTouchedTimer.stop()
+        onHoveredChanged: {
+            if ( hovered ) {
+                parent.isBeingTouched = true
+                resetIsBeingTouchedTimer.stop()
+            }
+            else {
+                resetIsBeingTouchedTimer.restart()
+            }
         }
-        else {
-          resetIsBeingTouchedTimer.restart()
-        }
-      }
     }
 
     /* Initialize a MapSettings object. This will contain information about
