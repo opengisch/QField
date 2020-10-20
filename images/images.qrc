@@ -315,6 +315,11 @@
         <file>themes/qfield/xhdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_view_black_48dp.png</file>
+        <file>themes/qfield/mdpi/ic_view_black_48dp.png</file>
+        <file>themes/qfield/xhdpi/ic_view_black_48dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_view_black_48dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_view_black_48dp.png</file>
         <file>themes/qfield/hdpi/ic_vertex_tool_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_vertex_tool_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_vertex_tool_white_24dp.png</file>
