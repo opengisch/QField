@@ -37,8 +37,23 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
 }
 
+void FlatLayerTreeModel::freeze()
+{
+  mFrozen = true;
+}
+
+void FlatLayerTreeModel::unfreeze( bool resetModel )
+{
+  mFrozen = false;
+  if ( resetModel )
+    buildMap( mLayerTreeModel );
+}
+
 void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
+  if ( mFrozen )
+    return;
+
   Q_UNUSED( bottomRight )
   QModelIndex modifiedIndex = mapFromSource( topLeft );
   if ( modifiedIndex.isValid() )
@@ -49,6 +64,9 @@ void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelInde
 
 int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
+  if ( mFrozen )
+    return 0;
+
   bool reset = false;
   if ( row == 0 )
   {
