@@ -69,10 +69,13 @@ jobs:
           ./scripts/ci/pull_translations.sh
           ./scripts/ci/build.sh
       - name: 🍺 Deploy
-        uses: actions/upload-artifact@master
-        with:
-          name: QField-${{ matrix.arch }}
-          path: build-${{ matrix.arch }}/android-build/build/outputs/apk/release/android-build-release-signed.apk
+        run: |
+          ./scripts/ci/upload_artifacts.sh
+        env:
+          ID_RSA: ${{ secrets.ID_RSA }}
+          DEV_UPLOAD_USER: ${{ secrets.DEV_UPLOAD_USER }}
+          DEV_UPLOAD_HOST: download.opengis.ch
+          ARCH: ${{ matrix.arch }}
 
   comment:
     runs-on: ubuntu-latest
@@ -84,3 +87,18 @@ jobs:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
             Ta-daaa, freshly created APKs can be found at: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Spring Cleaning
+        run: |
+          echo "${ID_RSA}" > /tmp/id_rsa
+          chmod 400 /tmp/id_rsa
+          ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST} "find download.opengis.ch/qfield/ci-builds/ -name '*.apk' -mtime +60 -exec rm {} \;"
+          rm /tmp/id_rsa
+        env:
+          ID_RSA: ${{ secrets.ID_RSA }}
+          DEV_UPLOAD_USER: ${{ secrets.DEV_UPLOAD_USER }}
+          DEV_UPLOAD_HOST: download.opengis.ch
