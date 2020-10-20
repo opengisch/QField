@@ -75,6 +75,7 @@ int FlatLayerTreeModel::buildMap( QgsLayerTreeModel *model, const QModelIndex &p
     mRowMap.clear();
     mIndexMap.clear();
     mCollapsedItems.clear();
+    mTreeLevelMap.clear();
   }
 
   if ( model )
