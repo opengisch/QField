@@ -84,6 +84,11 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     //! This should be triggered after a project has been loaded
     Q_INVOKABLE void updateCurrentMapTheme();
 
+    //! Freezes the model as is, with any source model signals ignored
+    Q_INVOKABLE void freeze();
+    //! Unfreezes the model and resume listening to source model signals
+    Q_INVOKABLE void unfreeze( bool resetModel = false );
+
     //! Sets the information if the \a nodeLayer is currently in \a tracking state
     void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
 
@@ -100,6 +105,8 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     QString mMapTheme;
     QgsProject *mProject = nullptr;
     QList<QgsLayerTreeLayer *> mLayersInTracking;
+
+    bool mFrozen;
 };
 
 #endif // LAYERTREEMODEL_H
