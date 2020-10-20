@@ -1387,6 +1387,7 @@ ApplicationWindow {
       target: iface
 
       function onLoadProjectEnded() {
+        dashBoard.layerTree.unfreeze( true );
         if( !qfieldAuthRequestHandler.handleLayerLogins() )
         {
           //project loaded without more layer handling needed
@@ -1398,6 +1399,7 @@ ApplicationWindow {
         target: iface
 
         function onLoadProjectStarted(path) {
+          dashBoard.layerTree.freeze()
           messageLogModel.suppressTags(["WFS","WMS"])
         }
     }
