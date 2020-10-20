@@ -11,11 +11,13 @@ import ".."
 Row {
   anchors { left: parent.left; right: parent.right; }
 
+  property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
+
   signal valueChanged(var value, bool isNull)
 
   RelationCombobox {
     id: relationReference
-    anchors { left: parent.left; right: parent.right; rightMargin: 24 }
+    anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? 24 : 0 }
     enabled: isEnabled
 
     signal valueChanged(var value, bool isNull)
@@ -38,7 +40,8 @@ Row {
     id: viewButton
     anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
     source: Theme.getThemeIcon("ic_form_black_48dp")
-    width: 18
+    enabled: showOpenFormButton
+    width: showOpenFormButton? 18 : 0
     height: 18
 
     MouseArea {
