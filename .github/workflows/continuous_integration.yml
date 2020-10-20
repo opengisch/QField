@@ -81,12 +81,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Create commit comment
-        uses: peter-evans/commit-comment@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
         with:
-          token: ${{ secrets.FAIRY_TOKEN }}
-          body: |
-            Ta-daaa, freshly created APKs can be found at: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
+          message: |
+            Ta-daaa, freshly created APKs are available:
+              - [**arm64_v8a**](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-arm64_v8a.apk)
+
+            Other architectures:
+
+              - [armv7](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-armv7.apk)
+              - [x86_64](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86_64.apk)
+              - [x86](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk)
 
   cleanup:
     runs-on: ubuntu-latest
