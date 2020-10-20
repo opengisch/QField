@@ -106,7 +106,7 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     QgsProject *mProject = nullptr;
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 
-    bool mFrozen;
+    bool mFrozen = false;
 };
 
 #endif // LAYERTREEMODEL_H
