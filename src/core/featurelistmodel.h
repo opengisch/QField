@@ -62,6 +62,11 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
     /**
+     * Search term to filter features with. Empty string if no search is applied.
+     */
+    Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
+
+    /**
       * The current form feature, used to evaluate expressions such as `current_value('attr1')`
       **/
     Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
@@ -137,6 +142,15 @@ class FeatureListModel : public QAbstractItemModel
     void setFilterExpression( const QString &filterExpression );
 
     /**
+     * Search term to filter features with. Empty string if no search is applied.
+     */
+    QString searchTerm() const;
+    /**
+     * Sets a search term to filter features with. Empty string if no search is applied.
+     */
+    void setSearchTerm( const QString &filterExpression );
+
+    /**
      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
      */
     QgsFeature currentFormFeature() const;
@@ -153,6 +167,7 @@ class FeatureListModel : public QAbstractItemModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
+    void searchTermChanged();
     void currentFormFeatureChanged();
 
   private slots:
@@ -198,6 +213,7 @@ class FeatureListModel : public QAbstractItemModel
     bool mOrderByValue = false;
     bool mAddNull = false;
     QString mFilterExpression;
+    QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
 
     QTimer mReloadTimer;

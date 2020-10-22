@@ -240,6 +240,19 @@ void FeatureListModel::processReloadLayer()
     request.setFilterExpression( mFilterExpression );
   }
 
+  if ( !mSearchTerm.isEmpty() )
+  {
+    QString searchTermExpression = QStringLiteral( "array_length( array_filter( string_to_array( %1, ' ' ),  strpos(upper( @element ), upper( %2 ) ) > 0 ) ) > 0" )
+        .arg( QgsExpression::quotedColumnRef( mDisplayValueField ), QgsExpression::quotedValue( mSearchTerm ) );
+
+    if ( mFilterExpression.isEmpty() )
+      request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
+    else
+      request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
+
+    qDebug() << mCurrentLayer->fields().names() << mFilterExpression << searchTermExpression;
+  }
+
   int keyIndex = fields.indexOf( mKeyField );
   int displayValueIndex = fields.indexOf( mDisplayValueField );
 
@@ -328,6 +341,21 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   mFilterExpression = filterExpression;
   reloadLayer();
   emit filterExpressionChanged();
+}
+
+QString FeatureListModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void FeatureListModel::setSearchTerm( const QString &searchTerm )
+{
+  if ( mSearchTerm == searchTerm )
+    return;
+
+  mSearchTerm = searchTerm;
+  reloadLayer();
+  emit searchTermChanged();
 }
 
 QgsFeature FeatureListModel::currentFormFeature() const
