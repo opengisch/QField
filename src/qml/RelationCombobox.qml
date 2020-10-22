@@ -10,6 +10,14 @@ import Theme 1.0
 Item {
   id: relationCombobox
 
+  Component.onCompleted: {
+    comboBox.currentIndex = featureListModel.findKey(value)
+    comboBox.visible = _relation !== undefined ? _relation.isValid : true
+    searchButton.visible = _relation !== undefined ? _relation.isValid : true
+    addButton.visible = _relation !== undefined ? _relation.isValid : false
+    invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
+  }
+
   anchors {
     left: parent.left
     right: parent.right
@@ -19,8 +27,163 @@ Item {
 
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
 
+  property var currentKeyValue: value
+  onCurrentKeyValueChanged: {
+    comboBox._cachedCurrentValue = currentKeyValue
+    comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
+  }
+
+  height: childrenRect.height + 10
+
+  RowLayout {
+    anchors { left: parent.left; right: parent.right }
+
+    ComboBox {
+      id: comboBox
+
+      property var _cachedCurrentValue
+
+      textRole: 'display'
+
+      Layout.fillWidth: true
+
+      model: featureListModel
+
+      onCurrentIndexChanged: {
+        var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole)
+        valueChanged(newValue, false)
+      }
+
+      Connections {
+        target: featureListModel
+
+        function onModelReset() {
+          comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue)
+        }
+      }
+
+      MouseArea {
+        anchors.fill: parent
+        propagateComposedEvents: true
+
+        onClicked: mouse.accepted = false
+        onPressed: { forceActiveFocus(); mouse.accepted = false; }
+        onReleased: mouse.accepted = false;
+        onDoubleClicked: mouse.accepted = false;
+        onPositionChanged: mouse.accepted = false;
+        onPressAndHold: mouse.accepted = false;
+      }
+
+      // [hidpi fixes]
+      delegate: ItemDelegate {
+        width: comboBox.width
+        height: 36
+        text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
+        font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
+        font.pointSize: Theme.defaultFont.pointSize
+        highlighted: comboBox.highlightedIndex == index
+      }
+
+      contentItem: Text {
+        id: textLabel
+        text: comboBox.displayText
+        font: Theme.defaultFont
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+        color: value === undefined || !enabled ? 'gray' : 'black'
+      }
+
+      background: Item {
+        implicitWidth: 120
+        implicitHeight: 36
+
+        Rectangle {
+          y: textLabel.height - 8
+          width: comboBox.width
+          height: comboBox.activeFocus ? 2 : 1
+          color: comboBox.activeFocus ? "#4CAF50" : "#C8E6C9"
+        }
+
+        Rectangle {
+          visible: enabled
+          anchors.fill: parent
+          id: backgroundRect
+          border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
+          border.width: comboBox.visualFocus ? 2 : 1
+          color: Theme.lightGray
+          radius: 2
+        }
+      }
+      // [/hidpi fixes]
+    }
+
+    Image {
+      id: searchButton
+
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
+      source: Theme.getThemeIcon("ic_baseline_search_black")
+      width: 18
+      height: 18
+      opacity: enabled ? 1 : 0.3
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+          searchFeaturePopup.open()
+        }
+      }
+    }
+
+
+    Image {
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
+      id: addButton
+      source: Theme.getThemeIcon("ic_add_black_48dp")
+      width: 18
+      height: 18
+      opacity: enabled ? 1 : 0.3
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            addFeaturePopup.state = 'Add'
+            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            addFeaturePopup.open()
+        }
+      }
+    }
+
+    Text {
+      id: invalidWarning
+      visible: false
+      text: qsTr( "Invalid relation")
+      color: Theme.errorColor
+    }
+  }
+
+  EmbeddedFeatureForm{
+      id: addFeaturePopup
+
+      onFeatureSaved: {
+          var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
+          var index = featureListModel.findKey(referencedValue)
+          if ( index < 0 ) {
+            // model not yet reloaded - keep the value and set it onModelReset
+            comboBox._cachedCurrentValue = referencedValue
+          } else {
+            comboBox.currentIndex = index
+          }
+      }
+  }
+
+
   Popup {
-    id: popup
+    id: searchFeaturePopup
 
     signal cancel
     signal apply
@@ -37,8 +200,8 @@ Item {
     focus: visible
 
     onClosed: {
-      popup.cancel()
-      popup.finished()
+      searchFeaturePopup.cancel()
+      searchFeaturePopup.finished()
     }
 
     Page {
@@ -49,13 +212,13 @@ Item {
         showApplyButton: true
         showCancelButton: true
         onApply: {
-          popup.close()
-          popup.apply()
-          popup.finished()
+          searchFeaturePopup.close()
+          searchFeaturePopup.apply()
+          searchFeaturePopup.finished()
         }
         onCancel: {
-          popup.cancel()
-          popup.finished()
+          searchFeaturePopup.cancel()
+          searchFeaturePopup.finished()
         }
       }
 
@@ -103,7 +266,7 @@ Item {
           anchors.top: parent.top
           model: featureListModel
           width: parent.width
-          height: popup.height - searchField.height - 50
+          height: searchFeaturePopup.height - searchField.height - 50
           clip: true
 
           delegate: Rectangle {
@@ -155,7 +318,7 @@ Item {
 
               onClicked: {
                 var allowMulti = resultsList.model.allowMulti;
-                var popupRef = popup;
+                var popupRef = searchFeaturePopup;
 
                 // after this line, all the references get wrong, that's why we have `popupRef` defined above
                 model.checked = !model.checked
