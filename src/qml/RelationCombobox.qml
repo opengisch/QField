@@ -9,6 +9,7 @@ import Theme 1.0
 
 Item {
   id: relationCombobox
+
   anchors {
     left: parent.left
     right: parent.right
@@ -21,6 +22,10 @@ Item {
   Popup {
     id: popup
 
+    signal cancel
+    signal apply
+    signal finished
+
     parent: ApplicationWindow.overlay
     x: 24
     y: 24
@@ -32,14 +37,24 @@ Item {
     focus: visible
     visible: true
 
+    onCancel: {
+      close()
+      finished()
+    }
+
+    onApply: {
+      finished()
+    }
+
     Page {
       anchors.fill: parent
 
       header: PageHeader {
         title: qsTr('Related Features')
         showApplyButton: true
-        showCancelButton: false
-        onFinished: popup.visible = false
+        showCancelButton: true
+        onApply: popup.apply()
+        onCancel: popup.cancel()
       }
 
       TextField {
@@ -51,18 +66,11 @@ Item {
         placeholderText: qsTr("Search…")
         placeholderTextColor: Theme.mainColor
 
-        topPadding: 0
         leftPadding: 24
         rightPadding: 24
-        bottomPadding: 0
         font: Theme.defaultFont
         selectByMouse: true
         verticalAlignment: TextInput.AlignVCenter
-
-        background: Rectangle {
-          anchors.fill: searchField
-          color: 'lightgreen'
-        }
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
 
@@ -78,41 +86,57 @@ Item {
         anchors.right: parent.right
         anchors.top: searchField.bottom
 
+        leftPadding: 0
+        rightPadding: 0
+
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AsNeeded
-//        contentItem: resultsList
-//        contentWidth: resultsList.width
-//        contentHeight: resultsList.height
-//        clip: true
+        contentItem: resultsList
+        contentWidth: resultsList.width
+        contentHeight: resultsList.height
+        clip: true
 
         ListView {
           id: resultsList
           anchors.top: parent.top
           model: featureListModel
           width: parent.width
-//            height: resultsList.count > 0
-//                    ? Math.min( delegateRect.height, mainWindow.height / 2 - searchField.height - 10 )
-//                    : 0
-          height: 200
+          height: popup.height - searchField.height - 50
           clip: true
 
           delegate: Rectangle {
             id: delegateRect
 
-//            anchors.top: parent ? parent.bottom : undefined
             anchors.margins: 10
-            height: textCell.height
+            height: radioButton.visible ? radioButton.height : checkBoxButton.height
             width: parent ? parent.width : undefined
 
-            Text {
-              id: textCell
-              text: displayString
+            RadioButton {
+              id: radioButton
+
+              visible: !featureListModel.allowMulti
+              checked: model.checked
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
-              leftPadding: 5
-              font.pointSize: Theme.resultFont.pointSize
-              elide: Text.ElideRight
-              horizontalAlignment: Text.AlignLeft
+              text: displayString
+              topPadding: 12
+              bottomPadding: 12
+              leftPadding: 24
+              rightPadding: 24
+              ButtonGroup.group: buttonGroup
+            }
+
+            CheckBox {
+              id: checkBoxButton
+
+              visible: featureListModel.allowMulti
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.left: parent.left
+              text: displayString
+              topPadding: 12
+              bottomPadding: 12
+              leftPadding: 24
+              rightPadding: 24
             }
 
             /* bottom border */
@@ -124,12 +148,21 @@ Item {
             }
 
             MouseArea {
-              anchors.left: parent.left
-              anchors.top: parent.top
-              anchors.bottom: parent.bottom
+              anchors.fill: parent
+              propagateComposedEvents: true
+
               onClicked: {
-                locator.triggerResultAtRow(index)
-                locatorItem.state = "off"
+                var allowMulti = resultsList.model.allowMulti;
+                var popupRef = popup;
+
+                // after this line, all the references get wrong, that's why we have `popupRef` defined above
+                model.checked = !model.checked
+
+                if (!allowMulti) {
+                  popupRef.close()
+                  popupRef.apply()
+                  popupRef.finished()
+                }
               }
             }
           }
@@ -137,6 +170,8 @@ Item {
       }
     }
   }
+
+  ButtonGroup { id: buttonGroup }
 
   RowLayout {
     anchors { left: parent.left; right: parent.right }

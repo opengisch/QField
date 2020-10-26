@@ -19,13 +19,16 @@ Item {
 
   RelationCombobox {
     id: valueRelationCombobox
-    visible: !config['AllowMulti']
+
     property var _relation: undefined
     enabled: isEnabled
 
-    FeatureListModel {
+    FeatureCheckListModel {
       id: featureListModel
 
+      attributeField: field
+      //passing "" instead of undefined, so the model is cleared on adding new features
+      attributeValue: value !== undefined ? value : ""
       currentLayer: qgisProject.mapLayer(config['Layer'])
       currentFormFeature: currentFeature
       keyField: config['Key']
@@ -33,6 +36,10 @@ Item {
       addNull: config['AllowNull']
       orderByValue: config['OrderByValue']
       filterExpression: config['FilterExpression']
+      allowMulti: config['AllowMulti']
+      onListUpdated: {
+        valueRelation.valueChanged( attributeValue, false )
+      }
     }
   }
 

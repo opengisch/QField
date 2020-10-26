@@ -141,9 +141,56 @@ void FeatureCheckListModel::setAttributeField( const QgsField &field )
   mAttributeField = field;
 }
 
+bool FeatureCheckListModel::allowMulti() const
+{
+  return mAllowMulti;
+}
+
+void FeatureCheckListModel::setAllowMulti( bool allowMulti )
+{
+  if ( mAllowMulti == allowMulti )
+    return;
+
+  mAllowMulti = allowMulti;
+
+  emit allowMultiChanged();
+}
+
+void FeatureCheckListModel::toggleCheckAll( const bool toggleChecked )
+{
+  if ( toggleChecked )
+  {
+    QStringList checkedEntries;
+
+    for ( int i = 0; i < rowCount(); i++ )
+      checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::KeyFieldRole ).toString() );
+
+    if ( checkedEntries != mCheckedEntries )
+    {
+      beginResetModel();
+      mCheckedEntries = checkedEntries;
+      endResetModel();
+    }
+  }
+  else
+  {
+    if ( ! mCheckedEntries.isEmpty() )
+    {
+      beginResetModel();
+      mCheckedEntries = QStringList();
+      endResetModel();
+    }
+  }
+
+}
+
 void FeatureCheckListModel::setChecked( const QModelIndex &index )
 {
   beginResetModel();
+
+  if ( !mAllowMulti )
+    mCheckedEntries.clear();
+
   mCheckedEntries.append( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   endResetModel();
 
@@ -158,7 +205,6 @@ void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
 
   emit listUpdated();
 }
-
 
 QVariant::Type FeatureCheckListModel::fkType() const
 {
