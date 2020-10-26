@@ -242,7 +242,11 @@ void FeatureListModel::processReloadLayer()
 
   if ( !mSearchTerm.isEmpty() )
   {
-    QString searchTermExpression = QStringLiteral( "array_length( array_filter( string_to_array( %1, ' ' ),  strpos(upper( @element ), upper( %2 ) ) > 0 ) ) > 0" )
+    QString searchTermExpression = QStringLiteral( " strpos(upper( %1 ), upper( %2 ) ) > 0 "
+                                                   " OR "
+                                                   " array_length( "
+                                                   " array_filter( string_to_array( %1, ' ' ),  strpos(upper( @element ), upper( %2 ) ) > 0 ) "
+                                                   " ) > 0 " )
         .arg( QgsExpression::quotedColumnRef( mDisplayValueField ), QgsExpression::quotedValue( mSearchTerm ) );
 
     if ( mFilterExpression.isEmpty() )
