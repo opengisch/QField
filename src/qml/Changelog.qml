@@ -139,7 +139,7 @@ Item {
             changelogBody.text = changelogPeffix + changelog
             changelogBody.isSuccess = true
           } catch (err) {
-            changelogBody.text = qsTr('Temporarily cannot retrieve the changelog. Please check your internet connection.')
+            changelogBody.text = qsTr('Cannot retrieve the changelog. Please check your internet connection.')
           }
         }
       }
