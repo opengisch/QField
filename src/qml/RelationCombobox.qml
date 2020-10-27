@@ -244,6 +244,29 @@ Item {
         }
       }
 
+      Image {
+        id: clearButton
+        z: 1
+        width: 20
+        height: 20
+        source: Theme.getThemeIcon("ic_clear_black_18dp")
+        sourceSize.width: 20 * screen.devicePixelRatio
+        sourceSize.height: 20 * screen.devicePixelRatio
+        fillMode: Image.PreserveAspectFit
+        anchors.top: searchField.top
+        anchors.right: searchField.right
+        anchors.topMargin: 12
+        anchors.rightMargin: 12
+        opacity: searchField.text.length > 0 ? 1 : 0.25
+
+        MouseArea {
+          anchors.fill: parent
+          onClicked: {
+            searchField.text = '';
+          }
+        }
+      }
+
       ScrollView {
         padding: 20
 
