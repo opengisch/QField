@@ -199,6 +199,10 @@ Item {
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
     focus: visible
 
+    onOpened: {
+      searchField.forceActiveFocus()
+    }
+
     onClosed: {
       searchFeaturePopup.cancel()
       searchFeaturePopup.finished()
