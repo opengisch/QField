@@ -86,25 +86,26 @@ QVariant FeatureCheckListModel::attributeValue() const
     }
   }
 
-  if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+  if ( mAllowMulti )
   {
-    value = vl;
-  }
-  else if ( ! mAllowMulti )
-  {
-    value = vl.first();
+    if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+    {
+      value = vl;
+    }
+    else
+    {
+      //make string
+#if VERSION_INT >= 30600
+      value = QgsPostgresStringUtils::buildArray( vl );
+#else
+      QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
+#endif
+    }
   }
   else
   {
-    //make string
-#if VERSION_INT >= 30600
-    value = QgsPostgresStringUtils::buildArray( vl );
-#else
-    QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
-#endif
+    value = vl.first();
   }
-
-  qDebug() << "Value is : " << value;
 
   return value;
 }
@@ -113,15 +114,22 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 {
   QStringList checkedEntries;
 
-  if ( mAttributeField.type() == QVariant::Map )
+  if ( mAllowMulti )
   {
-    //store as QVariantList because the field type supports data structure
-    checkedEntries = attributeValue.toStringList();
+    if ( mAttributeField.type() == QVariant::Map )
+    {
+      //store as QVariantList because the field type supports data structure
+      checkedEntries = attributeValue.toStringList();
+    }
+    else
+    {
+      //store as a formatted string because the fields supports only string
+      checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+    }
   }
   else
   {
-    //store as a formatted string because the fields supports only string
-    checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+    checkedEntries << attributeValue.toString();
   }
 
   if ( mCheckedEntries == checkedEntries )
