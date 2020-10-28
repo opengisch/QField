@@ -221,6 +221,7 @@ Item {
           searchFeaturePopup.finished()
         }
         onCancel: {
+          searchFeaturePopup.close()
           searchFeaturePopup.cancel()
           searchFeaturePopup.finished()
         }
