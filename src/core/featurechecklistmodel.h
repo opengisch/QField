@@ -95,7 +95,7 @@ class FeatureCheckListModel : public FeatureListModel
 
     QgsField mAttributeField;
     QStringList mCheckedEntries;
-    int mAllowMulti = true;
+    int mAllowMulti = false;
 };
 
 #endif // FEATURECHECKLISTMODEL_H

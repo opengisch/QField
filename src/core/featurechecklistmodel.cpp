@@ -129,7 +129,18 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
   }
   else
   {
-    checkedEntries << attributeValue.toString();
+    if ( attributeValue.canConvert( QVariant::String ) )
+    {
+      QString value = attributeValue.value<QString>();
+
+      if ( ! value.isEmpty() )
+        checkedEntries << value;
+    }
+
+    if ( checkedEntries.isEmpty() )
+    {
+      checkedEntries = mCheckedEntries;
+    }
   }
 
   if ( mCheckedEntries == checkedEntries )
