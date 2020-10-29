@@ -73,8 +73,14 @@ class FeatureCheckListModel : public FeatureListModel
        */
     void setAttributeField( const QgsField &field );
 
-
+    /**
+     * Whether multiple selected items are allowed
+     */
     bool allowMulti() const;
+
+    /**
+     * Sets whether multiple selected items are allowed
+     */
     void setAllowMulti( bool allowMulti );
 
     /**
@@ -95,7 +101,7 @@ class FeatureCheckListModel : public FeatureListModel
 
     QgsField mAttributeField;
     QStringList mCheckedEntries;
-    int mAllowMulti = false;
+    bool mAllowMulti = false;
 };
 
 #endif // FEATURECHECKLISTMODEL_H

@@ -145,10 +145,11 @@ class FeatureListModel : public QAbstractItemModel
      * Search term to filter features with. Empty string if no search is applied.
      */
     QString searchTerm() const;
+
     /**
      * Sets a search term to filter features with. Empty string if no search is applied.
      */
-    void setSearchTerm( const QString &filterExpression );
+    void setSearchTerm( const QString &searchTerm );
 
     /**
      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
