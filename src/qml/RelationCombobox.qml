@@ -204,6 +204,7 @@ Item {
     }
 
     onClosed: {
+      searchField.text = ''
       searchFeaturePopup.cancel()
       searchFeaturePopup.finished()
     }
