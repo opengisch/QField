@@ -22,6 +22,7 @@ Item {
 
     property var _relation: undefined
     enabled: isEnabled
+    visible: Number(config['AllowMulti']) !== 1
 
     FeatureCheckListModel {
       id: featureListModel
