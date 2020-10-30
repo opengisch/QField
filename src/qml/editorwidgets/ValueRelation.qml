@@ -14,7 +14,7 @@ Item {
 
   signal valueChanged(var value, bool isNull)
 
-  height: !config['AllowMulti'] ? valueRelationCombobox.height : valueRelationList.height
+  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
   enabled: true
 
   RelationCombobox {
@@ -37,7 +37,7 @@ Item {
       addNull: config['AllowNull']
       orderByValue: config['OrderByValue']
       filterExpression: config['FilterExpression']
-      allowMulti: config['AllowMulti']
+      allowMulti: Number(config['AllowMulti']) === 1
       onListUpdated: {
         valueRelation.valueChanged( attributeValue, false )
       }

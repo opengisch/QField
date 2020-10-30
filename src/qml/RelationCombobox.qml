@@ -323,7 +323,7 @@ Item {
             CheckBox {
               id: checkBoxButton
 
-              visible: featureListModel.allowMulti
+              visible: !!featureListModel.allowMulti
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
