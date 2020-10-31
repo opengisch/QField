@@ -64,7 +64,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "af" ); }
 
-    void prepare( const QString &string, const QgsLocatorContext &locatorContext ) override;
+    QStringList prepare( const QString &string, const QgsLocatorContext &locatorContext ) override;
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
     void triggerResult( const QgsLocatorResult &result ) override;
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
