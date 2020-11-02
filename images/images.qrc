@@ -65,11 +65,6 @@
         <file>themes/qfield/xxxhdpi/ic_menu_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_my_location_blue_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_my_location_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_form_black_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_form_black_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_form_black_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_form_black_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_form_black_48dp.png</file>
         <file>themes/qfield/hdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_map_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_map_white_24dp.png</file>
@@ -156,11 +151,6 @@
         <file>themes/qfield/xhdpi/ic_camera_alt_white_36dp.png</file>
         <file>themes/qfield/xxhdpi/ic_camera_alt_white_36dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_camera_alt_white_36dp.png</file>
-        <file>themes/qfield/hdpi/ic_baseline_list_black_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_baseline_list_black_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_baseline_list_black_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_baseline_list_black_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_baseline_list_black_48dp.png</file>
         <file>themes/qfield/hdpi/ic_broken_image_black_24dp.png</file>
         <file>themes/qfield/hdpi/ic_camera_alt_border_24dp.png</file>
         <file>themes/qfield/mdpi/ic_broken_image_black_24dp.png</file>
@@ -315,11 +305,6 @@
         <file>themes/qfield/xhdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_ring_tool_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_view_black_48dp.png</file>
-        <file>themes/qfield/mdpi/ic_view_black_48dp.png</file>
-        <file>themes/qfield/xhdpi/ic_view_black_48dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_view_black_48dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_view_black_48dp.png</file>
         <file>themes/qfield/hdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/mdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/xhdpi/ic_view_green_48dp.png</file>
