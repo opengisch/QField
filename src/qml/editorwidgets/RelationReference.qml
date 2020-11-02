@@ -39,7 +39,7 @@ Row {
   Image {
     id: viewButton
     anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
-    source: Theme.getThemeIcon("ic_view_black_48dp")
+    source: Theme.getThemeIcon("ic_view_green_48dp")
     enabled: showOpenFormButton
     width: showOpenFormButton? 18 : 0
     height: 18
