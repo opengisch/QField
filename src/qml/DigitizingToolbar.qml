@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import org.qgis 1.0
 import Theme 1.0
@@ -53,7 +54,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
-      cancel()
+      cancelDialog.open();
     }
   }
 
@@ -147,6 +148,33 @@ VisibilityFadingRow {
         confirm()
       else
         addVertex()
+    }
+  }
+
+  Dialog {
+    id: cancelDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Cancel digitizing" )
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "You are about to discard the digitized geometry, is that your intention?" )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      cancel();
+      visible = false;
+    }
+    onRejected: {
+      visible = false;
     }
   }
 

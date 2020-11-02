@@ -150,7 +150,7 @@ ApplicationWindow {
     DragHandler {
         id: freehandHandler
         property bool isDigitizing: false
-        enabled: freehandButton.freehandDigitizing && freehandButton.visible
+        enabled: freehandButton.visible && freehandButton.freehandDigitizing
         acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
