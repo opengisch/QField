@@ -53,6 +53,8 @@ class RubberbandModel : public QObject
   public:
     explicit RubberbandModel( QObject *parent = nullptr );
 
+    Q_INVOKABLE QgsPoint coordinateAt( const int index) const;
+
     int vertexCount() const;
 
     bool isEmpty() const;

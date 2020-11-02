@@ -196,6 +196,14 @@ QgsPoint RubberbandModel::currentCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex );
 }
 
+QgsPoint RubberbandModel::coordinateAt( const int index ) const
+{
+  if ( index >= mPointList.count() || index < 0 )
+    return QgsPoint();
+
+  return mPointList.at( index );
+}
+
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   // play safe, but try to find out

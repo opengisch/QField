@@ -189,8 +189,8 @@ ApplicationWindow {
             if ( !freehandHandler.active &&
                  point.position.x >= digitizingToolbarCoordinates.x && point.position.x <= digitizingToolbarCoordinates.x + digitizingToolbar.width &&
                  point.position.y >= digitizingToolbarCoordinates.y && point.position.y <= digitizingToolbarCoordinates.y + digitizingToolbar.height ) {
-                // when hovering digitizing toolbar, reset coordinate locator position, nicer UX
-                coordinateLocator.sourceLocation = undefined
+                // when hovering digitizing toolbar, reset coordinate locator position for nicer UX
+                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.coordinateAt( digitizingToolbar.rubberbandModel.vertexCount - 2 ) );
             } else {
                 // after a click, it seems that the position is sent once at 0,0 => weird
                 if (point.position !== Qt.point(0, 0))
