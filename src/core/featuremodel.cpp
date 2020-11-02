@@ -475,9 +475,10 @@ void FeatureModel::applyGeometry()
   {
     const double precision = mLayer->geometryOptions()->geometryPrecision();
     QgsGeometry snappedGeometry = geometry.snappedToGrid( precision, precision );
-    geometry = snappedGeometry.makeValid();
+    geometry = snappedGeometry;
   }
 
+  geometry = geometry.makeValid();
   mFeature.setGeometry( geometry );
 }
 
