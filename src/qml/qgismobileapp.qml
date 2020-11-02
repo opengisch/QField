@@ -150,7 +150,7 @@ ApplicationWindow {
     DragHandler {
         id: freehandHandler
         property bool isDigitizing: false
-        enabled: freehandButton.visible && freehandButton.freehandDigitizing
+        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen
         acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
@@ -180,7 +180,7 @@ ApplicationWindow {
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched && !digitizingToolbar.rubberbandModel.frozen
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
