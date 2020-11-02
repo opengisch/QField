@@ -8,7 +8,7 @@ import org.qgis 1.0
 import Theme 1.0
 import ".."
 
-Row {
+Item {
   anchors { left: parent.left; right: parent.right; }
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true

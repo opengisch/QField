@@ -60,22 +60,12 @@ Item {
         anchors.fill: parent
         propagateComposedEvents: true
 
-        onClicked: mouse.accepted = false
+        onClicked: { mouse.accepted = false; }
         onPressed: { forceActiveFocus(); mouse.accepted = false; }
         onReleased: mouse.accepted = false;
         onDoubleClicked: mouse.accepted = false;
         onPositionChanged: mouse.accepted = false;
         onPressAndHold: mouse.accepted = false;
-      }
-
-      // [hidpi fixes]
-      delegate: ItemDelegate {
-        width: comboBox.width
-        height: 36
-        text: comboBox.textRole ? (Array.isArray(comboBox.model) ? modelData[comboBox.textRole] : model[comboBox.textRole]) : modelData
-        font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-        font.pointSize: Theme.defaultFont.pointSize
-        highlighted: comboBox.highlightedIndex == index
       }
 
       contentItem: Text {
@@ -87,6 +77,11 @@ Item {
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
         color: value === undefined || !enabled ? 'gray' : 'black'
+      }
+
+      FontMetrics {
+        id: fontMetrics
+        font: textLabel.font
       }
 
       background: Item {
@@ -110,7 +105,6 @@ Item {
           radius: 2
         }
       }
-      // [/hidpi fixes]
     }
 
     Image {
