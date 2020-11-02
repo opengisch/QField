@@ -185,9 +185,17 @@ ApplicationWindow {
         grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
-            // after a click, it seems that the position is sent once at 0,0 => weird
-            if (point.position !== Qt.point(0, 0))
-                coordinateLocator.sourceLocation = point.position
+            var digitizingToolbarCoordinates = digitizingToolbar.mapToItem(mainWindow.contentItem, 0, 0)
+            if ( !freehandHandler.active &&
+                 point.position.x >= digitizingToolbarCoordinates.x && point.position.x <= digitizingToolbarCoordinates.x + digitizingToolbar.width &&
+                 point.position.y >= digitizingToolbarCoordinates.y && point.position.y <= digitizingToolbarCoordinates.y + digitizingToolbar.height ) {
+                // when hovering digitizing toolbar, reset coordinate locator position, nicer UX
+                coordinateLocator.sourceLocation = undefined
+            } else {
+                // after a click, it seems that the position is sent once at 0,0 => weird
+                if (point.position !== Qt.point(0, 0))
+                    coordinateLocator.sourceLocation = point.position
+            }
         }
 
         onActiveChanged: {
