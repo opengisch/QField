@@ -196,12 +196,12 @@ QgsPoint RubberbandModel::currentCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex );
 }
 
-QgsPoint RubberbandModel::coordinateAt( const int index ) const
+QgsPoint RubberbandModel::lastCoordinate() const
 {
-  if ( index >= mPointList.count() || index < 0 )
+  if ( mPointList.isEmpty() )
     return QgsPoint();
 
-  return mPointList.at( index );
+  return mPointList.at( mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
 }
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
