@@ -140,7 +140,7 @@ Item {
     onFeatureSaved: {
       var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox._relation.resolveReferencedField(field.name))
       var index = featureListModel.findKey(referencedValue)
-      if ( index < 0 ) {
+      if ( ( featureListModel.addNull == true && index < 1 ) || index < 0 ) {
         // model not yet reloaded - keep the value and set it onModelReset
         comboBox._cachedCurrentValue = referencedValue
       } else {
