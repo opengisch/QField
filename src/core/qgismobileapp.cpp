@@ -18,6 +18,7 @@
 #include <QApplication>
 
 #include <unistd.h>
+#include <stdlib.h>
 
 #include <QStandardPaths>
 #include <QtQml/QQmlEngine>
@@ -129,9 +130,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
   //set localized data paths
-  QStringList localizedDataPaths = mPlatformUtils.localizedDataPaths().split( ';' );
-  if ( localizedDataPaths.size() != 0 )
+  if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
   {
+    QStringList localizedDataPaths;
+    localizedDataPaths << mPlatformUtils.qfieldDataDir() + QStringLiteral( "basemaps/" );
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
   }
 
@@ -152,6 +154,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
+
+  if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
+  {
+    setenv( "PGSYSCONFDIR", mPlatformUtils.qfieldDataDir().toUtf8(), true );
+  }
 
   QSettings settings;
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
