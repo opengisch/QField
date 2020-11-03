@@ -51,7 +51,7 @@ QString PlatformUtilities::qgsProject() const
   return QString();
 }
 
-QString PlatformUtilities::localizedDataPaths() const
+QString PlatformUtilities::qfieldDataDir() const
 {
   return QString();
 }
