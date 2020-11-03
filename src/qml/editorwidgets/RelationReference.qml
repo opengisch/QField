@@ -40,14 +40,14 @@ Item {
     id: viewButton
     anchors { right: parent.right; top: relationReference.top; topMargin: relationReference.childrenRect.height / 2 - 9 }
     source: Theme.getThemeIcon("ic_view_green_48dp")
-    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined
+    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
     width: enabled ? 18 : 0
     height: 18
 
     MouseArea {
       anchors.fill: parent
       onClicked: {
-        if ( relationReference.currentKeyValue !== undefined ) {
+        if ( relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '' ) {
           relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly'
           relationReference.embeddedFeatureForm.currentLayer = featureListModel.currentLayer
           relationReference.embeddedFeatureForm.feature = featureListModel.getFeatureFromKeyValue( relationReference.currentKeyValue )
