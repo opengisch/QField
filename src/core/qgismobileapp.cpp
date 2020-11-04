@@ -160,10 +160,39 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
   {
-    char **newPaths = new char *[1];
-    newPaths[0] = strdup( QStringLiteral( "%1/proj/" ).arg( mPlatformUtils.qfieldDataDir() ).toUtf8().constData() );
-    proj_context_set_search_paths( nullptr, 1, newPaths );
-    delete newPaths[0];
+    // add extra proj search path to allow copying of transformation grid files
+    QString path( proj_info().searchpath );
+    QStringList paths;
+#ifdef Q_OS_WIN
+    paths = path.split( ';' );
+#else
+    paths = path.split( ':' );
+#endif
+
+    // thin out duplicates from paths -- see https://github.com/OSGeo/proj.4/pull/1498
+    QSet<QString> existing;
+    QStringList searchPaths;
+    searchPaths.reserve( paths.count() );
+    for ( QString &p : paths )
+    {
+      if ( existing.contains( p ) )
+        continue;
+
+      existing.insert( p );
+      searchPaths << p;
+    }
+
+    searchPaths << QStringLiteral( "%1/proj/" ).arg( mPlatformUtils.qfieldDataDir() );
+    char **newPaths = new char *[searchPaths.count()];
+    for ( int i = 0; i < searchPaths.count(); ++i )
+    {
+      newPaths[i] = strdup( searchPaths.at( i ).toUtf8().constData() );
+    }
+    proj_context_set_search_paths( nullptr, searchPaths.count(), newPaths );
+    for ( int i = 0; i < searchPaths.count(); ++i )
+    {
+      free( newPaths[i] );
+    }
     delete [] newPaths;
 
     setenv( "PGSYSCONFDIR", mPlatformUtils.qfieldDataDir().toUtf8(), true );
