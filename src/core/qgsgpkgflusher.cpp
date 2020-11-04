@@ -33,8 +33,13 @@ class Flusher : public QObject
 
     void flush( const QString &filename );
 
+    void stop();
+    void start();
+    bool isStopped() const;
+
   private:
     QMap<QString, QTimer *> mScheduledFlushes;
+    bool mIsStopped = false;
 };
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )
@@ -90,8 +95,26 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> &layers )
   }
 }
 
+void QgsGpkgFlusher::stop()
+{
+  mFlusher->stop();
+}
+
+void QgsGpkgFlusher::start()
+{
+  mFlusher->start();
+}
+
+bool QgsGpkgFlusher::isStopped() const
+{
+  return mFlusher->isStopped();
+}
+
 void Flusher::scheduleFlush( const QString &filename )
 {
+  if ( mIsStopped )
+    return;
+
   if ( mScheduledFlushes.contains( filename ) )
   {
     mScheduledFlushes.value( filename )->start( 500 );
@@ -128,6 +151,30 @@ void Flusher::flush( const QString &filename )
     QgsMessageLog::logMessage( QObject::tr( "Could not flush database %1 (%3) " ).arg( filename, error ) );
     mScheduledFlushes[filename]->start( 500 );
   }
+}
+
+void Flusher::stop()
+{
+  mIsStopped = true;
+
+  const QStringList scheduledFlushesFileNames = mScheduledFlushes.keys();
+  for ( const QString &fileName : scheduledFlushesFileNames )
+  {
+    mScheduledFlushes.value( fileName )->stop();
+    mScheduledFlushes.remove( fileName );
+
+    flush( fileName );
+  }
+}
+
+void Flusher::start()
+{
+  mIsStopped = false;
+}
+
+bool Flusher::isStopped() const
+{
+  return mIsStopped;
 }
 
 #include "qgsgpkgflusher.moc"
