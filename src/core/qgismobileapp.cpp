@@ -20,6 +20,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <proj.h>
+
 #include <QStandardPaths>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
@@ -158,6 +160,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
   {
+    char **newPaths = new char *[1];
+    newPaths[0] = strdup( QStringLiteral( "%1/proj/" ).arg( mPlatformUtils.qfieldDataDir() ).toUtf8().constData() );
+    proj_context_set_search_paths( nullptr, 1, newPaths );
+    delete newPaths[0];
+    delete [] newPaths;
+
     setenv( "PGSYSCONFDIR", mPlatformUtils.qfieldDataDir().toUtf8(), true );
   }
 
