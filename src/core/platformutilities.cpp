@@ -20,6 +20,7 @@
 
 #include "platformutilities.h"
 #include "projectsource.h"
+
 #include <QDebug>
 #include <QDir>
 #include <QDesktopServices>
@@ -53,7 +54,20 @@ QString PlatformUtilities::qgsProject() const
 
 QString PlatformUtilities::qfieldDataDir() const
 {
-  return QString();
+  return QStringLiteral( "/home/webmaster/.local/share/QGIS/QGIS3/profiles/default/" );//QString();
+}
+
+QStringList PlatformUtilities::availableGrids() const
+{
+  if ( !qfieldDataDir().isEmpty() )
+  {
+    QDir gridsDir( qfieldDataDir() + "proj/" );
+    if ( gridsDir.exists() )
+    {
+      return gridsDir.entryList( QStringList() << QStringLiteral( "*.tif" ) << QStringLiteral( "*.gtx" ) << QStringLiteral( "*.gsb" ) );
+    }
+  }
+  return QStringList();
 }
 
 bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const

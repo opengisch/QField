@@ -17,6 +17,7 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
+  property alias verticalGrid: registry.verticalGrid
 
   Settings {
     id: registry
@@ -28,6 +29,7 @@ Page {
     property bool nativeCamera: true
     property bool autoSave
     property bool mouseAsTouchScreen
+    property string verticalGrid: ""
   }
 
   ListModel {
@@ -102,6 +104,12 @@ Page {
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
+      TabButton {
+        height: 48
+        text: qsTr("Grids")
+        font: Theme.defaultFont
+        anchors.verticalCenter : parent.verticalCenter
+      }
     }
 
     StackLayout {
@@ -165,6 +173,40 @@ Page {
           anchors.fill: parent
           anchors.margins: 4
         }
+      }
+
+      ColumnLayout {
+          anchors.fill: parent
+          anchors.margins: 4
+
+          Label {
+              text: qsTr( "Select a vertical grid shift in the combo box below to increase vertical location accuracy. Leave blank to disable this feature." )
+              font: Theme.defaultFont
+
+              wrapMode: Text.WordWrap
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: contentHeight
+              Layout.maximumHeight: contentHeight
+          }
+
+          ComboBox {
+              Layout.fillWidth: true
+              Layout.rightMargin: 10
+              model: [ "" ].concat( platformUtilities.availableGrids() );
+
+              onCurrentIndexChanged: {
+                  if ( currentIndex > 0 ) {
+                      verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
+                  } else {
+                      verticalGrid = currentText;
+                  }
+              }
+
+              Component.onCompleted: {
+                  currentIndex = find(verticalGrid);
+              }
+          }
       }
     }
   }
