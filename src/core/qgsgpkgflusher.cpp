@@ -29,12 +29,30 @@ class Flusher : public QObject
     Q_OBJECT
 
   public slots:
+    /**
+     * Schedules a new flush for the given \a filename after 500ms.
+     * If a new flush is scheduled for the same file before the actual flush is performed, the timer is reset to wait another 500ms.
+     */
     void scheduleFlush( const QString &filename );
 
+    /**
+     * Flushes the contents of the given \a filename.
+     */
     void flush( const QString &filename );
 
+    /**
+     * Immediately flushes all currently scheduled tasks and returns. After stopping the flusher, requesting a new flush will be ignored.
+     */
     void stop();
+
+    /**
+     * Reenables requests for regular flushing.
+     */
     void start();
+
+    /**
+     * Returns whether the flusher is stopped and ignores flush requests.
+     */
     bool isStopped() const;
 
   private:
