@@ -14,6 +14,12 @@
  ***************************************************************************/
 
 #include "qgsquickcoordinatetransformer.h"
+
+#include <QSettings>
+
+#include <vector>
+
+#include <proj.h>
 #include <qgslogger.h>
 
 QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer( QObject *parent )
@@ -102,7 +108,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
   double y = mSourcePosition.y();
   double z = mSourcePosition.z();
 
-  // If Z is NaN, coordinate transformation (proj4) will
+  // If Z is NaN, proj's coordinate transformation will
   // also set X and Y to NaN. But we also want to get projected
   // coords if we do not have any Z coordinate.
   if ( std::isnan( z ) )
@@ -127,8 +133,26 @@ void QgsQuickCoordinateTransformer::updatePosition()
   if ( mSkipAltitudeTransformation )
     z = mSourcePosition.z();
 
-  mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( z + mDeltaZ );
+  QSettings settings;
+  const QString verticalGrid = settings.value( QStringLiteral( "verticalGrid" ), QString() ).toString();
+  if ( !verticalGrid.isEmpty () )
+  {
+    std::vector< double > xVector = { mSourcePosition.x() };
+    std::vector< double > yVector = { mSourcePosition.y() };
+    std::vector< double > zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    PJ *P = proj_create( 0, QStringLiteral( "+proj=vgridshift +grids=%1" ).arg( verticalGrid ).toUtf8() );
+    proj_errno_reset( P );
+    proj_trans_generic( P, PJ_FWD,
+                        xVector.data(), sizeof( double ), 1,
+                        yVector.data(), sizeof( double ), 1,
+                        zVector.data(), sizeof( double ), 1,
+                        nullptr, sizeof( double ), 0);
+    if ( proj_errno( P ) == 0 && !std::isinf( zVector[0] ) )
+      z = zVector[0];
+
+    mProjectedPosition = QgsPoint( x, y );
+    mProjectedPosition.addZValue( z + mDeltaZ );
+  }
 
   emit projectedPositionChanged();
 }
