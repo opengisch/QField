@@ -27,6 +27,8 @@ jobs:
           ./scripts/ci/env_gh.sh
           ./scripts/ci/setup_signing_key.sh
       - name: Test
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           ./test/test_version_number.sh
           ./scripts/ci/pull_translations.sh
@@ -63,6 +65,7 @@ jobs:
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           ./scripts/ci/docker_pull.sh
