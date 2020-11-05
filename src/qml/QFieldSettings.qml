@@ -175,41 +175,48 @@ Page {
         }
       }
 
-      ColumnLayout {
-          anchors.fill: parent
-          anchors.margins: 4
+      Item {
+          ColumnLayout {
+              anchors.fill: parent
+              anchors.topMargin: 8
+              anchors.leftMargin: 18
+              anchors.rightMargin: 18
 
-          Label {
-              text: qsTr( "Select a vertical grid shift in the combo box below to increase vertical location accuracy. Leave blank to disable this feature." )
-              font: Theme.defaultFont
+              Label {
+                  text: qsTr( "Select a vertical grid shift in the combo box below to increase vertical location accuracy. Leave blank to disable this feature." )
+                  font: Theme.defaultFont
 
-              wrapMode: Text.WordWrap
-              Layout.fillWidth: true
-              Layout.fillHeight: true
-              Layout.minimumHeight: contentHeight
-              Layout.maximumHeight: contentHeight
-          }
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+              }
 
-          ComboBox {
-              Layout.fillWidth: true
-              Layout.rightMargin: 10
-              model: [ "" ].concat( platformUtilities.availableGrids() );
+              ComboBox {
+                  Layout.fillWidth: true
+                  model: [ "" ].concat( platformUtilities.availableGrids() );
 
-              onCurrentIndexChanged: {
-                  if ( currentIndex > 0 ) {
-                      verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
-                  } else {
-                      verticalGrid = currentText;
+                  onCurrentIndexChanged: {
+                      if ( currentIndex > 0 ) {
+                          verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
+                      } else {
+                          verticalGrid = currentText;
+                      }
+                  }
+
+                  Component.onCompleted: {
+                      currentIndex = find(verticalGrid);
                   }
               }
 
-              Component.onCompleted: {
-                  currentIndex = find(verticalGrid);
+              Item {
+                  // spacer item
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
               }
           }
       }
     }
   }
+
   header: PageHeader {
       title: qsTr("QField Settings")
 
