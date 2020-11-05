@@ -140,19 +140,21 @@ void QgsQuickCoordinateTransformer::updatePosition()
     std::vector< double > xVector = { mSourcePosition.x() };
     std::vector< double > yVector = { mSourcePosition.y() };
     std::vector< double > zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
-    PJ *P = proj_create( 0, QStringLiteral( "+proj=vgridshift +grids=%1" ).arg( verticalGrid ).toUtf8() );
-    proj_errno_reset( P );
+    PJ *P = proj_create( PJ_DEFAULT_CTX, QStringLiteral( "+proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=%1 +step +proj=unitconvert +xy_in=rad +xy_out=deg" ).arg( verticalGrid ).toUtf8().constData() );
     proj_trans_generic( P, PJ_FWD,
                         xVector.data(), sizeof( double ), 1,
                         yVector.data(), sizeof( double ), 1,
                         zVector.data(), sizeof( double ), 1,
                         nullptr, sizeof( double ), 0);
-    if ( proj_errno( P ) == 0 && !std::isinf( zVector[0] ) )
-      z = zVector[0];
+    int err = proj_errno( P );
+    proj_destroy( P );
 
-    mProjectedPosition = QgsPoint( x, y );
-    mProjectedPosition.addZValue( z + mDeltaZ );
+    if ( err == 0 && !std::isinf( zVector[0] ) )
+      z = zVector[0];
   }
+
+  mProjectedPosition = QgsPoint( x, y );
+  mProjectedPosition.addZValue( z + mDeltaZ );
 
   emit projectedPositionChanged();
 }
