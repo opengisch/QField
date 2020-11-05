@@ -41,24 +41,24 @@ class Flusher : public QObject
     void flush( const QString &filename );
 
     /**
-     * Immediately flushes all currently scheduled tasks and returns. After stopping the flusher, requesting a new flush will be ignored.
+     * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
      */
-    void stop();
+    void stop( const QString &fileName );
 
     /**
-     * Reenables requests for regular flushing.
+     * Reenables scheduling flushes for a given \a fileName.
      */
-    void start();
+    void start( const QString &fileName );
 
     /**
-     * Returns whether the flusher is stopped and ignores flush requests.
+     * Returns whether the flusher is stopped for a given \a fileName.
      */
-    bool isStopped() const;
+    bool isStopped( const QString &fileName ) const;
 
   private:
     QMutex mMutex;
     QMap<QString, QTimer *> mScheduledFlushes;
-    bool mIsStopped = false;
+    QMap<QString, bool> mStoppedFlushes;
 };
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )
@@ -114,24 +114,24 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> &layers )
   }
 }
 
-void QgsGpkgFlusher::stop()
+void QgsGpkgFlusher::stop( const QString &fileName )
 {
-  mFlusher->stop();
+  mFlusher->stop( fileName );
 }
 
-void QgsGpkgFlusher::start()
+void QgsGpkgFlusher::start( const QString &fileName )
 {
-  mFlusher->start();
+  mFlusher->start( fileName );
 }
 
-bool QgsGpkgFlusher::isStopped() const
+bool QgsGpkgFlusher::isStopped( const QString &fileName ) const
 {
-  return mFlusher->isStopped();
+  return mFlusher->isStopped( fileName );
 }
 
 void Flusher::scheduleFlush( const QString &filename )
 {
-  if ( mIsStopped )
+  if ( mStoppedFlushes.value( filename, false ) )
     return;
 
   if ( mScheduledFlushes.contains( filename ) )
@@ -150,7 +150,7 @@ void Flusher::scheduleFlush( const QString &filename )
 
 void Flusher::flush( const QString &filename )
 {
-  if ( mIsStopped )
+  if ( mStoppedFlushes.value( filename, false ) )
     return;
 
   QMutexLocker locker( &mMutex );
@@ -179,28 +179,24 @@ void Flusher::flush( const QString &filename )
   locker.unlock();
 }
 
-void Flusher::stop()
+void Flusher::stop( const QString &fileName )
 {
-  const QStringList scheduledFlushesFileNames = mScheduledFlushes.keys();
-  for ( const QString &fileName : scheduledFlushesFileNames )
-  {
-    mScheduledFlushes.value( fileName )->stop();
-    mScheduledFlushes.remove( fileName );
+  mScheduledFlushes.value( fileName )->stop();
+  mScheduledFlushes.remove( fileName );
 
-    flush( fileName );
-  }
+  flush( fileName );
 
-  mIsStopped = true;
+  mStoppedFlushes.insert( fileName, true );
 }
 
-void Flusher::start()
+void Flusher::start( const QString &fileName )
 {
-  mIsStopped = false;
+  mStoppedFlushes.remove( fileName );
 }
 
-bool Flusher::isStopped() const
+bool Flusher::isStopped( const QString &fileName ) const
 {
-  return mIsStopped;
+  return mStoppedFlushes.value( fileName, false );
 }
 
 #include "qgsgpkgflusher.moc"

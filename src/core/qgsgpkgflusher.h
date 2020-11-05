@@ -41,19 +41,19 @@ class QgsGpkgFlusher : public QObject
     ~QgsGpkgFlusher();
 
     /**
-     * Immediately flushes all currently scheduled tasks and returns. After stopping the flusher, requesting a new flush will be ignored.
+     * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
      */
-    void stop();
+    void stop( const QString &fileName );
 
     /**
-     * Reenables requests for regular flushing.
+     * Reenables scheduling a flush for a given \a fileName.
      */
-    void start();
+    void start( const QString &fileName );
 
     /**
-     * Returns whether the flusher is stopped and ignores flush requests.
+     * Returns whether the flusher is stopped for a given \a fileName
      */
-    bool isStopped() const;
+    bool isStopped( const QString &fileName ) const;
 
   signals:
 
