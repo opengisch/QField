@@ -150,6 +150,9 @@ void Flusher::scheduleFlush( const QString &filename )
 
 void Flusher::flush( const QString &filename )
 {
+  if ( mIsStopped )
+    return;
+
   QMutexLocker locker( &mMutex );
 
   sqlite3_database_unique_ptr db;
@@ -178,8 +181,6 @@ void Flusher::flush( const QString &filename )
 
 void Flusher::stop()
 {
-  mIsStopped = true;
-
   const QStringList scheduledFlushesFileNames = mScheduledFlushes.keys();
   for ( const QString &fileName : scheduledFlushesFileNames )
   {
@@ -188,6 +189,8 @@ void Flusher::stop()
 
     flush( fileName );
   }
+
+  mIsStopped = true;
 }
 
 void Flusher::start()
