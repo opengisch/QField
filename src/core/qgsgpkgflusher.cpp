@@ -28,8 +28,6 @@ class Flusher : public QObject
 {
     Q_OBJECT
 
-  public:
-    static QMutex sMutex;
   public slots:
     void scheduleFlush( const QString &filename );
 
@@ -40,6 +38,7 @@ class Flusher : public QObject
     bool isStopped() const;
 
   private:
+    QMutex mMutex;
     QMap<QString, QTimer *> mScheduledFlushes;
     bool mIsStopped = false;
 };
@@ -112,8 +111,6 @@ bool QgsGpkgFlusher::isStopped() const
   return mFlusher->isStopped();
 }
 
-QMutex Flusher::sMutex = QMutex();
-
 void Flusher::scheduleFlush( const QString &filename )
 {
   if ( mIsStopped )
@@ -135,7 +132,7 @@ void Flusher::scheduleFlush( const QString &filename )
 
 void Flusher::flush( const QString &filename )
 {
-  QMutexLocker locker( &sMutex );
+  QMutexLocker locker( &mMutex );
 
   sqlite3_database_unique_ptr db;
   int status = db.open_v2( filename, SQLITE_OPEN_READWRITE, nullptr );
