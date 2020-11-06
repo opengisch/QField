@@ -65,6 +65,7 @@ jobs:
           STOREPASS: ${{ secrets.STOREPASS }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+          export ANDROID_NDK_PLATFORM=android-29
           ./scripts/ci/docker_pull.sh
           ./scripts/ci/pull_translations.sh
           ./scripts/ci/build.sh
