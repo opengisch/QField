@@ -81,7 +81,7 @@ jobs:
           ARCH: ${{ matrix.arch }}
 
   comment:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     if: ${{ github.event_name == 'pull_request' }}
     steps:
@@ -106,7 +106,7 @@ jobs:
               - [x86](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk)
 
   cleanup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     steps:
       - name: Spring Cleaning
