@@ -748,7 +748,7 @@ ApplicationWindow {
 
       bgcolor: Theme.darkGray
 
-      property bool freehandDigitizing: settings.value( "/QField/Digitizing/FreehandActive", false )
+      property bool freehandDigitizing: settings.valueBool( "/QField/Digitizing/FreehandActive", false )
       state: freehandDigitizing ? "On" : "Off"
 
       states: [
@@ -773,7 +773,7 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        freehandDigitizing = !settings.value( "/QField/Digitizing/FreehandActive", false );
+        freehandDigitizing = !settings.valueBool( "/QField/Digitizing/FreehandActive", false );
         settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
         displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
       }
