@@ -252,6 +252,8 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
 
   mMapSettings.setRotation( 0 );
 
+  mMapSettings.setTransformContext( mProject->transformContext() );
+
   emit extentChanged();
   emit destinationCrsChanged();
   emit outputSizeChanged();
