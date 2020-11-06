@@ -184,7 +184,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
 
     searchPaths << QStringLiteral( "%1/proj/" ).arg( mPlatformUtils.qfieldDataDir() );
-    qDebug() << searchPaths;
     char **newPaths = new char *[searchPaths.count()];
     for ( int i = 0; i < searchPaths.count(); ++i )
     {
