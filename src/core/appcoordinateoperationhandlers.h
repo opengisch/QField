@@ -31,7 +31,7 @@ class AppMissingGridHandler : public QObject
     Q_OBJECT
   public:
 
-    AppMissingGridHandler( QObject *parent );
+    explicit AppMissingGridHandler( QObject *parent );
 
   signals:
 
