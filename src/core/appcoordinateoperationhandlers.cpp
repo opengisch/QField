@@ -83,7 +83,6 @@ void AppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceS
                                destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
 
   QString downloadMessage;
-  const QString gridName = grid.shortName;
   if ( !grid.url.isEmpty() )
   {
     if ( !grid.packageName.isEmpty() )
@@ -103,18 +102,13 @@ void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReference
   if ( !shouldWarnAboutPair( sourceCrs, destinationCrs ) )
     return;
 
-  const QString shortMessage = tr( "Cannot use preferred transform between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ),
-                               destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-
   QString gridMessage;
   QString downloadMessage;
-  QString gridName;
   for ( const QgsDatumTransform::GridDetails &grid : preferredOperation.grids )
   {
     if ( !grid.isAvailable )
     {
       QString m = tr( "This transformation requires the grid file “%1”, which is not available for use on the system." ).arg( grid.shortName );
-      gridName = grid.shortName;
       if ( !grid.url.isEmpty() )
       {
         if ( !grid.packageName.isEmpty() )
@@ -146,7 +140,7 @@ void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReference
                               destinationCrs.userFriendlyIdentifier() )
                               + gridMessage + accuracyMessage;
 
-  QgsMessageLog::logMessage( longMessage, QStringLiteral( "projection" ) );
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( longMessage, downloadMessage ), QStringLiteral( "projection" ) );
 }
 
 void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &error )
@@ -154,8 +148,7 @@ void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordin
   if ( !shouldWarnAboutPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
 
-  const QString shortMessage = tr( "No transform available between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-  const QString longMessage = tr( "<p>No transform is available between <i>%1</i> and <i>%2</i>.</p><p style=\"color: red\">%3</p>" ).arg( sourceCrs.userFriendlyIdentifier(), destinationCrs.userFriendlyIdentifier(), error );
+  const QString longMessage = tr( "No transform is available between <i>%1</i> and <i>%2</i>.<p style=\"color: red\">%3</p>" ).arg( sourceCrs.userFriendlyIdentifier(), destinationCrs.userFriendlyIdentifier(), error );
 
   QgsMessageLog::logMessage( longMessage, QStringLiteral( "projection" ) );
 }
@@ -170,12 +163,10 @@ void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordina
 
   QString gridMessage;
   QString downloadMessage;
-  QString gridName;
   for ( const QgsDatumTransform::GridDetails &grid : desired.grids )
   {
     if ( !grid.isAvailable )
     {
-      gridName = grid.shortName;
       QString m = tr( "This transformation requires the grid file “%1”, which is not available for use on the system." ).arg( grid.shortName );
       if ( !grid.url.isEmpty() )
       {
@@ -197,11 +188,11 @@ void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordina
 
 void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &desired )
 {
+  Q_UNUSED( desired )
   if ( !shouldWarnAboutBallparkPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
 
   const QString shortMessage = tr( "Used a ballpark transform from %1 to %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-  const QString longMessage = tr( "<p>An alternative, ballpark-only transform was used when transforming coordinates between <i>%1</i> and <i>%2</i>. The results may not match those obtained by using the preferred operation:</p><code>%3</code><p style=\"font-weight: bold\">Possibly an incorrect choice of operation was made for transformations between these reference systems. Check the Project Properties and ensure that the selected transform operations are applicable over the whole extent of the current project." ).arg( sourceCrs.userFriendlyIdentifier(), destinationCrs.userFriendlyIdentifier(), desired );
 
   QgsMessageLog::logMessage( shortMessage, QStringLiteral( "projection" ) ) ;
 }

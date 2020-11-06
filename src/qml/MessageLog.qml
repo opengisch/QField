@@ -71,6 +71,7 @@ Page {
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
               text: Message
               wrapMode: Text.WordWrap
+              textFormat: Text.RichText
             }
           }
         }
