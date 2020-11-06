@@ -280,9 +280,8 @@ Page {
           color: 'grey'
         }
 
-        WebView {
+        /* WebView {
           id: htmlItem
-          visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
           anchors {
             left: parent.left
             rightMargin: 12
@@ -293,11 +292,26 @@ Page {
             if ( !loading )
               runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) } );
           }
+        }*/
+
+        Item {
+            id: htmlLoader
+            visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
+            anchors {
+              left: parent.left
+              rightMargin: 12
+              right: parent.right
+              top: htmlLabel.bottom
+            }
         }
 
         onHtmlCodeChanged: {
           if ( visible )
+          {
+            var htmlItem = Qt.createQmlObject('import QtWebView 1.14; WebView { id: htmlItem; anchors { left: parent.left; rightMargin: 12; right: parent.right; } onLoadingChanged: if ( !loading ) runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } ); }',
+                                              htmlLoader);
             htmlItem.loadHtml(htmlContainer.htmlCode);
+          }
         }
       }
 
