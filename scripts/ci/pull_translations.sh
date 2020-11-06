@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "::group::tx-pull"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
