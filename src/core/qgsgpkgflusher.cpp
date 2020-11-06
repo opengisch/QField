@@ -181,6 +181,9 @@ void Flusher::flush( const QString &filename )
 
 void Flusher::stop( const QString &fileName )
 {
+  if ( ! mScheduledFlushes.contains( fileName ) )
+    return;
+
   mScheduledFlushes.value( fileName )->stop();
   mScheduledFlushes.remove( fileName );
 
