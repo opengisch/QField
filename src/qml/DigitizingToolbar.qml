@@ -77,9 +77,7 @@ VisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      // remove editing vertex for lines and polygons
       rubberbandModel.frozen = true
-      rubberbandModel.removeVertex()
       confirm()
     }
   }
