@@ -57,7 +57,7 @@ jobs:
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
           pip install wheel
-          pip install transifex-client
+          apt install -y transifex-client
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
