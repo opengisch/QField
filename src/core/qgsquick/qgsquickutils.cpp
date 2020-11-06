@@ -24,11 +24,12 @@
 #include <qgslogger.h>
 #include <qgsvectorlayer.h>
 #include <qgsfeature.h>
+#include <qgsunittypes.h>
 
 #include "qgsquickfeaturelayerpair.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickutils.h"
-#include <qgsunittypes.h>
+
 
 
 QgsQuickUtils::QgsQuickUtils( QObject *parent )

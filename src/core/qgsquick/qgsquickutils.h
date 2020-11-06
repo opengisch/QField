@@ -28,10 +28,11 @@
 #include <qgspoint.h>
 #include <qgspointxy.h>
 #include <qgsunittypes.h>
+#include <qgscoordinateformatter.h>
+#include <qgsvectorlayer.h>
+
 #include "qgsquickmapsettings.h"
 #include "qgsquickfeaturelayerpair.h"
-#include <qgscoordinateformatter.h>
-#include "qgsvectorlayer.h"
 
 
 class QgsFeature;
