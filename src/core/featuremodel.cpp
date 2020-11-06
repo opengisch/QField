@@ -478,7 +478,10 @@ void FeatureModel::applyGeometry()
     geometry = snappedGeometry;
   }
 
+  // Clean up the geometry
   geometry = geometry.makeValid();
+  geometry.removeDuplicateNodes( 7 );
+
   mFeature.setGeometry( geometry );
 }
 
