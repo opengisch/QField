@@ -60,7 +60,6 @@ QVector<QgsPoint> RubberbandModel::flatVertices( bool skipCurrentPoint ) const
 QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, QgsWkbTypes::Type wkbType, bool closeLine ) const
 {
   QgsPointSequence sequence;
-
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
   for ( const QgsPoint &pt : mPointList )
@@ -91,7 +90,6 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   {
     sequence.append( sequence.at( 0 ) );
   }
-
   return sequence;
 }
 
@@ -196,6 +194,14 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
 QgsPoint RubberbandModel::currentCoordinate() const
 {
   return mPointList.at( mCurrentCoordinateIndex );
+}
+
+QgsPoint RubberbandModel::lastCoordinate() const
+{
+  if ( mPointList.isEmpty() )
+    return QgsPoint();
+
+  return mPointList.at( mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
 }
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )

@@ -147,31 +147,68 @@ ApplicationWindow {
     clip: true
     property bool isBeingTouched: false
 
+    DragHandler {
+        id: freehandHandler
+        property bool isDigitizing: false
+        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen
+        acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+
+        onActiveChanged: {
+            if (!active) {
+                var screenLocation = centroid.position;
+                var screenFraction = settings.value( "/QField/Digitizing/FreehandRecenterScreenFraction", 5 );
+                var threshold = Math.min( mainWindow.width, mainWindow.height ) / screenFraction;
+                if ( screenLocation.x < threshold || screenLocation.x > mainWindow.width - threshold ||
+                        screenLocation.y < threshold || screenLocation.y > mainWindow.height - threshold )
+                {
+                    mapCanvas.mapSettings.setCenter(mapCanvas.mapSettings.screenToCoordinate(screenLocation));
+                }
+            }
+        }
+
+        onCentroidChanged: {
+            if (active) {
+                if (geometryEditorsToolbar.canvasClicked(centroid.position)) {
+                    // needed to handle freehand digitizing of rings
+                } else {
+                    currentRubberband.model.addVertex()
+                }
+            }
+        }
+    }
+
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched
+        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched && !digitizingToolbar.rubberbandModel.frozen
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
         onPointChanged: {
-          // after a click, it seems that the position is sent once at 0,0 => weird
-          if (point.position !== Qt.point(0, 0))
-            coordinateLocator.sourceLocation = point.position
+            var digitizingToolbarCoordinates = digitizingToolbar.mapToItem(mainWindow.contentItem, 0, 0)
+            if ( !freehandHandler.active &&
+                 point.position.x >= digitizingToolbarCoordinates.x && point.position.x <= digitizingToolbarCoordinates.x + digitizingToolbar.width &&
+                 point.position.y >= digitizingToolbarCoordinates.y && point.position.y <= digitizingToolbarCoordinates.y + digitizingToolbar.height ) {
+                // when hovering digitizing toolbar, reset coordinate locator position for nicer UX
+                coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen( digitizingToolbar.rubberbandModel.lastCoordinate );
+            } else {
+                // after a click, it seems that the position is sent once at 0,0 => weird
+                if (point.position !== Qt.point(0, 0))
+                    coordinateLocator.sourceLocation = point.position
+            }
         }
 
         onActiveChanged: {
             if ( !active )
-              coordinateLocator.sourceLocation = undefined
+                coordinateLocator.sourceLocation = undefined
 
         }
 
         onHoveredChanged: {
             if ( !hovered )
-              coordinateLocator.sourceLocation = undefined
+                coordinateLocator.sourceLocation = undefined
         }
     }
-
-
     Timer {
         id: resetIsBeingTouchedTimer
         interval: 750
@@ -228,6 +265,7 @@ ApplicationWindow {
 
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
+      freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
       anchors.fill: parent
 
@@ -665,7 +703,6 @@ ApplicationWindow {
       round: true
       visible: stateMachine.state === "digitize"
           && dashBoard.currentLayer
-          // NOTE: isValid is not a function
           && dashBoard.currentLayer.isValid
           && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
       state: qgisProject.topologicalEditing ? "On" : "Off"
@@ -680,7 +717,7 @@ ApplicationWindow {
           PropertyChanges {
             target: topologyButton
             iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
-            bgcolor: "#88212121"
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
 
@@ -697,6 +734,48 @@ ApplicationWindow {
       onClicked: {
         qgisProject.topologicalEditing = !qgisProject.topologicalEditing;
         displayToast( qgisProject.topologicalEditing ? qsTr( "Topological editing turned on" ) : qsTr( "Topological editing turned off" ) );
+      }
+    }
+
+    QfToolButton {
+      id: freehandButton
+      round: true
+      visible: hoverHandler.hovered && stateMachine.state === "digitize"
+          && dashBoard.currentLayer
+          && dashBoard.currentLayer.isValid
+          && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
+      iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
+
+      bgcolor: Theme.darkGray
+
+      property bool freehandDigitizing: settings.value( "/QField/Digitizing/FreehandActive", false )
+      state: freehandDigitizing ? "On" : "Off"
+
+      states: [
+        State {
+
+          name: "Off"
+          PropertyChanges {
+            target: freehandButton
+            iconSource: Theme.getThemeIcon( "ic_freehand_white_24dp" )
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: freehandButton
+            iconSource: Theme.getThemeIcon( "ic_freehand_green_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
+
+      onClicked: {
+        freehandDigitizing = !settings.value( "/QField/Digitizing/FreehandActive", false );
+        settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
+        displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
       }
     }
   }

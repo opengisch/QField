@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import org.qgis 1.0
 import Theme 1.0
@@ -53,7 +54,7 @@ VisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
-      cancel()
+      cancelDialog.open();
     }
   }
 
@@ -83,6 +84,20 @@ VisibilityFadingRow {
     }
   }
 
+  Timer {
+    id: removeVertexTimer
+    interval: 700
+    repeat: true
+
+    onTriggered: {
+      if ( !rubberbandModel || rubberbandModel.vertexCount == 0)
+        stop();
+
+      removeVertex()
+      if ( interval > 100 ) interval = interval * 0.8;
+    }
+  }
+
   QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
@@ -90,8 +105,16 @@ VisibilityFadingRow {
     round: true
     bgcolor: Theme.darkGray
 
-    onClicked: {
+    onPressed: {
       removeVertex()
+      removeVertexTimer.interval = 700
+      removeVertexTimer.restart()
+    }
+    onReleased: {
+      removeVertexTimer.stop()
+    }
+    onCanceled: {
+      removeVertexTimer.stop()
     }
   }
 
@@ -125,6 +148,33 @@ VisibilityFadingRow {
         confirm()
       else
         addVertex()
+    }
+  }
+
+  Dialog {
+    id: cancelDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Cancel digitizing" )
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Should the digitized geometry be discarded?" )
+    }
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    onAccepted: {
+      cancel();
+      visible = false;
+    }
+    onRejected: {
+      visible = false;
     }
   }
 

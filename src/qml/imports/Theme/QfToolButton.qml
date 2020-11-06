@@ -15,8 +15,11 @@ Item {
     property color bgcolor: Theme.darkGray
     property color borderColor: bgcolor
 
-    signal pressAndHold
     signal clicked
+    signal pressed
+    signal pressAndHold
+    signal released
+    signal canceled
 
     height: 48
     width: 48
@@ -46,7 +49,10 @@ Item {
         }
 
         onClicked: item.clicked()
+        onPressed: item.pressed()
         onPressAndHold: item.pressAndHold()
+        onReleased: item.released()
+        onCanceled: item.canceled()
 
         contentItem: Rectangle {
             implicitWidth: 100

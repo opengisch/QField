@@ -41,6 +41,16 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
 QgsGeometry::OperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
+
+  //Try to fix invalid geometries, useful when being passed on a freehand digitized ring
+  QgsGeometry geometry( new QgsLineString( ring ) );
+  if ( !geometry.isNull() )
+  {
+    QVector<QgsGeometry::Error> errors;
+    geometry = geometry.makeValid();
+    if ( !geometry.isNull() )
+      static_cast<QgsLineString *>( geometry.get() )->points( ring );
+  }
   return layer->addRing( ring, &fid );
 }
 

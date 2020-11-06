@@ -37,6 +37,7 @@ class RubberbandModel : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( QgsPoint lastCoordinate READ lastCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
     Q_PROPERTY( QgsWkbTypes::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
@@ -82,6 +83,7 @@ class RubberbandModel : public QObject
 
     QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), QgsWkbTypes::Type wkbType = QgsWkbTypes::PointZ ) const;
 
+    QgsPoint lastCoordinate() const;
     QgsPoint currentCoordinate() const;
     void setCurrentCoordinate( const QgsPoint &currentCoordinate );
 

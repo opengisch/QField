@@ -28,6 +28,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
 
   property bool mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
+  property bool freehandDigitizing: false
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -103,7 +104,7 @@ Item {
 //      }
 //    }
 
-    // stylus clicked
+    // stylus clicks
     TapHandler {
       enabled: !mouseAsTouchScreen
       acceptedDevices: PointerDevice.AllDevices & ~PointerDevice.TouchScreen
@@ -162,8 +163,9 @@ Item {
     }
 
     DragHandler {
+        enabled: !freehandDigitizing
         target: null
-        grabPermissions: PointerHandler.TakeOverForbidden
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
         property var oldPos
 

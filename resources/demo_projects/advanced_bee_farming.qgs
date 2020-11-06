@@ -6109,8 +6109,8 @@ def my_form_open(dialog, layer, feature):
       <RandomColors type="bool">true</RandomColors>
     </DefaultStyles>
     <Digitizing>
+      <AvoidIntersectionsMode type="int">1</AvoidIntersectionsMode>
       <AvoidIntersectionsList type="QStringList"/>
-      <AvoidIntersectionsMode type="int">2</AvoidIntersectionsMode>
       <DefaultSnapTolerance type="double">0</DefaultSnapTolerance>
       <DefaultSnapToleranceUnit type="int">2</DefaultSnapToleranceUnit>
       <DefaultSnapType type="QString">off</DefaultSnapType>
