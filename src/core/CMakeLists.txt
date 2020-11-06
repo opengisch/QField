@@ -1,5 +1,6 @@
 SET(QFIELD_CORE_SRCS
   appinterface.cpp
+  appcoordinateoperationhandlers.cpp
   attributeformmodelbase.cpp
   attributeformmodel.cpp
   badlayerhandler.cpp
@@ -67,6 +68,7 @@ SET(QFIELD_CORE_SRCS
 SET(QFIELD_CORE_HDRS
   qfield.h
   appinterface.h
+  appcoordinateoperationhandlers.h
   attributeformmodelbase.h
   attributeformmodel.h
   badlayerhandler.h

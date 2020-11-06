@@ -68,6 +68,7 @@
 #include "qgismobileapp.h"
 
 #include "appinterface.h"
+#include "appcoordinateoperationhandlers.h"
 #include "featurelistmodelselection.h"
 #include "featurelistextentcontroller.h"
 #include "modelhelper.h"
@@ -236,6 +237,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mOfflineEditing = new QgsOfflineEditing();
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
+
+  ( void )new AppMissingGridHandler( this );
 }
 
 void QgisMobileapp::initDeclarative()
