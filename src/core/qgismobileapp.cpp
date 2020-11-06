@@ -59,6 +59,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickcoordinatetransformer.h"
 #include "qgsquickmaptransform.h"
+
 #include "qgsnetworkaccessmanager.h"
 
 #include "qgismobileapp.h"

@@ -8,7 +8,7 @@
 QGIS_INSTALL_PATH=$1
 
 qgis_libs=( qgis_core qgis_analysis )
-libs=( src/qgsquick/libqgsquick.dylib src/core/libcore.dylib src/app/qfield.app/Contents/MacOS/qfield output/bin/vertexmodeltest output/bin/qfield output/lib/libqfield_core.dylib output/lib/libqfield_qgsquick.dylib )
+libs=( src/qgsquick/libqgsquick.dylib src/core/libcore.dylib src/app/qfield.app/Contents/MacOS/qfield output/bin/vertexmodeltest output/bin/qfield output/lib/libqfield_core.dylib )
 for lib in "${libs[@]}"; do
   if [[ ! -f  ${lib} ]]; then
     echo "skipping missing ${lib}"

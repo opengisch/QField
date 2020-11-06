@@ -56,6 +56,12 @@ SET(QFIELD_CORE_SRCS
   utils/stringutils.cpp
   utils/urlutils.cpp
   expressionevaluator.cpp
+  qgsquick/qgsquickcoordinatetransformer.cpp
+  qgsquick/qgsquickfeaturelayerpair.cpp
+  qgsquick/qgsquickmapcanvasmap.cpp
+  qgsquick/qgsquickmapsettings.cpp
+  qgsquick/qgsquickmaptransform.cpp
+  qgsquick/qgsquickutils.cpp
 )
 
 SET(QFIELD_CORE_HDRS
@@ -117,6 +123,12 @@ SET(QFIELD_CORE_HDRS
   utils/stringutils.h
   utils/urlutils.h
   expressionevaluator.h
+  qgsquick/qgsquickcoordinatetransformer.h
+  qgsquick/qgsquickfeaturelayerpair.h
+  qgsquick/qgsquickmapcanvasmap.h
+  qgsquick/qgsquickmapsettings.h
+  qgsquick/qgsquickmaptransform.h
+  qgsquick/qgsquickutils.h
 )
 
 IF (ANDROID)
@@ -137,6 +149,7 @@ ENDIF (ANDROID)
 FIND_PACKAGE(Sqlite3)
 
 INCLUDE_DIRECTORIES(SYSTEM
+  ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${QGIS_INCLUDE_DIR}
   ${SQLITE3_INCLUDE_DIR}
 )
@@ -152,7 +165,6 @@ ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
 TARGET_LINK_LIBRARIES(qfield_core
   tess
-  qfield_qgsquick
   Qt5::Core
   Qt5::Gui
   Qt5::Xml

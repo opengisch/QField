@@ -16,8 +16,9 @@
 
 #include "snappingutils.h"
 #include "qgsquickmapsettings.h"
-#include "qgsvectorlayer.h"
-#include "qgsproject.h"
+
+#include <qgsvectorlayer.h>
+#include <qgsproject.h>
 
 SnappingUtils::SnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent, false /*enableSnappingForInvisibleFeature*/ )
