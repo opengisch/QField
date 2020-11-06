@@ -395,8 +395,7 @@ Page {
             // - not set to editable in the widget configuration
             // - not in edit mode (ReadOnly)
             // - a relation in multi edit mode
-            property bool isEnabled: !!AttributeAllowEdit
-                                     && !!AttributeEditable
+            property bool isEnabled: !!AttributeEditable
                                      && form.state !== 'ReadOnly'
                                      && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
             property var value: AttributeValue
@@ -454,6 +453,10 @@ Page {
                 AttributeValue = isNull ? undefined : value
 
                 valueChanged(Field, oldValue, AttributeValue)
+
+                if ( !AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) {
+                  AttributeAllowEdit = true;
+                }
 
                 if ( qfieldSettings.autoSave && !dontSave ) {
                   // indirect action, no need to check for success and display a toast, the log is enough
