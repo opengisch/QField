@@ -49,9 +49,10 @@ echo "APP_ICON: ${APP_ICON}"
 echo "APP_VERSION: ${APP_VERSION}"
 echo "APP_VERSION_CODE: ${APP_VERSION_CODE}"
 echo "APP_VERSION_STR: ${APP_VERSION_STR}"
-
+echo "ANDROID_NDK_PLATFORM : ${ANDROID_NDK_PLATFORM}"
 
 docker run -v $(pwd):/usr/src/qfield \
   -e "BUILD_FOLDER=build-${ARCH}" \
   -e ARCH -e STOREPASS -e KEYNAME -e KEYPASS -e APP_PACKAGE_NAME -e APP_NAME -e APP_ICON -e APP_VERSION -e APP_VERSION_CODE -e APP_VERSION_STR \
+  -e ANDROID_NDK_PLATFORM \
   opengisch/qfield-sdk:${QFIELD_SDK_VERSION} /usr/src/qfield/scripts/docker-build.sh
