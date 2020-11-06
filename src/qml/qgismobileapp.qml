@@ -717,7 +717,7 @@ ApplicationWindow {
           PropertyChanges {
             target: topologyButton
             iconSource: Theme.getThemeIcon( "ic_topology_white_24dp" )
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)//"#88212121"
+            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.3)
           }
         },
 
@@ -740,7 +740,7 @@ ApplicationWindow {
     QfToolButton {
       id: freehandButton
       round: true
-      visible: stateMachine.state === "digitize"
+      visible: hoverHandler.hovered && stateMachine.state === "digitize"
           && dashBoard.currentLayer
           && dashBoard.currentLayer.isValid
           && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )

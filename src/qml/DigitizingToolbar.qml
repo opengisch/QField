@@ -165,7 +165,7 @@ VisibilityFadingRow {
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: qsTr( "You are about to discard the digitized geometry, is that your intention?" )
+      text: qsTr( "Should the digitized geometry be discarded?" )
     }
 
     standardButtons: Dialog.Ok | Dialog.Cancel
