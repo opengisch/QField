@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup build environment
         run: |
+          sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           echo "::group::GitHub Event"
@@ -25,8 +26,10 @@ jobs:
           echo "" # NOTE missing newline from the GitHub event file
           echo "::endgroup::"
           ./scripts/ci/env_gh.sh
-          ./scripts/ci/setup_signing_key.sh
+
       - name: Test
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           ./test/test_version_number.sh
           ./scripts/ci/pull_translations.sh
@@ -37,32 +40,32 @@ jobs:
 
   # Build Android packages
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         arch: [armv7, arm64_v8a, x86, x86_64]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup siging key
+      - name: Setup signing key
         env:
           SIGNINGKEY: ${{ secrets.PLAYSTORE_SIGNINGKEY }}
         run: |
           echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
       - name: Setup build environment
         run: |
+          sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
-          ./scripts/ci/setup_signing_key.sh
           pip install wheel
-          pip install transifex-client
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           ./scripts/ci/docker_pull.sh
@@ -78,8 +81,9 @@ jobs:
           ARCH: ${{ matrix.arch }}
 
   comment:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -102,7 +106,7 @@ jobs:
               - [x86](https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk)
 
   cleanup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     steps:
       - name: Spring Cleaning
