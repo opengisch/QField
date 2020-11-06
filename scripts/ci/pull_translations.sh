@@ -11,6 +11,6 @@ tx pull --all --force
 
 for x in android/res/values-*_*;do mv $x $(echo $x | sed -e 's/_/-r/') ;done
 
-find ${DIR}/i18n -type f -name "*.ts" -exec lrelease "{}" \;
+find ${DIR}/../../i18n -type f -name "*.ts" -exec lrelease "{}" \;
 
 echo "::endgroup::"
