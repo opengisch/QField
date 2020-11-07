@@ -54,7 +54,7 @@ QString PlatformUtilities::qgsProject() const
 
 QString PlatformUtilities::qfieldDataDir() const
 {
-  return QStringLiteral( "/home/webmaster/.local/share/QGIS/QGIS3/profiles/default/" );//QString();
+  return QString();
 }
 
 QStringList PlatformUtilities::availableGrids() const
