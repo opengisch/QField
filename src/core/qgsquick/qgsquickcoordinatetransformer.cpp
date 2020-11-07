@@ -26,9 +26,9 @@
 #include <vector>
 
 #include <proj.h>
-#include <gdal/gdal.h>
-#include <gdal/cpl_conv.h>
-#include <gdal/ogr_srs_api.h>
+#include <gdal.h>
+#include <cpl_conv.h>
+#include <ogr_srs_api.h>
 
 #include <qgslogger.h>
 
