@@ -89,6 +89,7 @@ ELSE(WIN32)
           $ENV{LIB_DIR}/bin
           /usr/local/bin/
           /usr/bin/
+          ${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/bin/
           )
       # MESSAGE("DBG GDAL_CONFIG ${GDAL_CONFIG}")
     
