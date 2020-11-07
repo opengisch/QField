@@ -64,7 +64,7 @@ QStringList PlatformUtilities::availableGrids() const
     QDir gridsDir( qfieldDataDir() + "proj/" );
     if ( gridsDir.exists() )
     {
-      return gridsDir.entryList( QStringList() << QStringLiteral( "*.tif" ) << QStringLiteral( "*.gtx" ) << QStringLiteral( "*.gsb" ) );
+      return gridsDir.entryList( QStringList() << QStringLiteral( "*.tif" ) << QStringLiteral( "*.gtx" ) << QStringLiteral( "*.gsb" ) << QStringLiteral( "*.byn" ) );
     }
   }
   return QStringList();
@@ -151,4 +151,3 @@ bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
 }
-
