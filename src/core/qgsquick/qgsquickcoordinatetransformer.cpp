@@ -181,9 +181,9 @@ void QgsQuickCoordinateTransformer::updatePosition()
       }
     }
 
-    std::vector< double > xVector = { 7.9995 };//mSourcePosition.x() };
-    std::vector< double > yVector = { 46.7949 };//mSourcePosition.y() };
-    std::vector< double > zVector = { 10 };//!std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    std::vector< double > xVector = { mSourcePosition.x() };
+    std::vector< double > yVector = { mSourcePosition.y() };
+    std::vector< double > zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
     double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
     mCoordinateVerticalGridTransform.transformInPlace( xVector[0], yVector[0], zDummy );
 
