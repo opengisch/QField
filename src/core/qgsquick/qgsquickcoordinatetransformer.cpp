@@ -14,18 +14,29 @@
  ***************************************************************************/
 
 #include "qgsquickcoordinatetransformer.h"
+#include "platformutilities.h"
+#if defined(Q_OS_ANDROID)
+#include "androidplatformutilities.h"
+#endif
 
+#include <QDebug>
+#include <QFile>
 #include <QSettings>
 
 #include <vector>
 
 #include <proj.h>
+#include <gdal/gdal.h>
+#include <gdal/cpl_conv.h>
+#include <gdal/ogr_srs_api.h>
+
 #include <qgslogger.h>
 
 QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer( QObject *parent )
   : QObject( parent )
 {
   mCoordinateTransform.setSourceCrs( QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
+  mCoordinateVerticalGridTransform.setSourceCrs( QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
 }
 
 QgsPoint QgsQuickCoordinateTransformer::projectedPosition() const
@@ -137,9 +148,44 @@ void QgsQuickCoordinateTransformer::updatePosition()
   const QString verticalGrid = settings.value( QStringLiteral( "verticalGrid" ), QString() ).toString();
   if ( !verticalGrid.isEmpty () )
   {
+    if ( mVerticalGridName != verticalGrid )
+    {
+#if defined(Q_OS_ANDROID)
+      AndroidPlatformUtilities platformUtils;
+#else
+      PlatformUtilities platformUtils;
+#endif
+      if ( !platformUtils.qfieldDataDir().isEmpty() )
+      {
+        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( platformUtils.qfieldDataDir(),  verticalGrid );
+        if ( QFile::exists( verticalGridPath ) )
+        {
+          GDALDatasetH hDataset;
+          GDALAllRegister();
+          hDataset = GDALOpen( verticalGridPath.toUtf8().constData(), GA_ReadOnly );
+          if( hDataset != NULL )
+          {
+            OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
+            char *pszWkt = nullptr;
+            const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
+            const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
+            const char *const options[] = {multiLineOption.constData(), formatOption.constData(), nullptr};
+            OSRExportToWktEx( spatialRef, &pszWkt, options );
+            mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
+            mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
+            CPLFree( pszWkt );
+          }
+          GDALClose( hDataset );
+        }
+      }
+    }
+
     std::vector< double > xVector = { mSourcePosition.x() };
     std::vector< double > yVector = { mSourcePosition.y() };
     std::vector< double > zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
+    mCoordinateVerticalGridTransform.transformInPlace( xVector[0], yVector[0], zDummy );
+
     PJ *P = proj_create( PJ_DEFAULT_CTX, QStringLiteral( "+proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=%1 +step +proj=unitconvert +xy_in=rad +xy_out=deg" ).arg( verticalGrid ).toUtf8().constData() );
     proj_trans_generic( P, PJ_FWD,
                         xVector.data(), sizeof( double ), 1,

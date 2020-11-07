@@ -159,6 +159,9 @@ class QgsQuickCoordinateTransformer : public QObject
     QgsPoint mSourcePosition;
     QgsCoordinateTransform mCoordinateTransform;
 
+    QString mVerticalGridName;
+    QgsCoordinateTransform mCoordinateVerticalGridTransform;
+
     /**
      * The altitude value of captured coordinates is corrected by the amount of deltaZ.
      * This can be used to correct the altitude with the antenna height for example.
