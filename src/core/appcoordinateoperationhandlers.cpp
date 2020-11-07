@@ -94,7 +94,7 @@ void AppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceS
       downloadMessage = tr( "This grid is available for download from <a href=\"%1\">%1</a>." ).arg( grid.url );
     }
   }
-  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2"  ).arg( shortMessage, downloadMessage ), QStringLiteral( "projection" ) );
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2"  ).arg( shortMessage, downloadMessage ), tr( "projection" ) );
 }
 
 void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &preferredOperation, const QgsDatumTransform::TransformDetails &availableOperation )
@@ -140,7 +140,7 @@ void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReference
                               destinationCrs.userFriendlyIdentifier() )
                               + gridMessage + accuracyMessage;
 
-  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( longMessage, downloadMessage ), QStringLiteral( "projection" ) );
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( longMessage, downloadMessage ), tr( "projection" ) );
 }
 
 void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &error )
@@ -150,7 +150,7 @@ void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordin
 
   const QString longMessage = tr( "No transform is available between <i>%1</i> and <i>%2</i>.<p style=\"color: red\">%3</p>" ).arg( sourceCrs.userFriendlyIdentifier(), destinationCrs.userFriendlyIdentifier(), error );
 
-  QgsMessageLog::logMessage( longMessage, QStringLiteral( "projection" ) );
+  QgsMessageLog::logMessage( longMessage, tr( "projection" ) );
 }
 
 void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &desired )
@@ -183,7 +183,7 @@ void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordina
     }
   }
 
-  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( shortMessage, gridMessage, downloadMessage ), QStringLiteral( "projection" ) );
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( shortMessage, gridMessage, downloadMessage ), tr( "projection" ) );
 }
 
 void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &desired )
@@ -194,7 +194,7 @@ void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateRefe
 
   const QString shortMessage = tr( "Used a ballpark transform from %1 to %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
 
-  QgsMessageLog::logMessage( shortMessage, QStringLiteral( "projection" ) ) ;
+  QgsMessageLog::logMessage( shortMessage, tr( "projection" ) ) ;
 }
 
 bool AppMissingGridHandler::shouldWarnAboutPair( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
