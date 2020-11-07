@@ -89,6 +89,7 @@ int main( int argc, char **argv )
 #endif
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
+  QtWebView::initialize();
 #ifdef ANDROID
   QString projPath = AndroidPlatformUtilities().packagePath() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
@@ -102,7 +103,6 @@ int main( int argc, char **argv )
   app.setPluginPath( QApplication::applicationDirPath() );
   app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
 #else
-  QtWebView::initialize();
   QgsApplication app( argc, argv, true );
 
   QSettings settings;
