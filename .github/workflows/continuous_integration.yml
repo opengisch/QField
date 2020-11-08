@@ -114,7 +114,7 @@ jobs:
         run: |
           echo "${ID_RSA}" > /tmp/id_rsa
           chmod 400 /tmp/id_rsa
-          ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST} "find download.opengis.ch/qfield/ci-builds/ -name '*.apk' -mtime +60 -exec rm {} \;"
+          ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST} "find download.opengis.ch/qfield/ci-builds/ -name '*.apk' -mtime +30 -exec rm {} \;"
           rm /tmp/id_rsa
         env:
           ID_RSA: ${{ secrets.ID_RSA }}
