@@ -1,4 +1,5 @@
 import QtQuick.Controls 2.12
+import QtQuick.Controls.impl 2.12
 import QtQuick 2.12
 
 Button {
@@ -17,13 +18,16 @@ Button {
         }
       }
   }
-  contentItem: Text {
-      text: parent.text
-      font: Theme.tipFont
-      color: "white"
-      horizontalAlignment: Text.AlignHCenter
-      verticalAlignment: Text.AlignVCenter
-      elide: Text.ElideRight
+  contentItem: IconLabel {
+    spacing: parent.spacing
+    mirrored: parent.mirrored
+    display: parent.display
+
+    icon: parent.icon
+    color: 'white'
+    font: Theme.tipFont
+    alignment: Qt.AlignCenter | Qt.AlignVCenter
+    text: parent.text
   }
 }
 
