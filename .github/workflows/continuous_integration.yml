@@ -28,7 +28,7 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: "🌍 Pull Translations"
-        if: ${{ !!secrets.TX_TOKEN }}
+        if: ${{ secrets.TX_TOKEN || github.repository == 'opengisch/QField' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: ./scripts/ci/pull_translations.sh
@@ -62,7 +62,7 @@ jobs:
           ./scripts/ci/env_gh.sh
           pip install wheel
       - name: "🌍 Pull Translations"
-        if: ${{ !!secrets.TX_TOKEN }}
+        if: ${{ secrets.TX_TOKEN || github.repository == 'opengisch/QField' }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: ./scripts/ci/pull_translations.sh
