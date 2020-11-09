@@ -295,6 +295,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<PlatformUtilities>( "org.qgis", 1, 0, "PlatformUtilities", "" );
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
+  qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -316,6 +317,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
   rootContext()->setContextProperty( "LocatorModelNoGroup", QgsLocatorModel::NoGroup );
+  rootContext()->setContextProperty( "gpkgFlusher", mGpkgFlusher.get() );
+
 // Check QGIS Version
 #if VERSION_INT >= 30600
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );

@@ -29,12 +29,36 @@ class Flusher : public QObject
     Q_OBJECT
 
   public slots:
+    /**
+     * Schedules a new flush for the given \a filename after 500ms.
+     * If a new flush is scheduled for the same file before the actual flush is performed, the timer is reset to wait another 500ms.
+     */
     void scheduleFlush( const QString &filename );
 
+    /**
+     * Flushes the contents of the given \a filename.
+     */
     void flush( const QString &filename );
 
+    /**
+     * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
+     */
+    void stop( const QString &fileName );
+
+    /**
+     * Reenables scheduling flushes for a given \a fileName.
+     */
+    void start( const QString &fileName );
+
+    /**
+     * Returns whether the flusher is stopped for a given \a fileName.
+     */
+    bool isStopped( const QString &fileName ) const;
+
   private:
+    QMutex mMutex;
     QMap<QString, QTimer *> mScheduledFlushes;
+    QMap<QString, bool> mStoppedFlushes;
 };
 
 QgsGpkgFlusher::QgsGpkgFlusher( QgsProject *project )
@@ -90,8 +114,26 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> &layers )
   }
 }
 
+void QgsGpkgFlusher::stop( const QString &fileName )
+{
+  mFlusher->stop( fileName );
+}
+
+void QgsGpkgFlusher::start( const QString &fileName )
+{
+  mFlusher->start( fileName );
+}
+
+bool QgsGpkgFlusher::isStopped( const QString &fileName ) const
+{
+  return mFlusher->isStopped( fileName );
+}
+
 void Flusher::scheduleFlush( const QString &filename )
 {
+  if ( mStoppedFlushes.value( filename, false ) )
+    return;
+
   if ( mScheduledFlushes.contains( filename ) )
   {
     mScheduledFlushes.value( filename )->start( 500 );
@@ -108,6 +150,11 @@ void Flusher::scheduleFlush( const QString &filename )
 
 void Flusher::flush( const QString &filename )
 {
+  if ( mStoppedFlushes.value( filename, false ) )
+    return;
+
+  QMutexLocker locker( &mMutex );
+
   sqlite3_database_unique_ptr db;
   int status = db.open_v2( filename, SQLITE_OPEN_READWRITE, nullptr );
   if ( status != SQLITE_OK )
@@ -128,6 +175,31 @@ void Flusher::flush( const QString &filename )
     QgsMessageLog::logMessage( QObject::tr( "Could not flush database %1 (%3) " ).arg( filename, error ) );
     mScheduledFlushes[filename]->start( 500 );
   }
+
+  locker.unlock();
+}
+
+void Flusher::stop( const QString &fileName )
+{
+  if ( ! mScheduledFlushes.contains( fileName ) )
+    return;
+
+  mScheduledFlushes.value( fileName )->stop();
+  mScheduledFlushes.remove( fileName );
+
+  flush( fileName );
+
+  mStoppedFlushes.insert( fileName, true );
+}
+
+void Flusher::start( const QString &fileName )
+{
+  mStoppedFlushes.remove( fileName );
+}
+
+bool Flusher::isStopped( const QString &fileName ) const
+{
+  return mStoppedFlushes.value( fileName, false );
 }
 
 #include "qgsgpkgflusher.moc"

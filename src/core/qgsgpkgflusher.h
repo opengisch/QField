@@ -30,6 +30,7 @@ class Flusher;
  * to the gpkg itself on all added layers.
  * It will start a background thread and post an event to it whenever the gpkg has been changed.
  * After a delay of 500ms without any changes the wal file will be flushed.
+ * The flusher does not need to be started after initialization.
  */
 class QgsGpkgFlusher : public QObject
 {
@@ -39,7 +40,23 @@ class QgsGpkgFlusher : public QObject
     explicit QgsGpkgFlusher( QgsProject *project );
     ~QgsGpkgFlusher();
 
+    /**
+     * Immediately performs a flush for a given \a fileName and returns. If the flusher is stopped, flush for that \a fileName would be ignored.
+     */
+    void stop( const QString &fileName );
+
+    /**
+     * Reenables scheduling a flush for a given \a fileName.
+     */
+    void start( const QString &fileName );
+
+    /**
+     * Returns whether the flusher is stopped for a given \a fileName
+     */
+    bool isStopped( const QString &fileName ) const;
+
   signals:
+
     /**
      * Emitted when a file has changed and a flush should be scheduled.
      */
