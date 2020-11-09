@@ -27,12 +27,14 @@ jobs:
           echo "::endgroup::"
           ./scripts/ci/env_gh.sh
 
-      - name: Test
+      - name: "🌍 Pull Translations"
+        if: ${{ !!secrets.TX_TOKEN }}
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: ./scripts/ci/pull_translations.sh
+      - name: Test
         run: |
           ./test/test_version_number.sh
-          ./scripts/ci/pull_translations.sh
           echo "::group::Build QField"
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
@@ -59,18 +61,21 @@ jobs:
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
           pip install wheel
+      - name: "🌍 Pull Translations"
+        if: ${{ !!secrets.TX_TOKEN }}
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: ./scripts/ci/pull_translations.sh
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           export ANDROID_NDK_PLATFORM=android-29
           ./scripts/ci/docker_pull.sh
-          ./scripts/ci/pull_translations.sh
           ./scripts/ci/build.sh
       - name: 🍺 Deploy
         run: |
