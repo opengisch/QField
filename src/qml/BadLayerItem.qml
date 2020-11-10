@@ -8,7 +8,7 @@ import Theme 1.0
 Page {
   property alias model: table.model
   signal finished
-
+  padding: 5
 
   header: PageHeader {
       title: qsTr( 'Unable to load some layers' )
@@ -20,7 +20,6 @@ Page {
     }
 
   ColumnLayout {
-    anchors.margins: 8
     width: parent.width
     height: parent.height
     Layout.margins: 0
@@ -60,18 +59,23 @@ Page {
 
                 Column {
                     id: line
+                    width: parent.width
                     spacing: 0
                     Text {
                         id: name
+                        width: rectangle.width - padding * 2
                         padding: 5
                         text: LayerName
                         font: Theme.strongTipFont
+                        wrapMode: Text.WordWrap
                     }
                     Text {
                         id: uri
+                        width: rectangle.width -  padding * 2
                         padding: 5
                         text: DataSource
                         font: Theme.tipFont
+                        wrapMode: Text.WordWrap
                     }
                 }
             }
