@@ -7,7 +7,8 @@ on:
 
 jobs:
   translations:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
+    if: ${{ github.repository == 'opengisch/QField' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
