@@ -8,6 +8,8 @@ on:
   pull_request:
     branches:
       - '**'
+  release:
+    types: ['prereleased', 'released']
 
 jobs:
   # Run unit tests
@@ -85,6 +87,14 @@ jobs:
           DEV_UPLOAD_USER: ${{ secrets.DEV_UPLOAD_USER }}
           DEV_UPLOAD_HOST: download.opengis.ch
           ARCH: ${{ matrix.arch }}
+
+      - name: Upload release assets
+        uses: AButler/upload-release-assets@v2.0
+        if: ${{ github.event_name == 'release' }}
+        with:
+          files: /tmp/qfield-*.apk
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ env.CI_TAG }}
 
   comment:
     runs-on: ubuntu-20.04
