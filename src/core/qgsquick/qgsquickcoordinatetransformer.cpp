@@ -188,7 +188,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
     mCoordinateVerticalGridTransform.transformInPlace( xVector[0], yVector[0], zDummy );
 
     PJ *P = proj_create( PJ_DEFAULT_CTX, QStringLiteral( "+proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=%1 +step +proj=unitconvert +xy_in=rad +xy_out=deg" ).arg( verticalGridName ).toUtf8().constData() );
-    proj_trans_generic( P, PJ_INV,
+    proj_trans_generic( P, PJ_FWD,
                         xVector.data(), sizeof( double ), 1,
                         yVector.data(), sizeof( double ), 1,
                         zVector.data(), sizeof( double ), 1,
