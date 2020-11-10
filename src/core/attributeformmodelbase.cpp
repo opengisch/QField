@@ -500,9 +500,9 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   for ( ; constraintIterator != mConstraints.constEnd(); ++constraintIterator )
   {
     QStandardItem *item = constraintIterator.key();
-
+    const bool isVisible = item->data( AttributeFormModel::CurrentlyVisible ).toBool();
     int fidx = item->data( AttributeFormModel::FieldIndex ).toInt();
-    if ( mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
+    if ( isVisible && mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
     {
       QStringList errors;
       bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
