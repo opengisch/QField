@@ -32,7 +32,7 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: Pull Translations
-        if: ${{ env.TX_TOKEN || github.repository == 'opengisch/QField' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
+        if: ${{ github.repository_owner == 'opengisch' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
         run: |
           ./scripts/ci/pull_translations.sh
 
@@ -68,7 +68,7 @@ jobs:
           ./scripts/ci/env_gh.sh
           pip install wheel
       - name: "🌍 Pull Translations"
-        if: ${{ env.TX_TOKEN || github.repository == 'opengisch/QField' }}
+        if: ${{ github.repository_owner == 'opengisch' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
         run: ./scripts/ci/pull_translations.sh
       - name: Build
         env:
