@@ -32,9 +32,12 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: Pull Translations
-        if: ${{ github.repository_owner == 'opengisch' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
         run: |
-          ./scripts/ci/pull_translations.sh
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            ./scripts/ci/pull_translations.sh
+          fi
 
       - name: Test
         run: |
@@ -43,6 +46,7 @@ jobs:
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           docker-compose -f .docker/testing/docker-compose-ci.yml run qgis /usr/src/.docker/testing/build-test.sh
           echo "::endgroup::"
+
 
   # Build Android packages
   build:
@@ -68,10 +72,12 @@ jobs:
           ./scripts/ci/env_gh.sh
           pip install wheel
       - name: "🌍 Pull Translations"
-        if: ${{ github.repository_owner == 'opengisch' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
         run: |
-          echo "Owner: ${{ github.repository_owner }}"
-          ./scripts/ci/pull_translations.sh
+          if [[ -z "${TX_TOKEN}" ]]; then
+            echo "TX_TOKEN not set, skip tx pull"
+          else
+            ./scripts/ci/pull_translations.sh
+          fi
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
@@ -141,10 +147,14 @@ jobs:
     steps:
       - name: Spring Cleaning
         run: |
-          echo "${ID_RSA}" > /tmp/id_rsa
-          chmod 400 /tmp/id_rsa
-          ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST} "find download.opengis.ch/qfield/ci-builds/ -name '*.apk' -mtime +30 -exec rm {} \;"
-          rm /tmp/id_rsa
+          if [[ -z "${ID_RSA}" ]]; then
+            echo "ID_RSA not set, skip cleaning"
+          else
+            echo "${ID_RSA}" > /tmp/id_rsa
+            chmod 400 /tmp/id_rsa
+            ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" ${DEV_UPLOAD_USER}@${DEV_UPLOAD_HOST} "find download.opengis.ch/qfield/ci-builds/ -name '*.apk' -mtime +30 -exec rm {} \;"
+            rm /tmp/id_rsa
+          fi
         env:
           ID_RSA: ${{ secrets.ID_RSA }}
           DEV_UPLOAD_USER: ${{ secrets.DEV_UPLOAD_USER }}
