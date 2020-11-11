@@ -163,13 +163,13 @@ INCLUDE_DIRECTORIES(
 
 ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
-target_compile_features(qfield_core PUBLIC cxx_std_17)
-set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
+TARGET_COMPILE_FEATURES(qfield_core PUBLIC cxx_std_17)
+SET_TARGET_PROPERTIES(qfield_core PROPERTIES AUTOMOC TRUE)
 
-target_compile_features(qfield_core PUBLIC cxx_std_17)
-set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
+TARGET_COMPILE_FEATURES(qfield_core PUBLIC cxx_std_17)
+SET_TARGET_PROPERTIES(qfield_core PROPERTIES AUTOMOC TRUE)
 
-target_link_libraries(qfield_core PUBLIC
+TARGET_LINK_LIBRARIES(qfield_core PUBLIC
   tess
   Qt5::Core
   Qt5::Gui
@@ -191,7 +191,7 @@ target_link_libraries(qfield_core PUBLIC
 )
 
 IF (ANDROID)
-  target_link_libraries(qfield_core PUBLIC
+  TARGET_LINK_LIBRARIES(qfield_core PUBLIC
     Qt5::AndroidExtras
   )
 ENDIF (ANDROID)
