@@ -169,7 +169,7 @@ set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 target_compile_features(qfield_core PUBLIC cxx_std_17)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
 
-TARGET_LINK_LIBRARIES(qfield_core PUBLIC
+target_link_libraries(qfield_core PUBLIC
   tess
   Qt5::Core
   Qt5::Gui
@@ -191,7 +191,7 @@ TARGET_LINK_LIBRARIES(qfield_core PUBLIC
 )
 
 IF (ANDROID)
-  TARGET_LINK_LIBRARIES(qfield_core
+  target_link_libraries(qfield_core PUBLIC
     Qt5::AndroidExtras
   )
 ENDIF (ANDROID)
@@ -204,4 +204,3 @@ INSTALL(TARGETS qfield_core
   FRAMEWORK DESTINATION ${QFIELD_FW_SUBDIR}
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR}
 )
-
