@@ -69,7 +69,9 @@ jobs:
           pip install wheel
       - name: "🌍 Pull Translations"
         if: ${{ github.repository_owner == 'opengisch' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
-        run: ./scripts/ci/pull_translations.sh
+        run: |
+          echo "Owner: ${{ github.repository_owner }}"
+          ./scripts/ci/pull_translations.sh
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
