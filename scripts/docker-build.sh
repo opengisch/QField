@@ -136,7 +136,7 @@ ninja
 # Temporary workaround (fingers crossed)
 cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"28.0.3\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
 
-if [ -n "${KEYNAME}" ]; then
+if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
       --sign ${SOURCE_DIR}/keystore.p12 "${KEYNAME}" \
       --storepass "${STOREPASS}" \
@@ -147,6 +147,7 @@ if [ -n "${KEYNAME}" ]; then
       --android-platform ${ANDROID_NDK_PLATFORM} \
       --gradle
 else
+    echo "-- Not signing the apk, KEYNAME, KEYPASS or STOREPASS is not set"
     ${QT_ANDROID}/bin/androiddeployqt \
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
