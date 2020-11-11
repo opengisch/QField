@@ -31,9 +31,11 @@ jobs:
           echo "::endgroup::"
           ./scripts/ci/env_gh.sh
 
-      - name: "🌍 Pull Translations"
-        if: ${{ env.TX_TOKEN || github.repository == 'opengisch/QField' }}
-        run: ./scripts/ci/pull_translations.sh
+      - name: Pull Translations
+        if: ${{ env.TX_TOKEN || github.repository == 'opengisch/QField' }} # TX_TOKEN secret is only set on the main repo https://github.com/actions/runner/issues/520
+        run: |
+          ./scripts/ci/pull_translations.sh
+
       - name: Test
         run: |
           ./test/test_version_number.sh
