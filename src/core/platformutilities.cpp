@@ -28,6 +28,13 @@
 #include <QFileDialog>
 #include <QTimer>
 
+#if defined (Q_OS_ANDROID)
+#include "androidplatformutilities.h"
+Q_GLOBAL_STATIC(AndroidPlatformUtilities, sPlatformUtils)
+#else
+Q_GLOBAL_STATIC(PlatformUtilities, sPlatformUtils)
+#endif
+
 PlatformUtilities::~PlatformUtilities()
 {
 }
@@ -150,4 +157,9 @@ bool PlatformUtilities::checkCameraPermissions() const
 bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
+}
+
+PlatformUtilities *PlatformUtilities::instance()
+{
+  return sPlatformUtils;
 }

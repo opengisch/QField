@@ -192,18 +192,18 @@ Page {
 
               ComboBox {
                   Layout.fillWidth: true
-                  model: [ "" ].concat( platformUtilities.availableGrids() );
+                  model: [ qsTr( "No grid (use raw altitude from device)" ) ].concat( platformUtilities.availableGrids() );
 
                   onCurrentIndexChanged: {
                       if ( currentIndex > 0 ) {
                           verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
                       } else {
-                          verticalGrid = currentText;
+                          verticalGrid = '';
                       }
                   }
 
                   Component.onCompleted: {
-                      currentIndex = find(verticalGrid);
+                      currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
                   }
               }
 

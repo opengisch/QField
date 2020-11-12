@@ -152,12 +152,6 @@ class QgisMobileapp : public QQmlApplicationEngine
     QgsExifTools mExifTools;
 
     TrackingModel *mTrackingModel = nullptr;
-
-#if defined(Q_OS_ANDROID)
-    AndroidPlatformUtilities mPlatformUtils;
-#else
-    PlatformUtilities mPlatformUtils;
-#endif
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )

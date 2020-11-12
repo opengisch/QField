@@ -19,7 +19,6 @@
 #include "androidplatformutilities.h"
 #endif
 
-#include <QDebug>
 #include <QFile>
 #include <QSettings>
 
@@ -150,15 +149,10 @@ void QgsQuickCoordinateTransformer::updatePosition()
   {
     if ( mVerticalGridName != verticalGridName )
     {
-#if defined(Q_OS_ANDROID)
-      AndroidPlatformUtilities platformUtils;
-#else
-      PlatformUtilities platformUtils;
-#endif
       mVerticalGridName = verticalGridName;
-      if ( !platformUtils.qfieldDataDir().isEmpty() )
+      if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
       {
-        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( platformUtils.qfieldDataDir(),  verticalGridName );
+        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( PlatformUtilities::instance()->qfieldDataDir(),  verticalGridName );
         if ( QFile::exists( verticalGridPath ) )
         {
           GDALDatasetH hDataset;
