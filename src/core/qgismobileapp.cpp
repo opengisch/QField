@@ -134,10 +134,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
   //set localized data paths
-  if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
+  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
     QStringList localizedDataPaths;
-    localizedDataPaths << mPlatformUtils.qfieldDataDir() + QStringLiteral( "basemaps/" );
+    localizedDataPaths << PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemaps/" );
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
   }
 
@@ -159,7 +159,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 
-  if ( !mPlatformUtils.qfieldDataDir().isEmpty() )
+  if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
     // add extra proj search path to allow copying of transformation grid files
     QString path( proj_info().searchpath );
@@ -183,7 +183,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
       searchPaths << p;
     }
 
-    searchPaths << QStringLiteral( "%1/proj/" ).arg( mPlatformUtils.qfieldDataDir() );
+    searchPaths << QStringLiteral( "%1/proj/" ).arg( PlatformUtilities::instance()->qfieldDataDir() );
     char **newPaths = new char *[searchPaths.count()];
     for ( int i = 0; i < searchPaths.count(); ++i )
     {
@@ -196,15 +196,15 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
     delete [] newPaths;
 
-    setenv( "PGSYSCONFDIR", mPlatformUtils.qfieldDataDir().toUtf8(), true );
+    setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
   }
 
   QSettings settings;
   const bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), QString() ).toString().isEmpty();
-  if ( firstRunFlag && !mPlatformUtils.packagePath().isEmpty() )
+  if ( firstRunFlag && !PlatformUtilities::instance()->packagePath().isEmpty() )
   {
     QList<QPair<QString, QString>> projects;
-    QString path = mPlatformUtils.packagePath();
+    QString path = PlatformUtilities::instance()->packagePath();
     path.chop( 6 ); // remove /share/ from the path
     projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/simple_bee_farming.qgs" ) )
              << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), path  + QStringLiteral( "/resources/demo_projects/advanced_bee_farming.qgs" ) )
@@ -212,7 +212,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     saveRecentProjects( projects );
   }
 
-  mPlatformUtils.setScreenLockPermission( false );
+  PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
 
@@ -359,7 +359,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
   rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
-  rootContext()->setContextProperty( "platformUtilities", &mPlatformUtils );
+  rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
@@ -486,9 +486,9 @@ void QgisMobileapp::onAfterFirstRendering()
     {
       loadProjectFile( qApp->arguments().last() );
     }
-    else if ( !mPlatformUtils.qgsProject().isNull() )
+    else if ( !PlatformUtilities::instance()->qgsProject().isNull() )
     {
-      loadProjectFile( mPlatformUtils.qgsProject() );
+      loadProjectFile( PlatformUtilities::instance()->qgsProject() );
     }
     mFirstRenderingFlag = false;
   }
@@ -563,7 +563,7 @@ void QgisMobileapp::print( int layoutIndex )
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
   exporter.print( printer, printSettings );
 
-  mPlatformUtils.open( printer.outputFileName() );
+  PlatformUtilities::instance()->open( printer.outputFileName() );
 }
 
 bool QgisMobileapp::event( QEvent *event )
