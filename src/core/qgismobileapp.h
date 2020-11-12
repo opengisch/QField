@@ -28,6 +28,7 @@
 #include <qgsconfig.h>
 
 // QGIS mobile includes
+#include "appcoordinateoperationhandlers.h"
 #include "multifeaturelistmodel.h"
 #include "settings.h"
 #include "focusstack.h"
@@ -45,6 +46,7 @@
 #endif
 
 class AppInterface;
+class AppMissingGridHandler;
 class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
@@ -152,6 +154,8 @@ class QgisMobileapp : public QQmlApplicationEngine
     QgsExifTools mExifTools;
 
     TrackingModel *mTrackingModel = nullptr;
+
+    AppMissingGridHandler *mAppMissingGridHandler = nullptr;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
