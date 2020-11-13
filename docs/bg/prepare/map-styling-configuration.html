@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bg">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Map styling and configuration &#8212; QField Documentation 1.0 - M... documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configure Map Themes" href="map-themes.html" />
+    <link rel="prev" title="Display expression" href="display-expression.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Map styling and configuration</a><ul>
+<li><a class="reference internal" href="#style">Style</a></li>
+<li><a class="reference internal" href="#display-expression">Display Expression</a></li>
+<li><a class="reference internal" href="#read-only-non-identifiable-and-searchable-layers">Read only, non-identifiable and searchable layers</a></li>
+<li><a class="reference internal" href="#snapping">Snapping</a><ul>
+<li><a class="reference internal" href="#snapping-types">Snapping Types</a></li>
+<li><a class="reference internal" href="#snapping-to-layers">Snapping to layers</a></li>
+<li><a class="reference internal" href="#snapping-tolerance">Snapping tolerance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#d-coordinates">3D Coordinates</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="display-expression.html" title="Previous Chapter: Display expression"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Display expression</span>
+    </a>
+  </li>
+  <li>
+    <a href="map-themes.html" title="Next Chapter: Configure Map Themes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Configure Map Themes &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Fieldwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Supported Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="map-styling-and-configuration">
+<h1>Map styling and configuration<a class="headerlink" href="#map-styling-and-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Most of the settings which QGIS offers are directly supported by QField without any extra effort.</p>
+<div class="section" id="style">
+<h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<p>All style settings from QGIS are directly supported by QField.
+This includes all renderer types like graduated, categorized,
+rule based, 2.5D as well as data defined symbology.</p>
+</div>
+<div class="section" id="display-expression">
+<h2>Display Expression<a class="headerlink" href="#display-expression" title="Permalink to this headline">¶</a></h2>
+<p>In QField, objects are identified with a name. The expression to generate this name can be defined
+by opening the attribute table in QGIS and switching to the form view. Choose the appropriate
+field or an expression in the list there. Starting from QGIS 3, this can be done directly from
+the <span class="menuselection">Vector Layer Properties ‣ Display</span> page.</p>
+<p>The display expression is also used to search in layers.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/define_display_expression.png"><img alt="Define display expression" src="../_images/define_display_expression.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The display expression will be used to represent features with an identification string throughout QField.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="read-only-non-identifiable-and-searchable-layers">
+<h2>Read only, non-identifiable and searchable layers<a class="headerlink" href="#read-only-non-identifiable-and-searchable-layers" title="Permalink to this headline">¶</a></h2>
+<p>Some layers in a project are just there for pure visual purpose. Such
+layers should not show up when a user taps somewhere to identify objects.</p>
+<p>Some other layers serve as source of information and shouldn’t be modified
+by the user. It is possible to protect layers from editing attributes or
+adding and deleting features.</p>
+<p>It is also possible to configure which layers are searchable.</p>
+<p>To configure identify, readonly and searchable behavior,
+go to the <span class="menuselection">Project ‣ Project Properties ‣ Identify Layers</span>
+page and activate the checkboxes to match your desired behavior.</p>
+<div class="clearer text-center docutils container">
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../_images/project_configuration_readonly.png"><img alt="Identify and readonly configuration" src="../_images/project_configuration_readonly.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Configuration of layers that will not be identifiable, not modifiable and/or not searchable.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="snapping">
+<h2>Snapping<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h2>
+<p>While digitizing new features, new points can be snapped to existing
+geometries.</p>
+<p>All configuration can be done in <span class="menuselection">Project ‣ Snapping Settings</span>
+(<span class="menuselection">Settings ‣ Snapping Settings</span> in QGIS 2.x).</p>
+<div class="section" id="snapping-types">
+<h3>Snapping Types<a class="headerlink" href="#snapping-types" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to snap new points</p>
+<ul class="simple">
+<li>only to nodes of existing geomtries</li>
+<li>only to segments of existing geomtries</li>
+<li>to nodes and segments of existing geomtries</li>
+</ul>
+</div>
+<div class="section" id="snapping-to-layers">
+<h3>Snapping to layers<a class="headerlink" href="#snapping-to-layers" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to only snap to one or a few layers.</p>
+</div>
+<div class="section" id="snapping-tolerance">
+<h3>Snapping tolerance<a class="headerlink" href="#snapping-tolerance" title="Permalink to this headline">¶</a></h3>
+<p>The snapping tolerance can be specified in map units or pixels.</p>
+<p>In almost any case, the units should be set to pixels. We made good
+experiences with a tolerance value of 20.</p>
+</div>
+</div>
+<div class="section" id="d-coordinates">
+<h2>3D Coordinates<a class="headerlink" href="#d-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>GPS devices are capable of measuring the altitude next to the current 2D
+position on the earth surface. This information can be saved</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/prepare/map-styling-configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

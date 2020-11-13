@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="tr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nesneleri toplayın &#8212; QField Documentation 1.0 - M... belgelendirme çalışması</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qfield.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/qfield.js"></script>
+    <link rel="shortcut icon" href="../_static/qfield-logo-noborder.ico"/>
+    <link rel="index" title="Dizin" href="../genindex.html" />
+    <link rel="search" title="Ara" href="../search.html" />
+    <link rel="next" title="GNSS" href="gps.html" />
+    <link rel="prev" title="Saha Çalışması" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qfield.org">
+              <img src="../_static/qfield-logo.svg">
+        </a>
+        <span class="navbar-text navbar-title"><b><a href="../index.html">QField Documentation</a> </b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+              <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Nesneleri toplayın</a><ul>
+<li><a class="reference internal" href="#points">Noktalar</a></li>
+<li><a class="reference internal" href="#lines-and-polygons">Çizgiler ve poligonlar</a></li>
+<li><a class="reference internal" href="#attribute-form">Öznitelik formu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delete-features">Objelerı si</a></li>
+<li><a class="reference internal" href="#edit-features">Obje düzenleme</a><ul>
+<li><a class="reference internal" href="#vertex-tool">Kırık aracı</a></li>
+<li><a class="reference internal" href="#split-tool">Bölme aracı</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+          
+          
+            
+              
+  <li>
+    <a href="index.html" title="Previous Chapter: Saha Çalışması"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Saha Çalışması</span>
+    </a>
+  </li>
+  <li>
+    <a href="gps.html" title="Next Chapter: GNSS"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">GNSS &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+    role="menu"
+    aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Kurulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prepare/index.html">Prepare for Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronise/index.html">Senkronizasyon</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Saha Çalışması</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Başlangıç Alıştırmaları</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Desteklenen Veri Formatları</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Destek ve Geliştirme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
+</ul>
+
+</ul>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="collect-features">
+<h1>Nesneleri toplayın<a class="headerlink" href="#collect-features" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Yeni nesneleri sayısallaştırmaya başlamak için, ana menüde ** Düzenleme modunu ** etkinleştirin (* kalem düğmesi <a href="#id1"><span class="problematic" id="id2">*</span></a>)  ve üzerine yeni bir nesne eklemek istediğiniz katmanı seçin (katman yeşille vurgulanacaktır).</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/collect_features.webp"><img alt="collect_features" src="../_images/collect_features.webp" style="width: 300px;" /></a>
+</div>
+</div>
+<div class="section" id="points">
+<h2>Noktalar<a class="headerlink" href="#points" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Ekranın ortasındaki artı işaretini istenen konuma getirin ve yeni bir nokta nesnesi oluşturulmasını onaylamak için ekranın sağ alt kısmındaki ** + düğmesine ** tıklayın.</p>
+<p>GPS’i etkinleştirdiyseniz, artı işaretini konumunuzu ortalamasını sağlamak için ** ortalanmış tut ** düğmesini kullanabilirsiniz.</p>
+</div>
+<div class="section" id="lines-and-polygons">
+<h2>Çizgiler ve poligonlar<a class="headerlink" href="#lines-and-polygons" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Ekranın ortasındaki artı işaretini istenen çizginin veya çokgenin başlangıcına getirin ve ilk düğümü eklemek için ekranın sağ alt kısmındaki <strong>Artı (+) düğmesini</strong> tıklayın.</p>
+<p>Her yeni düğüm eklemek istediğinizde <strong>Artı (+) düğmesine</strong> tıklayarak çizgi veya çokgen oluşturmak için noktalar eklemeye devam edin.</p>
+<p>Son eklenen düğümü kaldırmak için <strong>Eksi (-) düğmesini</strong> tıklayın.</p>
+<p>Obje oluşturmayı tamamen iptal etmek için <strong>Kapat (X) düğmesine</strong> tıklayın.</p>
+<p>Bir çizgi için en az 2 düğüm veya bir çokgen için 3 düğüm eklediğinizde, bir <strong>Kaydet düğmesi</strong> görünecektir. Çiziminizi bitirmek için üzerine tıklayın.</p>
+</div>
+<div class="section" id="attribute-form">
+<h2>Öznitelik formu<a class="headerlink" href="#attribute-form" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Bir geometri sayısallaştırıldıktan sonra, öznitelik formu bastırılmamışsa görüntülenecek ve kullanıcıdan yeni objenin özniteliklerini girmesi istenecektir. Görünen form, yeni obje için nitelik değerlerinin girilmesine izin verir. Her özniteliğin sağındaki onay kutuları, her özniteliğin ayrı ayrı hatırlanmasına izin verir. Bir dahaki sefere aynı katmana bir obje ekleyeceğiniz zaman, bu öznitelikler önceden doldurulmuş olacaktır.</p>
+</div>
+</div>
+<div class="section" id="delete-features">
+<h1>Objelerı si<a class="headerlink" href="#delete-features" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Sayısallaştırma modu aktifken objeler silinebilir.</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/delete_features.webp"><img alt="delete_features" src="../_images/delete_features.webp" style="width: 300px;" /></a>
+</div>
+</div>
+<p>Bir objeyi silmek için önce üzerine kısa bir dokunuşla objeyi tanımlayın. Ardından, tanımlama listesinde uzun bir basışla seçin, isterseniz silmek için diğer objeleri seçin ve silme işlemini onaylamak için çöp kutusu düğmesine tıklayın.</p>
+</div>
+<div class="section" id="edit-features">
+<h1>Obje düzenleme<a class="headerlink" href="#edit-features" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Düzenlemek için <strong>Menü düğmesi -&gt; kalem</strong> seçeneğine dokunun.</p>
+<p>Mevcut bir objeyi, kırık noktasını taşıyarak, ekleyerek veya silerek ve ayrıca ayırarak düzenleyebilirsiniz.</p>
+<div class="section" id="vertex-tool">
+<h2>Kırık aracı<a class="headerlink" href="#vertex-tool" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Geometrilerin kırıklarını taşımak ve silmek ve yenilerini eklemek mümkündür.</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/edit_geom_feature.gif"><img alt="edit_geom_feature" src="../_images/edit_geom_feature.gif" style="width: 300px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="split-tool">
+<h2>Bölme aracı<a class="headerlink" href="#split-tool" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Mevcut bir geometriyi, bölünmesi gereken yere bir çizgi çizerek bölmek mümkündür.</p>
+<div class="clearer text-left docutils container">
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/split_geom_feature.webp"><img alt="split_geom_feature" src="../_images/split_geom_feature.webp" style="width: 300px;" /></a>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+
+ 
+
+
+<div id="sourcelink">
+
+
+  <a href="https://github.com/opengisch/QField-docs/blob/master/en/fieldwork/digitize.rst" class="fa fa-github"> Edit on GitHub</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, The QField Project/OPENGIS.ch.<br/>
+      <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 ile oluşturulmuştur.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
