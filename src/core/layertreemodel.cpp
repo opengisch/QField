@@ -33,8 +33,8 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   connect( mProject, &QgsProject::cleared, this, [ = ] { buildMap( nullptr ); } );
   connect( mProject, &QgsProject::readProject, this, [ = ] { buildMap( mLayerTreeModel ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModel::updateMap );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, [ = ]( const QModelIndex &, int, int ) { buildMap( mLayerTreeModel ); } );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModel::removeFromMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModel::insertInMap );
 }
 
 void FlatLayerTreeModel::freeze()
@@ -59,6 +59,170 @@ void FlatLayerTreeModel::updateMap( const QModelIndex &topLeft, const QModelInde
   if ( modifiedIndex.isValid() )
   {
     emit dataChanged( modifiedIndex, modifiedIndex, roles );
+  }
+}
+
+void FlatLayerTreeModel::insertInMap( const QModelIndex &parent, int first, int last )
+{
+  if ( mFrozen )
+    return;
+
+  int insertedAt = -1;
+  if ( first == 0 )
+  {
+    if ( !parent.isValid() )
+    {
+      insertedAt = 0;
+    }
+    else if ( mRowMap.contains( parent ) )
+    {
+      insertedAt = mRowMap[parent] + 1;
+    }
+  }
+  else
+  {
+    QModelIndex index = mLayerTreeModel->index( first - 1, 0, parent );
+    if ( mRowMap.contains( index ) )
+    {
+      insertedAt = mRowMap[index] + 1;
+    }
+  }
+
+  if ( insertedAt >  -1 )
+  {
+    beginInsertRows( QModelIndex(), insertedAt, insertedAt + ( last - first ) );
+
+    QMap<int, int> treeLevelMap;
+    mIndexMap.clear();
+    for ( const auto &index : mRowMap.keys() )
+    {
+      int row = mRowMap[index];
+      int treeLevel = mTreeLevelMap[row];
+
+      if ( row >= insertedAt )
+      {
+        row = row + ( last - first ) + 1;
+        mRowMap[index] = row;
+      }
+
+      mIndexMap.insert( row, index );
+      treeLevelMap.insert( row, treeLevel );
+    }
+    mTreeLevelMap = treeLevelMap;
+
+    int treeLevel = 0;
+    QModelIndex checkParent = parent;
+    while( checkParent.isValid() )
+    {
+      treeLevel++;
+      checkParent = checkParent.parent();
+    }
+
+    for ( int i = 0; first + i <= last; i++ )
+    {
+      QModelIndex index = mLayerTreeModel->index( first + i, 0, parent );
+      mRowMap[index] = insertedAt + i;
+      mIndexMap[insertedAt + i] = index;
+      mTreeLevelMap[insertedAt + i] = treeLevel;
+    }
+
+    endInsertRows();
+  }
+}
+
+void FlatLayerTreeModel::removeFromMap( const QModelIndex &parent, int first, int last )
+{
+  if ( mFrozen )
+    return;
+
+  int removedAt = -1;
+  if ( first == 0 )
+  {
+    if ( !parent.isValid() )
+    {
+      removedAt = 0;
+    }
+    else
+    {
+      if ( mRowMap.contains( parent ) )
+      {
+        removedAt = mRowMap[parent] + 1;
+      }
+    }
+  }
+  else
+  {
+    QModelIndex index = mLayerTreeModel->index( first - 1, 0, parent );
+    if ( mRowMap.contains( index ) )
+    {
+      removedAt = mRowMap[index] + 1;
+    }
+  }
+
+  if ( removedAt > -1 )
+  {
+    bool resetNeeded = false;
+    int modifiedUntil = removedAt;
+    const int treeLevelRemovedAt = mTreeLevelMap[removedAt];
+    while( modifiedUntil < mTreeLevelMap.size() && mTreeLevelMap[modifiedUntil] >= treeLevelRemovedAt )
+    {
+      if  ( mTreeLevelMap[modifiedUntil]  > treeLevelRemovedAt )
+      {
+        resetNeeded = true;
+        break;
+      }
+      modifiedUntil++;
+    }
+    modifiedUntil--;
+
+    if ( resetNeeded )
+    {
+      // Removed rows can't be handled, modle reset needed
+      buildMap( mLayerTreeModel );
+      return;
+    }
+
+    beginRemoveRows( QModelIndex(), removedAt, removedAt + ( last - first ) );
+
+    QMap<int, int> treeLevelMap;
+    mIndexMap.clear();
+    const QList<QModelIndex> keys = mRowMap.keys();
+    for ( const auto &index : keys )
+    {
+      int row = mRowMap[index];
+      int treeLevel = mTreeLevelMap[row];
+
+      if ( row >= removedAt  && row <= removedAt + ( last - first ) )
+      {
+        mRowMap.remove( index );
+        continue;
+      }
+      else if ( row > removedAt + ( last - first ) )
+      {
+        int oldrow = row;
+        row = row - ( last - first + 1 );
+        if ( oldrow <= modifiedUntil && treeLevel == treeLevelRemovedAt )
+        {
+          mRowMap.remove( index );
+          QModelIndex movedIndex = mLayerTreeModel->index( index.row() - ( last - first + 1 ), 0, parent );
+          mRowMap.insert( movedIndex, row );
+          mIndexMap[row] = movedIndex;
+        }
+        else
+        {
+          mRowMap[index] = row;
+          mIndexMap[row] = index;
+        }
+        treeLevelMap[row] = treeLevel;
+      }
+      else
+      {
+        mIndexMap[row] = index;
+        treeLevelMap[row] = treeLevel;
+      }
+    }
+    mTreeLevelMap = treeLevelMap;
+    endRemoveRows();
   }
 }
 
