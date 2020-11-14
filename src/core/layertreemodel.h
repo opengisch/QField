@@ -56,6 +56,9 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
     int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
 
+    void removeFromMap( const QModelIndex &parent, int first, int last );
+    void insertInMap( const QModelIndex &parent, int first, int last );
+
     void setSourceModel( QgsLayerTreeModel *sourceModel );
     QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const override;
