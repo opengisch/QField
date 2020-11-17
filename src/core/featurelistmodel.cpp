@@ -206,7 +206,7 @@ void FeatureListModel::processReloadLayer()
 {
   mEntries.clear();
 
-  if ( !mCurrentLayer )
+  if ( !mCurrentLayer || !mCurrentLayer->isValid() )
     return;
 
   QgsFeatureRequest request;
