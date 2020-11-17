@@ -141,15 +141,13 @@ Item {
       }
 
       ScrollView {
-        padding: 20
-
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: searchField.bottom
 
+        padding: 20
         leftPadding: 0
         rightPadding: 0
-
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AsNeeded
         contentItem: resultsList
