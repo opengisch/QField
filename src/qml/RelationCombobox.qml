@@ -9,35 +9,141 @@ import Theme 1.0
 
 Item {
   id: relationCombobox
-
-  Component.onCompleted: {
-    comboBox.currentIndex = featureListModel.findKey(value)
-    comboBox.visible = _relation !== undefined ? _relation.isValid : true
-    addButton.visible = _relation !== undefined ? _relation.isValid : false
-    invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
-  }
-
   anchors {
     left: parent.left
     right: parent.right
     rightMargin: 10
   }
-
-  property var currentKeyValue: value
-  onCurrentKeyValueChanged: {
-    comboBox._cachedCurrentValue = currentKeyValue
-    comboBox.currentIndex = featureListModel.findKey(currentKeyValue)
-  }
+  height: childrenRect.height + 10
 
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
 
-  height: childrenRect.height + 10
+  Popup {
+    id: popup
+
+    parent: ApplicationWindow.overlay
+    x: 24
+    y: 24
+    width: parent.width - 48
+    height: parent.height - 48
+    padding: 0
+    modal: true
+    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    focus: visible
+    visible: true
+
+    Page {
+      anchors.fill: parent
+
+      header: PageHeader {
+        title: qsTr('Related Features')
+        showApplyButton: true
+        showCancelButton: false
+        onFinished: popup.visible = false
+      }
+
+      TextField {
+        z: 1
+        id: searchField
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        placeholderText: qsTr("Search…")
+        placeholderTextColor: Theme.mainColor
+
+        topPadding: 0
+        leftPadding: 24
+        rightPadding: 24
+        bottomPadding: 0
+        font: Theme.defaultFont
+        selectByMouse: true
+        verticalAlignment: TextInput.AlignVCenter
+
+        background: Rectangle {
+          anchors.fill: searchField
+          color: 'lightgreen'
+        }
+
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+
+        onDisplayTextChanged: {
+          featureListModel.searchTerm = searchField.displayText
+        }
+      }
+
+      ScrollView {
+        padding: 20
+
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: searchField.bottom
+
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+//        contentItem: resultsList
+//        contentWidth: resultsList.width
+//        contentHeight: resultsList.height
+//        clip: true
+
+        ListView {
+          id: resultsList
+          anchors.top: parent.top
+          model: featureListModel
+          width: parent.width
+//            height: resultsList.count > 0
+//                    ? Math.min( delegateRect.height, mainWindow.height / 2 - searchField.height - 10 )
+//                    : 0
+          height: 200
+          clip: true
+
+          delegate: Rectangle {
+            id: delegateRect
+
+//            anchors.top: parent ? parent.bottom : undefined
+            anchors.margins: 10
+            height: textCell.height
+            width: parent ? parent.width : undefined
+
+            Text {
+              id: textCell
+              text: displayString
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.left: parent.left
+              leftPadding: 5
+              font.pointSize: Theme.resultFont.pointSize
+              elide: Text.ElideRight
+              horizontalAlignment: Text.AlignLeft
+            }
+
+            /* bottom border */
+            Rectangle {
+              anchors.bottom: parent.bottom
+              height: 1
+              color: "lightGray"
+              width: parent.width
+            }
+
+            MouseArea {
+              anchors.left: parent.left
+              anchors.top: parent.top
+              anchors.bottom: parent.bottom
+              onClicked: {
+                locator.triggerResultAtRow(index)
+                locatorItem.state = "off"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
   RowLayout {
     anchors { left: parent.left; right: parent.right }
 
     ComboBox {
       id: comboBox
+
       property var _cachedCurrentValue
       Layout.fillWidth: true
       textRole: 'display'
@@ -106,6 +212,7 @@ Item {
         }
       }
     }
+  }
 
     Image {
       Layout.margins: 4
