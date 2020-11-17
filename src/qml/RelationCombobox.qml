@@ -35,15 +35,10 @@ Item {
     modal: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
     focus: visible
-    visible: true
 
-    onCancel: {
-      close()
-      finished()
-    }
-
-    onApply: {
-      finished()
+    onClosed: {
+      popup.cancel()
+      popup.finished()
     }
 
     Page {
@@ -53,8 +48,15 @@ Item {
         title: qsTr('Related Features')
         showApplyButton: true
         showCancelButton: true
-        onApply: popup.apply()
-        onCancel: popup.cancel()
+        onApply: {
+          popup.close()
+          popup.apply()
+          popup.finished()
+        }
+        onCancel: {
+          popup.cancel()
+          popup.finished()
+        }
       }
 
       TextField {
@@ -247,7 +249,44 @@ Item {
         }
       }
     }
-  }
+
+    Image {
+      id: searchButton
+
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
+      source: Theme.getThemeIcon("ic_baseline_search_black")
+      width: 18
+      height: 18
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+          popup.open()
+        }
+      }
+    }
+
+
+    Image {
+      Layout.margins: 4
+      Layout.preferredWidth: 18
+      Layout.preferredHeight: 18
+      id: addButton
+      source: Theme.getThemeIcon("ic_add_black_48dp")
+      width: 18
+      height: 18
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            addFeaturePopup.state = 'Add'
+            addFeaturePopup.currentLayer = relationCombobox._relation ? relationCombobox._relation.referencedLayer : null
+            addFeaturePopup.open()
+        }
+      }
+    }
 
     Image {
       Layout.margins: 4

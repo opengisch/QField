@@ -90,6 +90,10 @@ QVariant FeatureCheckListModel::attributeValue() const
   {
     value = vl;
   }
+  else if ( ! mAllowMulti )
+  {
+    value = vl.first();
+  }
   else
   {
     //make string
@@ -99,6 +103,8 @@ QVariant FeatureCheckListModel::attributeValue() const
     QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
 #endif
   }
+
+  qDebug() << "Value is : " << value;
 
   return value;
 }
