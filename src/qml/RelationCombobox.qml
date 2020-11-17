@@ -253,7 +253,7 @@ Item {
       Connections {
         target: featureListModel
 
-        onModelReset: {
+        function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue)
         }
       }
