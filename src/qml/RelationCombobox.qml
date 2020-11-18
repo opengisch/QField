@@ -328,6 +328,7 @@ Item {
       source: Theme.getThemeIcon("ic_baseline_search_black")
       width: 18
       height: 18
+      opacity: enabled ? 1 : 0.3
 
       MouseArea {
         anchors.fill: parent
@@ -345,6 +346,7 @@ Item {
       source: Theme.getThemeIcon("ic_add_black_48dp")
       width: comboBox.enabled ? 18 : 0
       height: 18
+      opacity: enabled ? 1 : 0.3
 
       MouseArea {
         anchors.fill: parent
