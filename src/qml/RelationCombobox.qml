@@ -209,7 +209,7 @@ Item {
             }
 
             function performClick() {
-              model.checked = !model.checked
+              model.checked = true
             }
           }
 
