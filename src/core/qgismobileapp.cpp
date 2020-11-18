@@ -109,6 +109,7 @@
 #include "expressionevaluator.h"
 #include "stringutils.h"
 #include "urlutils.h"
+#include "bluetoothreceiver.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -154,6 +155,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
+  mBluetoothReceiver = new BluetoothReceiver;
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
@@ -342,6 +344,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
   qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
+  //qmlRegisterUncreatableType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver", "The bluetoothReceiver is available as context property `bluetoothReceiver`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -370,6 +373,8 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 #endif
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
+
+  //rootContext()->setContextProperty( "bluetoothReceiver", mBluetoothReceiver );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }

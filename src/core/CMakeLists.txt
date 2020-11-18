@@ -51,6 +51,7 @@ SET(QFIELD_CORE_SRCS
   trackingmodel.cpp
   tracker.cpp
   viewstatus.cpp
+  bluetoothreceiver.cpp
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
@@ -117,6 +118,7 @@ SET(QFIELD_CORE_HDRS
   valuemapmodel.h
   vertexmodel.h
   trackingmodel.h
+  bluetoothreceiver.h
   tracker.h
   viewstatus.h
   utils/fileutils.h
@@ -190,6 +192,7 @@ TARGET_LINK_LIBRARIES(qfield_core PUBLIC
   Qt5::Sql
   Qt5::Concurrent
   Qt5::WebView
+  Qt5::Bluetooth
   ${QGIS_CORE_LIBRARY}
   ${QGIS_ANALYSIS_LIBRARY}
   ${PROJ_LIBRARY}
