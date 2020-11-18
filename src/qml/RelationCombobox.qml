@@ -166,6 +166,8 @@ Item {
           delegate: Rectangle {
             id: delegateRect
 
+            property int idx: index
+
             anchors.margins: 10
             height: radioButton.visible ? radioButton.height : checkBoxButton.height
             width: parent ? parent.width : undefined
@@ -206,22 +208,32 @@ Item {
               width: parent.width
             }
 
-            MouseArea {
-              anchors.fill: parent
-              propagateComposedEvents: true
+            function performClick() {
+              model.checked = !model.checked
+            }
+          }
 
-              onClicked: {
-                var allowMulti = resultsList.model.allowMulti;
-                var popupRef = searchFeaturePopup;
+          MouseArea {
+            anchors.fill: parent
+            propagateComposedEvents: true
 
-                // after this line, all the references get wrong, that's why we have `popupRef` defined above
-                model.checked = !model.checked
+            onClicked: {
+              var allowMulti = resultsList.model.allowMulti;
+              var popupRef = searchFeaturePopup;
+              var item = resultsList.itemAt(mouse.x, mouse.y)
 
-                if (!allowMulti) {
-                  popupRef.close()
-                  popupRef.apply()
-                  popupRef.finished()
-                }
+              if (!item)
+                return;
+
+              item.performClick()
+
+              // after this line, all the references get wrong, that's why we have `popupRef` defined above
+              model.checked = !model.checked
+
+              if (!allowMulti) {
+                popupRef.close()
+                popupRef.apply()
+                popupRef.finished()
               }
             }
           }
