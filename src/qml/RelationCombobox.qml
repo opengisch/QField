@@ -80,7 +80,7 @@ Item {
       anchors.fill: parent
 
       header: PageHeader {
-        title: qsTr('Related Features')
+        title: fieldLabel
         showApplyButton: true
         showCancelButton: true
         onApply: {
