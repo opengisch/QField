@@ -61,7 +61,6 @@ Popup {
 
       Text {
         id: changelogBody
-        property bool isSuccess: false
         color: '#95000000'
         font: Theme.tipFont
 
@@ -72,6 +71,18 @@ Popup {
         Layout.fillHeight: true
         Layout.minimumHeight: contentHeight
         Layout.maximumHeight: contentHeight
+
+        text: {
+          switch ( changelogContents.status ) {
+            case ChangelogContents.IdleStatus:
+            case ChangelogContents.LoadingStatus:
+              return qsTr('Loading...')
+            case ChangelogContents.SuccessStatus:
+              return changelogContents.markdown
+            case ChangelogContents.ErrorStatus:
+              return qsTr( 'Error while fetching changelog. Try again later.' )
+          }
+        }
 
         onLinkActivated: Qt.openUrlExternally(link)
       }
@@ -93,21 +104,10 @@ Popup {
 
   ChangelogContents {
     id: changelogContents
-    property bool isSuccess: false
-
-    onChangelogFetchFinished: function(isSuccess) {
-      changelogContents.isSuccess = isSuccess
-
-      if ( isSuccess ) {
-        changelogBody.text = changelogContents.markdown()
-      } else {
-        changelogBody.text = qsTr( 'Error while fetching changelog. Try again later.' )
-      }
-    }
   }
 
   onClosed: {
-    if ( changelogContents.isSuccess ) {
+    if ( changelogContents.status === ChangelogContents.SuccessStatus ) {
       settings.setValue( "/QField/ChangelogVersion", versionCode )
     }
 
@@ -115,17 +115,9 @@ Popup {
   }
 
   onOpened: {
-    if ( changelogContents.isSuccess )
+    if ( changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus )
       return
 
-    changelogBody.text = qsTr( 'Loading...' )
     changelogContents.request()
-  }
-
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-      visible = false
-    }
   }
 }

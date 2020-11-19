@@ -18,24 +18,66 @@
 
 #include <QObject>
 
+//! Obtain the QField changelog contents from the GitHub releases API.
 class ChangelogContents : public QObject
 {
     Q_OBJECT
 
+  //! Holds the current changelog contents formatted as markdown.
+  Q_PROPERTY( QString markdown READ markdown NOTIFY markdownChanged )
+
+  //! Holds the current changelog contents status.
+  Q_PROPERTY( Status status READ status NOTIFY statusChanged )
+
   public:
+    //! Constructor
     explicit ChangelogContents( QObject *parent = nullptr );
 
+    //! Changelog contents status.
+    enum Status
+    {
+      //! Changelog has not been requested
+      IdleStatus,
+      //! Changelog has been requested, but still not received
+      LoadingStatus,
+      //! Changelog has been successfully generated
+      SuccessStatus,
+      //! Changelog has been requested, but failed to be generated
+      ErrorStatus,
+    };
+
+    Q_ENUM( Status )
+
+    /**
+     * Initiates a HTTP request to obtain the changelog contents.
+     * @see markdownChanged()
+     * @see statusChanged()
+     */
     Q_INVOKABLE void request();
 
-    Q_INVOKABLE QString markdown();
+    //! Returns the current changelog contents formatted as markdown. Null string if no changelog.
+    QString markdown();
+
+    //! Returns the current changelog contents status.
+    Status status();
 
   signals:
-    void changelogFetchFinished( bool isSuccess );
+
+    //! Emitted when the markdown contents has been changed.
+    void markdownChanged();
+
+    //! Emitted when the status has been changed.
+    void statusChanged();
 
   private:
+    //! Parses a given \a version string into a list of three numbers, e.g. 'v1.5.6-dev' to [1, 5, 6]. Returns an empty list if cannot be parsed.
     QList<int> parseVersion( const QString &version );
 
+    //! Holds the current changelog contents formatted as markdown. Null string if no changelog.
     QString mMarkdown;
+
+    //! Holds the current status.
+    Status mStatus = Status::IdleStatus;
 };
 
 #endif // CHANGELOGCONTENTS_H

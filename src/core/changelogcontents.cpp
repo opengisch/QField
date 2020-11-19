@@ -29,16 +29,22 @@ ChangelogContents::ChangelogContents( QObject *parent ):
 
 void ChangelogContents::request()
 {
-  QgsNetworkAccessManager *manager = new QgsNetworkAccessManager(this);
-  connect(manager, &QNetworkAccessManager::finished, this, [ = ]( QNetworkReply *reply ) {
-    manager->deleteLater();
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
 
+  mMarkdown.clear();
+  emit markdownChanged();
+
+  mStatus = LoadingStatus;
+  emit statusChanged();
+
+  connect(manager, &QNetworkAccessManager::finished, this, [ = ]( QNetworkReply *reply ) {
     QJsonParseError error;
     QJsonDocument json = QJsonDocument::fromJson( reply->readAll(), &error );
 
     if ( error.error != QJsonParseError::NoError )
     {
-      emit changelogFetchFinished(false);
+      mStatus = ErrorStatus;
+      emit statusChanged();
       return;
     }
 
@@ -77,9 +83,11 @@ void ChangelogContents::request()
     changelog = changelog.replace(regexp, QStringLiteral("\n###\n##\\1\n\n\n") );
     changelog = "Up to release **" + versionNumbersOnly + "**" + changelog;
 
+    mStatus = SuccessStatus;
     mMarkdown = changelog;
 
-    emit changelogFetchFinished( true );
+    emit statusChanged();
+    emit markdownChanged();
   });
 
   manager->get( QNetworkRequest( QUrl( QStringLiteral( "https://api.github.com/repos/opengisch/qfield/releases" ) ) ) );
@@ -88,6 +96,11 @@ void ChangelogContents::request()
 QString ChangelogContents::markdown()
 {
   return mMarkdown;
+}
+
+ChangelogContents::Status ChangelogContents::status()
+{
+  return mStatus;
 }
 
 QList<int> ChangelogContents::parseVersion( const QString &version )
