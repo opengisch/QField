@@ -179,10 +179,10 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
-              leftPadding: 24
               padding: 12
               ButtonGroup.group: buttonGroup
 
+              indicator: Rectangle {}
               contentItem: Text {
                 text: parent.text
                 font: parent.font
@@ -200,7 +200,6 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
-              leftPadding: 24
               padding: 12
             }
 
