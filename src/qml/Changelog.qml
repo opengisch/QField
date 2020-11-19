@@ -63,6 +63,7 @@ Popup {
         id: changelogBody
         color: '#95000000'
         font: Theme.tipFont
+        visible: changelogContents.status != ChangelogContents.LoadingStatus
 
         fontSizeMode: Text.VerticalFit
         textFormat: Text.MarkdownText
@@ -76,7 +77,7 @@ Popup {
           switch ( changelogContents.status ) {
             case ChangelogContents.IdleStatus:
             case ChangelogContents.LoadingStatus:
-              return qsTr('Loading...')
+              return ''
             case ChangelogContents.SuccessStatus:
               return changelogContents.markdown
             case ChangelogContents.ErrorStatus:
@@ -85,6 +86,13 @@ Popup {
         }
 
         onLinkActivated: Qt.openUrlExternally(link)
+      }
+
+      BusyIndicator {
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        visible: changelogContents.status == ChangelogContents.LoadingStatus
+        running: visible
       }
 
       QfButton {

@@ -79,8 +79,10 @@ void ChangelogContents::request()
 
     changelog += QStringLiteral("\n") + QStringLiteral("[") + tr("Previous releases on GitHub") + QStringLiteral("](https://github.com/opengisch/qfield/releases)");
 
-    QRegularExpression regexp( "^##(.+)$", QRegularExpression::MultilineOption );
-    changelog = changelog.replace(regexp, QStringLiteral("\n###\n##\\1\n\n\n") );
+    QRegularExpression regexpFirstTitle( QStringLiteral( "^\n#\n# " ) );
+    changelog = changelog.replace( regexpFirstTitle, QStringLiteral("\n# ") );
+    QRegularExpression regexpAllTitles( QStringLiteral( "^##(.+)$" ), QRegularExpression::MultilineOption );
+    changelog = changelog.replace( regexpAllTitles, QStringLiteral("\n###\n##\\1\n\n\n") );
     changelog = "Up to release **" + versionNumbersOnly + "**" + changelog;
 
     mStatus = SuccessStatus;
