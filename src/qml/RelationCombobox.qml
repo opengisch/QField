@@ -104,8 +104,9 @@ Item {
         placeholderText: qsTr("Search…")
         placeholderTextColor: Theme.mainColor
 
-        leftPadding: 24
-        rightPadding: 24
+        height: fontMetrics.height * 2.5
+        padding: 24
+        bottomPadding: 9
         font: Theme.defaultFont
         selectByMouse: true
         verticalAlignment: TextInput.AlignVCenter
@@ -120,16 +121,16 @@ Item {
       Image {
         id: clearButton
         z: 1
-        width: 20
-        height: 20
+        width: fontMetrics.height
+        height: fontMetrics.height
         source: Theme.getThemeIcon("ic_clear_black_18dp")
         sourceSize.width: 20 * screen.devicePixelRatio
         sourceSize.height: 20 * screen.devicePixelRatio
         fillMode: Image.PreserveAspectFit
         anchors.top: searchField.top
         anchors.right: searchField.right
-        anchors.topMargin: 12
-        anchors.rightMargin: 12
+        anchors.topMargin: height - 7
+        anchors.rightMargin: height - 7
         opacity: searchField.text.length > 0 ? 1 : 0.25
 
         MouseArea {
@@ -145,9 +146,7 @@ Item {
         anchors.right: parent.right
         anchors.top: searchField.bottom
 
-        padding: 20
-        leftPadding: 0
-        rightPadding: 0
+        padding: 0
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AsNeeded
         contentItem: resultsList
