@@ -222,6 +222,8 @@ void FeatureListModel::processReloadLayer()
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
+  int keyIndex = fields.indexOf( mKeyField );
+  int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
@@ -242,12 +244,16 @@ void FeatureListModel::processReloadLayer()
 
   if ( !mSearchTerm.isEmpty() )
   {
+    QString fieldDisplayString = displayValueIndex >= 0
+      ? QgsExpression::quotedColumnRef( mDisplayValueField )
+      : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+
     QString searchTermExpression = QStringLiteral( " strpos(upper( %1 ), upper( %2 ) ) > 0 "
                                                    " OR "
                                                    " array_length( "
                                                    " array_filter( string_to_array( %1, ' ' ),  strpos(upper( @element ), upper( %2 ) ) > 0 ) "
                                                    " ) > 0 " )
-        .arg( QgsExpression::quotedColumnRef( mDisplayValueField ), QgsExpression::quotedValue( mSearchTerm ) );
+        .arg( fieldDisplayString, QgsExpression::quotedValue( mSearchTerm ) );
 
     if ( mFilterExpression.isEmpty() )
       request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
@@ -256,9 +262,6 @@ void FeatureListModel::processReloadLayer()
 
     qDebug() << mCurrentLayer->fields().names() << mFilterExpression << searchTermExpression;
   }
-
-  int keyIndex = fields.indexOf( mKeyField );
-  int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   QgsFeatureIterator iterator = mCurrentLayer->getFeatures( request );
 

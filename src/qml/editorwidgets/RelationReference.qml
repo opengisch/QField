@@ -24,16 +24,28 @@ Item {
 
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
-    FeatureListModel {
+    FeatureCheckListModel {
       id: featureListModel
 
       currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
       keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+      // no, it is not a misspelled version of config['AllowNull']
       addNull: config['AllowNULL']
       orderByValue: config['OrderByValue']
+
+      attributeField: field
+      //passing "" instead of undefined, so the model is cleared on adding new features
+      attributeValue: value !== undefined ? value : ''
+      currentFormFeature: currentFeature
+      filterExpression: ""
+      allowMulti: false
+      onListUpdated: {
+        // TODO fix the value of `isNull`
+        valueChanged( attributeValue, parent.isNull )
+      }
     }
 
-    onValueChanged: parent.valueChanged(value,isNull)
+    onValueChanged: parent.valueChanged(value, isNull)
   }
 
   Image {
