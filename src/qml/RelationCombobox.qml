@@ -179,11 +179,18 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
-              topPadding: 12
-              bottomPadding: 12
               leftPadding: 24
-              rightPadding: 24
+              padding: 12
               ButtonGroup.group: buttonGroup
+
+              contentItem: Text {
+                text: parent.text
+                font: parent.font
+                opacity: enabled ? 1.0 : 0.3
+                color: model.checked ? Theme.mainColor : Theme.darkGray
+                verticalAlignment: Text.AlignVCenter
+                leftPadding: parent.indicator.width + parent.spacing
+              }
             }
 
             CheckBox {
@@ -193,10 +200,8 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
-              topPadding: 12
-              bottomPadding: 12
               leftPadding: 24
-              rightPadding: 24
+              padding: 12
             }
 
             /* bottom border */
