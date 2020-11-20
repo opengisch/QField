@@ -1,67 +1,105 @@
 #include "bluetoothreceiver.h"
+#include <qgsmessagelog.h>
 #include <QDebug>
+#include <QSettings>
 
 BluetoothReceiver::BluetoothReceiver(QObject *parent)
+    :mLocalDevice( new QBluetoothLocalDevice ),
+    mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
-    startDeviceDiscovery();
+    repairDevice();
 }
-void BluetoothReceiver::startDeviceDiscovery()
+
+void BluetoothReceiver::disconnectService()
 {
-    // Create a discovery agent and connect to its signals
-    QBluetoothDeviceDiscoveryAgent *deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
+    mSocket->disconnectFromService();
+}
 
-    deviceDiscoveryAgent->start();
+void BluetoothReceiver::connectService()
+{
+    QSettings settings;
+    const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
 
-    QList discoveredDevices = deviceDiscoveryAgent->discoveredDevices();
+    qDebug() << "configured positioningDevice is "<< deviceAddress << "but we connect to statically to D4:12:43:53:B1:8D";
+    /*
+    if( deviceAddress.isEmpty() || deviceAddress == QStringLiteral( "internal ") )
+        return;
+    */
+    qDebug() << "Disconnect service";
 
-    for( QBluetoothDeviceInfo device: discoveredDevices )
+    disconnectService();
+    qDebug() << "SOCKET state is " << mSocket->state();
+     connect(mSocket, &QBluetoothSocket::connected,
+         [=](){
+        qDebug() << " : SOCKET CONNECTED";
+        //QgsMessageLog::logMessage( QString("CONNECTED"), "QField", Qgis::Warning );
+
+     });
+     connect(mSocket, &QBluetoothSocket::disconnected,
+         [=](){
+        qDebug() << " : SOCKET DISCONNECTED";
+        //QgsMessageLog::logMessage( QString("DISCONNECTED"), "QField", Qgis::Warning );
+     });
+     connect(mSocket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error),
+         [=](QBluetoothSocket::SocketError error){
+         //QgsMessageLog::logMessage( QString("Error %1").arg( error), "QField", Qgis::Warning );
+        qDebug() << " : SOCKET ERROR: " <<error;
+     });
+     connect(mSocket, &QBluetoothSocket::readyRead,
+             [=](){
+            qDebug() << " : READY READ";
+            //QgsMessageLog::logMessage( QString("READY READ"), "QField", Qgis::Warning );
+            readSocket();
+         });
+     connect(mSocket, &QBluetoothSocket::stateChanged,
+         [=](){
+        qDebug() << " : SOCKET state changed to " << mSocket->state();
+     });
+
+    mSocket->connectToService( QBluetoothAddress("D4:12:43:53:B1:8D"), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+}
+
+void BluetoothReceiver::repairDevice()
+{
+    connect(mLocalDevice, SIGNAL(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)),
+             this, SLOT(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)), Qt::UniqueConnection );
+    connect(mLocalDevice, SIGNAL(pairingDisplayConfirmation(QBluetoothAddress,QString)),
+            this, SLOT(confirmPairing(QBluetoothAddress,QString)), Qt::UniqueConnection );
+
+    if( mLocalDevice->pairingStatus(QBluetoothAddress("D4:12:43:53:B1:8D") ) == QBluetoothLocalDevice::Paired )
     {
-        //qDebug() << "Device:" << device.name() << '(' << device.address().toString() << ')';
-        if( device.name() == "reach")
-        {
-            qDebug() << "Check service for: " << device.name() << '(' << device.address().toString() << ')';
-
-            QBluetoothServiceDiscoveryAgent *serviceDiscoveryAgent = new QBluetoothServiceDiscoveryAgent(device.address(), this);
-
-            connect(serviceDiscoveryAgent, SIGNAL(serviceDiscovered(QBluetoothServiceInfo)),
-                    this, SLOT(serviceDiscovered(QBluetoothServiceInfo)));
-
-        }
+        mLocalDevice->requestPairing( QBluetoothAddress("D4:12:43:53:B1:8D"), QBluetoothLocalDevice::Unpaired);
+    }
+    else{
+        mLocalDevice->requestPairing( QBluetoothAddress("D4:12:43:53:B1:8D"), QBluetoothLocalDevice::Paired);
     }
 }
 
-void BluetoothReceiver::serviceDiscovered(const QBluetoothServiceInfo &service)
+void BluetoothReceiver::confirmPairing(const QBluetoothAddress &address, QString pin)
 {
-    qDebug() << "Service:" << service.serviceName() << '(' << service.device().address().toString() << ')';
-    connectService( service );
+    qDebug() << "needds conf";
+ mLocalDevice->pairingConfirmation(true);
 }
 
-void BluetoothReceiver::connectService(const QBluetoothServiceInfo &service)
+void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status)
 {
-    socket = new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol );
-
-     connect(socket, &QBluetoothSocket::connected,
-         [=](){
-        qDebug() << "SOCKET CONNECTED";
-        readSocket();
-     });
-     connect(socket, &QBluetoothSocket::disconnected,
-         [=](){
-        qDebug() << "SOCKET DISCONNECTED";
-     });
-     connect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error),
-         [=](QBluetoothSocket::SocketError error){
-        qDebug() << "SOCKET ERROR: " <<error;
-     });
-
-    socket->connectToService(service.device().address(), service.serviceUuid());
+    if( status == QBluetoothLocalDevice::Paired )
+    {
+        qDebug() << "paired device";
+        disconnect(mLocalDevice, SIGNAL(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)),
+                 this, SLOT(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)));
+        connectService();
+    }else{
+        qDebug() << "unpaired device";
+        repairDevice();
+    }
 }
 
 void BluetoothReceiver::readSocket()
 {
-    while (socket->canReadLine()) {
-        QByteArray line = socket->readLine().trimmed();
-        qDebug() << socket->peerName() << "sais ["<<line.length()<<"]: "<< QString::fromUtf8(line.constData());
+    while (mSocket->canReadLine()) {
+        QByteArray line = mSocket->readLine().trimmed();
+        qDebug() << mSocket->peerName() << "sais ["<<line.length()<<"]: "<< QString::fromUtf8(line.constData());
+        //QgsMessageLog::logMessage( QString("received %1").arg( QString::fromUtf8(line.constData()) ), "QField", Qgis::Warning );
     }
 }
-

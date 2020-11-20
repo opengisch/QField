@@ -16,38 +16,27 @@
 #ifndef BLUETOOTHRECEIVER_H
 #define BLUETOOTHRECEIVER_H
 
-#include <QtBluetooth/QBluetoothServer>
-#include <QtBluetooth/QBluetoothDeviceDiscoveryAgent>
-#include <QtBluetooth/QBluetoothDeviceInfo>
-#include <QtBluetooth/QBluetoothServiceDiscoveryAgent>
-#include <QtBluetooth/QBluetoothServiceInfo>
 #include <QObject>
+#include <QtBluetooth/QBluetoothLocalDevice>
+#include <QtBluetooth/QBluetoothSocket>
 
 class BluetoothReceiver : public QObject
 {
     Q_OBJECT
-    /*
-    Q_PROPERTY( QString expressionText READ expressionText WRITE setExpressionText NOTIFY expressionTextChanged )
-    Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
-    Q_PROPERTY( QgsMapLayer *layer READ layer WRITE setLayer NOTIFY layerChanged )
-    */
+
     public:
         explicit BluetoothReceiver( QObject *parent = nullptr );
-        void startDeviceDiscovery();
-        void connectService(const QBluetoothServiceInfo &service);
+        void connectService();
+        void disconnectService();
+        void repairDevice();
         void readSocket();
 
-    signals:
-
     private slots:
-        void serviceDiscovered(const QBluetoothServiceInfo &service);
-        //void stringReceived(QString *stream );
-
+        void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
+        void confirmPairing(const QBluetoothAddress &address, QString pin);
     private:
-        QBluetoothSocket *socket = nullptr;
-        /*
-        QBluetoothServer *rfcommServer = nullptr;
-*/
+        QBluetoothLocalDevice *mLocalDevice = nullptr;
+        QBluetoothSocket *mSocket = nullptr;
 
 };
 
