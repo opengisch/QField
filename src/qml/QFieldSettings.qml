@@ -3,6 +3,7 @@ import QtQuick 2.11
 import Qt.labs.settings 1.0
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.4
+import org.qfield 1.0
 
 import Theme 1.0
 
@@ -18,6 +19,7 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias verticalGrid: registry.verticalGrid
+  property alias positioningDevice: registry.positioningDevice
 
   Settings {
     id: registry
@@ -30,6 +32,7 @@ Page {
     property bool autoSave
     property bool mouseAsTouchScreen
     property string verticalGrid: ""
+    property string positioningDevice: "internal"
   }
 
   ListModel {
@@ -107,6 +110,12 @@ Page {
       TabButton {
         height: 48
         text: qsTr("Grids")
+        font: Theme.defaultFont
+        anchors.verticalCenter : parent.verticalCenter
+      }
+      TabButton {
+        height: 48
+        text: qsTr("NMEA")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
@@ -204,6 +213,74 @@ Page {
 
                   Component.onCompleted: {
                       currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
+                  }
+              }
+
+              Item {
+                  // spacer item
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+              }
+          }
+      }
+
+      Item {
+          ColumnLayout {
+              anchors.fill: parent
+              anchors.topMargin: 8
+              anchors.leftMargin: 18
+              anchors.rightMargin: 18
+
+              Label {
+                  text: qsTr( "Use of external positioning device" )
+                  font: Theme.defaultFont
+
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+              }
+
+              RowLayout {
+                  ComboBox {
+                      id: bluetoothDeviceCombo
+                      enabled: !bluetoothDeviceCombo.model.scanning
+                      Layout.fillWidth: true
+                      textRole: 'display'
+                      model: BluetoothDeviceModel {
+                          id: bluetoothDeviceModel
+                      }
+
+                      onCurrentIndexChanged: {
+                          positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                          console.log( "positioningDevice: "+positioningDevice+" - "+model.display)
+                      }
+
+                      Connections {
+                        target: bluetoothDeviceModel
+
+                        onModelReset: {
+                          bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
+                        }
+                      }
+
+                      Component.onCompleted: {
+                          bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice);
+                      }
+                  }
+
+                  QfToolButton {
+                    id: connect
+                    round: true
+                    onClicked: {
+                        bluetoothDeviceCombo.model.startServiceDiscovery()
+                    }
+                    bgcolor: bluetoothDeviceCombo.model.scanning ? "blue" : Theme.darkGray
+                    enabled: !bluetoothDeviceCombo.model.scanning
+                  }
+              }
+
+              onVisibleChanged: {
+                  if( visible === true ){
+                      bluetoothDeviceCombo.model.startServiceDiscovery()
                   }
               }
 

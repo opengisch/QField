@@ -52,6 +52,7 @@ SET(QFIELD_CORE_SRCS
   tracker.cpp
   viewstatus.cpp
   bluetoothreceiver.cpp
+  bluetoothdevicemodel.cpp
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
@@ -119,6 +120,7 @@ SET(QFIELD_CORE_HDRS
   vertexmodel.h
   trackingmodel.h
   bluetoothreceiver.h
+  bluetoothdevicemodel.h
   tracker.h
   viewstatus.h
   utils/fileutils.h

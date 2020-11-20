@@ -110,6 +110,7 @@
 #include "stringutils.h"
 #include "urlutils.h"
 #include "bluetoothreceiver.h"
+#include "bluetoothdevicemodel.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -331,6 +332,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
+  qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
@@ -344,7 +346,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
   qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
-  //qmlRegisterUncreatableType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver", "The bluetoothReceiver is available as context property `bluetoothReceiver`" );
+  qmlRegisterUncreatableType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver", "The bluetoothReceiver is available as context property `bluetoothReceiver`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -374,7 +376,7 @@ void QgisMobileapp::initDeclarative()
 #endif
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
 
-  //rootContext()->setContextProperty( "bluetoothReceiver", mBluetoothReceiver );
+  rootContext()->setContextProperty( "bluetoothReceiver", mBluetoothReceiver );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }
