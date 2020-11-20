@@ -23,25 +23,21 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
 {
     mServiceDiscoveryAgent = new QBluetoothServiceDiscoveryAgent(mLocalDevice->address());
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,
-            this, &BluetoothDeviceModel::serviceDiscovered);
+    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
 
-    connect(mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),
-        [=](QBluetoothServiceDiscoveryAgent::Error error){
+    connect(mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
         qDebug() << "ServiceAgent ERROR:" << error;
         setScanning(false);
         endResetModel();
     });
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,
-        [=](){
+    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
        qDebug() << "ServiceAgent finished";
        setScanning(false);
        endResetModel();
     });
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,
-        [=](){
+    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
        qDebug() << "ServiceAgent canceled";
        setScanning(false);
        endResetModel();
@@ -75,7 +71,6 @@ void BluetoothDeviceModel::serviceDiscovered(const QBluetoothServiceInfo &servic
     mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
 }
 
-
 bool BluetoothDeviceModel::scanning() const
 {
     return mScanning;
@@ -89,7 +84,6 @@ void BluetoothDeviceModel::setScanning( bool scanning )
     mScanning = scanning;
     emit scanningChanged();
 }
-
 
 int BluetoothDeviceModel::findAddessIndex( const QString &address ) const
 {

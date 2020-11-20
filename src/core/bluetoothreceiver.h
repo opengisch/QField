@@ -27,10 +27,9 @@ class BluetoothReceiver : public QObject
 
     public:
         explicit BluetoothReceiver( QObject *parent = nullptr );
-        void connectService();
-        void disconnectService();
-        void repairDevice();
-        void readSocket();
+        Q_INVOKABLE void reconnectDevice( const QString &address );
+        void connectService( const QBluetoothAddress &address );
+        void repairDevice( const QBluetoothAddress &address );
 
     private slots:
         void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);

@@ -251,6 +251,7 @@ Page {
 
                       onCurrentIndexChanged: {
                           positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                          bluetoothReceiver.reconnectDevice(positioningDevice)
                       }
 
                       Connections {
