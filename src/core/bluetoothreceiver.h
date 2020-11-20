@@ -19,6 +19,7 @@
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
+#include "qgsnmeaconnection.h"
 
 class BluetoothReceiver : public QObject
 {
@@ -34,9 +35,12 @@ class BluetoothReceiver : public QObject
     private slots:
         void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
         void confirmPairing(const QBluetoothAddress &address, QString pin);
+
+        void stateChanged(const QgsGpsInformation &info );
     private:
         QBluetoothLocalDevice *mLocalDevice = nullptr;
         QBluetoothSocket *mSocket = nullptr;
+        QgsNmeaConnection *mGpsConnection = nullptr;//std::unique_ptr< QgsGpsConnection > mGpsConnection;
 
 };
 

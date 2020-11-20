@@ -1,3 +1,19 @@
+/***************************************************************************
+  bluetoothdevicemodel.h - BluetoothDeviceModel
+
+ ---------------------
+ begin                : 20.11.2020
+ copyright            : (C) 2020 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #ifndef BLUETOOTHDEVICEMODEL_H
 #define BLUETOOTHDEVICEMODEL_H
 
@@ -16,7 +32,6 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_PROPERTY( bool scanning READ scanning WRITE setScanning NOTIFY scanningChanged )
 
     Q_ENUMS( BluetoothDeviceRoles )
-
 
   public:
     //! The roles provided by this model
@@ -41,15 +56,14 @@ class BluetoothDeviceModel : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void startServiceDiscovery();
-
     Q_INVOKABLE int findAddessIndex( const QString &address ) const;
     Q_INVOKABLE QString findIndexAddess( int idx ) const;
 
   signals:
     void scanningChanged();
 
-    private slots:
-        void serviceDiscovered(const QBluetoothServiceInfo &service);
+  private slots:
+    void serviceDiscovered(const QBluetoothServiceInfo &service);
 
   private:
     QList<QPair<QString, QString>> mDiscoveredDevices;

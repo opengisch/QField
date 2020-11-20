@@ -1,12 +1,33 @@
+/***************************************************************************
+ bluetoothreceiver.cpp - BluetoothReceiver
+
+ ---------------------
+ begin                : 18.11.2020
+ copyright            : (C) 2020 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "bluetoothreceiver.h"
+
+#include <QSettings>
 #include <qgsmessagelog.h>
 #include <QDebug>
-#include <QSettings>
 
-BluetoothReceiver::BluetoothReceiver(QObject *parent)
-    :mLocalDevice( new QBluetoothLocalDevice ),
-    mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
+BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
+    mLocalDevice( new QBluetoothLocalDevice ),
+    mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
+    mGpsConnection( new QgsNmeaConnection( mSocket ) )
 {
+    connect( mGpsConnection, &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged);
+
+    //kind of ugly workaround - could be improved
     repairDevice();
 }
 
@@ -49,7 +70,7 @@ void BluetoothReceiver::connectService()
              [=](){
             qDebug() << " : READY READ";
             //QgsMessageLog::logMessage( QString("READY READ"), "QField", Qgis::Warning );
-            readSocket();
+            //readSocket();
          });
      connect(mSocket, &QBluetoothSocket::stateChanged,
          [=](){
@@ -61,10 +82,14 @@ void BluetoothReceiver::connectService()
 
 void BluetoothReceiver::repairDevice()
 {
-    connect(mLocalDevice, SIGNAL(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)),
-             this, SLOT(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)), Qt::UniqueConnection );
-    connect(mLocalDevice, SIGNAL(pairingDisplayConfirmation(QBluetoothAddress,QString)),
-            this, SLOT(confirmPairing(QBluetoothAddress,QString)), Qt::UniqueConnection );
+    connect(mLocalDevice, &QBluetoothLocalDevice::pairingFinished,
+             this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
+    connect(mLocalDevice, &QBluetoothLocalDevice::pairingDisplayConfirmation,
+            this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
+    connect(mLocalDevice,  &QBluetoothLocalDevice::error,
+            [=](){
+        qDebug() << "RE-PAIR FAILED";
+     });
 
     if( mLocalDevice->pairingStatus(QBluetoothAddress("D4:12:43:53:B1:8D") ) == QBluetoothLocalDevice::Paired )
     {
@@ -78,7 +103,16 @@ void BluetoothReceiver::repairDevice()
 void BluetoothReceiver::confirmPairing(const QBluetoothAddress &address, QString pin)
 {
     qDebug() << "needds conf";
- mLocalDevice->pairingConfirmation(true);
+    mLocalDevice->pairingConfirmation(true);
+}
+
+void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
+{
+    qDebug() << "state chagned";
+    qDebug() << "lat" << info.latitude;
+    qDebug() << "lon" << info.latitude;
+    qDebug() << "ele" << info.elevation;
+
 }
 
 void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status)
@@ -86,8 +120,8 @@ void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluet
     if( status == QBluetoothLocalDevice::Paired )
     {
         qDebug() << "paired device";
-        disconnect(mLocalDevice, SIGNAL(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)),
-                 this, SLOT(pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)));
+        disconnect(mLocalDevice, &QBluetoothLocalDevice::pairingFinished,
+                 this, &BluetoothReceiver::pairingFinished);
         connectService();
     }else{
         qDebug() << "unpaired device";

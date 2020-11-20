@@ -251,7 +251,6 @@ Page {
 
                       onCurrentIndexChanged: {
                           positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
-                          console.log( "positioningDevice: "+positioningDevice+" - "+model.display)
                       }
 
                       Connections {
@@ -262,24 +261,36 @@ Page {
                         }
                       }
 
+                      /*
                       Component.onCompleted: {
                           bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice);
                       }
+                      */
                   }
 
                   QfToolButton {
                     id: connect
                     round: true
                     onClicked: {
+                        //crashes with "index out of range" when something is selected
                         bluetoothDeviceCombo.model.startServiceDiscovery()
                     }
-                    bgcolor: bluetoothDeviceCombo.model.scanning ? "blue" : Theme.darkGray
+                    bgcolor: Theme.lightGray
                     enabled: !bluetoothDeviceCombo.model.scanning
+
+                    BusyIndicator {
+                      id: busyIndicator
+                      anchors.centerIn: parent
+                      width: 36
+                      height: 36
+                      running: bluetoothDeviceCombo.model.scanning
+                    }
                   }
               }
 
               onVisibleChanged: {
                   if( visible === true ){
+                      //crashes with "index out of range" when something is selected
                       bluetoothDeviceCombo.model.startServiceDiscovery()
                   }
               }
