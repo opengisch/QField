@@ -13,45 +13,24 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef LAYERTREEMODEL_H
 #define LAYERTREEMODEL_H
 
 #include <QSortFilterProxyModel>
+
 #include <qgslayertreelayer.h>
 
 class QgsLayerTree;
 class QgsLayerTreeModel;
 class QgsProject;
 
-class FlatLayerTreeModel : public QAbstractProxyModel
+class FlatLayerTreeModelBase : public QAbstractProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
-
   public:
-    enum Roles
-    {
-      VectorLayerPointer = Qt::UserRole + 1,
-      MapLayerPointer,
-      LegendImage,
-      Type,
-      Name,
-      Visible,
-      Trackable,
-      InTracking,
-      ReadOnly,
-      GeometryLocked,
-      TreeLevel,
-      LayerType,
-      IsValid,
-      IsCollapsed,
-      IsParentCollapsed,
-      HasChildren
-    };
-    Q_ENUM( Roles )
-
-    explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+    explicit FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
     void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
     int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
@@ -69,8 +48,8 @@ class FlatLayerTreeModel : public QAbstractProxyModel
 
     QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
 
-    Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
-    Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+    QVariant data( const QModelIndex &index, int role ) const override;
+    bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -110,6 +89,70 @@ class FlatLayerTreeModel : public QAbstractProxyModel
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 
     bool mFrozen = false;
+};
+
+class FlatLayerTreeModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QString mapTheme READ mapTheme WRITE setMapTheme NOTIFY mapThemeChanged )
+
+  public:
+    enum Roles
+    {
+      VectorLayerPointer = Qt::UserRole + 1,
+      MapLayerPointer,
+      LegendImage,
+      Type,
+      Name,
+      Visible,
+      Trackable,
+      InTracking,
+      ReadOnly,
+      GeometryLocked,
+      TreeLevel,
+      LayerType,
+      IsValid,
+      IsCollapsed,
+      IsParentCollapsed,
+      HasChildren
+    };
+    Q_ENUM( Roles )
+
+    explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+
+    Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
+    Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+
+    QString mapTheme() const;
+    void setMapTheme( const QString &mapTheme );
+
+    //! Update map theme as currently used by the model
+    //! This should be triggered after a project has been loaded
+    Q_INVOKABLE void updateCurrentMapTheme();
+
+    //! Freezes the model as is, with any source model signals ignored
+    Q_INVOKABLE void freeze();
+    //! Unfreezes the model and resume listening to source model signals
+    Q_INVOKABLE void unfreeze( bool resetModel = false );
+
+    //! Sets the information if the \a nodeLayer is currently in \a tracking state
+    void setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking );
+
+    QgsProject *project() const;
+
+    QgsLayerTreeModel *layerTreeModel() const;
+
+    QgsLayerTree *layerTree() const;
+
+  signals:
+    void mapThemeChanged();
+
+  protected:
+    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+
+  private:
+    FlatLayerTreeModelBase *mSourceModel = nullptr;
 };
 
 #endif // LAYERTREEMODEL_H
