@@ -99,11 +99,11 @@ void BluetoothReceiver::confirmPairing(const QBluetoothAddress &address, QString
 
 void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
 {
-    qDebug() << "state chagned";
-    qDebug() << "lat" << info.latitude;
-    qDebug() << "lon" << info.latitude;
-    qDebug() << "ele" << info.elevation;
-
+    qDebug() << "state chagned " << info.longitude << "lon" << info.latitude << "ele" << info.elevation;
+    setLongitude( info.longitude );
+    setLatitude(info.latitude);
+    setElevation(info.elevation);
+    setQualityDescription(info.qualityDescription());
 }
 
 void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status)

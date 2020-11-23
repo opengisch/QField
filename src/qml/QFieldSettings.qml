@@ -115,7 +115,7 @@ Page {
       }
       TabButton {
         height: 48
-        text: qsTr("NMEA")
+        text: qsTr("Positioning")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
@@ -250,7 +250,10 @@ Page {
                       }
 
                       onCurrentIndexChanged: {
-                          positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                          if( !bluetoothDeviceCombo.model.scanning )
+                          {
+                            positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                          }
                           bluetoothReceiver.reconnectDevice(positioningDevice)
                       }
 
@@ -289,17 +292,55 @@ Page {
                   }
               }
 
+              /*
               onVisibleChanged: {
                   if( visible === true ){
                       //crashes with "index out of range" when something is selected
                       bluetoothDeviceCombo.model.startServiceDiscovery()
                   }
               }
+              */
 
               Item {
                   // spacer item
                   Layout.fillWidth: true
                   Layout.fillHeight: true
+              }
+
+              //just for prototype
+              ColumnLayout {
+                  RowLayout{
+                      Label {
+                          text: "Longitude"
+                      }
+                      Label {
+                          text: bluetoothReceiver.longitude
+                      }
+                  }
+                  RowLayout{
+                      Label {
+                          text: "Latitude"
+                      }
+                      Label {
+                          text: bluetoothReceiver.latitude
+                      }
+                  }
+                  RowLayout{
+                      Label {
+                          text: "elevation"
+                      }
+                      Label {
+                          text: bluetoothReceiver.elevation
+                      }
+                  }
+                  RowLayout{
+                      Label {
+                          text: "quality"
+                      }
+                      Label {
+                          text: bluetoothReceiver.qualityDescription
+                      }
+                  }
               }
           }
       }
