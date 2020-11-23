@@ -51,6 +51,7 @@ SET(QFIELD_CORE_SRCS
   trackingmodel.cpp
   tracker.cpp
   viewstatus.cpp
+  changelogcontents.cpp
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
@@ -119,6 +120,7 @@ SET(QFIELD_CORE_HDRS
   trackingmodel.h
   tracker.h
   viewstatus.h
+  changelogcontents.h
   utils/fileutils.h
   utils/geometryutils.h
   utils/featureutils.h

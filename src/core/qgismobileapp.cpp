@@ -109,6 +109,7 @@
 #include "expressionevaluator.h"
 #include "stringutils.h"
 #include "urlutils.h"
+#include "changelogcontents.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -329,6 +330,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<FeatureCheckListModel>( "org.qgis", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
+  qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
