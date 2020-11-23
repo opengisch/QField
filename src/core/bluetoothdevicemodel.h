@@ -68,8 +68,7 @@ class BluetoothDeviceModel : public QAbstractListModel
   private:
     QList<QPair<QString, QString>> mDiscoveredDevices;
     bool mScanning = false;
-    QBluetoothLocalDevice *mLocalDevice = nullptr;
-    QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent = nullptr;
+    QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
 };
 
 #endif // BLUETOOTHDEVICEMODEL_H

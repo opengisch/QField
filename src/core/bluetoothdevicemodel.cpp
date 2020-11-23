@@ -18,30 +18,33 @@
 #include <QDebug>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
-  : QAbstractListModel( parent ),
-    mLocalDevice( new QBluetoothLocalDevice )
+  : QAbstractListModel( parent )
 {
-    mServiceDiscoveryAgent = new QBluetoothServiceDiscoveryAgent(mLocalDevice->address());
+    qDebug() << "here I am";
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
+    qDebug() << "1 Model";
+    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
 
-    connect(mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
+    connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
         qDebug() << "ServiceAgent ERROR:" << error;
         setScanning(false);
         endResetModel();
     });
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
+    qDebug() << "2 Model";
+    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
        qDebug() << "ServiceAgent finished";
        setScanning(false);
        endResetModel();
     });
 
-    connect(mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
+    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
        qDebug() << "ServiceAgent canceled";
        setScanning(false);
        endResetModel();
     });
+
+    qDebug() << "created Model";
 }
 
 void BluetoothDeviceModel::startServiceDiscovery()
@@ -50,15 +53,15 @@ void BluetoothDeviceModel::startServiceDiscovery()
     mDiscoveredDevices.clear();
     mDiscoveredDevices.append( qMakePair( tr("Internal GPS"), QString("internal") ) );
 
-    if( mServiceDiscoveryAgent->isActive() )
-        mServiceDiscoveryAgent->stop();
+    if( mServiceDiscoveryAgent.isActive() )
+        mServiceDiscoveryAgent.stop();
 
-    mServiceDiscoveryAgent->setUuidFilter(QBluetoothUuid(QBluetoothUuid::SerialPort));
-    mServiceDiscoveryAgent->start();
+    mServiceDiscoveryAgent.setUuidFilter(QBluetoothUuid(QBluetoothUuid::SerialPort));
+    mServiceDiscoveryAgent.start();
 
-    if (!mServiceDiscoveryAgent->isActive() ||
-            mServiceDiscoveryAgent->error() != QBluetoothServiceDiscoveryAgent::NoError) {
-        qDebug() << "Cannot find remote services.";
+    if (!mServiceDiscoveryAgent.isActive() ||
+            mServiceDiscoveryAgent.error() != QBluetoothServiceDiscoveryAgent::NoError) {
+        qDebug() << "Cannot find remote services. "<< mServiceDiscoveryAgent.errorString();
     } else {
         qDebug() << "Scanning...";
         setScanning(true);

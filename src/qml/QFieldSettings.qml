@@ -307,7 +307,6 @@ Page {
                   Layout.fillHeight: true
               }
 
-              //just for prototype
               ColumnLayout {
                   RowLayout{
                       Label {

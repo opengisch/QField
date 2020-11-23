@@ -158,6 +158,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mTrackingModel = new TrackingModel;
   mBluetoothReceiver = new BluetoothReceiver;
 
+  qDebug() << "Saul Goodman";
+
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 
