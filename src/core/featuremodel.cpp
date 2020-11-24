@@ -510,9 +510,9 @@ bool FeatureModel::create()
   bool isSuccess = true;
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 
-  QgsFeature feat = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
+  QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
 
-  if ( mLayer->addFeature( feat ) )
+  if ( mLayer->addFeature( createdFeature ) )
   {
     if ( QgsProject::instance()->topologicalEditing() )
       mLayer->addTopologicalPoints( mFeature.geometry() );
