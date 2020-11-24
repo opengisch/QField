@@ -13,7 +13,7 @@ Item {
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(value)
     comboBox.visible = _relation !== undefined ? _relation.isValid : true
-    searchButton.visible = _relation !== undefined ? _relation.isValid : true
+    searchButton.visible = !config['UseCompleter'] && (_relation !== undefined ? _relation.isValid : true)
     addButton.visible = _relation !== undefined ? _relation.isValid : false
     invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
   }
@@ -276,7 +276,15 @@ Item {
         propagateComposedEvents: true
 
         onClicked: { mouse.accepted = false; }
-        onPressed: { forceActiveFocus(); mouse.accepted = false; }
+        onPressed: {
+          if ( !!config['UseCompleter'] ) {
+            mouse.accepted = true;
+            searchFeaturePopup.open()
+          } else {
+            forceActiveFocus();
+            mouse.accepted = false;
+          }
+        }
         onReleased: mouse.accepted = false;
         onDoubleClicked: mouse.accepted = false;
         onPositionChanged: mouse.accepted = false;
