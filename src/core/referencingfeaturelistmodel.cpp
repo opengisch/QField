@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include <qgsmessagelog.h>
+#include <qgsproject.h>
 
 #include "referencingfeaturelistmodel.h"
 
@@ -97,6 +98,21 @@ QgsRelation ReferencingFeatureListModel::relation() const
   return mRelation;
 }
 
+QString ReferencingFeatureListModel::relationId() const
+{
+  return mRelation.isValid() ? mRelation.id() : QString();
+}
+
+void ReferencingFeatureListModel::setRelationId( const QString &relationId )
+{
+  if ( relationId == this->relationId() )
+    return;
+
+
+  mRelation = QgsProject::instance()->relationManager()->relation( relationId );
+  reload();
+}
+
 void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
 {
   mNmRelation = relation;
@@ -106,6 +122,20 @@ void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
 QgsRelation ReferencingFeatureListModel::nmRelation() const
 {
   return mNmRelation;
+}
+
+QString ReferencingFeatureListModel::nmRelationId() const
+{
+  return mNmRelation.isValid() ? mNmRelation.id() : QString();
+}
+
+void ReferencingFeatureListModel::setNmRelationId( const QString &nmRelationId )
+{
+  if ( nmRelationId == this->nmRelationId() )
+    return;
+
+  mNmRelation = QgsProject::instance()->relationManager()->relation( nmRelationId );
+  reload();
 }
 
 void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
