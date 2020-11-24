@@ -19,6 +19,7 @@ Item {
     id: relationReference
     anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? 24 : 0 }
     enabled: isEnabled
+    useCompleter: true
 
     signal valueChanged(var value, bool isNull)
 

@@ -21,6 +21,8 @@ Item {
     id: valueRelationCombobox
 
     property var _relation: undefined
+
+    useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: Number(config['AllowMulti']) !== 1
 

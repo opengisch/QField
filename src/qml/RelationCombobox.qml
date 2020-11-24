@@ -10,10 +10,12 @@ import Theme 1.0
 Item {
   id: relationCombobox
 
+  property bool useCompleter: false
+
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(value)
     comboBox.visible = _relation !== undefined ? _relation.isValid : true
-    searchButton.visible = !config['UseCompleter'] && (_relation !== undefined ? _relation.isValid : true)
+    searchButton.visible = !useCompleter && (_relation !== undefined ? _relation.isValid : true)
     addButton.visible = _relation !== undefined ? _relation.isValid : false
     invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
   }
@@ -277,7 +279,7 @@ Item {
 
         onClicked: { mouse.accepted = false; }
         onPressed: {
-          if ( !!config['UseCompleter'] ) {
+          if ( useCompleter ) {
             mouse.accepted = true;
             searchFeaturePopup.open()
           } else {
@@ -334,10 +336,10 @@ Item {
       id: searchButton
 
       Layout.margins: 4
-      Layout.preferredWidth: 18
+      Layout.preferredWidth: width
       Layout.preferredHeight: 18
       source: Theme.getThemeIcon("ic_baseline_search_black")
-      width: 18
+      width: comboBox.enabled ? ( useCompleter ? 0 : 18 ) : 0
       height: 18
       opacity: enabled ? 1 : 0.3
 
@@ -351,7 +353,7 @@ Item {
 
     Image {
       Layout.margins: 4
-      Layout.preferredWidth: comboBox.enabled ? 18 : 0
+      Layout.preferredWidth: width
       Layout.preferredHeight: 18
       id: addButton
       source: Theme.getThemeIcon("ic_add_black_48dp")
