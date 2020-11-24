@@ -307,16 +307,7 @@ void FeatureListModel::processReloadLayer()
     entries.append( entry );
   }
 
-  if ( ! mSearchTerm.isEmpty() )
-  {
-    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
-    {
-      return entry1.fuzzyScore == entry2.fuzzyScore
-        ? entry1.displayString.toLower() < entry2.displayString.toLower()
-        : entry1.fuzzyScore > entry2.fuzzyScore;
-    } );
-  }
-  else if ( mOrderByValue )
+  if ( mOrderByValue )
   {
     std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
     {
@@ -327,6 +318,15 @@ void FeatureListModel::processReloadLayer()
         return false;
 
       return entry1.displayString.toLower() < entry2.displayString.toLower();
+    } );
+  }
+  else if ( ! mSearchTerm.isEmpty() )
+  {
+    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
+    {
+      return entry1.fuzzyScore == entry2.fuzzyScore
+        ? entry1.displayString.toLower() < entry2.displayString.toLower()
+        : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
 
