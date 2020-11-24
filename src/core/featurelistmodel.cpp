@@ -250,7 +250,7 @@ void FeatureListModel::processReloadLayer()
       ? QgsExpression::quotedColumnRef( mDisplayValueField )
       : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
-    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QStringLiteral( "" ) );
+    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     QString searchTermExpression = QStringLiteral( " %1 ILIKE '\%%2\%' " )
         .arg( fieldDisplayString, escapedSearchTerm );
 

@@ -36,8 +36,8 @@ class StringUtils : public QObject
      */
     static Q_INVOKABLE QString insertLinks( const QString &string );
 
-    //! Checks whether the string matches
-    static bool fuzzyMatch( const QString &str, const QString &term );
+    //! Checks whether the string \a term is part of \a source
+    static bool fuzzyMatch( const QString &source, const QString &term );
 };
 
 #endif // STRINGUTILS_H

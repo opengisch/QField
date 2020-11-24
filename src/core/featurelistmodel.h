@@ -191,6 +191,7 @@ class FeatureListModel : public QAbstractItemModel
         : displayString( displayString )
         , key( key )
         , fid( fid )
+        , fuzzyScore( 0 )
       {}
 
       Entry() = default;
