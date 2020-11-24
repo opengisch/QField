@@ -173,6 +173,7 @@ Item {
             anchors.margins: 10
             height: radioButton.visible ? radioButton.height : checkBoxButton.height
             width: parent ? parent.width : undefined
+            color: model.checked ? Theme.mainColor : 'transparent'
 
             RadioButton {
               id: radioButton
@@ -182,17 +183,20 @@ Item {
               anchors.verticalCenter: parent.verticalCenter
               anchors.left: parent.left
               text: displayString
+              width: parent.width
               padding: 12
               ButtonGroup.group: buttonGroup
+              font.weight: model.checked ? Font.DemiBold : Font.Normal
 
               indicator: Rectangle {}
               contentItem: Text {
                 text: parent.text
                 font: parent.font
-                opacity: enabled ? 1.0 : 0.3
-                color: model.checked ? Theme.mainColor : Theme.darkGray
+                width: parent.width
                 verticalAlignment: Text.AlignVCenter
                 leftPadding: parent.indicator.width + parent.spacing
+                elide: Text.ElideRight
+                color: model.checked ? Theme.light : Theme.darkGray
               }
             }
 
@@ -334,6 +338,7 @@ Item {
 
       Text {
         padding: 5
+        width: parent.width
         text: comboBox.displayText
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignLeft
