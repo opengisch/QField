@@ -16,10 +16,13 @@
 #ifndef FEATURELISTMODEL_H
 #define FEATURELISTMODEL_H
 
+#include <stringutils.h>
+
 #include <QAbstractItemModel>
 #include <QTimer>
 
 #include <qgsfeature.h>
+#include <qgsstringutils.h>
 
 class QgsVectorLayer;
 
@@ -192,9 +195,16 @@ class FeatureListModel : public QAbstractItemModel
 
       Entry() = default;
 
+      void calcFuzzyScore( const QString &searchTerm )
+      {
+        fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
+        fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
+      }
+
       QString displayString;
       QVariant key;
       QgsFeatureId fid;
+      double fuzzyScore;
     };
 
     /**

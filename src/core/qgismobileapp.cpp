@@ -57,6 +57,7 @@
 #include <qgsfieldconstraints.h>
 #include <qgsmaplayer.h>
 #include <qgsvectorlayereditbuffer.h>
+#include <qgsexpressionfunction.h>
 
 #include "qgsquickmapsettings.h"
 #include "qgsquickmapcanvasmap.h"
