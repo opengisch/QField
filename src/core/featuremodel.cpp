@@ -22,6 +22,7 @@
 #include <qgsproject.h>
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 #include <QGeoPositionInfoSource>
 #include <qgsrelationmanager.h>
 
@@ -496,7 +497,9 @@ bool FeatureModel::create()
   bool isSuccess = true;
   connect( mLayer, &QgsVectorLayer::featureAdded, this, &FeatureModel::featureAdded );
 
-  if ( mLayer->addFeature( mFeature ) )
+  QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap() );
+
+  if ( mLayer->addFeature( createdFeature ) )
   {
     if ( QgsProject::instance()->topologicalEditing() )
       mLayer->addTopologicalPoints( mFeature.geometry() );
