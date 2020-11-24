@@ -14,8 +14,9 @@ Item {
 
   Component.onCompleted: {
     comboBox.currentIndex = featureListModel.findKey(value)
-    comboBox.visible = _relation !== undefined ? _relation.isValid : true
-    searchButton.visible = !useCompleter && (_relation !== undefined ? _relation.isValid : true)
+    comboBox.visible = !useCompleter && (_relation !== undefined ? _relation.isValid : true)
+    searchableLabel.visible = !comboBox.visible
+    searchButton.visible = comboBox.visible
     addButton.visible = _relation !== undefined ? _relation.isValid : false
     invalidWarning.visible = _relation !== undefined ? !(_relation.isValid) : false
   }
@@ -279,13 +280,8 @@ Item {
 
         onClicked: { mouse.accepted = false; }
         onPressed: {
-          if ( useCompleter ) {
-            mouse.accepted = true;
-            searchFeaturePopup.open()
-          } else {
-            forceActiveFocus();
-            mouse.accepted = false;
-          }
+          forceActiveFocus();
+          mouse.accepted = false;
         }
         onReleased: mouse.accepted = false;
         onDoubleClicked: mouse.accepted = false;
@@ -323,11 +319,41 @@ Item {
         Rectangle {
           visible: enabled
           anchors.fill: parent
-          id: backgroundRect
           border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
           border.width: comboBox.visualFocus ? 2 : 1
           color: Theme.lightGray
           radius: 2
+        }
+      }
+    }
+
+    Rectangle {
+      id: searchableLabel
+      height: fontMetrics.height + 10
+      Layout.fillWidth: true
+
+      Text {
+        padding: 5
+        text: comboBox.displayText
+        font: Theme.defaultFont
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+        color: value === undefined || !enabled ? 'gray' : 'black'
+      }
+
+      visible: enabled
+      border.color: comboBox.pressed ? "#4CAF50" : "#C8E6C9"
+      border.width: comboBox.visualFocus ? 2 : 1
+      color: Theme.lightGray
+      radius: 2
+
+
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            mouse.accepted = true;
+            searchFeaturePopup.open()
         }
       }
     }
@@ -339,7 +365,7 @@ Item {
       Layout.preferredWidth: width
       Layout.preferredHeight: 18
       source: Theme.getThemeIcon("ic_baseline_search_black")
-      width: comboBox.enabled ? ( useCompleter ? 0 : 18 ) : 0
+      width: visible ? 18 : 0
       height: 18
       opacity: enabled ? 1 : 0.3
 
