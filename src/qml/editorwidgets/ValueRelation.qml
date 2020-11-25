@@ -14,18 +14,24 @@ Item {
 
   signal valueChanged(var value, bool isNull)
 
-  height: !config['AllowMulti'] ? valueRelationCombobox.height : valueRelationList.height
+  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
   enabled: true
 
   RelationCombobox {
     id: valueRelationCombobox
-    visible: !config['AllowMulti']
-    property var _relation: undefined
-    enabled: isEnabled
 
-    FeatureListModel {
+    property var _relation: undefined
+
+    useCompleter: !!config['UseCompleter']
+    enabled: isEnabled
+    visible: Number(config['AllowMulti']) !== 1
+
+    FeatureCheckListModel {
       id: featureListModel
 
+      attributeField: field
+      //passing "" instead of undefined, so the model is cleared on adding new features
+      attributeValue: value !== undefined ? value : ""
       currentLayer: qgisProject.mapLayer(config['Layer'])
       currentFormFeature: currentFeature
       keyField: config['Key']
@@ -33,6 +39,10 @@ Item {
       addNull: config['AllowNull']
       orderByValue: config['OrderByValue']
       filterExpression: config['FilterExpression']
+      allowMulti: Number(config['AllowMulti']) === 1
+      onListUpdated: {
+        valueRelation.valueChanged( attributeValue, false )
+      }
     }
   }
 
@@ -62,6 +72,7 @@ Item {
         addNull: config['AllowNull']
         orderByValue: config['OrderByValue']
         filterExpression: config['FilterExpression']
+        allowMulti: true
         onListUpdated: {
           valueRelation.valueChanged( attributeValue, false )
         }
@@ -92,7 +103,7 @@ Item {
 
       Item {
         id: listItem
-        anchors { left: parent.left; right: parent.right }
+        anchors { left: parent ? parent.left : undefined; right: parent ? parent.right : undefined }
 
         focus: true
 

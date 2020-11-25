@@ -15,6 +15,8 @@
  ***************************************************************************/
 #include "featurelistmodel.h"
 #include "qgsvectorlayer.h"
+#include "stringutils.h"
+
 
 #include <qgsproject.h>
 #include <qgsexpressioncontextutils.h>
@@ -222,6 +224,8 @@ void FeatureListModel::processReloadLayer()
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
+  int keyIndex = fields.indexOf( mKeyField );
+  int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
@@ -240,8 +244,36 @@ void FeatureListModel::processReloadLayer()
     request.setFilterExpression( mFilterExpression );
   }
 
-  int keyIndex = fields.indexOf( mKeyField );
-  int displayValueIndex = fields.indexOf( mDisplayValueField );
+  if ( !mSearchTerm.isEmpty() )
+  {
+    QString fieldDisplayString = displayValueIndex >= 0
+      ? QgsExpression::quotedColumnRef( mDisplayValueField )
+      : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+
+    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
+    QString searchTermExpression = QStringLiteral( " %1 ILIKE '\%%2\%' " )
+        .arg( fieldDisplayString, escapedSearchTerm );
+
+    QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ) );
+
+    if ( searchTermParts.length() > 1 )
+    {
+      for ( const QString &searchTermPart : searchTermParts )
+      {
+        if ( searchTermPart.isEmpty() )
+          continue;
+
+        searchTermExpression += QStringLiteral( " OR %1 ILIKE '\%%2\%' " ).arg( fieldDisplayString, searchTermPart );
+      }
+    }
+
+    if ( mFilterExpression.isEmpty() )
+      request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
+    else
+      request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
+
+//    qDebug() << mCurrentLayer->fields().names() << mFilterExpression << searchTermExpression;
+  }
 
   QgsFeatureIterator iterator = mCurrentLayer->getFeatures( request );
 
@@ -255,10 +287,24 @@ void FeatureListModel::processReloadLayer()
   while ( iterator.nextFeature( feature ) )
   {
     context.setFeature( feature );
+    Entry entry;
+
     if ( mDisplayValueField.isEmpty() )
-      entries.append( Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ), feature.id() ) );
+      entry = Entry( expression.evaluate( &context ).toString(), feature.attribute( keyIndex ), feature.id() );
     else
-      entries.append( Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ), feature.id() ) );
+      entry = Entry( feature.attribute( displayValueIndex ).toString(), feature.attribute( keyIndex ), feature.id() );
+
+    if ( ! mSearchTerm.isEmpty() )
+    {
+      entry.calcFuzzyScore( mSearchTerm );
+
+      if ( entry.fuzzyScore == 0 )
+        continue;
+    }
+
+//     qDebug() << entry.displayString << entry.fuzzyScore;
+
+    entries.append( entry );
   }
 
   if ( mOrderByValue )
@@ -272,6 +318,15 @@ void FeatureListModel::processReloadLayer()
         return false;
 
       return entry1.displayString.toLower() < entry2.displayString.toLower();
+    } );
+  }
+  else if ( ! mSearchTerm.isEmpty() )
+  {
+    std::sort( entries.begin(), entries.end(), []( const Entry & entry1, const Entry & entry2 )
+    {
+      return entry1.fuzzyScore == entry2.fuzzyScore
+        ? entry1.displayString.toLower() < entry2.displayString.toLower()
+        : entry1.fuzzyScore > entry2.fuzzyScore;
     } );
   }
 
@@ -328,6 +383,21 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   mFilterExpression = filterExpression;
   reloadLayer();
   emit filterExpressionChanged();
+}
+
+QString FeatureListModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void FeatureListModel::setSearchTerm( const QString &searchTerm )
+{
+  if ( mSearchTerm == searchTerm )
+    return;
+
+  mSearchTerm = searchTerm;
+  reloadLayer();
+  emit searchTermChanged();
 }
 
 QgsFeature FeatureListModel::currentFormFeature() const

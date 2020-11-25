@@ -18,6 +18,8 @@
 #include "stringutils.h"
 
 #include "qgsstringutils.h"
+#include <QRegularExpression>
+#include <QDebug>
 
 
 StringUtils::StringUtils( QObject *parent )
@@ -30,4 +32,35 @@ StringUtils::StringUtils( QObject *parent )
 QString StringUtils::insertLinks( const QString &string )
 {
   return QgsStringUtils::insertLinks( string );
+}
+
+
+bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
+{
+  if ( source.contains( term, Qt::CaseInsensitive ) )
+    return true;
+
+  const QRegularExpression whitespaceRegex( QStringLiteral( "\\W+" ) );
+  const QStringList parts = source.split( whitespaceRegex );
+  const QStringList termParts = term.split( whitespaceRegex );
+  const int termPartsCount = termParts.length();
+  int lastMatchedTermPartIdx = -1;
+  int matchedTermItems = 0;
+
+  for ( const QString &part : parts )
+  {
+    for ( int i = lastMatchedTermPartIdx + 1; i < termPartsCount; i++ )
+    {
+      if ( part.startsWith( termParts[i], Qt::CaseInsensitive ) )
+      {
+        lastMatchedTermPartIdx = i;
+        matchedTermItems++;
+        break;
+      }
+    }
+  }
+
+  return lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount
+      ? true
+      : false;
 }

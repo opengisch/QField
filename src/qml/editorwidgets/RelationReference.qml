@@ -19,21 +19,33 @@ Item {
     id: relationReference
     anchors { left: parent.left; right: parent.right; rightMargin: showOpenFormButton ? 24 : 0 }
     enabled: isEnabled
+    useCompleter: true
 
     signal valueChanged(var value, bool isNull)
 
     property var _relation: qgisProject.relationManager.relation(config['Relation'])
 
-    FeatureListModel {
+    FeatureCheckListModel {
       id: featureListModel
 
       currentLayer: qgisProject.relationManager.relation(config['Relation']).referencedLayer
       keyField: qgisProject.relationManager.relation(config['Relation']).resolveReferencedField(field.name)
+      // no, it is not a misspelled version of config['AllowNull']
       addNull: config['AllowNULL']
       orderByValue: config['OrderByValue']
+
+      attributeField: field
+      //passing "" instead of undefined, so the model is cleared on adding new features
+      attributeValue: value !== undefined ? value : ''
+      currentFormFeature: currentFeature
+      filterExpression: ""
+      allowMulti: false
+      onListUpdated: {
+        valueChanged( attributeValue, false )
+      }
     }
 
-    onValueChanged: parent.valueChanged(value,isNull)
+    onValueChanged: parent.valueChanged(value, isNull)
   }
 
   Image {

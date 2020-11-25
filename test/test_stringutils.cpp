@@ -35,6 +35,24 @@ class TestStringUtils: public QObject
       QCOMPARE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ), QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
     }
 
+    void testFuzzyMatch()
+    {
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus rubra" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "quercus r" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Pinus nigra" ), false );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "qUERCUS" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "ERcU" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "rubra" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "Rubra" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "bra" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra forma variegata", "rubra varieg" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra (forma variegata)", "quercus forma" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q r" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ), true );
+      QCOMPARE( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ), false );
+    }
+
 };
 
 QFIELDTEST_MAIN( TestStringUtils )

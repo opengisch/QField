@@ -35,6 +35,10 @@ class StringUtils : public QObject
      * Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links.
      */
     static Q_INVOKABLE QString insertLinks( const QString &string );
+
+    //! Checks whether the string \a term is part of \a source
+    static bool fuzzyMatch( const QString &source, const QString &term );
 };
 
 #endif // STRINGUTILS_H
+

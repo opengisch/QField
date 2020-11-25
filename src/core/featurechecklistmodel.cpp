@@ -86,18 +86,25 @@ QVariant FeatureCheckListModel::attributeValue() const
     }
   }
 
-  if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+  if ( mAllowMulti )
   {
-    value = vl;
+    if ( mAttributeField.type() == QVariant::Map || mAttributeField.type() == QVariant::List )
+    {
+      value = vl;
+    }
+    else
+    {
+      //make string
+#if VERSION_INT >= 30600
+      value = QgsPostgresStringUtils::buildArray( vl );
+#else
+      QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
+#endif
+    }
   }
   else
   {
-    //make string
-#if VERSION_INT >= 30600
-    value = QgsPostgresStringUtils::buildArray( vl );
-#else
-    QgsMessageLog::logMessage( tr( "Storing of value relation widget checklists not available for Android 5" ), "QField", Qgis::Critical );
-#endif
+    value = vl.first();
   }
 
   return value;
@@ -107,15 +114,33 @@ void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 {
   QStringList checkedEntries;
 
-  if ( mAttributeField.type() == QVariant::Map )
+  if ( mAllowMulti )
   {
-    //store as QVariantList because the field type supports data structure
-    checkedEntries = attributeValue.toStringList();
+    if ( mAttributeField.type() == QVariant::Map )
+    {
+      //store as QVariantList because the field type supports data structure
+      checkedEntries = attributeValue.toStringList();
+    }
+    else
+    {
+      //store as a formatted string because the fields supports only string
+      checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+    }
   }
   else
   {
-    //store as a formatted string because the fields supports only string
-    checkedEntries = QgsValueRelationFieldFormatter::valueToStringList( attributeValue );
+    if ( attributeValue.canConvert( QVariant::String ) )
+    {
+      QString value = attributeValue.value<QString>();
+
+      if ( ! value.isEmpty() )
+        checkedEntries << value;
+    }
+
+    if ( checkedEntries.isEmpty() )
+    {
+      checkedEntries = mCheckedEntries;
+    }
   }
 
   if ( mCheckedEntries == checkedEntries )
@@ -141,9 +166,56 @@ void FeatureCheckListModel::setAttributeField( const QgsField &field )
   mAttributeField = field;
 }
 
+bool FeatureCheckListModel::allowMulti() const
+{
+  return mAllowMulti;
+}
+
+void FeatureCheckListModel::setAllowMulti( bool allowMulti )
+{
+  if ( mAllowMulti == allowMulti )
+    return;
+
+  mAllowMulti = allowMulti;
+
+  emit allowMultiChanged();
+}
+
+void FeatureCheckListModel::toggleCheckAll( const bool toggleChecked )
+{
+  if ( toggleChecked )
+  {
+    QStringList checkedEntries;
+
+    for ( int i = 0; i < rowCount(); i++ )
+      checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::KeyFieldRole ).toString() );
+
+    if ( checkedEntries != mCheckedEntries )
+    {
+      beginResetModel();
+      mCheckedEntries = checkedEntries;
+      endResetModel();
+    }
+  }
+  else
+  {
+    if ( ! mCheckedEntries.isEmpty() )
+    {
+      beginResetModel();
+      mCheckedEntries = QStringList();
+      endResetModel();
+    }
+  }
+
+}
+
 void FeatureCheckListModel::setChecked( const QModelIndex &index )
 {
   beginResetModel();
+
+  if ( !mAllowMulti )
+    mCheckedEntries.clear();
+
   mCheckedEntries.append( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   endResetModel();
 
@@ -158,7 +230,6 @@ void FeatureCheckListModel::setUnchecked( const QModelIndex &index )
 
   emit listUpdated();
 }
-
 
 QVariant::Type FeatureCheckListModel::fkType() const
 {
