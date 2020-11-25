@@ -356,6 +356,7 @@
         <file>themes/qfield/xxhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_lock_black_24dp.png</file>
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_14dp.svg</file>
+        <file>themes/qfield/nodpi/ic_legend_collapsed_state_white_14dp.svg</file>
         <file>themes/qfield/nodpi/ic_group_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_point_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_line_18dp.svg</file>

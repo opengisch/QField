@@ -26,11 +26,23 @@ ListView {
     property int itemPadding: 5 + ( 5 + 24 ) * TreeLevel
     property string itemType: Type
     property string layerType: LayerType
+    property bool isSelectedLayer: ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
 
     id: rectangle
     width: parent ? parent.width : undefined
     height: line.height + 1
-    color: "#ffffff"
+    state: "default"
+
+    states: [
+      State {
+        name: "default"
+        PropertyChanges { target: rectangle; color: isSelectedLayer ? Theme.mainColor : "transparent" }
+      },
+      State {
+        name: "pressed"
+        PropertyChanges { target: rectangle; color: Theme.lightGray }
+      }
+    ]
 
     Row {
       id: line
@@ -46,7 +58,9 @@ ListView {
 
           Image {
               anchors.fill: parent
-              source: Theme.getThemeVectorIcon('ic_legend_collapsed_state_14dp')
+              source: isSelectedLayer
+                  ? Theme.getThemeVectorIcon('ic_legend_collapsed_state_white_14dp')
+                  : Theme.getThemeVectorIcon('ic_legend_collapsed_state_14dp')
               width: 10
               height: 10
               rotation: !IsCollapsed ? 90 : 0
@@ -121,8 +135,8 @@ ListView {
         font.pointSize: itemType === "legend" ? Theme.strongTipFont.pointSize - 2 : Theme.tipFont.pointSize
         font.bold: itemType === "group" || (itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer) ? true : false
         color: {
-            if ( itemType === "layer" && vectorLayer != null && vectorLayer == currentLayer )
-                return Theme.mainColor;
+            if ( isSelectedLayer )
+                return Theme.light;
             else if ( IsValid )
                 return Theme.darkGray;
             else
@@ -208,7 +222,7 @@ ListView {
           var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y)
           if (item && item.itemType) {
               pressedItem = item;
-              pressedItem.color = Theme.lightGray
+              pressedItem.state = "pressed"
           }
       }
       onDoubleClicked: {
@@ -226,13 +240,13 @@ ListView {
       }
       onCanceled: {
           if (pressedItem) {
-              pressedItem.color = "transparent"
+              pressedItem.state = "default"
               pressedItem = null
           }
       }
       onReleased: {
           if (pressedItem) {
-              pressedItem.color = "transparent"
+              pressedItem.state = "default"
               pressedItem = null
           }
       }
