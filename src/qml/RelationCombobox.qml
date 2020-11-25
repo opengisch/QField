@@ -57,7 +57,8 @@ Item {
 
     signal cancel
     signal apply
-    signal finished
+
+    property bool isCloseInProgress: true
 
     parent: ApplicationWindow.overlay
     x: 24
@@ -75,8 +76,16 @@ Item {
 
     onClosed: {
       searchField.text = ''
-      searchFeaturePopup.cancel()
-      searchFeaturePopup.finished()
+
+      if (isCloseInProgress)
+        cancel()
+
+      isCloseInProgress = false
+    }
+
+    function closePopup() {
+      isCloseInProgress = true
+      close()
     }
 
     Page {
@@ -87,14 +96,12 @@ Item {
         showApplyButton: true
         showCancelButton: true
         onApply: {
-          searchFeaturePopup.close()
           searchFeaturePopup.apply()
-          searchFeaturePopup.finished()
+          searchFeaturePopup.closePopup()
         }
         onCancel: {
-          searchFeaturePopup.close()
           searchFeaturePopup.cancel()
-          searchFeaturePopup.finished()
+          searchFeaturePopup.closePopup()
         }
       }
 
@@ -241,9 +248,8 @@ Item {
               model.checked = !model.checked
 
               if (!allowMulti) {
-                popupRef.close()
                 popupRef.apply()
-                popupRef.finished()
+                popupRef.closePopup()
               }
             }
           }
