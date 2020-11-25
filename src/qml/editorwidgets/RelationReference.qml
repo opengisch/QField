@@ -41,8 +41,7 @@ Item {
       filterExpression: ""
       allowMulti: false
       onListUpdated: {
-        // TODO fix the value of `isNull`
-        valueChanged( attributeValue, parent.isNull )
+        valueChanged( attributeValue, false )
       }
     }
 
