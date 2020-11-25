@@ -55,11 +55,6 @@ Item {
   Popup {
     id: searchFeaturePopup
 
-    signal cancel
-    signal apply
-
-    property bool isCloseInProgress: true
-
     parent: ApplicationWindow.overlay
     x: 24
     y: 24
@@ -76,16 +71,6 @@ Item {
 
     onClosed: {
       searchField.text = ''
-
-      if (isCloseInProgress)
-        cancel()
-
-      isCloseInProgress = false
-    }
-
-    function closePopup() {
-      isCloseInProgress = true
-      close()
     }
 
     Page {
@@ -93,16 +78,9 @@ Item {
 
       header: PageHeader {
         title: fieldLabel
-        showApplyButton: true
+        showApplyButton: false
         showCancelButton: true
-        onApply: {
-          searchFeaturePopup.apply()
-          searchFeaturePopup.closePopup()
-        }
-        onCancel: {
-          searchFeaturePopup.cancel()
-          searchFeaturePopup.closePopup()
-        }
+        onCancel: searchFeaturePopup.close()
       }
 
       TextField {
@@ -248,8 +226,7 @@ Item {
               model.checked = !model.checked
 
               if (!allowMulti) {
-                popupRef.apply()
-                popupRef.closePopup()
+                popupRef.close()
               }
             }
           }
