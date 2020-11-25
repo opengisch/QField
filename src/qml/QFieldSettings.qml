@@ -232,7 +232,7 @@ Page {
               anchors.rightMargin: 18
 
               Label {
-                  text: qsTr( "Use of external positioning device" )
+                  text: qsTr( "Use of external positioning device (current: "+positioningDevice+")" )
                   font: Theme.defaultFont
 
                   wrapMode: Text.WordWrap
@@ -249,13 +249,20 @@ Page {
                           id: bluetoothDeviceModel
                       }
 
+                      property string selectedPositioningDevice
+
                       onCurrentIndexChanged: {
                           if( !bluetoothDeviceCombo.model.scanning )
                           {
-                            positioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                            selectedPositioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
                           }
-                          bluetoothReceiver.reconnectDevice(positioningDevice)
+                          if( positioningDevice !== selectedPositioningDevice )
+                          {
+                            positioningDevice = selectedPositioningDevice
+                            bluetoothReceiver.reconnectDevice(positioningDevice)
+                          }
                       }
+
 
                       Connections {
                         target: bluetoothDeviceModel
@@ -264,22 +271,16 @@ Page {
                           bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
                         }
                       }
-
-                      /*
-                      Component.onCompleted: {
-                          bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice);
-                      }
-                      */
                   }
 
                   QfToolButton {
-                    id: connect
+                    id: scanButton
                     round: true
                     onClicked: {
                         //crashes with "index out of range" when something is selected
                         bluetoothDeviceCombo.model.startServiceDiscovery()
                     }
-                    bgcolor: Theme.lightGray
+                    bgcolor: "steelBlue"
                     enabled: !bluetoothDeviceCombo.model.scanning
 
                     BusyIndicator {
@@ -292,14 +293,12 @@ Page {
                   }
               }
 
-              /*
               onVisibleChanged: {
-                  if( visible === true ){
+                  if( visible === true && !bluetoothDeviceCombo.model.rowCount() ){
                       //crashes with "index out of range" when something is selected
                       bluetoothDeviceCombo.model.startServiceDiscovery()
                   }
               }
-              */
 
               Item {
                   // spacer item
