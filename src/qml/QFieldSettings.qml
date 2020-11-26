@@ -267,8 +267,12 @@ Page {
                       Connections {
                         target: bluetoothDeviceModel
 
-                        onModelReset: {
+                        function onModelReset() {
                           bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
+                        }
+
+                        function onScanningStatusReceived (statusText) {
+                            displayToast( statusText )
                         }
                       }
                   }

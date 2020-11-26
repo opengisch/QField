@@ -20,31 +20,25 @@
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-    qDebug() << "here I am";
-
-    qDebug() << "1 Model";
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
-
     connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
         qDebug() << "ServiceAgent ERROR:" << error;
         setScanning(false);
+        emit scanningStatusReceived(tr( "Scanning failed\nError: %1" ).arg(error));
         endResetModel();
     });
-
-    qDebug() << "2 Model";
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
        qDebug() << "ServiceAgent finished";
        setScanning(false);
+       emit scanningStatusReceived(tr( "Scanning succeeded" ));
        endResetModel();
     });
-
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
        qDebug() << "ServiceAgent canceled";
+       emit scanningStatusReceived(tr( "Scanning canceled" ));
        setScanning(false);
        endResetModel();
     });
-
-    qDebug() << "created Model";
 }
 
 void BluetoothDeviceModel::startServiceDiscovery()

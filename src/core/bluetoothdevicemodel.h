@@ -38,7 +38,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     enum BluetoothDeviceRoles
     {
         DeviceAddressRole = Qt::UserRole + 1,
-        DisplayStringRole,
+        DisplayStringRole
     };
 
     /**
@@ -59,16 +59,17 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_INVOKABLE int findAddessIndex( const QString &address ) const;
     Q_INVOKABLE QString findIndexAddess( int idx ) const;
 
-  signals:
+ signals:
     void scanningChanged();
+    void scanningStatusReceived(const QString &statusText );
 
   private slots:
     void serviceDiscovered(const QBluetoothServiceInfo &service);
 
   private:
+    QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
     QList<QPair<QString, QString>> mDiscoveredDevices;
     bool mScanning = false;
-    QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
 };
 
 #endif // BLUETOOTHDEVICEMODEL_H
