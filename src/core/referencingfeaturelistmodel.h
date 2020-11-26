@@ -57,7 +57,7 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
-    //! Returns the relation id connecting the parent feature with the children in this model
+    //! Returns the id of the relation connecting the parent feature with the children in this model
     QString currentRelationId() const;
 
     //! Sets the relation connecting the parent feature with the children in this model
