@@ -98,14 +98,14 @@ QgsRelation ReferencingFeatureListModel::relation() const
   return mRelation;
 }
 
-QString ReferencingFeatureListModel::relationId() const
+QString ReferencingFeatureListModel::currentRelationId() const
 {
   return mRelation.isValid() ? mRelation.id() : QString();
 }
 
-void ReferencingFeatureListModel::setRelationId( const QString &relationId )
+void ReferencingFeatureListModel::setCurrentRelationId( const QString &relationId )
 {
-  if ( relationId == this->relationId() )
+  if ( relationId == currentRelationId() )
     return;
 
 
@@ -124,14 +124,14 @@ QgsRelation ReferencingFeatureListModel::nmRelation() const
   return mNmRelation;
 }
 
-QString ReferencingFeatureListModel::nmRelationId() const
+QString ReferencingFeatureListModel::currentNmRelationId() const
 {
   return mNmRelation.isValid() ? mNmRelation.id() : QString();
 }
 
-void ReferencingFeatureListModel::setNmRelationId( const QString &nmRelationId )
+void ReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelationId )
 {
-  if ( nmRelationId == this->nmRelationId() )
+  if ( nmRelationId == currentNmRelationId() )
     return;
 
   mNmRelation = QgsProject::instance()->relationManager()->relation( nmRelationId );

@@ -114,7 +114,8 @@ Rectangle{
 
         Item {
           id: listitem
-          anchors { left: parent.left; right: parent.right }
+          anchors.left: parent ? parent.left : undefined
+          anchors.right: parent ? parent.right : undefined
 
           focus: true
 
