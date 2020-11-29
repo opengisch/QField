@@ -22,6 +22,7 @@
 
 #include <proj.h>
 
+#include <QFontDatabase>
 #include <QStandardPaths>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlContext>
@@ -134,12 +135,24 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  //set localized data paths
   if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
+    //set localized data paths
     QStringList localizedDataPaths;
     localizedDataPaths << PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "basemaps/" );
     QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
+
+    // set fonts
+    const QString fontsPath  = PlatformUtilities::instance()->qfieldDataDir() + QStringLiteral( "fonts/" );
+    QDir fontsDir( fontsPath );
+    if ( fontsDir.exists() )
+    {
+      const QStringList fonts = fontsDir.entryList( QStringList() << "*.ttf" << "*.TTF" << "*.otf" << "*.OTF", QDir::Files );
+      for ( auto font : fonts )
+      {
+        QFontDatabase::addApplicationFont( fontsPath + font );
+      }
+    }
   }
 
   QFontDatabase::addApplicationFont( ":/fonts/Cadastra-Bold.ttf" );
