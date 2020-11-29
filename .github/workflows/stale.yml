@@ -13,7 +13,7 @@ jobs:
         stale-issue-message: |
                             The QField project highly values your report and would love to see it addressed. However this issue has been left in feedback mode for the last 14 days and is being automatically marked as "stale". If you would like to continue with this issue, please provide any missing information or or answer any open questions. If you could resolve the issue yourself meanwhile, please leave a note for future readers with the same problem and close the issue.
                             In case you should have any uncertainty, please leave a comment and we will be happy to help you proceed with this issue.
-                            If there is no futhre activity on this issue, it will be closed in a week.
+                            If there is no further activity on this issue, it will be closed in a week.
         stale-issue-label: 'stale'
         only-labels: 'feedback'
         days-before-stale: 14
