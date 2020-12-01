@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "valuemapmodel.h"
+#include "qgsvaluemapfieldformatter.h"
 #include <QDebug>
 
 ValueMapModel::ValueMapModel( QObject *parent )
@@ -119,6 +120,9 @@ QVariant ValueMapModel::keyForValue( const QString &value ) const
 
   if ( match != mMap.end() )
     result = match->first;
+
+  if ( result == QgsValueMapFieldFormatter::NULL_VALUE )
+    result = QVariant();
 
   return result;
 }
