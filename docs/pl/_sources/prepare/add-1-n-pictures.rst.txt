@@ -75,3 +75,17 @@ Set the widget type of the field path to ``attachment`` and add it to the form
     .. image:: /images/add-1-n-pictures-widgets_picture.png
        :width: 600px
        :alt: widget picture
+       
+
+Geotagging
+~~~~~~~~~~
+
+Some mobile devices will require Open Camera to be installed in order to enable geotagging.  
+
+To enable geotagging perform the following steps:
+
+1. In QField, go to the settings and make sure "Use native Camera" is activated
+2. Install the `Open Camera app <https://play.google.com/store/apps/details?id=net.sourceforge.opencamera&hl=en&gl=US>`_ on your mobile device
+3. Within the Open Camera settings, make sure geotagging is enabled
+4. Within you mobile device settings, set the default camera app to Open Camera
+5. Completed! Open Camera will now be utilized while taking pictures with QField
