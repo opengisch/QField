@@ -26,6 +26,7 @@ class IosPlatformUtilities : public PlatformUtilities
 public:
   IosPlatformUtilities();
   QString packagePath() const override;
+  bool checkPositioningPermissions() const override;
 };
 
 #endif

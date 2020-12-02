@@ -502,7 +502,6 @@ void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects
   settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
   for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
   {
-    qDebug() << projects.at( idx ).first << projects.at( idx ).second;
     settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
     settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
     settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );

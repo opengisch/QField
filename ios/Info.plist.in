@@ -58,6 +58,9 @@
     <key>CFBundleVersion</key>
     <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
 
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Location required</string>
+
     <key>CSResourcesFileMapped</key>
     <true/>
 
