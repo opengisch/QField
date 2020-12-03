@@ -31,14 +31,6 @@ jobs:
           echo "::endgroup::"
           ./scripts/ci/env_gh.sh
 
-      - name: Pull Translations
-        run: |
-          if [[ -z "${TX_TOKEN}" ]]; then
-            echo "TX_TOKEN not set, skip tx pull"
-          else
-            ./scripts/ci/pull_translations.sh
-          fi
-
       - name: Test
         run: |
           ./test/test_version_number.sh
