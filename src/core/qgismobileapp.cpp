@@ -135,6 +135,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
+  qDebug() << PlatformUtilities::instance()->qfieldDataDir();
   if ( !PlatformUtilities::instance()->qfieldDataDir().isEmpty() )
   {
     //set localized data paths
