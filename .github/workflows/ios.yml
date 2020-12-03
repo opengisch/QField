@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - ios
+      - ios*
   release:
     types:
       - created

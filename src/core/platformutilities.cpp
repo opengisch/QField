@@ -32,6 +32,9 @@
 #if defined (Q_OS_ANDROID)
 #include "androidplatformutilities.h"
 Q_GLOBAL_STATIC(AndroidPlatformUtilities, sPlatformUtils)
+#elsif defined (Q_OS_IOS)
+#include "iosplatformutilities.h"
+Q_GLOBAL_STATIC(IosPlatformUtilities, sPlatformUtils)
 #else
 Q_GLOBAL_STATIC(PlatformUtilities, sPlatformUtils)
 #endif

@@ -89,6 +89,7 @@ ELSE(WIN32)
         "$ENV{LIB_DIR}/include/qgis"
       PATH_SUFFIXES QGIS.app/Contents/Frameworks/qgis_core.framework/Headers
     )
+
     # also get other frameworks' headers folders on OS X
     IF (APPLE)
       FIND_PATH(QGIS_ANALYSIS_INCLUDE_DIR
@@ -210,10 +211,6 @@ ELSE(WIN32)
       qgis_core_link_library(tasn1 TRUE)
       qgis_core_link_library(zip TRUE)
 
-      find_file(PROJ_DB proj.db PATHS ${CMAKE_PREFIX_PATH} PATH_SUFFIXES share/proj REQUIRED)
-      get_filename_component(QFIELD_PROJ_DIR ${PROJ_DB} DIRECTORY)
-      message("Found proj directory: " ${QFIELD_PROJ_DIR})
-
       find_library(QGIS_WSMPROVIDER_PLUGIN_LIBRARY wmsprovider_a
         PATH_SUFFIXES
          QGIS.app/Contents/PlugIns/qgis/
@@ -269,6 +266,16 @@ ELSE(WIN32)
       # Overwrite the variable to point to the interface library
       set(QGIS_CORE_LIBRARY qgis_core)
       set(QGIS_ANALYSIS_LIBRARY qgis_analysis)
+
+      find_file(PROJ_DB proj.db PATHS ${CMAKE_PREFIX_PATH} PATH_SUFFIXES share/proj REQUIRED)
+      get_filename_component(QFIELD_PROJ_DIR ${PROJ_DB} DIRECTORY)
+      message("Found Proj DB directory: " ${QFIELD_PROJ_DIR})
+
+      FIND_PATH(PROJ_INCLUDE_DIR proj_api.h NO_CMAKE_FIND_ROOT_PATH)
+      MESSAGE("Found Proj include dir: " ${PROJ_INCLUDE_DIR})
+
+      FIND_PATH(GDAL_INCLUDE_DIR gdal.h  NO_CMAKE_FIND_ROOT_PATH)
+      MESSAGE("Found GDAL include dir: " ${GDAL_INCLUDE_DIR})
 
     ENDIF() # iOs
 
