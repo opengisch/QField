@@ -22,9 +22,8 @@ from googleapiclient.discovery import build
 import httplib2
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import client
-
-SERVICE_ACCOUNT_EMAIL = (
-    'qfielddeployer@api-5606400287044015100-167791.iam.gserviceaccount.com')
+import os
+import json
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -39,19 +38,15 @@ argparser.add_argument('apk_files',
                        nargs='*',
                        help='Paths to the APK files to upload.')
 
-def main():
-    # Load the key in PKCS 12 format that you downloaded from the Google APIs
-    # Console when you created your Service account.
-    with open('.ci/play_developer.p12', 'rb') as f:
-        key = f.read()
+google_service_account_config=json.loads(os.environ['GOOGLE_SERVICE_ACCOUNT'])
 
+def main():
     # Create an httplib2.Http object to handle our HTTP requests and authorize it
     # with the Credentials. Note that the first parameter, service_account_name,
     # is the Email address created for the Service account. It must be the email
     # address associated with the key that was created.
-    credentials = ServiceAccountCredentials.from_p12_keyfile(
-        SERVICE_ACCOUNT_EMAIL,
-        '.ci/play_developer.p12',
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+        google_service_account_config,
         scopes='https://www.googleapis.com/auth/androidpublisher')
     http = httplib2.Http()
     http = credentials.authorize(http)

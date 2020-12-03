@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - publish_master
       - release-**
   pull_request:
     branches:
@@ -84,6 +85,7 @@ jobs:
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
+          CI_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           export ANDROID_NDK_PLATFORM=android-29
@@ -105,6 +107,34 @@ jobs:
           files: /tmp/qfield-*.apk
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ env.CI_TAG }}
+
+  deploy_to_playstore:
+    runs-on: ubuntu-20.04
+    needs: build
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/publish_master' }} # todo: fixme for master
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+
+      - name: Download apks
+        run: |
+          wget https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-arm64_v8a.apk
+          wget https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-armv7.apk
+          wget https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86_64.apk
+          wget https://download.opengis.ch/qfield/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk
+
+      - name: Upload to Google Play Store
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib oauth2client
+          ./scripts/basic_upload_apks_service_account.py ch.opengis.qfield_cloud alpha "Update from commit ${GITHUB_SHA}" qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-arm64_v8a.apk qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-armv7.apk qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86_64.apk qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk
+        env:
+          GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+
 
   comment_pr:
     runs-on: ubuntu-20.04
