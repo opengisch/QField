@@ -244,26 +244,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     setenv( "PGSYSCONFDIR", PlatformUtilities::instance()->qfieldDataDir().toUtf8(), true );
   }
 
-  QSettings settings;
-  bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), true ).toBool();
-
-#if defined (Q_OS_IOS)
-//#if defined(__x86_64__)
-  // on iOS simulator, the settings will remain but apparently path to the app is changing and needs to be reevaluated
-  firstRunFlag = true;
-//#endif
-#endif
-  QString packagePath = PlatformUtilities::instance()->packagePath();
-
-  if ( firstRunFlag && !packagePath.isEmpty() )
-  {
-    QList<QPair<QString, QString>> projects;
-    projects << qMakePair( QStringLiteral( "Simple Bee Farming Demo" ), packagePath  + QStringLiteral( "/demo_projects/simple_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Advanced Bee Farming Demo" ), packagePath  + QStringLiteral( "/demo_projects/advanced_bee_farming.qgs" ) )
-             << qMakePair( QStringLiteral( "Live QField Users Survey Demo" ), packagePath  + QStringLiteral( "/demo_projects/live_qfield_users_survey.qgs" ) );
-    saveRecentProjects( projects );
-  }
-
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
   load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
@@ -1031,7 +1011,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   return false;
 #else
-  #warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
+#warning "No PrintSupport for iOs. QgisMobileapp::print won't do anything."
 #endif
 }
 
