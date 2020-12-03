@@ -248,10 +248,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   bool firstRunFlag = settings.value( QStringLiteral( "/QField/FirstRunFlag" ), true ).toBool();
 
 #if defined (Q_OS_IOS)
-#if defined(__x86_64__)
+//#if defined(__x86_64__)
   // on iOS simulator, the settings will remain but apparently path to the app is changing and needs to be reevaluated
   firstRunFlag = true;
-#endif
+//#endif
 #endif
   QString packagePath = PlatformUtilities::instance()->packagePath();
 
