@@ -23,10 +23,11 @@
 
 class IosPlatformUtilities : public PlatformUtilities
 {
-public:
-  IosPlatformUtilities();
-  QString packagePath() const override;
-  bool checkPositioningPermissions() const override;
+  public:
+    IosPlatformUtilities();
+    QString packagePath() const override;
+    bool checkPositioningPermissions() const override;
+    bool checkCameraPermissions() const override;
 };
 
 #endif

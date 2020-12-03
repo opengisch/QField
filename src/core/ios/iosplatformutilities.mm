@@ -20,6 +20,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
 IosPlatformUtilities::IosPlatformUtilities()
   : PlatformUtilities()
@@ -40,8 +41,10 @@ bool IosPlatformUtilities::checkPositioningPermissions() const
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 
-  while (true) {
-    switch (status) {
+  while (true)
+  {
+    switch (status)
+    {
         case kCLAuthorizationStatusNotDetermined:
         {
             CLLocationManager *locationManager = [[CLLocationManager alloc] init];
@@ -65,4 +68,36 @@ bool IosPlatformUtilities::checkPositioningPermissions() const
             return false;
     }
   }
+}
+
+
+bool IosPlatformUtilities::checkCameraPermissions() const
+{
+  // see https://stackoverflow.com/a/20464727/1548052
+    
+  NSString *mediaType = AVMediaTypeVideo;
+  AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+  switch(authStatus)
+  {
+      case AVAuthorizationStatusAuthorized:
+          return true;
+
+      case AVAuthorizationStatusDenied:
+          return false;
+
+      case AVAuthorizationStatusRestricted:
+         // restricted, normally won't happen
+        return false;
+  
+      case AVAuthorizationStatusNotDetermined:
+      {
+        // not determined?!
+        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+          if(granted){
+            return true;
+          } else {
+            return false;
+          }
+        }];
+      }
 }
