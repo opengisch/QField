@@ -68,19 +68,22 @@ void BluetoothReceiver::connectDevice(const QString &address)
         return;
     }
 
-    mSocket->connectToService( QBluetoothAddress(address), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+    //mSocket->connectToService( QBluetoothAddress(address), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
 
     //kind of ugly workaround - if needed
-    //repairDevice ( QBluetoothAddress(address) );
+    repairDevice ( QBluetoothAddress(address) );
 }
 
 void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
 {
     qDebug() << "state chagned " << info.longitude << "lon" << info.latitude << "ele" << info.elevation;
 
-    mLastGpsInformation = info;
+    mLastGnssPositionInformation = QgsGnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed, info.direction, info.satellitesInView, info.pdop,
+                                                                   info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
+                                                                   info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
+    qDebug() << "QGS Gps DATA " << mLastGnssPositionInformation.longitude() << "lon" << mLastGnssPositionInformation.latitude() << "ele" << mLastGnssPositionInformation.elevation();
 
-    emit lastGpsInformationChanged(mLastGpsInformation);
+    emit lastGnssPositionInformationChanged(mLastGnssPositionInformation);
 }
 
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address)
@@ -130,16 +133,6 @@ void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluet
 void BluetoothReceiver::connectService( const QBluetoothAddress &address )
 {
     mSocket->connectToService( address, QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
-}
-
-
-QgsGnssPositionInformation GnssPositionConverter::fromQgsGpsInformation(const QgsGpsInformation &info)
-{
-   QgsGnssPositionInformation gnssPositionInformation = QgsGnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed, info.direction, info.satellitesInView, info.pdop,
-                                                                  info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
-                                                                  info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
-   qDebug() << "QGS Gps DATA " << gnssPositionInformation.longitude() << "lon" << gnssPositionInformation.latitude() << "ele" << gnssPositionInformation.elevation();
-   return gnssPositionInformation;
 }
 
 QgsGnssPositionInformation GnssPositionConverter::fromQGeoPositionInfo(const QString &name)

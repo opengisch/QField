@@ -26,7 +26,7 @@ class BluetoothReceiver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsGpsInformation lastGpsInformation READ lastGpsInformation NOTIFY lastGpsInformationChanged )
+    Q_PROPERTY( QgsGnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
     Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
 
     public:
@@ -37,12 +37,12 @@ class BluetoothReceiver : public QObject
         void connectService( const QBluetoothAddress &address );
         void repairDevice( const QBluetoothAddress &address );
 
-        QgsGpsInformation lastGpsInformation() const { return mLastGpsInformation; }
+        QgsGnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
         QBluetoothSocket::SocketState socketState() const { return mSocketState;}
 
 signals:
-        void lastGpsInformationChanged(QgsGpsInformation lastGpsInformation);
+        void lastGnssPositionInformationChanged(QgsGnssPositionInformation lastGnssPositionInformation);
         void socketStateChanged(QBluetoothSocket::SocketState socketState);
 
 private slots:
@@ -54,7 +54,7 @@ private slots:
         std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
         std::unique_ptr<QBluetoothSocket> mSocket;
         std::unique_ptr<QgsNmeaConnection> mGpsConnection;
-        QgsGpsInformation mLastGpsInformation;
+        QgsGnssPositionInformation mLastGnssPositionInformation;
         QBluetoothSocket::SocketState mSocketState;
 };
 
@@ -62,7 +62,6 @@ class GnssPositionConverter : public QObject
 {
     Q_OBJECT
   public:
-    static Q_INVOKABLE QgsGnssPositionInformation fromQgsGpsInformation( const QgsGpsInformation &info );
     static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
 };
 
