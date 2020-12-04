@@ -259,7 +259,7 @@ Page {
                           if( positioningDevice !== selectedPositioningDevice )
                           {
                             positioningDevice = selectedPositioningDevice
-                            bluetoothReceiver.reconnectDevice(positioningDevice)
+                            positionSource.device = positioningDevice
                           }
                       }
 
@@ -308,41 +308,6 @@ Page {
                   // spacer item
                   Layout.fillWidth: true
                   Layout.fillHeight: true
-              }
-
-              ColumnLayout {
-                  RowLayout{
-                      Label {
-                          text: "Longitude"
-                      }
-                      Label {
-                          text: bluetoothReceiver.longitude
-                      }
-                  }
-                  RowLayout{
-                      Label {
-                          text: "Latitude"
-                      }
-                      Label {
-                          text: bluetoothReceiver.latitude
-                      }
-                  }
-                  RowLayout{
-                      Label {
-                          text: "elevation"
-                      }
-                      Label {
-                          text: bluetoothReceiver.elevation
-                      }
-                  }
-                  RowLayout{
-                      Label {
-                          text: "quality"
-                      }
-                      Label {
-                          text: bluetoothReceiver.qualityDescription
-                      }
-                  }
               }
           }
       }
