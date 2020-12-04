@@ -1,42 +1,99 @@
 import QtQuick 2.12
 import QtPositioning 5.3
+import QtBluetooth 5.15
 
 import org.qfield 1.0
 import org.qgis 1.0
 import Utils 1.0
 
-PositionSource {
-  id: positionSource
-  property alias destinationCrs: _ct.destinationCrs
-  property alias projectedPosition: _ct.projectedPosition
-  property real projectedHorizontalAccuracy: position.horizontalAccuracyValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? position.horizontalAccuracy * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
-  property alias deltaZ: _ct.deltaZ
-  property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
+Item{
+    id: positionSource
 
-  property CoordinateTransformer ct: CoordinateTransformer {
-    id: _ct
-    sourceCrs: CrsFactory.fromEpsgId(4326)
-    transformContext: qgisProject.transformContext
-  }
+    //by source generated properties
+    property var positionInfo //ehemals position //as object would be GnssPositionInformation
+    property alias destinationCrs: _ct.destinationCrs
+    property alias projectedPosition: _ct.projectedPosition
+    property real projectedHorizontalAccuracy: positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
+    property alias deltaZ: _ct.deltaZ
+    property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
-  onPositionChanged: {
-    _ct.sourcePosition = Utils.coordinateToPoint(position.coordinate)
-  }
+    property bool active
 
-// TODO:::: remove this block
-  /*
-  property Timer tm: Timer {
-    interval: 500;
-    running: true;
-    repeat: true;
+    // HUDSUCKER PROXY
+    property alias preferredPositioningMethods: qtPositionSource.preferredPositioningMethods //todo
+    property alias name: qtPositionSource.name //todo
+    property bool valid: true //todo
 
-    onTriggered: {
-      var coord = positionSource.position.coordinate;
-      coord.latitude = 46.9483+ Math.random()/10;
-      coord.longitude = 7.44225+ Math.random()/10;
-      _ct.sourcePosition = coord;
+    property string device
+
+    property CoordinateTransformer ct: CoordinateTransformer {
+      id: _ct
+      sourceCrs: CrsFactory.fromEpsgId(4326)
+      transformContext: qgisProject.transformContext
     }
-  }
-  */
-// END TODO:::: remove this block
+
+    onPositionInfoChanged: {
+        _ct.sourcePosition = Utils.coordinateToPoint(QtPositioning.coordinate( positionInfo.latitude, positionInfo.longitude, positionInfo.elevation ) )
+    }
+
+    PositionSource {
+      id: qtPositionSource
+
+      active: device === 'internal' && positionSource.active
+
+      onValidChanged: {
+          if( active ) {
+              positionSource.valid = valid
+          }
+      }
+
+      onActiveChanged: {
+          if( active ){
+              console.log( "me, position source, is active")
+          }else{
+
+              console.log( "oh! me, position source, is NOT active")
+          }
+      }
+
+      onPositionChanged: {
+          position.latitudeValid
+        positionInfo = GnssPositionConverter.fromQGeoPositionInfo(name) //pass the correct here...
+      }
+    }
+
+    BluetoothReceiver {
+      id: bluetoothPositionSource
+
+      property bool active: device !== 'internal' && positionSource.active
+
+      onSocketStateChanged: {
+          if( socketState === BluetoothSocket.Connected ) {
+              displayToast( "It's connected ")
+              positionSource.valid = true
+          } else {
+              displayToast( "It's not connected ")
+              positionSource.valid = false
+          }
+      }
+
+      onActiveChanged: {
+          if( active ){
+              console.log( "me, bluetooth source, is active with device "+device)
+              connectDevice(device)
+          }else{
+              disconnectDevice()
+              console.log( "oh! me, bluetooth source, is NOT active")
+          }
+      }
+
+      //implement this in c as proerty: property GnssPositionInformation positionInfo
+      //property string name: "bluetooth device" //todo
+      //property var preferredPositioningMethods //unused maybe todo
+
+      onLastGpsInformationChanged:
+      {
+        positionInfo = GnssPositionConverter.fromQgsGpsInformation(lastGpsInformation)
+      }
+    }
 }
