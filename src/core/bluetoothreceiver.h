@@ -27,23 +27,27 @@ class BluetoothReceiver : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsGpsInformation lastGpsInformation READ lastGpsInformation NOTIFY lastGpsInformationChanged )
+    Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
 
     public:
         explicit BluetoothReceiver( QObject *parent = nullptr );
         Q_INVOKABLE void disconnectDevice();
-        Q_INVOKABLE void connectCurrentDevice();
+        Q_INVOKABLE void connectDevice(const QString &address);
 
-        //void connectService( const QBluetoothAddress &address );
-        //void repairDevice( const QBluetoothAddress &address );
+        void connectService( const QBluetoothAddress &address );
+        void repairDevice( const QBluetoothAddress &address );
 
         QgsGpsInformation lastGpsInformation() const { return mLastGpsInformation; }
 
-    signals:
-        void lastGpsInformationChanged(QgsGpsInformation lastGpsInformation);
+        QBluetoothSocket::SocketState socketState() const { return mSocketState;}
 
-    private slots:
-        //void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
-        //void confirmPairing(const QBluetoothAddress &address, QString pin);
+signals:
+        void lastGpsInformationChanged(QgsGpsInformation lastGpsInformation);
+        void socketStateChanged(QBluetoothSocket::SocketState socketState);
+
+private slots:
+        void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
+        void confirmPairing(const QBluetoothAddress &address, QString pin);
         void stateChanged(const QgsGpsInformation &info );
 
     private:
@@ -51,6 +55,7 @@ class BluetoothReceiver : public QObject
         std::unique_ptr<QBluetoothSocket> mSocket;
         std::unique_ptr<QgsNmeaConnection> mGpsConnection;
         QgsGpsInformation mLastGpsInformation;
+        QBluetoothSocket::SocketState mSocketState;
 };
 
 class GnssPositionConverter : public QObject
@@ -58,7 +63,7 @@ class GnssPositionConverter : public QObject
     Q_OBJECT
   public:
     static Q_INVOKABLE QgsGnssPositionInformation fromQgsGpsInformation( const QgsGpsInformation &info );
-    static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QGeoPositionInfo &info );
+    static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
 };
 
 
