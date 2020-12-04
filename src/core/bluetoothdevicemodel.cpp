@@ -18,7 +18,8 @@
 #include <QDebug>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
-  : QAbstractListModel( parent )
+  : QAbstractListModel( parent ),
+    mLocalDevice( new QBluetoothLocalDevice )
 {
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
     connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
@@ -65,7 +66,13 @@ void BluetoothDeviceModel::startServiceDiscovery()
 void BluetoothDeviceModel::serviceDiscovered(const QBluetoothServiceInfo &service)
 {
     qDebug() << "FOUND DEVICE: "<<service.device().name()<<'(' << service.device().address().toString() << ')' <<':' << service.serviceName() << " UUID:"<< service.serviceUuid();
-    mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+    //if( mLocalDevice->pairingStatus(service.device().address()) != QBluetoothLocalDevice::Unpaired )
+    //{
+        mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+    //}
+    //else{
+    //    qDebug() << "do not append it since it's unpaired: "<< service.device().name();
+    //}
 }
 
 bool BluetoothDeviceModel::scanning() const

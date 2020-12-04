@@ -67,6 +67,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     void serviceDiscovered(const QBluetoothServiceInfo &service);
 
   private:
+    std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
     QList<QPair<QString, QString>> mDiscoveredDevices;
     bool mScanning = false;
