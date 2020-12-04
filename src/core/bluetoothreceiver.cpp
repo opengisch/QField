@@ -131,3 +131,14 @@ void BluetoothReceiver::connectService( const QBluetoothAddress &address )
     mSocket->connectToService( address, QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
 }
 */
+QgsGnssPositionInformation GnssPositionConverter::fromQgsGpsInformation(const QgsGpsInformation &info)
+{
+    QgsGnssPositionInformation info2;
+    return info2;
+}
+
+QgsGnssPositionInformation GnssPositionConverter::fromQGeoPositionInfo(const QGeoPositionInfo &info)
+{
+    QgsGnssPositionInformation info2;
+    return info2;
+}

@@ -53,4 +53,14 @@ class BluetoothReceiver : public QObject
         QgsGpsInformation mLastGpsInformation;
 };
 
+class GnssPositionConverter : public QObject
+{
+    Q_OBJECT
+  public:
+    static Q_INVOKABLE QgsGnssPositionInformation fromQgsGpsInformation( const QgsGpsInformation &info );
+    static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QGeoPositionInfo &info );
+};
+
+
+
 #endif // BLUETOOTHRECEIVER_H
