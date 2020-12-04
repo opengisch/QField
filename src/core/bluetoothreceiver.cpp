@@ -23,69 +23,83 @@
 BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
     mLocalDevice( new QBluetoothLocalDevice ),
     mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
-    mGpsConnection( new QgsNmeaConnection( mSocket ) )
+    mGpsConnection( new QgsNmeaConnection( mSocket.get() ) )
 {
     //socket log connections
-    connect(mSocket, &QBluetoothSocket::connected,[=](){
+    connect(mSocket.get(), &QBluetoothSocket::connected,[=](){
         qDebug() << "SOCKET CONNECTED";
     });
-    connect(mSocket, &QBluetoothSocket::disconnected,[=](){
+    connect(mSocket.get(), &QBluetoothSocket::disconnected,[=](){
         qDebug() << "SOCKET DISCONNECTED";
     });
-    connect(mSocket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error),[=](QBluetoothSocket::SocketError error){
+    connect(mSocket.get(), QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error),[=](QBluetoothSocket::SocketError error){
         qDebug() << "SOCKET ERROR: " <<error;
     });
-    connect(mSocket, &QBluetoothSocket::stateChanged,
+    connect(mSocket.get(), &QBluetoothSocket::stateChanged,
         [=](){
         qDebug() << "SOCKET STATE changed to " << mSocket->state();
     });
 
     //GpsConnection connections
-    connect( mGpsConnection, &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged);
-
-
-    QSettings settings;
-    const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
+    connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged);
 
     //connect on startup
-    reconnectDevice(deviceAddress);
+    connectCurrentDevice();
 }
 
-void BluetoothReceiver::reconnectDevice( const QString &address )
+void BluetoothReceiver::disconnectDevice()
 {
     if( mSocket->state() != QBluetoothSocket::UnconnectedState )
         mSocket->disconnectFromService();
+}
 
-    qDebug() << "Device set: "<<address;
-    if( address.isEmpty() || address == QStringLiteral( "internal") )
+void BluetoothReceiver::connectCurrentDevice()
+{
+    QSettings settings;
+    const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
+
+    qDebug() << "Device set: "<<deviceAddress;
+    if( deviceAddress.isEmpty() || deviceAddress == QStringLiteral( "internal") )
     {
         qDebug() << "do not set up connection";
         return;
     }
 
-    //kind of ugly workaround - if not needed could call directly connectService(QBluetoothAddress(deviceAddress)
-    repairDevice( QBluetoothAddress(address) );
+    mSocket->connectToService( QBluetoothAddress(deviceAddress), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+
+    //kind of ugly workaround - if needed
+    //repairDevice ( QBluetoothAddress(address) );
 }
 
-void BluetoothReceiver::connectService( const QBluetoothAddress &address )
+void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
 {
-    qDebug() << "Connect service";
-    mSocket->connectToService( address, QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+    qDebug() << "state chagned " << info.longitude << "lon" << info.latitude << "ele" << info.elevation;
+
+    mLastGpsInformation = info;
+
+    emit lastGpsInformationChanged(mLastGpsInformation);
 }
+
+/* maybe repairDevice is not used...
 
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address)
 {
-    connect(mLocalDevice, &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
-    connect(mLocalDevice, &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
-    connect(mLocalDevice,  &QBluetoothLocalDevice::error, [=](QBluetoothLocalDevice::Error error){
+
+    qDebug() << "BT Debug: 8";
+    connect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
+    connect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
+    connect(mLocalDevice.get(),  &QBluetoothLocalDevice::error, [=](QBluetoothLocalDevice::Error error){
         qDebug() << "RE-PAIR FAILED "<<error;
     });
 
+    qDebug() << "BT Debug: 9";
     if( mLocalDevice->pairingStatus( address ) == QBluetoothLocalDevice::Paired )
     {
+        qDebug() << "BT Debug: 10";
         mLocalDevice->requestPairing( address, QBluetoothLocalDevice::Unpaired);
     }
     else{
+        qDebug() << "BT Debug: 11";
         mLocalDevice->requestPairing( address, QBluetoothLocalDevice::Paired);
     }
 }
@@ -97,24 +111,23 @@ void BluetoothReceiver::confirmPairing(const QBluetoothAddress &address, QString
     mLocalDevice->pairingConfirmation(true);
 }
 
-void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
-{
-    qDebug() << "state chagned " << info.longitude << "lon" << info.latitude << "ele" << info.elevation;
-    setLongitude( info.longitude );
-    setLatitude(info.latitude);
-    setElevation(info.elevation);
-    setQualityDescription(info.qualityDescription());
-}
-
 void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status)
 {
     if( status == QBluetoothLocalDevice::Paired )
     {
         qDebug() << "paired device";
-        disconnect(mLocalDevice, &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished);
+        disconnect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished);
+
+        qDebug() << "BT Debug: 12";
         connectService(address);
     }else{
         qDebug() << "unpaired device";
         repairDevice(address);
     }
 }
+
+void BluetoothReceiver::connectService( const QBluetoothAddress &address )
+{
+    mSocket->connectToService( address, QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+}
+*/
