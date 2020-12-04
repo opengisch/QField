@@ -136,6 +136,7 @@ ApplicationWindow {
     destinationCrs: mapCanvas.mapSettings.destinationCrs
     deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
+    device: settings.value("positioningDevice", "internal")
   }
 
   Item {
@@ -447,10 +448,10 @@ ApplicationWindow {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
-      visible: positionSource.active && positionSource.position.latitudeValid
+      visible: positionSource.active && positionSource.positionInfo.latitudeValid
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.position.directionValid ? positionSource.position.direction : -1
+      direction: positionSource.positionInfo.directionValid ? positionSource.positionInfo.direction : -1
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
@@ -804,15 +805,15 @@ ApplicationWindow {
     QfToolButton {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
-      visible: positionSource.valid
-      round: true
+      visible: positionSource.valid //nmea-todos: this has to be integrated
+
       anchors.right: parent.right
 
       bgcolor: "#64B5F6"
 
       onIconSourceChanged: {
         if( state === "On" ){
-          if( positionSource.position.latitudeValid ) {
+          if( positionSource.positionInfo.latitudeValid ) {
             displayToast( qsTr( "Received position" ) )
           } else {
             displayToast( qsTr( "Searching for position" ) )
@@ -837,7 +838,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.position.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: followActive ? "#64B5F6" : Theme.darkGray
             opacity:1
           }
@@ -912,7 +913,7 @@ ApplicationWindow {
       FeatureModel {
         id: digitizingFeature
         currentLayer: dashBoard.currentLayer
-        positionSourceName: positionSource.name
+        positionSourceName: positionSource.name //nmea-todos: needs to be fixed. here it creates a positionSource for the scope
         topSnappingResult: coordinateLocator.topSnappingResult
         geometry: Geometry {
           id: digitizingGeometry
@@ -1188,7 +1189,7 @@ ApplicationWindow {
       onPositioningActivatedChanged: {
           if( positioningActivated ){
             if( platformUtilities.checkPositioningPermissions() ) {
-              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods
+              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods //nmea-todos: have to be done
               displayToast( qsTr( "Activating positioning service" ) )
               positionSource.active = true
             }else{
