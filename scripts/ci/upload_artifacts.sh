@@ -16,7 +16,7 @@ then
 
   sudo mv build-${ARCH}/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${FILENAME}
   echo "${S3CFG}" > ~/.s3cfg
-  s3cmd put -P /tmp/${FILENAME} s3://qfieldapks/ci-builds/${FILENAME}
+  s3cmd put --acl-public /tmp/${FILENAME} s3://qfieldapks/ci-builds/${FILENAME}
   echo -e "\e[31Uploaded to https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/${FILENAME} \e[0m"
 else
   echo -e "Not uploading artifacts ..."
