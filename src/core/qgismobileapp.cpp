@@ -111,6 +111,7 @@
 #include "urlutils.h"
 #include "bluetoothreceiver.h"
 #include "bluetoothdevicemodel.h"
+#include "qgsgnsspositioninformation.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -156,9 +157,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
-  mBluetoothReceiver = new BluetoothReceiver;
-
-  qDebug() << "Saul Goodman";
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
@@ -335,6 +333,10 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
+  qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
+
+  qRegisterMetaType<QgsGnssPositionInformation>( "GnssPositionInformation" );
+
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
   REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
@@ -348,7 +350,6 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
   qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
   qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
-  qmlRegisterUncreatableType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver", "The bluetoothReceiver is available as context property `bluetoothReceiver`" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
@@ -377,8 +378,6 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
 #endif
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
-
-  rootContext()->setContextProperty( "bluetoothReceiver", mBluetoothReceiver );
 
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
 }

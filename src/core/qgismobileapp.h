@@ -54,7 +54,6 @@ class FlatLayerTreeModel;
 class LayerTreeModel;
 class LegendImageProvider;
 class TrackingModel;
-class BluetoothReceiver;
 class QgsProject;
 
 
@@ -157,8 +156,6 @@ class QgisMobileapp : public QQmlApplicationEngine
     TrackingModel *mTrackingModel = nullptr;
 
     AppMissingGridHandler *mAppMissingGridHandler = nullptr;
-
-    BluetoothReceiver *mBluetoothReceiver = nullptr;
 };
 
 Q_DECLARE_METATYPE( QgsWkbTypes::GeometryType )
