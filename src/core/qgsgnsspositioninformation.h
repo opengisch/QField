@@ -31,16 +31,23 @@ class QgsGnssPositionInformation
     Q_GADGET
 
     Q_PROPERTY( double latitude READ latitude )
+    Q_PROPERTY( bool latitudeValid READ latitudeValid )
     Q_PROPERTY( double longitude READ longitude )
+    Q_PROPERTY( bool longitudeValid READ longitudeValid )
     Q_PROPERTY( double elevation READ elevation )
+    Q_PROPERTY( bool elevationValid READ elevationValid )
     Q_PROPERTY( double speed READ speed )
+    Q_PROPERTY( bool speedValid READ speedValid )
     Q_PROPERTY( double direction READ direction )
-    Q_PROPERTY( QgsSatelliteInfo satellitesInView READ satellitesInView )
+    Q_PROPERTY( bool directionValid READ directionValid )
+    Q_PROPERTY( QList<QgsSatelliteInfo> satellitesInView READ satellitesInView )
     Q_PROPERTY( double pdop READ pdop )
     Q_PROPERTY( double hdop READ hdop )
     Q_PROPERTY( double vdop READ vdop )
     Q_PROPERTY( double hacc READ hacc )
+    Q_PROPERTY( bool haccValid READ haccValid )
     Q_PROPERTY( double vacc READ vacc )
+    Q_PROPERTY( bool vaccValid READ vaccValid )
     Q_PROPERTY( QDateTime utcDateTime READ utcDateTime )
     Q_PROPERTY( QChar fixMode READ fixMode )
     Q_PROPERTY( int fixType READ fixType )
@@ -66,7 +73,9 @@ class QgsGnssPositionInformation
       Fix3D
     };
 
-    QgsGnssPositionInformation() {};
+    QgsGnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), QList<QgsSatelliteInfo> satellitesInView = QList<QgsSatelliteInfo>(),
+                                double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+                                QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), QList<int> satPrn = QList<int>(), bool satInfoComplete = false );
 
     //explicit QgsGnssPositionInformation( const QgsGpsInformation &gpsInformation );
     //explicit QgsGnssPositionInformation( const QGeoPositionInfo &geoPositionInfo );
@@ -76,32 +85,37 @@ class QgsGnssPositionInformation
      * a negative value indicates the Southern Hemisphere.
      */
     double latitude() const { return mLatitude; }
-
+    bool latitudeValid() const { return mLatitude != 0; }
     /**
      * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
      * a negative value indicates the Western Hemisphere.
      */
     double longitude() const { return mLongitude; }
+    bool longitudeValid() const { return mLongitude != 0; }
 
     /**
      * Altitude (in meters) above or below the mean sea level.
      */
     double elevation() const { return mElevation; }
+    bool elevationValid() const { return mElevation != 0; }
 
     /**
      * Ground speed, in km/h.
      */
     double speed() const { return mSpeed; }
+    bool speedValid() const { return mSpeed != 0; }
 
     /**
      * The bearing measured in degrees clockwise from true north to the direction of travel.
      */
     double direction() const { return mDirection; }
+    bool directionValid() const { return mDirection != std::numeric_limits< double >::quiet_NaN(); }
+
 
     /**
      * Contains a list of information relating to the current satellites in view.
      */
-    QgsSatelliteInfo satellitesInView() const { return mSatellitesInView; }
+    QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
 
     /**
      * Dilution of precision.
@@ -122,11 +136,14 @@ class QgsGnssPositionInformation
      * Horizontal accuracy in meters
      */
     double hacc() const { return mHacc; }
+    bool haccValid() const { return mHacc != std::numeric_limits< double >::quiet_NaN(); }
+
 
     /**
      * Vertical accuracy in meters
      */
     double vacc() const { return mVacc; }
+    bool vaccValid() const { return mVacc != std::numeric_limits< double >::quiet_NaN(); }
 
     /**
      * The date and time at which this position was reported, in UTC time.
@@ -182,13 +199,14 @@ class QgsGnssPositionInformation
      */
     QString qualityDescription() const;
 
+
   private:
     double mLatitude = 0;
     double mLongitude = 0;
     double mElevation = 0;
     double mSpeed = 0;
     double mDirection = std::numeric_limits< double >::quiet_NaN();
-    QgsSatelliteInfo mSatellitesInView;
+    QList<QgsSatelliteInfo> mSatellitesInView;
     double mPdop = 0;
     double mHdop = 0;
     double mVdop = 0;

@@ -10,6 +10,31 @@
 #include "qgslogger.h"
 
 
+QgsGnssPositionInformation::QgsGnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, QList<QgsSatelliteInfo> satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+                                                       QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, QList<int> satPrn, bool satInfoComplete)
+    : mLatitude( latitude ),
+      mLongitude( longitude ),
+      mElevation( elevation ),
+      mSpeed( speed ),
+      mDirection( direction ),
+      mSatellitesInView( satellitesInView ),
+      mPdop( pdop ),
+      mHdop( hdop ),
+      mVdop( vdop ),
+      mHacc( hacc ),
+      mVacc( vacc ),
+      mUtcDateTime( utcDateTime ),
+      mFixMode( fixMode ),
+      mFixType( fixType ),
+      mQuality( quality ),
+      mSatellitesUsed( satellitesUsed ),
+      mStatus( status ),
+      mSatPrn( satPrn ),
+      mSatInfoComplete( satInfoComplete )
+{
+
+}
+
 bool QgsGnssPositionInformation::isValid() const
 {
   bool valid = false;
