@@ -45,7 +45,9 @@ QString AndroidPlatformUtilities::shareDir() const
 
 QString AndroidPlatformUtilities::packagePath() const
 {
-  return getIntentExtra( "PACKAGE_PATH" );
+  QString path = getIntentExtra( "PACKAGE_PATH" );
+  path.chop( 6 ); // remove /share/ from the path
+  return path;
 }
 
 QString AndroidPlatformUtilities::qgsProject() const

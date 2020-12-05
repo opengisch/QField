@@ -101,7 +101,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
+  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() + QStringLiteral( "/share" ) );
 #else
   QgsApplication app( argc, argv, true );
 
