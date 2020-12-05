@@ -230,8 +230,6 @@ public class QFieldActivity extends Activity {
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
             Uri uri = sourceIntent.getData();
-            Log.i(QtTAG, "uri path:" + uri.getPath());
-            Log.i(QtTAG, "uri decode:" + uri.toString());
             intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(getContext(),uri));
         }
 
