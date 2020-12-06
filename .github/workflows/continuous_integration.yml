@@ -158,6 +158,12 @@ jobs:
     needs: build
     if: ${{ github.event_name == 'push' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
       - name: Comment commit
         uses: peter-evans/commit-comment@v1
         with:
