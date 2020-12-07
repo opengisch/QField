@@ -651,6 +651,29 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layer->isValid();
     }
 
+    case FlatLayerTreeModel::FeatureCount:
+    {
+      QgsVectorLayer *layer = nullptr;
+      QModelIndex sourceIndex = mapToSource( index );
+      if ( !sourceIndex.isValid() )
+        return -1;
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+      }
+      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( mapToSource( index ) ) )
+      {
+        layer = qobject_cast<QgsVectorLayer *>( sym->layerNode()->layer() );
+      }
+
+      if ( !layer ) // Group
+        return -1;
+
+      return QVariant::fromValue<long>( layer->featureCount() );
+    }
+
     case FlatLayerTreeModel::IsCollapsed:
     {
       QModelIndex sourceIndex = mapToSource( index );
@@ -751,6 +774,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::TreeLevel] = "TreeLevel";
   roleNames[FlatLayerTreeModel::LayerType] = "LayerType";
   roleNames[FlatLayerTreeModel::IsValid] = "IsValid";
+  roleNames[FlatLayerTreeModel::FeatureCount] = "FeatureCount";
   roleNames[FlatLayerTreeModel::IsCollapsed] = "IsCollapsed";
   roleNames[FlatLayerTreeModel::IsParentCollapsed] = "IsParentCollapsed";
   roleNames[FlatLayerTreeModel::HasChildren] = "HasChildren";
