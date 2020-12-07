@@ -35,7 +35,7 @@ MultiFeatureListModelBase::MultiFeatureListModelBase( QObject *parent )
   connect( this, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModelBase::countChanged );
 }
 
-void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
+void MultiFeatureListModelBase::setFeatures( const QMap< QgsVectorLayer *, QgsFeatureRequest> requests )
 {
   beginResetModel();
 
@@ -44,15 +44,20 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
   QMap<QgsVectorLayer *, QgsFeatureRequest>::ConstIterator it;
   for ( it = requests.constBegin(); it != requests.constEnd(); it++ )
   {
+    QgsVectorLayer *vl = it.key();
+
+    if ( ! vl || ! vl->isValid() )
+      continue;
+
     QgsFeature feat;
-    QgsFeatureIterator fit = it.key()->getFeatures( it.value() );
+    QgsFeatureIterator fit = vl->getFeatures( it.value() );
     while ( fit.nextFeature( feat ) )
     {
-      mFeatures.append( QPair< QgsVectorLayer *, QgsFeature >( it.key(), feat ) );
-      connect( it.key(), &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
-      connect( it.key(), &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
-      connect( it.key(), &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
-      connect( it.key(), &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
+      mFeatures.append( QPair< QgsVectorLayer *, QgsFeature >( vl, feat ) );
+      connect( vl, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
     }
   }
 

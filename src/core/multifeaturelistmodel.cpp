@@ -43,6 +43,12 @@ void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeature
   mSourceModel->setFeatures( requests );
 }
 
+void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl )
+{
+  QMap<QgsVectorLayer *, QgsFeatureRequest> requests({{vl, QgsFeatureRequest()}});
+  mSourceModel->setFeatures( requests );
+}
+
 void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
 {
   mSourceModel->appendFeatures( results );

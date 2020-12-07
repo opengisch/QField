@@ -54,6 +54,7 @@ SET(QFIELD_CORE_SRCS
   viewstatus.cpp
   bluetoothreceiver.cpp
   bluetoothdevicemodel.cpp
+  changelogcontents.cpp
   utils/fileutils.cpp
   utils/geometryutils.cpp
   utils/featureutils.cpp
@@ -125,6 +126,7 @@ SET(QFIELD_CORE_HDRS
   bluetoothdevicemodel.h
   tracker.h
   viewstatus.h
+  changelogcontents.h
   utils/fileutils.h
   utils/geometryutils.h
   utils/featureutils.h
@@ -156,22 +158,24 @@ ENDIF (ANDROID)
 
 FIND_PACKAGE(Sqlite3)
 
-INCLUDE_DIRECTORIES(SYSTEM
-  ${CMAKE_SOURCE_DIR}/src/core/qgsquick
-  ${QGIS_INCLUDE_DIR}
+ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+
+TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PUBLIC 
+  ${QGIS_INCLUDE_DIR}  
+)
+
+TARGET_INCLUDE_DIRECTORIES(qfield_core SYSTEM PRIVATE 
   ${PROJ_INCLUDE_DIR}
   ${GDAL_INCLUDE_DIR}
   ${SQLITE3_INCLUDE_DIR}
 )
 
-INCLUDE_DIRECTORIES(
+TARGET_INCLUDE_DIRECTORIES(qfield_core PUBLIC
   ${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/core/qgsquick
   ${CMAKE_SOURCE_DIR}/src/core/utils
-  ${CMAKE_SOURCE_DIR}/src/qgsquick
   ${CMAKE_SOURCE_DIR}/3rdparty/tessellate
 )
-
-ADD_LIBRARY(qfield_core SHARED ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
 TARGET_COMPILE_FEATURES(qfield_core PUBLIC cxx_std_17)
 SET_TARGET_PROPERTIES(qfield_core PROPERTIES AUTOMOC TRUE)

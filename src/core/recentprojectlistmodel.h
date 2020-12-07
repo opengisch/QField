@@ -22,6 +22,8 @@ class RecentProjectListModel : public QAbstractListModel
 {
     Q_OBJECT
 
+  public:
+
     enum ProjectType
     {
       LocalProject,
@@ -32,28 +34,32 @@ class RecentProjectListModel : public QAbstractListModel
     {
       RecentProject() = default;
 
-      RecentProject( ProjectType type, const QString &title, const QString &path )
+      RecentProject( ProjectType type, const QString &title, const QString &path, bool demo )
         : type( type )
         , title( title )
         , path( path )
+        , demo( demo )
       {}
 
       ProjectType type = ProjectType::LocalProject;
       QString title;
       QString path;
+      bool demo = false;
     };
 
     /*!
      * Roles to get the data of the model.
     */
-    enum Roles
+    enum Role
     {
       ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
       ProjectTitleRole, //! the project title
       ProjectPathRole, //! the project path
+      ProjectDemoRole, //! if the project is a demo project
     };
+    Q_ENUM( Role )
 
-  public:
+
     explicit RecentProjectListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;

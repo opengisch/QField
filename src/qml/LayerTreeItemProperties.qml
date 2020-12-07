@@ -14,6 +14,7 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
+  property bool showAllFeaturesButtonVisible: false
 
   property bool trackingButtonVisible: false
   property var trackingButtonText
@@ -28,6 +29,14 @@ Popup {
 
   onIndexChanged: {
     title = layerTree.data(index, Qt.DisplayName)
+    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
+
+    if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+      var countSuffix = ' [' + layerTree.data(index, FlatLayerTreeModel.FeatureCount) + ']'
+
+      if ( !title.endsWith(countSuffix) )mAttributeWidgetEdit
+        title += countSuffix
+    }
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
 
@@ -35,7 +44,8 @@ Popup {
     expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
-    zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
+    zoomToLayerButtonVisible = isSpatialLayer()
+    showAllFeaturesButtonVisible = isShowAllFeaturesButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
@@ -104,6 +114,8 @@ Popup {
         bottomPadding: 5
         text: qsTr('Show on map canvas')
         font: Theme.defaultFont
+        // everything but nonspatial vector layer
+        visible: !isSpatialLayer() && !layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) || isSpatialLayer()
 
         indicator.height: 16
         indicator.width: 16
@@ -145,6 +157,21 @@ Popup {
       }
 
       QfButton {
+        id: showAllFeatures
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        text: qsTr('Show features list')
+        visible: showAllFeaturesButtonVisible
+
+        onClicked: {
+          featureForm.model.setFeatures( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+          mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+          close()
+          dashBoard.visible = false
+        }
+      }
+
+      QfButton {
         id: trackingButton
         Layout.fillWidth: true
         Layout.topMargin: 5
@@ -175,10 +202,26 @@ Popup {
         && positionSource.active
   }
 
-  function isZoomToLayerButtonVisible() {
-      if ( !index )
-        return false
+  function isSpatialLayer() {
+    if ( !index )
+      return false
 
-      return ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' )
+    if (! layerTree.data( index, FlatLayerTreeModel.IsValid )
+      || layerTree.data( index, FlatLayerTreeModel.Type ) !== 'layer')
+      return false
+
+    var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
+    if (!vl)
+      return true
+
+    if ( vl.geometryType() === QgsWkbTypes.NullGeometry || vl.geometryType() === QgsWkbTypes.UnknownGeometry)
+      return false
+
+    return true
+  }
+
+  function isShowAllFeaturesButtonVisible() {
+    return layerTree.data( index, FlatLayerTreeModel.IsValid )
+        && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
   }
 }

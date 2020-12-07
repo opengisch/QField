@@ -26,6 +26,7 @@
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="file" />
+        <data android:scheme="content" />
         <data android:host="*" />
         <data android:mimeType="*/*" />
         <data android:pathPattern=".*\\.qgs" />
@@ -46,6 +47,9 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.qgz" />
       </intent-filter>
       <meta-data android:name="id" android:value="1"/>
+      <!-- Git Revision -->
+      <meta-data android:name="android.app.git_rev" android:value="@string/git_rev"/>
+      <!-- Git Revision -->
     </activity-alias>
 
     <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"

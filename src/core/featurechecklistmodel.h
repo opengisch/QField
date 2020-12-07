@@ -35,6 +35,11 @@ class FeatureCheckListModel : public FeatureListModel
        */
     Q_PROPERTY( QgsField attributeField READ attributeField WRITE setAttributeField NOTIFY attributeFieldChanged )
 
+    /**
+     * The attribute field to have information about type (JSON/HSTORE) etc.
+     */
+    Q_PROPERTY( bool allowMulti READ allowMulti WRITE setAllowMulti NOTIFY allowMultiChanged )
+
   public:
     explicit FeatureCheckListModel( QObject *parent = nullptr );
 
@@ -68,9 +73,25 @@ class FeatureCheckListModel : public FeatureListModel
        */
     void setAttributeField( const QgsField &field );
 
+    /**
+     * Whether multiple selected items are allowed
+     */
+    bool allowMulti() const;
+
+    /**
+     * Sets whether multiple selected items are allowed
+     */
+    void setAllowMulti( bool allowMulti );
+
+    /**
+      * Sets all element to either checked or unchecked state, depending on \a toggleChecked
+      */
+    Q_INVOKABLE void toggleCheckAll( bool toggleChecked = true );
+
   signals:
     void attributeValueChanged();
     void attributeFieldChanged();
+    void allowMultiChanged();
     void listUpdated();
 
   private:
@@ -80,6 +101,7 @@ class FeatureCheckListModel : public FeatureListModel
 
     QgsField mAttributeField;
     QStringList mCheckedEntries;
+    bool mAllowMulti = false;
 };
 
 #endif // FEATURECHECKLISTMODEL_H

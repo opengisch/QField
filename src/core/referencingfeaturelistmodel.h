@@ -33,6 +33,8 @@ class ReferencingFeatureListModel : public QAbstractItemModel
 
     Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
     Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
+    Q_PROPERTY( QString currentRelationId WRITE setCurrentRelationId READ currentRelationId NOTIFY relationChanged )
+    Q_PROPERTY( QString currentNmRelationId WRITE setCurrentNmRelationId READ currentNmRelationId NOTIFY nmRelationChanged )
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
@@ -55,6 +57,18 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
 
+    //! Returns the id of the relation connecting the parent feature with the children in this model
+    QString currentRelationId() const;
+
+    //! Sets the relation connecting the parent feature with the children in this model
+    void setCurrentRelationId( const QString &relationId );
+
+    //! On many-to-many relations returns the second relation id connecting the children in the association table to their other parent
+    QString currentNmRelationId() const;
+
+    //! On many-to-many relations sets the second relation connecting the children in the association table to their other parent
+    void setCurrentNmRelationId( const QString &nmRelationId );
+
     /**
      * The parent feature for which this model contains the children
      * \param feature
@@ -70,14 +84,14 @@ class ReferencingFeatureListModel : public QAbstractItemModel
     QgsFeature feature() const;
 
     /**
-     * The relation connectiong the parent feature with the children in this model
+     * The relation connecting the parent feature with the children in this model
      * \param relation
      * \see relation
      */
     void setRelation( const QgsRelation &relation );
 
     /**
-     * The relation connectiong the parent feature with the children in this model
+     * The relation connecting the parent feature with the children in this model
      * \return relation
      * \see setRelation
      */

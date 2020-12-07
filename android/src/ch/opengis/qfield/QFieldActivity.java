@@ -68,6 +68,7 @@ import android.widget.TextView;
 import org.qtproject.qt5.android.bindings.QtActivity;
 
 import ch.opengis.qfield.R;
+import ch.opengis.qfield.QFieldUtils;
 
 
 public class QFieldActivity extends Activity {
@@ -229,7 +230,7 @@ public class QFieldActivity extends Activity {
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {
             Uri uri = sourceIntent.getData();
-            intent.putExtra("QGS_PROJECT", (uri.getPath()));
+            intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(getContext(),uri));
         }
 
         startActivity(intent);

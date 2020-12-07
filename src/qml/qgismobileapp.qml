@@ -1622,56 +1622,14 @@ ApplicationWindow {
     }
   }
 
-  Popup {
+  Changelog {
     id: changelogPopup
     parent: ApplicationWindow.overlay
 
     property var expireDate: new Date(2038,1,19)
     visible: settings.value( "/QField/ChangelogVersion", "" ) !== versionCode
                && expireDate > new Date()
-
-    x: 24
-    y: 24
-    width: parent.width - 48
-    height: parent.height - 48
-    padding: 0
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    focus: visible
-
-    Flickable {
-      id: changelogFlickable
-      anchors.fill: parent
-      flickableDirection: Flickable.VerticalFlick
-      interactive: true
-      contentWidth: changelog.width; contentHeight: changelog.height
-      clip: true
-
-      Changelog {
-        id: changelog
-        width: changelogFlickable.width
-
-        onClose: {
-          changelogPopup.close()
-        }
-      }
-    }
-
-    onClosed: {
-      settings.setValue( "/QField/ChangelogVersion", versionCode )
-      changelogFlickable.contentY = 0
-    }
-
-    onOpened: {
-      changelog.refreshChangelog()
-    }
-
-    Keys.onReleased: {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true
-        visible = false
-      }
-    }
+//               || true
   }
 
   // Toast

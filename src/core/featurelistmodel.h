@@ -16,10 +16,13 @@
 #ifndef FEATURELISTMODEL_H
 #define FEATURELISTMODEL_H
 
+#include <stringutils.h>
+
 #include <QAbstractItemModel>
 #include <QTimer>
 
 #include <qgsfeature.h>
+#include <qgsstringutils.h>
 
 class QgsVectorLayer;
 
@@ -62,6 +65,11 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
     /**
+     * Search term to filter features with. Empty string if no search is applied.
+     */
+    Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
+
+    /**
       * The current form feature, used to evaluate expressions such as `current_value('attr1')`
       **/
     Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
@@ -79,7 +87,7 @@ class FeatureListModel : public QAbstractItemModel
 
     virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
     virtual QModelIndex parent( const QModelIndex &child ) const override;
-    virtual int rowCount( const QModelIndex &parent ) const override;
+    virtual int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     virtual int columnCount( const QModelIndex &parent ) const override;
     virtual QVariant data( const QModelIndex &index, int role ) const override;
 
@@ -137,6 +145,16 @@ class FeatureListModel : public QAbstractItemModel
     void setFilterExpression( const QString &filterExpression );
 
     /**
+     * Search term to filter features with. Empty string if no search is applied.
+     */
+    QString searchTerm() const;
+
+    /**
+     * Sets a search term to filter features with. Empty string if no search is applied.
+     */
+    void setSearchTerm( const QString &searchTerm );
+
+    /**
      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
      */
     QgsFeature currentFormFeature() const;
@@ -153,6 +171,7 @@ class FeatureListModel : public QAbstractItemModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
+    void searchTermChanged();
     void currentFormFeatureChanged();
 
   private slots:
@@ -172,13 +191,21 @@ class FeatureListModel : public QAbstractItemModel
         : displayString( displayString )
         , key( key )
         , fid( fid )
+        , fuzzyScore( 0 )
       {}
 
       Entry() = default;
 
+      void calcFuzzyScore( const QString &searchTerm )
+      {
+        fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
+        fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
+      }
+
       QString displayString;
       QVariant key;
       QgsFeatureId fid;
+      double fuzzyScore;
     };
 
     /**
@@ -198,6 +225,7 @@ class FeatureListModel : public QAbstractItemModel
     bool mOrderByValue = false;
     bool mAddNull = false;
     QString mFilterExpression;
+    QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
 
     QTimer mReloadTimer;

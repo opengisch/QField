@@ -22,8 +22,8 @@ Rectangle{
         //and the relation from the children to the other parent (if it's nm and cardinality is set)
         //if cardinality is not set, the nmRelationId is empty
         id: relationEditorModel
-        relation: qgisProject.relationManager.relation(relationId)
-        nmRelation: qgisProject.relationManager.relation(nmRelationId)
+        currentRelationId: relationId
+        currentNmRelationId: nmRelationId
         feature: currentFeature
     }
 
@@ -57,7 +57,7 @@ Rectangle{
               visible: isEnabled
               color: 'grey'
               text: isEnabled && !constraintsHardValid ? qsTr( 'Ensure contraints') : ''
-              anchors { leftMargin: 10; left: parent.left; right: addButton.left; verticalCenter: parent.verticalCenter }
+              anchors { leftMargin: 10; left: parent.left; right: addButtonRow.left; verticalCenter: parent.verticalCenter }
               font.bold: true
               font.italic: true
           }
@@ -114,7 +114,8 @@ Rectangle{
 
         Item {
           id: listitem
-          anchors { left: parent.left; right: parent.right }
+          anchors.left: parent ? parent.left : undefined
+          anchors.right: parent ? parent.right : undefined
 
           focus: true
 
@@ -194,21 +195,37 @@ Rectangle{
 
       property int referencingFeatureId
       property string referencingFeatureDisplayMessage
+      property string referencingLayerName: relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : ''
       property int nmReferencedFeatureId
       property string nmReferencedFeatureDisplayMessage
+      property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
+      property string nmReferencingLayerName
 
       visible: false
-      modal: yes
+      modal: true
 
-      title: nmRelationId ?
-               qsTr( 'Unlink feature %1 (%2) of %3' ).arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ) :
-               qsTr( 'Delete feature %1 (%2) on %3' ).arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
+      title: nmRelationId
+              ? qsTr( 'Unlink feature %1 (%2) of %3' )
+                .arg( nmReferencedFeatureDisplayMessage )
+                .arg( nmReferencedFeatureId )
+                .arg( nmReferencedLayerName )
+              : qsTr( 'Delete feature %1 (%2) on %3' )
+                .arg( referencingFeatureDisplayMessage )
+                .arg( referencingFeatureId )
+                .arg( referencingLayerName )
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text:  nmRelationId ?
-               qsTr( 'Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg( nmReferencedFeatureDisplayMessage ).arg( nmReferencedFeatureId ).arg( relationEditorModel.nmRelation.referencedLayer.name ).arg( relationEditorModel.relation.referencingLayer.name ) :
-               qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg( referencingFeatureDisplayMessage ).arg( referencingFeatureId ).arg( relationEditorModel.relation.referencingLayer.name )
+        text:  nmRelationId
+                ? qsTr( 'Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>')
+                  .arg( parent.nmReferencedFeatureDisplayMessage )
+                  .arg( parent.nmReferencedFeatureId )
+                  .arg( parent.nmReferencedLayerName )
+                  .arg( parent.referencingLayerName )
+                : qsTr( 'Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?')
+                  .arg( parent.referencingFeatureDisplayMessage )
+                  .arg( parent.referencingFeatureId )
+                  .arg( parent.referencingLayerName )
       }
 
       standardButtons: Dialog.Ok | Dialog.Cancel

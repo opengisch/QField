@@ -28,9 +28,8 @@ ListView {
     property string layerType: LayerType
 
     id: rectangle
-    visible: !IsParentCollapsed
     width: parent ? parent.width : undefined
-    height: IsParentCollapsed ? 0 : line.height + 1
+    height: line.height + 1
     color: "#ffffff"
 
     Row {

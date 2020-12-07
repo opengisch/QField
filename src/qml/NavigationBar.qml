@@ -17,6 +17,7 @@
 
 
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import org.qgis 1.0
 import Theme 1.0
@@ -31,6 +32,7 @@ Rectangle {
   property FeaturelistExtentController extentController
 
   signal statusIndicatorClicked
+  signal statusIndicatorSwiped(var direction)
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
   signal save
@@ -74,9 +76,35 @@ Rectangle {
       font: Theme.strongFont
       color: "#FFFFFF"
       anchors.centerIn: parent
+      anchors.leftMargin: 0
+        + (saveButton.visible ? saveButton.width : 0)
+        + (followCurrentButton.visible ? followCurrentButton.width : 0)
+        + (previousButton.visible ? previousButton.width : 0)
+      anchors.rightMargin: 0
+        + (nextButton.visible ? nextButton.width : 0)
+        + (cancelButton.visible ? cancelButton.width : 0)
+        + (editGeomButton.visible ? editGeomButton.width : 0)
+        + (previousButton.visible ? previousButton.width : 0)
+        + (multiClearButton.visible ? multiClearButton.width : 0)
+        + (multiEditButton.visible ? multiEditButton.width : 0)
+        + (multiMergeButton.visible ? multiMergeButton.width : 0)
+        + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+      width: parent.width
+             - (nextButton.visible ? nextButton.width : 0)
+             - (saveButton.visible ? saveButton.width : 0)
+             - (cancelButton.visible ? cancelButton.width : 0)
+             - (editGeomButton.visible ? editGeomButton.width : 0)
+             - (editButton.visible ? editButton.width : 0)
+             - (followCurrentButton.visible ? followCurrentButton.width : 0)
+             - (previousButton.visible ? previousButton.width : 0)
+             - (multiClearButton.visible ? multiClearButton.width : 0)
+             - (multiEditButton.visible ? multiEditButton.width : 0)
+             - (multiMergeButton.visible ? multiMergeButton.width : 0)
+             - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+      height: parent.height
 
       text: {
-        if ( model && selection && selection.focusedItem > -1 && toolBar.state === 'Navigation' ) {
+        if ( model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit') ) {
           var featurePosition = model.count > 1
               ? ( ( selection.focusedItem + 1 ) + '/' + model.count + ': ' )
               : '';
@@ -87,13 +115,51 @@ Rectangle {
           return qsTr('Features')
         }
       }
+      horizontalAlignment: Text.AlignHCenter
+      verticalAlignment: Text.AlignVCenter
+      fontSizeMode: Text.Fit
+      wrapMode: Text.WordWrap
+      elide: Text.ElideRight
     }
 
     MouseArea {
       anchors.fill: parent
 
-      onClicked: {
-        toolBar.statusIndicatorClicked()
+      property real velocity: 0.0
+      property int startY: 0
+      property int lastY: 0
+      property int distance: 0
+      property bool isTracing: false
+
+      preventStealing: true
+
+      onPressed: {
+        startY = mouse.y
+        lastY = mouse.y
+        velocity = 0
+        distance = 0
+        isTracing = true
+      }
+      onPositionChanged: {
+        if ( !isTracing )
+          return
+
+        var currentVelocity = Math.abs(mouse.y - lastY)
+        lastY = mouse.y
+        velocity = (velocity + currentVelocity) / 2.0
+        distance = Math.abs(mouse.y - startY)
+        isTracing = velocity > 15 && distance > parent.height
+      }
+      onReleased: {
+        if ( !isTracing ) {
+          toolBar.statusIndicatorSwiped(getDirection())
+        } else {
+          toolBar.statusIndicatorClicked()
+        }
+      }
+
+      function getDirection() {
+        return lastY < startY ? 'up' : 'down'
       }
     }
   }
