@@ -77,9 +77,6 @@ class QgsGnssPositionInformation
                                 double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                                 QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), QList<int> satPrn = QList<int>(), bool satInfoComplete = false );
 
-    //explicit QgsGnssPositionInformation( const QgsGpsInformation &gpsInformation );
-    //explicit QgsGnssPositionInformation( const QGeoPositionInfo &geoPositionInfo );
-
     /**
      * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
      * a negative value indicates the Southern Hemisphere.
@@ -227,6 +224,7 @@ class QgsGnssPositionInformation
     QString mQualityDescription;
 
 };
+
 Q_DECLARE_METATYPE(QgsGnssPositionInformation)
 
 #endif // QGSGNSSPOSITIONINFORMATION_H

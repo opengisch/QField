@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtPositioning 5.3
-import QtBluetooth 5.12
+//nmea-todo: import QtBluetooth 5.12
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -67,13 +67,13 @@ Item{
       property bool active: device !== 'internal' && positionSource.active
 
       onSocketStateChanged: {
-          if( socketState === BluetoothSocket.Connected ) {
-              displayToast( "It's connected ")
-              positionSource.valid = true
-          } else {
-              displayToast( "It's not connected ")
-              positionSource.valid = false
-          }
+          //if( socketState === BluetoothSocket.Connected ) {
+          //    displayToast( "It's connected ")
+          //    positionSource.valid = true
+          //} else {
+          //    displayToast( "It's not connected ")
+          //    positionSource.valid = false
+          //}
       }
 
       onActiveChanged: {

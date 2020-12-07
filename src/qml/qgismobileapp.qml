@@ -805,7 +805,7 @@ ApplicationWindow {
     QfToolButton {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
-      visible: positionSource.valid //nmea-todos: this has to be integrated
+      visible: positionSource.valid
 
       anchors.right: parent.right
 
@@ -913,7 +913,7 @@ ApplicationWindow {
       FeatureModel {
         id: digitizingFeature
         currentLayer: dashBoard.currentLayer
-        positionSourceName: positionSource.name //nmea-todos: needs to be fixed. here it creates a positionSource for the scope
+        positionSourceName: positionSource.name //nmea-todos: this does only provide the parameters from the Qt PositionSource and does not work for bluetooth receivers
         topSnappingResult: coordinateLocator.topSnappingResult
         geometry: Geometry {
           id: digitizingGeometry
