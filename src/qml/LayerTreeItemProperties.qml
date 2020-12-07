@@ -14,7 +14,7 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
-  property bool showAllFeaturesButtonVisible: false
+  property bool showFeaturesListButtonVisible: false
 
   property bool trackingButtonVisible: false
   property var trackingButtonText
@@ -31,10 +31,10 @@ Popup {
     title = layerTree.data(index, Qt.DisplayName)
     var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
-    if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+    if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
       var countSuffix = ' [' + layerTree.data(index, FlatLayerTreeModel.FeatureCount) + ']'
 
-      if ( !title.endsWith(countSuffix) )mAttributeWidgetEdit
+      if ( !title.endsWith(countSuffix) )
         title += countSuffix
     }
 
@@ -45,7 +45,7 @@ Popup {
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
     zoomToLayerButtonVisible = isSpatialLayer()
-    showAllFeaturesButtonVisible = isShowAllFeaturesButtonVisible();
+    showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
@@ -115,8 +115,7 @@ Popup {
         text: qsTr('Show on map canvas')
         font: Theme.defaultFont
         // everything but nonspatial vector layer
-        visible: !isSpatialLayer() && !layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) || isSpatialLayer()
-
+        visible: !!(index && (!isSpatialLayer() && layerTree.data( index, FlatLayerTreeModel.LayerType ) !== 'vectorlayer' || isSpatialLayer()))
         indicator.height: 16
         indicator.width: 16
         indicator.implicitHeight: 24
@@ -157,14 +156,21 @@ Popup {
       }
 
       QfButton {
-        id: showAllFeatures
+        id: showFeaturesList
         Layout.fillWidth: true
         Layout.topMargin: 5
         text: qsTr('Show features list')
-        visible: showAllFeaturesButtonVisible
+        visible: showFeaturesListButtonVisible
 
         onClicked: {
-          featureForm.model.setFeatures( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+          var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
+
+          if ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' ) {
+            featureForm.model.setFeatures( vl )
+          } else {
+            // one day, we should be able to show only the features that correspond to the given legend item
+            featureForm.model.setFeatures( vl )
+          }
           mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
           close()
           dashBoard.visible = false
@@ -207,7 +213,10 @@ Popup {
       return false
 
     if (! layerTree.data( index, FlatLayerTreeModel.IsValid )
-      || layerTree.data( index, FlatLayerTreeModel.Type ) !== 'layer')
+      || (
+          layerTree.data( index, FlatLayerTreeModel.Type ) !== 'layer'
+          && layerTree.data( index, FlatLayerTreeModel.Type ) !== 'legend'
+          ))
       return false
 
     var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
@@ -220,7 +229,7 @@ Popup {
     return true
   }
 
-  function isShowAllFeaturesButtonVisible() {
+  function isShowFeaturesListButtonVisible() {
     return layerTree.data( index, FlatLayerTreeModel.IsValid )
         && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
   }
