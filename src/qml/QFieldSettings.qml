@@ -242,7 +242,7 @@ Page {
               RowLayout {
                   ComboBox {
                       id: bluetoothDeviceCombo
-                      enabled: !bluetoothDeviceCombo.model.scanning
+                      enabled: !bluetoothDeviceModel.scanning
                       Layout.fillWidth: true
                       textRole: 'display'
                       model: BluetoothDeviceModel {
@@ -252,7 +252,7 @@ Page {
                       property string selectedPositioningDevice
 
                       onCurrentIndexChanged: {
-                          if( !bluetoothDeviceCombo.model.scanning )
+                          if( !bluetoothDeviceModel.scanning )
                           {
                             selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
@@ -280,25 +280,24 @@ Page {
                     id: scanButton
                     round: true
                     onClicked: {
-                        bluetoothDeviceCombo.model.startServiceDiscovery()
+                        bluetoothDeviceModel.startServiceDiscovery()
                     }
                     bgcolor: "steelBlue"
-                    enabled: !bluetoothDeviceCombo.model.scanning
+                    enabled: !bluetoothDeviceModel.scanning
 
                     BusyIndicator {
                       id: busyIndicator
                       anchors.centerIn: parent
                       width: 36
                       height: 36
-                      running: bluetoothDeviceCombo.model.scanning
+                      running: bluetoothDeviceModel.scanning
                     }
                   }
               }
 
               onVisibleChanged: {
-                  if( visible === true && !bluetoothDeviceCombo.model.rowCount() ){
-                      //crashes with "index out of range" when something is selected
-                      bluetoothDeviceCombo.model.startServiceDiscovery()
+                  if( visible === true && !bluetoothDeviceModel.rowCount() ){
+                      bluetoothDeviceModel.startServiceDiscovery()
                   }
               }
 

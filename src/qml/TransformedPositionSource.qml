@@ -57,7 +57,7 @@ Item{
       }
 
       onPositionChanged: {
-        positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
+        positionSource.positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
       }
     }
 
@@ -89,7 +89,7 @@ Item{
 
       onLastGnssPositionInformationChanged:
       {
-        positionInfo = lastGnssPositionInformation
+        positionSource.positionInfo = lastGnssPositionInformation
       }
     }
 }
