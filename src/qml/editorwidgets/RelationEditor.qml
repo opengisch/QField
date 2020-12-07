@@ -11,6 +11,7 @@ import org.qgis 1.0
 
 Rectangle{
     height: isEnabled ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly (isEnabled false)
+    signal valueChanged(var value, bool isNull)
     property int itemHeight: 32
     enabled: true
 
