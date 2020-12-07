@@ -57,8 +57,7 @@ Item{
       }
 
       onPositionChanged: {
-          position.latitudeValid
-        positionInfo = GnssPositionConverter.fromQGeoPositionInfo(name) //pass the correct here...
+        positionInfo = BluetoothReceiver.fromQGeoPositionInfo(name)
       }
     }
 

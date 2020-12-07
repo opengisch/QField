@@ -17,7 +17,6 @@
 #include "bluetoothreceiver.h"
 
 #include <QSettings>
-#include <qgsmessagelog.h>
 #include <QDebug>
 
 BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
@@ -25,7 +24,8 @@ BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
     mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
     mGpsConnection( new QgsNmeaConnection( mSocket.get() ) )
 {
-    //socket log connections
+    //nmea-todo: the following 3 connection could be removed in the end, since we handle the connection info over the stateChanged
+    //socket log
     connect(mSocket.get(), &QBluetoothSocket::connected,[=](){
         qDebug() << "SOCKET CONNECTED";
     });
@@ -43,7 +43,7 @@ BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
         emit socketStateChanged( mSocketState );
     });
 
-    //GpsConnection connections
+    //QgsGpsConnection
     connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged);
 
     //connect on startup
@@ -68,10 +68,12 @@ void BluetoothReceiver::connectDevice(const QString &address)
         return;
     }
 
-    //mSocket->connectToService( QBluetoothAddress(address), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
-
-    //kind of ugly workaround - if needed
+#ifndef ANDROID
+    //ugly workaround for linux tests
     repairDevice ( QBluetoothAddress(address) );
+#else
+    mSocket->connectToService( QBluetoothAddress(address), QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
+#endif
 }
 
 void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
@@ -86,6 +88,23 @@ void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
     emit lastGnssPositionInformationChanged(mLastGnssPositionInformation);
 }
 
+QgsGnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo(const QString &name)
+{
+
+    QGeoPositionInfoSource* positionSource = QGeoPositionInfoSource::createSource( name, nullptr );
+
+    QGeoPositionInfo info = positionSource->lastKnownPosition();
+    //not handled: magneticVariation = positionInfo.attribute( QGeoPositionInfo::Attribute::MagneticVariation );
+    //not handled: info.attribute( QGeoPositionInfo::Attribute::VerticalSpeed );
+    QgsGnssPositionInformation gnssPositionInformation = QgsGnssPositionInformation( info.coordinate().latitude(), info.coordinate().longitude(), info.coordinate().altitude(), info.attribute( QGeoPositionInfo::Attribute::GroundSpeed ),
+                                                                                     info.attribute( QGeoPositionInfo::Attribute::Direction ), QList<QgsSatelliteInfo>(), 0, 0, 0,
+                                                                                     info.attribute( QGeoPositionInfo::Attribute::HorizontalAccuracy ),info.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy ),
+                                                                                     info.timestamp(), QChar(), 0, -1,0, QChar(), QList<int>(),true );
+    qDebug() << "Qt Position DATA " << gnssPositionInformation.latitude() << "lon" << gnssPositionInformation.longitude() << "ele" << gnssPositionInformation.elevation();
+    return gnssPositionInformation;
+}
+
+#ifndef ANDROID
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address)
 {
 
@@ -134,19 +153,4 @@ void BluetoothReceiver::connectService( const QBluetoothAddress &address )
 {
     mSocket->connectToService( address, QBluetoothUuid(QBluetoothUuid::SerialPort), QBluetoothSocket::ReadOnly );
 }
-
-QgsGnssPositionInformation GnssPositionConverter::fromQGeoPositionInfo(const QString &name)
-{
-
-    QGeoPositionInfoSource* positionSource = QGeoPositionInfoSource::createSource( name, nullptr );
-
-    QGeoPositionInfo info = positionSource->lastKnownPosition();
-    //not handled: magneticVariation = positionInfo.attribute( QGeoPositionInfo::Attribute::MagneticVariation );
-    //not handled: info.attribute( QGeoPositionInfo::Attribute::VerticalSpeed );
-    QgsGnssPositionInformation gnssPositionInformation = QgsGnssPositionInformation( info.coordinate().latitude(), info.coordinate().longitude(), info.coordinate().altitude(), info.attribute( QGeoPositionInfo::Attribute::GroundSpeed ),
-                                                                                     info.attribute( QGeoPositionInfo::Attribute::Direction ), QList<QgsSatelliteInfo>(), 0, 0, 0,
-                                                                                     info.attribute( QGeoPositionInfo::Attribute::HorizontalAccuracy ),info.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy ),
-                                                                                     info.timestamp(), QChar(), 0, -1,0, QChar(), QList<int>(),true );
-    qDebug() << "Qt Position DATA " << gnssPositionInformation.latitude() << "lon" << gnssPositionInformation.longitude() << "ele" << gnssPositionInformation.elevation();
-    return gnssPositionInformation;
-}
+#endif

@@ -31,40 +31,37 @@ class BluetoothReceiver : public QObject
 
     public:
         explicit BluetoothReceiver( QObject *parent = nullptr );
+
         Q_INVOKABLE void disconnectDevice();
         Q_INVOKABLE void connectDevice(const QString &address);
 
-        void connectService( const QBluetoothAddress &address );
-        void repairDevice( const QBluetoothAddress &address );
-
         QgsGnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
-
         QBluetoothSocket::SocketState socketState() const { return mSocketState;}
 
-signals:
+        static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
+
+    signals:
         void lastGnssPositionInformationChanged(QgsGnssPositionInformation lastGnssPositionInformation);
         void socketStateChanged(QBluetoothSocket::SocketState socketState);
 
-private slots:
+    private slots:
+#ifndef ANDROID
         void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
         void confirmPairing(const QBluetoothAddress &address, QString pin);
+#endif
         void stateChanged(const QgsGpsInformation &info );
 
     private:
+#ifndef ANDROID
+        void connectService( const QBluetoothAddress &address );
+        void repairDevice( const QBluetoothAddress &address );
+#endif
+
         std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
         std::unique_ptr<QBluetoothSocket> mSocket;
         std::unique_ptr<QgsNmeaConnection> mGpsConnection;
         QgsGnssPositionInformation mLastGnssPositionInformation;
         QBluetoothSocket::SocketState mSocketState;
 };
-
-class GnssPositionConverter : public QObject
-{
-    Q_OBJECT
-  public:
-    static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
-};
-
-
 
 #endif // BLUETOOTHRECEIVER_H
