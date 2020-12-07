@@ -36,6 +36,7 @@ Rectangle {
   property bool allowEdit
   property bool allowDelete
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
+  property bool isVertical: null
 
   signal showMessage(string message)
   signal editGeometry
@@ -45,6 +46,7 @@ Rectangle {
           if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
               parent.width
           } else {
+              isVertical = false
               Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
       } else { 0 }
@@ -54,6 +56,7 @@ Rectangle {
          if (fullScreenView || parent.width > parent.height) {
              parent.height
          } else {
+             isVertical = true
              Math.min(Math.max( 200, parent.height / 2 ), parent.height)
          }
      } else { 0 }
@@ -317,6 +320,9 @@ Rectangle {
     }
 
     onStatusIndicatorSwiped: {
+      if ( !isVertical )
+        return
+
       if (direction === 'up') {
         fullScreenView = true
       } else if (direction === 'down') {
