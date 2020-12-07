@@ -36,7 +36,7 @@ Rectangle {
   property bool allowEdit
   property bool allowDelete
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
-  property bool isVertical: null
+  property bool isVertical: false
 
   signal showMessage(string message)
   signal editGeometry
