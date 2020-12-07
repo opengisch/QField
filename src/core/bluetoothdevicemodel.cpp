@@ -66,13 +66,17 @@ void BluetoothDeviceModel::startServiceDiscovery()
 void BluetoothDeviceModel::serviceDiscovered(const QBluetoothServiceInfo &service)
 {
     qDebug() << "FOUND DEVICE: "<<service.device().name()<<'(' << service.device().address().toString() << ')' <<':' << service.serviceName() << " UUID:"<< service.serviceUuid();
-    //if( mLocalDevice->pairingStatus(service.device().address()) != QBluetoothLocalDevice::Unpaired )
-    //{
+#ifdef Q_OS_ANDROID
+    if( mLocalDevice->pairingStatus(service.device().address()) != QBluetoothLocalDevice::Unpaired )
+    {
         mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
-    //}
-    //else{
-    //    qDebug() << "do not append it since it's unpaired: "<< service.device().name();
-    //}
+    }
+    else{
+        qDebug() << "do not append it since it's unpaired: "<< service.device().name();
+    }
+#else
+     mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+#endif
 }
 
 bool BluetoothDeviceModel::scanning() const

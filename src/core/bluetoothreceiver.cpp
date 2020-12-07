@@ -68,7 +68,7 @@ void BluetoothReceiver::connectDevice(const QString &address)
         return;
     }
 
-#ifndef ANDROID
+#ifndef Q_OS_ANDROID
     //ugly workaround for linux tests
     repairDevice ( QBluetoothAddress(address) );
 #else
@@ -104,7 +104,7 @@ QgsGnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo(const QString
     return gnssPositionInformation;
 }
 
-#ifndef ANDROID
+#ifndef Q_OS_ANDROID
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address)
 {
 

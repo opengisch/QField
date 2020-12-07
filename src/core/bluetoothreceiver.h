@@ -45,14 +45,14 @@ class BluetoothReceiver : public QObject
         void socketStateChanged(QBluetoothSocket::SocketState socketState);
 
     private slots:
-#ifndef ANDROID
+#ifndef Q_OS_ANDROID
         void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
         void confirmPairing(const QBluetoothAddress &address, QString pin);
 #endif
         void stateChanged(const QgsGpsInformation &info );
 
     private:
-#ifndef ANDROID
+#ifndef Q_OS_ANDROID
         void connectService( const QBluetoothAddress &address );
         void repairDevice( const QBluetoothAddress &address );
 #endif
