@@ -232,7 +232,7 @@ Page {
               anchors.rightMargin: 18
 
               Label {
-                  text: qsTr( "Use of external positioning device (current: "+positioningDevice+")" )
+                  text: qsTr( "Select the positioning device (current: "+positioningDevice+")" )
                   font: Theme.defaultFont
 
                   wrapMode: Text.WordWrap
@@ -254,7 +254,7 @@ Page {
                       onCurrentIndexChanged: {
                           if( !bluetoothDeviceCombo.model.scanning )
                           {
-                            selectedPositioningDevice = bluetoothDeviceModel.findIndexAddess( currentIndex )
+                            selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
                           if( positioningDevice !== selectedPositioningDevice )
                           {
@@ -263,12 +263,11 @@ Page {
                           }
                       }
 
-
                       Connections {
                         target: bluetoothDeviceModel
 
                         function onModelReset() {
-                          bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
+                            bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
                         }
 
                         function onScanningStatusReceived (statusText) {
@@ -281,7 +280,6 @@ Page {
                     id: scanButton
                     round: true
                     onClicked: {
-                        //crashes with "index out of range" when something is selected
                         bluetoothDeviceCombo.model.startServiceDiscovery()
                     }
                     bgcolor: "steelBlue"

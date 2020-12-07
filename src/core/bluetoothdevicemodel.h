@@ -57,7 +57,6 @@ class BluetoothDeviceModel : public QAbstractListModel
 
     Q_INVOKABLE void startServiceDiscovery();
     Q_INVOKABLE int findAddessIndex( const QString &address ) const;
-    Q_INVOKABLE QString findIndexAddess( int idx ) const;
 
  signals:
     void scanningChanged();

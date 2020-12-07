@@ -46,7 +46,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
 {
     beginResetModel();
     mDiscoveredDevices.clear();
-    mDiscoveredDevices.append( qMakePair( tr("Internal GPS"), QString("internal") ) );
+    mDiscoveredDevices.append( qMakePair( tr("Internal device"), QString("internal") ) );
 
     if( mServiceDiscoveryAgent.isActive() )
         mServiceDiscoveryAgent.stop();
@@ -95,17 +95,13 @@ int BluetoothDeviceModel::findAddessIndex( const QString &address ) const
   for ( const QPair<QString, QString> &device : mDiscoveredDevices )
   {
     if ( device.second == address )
+    {
       return idx;
-
+    }
     ++idx;
   }
-
-  return -1;
-}
-
-QString BluetoothDeviceModel::findIndexAddess( int idx ) const
-{
-  return mDiscoveredDevices.at(idx).second;
+  //if not found, then switch to the internal device (by index 0)
+  return 0;
 }
 
 int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
@@ -117,7 +113,7 @@ int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == DisplayStringRole || role == Qt::DisplayRole )
-    return mDiscoveredDevices.at( index.row() ).first;
+    return QStringLiteral( "%1 (%2)"  ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
   else
     return mDiscoveredDevices.at( index.row() ).second;
 }
