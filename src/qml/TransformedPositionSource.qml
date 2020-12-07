@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtPositioning 5.3
-//nmea-todo: import QtBluetooth 5.12
+//nmea-todo wait for osgeo4a: import QtBluetooth 5.15
 
 import org.qfield 1.0
 import org.qgis 1.0
@@ -22,7 +22,7 @@ Item{
     // proxy variables
     property bool active
     property string name
-    property bool valid
+    property bool valid: true
 
     property CoordinateTransformer ct: CoordinateTransformer {
       id: _ct
