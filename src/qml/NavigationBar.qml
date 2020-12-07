@@ -117,7 +117,7 @@ Rectangle {
         lastY = mouse.y
         velocity = (velocity + currentVelocity) / 2.0
         distance = Math.abs(mouse.y - startY)
-        isTracing = velocity > 15 && distance > parent.height * 0.2
+        isTracing = velocity > 15 && distance > parent.height
       }
       onReleased: {
         if ( !isTracing ) {
