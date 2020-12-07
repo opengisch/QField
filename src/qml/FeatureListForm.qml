@@ -35,6 +35,7 @@ Rectangle {
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
   property bool allowDelete
+  property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
 
   signal showMessage(string message)
   signal editGeometry
@@ -50,7 +51,7 @@ Rectangle {
   }
   height: {
      if (props.isVisible) {
-         if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
+         if (fullScreenView || parent.width > parent.height) {
              parent.height
          } else {
              Math.min(Math.max( 200, parent.height / 2 ), parent.height)
@@ -315,6 +316,18 @@ Rectangle {
       featureForm.state = "FeatureList"
     }
 
+    onStatusIndicatorSwiped: {
+      if (direction === 'up') {
+        fullScreenView = true
+      } else if (direction === 'down') {
+        if ( fullScreenView ) {
+          fullScreenView = false
+        } else {
+          featureForm.state = 'Hidden'
+        }
+      }
+    }
+
     onEditAttributesButtonClicked: {
         if( trackingModel.featureInTracking(selection.focusedLayer, selection.focusedFeature.id) )
         {
@@ -468,6 +481,7 @@ Rectangle {
   {
     props.isVisible = false
     focus = false
+    fullScreenView = qfieldSettings.fullScreenIdentifyView
 
     featureForm.selection.clear()
     if ( featureForm.selection.model )
