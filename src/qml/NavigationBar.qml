@@ -17,6 +17,7 @@
 
 
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import org.qgis 1.0
 import Theme 1.0
@@ -31,6 +32,7 @@ Rectangle {
   property FeaturelistExtentController extentController
 
   signal statusIndicatorClicked
+  signal statusIndicatorSwiped(var direction)
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
   signal save
@@ -92,8 +94,41 @@ Rectangle {
     MouseArea {
       anchors.fill: parent
 
-      onClicked: {
-        toolBar.statusIndicatorClicked()
+      property real velocity: 0.0
+      property int startY: 0
+      property int lastY: 0
+      property int distance: 0
+      property bool isTracing: false
+
+      preventStealing: true
+
+      onPressed: {
+        startY = mouse.y
+        lastY = mouse.y
+        velocity = 0
+        distance = 0
+        isTracing = true
+      }
+      onPositionChanged: {
+        if ( !isTracing )
+          return
+
+        var currentVelocity = Math.abs(mouse.y - lastY)
+        lastY = mouse.y
+        velocity = (velocity + currentVelocity) / 2.0
+        distance = Math.abs(mouse.y - startY)
+        isTracing = velocity > 15 && distance > parent.height
+      }
+      onReleased: {
+        if ( !isTracing ) {
+          toolBar.statusIndicatorSwiped(getDirection())
+        } else {
+          toolBar.statusIndicatorClicked()
+        }
+      }
+
+      function getDirection() {
+        return lastY < startY ? 'up' : 'down'
       }
     }
   }
