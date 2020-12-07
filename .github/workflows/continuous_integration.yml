@@ -76,7 +76,6 @@ jobs:
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
-          CI_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
         run: |
           export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
           export ANDROID_NDK_PLATFORM=android-29
@@ -158,6 +157,12 @@ jobs:
     needs: build
     if: ${{ github.event_name == 'push' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
       - name: Comment commit
         uses: peter-evans/commit-comment@v1
         with:

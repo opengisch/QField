@@ -36,12 +36,12 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 
 else
   echo "Building pull request beta"
-  export APP_NAME="QField Beta ${CI_PULL_REQUEST}"
+  export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
   export APP_PACKAGE_NAME="qfield_beta"
   export APP_ICON="qfield_logo_pr"
   export APP_VERSION=""
   export APP_VERSION_CODE="1"
-  export APP_VERSION_STR="PR${CI_PULL_REQUEST}"
+  export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER}"
 fi
 
 echo "Arch number: ${ARCH_NUMBER}"

@@ -113,6 +113,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       TreeLevel,
       LayerType,
       IsValid,
+      FeatureCount,
       IsCollapsed,
       IsParentCollapsed,
       HasChildren
