@@ -283,7 +283,7 @@ Item {
 
   Connections {
     target: __pictureSource
-    onPictureReceived: {
+    function onPictureReceived(path) {
       if( path )
       {
           valueChanged(path, false)
