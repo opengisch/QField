@@ -14,6 +14,7 @@ Popup {
   property var index
 
   property bool zoomToLayerButtonVisible: false
+  property bool showAllFeaturesButtonVisible: false
 
   property bool trackingButtonVisible: false
   property var trackingButtonText
@@ -36,6 +37,7 @@ Popup {
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
     zoomToLayerButtonVisible = isZoomToLayerButtonVisible()
+    showAllFeaturesButtonVisible = isShowAllFeaturesButtonVisible();
 
     trackingButtonVisible = isTrackingButtonVisible()
     trackingButtonText = trackingModel.layerInTracking( layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer) ) ? qsTr('Stop tracking') : qsTr('Start tracking')
@@ -145,6 +147,21 @@ Popup {
       }
 
       QfButton {
+        id: showAllFeatures
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        text: qsTr('Show features list')
+        visible: showAllFeaturesButtonVisible
+
+        onClicked: {
+          featureForm.model.setFeatures( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+          mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer ) )
+          close()
+          dashBoard.visible = false
+        }
+      }
+
+      QfButton {
         id: trackingButton
         Layout.fillWidth: true
         Layout.topMargin: 5
@@ -180,5 +197,10 @@ Popup {
         return false
 
       return ( layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer' )
+  }
+
+  function isShowAllFeaturesButtonVisible() {
+    return layerTree.data( index, FlatLayerTreeModel.IsValid )
+        && layerTree.data( index, FlatLayerTreeModel.LayerType ) === 'vectorlayer'
   }
 }

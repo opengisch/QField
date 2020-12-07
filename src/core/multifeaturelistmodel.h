@@ -58,6 +58,11 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
 
     /**
+     * Resets the model to contain features found from a \a vl.
+     */
+    Q_INVOKABLE void setFeatures( QgsVectorLayer *vl );
+
+    /**
      * Appends features from a list of \a results.
      */
     void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
