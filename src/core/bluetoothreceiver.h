@@ -28,6 +28,7 @@ class BluetoothReceiver : public QObject
 
     Q_PROPERTY( QgsGnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
     Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
+    Q_PROPERTY( bool connected READ connected NOTIFY connectedChanged ) //todo-nmea: can be replaced by socketState when QBluetoothSocket can be accessed by the QML
 
     public:
         explicit BluetoothReceiver( QObject *parent = nullptr );
@@ -39,12 +40,14 @@ class BluetoothReceiver : public QObject
         QBluetoothSocket::SocketState socketState() const { return mSocketState;}
 
         static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
+        bool connected() const  { return mConnected; }
 
-    signals:
+signals:
         void lastGnssPositionInformationChanged(QgsGnssPositionInformation lastGnssPositionInformation);
         void socketStateChanged(QBluetoothSocket::SocketState socketState);
+        void connectedChanged(bool connected);
 
-    private slots:
+private slots:
 #ifndef Q_OS_ANDROID
         void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
         void confirmPairing(const QBluetoothAddress &address, QString pin);
@@ -62,6 +65,7 @@ class BluetoothReceiver : public QObject
         std::unique_ptr<QgsNmeaConnection> mGpsConnection;
         QgsGnssPositionInformation mLastGnssPositionInformation;
         QBluetoothSocket::SocketState mSocketState;
+        bool mConnected = false;
 };
 
 #endif // BLUETOOTHRECEIVER_H

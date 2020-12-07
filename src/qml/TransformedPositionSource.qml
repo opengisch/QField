@@ -75,6 +75,15 @@ Item{
           //    positionSource.valid = false
           //}
       }
+      onConnectedChanged: {
+          if( connected ) {
+            displayToast( qsTr('Connected to %1').arg( device ) )
+          }else{
+            displayToast( qsTr('%1 is not connected.').arg( device ) )
+          }
+
+          positionSource.valid = connected
+      }
 
       onActiveChanged: {
           if( active ){

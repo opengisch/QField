@@ -28,12 +28,18 @@ BluetoothReceiver::BluetoothReceiver(QObject *parent) : QObject( parent ),
     //socket log
     connect(mSocket.get(), &QBluetoothSocket::connected,[=](){
         qDebug() << "SOCKET CONNECTED";
+        mConnected = true;
+        emit connectedChanged( mConnected );
     });
     connect(mSocket.get(), &QBluetoothSocket::disconnected,[=](){
         qDebug() << "SOCKET DISCONNECTED";
+        mConnected = false;
+        emit connectedChanged( mConnected );
     });
     connect(mSocket.get(), QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error),[=](QBluetoothSocket::SocketError error){
         qDebug() << "SOCKET ERROR: " <<error;
+        mConnected = false;
+        emit connectedChanged( mConnected );
     });
 
     connect(mSocket.get(), &QBluetoothSocket::stateChanged,
@@ -78,8 +84,6 @@ void BluetoothReceiver::connectDevice(const QString &address)
 
 void BluetoothReceiver::stateChanged(const QgsGpsInformation &info)
 {
-    qDebug() << "state chagned " << info.longitude << "lon" << info.latitude << "ele" << info.elevation;
-
     mLastGnssPositionInformation = QgsGnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed, info.direction, info.satellitesInView, info.pdop,
                                                                    info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
                                                                    info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
