@@ -29,6 +29,14 @@ Popup {
 
   onIndexChanged: {
     title = layerTree.data(index, Qt.DisplayName)
+    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
+
+    if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+      var countSuffix = ' [' + layerTree.data(index, FlatLayerTreeModel.FeatureCount) + ']'
+
+      if ( !title.endsWith(countSuffix) )
+        title += countSuffix
+    }
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
 
