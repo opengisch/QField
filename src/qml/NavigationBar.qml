@@ -74,9 +74,35 @@ Rectangle {
       font: Theme.strongFont
       color: "#FFFFFF"
       anchors.centerIn: parent
+      anchors.leftMargin: 0
+        + (saveButton.visible ? saveButton.width : 0)
+        + (followCurrentButton.visible ? followCurrentButton.width : 0)
+        + (previousButton.visible ? previousButton.width : 0)
+      anchors.rightMargin: 0
+        + (nextButton.visible ? nextButton.width : 0)
+        + (cancelButton.visible ? cancelButton.width : 0)
+        + (editGeomButton.visible ? editGeomButton.width : 0)
+        + (previousButton.visible ? previousButton.width : 0)
+        + (multiClearButton.visible ? multiClearButton.width : 0)
+        + (multiEditButton.visible ? multiEditButton.width : 0)
+        + (multiMergeButton.visible ? multiMergeButton.width : 0)
+        + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+      width: parent.width
+             - (nextButton.visible ? nextButton.width : 0)
+             - (saveButton.visible ? saveButton.width : 0)
+             - (cancelButton.visible ? cancelButton.width : 0)
+             - (editGeomButton.visible ? editGeomButton.width : 0)
+             - (editButton.visible ? editButton.width : 0)
+             - (followCurrentButton.visible ? followCurrentButton.width : 0)
+             - (previousButton.visible ? previousButton.width : 0)
+             - (multiClearButton.visible ? multiClearButton.width : 0)
+             - (multiEditButton.visible ? multiEditButton.width : 0)
+             - (multiMergeButton.visible ? multiMergeButton.width : 0)
+             - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+      height: parent.height
 
       text: {
-        if ( model && selection && selection.focusedItem > -1 && toolBar.state === 'Navigation' ) {
+        if ( model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit') ) {
           var featurePosition = model.count > 1
               ? ( ( selection.focusedItem + 1 ) + '/' + model.count + ': ' )
               : '';
@@ -87,6 +113,11 @@ Rectangle {
           return qsTr('Features')
         }
       }
+      horizontalAlignment: Text.AlignHCenter
+      verticalAlignment: Text.AlignVCenter
+      fontSizeMode: Text.Fit
+      wrapMode: Text.WordWrap
+      elide: Text.ElideRight
     }
 
     MouseArea {
