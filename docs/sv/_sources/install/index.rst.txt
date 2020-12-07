@@ -5,7 +5,7 @@ Installation
 Android
 -------
 
-QField can be used with any version newer than android 5, if you are looking to get a new device, we sugest going for at least android 7.
+QField can be used with any version newer than Android 5, if you are looking to get a new device, we suggest going for at least Android 9.
 
 |GooglePlayLink|_
 
