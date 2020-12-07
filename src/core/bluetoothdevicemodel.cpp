@@ -22,22 +22,17 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
     mLocalDevice( new QBluetoothLocalDevice )
 {
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
-    connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](QBluetoothServiceDiscoveryAgent::Error error){
-        qDebug() << "ServiceAgent ERROR:" << error;
-        setScanning(false);
-        emit scanningStatusReceived(tr( "Scanning failed\nError: %1" ).arg(error));
+    connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](){
+        setLastError( mServiceDiscoveryAgent.errorString() );
+        setScanningStatus(Failed);
         endResetModel();
     });
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
-       qDebug() << "ServiceAgent finished";
-       setScanning(false);
-       emit scanningStatusReceived(tr( "Scanning succeeded" ));
+       setScanningStatus(Succeeded);
        endResetModel();
     });
     connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
-       qDebug() << "ServiceAgent canceled";
-       emit scanningStatusReceived(tr( "Scanning canceled" ));
-       setScanning(false);
+       setScanningStatus(Canceled);
        endResetModel();
     });
 }
@@ -59,7 +54,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
         qDebug() << "Cannot find remote services. "<< mServiceDiscoveryAgent.errorString();
     } else {
         qDebug() << "Scanning...";
-        setScanning(true);
+        setScanningStatus(Scanning);
     }
 }
 
@@ -77,20 +72,6 @@ void BluetoothDeviceModel::serviceDiscovered(const QBluetoothServiceInfo &servic
 #else
      mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
 #endif
-}
-
-bool BluetoothDeviceModel::scanning() const
-{
-    return mScanning;
-}
-
-void BluetoothDeviceModel::setScanning( bool scanning )
-{
-    if ( scanning == mScanning )
-        return;
-
-    mScanning = scanning;
-    emit scanningChanged();
 }
 
 int BluetoothDeviceModel::findAddessIndex( const QString &address ) const
@@ -130,4 +111,23 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
   roles[DeviceAddressRole] = "deviceAddress";
 
   return roles;
+}
+
+void BluetoothDeviceModel::setScanningStatus(BluetoothDeviceModel::ScanningStatus scanningStatus)
+{
+    if (mScanningStatus == scanningStatus)
+        return;
+
+    qDebug() << "scanning status "<<scanningStatus;
+    mScanningStatus = scanningStatus;
+    emit scanningStatusChanged(mScanningStatus);
+}
+
+void BluetoothDeviceModel::setLastError(QString lastError)
+{
+    if (mLastError == lastError)
+        return;
+
+    mLastError = lastError;
+    emit lastErrorChanged(mLastError);
 }

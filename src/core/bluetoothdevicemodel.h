@@ -29,7 +29,8 @@ class BluetoothDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool scanning READ scanning WRITE setScanning NOTIFY scanningChanged )
+    Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus WRITE setScanningStatus NOTIFY scanningStatusChanged )
+    Q_PROPERTY( QString lastError READ lastError WRITE setLastError NOTIFY lastErrorChanged )
 
     Q_ENUMS( BluetoothDeviceRoles )
 
@@ -41,13 +42,20 @@ class BluetoothDeviceModel : public QAbstractListModel
         DisplayStringRole
     };
 
+    enum ScanningStatus {
+        Scanning,
+        Succeeded,
+        Failed,
+        Canceled,
+        NoStatus
+    };
+    Q_ENUM( ScanningStatus )
+
     /**
      * Create a new value map model
      */
     explicit BluetoothDeviceModel( QObject *parent = nullptr );
 
-    bool scanning() const;
-    void setScanning( bool scanning );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
@@ -58,18 +66,26 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_INVOKABLE void startServiceDiscovery();
     Q_INVOKABLE int findAddessIndex( const QString &address ) const;
 
- signals:
-    void scanningChanged();
-    void scanningStatusReceived(const QString &statusText );
+    ScanningStatus scanningStatus() const { return mScanningStatus; };
+    QString lastError() const { return mLastError; };
 
-  private slots:
+public slots:
+    void setScanningStatus(ScanningStatus scanningStatus);
+    void setLastError(QString lastError);
+
+signals:
+    void scanningStatusChanged(ScanningStatus scanningStatus);
+    void lastErrorChanged(QString lastError);
+
+private slots:
     void serviceDiscovered(const QBluetoothServiceInfo &service);
 
   private:
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothServiceDiscoveryAgent mServiceDiscoveryAgent;
     QList<QPair<QString, QString>> mDiscoveredDevices;
-    bool mScanning = false;
+    ScanningStatus mScanningStatus = NoStatus;
+    QString mLastError;
 };
 
 #endif // BLUETOOTHDEVICEMODEL_H

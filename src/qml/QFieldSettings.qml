@@ -242,7 +242,7 @@ Page {
               RowLayout {
                   ComboBox {
                       id: bluetoothDeviceCombo
-                      enabled: !bluetoothDeviceModel.scanning
+                      enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
                       Layout.fillWidth: true
                       textRole: 'display'
                       model: BluetoothDeviceModel {
@@ -252,7 +252,7 @@ Page {
                       property string selectedPositioningDevice
 
                       onCurrentIndexChanged: {
-                          if( !bluetoothDeviceModel.scanning )
+                          if( bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning )
                           {
                             selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
@@ -270,8 +270,13 @@ Page {
                             bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
                         }
 
-                        function onScanningStatusReceived (statusText) {
-                            displayToast( statusText )
+                        function onScanningStatusChanged(scanningStatus) {
+                            if( scanningStatus === BluetoothDeviceModel.Failed )
+                                displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                            if( scanningStatus === BluetoothDeviceModel.Succeeded )
+                                displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() ) )
+                            if( scanningStatus === BluetoothDeviceModel.Canceled )
+                                displayToast( qsTr('Scanning canceled.') )
                         }
                       }
                   }
@@ -282,15 +287,17 @@ Page {
                     onClicked: {
                         bluetoothDeviceModel.startServiceDiscovery()
                     }
-                    bgcolor: "steelBlue"
-                    enabled: !bluetoothDeviceModel.scanning
+                    bgcolor: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Succeeded ? "green" :
+                             bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Failed ? "red" :
+                             "steelBlue"
+                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
 
                     BusyIndicator {
                       id: busyIndicator
                       anchors.centerIn: parent
                       width: 36
                       height: 36
-                      running: bluetoothDeviceModel.scanning
+                      running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
                     }
                   }
               }
