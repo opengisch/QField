@@ -74,33 +74,33 @@ Rectangle {
 
     Text {
       font: Theme.strongFont
-      color: "#FFFFFF"
-      anchors.centerIn: parent
+      color: Theme.light
+      anchors.left: parent.left
       anchors.leftMargin: 0
-        + (saveButton.visible ? saveButton.width : 0)
-        + (followCurrentButton.visible ? followCurrentButton.width : 0)
-        + (previousButton.visible ? previousButton.width : 0)
+          + (saveButton.visible ? saveButton.width : 0)
+          + (followCurrentButton.visible ? followCurrentButton.width : 0)
+          + (previousButton.visible ? previousButton.width : 0)
       anchors.rightMargin: 0
-        + (nextButton.visible ? nextButton.width : 0)
-        + (cancelButton.visible ? cancelButton.width : 0)
-        + (editGeomButton.visible ? editGeomButton.width : 0)
-        + (previousButton.visible ? previousButton.width : 0)
-        + (multiClearButton.visible ? multiClearButton.width : 0)
-        + (multiEditButton.visible ? multiEditButton.width : 0)
-        + (multiMergeButton.visible ? multiMergeButton.width : 0)
-        + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+          + (nextButton.visible ? nextButton.width : 0)
+          + (cancelButton.visible ? cancelButton.width : 0)
+          + (editButton.visible ? editButton.width : 0)
+          + (editGeomButton.visible ? editGeomButton.width : 0)
+          + (multiClearButton.visible ? multiClearButton.width : 0)
+          + (multiEditButton.visible ? multiEditButton.width : 0)
+          + (multiMergeButton.visible ? multiMergeButton.width : 0)
+          + (multiDeleteButton.visible ? multiDeleteButton.width : 0)
       width: parent.width
-             - (nextButton.visible ? nextButton.width : 0)
-             - (saveButton.visible ? saveButton.width : 0)
-             - (cancelButton.visible ? cancelButton.width : 0)
-             - (editGeomButton.visible ? editGeomButton.width : 0)
-             - (editButton.visible ? editButton.width : 0)
-             - (followCurrentButton.visible ? followCurrentButton.width : 0)
-             - (previousButton.visible ? previousButton.width : 0)
-             - (multiClearButton.visible ? multiClearButton.width : 0)
-             - (multiEditButton.visible ? multiEditButton.width : 0)
-             - (multiMergeButton.visible ? multiMergeButton.width : 0)
-             - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
+           - (nextButton.visible ? nextButton.width : 0)
+           - (saveButton.visible ? saveButton.width : 0)
+           - (cancelButton.visible ? cancelButton.width : 0)
+           - (editButton.visible ? editButton.width : 0)
+           - (editGeomButton.visible ? editGeomButton.width : 0)
+           - (followCurrentButton.visible ? followCurrentButton.width : 0)
+           - (previousButton.visible ? previousButton.width : 0)
+           - (multiClearButton.visible ? multiClearButton.width : 0)
+           - (multiEditButton.visible ? multiEditButton.width : 0)
+           - (multiMergeButton.visible ? multiMergeButton.width : 0)
+           - (multiDeleteButton.visible ? multiDeleteButton.width : 0)
       height: parent.height
 
       text: {
@@ -118,7 +118,7 @@ Rectangle {
       horizontalAlignment: Text.AlignHCenter
       verticalAlignment: Text.AlignVCenter
       fontSizeMode: Text.Fit
-      wrapMode: Text.WordWrap
+      wrapMode: Text.Wrap
       elide: Text.ElideRight
     }
 
