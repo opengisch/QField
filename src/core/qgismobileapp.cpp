@@ -338,7 +338,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
 
-  qRegisterMetaType<QgsGnssPositionInformation>( "GnssPositionInformation" );
+  qmlRegisterUncreatableType<QgsGnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "" );
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

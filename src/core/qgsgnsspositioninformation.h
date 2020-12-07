@@ -88,6 +88,8 @@ class QgsGnssPositionInformation
       Fix3D
     };
 
+    Q_ENUM( FixStatus )
+
     QgsGnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), QList<QgsSatelliteInfo> satellitesInView = QList<QgsSatelliteInfo>(),
                                 double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                                 QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), QList<int> satPrn = QList<int>(), bool satInfoComplete = false );

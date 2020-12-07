@@ -22,9 +22,9 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: parent.width > 1000? 1 : parent.width > 620? 2 : 3
+    rows: ( positionSource.device === 'internal' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
     width: parent.width
-    property double cellWidth: grid.width / ( 6 / grid.rows )
+    property double cellWidth: grid.width / ( ( positionSource.device === 'internal' ? 1 : 2 ) * 6 / grid.rows )
 
     Rectangle {
       id: x
@@ -129,5 +129,99 @@ Rectangle {
         text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "white"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "pdop" ) + ': ' + positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2)
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "#e6f2fd"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "hdop" ) + ': ' + positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2)
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "white"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "vdop" ) + ': ' + positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2)
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "#e6f2fd"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "valid" ) + ': ' + ( positionSource.positionInfo.isValid ? 'true' : 'false' )
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "white"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "fix" ) + ': ' + ( positionSource.positionInfo.fixStatus === GnssPositionInformation.NoFix ? 'NoFix' :
+                                     positionSource.positionInfo.fixStatus === GnssPositionInformation.Fix2D ? 'Fix2D' :
+                                     positionSource.positionInfo.fixStatus === GnssPositionInformation.Fix3D ? 'Fix3D' :
+                                     'NoData' )
+      }
+    }
+
+    Rectangle {
+      height: rowHeight
+      width: grid.cellWidth
+      color: "#e6f2fd"
+      visible: positionSource.device !== 'internal'
+
+      Text {
+        anchors.margins:  10
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        font: Theme.tipFont
+        text: qsTr( "quality" ) + ': ' + positionSource.positionInfo.qualityDescription
+      }
+    }
+
   }
 }
