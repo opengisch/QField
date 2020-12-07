@@ -1189,7 +1189,6 @@ ApplicationWindow {
       onPositioningActivatedChanged: {
           if( positioningActivated ){
             if( platformUtilities.checkPositioningPermissions() ) {
-              positionSource.preferredPositioningMethods = PositionSource.AllPositioningMethods //nmea-todos: have to be done
               displayToast( qsTr( "Activating positioning service" ) )
               positionSource.active = true
             }else{

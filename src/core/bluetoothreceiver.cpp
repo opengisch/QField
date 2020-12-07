@@ -108,21 +108,17 @@ QgsGnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo(const QString
 void BluetoothReceiver::repairDevice( const QBluetoothAddress &address)
 {
 
-    qDebug() << "BT Debug: 8";
     connect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished, Qt::UniqueConnection );
     connect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingDisplayConfirmation, this, &BluetoothReceiver::confirmPairing, Qt::UniqueConnection );
     connect(mLocalDevice.get(),  &QBluetoothLocalDevice::error, [=](QBluetoothLocalDevice::Error error){
         qDebug() << "RE-PAIR FAILED "<<error;
     });
 
-    qDebug() << "BT Debug: 9";
     if( mLocalDevice->pairingStatus( address ) == QBluetoothLocalDevice::Paired )
     {
-        qDebug() << "BT Debug: 10";
         mLocalDevice->requestPairing( address, QBluetoothLocalDevice::Unpaired);
     }
     else{
-        qDebug() << "BT Debug: 11";
         mLocalDevice->requestPairing( address, QBluetoothLocalDevice::Paired);
     }
 }
@@ -140,8 +136,6 @@ void BluetoothReceiver::pairingFinished(const QBluetoothAddress &address, QBluet
     {
         qDebug() << "paired device";
         disconnect(mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished);
-
-        qDebug() << "BT Debug: 12";
         connectService(address);
     }else{
         qDebug() << "unpaired device";
