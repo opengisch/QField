@@ -17,6 +17,7 @@
 #include "platformutilities.h"
 
 #include <QSettings>
+#include <QFile>
 
 RecentProjectListModel::RecentProjectListModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -70,6 +71,8 @@ void RecentProjectListModel::reloadModel()
   {
     bool recentProjectsContainsDemoProject = false;
     QMutableListIterator<RecentProject> recentProject( mRecentProjects );
+    QString demoProjectPath( PlatformUtilities::instance()->packagePath() + demoProject.path );
+
     while ( recentProject.hasNext() )
     {
       recentProject.next();
@@ -77,7 +80,7 @@ void RecentProjectListModel::reloadModel()
       if ( recentProject.value().path.endsWith( demoProject.path ) )
       {
         // update path: on iOS the path seems to change at each run time
-        recentProject.value().path = PlatformUtilities::instance()->packagePath() + demoProject.path;
+        recentProject.value().path = demoProjectPath;
         recentProject.value().demo = true;
         recentProjectsContainsDemoProject = true;
         break;
@@ -86,8 +89,17 @@ void RecentProjectListModel::reloadModel()
     if ( !recentProjectsContainsDemoProject )
     {
       mRecentProjects << demoProject;
-      mRecentProjects.last().path = PlatformUtilities::instance()->packagePath() + demoProject.path;
+      mRecentProjects.last().path = demoProjectPath;
     }
+  }
+
+  QMutableListIterator<RecentProject> recentProject( mRecentProjects );
+  while ( recentProject.hasNext() )
+  {
+    recentProject.next();
+
+    if ( ! QFile::exists( recentProject.value().path ) )
+      recentProject.remove();
   }
 
   endResetModel();

@@ -514,6 +514,9 @@ void QgisMobileapp::loadProjectFile( const QString &path )
 
 void QgisMobileapp::reloadProjectFile( const QString &path )
 {
+  if ( ! QFile::exists( path ) )
+    QgsMessageLog::logMessage( tr( "Project file \"%1\" does not exist" ).arg( path ), QStringLiteral( "QField" ), Qgis::Warning );
+
   mProject->removeAllMapLayers();
   mTrackingModel->reset();
 
