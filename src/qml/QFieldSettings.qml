@@ -271,6 +271,8 @@ Page {
                         }
 
                         function onScanningStatusChanged(scanningStatus) {
+                            if( scanningStatus === BluetoothDeviceModel.Scanning )
+                                displayToast( qsTr('Scanning for paired devices') )
                             if( scanningStatus === BluetoothDeviceModel.Failed )
                                 displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
                             if( scanningStatus === BluetoothDeviceModel.Succeeded )
