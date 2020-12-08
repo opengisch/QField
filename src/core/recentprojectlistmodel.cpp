@@ -73,9 +73,6 @@ void RecentProjectListModel::reloadModel()
     QMutableListIterator<RecentProject> recentProject( mRecentProjects );
     QString demoProjectPath( PlatformUtilities::instance()->packagePath() + demoProject.path );
 
-    if ( ! QFile::exists( demoProjectPath ) )
-      continue;
-
     while ( recentProject.hasNext() )
     {
       recentProject.next();
@@ -94,6 +91,15 @@ void RecentProjectListModel::reloadModel()
       mRecentProjects << demoProject;
       mRecentProjects.last().path = demoProjectPath;
     }
+  }
+
+  QMutableListIterator<RecentProject> recentProject( mRecentProjects );
+  while ( recentProject.hasNext() )
+  {
+    recentProject.next();
+
+    if ( ! QFile::exists( recentProject.value().path ) )
+      recentProject.remove();
   }
 
   endResetModel();
