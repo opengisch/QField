@@ -21,56 +21,63 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent ),
     mLocalDevice( new QBluetoothLocalDevice )
 {
-    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,this, &BluetoothDeviceModel::serviceDiscovered);
-    connect(&mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error),[=](){
-        setLastError( mServiceDiscoveryAgent.errorString() );
-        setScanningStatus(Failed);
-        endResetModel();
-    });
-    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished,[=](){
-       setScanningStatus(Succeeded);
-       endResetModel();
-    });
-    connect(&mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled,[=](){
-       setScanningStatus(Canceled);
-       endResetModel();
-    });
+  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
+  connect( &mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
+  {
+    setLastError( mServiceDiscoveryAgent.errorString() );
+    setScanningStatus( Failed );
+    endResetModel();
+  } );
+  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
+  {
+    setScanningStatus( Succeeded );
+    endResetModel();
+  } );
+  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
+  {
+    setScanningStatus( Canceled );
+    endResetModel();
+  } );
 }
 
 void BluetoothDeviceModel::startServiceDiscovery()
 {
-    beginResetModel();
-    mDiscoveredDevices.clear();
-    mDiscoveredDevices.append( qMakePair( tr("Internal device"), QString("internal") ) );
+  beginResetModel();
+  mDiscoveredDevices.clear();
+  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
 
-    if( mServiceDiscoveryAgent.isActive() )
-        mServiceDiscoveryAgent.stop();
+  if ( mServiceDiscoveryAgent.isActive() )
+    mServiceDiscoveryAgent.stop();
 
-    mServiceDiscoveryAgent.setUuidFilter(QBluetoothUuid(QBluetoothUuid::SerialPort));
-    mServiceDiscoveryAgent.start();
+  mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
+  mServiceDiscoveryAgent.start();
 
-    if (!mServiceDiscoveryAgent.isActive() ||
-            mServiceDiscoveryAgent.error() != QBluetoothServiceDiscoveryAgent::NoError) {
-        qDebug() << "Cannot find remote services. "<< mServiceDiscoveryAgent.errorString();
-    } else {
-        qDebug() << "Scanning...";
-        setScanningStatus(Scanning);
-    }
+  if ( !mServiceDiscoveryAgent.isActive() ||
+       mServiceDiscoveryAgent.error() != QBluetoothServiceDiscoveryAgent::NoError )
+  {
+    qDebug() << "Cannot find remote services. " << mServiceDiscoveryAgent.errorString();
+  }
+  else
+  {
+    qDebug() << "Scanning...";
+    setScanningStatus( Scanning );
+  }
 }
 
-void BluetoothDeviceModel::serviceDiscovered(const QBluetoothServiceInfo &service)
+void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
-    qDebug() << "FOUND DEVICE: "<<service.device().name()<<'(' << service.device().address().toString() << ')' <<':' << service.serviceName() << " UUID:"<< service.serviceUuid();
+  qDebug() << "FOUND DEVICE: " << service.device().name() << '(' << service.device().address().toString() << ')' << ':' << service.serviceName() << " UUID:" << service.serviceUuid();
 #ifdef Q_OS_ANDROID
-    if( mLocalDevice->pairingStatus(service.device().address()) != QBluetoothLocalDevice::Unpaired )
-    {
-        mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
-    }
-    else{
-        qDebug() << "do not append it since it's unpaired: "<< service.device().name();
-    }
+  if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
+  {
+    mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+  }
+  else
+  {
+    qDebug() << "do not append it since it's unpaired: " << service.device().name();
+  }
 #else
-     mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+  mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
 #endif
 }
 
@@ -98,7 +105,7 @@ int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 {
   if ( role == DisplayStringRole || role == Qt::DisplayRole )
-    return QStringLiteral( "%1 (%2)"  ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
+    return QStringLiteral( "%1 (%2)" ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
   else
     return mDiscoveredDevices.at( index.row() ).second;
 }
@@ -113,21 +120,21 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
   return roles;
 }
 
-void BluetoothDeviceModel::setScanningStatus(const BluetoothDeviceModel::ScanningStatus &scanningStatus)
+void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus )
 {
-    if (mScanningStatus == scanningStatus)
-        return;
+  if ( mScanningStatus == scanningStatus )
+    return;
 
-    qDebug() << "scanning status "<<scanningStatus;
-    mScanningStatus = scanningStatus;
-    emit scanningStatusChanged(mScanningStatus);
+  qDebug() << "scanning status " << scanningStatus;
+  mScanningStatus = scanningStatus;
+  emit scanningStatusChanged( mScanningStatus );
 }
 
-void BluetoothDeviceModel::setLastError(const QString &lastError)
+void BluetoothDeviceModel::setLastError( const QString &lastError )
 {
-    if (mLastError == lastError)
-        return;
+  if ( mLastError == lastError )
+    return;
 
-    mLastError = lastError;
-    emit lastErrorChanged(mLastError);
+  mLastError = lastError;
+  emit lastErrorChanged( mLastError );
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qgsgnsspositioninformation.cpp - QgsGnssPositionInformation
+  gnsspositioninformation.cpp - GnssPositionInformation
  ---------------------
  begin                : 1.12.2020
  copyright            : (C) 2020 by David Signer
@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsgnsspositioninformation.h"
+#include "gnsspositioninformation.h"
 
 #include <QCoreApplication>
 #include <QTime>
@@ -25,7 +25,7 @@
 #include "qgslogger.h"
 
 
-QgsGnssPositionInformation::QgsGnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+GnssPositionInformation::GnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
                                                        QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete)
     : mLatitude( latitude ),
       mLongitude( longitude ),
@@ -50,7 +50,7 @@ QgsGnssPositionInformation::QgsGnssPositionInformation(double latitude, double l
 
 }
 
-bool QgsGnssPositionInformation::isValid() const
+bool GnssPositionInformation::isValid() const
 {
   bool valid = false;
   if ( mStatus == 'V' || mFixType == NMEA_FIX_BAD || mQuality == 0 ) // some sources say that 'V' indicates position fix, but is below acceptable quality
@@ -69,7 +69,7 @@ bool QgsGnssPositionInformation::isValid() const
   return valid;
 }
 
-QgsGnssPositionInformation::FixStatus QgsGnssPositionInformation::fixStatus() const
+GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus() const
 {
   FixStatus fixStatus = NoData;
 
@@ -89,7 +89,7 @@ QgsGnssPositionInformation::FixStatus QgsGnssPositionInformation::fixStatus() co
   return fixStatus;
 }
 
-QString QgsGnssPositionInformation::qualityDescription() const
+QString GnssPositionInformation::qualityDescription() const
 {
   switch ( mQuality )
   {

@@ -23,7 +23,7 @@
 #include <QtBluetooth/QBluetoothLocalDevice>
 
 /**
- * A model that manages the key/value pairs for a ValueMap widget.
+ * A model that provides all paired bluetooth devices name/address that are accessible over the serial port
  */
 class BluetoothDeviceModel : public QAbstractListModel
 {
@@ -38,16 +38,17 @@ class BluetoothDeviceModel : public QAbstractListModel
     //! The roles provided by this model
     enum BluetoothDeviceRoles
     {
-        DeviceAddressRole = Qt::UserRole + 1,
-        DisplayStringRole
+      DeviceAddressRole = Qt::UserRole + 1,
+      DisplayStringRole
     };
 
-    enum ScanningStatus {
-        Scanning,
-        Succeeded,
-        Failed,
-        Canceled,
-        NoStatus
+    enum ScanningStatus
+    {
+      Scanning,
+      Succeeded,
+      Failed,
+      Canceled,
+      NoStatus
     };
     Q_ENUM( ScanningStatus )
 
@@ -69,16 +70,16 @@ class BluetoothDeviceModel : public QAbstractListModel
     ScanningStatus scanningStatus() const { return mScanningStatus; };
     QString lastError() const { return mLastError; };
 
-public slots:
-    void setScanningStatus(const ScanningStatus &scanningStatus);
-    void setLastError(const QString &lastError);
+  public slots:
+    void setScanningStatus( const ScanningStatus scanningStatus );
+    void setLastError( const QString &lastError );
 
-signals:
-    void scanningStatusChanged(ScanningStatus scanningStatus);
-    void lastErrorChanged(QString lastError);
+  signals:
+    void scanningStatusChanged( ScanningStatus scanningStatus );
+    void lastErrorChanged( QString lastError );
 
-private slots:
-    void serviceDiscovered(const QBluetoothServiceInfo &service);
+  private slots:
+    void serviceDiscovered( const QBluetoothServiceInfo &service );
 
   private:
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qgsgnsspositioninformation.h - QgsGnssPositionInformation
+  gnsspositioninformation.h - GnssPositionInformation
  ---------------------
  begin                : 1.12.2020
  copyright            : (C) 2020 by David Signer
@@ -13,8 +13,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QGSGNSSPOSITIONINFORMATION_H
-#define QGSGNSSPOSITIONINFORMATION_H
+#ifndef GNSSPOSITIONINFORMATION_H
+#define GNSSPOSITIONINFORMATION_H
 
 #include <QDateTime>
 #include "qgis.h"
@@ -41,7 +41,7 @@
 #define NMEA_DEF_LAT        (5001.2621)
 #define NMEA_DEF_LON        (3613.0595)
 
-class QgsGnssPositionInformation
+class GnssPositionInformation
 {
     Q_GADGET
 
@@ -90,7 +90,7 @@ class QgsGnssPositionInformation
 
     Q_ENUM( FixStatus )
 
-    QgsGnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
+    GnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
                                 double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                                 QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false );
 
@@ -236,6 +236,6 @@ class QgsGnssPositionInformation
     bool mSatInfoComplete = false;
 };
 
-Q_DECLARE_METATYPE(QgsGnssPositionInformation)
+Q_DECLARE_METATYPE(GnssPositionInformation)
 
-#endif // QGSGNSSPOSITIONINFORMATION_H
+#endif // GNSSPOSITIONINFORMATION_H

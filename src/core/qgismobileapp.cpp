@@ -113,7 +113,7 @@
 #include "urlutils.h"
 #include "bluetoothreceiver.h"
 #include "bluetoothdevicemodel.h"
-#include "qgsgnsspositioninformation.h"
+#include "gnsspositioninformation.h"
 #include "changelogcontents.h"
 
 #define QUOTE(string) _QUOTE(string)
@@ -248,7 +248,7 @@ void QgisMobileapp::initDeclarative()
 {
 
 #if defined(Q_OS_ANDROID) && QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-  QResource::registerResource(QStringLiteral("assets:/android_rcc_bundle.rcc"));
+  QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
   addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
@@ -338,8 +338,8 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
 
-  qmlRegisterUncreatableType<QgsGnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "" ); //for the FixStatus enumeration
-  qRegisterMetaType<QgsGnssPositionInformation>( "GnssPositionInformation" ); //for the return type
+  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "" ); //for the FixStatus enumeration
+  qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" ); //for the return type
 
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );

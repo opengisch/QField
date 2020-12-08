@@ -20,52 +20,52 @@
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
 #include "qgsnmeaconnection.h"
-#include "qgsgnsspositioninformation.h"
+#include "gnsspositioninformation.h"
 
 class BluetoothReceiver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QgsGnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
+    Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
     Q_PROPERTY( QBluetoothSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
     Q_PROPERTY( bool connected READ connected NOTIFY connectedChanged ) //todo-nmea: can be replaced by socketState when QBluetoothSocket can be accessed by the QML
 
-    public:
-        explicit BluetoothReceiver( QObject *parent = nullptr );
+  public:
+    explicit BluetoothReceiver( QObject *parent = nullptr );
 
-        Q_INVOKABLE void disconnectDevice();
-        Q_INVOKABLE void connectDevice(const QString &address);
+    Q_INVOKABLE void disconnectDevice();
+    Q_INVOKABLE void connectDevice( const QString &address );
 
-        QgsGnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
-        QBluetoothSocket::SocketState socketState() const { return mSocketState;}
+    GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
+    QBluetoothSocket::SocketState socketState() const { return mSocketState;}
 
-        static Q_INVOKABLE QgsGnssPositionInformation fromQGeoPositionInfo( const QString &name);
-        bool connected() const  { return mConnected; }
+    static Q_INVOKABLE GnssPositionInformation fromQGeoPositionInfo( const QString &name );
+    bool connected() const  { return mConnected; }
 
-signals:
-        void lastGnssPositionInformationChanged(QgsGnssPositionInformation lastGnssPositionInformation);
-        void socketStateChanged(QBluetoothSocket::SocketState socketState);
-        void connectedChanged(bool connected);
+  signals:
+    void lastGnssPositionInformationChanged( GnssPositionInformation lastGnssPositionInformation );
+    void socketStateChanged( QBluetoothSocket::SocketState socketState );
+    void connectedChanged( bool connected );
 
-private slots:
+  private slots:
 #ifndef Q_OS_ANDROID
-        void pairingFinished(const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status);
-        void confirmPairing(const QBluetoothAddress &address, QString pin);
+    void pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status );
+    void confirmPairing( const QBluetoothAddress &address, QString pin );
 #endif
-        void stateChanged(const QgsGpsInformation &info );
+    void stateChanged( const QgsGpsInformation &info );
 
-    private:
+  private:
 #ifndef Q_OS_ANDROID
-        void connectService( const QBluetoothAddress &address );
-        void repairDevice( const QBluetoothAddress &address );
+    void connectService( const QBluetoothAddress &address );
+    void repairDevice( const QBluetoothAddress &address );
 #endif
 
-        std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
-        std::unique_ptr<QBluetoothSocket> mSocket;
-        std::unique_ptr<QgsNmeaConnection> mGpsConnection;
-        QgsGnssPositionInformation mLastGnssPositionInformation;
-        QBluetoothSocket::SocketState mSocketState;
-        bool mConnected = false;
+    std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
+    std::unique_ptr<QBluetoothSocket> mSocket;
+    std::unique_ptr<QgsNmeaConnection> mGpsConnection;
+    GnssPositionInformation mLastGnssPositionInformation;
+    QBluetoothSocket::SocketState mSocketState;
+    bool mConnected = false;
 };
 
 #endif // BLUETOOTHRECEIVER_H

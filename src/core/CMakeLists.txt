@@ -37,7 +37,7 @@ SET(QFIELD_CORE_SRCS
   qgsgeometrywrapper.cpp
   qgsgpkgflusher.cpp
   qgssggeometry.cpp
-  qgsgnsspositioninformation.cpp
+  gnsspositioninformation.cpp
   referencingfeaturelistmodel.cpp
   recentprojectlistmodel.cpp
   rubberband.cpp
@@ -109,7 +109,7 @@ SET(QFIELD_CORE_HDRS
   qgsgeometrywrapper.h
   qgsgpkgflusher.h
   qgssggeometry.h
-  qgsgnsspositioninformation.h
+  gnsspositioninformation.h
   referencingfeaturelistmodel.h
   recentprojectlistmodel.h
   rubberband.h
