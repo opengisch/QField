@@ -73,7 +73,7 @@ Item {
                    else if (config['display_format'] === "HH:mm" ) { "99:99;_" }
                    else { "" }
 
-        text: if ( value === undefined )
+        text: if ( value === undefined || value == '' )
               {
                 qsTr('(no date)')
               }

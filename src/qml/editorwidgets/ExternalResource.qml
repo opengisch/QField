@@ -79,6 +79,8 @@ Item {
   }
 
   Label {
+    property bool hasValue: true
+
     id: linkField
     height: fontMetrics.height + 20
     topPadding: 10
@@ -86,7 +88,6 @@ Item {
     visible: !isImage
     anchors.left: parent.left
     anchors.right: parent.right
-    font: Theme.defaultFont
     color: FileUtils.fileExists(qgisProject.homePath + '/' + value) ? Theme.hyperlinkBlue : 'gray'
 
     text: {
@@ -97,16 +98,13 @@ Item {
 
       fieldValue = StringUtils.insertLinks(fieldValue)
 
-      if ( !fieldValue )
-      {
-        font.italic = true
-        return qsTr('No Value')
-      }
+      hasValue = !!fieldValue
 
-      font.italic = false
-
-      return fieldValue
+      return hasValue ? fieldValue : qsTr('No Value')
     }
+
+    font.pointSize: Theme.defaultFont.pointSize
+    font.italic: !hasValue
 
     background: Rectangle {
       y: linkField.height - height - linkField.bottomPadding / 2
@@ -283,7 +281,7 @@ Item {
 
   Connections {
     target: __pictureSource
-    onPictureReceived: {
+    function onPictureReceived(path) {
       if( path )
       {
           valueChanged(path, false)

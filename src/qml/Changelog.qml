@@ -89,7 +89,7 @@ Popup {
       }
 
       BusyIndicator {
-        anchors.horizontalCenter: parent.horizontalCenter
+        Layout.alignment: parent.Layout.alignment
 
         visible: changelogContents.status == ChangelogContents.LoadingStatus
         running: visible

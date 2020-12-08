@@ -10,8 +10,15 @@ import org.qfield 1.0
 import org.qgis 1.0
 
 Rectangle{
-    height: isEnabled ? referencingFeatureListView.height + itemHeight : Math.max( referencingFeatureListView.height, itemHeight) //because no additional addEntry item on readOnly (isEnabled false)
+    // It is added as being part of the editors API, but it is never triggered!
+    // Check commit cf963a38a6911db26e5cd463fd991c7d2ce425f4
+    signal valueChanged(var value, bool isNull)
     property int itemHeight: 32
+
+    // because no additional addEntry item on readOnly (isEnabled false)
+    height: isEnabled
+            ? referencingFeatureListView.height + itemHeight
+            : Math.max( referencingFeatureListView.height, itemHeight)
     enabled: true
 
     border.color: 'lightgray'

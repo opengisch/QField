@@ -80,9 +80,9 @@ Item {
       width: sliderRow.width - valueLabel.width
       height: fontMetrics.height + 20
       implicitWidth: width
-      from: rangeItem.from
-      to: rangeItem.to
-      stepSize: rangeItem.step
+      from: rangeItem.from === -Infinity || rangeItem.from == null ? Number.MIN_VALUE : rangeItem.from
+      to: rangeItem.to === +Infinity || rangeItem.to == null ? Number.MAX_VALUE : rangeItem.to
+      stepSize: rangeItem.step === +Infinity || rangeItem.step == null ? 1 : rangeItem.step
 
       onValueChanged: {
         if (sliderRow.visible) {

@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.11
@@ -590,6 +591,8 @@ Page {
     background: Rectangle {
       color: !model.constraintsHardValid ?  Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
+
+    Material.foreground: undefined
 
     RowLayout {
       anchors.fill: parent
