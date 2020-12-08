@@ -143,6 +143,16 @@ jobs:
         id: vars
         run: |
           ./scripts/ci/env_gh.sh
+      - uses: kanga333/comment-hider@master
+        name: Hide outdated comments from the default github user
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          hide_user_name: github-actions[bot]
+      - uses: kanga333/comment-hider@master
+        name: Hide outdated comments from qfield-fairy
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          hide_user_name: qfield-fairy
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@master
         with:
@@ -152,6 +162,7 @@ jobs:
               - [**arm64_v8a**](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-arm64_v8a.apk)
 
             Other architectures: [armv7](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-armv7.apk), [x86_64](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86_64.apk), [x86](https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-dev-${{ steps.vars.outputs.CI_UPLOAD_ARTIFACT_ID}}-${{ steps.vars.outputs.CI_COMMIT }}-x86.apk)
+
   comment_commit:
     runs-on: ubuntu-20.04
     needs: build
