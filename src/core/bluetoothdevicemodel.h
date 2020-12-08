@@ -70,8 +70,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     QString lastError() const { return mLastError; };
 
 public slots:
-    void setScanningStatus(ScanningStatus scanningStatus);
-    void setLastError(QString lastError);
+    void setScanningStatus(const ScanningStatus &scanningStatus);
+    void setLastError(const QString &lastError);
 
 signals:
     void scanningStatusChanged(ScanningStatus scanningStatus);

@@ -25,8 +25,8 @@
 #include "qgslogger.h"
 
 
-QgsGnssPositionInformation::QgsGnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, QList<QgsSatelliteInfo> satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
-                                                       QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, QList<int> satPrn, bool satInfoComplete)
+QgsGnssPositionInformation::QgsGnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+                                                       QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete)
     : mLatitude( latitude ),
       mLongitude( longitude ),
       mElevation( elevation ),

@@ -113,7 +113,7 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
   return roles;
 }
 
-void BluetoothDeviceModel::setScanningStatus(BluetoothDeviceModel::ScanningStatus scanningStatus)
+void BluetoothDeviceModel::setScanningStatus(const BluetoothDeviceModel::ScanningStatus &scanningStatus)
 {
     if (mScanningStatus == scanningStatus)
         return;
@@ -123,7 +123,7 @@ void BluetoothDeviceModel::setScanningStatus(BluetoothDeviceModel::ScanningStatu
     emit scanningStatusChanged(mScanningStatus);
 }
 
-void BluetoothDeviceModel::setLastError(QString lastError)
+void BluetoothDeviceModel::setLastError(const QString &lastError)
 {
     if (mLastError == lastError)
         return;
