@@ -17,12 +17,12 @@ Item{
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
     // this sets as well the mode (internal/bluetooth)
-    property string device
+    property string device: 'internal'
 
     // proxy variables
     property bool active
     property string name
-    property bool valid: true
+    property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
 
     property CoordinateTransformer ct: CoordinateTransformer {
       id: _ct
@@ -40,12 +40,6 @@ Item{
       active: device === 'internal' && positionSource.active
 
       preferredPositioningMethods: PositionSource.AllPositioningMethods
-
-      onValidChanged: {
-          if( active ) {
-              positionSource.valid = valid
-          }
-      }
 
       onActiveChanged: {
           if( active ){
@@ -65,6 +59,7 @@ Item{
       id: bluetoothPositionSource
 
       property bool active: device !== 'internal' && positionSource.active
+      property bool valid: connected
 
       onSocketStateChanged: {
           //if( socketState === BluetoothSocket.Connected ) {
@@ -78,11 +73,7 @@ Item{
       onConnectedChanged: {
           if( connected ) {
             displayToast( qsTr('Connected to %1').arg( device ) )
-          }else{
-            displayToast( qsTr('%1 is not connected.').arg( device ) )
           }
-
-          positionSource.valid = connected
       }
 
       onActiveChanged: {
