@@ -74,6 +74,9 @@ class GnssPositionInformation
     Q_PROPERTY( bool isValid READ isValid )
     Q_PROPERTY( FixStatus fixStatus READ fixStatus )
     Q_PROPERTY( QString qualityDescription READ qualityDescription )
+    Q_PROPERTY( double verticalSpeed READ verticalSpeed )
+    Q_PROPERTY( double magneticVariation READ magneticVariation )
+    Q_PROPERTY( QString sourceName READ sourceName )
 
   public:
 
@@ -92,7 +95,8 @@ class GnssPositionInformation
 
     GnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
                              double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
-                             QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false );
+                             QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
+                             double verticalSpeed = std::numeric_limits< double >::quiet_NaN(), double magneticVariation = std::numeric_limits< double >::quiet_NaN(), const QString &sourceName = QString() );
 
     /**
      * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
@@ -200,6 +204,21 @@ class GnssPositionInformation
     bool satInfoComplete() const { return mSatInfoComplete; }
 
     /**
+     * Vertical speed, in km/h.
+     */
+    double verticalSpeed() const { return mVerticalSpeed; }
+
+    /**
+     * magnetic variation in degrees
+     */
+    double magneticVariation() const { return mMagneticVariation; }
+
+    /**
+     * source name (used by QtPositioning)
+     */
+    QString sourceName() const { return mSourceName; }
+
+    /**
      * Returns whether the connection information is valid
      */
     bool isValid() const;
@@ -239,6 +258,9 @@ class GnssPositionInformation
     QChar mStatus;
     QList<int> mSatPrn;
     bool mSatInfoComplete = false;
+    double mVerticalSpeed = std::numeric_limits< double >::quiet_NaN();
+    double mMagneticVariation = std::numeric_limits< double >::quiet_NaN();
+    QString mSourceName;
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )

@@ -28,10 +28,10 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QDateTime timestamp = positionInformation.utcDateTime();
   const qreal direction = positionInformation.direction();
   const qreal groundSpeed = positionInformation.speed();
-  //nmea-todo const qreal magneticVariation = positionInformation.magneticVariation();
+  const qreal magneticVariation = positionInformation.magneticVariation();
   const qreal horizontalAccuracy = positionInformation.hacc();
   const qreal verticalAccuracy = positionInformation.vacc();
-//nmea-todo const qreal verticalSpeed = positionInfo.attribute( QGeoPositionInfo::Attribute::VerticalSpeed );
+  const qreal verticalSpeed = positionInformation.verticalSpeed();
   const qreal precisionDilution = positionInformation.pdop();
   const qreal horizontalDilution = positionInformation.hdop();
   const qreal verticalDilution = positionInformation.vdop();
@@ -40,16 +40,17 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QString qualityDescription = positionInformation.qualityDescription();
   const QString fixStatusDescription = positionInformation.fixStatusDescription();
   const QString fixMode = positionInformation.fixMode();
+  const QString sourceName = positionInformation.sourceName();
 
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_coordinate" ), QVariant::fromValue<QgsGeometry>( point ), true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_timestamp" ), timestamp, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_direction" ), direction, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_ground_speed" ), groundSpeed, true, true ) );
-  //nmea-todo scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_magnetic_variation" ), magneticVariation, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_magnetic_variation" ), magneticVariation, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
-  //nmea-todoscope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
-  //nmea-todoscope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), source->sourceName(), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), sourceName, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
 

@@ -107,7 +107,7 @@ GnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo( const QString &
   GnssPositionInformation gnssPositionInformation = GnssPositionInformation( info.coordinate().latitude(), info.coordinate().longitude(), info.coordinate().altitude(), info.attribute( QGeoPositionInfo::Attribute::GroundSpeed ),
       info.attribute( QGeoPositionInfo::Attribute::Direction ), QList<QgsSatelliteInfo>(), 0, 0, 0,
       info.attribute( QGeoPositionInfo::Attribute::HorizontalAccuracy ), info.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy ),
-      info.timestamp(), QChar(), 0, -1, 0, QChar(), QList<int>(), true );
+      info.timestamp(), QChar(), 0, -1, 0, QChar(), QList<int>(), true, info.attribute( QGeoPositionInfo::Attribute::VerticalSpeed ), info.attribute( QGeoPositionInfo::Attribute::MagneticVariation ), name );
   qDebug() << "Qt Position DATA " << gnssPositionInformation.latitude() << "lon" << gnssPositionInformation.longitude() << "ele" << gnssPositionInformation.elevation();
   return gnssPositionInformation;
 }
