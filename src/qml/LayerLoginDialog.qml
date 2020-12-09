@@ -81,7 +81,7 @@ Page {
 
     TextField {
       id: password
-      echoMode: TextInput.Password
+      echoMode: TextInput.PasswordEchoOnEdit
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
       Layout.preferredHeight: font.height + 20

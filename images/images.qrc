@@ -366,5 +366,7 @@
         <file>themes/qfield/nodpi/directions_walk_24dp.svg</file>
         <file>themes/qfield/nodpi/list_24dp.svg</file>
         <file>themes/qfield/nodpi/zoom_out_map_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_show_green_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_hide_green_48dp.svg</file>
     </qresource>
 </RCC>

@@ -50,6 +50,7 @@
         <file>imports/Theme/QfToolButton.qml</file>
         <file>imports/Theme/QfButton.qml</file>
         <file>imports/Theme/QfSwitch.qml</file>
+        <file>imports/Theme/QfTextField.qml</file>
         <file>imports/Theme/qmldir</file>
         <file>PositioningSettingsPopup.qml</file>
         <file>PageHeader.qml</file>
