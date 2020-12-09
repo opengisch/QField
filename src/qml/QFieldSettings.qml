@@ -89,33 +89,33 @@ Page {
 
     TabBar {
       id: bar
+      currentIndex: swipeView.currentIndex
       Layout.fillWidth: true
       Layout.preferredHeight: 48
 
       TabButton {
-        height: 48
         text: qsTr("General")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 48
         text: qsTr("Variables")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
-        height: 48
         text: qsTr("Grids")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
     }
 
-    StackLayout {
+    SwipeView {
+      id: swipeView
       width: mainWindow.width
       currentIndex: bar.currentIndex
-
+      Layout.fillHeight: true
+      Layout.fillWidth: true
 
       ListView {
         flickableDirection: Flickable.VerticalFlick
