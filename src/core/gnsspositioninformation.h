@@ -91,8 +91,8 @@ class GnssPositionInformation
     Q_ENUM( FixStatus )
 
     GnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
-                                double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
-                                QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false );
+                             double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+                             QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false );
 
     /**
      * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
@@ -163,6 +163,7 @@ class GnssPositionInformation
      * The date and time at which this position was reported, in UTC time.
      */
     QDateTime utcDateTime() const { return mUtcDateTime; }
+
     /**
      * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
      */
@@ -213,6 +214,10 @@ class GnssPositionInformation
      */
     QString qualityDescription() const;
 
+    /**
+     * Returns the fix status as string
+     */
+    QString fixStatusDescription() const;
 
   private:
     double mLatitude = 0;
@@ -236,6 +241,6 @@ class GnssPositionInformation
     bool mSatInfoComplete = false;
 };
 
-Q_DECLARE_METATYPE(GnssPositionInformation)
+Q_DECLARE_METATYPE( GnssPositionInformation )
 
 #endif // GNSSPOSITIONINFORMATION_H

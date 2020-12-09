@@ -25,27 +25,27 @@
 #include "qgslogger.h"
 
 
-GnssPositionInformation::GnssPositionInformation(double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
-                                                       QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete)
-    : mLatitude( latitude ),
-      mLongitude( longitude ),
-      mElevation( elevation ),
-      mSpeed( speed ),
-      mDirection( direction ),
-      mSatellitesInView( satellitesInView ),
-      mPdop( pdop ),
-      mHdop( hdop ),
-      mVdop( vdop ),
-      mHacc( hacc ),
-      mVacc( vacc ),
-      mUtcDateTime( utcDateTime ),
-      mFixMode( fixMode ),
-      mFixType( fixType ),
-      mQuality( quality ),
-      mSatellitesUsed( satellitesUsed ),
-      mStatus( status ),
-      mSatPrn( satPrn ),
-      mSatInfoComplete( satInfoComplete )
+GnssPositionInformation::GnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction, const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+    QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn, bool satInfoComplete )
+  : mLatitude( latitude ),
+    mLongitude( longitude ),
+    mElevation( elevation ),
+    mSpeed( speed ),
+    mDirection( direction ),
+    mSatellitesInView( satellitesInView ),
+    mPdop( pdop ),
+    mHdop( hdop ),
+    mVdop( vdop ),
+    mHacc( hacc ),
+    mVacc( vacc ),
+    mUtcDateTime( utcDateTime ),
+    mFixMode( fixMode ),
+    mFixType( fixType ),
+    mQuality( quality ),
+    mSatellitesUsed( satellitesUsed ),
+    mStatus( status ),
+    mSatPrn( satPrn ),
+    mSatInfoComplete( satInfoComplete )
 {
 
 }
@@ -123,4 +123,9 @@ QString GnssPositionInformation::qualityDescription() const
     default:
       return QCoreApplication::translate( "QgsGpsInformation", "Unknown (%1)" ).arg( QString::number( mQuality ) );
   }
+}
+
+QString GnssPositionInformation::fixStatusDescription() const
+{
+  return QString( QMetaEnum::fromType<FixStatus>().valueToKey( fixStatus() ) );
 }

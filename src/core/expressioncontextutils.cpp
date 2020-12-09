@@ -32,6 +32,14 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const qreal horizontalAccuracy = positionInformation.hacc();
   const qreal verticalAccuracy = positionInformation.vacc();
 //nmea-todo const qreal verticalSpeed = positionInfo.attribute( QGeoPositionInfo::Attribute::VerticalSpeed );
+  const qreal precisionDilution = positionInformation.pdop();
+  const qreal horizontalDilution = positionInformation.hdop();
+  const qreal verticalDilution = positionInformation.vdop();
+  const int numberOfUsedSatelites = positionInformation.satellitesUsed();
+  const QList<int> usedSatelites = positionInformation.satPrn();
+  const QString qualityDescription = positionInformation.qualityDescription();
+  const QString fixStatusDescription = positionInformation.fixStatusDescription();
+  const QString fixMode = positionInformation.fixMode();
 
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_coordinate" ), QVariant::fromValue<QgsGeometry>( point ), true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_timestamp" ), timestamp, true, true ) );
@@ -42,6 +50,17 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
   //nmea-todoscope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
   //nmea-todoscope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), source->sourceName(), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
+
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_precision_dilution" ), precisionDilution, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_dilution" ), horizontalDilution, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_dilution" ), verticalDilution, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_number_of_used_satelites" ), numberOfUsedSatelites, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_used_satelites" ),  QVariant::fromValue( usedSatelites ), true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_quality_description" ), qualityDescription, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_fixstatus_description" ), fixStatusDescription, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_fix_mode" ), fixMode, true, true ) );
 
   return scope;
 }
