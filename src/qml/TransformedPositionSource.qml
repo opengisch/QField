@@ -23,6 +23,7 @@ Item{
     property bool active
     property string name
     property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
+    property bool currentness: false
 
     property CoordinateTransformer ct: CoordinateTransformer {
       id: _ct
@@ -32,6 +33,17 @@ Item{
 
     onPositionInfoChanged: {
         _ct.sourcePosition = Utils.coordinateToPoint(QtPositioning.coordinate( positionInfo.latitude, positionInfo.longitude, positionInfo.elevation ) )
+    }
+
+    Timer {
+        id: timer
+        interval: 1000
+        repeat: true
+        running: true
+        triggeredOnStart: true
+        onTriggered: {
+            currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
+        }
     }
 
     PositionSource {
