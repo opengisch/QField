@@ -913,7 +913,7 @@ ApplicationWindow {
       FeatureModel {
         id: digitizingFeature
         currentLayer: dashBoard.currentLayer
-        positionSourceName: positionSource.name //nmea-todos: this does only provide the parameters from the Qt PositionSource and does not work for bluetooth receivers
+        positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
         geometry: Geometry {
           id: digitizingGeometry
@@ -1769,7 +1769,7 @@ ApplicationWindow {
   FeatureModel {
     id: geometryEditingFeature
     currentLayer: null
-    positionSourceName: positionSource.name
+    positionInformation: positionSource.positionInfo
     vertexModel: vertexModel
   }
 
