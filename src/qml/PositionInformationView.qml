@@ -212,10 +212,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "fix" ) + ': ' + ( positionSource.positionInfo.fixStatus === GnssPositionInformation.NoFix ? 'NoFix' :
-                                     positionSource.positionInfo.fixStatus === GnssPositionInformation.Fix2D ? 'Fix2D' :
-                                     positionSource.positionInfo.fixStatus === GnssPositionInformation.Fix3D ? 'Fix3D' :
-                                     'NoData' )
+        text: qsTr( "fix" ) + ': ' + positionSource.positionInfo.fixStatusDescription
       }
     }
 

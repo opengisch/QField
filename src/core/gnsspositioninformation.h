@@ -74,6 +74,7 @@ class GnssPositionInformation
     Q_PROPERTY( bool isValid READ isValid )
     Q_PROPERTY( FixStatus fixStatus READ fixStatus )
     Q_PROPERTY( QString qualityDescription READ qualityDescription )
+    Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
     Q_PROPERTY( double verticalSpeed READ verticalSpeed )
     Q_PROPERTY( double magneticVariation READ magneticVariation )
     Q_PROPERTY( QString sourceName READ sourceName )
