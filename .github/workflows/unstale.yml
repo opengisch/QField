@@ -10,6 +10,6 @@ jobs:
       - uses: actions-ecosystem/action-remove-labels@v1
         if: ${{ github.event.comment.user.url != 'https://github.com/apps/github-actions' }}
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             stale
