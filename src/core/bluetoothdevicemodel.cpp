@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "bluetoothdevicemodel.h"
+#include "qgis.h"
 #include <QDebug>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
@@ -22,7 +23,7 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
     mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( &mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
+  connect( &mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
   {
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );
