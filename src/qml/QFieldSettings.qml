@@ -287,7 +287,10 @@ Page {
                     id: scanButton
                     round: true
                     onClicked: {
-                        bluetoothDeviceModel.startServiceDiscovery()
+                        bluetoothDeviceModel.startServiceDiscovery( false )
+                    }
+                    onPressAndHold: {
+                      fullDiscoveryDialog.open()
                     }
                     bgcolor: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Succeeded ? "green" :
                              bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Failed ? "red" :
@@ -302,11 +305,39 @@ Page {
                       running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
                     }
                   }
+
+                  Dialog {
+                    id: fullDiscoveryDialog
+                    parent: mainWindow.contentItem
+
+                    visible: false
+                    modal: true
+
+                    x: ( mainWindow.width - width ) / 2
+                    y: ( mainWindow.height - height ) / 2
+
+                    title: qsTr( "Make a full service discovery" )
+                    Label {
+                      width: parent.width
+                      wrapMode: Text.WordWrap
+                      text: qsTr( "With the long press you just did, you will force a full device descovery scan, that can take longer. Okay? \n(Please cancel to make a minimal device scan.)")
+                    }
+
+                    standardButtons: Dialog.Ok | Dialog.Cancel
+                    onAccepted: {
+                        bluetoothDeviceModel.startServiceDiscovery( true )
+                        visible = false
+                    }
+                    onRejected: {
+                        bluetoothDeviceModel.startServiceDiscovery( false )
+                        visible = false
+                    }
+                  }
               }
 
               onVisibleChanged: {
                   if( visible === true && !bluetoothDeviceModel.rowCount() ){
-                      bluetoothDeviceModel.startServiceDiscovery()
+                      bluetoothDeviceModel.startServiceDiscovery( false )
                   }
               }
 

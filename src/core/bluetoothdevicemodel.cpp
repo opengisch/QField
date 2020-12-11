@@ -40,7 +40,7 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   } );
 }
 
-void BluetoothDeviceModel::startServiceDiscovery()
+void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
   beginResetModel();
   mDiscoveredDevices.clear();
@@ -50,7 +50,8 @@ void BluetoothDeviceModel::startServiceDiscovery()
     mServiceDiscoveryAgent.stop();
 
   mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
-  mServiceDiscoveryAgent.start( QBluetoothServiceDiscoveryAgent::FullDiscovery );
+  QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
+  mServiceDiscoveryAgent.start( discoveryMode );
   setScanningStatus( Scanning );
 }
 
