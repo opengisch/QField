@@ -26,9 +26,9 @@ Item{
     property bool currentness: false
 
     property CoordinateTransformer ct: CoordinateTransformer {
-      id: _ct
-      sourceCrs: CrsFactory.fromEpsgId(4326)
-      transformContext: qgisProject.transformContext
+        id: _ct
+        sourceCrs: CrsFactory.fromEpsgId(4326)
+        transformContext: qgisProject.transformContext
     }
 
     onPositionInfoChanged: {
@@ -47,61 +47,55 @@ Item{
     }
 
     PositionSource {
-      id: qtPositionSource
+        id: qtPositionSource
 
-      active: device === 'internal' && positionSource.active
+        active: device === 'internal' && positionSource.active
 
-      preferredPositioningMethods: PositionSource.AllPositioningMethods
+        preferredPositioningMethods: PositionSource.AllPositioningMethods
 
-      onActiveChanged: {
-          if( active ){
-              positionSource.name = name
-              console.log( "me, position source, is active")
-          }else{
-              console.log( "oh! me, position source, is NOT active")
-          }
-      }
+        onActiveChanged: {
+            if( active ) {
+                positionSource.name = name
+            }
+        }
 
-      onPositionChanged: {
-        positionSource.positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
-      }
+        onPositionChanged: {
+            positionSource.positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
+        }
     }
 
     BluetoothReceiver {
-      id: bluetoothPositionSource
+        id: bluetoothPositionSource
 
-      property bool active: device !== 'internal' && positionSource.active
-      property bool valid: connected
+        property bool active: device !== 'internal' && positionSource.active
+        property bool valid: connected
 
-      onSocketStateChanged: {
-          //if( socketState === BluetoothSocket.Connected ) {
-          //    displayToast( "It's connected ")
-          //    positionSource.valid = true
-          //} else {
-          //    displayToast( "It's not connected ")
-          //    positionSource.valid = false
-          //}
-      }
-      onConnectedChanged: {
-          if( connected ) {
-            displayToast( qsTr('Connected to %1').arg( device ) )
-          }
-      }
+        onSocketStateChanged: {
+            //if( socketState === BluetoothSocket.Connected ) {
+            //    displayToast( "It's connected ")
+            //    positionSource.valid = true
+            //} else {
+            //    displayToast( "It's not connected ")
+            //    positionSource.valid = false
+            //}
+        }
+        onConnectedChanged: {
+            if( connected ) {
+                displayToast( qsTr('Connected to %1').arg( device ) )
+            }
+        }
 
-      onActiveChanged: {
-          if( active ){
-              positionSource.name = device
-              console.log( "me, bluetooth source, is active with device "+device)
-              connectDevice(device)
-          }else{
-              disconnectDevice()
-              console.log( "oh! me, bluetooth source, is NOT active")
-          }
-      }
+        onActiveChanged: {
+            if( active ){
+                positionSource.name = device
+                connectDevice(device)
+            }else{
+                disconnectDevice()
+            }
+        }
 
-      onLastGnssPositionInformationChanged:
-      {
-        positionSource.positionInfo = lastGnssPositionInformation
-      }
+        onLastGnssPositionInformationChanged: {
+            positionSource.positionInfo = lastGnssPositionInformation
+        }
     }
 }
