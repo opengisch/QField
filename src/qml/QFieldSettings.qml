@@ -320,7 +320,7 @@ Page {
                     Label {
                       width: parent.width
                       wrapMode: Text.WordWrap
-                      text: qsTr( "With the long press you just did, you will force a full device descovery scan, that can take longer. Okay? \n(Please cancel to make a minimal device scan.)")
+                      text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
                     }
 
                     standardButtons: Dialog.Ok | Dialog.Cancel
