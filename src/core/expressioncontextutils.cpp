@@ -54,7 +54,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
 
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_precision_dilution" ), precisionDilution, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_pdop" ), precisionDilution, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_dilution" ), horizontalDilution, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_dilution" ), verticalDilution, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_number_of_used_satelites" ), numberOfUsedSatelites, true, true ) );
