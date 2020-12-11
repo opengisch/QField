@@ -806,6 +806,7 @@ ApplicationWindow {
       id: gpsButton
       state: positionSource.active ? "On" : "Off"
       visible: positionSource.valid
+      round: true
 
       anchors.right: parent.right
 
