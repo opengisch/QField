@@ -283,18 +283,20 @@ Page {
                       }
                   }
 
-                  QfToolButton {
+                  QfButton {
                     id: scanButton
-                    round: true
+                    Layout.fillWidth: true
+                    Layout.topMargin: 5
+                    font: Theme.defaultFont
+                    text: qsTr('Scan')
+
                     onClicked: {
                         bluetoothDeviceModel.startServiceDiscovery( false )
                     }
                     onPressAndHold: {
                       fullDiscoveryDialog.open()
                     }
-                    bgcolor: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Succeeded ? "green" :
-                             bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Failed ? "red" :
-                             "steelBlue"
+
                     enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
 
                     BusyIndicator {
@@ -304,18 +306,6 @@ Page {
                       height: 36
                       running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
                     }
-                  }
-
-                  QfToolButton {
-                    id: connectButton
-                    round: true
-
-                    onClicked: {
-                        positionSource.connectBluetoothSource()
-                    }
-                    bgcolor: 'gray'
-                    text: 'C'
-                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
                   }
 
                   Dialog {
@@ -345,6 +335,19 @@ Page {
                         visible = false
                     }
                   }
+              }
+
+              QfButton {
+                id: connectButton
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                font: Theme.defaultFont
+                text: qsTr('Reconnect device %1').arg(positioningDevice)
+
+                onClicked: {
+                    positionSource.connectBluetoothSource()
+                }
+                enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
               }
 
               onVisibleChanged: {

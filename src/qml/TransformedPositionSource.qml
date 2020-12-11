@@ -86,7 +86,7 @@ Item{
         property bool valid: connected
 
         onSocketStateChanged: {
-            displayToast( qsTr('Bluetoothdevice: %1').arg(socketStateString) )
+            displayToast( socketStateString )
         }
 
         onActiveChanged: {
