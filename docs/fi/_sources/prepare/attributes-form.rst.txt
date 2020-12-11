@@ -154,6 +154,14 @@ will be available to the user.
 
      Configuration of a group box that will only be shown if the checkbox "measures_taken" is checked.
 
+Let's see what we got on the field:
+
+.. container:: clearer text-left
+
+  .. video:: ../../../../_images/conditional_visibility.webm
+     :width: 700
+
+
 Constraints
 -----------
 
