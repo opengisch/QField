@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "bluetoothreceiver.h"
-
 #include <QSettings>
 #include <QDebug>
 
@@ -24,14 +23,6 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
   mSocket( std::make_unique<QBluetoothSocket>( QBluetoothServiceInfo::RfcommProtocol ) ),
   mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket.get() ) )
 {
-  //i don't know how to handle that. can it be replaced by stateChanged and only get error() when it's unconnected. But there is no error state in stateChanged...
-  connect( mSocket.get(), QOverload<QBluetoothSocket::SocketError>::of( &QBluetoothSocket::error ), [ = ]( QBluetoothSocket::SocketError error )
-  {
-    qDebug() << "SOCKET ERROR: " << error;
-    mConnected = false;
-    emit connectedChanged( mConnected );
-  } );
-
   //socket state changed
   connect( mSocket.get(), &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
@@ -53,9 +44,10 @@ void BluetoothReceiver::disconnectDevice()
 void BluetoothReceiver::connectDevice( const QString &address )
 {
   disconnectDevice();
-  qDebug() << "Device set: " << address;
   if ( address.isEmpty() || address == QStringLiteral( "internal" ) )
     return;
+
+  qDebug() << "BluetoothReceiver: Connect device: " << address;
 
   //repairing only needed in the linux (not android) environment
 #ifndef Q_OS_ANDROID
@@ -70,8 +62,6 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
   mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed, info.direction, info.satellitesInView, info.pdop,
                                  info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
                                  info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
-  qDebug() << "QGS Gps DATA " << mLastGnssPositionInformation.longitude() << "lon" << mLastGnssPositionInformation.latitude() << "ele" << mLastGnssPositionInformation.elevation();
-
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
 
@@ -80,14 +70,44 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   if ( mSocketState == socketState )
     return;
 
-  qDebug() << "BluetoothReceiver: Socket state changed to " << mSocket->state();
-
-  mSocketState = socketState;
-  emit socketStateChanged( mSocketState );
-
   //could be removed when QBluetoothSocket can be accessed by the QML and so would be provided over socketState
   mConnected = ( socketState == QBluetoothSocket::ConnectedState );
   emit connectedChanged( mConnected );
+
+  setSocketStateString( socketState );
+
+  mSocketState = socketState;
+  emit socketStateChanged( mSocketState );
+}
+
+void BluetoothReceiver::setSocketStateString( const QBluetoothSocket::SocketState socketState )
+{
+  switch ( socketState )
+  {
+    case QBluetoothSocket::ConnectingState:
+    {
+      mSocketStateString = tr( "Connecting..." );
+      break;
+    }
+    case QBluetoothSocket::ConnectedState:
+    {
+      mSocketStateString = tr( "Successfully connected" );
+      break;
+    }
+    case QBluetoothSocket::UnconnectedState:
+    {
+      mSocketStateString = tr( "Disconnected" );
+      if ( mSocket->error() != QBluetoothSocket::NoSocketError )
+        mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
+      break;
+    }
+    default:
+    {
+      mSocketStateString = tr( "Socket state %1" ).arg( QMetaEnum::fromType<QBluetoothSocket::SocketState>().valueToKey( socketState ) );
+    }
+  }
+
+  emit socketStateStringChanged( mSocketStateString );
 }
 
 GnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo( const QString &name )
@@ -99,7 +119,6 @@ GnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo( const QString &
       info.attribute( QGeoPositionInfo::Attribute::Direction ), QList<QgsSatelliteInfo>(), 0, 0, 0,
       info.attribute( QGeoPositionInfo::Attribute::HorizontalAccuracy ), info.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy ),
       info.timestamp(), QChar(), 0, -1, 0, QChar(), QList<int>(), true, info.attribute( QGeoPositionInfo::Attribute::VerticalSpeed ), info.attribute( QGeoPositionInfo::Attribute::MagneticVariation ), name );
-  qDebug() << "Qt Position DATA " << gnssPositionInformation.latitude() << "lon" << gnssPositionInformation.longitude() << "ele" << gnssPositionInformation.elevation();
   return gnssPositionInformation;
 }
 

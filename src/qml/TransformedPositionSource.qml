@@ -1,10 +1,9 @@
 import QtQuick 2.12
 import QtPositioning 5.3
-//nmea-todo wait for osgeo4a: import QtBluetooth 5.15
-
 import org.qfield 1.0
 import org.qgis 1.0
 import Utils 1.0
+//import QtBluetooth 5.15
 
 Item{
     id: positionSource
@@ -71,18 +70,7 @@ Item{
         property bool valid: connected
 
         onSocketStateChanged: {
-            //if( socketState === BluetoothSocket.Connected ) {
-            //    displayToast( "It's connected ")
-            //    positionSource.valid = true
-            //} else {
-            //    displayToast( "It's not connected ")
-            //    positionSource.valid = false
-            //}
-        }
-        onConnectedChanged: {
-            if( connected ) {
-                displayToast( qsTr('Connected to %1').arg( device ) )
-            }
+            displayToast( socketStateString )
         }
 
         onActiveChanged: {

@@ -57,8 +57,6 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
-  qDebug() << "FOUND DEVICE: " << service.device().name() << '(' << service.device().address().toString() << ')' << ':' << service.serviceName() << " UUID:" << service.serviceUuid();
-
   //only list the paired devices so the user has control over it.
   //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
 #ifdef Q_OS_ANDROID
