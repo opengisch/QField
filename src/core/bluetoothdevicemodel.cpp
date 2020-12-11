@@ -19,7 +19,7 @@
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent ),
-    mLocalDevice( new QBluetoothLocalDevice )
+    mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
   connect( &mServiceDiscoveryAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
@@ -51,37 +51,26 @@ void BluetoothDeviceModel::startServiceDiscovery()
 
   mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
   mServiceDiscoveryAgent.start();
-
-  if ( !mServiceDiscoveryAgent.isActive() ||
-       mServiceDiscoveryAgent.error() != QBluetoothServiceDiscoveryAgent::NoError )
-  {
-    qDebug() << "Cannot find remote services. " << mServiceDiscoveryAgent.errorString();
-  }
-  else
-  {
-    qDebug() << "Scanning...";
-    setScanningStatus( Scanning );
-  }
+  setScanningStatus( Scanning );
 }
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
   qDebug() << "FOUND DEVICE: " << service.device().name() << '(' << service.device().address().toString() << ')' << ':' << service.serviceName() << " UUID:" << service.serviceUuid();
+
+  //only list the paired devices so the user has control over it.
+  //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {
     mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
-  }
-  else
-  {
-    qDebug() << "do not append it since it's unpaired: " << service.device().name();
   }
 #else
   mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
 #endif
 }
 
-int BluetoothDeviceModel::findAddessIndex( const QString &address ) const
+int BluetoothDeviceModel::findAddressIndex( const QString &address ) const
 {
   int idx = 0;
   for ( const QPair<QString, QString> &device : mDiscoveredDevices )
@@ -125,13 +114,14 @@ void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::Scanni
   if ( mScanningStatus == scanningStatus )
     return;
 
-  qDebug() << "scanning status " << scanningStatus;
+  qDebug() << "BluetoothDeviceModel: Status of service discovery changed to: " << scanningStatus;
   mScanningStatus = scanningStatus;
   emit scanningStatusChanged( mScanningStatus );
 }
 
 void BluetoothDeviceModel::setLastError( const QString &lastError )
 {
+  qDebug() << "BluetoothDeviceModel: Service discovery error received: " << lastError;
   if ( mLastError == lastError )
     return;
 

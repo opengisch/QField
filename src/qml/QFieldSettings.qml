@@ -267,7 +267,7 @@ Page {
                         target: bluetoothDeviceModel
 
                         function onModelReset() {
-                            bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddessIndex(positioningDevice)
+                            bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
                         }
 
                         function onScanningStatusChanged(scanningStatus) {

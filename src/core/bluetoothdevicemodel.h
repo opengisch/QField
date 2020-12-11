@@ -29,10 +29,8 @@ class BluetoothDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus WRITE setScanningStatus NOTIFY scanningStatusChanged )
-    Q_PROPERTY( QString lastError READ lastError WRITE setLastError NOTIFY lastErrorChanged )
-
-    Q_ENUMS( BluetoothDeviceRoles )
+    Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus NOTIFY scanningStatusChanged )
+    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
     //! The roles provided by this model
@@ -41,7 +39,9 @@ class BluetoothDeviceModel : public QAbstractListModel
       DeviceAddressRole = Qt::UserRole + 1,
       DisplayStringRole
     };
+    Q_ENUM( BluetoothDeviceRoles )
 
+    //! The status telling the result of the scanning
     enum ScanningStatus
     {
       Scanning,
@@ -52,11 +52,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     };
     Q_ENUM( ScanningStatus )
 
-    /**
-     * Create a new value map model
-     */
-    explicit BluetoothDeviceModel( QObject *parent = nullptr );
 
+    explicit BluetoothDeviceModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
@@ -65,20 +62,18 @@ class BluetoothDeviceModel : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void startServiceDiscovery();
-    Q_INVOKABLE int findAddessIndex( const QString &address ) const;
+    Q_INVOKABLE int findAddressIndex( const QString &address ) const;
 
     ScanningStatus scanningStatus() const { return mScanningStatus; };
     QString lastError() const { return mLastError; };
-
-  public slots:
-    void setScanningStatus( const ScanningStatus scanningStatus );
-    void setLastError( const QString &lastError );
 
   signals:
     void scanningStatusChanged( ScanningStatus scanningStatus );
     void lastErrorChanged( QString lastError );
 
   private slots:
+    void setScanningStatus( const ScanningStatus scanningStatus );
+    void setLastError( const QString &lastError );
     void serviceDiscovered( const QBluetoothServiceInfo &service );
 
   private:
