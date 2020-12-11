@@ -45,6 +45,22 @@ Item{
         }
     }
 
+    //
+    onActiveChanged: {
+        connectBluetoothSource()
+    }
+
+    onDeviceChanged: {
+        connectBluetoothSource()
+    }
+
+    function connectBluetoothSource(){
+        if( active && device !== 'internal' ) {
+            positionSource.name = device
+            bluetoothPositionSource.connectDevice(device)
+        }
+    }
+
     PositionSource {
         id: qtPositionSource
 
@@ -70,14 +86,11 @@ Item{
         property bool valid: connected
 
         onSocketStateChanged: {
-            displayToast( socketStateString )
+            displayToast( qsTr('Bluetoothdevice: %1').arg(socketStateString) )
         }
 
         onActiveChanged: {
-            if( active ){
-                positionSource.name = device
-                connectDevice(device)
-            }else{
+            if( !active ){
                 disconnectDevice()
             }
         }

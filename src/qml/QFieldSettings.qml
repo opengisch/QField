@@ -306,6 +306,18 @@ Page {
                     }
                   }
 
+                  QfToolButton {
+                    id: connectButton
+                    round: true
+
+                    onClicked: {
+                        positionSource.connectBluetoothSource()
+                    }
+                    bgcolor: 'gray'
+                    text: 'C'
+                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                  }
+
                   Dialog {
                     id: fullDiscoveryDialog
                     parent: mainWindow.contentItem
