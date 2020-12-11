@@ -50,7 +50,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
     mServiceDiscoveryAgent.stop();
 
   mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
-  mServiceDiscoveryAgent.start();
+  mServiceDiscoveryAgent.start( QBluetoothServiceDiscoveryAgent::FullDiscovery );
   setScanningStatus( Scanning );
 }
 
