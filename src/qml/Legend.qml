@@ -152,7 +152,7 @@ ListView {
               fillMode: Image.PreserveAspectFit
               horizontalAlignment: Image.AlignHCenter
               verticalAlignment: Image.AlignVCenter
-              source: Theme.getThemeIcon( 'ic_directions_walk_black_24dp' )
+              source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
           }
       }
 
