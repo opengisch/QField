@@ -77,7 +77,6 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libiconv.so
     ${OSGEO4A_LIB_DIR}/libopenjp2.so
     ${OSGEO4A_LIB_DIR}/libfreexl.so
-    ${OSGEO4A_LIB_DIR}/libtiff.so
     ${OSGEO4A_LIB_DIR}/libpng16.so
     ${OSGEO4A_LIB_DIR}/libgdal.so
     ${OSGEO4A_LIB_DIR}/libproj.so
@@ -90,6 +89,7 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libqgis_native_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqt5keychain_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libzip.so
+    ${OSGEO4A_LIB_DIR}/libzstd.so
   )
   FIND_PACKAGE(Qt5 COMPONENTS AndroidExtras REQUIRED)
 

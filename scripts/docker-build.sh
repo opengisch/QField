@@ -112,9 +112,9 @@ cmake \
 	-DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
 	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
-	-DQt5_DIR:PATH=/opt/Qt/5.14.2/android/lib/cmake/Qt5 \
-	-DANDROID_DEPLOY_QT=/opt/Qt/5.14.2/android/bin/androiddeployqt \
-	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;/opt/Qt/5.14.2/android/\;/home/osgeo4a/${ANDROID_ARCH} \
+	-DQt5_DIR:PATH=${QT_ANDROID_BASE}/android/lib/cmake/Qt5 \
+	-DANDROID_DEPLOY_QT=${QT_ANDROID_BASE}/android/bin/androiddeployqt \
+	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;${QT_ANDROID_BASE}/android/\;/home/osgeo4a/${ANDROID_ARCH} \
 	-DANDROID_LINKER_FLAGS="${ANDROID_CMAKE_LINKER_FLAGS}" \
 	-DANDROID_ABI=${ANDROID_ARCH} \
 	-DANDROID_BUILD_ABI_${ANDROID_ARCH}=ON \
