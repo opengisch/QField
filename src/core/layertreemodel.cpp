@@ -633,7 +633,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
 
         if ( layer && layer->dataProvider() )
-          return layer->dataProvider()->capabilities() & QgsVectorDataProvider::Capability::ReloadData;
+          return static_cast<bool>( layer->dataProvider()->capabilities() & QgsVectorDataProvider::Capability::ReloadData );
       }
 
       return false;
