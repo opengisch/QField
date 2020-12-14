@@ -129,6 +129,7 @@ Popup {
         font: Theme.defaultFont
         text: qsTr('Zoom to layer')
         visible: zoomToLayerButtonVisible
+        icon.source: Theme.getThemeVectorIcon( 'zoom_out_map_24dp' )
 
         onClicked: {
           mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
@@ -143,6 +144,7 @@ Popup {
         Layout.topMargin: 5
         text: qsTr('Show features list')
         visible: showFeaturesListButtonVisible
+        icon.source: Theme.getThemeVectorIcon( 'list_24dp' )
 
         onClicked: {
           var vl = layerTree.data( index, FlatLayerTreeModel.VectorLayerPointer )
@@ -166,6 +168,7 @@ Popup {
         font: Theme.defaultFont
         text: trackingButtonText
         visible: trackingButtonVisible
+        icon.source: Theme.getThemeVectorIcon( 'directions_walk_24dp' )
 
         onClicked: {
             //start track

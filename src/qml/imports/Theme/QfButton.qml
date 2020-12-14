@@ -10,6 +10,7 @@ Button {
   padding: 8
   topInset: 2
   bottomInset: 2
+  icon.color: 'white'
 
   background: Rectangle {
       anchors.fill: parent
