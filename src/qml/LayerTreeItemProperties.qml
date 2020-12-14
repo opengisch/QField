@@ -75,34 +75,6 @@ Popup {
       }
 
       Text {
-        id: lockText
-        property var padlockIcon: Theme.getThemeIcon('ic_lock_black_24dp')
-        property var padlockSize: fontMetrics.height - 5
-
-        property bool isReadOnly: index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
-        property bool isGeometryLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.GeometryLocked)
-
-        visible: isReadOnly || isGeometryLocked
-        Layout.fillWidth: true
-
-        wrapMode: Text.WordWrap
-        textFormat: Text.RichText
-        text: '<img src="' + padlockIcon + '" width="' + padlockSize + '" height="' + padlockSize + '"> '
-              + (isReadOnly ? qsTr('Read-Only Layer') : qsTr('Geometry Locked Layer'))
-        font: Theme.tipFont
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                if ( lockText.isReadOnly )
-                    displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
-                else
-                    displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
-            }
-        }
-      }
-
-      Text {
         id: invalidText
         property var invalidIcon: Theme.getThemeVectorIcon('ic_error_outline_24dp')
         property var invalidSize: fontMetrics.height - 5
@@ -204,6 +176,34 @@ Popup {
                 trackingModel.createTracker(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer), itemVisibleCheckBox.checked );
             }
             close()
+        }
+      }
+
+      Text {
+        id: lockText
+        property var padlockIcon: Theme.getThemeIcon('ic_lock_black_24dp')
+        property var padlockSize: fontMetrics.height - 5
+
+        property bool isReadOnly: index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
+        property bool isGeometryLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.GeometryLocked)
+
+        visible: isReadOnly || isGeometryLocked
+        Layout.fillWidth: true
+
+        wrapMode: Text.WordWrap
+        textFormat: Text.RichText
+        text: '<img src="' + padlockIcon + '" width="' + padlockSize + '" height="' + padlockSize + '"> '
+              + (isReadOnly ? qsTr('Read-Only Layer') : qsTr('Geometry Locked Layer'))
+        font: Theme.tipFont
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                if ( lockText.isReadOnly )
+                    displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'))
+                else
+                    displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'))
+            }
         }
       }
     }
