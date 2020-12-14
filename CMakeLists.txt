@@ -89,6 +89,7 @@ IF (ANDROID)
     ${OSGEO4A_LIB_DIR}/libqgis_native_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libqt5keychain_${ANDROID_ABI}.so
     ${OSGEO4A_LIB_DIR}/libzip.so
+    ${OSGEO4A_LIB_DIR}/libzstd.so
   )
   FIND_PACKAGE(Qt5 COMPONENTS AndroidExtras REQUIRED)
 
