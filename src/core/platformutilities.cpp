@@ -49,7 +49,7 @@ QString PlatformUtilities::shareDir() const
   return QString();
 }
 
-QString PlatformUtilities::packagePath() const
+QString PlatformUtilities::systemGenericDataLocation() const
 {
   return QString();
 }

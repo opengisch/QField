@@ -43,9 +43,9 @@ QString AndroidPlatformUtilities::shareDir() const
   return getIntentExtra( "SHARE_DIR" );
 }
 
-QString AndroidPlatformUtilities::packagePath() const
+QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
-  return getIntentExtra( "PACKAGE_PATH" );
+  return QStringLiteral( "file:///android_asset/share/" );
 }
 
 QString AndroidPlatformUtilities::qgsProject() const
