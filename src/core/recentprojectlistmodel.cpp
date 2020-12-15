@@ -64,6 +64,7 @@ void RecentProjectListModel::reloadModel()
   
   QDir assets( "file:///android_asset" );
   qDebug() << " Share assets path exists: " << assets.exists();
+  qDebug() << " Share assets files: " << assets.entryList().join( "," );
   QDir gdl_share_path( PlatformUtilities::instance()->systemGenericDataLocation() );
   qDebug() << " GDL assets path exists: " << gdl_share_path.exists();
   qDebug() << " GDL assets files: " << gdl_share_path.entryList().join( ", " );
