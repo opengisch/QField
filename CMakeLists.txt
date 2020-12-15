@@ -56,6 +56,8 @@ ENDIF ()
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_BIN_SUBDIR})
 SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${QFIELD_OUTPUT_DIRECTORY}/${QFIELD_LIB_SUBDIR})
 
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qfield)
+
 IF (ANDROID)
   ADD_DEFINITIONS(-DQGIS_INSTALL_DIR="") # TODO: do we need osgeo4a/[lib]/files here? see qgis.pri
   SET (ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/android)
@@ -100,14 +102,14 @@ IF (ANDROID)
 
   INCLUDE(CreateZip)
 
-  FILE(COPY resources DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/") # should we rather INSTALL everything and create the package from the installation instead?
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/") # should we rather INSTALL everything and create the package from the installation instead?
+  set(SHARE_PATH "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/share")
+  FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
 
-  FILE(GLOB_RECURSE asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/*" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/proj/*")
-  LIST(REMOVE_ITEM asset_files "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/data/world_map.gpkg")
-
-  CREATE_ZIP("${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip" "${asset_files}" "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/")
-  ADD_CUSTOM_TARGET(assets ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/android-build/assets/assets.zip")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
+  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+  # Remove world map to keep apk size a bit smaller
+  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
 ENDIF (ANDROID)
 
 FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors WebView REQUIRED)
