@@ -43,16 +43,6 @@ void PlatformUtilities::initSystem()
 {
 }
 
-QString PlatformUtilities::configDir() const
-{
-  return QString();
-}
-
-QString PlatformUtilities::shareDir() const
-{
-  return QString();
-}
-
 QString PlatformUtilities::systemGenericDataLocation() const
 {
   return QStandardPaths::standardLocations( QStandardPaths::GenericDataLocation ).first();

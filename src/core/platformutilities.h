@@ -30,15 +30,10 @@ class PlatformUtilities : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString configDir READ configDir CONSTANT )
-    Q_PROPERTY( QString shareDir READ shareDir CONSTANT )
-
   public:
     virtual ~PlatformUtilities();
 
     virtual void initSystem();
-    virtual QString configDir() const;
-    virtual QString shareDir() const;
 
     /**
      * The source path to generic data location.

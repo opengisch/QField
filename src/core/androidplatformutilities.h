@@ -28,8 +28,6 @@ class AndroidPlatformUtilities : public PlatformUtilities
     AndroidPlatformUtilities();
 
     virtual void initSystem() override;
-    virtual QString configDir() const override;
-    virtual QString shareDir() const override;
     virtual QString systemGenericDataLocation() const override;
     virtual QString qgsProject() const override;
     virtual QString qfieldDataDir() const override;

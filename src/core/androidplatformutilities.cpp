@@ -49,16 +49,6 @@ void AndroidPlatformUtilities::initSystem()
   }
 }
 
-QString AndroidPlatformUtilities::configDir() const
-{
-  return getIntentExtra( "DOTQGIS2_DIR" );
-}
-
-QString AndroidPlatformUtilities::shareDir() const
-{
-  return getIntentExtra( "SHARE_DIR" );
-}
-
 QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
   return mSystemGenericDataLocation;
