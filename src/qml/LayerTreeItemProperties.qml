@@ -148,6 +148,7 @@ Popup {
         font: Theme.defaultFont
         text: qsTr('Reload Data')
         visible: reloadDataButtonVisible
+        icon.source: Theme.getThemeVectorIcon( 'refresh_24dp' )
 
         onClicked: {
           layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
