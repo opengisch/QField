@@ -29,6 +29,7 @@
 #include <QAndroidJniEnvironment>
 #include <QMimeDatabase>
 #include <QStandardPaths>
+#include <QFile>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
