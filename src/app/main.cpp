@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "qgismobileapp.h"
+#include "fileutils.h"
 
 #include <QLocale>
 #include <QDir>
@@ -27,6 +28,7 @@
 #include <QDialog>
 #include <QApplication>
 #include <QtWebView/QtWebView>
+#include <QStandardPaths>
 
 #include "qgsapplication.h"
 #include "qgslogger.h"
@@ -87,6 +89,10 @@ int main( int argc, char **argv )
     QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   delete dummyApp;
 #endif
+
+  // TODO: Put me into PlatformUtilities::initOnce
+  QString appDataPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  FileUtils::copyRecursively( appDataPath, "assets:/" );
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();

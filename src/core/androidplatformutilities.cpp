@@ -27,6 +27,7 @@
 #include <QDebug>
 #include <QAndroidJniEnvironment>
 #include <QMimeDatabase>
+#include <QStandardPaths>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
@@ -45,7 +46,7 @@ QString AndroidPlatformUtilities::shareDir() const
 
 QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
-  return QStringLiteral( "file:///android_asset/share/" );
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
 }
 
 QString AndroidPlatformUtilities::qgsProject() const
