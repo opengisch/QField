@@ -36,6 +36,7 @@ class PlatformUtilities : public QObject
   public:
     virtual ~PlatformUtilities();
 
+    virtual void initSystem();
     virtual QString configDir() const;
     virtual QString shareDir() const;
 

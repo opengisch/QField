@@ -20,6 +20,7 @@
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
+#include "fileutils.h"
 
 #include <QMap>
 #include <QString>
@@ -34,6 +35,19 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
 }
 
+void AndroidPlatformUtilities::initSystem()
+{
+  QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" );
+  QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
+  if ( gitRevFile.readAll() != gitRev )
+  {
+    FileUtils::copyRecursively( "assets:/share", mSystemGenericDataLocation );
+    gitRevFile.write( gitRev );
+  }
+}
+
 QString AndroidPlatformUtilities::configDir() const
 {
   return getIntentExtra( "DOTQGIS2_DIR" );
@@ -46,7 +60,7 @@ QString AndroidPlatformUtilities::shareDir() const
 
 QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
-  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/share";
+  return mSystemGenericDataLocation;
 }
 
 QString AndroidPlatformUtilities::qgsProject() const

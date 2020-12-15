@@ -226,6 +226,7 @@ public class QFieldActivity extends Activity {
         intent.putExtra("SHARE_DIR", mShareDir);
         intent.putExtra("PACKAGE_PATH", getFilesDir().toString() + "/share");
         intent.putExtra("QFIELD_DATA_DIR", mQFieldDir);
+        intent.putExtra("GIT_REV", mActivityInfo.metaData.getString("android.app.git_rev"));
 
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW) {

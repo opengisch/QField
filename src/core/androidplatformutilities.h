@@ -27,6 +27,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
   public:
     AndroidPlatformUtilities();
 
+    virtual void initSystem() override;
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
     virtual QString systemGenericDataLocation() const override;
@@ -53,6 +54,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
     QAndroidJniObject mActivity;
+    QString mSystemGenericDataLocation;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

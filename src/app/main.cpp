@@ -90,9 +90,7 @@ int main( int argc, char **argv )
   delete dummyApp;
 #endif
 
-  // TODO: Put me into PlatformUtilities::initOnce
-  QString appDataPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  FileUtils::copyRecursively( "assets:/share", appDataPath + "/share" );
+  PlatformUtilities::instance()->initSystem();
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
