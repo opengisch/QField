@@ -63,8 +63,14 @@ void RecentProjectListModel::reloadModel()
   settings.endGroup();
   
   QDir assets( "file:///android_asset" );
-  qDebug() << " Asset path exists: " << assets.exists();
-  QDir qfield_share_path( PlatformUtilities::instance()->systemGenericDataLocation() );
+  qDebug() << " Share assets path exists: " << assets.exists();
+  QDir gdl_share_path( PlatformUtilities::instance()->systemGenericDataLocation() );
+  qDebug() << " GDL assets path exists: " << gdl_share_path.exists();
+  qDebug() << " GDL assets files: " << gdl_share_path.entryList().join( ", " );
+  QDir qgis_share_path( PlatformUtilities::instance()->systemGenericDataLocation() + "/qgis" );
+  qDebug() << " QGIS assets path exists: " << qgis_share_path.exists();
+  qDebug() << " QGIS assets files: " << qgis_share_path.entryList().join( ", " );
+  QDir qfield_share_path( PlatformUtilities::instance()->systemGenericDataLocation() + "/qfield" );
   qDebug() << " QField assets path exists: " << qfield_share_path.exists();
   qDebug() << " QField assets files: " << qfield_share_path.entryList().join( ", " );
 
