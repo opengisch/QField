@@ -18,6 +18,8 @@
 
 #include <QSettings>
 #include <QFile>
+#include <QDir>
+#include <QDebug>
 
 RecentProjectListModel::RecentProjectListModel( QObject *parent )
   : QAbstractListModel( parent )
@@ -59,6 +61,12 @@ void RecentProjectListModel::reloadModel()
     settings.endGroup();
   }
   settings.endGroup();
+  
+  QDir assets( "file:///android_asset" );
+  qDebug() << " Asset path exists: " << assets.exists();
+  QDir qfield_share_path( PlatformUtilities::instance()->systemGenericDataLocation() );
+  qDebug() << " QField assets path exists: " << qfield_share_path.exists();
+  qDebug() << " QField assets files: " << qfield_share_path.entryList().join( ", " );
 
   // update demo projects
   const QList<RecentProject> demoProjects
