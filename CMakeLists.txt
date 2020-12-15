@@ -106,9 +106,9 @@ IF (ANDROID)
   FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/share/proj/" DESTINATION "${SHARE_PATH}/proj/")
 
   FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/svg/" DESTINATION "${SHARE_PATH}/qgis/svg/")
-  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
+  #  FILE(COPY "${OSGEO4A_STAGE_DIR}/${ANDROID_ABI}/files/share/resources/" DESTINATION "${SHARE_PATH}/qgis/resources/")
   # Remove world map to keep apk size a bit smaller
-  FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
+  # FILE(REMOVE "${SHARE_PATH}/qgis/resources/data/world_map.gpkg")
   FILE(COPY resources/ DESTINATION "${SHARE_PATH}/qfield/")
 ENDIF (ANDROID)
 
