@@ -36,9 +36,16 @@ class PlatformUtilities : public QObject
   public:
     virtual ~PlatformUtilities();
 
+    virtual void initSystem();
     virtual QString configDir() const;
     virtual QString shareDir() const;
-    virtual QString packagePath() const;
+
+    /**
+     * The source path to generic data location.
+     * Under this path, there should be the app specific directories qgis/ proj/ qfield/ ...
+     * Refers to /share or /usr/share on Linux
+     */
+    virtual QString systemGenericDataLocation() const;
     virtual QString qgsProject() const;
     virtual QString qfieldDataDir() const;
     Q_INVOKABLE QStringList availableGrids() const;

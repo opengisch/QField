@@ -27,9 +27,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
   public:
     AndroidPlatformUtilities();
 
+    virtual void initSystem() override;
     virtual QString configDir() const override;
     virtual QString shareDir() const override;
-    virtual QString packagePath() const override;
+    virtual QString systemGenericDataLocation() const override;
     virtual QString qgsProject() const override;
     virtual QString qfieldDataDir() const override;
     virtual PictureSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix ) override;
@@ -53,6 +54,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     QAndroidJniObject getNativeIntent() const;
     QAndroidJniObject getNativeExtras() const;
     QAndroidJniObject mActivity;
+    QString mSystemGenericDataLocation;
 };
 
 #endif // ANDROIDPLATFORMUTILITIES_H

@@ -20,6 +20,7 @@
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
+#include "fileutils.h"
 
 #include <QMap>
 #include <QString>
@@ -27,10 +28,25 @@
 #include <QDebug>
 #include <QAndroidJniEnvironment>
 #include <QMimeDatabase>
+#include <QStandardPaths>
+#include <QFile>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
 {
+}
+
+void AndroidPlatformUtilities::initSystem()
+{
+  QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
+  QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
+  if ( gitRevFile.readAll() != gitRev )
+  {
+    FileUtils::copyRecursively( "assets:/share", mSystemGenericDataLocation );
+    gitRevFile.write( gitRev );
+  }
 }
 
 QString AndroidPlatformUtilities::configDir() const
@@ -43,9 +59,9 @@ QString AndroidPlatformUtilities::shareDir() const
   return getIntentExtra( "SHARE_DIR" );
 }
 
-QString AndroidPlatformUtilities::packagePath() const
+QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
-  return getIntentExtra( "PACKAGE_PATH" );
+  return mSystemGenericDataLocation;
 }
 
 QString AndroidPlatformUtilities::qgsProject() const

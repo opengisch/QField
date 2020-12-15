@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "qgismobileapp.h"
+#include "fileutils.h"
 
 #include <QLocale>
 #include <QDir>
@@ -27,6 +28,7 @@
 #include <QDialog>
 #include <QApplication>
 #include <QtWebView/QtWebView>
+#include <QStandardPaths>
 
 #include "qgsapplication.h"
 #include "qgslogger.h"
@@ -88,12 +90,14 @@ int main( int argc, char **argv )
   delete dummyApp;
 #endif
 
+  PlatformUtilities::instance()->initSystem();
+
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 #ifdef ANDROID
-  QString projPath = AndroidPlatformUtilities().packagePath() + QStringLiteral( "/proj" );
+  QString projPath = AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().packagePath() + QStringLiteral( "/resources" ) );
+  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
   qInstallMessageHandler( qfMessageHandler );
 
   QSettings settings;
@@ -101,7 +105,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().packagePath() );
+  app.setPkgDataPath( AndroidPlatformUtilities().systemGenericDataLocation() );
 #else
   QgsApplication app( argc, argv, true );
 

@@ -39,6 +39,10 @@ PlatformUtilities::~PlatformUtilities()
 {
 }
 
+void PlatformUtilities::initSystem()
+{
+}
+
 QString PlatformUtilities::configDir() const
 {
   return QString();
@@ -49,9 +53,9 @@ QString PlatformUtilities::shareDir() const
   return QString();
 }
 
-QString PlatformUtilities::packagePath() const
+QString PlatformUtilities::systemGenericDataLocation() const
 {
-  return QString();
+  return QStandardPaths::standardLocations( QStandardPaths::GenericDataLocation ).first();
 }
 
 QString PlatformUtilities::qgsProject() const
