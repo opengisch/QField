@@ -92,7 +92,7 @@ int main( int argc, char **argv )
 
   // TODO: Put me into PlatformUtilities::initOnce
   QString appDataPath = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  FileUtils::copyRecursively( appDataPath, "assets:/" );
+  FileUtils::copyRecursively( "assets:/share", appDataPath + "/share" );
 
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();

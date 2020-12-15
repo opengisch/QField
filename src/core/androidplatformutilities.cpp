@@ -46,7 +46,7 @@ QString AndroidPlatformUtilities::shareDir() const
 
 QString AndroidPlatformUtilities::systemGenericDataLocation() const
 {
-  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/share";
 }
 
 QString AndroidPlatformUtilities::qgsProject() const
