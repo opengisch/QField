@@ -40,7 +40,7 @@ void AndroidPlatformUtilities::initSystem()
 {
   QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
-  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" );
+  QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
   QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
   if ( gitRevFile.readAll() != gitRev )
   {
