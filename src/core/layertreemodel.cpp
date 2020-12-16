@@ -623,6 +623,23 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
+    case FlatLayerTreeModel::CanReloadData:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( mapToSource( index ) );
+
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
+
+        if ( layer && layer->dataProvider() )
+          return static_cast<bool>( layer->dataProvider()->capabilities() & QgsVectorDataProvider::Capability::ReloadData );
+      }
+
+      return false;
+    }
+
+
     case FlatLayerTreeModel::TreeLevel:
     {
       return mTreeLevelMap.contains( index.row() ) ? mTreeLevelMap[index.row()] : 0;
@@ -778,6 +795,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::IsCollapsed] = "IsCollapsed";
   roleNames[FlatLayerTreeModel::IsParentCollapsed] = "IsParentCollapsed";
   roleNames[FlatLayerTreeModel::HasChildren] = "HasChildren";
+  roleNames[FlatLayerTreeModel::CanReloadData] = "CanReloadData";
   return roleNames;
 }
 

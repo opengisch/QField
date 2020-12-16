@@ -116,7 +116,8 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       FeatureCount,
       IsCollapsed,
       IsParentCollapsed,
-      HasChildren
+      HasChildren,
+      CanReloadData
     };
     Q_ENUM( Roles )
 

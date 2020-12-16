@@ -15,6 +15,8 @@ Popup {
 
   property bool zoomToLayerButtonVisible: false
   property bool showFeaturesListButtonVisible: false
+  property bool showAllFeaturesButtonVisible: false
+  property bool reloadDataButtonVisible: false
 
   property bool trackingButtonVisible: false
   property var trackingButtonText
@@ -44,6 +46,7 @@ Popup {
     expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
+    reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
     zoomToLayerButtonVisible = isSpatialLayer()
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
 
@@ -135,6 +138,23 @@ Popup {
           mapCanvas.mapSettings.setCenterToLayer( layerTree.data( index, FlatLayerTreeModel.MapLayerPointer ) )
           close()
           dashBoard.visible = false
+        }
+      }
+
+      QfButton {
+        id: reloadDataButton
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        font: Theme.defaultFont
+        text: qsTr('Reload Data')
+        visible: reloadDataButtonVisible
+        icon.source: Theme.getThemeVectorIcon( 'refresh_24dp' )
+
+        onClicked: {
+          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload()
+          close()
+          dashBoard.visible = false
+          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)))
         }
       }
 
