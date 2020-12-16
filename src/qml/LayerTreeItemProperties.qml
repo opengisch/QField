@@ -46,7 +46,7 @@ Popup {
     expandCheckBox.text = layerTree.data( index, FlatLayerTreeModel.Type ) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item')
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed)
 
-    reloadDataButtonVisible = true// layerTree.data(index, FlatLayerTreeModel.CanReloadData)
+    reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData)
     zoomToLayerButtonVisible = isSpatialLayer()
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
 
