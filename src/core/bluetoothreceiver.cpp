@@ -70,10 +70,6 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   if ( mSocketState == socketState )
     return;
 
-  //could be removed when QBluetoothSocket can be accessed by the QML and so would be provided over socketState
-  mConnected = ( socketState == QBluetoothSocket::ConnectedState );
-  emit connectedChanged( mConnected );
-
   setSocketStateString( socketState );
 
   mSocketState = socketState;
