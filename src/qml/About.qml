@@ -32,26 +32,7 @@ Item {
       wrapMode: Text.WordWrap
       text: qsTr( "QField Version: %1 (code: %2)").arg( version ).arg( versionCode )
     }
-    Label {
-      Layout.alignment: Qt.AlignCenter
-      Layout.maximumWidth: parent.width
-      horizontalAlignment: Text.AlignHCenter
-      color: Theme.light
-      font: Theme.strongFont
-      wrapMode: Text.WordWrap
 
-      text: qsTr( "QField Settings folder: %1" ).arg( '<br><font color="%1">'.arg(Theme.lightGray) + platformUtilities.configDir + '</font>' )
-    }
-    Label {
-      Layout.alignment: Qt.AlignCenter
-      Layout.maximumWidth: parent.width
-      horizontalAlignment: Text.AlignHCenter
-      color: Theme.light
-      font: Theme.strongFont
-      wrapMode: Text.WordWrap
-
-      text: qsTr( "QField Shared items folder: %1" ).arg( '<br><font color="%1">'.arg(Theme.lightGray) + platformUtilities.shareDir + '</font>' )
-    }
     Item{
       Layout.minimumHeight: 20
     }
