@@ -3,7 +3,7 @@ import QtPositioning 5.3
 import org.qfield 1.0
 import org.qgis 1.0
 import Utils 1.0
-//import QtBluetooth 5.15
+import QtBluetooth 5.15
 
 Item{
     id: positionSource
@@ -83,7 +83,7 @@ Item{
         id: bluetoothPositionSource
 
         property bool active: device !== 'internal' && positionSource.active
-        property bool valid: connected
+        property bool valid: socketState === BluetoothSocket.ConnectedState
 
         onSocketStateChanged: {
             displayToast( socketStateString )
