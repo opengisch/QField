@@ -63,6 +63,14 @@ import ch.opengis.qfield.QFieldUtils;
 
 public class QFieldActivity extends QtActivity {
     public void onCreate(Bundle savedInstanceState) {
+        if (!isTaskRoot() &&
+            getIntent().hasCategory(Intent.CATEGORY_LAUNCHER) &&
+            getIntent().getAction() != null &&
+            getIntent().getAction().equals(Intent.ACTION_MAIN)) {
+
+            finish();
+            return;
+        }
         startQtActivity();
         super.onCreate(savedInstanceState);
     }
