@@ -86,7 +86,7 @@ void BluetoothReceiver::setSocketStateString( const QBluetoothSocket::SocketStat
   {
     case QBluetoothSocket::ConnectingState:
     {
-      mSocketStateString = tr( "Connecting..." );
+      mSocketStateString = tr( "Connecting…" );
       break;
     }
     case QBluetoothSocket::ConnectedState:
