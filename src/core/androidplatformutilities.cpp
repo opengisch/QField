@@ -38,6 +38,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 void AndroidPlatformUtilities::initSystem()
 {
+  // Copy data away from the virtual path `assets:/` to a path accessible also for non-qt-based libs
   QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
   QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
