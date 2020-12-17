@@ -83,7 +83,7 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
         const int attributeIndex;
         const QgsFeature &feature;
         AttributeNotEqual( const QgsFeature &feature, int attributeIndex ) : attributeIndex( attributeIndex ), feature( feature ) {}
-        bool operator()( const QgsFeature &f) const { return f.attributes().size() > attributeIndex && feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
+        bool operator()( const QgsFeature &f ) const { return f.attributes().size() > attributeIndex && feature.attributes().at( attributeIndex ) != f.attributes().at( attributeIndex ); }
       };
 
       if ( std::any_of( mFeatures.begin(), mFeatures.end(), AttributeNotEqual( mFeature, i ) ) )
@@ -408,8 +408,8 @@ void FeatureModel::resetAttributes()
     return;
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
-  if ( mPositionSource )
-    expressionContext << ExpressionContextUtils::positionScope( mPositionSource.get() );
+  if ( mPositionInformation.isValid() )
+    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation );
 
   //set snapping_results to ExpressionScope...
   if ( mTopSnappingResult.isValid() )
@@ -675,18 +675,15 @@ bool FeatureModel::startEditing()
   }
 }
 
-QString FeatureModel::positionSourceName() const
+GnssPositionInformation FeatureModel::positionInformation() const
 {
-  return mPositionSource ? mPositionSource->sourceName() : QString();
+  return mPositionInformation;
 }
 
-void FeatureModel::setPositionSourceName( const QString &positionSourceName )
+void FeatureModel::setPositionInformation( const GnssPositionInformation &positionInformation )
 {
-  if ( mPositionSource && mPositionSource->sourceName() == positionSourceName )
-    return;
-
-  mPositionSource.reset( QGeoPositionInfoSource::createSource( positionSourceName, this ) );
-  emit positionSourceChanged();
+  mPositionInformation = positionInformation;
+  emit positionInformationChanged();
 }
 
 SnappingResult FeatureModel::topSnappingResult() const

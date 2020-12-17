@@ -21,13 +21,12 @@
 
 #include <qgsexpressioncontext.h>
 #include "snappingresult.h"
-
-class QGeoPositionInfoSource;
+#include "gnsspositioninformation.h"
 
 class ExpressionContextUtils
 {
   public:
-    static QgsExpressionContextScope *positionScope( QGeoPositionInfoSource *source );
+    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation );
     static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
 
   private:

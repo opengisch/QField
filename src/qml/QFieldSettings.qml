@@ -3,6 +3,7 @@ import QtQuick 2.11
 import Qt.labs.settings 1.0
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.4
+import org.qfield 1.0
 
 import Theme 1.0
 
@@ -18,6 +19,7 @@ Page {
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias verticalGrid: registry.verticalGrid
+  property alias positioningDevice: registry.positioningDevice
 
   Settings {
     id: registry
@@ -30,6 +32,7 @@ Page {
     property bool autoSave
     property bool mouseAsTouchScreen
     property string verticalGrid: ""
+    property string positioningDevice: "internal"
   }
 
   ListModel {
@@ -105,6 +108,12 @@ Page {
       }
       TabButton {
         text: qsTr("Grids")
+        font: Theme.defaultFont
+        anchors.verticalCenter : parent.verticalCenter
+      }
+      TabButton {
+        height: 48
+        text: qsTr("Positioning")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
@@ -204,6 +213,146 @@ Page {
 
                   Component.onCompleted: {
                       currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
+                  }
+              }
+
+              Item {
+                  // spacer item
+                  Layout.fillWidth: true
+                  Layout.fillHeight: true
+              }
+          }
+      }
+
+      Item {
+          ColumnLayout {
+              anchors.fill: parent
+              anchors.topMargin: 8
+              anchors.leftMargin: 18
+              anchors.rightMargin: 18
+
+              Label {
+                  text: qsTr( "Select the positioning device (current: "+positioningDevice+")" )
+                  font: Theme.defaultFont
+
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+              }
+
+              RowLayout {
+                  ComboBox {
+                      id: bluetoothDeviceCombo
+                      enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                      Layout.fillWidth: true
+                      textRole: 'display'
+                      model: BluetoothDeviceModel {
+                          id: bluetoothDeviceModel
+                      }
+
+                      property string selectedPositioningDevice
+
+                      onCurrentIndexChanged: {
+                          if( bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning )
+                          {
+                            selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
+                          }
+                          if( positioningDevice !== selectedPositioningDevice )
+                          {
+                            positioningDevice = selectedPositioningDevice
+                            positionSource.device = positioningDevice
+                          }
+                      }
+
+                      Connections {
+                        target: bluetoothDeviceModel
+
+                        function onModelReset() {
+                            bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
+                        }
+
+                        function onScanningStatusChanged(scanningStatus) {
+                            if( scanningStatus === BluetoothDeviceModel.Scanning )
+                                displayToast( qsTr('Scanning for paired devices') )
+                            if( scanningStatus === BluetoothDeviceModel.Failed )
+                                displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                            if( scanningStatus === BluetoothDeviceModel.Succeeded )
+                                displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() ) )
+                            if( scanningStatus === BluetoothDeviceModel.Canceled )
+                                displayToast( qsTr('Scanning canceled.') )
+                        }
+                      }
+                  }
+
+                  QfButton {
+                    id: scanButton
+                    Layout.fillWidth: true
+                    Layout.topMargin: 5
+                    font: Theme.defaultFont
+                    text: qsTr('Scan')
+
+                    onClicked: {
+                        bluetoothDeviceModel.startServiceDiscovery( false )
+                    }
+                    onPressAndHold: {
+                      fullDiscoveryDialog.open()
+                    }
+
+                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+
+                    BusyIndicator {
+                      id: busyIndicator
+                      anchors.centerIn: parent
+                      width: 36
+                      height: 36
+                      running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
+                    }
+                  }
+
+                  Dialog {
+                    id: fullDiscoveryDialog
+                    parent: mainWindow.contentItem
+
+                    visible: false
+                    modal: true
+
+                    x: ( mainWindow.width - width ) / 2
+                    y: ( mainWindow.height - height ) / 2
+
+                    title: qsTr( "Make a full service discovery" )
+                    Label {
+                      width: parent.width
+                      wrapMode: Text.WordWrap
+                      text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
+                    }
+
+                    standardButtons: Dialog.Ok | Dialog.Cancel
+                    onAccepted: {
+                        bluetoothDeviceModel.startServiceDiscovery( true )
+                        visible = false
+                    }
+                    onRejected: {
+                        bluetoothDeviceModel.startServiceDiscovery( false )
+                        visible = false
+                    }
+                  }
+              }
+
+              QfButton {
+                id: connectButton
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                font: Theme.defaultFont
+                text: qsTr('Reconnect device %1').arg(positioningDevice)
+
+                onClicked: {
+                    positionSource.connectBluetoothSource()
+                }
+                enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+              }
+
+              onVisibleChanged: {
+                  if( visible === true && !bluetoothDeviceModel.rowCount() ){
+                      bluetoothDeviceModel.startServiceDiscovery( false )
                   }
               }
 
