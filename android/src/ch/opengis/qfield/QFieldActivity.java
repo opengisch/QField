@@ -61,10 +61,10 @@ import ch.opengis.qfield.R;
 import ch.opengis.qfield.QFieldUtils;
 
 
-public class QFieldActivity extends Activity {
+public class QFieldActivity extends QtActivity {
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         startQtActivity();
+        super.onCreate(savedInstanceState);
     }
 
     private void startQtActivity() {
@@ -98,7 +98,7 @@ public class QFieldActivity extends Activity {
             intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(context, uri));
         }
 
-        startActivity(intent);
-        finish();
+//        startActivity(intent);
+//        finish();
     }
 }
