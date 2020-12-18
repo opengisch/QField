@@ -53,18 +53,10 @@ Page {
       font: Theme.defaultFont
     }
 
-    TextField {
+    QfTextField {
       id: username
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      font: Theme.defaultFont
-
-      background: Rectangle {
-        y: username.height - height - username.bottomPadding / 2
-        implicitWidth: 120
-        height: username.activeFocus ? 2: 1
-        color: username.activeFocus ? "#4CAF50" : "#C8E6C9"
-      }
     }
 
     Item {
@@ -79,21 +71,11 @@ Page {
       font: Theme.defaultFont
     }
 
-    TextField {
+    QfTextField {
       id: password
-      echoMode: TextInput.Password
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
-      Layout.preferredHeight: font.height + 20
-      height: font.height + 20
-      font: Theme.defaultFont
-
-      background: Rectangle {
-        y: password.height - height - password.bottomPadding / 2
-        implicitWidth: 120
-        height: password.activeFocus ? 2: 1
-        color: password.activeFocus ? "#4CAF50" : "#C8E6C9"
-      }
+      echoMode: TextInput.Password
     }
 
     Item {
