@@ -93,22 +93,24 @@ Rectangle{
                       source: Theme.getThemeIcon( 'ic_add_white_24dp' )
                     }
                 }
-
-                onClicked: {
-                  if( save() ) {
-                      //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-                      if( relationEditorModel.parentPrimariesAvailable ) {
-                          embeddedPopup.state = 'Add'
-                          embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
-                          embeddedPopup.linkedParentFeature = relationEditorModel.feature
-                          embeddedPopup.linkedRelation = relationEditorModel.relation
-                          embeddedPopup.open()
-                      }
-                      else
-                      {
-                          displayToast(qsTr( 'Cannot add child. Parent primary keys are not available.' ) )
-                      }
-                  }
+            }
+          }
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if( save() ) {
+                //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+                if( relationEditorModel.parentPrimariesAvailable ) {
+                    embeddedPopup.state = 'Add'
+                    embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
+                    embeddedPopup.linkedParentFeature = relationEditorModel.feature
+                    embeddedPopup.linkedRelation = relationEditorModel.relation
+                    embeddedPopup.open()
+                }
+                else
+                {
+                    displayToast(qsTr( 'Cannot add child. Parent primary keys are not available.' ) )
+                }
               }
             }
           }
