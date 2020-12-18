@@ -505,7 +505,21 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     if ( isVisible && mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
     {
       QStringList errors;
-      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel->feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+
+      QgsFeature feature = mFeatureModel->feature();
+      QString defaultValueClause = mLayer->dataProvider()->defaultValueClause( fidx );
+      QString attrValue = feature.attribute( fidx ).toString();
+
+      // Providers will check for a literal "defaultValueClause" to autogenerate PKs.
+      // For example, the gpkg provider will generate a fid if it is set to "Autogenerate".
+      // On QField, if the user leaves the field empty, we will assume he wants to autogenerate it.
+      // This makes sure, the NOT NULL constraint is skipped in this case.
+      if ( attrValue.isEmpty() && !defaultValueClause.isEmpty() )
+      {
+        feature.setAttribute( fidx, defaultValueClause );
+      }
+
+      bool hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
       if ( hardConstraintSatisfied != item->data( AttributeFormModel::ConstraintHardValid ).toBool() )
       {
         item->setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
