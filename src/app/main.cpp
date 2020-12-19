@@ -97,7 +97,7 @@ int main( int argc, char **argv )
 #ifdef ANDROID
   QString projPath = AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
+  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
   qInstallMessageHandler( qfMessageHandler );
 
   QSettings settings;
@@ -105,7 +105,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().systemGenericDataLocation() );
+  app.setPkgDataPath( AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #else
   QgsApplication app( argc, argv, true );
 
