@@ -67,6 +67,9 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   {
     QString srcName = sourceFolder + QDir::separator() + file;
     QString destName = destFolder + QDir::separator() + file;
+    if ( QFile::exists( destName ) )
+      QFile::remove( destName );
+
     bool success = QFile::copy( srcName, destName );
     if ( !success )
       return false;
