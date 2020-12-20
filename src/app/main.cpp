@@ -95,9 +95,9 @@ int main( int argc, char **argv )
   QGuiApplication::setAttribute( Qt::AA_EnableHighDpiScaling );
   QtWebView::initialize();
 #ifdef ANDROID
-  QString projPath = AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/proj" );
+  QString projPath = PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/proj" );
   qputenv( "PROJ_LIB", projPath.toUtf8() );
-  QgsApplication app( argc, argv, true, AndroidPlatformUtilities().systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
+  QgsApplication app( argc, argv, true, PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis/resources" ) );
   qInstallMessageHandler( qfMessageHandler );
 
   QSettings settings;
@@ -105,7 +105,7 @@ int main( int argc, char **argv )
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
   app.setPrefixPath( "" QGIS_INSTALL_DIR, true );
   app.setPluginPath( QApplication::applicationDirPath() );
-  app.setPkgDataPath( AndroidPlatformUtilities().systemGenericDataLocation() );
+  app.setPkgDataPath( PlatformUtilities::instance()->systemGenericDataLocation() + QStringLiteral( "/qgis" ) );
 #else
   QgsApplication app( argc, argv, true );
 
