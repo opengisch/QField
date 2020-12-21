@@ -18,6 +18,7 @@ Item {
     anchors.right: parent.right
     font: Theme.defaultFont
     color: 'gray'
+    wrapMode: Text.Wrap
 
     text: value == null ? '' : stringUtilities.insertLinks(value)
 
@@ -26,7 +27,6 @@ Item {
 
   TextField {
     id: textField
-    height: textArea.height == 0 ? Math.max(fontMetrics.height, fontMetrics.boundingRect(text).height) + 20: 0
     topPadding: 10
     bottomPadding: 10
     visible: height !== 0 && isEnabled
@@ -34,6 +34,7 @@ Item {
     anchors.right: parent.right
     font: Theme.defaultFont
     color: 'black'
+    wrapMode: TextInput.Wrap
 
     text: value == null ? '' : value
 
