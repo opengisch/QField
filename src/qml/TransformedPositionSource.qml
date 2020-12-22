@@ -3,7 +3,7 @@ import QtPositioning 5.3
 import org.qfield 1.0
 import org.qgis 1.0
 import Utils 1.0
-import QtBluetooth 5.15
+import QtBluetooth 5.14
 
 Item{
     id: positionSource
