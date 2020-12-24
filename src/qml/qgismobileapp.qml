@@ -800,6 +800,26 @@ ApplicationWindow {
       iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
 
       readonly property bool linkActive: gpsButton.state == "On" && checked
+
+      onCheckedChanged: {
+        if (gpsButton.state == "On") {
+            if (checked) {
+                displayToast( qsTr( "Coordinate cursor now locked to position" ) )
+                if (positionSource.positionInfo.latitudeValid) {
+                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
+                  if ( screenLocation.x < 0 || screenLocation.x > mainWindow.width ||
+                       screenLocation.y < 0 || screenLocation.y > mainWindow.height )
+                  {
+                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+                  }
+                }
+            }
+            else
+            {
+                displayToast( qsTr( "Coordinate cursor unlocked" ) )
+            }
+        }
+      }
     }
 
     QfToolButton {
