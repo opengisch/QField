@@ -57,7 +57,7 @@ Page {
       }
       ListElement {
           title: qsTr( "Show digitizing information" )
-          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
+          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
           settingAlias: "numericalDigitizingInformation"
       }
       ListElement {
