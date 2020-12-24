@@ -801,18 +801,36 @@ ApplicationWindow {
 
     QfToolButton {
       id: gpsLinkButton
-      visible: gpsButton.state == "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
+      state: linkActive ? "On" : "Off"
+      visible: gpsButton.state === "On" && ( stateMachine.state === "digitize" || stateMachine.state === 'measure' )
       round: true
       checkable: true
       anchors.right: parent.right
 
-      bgcolor: Theme.darkGray
-      iconSource: linkActive ? Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" ) : Theme.getThemeIcon( "ic_gps_link_white_24dp" )
+      readonly property bool linkActive: gpsButton.state === "On" && checked
 
-      readonly property bool linkActive: gpsButton.state == "On" && checked
+      states: [
+        State {
+          name: "Off"
+          PropertyChanges {
+            target: gpsLinkButton
+            iconSource: Theme.getThemeIcon( "ic_gps_link_white_24dp" )
+            bgcolor: Theme.darkGraySemiOpaque
+          }
+        },
+
+        State {
+          name: "On"
+          PropertyChanges {
+            target: gpsLinkButton
+            iconSource: Theme.getThemeIcon( "ic_gps_link_activated_white_24dp" )
+            bgcolor: Theme.darkGray
+          }
+        }
+      ]
 
       onCheckedChanged: {
-        if (gpsButton.state == "On") {
+        if (gpsButton.state === "On") {
             if (checked) {
                 displayToast( qsTr( "Coordinate cursor now locked to position" ) )
                 if (positionSource.positionInfo.latitudeValid) {
@@ -840,8 +858,6 @@ ApplicationWindow {
 
       anchors.right: parent.right
 
-      bgcolor: "#64B5F6"
-
       onIconSourceChanged: {
         if( state === "On" ){
           if( positionSource.positionInfo.latitudeValid ) {
@@ -856,7 +872,6 @@ ApplicationWindow {
 
       states: [
         State {
-
           name: "Off"
           PropertyChanges {
             target: gpsButton
@@ -871,7 +886,6 @@ ApplicationWindow {
             target: gpsButton
             iconSource: positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: followActive ? "#64B5F6" : Theme.darkGray
-            opacity:1
           }
         }
       ]
