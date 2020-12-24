@@ -97,7 +97,7 @@ Popup {
         Layout.fillWidth: true
         topPadding: 5
         bottomPadding: 5
-        text: qsTr('Show on map canvas')
+        text: qsTr('Show on map')
         font: Theme.defaultFont
         // everything but nonspatial vector layer
         visible: !!(index && (!isSpatialLayer() && layerTree.data( index, FlatLayerTreeModel.LayerType ) !== 'vectorlayer' || isSpatialLayer()))
