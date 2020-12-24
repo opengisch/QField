@@ -146,7 +146,7 @@ Popup {
         Layout.fillWidth: true
         Layout.topMargin: 5
         font: Theme.defaultFont
-        text: qsTr('Reload Data')
+        text: qsTr('Reload data')
         visible: reloadDataButtonVisible
         icon.source: Theme.getThemeVectorIcon( 'refresh_24dp' )
 
