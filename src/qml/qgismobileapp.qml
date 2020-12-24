@@ -181,7 +181,7 @@ ApplicationWindow {
 
     HoverHandler {
         id: hoverHandler
-        enabled: !qfieldSettings.mouseAsTouchScreen && !parent.isBeingTouched && !digitizingToolbar.rubberbandModel.frozen
+        enabled: !qfieldSettings.mouseAsTouchScreen && !gpsLinkButton.linkActive && !parent.isBeingTouched && !digitizingToolbar.rubberbandModel.frozen
         acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
         grabPermissions: PointerHandler.TakeOverForbidden
 
