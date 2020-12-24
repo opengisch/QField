@@ -584,6 +584,7 @@ Page {
 
     anchors {
       top: parent.top
+      topMargin: -1
       left: parent.left
       right: parent.right
     }

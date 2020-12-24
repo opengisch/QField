@@ -29,7 +29,6 @@ ToolBar {
 
   RowLayout {
     anchors.fill: parent
-
     Layout.margins: 0
 
     QfToolButton {

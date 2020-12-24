@@ -1684,7 +1684,6 @@ ApplicationWindow {
 
   QFieldSettings {
     id: qfieldSettings
-
     anchors.fill: parent
     visible: false
     focus: visible

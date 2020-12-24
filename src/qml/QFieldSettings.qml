@@ -77,6 +77,29 @@ Page {
       }
   }
 
+  header: PageHeader {
+      title: qsTr("QField Settings")
+      anchors {
+          top: parent.top
+          topMargin: -1
+      }
+
+      showApplyButton: true
+      showCancelButton: false
+
+      onFinished: {
+          parent.finished()
+          variableEditor.apply()
+      }
+    }
+
+  Keys.onReleased: {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true
+      variableEditor.apply()
+    }
+  }
+
   Rectangle {
     color: "white"
     anchors.fill: parent
@@ -363,25 +386,6 @@ Page {
               }
           }
       }
-    }
-  }
-
-  header: PageHeader {
-      title: qsTr("QField Settings")
-
-      showApplyButton: true
-      showCancelButton: false
-
-      onFinished: {
-          parent.finished()
-          variableEditor.apply()
-      }
-    }
-
-  Keys.onReleased: {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true
-      variableEditor.apply()
     }
   }
 }
