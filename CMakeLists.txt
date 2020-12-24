@@ -114,6 +114,8 @@ ENDIF (ANDROID)
 
 FIND_PACKAGE(Qt5 COMPONENTS Test Concurrent Core Qml Gui Xml Positioning Widgets PrintSupport Network Quick Svg OpenGL Sql PrintSupport Sensors WebView Bluetooth REQUIRED)
 
+SET(ENABLE_BLUETOOTH TRUE CACHE BOOL "Determines whether bluetooth scanning and connectivity will be enabled")
+
 ADD_SUBDIRECTORY(3rdparty/tessellate)
 ADD_SUBDIRECTORY(src/core)
 ADD_SUBDIRECTORY(src/app)

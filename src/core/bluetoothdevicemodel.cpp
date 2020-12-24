@@ -18,27 +18,35 @@
 #include "qgis.h"
 #include <QDebug>
 
-BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
-  : QAbstractListModel( parent ),
-    mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
+BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent ) : QAbstractListModel( parent )
 {
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( &mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
+#ifdef ENABLE_BLUETOOTH
+  mLocalDevice = std::make_unique<QBluetoothLocalDevice>();
+  mServiceDiscoveryAgent = std::make_unique<QBluetoothServiceDiscoveryAgent>;
+
+  connect( mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
+  connect( mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
   {
-    setLastError( mServiceDiscoveryAgent.errorString() );
+    setLastError( mServiceDiscoveryAgent->errorString() );
     setScanningStatus( Failed );
     endResetModel();
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
+  connect( mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
   {
     setScanningStatus( Succeeded );
     endResetModel();
   } );
-  connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
+  connect( mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
   {
     setScanningStatus( Canceled );
     endResetModel();
   } );
+#else
+  beginResetModel();
+  mDiscoveredDevices.clear();
+  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
+  endResetModel();
+#endif
 }
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
@@ -47,13 +55,20 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
   mDiscoveredDevices.clear();
   mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
 
-  if ( mServiceDiscoveryAgent.isActive() )
-    mServiceDiscoveryAgent.stop();
+  if ( mServiceDiscoveryAgent )
+  {
+    if ( mServiceDiscoveryAgent->isActive() )
+      mServiceDiscoveryAgent->stop();
 
-  mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
-  QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
-  mServiceDiscoveryAgent.start( discoveryMode );
-  setScanningStatus( Scanning );
+    mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
+    QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
+    mServiceDiscoveryAgent->start( discoveryMode );
+    setScanningStatus( Scanning );
+  }
+  else
+  {
+    endResetModel();
+  }
 }
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
