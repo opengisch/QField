@@ -68,6 +68,14 @@ Item {
     mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0
   }
 
+  function zoomIn(point) {
+    mapCanvasWrapper.zoom(point, 0.5)
+  }
+
+  function zoomOut(point) {
+    mapCanvasWrapper.zoom(point, 1.5)
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 

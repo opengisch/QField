@@ -832,6 +832,40 @@ ApplicationWindow {
   }
 
   Column {
+    id: zoomToolbar
+    anchors.right: mapCanvas.right
+    anchors.rightMargin: 4
+    anchors.bottom: mapCanvas.bottom
+    anchors.bottomMargin: ( mapCanvas.height - zoomToolbar.height / 2 ) / 2
+    spacing: 4
+
+    QfToolButton {
+      id: zoomInButton
+      round: true
+      anchors.right: parent.right
+
+      bgcolor: Theme.darkGray
+      iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
+
+      onClicked: {
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+      }
+    }
+    QfToolButton {
+      id: zoomOutButton
+      round: true
+      anchors.right: parent.right
+
+      bgcolor: Theme.darkGray
+      iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+
+      onClicked: {
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
+      }
+    }
+  }
+
+  Column {
     id: locationToolbar
     anchors.right: mapCanvas.right
     anchors.rightMargin: 4
