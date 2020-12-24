@@ -21,11 +21,11 @@ Item {
           name: "on"
           PropertyChanges { target: searchField; visible: true; }
           PropertyChanges { target: searchField; width: mainWindow.width - 62 }
-          PropertyChanges { target: clearButton; visible: true; }
+          PropertyChanges { target: clearButtonRect; visible: true; }
       },
       State {
         name: "off"
-        PropertyChanges { target: clearButton; visible: false; }
+        PropertyChanges { target: clearButtonRect; visible: false; }
         PropertyChanges { target: searchField; width: 48 }
         PropertyChanges { target: searchField; visible: false; }
       }
@@ -38,14 +38,14 @@ Item {
         SequentialAnimation {
           PropertyAnimation { target: searchField; property: "visible"; duration: 0 }
           NumberAnimation { target: searchField; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
-          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
         }
       },
       Transition {
         from: "on"
         to: "off"
         SequentialAnimation {
-          PropertyAnimation { target: clearButton; property: "visible"; duration: 0 }
+          PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchField; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
           PropertyAnimation { target: searchField; property: "visible"; duration: 0 }
         }
@@ -102,23 +102,32 @@ Item {
     height: searchField.height - 10
   }
 
-  Image {
-    id: clearButton
+  Rectangle {
+    id: clearButtonRect
+    width: 40
+    height: 40
     z: 12
-    width: 20
-    height: 20
-    source: Theme.getThemeIcon("ic_clear_black_18dp")
-    sourceSize.width: 20 * screen.devicePixelRatio
-    sourceSize.height: 20 * screen.devicePixelRatio
-    fillMode: Image.PreserveAspectFit
+    color: "transparent"
     anchors.centerIn: busyIndicator
-    opacity: searchField.text.length > 0 ? 1 : 0.25
     visible: false
+
+    Image {
+      id: clearButton
+      z: 12
+      width: 20
+      height: 20
+      source: Theme.getThemeIcon("ic_clear_black_18dp")
+      sourceSize.width: 20 * screen.devicePixelRatio
+      sourceSize.height: 20 * screen.devicePixelRatio
+      fillMode: Image.PreserveAspectFit
+      anchors.centerIn: clearButtonRect
+      opacity: searchField.displayText.length > 0 ? 1 : 0.25
+    }
 
     MouseArea {
       anchors.fill: parent
       onClicked: {
-        if (searchField.text.length > 0) {
+        if (searchField.displayText.length > 0) {
           searchField.text = '';
         } else {
           locatorItem.state = "off"
