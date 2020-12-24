@@ -751,7 +751,7 @@ ApplicationWindow {
     QfToolButton {
       id: freehandButton
       round: true
-      visible: hoverHandler.hovered && stateMachine.state === "digitize"
+      visible: hoverHandler.hovered && !gpsLinkButton.linkActive && stateMachine.state === "digitize"
           && dashBoard.currentLayer
           && dashBoard.currentLayer.isValid
           && ( dashBoard.currentLayer.geometryType() === QgsWkbTypes.PolygonGeometry || dashBoard.currentLayer.geometryType() === QgsWkbTypes.LineGeometry )
@@ -764,7 +764,6 @@ ApplicationWindow {
 
       states: [
         State {
-
           name: "Off"
           PropertyChanges {
             target: freehandButton
@@ -832,6 +831,10 @@ ApplicationWindow {
       onCheckedChanged: {
         if (gpsButton.state === "On") {
             if (checked) {
+                if (freehandButton.freehandDigitizing) {
+                    // deactivate freehand digitizing when cursor locked is on
+                    freehandButton.clicked();
+                }
                 displayToast( qsTr( "Coordinate cursor now locked to position" ) )
                 if (positionSource.positionInfo.latitudeValid) {
                   var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
