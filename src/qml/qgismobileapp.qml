@@ -555,8 +555,18 @@ ApplicationWindow {
       crs: qgisProject.crs
     }
 
-    x: mapCanvas.width / 2 + 10
-    y: mapCanvas.height / 2 + 22
+    x: {
+        var newX = coordinateLocator.displayPosition.x + 20;
+        if (newX + width > mapCanvas.x + mapCanvas.width)
+            newX -= width + 40;
+        return newX;
+    }
+    y: {
+        var newY = coordinateLocator.displayPosition.y + 10
+        if (newY + height > mapCanvas.y + mapCanvas.height)
+            newY -= height - 20;
+        return newY;
+    }
 
     text: ( qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize" ) || stateMachine.state === 'measure' ?
               '%1%2%3%4'
