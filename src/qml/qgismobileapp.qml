@@ -555,6 +555,7 @@ ApplicationWindow {
       crs: qgisProject.crs
     }
 
+    // The position is dynamically calculated to follow the coordinate locator
     x: {
         var newX = coordinateLocator.displayPosition.x + 20;
         if (newX + width > mapCanvas.x + mapCanvas.width)
