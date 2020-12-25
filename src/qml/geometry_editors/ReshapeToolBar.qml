@@ -39,6 +39,7 @@ VisibilityFadingRow {
 
         onConfirm: {
             rubberbandModel.frozen = true
+            rubberbandModel.removeVertex()
             if (!featureModel.currentLayer.editBuffer())
                 featureModel.currentLayer.startEditing()
             var result = GeometryUtils.reshapeFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
