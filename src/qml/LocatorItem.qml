@@ -138,11 +138,10 @@ Item {
       anchors.fill: parent
       onClicked: {
         if (searchField.displayText.length > 0) {
-          searchField.displayText = '';
+          searchButton.forceActiveFocus();
           searchField.text = '';
+          searchField.forceActiveFocus();
         } else {
-          searchField.displayText = '';
-          searchField.text = '';
           locatorItem.state = "off"
         }
       }
