@@ -925,9 +925,6 @@ ApplicationWindow {
       }
 
       onPressAndHold: {
-        console.log(locationToolbar.x)
-        console.log(width)
-        console.log(gpsMenu.width)
         gpsMenu.popup(locationToolbar.x + locationToolbar.width - gpsMenu.width, locationToolbar.y + locationToolbar.height - gpsMenu.height)
       }
 
@@ -1855,4 +1852,3 @@ ApplicationWindow {
       isHovering: hoverHandler.hovered
   }
 }
-
