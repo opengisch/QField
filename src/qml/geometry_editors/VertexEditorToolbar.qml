@@ -84,7 +84,7 @@ VisibilityFadingRow {
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+    iconSource: Theme.getThemeIcon( "ic_remove_vertex_white_24dp" )
     round: true
     visible: featureModel.vertexModel.canRemoveVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
@@ -103,7 +103,7 @@ VisibilityFadingRow {
   QfToolButton {
     id: addVertexButton
     iconSource: Theme.getThemeIcon( featureModel.vertexModel.editingMode === VertexModel.AddVertex ?
-                                     "ic_my_location_white_24dp" : "ic_add_white_24dp" )
+                                     "ic_my_location_white_24dp" : "ic_add_vertex_white_24dp" )
     round: true
     visible:  !screenHovering && featureModel.vertexModel.canAddVertex // for now, TODO multi geom
     bgcolor: Theme.darkGray
