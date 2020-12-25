@@ -325,6 +325,11 @@
         <file>themes/qfield/xhdpi/ic_split_tool_white_24dp.png</file>
         <file>themes/qfield/xxhdpi/ic_split_tool_white_24dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_split_tool_white_24dp.png</file>
+        <file>themes/qfield/hdpi/ic_reshape_tool_white_24dp.png</file>
+        <file>themes/qfield/mdpi/ic_reshape_tool_white_24dp.png</file>
+        <file>themes/qfield/xhdpi/ic_reshape_tool_white_24dp.png</file>
+        <file>themes/qfield/xxhdpi/ic_reshape_tool_white_24dp.png</file>
+        <file>themes/qfield/xxxhdpi/ic_reshape_tool_white_24dp.png</file>
         <file>themes/qfield/hdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/mdpi/ic_ring_tool_white_24dp.png</file>
         <file>themes/qfield/xhdpi/ic_ring_tool_white_24dp.png</file>

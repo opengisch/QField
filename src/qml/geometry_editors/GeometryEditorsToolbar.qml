@@ -43,6 +43,7 @@ VisibilityFadingRow {
   Component.onCompleted: {
     editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "VertexEditorToolbar.qml")
     editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "ReshapeToolBar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
   }
 

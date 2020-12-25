@@ -28,6 +28,7 @@
         <file>geometry_editors/VertexEditorToolbar.qml</file>
         <file>geometry_editors/GeometryEditorsToolbar.qml</file>
         <file>geometry_editors/SplitFeatureToolbar.qml</file>
+        <file>geometry_editors/ReshapeToolBar.qml</file>
         <file>geometry_editors/FillRingToolBar.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
