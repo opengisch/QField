@@ -1061,13 +1061,51 @@ ApplicationWindow {
     id: mainMenu
     title: qsTr( "Main Menu" )
 
-    width: Math.max(200, mainWindow.width/4)
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return result + padding * 2;
+    }
+
+    MenuItem {
+      text: qsTr( 'Measure Tool' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        dashBoard.close()
+        changeMode( 'measure' )
+        highlighted = false
+      }
+    }
+
+    MenuItem {
+      id: printItem
+      text: qsTr( "Print to PDF" )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      onTriggered: {
+        printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+        highlighted = false
+      }
+    }
+
+    MenuSeparator { width: parent.width }
 
     MenuItem {
       id: openProjectMenuItem
 
       font: Theme.defaultFont
-      width: parent.width
       height: 48
       leftPadding: 10
 
@@ -1086,7 +1124,6 @@ ApplicationWindow {
       text: qsTr( "Settings" )
 
       font: Theme.defaultFont
-      width: parent.width
       height: 48
       leftPadding: 10
 
@@ -1098,25 +1135,9 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "About" )
+      text: qsTr( "View Log Messages" )
 
       font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        dashBoard.close()
-        aboutDialog.visible = true
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      text: qsTr( "Log" )
-
-      font: Theme.defaultFont
-      width: parent.width
       height: 48
       leftPadding: 10
 
@@ -1127,34 +1148,16 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: parent.width }
-
     MenuItem {
-      text: qsTr( 'Measure Tool' )
+      text: qsTr( "About QField" )
 
       font: Theme.defaultFont
-      width: parent.width
       height: 48
       leftPadding: 10
 
       onTriggered: {
         dashBoard.close()
-        changeMode( 'measure' )
-        highlighted = false
-      }
-    }
-
-    MenuItem {
-      id: printItem
-      text: qsTr( "Print to PDF" )
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: 48
-      leftPadding: 10
-
-      onTriggered: {
-        printMenu.popup( mainMenu.x, 2)
+        aboutDialog.visible = true
         highlighted = false
       }
     }
@@ -1192,8 +1195,16 @@ ApplicationWindow {
 
     signal enablePrintItem( int rows )
 
-    width: Math.max(200, mainWindow.width/3)
-    font: Theme.defaultFont
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
 
     Instantiator {
 
@@ -1215,6 +1226,16 @@ ApplicationWindow {
       }
       onObjectAdded: printMenu.insertItem(index, object)
       onObjectRemoved: printMenu.removeItem(object)
+    }
+
+    MenuItem {
+      text: qsTr( '(Select template above)' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      enabled: false
     }
 
     Connections {
