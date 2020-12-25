@@ -115,7 +115,12 @@ ApplicationWindow {
         displayToast( qsTr( 'You are now in browse mode' ) );
         break;
       case 'digitize':
-        displayToast( qsTr( 'You are now in digitize mode' ) );
+        dashBoard.ensureEditableLayerSelected();
+        if (dashBoard.currentLayer) {
+          displayToast( qsTr( 'You are now in digitize mode on layer %1' ).arg( dashBoard.currentLayer.name ) );
+        } else {
+          displayToast( qsTr( 'You are now in digitize mode' ) );
+        }
         break;
       case 'measure':
         displayToast( qsTr( 'You are now in measure mode' ) );
@@ -668,6 +673,30 @@ ApplicationWindow {
     onOpenedChanged: {
       if ( !opened && featureForm.visible )
         featureForm.focus = true
+    }
+
+    function ensureEditableLayerSelected() {
+      var firstEditableLayer = null;
+      var currentLayerLocked = false;
+      for(var i = 0; layerTree.rowCount(); i++) {
+        var index = layerTree.index(i,0)
+        if (firstEditableLayer === null) {
+          if (layerTree.data(index,FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+             firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+          }
+        }
+        if (currentLayer != null && currentLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) {
+           if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+             currentLayerLocked = true;
+           } else {
+             break;
+           }
+        }
+        if (firstEditableLayer !== null && (currentLayer === null || currentLayerLocked === true)) {
+          currentLayer = firstEditableLayer;
+          break;
+        }
+      }
     }
   }
 
@@ -1249,6 +1278,9 @@ ApplicationWindow {
         welcomeScreen.focus = false
         recentProjectListModel.reloadModel()
         settings.setValue( "/QField/FirstRunFlag", false )
+        if (stateMachine.state === "digitize") {
+            dashBoard.ensureEditableLayerSelected();
+        }
       }
     }
   }
