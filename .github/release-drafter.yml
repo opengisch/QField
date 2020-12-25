@@ -7,6 +7,9 @@ categories:
   - title: '🐛 Bug Fixes'
     labels:
       - 'BUG'
+  - title: '✨ Usability Improvements'
+    labels:
+      - 'UX/UI'
 include-labels:
   - 'ENHANCEMENT'
   - 'BUG'
