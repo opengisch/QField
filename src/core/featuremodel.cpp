@@ -23,6 +23,8 @@
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <qgsgeometryoptions.h>
+#include <qgsgeometrycollection.h>
+#include <qgscurvepolygon.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayerutils.h>
 
@@ -452,24 +454,43 @@ void FeatureModel::resetAttributes()
 
 void FeatureModel::applyGeometry()
 {
+  QString error;
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
-  QList<QgsVectorLayer *> intersectionLayers;
+  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == QgsWkbTypes::PolygonGeometry )
+  {
+    // Remove any invalid intersection in polygon geometry
+    QgsGeometry sanitizedGeometry;
+    if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+    {
+      QgsGeometryPartIterator parts = collection->parts();
+      while ( parts.hasNext() )
+      {
+        QgsGeometry part( parts.next() );
+        sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).get()->clone(), QgsWkbTypes::PolygonGeometry );
+      }
+    }
+    else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
+    {
+      sanitizedGeometry = geometry.buffer( 0, 5 );
+    }
+    if ( sanitizedGeometry.get()->isValid( error ) )
+      geometry = sanitizedGeometry;
 
-  switch ( QgsProject::instance()->avoidIntersectionsMode() )
-  {
-    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-      intersectionLayers.append( mLayer );
-      break;
-    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-      intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-      break;
-    case QgsProject::AvoidIntersectionsMode::AllowIntersections:
-      break;
-  }
-  if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
-  {
-    geometry.avoidIntersections( intersectionLayers );
+    QList<QgsVectorLayer *> intersectionLayers;
+    switch ( QgsProject::instance()->avoidIntersectionsMode() )
+    {
+      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+        intersectionLayers.append( mLayer );
+        break;
+      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+        intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+        break;
+      case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+        break;
+    }
+    if ( !intersectionLayers.isEmpty() )
+      geometry.avoidIntersections( intersectionLayers );
   }
 
   if ( mLayer && mLayer->geometryOptions()->geometryPrecision() != 0.0 )
@@ -479,9 +500,12 @@ void FeatureModel::applyGeometry()
     geometry = snappedGeometry;
   }
 
-  // Clean up the geometry
+  // Extra steps to insure a valid geometry
   geometry = geometry.makeValid();
-  geometry.removeDuplicateNodes( 7 );
+  QgsGeometry deduplicatedGeometry = geometry;
+  deduplicatedGeometry.removeDuplicateNodes( 7 );
+  if ( deduplicatedGeometry.get()->isValid( error ) )
+    geometry = deduplicatedGeometry;
 
   mFeature.setGeometry( geometry );
 }
