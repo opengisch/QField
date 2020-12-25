@@ -925,7 +925,10 @@ ApplicationWindow {
       }
 
       onPressAndHold: {
-        gpsMenu.popup()
+        console.log(locationToolbar.x)
+        console.log(width)
+        console.log(gpsMenu.width)
+        gpsMenu.popup(locationToolbar.x + locationToolbar.width - gpsMenu.width, locationToolbar.y + locationToolbar.height - gpsMenu.height)
       }
 
       function toggleGps() {
@@ -1275,22 +1278,30 @@ ApplicationWindow {
     id: gpsMenu
     title: qsTr( "Positioning Options" )
     font: Theme.defaultFont
-    width: Math.max(200, mainWindow.width/1.5)
+
+    width: {
+        var result = 0;
+        var padding = 0;
+        for (var i = 0; i < count; ++i) {
+            var item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.padding, padding);
+        }
+        return Math.min( result + padding * 2,mainWindow.width - 20);
+    }
 
     MenuItem {
       id: positioningItem
       text: qsTr( "Enable Positioning" )
-
       height: 48
       font: Theme.defaultFont
-      width: parent.width
+
       checkable: true
       checked: positioningSettings.positioningActivated
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-
       onCheckedChanged: {
         if ( checked ) {
             positioningSettings.positioningActivated = true
@@ -1300,30 +1311,13 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator { width: parent.width }
-
-    MenuItem {
-      text: qsTr( "Center to Current Location" )
-
-      height: 48
-      font: Theme.defaultFont
-      width: parent.width
-      onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
-      }
-    }
-
-    MenuSeparator { width: parent.width }
-
     MenuItem {
       text: qsTr( "Show Position Information" )
-
       height: 48
       font: Theme.defaultFont
-      width: parent.width
+
       checkable: true
       checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
-
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
@@ -1339,10 +1333,21 @@ ApplicationWindow {
       text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
       height: 48
       font: Theme.defaultFont
-      width: parent.width
 
       onTriggered: {
         positioningSettingsPopup.visible = true
+      }
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
+      text: qsTr( "Center to Current Location" )
+      height: 48
+      font: Theme.defaultFont
+
+      onTriggered: {
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition)
       }
     }
   }
