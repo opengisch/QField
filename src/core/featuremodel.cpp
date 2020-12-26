@@ -497,16 +497,18 @@ void FeatureModel::applyGeometry()
   {
     const double precision = mLayer->geometryOptions()->geometryPrecision();
     QgsGeometry snappedGeometry = geometry.snappedToGrid( precision, precision );
-    geometry = snappedGeometry;
+    if ( snappedGeometry.constGet()->isValid( error ) )
+      geometry = snappedGeometry;
+  }
+  else
+  {
+    QgsGeometry deduplicatedGeometry = geometry;
+    deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
+    if ( deduplicatedGeometry.constGet()->isValid( error ) )
+      geometry = deduplicatedGeometry;
   }
 
-  // Extra steps to insure a valid geometry
   geometry = geometry.makeValid();
-  QgsGeometry deduplicatedGeometry = geometry;
-  deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
-  if ( deduplicatedGeometry.constGet()->isValid( error ) )
-    geometry = deduplicatedGeometry;
-
   mFeature.setGeometry( geometry );
 }
 
