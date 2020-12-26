@@ -116,9 +116,12 @@ ApplicationWindow {
         break;
       case 'digitize':
         dashBoard.ensureEditableLayerSelected();
-        if (dashBoard.currentLayer) {
+        if (dashBoard.currentLayer)
+        {
           displayToast( qsTr( 'You are now in digitize mode on layer %1' ).arg( dashBoard.currentLayer.name ) );
-        } else {
+        }
+        else
+        {
           displayToast( qsTr( 'You are now in digitize mode' ) );
         }
         break;
@@ -678,21 +681,29 @@ ApplicationWindow {
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var currentLayerLocked = false;
-      for(var i = 0; layerTree.rowCount(); i++) {
+      for (var i = 0; layerTree.rowCount(); i++)
+      {
         var index = layerTree.index(i,0)
-        if (firstEditableLayer === null) {
-          if (layerTree.data(index,FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+        if (firstEditableLayer === null)
+        {
+          if (layerTree.data(index,FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false)
+          {
              firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
-        if (currentLayer != null && currentLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) {
-           if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+        if (currentLayer != null && currentLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer))
+        {
+           if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false)
+           {
              currentLayerLocked = true;
-           } else {
+           }
+           else
+           {
              break;
            }
         }
-        if (firstEditableLayer !== null && (currentLayer === null || currentLayerLocked === true)) {
+        if (firstEditableLayer !== null && (currentLayer === null || currentLayerLocked === true))
+        {
           currentLayer = firstEditableLayer;
           break;
         }
