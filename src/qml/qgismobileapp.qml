@@ -1421,6 +1421,16 @@ ApplicationWindow {
     }
 
     MenuItem {
+        id: positioningDeviceName
+        text: settings.value("positioningDeviceName", qsTr( "Internal device" ))
+        height: 48
+        font: Theme.defaultFont
+        enabled:false
+    }
+
+    MenuSeparator { width: parent.width }
+
+    MenuItem {
       id: positioningItem
       text: qsTr( "Enable Positioning" )
       height: 48
