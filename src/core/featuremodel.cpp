@@ -503,7 +503,7 @@ void FeatureModel::applyGeometry()
   // Extra steps to insure a valid geometry
   geometry = geometry.makeValid();
   QgsGeometry deduplicatedGeometry = geometry;
-  deduplicatedGeometry.removeDuplicateNodes( 7 );
+  deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
   if ( deduplicatedGeometry.constGet()->isValid( error ) )
     geometry = deduplicatedGeometry;
 
