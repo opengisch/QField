@@ -467,14 +467,14 @@ void FeatureModel::applyGeometry()
       while ( parts.hasNext() )
       {
         QgsGeometry part( parts.next() );
-        sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).get()->clone(), QgsWkbTypes::PolygonGeometry );
+        sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), QgsWkbTypes::PolygonGeometry );
       }
     }
     else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
     {
       sanitizedGeometry = geometry.buffer( 0, 5 );
     }
-    if ( sanitizedGeometry.get()->isValid( error ) )
+    if ( sanitizedGeometry.constGet()->isValid( error ) )
       geometry = sanitizedGeometry;
 
     QList<QgsVectorLayer *> intersectionLayers;
@@ -504,7 +504,7 @@ void FeatureModel::applyGeometry()
   geometry = geometry.makeValid();
   QgsGeometry deduplicatedGeometry = geometry;
   deduplicatedGeometry.removeDuplicateNodes( 7 );
-  if ( deduplicatedGeometry.get()->isValid( error ) )
+  if ( deduplicatedGeometry.constGet()->isValid( error ) )
     geometry = deduplicatedGeometry;
 
   mFeature.setGeometry( geometry );
