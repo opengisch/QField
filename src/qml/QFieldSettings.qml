@@ -268,6 +268,10 @@ Page {
                           }
                       }
 
+                      Component.onCompleted: {
+                          currentIndex = find(positioningDeviceName + ' (' + positioningDevice + ')');
+                      }
+
                       Connections {
                         target: bluetoothDeviceModel
 
@@ -356,7 +360,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 font: Theme.defaultFont
-                text: positionSource.bluetoothSocketState !== BluetoothSocket.Unconnected ? qsTr('Connecting %1') : qsTr('Connect %1').arg(positioningDeviceName)
+                text: positionSource.bluetoothSocketState !== BluetoothSocket.Unconnected ? qsTr('Connecting %1').arg(positioningDeviceName) : qsTr('Connect %1').arg(positioningDeviceName)
                 enabled: positionSource.bluetoothSocketState !== BluetoothSocket.Connecting
                 visible: positioningDevice !== 'internal' && positionSource.bluetoothSocketState !== BluetoothSocket.ConnectedState && bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
 
