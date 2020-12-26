@@ -37,7 +37,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     enum BluetoothDeviceRoles
     {
       DeviceAddressRole = Qt::UserRole + 1,
-      DisplayStringRole
+      DeviceNameRole,
     };
     Q_ENUM( BluetoothDeviceRoles )
 

@@ -1,9 +1,11 @@
 import QtQuick 2.12
 import QtPositioning 5.3
+import QtBluetooth 5.14
+
 import org.qfield 1.0
 import org.qgis 1.0
+
 import Utils 1.0
-import QtBluetooth 5.14
 
 Item{
     id: positionSource
@@ -22,6 +24,7 @@ Item{
     property bool active
     property string name
     property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
+    property alias bluetoothSocketState: bluetoothPositionSource.socketState
     property bool currentness: false
 
     property CoordinateTransformer ct: CoordinateTransformer {

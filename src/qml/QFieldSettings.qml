@@ -1,8 +1,9 @@
 import QtQuick 2.11
-
-import Qt.labs.settings 1.0
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.4
+import QtBluetooth 5.14
+import Qt.labs.settings 1.0
+
 import org.qfield 1.0
 
 import Theme 1.0
@@ -20,6 +21,7 @@ Page {
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias verticalGrid: registry.verticalGrid
   property alias positioningDevice: registry.positioningDevice
+  property alias positioningDeviceName: registry.positioningDeviceName
 
   Settings {
     id: registry
@@ -33,6 +35,7 @@ Page {
     property bool mouseAsTouchScreen
     property string verticalGrid: ""
     property string positioningDevice: "internal"
+    property string positioningDeviceName: qsTr( "Internal device" );
   }
 
   ListModel {
@@ -232,7 +235,7 @@ Page {
               anchors.rightMargin: 18
 
               Label {
-                  text: qsTr( "Select the positioning device (current: "+positioningDevice+")" )
+                  text: qsTr( "Select the positioning device" )
                   font: Theme.defaultFont
 
                   wrapMode: Text.WordWrap
@@ -242,8 +245,9 @@ Page {
               RowLayout {
                   ComboBox {
                       id: bluetoothDeviceCombo
-                      enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                      enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
                       Layout.fillWidth: true
+                      Layout.alignment: Qt.AlignVCenter
                       textRole: 'display'
                       model: BluetoothDeviceModel {
                           id: bluetoothDeviceModel
@@ -252,13 +256,14 @@ Page {
                       property string selectedPositioningDevice
 
                       onCurrentIndexChanged: {
-                          if( bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning )
+                          if( bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning )
                           {
                             selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
                           if( positioningDevice !== selectedPositioningDevice )
                           {
                             positioningDevice = selectedPositioningDevice
+                            positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
                             positionSource.device = positioningDevice
                           }
                       }
@@ -283,29 +288,38 @@ Page {
                       }
                   }
 
-                  QfButton {
-                    id: scanButton
-                    Layout.fillWidth: true
-                    Layout.topMargin: 5
-                    font: Theme.defaultFont
-                    text: qsTr('Scan')
+                  Rectangle {
+                      color: "transparent"
+                      Layout.preferredWidth: childrenRect.width
+                      Layout.preferredHeight: childrenRect.height
+                      Layout.alignment: Qt.AlignVCenter
 
-                    onClicked: {
-                        bluetoothDeviceModel.startServiceDiscovery( false )
-                    }
-                    onPressAndHold: {
-                      fullDiscoveryDialog.open()
-                    }
+                      QfButton {
+                        id: scanButton
+                        leftPadding: 10
+                        rightPadding: 10
+                        font: Theme.defaultFont
+                        text: qsTr('Scan')
 
-                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                        onClicked: {
+                            bluetoothDeviceModel.startServiceDiscovery( false )
+                        }
+                        onPressAndHold: {
+                          fullDiscoveryDialog.open()
+                        }
 
-                    BusyIndicator {
-                      id: busyIndicator
-                      anchors.centerIn: parent
-                      width: 36
-                      height: 36
-                      running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
-                    }
+                        enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
+                        opacity: enabled ? 1 : 0
+                      }
+
+
+                      BusyIndicator {
+                        id: busyIndicator
+                        anchors.centerIn: scanButton
+                        width: 36
+                        height: 36
+                        running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
+                      }
                   }
 
                   Dialog {
@@ -342,18 +356,13 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 font: Theme.defaultFont
-                text: qsTr('Reconnect device %1').arg(positioningDevice)
+                text: positionSource.bluetoothSocketState !== BluetoothSocket.Unconnected ? qsTr('Connecting %1') : qsTr('Connect %1').arg(positioningDeviceName)
+                enabled: positionSource.bluetoothSocketState !== BluetoothSocket.Connecting
+                visible: positioningDevice !== 'internal' && positionSource.bluetoothSocketState !== BluetoothSocket.ConnectedState && bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
 
                 onClicked: {
                     positionSource.connectBluetoothSource()
                 }
-                enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
-              }
-
-              onVisibleChanged: {
-                  if( visible === true && !bluetoothDeviceModel.rowCount() ){
-                      bluetoothDeviceModel.startServiceDiscovery( false )
-                  }
               }
 
               Item {
