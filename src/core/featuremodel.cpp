@@ -493,15 +493,9 @@ void FeatureModel::applyGeometry()
       geometry.avoidIntersections( intersectionLayers );
   }
 
-  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() != 0.0 )
+  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
   {
-    const double precision = mLayer->geometryOptions()->geometryPrecision();
-    QgsGeometry snappedGeometry = geometry.snappedToGrid( precision, precision );
-    if ( snappedGeometry.constGet()->isValid( error ) )
-      geometry = snappedGeometry;
-  }
-  else
-  {
+    // Still do a bit of node cleanup
     QgsGeometry deduplicatedGeometry = geometry;
     deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
     if ( deduplicatedGeometry.constGet()->isValid( error ) )
