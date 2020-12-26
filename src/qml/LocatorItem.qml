@@ -22,9 +22,11 @@ Item {
           PropertyChanges { target: searchFieldRect; visible: true; }
           PropertyChanges { target: searchFieldRect; width: mainWindow.width - 62 }
           PropertyChanges { target: clearButtonRect; visible: true; }
+          PropertyChanges { target: busyIndicator; visible: true; }
       },
       State {
         name: "off"
+        PropertyChanges { target: busyIndicator; visible: false; }
         PropertyChanges { target: clearButtonRect; visible: false; }
         PropertyChanges { target: searchFieldRect; width: 48 }
         PropertyChanges { target: searchFieldRect; visible: false; }
@@ -39,12 +41,14 @@ Item {
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 250 }
           PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
+          PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
         }
       },
       Transition {
         from: "on"
         to: "off"
         SequentialAnimation {
+          PropertyAnimation { target: busyIndicator; property: "visible"; duration: 0 }
           PropertyAnimation { target: clearButtonRect; property: "visible"; duration: 0 }
           NumberAnimation { target: searchFieldRect; easing.type: Easing.InOutQuad; properties: "width"; duration: 150 }
           PropertyAnimation { target: searchFieldRect; property: "visible"; duration: 0 }
@@ -110,6 +114,7 @@ Item {
     anchors.right: searchButton.left
     anchors.verticalCenter: searchFieldRect.verticalCenter
     height: searchFieldRect.height - 10
+    visible: false
   }
 
   Rectangle {
@@ -158,7 +163,7 @@ Item {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      locatorItem.state = "on"
+      locatorItem.state = locatorItem.state =="off" ? "on" : "off"
     }
   }
 
