@@ -368,8 +368,8 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 font: Theme.defaultFont
-                text: positionSource.bluetoothSocketState !== BluetoothSocket.Unconnected ? qsTr('Connecting %1').arg(positioningDeviceName) : qsTr('Connect %1').arg(positioningDeviceName)
-                enabled: positionSource.bluetoothSocketState !== BluetoothSocket.Connecting
+                text: positionSource.bluetoothSocketState !== BluetoothSocket.UnconnectedState ? qsTr('Connecting %1').arg(positioningDeviceName) : qsTr('Connect %1').arg(positioningDeviceName)
+                enabled: positionSource.bluetoothSocketState !== BluetoothSocket.ConnectingState
                 visible: positioningDevice !== 'internal' && positionSource.bluetoothSocketState !== BluetoothSocket.ConnectedState && bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
 
                 onClicked: {
