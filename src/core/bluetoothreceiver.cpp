@@ -44,11 +44,28 @@ void BluetoothReceiver::disconnectDevice()
 
 void BluetoothReceiver::connectDevice( const QString &address )
 {
-  disconnectDevice();
   if ( address.isEmpty() || address == QStringLiteral( "internal" ) )
+  {
+    disconnectDevice();
     return;
+  }
 
   qDebug() << "BluetoothReceiver: Connect device: " << address;
+
+  if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
+  {
+    mAddressToConnect = address;
+    disconnectDevice();
+  }
+  else
+  {
+    doConnectDevice( address );
+  }
+}
+
+void BluetoothReceiver::doConnectDevice( const QString &address )
+{
+  mAddressToConnect.clear();
 
   //repairing only needed in the linux (not android) environment
 #ifndef Q_OS_ANDROID
@@ -71,14 +88,6 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   if ( mSocketState == socketState )
     return;
 
-  setSocketStateString( socketState );
-
-  mSocketState = socketState;
-  emit socketStateChanged( mSocketState );
-}
-
-void BluetoothReceiver::setSocketStateString( const QBluetoothSocket::SocketState socketState )
-{
   switch ( socketState )
   {
     case QBluetoothSocket::ConnectingState:
@@ -96,6 +105,8 @@ void BluetoothReceiver::setSocketStateString( const QBluetoothSocket::SocketStat
       mSocketStateString = tr( "Disconnected" );
       if ( mSocket->error() != QBluetoothSocket::NoSocketError )
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
+      if ( !mAddressToConnect.isEmpty() )
+        doConnectDevice( mAddressToConnect );
       break;
     }
     default:
@@ -104,6 +115,8 @@ void BluetoothReceiver::setSocketStateString( const QBluetoothSocket::SocketStat
     }
   }
 
+  mSocketState = socketState;
+  emit socketStateChanged( mSocketState );
   emit socketStateStringChanged( mSocketStateString );
 }
 
