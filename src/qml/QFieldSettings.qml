@@ -355,22 +355,24 @@ Page {
                   }
               }
 
-              Label {
-                  text: qsTr( "Status: %1" ).arg( positionSource.bluetoothSocketState )
-                  font: Theme.defaultFont
-
-                  wrapMode: Text.WordWrap
-                  Layout.fillWidth: true
-              }
-
               QfButton {
                 id: connectButton
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 font: Theme.defaultFont
-                text: positionSource.bluetoothSocketState !== BluetoothSocket.UnconnectedState ? qsTr('Connecting to %1').arg(positioningDeviceName) : qsTr('Connect  to %1').arg(positioningDeviceName)
-                enabled: positionSource.bluetoothSocketState === BluetoothSocket.UnconnectedState
-                visible: positioningDevice !== 'internal' && positionSource.bluetoothSocketState !== BluetoothSocket.ConnectedState
+                text: {
+                  switch (positionSource.bluetoothSocketState)
+                  {
+                    case BluetoothSocket.Connected:
+                      return qsTr('Connected to %1').arg(positioningDeviceName)
+                    case BluetoothSocket.Unconnected:
+                      return qsTr('Connect  to %1').arg(positioningDeviceName)
+                    default:
+                      return qsTr('Connecting to %1').arg(positioningDeviceName)
+                  }
+                }
+                enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
+                visible: positioningDevice !== 'internal'
 
                 onClicked: {
                     positionSource.connectBluetoothSource()

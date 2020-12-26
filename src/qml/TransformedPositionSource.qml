@@ -86,7 +86,7 @@ Item{
         id: bluetoothPositionSource
 
         property bool active: device !== 'internal' && positionSource.active
-        property bool valid: socketState === BluetoothSocket.ConnectedState
+        property bool valid: socketState === BluetoothSocket.Connected
 
         onSocketStateChanged: {
             displayToast( socketStateString )
