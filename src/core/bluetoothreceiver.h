@@ -81,7 +81,7 @@ class BluetoothReceiver : public QObject
     std::unique_ptr<QBluetoothSocket> mSocket;
     std::unique_ptr<QgsNmeaConnection> mGpsConnection;
     GnssPositionInformation mLastGnssPositionInformation;
-    QBluetoothSocket::SocketState mSocketState;
+    QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
     QString mSocketStateString;
 
     QString mAddressToConnect;
