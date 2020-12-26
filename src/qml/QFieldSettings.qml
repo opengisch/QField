@@ -355,6 +355,14 @@ Page {
                   }
               }
 
+              Label {
+                  text: qsTr( "Status: %1" ).arg( positionSource.bluetoothSocketState )
+                  font: Theme.defaultFont
+
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+              }
+
               QfButton {
                 id: connectButton
                 Layout.fillWidth: true
