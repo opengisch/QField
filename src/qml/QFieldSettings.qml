@@ -79,10 +79,7 @@ Page {
 
   header: PageHeader {
       title: qsTr("QField Settings")
-      anchors {
-          top: parent.top
-          topMargin: -1
-      }
+      anchors.top: parent.top
 
       showApplyButton: true
       showCancelButton: false

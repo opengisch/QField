@@ -1685,6 +1685,7 @@ ApplicationWindow {
   QFieldSettings {
     id: qfieldSettings
     anchors.fill: parent
+    anchors.topMargin: -1
     visible: false
     focus: visible
 
