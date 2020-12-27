@@ -66,7 +66,7 @@ cd QField
 git submodule update --init --recursive
 ```
 
- * Open CMakeList.txt with QtCreator
+ * Open `CMakeList.txt` with QtCreator
  * Hit build
 
 If you make your own QGIS build, use the following variables: `QGIS_PREFIX_PATH`.
