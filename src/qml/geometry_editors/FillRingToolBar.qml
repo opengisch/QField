@@ -71,7 +71,7 @@ VisibilityFadingRow {
         questionDialog.nButtons = 3
         questionDialog.button1Text = qsTr("Cancel")
         questionDialog.button2Text = qsTr("Add ring")
-        questionDialog.button3Text = qsTr("Fill poylgon")
+        questionDialog.button3Text = qsTr("Fill polygon")
 
         questionDialog.button1Clicked.connect(rollbackRingAndCancel)
         questionDialog.button2Clicked.connect(commitAndFinish)
