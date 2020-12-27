@@ -17,8 +17,8 @@ Item{
     property alias deltaZ: _ct.deltaZ
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
-    // this sets as well the mode (internal/bluetooth)
-    property string device: 'internal'
+    // this sets as well the mode (empty is internal, otherwise bluetooth)
+    property string device: ''
 
     // proxy variables
     property bool active
@@ -58,7 +58,7 @@ Item{
     }
 
     function connectBluetoothSource(){
-        if( active && device !== 'internal' ) {
+        if( active && device !== '' ) {
             positionSource.name = device
             bluetoothPositionSource.connectDevice(device)
         }
@@ -67,7 +67,7 @@ Item{
     PositionSource {
         id: qtPositionSource
 
-        active: device === 'internal' && positionSource.active
+        active: device === '' && positionSource.active
 
         preferredPositioningMethods: PositionSource.AllPositioningMethods
 
@@ -85,7 +85,7 @@ Item{
     BluetoothReceiver {
         id: bluetoothPositionSource
 
-        property bool active: device !== 'internal' && positionSource.active
+        property bool active: device !== '' && positionSource.active
         property bool valid: socketState === BluetoothSocket.Connected
 
         onSocketStateChanged: {

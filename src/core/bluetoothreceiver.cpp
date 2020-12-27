@@ -31,8 +31,8 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
 
   //connect on create
   QSettings settings;
-  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QStringLiteral( "internal" ) ).toString();
-  if ( deviceAddress != QStringLiteral( "internal" ) )
+  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
+  if ( !deviceAddress.isEmpty() )
     connectDevice( deviceAddress );
 }
 
@@ -44,7 +44,7 @@ void BluetoothReceiver::disconnectDevice()
 
 void BluetoothReceiver::connectDevice( const QString &address )
 {
-  if ( address.isEmpty() || address == QStringLiteral( "internal" ) )
+  if ( address.isEmpty() )
   {
     disconnectDevice();
     return;

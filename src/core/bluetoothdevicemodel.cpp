@@ -43,11 +43,11 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
 
   beginResetModel();
   mDiscoveredDevices.clear();
-  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
+  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
 
   QSettings settings;
-  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QStringLiteral( "internal" ) ).toString();
-  if ( deviceAddress != QStringLiteral( "internal" ) )
+  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString( "" ) ).toString();
+  if ( !deviceAddress.isEmpty() )
   {
     const QString deviceName = settings.value( QStringLiteral( "positioningDeviceName" ), QStringLiteral( "Unknown device" ) ).toString();
     mDiscoveredDevices.append( qMakePair( deviceName, deviceAddress ) );
@@ -59,7 +59,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
   beginResetModel();
   mDiscoveredDevices.clear();
-  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
+  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
 
   if ( mServiceDiscoveryAgent.isActive() )
     mServiceDiscoveryAgent.stop();
@@ -112,7 +112,8 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1 (%2)" ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
+      return QStringLiteral( "%1%2" ).arg( mDiscoveredDevices.at( index.row() ).first,
+                                            index.row() > 0 ? QStringLiteral( " (%2)" ).arg ( mDiscoveredDevices.at( index.row() ).second ) : QString() );
       break;
 
     case DeviceAddressRole:

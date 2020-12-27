@@ -34,7 +34,7 @@ Page {
     property bool autoSave
     property bool mouseAsTouchScreen
     property string verticalGrid: ""
-    property string positioningDevice: "internal"
+    property string positioningDevice: ""
     property string positioningDeviceName: qsTr( "Internal device" );
   }
 
@@ -269,7 +269,7 @@ Page {
                       }
 
                       Component.onCompleted: {
-                          currentIndex = find(positioningDeviceName + ' (' + positioningDevice + ')');
+                          currentIndex = positionDevice == '' ? 0 : find(positioningDeviceName + ' (' + positioningDevice + ')');
                       }
 
                       Connections {
@@ -372,7 +372,7 @@ Page {
                   }
                 }
                 enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
-                visible: positioningDevice !== 'internal'
+                visible: positioningDevice !== ''
 
                 onClicked: {
                     positionSource.connectBluetoothSource()

@@ -144,7 +144,7 @@ ApplicationWindow {
     destinationCrs: mapCanvas.mapSettings.destinationCrs
     deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
-    device: settings.value("positioningDevice", "internal")
+    device: settings.value("positioningDevice", "")
   }
 
   Item {

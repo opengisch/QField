@@ -23,9 +23,9 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: ( positionSource.device === 'internal' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
+    rows: ( positionSource.device === '' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
     width: parent.width
-    property double cellWidth: grid.width / ( ( positionSource.device === 'internal' ? 1 : 2 ) * 6 / grid.rows )
+    property double cellWidth: grid.width / ( ( positionSource.device === '' ? 1 : 2 ) * 6 / grid.rows )
 
     Rectangle {
       id: x
@@ -140,7 +140,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -156,7 +156,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -172,7 +172,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -188,7 +188,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -204,7 +204,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -220,7 +220,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
