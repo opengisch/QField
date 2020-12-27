@@ -1135,8 +1135,22 @@ ApplicationWindow {
       leftPadding: 10
 
       onTriggered: {
-        printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
-        highlighted = false
+        if (layoutListInstantiator.model.rowCount() > 1)
+        {
+          printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
+          highlighted = false
+        }
+        else
+        {
+          mainMenu.close();
+          displayToast( qsTr( 'Printing to PDF') )
+          printMenu.printTimer.interval = 350;
+          printMenu.printTimer.repeat = false;
+          printMenu.printTimer.triggered.connect(function () {
+              iface.print(0);
+          })
+          printMenu.printTimer.start();
+        }
       }
     }
 
@@ -1231,6 +1245,8 @@ ApplicationWindow {
   Menu {
     id: printMenu
 
+    property alias printTimer: timer
+
     title: qsTr( "Print to PDF" )
 
     signal enablePrintItem( int rows )
@@ -1260,8 +1276,14 @@ ApplicationWindow {
         leftPadding: 10
 
         onTriggered: {
-          iface.print( Index )
-          highlighted = false
+            highlighted = false
+            displayToast( qsTr( 'Printing to PDF') )
+            printMenu.printTimer.interval = 350;
+            printMenu.printTimer.repeat = false;
+            printMenu.printTimer.triggered.connect(function () {
+                iface.print( Index )
+            })
+            printMenu.printTimer.start();
         }
       }
       onObjectAdded: printMenu.insertItem(index, object)
@@ -1293,6 +1315,10 @@ ApplicationWindow {
             dashBoard.ensureEditableLayerSelected();
         }
       }
+    }
+
+    Timer {
+      id: timer
     }
   }
 
