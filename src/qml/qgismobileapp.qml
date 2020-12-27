@@ -1310,6 +1310,16 @@ ApplicationWindow {
         return Math.min( result + padding * 2,mainWindow.width - 20);
     }
 
+    MenuItem {
+      text: qsTr( 'Select template below' )
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: 10
+
+      enabled: false
+    }
+
     Instantiator {
 
       id: layoutListInstantiator
@@ -1334,18 +1344,8 @@ ApplicationWindow {
             printMenu.printTimer.start();
         }
       }
-      onObjectAdded: printMenu.insertItem(index, object)
+      onObjectAdded: printMenu.insertItem(index+1, object)
       onObjectRemoved: printMenu.removeItem(object)
-    }
-
-    MenuItem {
-      text: qsTr( '(Select template above)' )
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: 10
-
-      enabled: false
     }
 
     Connections {
