@@ -847,6 +847,13 @@ ApplicationWindow {
       bgcolor: Theme.darkGray
       iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
+      transform: Scale {
+          origin.x: zoomInButton.width
+          origin.y: zoomInButton.height
+          xScale: 0.75
+          yScale: 0.75
+      }
+
       onClicked: {
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
       }
@@ -858,6 +865,13 @@ ApplicationWindow {
 
       bgcolor: Theme.darkGray
       iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
+
+      transform: Scale {
+          origin.x: zoomInButton.width
+          origin.y: 0
+          xScale: 0.75
+          yScale: 0.75
+      }
 
       onClicked: {
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2,mapCanvas.y + mapCanvas.height / 2));
