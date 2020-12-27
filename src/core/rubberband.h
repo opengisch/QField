@@ -99,7 +99,7 @@ class Rubberband : public QQuickItem
     VertexModel *mVertexModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mDirty = false;
-    QColor mColor = QColor( 192, 57, 43, 200 );
+    QColor mColor = QColor( 192, 57, 43, 125 );
     qreal mWidth = 1.8;
     QColor mColorCurrentPoint = QColor( 192, 57, 43, 150 );
     qreal mWidthCurrentPoint = 1.2;
