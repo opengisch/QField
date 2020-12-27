@@ -59,7 +59,7 @@ To build QField for a desktop environment:
 
 * Get QGIS development libraries. QField normally uses
   bleeding edge QGIS code. Ideally install nightly builds
-  or compile it on your own and install to a custom prefix path.
+  or compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
 
 ```sh
 cd QField
