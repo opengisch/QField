@@ -1470,12 +1470,13 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr( "Configure Antenna Height" ) // Todo: rename to "Positioning Configuration" when there is more to configure
+      text: qsTr( "Positioning Settings" )
       height: 48
       font: Theme.defaultFont
 
       onTriggered: {
-        positioningSettingsPopup.visible = true
+        qfieldSettings.currentPanel = 1
+        qfieldSettings.visible = true
       }
     }
 
@@ -1770,16 +1771,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )
-  }
-
-  PositioningSettingsPopup {
-    id: positioningSettingsPopup
-    visible: false
-
-    x: 24
-    y: 24
-    width: parent.width - 48
-    height: parent.height - 48
   }
 
   QFieldSettings {
