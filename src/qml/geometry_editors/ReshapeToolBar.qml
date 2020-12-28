@@ -33,14 +33,15 @@ VisibilityFadingRow {
     }
 
     QfToolButton {
-      id: endReshapeButton
+      id: stopToolButton
       iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
       round: true
-      visible: true//drawPolygonToolbar.rubberbandModel.vertexCount == 0
+      visible: !drawPolygonToolbar.rubberbandModel || drawPolygonToolbar.rubberbandModel.vertexCount < 2
       bgcolor: Theme.darkGray
 
       onClicked: {
-        console.log(drawPolygonToolbar.rubberbandModel.vertexCount)
+          cancel()
+          finished()
       }
     }
 
@@ -59,14 +60,12 @@ VisibilityFadingRow {
             {
                 displayToast( qsTr( 'An error when reshaping the geometry' ) );
                 featureModel.currentLayer.rollBack()
-                cancel()
-                finished()
+                rubberbandModel.reset()
             }
             else
             {
                 featureModel.currentLayer.commitChanges()
-                cancel()
-                finished()
+                rubberbandModel.reset()
             }
         }
     }
