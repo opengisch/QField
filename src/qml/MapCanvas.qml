@@ -154,6 +154,11 @@ Item {
                 timer.stop()
                 doublePressed = true
             }
+            else
+            {
+                doublePressed = false
+            }
+
             if (longPressActive)
                 mapArea.longPressReleased("touch")
             longPressActive = false
@@ -188,6 +193,7 @@ Item {
             else
             {
                 unfreeze(isZooming ? 'zoom' : 'pan');
+                isZooming = false;
             }
         }
 
