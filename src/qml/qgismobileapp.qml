@@ -1144,12 +1144,8 @@ ApplicationWindow {
         {
           mainMenu.close();
           displayToast( qsTr( 'Printing to PDF') )
-          printMenu.printTimer.interval = 350;
-          printMenu.printTimer.repeat = false;
-          printMenu.printTimer.triggered.connect(function () {
-              iface.print(0);
-          })
-          printMenu.printTimer.start();
+          printMenu.printIndex = 0
+          printMenu.printTimer.restart();
         }
       }
     }
@@ -1246,6 +1242,7 @@ ApplicationWindow {
     id: printMenu
 
     property alias printTimer: timer
+    property alias printIndex: timer.printIndex
 
     title: qsTr( "Print to PDF" )
 
@@ -1288,12 +1285,8 @@ ApplicationWindow {
         onTriggered: {
             highlighted = false
             displayToast( qsTr( 'Printing to PDF') )
-            printMenu.printTimer.interval = 350;
-            printMenu.printTimer.repeat = false;
-            printMenu.printTimer.triggered.connect(function () {
-                iface.print( Index )
-            })
-            printMenu.printTimer.start();
+            printMenu.printIndex = Index
+            printMenu.printTimer.restart();
         }
       }
       onObjectAdded: printMenu.insertItem(index+1, object)
@@ -1319,6 +1312,12 @@ ApplicationWindow {
 
     Timer {
       id: timer
+
+      property int printIndex: 0
+
+      interval: 500
+      repeat: false
+      onTriggered: iface.print( printIndex )
     }
   }
 
