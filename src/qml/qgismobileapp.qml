@@ -1390,15 +1390,21 @@ ApplicationWindow {
       id: positioningSettings
 
       onPositioningActivatedChanged: {
-          if( positioningActivated ){
-            if( platformUtilities.checkPositioningPermissions() ) {
+          if ( positioningActivated )
+          {
+            if ( platformUtilities.checkPositioningPermissions() )
+            {
               displayToast( qsTr( "Activating positioning service" ) )
               positionSource.active = true
-            }else{
+            }
+            else
+            {
               displayToast( qsTr( "QField has no permissions to use positioning." ) )
               positioningSettings.positioningActivated = false
             }
-          }else{
+          }
+          else
+          {
               positionSource.active = false
           }
       }

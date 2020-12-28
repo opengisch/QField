@@ -48,7 +48,6 @@ Item{
         }
     }
 
-    //
     onActiveChanged: {
         connectBluetoothSource()
     }
@@ -57,7 +56,7 @@ Item{
         connectBluetoothSource()
     }
 
-    function connectBluetoothSource(){
+    function connectBluetoothSource() {
         if( active && device !== '' ) {
             positionSource.name = device
             bluetoothPositionSource.connectDevice(device)

@@ -39,7 +39,10 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
 void BluetoothReceiver::disconnectDevice()
 {
   if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
+  {
+    mDisconnecting = true;
     mSocket->disconnectFromService();
+  }
 }
 
 void BluetoothReceiver::connectDevice( const QString &address )
@@ -104,8 +107,9 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
     case QBluetoothSocket::UnconnectedState:
     {
       mSocketStateString = tr( "Disconnected" );
-      if ( mSocket->error() != QBluetoothSocket::NoSocketError )
+      if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::NoSocketError )
         mSocketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
+
       if ( !mAddressToConnect.isEmpty() )
         doConnectDevice( mAddressToConnect );
       break;
