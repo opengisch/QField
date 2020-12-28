@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQml 2.2
 
 import org.qgis 1.0
@@ -264,5 +264,20 @@ Item {
         }
     }
 
+
+    WheelHandler {
+        id: wheel
+
+        onWheel: {
+            if ( event.angleDelta.y > 0 )
+            {
+                zoomIn(point.position)
+            }
+            else
+            {
+                zoomOut(point.position)
+            }
+        }
+    }
     // TODO add WheelHandler once we can expect Qt 5.14 on all platforms
 }
