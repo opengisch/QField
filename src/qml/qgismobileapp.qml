@@ -867,7 +867,7 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
 
       transform: Scale {
-          origin.x: zoomOutButton.width / 1.25
+          origin.x: zoomOutButton.width / 1.5
           origin.y: zoomOutButton.height / 1.75
           xScale: 0.75
           yScale: 0.75
