@@ -150,6 +150,9 @@ int RubberbandModel::currentCoordinateIndex() const
 
 void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 {
+  if ( currentCoordinateIndex < 0 )
+    currentCoordinateIndex = 0;
+
   if ( currentCoordinateIndex == mCurrentCoordinateIndex )
     return;
 
@@ -193,6 +196,9 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
 
 QgsPoint RubberbandModel::currentCoordinate() const
 {
+  if ( mPointList.isEmpty() )
+    return QgsPoint();
+
   return mPointList.at( mCurrentCoordinateIndex );
 }
 

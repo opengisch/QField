@@ -32,6 +32,18 @@ VisibilityFadingRow {
         return true // handled
     }
 
+    QfToolButton {
+      id: endReshapeButton
+      iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+      round: true
+      visible: true//drawPolygonToolbar.rubberbandModel.vertexCount == 0
+      bgcolor: Theme.darkGray
+
+      onClicked: {
+        console.log(drawPolygonToolbar.rubberbandModel.vertexCount)
+      }
+    }
+
     DigitizingToolbar {
         id: drawPolygonToolbar
         showConfirmButton: true
