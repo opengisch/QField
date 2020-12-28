@@ -69,7 +69,7 @@ Item {
   }
 
   function zoomIn(point) {
-    mapCanvasWrapper.zoom(point, 0.5)
+    mapCanvasWrapper.zoom(point, 0.67)
   }
 
   function zoomOut(point) {

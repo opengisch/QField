@@ -848,8 +848,8 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_add_white_24dp" )
 
       transform: Scale {
-          origin.x: zoomInButton.width
-          origin.y: zoomInButton.height
+          origin.x: zoomInButton.width / 1.5
+          origin.y: zoomInButton.height / 1.25
           xScale: 0.75
           yScale: 0.75
       }
@@ -867,8 +867,8 @@ ApplicationWindow {
       iconSource: Theme.getThemeIcon( "ic_remove_white_24dp" )
 
       transform: Scale {
-          origin.x: zoomInButton.width
-          origin.y: 0
+          origin.x: zoomOutButton.width / 1.25
+          origin.y: zoomOutButton.height / 1.75
           xScale: 0.75
           yScale: 0.75
       }
