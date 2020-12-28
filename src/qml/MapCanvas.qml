@@ -35,7 +35,7 @@ Item {
   //! This signal is emitted independently of double tap / click
   signal clicked(var point, var type)
 
-  //! This signal is only emitted if there is no double tap/click coming. It is emitted with a delay of 250ms
+  //! This signal is only emitted if there is no double tap/click coming after a short delay
   signal confirmedClicked(var point)
 
   signal longPressed(var point, var type)
@@ -109,8 +109,23 @@ Item {
 
     // touch clicked & zoom in and out
     TapHandler {
+        id: tapHandler
         acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
         property bool longPressActive: false
+        property bool doublePressed: false
+        property var timer: Timer {
+            property var tapPoint
+            interval: 350
+            repeat: false
+
+            onTriggered: {
+                confirmedClicked(tapPoint)
+            }
+        }
+
+        onActiveChanged: {
+            console.log('tap active ',active? 'true' : 'false')
+        }
 
         onSingleTapped: {
             if( point.modifiers === Qt.RightButton)
@@ -125,7 +140,6 @@ Item {
         }
 
         onDoubleTapped: {
-            timer.stop();
             mapCanvasWrapper.zoom(point.position, 0.8)
         }
 
@@ -135,43 +149,63 @@ Item {
         }
 
         onPressedChanged: {
+            if ( pressed && timer.running )
+            {
+                timer.stop()
+                doublePressed = true
+            }
             if (longPressActive)
                 mapArea.longPressReleased("touch")
             longPressActive = false
         }
-
-        property var timer: Timer {
-            property var tapPoint
-            interval: 250
-            repeat: false
-
-            onTriggered: {
-                confirmedClicked(tapPoint)
-            }
-        }
     }
 
     DragHandler {
-        enabled: !freehandDigitizing
         target: null
-        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+        enabled: !freehandDigitizing
 
         property var oldPos
+        property real oldTranslationY
+
+        property bool isZooming: false
+        property point zoomCenter
 
         onActiveChanged: {
             if ( active )
-                freeze('pan')
+            {
+                if ( tapHandler.doublePressed )
+                {
+                    oldTranslationY = 0;
+                    zoomCenter = centroid.position;
+                    isZooming = true;
+                    freeze('zoom');
+                }
+                else
+                {
+                    freeze('pan');
+                }
+            }
             else
-                unfreeze('pan')
+            {
+                unfreeze(isZooming ? 'zoom' : 'pan');
+            }
         }
 
         onCentroidChanged: {
-            var oldPos1 = oldPos
-            oldPos = centroid.position
+            var oldPos1 = oldPos;
+            oldPos = centroid.position;
             if ( active )
             {
-                mapCanvasWrapper.pan(centroid.position, oldPos1)
-                panned()
+                if ( isZooming )
+                {
+                    mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+                    oldTranslationY = translation.y
+                }
+                else
+                {
+                    mapCanvasWrapper.pan(centroid.position, oldPos1)
+                    panned()
+                }
             }
         }
     }
