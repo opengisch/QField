@@ -148,7 +148,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "pdop" ) + ': ' + positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "PDOP" ) + ': ' + positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2)
       }
     }
 
@@ -164,7 +164,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "hdop" ) + ': ' + positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "HDOP" ) + ': ' + positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2)
       }
     }
 
@@ -180,7 +180,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "vdop" ) + ': ' + positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "VDOP" ) + ': ' + positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2)
       }
     }
 
@@ -196,7 +196,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "valid" ) + ': ' + ( positionSource.positionInfo.isValid ? 'true' : 'false' )
+        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo.isValid ? 'true' : 'false' )
       }
     }
 
@@ -212,7 +212,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "fix" ) + ': ' + positionSource.positionInfo.fixStatusDescription
+        text: qsTr( "Fix" ) + ': ' + positionSource.positionInfo.fixStatusDescription
       }
     }
 
@@ -228,7 +228,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "quality" ) + ': ' + positionSource.positionInfo.qualityDescription
+        text: qsTr( "Quality" ) + ': ' + positionSource.positionInfo.qualityDescription
       }
     }
 
