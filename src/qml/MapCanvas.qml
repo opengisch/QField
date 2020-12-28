@@ -32,13 +32,11 @@ Item {
 
   // for signals, type can be "stylus" for any device click or "touch"
 
-  //! This signal is emitted independently of an upcoming doubleClicked
+  //! This signal is emitted independently of double tap / click
   signal clicked(var point, var type)
 
-  //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
+  //! This signal is only emitted if there is no double tap/click coming. It is emitted with a delay of 250ms
   signal confirmedClicked(var point)
-
-  // signal doubleClicked(var point)
 
   signal longPressed(var point, var type)
 
@@ -87,31 +85,6 @@ Item {
     freeze: false
   }
 
-//    TapHandler {
-//      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
-
-//      property var timer: Timer {
-//          property var firstClickPoint
-//          interval: mouseDoubleClickInterval
-//          repeat: false
-
-//          onTriggered: {
-//              confirmedClicked(firstClickPoint)
-//          }
-//      }
-
-//      onTapCountChanged: {
-//          if (tapCount == 1) {
-//              timer.firstClickPoint = point.position
-//              timer.restart()
-//          }
-//          else if (tapCount == 2) {
-//              timer.stop()
-//              doubleClicked(point)
-//          }
-//      }
-//    }
-
     // stylus clicks
     TapHandler {
       enabled: !mouseAsTouchScreen
@@ -134,39 +107,47 @@ Item {
       }
     }
 
-    // touch clicked
+    // touch clicked & zoom in and out
     TapHandler {
-      acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
-      property bool longPressActive: false
-
-      onSingleTapped: {
-        mapArea.clicked(point.position, "touch")
-      }
-
-      onLongPressed: {
-          mapArea.longPressed(point.position, "touch")
-          longPressActive = true
-      }
-
-      onPressedChanged: {
-          if (longPressActive)
-              mapArea.longPressReleased("touch")
-          longPressActive = false
-      }
-    }
-
-    // zoom in/out on finger tap
-    TapHandler {
-        grabPermissions: PointerHandler.CanTakeOverFromItems
         acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
+        property bool longPressActive: false
 
         onSingleTapped: {
             if( point.modifiers === Qt.RightButton)
+            {
               mapCanvasWrapper.zoom(point.position, 1.25)
+            }
+            else
+            {
+              timer.tapPoint = point.position
+              timer.restart()
+            }
         }
 
         onDoubleTapped: {
-          mapCanvasWrapper.zoom(point.position, 0.8)
+            timer.stop();
+            mapCanvasWrapper.zoom(point.position, 0.8)
+        }
+
+        onLongPressed: {
+            mapArea.longPressed(point.position, "touch")
+            longPressActive = true
+        }
+
+        onPressedChanged: {
+            if (longPressActive)
+                mapArea.longPressReleased("touch")
+            longPressActive = false
+        }
+
+        property var timer: Timer {
+            property var tapPoint
+            interval: 250
+            repeat: false
+
+            onTriggered: {
+                confirmedClicked(tapPoint)
+            }
         }
     }
 

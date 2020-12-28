@@ -279,27 +279,44 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-        if (locatorItem.state == "on") {
-          locatorItem.state = "off"
-        }
-        else if (geometryEditorsToolbar.canvasClicked(point)) {
-          // for instance, the vertex editor will select a vertex if possible
-        }
-        else if ( type === "stylus" && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) ) {
-          if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
-              Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+          // Check if geometry editor is taking over
+          if ( geometryEditorsToolbar.canvasClicked(point) )
+              return;
+
+          if (locatorItem.state == "on")
           {
-            digitizingToolbar.confirm()
+              locatorItem.state = "off"
           }
-          else
+          else if ( type === "stylus" )
           {
-            currentRubberband.model.addVertex()
-            coordinateLocator.flash()
+              if ( ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
+              {
+                  if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
+                          Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
+                  {
+                      digitizingToolbar.confirm()
+                  }
+                  else
+                  {
+                      currentRubberband.model.addVertex()
+                      coordinateLocator.flash()
+                  }
+              }
+              else
+              {
+                  if( !overlayFeatureFormDrawer.visible )
+                  {
+                      identifyTool.identify(point)
+                  }
+              }
           }
-        }
-        else if( !overlayFeatureFormDrawer.visible ) {
-          identifyTool.identify(point)
-        }
+      }
+
+      onConfirmedClicked: {
+          if( !overlayFeatureFormDrawer.visible )
+          {
+              identifyTool.identify(point)
+          }
       }
 
       onLongPressed: {
