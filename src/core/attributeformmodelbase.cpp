@@ -353,7 +353,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
-        item->setData( color, AttributeFormModel::Color );
+        if ( color.isValid() )
+            item->setData( color, AttributeFormModel::Color );
 
         // create constraint description
         QStringList descriptions;
