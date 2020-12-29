@@ -10,10 +10,12 @@ import Utils 1.0
 Item{
     id: positionSource
 
-    property var positionInfo //GnssPositionInformation
+    // GnssPositionInformation object
+    property var positionInfo
+
     property alias destinationCrs: _ct.destinationCrs
     property alias projectedPosition: _ct.projectedPosition
-    property real projectedHorizontalAccuracy: positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
+    property real projectedHorizontalAccuracy: positionInfo && positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
     property alias deltaZ: _ct.deltaZ
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
@@ -44,7 +46,8 @@ Item{
         running: true
         triggeredOnStart: true
         onTriggered: {
-            currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
+            if ( positionSource.positionInfo )
+              currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
         }
     }
 
@@ -71,13 +74,14 @@ Item{
         preferredPositioningMethods: PositionSource.AllPositioningMethods
 
         onActiveChanged: {
-            if( active ) {
+            if( active )
+            {
                 positionSource.name = name
             }
         }
 
         onPositionChanged: {
-            positionSource.positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
+            //positionSource.positionInfo = bluetoothPositionSource.fromQGeoPositionInfo(name)
         }
     }
 
@@ -92,7 +96,8 @@ Item{
         }
 
         onActiveChanged: {
-            if( !active ){
+            if( !active )
+            {
                 disconnectDevice()
             }
         }

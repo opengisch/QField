@@ -473,10 +473,10 @@ ApplicationWindow {
       id: locationMarker
       mapSettings: mapCanvas.mapSettings
       anchors.fill: parent
-      visible: positionSource.active && positionSource.positionInfo.latitudeValid
+      visible: positionSource.active && positionSource.positionInfo && positionSource.positionInfo.latitudeValid
       location: positionSource.projectedPosition
       accuracy: positionSource.projectedHorizontalAccuracy
-      direction: positionSource.positionInfo.directionValid ? positionSource.positionInfo.direction : -1
+      direction: positionSource.positionInfo && positionSource.positionInfo.directionValid ? positionSource.positionInfo.direction : -1
 
       onLocationChanged: {
         if ( gpsButton.followActive ) {
@@ -969,7 +969,7 @@ ApplicationWindow {
 
       onIconSourceChanged: {
         if( state === "On" ){
-          if( positionSource.positionInfo.latitudeValid ) {
+          if( positionSource.positionInfo && positionSource.positionInfo.latitudeValid ) {
             displayToast( qsTr( "Received position" ) )
           } else {
             displayToast( qsTr( "Searching for position" ) )
@@ -993,7 +993,7 @@ ApplicationWindow {
           name: "On"
           PropertyChanges {
             target: gpsButton
-            iconSource: positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
+            iconSource: positionSource.positionInfo && positionSource.positionInfo.latitudeValid ? Theme.getThemeIcon( "ic_my_location_" + ( followActive ? "white" : "blue" ) + "_24dp" ) : Theme.getThemeIcon( "ic_gps_not_fixed_white_24dp" )
             bgcolor: followActive ? "#64B5F6" : Theme.darkGray
           }
         }

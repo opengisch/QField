@@ -40,8 +40,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
       }
     }
 
@@ -57,8 +57,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
 
       }
     }
@@ -75,7 +75,7 @@ Rectangle {
         color: textColor
         text: {
           var altitude
-          if ( positionSource.positionInfo.elevationValid ) {
+          if ( positionSource.positionInfo && positionSource.positionInfo.elevationValid ) {
             altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 )
             if ( !isNaN( parseFloat( antennaHeight ) ) ) {
               altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "-") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
@@ -102,7 +102,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
+        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
       }
     }
 
@@ -117,7 +117,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -132,7 +132,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -148,7 +148,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "PDOP" ) + ': ' + positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
       }
     }
 
@@ -164,7 +164,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "HDOP" ) + ': ' + positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
       }
     }
 
@@ -180,7 +180,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "VDOP" ) + ': ' + positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
       }
     }
 
@@ -196,7 +196,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo.isValid ? 'true' : 'false' )
+        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.isValid ? 'true' : 'false' )
       }
     }
 
@@ -212,7 +212,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Fix" ) + ': ' + positionSource.positionInfo.fixStatusDescription
+        text: qsTr( "Fix" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.fixStatusDescription : '-' )
       }
     }
 
@@ -228,7 +228,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Quality" ) + ': ' + positionSource.positionInfo.qualityDescription
+        text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.qualityDescription : '-' )
       }
     }
 
