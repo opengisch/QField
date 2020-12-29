@@ -67,7 +67,6 @@ class BluetoothReceiver : public QObject
 #endif
     void stateChanged( const QgsGpsInformation &info );
     void setSocketState( const QBluetoothSocket::SocketState socketState );
-    void setSocketStateString( const QBluetoothSocket::SocketState socketState );
 
   private:
 #ifndef Q_OS_ANDROID
@@ -75,12 +74,19 @@ class BluetoothReceiver : public QObject
     void repairDevice( const QBluetoothAddress &address );
 #endif
 
+    //! Used to wait for previous connection to finish disconnecting
+    void doConnectDevice( const QString &address );
+
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     std::unique_ptr<QBluetoothSocket> mSocket;
     std::unique_ptr<QgsNmeaConnection> mGpsConnection;
     GnssPositionInformation mLastGnssPositionInformation;
-    QBluetoothSocket::SocketState mSocketState;
+
+    QBluetoothSocket::SocketState mSocketState = QBluetoothSocket::UnconnectedState;
     QString mSocketStateString;
+    bool mDisconnecting = false;
+
+    QString mAddressToConnect;
 };
 
 #endif // BLUETOOTHRECEIVER_H

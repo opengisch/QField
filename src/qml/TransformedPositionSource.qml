@@ -1,27 +1,32 @@
 import QtQuick 2.12
 import QtPositioning 5.3
+import QtBluetooth 5.14
+
 import org.qfield 1.0
 import org.qgis 1.0
+
 import Utils 1.0
-import QtBluetooth 5.14
 
 Item{
     id: positionSource
 
-    property var positionInfo //GnssPositionInformation
+    // GnssPositionInformation object
+    property var positionInfo
+
     property alias destinationCrs: _ct.destinationCrs
     property alias projectedPosition: _ct.projectedPosition
-    property real projectedHorizontalAccuracy: positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
+    property real projectedHorizontalAccuracy: positionInfo && positionInfo.haccValid && destinationCrs.mapUnits !== QgsUnitTypes.DistanceUnknownUnit ? positionInfo.hacc * Utils.distanceFromUnitToUnitFactor( QgsUnitTypes.DistanceMeters, destinationCrs.mapUnits ) : 0.0
     property alias deltaZ: _ct.deltaZ
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
-    // this sets as well the mode (internal/bluetooth)
-    property string device: 'internal'
+    // this sets as well the mode (empty is internal, otherwise bluetooth)
+    property string device: ''
 
     // proxy variables
     property bool active
     property string name
     property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
+    property alias bluetoothSocketState: bluetoothPositionSource.socketState
     property bool currentness: false
 
     property CoordinateTransformer ct: CoordinateTransformer {
@@ -41,11 +46,11 @@ Item{
         running: true
         triggeredOnStart: true
         onTriggered: {
-            currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
+            if ( positionSource.positionInfo )
+              currentness = ( ( new Date() - positionSource.positionInfo.utcDateTime ) / 1000 ) < 30
         }
     }
 
-    //
     onActiveChanged: {
         connectBluetoothSource()
     }
@@ -54,8 +59,8 @@ Item{
         connectBluetoothSource()
     }
 
-    function connectBluetoothSource(){
-        if( active && device !== 'internal' ) {
+    function connectBluetoothSource() {
+        if( active && device !== '' ) {
             positionSource.name = device
             bluetoothPositionSource.connectDevice(device)
         }
@@ -64,12 +69,13 @@ Item{
     PositionSource {
         id: qtPositionSource
 
-        active: device === 'internal' && positionSource.active
+        active: device === '' && positionSource.active
 
         preferredPositioningMethods: PositionSource.AllPositioningMethods
 
         onActiveChanged: {
-            if( active ) {
+            if( active )
+            {
                 positionSource.name = name
             }
         }
@@ -82,15 +88,16 @@ Item{
     BluetoothReceiver {
         id: bluetoothPositionSource
 
-        property bool active: device !== 'internal' && positionSource.active
-        property bool valid: socketState === BluetoothSocket.ConnectedState
+        property bool active: device !== '' && positionSource.active
+        property bool valid: socketState === BluetoothSocket.Connected
 
         onSocketStateChanged: {
             displayToast( socketStateString )
         }
 
         onActiveChanged: {
-            if( !active ){
+            if( !active )
+            {
                 disconnectDevice()
             }
         }

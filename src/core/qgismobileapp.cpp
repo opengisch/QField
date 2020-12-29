@@ -173,6 +173,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mTrackingModel = new TrackingModel;
 
+  // Transition from 1.8 to 1.8.1+
+  QSettings settings;
+  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
+  if ( deviceAddress == QStringLiteral( "internal" ) )
+  {
+    settings.setValue( QStringLiteral( "positioningDevice" ), QString() );
+  }
+
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative();
 

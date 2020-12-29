@@ -116,19 +116,19 @@ class GnssPositionInformation
      * Altitude (in meters) above or below the mean sea level.
      */
     double elevation() const { return mElevation; }
-    bool elevationValid() const { return mElevation != 0; }
+    bool elevationValid() const { return !std::isnan( mElevation ); }
 
     /**
      * Ground speed, in km/h.
      */
     double speed() const { return mSpeed; }
-    bool speedValid() const { return mSpeed != 0; }
+    bool speedValid() const { return !std::isnan( mSpeed ); }
 
     /**
      * The bearing measured in degrees clockwise from true north to the direction of travel.
      */
     double direction() const { return mDirection; }
-    bool directionValid() const { return mDirection != std::numeric_limits< double >::quiet_NaN(); }
+    bool directionValid() const { return !std::isnan( mDirection ); }
 
 
     /**
@@ -155,14 +155,14 @@ class GnssPositionInformation
      * Horizontal accuracy in meters
      */
     double hacc() const { return mHacc; }
-    bool haccValid() const { return mHacc != std::numeric_limits< double >::quiet_NaN(); }
+    bool haccValid() const { return !std::isnan( mHacc ); }
 
 
     /**
      * Vertical accuracy in meters
      */
     double vacc() const { return mVacc; }
-    bool vaccValid() const { return mVacc != std::numeric_limits< double >::quiet_NaN(); }
+    bool vaccValid() const { return !std::isnan( mVacc ); }
 
     /**
      * The date and time at which this position was reported, in UTC time.

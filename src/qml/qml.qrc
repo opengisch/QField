@@ -52,7 +52,6 @@
         <file>imports/Theme/QfSwitch.qml</file>
         <file>imports/Theme/QfTextField.qml</file>
         <file>imports/Theme/qmldir</file>
-        <file>PositioningSettingsPopup.qml</file>
         <file>PageHeader.qml</file>
         <file>Tracking.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
