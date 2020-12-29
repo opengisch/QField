@@ -116,13 +116,13 @@ class GnssPositionInformation
      * Altitude (in meters) above or below the mean sea level.
      */
     double elevation() const { return mElevation; }
-    bool elevationValid() const { return mElevation != 0; }
+    bool elevationValid() const { return !std::isnan( mElevation ); }
 
     /**
      * Ground speed, in km/h.
      */
     double speed() const { return mSpeed; }
-    bool speedValid() const { return mSpeed != 0; }
+    bool speedValid() const { return !std::isnan( mSpeed ); }
 
     /**
      * The bearing measured in degrees clockwise from true north to the direction of travel.

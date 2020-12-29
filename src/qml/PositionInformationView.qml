@@ -74,19 +74,18 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: {
-          var altitude
-          if ( positionSource.positionInfo && positionSource.positionInfo.elevationValid ) {
-            altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 )
-            if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-              altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "-") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
+            var altitude = qsTr( "Altitude" ) + ': ';
+            if ( positionSource.positionInfo && positionSource.positionInfo.elevationValid ) {
+                altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 ) + ' m'
+                if ( !isNaN( parseFloat( antennaHeight ) ) ) {
+                    altitude = ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg( ( antennaHeight > 0 ? "+" : "-" ) + Math.abs( antennaHeight ).toLocaleString(Qt.locale(), 'f', 2) );
+                }
             }
-          }
-          else
-          {
-            altitude = qsTr( "N/A" )
-          }
-          altitude = qsTr( "Altitude: %1 m" ).arg( altitude )
-          return altitude
+            else
+            {
+                altitude += 'N/A';
+            }
+            return altitude
         }
       }
     }
@@ -148,7 +147,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
+        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -164,7 +163,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
+        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -180,7 +179,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2) : '0' )
+        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -196,7 +195,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.isValid ? 'true' : 'false' )
+        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.isValid ? 'True' : 'False' )
       }
     }
 
