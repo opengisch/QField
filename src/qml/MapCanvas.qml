@@ -204,7 +204,7 @@ Item {
             {
                 if ( isZooming )
                 {
-                    mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y)/60))
+                    mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY)/60))
                     oldTranslationY = translation.y
                 }
                 else
