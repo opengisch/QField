@@ -1138,7 +1138,6 @@ ApplicationWindow {
         if (layoutListInstantiator.model.rowCount() > 1)
         {
           printMenu.popup( mainMenu.x, mainMenu.y + printItem.y )
-          highlighted = false
         }
         else
         {
@@ -1147,6 +1146,7 @@ ApplicationWindow {
           printMenu.printIndex = 0
           printMenu.printTimer.restart();
         }
+        highlighted = false
       }
     }
 
