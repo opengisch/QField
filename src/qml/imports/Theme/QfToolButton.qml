@@ -1,6 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.Material.impl 2.12
+import QtGraphicalEffects 1.12
+
 import Theme 1.0
 
 Item {
@@ -45,6 +49,28 @@ Item {
                     duration: 200
                 }
 
+            }
+
+            Ripple {
+                id: ripple
+                clip: true
+                width: parent.width
+                height: parent.height
+                clipRadius: 4
+                pressed: button.down
+                anchor: parent
+                active: button.down
+                color: "#22FFFFFF"
+
+                layer.enabled: true
+                layer.effect: OpacityMask {
+                    maskSource: Rectangle
+                    {
+                        width: ripple.width
+                        height: ripple.height
+                        radius: ripple.height / 2
+                    }
+                }
             }
         }
 
