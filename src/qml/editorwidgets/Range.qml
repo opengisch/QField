@@ -5,6 +5,8 @@ import Theme 1.0
 
 Item {
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
+
   height: childrenRect.height
   enabled: isEnabled
 

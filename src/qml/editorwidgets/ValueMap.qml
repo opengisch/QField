@@ -7,6 +7,7 @@ import Theme 1.0
 Item {
   id: valueMap
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
 
   anchors {
     left: parent.left

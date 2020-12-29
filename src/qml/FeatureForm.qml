@@ -17,6 +17,7 @@ Page {
   signal cancelled
   signal temporaryStored
   signal valueChanged(var field, var oldValue, var newValue)
+  signal requestGeometry(var item, var layer)
   signal aboutToSave
 
   property AttributeFormModel model
@@ -481,6 +482,10 @@ Page {
                     }
                   }
                 }
+
+                function onRequestGeometry(item, layer) {
+                    requestGeometry(item, layer)
+                }
               }
             }
 
@@ -544,7 +549,7 @@ Page {
       return
     }
 
-    if ( ! save() ) {
+    if ( !save() ) {
       displayToast( qsTr( 'Unable to save changes') )
       state = 'Edit'
       return

@@ -19,6 +19,7 @@ VisibilityFadingRow {
   spacing: 4
 
   signal confirm
+  signal cancel
   signal vertexCountChanged
 
   Connections {
@@ -173,6 +174,7 @@ VisibilityFadingRow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
+      rubberbandModel.reset()
       cancel();
       visible = false;
     }
@@ -192,10 +194,5 @@ VisibilityFadingRow {
   {
     rubberbandModel.removeVertex()
     mapSettings.setCenter( rubberbandModel.currentCoordinate )
-  }
-
-  function cancel()
-  {
-    rubberbandModel.reset()
   }
 }

@@ -13,6 +13,7 @@ Item {
   id: valueRelation
 
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
 
   height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
   enabled: true

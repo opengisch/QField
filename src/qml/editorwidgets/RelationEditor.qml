@@ -9,10 +9,14 @@ import ".."
 import org.qfield 1.0
 import org.qgis 1.0
 
-Rectangle{
+Rectangle {
+    id: relationEditor
+
     // It is added as being part of the editors API, but it is never triggered!
     // Check commit cf963a38a6911db26e5cd463fd991c7d2ce425f4
     signal valueChanged(var value, bool isNull)
+    signal requestGeometry(var item, var layer)
+
     property int itemHeight: 32
 
     // because no additional addEntry item on readOnly (isEnabled false)
@@ -101,6 +105,12 @@ Rectangle{
               if( save() ) {
                 //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
                 if( relationEditorModel.parentPrimariesAvailable ) {
+                    console.log(relationEditorModel.relation.referencingLayer.geometryType())
+                    if ( relationEditorModel.relation.referencingLayer.geometryType() !== QgsWkbTypes.NullGeometry )
+                    {
+                        requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
+                        return;
+                    }
                     embeddedPopup.state = 'Add'
                     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
                     embeddedPopup.linkedParentFeature = relationEditorModel.feature
@@ -270,5 +280,14 @@ Rectangle{
         onFeatureSaved: {
             relationEditorModel.reload()
         }
+    }
+
+    function requestedGeometry(geometry) {
+        embeddedPopup.state = 'Add'
+        embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer
+        embeddedPopup.linkedParentFeature = relationEditorModel.feature
+        embeddedPopup.linkedRelation = relationEditorModel.relation
+        embeddedPopup.applyGeometry(geometry)
+        embeddedPopup.open()
     }
 }

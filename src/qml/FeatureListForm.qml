@@ -35,11 +35,16 @@ Rectangle {
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
   property bool allowDelete
+  property bool geometryRequested: false
+  property var geometryRequestedItem
+  property VectorLayer geometryRequestedLayer
+
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
   signal showMessage(string message)
   signal editGeometry
+  signal requestGeometry(var item, var layer)
 
   width: {
       if (props.isVisible) {
@@ -298,6 +303,12 @@ Rectangle {
 
     visible: !globalFeaturesList.shown
 
+    onRequestGeometry: {
+        featureForm.geometryRequested = true
+        featureForm.geometryRequestedItem = item
+        featureForm.geometryRequestedLayer = layer
+        featureForm.requestGeometry(item, layer)
+    }
   }
 
   NavigationBar {
@@ -489,11 +500,13 @@ Rectangle {
     focus = false
     fullScreenView = qfieldSettings.fullScreenIdentifyView
 
-    featureForm.selection.clear()
-    if ( featureForm.selection.model )
-      featureForm.selection.model.clearSelection()
-
-    model.clear()
+    if ( !geometryRequested )
+    {
+      featureForm.selection.clear()
+      if ( featureForm.selection.model )
+        featureForm.selection.model.clearSelection()
+      model.clear()
+    }
   }
 
   Dialog {

@@ -14,6 +14,7 @@ Item {
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
 
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
 
   RelationCombobox {
     id: relationReference

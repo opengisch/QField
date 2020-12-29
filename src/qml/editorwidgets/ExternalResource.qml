@@ -10,6 +10,7 @@ import ".." as QField
 
 Item {
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
 
   anchors.left: parent.left
   anchors.right: parent.right

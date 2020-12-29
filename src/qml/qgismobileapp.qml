@@ -393,7 +393,7 @@ ApplicationWindow {
         model: RubberbandModel {
           frozen: false
           currentCoordinate: coordinateLocator.currentCoordinate
-          vectorLayer: dashBoard.currentLayer
+          vectorLayer: featureForm.geometryRequested ? featureForm.geometryRequestedLayer : dashBoard.currentLayer
           crs: mapCanvas.mapSettings.destinationCrs
         }
 
@@ -1098,7 +1098,8 @@ ApplicationWindow {
                      && !dashBoard.currentLayer.readOnly
                      // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
                      && dashBoard.currentLayer.customProperty( 'QFieldSync/is_geometry_locked' ) !== 'true'
-                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure'
+                     && !geometryEditorsToolbar.stateVisible) || stateMachine.state === 'measure' ||
+                    (stateMachine.state === "digitize" && featureForm.geometryRequested)
       rubberbandModel: currentRubberband ? currentRubberband.model : null
       coordinateLocator: coordinateLocator
       mapSettings: mapCanvas.mapSettings
@@ -1107,14 +1108,14 @@ ApplicationWindow {
 
       FeatureModel {
         id: digitizingFeature
-        currentLayer: dashBoard.currentLayer
+        currentLayer: featureForm.geometryRequested ? featureForm.geometryRequestedLayer : dashBoard.currentLayer
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
         positionLocked: gpsLinkButton.checked
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model
-          vectorLayer: dashBoard.currentLayer
+          vectorLayer: featureForm.geometryRequested ? featureForm.geometryRequestedLayer : dashBoard.currentLayer
         }
       }
 
@@ -1153,7 +1154,27 @@ ApplicationWindow {
         }
       }
 
+      onCancel: {
+          if ( featureForm.geometryRequested )
+          {
+              stateMachine.state = featureForm.previousStateMachineState
+              featureForm.geometryRequested = false
+              featureForm.show()
+          }
+      }
+
       onConfirm: {
+        if ( featureForm.geometryRequested )
+        {
+            coordinateLocator.flash()
+            digitizingFeature.geometry.applyRubberband()
+            featureForm.geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
+            digitizingRubberband.model.reset()
+            featureForm.geometryRequested = false
+            featureForm.show()
+            return;
+        }
+
         if (digitizingRubberband.model.geometryType === QgsWkbTypes.NullGeometry )
         {
           digitizingRubberband.model.reset()
@@ -1550,6 +1571,9 @@ ApplicationWindow {
   /* The feature form */
   FeatureListForm {
     id: featureForm
+
+    property string previousStateMachineState: ''
+
     objectName: "featureForm"
     mapSettings: mapCanvas.mapSettings
 
@@ -1595,6 +1619,12 @@ ApplicationWindow {
       }
 
       geometryEditorsToolbar.init()
+    }
+
+    onRequestGeometry: {
+        previousStateMachineState = stateMachine.state
+        stateMachine.state = "digitize"
+        featureForm.hide()
     }
 
     Component.onCompleted: focusstack.addFocusTaker( this )

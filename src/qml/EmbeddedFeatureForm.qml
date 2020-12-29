@@ -79,4 +79,9 @@ Popup {
           form.isSaved = false
       }
     }
+
+    function applyGeometry(geometry) {
+        formFeatureModel.geometry = geometry;
+        formFeatureModel.applyGeometry();
+    }
 }

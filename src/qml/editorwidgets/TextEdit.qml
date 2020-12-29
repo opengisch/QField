@@ -5,6 +5,8 @@ import Theme 1.0
 Item {
   id: topItem
   signal valueChanged(var value, bool isNull)
+  signal requestGeometry(var item, var layer)
+
   height: childrenRect.height
 
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
