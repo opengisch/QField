@@ -1,13 +1,14 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
+
 import org.qfield 1.0
 import Theme 1.0
 
-Item {
+import "."
+
+EditorWidgetBase {
   id: valueMap
-  signal valueChanged(var value, bool isNull)
-  signal requestGeometry(var item, var layer)
 
   anchors {
     left: parent.left

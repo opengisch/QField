@@ -1,11 +1,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.12
+
 import Theme 1.0
 
-Item {
+import "."
+
+EditorWidgetBase {
   id: topItem
-  signal valueChanged(var value, bool isNull)
-  signal requestGeometry(var item, var layer)
 
   height: childrenRect.height
 

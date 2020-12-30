@@ -6,6 +6,7 @@ import Qt.labs.calendar 1.0
 
 import Theme 1.0
 
+import "."
 
 /*
   Config:
@@ -21,10 +22,7 @@ import Theme 1.0
 
  */
 
-Item {
-  signal valueChanged(var value, bool isNull)
-  signal requestGeometry(var item, var layer)
-
+EditorWidgetBase {
   height: childrenRect.height
   enabled: isEnabled
 

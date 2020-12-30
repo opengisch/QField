@@ -17,6 +17,7 @@
         <file>ScaleBar.qml</file>
         <file>VariableEditor.qml</file>
         <file>WelcomeScreen.qml</file>
+        <file>editorwidgets/EditorWidgetBase.qml</file>
         <file>editorwidgets/CheckBox.qml</file>
         <file>editorwidgets/DateTime.qml</file>
         <file>editorwidgets/ExternalResource.qml</file>

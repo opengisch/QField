@@ -6,12 +6,11 @@ import QtQuick.Window 2.12
 import org.qgis 1.0
 import org.qfield 1.0
 import Theme 1.0
+
+import "."
 import ".." as QField
 
-Item {
-  signal valueChanged(var value, bool isNull)
-  signal requestGeometry(var item, var layer)
-
+EditorWidgetBase {
   anchors.left: parent.left
   anchors.right: parent.right
 

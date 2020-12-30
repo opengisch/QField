@@ -6,14 +6,12 @@ import QtQuick.Layouts 1.12
 import org.qfield 1.0
 import org.qgis 1.0
 import Theme 1.0
+
 import ".."
+import "."
 
-
-Item {
+EditorWidgetBase {
   id: valueRelation
-
-  signal valueChanged(var value, bool isNull)
-  signal requestGeometry(var item, var layer)
 
   height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
   enabled: true
