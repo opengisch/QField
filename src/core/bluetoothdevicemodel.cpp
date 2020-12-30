@@ -74,7 +74,7 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
   if ( mDiscoveredDevices.contains( serviceDiscovered ) )
     return;
 
-  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() + 1 );
+  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {

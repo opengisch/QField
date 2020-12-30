@@ -242,13 +242,26 @@ Page {
 
                           function onScanningStatusChanged(scanningStatus) {
                               if( scanningStatus === BluetoothDeviceModel.Scanning )
+                              {
                                   displayToast( qsTr('Scanning for paired devices') )
+                              }
                               if( scanningStatus === BluetoothDeviceModel.Failed )
+                              {
                                   displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                              }
                               if( scanningStatus === BluetoothDeviceModel.Succeeded )
-                                  displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() - 1 ) )
+                              {
+                                  var message = qsTr('Scanning done')
+                                  if ( bluetoothDeviceModel.rowCount() > 1 )
+                                  {
+                                      message += ': ' + qsTr( '%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1 )
+                                  }
+                                  displayToast( message )
+                              }
                               if( scanningStatus === BluetoothDeviceModel.Canceled )
-                                  displayToast( qsTr('Scanning canceled.') )
+                              {
+                                  displayToast( qsTr('Scanning canceled') )
+                              }
                           }
                       }
                   }
