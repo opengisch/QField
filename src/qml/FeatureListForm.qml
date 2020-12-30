@@ -47,25 +47,49 @@ Rectangle {
   signal requestGeometry(var item, var layer)
 
   width: {
-      if (props.isVisible) {
-          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
+      if ( props.isVisible || geometryRequested )
+      {
+          if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300)
+          {
               parent.width
-          } else {
+          }
+          else
+          {
               isVertical = false
               Math.min(Math.max( 200, parent.width / 2.6), parent.width)
           }
-      } else { 0 }
+      }
+      else
+      {
+
+          0
+      }
   }
   height: {
-     if (props.isVisible) {
-         if (fullScreenView || parent.width > parent.height) {
+     if ( props.isVisible || geometryRequested )
+     {
+         if (fullScreenView || parent.width > parent.height)
+         {
              parent.height
-         } else {
+         }
+         else
+         {
              isVertical = true
              Math.min(Math.max( 200, parent.height / 2 ), parent.height)
          }
-     } else { 0 }
+     }
+     else
+     {
+         0
+     }
   }
+
+  anchors.bottomMargin: geometryRequested ? featureForm.height : 0
+  anchors.rightMargin: geometryRequested ? -featureForm.width : 0
+  opacity: geometryRequested ? 0.5 : 1
+
+  enabled: !geometryRequested
+  visible: props.isVisible
 
   states: [
     State {
@@ -450,6 +474,34 @@ Rectangle {
   Behavior on height {
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
+      easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze('formresize')
+        else
+          mapCanvasMap.unfreeze('formresize')
+      }
+    }
+  }
+
+  Behavior on anchors.rightMargin {
+    PropertyAnimation {
+      duration: 250
+      easing.type: Easing.InQuart
+
+      onRunningChanged: {
+        if ( running )
+          mapCanvasMap.freeze('formresize')
+        else
+          mapCanvasMap.unfreeze('formresize')
+      }
+    }
+  }
+
+  Behavior on anchors.bottomMargin {
+    PropertyAnimation {
+      duration: 250
       easing.type: Easing.InQuart
 
       onRunningChanged: {

@@ -315,7 +315,7 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: {
-          if( !overlayFeatureFormDrawer.visible )
+          if( !featureForm.geometryRequested && !overlayFeatureFormDrawer.visible )
           {
               identifyTool.identify(point)
           }
@@ -1177,6 +1177,7 @@ ApplicationWindow {
             digitizingFeature.geometry.applyRubberband()
             featureForm.geometryRequestedItem.requestedGeometry(digitizingFeature.geometry)
             digitizingRubberband.model.reset()
+            stateMachine.state = featureForm.previousStateMachineState
             featureForm.geometryRequested = false
             featureForm.show()
             return;
