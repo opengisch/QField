@@ -246,7 +246,7 @@ Page {
                               if( scanningStatus === BluetoothDeviceModel.Failed )
                                   displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
                               if( scanningStatus === BluetoothDeviceModel.Succeeded )
-                                  displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() ) )
+                                  displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() - 1 ) )
                               if( scanningStatus === BluetoothDeviceModel.Canceled )
                                   displayToast( qsTr('Scanning canceled.') )
                           }

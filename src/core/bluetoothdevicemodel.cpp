@@ -69,6 +69,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Scanning );
+  mServiceDiscoveryAgent.clear();
   mServiceDiscoveryAgent.start( discoveryMode );
 }
 
