@@ -18,7 +18,13 @@ VisibilityFadingRow {
 
   spacing: 4
 
+  /* This signal is emitted when the user confirms the digitized geometry.
+   * The correspoding handler is \c onConfirm.
+   */
   signal confirm
+  /* This signal is emitted when the user cancels geometry digitizing.
+   * The correspoding handler is \c onCancel.
+   */
   signal cancel
   signal vertexCountChanged
 
