@@ -154,7 +154,7 @@ Item {
             else
             {
                 doublePressed = false
-                grabPermissions = PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+                dragHandler.grabPermissions = PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
             }
 
             if (longPressActive)
