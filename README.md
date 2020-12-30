@@ -58,7 +58,7 @@ This will put the apk into a subfolder `build-docker/out/build/outputs/apk`
 To build QField for a desktop environment:
 
 * Get QGIS development libraries. QField normally uses bleeding edge QGIS code. Ideally install nightly builds or compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
-* If your system comes with a Qt version which is too low for QField, you can also install Qt manually. Download the most recent Qt 5.* version from the [Qt Website](https://www.qt.io/download) to satisfy QField dependencies. Setup a new QtCreator kit that uses the downloaded Qt libs.
+* If your system comes with a Qt version which is too low for QField, you can also install Qt manually. Download the most recent Qt 5.x version from the [Qt Website](https://www.qt.io/download) to satisfy QField dependencies. Setup a new QtCreator kit that uses the downloaded Qt libs.
 * Get QField source code:
 
 ```sh
