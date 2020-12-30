@@ -123,10 +123,6 @@ Item {
             }
         }
 
-        onActiveChanged: {
-            console.log('tap active ',active? 'true' : 'false')
-        }
-
         onSingleTapped: {
             if( point.modifiers === Qt.RightButton)
             {
@@ -153,10 +149,12 @@ Item {
             {
                 timer.stop()
                 doublePressed = true
+                dragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
             }
             else
             {
                 doublePressed = false
+                dragHandler.grabPermissions = PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
             }
 
             if (longPressActive)
@@ -166,8 +164,10 @@ Item {
     }
 
     DragHandler {
+        id: dragHandler
         target: null
         enabled: !freehandDigitizing
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
         property var oldPos
         property real oldTranslationY
@@ -287,7 +287,8 @@ Item {
 
 
     WheelHandler {
-        id: wheel
+        target: null
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
         onWheel: {
             if ( event.angleDelta.y > 0 )
@@ -300,5 +301,4 @@ Item {
             }
         }
     }
-    // TODO add WheelHandler once we can expect Qt 5.14 on all platforms
 }
