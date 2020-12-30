@@ -49,7 +49,7 @@ VisibilityFadingRow {
 
   function init() {
     var lastUsed = settings.value( "/QField/GeometryEditorLastUsed", -1 )
-    if (lastUsed >= 0)
+    if (lastUsed >= 0 && lastUsed < editors.rowCount())
     {
       selectorRow.stateVisible = false
       var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole)

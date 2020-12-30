@@ -770,6 +770,13 @@ ApplicationWindow {
       toolText: qsTr( 'Stop editing' )
       onClosedTool: geometryEditorsToolbar.cancelEditors()
     }
+
+    CloseTool {
+      id: abortRequestGeometry
+      visible: featureForm.geometryRequested
+      toolText: qsTr( 'Cancel addition' )
+      onClosedTool: digitizingToolbar.cancel()
+    }
   }
 
   Column {
