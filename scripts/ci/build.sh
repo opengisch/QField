@@ -49,6 +49,8 @@ else
 fi
 
 echo "Arch number: ${ARCH_NUMBER}"
+echo "APP_NAME: ${APP_NAME}"
+echo "APP_PACKAGE_NAME: ${APP_PACKAGE_NAME}"
 echo "APP_ICON: ${APP_ICON}"
 echo "APP_VERSION: ${APP_VERSION}"
 echo "APP_VERSION_STR: ${APP_VERSION_STR}"
