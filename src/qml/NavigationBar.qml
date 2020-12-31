@@ -437,8 +437,6 @@ Rectangle {
   QfToolButton {
     id: multiDeleteButton
 
-    property bool readOnly: false
-
     anchors.right: parent.right
 
     width: ( parent.state == "Indication" && toolBar.model && toolBar.model.canDeleteSelection ? 48: 0 )
