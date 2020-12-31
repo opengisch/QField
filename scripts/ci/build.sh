@@ -22,7 +22,7 @@ if [[ -n ${CI_TAG} ]]; then
   export APP_ICON="qfield_logo"
   export APP_VERSION="${CI_TAG}" # v1.2.3 or v1.2.3-rc4
   export APP_VERSION_STR
-  export APP_VERSION_CODE
+  export APK_VERSION_CODE
 elif [[ ${CI_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
   # get numbers of masters commits
