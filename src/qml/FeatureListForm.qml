@@ -30,24 +30,21 @@ Rectangle {
 
   property FeatureListModelSelection selection
   property MapSettings mapSettings
+  property DigitizingToolbar digitizingToolbar
   property color selectionColor
   property alias model: globalFeaturesList.model
   property alias extentController: featureListToolBar.extentController
   property bool allowEdit
   property bool allowDelete
-  property bool geometryRequested: false
-  property var geometryRequestedItem
-  property VectorLayer geometryRequestedLayer
 
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: false
 
   signal showMessage(string message)
   signal editGeometry
-  signal requestGeometry(var item, var layer)
 
   width: {
-      if ( props.isVisible || geometryRequested )
+      if ( props.isVisible || digitizingToolbar.geometryRequested )
       {
           if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300)
           {
@@ -66,7 +63,7 @@ Rectangle {
       }
   }
   height: {
-     if ( props.isVisible || geometryRequested )
+     if ( props.isVisible || digitizingToolbar.geometryRequested )
      {
          if (fullScreenView || parent.width > parent.height)
          {
@@ -84,11 +81,11 @@ Rectangle {
      }
   }
 
-  anchors.bottomMargin: geometryRequested ? featureForm.height : 0
-  anchors.rightMargin: geometryRequested ? -featureForm.width : 0
-  opacity: geometryRequested ? 0.5 : 1
+  anchors.bottomMargin: digitizingToolbar.geometryRequested ? featureForm.height : 0
+  anchors.rightMargin: digitizingToolbar.geometryRequested ? -featureForm.width : 0
+  opacity: digitizingToolbar.geometryRequested ? 0.5 : 1
 
-  enabled: !geometryRequested
+  enabled: !digitizingToolbar.geometryRequested
   visible: props.isVisible
 
   states: [
@@ -315,6 +312,8 @@ Rectangle {
     anchors.bottom: parent.bottom
     height: parent.height - globalFeaturesList.height
 
+    digitizingToolbar: featureForm.digitizingToolbar
+
     model: AttributeFormModel {
       featureModel: FeatureModel {
         currentLayer: featureForm.selection.focusedLayer
@@ -326,13 +325,6 @@ Rectangle {
     focus: true
 
     visible: !globalFeaturesList.shown
-
-    onRequestGeometry: {
-        featureForm.geometryRequested = true
-        featureForm.geometryRequestedItem = item
-        featureForm.geometryRequestedLayer = layer
-        featureForm.requestGeometry(item, layer)
-    }
   }
 
   NavigationBar {
@@ -552,7 +544,7 @@ Rectangle {
     focus = false
     fullScreenView = qfieldSettings.fullScreenIdentifyView
 
-    if ( !geometryRequested )
+    if ( !digitizingToolbar.geometryRequested )
     {
       featureForm.selection.clear()
       if ( featureForm.selection.model )

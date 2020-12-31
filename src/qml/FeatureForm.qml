@@ -20,6 +20,8 @@ Page {
   signal requestGeometry(var item, var layer)
   signal aboutToSave
 
+  property DigitizingToolbar digitizingToolbar
+
   property AttributeFormModel model
   property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
@@ -482,9 +484,10 @@ Page {
                     }
                   }
                 }
-
                 function onRequestGeometry(item, layer) {
-                    requestGeometry(item, layer)
+                    form.digitizingToolbar.geometryRequested = true
+                    form.digitizingToolbar.geometryRequestedItem = item
+                    form.digitizingToolbar.geometryRequestedLayer = layer
                 }
               }
             }
