@@ -30,7 +30,13 @@ Item {
       color: Theme.light
       font: Theme.strongFont
       wrapMode: Text.WordWrap
-      text: qsTr( "QField Version: %1 (code: %2)").arg( version ).arg( versionCode )
+      text: {
+        var link = appVersion
+         ? '<a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>'
+         : '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>'
+        qsTr( "QField Version: %1 (%2)").arg( appVersionStr ).arg( link )
+      }
+      onLinkActivated: Qt.openUrlExternally(link)
     }
 
     Item{

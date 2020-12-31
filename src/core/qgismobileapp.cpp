@@ -374,9 +374,9 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "qgisProject", mProject );
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
-  rootContext()->setContextProperty( "version", QString( QUOTE( VERSTR ) ) );
-  rootContext()->setContextProperty( "versionCode", QString( "" VERSIONCODE ) );
-  rootContext()->setContextProperty( "gitRev", QString( QUOTE( GIT_REV ) ) );
+  rootContext()->setContextProperty( "appVersion", QString( "" APP_VERSION ) );
+  rootContext()->setContextProperty( "appVersionStr", QString( "" APP_VERSION_STR ) );
+  rootContext()->setContextProperty( "gitRev", QString( "" GIT_REV ) );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
   rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
   rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
