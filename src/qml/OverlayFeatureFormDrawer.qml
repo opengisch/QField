@@ -6,9 +6,11 @@ import org.qfield 1.0
 
 Drawer {
   id: overlayFeatureFormDrawer
+
   property alias featureModel: overlayFeatureForm.featureModel
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
+  property DigitizingToolbar digitizingToolbar
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   width: {
@@ -36,14 +38,30 @@ Drawer {
    */
 
   onClosed: {
-      if( !overlayFeatureForm.isSaved ) {
-        overlayFeatureForm.confirm()
-      } else {
-        overlayFeatureForm.isSaved = false //reset
+      if ( !digitizingToolbar.geometryRequested ) {
+          if( !overlayFeatureForm.isSaved ) {
+              overlayFeatureForm.confirm()
+          } else {
+              overlayFeatureForm.isSaved = false //reset
+          }
+          digitizingRubberband.model.reset()
+          featureModel.resetFeature()
       }
+  }
 
-      digitizingRubberband.model.reset()
-      featureModel.resetFeature()
+  Connections {
+      target: digitizingToolbar
+      property bool wasAdding: false
+
+      function onGeometryRequestedChanged() {
+          if ( digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.opened ) {
+              wasAdding = true
+              overlayFeatureFormDrawer.close()
+          } else if ( !digitizingToolbar.geometryRequested && wasAdding ) {
+              wasAdding = false
+              overlayFeatureFormDrawer.open()
+          }
+      }
   }
 
   FeatureForm {
@@ -54,7 +72,11 @@ Drawer {
     property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
 
-    model: AttributeFormModel { id: attributeFormModel }
+    digitizingToolbar: overlayFeatureFormDrawer.digitizingToolbar
+    model: AttributeFormModel {
+        id: attributeFormModel
+        featureModel: FeatureModel { }
+    }
 
     state: "Add"
 

@@ -13,6 +13,8 @@ import org.qfield 1.0
 import Theme 1.0
 
 Page {
+  id: form
+
   signal confirmed
   signal cancelled
   signal temporaryStored
@@ -34,8 +36,6 @@ Page {
   function reset() {
     master.reset()
   }
-
-  id: form
 
   states: [
     State {
