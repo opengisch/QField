@@ -268,6 +268,9 @@ EditorWidgetBase {
     EmbeddedFeatureForm{
         id: embeddedPopup
 
+        embeddedLevel: form.embeddedLevel + 1
+        digitizingToolbar: form.digitizingToolbar
+
         onFeatureCancelled: {
             if( autoSave )
                 relationEditorModel.reload()
