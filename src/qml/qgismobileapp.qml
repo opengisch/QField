@@ -271,7 +271,6 @@ ApplicationWindow {
 
     /* The base map */
     MapCanvas {
-
       id: mapCanvasMap
       incrementalRendering: qfieldSettings.incrementalRendering
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
@@ -279,16 +278,16 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked:  {
-          // Check if geometry editor is taking over
-          if ( geometryEditorsToolbar.canvasClicked(point) )
-              return;
-
           if (locatorItem.state == "on")
           {
               locatorItem.state = "off"
           }
           else if ( type === "stylus" )
           {
+              // Check if geometry editor is taking over
+              if ( geometryEditorsToolbar.canvasClicked(point) )
+                  return;
+
               if ( ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
@@ -817,7 +816,7 @@ ApplicationWindow {
 
       bgcolor: Theme.darkGray
 
-      property bool freehandDigitizing: settings.valueBool( "/QField/Digitizing/FreehandActive", false )
+      property bool freehandDigitizing: false
       state: freehandDigitizing ? "On" : "Off"
 
       states: [
@@ -841,9 +840,13 @@ ApplicationWindow {
       ]
 
       onClicked: {
-        freehandDigitizing = !settings.valueBool( "/QField/Digitizing/FreehandActive", false );
-        settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
+        freehandDigitizing = !freehandDigitizing
         displayToast( freehandDigitizing ? qsTr( "Freehand digitizing turned on" ) : qsTr( "Freehand digitizing turned off" ) );
+        settings.setValue( "/QField/Digitizing/FreehandActive", freehandDigitizing );
+      }
+
+      Component.onCompleted: {
+          freehandDigitizing = settings.valueBool( "/QField/Digitizing/FreehandActive", false )
       }
     }
   }
