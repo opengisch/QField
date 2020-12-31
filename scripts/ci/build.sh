@@ -10,14 +10,19 @@ source ${DIR}/../version_number.sh
 if [[ -n ${CI_TAG} ]]; then
   echo "Building release from tag"
   APP_VERSION_NAME=$(cat ${DIR}/../../RELEASE_NAME)
+  # v1.2.3 Release Name -> 1.2.3 Release Name 
+  # v1.2.3-rc4 Release Name -> 1.2.3 RC4 Release Name
+  APP_VERSION_STR="$(app_version_str ${CI_TAG}) - ${APP_VERSION_NAME}"
+  # v1.2.3-rc4 arm7 -> 0102030400
+  APK_VERSION_CODE=$(apk_version_code "${CI_TAG}" "${ARCH}")
+  # ^-- SC2155: Declare and assign separately to avoid masking return values.
 
   export APP_NAME="QField"
   export APP_PACKAGE_NAME="qfield"
   export APP_ICON="qfield_logo"
   export APP_VERSION="${CI_TAG}" # v1.2.3 or v1.2.3-rc4
-  export APP_VERSION_STR="$( app_version_str ${CI_TAG} ) - ${APP_VERSION_NAME}" # v1.2.3 -> 1.2.3; v1.2.3-rc4 -> 1.2.3 RC4
-  export APK_VERSION_CODE=$(apk_version_code "${APP_VERSION}" "${ARCH}") # v1.2.3-rc4 arm7 -> 0102030400
-
+  export APP_VERSION_STR
+  export APP_VERSION_CODE
 elif [[ ${CI_PULL_REQUEST} = false ]]; then
   ARCH_NUMBER=$(arch_to_build_number ${ARCH})
   # get numbers of masters commits
