@@ -10,7 +10,7 @@
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 #
 # APK_VERSION_CODE (MMmmFFNNA: major,minor,fix,number,architecture_index, e.g. 010203040 from v1.2.3-rc4 arm7) is required.
-# APP_VERSION (e.g. v1.2.3, v1.2.3-rc4) is needed when a new build is published.
+# APP_VERSION (e.g. v1.2.3, v1.2.3-rc4) is needed when a new version is published.
 # APP_VERSION_STR ("v1.2.3 - Release Name", v1.2.3-rc4, PR1234, master-dev) is required. Human readable name.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
