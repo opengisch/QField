@@ -167,7 +167,7 @@ Item {
         id: dragHandler
         target: null
         enabled: !freehandDigitizing
-        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
         property var oldPos
         property real oldTranslationY
