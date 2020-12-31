@@ -20,11 +20,11 @@
 
 BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
   mLocalDevice( std::make_unique<QBluetoothLocalDevice>() ),
-  mSocket( std::make_unique<QBluetoothSocket>( QBluetoothServiceInfo::RfcommProtocol ) ),
-  mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket.get() ) )
+  mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
+  mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
   //socket state changed
-  connect( mSocket.get(), &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
+  connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
   //QgsGpsConnection state changed (received location string)
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
