@@ -375,7 +375,7 @@ void QgisMobileapp::initDeclarative()
   rootContext()->setContextProperty( "iface", mIface );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "appVersion", QString( "" APP_VERSION ) );
-  rootContext()->setContextProperty( "appVersionStr", QString( "" APP_VERSION_STR ) );
+  rootContext()->setContextProperty( "appVersionStr", QString( QUOTE( APP_VERSION_STR ) ) );
   rootContext()->setContextProperty( "gitRev", QString( "" GIT_REV ) );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
   rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
