@@ -522,6 +522,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           case QgsMapLayerType::AnnotationLayer:
             layerType = QStringLiteral( "annotationlayer" );
             break;
+          case QgsMapLayerType::PointCloudLayer:
+            layerType = QStringLiteral( "pointcloudlayer" );
+            break;
         }
       }
       return layerType;
