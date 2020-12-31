@@ -9,18 +9,29 @@
 #
 # ANDROID_NDK_PLATFORM and QT_VERSION are defined in docker-qt-crystax
 #
-# You can either provide the version code directly with APP_VERSION_CODE (MMmmFFNNA: major,minor,fix,number,architecture_index)
-# or you can provide the APP_VERSION (v1.2.3 or v1.2.3-rc4) and the APP_VERSION_CODE will be calculated
-# The APP_VERSION_STR shall be provided in both case
+# APK_VERSION_CODE (MMmmFFNNA: major,minor,fix,number,architecture_index, e.g. 010203040 from v1.2.3-rc4 arm7) is required.
+# APP_VERSION (e.g. v1.2.3, v1.2.3-rc4) is needed when a new version is published.
+# APP_VERSION_STR ("v1.2.3 - Release Name", v1.2.3-rc4, PR1234, master-dev) is required. Human readable name.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/version_number.sh
 
 set -e
 
-if [[ -z $APP_VERSION ]] && [[ -z $APP_VERSION_CODE ]]; then
-  echo "*** ERROR MISSING APP_VERSION OR APP_VERSION_CODE ENVIRONMENT VARIABLE"
+if [[ -z $APK_VERSION_CODE ]]; then
+  echo "*** ERROR MISSING APK_VERSION_CODE ENVIRONMENT VARIABLE"
   exit 2
+fi
+
+if [[ -z $APP_VERSION_STR ]]; then
+  echo "*** ERROR MISSING APP_VERSION_STR"
+  exit 2
+fi
+
+if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
+  echo "*** ERROR TOO BIG VERSION CODE ${APK_VERSION_CODE}"
+  echo "Remove this check if QField is now 2.x"
+  exit 1
 fi
 
 apt update && apt install -y zip bc cmake ninja-build jq
@@ -54,20 +65,6 @@ if [[ "X${APP_PACKAGE_NAME}" != "Xqfield" ]]; then
   grep "ch.opengis.qfield" -l -r ${SOURCE_DIR}/src/ | xargs sed -i "s/ch.opengis.qfield/ch.opengis.${APP_PACKAGE_NAME}/g"
   mv ${SOURCE_DIR}/android/src/ch/opengis/qfield ${SOURCE_DIR}/android/src/ch/opengis/${APP_PACKAGE_NAME}
   sed -i "s|<string name=\"app_name\" translatable=\"false\">QField</string>|<string name=\"app_name\" translatable=\"false\">${APP_NAME}</string>|" ${SOURCE_DIR}/android/res/values/strings.xml
-fi
-
-# Current APP_VERSION which is being built (e.g. v1.2.3-rc4, v1.2.3)
-if [[ -n ${APP_VERSION} ]];
-then
-  echo "Building release version APP_VERSION: ${APP_VERSION}"
-  APP_VERSION_CODE=$(app_version_code "${APP_VERSION}" "${ARCH}")
-  echo "Generated version code APP_VERSION_CODE: ${APP_VERSION_CODE}"
-fi
-
-if [[ $( echo "${APP_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
-  echo "*** ERROR TOO BIG VERSION CODE ${APP_VERSION_CODE}"
-  echo "Remove this check if QField is now 2.x"
-  exit 1
 fi
 
 mkdir -p ${BUILD_DIR}/.gradle
@@ -106,9 +103,9 @@ fi
 
 cmake \
 	-G Ninja \
+	-DAPK_VERSION_CODE=${APK_VERSION_CODE} \
 	-DAPP_VERSION=${APP_VERSION} \
-	-DAPK_VERSION_CODE=${APP_VERSION_CODE} \
-	-DAPP_VERSION_NAME=${APP_VERSION_STR:-${APP_VERSION_CODE}} \
+	-DAPP_VERSION_STR=${APP_VERSION_STR} \
 	-DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
 	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
