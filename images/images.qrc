@@ -320,26 +320,15 @@
         <file>themes/qfield/xhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxhdpi/baseline_photo_library_black_48.png</file>
         <file>themes/qfield/xxxhdpi/baseline_photo_library_black_48.png</file>
-        <file>themes/qfield/hdpi/ic_split_tool_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_split_tool_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_split_tool_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_split_tool_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_split_tool_white_24dp.png</file>
-        <file>themes/qfield/hdpi/ic_ring_tool_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_ring_tool_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_ring_tool_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_ring_tool_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_ring_tool_white_24dp.png</file>
+        <file>themes/qfield/nodpi/ic_split_tool_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_reshape_tool_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_ring_tool_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_vertex_tool_white_24dp.svg</file>
         <file>themes/qfield/hdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/mdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/xhdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/xxhdpi/ic_view_green_48dp.png</file>
         <file>themes/qfield/xxxhdpi/ic_view_green_48dp.png</file>
-        <file>themes/qfield/hdpi/ic_vertex_tool_white_24dp.png</file>
-        <file>themes/qfield/mdpi/ic_vertex_tool_white_24dp.png</file>
-        <file>themes/qfield/xhdpi/ic_vertex_tool_white_24dp.png</file>
-        <file>themes/qfield/xxhdpi/ic_vertex_tool_white_24dp.png</file>
-        <file>themes/qfield/xxxhdpi/ic_vertex_tool_white_24dp.png</file>
         <file>themes/qfield/hdpi/content-cut.png</file>
         <file>themes/qfield/mdpi/content-cut.png</file>
         <file>themes/qfield/xhdpi/content-cut.png</file>

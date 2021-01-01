@@ -490,7 +490,14 @@ void FeatureModel::applyGeometry()
         break;
     }
     if ( !intersectionLayers.isEmpty() )
-      geometry.avoidIntersections( intersectionLayers );
+    {
+      QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+      if ( mFeature.id() != FID_NULL )
+      {
+        ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+      }
+      geometry.avoidIntersections( intersectionLayers, ignoredFeature );
+    }
   }
 
   if ( mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
