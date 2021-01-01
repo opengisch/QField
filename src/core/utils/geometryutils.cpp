@@ -70,7 +70,9 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
       }
       if ( !avoidIntersectionsLayers.isEmpty() )
       {
-        if ( geom.avoidIntersections( avoidIntersectionsLayers ) != 0 )
+        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+        ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
+        if ( geom.avoidIntersections( avoidIntersectionsLayers, ignoredFeature ) != 0 )
         {
           layer->destroyEditCommand();
           return QgsGeometry::NothingHappened;
