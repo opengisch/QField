@@ -138,8 +138,8 @@ VisibilityFadingRow {
   Connections {
       target: toolbarRow.item
       onFinished: {
-        featureModel.vertexModel.clear()
-        toolbarRow.source = ''
+          featureModel.vertexModel.clear()
+          toolbarRow.source = ''
       }
   }
 

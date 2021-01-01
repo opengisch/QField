@@ -147,6 +147,11 @@ class FeatureModel : public QAbstractListModel
     Q_INVOKABLE void reset();
 
     /**
+     * Will refresh the feature values and geometry from the data source.
+     */
+    Q_INVOKABLE void refresh();
+
+    /**
      * Will create this feature as a new feature on the data source
      */
     Q_INVOKABLE bool create();
@@ -185,6 +190,9 @@ class FeatureModel : public QAbstractListModel
     //! Apply the vertex model to the feature geometry.
     //! \note This shall be used if the feature model is used with the vertex model rather than the geometry and rubberband model
     Q_INVOKABLE void applyVertexModelToGeometry();
+
+    //! Apply the feature geometry to a vertex model if present.
+    Q_INVOKABLE void applyGeometryToVertexModel();
 
     //! Apply the vertex model changes to the layer topography.
     Q_INVOKABLE void applyVertexModelToLayerTopography();
