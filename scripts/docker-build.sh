@@ -34,8 +34,6 @@ if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   exit 1
 fi
 
-apt update && apt install -y zip bc cmake ninja-build jq
-
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -69,7 +67,7 @@ fi
 
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.
-ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
+ln -sfn ${BUILD_DIR}/.gradle $HOME/.gradle
 
 pushd ${BUILD_DIR}
 
