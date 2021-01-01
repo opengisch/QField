@@ -74,15 +74,14 @@ jobs:
             ./scripts/ci/pull_translations.sh
           fi
 
-
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/cache/.gradle/caches
-            ~/cache/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+#      - uses: actions/cache@v2
+#        with:
+#          path: |
+#            ~/cache/.gradle/caches
+#            ~/cache/.gradle/wrapper
+#          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+#          restore-keys: |
+#            ${{ runner.os }}-gradle-
 
       - name: Build
         env:
@@ -94,6 +93,7 @@ jobs:
         run: |
           ./scripts/ci/docker_pull.sh
           ./scripts/ci/build.sh
+          ls $CACHE_DIR
 
       - name: 🍺 Deploy
         run: |
