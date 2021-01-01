@@ -94,7 +94,8 @@ class GnssPositionInformation
 
     Q_ENUM( FixStatus )
 
-    GnssPositionInformation( double latitude = 0, double longitude = 0, double elevation = 0, double speed = 0, double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
+    GnssPositionInformation( double latitude = std::numeric_limits< double >::quiet_NaN(), double longitude = std::numeric_limits< double >::quiet_NaN(), double elevation = std::numeric_limits< double >::quiet_NaN(),
+                             double speed = std::numeric_limits< double >::quiet_NaN(), double direction = std::numeric_limits< double >::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
                              double pdop = 0, double hdop = 0, double vdop = 0, double hacc = std::numeric_limits< double >::quiet_NaN(), double vacc = std::numeric_limits< double >::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
                              double verticalSpeed = std::numeric_limits< double >::quiet_NaN(), double magneticVariation = std::numeric_limits< double >::quiet_NaN(), const QString &sourceName = QString() );
@@ -104,13 +105,13 @@ class GnssPositionInformation
      * a negative value indicates the Southern Hemisphere.
      */
     double latitude() const { return mLatitude; }
-    bool latitudeValid() const { return mLatitude != 0; }
+    bool latitudeValid() const { return !std::isnan( mLatitude ); }
     /**
      * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
      * a negative value indicates the Western Hemisphere.
      */
     double longitude() const { return mLongitude; }
-    bool longitudeValid() const { return mLongitude != 0; }
+    bool longitudeValid() const { return !std::isnan( mLongitude ); }
 
     /**
      * Altitude (in meters) above or below the mean sea level.
@@ -240,10 +241,10 @@ class GnssPositionInformation
     QString fixStatusDescription() const;
 
   private:
-    double mLatitude = 0;
-    double mLongitude = 0;
-    double mElevation = 0;
-    double mSpeed = 0;
+    double mLatitude = std::numeric_limits< double >::quiet_NaN();
+    double mLongitude = std::numeric_limits< double >::quiet_NaN();
+    double mElevation = std::numeric_limits< double >::quiet_NaN();
+    double mSpeed = std::numeric_limits< double >::quiet_NaN();
     double mDirection = std::numeric_limits< double >::quiet_NaN();
     QList<QgsSatelliteInfo> mSatellitesInView;
     double mPdop = 0;
