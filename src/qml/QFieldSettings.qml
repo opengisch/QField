@@ -406,7 +406,7 @@ Page {
                   }
 
                   Label {
-                      text: qsTr("Bad accuracy below")
+                      text: qsTr("Bad accuracy below [m]")
                       font: Theme.defaultFont
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
@@ -447,7 +447,7 @@ Page {
                   }
 
                   Label {
-                      text: qsTr("Excellent accuracy above")
+                      text: qsTr("Excellent accuracy above [m]")
                       font: Theme.defaultFont
                       enabled: accuracyIndicator.checked
                       visible: accuracyIndicator.checked
@@ -551,10 +551,11 @@ Page {
                   }
 
                   Label {
-                      text: qsTr("Antenna height")
+                      text: qsTr("Antenna height [m]")
                       enabled: antennaHeightActivated.checked
                       visible: antennaHeightActivated.checked
                       font: Theme.defaultFont
+                      textFormat: Text.RichText
                       Layout.leftMargin: 8
                   }
 
