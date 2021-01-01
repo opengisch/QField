@@ -285,10 +285,10 @@ ApplicationWindow {
           else if ( type === "stylus" )
           {
               // Check if geometry editor is taking over
-              if ( geometryEditorsToolbar.canvasClicked(point) )
+              if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
+              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
@@ -465,6 +465,13 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
+      accuracyRequirementFail: {
+          if ( positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement )
+          {
+              return positioningSettings.accuracyBad > 0 && ( !positionSource.positionInfo || !positionSource.positionInfo.haccValid || !positionSource.positionInfo.hacc > badThreshold )
+          }
+          return false
+      }
     }
 
     /* GPS marker  */
