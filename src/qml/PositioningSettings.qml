@@ -7,4 +7,5 @@ LabSettings.Settings {
   property real antennaHeight: 0.0
   property bool antennaHeightActivated: false
   property bool skipAltitudeCorrection: false
+  property bool showPositionInformation: false
 }

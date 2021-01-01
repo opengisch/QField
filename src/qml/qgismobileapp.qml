@@ -540,7 +540,7 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+    visible: positioningSettings.showPositionInformation
 
     height: childrenRect.height
     width: parent.width
@@ -1451,13 +1451,7 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: {
-        if ( checked ) {
-            positioningSettings.positioningActivated = true
-        } else {
-            positioningSettings.positioningActivated = false
-        }
-      }
+      onCheckedChanged: positioningSettings.positioningActivated = checked
     }
 
     MenuItem {
@@ -1466,16 +1460,12 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       checkable: true
-      checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+      checked: positioningSettings.showPositionInformation
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged:
-      {
-        settings.setValue( "/QField/Positioning/ShowInformationView", checked )
-        positionInformationView.visible = checked
-      }
+      onCheckedChanged: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
