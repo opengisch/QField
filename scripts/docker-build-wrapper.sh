@@ -1,7 +1,5 @@
 #!/bin/env bash
 
-apt update && apt install -y zip bc cmake ninja-build jq
-
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
 
 USER_ID=$(stat -c '%u' "${BASH_SOURCE[0]}")
