@@ -42,16 +42,17 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
 QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
   QgsFeature feature = layer->getFeature( fid );
-  if ( feature.geometry().isNull() ||
-       ( QgsWkbTypes::geometryType( layer->wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( layer->wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
+  QgsGeometry geom = feature.geometry();
+  if ( geom.isNull() ||
+       ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
     return QgsGeometry::InvalidBaseGeometry;
 
   QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
   QgsLineString reshapeLineString( points );
 
-  QgsGeometry geom = feature.geometry();
   QgsGeometry::OperationResult reshapeReturn = geom.reshapeGeometry( reshapeLineString );
-  if ( reshapeReturn == QgsGeometry::Success ) {
+  if ( reshapeReturn == QgsGeometry::Success )
+  {
     //avoid intersections on polygon layers
     if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
     {
@@ -67,9 +68,9 @@ QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLaye
         case QgsProject::AvoidIntersectionsMode::AllowIntersections:
           break;
       }
-      if ( avoidIntersectionsLayers.size() > 0 )
+      if ( !avoidIntersectionsLayers.isEmpty() )
       {
-        if ( geom.avoidIntersections( QgsProject::instance()->avoidIntersectionsLayers() ) != 0 )
+        if ( geom.avoidIntersections( avoidIntersectionsLayers ) != 0 )
         {
           layer->destroyEditCommand();
           return QgsGeometry::NothingHappened;
