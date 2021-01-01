@@ -28,17 +28,14 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   {
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );
-    endResetModel();
   } );
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
   {
     setScanningStatus( mServiceDiscoveryAgent.error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
-    endResetModel();
   } );
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
   {
     setScanningStatus( Canceled );
-    endResetModel();
   } );
 
   beginResetModel();
@@ -57,10 +54,6 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
-  beginResetModel();
-  mDiscoveredDevices.clear();
-  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
-
   if ( mServiceDiscoveryAgent.isActive() )
     mServiceDiscoveryAgent.stop();
 
@@ -69,6 +62,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Scanning );
+  mServiceDiscoveryAgent.clear();
   mServiceDiscoveryAgent.start( discoveryMode );
 }
 
@@ -76,14 +70,20 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
 {
   //only list the paired devices so the user has control over it.
   //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
+  const QPair<QString, QString> serviceDiscovered = qMakePair( service.device().name(), service.device().address().toString() );
+  if ( mDiscoveredDevices.contains( serviceDiscovered ) )
+    return;
+
+  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {
-    mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+    mDiscoveredDevices.append( serviceDiscovered );
   }
 #else
-  mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+  mDiscoveredDevices.append( serviceDiscovered );
 #endif
+  endInsertRows();
 }
 
 int BluetoothDeviceModel::findAddressIndex( const QString &address ) const
