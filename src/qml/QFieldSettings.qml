@@ -362,6 +362,28 @@ Page {
                   rowSpacing: 5
 
                   Label {
+                      text: qsTr("Show position information")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: showPositionInformation.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: showPositionInformation
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.showPositionInformation
+                      onCheckedChanged: {
+                          positioningSettings.showPositionInformation = checked
+                      }
+                  }
+
+                  Label {
                       text: qsTr("Antenna height compensation")
                       font: Theme.defaultFont
                       wrapMode: Text.WordWrap
