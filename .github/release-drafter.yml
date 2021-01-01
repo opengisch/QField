@@ -1,0 +1,33 @@
+name-template: '$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'ENHANCEMENT'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'BUG'
+  - title: '✨ Usability Improvements'
+    labels:
+      - 'UX/UI'
+include-labels:
+  - 'ENHANCEMENT'
+  - 'BUG'
+  - 'UX/UI'
+change-template: '- $TITLE (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+template: |
+  ## Changes
+
+  $CHANGES

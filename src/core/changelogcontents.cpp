@@ -50,7 +50,7 @@ void ChangelogContents::request()
 
     QString changelog;
     QString versionNumbersOnly;
-    QList<int> qfieldVersion = parseVersion( VERSTR );
+    QList<int> qfieldVersion = parseVersion( APP_VERSION_STR );
     const QJsonArray releases = json.array();
 
     for ( const QJsonValue &releaseValue : releases )

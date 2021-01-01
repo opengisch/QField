@@ -30,7 +30,7 @@ VisibilityFadingRow {
 
   property FeatureModel featureModel //<! the feature which has its geometry being edited
   property MapSettings mapSettings
-  property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or addRing tools)
+  property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or add ring tools)
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   spacing: 4
@@ -43,6 +43,7 @@ VisibilityFadingRow {
   Component.onCompleted: {
     editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "VertexEditorToolbar.qml")
     editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "SplitFeatureToolbar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
+    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "ReshapeToolBar.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon)
     editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "FillRingToolBar.qml", GeometryEditorsModelSingleton.Polygon)
   }
 
@@ -91,7 +92,7 @@ VisibilityFadingRow {
       delegate: QfToolButton {
         round: true
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeIcon(iconPath)
+        iconSource: Theme.getThemeVectorIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
           // close current tool if any
@@ -137,8 +138,8 @@ VisibilityFadingRow {
   Connections {
       target: toolbarRow.item
       onFinished: {
-        featureModel.vertexModel.clear()
-        toolbarRow.source = ''
+          featureModel.vertexModel.clear()
+          toolbarRow.source = ''
       }
   }
 

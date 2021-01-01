@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 import org.qgis 1.0
 import org.qfield 1.0
@@ -32,6 +33,19 @@ VisibilityFadingRow {
     return true // handled
   }
 
+  QfToolButton {
+    id: stopToolButton
+    iconSource: Theme.getThemeIcon( "ic_chevron_left_white_24dp" )
+    round: true
+    visible: !drawPolygonToolbar.rubberbandModel || drawPolygonToolbar.rubberbandModel.vertexCount < 2
+    bgcolor: Theme.darkGray
+
+    onClicked: {
+        cancel()
+        finished()
+    }
+  }
+
   DigitizingToolbar {
     id: drawPolygonToolbar
     showConfirmButton: true
@@ -45,6 +59,7 @@ VisibilityFadingRow {
 
     onConfirm: {
       rubberbandModel.frozen = true
+      rubberbandModel.removeVertex()
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing()
       var result = GeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel)
@@ -62,22 +77,43 @@ VisibilityFadingRow {
           displayToast( qsTr( 'Unknown error when creating the ring' ) );
 
         featureModel.currentLayer.rollBack()
-        cancel()
-        finished()
       }
       else
       {
-        questionDialog.questionText = qsTr("Would you like to add a ring or rather fill a new polygon in the ring?")
-        questionDialog.nButtons = 3
-        questionDialog.button1Text = qsTr("Cancel")
-        questionDialog.button2Text = qsTr("Add ring")
-        questionDialog.button3Text = qsTr("Fill poylgon")
-
-        questionDialog.button1Clicked.connect(rollbackRingAndCancel)
-        questionDialog.button2Clicked.connect(commitAndFinish)
-        questionDialog.button3Clicked.connect(fillPolygon)
-        questionDialog.open()
+        addPolygonDialog.show();
       }
+    }
+  }
+
+  Dialog {
+    id: addPolygonDialog
+    parent: mainWindow.contentItem
+
+    visible: false
+    modal: true
+
+    x: ( mainWindow.width - width ) / 2
+    y: ( mainWindow.height - height ) / 2
+
+    title: qsTr( "Fill ring" )
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr( "Would you like to fill the ring with a new polygon?" )
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
+
+    onAccepted: {
+        fillWithPolygon();
+    }
+
+    onRejected: {
+        commitRing();
+    }
+
+    function show() {
+        this.open();
     }
   }
 
@@ -95,27 +131,24 @@ VisibilityFadingRow {
     drawPolygonToolbar.cancel()
   }
 
-  function commitAndFinish(){
+  function commitRing() {
     featureModel.currentLayer.commitChanges()
-    cancel()
-    finished()
+    drawPolygonToolbar.rubberbandModel.reset()
   }
 
-  function rollbackRingAndCancel()
-  {
+  function cancelRing() {
     featureModel.currentLayer.rollBack()
-    cancel()
-    finished()
+    drawPolygonToolbar.rubberbandModel.reset()
   }
 
-  function fillPolygon()
+  function fillWithPolygon()
   {
     var polygonGeometry = GeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs)
     var feature = FeatureUtils.initFeature(featureModel.currentLayer, polygonGeometry)
 
     // Show form
-    formPopupLoader.onFeatureSaved.connect(commitAndFinish)
-    formPopupLoader.onFeatureCancelled.connect(rollbackRingAndCancel)
+    formPopupLoader.onFeatureSaved.connect(commitRing)
+    formPopupLoader.onFeatureCancelled.connect(cancelRing)
 
     formPopupLoader.feature = feature
     formPopupLoader.open()

@@ -118,7 +118,7 @@ PictureSource *PlatformUtilities::getGalleryPicture( const QString &prefix, cons
 
 ViewStatus *PlatformUtilities::open( const QString &uri )
 {
-  QDesktopServices::openUrl( QUrl( uri ) );
+  QDesktopServices::openUrl( QStringLiteral( "file://%1" ).arg( uri ) );
   return nullptr;
 }
 

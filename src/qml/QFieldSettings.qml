@@ -1,14 +1,17 @@
 import QtQuick 2.11
-
-import Qt.labs.settings 1.0
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.4
+import QtBluetooth 5.14
+import Qt.labs.settings 1.0
+
 import org.qfield 1.0
 
 import Theme 1.0
 
 Page {
   signal finished
+
+  property alias currentPanel: bar.currentIndex
 
   property alias showScaleBar: registry.showScaleBar
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
@@ -20,6 +23,7 @@ Page {
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias verticalGrid: registry.verticalGrid
   property alias positioningDevice: registry.positioningDevice
+  property alias positioningDeviceName: registry.positioningDeviceName
 
   Settings {
     id: registry
@@ -32,7 +36,8 @@ Page {
     property bool autoSave
     property bool mouseAsTouchScreen
     property string verticalGrid: ""
-    property string positioningDevice: "internal"
+    property string positioningDevice: ""
+    property string positioningDeviceName: qsTr( "Internal device" );
   }
 
   ListModel {
@@ -57,7 +62,7 @@ Page {
       }
       ListElement {
           title: qsTr( "Show digitizing information" )
-          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the canvas while digitizing new features or using the measure tool." )
+          description: qsTr( "When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool." )
           settingAlias: "numericalDigitizingInformation"
       }
       ListElement {
@@ -98,22 +103,19 @@ Page {
 
       TabButton {
         text: qsTr("General")
+        height: 48
+        font: Theme.defaultFont
+        anchors.verticalCenter : parent.verticalCenter
+      }
+      TabButton {
+        text: qsTr("Positioning")
+        height: 48
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
       TabButton {
         text: qsTr("Variables")
-        font: Theme.defaultFont
-        anchors.verticalCenter : parent.verticalCenter
-      }
-      TabButton {
-        text: qsTr("Grids")
-        font: Theme.defaultFont
-        anchors.verticalCenter : parent.verticalCenter
-      }
-      TabButton {
         height: 48
-        text: qsTr("Positioning")
         font: Theme.defaultFont
         anchors.verticalCenter : parent.verticalCenter
       }
@@ -177,62 +179,24 @@ Page {
       }
 
       Item {
-        VariableEditor {
-          id: variableEditor
-          anchors.fill: parent
-          anchors.margins: 4
-        }
-      }
+          ScrollView {
+            topPadding: 5
+            leftPadding: 20
+            rightPadding: 20
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+            contentWidth: positioningGrid.width
+            contentHeight: positioningGrid.height
+            anchors.fill: parent
+            clip: true
 
-      Item {
           ColumnLayout {
-              anchors.fill: parent
-              anchors.topMargin: 8
-              anchors.leftMargin: 18
-              anchors.rightMargin: 18
+              id: positioningGrid
+              width: parent.parent.width
+              spacing: 10
 
               Label {
-                  text: qsTr( "Select a vertical grid shift in the combo box below to increase vertical location accuracy. Leave blank to disable this feature." )
-                  font: Theme.defaultFont
-
-                  wrapMode: Text.WordWrap
-                  Layout.fillWidth: true
-              }
-
-              ComboBox {
-                  Layout.fillWidth: true
-                  model: [ qsTr( "No grid (use raw altitude from device)" ) ].concat( platformUtilities.availableGrids() );
-
-                  onCurrentIndexChanged: {
-                      if ( currentIndex > 0 ) {
-                          verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
-                      } else {
-                          verticalGrid = '';
-                      }
-                  }
-
-                  Component.onCompleted: {
-                      currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
-                  }
-              }
-
-              Item {
-                  // spacer item
-                  Layout.fillWidth: true
-                  Layout.fillHeight: true
-              }
-          }
-      }
-
-      Item {
-          ColumnLayout {
-              anchors.fill: parent
-              anchors.topMargin: 8
-              anchors.leftMargin: 18
-              anchors.rightMargin: 18
-
-              Label {
-                  text: qsTr( "Select the positioning device (current: "+positioningDevice+")" )
+                  text: qsTr( "Positioning device in use:" )
                   font: Theme.defaultFont
 
                   wrapMode: Text.WordWrap
@@ -242,8 +206,9 @@ Page {
               RowLayout {
                   ComboBox {
                       id: bluetoothDeviceCombo
-                      enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                      enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
                       Layout.fillWidth: true
+                      Layout.alignment: Qt.AlignVCenter
                       textRole: 'display'
                       model: BluetoothDeviceModel {
                           id: bluetoothDeviceModel
@@ -252,107 +217,296 @@ Page {
                       property string selectedPositioningDevice
 
                       onCurrentIndexChanged: {
-                          if( bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning )
+                          if( bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning )
                           {
-                            selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
+                              selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
                           if( positioningDevice !== selectedPositioningDevice )
                           {
-                            positioningDevice = selectedPositioningDevice
-                            positionSource.device = positioningDevice
+                              positioningDevice = selectedPositioningDevice
+                              positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
+                              positionSource.device = positioningDevice
                           }
                       }
 
+                      Component.onCompleted: {
+                          currentIndex = positioningDevice == '' ? 0 : find(positioningDeviceName + ' (' + positioningDevice + ')');
+                      }
+
                       Connections {
-                        target: bluetoothDeviceModel
+                          target: bluetoothDeviceModel
 
-                        function onModelReset() {
-                            bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
-                        }
+                          function onModelReset() {
+                              bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
+                          }
 
-                        function onScanningStatusChanged(scanningStatus) {
-                            if( scanningStatus === BluetoothDeviceModel.Scanning )
-                                displayToast( qsTr('Scanning for paired devices') )
-                            if( scanningStatus === BluetoothDeviceModel.Failed )
-                                displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
-                            if( scanningStatus === BluetoothDeviceModel.Succeeded )
-                                displayToast( qsTr('Scanning succeeded: %1 devices found').arg( bluetoothDeviceModel.rowCount() ) )
-                            if( scanningStatus === BluetoothDeviceModel.Canceled )
-                                displayToast( qsTr('Scanning canceled.') )
-                        }
+                          function onScanningStatusChanged(scanningStatus) {
+                              if( scanningStatus === BluetoothDeviceModel.Scanning )
+                              {
+                                  displayToast( qsTr('Scanning for paired devices') )
+                              }
+                              if( scanningStatus === BluetoothDeviceModel.Failed )
+                              {
+                                  displayToast( qsTr('Scanning failed: %1').arg( bluetoothDeviceModel.lastError ) )
+                              }
+                              if( scanningStatus === BluetoothDeviceModel.Succeeded )
+                              {
+                                  var message = qsTr('Scanning done')
+                                  if ( bluetoothDeviceModel.rowCount() > 1 )
+                                  {
+                                      message += ': ' + qsTr( '%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1 )
+                                  }
+                                  displayToast( message )
+                              }
+                              if( scanningStatus === BluetoothDeviceModel.Canceled )
+                              {
+                                  displayToast( qsTr('Scanning canceled') )
+                              }
+                          }
                       }
                   }
 
-                  QfButton {
-                    id: scanButton
-                    Layout.fillWidth: true
-                    Layout.topMargin: 5
-                    font: Theme.defaultFont
-                    text: qsTr('Scan')
+                  Rectangle {
+                      color: "transparent"
+                      Layout.preferredWidth: childrenRect.width
+                      Layout.preferredHeight: childrenRect.height
+                      Layout.alignment: Qt.AlignVCenter
 
-                    onClicked: {
-                        bluetoothDeviceModel.startServiceDiscovery( false )
-                    }
-                    onPressAndHold: {
-                      fullDiscoveryDialog.open()
-                    }
+                      QfButton {
+                          id: scanButton
+                          leftPadding: 10
+                          rightPadding: 10
+                          font: Theme.defaultFont
+                          text: qsTr('Scan')
 
-                    enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                          onClicked: {
+                              bluetoothDeviceModel.startServiceDiscovery( false )
+                          }
+                          onPressAndHold: {
+                              fullDiscoveryDialog.open()
+                          }
 
-                    BusyIndicator {
-                      id: busyIndicator
-                      anchors.centerIn: parent
-                      width: 36
-                      height: 36
-                      running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
-                    }
+                          enabled: bluetoothDeviceModel.scanningStatus !== BluetoothDeviceModel.Scanning
+                          opacity: enabled ? 1 : 0
+                      }
+
+
+                      BusyIndicator {
+                          id: busyIndicator
+                          anchors.centerIn: scanButton
+                          width: 36
+                          height: 36
+                          running: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Scanning
+                      }
                   }
 
                   Dialog {
-                    id: fullDiscoveryDialog
-                    parent: mainWindow.contentItem
+                      id: fullDiscoveryDialog
+                      parent: mainWindow.contentItem
 
-                    visible: false
-                    modal: true
+                      visible: false
+                      modal: true
 
-                    x: ( mainWindow.width - width ) / 2
-                    y: ( mainWindow.height - height ) / 2
+                      x: ( mainWindow.width - width ) / 2
+                      y: ( mainWindow.height - height ) / 2
 
-                    title: qsTr( "Make a full service discovery" )
-                    Label {
-                      width: parent.width
-                      wrapMode: Text.WordWrap
-                      text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
-                    }
+                      title: qsTr( "Make a full service discovery" )
+                      Label {
+                          width: parent.width
+                          wrapMode: Text.WordWrap
+                          text: qsTr( 'A full device scan can take longer. You really want to do it?\nCancel to make a minimal device scan instead.')
+                      }
 
-                    standardButtons: Dialog.Ok | Dialog.Cancel
-                    onAccepted: {
-                        bluetoothDeviceModel.startServiceDiscovery( true )
-                        visible = false
-                    }
-                    onRejected: {
-                        bluetoothDeviceModel.startServiceDiscovery( false )
-                        visible = false
-                    }
+                      standardButtons: Dialog.Ok | Dialog.Cancel
+                      onAccepted: {
+                          bluetoothDeviceModel.startServiceDiscovery( true )
+                          visible = false
+                      }
+                      onRejected: {
+                          bluetoothDeviceModel.startServiceDiscovery( false )
+                          visible = false
+                      }
                   }
               }
 
               QfButton {
-                id: connectButton
-                Layout.fillWidth: true
-                Layout.topMargin: 5
-                font: Theme.defaultFont
-                text: qsTr('Reconnect device %1').arg(positioningDevice)
+                  id: connectButton
+                  Layout.fillWidth: true
+                  Layout.topMargin: 5
+                  font: Theme.defaultFont
+                  text: {
+                      switch (positionSource.bluetoothSocketState)
+                      {
+                      case BluetoothSocket.Connected:
+                          return qsTr('Connected to %1').arg(positioningDeviceName)
+                      case BluetoothSocket.Unconnected:
+                          return qsTr('Connect  to %1').arg(positioningDeviceName)
+                      default:
+                          return qsTr('Connecting to %1').arg(positioningDeviceName)
+                      }
+                  }
+                  enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
+                  visible: positioningDevice !== ''
 
-                onClicked: {
-                    positionSource.connectBluetoothSource()
-                }
-                enabled: bluetoothDeviceModel.scanningStatus != BluetoothDeviceModel.Scanning
+                  onClicked: {
+                      positionSource.connectBluetoothSource()
+                  }
               }
 
-              onVisibleChanged: {
-                  if( visible === true && !bluetoothDeviceModel.rowCount() ){
-                      bluetoothDeviceModel.startServiceDiscovery( false )
+
+              GridLayout {
+                  Layout.fillWidth: true
+
+                  columns: 2
+                  columnSpacing: 0
+                  rowSpacing: 5
+
+                  Label {
+                      text: qsTr("Antenna height compensation")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: antennaHeightActivated.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: antennaHeightActivated
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.antennaHeightActivated
+                      onCheckedChanged: {
+                          positioningSettings.antennaHeightActivated = checked
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("Antenna height")
+                      enabled: antennaHeightActivated.checked
+                      visible: antennaHeightActivated.checked
+                      font: Theme.defaultFont
+                  }
+
+                  TextField {
+                      id: antennaHeightInput
+                      enabled: antennaHeightActivated.checked
+                      visible: antennaHeightActivated.checked
+                      width: antennaHeightActivated.width
+                      font: Theme.defaultFont
+                      horizontalAlignment: TextInput.AlignHCenter
+                      Layout.preferredWidth: 60
+                      Layout.preferredHeight: font.height + 20
+
+                      inputMethodHints: Qt.ImhFormattedNumbersOnly
+                      validator: DoubleValidator {}
+
+                      background: Rectangle {
+                        y: parent.height - height - parent.bottomPadding / 2
+                        implicitWidth: 120
+                        height: parent.activeFocus ? 2: 1
+                        color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                      }
+
+                      Component.onCompleted: {
+                          text = isNaN( positioningSettings.antennaHeight ) ? '' : positioningSettings.antennaHeight
+                      }
+
+                      onTextChanged: {
+                          if( text.length === 0 || isNaN(text) ) {
+                              positioningSettings.antennaHeight = NaN
+                          } else {
+                              positioningSettings.antennaHeight = parseFloat( text )
+                          }
+                      }
+                  }
+
+                  Label {
+                      text: qsTr( "Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value." )
+                      font: Theme.tipFont
+                      color: Theme.gray
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
+                      text: qsTr( "Skip altitude correction" )
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: skipAltitudeCorrectionSwitch.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: skipAltitudeCorrectionSwitch
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.skipAltitudeCorrection
+                      onCheckedChanged: {
+                          positioningSettings.skipAltitudeCorrection = checked
+                      }
+                  }
+
+                  Label {
+                      topPadding: 0
+                      text: qsTr( "Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation." )
+                      font: Theme.tipFont
+                      color: Theme.gray
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+              }
+
+              ColumnLayout {
+                  Layout.fillWidth: true
+
+                  Label {
+                      text: qsTr( "Vertical grid shift in use:" )
+                      font: Theme.defaultFont
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+
+                  ComboBox {
+                      Layout.fillWidth: true
+                      model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
+
+                      onCurrentIndexChanged: {
+                          if ( currentIndex > 0 ) {
+                              verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
+                          } else {
+                              verticalGrid = '';
+                          }
+                      }
+
+                      Component.onCompleted: {
+                          currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
+                      }
+                  }
+
+                  Label {
+                      topPadding: 0
+                      rightPadding: antennaHeightActivated.width
+                      text: qsTr( "Vertical grid shift is used to increase the altitude accuracy." )
+                      font: Theme.tipFont
+                      color: Theme.gray
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
                   }
               }
 
@@ -361,6 +515,15 @@ Page {
                   Layout.fillWidth: true
                   Layout.fillHeight: true
               }
+            }
+          }
+        }
+
+      Item {
+          VariableEditor {
+              id: variableEditor
+              anchors.fill: parent
+              anchors.margins: 4
           }
       }
     }

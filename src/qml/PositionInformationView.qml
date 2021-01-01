@@ -23,9 +23,9 @@ Rectangle {
   Grid {
     id: grid
     flow: GridLayout.TopToBottom
-    rows: ( positionSource.device === 'internal' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
+    rows: ( positionSource.device === '' ? 1 : 2 ) * ( parent.width > 1000? 1 : parent.width > 620? 2 : 3 )
     width: parent.width
-    property double cellWidth: grid.width / ( ( positionSource.device === 'internal' ? 1 : 2 ) * 6 / grid.rows )
+    property double cellWidth: grid.width / ( ( positionSource.device === '' ? 1 : 2 ) * 6 / grid.rows )
 
     Rectangle {
       id: x
@@ -40,8 +40,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lat." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "X" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
       }
     }
 
@@ -57,8 +57,8 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: positionSource.destinationCrs.isGeographic ?
-                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
-                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
+                  qsTr( "Lon." ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.longitudeValid ? Number( positionSource.projectedPosition.x ).toLocaleString( Qt.locale(), 'f', 5 ) : qsTr( "N/A" ) )
+                : qsTr( "Y" )    + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.latitudeValid  ? Number( positionSource.projectedPosition.y ).toLocaleString( Qt.locale(), 'f', 2 ) : qsTr( "N/A" ) )
 
       }
     }
@@ -74,19 +74,18 @@ Rectangle {
         font: Theme.tipFont
         color: textColor
         text: {
-          var altitude
-          if ( positionSource.positionInfo.elevationValid ) {
-            altitude = Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 )
-            if ( !isNaN( parseFloat( antennaHeight ) ) ) {
-              altitude += ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg((antennaHeight > 0 ? "+" : "-") + Math.abs(antennaHeight).toLocaleString(Qt.locale(), 'f', 2))
+            var altitude = qsTr( "Altitude" ) + ': ';
+            if ( positionSource.positionInfo && positionSource.positionInfo.elevationValid ) {
+                altitude += Number( positionSource.projectedPosition.z ).toLocaleString( Qt.locale(), 'f', 2 ) + ' m'
+                if ( !isNaN( parseFloat( antennaHeight ) ) ) {
+                    altitude = ' <font color="#2f2f2f"><i>(%1)</i></font>'.arg( ( antennaHeight > 0 ? "+" : "-" ) + Math.abs( antennaHeight ).toLocaleString(Qt.locale(), 'f', 2) );
+                }
             }
-          }
-          else
-          {
-            altitude = qsTr( "N/A" )
-          }
-          altitude = qsTr( "Altitude: %1 m" ).arg( altitude )
-          return altitude
+            else
+            {
+                altitude += 'N/A';
+            }
+            return altitude
         }
       }
     }
@@ -102,7 +101,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
+        text: qsTr( "Speed" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.speedValid ? positionSource.positionInfo.speed.toLocaleString(Qt.locale(), 'f', 2) + " m/s" : qsTr( "N/A" ) )
       }
     }
 
@@ -117,7 +116,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "H. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.haccValid ? positionSource.positionInfo.hacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -132,7 +131,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
+        text: qsTr( "V. Accuracy" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.vaccValid ? positionSource.positionInfo.vacc.toLocaleString(Qt.locale(), 'f', 2) + " m" : qsTr( "N/A" ) )
       }
     }
 
@@ -140,7 +139,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -148,7 +147,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "pdop" ) + ': ' + positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "PDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.pdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -156,7 +155,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows % 2 === 0 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -164,7 +163,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "hdop" ) + ': ' + positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "HDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.hdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -172,7 +171,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -180,7 +179,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "vdop" ) + ': ' + positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2)
+        text: qsTr( "VDOP" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.vdop.toLocaleString(Qt.locale(), 'f', 2) : '-' )
       }
     }
 
@@ -188,7 +187,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 6 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -196,7 +195,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "valid" ) + ': ' + ( positionSource.positionInfo.isValid ? 'true' : 'false' )
+        text: qsTr( "Valid" ) + ': ' + ( positionSource.positionInfo && positionSource.positionInfo.isValid ? 'True' : 'False' )
       }
     }
 
@@ -204,7 +203,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? "white" : "#e6f2fd"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -212,7 +211,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "fix" ) + ': ' + positionSource.positionInfo.fixStatusDescription
+        text: qsTr( "Fix" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.fixStatusDescription : '-' )
       }
     }
 
@@ -220,7 +219,7 @@ Rectangle {
       height: rowHeight
       width: grid.cellWidth
       color: grid.rows === 2 || grid.rows === 6 ? "#e6f2fd" : "white"
-      visible: positionSource.device !== 'internal'
+      visible: positionSource.device !== ''
 
       Text {
         anchors.margins:  10
@@ -228,7 +227,7 @@ Rectangle {
         anchors.left: parent.left
         font: Theme.tipFont
         color: textColor
-        text: qsTr( "quality" ) + ': ' + positionSource.positionInfo.qualityDescription
+        text: qsTr( "Quality" ) + ': ' + ( positionSource.positionInfo ? positionSource.positionInfo.qualityDescription : '-' )
       }
     }
 

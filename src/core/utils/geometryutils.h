@@ -34,6 +34,9 @@ class GeometryUtils : public QObject
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.
     static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
 
+    //! Reshape a polyon with given \a fid using the ring in the rubberband model.
+    static Q_INVOKABLE QgsGeometry::OperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+
     //! Add a ring to a polyon with given \a fid using the ring in the rubberband model.
     static Q_INVOKABLE QgsGeometry::OperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 

@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQml 2.2
 
 import org.qgis 1.0
@@ -32,13 +32,11 @@ Item {
 
   // for signals, type can be "stylus" for any device click or "touch"
 
-  //! This signal is emitted independently of an upcoming doubleClicked
+  //! This signal is emitted independently of double tap / click
   signal clicked(var point, var type)
 
-  //! This signal is only emitted if there is no doubleClicked coming. It is emitted with a delay of mouseDoubleClickInterval
+  //! This signal is only emitted if there is no double tap/click coming after a short delay
   signal confirmedClicked(var point)
-
-  // signal doubleClicked(var point)
 
   signal longPressed(var point, var type)
 
@@ -68,6 +66,14 @@ Item {
     mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0
   }
 
+  function zoomIn(point) {
+    mapCanvasWrapper.zoom(point, 0.67)
+  }
+
+  function zoomOut(point) {
+    mapCanvasWrapper.zoom(point, 1.5)
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 
@@ -78,31 +84,6 @@ Item {
 
     freeze: false
   }
-
-//    TapHandler {
-//      grabPermissions: PointerHandler.ApprovesTakeOverByAnything
-
-//      property var timer: Timer {
-//          property var firstClickPoint
-//          interval: mouseDoubleClickInterval
-//          repeat: false
-
-//          onTriggered: {
-//              confirmedClicked(firstClickPoint)
-//          }
-//      }
-
-//      onTapCountChanged: {
-//          if (tapCount == 1) {
-//              timer.firstClickPoint = point.position
-//              timer.restart()
-//          }
-//          else if (tapCount == 2) {
-//              timer.stop()
-//              doubleClicked(point)
-//          }
-//      }
-//    }
 
     // stylus clicks
     TapHandler {
@@ -126,63 +107,111 @@ Item {
       }
     }
 
-    // touch clicked
+    // touch clicked & zoom in and out
     TapHandler {
-      acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
-      property bool longPressActive: false
-
-      onSingleTapped: {
-        mapArea.clicked(point.position, "touch")
-      }
-
-      onLongPressed: {
-          mapArea.longPressed(point.position, "touch")
-          longPressActive = true
-      }
-
-      onPressedChanged: {
-          if (longPressActive)
-              mapArea.longPressReleased("touch")
-          longPressActive = false
-      }
-    }
-
-    // zoom in/out on finger tap
-    TapHandler {
-        grabPermissions: PointerHandler.CanTakeOverFromItems
+        id: tapHandler
         acceptedDevices: mouseAsTouchScreen ? PointerDevice.AllDevices : PointerDevice.TouchScreen
+        property bool longPressActive: false
+        property bool doublePressed: false
+        property var timer: Timer {
+            property var tapPoint
+            interval: 350
+            repeat: false
+
+            onTriggered: {
+                confirmedClicked(tapPoint)
+            }
+        }
 
         onSingleTapped: {
             if( point.modifiers === Qt.RightButton)
+            {
               mapCanvasWrapper.zoom(point.position, 1.25)
+            }
+            else
+            {
+              timer.tapPoint = point.position
+              timer.restart()
+            }
         }
 
         onDoubleTapped: {
-          mapCanvasWrapper.zoom(point.position, 0.8)
+            mapCanvasWrapper.zoom(point.position, 0.8)
+        }
+
+        onLongPressed: {
+            mapArea.longPressed(point.position, "touch")
+            longPressActive = true
+        }
+
+        onPressedChanged: {
+            if ( pressed && timer.running )
+            {
+                timer.stop()
+                doublePressed = true
+                dragHandler.grabPermissions = PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+            }
+            else
+            {
+                doublePressed = false
+                dragHandler.grabPermissions = PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+            }
+
+            if (longPressActive)
+                mapArea.longPressReleased("touch")
+            longPressActive = false
         }
     }
 
     DragHandler {
-        enabled: !freehandDigitizing
+        id: dragHandler
         target: null
-        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+        enabled: !freehandDigitizing
+        grabPermissions: PointerHandler.ApprovesTakeOverByHandlersOfSameType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
         property var oldPos
+        property real oldTranslationY
+
+        property bool isZooming: false
+        property point zoomCenter
 
         onActiveChanged: {
             if ( active )
-                freeze('pan')
+            {
+                if ( tapHandler.doublePressed )
+                {
+                    oldTranslationY = 0;
+                    zoomCenter = centroid.position;
+                    isZooming = true;
+                    freeze('zoom');
+                }
+                else
+                {
+                    freeze('pan');
+                }
+            }
             else
-                unfreeze('pan')
+            {
+                unfreeze(isZooming ? 'zoom' : 'pan');
+                isZooming = false;
+            }
         }
 
         onCentroidChanged: {
-            var oldPos1 = oldPos
-            oldPos = centroid.position
+            var oldPos1 = oldPos;
+            oldPos = centroid.position;
             if ( active )
             {
-                mapCanvasWrapper.pan(centroid.position, oldPos1)
-                panned()
+                if ( isZooming )
+                {
+                    mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY)/60))
+                    oldTranslationY = translation.y
+                }
+                else
+                {
+                    mapCanvasWrapper.pan(centroid.position, oldPos1)
+                    panned()
+                }
             }
         }
     }
@@ -256,5 +285,20 @@ Item {
         }
     }
 
-    // TODO add WheelHandler once we can expect Qt 5.14 on all platforms
+
+    WheelHandler {
+        target: null
+        grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+
+        onWheel: {
+            if ( event.angleDelta.y > 0 )
+            {
+                zoomIn(point.position)
+            }
+            else
+            {
+                zoomOut(point.position)
+            }
+        }
+    }
 }

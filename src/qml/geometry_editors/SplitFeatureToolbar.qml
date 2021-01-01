@@ -40,6 +40,9 @@ VisibilityFadingRow {
     screenHovering: splitFeatureToolbar.screenHovering
 
     onConfirm: {
+      rubberbandModel.frozen = true
+      rubberbandModel.removeVertex()
+
       // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
       Utils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection)
       if (!featureModel.currentLayer.editBuffer())

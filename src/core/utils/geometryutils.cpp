@@ -19,6 +19,7 @@
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsvectorlayer.h>
+#include <qgsproject.h>
 
 #include "rubberbandmodel.h"
 
@@ -36,6 +37,69 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   polygon->setExteriorRing( ext.clone() );
   QgsGeometry g( std::move( polygon ) );
   return g;
+}
+
+QgsGeometry::OperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+{
+  QgsFeature feature = layer->getFeature( fid );
+  QgsGeometry geom = feature.geometry();
+  if ( geom.isNull() ||
+       ( QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::LineGeometry && QgsWkbTypes::geometryType( geom.wkbType() ) != QgsWkbTypes::PolygonGeometry ) )
+    return QgsGeometry::InvalidBaseGeometry;
+
+  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), QgsWkbTypes::Point, false );
+  QgsLineString reshapeLineString( points );
+
+  QgsGeometry::OperationResult reshapeReturn = geom.reshapeGeometry( reshapeLineString );
+  if ( reshapeReturn == QgsGeometry::Success )
+  {
+    //avoid intersections on polygon layers
+    if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
+    {
+      QList<QgsVectorLayer *>  avoidIntersectionsLayers;
+      switch ( QgsProject::instance()->avoidIntersectionsMode() )
+      {
+        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+          avoidIntersectionsLayers.append( layer );
+          break;
+        case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+          avoidIntersectionsLayers = QgsProject::instance()->avoidIntersectionsLayers();
+          break;
+        case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+          break;
+      }
+      if ( !avoidIntersectionsLayers.isEmpty() )
+      {
+        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+        ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
+        if ( geom.avoidIntersections( avoidIntersectionsLayers, ignoredFeature ) != 0 )
+        {
+          layer->destroyEditCommand();
+          return QgsGeometry::NothingHappened;
+        }
+      }
+
+      if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
+      {
+        layer->destroyEditCommand();
+        return QgsGeometry::NothingHappened;
+      }
+    }
+    layer->changeGeometry( fid, geom );
+
+    // Add topological points
+    if ( QgsProject::instance()->topologicalEditing() )
+    {
+      layer->addTopologicalPoints( geom );
+    }
+    layer->endEditCommand();
+  }
+  else
+  {
+    layer->destroyEditCommand();
+  }
+
+  return reshapeReturn;
 }
 
 QgsGeometry::OperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )

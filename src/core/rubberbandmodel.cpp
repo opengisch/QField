@@ -150,6 +150,9 @@ int RubberbandModel::currentCoordinateIndex() const
 
 void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 {
+  if ( currentCoordinateIndex < 0 )
+    currentCoordinateIndex = 0;
+
   if ( currentCoordinateIndex == mCurrentCoordinateIndex )
     return;
 
@@ -176,7 +179,7 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   {
     QgsDebugMsg( exp.what() );
   }
-  catch(...)
+  catch ( ... )
   {
     // catch any other errors
     QgsDebugMsg( "Transform exception caught - possibly because of missing gsb file." );
@@ -193,7 +196,7 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
 
 QgsPoint RubberbandModel::currentCoordinate() const
 {
-  return mPointList.at( mCurrentCoordinateIndex );
+  return mPointList.value( mCurrentCoordinateIndex );
 }
 
 QgsPoint RubberbandModel::lastCoordinate() const

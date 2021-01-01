@@ -23,6 +23,8 @@
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <qgsgeometryoptions.h>
+#include <qgsgeometrycollection.h>
+#include <qgscurvepolygon.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayerutils.h>
 
@@ -394,6 +396,18 @@ void FeatureModel::reset()
   mLayer->rollBack();
 }
 
+void FeatureModel::refresh()
+{
+  if ( !mLayer || FID_IS_NEW( mFeature.id() ) )
+    return;
+
+  QgsFeature feat;
+  if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+  {
+    setFeature( feat );
+  }
+}
+
 bool FeatureModel::suppressFeatureForm() const
 {
   if ( !mLayer )
@@ -452,37 +466,62 @@ void FeatureModel::resetAttributes()
 
 void FeatureModel::applyGeometry()
 {
+  QString error;
   QgsGeometry geometry = mGeometry->asQgsGeometry();
 
-  QList<QgsVectorLayer *> intersectionLayers;
-
-  switch ( QgsProject::instance()->avoidIntersectionsMode() )
+  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == QgsWkbTypes::PolygonGeometry )
   {
-    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-      intersectionLayers.append( mLayer );
-      break;
-    case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-      intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-      break;
-    case QgsProject::AvoidIntersectionsMode::AllowIntersections:
-      break;
-  }
-  if ( !intersectionLayers.isEmpty() && geometry.type() == QgsWkbTypes::PolygonGeometry )
-  {
-    geometry.avoidIntersections( intersectionLayers );
+    // Remove any invalid intersection in polygon geometry
+    QgsGeometry sanitizedGeometry;
+    if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+    {
+      QgsGeometryPartIterator parts = collection->parts();
+      while ( parts.hasNext() )
+      {
+        QgsGeometry part( parts.next() );
+        sanitizedGeometry.addPart( part.buffer( 0.0, 5 ).constGet()->clone(), QgsWkbTypes::PolygonGeometry );
+      }
+    }
+    else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
+    {
+      sanitizedGeometry = geometry.buffer( 0, 5 );
+    }
+    if ( sanitizedGeometry.constGet()->isValid( error ) )
+      geometry = sanitizedGeometry;
+
+    QList<QgsVectorLayer *> intersectionLayers;
+    switch ( QgsProject::instance()->avoidIntersectionsMode() )
+    {
+      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+        intersectionLayers.append( mLayer );
+        break;
+      case QgsProject::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+        intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+        break;
+      case QgsProject::AvoidIntersectionsMode::AllowIntersections:
+        break;
+    }
+    if ( !intersectionLayers.isEmpty() )
+    {
+      QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+      if ( mFeature.id() != FID_NULL )
+      {
+        ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+      }
+      geometry.avoidIntersections( intersectionLayers, ignoredFeature );
+    }
   }
 
-  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() != 0.0 )
+  if ( mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
   {
-    const double precision = mLayer->geometryOptions()->geometryPrecision();
-    QgsGeometry snappedGeometry = geometry.snappedToGrid( precision, precision );
-    geometry = snappedGeometry;
+    // Still do a bit of node cleanup
+    QgsGeometry deduplicatedGeometry = geometry;
+    deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
+    if ( deduplicatedGeometry.constGet()->isValid( error ) )
+      geometry = deduplicatedGeometry;
   }
 
-  // Clean up the geometry
   geometry = geometry.makeValid();
-  geometry.removeDuplicateNodes( 7 );
-
   mFeature.setGeometry( geometry );
 }
 
@@ -702,6 +741,14 @@ void FeatureModel::applyVertexModelToGeometry()
     return;
 
   mFeature.setGeometry( mVertexModel->geometry() );
+}
+
+void FeatureModel::applyGeometryToVertexModel()
+{
+  if ( !mVertexModel )
+    return;
+
+  mVertexModel->setGeometry( mFeature.geometry() );
 }
 
 // a filter to gather all matches at the same place

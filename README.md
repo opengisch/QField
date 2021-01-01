@@ -40,58 +40,36 @@ Please remember that this is the latest development build and is **not** tested 
 
 ### For Android
 
-#### Quick and dirty
-
 Use the dockerized QField SDK.
 
 ```
-# get the latest tag from https://hub.docker.com/r/opengisch/qfield-sdk/tags/
-TAG=20191001
-cd QField
+QFIELD_SDK=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
+ANDROID_NDK_PLATFORM=android-29
 
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
-docker run -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk:$TAG /usr/src/qfield/scripts/docker-build.sh --rm
+docker run -e ANDROID_NDK_PLATFORM -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk:$QFIELD_SDK /usr/src/qfield/scripts/docker-build.sh --rm
 ```
 
 This will put the apk into a subfolder `build-docker/out/build/outputs/apk`
-
-#### Go the hard way
-
-Build [OSGeo4A](https://github.com/opengisch/OSGeo4A)
-
-```sh
-cd QField
-
-git submodule init
-git submodule update
-
-cp config.pri.default config.pri
-# Edit config.pri
-```
-
-The advantage of this is, you will be able to build and deploy directly from QtCreator.
 
 ### For Desktop
 
 To build QField for a desktop environment:
 
-* Get QGIS development libraries.
+* Get QGIS development libraries. QField normally uses bleeding edge QGIS code. Ideally install nightly builds or compile it on your own and install to a custom prefix path. See more about QGIS compilation [here](https://github.com/qgis/QGIS/blob/master/INSTALL.md).
+* If your system comes with a Qt version which is too low for QField, you can also install Qt manually. Download the most recent Qt 5.x version from the [Qt Website](https://www.qt.io/download) to satisfy QField dependencies. Setup a new QtCreator kit that uses the downloaded Qt libs.
+* Get QField source code:
 
 ```sh
 cd QField
-git submodule init
-git submodule update
-
-cp config.pri.default config.pri
-# Edit config.pri
+git submodule update --init --recursive
 ```
 
- * Open CMakeList.txt with QtCreator (installed during OSGeo4A installation).
- * Hit build.
+ * Open `CMakeList.txt` with QtCreator.
+ * Hit build
 
-If you make your own QGIS build, use the following variables: `QGIS_ANALYSIS_LIBRARY`, `QGIS_CORE_LIBRARY`, `QGIS_INCLUDE_DIR`, and `QGIS_PLUGIN_DIR`.
+If you make your own QGIS build, use the following variables: `QGIS_PREFIX_PATH`.
 
 ### On OS X
 

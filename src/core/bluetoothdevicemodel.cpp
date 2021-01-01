@@ -16,6 +16,7 @@
 
 #include "bluetoothdevicemodel.h"
 #include "qgis.h"
+#include <QSettings>
 #include <QDebug>
 
 BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
@@ -23,51 +24,66 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
     mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
 {
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( &mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), [ = ]()
+  connect( &mServiceDiscoveryAgent, qgis::overload<QBluetoothServiceDiscoveryAgent::Error>::of( &QBluetoothServiceDiscoveryAgent::error ), this, [ = ]()
   {
     setLastError( mServiceDiscoveryAgent.errorString() );
     setScanningStatus( Failed );
-    endResetModel();
   } );
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::finished, [ = ]()
   {
-    setScanningStatus( Succeeded );
-    endResetModel();
+    setScanningStatus( mServiceDiscoveryAgent.error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
   } );
   connect( &mServiceDiscoveryAgent, &QBluetoothServiceDiscoveryAgent::canceled, [ = ]()
   {
     setScanningStatus( Canceled );
-    endResetModel();
   } );
+
+  beginResetModel();
+  mDiscoveredDevices.clear();
+  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
+
+  QSettings settings;
+  const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString( "" ) ).toString();
+  if ( !deviceAddress.isEmpty() )
+  {
+    const QString deviceName = settings.value( QStringLiteral( "positioningDeviceName" ), QStringLiteral( "Unknown device" ) ).toString();
+    mDiscoveredDevices.append( qMakePair( deviceName, deviceAddress ) );
+  }
+  endResetModel();
 }
 
 void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
 {
-  beginResetModel();
-  mDiscoveredDevices.clear();
-  mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString( "internal" ) ) );
-
   if ( mServiceDiscoveryAgent.isActive() )
     mServiceDiscoveryAgent.stop();
 
   mServiceDiscoveryAgent.setUuidFilter( QBluetoothUuid( QBluetoothUuid::SerialPort ) );
   QBluetoothServiceDiscoveryAgent::DiscoveryMode discoveryMode = fullDiscovery ? QBluetoothServiceDiscoveryAgent::FullDiscovery : QBluetoothServiceDiscoveryAgent::MinimalDiscovery;
-  mServiceDiscoveryAgent.start( discoveryMode );
+
+  // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Scanning );
+  mServiceDiscoveryAgent.clear();
+  mServiceDiscoveryAgent.start( discoveryMode );
 }
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
   //only list the paired devices so the user has control over it.
   //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
+  const QPair<QString, QString> serviceDiscovered = qMakePair( service.device().name(), service.device().address().toString() );
+  if ( mDiscoveredDevices.contains( serviceDiscovered ) )
+    return;
+
+  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {
-    mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+    mDiscoveredDevices.append( serviceDiscovered );
   }
 #else
-  mDiscoveredDevices.append( qMakePair( service.device().name(), service.device().address().toString() ) );
+  mDiscoveredDevices.append( serviceDiscovered );
 #endif
+  endInsertRows();
 }
 
 int BluetoothDeviceModel::findAddressIndex( const QString &address ) const
@@ -93,18 +109,30 @@ int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 
 QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 {
-  if ( role == DisplayStringRole || role == Qt::DisplayRole )
-    return QStringLiteral( "%1 (%2)" ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
-  else
-    return mDiscoveredDevices.at( index.row() ).second;
+  switch ( role )
+  {
+    case Qt::DisplayRole:
+      return QStringLiteral( "%1%2" ).arg( mDiscoveredDevices.at( index.row() ).first,
+                                            index.row() > 0 ? QStringLiteral( " (%2)" ).arg ( mDiscoveredDevices.at( index.row() ).second ) : QString() );
+      break;
+
+    case DeviceAddressRole:
+      return mDiscoveredDevices.at( index.row() ).second;
+      break;
+
+    case DeviceNameRole:
+      return mDiscoveredDevices.at( index.row() ).first;
+      break;
+  }
+  return QVariant();
 }
 
 QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[DisplayStringRole] = "displayString";
   roles[DeviceAddressRole] = "deviceAddress";
+  roles[DeviceNameRole] = "deviceName";
 
   return roles;
 }
