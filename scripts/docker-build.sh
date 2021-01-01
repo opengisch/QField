@@ -129,7 +129,7 @@ ninja
 # Patch the input file for androiddeployqt with the build tools revision
 # See https://forum.qt.io/topic/112578/unable-to-sign-android-app-wrong-path-for-zipalign
 # Temporary workaround (fingers crossed)
-cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"28.0.3\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
+cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
 
 if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
