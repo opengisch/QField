@@ -1428,7 +1428,7 @@ ApplicationWindow {
 
     MenuItem {
         id: positioningDeviceName
-        text: settings.value("positioningDeviceName", qsTr( "Internal device" ))
+        text: positioningSettings.positioningDeviceName
         height: 48
         font: Theme.defaultFont
         enabled:false
