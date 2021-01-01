@@ -1050,6 +1050,22 @@ ApplicationWindow {
             break;
         }
       }
+
+      Rectangle {
+          anchors {
+              top: parent.top
+              right: parent.right
+              rightMargin: 2
+              topMargin: 2
+          }
+
+          width: 9
+          height: 9
+          radius: width / 2
+
+          visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
+          color: !positionSource.positionInfo || !positionSource.positionInfo.haccValid || positionSource.positionInfo.hacc > positioningSettings.accuracyBad ? "#e41a1c" : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent ? "#ff7f00" : "#4daf4a"
+      }
     }
 
     DigitizingToolbar {

@@ -384,6 +384,151 @@ Page {
                   }
 
                   Label {
+                      text: qsTr("Activate accuracy indicator")
+                      font: Theme.defaultFont
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: accuracyIndicator.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: accuracyIndicator
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      checked: positioningSettings.accuracyIndicator
+                      onCheckedChanged: {
+                          positioningSettings.accuracyIndicator = checked
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("Bad accuracy below")
+                      font: Theme.defaultFont
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      Layout.leftMargin: 8
+                  }
+
+                  TextField {
+                      id: accuracyBadInput
+                      width: antennaHeightActivated.width
+                      font: Theme.defaultFont
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      horizontalAlignment: TextInput.AlignHCenter
+                      Layout.preferredWidth: 60
+                      Layout.preferredHeight: font.height + 20
+
+                      inputMethodHints: Qt.ImhFormattedNumbersOnly
+                      validator: DoubleValidator {}
+
+                      background: Rectangle {
+                        y: parent.height - height - parent.bottomPadding / 2
+                        implicitWidth: 120
+                        height: parent.activeFocus ? 2: 1
+                        color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                      }
+
+                      Component.onCompleted: {
+                          text = isNaN( positioningSettings.accuracyBad ) ? '' : positioningSettings.accuracyBad
+                      }
+
+                      onTextChanged: {
+                          if( text.length === 0 || isNaN(text) ) {
+                              positioningSettings.accuracyBad = NaN
+                          } else {
+                              positioningSettings.accuracyBad = parseFloat( text )
+                          }
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("Excellent accuracy above")
+                      font: Theme.defaultFont
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      Layout.leftMargin: 8
+                  }
+
+                  TextField {
+                      id: accuracyExcellentInput
+                      width: antennaHeightActivated.width
+                      font: Theme.defaultFont
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      horizontalAlignment: TextInput.AlignHCenter
+                      Layout.preferredWidth: 60
+                      Layout.preferredHeight: font.height + 20
+
+                      inputMethodHints: Qt.ImhFormattedNumbersOnly
+                      validator: DoubleValidator {}
+
+                      background: Rectangle {
+                        y: parent.height - height - parent.bottomPadding / 2
+                        implicitWidth: 120
+                        height: parent.activeFocus ? 2: 1
+                        color: parent.activeFocus ? '#4CAF50' : '#C8E6C9'
+                      }
+
+                      Component.onCompleted: {
+                          text = isNaN( positioningSettings.accuracyExcellent ) ? '' : positioningSettings.accuracyExcellent
+                      }
+
+                      onTextChanged: {
+                          if( text.length === 0 || isNaN(text) ) {
+                              positioningSettings.accuracyExcellent = NaN
+                          } else {
+                              positioningSettings.accuracyExcellent = parseFloat( text )
+                          }
+                      }
+                  }
+
+                  Label {
+                      text: qsTr("Enable accuracy requirement")
+                      font: Theme.defaultFont
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                      Layout.leftMargin: 8
+
+                      MouseArea {
+                          anchors.fill: parent
+                          onClicked: accuracyIndicator.toggle()
+                      }
+                  }
+
+                  QfSwitch {
+                      id: accuracyRequirement
+                      Layout.preferredWidth: implicitContentWidth
+                      Layout.alignment: Qt.AlignTop
+                      enabled: accuracyIndicator.checked
+                      visible: accuracyIndicator.checked
+                      checked: positioningSettings.accuracyRequirement
+                      onCheckedChanged: {
+                          positioningSettings.accuracyRequirement = checked
+                      }
+                  }
+
+                  Label {
+                      text: qsTr( "When the accuracy indicator is enabled, a badge is attached to the location button and colored red if the accuracy value is below bad, yellow if it falls short of excellent, or green.\n\nIn addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold." )
+                      font: Theme.tipFont
+                      color: Theme.gray
+
+                      wrapMode: Text.WordWrap
+                      Layout.fillWidth: true
+                  }
+
+                  Item {
+                      // empty cell in grid layout
+                      width: 1
+                  }
+
+                  Label {
                       text: qsTr("Antenna height compensation")
                       font: Theme.defaultFont
                       wrapMode: Text.WordWrap
@@ -410,6 +555,7 @@ Page {
                       enabled: antennaHeightActivated.checked
                       visible: antennaHeightActivated.checked
                       font: Theme.defaultFont
+                      Layout.leftMargin: 8
                   }
 
                   TextField {
