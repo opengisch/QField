@@ -141,11 +141,16 @@ VisibilityFadingRow {
     transitions: [ Transition { NumberAnimation { property: "opacity"; duration: 200 } } ]
 
     onClicked: {
-      if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
-           Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry )
-        confirm()
-      else
-        addVertex()
+        if ( coordinateLocator && coordinateLocator.overrideLocation !== undefined && coordinateLocator.accuracyRequirementFail ) {
+            displayToast( qsTr( "Position accuracy doesn't meet the minimum requirement, vertex not added" ) )
+            return;
+        }
+
+        if ( Number( rubberbandModel.geometryType ) === QgsWkbTypes.PointGeometry ||
+                Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry )
+            confirm()
+        else
+            addVertex()
     }
   }
 
