@@ -9,7 +9,7 @@ export APP_VERSION_STR=${APP_VERSION_STR:-dev}
 
 ARCH=${ARCH:-arm64_v8a}
 
-docker run -it -v "$SRC_DIR":/usr/src/qfield \
+docker run -v "$SRC_DIR":/usr/src/qfield \
   -e "BUILD_FOLDER=build-${ARCH}" \
   -e ANDROID_NDK_PLATFORM \
   -e ARCH \
