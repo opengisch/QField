@@ -92,7 +92,7 @@ VisibilityFadingRow {
       delegate: QfToolButton {
         round: true
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeIcon(iconPath)
+        iconSource: Theme.getThemeVectorIcon(iconPath)
         visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
           // close current tool if any
