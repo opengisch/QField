@@ -275,11 +275,11 @@ Rectangle {
   QfToolButton {
     id: editButton
 
-    property bool readOnly: false
+    property bool supportsEditing: false
 
     anchors.right: nextButton.left
 
-    width: ( parent.state == "Navigation" && !readOnly ? 48: 0 )
+    width: ( parent.state == "Navigation" && supportsEditing ? 48: 0 )
     height: 48
     clip: true
 
@@ -299,7 +299,7 @@ Rectangle {
       target: selection
 
       function onFocusedItemChanged() {
-        editButton.readOnly = selection.focusedLayer && selection.focusedLayer.readOnly
+        editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing
       }
     }
   }
@@ -436,8 +436,6 @@ Rectangle {
 
   QfToolButton {
     id: multiDeleteButton
-
-    property bool readOnly: false
 
     anchors.right: parent.right
 
