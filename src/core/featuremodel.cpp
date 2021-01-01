@@ -396,6 +396,18 @@ void FeatureModel::reset()
   mLayer->rollBack();
 }
 
+void FeatureModel::refresh()
+{
+  if ( !mLayer || FID_IS_NEW( mFeature.id() ) )
+    return;
+
+  QgsFeature feat;
+  if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( mFeature.id() ) ).nextFeature( feat ) )
+  {
+    setFeature( feat );
+  }
+}
+
 bool FeatureModel::suppressFeatureForm() const
 {
   if ( !mLayer )
@@ -729,6 +741,14 @@ void FeatureModel::applyVertexModelToGeometry()
     return;
 
   mFeature.setGeometry( mVertexModel->geometry() );
+}
+
+void FeatureModel::applyGeometryToVertexModel()
+{
+  if ( !mVertexModel )
+    return;
+
+  mVertexModel->setGeometry( mFeature.geometry() );
 }
 
 // a filter to gather all matches at the same place

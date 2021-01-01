@@ -66,6 +66,8 @@ VisibilityFadingRow {
             {
                 featureModel.currentLayer.commitChanges()
                 rubberbandModel.reset()
+                featureModel.refresh()
+                featureModel.applyGeometryToVertexModel()
             }
         }
     }
