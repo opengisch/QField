@@ -9,7 +9,7 @@ export APP_VERSION_STR=${APP_VERSION_STR:-dev}
 
 ARCH=${ARCH:-arm64_v8a}
 
-docker run \
+docker run --rm \
   -v "$SRC_DIR":/usr/src/qfield \
   $(if [ -n "$CACHE_DIR" ]; then echo "-v $CACHE_DIR:/io/data"; fi) \
   -e "BUILD_FOLDER=build-${ARCH}" \
