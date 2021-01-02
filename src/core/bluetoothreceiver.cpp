@@ -23,6 +23,9 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
   mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) ),
   mGpsConnection( std::make_unique<QgsNmeaConnection>( mSocket ) )
 {
+  qDebug() << QString( "HOST @ LAUNCH" ) << mLocalDevice->hostMode();
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::hostModeStateChanged, this, [ = ]( QBluetoothLocalDevice::HostMode state ) { qDebug() << state; } );
+
   //socket state changed
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 
@@ -63,6 +66,7 @@ void BluetoothReceiver::connectDevice( const QString &address )
   }
 
   qDebug() << "BluetoothReceiver: Connect device: " << address;
+  qDebug() << mLocalDevice->hostMode();
 
   if ( mSocket->state() == QBluetoothSocket::ConnectingState ||
        mSocket->state() == QBluetoothSocket::ConnectedState )
