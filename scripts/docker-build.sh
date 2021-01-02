@@ -50,6 +50,10 @@ INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android
 
 echo "Package name ${APP_PACKAGE_NAME}"
+echo "ANDROID_SDK_PLATFORM: ${ANDROID_SDK_PLATFORM}"
+export ANDROID_SDK_PLATFORM=android-29 # todo, that should come from qt-ndk.Dockerfile
+echo "ANDROID_PLATFORM: ${ANDROID_PLATFORM}"
+export ANDROID_PLATFORM=21 # todo, that should come from qt-ndk.Dockerfile
 
 if [[ -n ${APP_ICON} ]]; then
   # replace icon
@@ -121,7 +125,7 @@ cmake \
 	-DANDROID_SDK=/opt/android-sdk/ \
 	-DANDROID_NDK=/opt/android-ndk/ \
 	-DANDROID_STL:STRING=c++_shared \
-	ANDROID_NATIVE_API_LEVEL=21 \
+	ANDROID_NATIVE_API_LEVEL=${ANDROID_PLATFORM} \
 	..
 
 ninja
