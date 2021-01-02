@@ -28,6 +28,7 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
 
   //QgsGpsConnection state changed (received location string)
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
+  connect( mGpsConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, [ = ]( const QString & substring ) { qDebug() << substring; } );
 
   //connect on create
   QSettings settings;
