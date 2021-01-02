@@ -35,9 +35,13 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
   bool positioningActivated = settings.value( QStringLiteral( "positioningActivated" ), false ).toBool();
   if ( positioningActivated )
   {
+    qDebug() << "Positioning active";
     const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
     if ( !deviceAddress.isEmpty() )
+    {
+      qDebug() << "Connecting to bluetooth device";
       connectDevice( deviceAddress );
+    }
   }
 }
 
@@ -95,6 +99,7 @@ void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 
 void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState socketState )
 {
+  qDebug() << socketState;
   if ( mSocketState == socketState )
     return;
 
