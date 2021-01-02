@@ -60,7 +60,8 @@ void BluetoothReceiver::connectDevice( const QString &address )
 
   qDebug() << "BluetoothReceiver: Connect device: " << address;
 
-  if ( mSocket->state() != QBluetoothSocket::UnconnectedState )
+  if ( mSocket->state() == QBluetoothSocket::ConnectingState ||
+       mSocket->state() == QBluetoothSocket::ConnectedState )
   {
     mAddressToConnect = address;
     disconnectDevice();
