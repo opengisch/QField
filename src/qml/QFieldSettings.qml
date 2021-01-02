@@ -515,10 +515,13 @@ Page {
                   }
 
                   Label {
-                      text: qsTr( "When the accuracy indicator is enabled, a badge is attached to the location button and colored red if the accuracy value is below bad, yellow if it falls short of excellent, or green.\n\nIn addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold." )
+                      text: qsTr( "When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is below bad, <span %2>yellow</span> if it falls short of excellent, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold." )
+                                .arg( "style='color:rgb(%1,%2,%3)'".arg( Math.floor(Theme.errorColor.r * 255) ).arg( Math.floor(Theme.errorColor.g * 255) ).arg( Math.floor(Theme.errorColor.b * 255) ) )
+                                .arg( "style='color:rgb(%1,%2,%3)'".arg( Math.floor(Theme.warningColor.r * 255) ).arg( Math.floor(Theme.warningColor.g * 255) ).arg( Math.floor(Theme.warningColor.b * 255) ) )
+                                .arg( "style='color:rgb(%1,%2,%3)'".arg( Math.floor(Theme.mainColor.r * 255) ).arg( Math.floor(Theme.mainColor.g * 255) ).arg( Math.floor(Theme.mainColor.b * 255) ) )
                       font: Theme.tipFont
                       color: Theme.gray
-
+                      textFormat: Qt.RichText
                       wrapMode: Text.WordWrap
                       Layout.fillWidth: true
                   }
