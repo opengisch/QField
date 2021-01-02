@@ -89,7 +89,7 @@ jobs:
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
-          CACHE_DIR: ~/cache
+          CACHE_DIR: ${{ env.GITHUB_WORKSPACE }}/cache
         run: |
           ./scripts/ci/docker_pull.sh
           ./scripts/ci/build.sh
