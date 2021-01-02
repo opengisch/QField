@@ -50,10 +50,10 @@ INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android
 
 echo "Package name ${APP_PACKAGE_NAME}"
-echo "ANDROID_SDK_PLATFORM: ${ANDROID_SDK_PLATFORM}"
-export ANDROID_SDK_PLATFORM=android-29 # todo, that should come from qt-ndk.Dockerfile
-echo "ANDROID_PLATFORM: ${ANDROID_PLATFORM}"
-export ANDROID_PLATFORM=21 # todo, that should come from qt-ndk.Dockerfile
+echo "ANDROID_MINIMUM_PLATFORM: ${ANDROID_MINIMUM_PLATFORM}"
+echo "ANDROID_TARGET_PLATFORM: ${ANDROID_TARGET_PLATFORM}"
+export ANDROID_MINIMUM_PLATFORM=21 # todo, that should come from qt-ndk.Dockerfile
+export ANDROID_TARGET_PLATFORM=29 # todo, that should come from qt-ndk.Dockerfile
 
 if [[ -n ${APP_ICON} ]]; then
   # replace icon
@@ -125,7 +125,8 @@ cmake \
 	-DANDROID_SDK=/opt/android-sdk/ \
 	-DANDROID_NDK=/opt/android-ndk/ \
 	-DANDROID_STL:STRING=c++_shared \
-	ANDROID_NATIVE_API_LEVEL=${ANDROID_PLATFORM} \
+	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \
+	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
 	..
 
 ninja
@@ -143,7 +144,7 @@ if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_SDK_PLATFORM} \
+      --android-platform android-${ANDROID_TARGET_PLATFORM} \
       --gradle
 else
     echo "-- Not signing the apk, KEYNAME, KEYPASS or STOREPASS is not set"
@@ -151,7 +152,7 @@ else
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_SDK_PLATFORM} \
+      --android-platform android-${ANDROID_TARGET_PLATFORM} \
       --gradle
 fi
 
