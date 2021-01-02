@@ -1066,12 +1066,21 @@ ApplicationWindow {
               topMargin: 2
           }
 
-          width: 9
-          height: 9
+          width: 12
+          height: 12
           radius: width / 2
 
+          border.width: 1.5
+          border.color: 'white'
+
           visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
-          color: !positionSource.positionInfo || !positionSource.positionInfo.haccValid || positionSource.positionInfo.hacc > positioningSettings.accuracyBad ? Theme.errorColor : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent ? Theme.warningColor : Theme.mainColor
+          color: !positionSource.positionInfo
+                 || !positionSource.positionInfo.haccValid
+                 || positionSource.positionInfo.hacc > positioningSettings.accuracyBad
+                     ? Theme.errorColor
+                     : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
+                       ? Theme.warningColor
+                       : Theme.mainColor
       }
     }
 
