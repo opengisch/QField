@@ -139,7 +139,7 @@ if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --android-platform ${ANDROID_SDK_PLATFORM} \
       --gradle
 else
     echo "-- Not signing the apk, KEYNAME, KEYPASS or STOREPASS is not set"
@@ -147,7 +147,7 @@ else
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --android-platform ${ANDROID_SDK_PLATFORM} \
       --gradle
 fi
 
