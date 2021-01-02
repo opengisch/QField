@@ -23,8 +23,8 @@ Item{
     property string device: ''
 
     // proxy variables
-    property bool active
-    property string name
+    property bool active: false
+    property string name: ''
     property bool valid: qtPositionSource.valid || bluetoothPositionSource.valid
     property alias bluetoothSocketState: bluetoothPositionSource.socketState
     property bool currentness: false
