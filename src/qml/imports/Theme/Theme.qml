@@ -63,5 +63,9 @@ QtObject {
       var path = '/themes/' + theme + '/nodpi/' + name + '.svg';
       return path;
     }
+
+    function colorToHtml(color) {
+      return "rgba(%1,%2,%3,%4)".arg(Math.floor(Theme.errorColor.r * 255), Math.floor(Theme.errorColor.g * 255), Math.floor(Theme.errorColor.b * 255, Math.floor(Theme.errorColor.a * 255)));
+    }
 }
 
