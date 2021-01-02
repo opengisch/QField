@@ -151,5 +151,4 @@ else
       --gradle
 fi
 
-chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
 popd
