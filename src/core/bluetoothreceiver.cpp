@@ -28,16 +28,6 @@ BluetoothReceiver::BluetoothReceiver( QObject *parent ) : QObject( parent ),
 
   //QgsGpsConnection state changed (received location string)
   connect( mGpsConnection.get(), &QgsGpsConnection::stateChanged, this, &BluetoothReceiver::stateChanged );
-
-  //connect on create
-  QSettings settings;
-  bool positioningActivated = settings.value( QStringLiteral( "positioningActivated" ), false ).toBool();
-  if ( positioningActivated )
-  {
-    const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString() ).toString();
-    if ( !deviceAddress.isEmpty() )
-      connectDevice( deviceAddress );
-  }
 }
 
 void BluetoothReceiver::disconnectDevice()
