@@ -34,6 +34,8 @@ if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   exit 1
 fi
 
+apt update && apt install -y ninja-build # todo move to sdk
+
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -52,8 +54,6 @@ QT_ANDROID=${QT_ANDROID_BASE}/android
 echo "Package name ${APP_PACKAGE_NAME}"
 echo "ANDROID_MINIMUM_PLATFORM: ${ANDROID_MINIMUM_PLATFORM}"
 echo "ANDROID_TARGET_PLATFORM: ${ANDROID_TARGET_PLATFORM}"
-export ANDROID_MINIMUM_PLATFORM=21 # todo, that should come from qt-ndk.Dockerfile
-export ANDROID_TARGET_PLATFORM=29 # todo, that should come from qt-ndk.Dockerfile
 
 if [[ -n ${APP_ICON} ]]; then
   # replace icon
@@ -75,8 +75,6 @@ ln -sfn ${BUILD_DIR}/.gradle $HOME/.gradle
 
 pushd ${BUILD_DIR}
 
-export ANDROIDNDK=/opt/android-ndk
-export ANDROIDAPI=21
 if [ "X${ARCH}" == "Xx86" ]; then
     export ANDROID_ARCH=x86
     export SHORTARCH=x86
@@ -97,10 +95,10 @@ export STAGE_PATH=/home/osgeo4a/${ANDROID_ARCH}
 
 export ANDROID_CMAKE_LINKER_FLAGS=""
 if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$STAGE_PATH/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$QT_ANDROID/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$SHORTARCH/usr/lib"
-  export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$STAGE_PATH/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$QT_ANDROID/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$ANDROIDNDK/platforms/android-${ANDROID_TARGET_PLATFORM}/arch-$SHORTARCH/usr/lib"
+  export LDFLAGS="-Wl,-rpath-link,$STAGE_PATH/lib $LDFLAGS"
 fi
 
 cmake \
@@ -109,11 +107,11 @@ cmake \
 	-DAPP_VERSION=${APP_VERSION} \
 	-DAPP_VERSION_STR=${APP_VERSION_STR} \
 	-DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
-	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
+	-DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=${QT_ANDROID_BASE}/android/lib/cmake/Qt5 \
 	-DANDROID_DEPLOY_QT=${QT_ANDROID_BASE}/android/bin/androiddeployqt \
-	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;${QT_ANDROID_BASE}/android/\;/home/osgeo4a/${ANDROID_ARCH} \
+	-DCMAKE_FIND_ROOT_PATH:PATH=${ANDROID_NDK_ROOT}\;${QT_ANDROID_BASE}/android/\;/home/osgeo4a/${ANDROID_ARCH} \
 	-DANDROID_LINKER_FLAGS="${ANDROID_CMAKE_LINKER_FLAGS}" \
 	-DANDROID_ABI=${ANDROID_ARCH} \
 	-DANDROID_BUILD_ABI_${ANDROID_ARCH}=ON \
@@ -122,8 +120,8 @@ cmake \
 	-DQGIS_INCLUDE_DIR=/home/osgeo4a/${ANDROID_ARCH}/include/qgis/ \
 	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/${ANDROID_ARCH}/include/ \
 	-DOSGEO4A_STAGE_DIR:PATH=/home/osgeo4a/ \
-	-DANDROID_SDK=/opt/android-sdk/ \
-	-DANDROID_NDK=/opt/android-ndk/ \
+	-DANDROID_SDK=${ANDROID_SDK_ROOT}/ \
+	-DANDROID_NDK=${ANDROID_NDK_ROOT}/ \
 	-DANDROID_STL:STRING=c++_shared \
 	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \
 	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
