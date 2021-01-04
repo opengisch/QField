@@ -91,13 +91,7 @@ else
 fi
 export STAGE_PATH=/home/osgeo4a/${ANDROID_ARCH}
 
-export ANDROID_CMAKE_LINKER_FLAGS=""
-if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$STAGE_PATH/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$QT_ANDROID/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$ANDROIDNDK/platforms/android-${ANDROID_TARGET_PLATFORM}/arch-$SHORTARCH/usr/lib -fuse-ld=lld"
-  export LDFLAGS="-Wl,-rpath-link,$STAGE_PATH/lib $LDFLAGS"
-fi
+export ANDROID_CMAKE_LINKER_FLAGS="-fuse-ld=lld"
 
 cmake \
 	-G Ninja \
