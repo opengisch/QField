@@ -138,7 +138,7 @@ Page {
         model: settingsModel
 
         delegate: Row {
-          width: parent.width - 16
+          width: parent ? parent.width - 16 : undefined
 
           Column {
             width: parent.width - toggle.width
