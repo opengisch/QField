@@ -243,7 +243,7 @@ Page {
 
         // Configured color of the container
         Rectangle {
-            color: Color
+            color: Color ? Color : 'transparent'
             width: 8
             height: parent.height
             anchors.left: parent.left
