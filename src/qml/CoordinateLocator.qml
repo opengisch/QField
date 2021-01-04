@@ -11,9 +11,15 @@ Item {
   property color highlightColor: "#CFD8DC"
 
   /**
-   * Set the current layer on which snapping should be performed
+   * Set the current layer on which snapping should be performed.
    */
   property alias currentLayer: snappingUtils.currentLayer
+
+  /**
+   * Returns whether the accuracy requirement is failing.
+   */
+  property bool accuracyRequirementFail: false
+
   /**
    * Overrides any possibility for the user to modify the coordinate.
    * There will be no user interaction or snapping if this is set to a QgsPoint.

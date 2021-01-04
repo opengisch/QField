@@ -285,10 +285,10 @@ ApplicationWindow {
           else if ( type === "stylus" )
           {
               // Check if geometry editor is taking over
-              if ( geometryEditorsToolbar.canvasClicked(point) )
+              if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
+              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
@@ -465,6 +465,16 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.currentLayer
       overrideLocation: gpsLinkButton.linkActive ? positionSource.projectedPosition : undefined
+      accuracyRequirementFail: {
+          if ( positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement )
+          {
+              return positioningSettings.accuracyBad > 0 &&
+                     ( !positionSource.positionInfo ||
+                       !positionSource.positionInfo.haccValid ||
+                       positionSource.positionInfo.hacc >= badThreshold )
+          }
+          return false
+      }
     }
 
     /* GPS marker  */
@@ -540,7 +550,7 @@ ApplicationWindow {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    visible: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+    visible: positioningSettings.showPositionInformation
 
     height: childrenRect.height
     width: parent.width
@@ -1050,6 +1060,31 @@ ApplicationWindow {
             break;
         }
       }
+
+      Rectangle {
+          anchors {
+              top: parent.top
+              right: parent.right
+              rightMargin: 2
+              topMargin: 2
+          }
+
+          width: 12
+          height: 12
+          radius: width / 2
+
+          border.width: 1.5
+          border.color: 'white'
+
+          visible: positioningSettings.accuracyIndicator && gpsButton.state === "On"
+          color: !positionSource.positionInfo
+                 || !positionSource.positionInfo.haccValid
+                 || positionSource.positionInfo.hacc > positioningSettings.accuracyBad
+                     ? Theme.errorColor
+                     : positionSource.positionInfo.hacc > positioningSettings.accuracyExcellent
+                       ? Theme.warningColor
+                       : Theme.mainColor
+      }
     }
 
     DigitizingToolbar {
@@ -1451,13 +1486,7 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: {
-        if ( checked ) {
-            positioningSettings.positioningActivated = true
-        } else {
-            positioningSettings.positioningActivated = false
-        }
-      }
+      onCheckedChanged: positioningSettings.positioningActivated = checked
     }
 
     MenuItem {
@@ -1466,16 +1495,12 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       checkable: true
-      checked: settings.valueBool( "/QField/Positioning/ShowInformationView", false )
+      checked: positioningSettings.showPositionInformation
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged:
-      {
-        settings.setValue( "/QField/Positioning/ShowInformationView", checked )
-        positionInformationView.visible = checked
-      }
+      onCheckedChanged: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
