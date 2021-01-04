@@ -121,8 +121,8 @@ cmake \
 	-DANDROID_SDK=${ANDROID_SDK_ROOT}/ \
 	-DANDROID_NDK=${ANDROID_NDK_ROOT}/ \
 	-DANDROID_STL:STRING=c++_shared \
-	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \ # This one is for NDK -> we need to link against the minimum supported version
-	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \ # This one is for the APK, it ends up in the AndroidManifest.xml
+	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \ `# This one is for NDK -> we need to link against the minimum supported version` \
+	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} `# This one is for the APK, it ends up in the AndroidManifest.xml` \
 	..
 
 ninja
