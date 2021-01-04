@@ -34,8 +34,6 @@ if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   exit 1
 fi
 
-apt update && apt install -y ninja-build # todo move to sdk
-
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -97,7 +95,7 @@ export ANDROID_CMAKE_LINKER_FLAGS=""
 if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$STAGE_PATH/lib"
   ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$QT_ANDROID/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$ANDROIDNDK/platforms/android-${ANDROID_TARGET_PLATFORM}/arch-$SHORTARCH/usr/lib"
+  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath-link,$ANDROIDNDK/platforms/android-${ANDROID_TARGET_PLATFORM}/arch-$SHORTARCH/usr/lib -fuse-ld=lld"
   export LDFLAGS="-Wl,-rpath-link,$STAGE_PATH/lib $LDFLAGS"
 fi
 
@@ -123,8 +121,8 @@ cmake \
 	-DANDROID_SDK=${ANDROID_SDK_ROOT}/ \
 	-DANDROID_NDK=${ANDROID_NDK_ROOT}/ \
 	-DANDROID_STL:STRING=c++_shared \
-	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \
-	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \
+	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \ # This one is for NDK -> we need to link against the minimum supported version
+	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} \ # This one is for the APK, it ends up in the AndroidManifest.xml
 	..
 
 ninja
