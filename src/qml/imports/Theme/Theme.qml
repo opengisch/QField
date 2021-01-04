@@ -68,5 +68,21 @@ QtObject {
       return "rgba(%1,%2,%3,%4)".arg(Math.floor(Theme.errorColor.r * 255)).arg(Math.floor(Theme.errorColor.g * 255)).arg(Math.floor(Theme.errorColor.b * 255)).arg(Math.floor(Theme.errorColor.a * 255));
       
     }
+
+    function toInlineStyles(styleProperties) {
+      var styles = ''
+
+      for (var property in styleProperties) {
+        var value = styleProperties[property];
+        styles += property
+        styles += ': '
+        styles += typeof value == 'color'
+          ? colorToHtml(value)
+          : value
+        styles += ';'
+      }
+
+      return styles;
+    }
 }
 

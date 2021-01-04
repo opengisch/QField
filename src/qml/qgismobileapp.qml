@@ -468,7 +468,10 @@ ApplicationWindow {
       accuracyRequirementFail: {
           if ( positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement )
           {
-              return positioningSettings.accuracyBad > 0 && ( !positionSource.positionInfo || !positionSource.positionInfo.haccValid || !positionSource.positionInfo.hacc > badThreshold )
+              return positioningSettings.accuracyBad > 0 &&
+                     ( !positionSource.positionInfo ||
+                       !positionSource.positionInfo.haccValid ||
+                       positionSource.positionInfo.hacc >= badThreshold )
           }
           return false
       }
