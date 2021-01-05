@@ -5,6 +5,7 @@ Item {
   id: textFieldWrapper
 
   property alias font: textField.font
+  property alias text: textField.text
   property var echoMode: TextInput.Normal
 
   width: textField.width
