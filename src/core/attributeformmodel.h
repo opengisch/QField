@@ -54,6 +54,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       AttributeAllowEdit,
       EditorWidgetCode, //<! Returns a QML or HTML code string used by the relevant widgets
       TabIndex,
+      Color,
     };
 
     Q_ENUM( FeatureRoles )

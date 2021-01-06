@@ -235,276 +235,292 @@ Page {
     id: fieldItem
 
     Item {
-      height: childrenRect.height
-      anchors {
-        left: parent ? parent.left : undefined
-        right: parent ? parent.right : undefined
-        leftMargin: 12
-      }
-
-      Item {
-        property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
-
-        id: qmlContainer
-        visible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-        height: visible ? childrenRect.height : 0
+        height: childrenRect.height
         anchors {
-          left: parent.left
-          right: parent.right
+          left: parent ? parent.left : undefined
+          right: parent ? parent.right : undefined
         }
 
-        Label {
-          id: qmlLabel
-          width: parent.width
-          text: Name || ''
-          wrapMode: Text.WordWrap
-          font.pointSize: 12
-          font.bold: true
-          bottomPadding: 5
-          color: 'grey'
+        // Configured color of the container
+        Rectangle {
+            color: Color ? Color : 'transparent'
+            width: 8
+            height: parent.height
+            anchors.left: parent.left
         }
 
         Item {
-          id: qmlItem
           height: childrenRect.height
           anchors {
             left: parent.left
-            rightMargin: 12
             right: parent.right
-            top: qmlLabel.bottom
+            leftMargin: 12
           }
-        }
 
-        onQmlCodeChanged: {
-          if ( visible )
-            var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent');
-        }
-      }
+          Item {
+            property string qmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
-      Item {
-        property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
-
-        id: htmlContainer
-        visible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
-        height: visible ? childrenRect.height : 0
-        anchors {
-          left: parent.left
-          right: parent.right
-        }
-
-        Label {
-          id: htmlLabel
-          width: parent.width
-          text: Name || ''
-          wrapMode: Text.WordWrap
-          font.pointSize: 12
-          font.bold: true
-          bottomPadding: 5
-          color: 'grey'
-        }
-
-        /* WebView {
-          id: htmlItem
-          anchors {
-            left: parent.left
-            rightMargin: 12
-            right: parent.right
-            top: htmlLabel.bottom
-          }
-          onLoadingChanged: {
-            if ( !loading )
-              runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) } );
-          }
-        }*/
-
-        Item {
-            id: htmlLoader
-            visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
+            id: qmlContainer
+            visible: Type == 'qml' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+            height: visible ? childrenRect.height : 0
             anchors {
               left: parent.left
-              rightMargin: 12
               right: parent.right
-              top: htmlLabel.bottom
             }
-        }
 
-        onHtmlCodeChanged: {
-          if ( visible )
-          {
-            var htmlItem = Qt.createQmlObject('import QtWebView 1.14; WebView { id: htmlItem; anchors { left: parent.left; rightMargin: 12; right: parent.right; } onLoadingChanged: if ( !loading ) runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } ); }',
-                                              htmlLoader);
-            htmlItem.loadHtml(htmlContainer.htmlCode);
-          }
-        }
-      }
+            Label {
+              id: qmlLabel
+              width: parent.width
+              text: Name || ''
+              wrapMode: Text.WordWrap
+              font.pointSize: 12
+              font.bold: true
+              bottomPadding: 5
+              color: 'grey'
+            }
 
-      Item {
-        id: fieldContainer
-        visible: Type === 'field' || Type === 'relation'
-        height: visible ? childrenRect.height : 0
-        anchors {
-          left: parent.left
-          right: parent.right
-        }
+            Item {
+              id: qmlItem
+              height: childrenRect.height
+              anchors {
+                left: parent.left
+                rightMargin: 12
+                right: parent.right
+                top: qmlLabel.bottom
+              }
+            }
 
-        Label {
-          id: fieldLabel
-          width: parent.width
-          text: Name || ''
-          wrapMode: Text.WordWrap
-          font.pointSize: 12
-          font.bold: true
-          topPadding: 10
-          bottomPadding: 5
-          color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
-        }
-
-        Label {
-          id: constraintDescriptionLabel
-          anchors {
-            left: parent.left
-            right: parent.right
-            top: fieldLabel.bottom
+            onQmlCodeChanged: {
+              if ( visible )
+                var obj = Qt.createQmlObject(qmlContainer.qmlCode,qmlItem,'qmlContent');
+            }
           }
 
-          font.pointSize: fieldLabel.font.pointSize/3*2
-          text: {
-            if ( ConstraintHardValid && ConstraintSoftValid )
-              return '';
+          Item {
+            property string htmlCode: EditorWidgetCode !== undefined ? EditorWidgetCode : ''
 
-            return ConstraintDescription || '';
-          }
-          height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
-          visible: !ConstraintHardValid || !ConstraintSoftValid
+            id: htmlContainer
+            visible: Type == 'html' && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel
+            height: visible ? childrenRect.height : 0
+            anchors {
+              left: parent.left
+              right: parent.right
+            }
 
-          color: !ConstraintHardValid ? Theme.errorColor : Theme.darkGray
-        }
+            Label {
+              id: htmlLabel
+              width: parent.width
+              text: Name || ''
+              wrapMode: Text.WordWrap
+              font.pointSize: 12
+              font.bold: true
+              bottomPadding: 5
+              color: 'grey'
+            }
 
-        Item {
-          id: placeholder
-          height: childrenRect.height
-          anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
+            /* WebView {
+              id: htmlItem
+              anchors {
+                left: parent.left
+                rightMargin: 12
+                right: parent.right
+                top: htmlLabel.bottom
+              }
+              onLoadingChanged: {
+                if ( !loading )
+                  runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 20 ) } );
+              }
+            }*/
 
-          Loader {
-            id: attributeEditorLoader
+            Item {
+                id: htmlLoader
+                visible: TabIndex === form.currentTab && ( form.focus || featureForm.focus )
+                anchors {
+                  left: parent.left
+                  rightMargin: 12
+                  right: parent.right
+                  top: htmlLabel.bottom
+                }
+            }
 
-            height: childrenRect.height
-            anchors { left: parent.left; right: parent.right }
-
-            //disable widget if it's:
-            // - not activated in multi edit mode
-            // - not set to editable in the widget configuration
-            // - not in edit mode (ReadOnly)
-            // - a relation in multi edit mode
-            property bool isEnabled: !!AttributeEditable
-                                     && form.state !== 'ReadOnly'
-                                     && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
-            property var value: AttributeValue
-            property var config: ( EditorWidgetConfig || {} )
-            property var widget: EditorWidget
-            property var field: Field
-            property var fieldLabel: Name
-            property var relationId: RelationId
-            property var nmRelationId: NmRelationId
-            property var constraintHardValid: ConstraintHardValid
-            property var constraintSoftValid: ConstraintSoftValid
-            property bool constraintsHardValid: form.model.constraintsHardValid
-            property bool constraintsSoftValid: form.model.constraintsSoftValid
-            property var currentFeature: form.model.featureModel.feature
-            property var currentLayer: form.model.featureModel.currentLayer
-            property bool autoSave: qfieldSettings.autoSave
-            // TODO investigate why StringUtils are not available in ./editorwidget/*.qml files
-            property var stringUtilities: StringUtils
-
-            active: widget !== 'Hidden'
-            source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
-
-            onStatusChanged: {
-              if ( attributeEditorLoader.status === Loader.Error )
+            onHtmlCodeChanged: {
+              if ( visible )
               {
-                source = 'editorwidgets/TextEdit.qml'
+                var htmlItem = Qt.createQmlObject('import QtWebView 1.14; WebView { id: htmlItem; anchors { left: parent.left; rightMargin: 12; right: parent.right; } onLoadingChanged: if ( !loading ) runJavaScript("document.body.offsetHeight", function(result) { htmlItem.height = ( result + 30 ) } ); }',
+                                                  htmlLoader);
+                htmlItem.loadHtml(htmlContainer.htmlCode);
               }
             }
           }
 
-          Connections {
-            target: form
-
-            function onAboutToSave() {
-              // it may not be implemented
-              if ( attributeEditorLoader.item.pushChanges ) {
-                attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
-              }
+          Item {
+            id: fieldContainer
+            visible: Type === 'field' || Type === 'relation'
+            height: visible ? childrenRect.height : 0
+            anchors {
+              left: parent.left
+              right: parent.right
             }
 
-            function onValueChanged(field, oldValue, newValue) {
-              // it may not be implemented
-              if ( attributeEditorLoader.item.siblingValueChanged ) {
-                attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
-              }
+            Label {
+              id: fieldLabel
+              width: parent.width
+              text: Name || ''
+              wrapMode: Text.WordWrap
+              font.pointSize: 12
+              font.bold: true
+              topPadding: 10
+              bottomPadding: 5
+              color: ConstraintHardValid ? form.state === 'ReadOnly' || embedded && EditorWidget === 'RelationEditor' ? 'grey' : ConstraintSoftValid ? 'black' : Theme.warningColor : Theme.errorColor
             }
-          }
 
-          Connections {
-            target: attributeEditorLoader.item
+            Label {
+              id: constraintDescriptionLabel
+              anchors {
+                left: parent.left
+                right: parent.right
+                top: fieldLabel.bottom
+              }
 
-            function onValueChanged(value, isNull) {
-              if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
-              {
-                var oldValue = AttributeValue
-                AttributeValue = isNull ? undefined : value
+              font.pointSize: fieldLabel.font.pointSize/3*2
+              text: {
+                if ( ConstraintHardValid && ConstraintSoftValid )
+                  return '';
 
-                valueChanged(Field, oldValue, AttributeValue)
+                return ConstraintDescription || '';
+              }
+              height:  !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
+              visible: !ConstraintHardValid || !ConstraintSoftValid
 
-                if ( !AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) {
-                  AttributeAllowEdit = true;
+              color: !ConstraintHardValid ? Theme.errorColor : Theme.darkGray
+            }
+
+            Item {
+              id: placeholder
+              height: childrenRect.height
+              anchors { left: parent.left; right: rememberCheckbox.left; top: constraintDescriptionLabel.bottom; rightMargin: 10; }
+
+              Loader {
+                id: attributeEditorLoader
+
+                height: childrenRect.height
+                anchors { left: parent.left; right: parent.right }
+
+                //disable widget if it's:
+                // - not activated in multi edit mode
+                // - not set to editable in the widget configuration
+                // - not in edit mode (ReadOnly)
+                // - a relation in multi edit mode
+                property bool isEnabled: !!AttributeEditable
+                                         && form.state !== 'ReadOnly'
+                                         && !( Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel )
+                property var value: AttributeValue
+                property var config: ( EditorWidgetConfig || {} )
+                property var widget: EditorWidget
+                property var field: Field
+                property var fieldLabel: Name
+                property var relationId: RelationId
+                property var nmRelationId: NmRelationId
+                property var constraintHardValid: ConstraintHardValid
+                property var constraintSoftValid: ConstraintSoftValid
+                property bool constraintsHardValid: form.model.constraintsHardValid
+                property bool constraintsSoftValid: form.model.constraintsSoftValid
+                property var currentFeature: form.model.featureModel.feature
+                property var currentLayer: form.model.featureModel.currentLayer
+                property bool autoSave: qfieldSettings.autoSave
+                // TODO investigate why StringUtils are not available in ./editorwidget/*.qml files
+                property var stringUtilities: StringUtils
+
+                active: widget !== 'Hidden'
+                source: 'editorwidgets/' + ( widget || 'TextEdit' ) + '.qml'
+
+                onStatusChanged: {
+                  if ( attributeEditorLoader.status === Loader.Error )
+                  {
+                    source = 'editorwidgets/TextEdit.qml'
+                  }
+                }
+              }
+
+              Connections {
+                target: form
+
+                function onAboutToSave() {
+                  // it may not be implemented
+                  if ( attributeEditorLoader.item.pushChanges ) {
+                    attributeEditorLoader.item.pushChanges( form.model.featureModel.feature )
+                  }
                 }
 
-                if ( qfieldSettings.autoSave && !dontSave ) {
-                  // indirect action, no need to check for success and display a toast, the log is enough
-                  save()
+                function onValueChanged(field, oldValue, newValue) {
+                  // it may not be implemented
+                  if ( attributeEditorLoader.item.siblingValueChanged ) {
+                    attributeEditorLoader.item.siblingValueChanged( field, form.model.featureModel.feature )
+                  }
+                }
+              }
+
+              Connections {
+                target: attributeEditorLoader.item
+
+                function onValueChanged(value, isNull) {
+                  if( AttributeValue != value && !( AttributeValue === undefined && isNull ) ) //do not compare AttributeValue and value with strict comparison operators
+                  {
+                    var oldValue = AttributeValue
+                    AttributeValue = isNull ? undefined : value
+
+                    valueChanged(Field, oldValue, AttributeValue)
+
+                    if ( !AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ) {
+                      AttributeAllowEdit = true;
+                    }
+
+                    if ( qfieldSettings.autoSave && !dontSave ) {
+                      // indirect action, no need to check for success and display a toast, the log is enough
+                      save()
+                    }
+                  }
+                }
+              }
+            }
+
+            CheckBox {
+              id: rememberCheckbox
+              checked: RememberValue ? true : false
+              visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+              width: visible ? undefined : 0
+
+              anchors { right: parent.right; top: constraintDescriptionLabel.bottom }
+
+              onCheckedChanged: {
+                RememberValue = checked
+              }
+
+              indicator.height: 16
+              indicator.width: 16
+              icon.height: 16
+              icon.width: 16
+            }
+
+            Label {
+              id: multiEditAttributeLabel
+              text: (AttributeAllowEdit ? qsTr( "Value applied" ) : qsTr( "Value skipped" ) ) + qsTr( " (click to toggle)" )
+              visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel && Type !== 'relation'
+              height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
+              bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
+              anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
+              font: Theme.tipFont
+              color: AttributeAllowEdit ? Theme.mainColor : Theme.lightGray
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  AttributeAllowEdit = !AttributeAllowEdit
                 }
               }
             }
           }
         }
-
-        CheckBox {
-          id: rememberCheckbox
-          checked: RememberValue ? true : false
-          visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
-          width: visible ? undefined : 0
-
-          anchors { right: parent.right; top: constraintDescriptionLabel.bottom }
-
-          onCheckedChanged: {
-            RememberValue = checked
-          }
-
-          indicator.height: 16
-          indicator.width: 16
-          icon.height: 16
-          icon.width: 16
-        }
-
-        Label {
-          id: multiEditAttributeLabel
-          text: (AttributeAllowEdit ? qsTr( "Value applied" ) : qsTr( "Value skipped" ) ) + qsTr( " (click to toggle)" )
-          visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel && Type !== 'relation'
-          height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
-          bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
-          anchors { left: parent.left; top: placeholder.bottom;  rightMargin: 10; }
-          font: Theme.tipFont
-          color: AttributeAllowEdit ? Theme.mainColor : Theme.lightGray
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {
-              AttributeAllowEdit = !AttributeAllowEdit
-            }
-          }
-        }
-      }
     }
   }
 

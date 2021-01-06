@@ -81,7 +81,7 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void updateAttributeValue( QStandardItem *item );
 
-    void flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex = 0 );
+    void flatten(QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex = 0 , const QColor &color = QColor() );
 
     void updateVisibilityAndConstraints( int fieldIndex = -1 );
 

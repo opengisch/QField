@@ -55,6 +55,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::AttributeAllowEdit] = "AttributeAllowEdit";
   roles[AttributeFormModel::EditorWidgetCode] = "EditorWidgetCode";
   roles[AttributeFormModel::TabIndex] = "TabIndex";
+  roles[AttributeFormModel::Color] = "Color";
 
   return roles;
 }
@@ -182,7 +183,7 @@ void AttributeFormModelBase::onLayerChanged()
           }
 
           QVector<QStandardItem *> dummy;
-          flatten( container, item, QString(), dummy, currentTab );
+          flatten( container, item, QString(), dummy, currentTab, container->backgroundColor() );
           currentTab++;
         }
       }
@@ -296,7 +297,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   }
 }
 
-void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex )
+void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &parentVisibilityExpressions, QVector<QStandardItem *> &items, int currentTabIndex, const QColor &color )
 {
   const QList<QgsAttributeEditorElement *> children { container->children() };
   for ( QgsAttributeEditorElement *element : children )
@@ -316,7 +317,7 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         }
 
         QVector<QStandardItem *> newItems;
-        flatten( innerContainer, parent, visibilityExpression, newItems );
+        flatten( innerContainer, parent, visibilityExpression, newItems, 0, innerContainer->backgroundColor() );
         if ( !visibilityExpression.isEmpty() )
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), newItems ) );
         break;
@@ -352,6 +353,8 @@ void AttributeFormModelBase::flatten( QgsAttributeEditorContainer *container, QS
         item->setData( true, AttributeFormModel::ConstraintHardValid );
         item->setData( true, AttributeFormModel::ConstraintSoftValid );
         item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
+        if ( color.isValid() )
+            item->setData( color, AttributeFormModel::Color );
 
         // create constraint description
         QStringList descriptions;
