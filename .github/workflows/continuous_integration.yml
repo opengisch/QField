@@ -51,11 +51,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup signing key
         env:
           SIGNINGKEY: ${{ secrets.PLAYSTORE_SIGNINGKEY }}
         run: |
           echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
+
       - name: Setup build environment
         run: |
           sudo apt update && sudo apt install -y qttools5-dev-tools qt5-default transifex-client
@@ -63,6 +65,7 @@ jobs:
           git submodule update --init --recursive
           ./scripts/ci/env_gh.sh
           pip install wheel
+
       - name: "🌍 Pull Translations"
         run: |
           if [[ -z "${TX_TOKEN}" ]]; then
@@ -70,17 +73,27 @@ jobs:
           else
             ./scripts/ci/pull_translations.sh
           fi
+
+#      - uses: actions/cache@v2
+#        with:
+#          path: |
+#            ~/cache/.gradle/caches
+#            ~/cache/.gradle/wrapper
+#          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+#          restore-keys: |
+#            ${{ runner.os }}-gradle-
+
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
           KEYNAME: qfield
           KEYPASS: ${{ secrets.KEYPASS }}
           STOREPASS: ${{ secrets.STOREPASS }}
+          CACHE_DIR: ${{ env.GITHUB_WORKSPACE }}/cache
         run: |
-          export QFIELD_SDK_VERSION=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
-          export ANDROID_NDK_PLATFORM=android-29
           ./scripts/ci/docker_pull.sh
           ./scripts/ci/build.sh
+          ls $CACHE_DIR
 
       - name: 🍺 Deploy
         run: |

@@ -34,8 +34,6 @@ if [[ $( echo "${APK_VERSION_CODE} > 020000000" | bc ) == 1 ]]; then
   exit 1
 fi
 
-apt update && apt install -y zip bc cmake ninja-build jq
-
 SOURCE_DIR=/usr/src/qfield
 if [[ -z ${BUILD_FOLDER+x} ]]; then
     BUILD_DIR=${SOURCE_DIR}/build-docker
@@ -52,6 +50,8 @@ INSTALL_DIR=${BUILD_DIR}/out
 QT_ANDROID=${QT_ANDROID_BASE}/android
 
 echo "Package name ${APP_PACKAGE_NAME}"
+echo "ANDROID_MINIMUM_PLATFORM: ${ANDROID_MINIMUM_PLATFORM}"
+echo "ANDROID_TARGET_PLATFORM: ${ANDROID_TARGET_PLATFORM}"
 
 if [[ -n ${APP_ICON} ]]; then
   # replace icon
@@ -69,12 +69,10 @@ fi
 
 mkdir -p ${BUILD_DIR}/.gradle
 # androiddeployqt needs gradle and downloads it to /root/.gradle. By linking it to the build folder, this will be cached between builds.
-ln -sfn ${BUILD_DIR}/.gradle /root/.gradle
+ln -sfn ${BUILD_DIR}/.gradle $HOME/.gradle
 
 pushd ${BUILD_DIR}
 
-export ANDROIDNDK=/opt/android-ndk
-export ANDROIDAPI=21
 if [ "X${ARCH}" == "Xx86" ]; then
     export ANDROID_ARCH=x86
     export SHORTARCH=x86
@@ -93,13 +91,7 @@ else
 fi
 export STAGE_PATH=/home/osgeo4a/${ANDROID_ARCH}
 
-export ANDROID_CMAKE_LINKER_FLAGS=""
-if [ "X${ANDROID_ARCH}" == "Xarm64-v8a" ] || [ "X${ANDROID_ARCH}" == "Xx86_64" ]; then
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$STAGE_PATH/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$QT_ANDROID/lib"
-  ANDROID_CMAKE_LINKER_FLAGS="$ANDROID_CMAKE_LINKER_FLAGS;-Wl,-rpath=$ANDROIDNDK/platforms/android-$ANDROIDAPI/arch-$SHORTARCH/usr/lib"
-  export LDFLAGS="-Wl,-rpath=$STAGE_PATH/lib $LDFLAGS"
-fi
+export ANDROID_CMAKE_LINKER_FLAGS="-fuse-ld=lld"
 
 cmake \
 	-G Ninja \
@@ -107,11 +99,11 @@ cmake \
 	-DAPP_VERSION=${APP_VERSION} \
 	-DAPP_VERSION_STR=${APP_VERSION_STR} \
 	-DAPP_PACKAGE_NAME=${APP_PACKAGE_NAME} \
-	-DCMAKE_TOOLCHAIN_FILE=/opt/android-ndk/build/cmake/android.toolchain.cmake \
+	-DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake \
 	-DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
 	-DQt5_DIR:PATH=${QT_ANDROID_BASE}/android/lib/cmake/Qt5 \
 	-DANDROID_DEPLOY_QT=${QT_ANDROID_BASE}/android/bin/androiddeployqt \
-	-DCMAKE_FIND_ROOT_PATH:PATH=/opt/android-ndk\;${QT_ANDROID_BASE}/android/\;/home/osgeo4a/${ANDROID_ARCH} \
+	-DCMAKE_FIND_ROOT_PATH:PATH=${ANDROID_NDK_ROOT}\;${QT_ANDROID_BASE}/android/\;/home/osgeo4a/${ANDROID_ARCH} \
 	-DANDROID_LINKER_FLAGS="${ANDROID_CMAKE_LINKER_FLAGS}" \
 	-DANDROID_ABI=${ANDROID_ARCH} \
 	-DANDROID_BUILD_ABI_${ANDROID_ARCH}=ON \
@@ -120,10 +112,11 @@ cmake \
 	-DQGIS_INCLUDE_DIR=/home/osgeo4a/${ANDROID_ARCH}/include/qgis/ \
 	-DSQLITE3_INCLUDE_DIR:PATH=/home/osgeo4a/${ANDROID_ARCH}/include/ \
 	-DOSGEO4A_STAGE_DIR:PATH=/home/osgeo4a/ \
-	-DANDROID_SDK=/opt/android-sdk/ \
-	-DANDROID_NDK=/opt/android-ndk/ \
+	-DANDROID_SDK=${ANDROID_SDK_ROOT}/ \
+	-DANDROID_NDK=${ANDROID_NDK_ROOT}/ \
 	-DANDROID_STL:STRING=c++_shared \
-	ANDROID_NATIVE_API_LEVEL=21 \
+	-DANDROID_PLATFORM=${ANDROID_MINIMUM_PLATFORM} \ `# This one is for NDK -> we need to link against the minimum supported version` \
+	-DANDROID_TARGET_PLATFORM=${ANDROID_TARGET_PLATFORM} `# This one is for the APK, it ends up in the AndroidManifest.xml` \
 	..
 
 ninja
@@ -131,7 +124,7 @@ ninja
 # Patch the input file for androiddeployqt with the build tools revision
 # See https://forum.qt.io/topic/112578/unable-to-sign-android-app-wrong-path-for-zipalign
 # Temporary workaround (fingers crossed)
-cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"28.0.3\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
+cat <<< "$(jq ". += { \"sdkBuildToolsRevision\" : \"29.0.2\" }" < android_deployment_settings.json)" > android_deployment_settings_patched.json
 
 if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
     ${QT_ANDROID}/bin/androiddeployqt \
@@ -141,7 +134,7 @@ if [ -n "${KEYNAME}" ] && [ -n "${KEYPASS}" ] && [ -n "${STOREPASS}" ]; then
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --android-platform android-${ANDROID_TARGET_PLATFORM} \
       --gradle
 else
     echo "-- Not signing the apk, KEYNAME, KEYPASS or STOREPASS is not set"
@@ -149,9 +142,8 @@ else
       --input ${BUILD_DIR}/android_deployment_settings_patched.json \
       --output ${BUILD_DIR}/android-build \
       --deployment bundled \
-      --android-platform ${ANDROID_NDK_PLATFORM} \
+      --android-platform android-${ANDROID_TARGET_PLATFORM} \
       --gradle
 fi
 
-chown -R $(stat -c "%u" .):$(stat -c "%u" .) .
 popd

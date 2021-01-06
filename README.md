@@ -40,20 +40,24 @@ Please remember that this is the latest development build and is **not** tested 
 
 ### For Android
 
-Use the dockerized QField SDK.
+Building QField is a multi layered process with more than a few caveats.
+Luckily there is a super simple build script that does the dirty work for you.
 
 ```
-QFIELD_SDK=$(awk -F "=" '/osgeo4a_version/{print $2}' sdk.conf)
-ANDROID_NDK_PLATFORM=android-29
-
-git submodule update --init --recursive
-
-docker run -e ANDROID_NDK_PLATFORM -v $(pwd):/usr/src/qfield docker.io/opengisch/qfield-sdk:$QFIELD_SDK /usr/src/qfield/scripts/docker-build.sh --rm
+./scripts/build.sh
 ```
 
-This will put the apk into a subfolder `build-docker/out/build/outputs/apk`
+This will put the apk into a subfolder `build-docker/out/build-arm64_v8a/outputs/apk`
+
+If you want to build for a different architecture, set the ARCH enviroment variable.
+
+```
+ARCH=x86_64 ./scripts/build.sh
+```
 
 ### For Desktop
+
+In general it's much easier to develop on Desktop where you get quick feedback and a step by step debugger.
 
 To build QField for a desktop environment:
 
@@ -63,7 +67,6 @@ To build QField for a desktop environment:
 
 ```sh
 cd QField
-git submodule update --init --recursive
 ```
 
  * Open `CMakeList.txt` with QtCreator.
