@@ -180,7 +180,7 @@ Item{
                     if( Number(timeIntervalText.text) + Number(distanceText.text) === 0 ||
                         ( timeIntervalCheck.checked && distanceCheck.checked && conjunction.checked &&
                           ( Number(timeIntervalText.text) === 0 || Number(distanceText.text) === 0 ) ) ||
-                        !( timeIntervalCheck.checked || distanceCheck.checked ) )
+                        ( !timeIntervalCheck.checked && !distanceCheck.checked ) )
                     {
                         displayToast( qsTr( 'Cannot start track with empty values' ) )
                     }
