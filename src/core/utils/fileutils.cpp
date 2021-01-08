@@ -20,6 +20,7 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QDir>
+#include <QDirIterator>
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -66,8 +67,10 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
     QString destName = srcDestFilePair.second;
 
     QFileInfo destInfo( destName );
-    QDir destDir( destInfo.absoluteDir() );
+    if ( QFileInfo( srcName ).isDir() )
+      continue;
 
+    QDir destDir( destInfo.absoluteDir() );
     if ( !destDir.exists() )
     {
       destDir.mkpath( destDir.path() );
@@ -96,23 +99,21 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
 
   int count = 0;
 
-  const QStringList files = sourceDir.entryList( QDir::Files );
-  for ( const QString &file : files )
+  QDirIterator dirIt( sourceDir, QDirIterator::Subdirectories );
+  int sfLentgh = sourceFolder.length();
+
+  while ( dirIt.hasNext() )
   {
-    QString srcName = sourceFolder + QDir::separator() + file;
-    QString destName = destFolder + QDir::separator() + file;
+    QString filePath = dirIt.next();
+    const QString relPath = filePath.mid( sfLentgh );
+    if ( relPath.endsWith( QLatin1String( "/." ) ) || relPath.endsWith( QLatin1String( "/.." ) ) )
+      continue;
+
+    QString srcName = sourceFolder + QDir::separator() + relPath;
+    QString destName = destFolder + QDir::separator() + relPath;
 
     mapping.append( qMakePair( srcName, destName ) );
     count += 1;
-  }
-
-  const QStringList dirs = sourceDir.entryList( QDir::AllDirs | QDir::NoDotAndDotDot );
-  for ( const QString &dir : dirs )
-  {
-    QString srcName = sourceFolder + QDir::separator() + dir;
-    QString destName = destFolder + QDir::separator() + dir;
-    count += copyRecursivelyPrepare( srcName, destName, mapping );
-
   }
 
   return count;
