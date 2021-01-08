@@ -20,21 +20,27 @@
 
 Feedback::Feedback()
 {
-  connect( this, &QgsFeedback::progressChanged, this, [this]( double progress ) {
-      mProgressProxy = progress;
-      emit progressChanged();
+  connect( this, &QgsFeedback::progressChanged, this, [this]( double progress )
+  {
+    mProgressProxy = progress;
+    emit progressChanged();
   } );
 }
 
 QString Feedback::status() const
 {
-    return mStatus;
+  return mStatus;
 }
 
-void Feedback::setStatus(const QString &status)
+void Feedback::setStatus( const QString &status )
 {
-    if ( status == mStatus )
-        return;
-    mStatus = status;
-    emit statusChanged();
+  if ( status == mStatus )
+    return;
+  mStatus = status;
+  emit statusChanged();
+}
+
+double Feedback::progress()
+{
+  return mProgressProxy;
 }

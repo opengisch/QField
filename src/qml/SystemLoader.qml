@@ -27,6 +27,7 @@ ApplicationWindow
             id: loaderProgress
             from: 0
             to: 100
+            indeterminate: feedback.progress == -1
             value: feedback.progress
             width: parent.width * 0.6
 
@@ -35,7 +36,7 @@ ApplicationWindow
 
         Label {
             font.pointSize: 16
-            text: qsTr( "Preparing QField ..." )
+            text: qsTr( "Preparing QField, this is a one time operation that might take some time" )
             Layout.alignment: Qt.AlignCenter
         }
     }

@@ -31,25 +31,27 @@ class Feedback : public QgsFeedback
     /**
      * Progress value. Should be 0 - 100
      */
-    Q_PROPERTY(double progress READ progress WRITE setProgress NOTIFY progressChanged)
+    Q_PROPERTY( double progress READ progress WRITE setProgress NOTIFY progressChanged )
 
     /**
      * Current status.
      */
-    Q_PROPERTY(QString status READ status WRITE setStatus NOTIFY statusChanged)
-public:
+    Q_PROPERTY( QString status READ status WRITE setStatus NOTIFY statusChanged )
+  public:
     Feedback();
 
     QString status() const;
-    void setStatus(const QString &status);
+    void setStatus( const QString &status );
 
-signals:
+    double progress();
+
+  signals:
     void statusChanged();
     void progressChanged();
 
-private:
+  private:
     QString mStatus;
-    double mProgressProxy;
+    double mProgressProxy = -1;
 };
 
 #endif // FEEDBACK_H
