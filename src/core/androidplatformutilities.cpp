@@ -57,7 +57,7 @@ class FileCopyThread : public QThread
   private:
 
     void run() override
-      {
+    {
       FileUtils::copyRecursively( mSource, mDestination, mFeedback );
     }
 

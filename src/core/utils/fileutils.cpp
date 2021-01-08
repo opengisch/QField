@@ -59,60 +59,61 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   int fileCount = copyRecursivelyPrepare( sourceFolder, destFolder, mapping );
 
   int current = 0;
-  for ( QPair<QString, QString> srcDestFilePair : qgis::as_const(mapping) )
+  for ( QPair<QString, QString> srcDestFilePair : qgis::as_const( mapping ) )
   {
-      QString srcName = srcDestFilePair.first;
-      QString destName = srcDestFilePair.second;
 
-      QFileInfo destInfo( destName );
-      QDir destDir( destInfo.absoluteDir() );
+    QString srcName = srcDestFilePair.first;
+    QString destName = srcDestFilePair.second;
 
-      if ( !destDir.exists() )
-      {
-        destDir.mkpath( destDir.path() );
-      }
-      if ( QFile::exists( destName ) )
-          QFile::remove( destName );
+    QFileInfo destInfo( destName );
+    QDir destDir( destInfo.absoluteDir() );
 
-      bool success = QFile::copy( srcName, destName );
-      if ( !success )
-        return false;
+    if ( !destDir.exists() )
+    {
+      destDir.mkpath( destDir.path() );
+    }
+    if ( QFile::exists( destName ) )
+      QFile::remove( destName );
 
-      feedback->setProgress( 100 * current / fileCount );
+    bool success = QFile::copy( srcName, destName );
+    if ( !success )
+      return false;
 
-      ++current;
+    feedback->setProgress( 100 * current / fileCount );
+
+    ++current;
   }
 
   return true;
 }
 
-int FileUtils::copyRecursivelyPrepare(const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping)
+int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping )
 {
-    QDir sourceDir( sourceFolder );
+  QDir sourceDir( sourceFolder );
 
-    if ( !sourceDir.exists() )
-      return 0;
+  if ( !sourceDir.exists() )
+    return 0;
 
-    int count = 0;
+  int count = 0;
 
-    const QStringList files = sourceDir.entryList( QDir::Files );
-    for ( const QString &file : files )
-    {
-      QString srcName = sourceFolder + QDir::separator() + file;
-      QString destName = destFolder + QDir::separator() + file;
+  const QStringList files = sourceDir.entryList( QDir::Files );
+  for ( const QString &file : files )
+  {
+    QString srcName = sourceFolder + QDir::separator() + file;
+    QString destName = destFolder + QDir::separator() + file;
 
-      mapping.append( qMakePair( srcName, destName ) );
-      count += 1;
-    }
+    mapping.append( qMakePair( srcName, destName ) );
+    count += 1;
+  }
 
-    const QStringList dirs = sourceDir.entryList( QDir::AllDirs | QDir::NoDotAndDotDot );
-    for ( const QString &dir : dirs )
-    {
-      QString srcName = sourceFolder + QDir::separator() + dir;
-      QString destName = destFolder + QDir::separator() + dir;
-      count += copyRecursivelyPrepare( srcName, destName, mapping );
+  const QStringList dirs = sourceDir.entryList( QDir::AllDirs | QDir::NoDotAndDotDot );
+  for ( const QString &dir : dirs )
+  {
+    QString srcName = sourceFolder + QDir::separator() + dir;
+    QString destName = destFolder + QDir::separator() + dir;
+    count += copyRecursivelyPrepare( srcName, destName, mapping );
 
-    }
+  }
 
-    return count;
+  return count;
 }
