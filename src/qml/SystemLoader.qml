@@ -6,8 +6,6 @@ ApplicationWindow
 {
     id: mainWindow
     visible: true
-    width: 640
-    height: 480
     title: "System Loader"
 
     ColumnLayout {
@@ -30,7 +28,7 @@ ApplicationWindow
             from: 0
             to: 100
             value: feedback.progress
-            width: mainWindow.width
+            width: parent.width * 0.6
 
             Layout.alignment: Qt.AlignCenter
         }
