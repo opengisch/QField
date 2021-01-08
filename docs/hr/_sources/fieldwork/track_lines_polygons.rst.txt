@@ -8,7 +8,7 @@ You have the possibility to do tracking on lines and polygons.
 .. container:: clearer text-center
 
     .. image:: /images/tracking.webp
-       :width: 300px
+       :width: 600px
        :alt: tracking
 
 It's available when GNSS is enabled. 
