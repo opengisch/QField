@@ -107,6 +107,44 @@ The documentation is available in several languages
 
 `日本語 </docs/ja>`_
 
+`中文 </doc/zh>`_
+
+`Kinyarwanda </doc/rw>`_
+
+`فارسی </doc/fa>`_
+
+`Rumantsch grischun </doc/rm>`_
+
+`हिन्दी </doc/hi>`_
+
+`Монгол </doc/mn>`_
+
+`Afrikaans </doc/af>`_
+
+`한국어 </doc/ko>`_
+
+`русский язык </doc/ru>`_
+
+`Polski </doc/pl>`_
+
+`Svenska </doc/sv>`_
+
+`Česky </doc/cs>`_
+
+`български език </doc/bg>`_
+
+`Türkçe </doc/tr>`_
+
+`Latviešu valoda </doc/lv>`_
+
+`Ελληνικά </doc/el>`_
+
+`Hrvatski </doc/hr>`_
+
+`Euskara </doc/eu>`_
+
+`Slovenščina </doc/sl>`_
+
 If there is an error with a translation, please `help to improve it <https://www.transifex.com/opengisch/qfield-documentation/>`_.
 
 

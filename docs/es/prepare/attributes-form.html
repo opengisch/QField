@@ -64,7 +64,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Configuración del formulario de atributo</a><ul>
-<li><a class="reference internal" href="#suppress-attribute-form">Suprimir el formulario de atributo</a></li>
+<li><a class="reference internal" href="#suppress-attribute-form">Suprimir el formulario de atributos</a></li>
 <li><a class="reference internal" href="#field-widget">Control de campo</a></li>
 <li><a class="reference internal" href="#relation-widget">Control de relaciones</a><ul>
 <li><a class="reference internal" href="#attachment-photo-settings">Adjunto (configuración de fotos)</a></li>
@@ -149,8 +149,8 @@
 <h1>Configuración del formulario de atributo<a class="headerlink" href="#attribute-form-configuration" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>QField crea formularios similares pero no iguales a los de QGIS.</p>
 <div class="section" id="suppress-attribute-form">
-<h2>Suprimir el formulario de atributo<a class="headerlink" href="#suppress-attribute-form" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>La configuración «suprimir formulario de atributo» se aplica directamente al formulario QField.</p>
+<h2>Suprimir el formulario de atributos<a class="headerlink" href="#suppress-attribute-form" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La configuración «suprimir formulario de atributos» se aplica directamente al formulario de QField.</p>
 </div>
 <div class="section" id="field-widget">
 <span id="edit-field-widgets"></span><h2>Control de campo<a class="headerlink" href="#field-widget" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -162,7 +162,7 @@
 <col width="58%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Tipo de widget</th>
+<tr class="row-odd"><th class="head">Tipo de control</th>
 <th class="head">Soporte</th>
 <th class="head">Notas</th>
 </tr>
@@ -176,7 +176,7 @@
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>Caja de verificación</td>
+<tr class="row-odd"><td>Casilla de verificación</td>
 <td><span class="yay">✔</span></td>
 <td>&#160;</td>
 </tr>
@@ -223,8 +223,8 @@
 <a class="reference internal image-reference" href="../_images/relation_editor_widget_list.png"><img alt="../_images/relation_editor_widget_list.png" src="../_images/relation_editor_widget_list.png" style="width: 500px;" /></a>
 </div>
 </div>
-<p>El widget de relación muestra todas las características secundarias de referencia en una lista. Es posible agregarlos, eliminarlos y abrirlos.</p>
-<p>La identificación visual de las entradas de la lista se realiza mediante la «Expresión de visualización» de la capa secundaria.</p>
+<p>El widget de relacioes muestra todas los objetos hijos de referencia en una lista. Es posible agregarlos, eliminarlos y abrirlos.</p>
+<p>La identificación visual de las entradas de la lista se realiza mediante la «Expresión de visualización» de la capa hija.</p>
 <p><strong>Manejo de claves</strong></p>
 <p>Dado que las claves primarias padre se usan como clave externa en los objetos hijos referidos, estas claves deben guardarse para usarlas incluso después de volver a sincronizar a los datos originales. Por lo tanto, recomendamos usar valores estables tales como UUID para las claves primarias.</p>
 <p>Ya es posible agregar hijos de un padre que está a punto de agregarse. Esta posibilidad se bloqueará si no hay una clave primaria válida en el padre o si se violan las restricciones. En caso de que se cancele la adición de la función principal después de que se hayan agregado algunos elementos secundarios, los elementos secundarios también se eliminarán.</p>
@@ -257,8 +257,8 @@
 <a class="reference internal image-reference" href="../_images/qfield_picture.png"><img alt="Picture in QField" src="../_images/qfield_picture.png" style="width: 600px;" /></a>
 </div>
 </div>
-<p>On synchronization the sub-directory with the pictures, pdf and docs has to be copied as well.</p>
-<p>The option «hyperlink» on the attachment widget will disable the camera functionality and enable a hyperlink to open a document (pdf, doc, …).</p>
+<p>Al sincronizar hay que copiar también el subdirectorio con las imágenes, los pdf y los doc.</p>
+<p>La opción «hiperenlace» en el control adjunto desactivará la funcionalidad de la cámara y activará un hiperenlace para abrir un documento (pdf, doc,..).</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/hyperlink_option.png"><img alt="hyperlink_option" src="../_images/hyperlink_option.png" style="width: 600px;" /></a>
@@ -268,7 +268,7 @@
 </div>
 <div class="section" id="value-relation">
 <h2>Relación de valores<a class="headerlink" href="#value-relation" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>The widget «Value Relation» offers values from a related table in a combobox. You can select layer, key column and value column. Several options are available to change the standard behaviors: allow null value, order by value and allow multiple selections. The widget will display a drop-down or multiple-select list of the referenced features.</p>
+<p>El control «Relación de valores» ofrece valores de una tabla relacionada en un cuadro combinado. Puede seleccionar capa, columna clave y columna valor. Hay disponibles varias opciones para cambiar el comportamiento estándar: permitir valores nulos, ordenar por valor y permitir selecciones múltiples. El control mostrará una lista desplegable o multiselección de los objetos relacionados.</p>
 <div class="clearer text-center docutils container">
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/value_relation_widget.gif"><img alt="value_relation_widget" src="../_images/value_relation_widget.gif" style="width: 600px;" /></a>
@@ -288,7 +288,7 @@
 <p class="caption"><span class="caption-text">Configuración de un cuadro de grupo que sólo se mostrará si la casilla de verificación «medidas_tomadas» está marcada.</span></p>
 </div>
 </div>
-<p>Let’s see what we got on the field:</p>
+<p>Veamos lo que tomamos en el campo:</p>
 <div class="clearer text-left docutils container">
 
     <video width="700"  controls >
