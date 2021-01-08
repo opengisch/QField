@@ -24,7 +24,7 @@ ApplicationWindow
         }
 
         Timer {
-            interval: 1000
+            interval: 3000
             repeat: false
             running: true
             onTriggered: {
