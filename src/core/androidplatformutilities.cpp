@@ -45,19 +45,20 @@ class FileCopyThread : public QThread
 {
     Q_OBJECT
 
-public:
+  public:
     FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
-        : QThread()
-        , mSource( source )
-        , mDestination( destination )
-        , mFeedback( feedback )
+      : QThread()
+      , mSource( source )
+      , mDestination( destination )
+      , mFeedback( feedback )
     {
     }
 
-private:
+  private:
 
-    void run() override {
-        FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+    void run() override
+      {
+      FileUtils::copyRecursively( mSource, mDestination, mFeedback );
     }
 
     QString mSource;
@@ -82,15 +83,16 @@ void AndroidPlatformUtilities::initSystem()
     Feedback feedback;
     qmlRegisterType<Feedback>( "org.qfield", 1, 0, "Feedback" );
     engine.rootContext()->setContextProperty( "feedback", &feedback );
-    engine.load(QUrl(QStringLiteral("qrc:/qml/SystemLoader.qml")));
+    engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
 
-    QMetaObject::invokeMethod(&app, [this, &app, &feedback]{
+    QMetaObject::invokeMethod( &app, [this, &app, &feedback]
+    {
       FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
       app.connect( thread, &QThread::finished, &app, QApplication::quit );
       app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
       feedback.moveToThread( thread );
       thread->start();
-    });
+    } );
     app.exec();
 
     gitRevFile.write( gitRev );
