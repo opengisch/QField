@@ -23,8 +23,19 @@ ApplicationWindow
             Layout.alignment: Qt.AlignCenter
         }
 
+        Timer {
+            interval: 1000
+            repeat: false
+            running: true
+            onTriggered: {
+                statusLabel.opacity = 1
+                loaderProgress.opacity = 1
+            }
+        }
+
         ProgressBar {
             id: loaderProgress
+            opacity: 0
             from: 0
             to: 100
             indeterminate: feedback.progress == -1
@@ -32,12 +43,29 @@ ApplicationWindow
             width: parent.width * 0.6
 
             Layout.alignment: Qt.AlignCenter
+
+            Behavior on opacity {
+                NumberAnimation {
+                    easing.type: Easing.InOutQuad
+                    duration: 1000
+                }
+            }
         }
 
         Label {
+            id: statusLabel
+            opacity: 0
             font.pointSize: 16
+            wrapMode: Label.WordWrap
             text: qsTr( "Preparing QField, this is a one time operation that might take some time" )
             Layout.alignment: Qt.AlignCenter
+
+            Behavior on opacity {
+                NumberAnimation {
+                    easing.type: Easing.InOutQuad
+                    duration: 1000
+                }
+            }
         }
     }
 }
