@@ -77,3 +77,13 @@ jobs:
           sudo apt install -y cppcheck
       - name: Run cppcheck test
         run: ./scripts/cppcheck.sh
+
+  qfield-sdk-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Check sdk pattern
+        run: |
+          grep -E 'osgeo4a_version=2[0-9]{7}' sdk.conf
