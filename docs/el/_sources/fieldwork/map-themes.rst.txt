@@ -10,5 +10,8 @@ Use the *Map Themes* combobox to chose the active theme.
 
   The combo box is only available if you did :ref:`configure_map_themes`.
 
-.. image:: ../images/user-guide_maptheme.png
+.. container:: clearer text-left 
 
+  .. figure:: ../images/theme.webp
+     :width: 600px
+     :alt: theme
