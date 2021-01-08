@@ -41,6 +41,31 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 {
 }
 
+class FileCopyThread : public QThread
+{
+    Q_OBJECT
+
+public:
+    FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
+        : QThread()
+        , mSource( source )
+        , mDestination( destination )
+        , mFeedback( feedback )
+    {
+    }
+
+private:
+
+    void run() override {
+        FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+    }
+
+    QString mSource;
+    QString mDestination;
+    Feedback *mFeedback;
+};
+
+
 void AndroidPlatformUtilities::initSystem()
 {
   // Copy data away from the virtual path `assets:/` to a path accessible also for non-qt-based libs
@@ -59,8 +84,8 @@ void AndroidPlatformUtilities::initSystem()
     engine.rootContext()->setContextProperty( "feedback", &feedback );
     engine.load(QUrl(QStringLiteral("qrc:/qml/SystemLoader.qml")));
 
-    QMetaObject::invokeMethod(&app, [&app, &feedback]{
-      QThread *thread = QThread::create([&feedback]{ FileUtils::copyRecursively( "/tmp/test", "/tmp/test2", &feedback ); });
+    QMetaObject::invokeMethod(&app, [this, &app, &feedback]{
+      FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
       app.connect( thread, &QThread::finished, &app, QApplication::quit );
       app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
       feedback.moveToThread( thread );
@@ -335,3 +360,5 @@ void AndroidPlatformUtilities::showRateThisApp() const
 
   QtAndroid::startActivity( intent.object<jobject>(), 104 );
 }
+
+#include "androidplatformutilities.moc"
