@@ -56,9 +56,16 @@ ApplicationWindow
             id: statusLabel
             opacity: 0
             font.pointSize: 16
-            wrapMode: Label.WordWrap
             text: qsTr( "Preparing QField, this is a one time operation that might take some time" )
-            Layout.alignment: Qt.AlignCenter
+            wrapMode: Label.WordWrap
+            horizontalAlignment: Label.AlignHCenter
+
+            Layout.leftMargin: 6
+            Layout.rightMargin: 6
+            Layout.topMargin: 2
+            Layout.bottomMargin: 2
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.fillWidth: true
 
             Behavior on opacity {
                 NumberAnimation {
