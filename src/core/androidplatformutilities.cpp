@@ -20,6 +20,7 @@
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
+#include "feedback.h"
 #include "fileutils.h"
 
 #include <QMap>
@@ -30,6 +31,10 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QFile>
+#include <QApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QThread>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
@@ -46,7 +51,23 @@ void AndroidPlatformUtilities::initSystem()
   QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
   if ( gitRevFile.readAll() != gitRev )
   {
-    FileUtils::copyRecursively( "assets:/share", mSystemGenericDataLocation );
+    int argc = 0;
+    QApplication app( argc, nullptr );
+    QQmlApplicationEngine engine;
+    Feedback feedback;
+    qmlRegisterType<Feedback>( "org.qfield", 1, 0, "Feedback" );
+    engine.rootContext()->setContextProperty( "feedback", &feedback );
+    engine.load(QUrl(QStringLiteral("qrc:/qml/SystemLoader.qml")));
+
+    QMetaObject::invokeMethod(&app, [&app, &feedback]{
+      QThread *thread = QThread::create([&feedback]{ FileUtils::copyRecursively( "/tmp/test", "/tmp/test2", &feedback ); });
+      app.connect( thread, &QThread::finished, &app, QApplication::quit );
+      app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
+      feedback.moveToThread( thread );
+      thread->start();
+    });
+    app.exec();
+
     gitRevFile.write( gitRev );
   }
 }

@@ -18,6 +18,7 @@
 #define FILEUTILS_H
 
 #include <QObject>
+#include <qgsfeedback.h>
 
 class FileUtils : public QObject
 {
@@ -36,7 +37,10 @@ class FileUtils : public QObject
     Q_INVOKABLE static bool fileExists( const QString &filePath );
     //! returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
-    static bool copyRecursively( const QString &sourceFolder, const QString &destFolder );
+    static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback );
+
+  private:
+    static int copyRecursivelyPrepare(const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString> > &mapping );
 };
 
 #endif // FILEUTILS_H
