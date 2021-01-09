@@ -13,6 +13,7 @@ SET(QFIELD_CORE_SRCS
   featurelistmodelselection.cpp
   featuremodel.cpp
   featureslocatorfilter.cpp
+  feedback.cpp
   focusstack.cpp
   geometry.cpp
   geometryeditorsmodel.cpp
@@ -85,6 +86,7 @@ SET(QFIELD_CORE_HDRS
   featurelistmodelselection.h
   featuremodel.h
   featureslocatorfilter.h
+  feedback.h
   focusstack.h
   geometry.h
   geometryeditorsmodel.h
