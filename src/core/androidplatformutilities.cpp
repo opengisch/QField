@@ -20,6 +20,7 @@
 #include "androidpicturesource.h"
 #include "androidprojectsource.h"
 #include "androidviewstatus.h"
+#include "feedback.h"
 #include "fileutils.h"
 
 #include <QMap>
@@ -30,11 +31,41 @@
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QFile>
+#include <QApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QThread>
 
 AndroidPlatformUtilities::AndroidPlatformUtilities()
   : mActivity( QtAndroid::androidActivity() )
 {
 }
+
+class FileCopyThread : public QThread
+{
+    Q_OBJECT
+
+  public:
+    FileCopyThread( const QString &source, const QString &destination, Feedback *feedback )
+      : QThread()
+      , mSource( source )
+      , mDestination( destination )
+      , mFeedback( feedback )
+    {
+    }
+
+  private:
+
+    void run() override
+    {
+      FileUtils::copyRecursively( mSource, mDestination, mFeedback );
+    }
+
+    QString mSource;
+    QString mDestination;
+    Feedback *mFeedback;
+};
+
 
 void AndroidPlatformUtilities::initSystem()
 {
@@ -46,7 +77,24 @@ void AndroidPlatformUtilities::initSystem()
   QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
   if ( gitRevFile.readAll() != gitRev )
   {
-    FileUtils::copyRecursively( "assets:/share", mSystemGenericDataLocation );
+    int argc = 0;
+    QApplication app( argc, nullptr );
+    QQmlApplicationEngine engine;
+    Feedback feedback;
+    qmlRegisterType<Feedback>( "org.qfield", 1, 0, "Feedback" );
+    engine.rootContext()->setContextProperty( "feedback", &feedback );
+    engine.load( QUrl( QStringLiteral( "qrc:/qml/SystemLoader.qml" ) ) );
+
+    QMetaObject::invokeMethod( &app, [this, &app, &feedback]
+    {
+      FileCopyThread *thread = new FileCopyThread( QStringLiteral( "assets:/share" ), mSystemGenericDataLocation, &feedback );
+      app.connect( thread, &QThread::finished, &app, QApplication::quit );
+      app.connect( thread, &QThread::finished, thread, &QThread::deleteLater );
+      feedback.moveToThread( thread );
+      thread->start();
+    } );
+    app.exec();
+
     gitRevFile.write( gitRev );
   }
 }
@@ -314,3 +362,5 @@ void AndroidPlatformUtilities::showRateThisApp() const
 
   QtAndroid::startActivity( intent.object<jobject>(), 104 );
 }
+
+#include "androidplatformutilities.moc"
