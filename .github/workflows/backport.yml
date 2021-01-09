@@ -12,6 +12,6 @@ jobs:
     name: Backport
     steps:
       - name: Backport
-        uses: tibdex/backport@v1
+        uses: m-kuhn/backport@v1.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
