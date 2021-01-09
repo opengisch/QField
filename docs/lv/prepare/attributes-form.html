@@ -346,23 +346,29 @@ expression variables.</p>
 <h3>Additional variables<a class="headerlink" href="#additional-variables" title="Pastāvīga norāde šo virsrakstu">¶</a></h3>
 <p>In QField, there are some additional variables available regarding the current
 positioning information.</p>
-<ul class="simple">
-<li><cite>position_coordinate</cite> (Geometry in WGS84!) : Lon, Lat, Altitude as delivered
-by the sensor. Is also available when the crosshair is not snapped to the sensor.</li>
-<li><cite>position_timestamp</cite> (DateTime) : Timestamp of the position information</li>
-<li><cite>position_direction</cite> (float) : Direction in degrees from true north.</li>
-<li><cite>position_ground_speed</cite> (float) : Groundspeed in meters / second.</li>
-<li><cite>position_magnetic_variation</cite> (float) : The angle between the horizontal
-component of the magnetic field and true north, in degrees. Also known as
-magnetic declination. A positive value indicates a clockwise direction from
-true north and a negative value indicates a counter-clockwise direction.</li>
-<li><cite>position_horizontal_accuracy</cite> (float) : The horizontal accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_accuracy</cite> (float) : The vertical accuracy of the
-coordinate (in meters).</li>
-<li><cite>position_vertical_speed</cite> (float) : The value of the vertical speed in meters
-per second.</li>
-</ul>
+<div class="line-block">
+<div class="line">Variable name | Variable description | Example | Availability |</div>
+</div>
+<p><a href="#id5"><span class="problematic" id="id6">|-|</span></a>-<a href="#id7"><span class="problematic" id="id8">|-|</span></a>-|
+| <cite>&#64;position_coordinate</cite> | A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor. | <cite>x(&#64;position_coordinate)</cite> | IE |
+| <cite>&#64;position_timestamp</cite> | The timestamp of the position in UTC. |  | IE |
+| <cite>&#64;position_direction</cite> | The direction of movement in degrees from true north. |  | IE |
+| <cite>&#64;position_ground_speed</cite> | Groundspeed (in m/s). |  | IE |
+| <cite>&#64;position_magnetic_variation</cite> | The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction. |  | IE |
+| <cite>&#64;position_horizontal_accuracy</cite> | The horizontal accuracy of the coordinate (in meters). |  | IE |
+| <cite>&#64;position_vertical_accuracy</cite> | The vertical accuracy of the coordinate (in meters). |  | IE |
+| <cite>&#64;position_vertical_speed</cite> | The vertical speed (in m/s) |  | IE |
+| <cite>&#64;position_source_name</cite> | The vertical speed (in m/s) |  | IE |
+| <cite>&#64;position_pdop</cite> | Position dilution of precision |  | E |
+| <cite>&#64;position_hdop</cite> | Horizontal dilution of precision |  | E |
+| <cite>&#64;position_vdop</cite> | Vertical dilution of precision |  | E |
+| <cite>&#64;position_number_of_used_satellites</cite> | Number of satellites |  | E |
+| <cite>&#64;position_used_satellites</cite> | A list of satellites in use (pri) | <cite>array_count(&#64;position_used_satellites)</cite> | E |
+| <cite>&#64;position_quality_description</cite> | A human readable and translated string for the quality. E.g. „Fixed RTK“ |  | E |
+| <cite>&#64;position_fix_status_description</cite> | The GPS Fix Status | „NoData“, „NoFix“, „Fix2D“ or „Fix3D“ | E |
+| <cite>&#64;position_fix_mode</cite> | Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D) |  | E |</p>
+<p>I: Internal position source
+E: External (NMEA) position source</p>
 </div>
 <div class="section" id="id1">
 <h3>Common use cases<a class="headerlink" href="#id1" title="Pastāvīga norāde šo virsrakstu">¶</a></h3>

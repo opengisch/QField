@@ -215,21 +215,28 @@ Additional variables
 In QField, there are some additional variables available regarding the current
 positioning information.
 
-- `position_coordinate` (Geometry in WGS84!) : Lon, Lat, Altitude as delivered 
-  by the sensor. Is also available when the crosshair is not snapped to the sensor.
-- `position_timestamp` (DateTime) : Timestamp of the position information
-- `position_direction` (float) : Direction in degrees from true north.
-- `position_ground_speed` (float) : Groundspeed in meters / second.
-- `position_magnetic_variation` (float) : The angle between the horizontal 
-  component of the magnetic field and true north, in degrees. Also known as 
-  magnetic declination. A positive value indicates a clockwise direction from 
-  true north and a negative value indicates a counter-clockwise direction.
-- `position_horizontal_accuracy` (float) : The horizontal accuracy of the 
-  coordinate (in meters). 
-- `position_vertical_accuracy` (float) : The vertical accuracy of the 
-  coordinate (in meters).
-- `position_vertical_speed` (float) : The value of the vertical speed in meters
-  per second. 
+| Variable name | Variable description | Example | Availability |
+|-|-|-|-|
+| `@position_coordinate` | A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor. | `x(@position_coordinate)` | IE |
+| `@position_timestamp` | The timestamp of the position in UTC. |  | IE |
+| `@position_direction` | The direction of movement in degrees from true north. |  | IE |
+| `@position_ground_speed` | Groundspeed (in m/s). |  | IE |
+| `@position_magnetic_variation` | The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction. |  | IE |
+| `@position_horizontal_accuracy` | The horizontal accuracy of the coordinate (in meters). |  | IE |
+| `@position_vertical_accuracy` | The vertical accuracy of the coordinate (in meters). |  | IE |
+| `@position_vertical_speed` | The vertical speed (in m/s) |  | IE |
+| `@position_source_name` | The vertical speed (in m/s) |  | IE |
+| `@position_pdop` | Position dilution of precision |  | E |
+| `@position_hdop` | Horizontal dilution of precision |  | E |
+| `@position_vdop` | Vertical dilution of precision |  | E |
+| `@position_number_of_used_satellites` | Number of satellites |  | E |
+| `@position_used_satellites` | A list of satellites in use (pri) | `array_count(@position_used_satellites)` | E |
+| `@position_quality_description` | A human readable and translated string for the quality. E.g. "Fixed RTK" |  | E |
+| `@position_fix_status_description` | The GPS Fix Status | "NoData", "NoFix", "Fix2D" or "Fix3D" | E |
+| `@position_fix_mode` | Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D) |  | E |
+
+I: Internal position source
+E: External (NMEA) position source
 
 Common use cases
 ................
