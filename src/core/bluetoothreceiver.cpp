@@ -119,16 +119,9 @@ void BluetoothReceiver::setSocketState( const QBluetoothSocket::SocketState sock
   emit socketStateStringChanged( mSocketStateString );
 }
 
-GnssPositionInformation BluetoothReceiver::fromQGeoPositionInfo( const QString &name )
+GnssPositionInformation BluetoothReceiver::createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName )
 {
-  QGeoPositionInfoSource *positionSource = QGeoPositionInfoSource::createSource( name, nullptr );
-
-  QGeoPositionInfo info = positionSource->lastKnownPosition();
-  GnssPositionInformation gnssPositionInformation = GnssPositionInformation( info.coordinate().latitude(), info.coordinate().longitude(), info.coordinate().altitude(), info.attribute( QGeoPositionInfo::Attribute::GroundSpeed ),
-      info.attribute( QGeoPositionInfo::Attribute::Direction ), QList<QgsSatelliteInfo>(), 0, 0, 0,
-      info.attribute( QGeoPositionInfo::Attribute::HorizontalAccuracy ), info.attribute( QGeoPositionInfo::Attribute::VerticalAccuracy ),
-      info.timestamp(), QChar(), 0, -1, 0, QChar(), QList<int>(), true, info.attribute( QGeoPositionInfo::Attribute::VerticalSpeed ), info.attribute( QGeoPositionInfo::Attribute::MagneticVariation ), name );
-  return gnssPositionInformation;
+  return GnssPositionInformation( latitude, longitude, altitude, speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0, horizontalAccuracy, verticalAcurracy, timestamp, QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false, verticalSpeed, magneticVariation, sourceName );
 }
 
 #ifndef Q_OS_ANDROID
