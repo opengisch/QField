@@ -115,6 +115,7 @@
 #include "bluetoothdevicemodel.h"
 #include "gnsspositioninformation.h"
 #include "changelogcontents.h"
+#include "layerresolver.h"
 
 #define QUOTE(string) _QUOTE(string)
 #define _QUOTE(string) #string
@@ -345,6 +346,7 @@ void QgisMobileapp::initDeclarative()
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
+  qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
 
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
