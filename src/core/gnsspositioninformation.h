@@ -63,6 +63,8 @@ class GnssPositionInformation
     Q_PROPERTY( bool haccValid READ haccValid )
     Q_PROPERTY( double vacc READ vacc )
     Q_PROPERTY( bool vaccValid READ vaccValid )
+    Q_PROPERTY( double hvacc READ hvacc )
+    Q_PROPERTY( double hvaccValid READ hvaccValid )
     Q_PROPERTY( QDateTime utcDateTime READ utcDateTime )
     Q_PROPERTY( QChar fixMode READ fixMode )
     Q_PROPERTY( int fixType READ fixType )
@@ -153,7 +155,8 @@ class GnssPositionInformation
     double vdop() const { return mVdop; }
 
     /**
-     * Horizontal accuracy in meters
+     * Horizontal accuracy in meters.
+     * RMS
      */
     double hacc() const { return mHacc; }
     bool haccValid() const { return !std::isnan( mHacc ); }
@@ -161,9 +164,17 @@ class GnssPositionInformation
 
     /**
      * Vertical accuracy in meters
+     * VRMS
      */
     double vacc() const { return mVacc; }
     bool vaccValid() const { return !std::isnan( mVacc ); }
+
+    /**
+     * 3D accuracy in meters
+     * 3DRMS
+     */
+    double hvacc() const { return mHvacc; }
+    bool hvaccValid() const  { return !std::isnan( mHvacc ); }
 
     /**
      * The date and time at which this position was reported, in UTC time.
@@ -252,6 +263,7 @@ class GnssPositionInformation
     double mVdop = 0;
     double mHacc = std::numeric_limits< double >::quiet_NaN();
     double mVacc = std::numeric_limits< double >::quiet_NaN();
+    double mHvacc = std::numeric_limits< double >::quiet_NaN();
     QDateTime mUtcDateTime;
     QChar mFixMode;
     int mFixType = 0;
