@@ -61,7 +61,7 @@ class LayerResolver : public QObject
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer NOTIFY currentLayerChanged )
 
   public:
-    LayerResolver( QObject *parent = nullptr );
+    explicit LayerResolver( QObject *parent = nullptr );
 
     void resolve();
 
