@@ -50,10 +50,13 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.Manifest;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat; 
+import android.support.v4.content.ContextCompat; 
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
@@ -74,6 +77,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
+		checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 101); 
+
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
         String qFieldDir = storagePath + "/QField/";
@@ -104,5 +109,12 @@ public class QFieldActivity extends QtActivity {
             intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(context, uri));
         }
         setIntent(intent);
+    }
+
+    public void checkPermission(String permission, int requestCode)
+    {
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(QFieldActivity.this, new String[] { permission }, requestCode);
+        }
     }
 }
