@@ -40,6 +40,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -77,7 +79,7 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
-		checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 101); 
+        checkPermissions(); 
 
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
@@ -111,10 +113,19 @@ public class QFieldActivity extends QtActivity {
         setIntent(intent);
     }
 
-    public void checkPermission(String permission, int requestCode)
+    private void checkPermissions()
     {
-        if (ContextCompat.checkSelfPermission(QFieldActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(QFieldActivity.this, new String[] { permission }, requestCode);
+        List<String> permissionsList = new ArrayList<String>();
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if ( permissionsList.size() > 0 ) {
+			String[] permissions = new String[ permissionsList.size() ];
+            permissionsList.toArray( permissions );
+            ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
         }
     }
 }
