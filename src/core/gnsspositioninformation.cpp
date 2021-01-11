@@ -38,6 +38,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
     mVdop( vdop ),
     mHacc( hacc ),
     mVacc( vacc ),
+    mHvacc( sqrt( ( pow( hacc, 2 ) + pow( hacc, 2 ) + pow( vacc, 2 ) ) / 3 ) ),
     mUtcDateTime( utcDateTime ),
     mFixMode( fixMode ),
     mFixType( fixType ),
