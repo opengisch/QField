@@ -31,7 +31,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const qreal magneticVariation = positionInformation.magneticVariation();
   const qreal horizontalAccuracy = positionInformation.hacc();
   const qreal verticalAccuracy = positionInformation.vacc();
-  const qreal hvAccuracy = positionInformation.hvacc();
+  const qreal horizontalVerticalAccuracy = positionInformation.hvacc();
   const qreal verticalSpeed = positionInformation.verticalSpeed();
   const qreal precisionDilution = positionInformation.pdop();
   const qreal horizontalDilution = positionInformation.hdop();
@@ -50,7 +50,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_magnetic_variation" ), magneticVariation, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_3d_accuracy" ), hvAccuracy, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_3d_accuracy" ), horizontalVerticalAccuracy, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), sourceName, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
