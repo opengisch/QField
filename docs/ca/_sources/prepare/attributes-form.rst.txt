@@ -217,77 +217,60 @@ expression variables. These will only be available when the positioning
 is enabled, either through the internal device receiver or through an
 external device connected via NMEA connection.
 
-.. list-table:: Frozen Delights!
-   :header-rows: 1
-
-   * - Variable Name
-     - Variable Description
-     - Example
-     - Availability
-   * - `@position_coordinate`
+   - `@position_coordinate`
      - A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor.
      - `x(@position_coordinate)`
      - IE
-   * - `@position_timestamp`
+   - `@position_timestamp`
      - The timestamp of the position in UTC.
-     - 
      - IE
-   * - `@position_direction` 
+   - `@position_direction` 
      - The direction of movement in degrees from true north.
-     -
      - IE
-   * - `@position_ground_speed`
+   - `@position_ground_speed`
      - Groundspeed (in m/s).
-     -
      - IE
-   * - `@position_magnetic_variation`
+   - `@position_magnetic_variation`
      - The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction.
      - 
      - IE
-   * - `@position_horizontal_accuracy`
+   - `@position_horizontal_accuracy`
      - The horizontal accuracy of the coordinate (in meters).
-     - 
      - IE
-   * - `@position_vertical_accuracy`
+   - `@position_vertical_accuracy`
      - The vertical accuracy of the coordinate (in meters).
-     - 
      - IE
-   * - `@position_vertical_speed`
+   - `@position_vertical_speed`
      - The vertical speed (in m/s)
-     - 
      - IE 
-   * - `@position_source_name`
+   - `@position_source_name`
      - The vertical speed (in m/s)
-     -
      - IE
-   * - `@position_pdop`
+   - `@position_pdop`
      - Position dilution of precision
-     - 
      - E
-   * - `@position_hdop` 
+   - `@position_hdop` 
      - Horizontal dilution of precision
-     -
      - E
-   * - `@position_vdop` 
+   - `@position_vdop` 
      - Vertical dilution of precision
      - 
      - E
-   * - `@position_number_of_used_satellites` | Number of satellites |  | E |
-   * - `@position_used_satellites`
+   - `@position_number_of_used_satellites`
+     - Number of satellites
+     - E
+   - `@position_used_satellites`
      - A list of satellites in use (pri)
      - `array_count(@position_used_satellites)`
      - E
-   * - `@position_quality_description`
+   - `@position_quality_description`
      - A human readable and translated string for the quality. E.g. "Fixed RTK"
-     - 
      - E
-   * - `@position_fix_status_description`
+   - `@position_fix_status_description`
      - The GPS Fix Status "NoData", "NoFix", "Fix2D" or "Fix3D"
-     - 
      - E
-   * - `@position_fix_mode`
+   - `@position_fix_mode`
      - Fix mode (where 'M' = Manual, forced to operate in 2D or 3D or 'A' = Automatic, 3D/2D)
-     - 
      - E
 
 

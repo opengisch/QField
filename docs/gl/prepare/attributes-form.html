@@ -134,7 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../fieldwork/index.html">Traballo de campo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Titoriais de Primeiros Pasos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data-formats/index.html">Formatos de Datos Admitidos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../case-studies/index.html">Estudos de Casos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../support/index.html">Asistencia e Desenvolvemento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../old-doc/index.html">Legacy Documentation</a></li>
 </ul>
@@ -287,7 +287,7 @@
 <p class="caption"><span class="caption-text">Configuración dunha caixa de grupo que só se amosará se a caixa de verificación «tomar_medidas» está marcada.</span></p>
 </div>
 </div>
-<p>Let’s see what we got on the field:</p>
+<p>Vexamos o que temos no campo:</p>
 <div class="clearer text-left docutils container">
 
     <video width="700"  controls >
@@ -328,12 +328,67 @@
 </div>
 <div class="section" id="additional-variables">
 <h3>Variables adicionais<a class="headerlink" href="#additional-variables" title="Permalink to this headline">¶</a></h3>
-<p>You can get access to positioning information with through additional
-expression variables. These will only be available when the positioning
-is enabled, either through the internal device receiver or through an
-external device connected via NMEA connection.</p>
-<p>I: Internal position source
-E: External (NMEA) position source</p>
+<p>Podes obter acceso a información do posicionamento a través de variables de expresión adicionais. Estas só estarán dispoñibles cando se active o posicionamento, tanto a través do receptor interno do dispositivo coma a través dun dispositivo externo conectado mediante unha conexión NMEA.</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>&#64;position_coordinate</cite>
+- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor.
+- <cite>x(&#64;position_coordinate)</cite>
+- IE</li>
+<li><cite>&#64;position_timestamp</cite>
+- The timestamp of the position in UTC.
+- IE</li>
+<li><cite>&#64;position_direction</cite>
+- The direction of movement in degrees from true north.
+- IE</li>
+<li><cite>&#64;position_ground_speed</cite>
+- Groundspeed (in m/s).
+- IE</li>
+<li><cite>&#64;position_magnetic_variation</cite>
+- The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction.
+-
+- IE</li>
+<li><cite>&#64;position_horizontal_accuracy</cite>
+- The horizontal accuracy of the coordinate (in meters).
+- IE</li>
+<li><cite>&#64;position_vertical_accuracy</cite>
+- The vertical accuracy of the coordinate (in meters).
+- IE</li>
+<li><cite>&#64;position_vertical_speed</cite>
+- The vertical speed (in m/s)
+- IE</li>
+<li><cite>&#64;position_source_name</cite>
+- The vertical speed (in m/s)
+- IE</li>
+<li><cite>&#64;position_pdop</cite>
+- Position dilution of precision
+- E</li>
+<li><cite>&#64;position_hdop</cite>
+- Horizontal dilution of precision
+- E</li>
+<li><cite>&#64;position_vdop</cite>
+- Vertical dilution of precision
+-
+- E</li>
+<li><cite>&#64;position_number_of_used_satellites</cite>
+- Number of satellites
+- E</li>
+<li><cite>&#64;position_used_satellites</cite>
+- A list of satellites in use (pri)
+- <cite>array_count(&#64;position_used_satellites)</cite>
+- E</li>
+<li><cite>&#64;position_quality_description</cite>
+- A human readable and translated string for the quality. E.g. «Fixed RTK»
+- E</li>
+<li><cite>&#64;position_fix_status_description</cite>
+- The GPS Fix Status «NoData», «NoFix», «Fix2D» or «Fix3D»
+- E</li>
+<li><cite>&#64;position_fix_mode</cite>
+- Fix mode (where “M” = Manual, forced to operate in 2D or 3D or “A” = Automatic, 3D/2D)
+- E</li>
+</ul>
+</div></blockquote>
+<p>I: Fonte de posición interna E: Fonte de posición externa (NMEA)</p>
 </div>
 <div class="section" id="id1">
 <h3>Casos comúns de uso<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
