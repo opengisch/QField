@@ -61,13 +61,19 @@ import ch.opengis.qfield.R;
 import ch.opengis.qfield.QFieldUtils;
 
 
-public class QFieldActivity extends Activity {
+public class QFieldActivity extends QtActivity {
+    @Override
     public void onCreate(Bundle savedInstanceState) {
+        prepareQtActivity();
         super.onCreate(savedInstanceState);
-        startQtActivity();
     }
 
-    private void startQtActivity() {
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    private void prepareQtActivity() {
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
         String qFieldDir = storagePath + "/QField/";
@@ -97,8 +103,6 @@ public class QFieldActivity extends Activity {
             Context context = getApplication().getApplicationContext();
             intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(context, uri));
         }
-
-        startActivity(intent);
-        finish();
+        setIntent(intent);
     }
 }
