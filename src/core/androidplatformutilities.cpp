@@ -73,9 +73,10 @@ void AndroidPlatformUtilities::initSystem()
   QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   mSystemGenericDataLocation = appDataLocation + QStringLiteral( "/share" );
   QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
-  gitRevFile.open( QIODevice::ReadWrite );
-  QByteArray gitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
-  if ( gitRevFile.readAll() != gitRev )
+  gitRevFile.open( QIODevice::ReadOnly );
+  QByteArray appGitRev = getIntentExtra( "GIT_REV" ).toLocal8Bit();
+  QByteArray localGitRev = gitRevFile.readAll();
+  if ( localGitRev != appGitRev )
   {
     int argc = 0;
     QApplication app( argc, nullptr );
@@ -95,7 +96,9 @@ void AndroidPlatformUtilities::initSystem()
     } );
     app.exec();
 
-    gitRevFile.write( gitRev );
+    gitRevFile.close();
+    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
+    gitRevFile.write( appGitRev );
   }
 }
 
