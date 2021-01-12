@@ -17,6 +17,16 @@ Item {
   height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
   enabled: true
 
+  LayerResolver {
+      id: layerResolver
+
+      layerId: config['Layer']
+      layerName: config['LayerName']
+      layerSource: config['LayerSource']
+      layerProviderName: config['LayerProviderName']
+      project: qgisProject
+  }
+
   RelationCombobox {
     id: valueRelationCombobox
 
@@ -32,7 +42,7 @@ Item {
       attributeField: field
       //passing "" instead of undefined, so the model is cleared on adding new features
       attributeValue: value !== undefined ? value : ""
-      currentLayer: qgisProject.mapLayer(config['Layer'])
+      currentLayer: layerResolver.currentLayer
       currentFormFeature: currentFeature
       keyField: config['Key']
       displayValueField: config['Value']
@@ -65,7 +75,7 @@ Item {
         attributeField: field
         //passing "" instead of undefined, so the model is cleared on adding new features
         attributeValue: value !== undefined ? value : ""
-        currentLayer: qgisProject.mapLayer(config['Layer'])
+        currentLayer: layerResolver.currentLayer
         currentFormFeature: currentFeature
         keyField: config['Key']
         displayValueField: config['Value']

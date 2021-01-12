@@ -21,6 +21,7 @@ SET(QFIELD_CORE_SRCS
   identifytool.cpp
   layertreemapcanvasbridge.cpp
   layertreemodel.cpp
+  layerresolver.cpp
   legendimageprovider.cpp
   linepolygonhighlight.cpp
   locatormodelsuperbridge.cpp
@@ -94,6 +95,7 @@ SET(QFIELD_CORE_HDRS
   identifytool.h
   layertreemapcanvasbridge.h
   layertreemodel.h
+  layerresolver.h
   legendimageprovider.h
   linepolygonhighlight.h
   locatormodelsuperbridge.h
