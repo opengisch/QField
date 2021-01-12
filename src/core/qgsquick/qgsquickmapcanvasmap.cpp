@@ -103,6 +103,8 @@ void QgsQuickMapCanvasMap::refreshMap()
   if ( project )
   {
     expressionContext << QgsExpressionContextUtils::projectScope( project );
+
+    mapSettings.setLabelingEngineSettings( project->labelingEngineSettings() );
   }
 
   mapSettings.setExpressionContext( expressionContext );
