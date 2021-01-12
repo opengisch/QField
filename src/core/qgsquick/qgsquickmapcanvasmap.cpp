@@ -107,6 +107,9 @@ void QgsQuickMapCanvasMap::refreshMap()
 
   mapSettings.setExpressionContext( expressionContext );
 
+  // enables on-the-fly simplification of geometries to spend less time rendering
+  mapSettings.setFlag( QgsMapSettings::UseRenderingOptimization );
+
   // create the renderer job
   Q_ASSERT( !mJob );
   mJob = new QgsMapRendererParallelJob( mapSettings );
