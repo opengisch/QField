@@ -40,6 +40,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Thread;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -50,10 +52,13 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.Manifest;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat; 
+import android.support.v4.content.ContextCompat; 
 
 import org.qtproject.qt5.android.bindings.QtActivity;
 
@@ -74,6 +79,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void prepareQtActivity() {
+        checkPermissions(); 
+
         String storagePath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
         String qFieldDir = storagePath + "/QField/";
@@ -104,5 +111,21 @@ public class QFieldActivity extends QtActivity {
             intent.putExtra("QGS_PROJECT", QFieldUtils.getPathFromUri(context, uri));
         }
         setIntent(intent);
+    }
+
+    private void checkPermissions()
+    {
+        List<String> permissionsList = new ArrayList<String>();
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (ContextCompat.checkSelfPermission(QFieldActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
+            permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if ( permissionsList.size() > 0 ) {
+			String[] permissions = new String[ permissionsList.size() ];
+            permissionsList.toArray( permissions );
+            ActivityCompat.requestPermissions(QFieldActivity.this, permissions, 101);
+        }
     }
 }
