@@ -5,11 +5,9 @@ Track lines and polygons
 
 You have the possibility to do tracking on lines and polygons.
 
-.. container:: clearer text-center
+.. container::
 
-    .. image:: /images/tracking.webp
-       :width: 600px
-       :alt: tracking
+  .. vimeo:: 499958163
 
 It's available when GNSS is enabled. 
 A tracking session can be started in the legend by long-pressing on the layer.

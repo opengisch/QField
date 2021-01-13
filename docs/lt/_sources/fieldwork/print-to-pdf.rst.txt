@@ -31,11 +31,9 @@ Done.
 
 A video demonstration of how the complete workflow looks:
 
-.. container:: clearer text-left 
+.. container::
 
-  .. figure:: ../images/print_pdf.webp
-     :width: 600px
-     :alt: print pdf
+  .. vimeo:: 499566180
 
 
 
