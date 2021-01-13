@@ -331,16 +331,9 @@
 <p>Podes obter acceso a información do posicionamento a través de variables de expresión adicionais. Estas só estarán dispoñibles cando se active o posicionamento, tanto a través do receptor interno do dispositivo coma a través dun dispositivo externo conectado mediante unha conexión NMEA.</p>
 <blockquote>
 <div><ul class="simple">
-<li><cite>&#64;position_coordinate</cite>
-- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor.
-- <cite>x(&#64;position_coordinate)</cite>
-- IE</li>
-<li><cite>&#64;position_timestamp</cite>
-- The timestamp of the position in UTC.
-- IE</li>
-<li><cite>&#64;position_direction</cite>
-- The direction of movement in degrees from true north.
-- IE</li>
+<li><cite>&#64;position_coordinate</cite> - Un punto coa coordenada en WGS84. Lon, Lat, Altitude segundo se envían polo sensor. Tamén está dispoñible cando o punto de mira non se axusta ó sensor. - <cite>x(&#64;position_coordinate)</cite> - IE</li>
+<li><cite>&#64;position_timestamp</cite> - A data e hora da posición en UTC. - IE</li>
+<li><cite>&#64;position_direction</cite> - A dirección do movemento en graos dende o norte verdadeiro. - IE</li>
 <li><cite>&#64;position_ground_speed</cite>
 - Groundspeed (in m/s).
 - IE</li>
@@ -348,21 +341,11 @@
 - The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction.
 -
 - IE</li>
-<li><cite>&#64;position_horizontal_accuracy</cite>
-- The horizontal accuracy of the coordinate (in meters).
-- IE</li>
-<li><cite>&#64;position_vertical_accuracy</cite>
-- The vertical accuracy of the coordinate (in meters).
-- IE</li>
-<li><cite>&#64;position_3d_accuracy</cite>
-- The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS.
-- IE</li>
-<li><cite>&#64;position_vertical_speed</cite>
-- The vertical speed (in m/s)
-- IE</li>
-<li><cite>&#64;position_source_name</cite>
-- The vertical speed (in m/s)
-- IE</li>
+<li><cite>&#64;position_horizontal_accuracy</cite> - A precisión horizontal da coordenada (en metros). - IE</li>
+<li><cite>&#64;position_vertical_accuracy</cite> - A precisión vertical da coordenada (en metros). - IE</li>
+<li><cite>&#64;position_3d_accuracy</cite> - A precisión tridimensional da coordenada (en metros), 3D-RMS. - IE</li>
+<li><cite>&#64;position_vertical_speed</cite> - A velocidade vertical (en m/s) - IE</li>
+<li><cite>&#64;position_source_name</cite> - A velocidade vertical (en m/s) - IE</li>
 <li><cite>&#64;position_pdop</cite>
 - Position dilution of precision
 - E</li>
@@ -373,9 +356,7 @@
 - Vertical dilution of precision
 -
 - E</li>
-<li><cite>&#64;position_number_of_used_satellites</cite>
-- Number of satellites
-- E</li>
+<li><cite>&#64;position_number_of_used_satellites</cite> - Número de satélites - E</li>
 <li><cite>&#64;position_used_satellites</cite>
 - A list of satellites in use (pri)
 - <cite>array_count(&#64;position_used_satellites)</cite>
