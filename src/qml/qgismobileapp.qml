@@ -107,6 +107,9 @@ ApplicationWindow {
   }
 
   onChangeMode: {
+    if ( stateMachine.state == mode )
+      return
+
     stateMachine.lastState = stateMachine.state
     stateMachine.state = mode
     switch ( stateMachine.state )
