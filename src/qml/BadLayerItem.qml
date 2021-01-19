@@ -53,7 +53,7 @@ Page {
 
             delegate: Rectangle {
                 id: rectangle
-                width: parent.width
+                width: parent ? parent.width : undefined
                 height: line.height
                 color: "transparent"
 
