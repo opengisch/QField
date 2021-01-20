@@ -247,7 +247,7 @@ external device connected via NMEA connection.
    - The vertical speed (in m/s)
    - IE 
  - `@position_source_name`
-   - The vertical speed (in m/s)
+   - The name of the device that gave location information. If the position is manually set the source is "manual"
    - IE
  - `@position_pdop`
    - Position dilution of precision
