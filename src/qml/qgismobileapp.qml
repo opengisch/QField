@@ -1110,6 +1110,7 @@ ApplicationWindow {
         currentLayer: dashBoard.currentLayer
         positionInformation: positionSource.positionInfo
         topSnappingResult: coordinateLocator.topSnappingResult
+        positionLocked: gpsLinkButton.checked
         geometry: Geometry {
           id: digitizingGeometry
           rubberbandModel: digitizingRubberband.model

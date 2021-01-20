@@ -182,6 +182,19 @@ void FeatureModel::setLinkedFeatureValues()
   emit featureChanged();
 }
 
+bool FeatureModel::positionLocked() const
+{
+  return mPositionLocked;
+}
+
+void FeatureModel::setPositionLocked( bool positionLocked )
+{
+  if ( mPositionLocked == positionLocked )
+    return;
+  mPositionLocked = positionLocked;
+  emit positionLockedChanged();
+}
+
 void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
 {
   if ( mLinkedParentFeature == feature )
@@ -423,7 +436,7 @@ void FeatureModel::resetAttributes()
 
   QgsExpressionContext expressionContext = mLayer->createExpressionContext();
   if ( mPositionInformation.isValid() )
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation );
+    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
 
   //set snapping_results to ExpressionScope...
   if ( mTopSnappingResult.isValid() )

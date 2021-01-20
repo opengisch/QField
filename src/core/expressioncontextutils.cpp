@@ -20,10 +20,21 @@
 #include "qgsgeometry.h"
 #include <QtPositioning/QGeoPositionInfoSource>
 
-QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPositionInformation &positionInformation )
+
+void addVar( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
+{
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "sensor_%1" ).arg( name ), value, true, true ) );
+  if ( positionLocked )
+    scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_%1" ).arg( name ), value, true, true ) );
+  else
+    scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_%1" ).arg( name ), defaultValue, true, true ) );
+}
+
+
+QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPositionInformation &positionInformation, bool positionLocked )
 {
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Position" ) );
-  ;
+
   const QgsGeometry point = QgsGeometry( new QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) );
   const QDateTime timestamp = positionInformation.utcDateTime();
   const qreal direction = positionInformation.direction();
@@ -43,27 +54,27 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QString fixMode = positionInformation.fixMode();
   const QString sourceName = positionInformation.sourceName();
 
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_coordinate" ), QVariant::fromValue<QgsGeometry>( point ), true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_timestamp" ), timestamp, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_direction" ), direction, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_ground_speed" ), groundSpeed, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_magnetic_variation" ), magneticVariation, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_3d_accuracy" ), horizontalVerticalAccuracy, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_speed" ), verticalSpeed, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_source_name" ), sourceName, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_horizontal_accuracy" ), horizontalAccuracy, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vertical_accuracy" ), verticalAccuracy, true, true ) );
+  addVar( scope, QStringLiteral( "coordinate" ), QVariant::fromValue<QgsGeometry>( point ), positionLocked );
+  addVar( scope, QStringLiteral( "timestamp" ), timestamp, positionLocked );
+  addVar( scope, QStringLiteral( "direction" ), direction, positionLocked );
+  addVar( scope, QStringLiteral( "ground_speed" ), groundSpeed, positionLocked );
+  addVar( scope, QStringLiteral( "magnetic_variation" ), magneticVariation, positionLocked );
+  addVar( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
+  addVar( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
+  addVar( scope, QStringLiteral( "3d_accuracy" ), horizontalVerticalAccuracy, positionLocked );
+  addVar( scope, QStringLiteral( "vertical_speed" ), verticalSpeed, positionLocked );
+  addVar( scope, QStringLiteral( "source_name" ), sourceName, positionLocked, QStringLiteral( "manual" ) );
+  addVar( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
+  addVar( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
 
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_pdop" ), precisionDilution, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_hdop" ), horizontalDilution, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_vdop" ), verticalDilution, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_number_of_used_satellites" ), numberOfUsedSatelites, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_used_satellites" ),  QVariant::fromValue( usedSatelites ), true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_quality_description" ), qualityDescription, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_fix_status_description" ), fixStatusDescription, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_fix_mode" ), fixMode, true, true ) );
+  addVar( scope, QStringLiteral( "pdop" ), precisionDilution, positionLocked );
+  addVar( scope, QStringLiteral( "hdop" ), horizontalDilution, positionLocked );
+  addVar( scope, QStringLiteral( "vdop" ), verticalDilution, positionLocked );
+  addVar( scope, QStringLiteral( "number_of_used_satellites" ), numberOfUsedSatelites, positionLocked );
+  addVar( scope, QStringLiteral( "used_satellites" ),  QVariant::fromValue( usedSatelites ), positionLocked );
+  addVar( scope, QStringLiteral( "quality_description" ), qualityDescription, positionLocked );
+  addVar( scope, QStringLiteral( "fix_status_description" ), fixStatusDescription, positionLocked );
+  addVar( scope, QStringLiteral( "fix_mode" ), fixMode, positionLocked );
 
   return scope;
 }

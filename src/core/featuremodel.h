@@ -44,6 +44,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation WRITE setPositionInformation NOTIFY positionInformationChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
+    Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
 
     //! keeping the information what attributes are remembered and the last edited feature
     struct RememberValues
@@ -200,6 +201,16 @@ class FeatureModel : public QAbstractListModel
     //! Update the linked geometry rubber band to match the feature's geometry
     Q_INVOKABLE void updateRubberband() const;
 
+    /**
+     * Determines if the position is locked to the GNSS
+     */
+    bool positionLocked() const;
+
+    /**
+     * Determines if the position is locked to the GNSS
+     */
+    void setPositionLocked( bool positionLocked );
+
   public slots:
     void applyGeometry();
     void removeLayer( QObject *layer );
@@ -221,6 +232,7 @@ class FeatureModel : public QAbstractListModel
     void currentLayerChanged();
     void positionInformationChanged();
     void topSnappingResultChanged();
+    void positionLockedChanged();
 
     void warning( const QString &text );
 
@@ -246,6 +258,7 @@ class FeatureModel : public QAbstractListModel
     SnappingResult mTopSnappingResult;
     QString mTempName;
     QMap<QgsVectorLayer *, RememberValues> mRememberings;
+    bool mPositionLocked = false;
 };
 
 #endif // FEATUREMODEL_H
