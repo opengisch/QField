@@ -26,7 +26,7 @@ Turning on and off layers
 
 Identify features
 =================
-Tap on a feature on the map to identify it. If several features are located on the point you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.
+Tap on a feature on the map to identify it. If several features are located where you tapped (either because there are multiple features really close one to another, or because several layers are overlapping), they will all be listed in the menu that opens on the right of the screen.
 
 .. container:: clearer text-left
 
