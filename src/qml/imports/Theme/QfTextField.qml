@@ -7,6 +7,7 @@ Item {
   property alias font: textField.font
   property alias text: textField.text
   property var echoMode: TextInput.Normal
+  property var inputMethodHints: Qt.ImhNone
 
   width: textField.width
   height: textField.height
@@ -18,6 +19,7 @@ Item {
     width: textFieldWrapper.width
     font: Theme.defaultFont
     rightPadding: showPasswordButton.visible ? 2 * showPasswordButton.width : 0
+    inputMethodHints: textFieldWrapper.inputMethodHints
 
     background: Rectangle {
       y: textField.height - height - textField.bottomPadding / 2
