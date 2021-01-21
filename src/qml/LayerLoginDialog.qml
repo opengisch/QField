@@ -57,6 +57,7 @@ Page {
       id: username
       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
       Layout.preferredWidth: Math.max( parent.width / 2, usernamelabel.width )
+      inputMethodHints: Qt.ImhPreferLowercase
     }
 
     Item {
