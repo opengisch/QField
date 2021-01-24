@@ -22,6 +22,12 @@
 #include <qgsrelationmanager.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgsvectorlayerutils.h>
+#include <qgsattributeeditorcontainer.h>
+#include <qgsattributeeditorelement.h>
+#include <qgsattributeeditorfield.h>
+#include <qgsattributeeditorhtmlelement.h>
+#include <qgsattributeeditorqmlelement.h>
+#include <qgsattributeeditorrelation.h>
 
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
