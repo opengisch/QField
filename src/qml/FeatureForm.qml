@@ -602,6 +602,7 @@ Page {
       top: parent.top
       left: parent.left
       right: parent.right
+      topMargin: -1 // fix scene rounding issue leading to a white line
     }
 
     background: Rectangle {
