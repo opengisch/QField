@@ -1175,17 +1175,18 @@ ApplicationWindow {
         }
         else
         {
-          if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+          if ( !overlayFeatureFormDrawer.featureForm.featureCreated ) {
               digitizingFeature.resetAttributes();
-              if ( ! digitizingFeature.create() ) {
+              if ( !digitizingFeature.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
           } else {
-              if ( ! digitizingFeature.save() ) {
+              if ( !digitizingFeature.save() ) {
                 displayToast( qsTr( "Failed to save feature!" ) )
               }
           }
           digitizingRubberband.model.reset()
+          digitizingFeature.resetFeature();
         }
       }
     }
