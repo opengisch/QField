@@ -21,7 +21,7 @@
 #include <QtPositioning/QGeoPositionInfoSource>
 
 
-void addVar( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
+void addPositionVariable( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
 {
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "gnss_%1" ).arg( name ), value, true, true ) );
   if ( positionLocked )
@@ -54,27 +54,27 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QString fixMode = positionInformation.fixMode();
   const QString sourceName = positionInformation.sourceName();
 
-  addVar( scope, QStringLiteral( "coordinate" ), QVariant::fromValue<QgsGeometry>( point ), positionLocked );
-  addVar( scope, QStringLiteral( "timestamp" ), timestamp, positionLocked );
-  addVar( scope, QStringLiteral( "direction" ), direction, positionLocked );
-  addVar( scope, QStringLiteral( "ground_speed" ), groundSpeed, positionLocked );
-  addVar( scope, QStringLiteral( "magnetic_variation" ), magneticVariation, positionLocked );
-  addVar( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
-  addVar( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
-  addVar( scope, QStringLiteral( "3d_accuracy" ), horizontalVerticalAccuracy, positionLocked );
-  addVar( scope, QStringLiteral( "vertical_speed" ), verticalSpeed, positionLocked );
-  addVar( scope, QStringLiteral( "source_name" ), sourceName, positionLocked, QStringLiteral( "manual" ) );
-  addVar( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
-  addVar( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "coordinate" ), QVariant::fromValue<QgsGeometry>( point ), positionLocked );
+  addPositionVariable( scope, QStringLiteral( "timestamp" ), timestamp, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "direction" ), direction, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "ground_speed" ), groundSpeed, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "magnetic_variation" ), magneticVariation, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "3d_accuracy" ), horizontalVerticalAccuracy, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "vertical_speed" ), verticalSpeed, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "source_name" ), sourceName, positionLocked, QStringLiteral( "manual" ) );
+  addPositionVariable( scope, QStringLiteral( "horizontal_accuracy" ), horizontalAccuracy, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "vertical_accuracy" ), verticalAccuracy, positionLocked );
 
-  addVar( scope, QStringLiteral( "pdop" ), precisionDilution, positionLocked );
-  addVar( scope, QStringLiteral( "hdop" ), horizontalDilution, positionLocked );
-  addVar( scope, QStringLiteral( "vdop" ), verticalDilution, positionLocked );
-  addVar( scope, QStringLiteral( "number_of_used_satellites" ), numberOfUsedSatelites, positionLocked );
-  addVar( scope, QStringLiteral( "used_satellites" ),  QVariant::fromValue( usedSatelites ), positionLocked );
-  addVar( scope, QStringLiteral( "quality_description" ), qualityDescription, positionLocked );
-  addVar( scope, QStringLiteral( "fix_status_description" ), fixStatusDescription, positionLocked );
-  addVar( scope, QStringLiteral( "fix_mode" ), fixMode, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "pdop" ), precisionDilution, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "hdop" ), horizontalDilution, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "vdop" ), verticalDilution, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "number_of_used_satellites" ), numberOfUsedSatelites, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "used_satellites" ),  QVariant::fromValue( usedSatelites ), positionLocked );
+  addPositionVariable( scope, QStringLiteral( "quality_description" ), qualityDescription, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "fix_status_description" ), fixStatusDescription, positionLocked );
+  addPositionVariable( scope, QStringLiteral( "fix_mode" ), fixMode, positionLocked );
 
   return scope;
 }
