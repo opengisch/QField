@@ -23,7 +23,7 @@
 
 void addVar( QgsExpressionContextScope *scope, const QString &name, const QVariant &value, bool positionLocked, const QVariant &defaultValue = QVariant() )
 {
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "sensor_%1" ).arg( name ), value, true, true ) );
+  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "gnss_%1" ).arg( name ), value, true, true ) );
   if ( positionLocked )
     scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_%1" ).arg( name ), value, true, true ) );
   else
