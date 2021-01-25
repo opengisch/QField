@@ -26,7 +26,7 @@
 class ExpressionContextUtils
 {
   public:
-    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation );
+    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
     static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
 
   private:
