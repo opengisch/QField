@@ -135,7 +135,8 @@ VisibilityFadingRow {
     bgcolor: {
         if (!showConfirmButton)
           Theme.darkGray
-        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry)
+        else if (Number( rubberbandModel ? rubberbandModel.geometryType : 0 ) === QgsWkbTypes.PointGeometry ||
+                 Number( rubberbandModel.geometryType ) === QgsWkbTypes.NullGeometry)
           Theme.mainColor
         else
           Theme.darkGray
