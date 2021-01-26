@@ -692,6 +692,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       if ( !layer ) // Group
         return -1;
 
+      // For now, do not count feature on WFS layers, it can lead to long hangs
+      if ( layer->dataProvider() && layer->dataProvider()->name() == QStringLiteral( "WFS" ) )
+        return QVariant();
+
       if ( layer->renderer() && layer->renderer()->legendSymbolItems().size() > 0 )
       {
         long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
