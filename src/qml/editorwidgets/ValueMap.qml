@@ -65,27 +65,6 @@ EditorWidgetBase {
       onPressAndHold: mouse.accepted = false;
     }
 
-    // [hidpi fixes]
-    delegate: ItemDelegate {
-      width: comboBox.width
-      height: fontMetrics.height + 20
-      text: model.value
-      font.weight: comboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-      font.pointSize: Theme.defaultFont.pointSize
-      highlighted: comboBox.highlightedIndex == index
-    }
-
-    contentItem: Text {
-      id: textLabel
-      height: fontMetrics.height + 20
-      text: comboBox.displayText
-      font: Theme.defaultFont
-      horizontalAlignment: Text.AlignLeft
-      verticalAlignment: Text.AlignVCenter
-      elide: Text.ElideRight
-      color: value === undefined || !enabled ? 'gray' : 'black'
-    }
-
     background: Item {
       implicitWidth: 120
       implicitHeight: 36
@@ -107,7 +86,6 @@ EditorWidgetBase {
         radius: 2
       }
     }
-    // [/hidpi fixes]
   }
 
   FontMetrics {
