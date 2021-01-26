@@ -22,6 +22,7 @@
 #include <qgsmapthemecollection.h>
 #include <qgsrasterlayer.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerfeaturecounter.h>
 
 FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -691,6 +692,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       if ( !layer ) // Group
         return -1;
 
+      if ( layer->renderer() && layer->renderer()->legendSymbolItems().size() > 0 )
+      {
+        long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
+        if (  count == -1 )
+        {
+          layer->countSymbolFeatures();
+
+          const QTime dieTime = QTime::currentTime().addMSecs(300);
+          while ( QTime::currentTime() < dieTime && count == -1 )
+          {
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 50);
+            count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
+          }
+        }
+        return count > -1 ? QVariant::fromValue<long>( count ) : QVariant();
+      }
       return QVariant::fromValue<long>( layer->featureCount() );
     }
 

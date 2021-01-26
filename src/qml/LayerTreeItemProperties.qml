@@ -34,10 +34,13 @@ Popup {
     var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
 
     if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
-      var countSuffix = ' [' + layerTree.data(index, FlatLayerTreeModel.FeatureCount) + ']'
+      var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount)
+      if (count != undefined) {
+        var countSuffix = ' [' + count + ']'
 
-      if ( !title.endsWith(countSuffix) )
-        title += countSuffix
+        if ( !title.endsWith(countSuffix) )
+          title += countSuffix
+      }
     }
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
