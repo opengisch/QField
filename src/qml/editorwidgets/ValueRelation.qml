@@ -55,7 +55,7 @@ EditorWidgetBase {
     }
   }
 
-  Rectangle{
+  Rectangle {
     id: valueRelationList
 
     visible: Number(config['AllowMulti']) === 1
@@ -70,7 +70,7 @@ EditorWidgetBase {
     border.width: 1
 
     FeatureCheckListModel {
-      id: listModel
+        id: listModel
         attributeField: field
         //passing "" instead of undefined, so the model is cleared on adding new features
         attributeValue: value !== undefined ? value : ""
@@ -83,7 +83,7 @@ EditorWidgetBase {
         filterExpression: config['FilterExpression']
         allowMulti: true
         onListUpdated: {
-          valueRelation.valueChanged( attributeValue, false )
+            valueRelation.valueChanged( attributeValue, false )
         }
     }
 
@@ -113,17 +113,15 @@ EditorWidgetBase {
       Item {
         id: listItem
         anchors { left: parent ? parent.left : undefined; right: parent ? parent.right : undefined }
+        height: Math.max( valueRelationList.itemHeight, valueText.height )
 
         focus: true
 
-        height: Math.max( valueRelationList.itemHeight, valueText.height )
-
-        Row{
+        Row {
           id: checkBoxRow
-          anchors { top: parent.top; left: parent.left }
           height: listItem.height
 
-          CheckBox {
+          CheckDelegate {
             id: checkBox
             width: parent.height
             height: parent.height
@@ -140,21 +138,21 @@ EditorWidgetBase {
             indicator.implicitHeight: 24
             indicator.implicitWidth: 24
           }
-        }
 
-        Text {
-          id: valueText
-          anchors { leftMargin: 10; left: checkBoxRow.right; right: parent.right; verticalCenter: parent.verticalCenter }
-          font.bold: true
-          color: !isEnabled ? 'grey' : 'black'
-          text: { text: model.displayString }
+          Text {
+            id: valueText
+            anchors.verticalCenter: parent.verticalCenter
+            font: Theme.defaultFont
+            color: !isEnabled ? 'grey' : 'black'
+            text: { text: model.displayString }
+          }
         }
 
         MouseArea {
           anchors.fill: parent
 
           onClicked: {
-            if( isEnabled ){
+            if (isEnabled) {
               checkBox.checked = !checkBox.checked
             }
           }
