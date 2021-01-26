@@ -53,7 +53,7 @@ Drawer {
     property alias featureModel: attributeFormModel.featureModel
     property bool isSaved: false
 
-    model: AttributeFormModel {id: attributeFormModel}
+    model: AttributeFormModel { id: attributeFormModel }
 
     state: "Add"
 
