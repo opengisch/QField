@@ -655,18 +655,26 @@ Page {
 
                   ComboBox {
                       Layout.fillWidth: true
-                      model: [ qsTr( "None" ) ].concat( platformUtilities.availableGrids() );
+                      model: [ qsTr( "None" ), qsTr( "Geoidal separation from external device") ].concat( platformUtilities.availableGrids() );
 
                       onCurrentIndexChanged: {
-                          if ( currentIndex > 0 ) {
-                              verticalGrid = platformUtilities.availableGrids()[currentIndex - 1];
+                          if (currentIndex > 1) {
+                              verticalGrid = platformUtilities.availableGrids()[currentIndex - 2];
+                          } else if (currentIndex == 1) {
+                              verticalGrid = 'device';
                           } else {
                               verticalGrid = '';
                           }
                       }
 
                       Component.onCompleted: {
-                          currentIndex = verticalGrid !== '' ? find(verticalGrid) : 0;
+                          if (verticalGrid == 'device') {
+                              currentIndex = 1;
+                          } else if (verticalGrid != '') {
+                              currentIndex = find(verticalGrid);
+                          } else {
+                              currentIndex = 0;
+                          }
                       }
                   }
 

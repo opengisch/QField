@@ -145,7 +145,7 @@ void QgsQuickCoordinateTransformer::updatePosition()
 
   QSettings settings;
   const QString verticalGridName = settings.value( QStringLiteral( "verticalGrid" ), QString() ).toString();
-  if ( !verticalGridName.isEmpty () )
+  if ( !verticalGridName.isEmpty () && verticalGridName != QStringLiteral( "device" ) )
   {
     if ( mVerticalGridName != verticalGridName )
     {
