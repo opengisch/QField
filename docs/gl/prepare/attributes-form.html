@@ -331,28 +331,79 @@
 <p>Podes obter acceso a información do posicionamento a través de variables de expresión adicionais. Estas só estarán dispoñibles cando se active o posicionamento, tanto a través do receptor interno do dispositivo coma a través dun dispositivo externo conectado mediante unha conexión NMEA.</p>
 <blockquote>
 <div><ul class="simple">
-<li><cite>&#64;position_coordinate</cite> - Un punto coa coordenada en WGS84. Lon, Lat, Altitude segundo se envían polo sensor. Tamén está dispoñible cando o punto de mira non se axusta ó sensor. - <cite>x(&#64;position_coordinate)</cite> - IE</li>
-<li><cite>&#64;position_timestamp</cite> - A data e hora da posición en UTC. - IE</li>
-<li><cite>&#64;position_direction</cite> - A dirección do movemento en graos dende o norte verdadeiro. - IE</li>
-<li><cite>&#64;position_ground_speed</cite> - Velocidade no terreo (en m/s). - IE</li>
-<li><cite>&#64;position_magnetic_variation</cite> - O ángulo entre a compoñente horizontal do campo magnético e o norte verdadeiro, en graos. Tamén coñecido como declinación magnética. Un valor positivo indica unha dirección no sentido horario dende o norte verdadeiro e un valor negativo indica dirección antihoraria. - IE</li>
-<li><cite>&#64;position_horizontal_accuracy</cite> - A precisión horizontal da coordenada (en metros). - IE</li>
-<li><cite>&#64;position_vertical_accuracy</cite> - A precisión vertical da coordenada (en metros). - IE</li>
-<li><cite>&#64;position_3d_accuracy</cite> - A precisión tridimensional da coordenada (en metros), 3D-RMS. - IE</li>
-<li><cite>&#64;position_vertical_speed</cite> - A velocidade vertical (en m/s) - IE</li>
-<li><cite>&#64;position_source_name</cite>
-- The name of the device that gave location information. If the position is manually set, the source name is «manual»
+<li><cite>&#64;position_coordinate</cite>
+- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is only available when the crosshair is snapped to the sensor.
+- <cite>x(&#64;position_coordinate)</cite>
 - IE</li>
-<li><cite>&#64;position_pdop</cite> - Dilución da posición de precisión - E</li>
-<li><cite>&#64;position_hdop</cite> - Dilución horizontal da precisión - E</li>
-<li><cite>&#64;position_vdop</cite> - Dilución vertical da precisión - - E</li>
-<li><cite>&#64;position_number_of_used_satellites</cite> - Número de satélites - E</li>
-<li><cite>&#64;position_used_satellites</cite> - Unha lista de satélites en uso (pri) - <cite>array_count(&#64;position_used_satellites)</cite> - E</li>
-<li><cite>&#64;position_quality_description</cite> - Unha cadea traducida e lexible para a calidade. Ex: «RTK Fixada» - E</li>
-<li><cite>&#64;position_fix_status_description</cite> - O estado «SenDatos», «SenFixar», «Fixado2D» ou «Fixado3D» de fixación do GPS - E</li>
-<li><cite>&#64;position_fix_mode</cite> - Modo de fixación (onde “M” = Manual, forzado a operar en 2D ou 3D ou “A” = Automático, 3D/2D) - E</li>
+<li><cite>&#64;position_timestamp</cite>
+- The timestamp of the position in UTC as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_direction</cite>
+- The direction of movement in degrees from true north as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_ground_speed</cite>
+- Groundspeed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_magnetic_variation</cite>
+- The angle between the horizontal component of the magnetic field and true north, in degrees as reported by the sensor. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_horizontal_accuracy</cite>
+- The horizontal accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_vertical_accuracy</cite>
+- The vertical accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_3d_accuracy</cite>
+- The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_vertical_speed</cite>
+- The vertical speed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- IE</li>
+<li><cite>&#64;position_source_name</cite>
+- The name of the device that gave location information as reported by the sensor. If the position is manually set, the source name is «manual».
+- IE</li>
+<li><cite>&#64;position_pdop</cite>
+- Position dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_hdop</cite>
+- Horizontal dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_vdop</cite>
+- Vertical dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_number_of_used_satellites</cite>
+- Number of satellites as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_used_satellites</cite>
+- A list of satellites in use (pri) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- <cite>array_count(&#64;position_used_satellites)</cite>
+- E</li>
+<li><cite>&#64;position_quality_description</cite>
+- A human readable and translated string for the quality as reported by the sensor. E.g. «Fixed RTK». It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_fix_status_description</cite>
+- The GPS Fix Status «NoData», «NoFix», «Fix2D» or «Fix3D» as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
+<li><cite>&#64;position_fix_mode</cite>
+- Fix mode (where “M” = Manual, forced to operate in 2D or 3D or “A” = Automatic, 3D/2D) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
+- E</li>
 </ul>
 </div></blockquote>
+<p>All &#64;position_* variables have a corresponding &#64;gnss_* variable. The gnss variables always report the gnss sensor values, even when the crosshair is not snapped.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><ul class="first last simple">
+<li>when the crosshair is snapped to the sensor
+- <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_source_name</cite> –&gt; sensor name.</li>
+<li>when the crosshair is manually moved
+- <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_horizontal_accuracy</cite> –&gt; The value is <cite>NULL</cite>.
+- <cite>&#64;position_source_name</cite> –&gt; The value is <cite>manual</cite>.</li>
+</ul>
+</dd>
+</dl>
 <p>I: Fonte de posición interna E: Fonte de posición externa (NMEA)</p>
 </div>
 <div class="section" id="id1">

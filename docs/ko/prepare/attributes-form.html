@@ -351,65 +351,78 @@ external device connected via NMEA connection.</p>
 <blockquote>
 <div><ul class="simple">
 <li><cite>&#64;position_coordinate</cite>
-- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is also available when the crosshair is not snapped to the sensor.
+- A point with the coordinate in WGS84. Lon, Lat, Altitude as delivered by the sensor. It is only available when the crosshair is snapped to the sensor.
 - <cite>x(&#64;position_coordinate)</cite>
 - IE</li>
 <li><cite>&#64;position_timestamp</cite>
-- The timestamp of the position in UTC.
+- The timestamp of the position in UTC as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_direction</cite>
-- The direction of movement in degrees from true north.
+- The direction of movement in degrees from true north as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_ground_speed</cite>
-- Groundspeed (in m/s).
+- Groundspeed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_magnetic_variation</cite>
-- The angle between the horizontal component of the magnetic field and true north, in degrees. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction.
--
+- The angle between the horizontal component of the magnetic field and true north, in degrees as reported by the sensor. Also known as magnetic declination. A positive value indicates a clockwise direction from true north and a negative value indicates a counter-clockwise direction. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_horizontal_accuracy</cite>
-- The horizontal accuracy of the coordinate (in meters).
+- The horizontal accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_vertical_accuracy</cite>
-- The vertical accuracy of the coordinate (in meters).
+- The vertical accuracy of the coordinate (in meters) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_3d_accuracy</cite>
-- The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS.
+- The 3 dimensional accuracy of the coordinate (in meters), 3D-RMS as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_vertical_speed</cite>
-- The vertical speed (in m/s)
+- The vertical speed (in m/s) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - IE</li>
 <li><cite>&#64;position_source_name</cite>
-- The name of the device that gave location information. If the position is manually set, the source name is 《manual》
+- The name of the device that gave location information as reported by the sensor. If the position is manually set, the source name is 《manual》.
 - IE</li>
 <li><cite>&#64;position_pdop</cite>
-- Position dilution of precision
+- Position dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_hdop</cite>
-- Horizontal dilution of precision
+- Horizontal dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_vdop</cite>
-- Vertical dilution of precision
--
+- Vertical dilution of precision as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_number_of_used_satellites</cite>
-- Number of satellites
+- Number of satellites as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_used_satellites</cite>
-- A list of satellites in use (pri)
+- A list of satellites in use (pri) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - <cite>array_count(&#64;position_used_satellites)</cite>
 - E</li>
 <li><cite>&#64;position_quality_description</cite>
-- A human readable and translated string for the quality. E.g. 《Fixed RTK》
+- A human readable and translated string for the quality as reported by the sensor. E.g. 《Fixed RTK》. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_fix_status_description</cite>
-- The GPS Fix Status 《NoData》, 《NoFix》, 《Fix2D》 or 《Fix3D》
+- The GPS Fix Status 《NoData》, 《NoFix》, 《Fix2D》 or 《Fix3D》 as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 <li><cite>&#64;position_fix_mode</cite>
-- Fix mode (where 〈M〉 = Manual, forced to operate in 2D or 3D or 〈A〉 = Automatic, 3D/2D)
+- Fix mode (where 〈M〉 = Manual, forced to operate in 2D or 3D or 〈A〉 = Automatic, 3D/2D) as reported by the sensor. It is only available when the crosshair is snapped to the sensor.
 - E</li>
 </ul>
 </div></blockquote>
+<p>All &#64;position_* variables have a corresponding &#64;gnss_* variable. The gnss variables always report the gnss sensor values, even when the crosshair is not snapped.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><ul class="first last simple">
+<li>when the crosshair is snapped to the sensor
+- <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_source_name</cite> –&gt; sensor name.</li>
+<li>when the crosshair is manually moved
+- <cite>&#64;gnss_horizontal_accuracy</cite> –&gt; The horizontal accuracy of the coordinate (in meters) as reported by the sensor.
+- <cite>&#64;position_horizontal_accuracy</cite> –&gt; The value is <cite>NULL</cite>.
+- <cite>&#64;position_source_name</cite> –&gt; The value is <cite>manual</cite>.</li>
+</ul>
+</dd>
+</dl>
 <p>I: Internal position source
 E: External (NMEA) position source</p>
 </div>
