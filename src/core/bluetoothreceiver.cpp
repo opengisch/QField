@@ -75,7 +75,7 @@ void BluetoothReceiver::doConnectDevice( const QString &address )
 void BluetoothReceiver::stateChanged( const QgsGpsInformation &info )
 {
   // QgsGpsInformation's speed is served in km/h, translate to m/s
-  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, info.elevation, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
+  mLastGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude, info.elevation + info.elevation_diff, info.speed * 1000 / 60 / 60, info.direction, info.satellitesInView, info.pdop,
                                  info.hdop, info.vdop, info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality,
                                  info.satellitesUsed, info.status, info.satPrn, info.satInfoComplete );
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
