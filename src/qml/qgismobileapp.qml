@@ -147,7 +147,8 @@ ApplicationWindow {
     destinationCrs: mapCanvas.mapSettings.destinationCrs
     deltaZ: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight * -1 : 0
     skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
-    device: positioningSettings.positioningDevice
+    device: qfieldSettings.positioningDevice
+    verticalGrid: qfieldSettings.verticalGrid
   }
 
   Item {
@@ -1506,7 +1507,7 @@ ApplicationWindow {
 
     MenuItem {
         id: positioningDeviceName
-        text: positioningSettings.positioningDeviceName
+        text: qfieldSettings.positioningDeviceName
         height: 48
         font: Theme.defaultFont
         enabled:false

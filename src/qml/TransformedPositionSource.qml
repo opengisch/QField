@@ -21,6 +21,7 @@ Item{
 
     // this sets as well the mode (empty is internal, otherwise bluetooth)
     property string device: ''
+    property string verticalGrid: ''
 
     // proxy variables
     property bool active: false
@@ -99,7 +100,7 @@ Item{
 
     BluetoothReceiver {
         id: bluetoothPositionSource
-        ellipsoidalElevation: true
+        ellipsoidalElevation: verticalGrid !== 'device' ? true : false
 
         property bool active: device !== '' && positionSource.active
         property bool valid: socketState === BluetoothSocket.Connected
