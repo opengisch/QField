@@ -51,6 +51,10 @@ VisibilityFadingRow {
             // Polygon: at least 3 points (last point not saved)
             geometryValid = rubberbandModel.vertexCount > 3
           }
+          else
+          {
+            geometryValid = false
+          }
 
           // emit the signal of digitizingToolbar
           vertexCountChanged()
