@@ -99,6 +99,7 @@ Item{
 
     BluetoothReceiver {
         id: bluetoothPositionSource
+        ellipsoidalElevation: true
 
         property bool active: device !== '' && positionSource.active
         property bool valid: socketState === BluetoothSocket.Connected
