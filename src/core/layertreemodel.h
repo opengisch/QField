@@ -78,6 +78,8 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     void mapThemeChanged();
 
   private:
+    void featureCountChanged();
+
     QMap<QModelIndex, int> mRowMap;
     QMap<int, QModelIndex> mIndexMap;
     QMap<int, int> mTreeLevelMap;
@@ -154,6 +156,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
+
     FlatLayerTreeModelBase *mSourceModel = nullptr;
 };
 

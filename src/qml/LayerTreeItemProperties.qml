@@ -30,18 +30,7 @@ Popup {
   padding: 0
 
   onIndexChanged: {
-    title = layerTree.data(index, Qt.DisplayName)
-    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
-
-    if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
-      var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount)
-      if (count != undefined) {
-        var countSuffix = ' [' + count + ']'
-
-        if ( !title.endsWith(countSuffix) )
-          title += countSuffix
-      }
-    }
+    updateTitle();
 
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
 
@@ -233,6 +222,27 @@ Popup {
         }
       }
     }
+  }
+
+  Connections {
+      target: layerTree
+
+      onDataChanged: updateTitle();
+  }
+
+  function updateTitle() {
+      title = layerTree.data(index, Qt.DisplayName)
+      var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)
+
+      if (vl && layerTree.data(index, FlatLayerTreeModel.IsValid) && layerTree.data( index, FlatLayerTreeModel.Type ) === 'layer') {
+          var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount)
+          if (count !== undefined && count >= 0) {
+              var countSuffix = ' [' + count + ']'
+
+              if ( !title.endsWith(countSuffix) )
+                  title += countSuffix
+          }
+      }
   }
 
   function isTrackingButtonVisible() {
