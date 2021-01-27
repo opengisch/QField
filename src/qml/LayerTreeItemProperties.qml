@@ -98,7 +98,7 @@ Popup {
         indicator.implicitHeight: 24
         indicator.implicitWidth: 24
 
-        onCheckStateChanged: {
+        onClicked: {
           layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
           close()
         }
@@ -111,7 +111,7 @@ Popup {
         font: Theme.defaultFont
         visible: expandCheckBoxVisible
 
-        onCheckStateChanged: {
+        onClicked: {
           layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
           close()
         }
