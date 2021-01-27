@@ -43,6 +43,7 @@ EditorWidgetBase {
 
     Component.onCompleted:
     {
+      comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
       model.valueMap = config['map']
     }
 

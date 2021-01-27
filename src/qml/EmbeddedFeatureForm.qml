@@ -44,8 +44,7 @@ Popup {
 
     x: 24
     y: 24
-    //setting the z breaks combobox popup list, but not setting a z leads to random stacking behavior for child-of-child feature addition/editing
-    //z: 1000 + embeddedLevel
+    z: 1000 + embeddedLevel
     padding: 0
     width: parent.width - 48
     height: parent.height - 48

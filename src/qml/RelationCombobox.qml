@@ -277,6 +277,10 @@ Item {
         onPressAndHold: mouse.accepted = false;
       }
 
+      Component.onCompleted: {
+          comboBox.popup.z = 10000 // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
+      }
+
       contentItem: Text {
         id: textLabel
         height: fontMetrics.height + 20
