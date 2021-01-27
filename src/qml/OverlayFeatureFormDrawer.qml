@@ -39,10 +39,11 @@ Drawer {
       if( !overlayFeatureForm.isSaved ) {
         overlayFeatureForm.confirm()
       } else {
-        overlayFeatureForm.isSaved=false //reset
+        overlayFeatureForm.isSaved = false //reset
       }
 
       digitizingRubberband.model.reset()
+      featureModel.resetFeature()
   }
 
   FeatureForm {
@@ -62,11 +63,11 @@ Drawer {
     onConfirmed: {
       displayToast( qsTr( "Changes saved" ) )
       //close drawer if still open
-      if( overlayFeatureFormDrawer.position > 0 ) {
-        overlayFeatureForm.isSaved=true //because just saved
+      if ( overlayFeatureFormDrawer.position > 0 ) {
+        overlayFeatureForm.isSaved = true //because just saved
         overlayFeatureFormDrawer.close()
-      }else{
-        overlayFeatureForm.isSaved=false //reset
+      } else {
+        overlayFeatureForm.isSaved = false //reset
       }
     }
 

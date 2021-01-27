@@ -162,7 +162,7 @@ ApplicationWindow {
     DragHandler {
         id: freehandHandler
         property bool isDigitizing: false
-        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen
+        enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && !featureForm.visible
         acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
         grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
 
@@ -291,7 +291,7 @@ ApplicationWindow {
               if ( !gpsLinkButton.linkActive && geometryEditorsToolbar.canvasClicked(point) )
                   return;
 
-              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) )
+              if ( !gpsLinkButton.linkActive && ( ( stateMachine.state === "digitize" && dashBoard.currentLayer ) || stateMachine.state === 'measure' ) && !featureForm.visible )
               {
                   if ( Number( currentRubberband.model.geometryType ) === QgsWkbTypes.PointGeometry ||
                           Number( currentRubberband.model.geometryType ) === QgsWkbTypes.NullGeometry )
@@ -1176,17 +1176,18 @@ ApplicationWindow {
         }
         else
         {
-          if( !overlayFeatureFormDrawer.featureForm.featureCreated ){
+          if ( !overlayFeatureFormDrawer.featureForm.featureCreated ) {
               digitizingFeature.resetAttributes();
-              if ( ! digitizingFeature.create() ) {
+              if ( !digitizingFeature.create() ) {
                 displayToast( qsTr( "Failed to create feature!" ) )
               }
           } else {
-              if ( ! digitizingFeature.save() ) {
+              if ( !digitizingFeature.save() ) {
                 displayToast( qsTr( "Failed to save feature!" ) )
               }
           }
           digitizingRubberband.model.reset()
+          digitizingFeature.resetFeature();
         }
       }
     }

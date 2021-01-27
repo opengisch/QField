@@ -429,6 +429,12 @@ bool FeatureModel::suppressFeatureForm() const
   return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
 }
 
+void FeatureModel::resetFeature()
+{
+    mFeature = mLayer ? QgsFeature( mLayer->fields() ) : QgsFeature();
+    mRememberings[mLayer].rememberedAttributes.fill( false, mLayer->fields().size() );
+}
+
 void FeatureModel::resetAttributes()
 {
   if ( !mLayer )
