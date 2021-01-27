@@ -21,9 +21,6 @@ Page {
   property alias nativeCamera: registry.nativeCamera
   property alias autoSave: registry.autoSave
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
-  property alias verticalGrid: registry.verticalGrid
-  property alias positioningDevice: registry.positioningDevice
-  property alias positioningDeviceName: registry.positioningDeviceName
 
   Settings {
     id: registry
@@ -35,9 +32,6 @@ Page {
     property bool nativeCamera: true
     property bool autoSave
     property bool mouseAsTouchScreen
-    property string verticalGrid: ""
-    property string positioningDevice: ""
-    property string positioningDeviceName: qsTr( "Internal device" );
   }
 
   ListModel {
@@ -221,23 +215,22 @@ Page {
                           {
                               selectedPositioningDevice = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceAddressRole );
                           }
-                          if( positioningDevice !== selectedPositioningDevice )
+                          if( positioningSettings.positioningDevice !== selectedPositioningDevice )
                           {
-                              positioningDevice = selectedPositioningDevice
-                              positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
-                              positionSource.device = positioningDevice
+                              positioningSettings.positioningDevice = selectedPositioningDevice
+                              positioningSettings.positioningDeviceName = bluetoothDeviceModel.data(bluetoothDeviceModel.index(currentIndex, 0), BluetoothDeviceModel.DeviceNameRole );
                           }
                       }
 
                       Component.onCompleted: {
-                          currentIndex = positioningDevice == '' ? 0 : find(positioningDeviceName + ' (' + positioningDevice + ')');
+                          currentIndex = positioningSettings.positioningDevice == '' ? 0 : find(positioningSettings.positioningDeviceName + ' (' + positioningSettings.positioningDevice + ')');
                       }
 
                       Connections {
                           target: bluetoothDeviceModel
 
                           function onModelReset() {
-                              bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningDevice)
+                              bluetoothDeviceCombo.currentIndex = bluetoothDeviceModel.findAddressIndex(positioningSettings.positioningDevice)
                           }
 
                           function onScanningStatusChanged(scanningStatus) {
@@ -338,15 +331,15 @@ Page {
                       switch (positionSource.bluetoothSocketState)
                       {
                       case BluetoothSocket.Connected:
-                          return qsTr('Connected to %1').arg(positioningDeviceName)
+                          return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName)
                       case BluetoothSocket.Unconnected:
-                          return qsTr('Connect  to %1').arg(positioningDeviceName)
+                          return qsTr('Connect  to %1').arg(positioningSettings.positioningDeviceName)
                       default:
-                          return qsTr('Connecting to %1').arg(positioningDeviceName)
+                          return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName)
                       }
                   }
                   enabled: positionSource.bluetoothSocketState === BluetoothSocket.Unconnected
-                  visible: positioningDevice !== ''
+                  visible: positioningSettings.positioningDevice !== ''
 
                   onClicked: {
                       positionSource.connectBluetoothSource()
@@ -659,19 +652,19 @@ Page {
 
                       onCurrentIndexChanged: {
                           if (currentIndex > 1) {
-                              verticalGrid = platformUtilities.availableGrids()[currentIndex - 2];
+                              positioningSettings.verticalGrid = platformUtilities.availableGrids()[currentIndex - 2];
                           } else if (currentIndex == 1) {
-                              verticalGrid = 'device';
+                              positioningSettings.verticalGrid = 'device';
                           } else {
-                              verticalGrid = '';
+                              positioningSettings.verticalGrid = '';
                           }
                       }
 
                       Component.onCompleted: {
-                          if (verticalGrid == 'device') {
+                          if (positioningSettings.verticalGrid == 'device') {
                               currentIndex = 1;
-                          } else if (verticalGrid != '') {
-                              currentIndex = find(verticalGrid);
+                          } else if (positioningSettings.verticalGrid != '') {
+                              currentIndex = find(positioningSettings.verticalGrid);
                           } else {
                               currentIndex = 0;
                           }
