@@ -16,6 +16,7 @@
 
 #include "attributeformmodelbase.h"
 #include "attributeformmodel.h"
+
 #include <qgsvectorlayer.h>
 #include <qgseditorwidgetsetup.h>
 #include <qgsproject.h>
@@ -28,16 +29,25 @@
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsmapthemecollection.h>
 
 
 AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
   : QStandardItemModel( 0, 1, parent )
 {
+  connect( QgsProject::instance(), &QgsProject::mapThemeCollectionChanged, this, &AttributeFormModelBase::onMapThemeCollectionChanged );
+  if ( QgsProject::instance()->mapThemeCollection() )
+    onMapThemeCollectionChanged();
 }
 
 AttributeFormModelBase::~AttributeFormModelBase()
 {
   delete mTemporaryContainer;
+}
+
+void AttributeFormModelBase::onMapThemeCollectionChanged()
+{
+  connect( QgsProject::instance()->mapThemeCollection(), &QgsMapThemeCollection::mapThemeChanged, this, [=] { resetModel(); applyFeatureModel(); } );
 }
 
 QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
@@ -121,20 +131,21 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   if ( mFeatureModel )
   {
-    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
-    disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
+    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+    disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
+    disconnect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
   }
 
   mFeatureModel = featureModel;
 
-  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onLayerChanged );
-  connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::onFeatureChanged );
-  connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::onFeatureChanged );
+  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+  connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
+  connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
 
   emit featureModelChanged();
 }
 
-void AttributeFormModelBase::onLayerChanged()
+void AttributeFormModelBase::resetModel()
 {
   clear();
 
@@ -204,13 +215,12 @@ void AttributeFormModelBase::onLayerChanged()
   }
 }
 
-void AttributeFormModelBase::onFeatureChanged()
+void AttributeFormModelBase::applyFeatureModel()
 {
   for ( int i = 0 ; i < invisibleRootItem()->rowCount(); ++i )
   {
     updateAttributeValue( invisibleRootItem()->child( i ) );
   }
-
   updateVisibilityAndConstraints();
 }
 

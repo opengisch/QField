@@ -78,10 +78,12 @@ class AttributeFormModel : public QSortFilterProxyModel
      * Create the current (not existing yet) feature
      */
     Q_INVOKABLE bool create();
+
     /**
      * Delete the current feature
      */
     Q_INVOKABLE bool deleteFeature();
+
     /**
      * Get the attribute of the current feature by name
      * \param name the name of the attribute
