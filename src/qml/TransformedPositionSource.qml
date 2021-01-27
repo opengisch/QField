@@ -20,8 +20,7 @@ Item{
     property alias skipAltitudeTransformation: _ct.skipAltitudeTransformation
 
     // this sets as well the mode (empty is internal, otherwise bluetooth)
-    property string device: ''
-    property string verticalGrid: ''
+    property string device: positioningSettings.positioningDevice
 
     // proxy variables
     property bool active: false
@@ -100,7 +99,7 @@ Item{
 
     BluetoothReceiver {
         id: bluetoothPositionSource
-        ellipsoidalElevation: verticalGrid !== 'device' ? true : false
+        ellipsoidalElevation: positioningSettings.ellipsoidalElevation
 
         property bool active: device !== '' && positionSource.active
         property bool valid: socketState === BluetoothSocket.Connected
