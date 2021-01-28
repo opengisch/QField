@@ -50,18 +50,15 @@ Drawer {
               overlayFeatureForm.isSaved = false //reset
           }
           digitizingRubberband.model.reset()
-<<<<<<< HEAD
           featureModel.resetFeature()
-=======
           isAdding = false
->>>>>>> 40670e731 (Avoid child feature form showing under add feature drawer)
       }
   }
 
   Connections {
       target: digitizingToolbar
 
-      onGeometryRequestedChanged: {
+      function onGeometryRequestedChanged() {
           if ( digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.isAdding ) {
               overlayFeatureFormDrawer.close() // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
           }
