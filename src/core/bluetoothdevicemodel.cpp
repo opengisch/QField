@@ -41,7 +41,6 @@ BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
   beginResetModel();
   mDiscoveredDevices.clear();
   mDiscoveredDevices.append( qMakePair( tr( "Internal device" ), QString() ) );
-  mDiscoveredDevices.append( qMakePair( tr( "Dummy" ), QString( "dummy" ) ) );
 
   QSettings settings;
   const QString deviceAddress = settings.value( QStringLiteral( "positioningDevice" ), QString( "" ) ).toString();
